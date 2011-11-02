@@ -4,6 +4,8 @@
 Version 1.7 ()
 ------------------------------------------------------------------------
 
+    * Bundled Smarty3 (raises PHP-requirement to 5.2.x+)
+    
     * Added new serendipity['defaultBaseURL'] variable that makes sure
       that the baseURL is not overriden when configuring serendipity
       with a possibly autodetected currentl URL. Patch by Manko10.

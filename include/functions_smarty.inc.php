@@ -880,14 +880,27 @@ function serendipity_smarty_init($vars = array()) {
             // Default Smarty Engine will be used
             @define('SMARTY_DIR', S9Y_PEAR_PATH . 'Smarty/libs/');
             if (!class_exists('Smarty')) {
-                include SMARTY_DIR . 'Smarty.class.php';
+                include_once SMARTY_DIR . 'SmartyBC.class.php';
             }
 
             if (!class_exists('Smarty')) {
                 return false;
             }
+            
+            @define('SERENDIPITY_SMARTY_DIR' , $serendipity['serendipityPath']); 
+            
+            class Smarty_Serendipity_Security extends Smarty_Security {
+              public $php_modifiers = array('sprintf', 'sizeof', 'count', 'rand', 'print_r', 'str_repeat', 'escape'); 
+              public $php_handling  = Smarty::PHP_REMOVE;
+              public $secure_dir    = SERENDIPITY_SMARTY_DIR;
+            }
 
-            $serendipity['smarty'] = new Smarty;
+            if (class_exists('SmartyBC')) {
+                $serendipity['smarty'] = new SmartyBC;
+            } else {
+                $serendipity['smarty'] = new Smarty;
+            }
+            
             if ($serendipity['production'] === 'debug') {
                 $serendipity['smarty']->force_compile   = true;
                 $serendipity['smarty']->debugging       = true;
@@ -911,22 +924,12 @@ function serendipity_smarty_init($vars = array()) {
             $_SESSION['no_smarty'] = $prev_smarty;
 
             $serendipity['smarty']->config_dir    = $template_dir;
-            $serendipity['smarty']->secure_dir    = array($serendipity['serendipityPath'] . $serendipity['templatePath']);
-            $serendipity['smarty']->security_settings['MODIFIER_FUNCS']  = array('sprintf', 'sizeof', 'count', 'rand', 'print_r', 'str_repeat');
-            $serendipity['smarty']->security_settings['ALLOW_CONSTANTS'] = true;
-            $serendipity['smarty']->security      = true;
+            @$serendipity['smarty']->secure_dir    = array($serendipity['serendipityPath'] . $serendipity['templatePath'], $serendipity['serendipityPath'] . 'plugins');
+            @$serendipity['smarty']->security      = true;
             $serendipity['smarty']->use_sub_dirs  = false;
             $serendipity['smarty']->compile_check = true;
             $serendipity['smarty']->compile_id    = &$serendipity['template'];
 
-            if (!strpos($serendipity['smarty']->_version, '2', 1)) {
-                $serendipity['smarty']->setDeprecationNotices(false); // set $smarty->deprecation_notices
-                #$serendipity['smarty']->setCaching(true);             // set $smarty->caching to not being regenerated
-                #$serendipity['smarty']->force_compile = false;        // override compile_check (default:false)
-                #$serendipity['smarty']->error_reporting = E_ALL & ~E_NOTICE;
-                #$serendipity['smarty']->auto_literal = false;
-            }
-            
             $serendipity['smarty']->register_modifier('makeFilename', 'serendipity_makeFilename');
             $serendipity['smarty']->register_modifier('xhtml_target', 'serendipity_xhtml_target');
             $serendipity['smarty']->register_modifier('emptyPrefix', 'serendipity_emptyPrefix');
@@ -1023,6 +1026,11 @@ function serendipity_smarty_init($vars = array()) {
         // setup custom smarty variables, modifiers etc. to use in their templates.
         @include_once $serendipity['smarty']->config_dir . '/config.inc.php';
 
+        if (@$serendipity['smarty']->security) {
+            #$serendipity['smarty']->enableSecurity('Smarty_Serendipity_Security');
+        }
+         
+        
         if (is_array($template_loaded_config)) {
             $template_vars =& $template_loaded_config;
             $serendipity['smarty']->assign_by_ref('template_option', $template_vars);
