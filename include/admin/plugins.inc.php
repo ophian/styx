@@ -388,6 +388,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $bag  = new serendipity_property_bag;
             $plugin->introspect($bag);
 
+            if ($bag->is_set('tables')) {
+                $plugin->set_config('serendipity_dbversion', $bag->get('tables')['version']);
+            }
+
             serendipity_plugin_api::hook_event('backend_plugins_install', $serendipity['GET']['install_plugin'], $fetchplugin_data);
 
             if ($bag->is_set('configuration')) {
@@ -412,7 +416,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         if (is_array($_POST['serendipity']['plugin_to_remove'])) {
             foreach ($_POST['serendipity']['plugin_to_remove'] as $key) {
                 $plugin =& serendipity_plugin_api::load_plugin($key);
-
                 if ($plugin->serendipity_owner == '0' || $plugin->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers')) {
                     serendipity_plugin_api::remove_plugin_instance($key);
                 }

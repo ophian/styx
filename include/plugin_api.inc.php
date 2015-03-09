@@ -227,6 +227,11 @@ class serendipity_plugin_api
             $plugin->introspect($bag);
             serendipity_plugin_api::get_event_plugins(false, true); // Refresh static list of plugins to allow execution of added plugin
             $plugin->register_dependencies(false, $authorid);
+            foreach ($bag->get('tables') AS $table => $definition) {
+                if ($table != 'version') {
+                    serendipity_db_query("CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}$table($definition)");
+                }
+            }
             $plugin->install();
         } else {
             $serendipity['debug']['pluginload'][] = "Loading plugin failed painfully. File not found?";
