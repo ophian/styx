@@ -94,4 +94,15 @@
     </section>
 {/if}
 
+{if 'siteConfiguration'|checkPermission || 'blogConfiguration'|checkPermission}
+    <section id="maintenance_tables" class="equal_heights quick_list">
+        <h3>Unused Tables{* i18n *}</h3>
+        <ul>
+        {foreach $unusedTables as $unusedTable}
+            <li>{$unusedTable}</li>
+        {/foreach}
+        </ul>
+    </section>
+{/if}
+
 </div>

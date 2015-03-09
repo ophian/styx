@@ -32,6 +32,31 @@ switch($serendipity['GET']['adminAction']) {
         break;
 }
 
+$data['unusedTables'] = array();
+
+$plugins = serendipity_plugin_api::get_installed_plugins();
+$classes = serendipity_plugin_api::enum_plugin_classes(true);
+
+foreach ($classes as $class_data) {
+    // we only want to show the tables not currently in use by plugins
+    if (! in_array($class_data['true_name'], $plugins)) {
+        $pluginFile =  serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
+        // spartacus is only set becasue getPluginInfo needs a type parameter
+        $plugin     =& serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, 'spartacus');
+        if (is_object($plugin)) {
+            $bag = new serendipity_property_bag;
+            $plugin->introspect($bag);
+            if ($bag->is_set('tables')) {
+                foreach ($bag->get('tables') AS $table => $definition) {
+                    if ($table != 'version') {
+                        $data['unusedTables'][] = $table;
+                    }
+                }
+            }
+        }
+    }
+}
+
 echo serendipity_smarty_show('admin/maintenance.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */
