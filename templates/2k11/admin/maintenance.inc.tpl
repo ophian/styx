@@ -95,13 +95,43 @@
 {/if}
 
 {if 'siteConfiguration'|checkPermission || 'blogConfiguration'|checkPermission}
+    <br style="clear: both" />
     <section id="maintenance_tables" class="equal_heights quick_list">
         <h3>Unused Tables{* i18n *}</h3>
-        <ul>
-        {foreach $unusedTables as $unusedTable}
-            <li>{$unusedTable}</li>
-        {/foreach}
-        </ul>
+
+        {if $unusedTablesError}
+            <p>{* i18n *}The list of available tables could not be fetched from the database. Maybe you do not have the necessary database permissions.</p>
+            <pre>Query: $unusedTablesQuery</pre>
+            <pre>Error: $unusedTablesError</pre>
+        {else}
+            <p>{* i18n *}Here is a list of database tables that were created, but neither belong to the core of Serendipity nor to any active plugin. You might want to delete those database tables, but make sure that those tables are not used by custom plugins or you want to preserve old data. This list can contain tables that are currently used by custom plugins or those which do not use API methods to create tables.</p>
+
+            {if count($unusedTables) == 0}
+                <p>{* i18n *}(None)</p>
+            {else}
+                <ul>
+                {foreach $unusedTables as $unusedTable}
+                    <li>{$unusedTable}</li>
+                {/foreach}
+                </ul>
+            {/if}
+        {/if}
+    </section>
+
+    <section id="maintenance_tables" class="equal_heights quick_list">
+        <h3>Unused Plugins{* i18n *}</h3>
+
+        <p>{* i18n *}Here is a list of plugins files which exist in your plugins/ subdirectory and are currently not active and can be deleted if you no langer want these directories.</p>
+
+        {if count($unusedPlugins) == 0}
+            <p>{* i18n *}(None)</p>
+        {else}
+            <ul>
+            {foreach $unusedPlugins as $unusedPlugin}
+                <li>{$unusedPlugin}</li>
+            {/foreach}
+            </ul>
+        {/if}
     </section>
 {/if}
 

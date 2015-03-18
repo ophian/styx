@@ -3,6 +3,11 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
+    * Maintenance section can list unused plugins and unused database
+      tables. Also, a new API property bag key "tables" has been
+      created so that plugins can indicate which tables they
+      create.
+
     * Fix: the syndication plugin now always uses absolute links for
            the subtome-button
 
