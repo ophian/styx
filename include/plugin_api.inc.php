@@ -229,7 +229,7 @@ class serendipity_plugin_api
             $plugin->register_dependencies(false, $authorid);
             foreach ($bag->get('tables') AS $table => $definition) {
                 if ($table != 'version') {
-                    serendipity_db_query("CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}$table($definition)");
+                    serendipity_db_schema_import("CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}$table($definition)");
                 }
             }
             $plugin->install();
