@@ -227,11 +227,7 @@ class serendipity_plugin_api
             $plugin->introspect($bag);
             serendipity_plugin_api::get_event_plugins(false, true); // Refresh static list of plugins to allow execution of added plugin
             $plugin->register_dependencies(false, $authorid);
-            foreach ($bag->get('tables') AS $table => $definition) {
-                if ($table != 'version') {
-                    serendipity_db_schema_import("CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}$table($definition)");
-                }
-            }
+            serendipity_plugin_api::initTables($plugin, $bag);
             $plugin->install();
         } else {
             $serendipity['debug']['pluginload'][] = "Loading plugin failed painfully. File not found?";
@@ -239,6 +235,39 @@ class serendipity_plugin_api
         }
 
         return $key;
+    }
+
+    /**
+     * Create or upgrade the tables specified by the plugin
+     *
+     * */
+    private static function initTables($plugin, $bag) {
+        global $serendipity;
+        foreach ($bag->get('tables') AS $table => $definition) {
+            if ($table != 'version') {
+                serendipity_db_schema_import("CREATE TABLE IF NOT EXISTS {$serendipity['dbPrefix']}$table($definition)");
+            }
+        }
+
+        // Remember that when de_installing a plugin the config gets erased, but tables stay. Right now we don't support that edge-case of a plugin-upgrade changing tables while plugin was not installed
+        $old_version = $plugin->get_config('tables_version');
+        $new_version = $bag->get('tables')['version'];
+        
+        if ($old_version && $new_version > $old_version) {
+            // we now try to do an upgrade from the old to the new database. Plugin authors themselves need to make sure that the changes made
+            // preserve the data, given this rather simple method to do the upgrade
+            foreach ($bag->get('tables') AS $table => $definition) {
+                if ($table != 'version') {
+                    serendipity_db_schema_import("CREATE TEMPORARY TABLE {$serendipity['dbPrefix']}$table_temp($definition) AS SELECT * FROM {$serendipity['dbPrefix']}$table");
+                    serendipity_db_query("DROP TABLE {$serendipity['dbPrefix']}$table");
+                    serendipity_db_schema_import("CREATE TABLE {$serendipity['dbPrefix']}$table($definition)");
+                    // NOTE: This will only work if the new table has the exact name number of colums as the old table
+                    serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}$table SELECT * FROM {$serendipity['dbPrefix']}$table_temp");
+                    serendipity_db_query("DROP TABLE {$serendipity['dbPrefix']}$table_temp");
+                }
+            }
+        }
+        $plugin->set_config('tables_version', $new_version);
     }
 
     /**
