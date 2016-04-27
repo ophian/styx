@@ -11,11 +11,12 @@
 * Technical choices are described in the 'docs/technical' file
 *
 * @package Cache_Lite
+* @version $Id: Function.php,v 1.11 2006/12/14 12:59:43 cweiske Exp $
 * @author Sebastian BERGMANN <sb@sebastian-bergmann.de>
 * @author Fabien MARTY <fab@php.net>
 */
 
-require_once('Cache/Lite.php');
+require_once dirname(__FILE__) . '/../Lite.php';
 
 class Cache_Lite_Function extends Cache_Lite
 {
@@ -206,3 +207,5 @@ class Cache_Lite_Function extends Cache_Lite
     }
 
 }
+
+?>

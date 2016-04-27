@@ -387,6 +387,7 @@ function serendipity_logout() {
 function serendipity_session_destroy() {
     $no_smarty = $_SESSION['no_smarty'];
     @session_destroy();
+    session_regenerate_id();
     session_start();
 
     $_SESSION['SERVER_GENERATED_SID'] = true;
