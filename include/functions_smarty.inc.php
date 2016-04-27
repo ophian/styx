@@ -467,14 +467,14 @@ function serendipity_smarty_showPlugin($params, Smarty_Internal_Template $templa
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'class' or 'id' parameter", E_USER_WARNING);
         return;
     }
-#echo $params['side'].'-';
+
     if (empty($params['side'])) {
         $params['side'] = '*';
     }
     if ($params['side'] === 'hidden') {
         $params['side'] = 'hide'; //compat, since being announced false in the doc for a long time
     }
-#echo $params['negate'];
+
     if (empty($params['negate']) || $params['negate'] === 'null') {
         $params['negate'] = null;
     }
