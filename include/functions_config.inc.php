@@ -387,7 +387,10 @@ function serendipity_logout() {
 function serendipity_session_destroy() {
     $no_smarty = $_SESSION['no_smarty'];
     @session_destroy();
-    session_regenerate_id();
+    // temporary reset for PHP7 testing
+    if (PHP_MAJOR_VERSION < 7) {
+        session_regenerate_id();
+    }
     session_start();
 
     $_SESSION['SERVER_GENERATED_SID'] = true;
