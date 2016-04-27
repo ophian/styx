@@ -6,7 +6,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-if (!serendipity_checkPermission('adminCategories')) {
+if (!serendipity_checkPermission('adminCategories') && !serendipity_checkPermission('adminCategoriesMaintainOthers')) {
     return;
 }
 
@@ -133,8 +133,6 @@ if ( $serendipity['GET']['adminAction'] == 'delete' ) {
     }
 }
 
-
-
 if ( $serendipity['GET']['adminAction'] == 'edit' || $serendipity['GET']['adminAction'] == 'new' || $serendipity['GET']['adminAction'] == 'newSub') {
     if ( $serendipity['GET']['adminAction'] == 'edit' ) {
         $data['edit'] = true;
@@ -186,8 +184,6 @@ if ( $serendipity['GET']['adminAction'] == 'edit' || $serendipity['GET']['adminA
     $data['category_showForm'] = ob_get_contents();
     ob_end_clean();
 }
-
-
 
 if ( $serendipity['GET']['adminAction'] == 'view' ) {
     if (empty($admin_category)) {
