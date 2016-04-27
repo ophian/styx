@@ -87,6 +87,8 @@ $out .= serendipity_printStylesheet(
 
 serendipity_plugin_api::hook_event($css_hook, $out);
 
+// Do not allow force_frontend_fallback for all three! (NO! For style_fallback.css this is obvious (normally).
+// But for the user.css files this is an vital behaviour, since the fall back line is always [0]user, [1]default, [2]standard - theme. Independently from 3rd param force_frontend_fallback true/false usage!)
 $out .= serendipity_printStylesheet(
          serendipity_getTemplateFile($css_userfile, 'serendipityPath', true),
          serendipity_getTemplateFile($css_userfile, '', true)
