@@ -62,8 +62,10 @@ if ($serendipity['production'] !== true) {
     @ini_set('display_errors', 'on');
 }
 
-// The serendipity errorhandler string
-$serendipity['errorhandler'] = 'errorToExceptionHandler';
+// The serendipity errorhandler string - temporary reset for PHP7 testing
+if (PHP_MAJOR_VERSION < 7) {
+    $serendipity['errorhandler'] = 'errorToExceptionHandler';
+}
 
 // Default rewrite method
 $serendipity['rewrite'] = 'none';
