@@ -1,5 +1,5 @@
 <?php
-// serendipity_smarty_class.inc.php lm 2014-12-10 Ian
+// serendipity_smarty_class.inc.php lm 2016-01-31 Ian
 
 // define secure_dir and trusted_dirs for Serendipity_Smarty_Security_Policy class.
 @define('S9Y_TEMPLATE_FALLBACK',    $serendipity['serendipityPath'] . $serendipity['templatePath'] . 'default');
@@ -10,31 +10,31 @@
 
 // Create a wrapper class extended from Smarty_Security - which allows access to S9Y-plugin and S9Y-template dirs
 class Serendipity_Smarty_Security_Policy extends Smarty_Security
-  {
-    // these are the allowed functions only. - default as is
+{
+    // These are the allowed functions only. - Default as is
     public $php_functions = array('isset', 'empty', 'count', 'sizeof', 'in_array', 'is_array', 'time', 'nl2br', 'class_exists');
-    // to disable all PHP functions
+    // To disable all PHP functions use
     #public $php_functions = null;
 
-    // remove PHP tags
+    // Remove PHP tags
     public $php_handling = Smarty::PHP_REMOVE; // = 2
 
-    // set allowed modifiers only. (default = array( 'escape', 'count' );)
+    // Set allowed modifiers only. (default = array( 'escape', 'count' );)
     public $php_modifiers = array('escape', 'sprintf', 'sizeof', 'count', 'rand', 'print_r', 'str_repeat', 'nl2br');
 
     public $allow_constants = true;
 
     public $allow_super_globals = true;
 
-    // array of template directories that are considered secure. No need, as ...TemplateDir concidered secure implicitly.  (unproofed)
+    // Array of template directories that are considered secure. No need, as ...TemplateDir concidered secure implicitly. (Unproofed)
     public $secure_dir = array(S9Y_TEMPLATE_SECUREDIR); // do we need this then?
 
-    // actually no need, as template dirs are explicit defined as trusted_dirs. (unproofed)
+    // Actually no need, as template dirs are explicit defined as trusted_dirs. (Unproofed)
     public $trusted_dir = array(S9Y_TEMPLATE_USERDEFAULT, S9Y_TEMPLATE_USERDEFAULT_BACKEND, S9Y_TEMPLATE_FALLBACK); // do we need this then?
 
     #public $modifiers = array(); // can be omitted, when all allowed
 
-    // to test this - overwrites Serendipity_Smarty::default_modifiers and Serendipity_Smarty_Security_Policy::php_modifiers - modifier 'escape' not allowed by security setting
+    // To test this - overwrites Serendipity_Smarty::default_modifiers and Serendipity_Smarty_Security_Policy::php_modifiers - modifier 'escape' not allowed by security setting
     #public $allowed_modifiers = array('escape:"htmlall"');
 
     // This allows the fetch() and include calls to pull .tpl files from any directory,
@@ -43,24 +43,27 @@ class Serendipity_Smarty_Security_Policy extends Smarty_Security
     // {include} calls, we should only apply this workaround to fetch() calls.
     // Redirecting fetch() as our custom function is too risky and has too high a performance
     // impact.
-    public function isTrustedResourceDir($path) {
+    public function isTrustedResourceDir($path)
+    {
         return true;
     }
 
     public static function test()
-      {
+    {
         var_dump(get_called_class());
-      }
-  }
+    }
+
+}
 
 // Create a wrapper class extended from Smarty
 class Serendipity_Smarty extends Smarty
-  {
-    // bc mode for plugins Smarty2 compat INCLUDE_ANY fetch() calls - to avoid an undefinied property error.
+{
+    // BC mode for plugins Smarty2 compat INCLUDE_ANY fetch() calls - to avoid an undefinied property error.
     public $security_settings = false;
 
 
-    public function __set($name, $value) {
+    public function __set($name, $value)
+    {
         if ($name == 'security') {
             if ($value) {
                  $this->enableSecurity('Serendipity_Smarty_Security_Policy');
@@ -80,32 +83,33 @@ class Serendipity_Smarty extends Smarty
      * The first time this is called a new instance will be created. Thereafter, the same instance is handed back.
      **/
     public static function getInstance($newInstance = null)
-      {
+    {
         static $instance = null;
-        if(isset($newInstance)) {
-            $instance = $newInstance;
+        if (isset($newInstance)) {
+            $instance =& $newInstance;
         }
         if ( $instance == null ) {
-            $instance = new Serendipity_Smarty();
+            $instance = new \Serendipity_Smarty();
         }
+
         return $instance;
-      }
+    }
 
     public function __construct()
-      {
+    {
         // Class Constructor. These automatically get set with each new instance.
         parent::__construct();
 
-        // call the objects initialization parameters
+        // Call the objects initialization parameters
         self::setParams();
     }
 
-    // smarty (3.1.x) object main parameter setup
+    // Smarty (3.1.x) object main parameter setup
     private function setParams()
-      {
+    {
         global $serendipity;
 
-        // some documentary from the smarty forum
+        // Some documentary from the smarty forum
         /*
            Adressing a specific $template_dir (see 3.1 release notes)
 
@@ -128,20 +132,20 @@ class Serendipity_Smarty extends Smarty
                 $template_dirs[] = $serendipity['serendipityPath'] . $serendipity['templatePath'] . trim($te) . '/';
             }
         } else {
-            // this is tested without need actually, but it makes the directory setter fallback chain a little more precise
+            // This is tested without need actually, but it makes the directory setter fallback chain a little more precise
             $template_dirs[] = $serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'];
         }
         $template_dirs[] = $serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['defaultTemplate'];
         $template_dirs[] = $serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template_backend'];
 
-        // add secure dir to template path, in case engine did have entries
+        // Add secure dir to template path, in case engine did have entries
         if (S9Y_TEMPLATE_SECUREDIR != $serendipity['serendipityPath'] . $serendipity['templatePath']) {
             $template_dirs[] = S9Y_TEMPLATE_SECUREDIR;
         }
 
-        // disable plugin dir as added template dir is not adviced, if set security is enabled (backend & frontend need access to fetch plugin templates)
+        // Disable plugin dir as added template dir is not adviced, if set security is enabled (backend & frontend need access to fetch plugin templates)
         $template_dirs[] = $serendipity['serendipityPath'] . 'plugins';
-        // add default template to addTemplate array, if not already set in engine
+        // Add default template to addTemplate array, if not already set in engine
         $template_dirs[] = S9Y_TEMPLATE_FALLBACK;
 
         $this->setTemplateDir($template_dirs);
@@ -150,18 +154,20 @@ class Serendipity_Smarty extends Smarty
             $this->setCompileDir(S9Y_DATA_PATH . PATH_SMARTY_COMPILE);
         } else {
             $this->setCompileDir($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE);
-        }    
+        }
 
         $this->setConfigDir(array(S9Y_TEMPLATE_USERDEFAULT));
 
         if ( ( !is_dir($this->getCompileDir()) || !is_writable($this->getCompileDir()) ) && IN_installer !== true) {
-            if(ini_get('display_errors') == 0 || ini_get('display_errors') == 'off') printf(DIRECTORY_WRITE_ERROR, $this->getCompileDir());
+            if (ini_get('display_errors') == 0 || ini_get('display_errors') == 'off') {
+                printf(DIRECTORY_WRITE_ERROR, $this->getCompileDir());
+            }
             trigger_error(sprintf(DIRECTORY_WRITE_ERROR, $this->getCompileDir()), E_USER_ERROR);
         }
 
 
         /*
-            here we go with our other Smarty class properties, which can all be called by their property name (recommended)
+            Here we go with our other Smarty class properties, which can all be called by their property name (recommended)
             $smarty->use_sub_dirs = true; or by $smarty->setUseSubDirs(true); and echo $smarty->getUseSubDirs();
             as the latter's would run through an internal __call() wrapper function.
             Note: rodneyrehm - From within the Smarty class context you can safely access properties like Smarty::$use_sub_dirs directly.
@@ -177,13 +183,13 @@ class Serendipity_Smarty extends Smarty
             Set all other needed Smarty class properties
         */
 
-        #$this->merge_compiled_includes = true; // $this->setMergeCompiledIncludes(true);  // With this option the subtemplate code is stored together with the calling template.
+        $this->merge_compiled_includes = true; // $this->setMergeCompiledIncludes(true);  // With this option the subtemplate and include code is stored together with the calling template.
 
-        // default here to be overwritten by $serendipity['production'] == 'debug' - see below!
+        // Default here to be overwritten by $serendipity['production'] == 'debug' - see below!
         $this->debugging = false; // $this->setDebugging(false);
 
         // Smarty will create subdirectories under the compiled templates and cache directories if $use_sub_dirs is set to TRUE, default is FALSE.
-        $this->use_sub_dirs = ( ini_get('safe_mode') ? false : true ); // $this->setUseSubDirs(false); // cache and compile dir only
+        $this->use_sub_dirs = ini_get('safe_mode') ? false : true; // $this->setUseSubDirs(false); // cache and compile dir only
 
         // Smarty should update the cache files automatically if $smarty->compile_check is true.
         $this->compile_check = true; // $this->setCompileCheck(true);
@@ -205,17 +211,17 @@ class Serendipity_Smarty extends Smarty
         */
         $this->config_overwrite = true; // $this->setConfigOverwrite(true);
 
-        // production == debug extends from s9y version information (alpha|beta|cvs) is always debug | USE ===
+        // S9y set production == debug extends from s9y version information (alpha|beta|cvs) is always debug | USE ===
         if ($serendipity['production'] === 'debug') {
             $this->force_compile   = true;   // $this->setForceCompile(true);
             $this->caching         = false;  // $this->setCaching(false);
             $this->debugging       = true;   // $this->setDebugging(true);
         }
 
-        // set smarty error reporting. General error_reporting is set in serendipity/serendipity_config.inc.php
+        // Set smarty error reporting. General error_reporting is set in serendipity/serendipity_config.inc.php
         $this->error_reporting = E_ALL & ~(E_NOTICE|E_STRICT);
 
-        // we use our own error_handler and get in conflicts with smarty?
+        // We use our own error_handler and get in conflicts with smarty in any case?
         // $this->muteExpectedErrors();
     }
 
@@ -236,9 +242,9 @@ class Serendipity_Smarty extends Smarty
      * @param mixed  $cache_attrs
      */
     public function register_function($function, $function_impl, $cacheable=true, $cache_attrs=null)
-     {
+    {
         $this->registerPlugin('function', $function, $function_impl, $cacheable, $cache_attrs);
-     }
+    }
 
     /**
      * Registers modifier to be used in templates - BC mode Smarty 2 -> 3
@@ -247,9 +253,9 @@ class Serendipity_Smarty extends Smarty
      * @param string $modifier_impl name of PHP function to register
      */
     public function register_modifier($modifier, $modifier_impl)
-     {
+    {
         $this->registerPlugin('modifier', $modifier, $modifier_impl);
-     }
+    }
 
     /**
      * Registers a resource to fetch a template - BC mode Smarty 2 -> 3
@@ -258,12 +264,12 @@ class Serendipity_Smarty extends Smarty
      * @param array  $functions array of functions to handle resource
      */
     public function register_resource($type, $functions)
-     {
+    {
         $this->registerResource($type, $functions);
-     }
+    }
 
     /**
-     * wrapper for assign_by_ref - BC mode Smarty 2 -> 3 (Serendipity core uses assignByRef already - and nearly no occurances in additional plugins)
+     * Wrapper for assign_by_ref - BC mode Smarty 2 -> 3 (Serendipity core uses assignByRef already - and nearly no occurances in additional plugins)
      *
      * @param string $tpl_var the template variable name
      * @param mixed  &$value  the referenced value to assign
@@ -285,8 +291,8 @@ class Serendipity_Smarty extends Smarty
     }
 
     public static function test()
-      {
+    {
         var_dump(get_called_class());
-      }
-  }
+    }
 
+}

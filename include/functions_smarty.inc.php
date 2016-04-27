@@ -105,6 +105,7 @@ function serendipity_emptyPrefix($string, $prefix = ': ') {
  * @param   boolean Force default?
  * @param   string  Returned attribute
  * @return  string  The return string
+ * @see serendipity_event_imageselectorplus as example
  */
 function serendipity_ifRemember($name, $value, $isDefault = false, $att = 'checked') {
     global $serendipity;
@@ -167,10 +168,10 @@ function serendipity_ifRemember($name, $value, $isDefault = false, $att = 'check
  *                          skip_smarty_hooks  (boolean) If TRUE, no plugins will be executed at all
  *                          skip_smarty_hook   (mixed)   Can be set to an array of plugin hooks to NOT execute
  *                          prevent_reset      (boolean) If set to TRUE, the smarty $entries array will NOT be cleared. (to prevent possible duplicate output of entries)
- * @param   object      Smarty object
+ * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
  */
-function serendipity_smarty_fetchPrintEntries($params, &$smarty) {
+function serendipity_smarty_fetchPrintEntries($params, Smarty_Internal_Template $template) {
     global $serendipity;
     static $entrycount = 0;
     static $restore_var_GET_keys = array('category', 'viewAuthor', 'page', 'hide_category');
@@ -372,6 +373,7 @@ function serendipity_smarty_fetchPrintEntries($params, &$smarty) {
     }
 
     $out = serendipity_smarty_fetch($params['block'], $params['template']);
+
     // Reset array list, because we might be in a nested code call.
     if ($params['prevent_reset'] == false) {
         $serendipity['smarty']->assign('entries', array());
@@ -393,13 +395,13 @@ function serendipity_smarty_fetchPrintEntries($params, &$smarty) {
  *                          data: possible pre-submitted values to the input values
  *                          showToolbar: Toggle whether to show extended options of the comment form
  *                          moderate_comments: Toggle whether comments to this entry are allowed
- * @param   object  Smarty object
+ * @param   object      Smarty template object
  * @return  void
  */
-function serendipity_smarty_showCommentForm($params, &$smarty) {
+function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $template) {
     global $serendipity;
 
-    if (!isset($params['id']) || !isset($params['entry'])) {
+    if (empty($params['id']) || empty($params['entry'])) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'id' or 'entry' parameter", E_USER_WARNING);
         return;
     }
@@ -408,19 +410,19 @@ function serendipity_smarty_showCommentForm($params, &$smarty) {
         $params['url'] = $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?url=' . $params['entry']['commURL'];
     }
 
-    if (!isset($params['comments'])) {
+    if (empty($params['comments'])) {
         $params['comments'] = NULL;
     }
 
-    if (!isset($params['data'])) {
+    if (empty($params['data'])) {
         $params['data'] = $serendipity['POST'];
     }
 
-    if (!isset($params['showToolbar'])) {
+    if (empty($params['showToolbar'])) {
         $params['showToolbar'] = true;
     }
 
-    if (!isset($params['moderate_comments'])) {
+    if (empty($params['moderate_comments'])) {
         $params['moderate_comments'] = serendipity_db_bool($params['entry']['moderate_comments']);
     }
 
@@ -431,7 +433,7 @@ function serendipity_smarty_showCommentForm($params, &$smarty) {
         'is_comment_moderate'   => (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'moderate' ? true: false)
     );
 
-    $smarty->assign($comment_add_data);
+    $template->assign($comment_add_data);
 
     serendipity_displayCommentForm(
         $params['id'],
@@ -453,25 +455,31 @@ function serendipity_smarty_showCommentForm($params, &$smarty) {
  * @param   array       Smarty parameter input array:
  *                          class: The classname of the plugin to show
  *                          id: An ID of a plugin to show
- *                          side: The side of a plugin to show (left|right|hidden)
+ *                          side: The side of a plugin to show (left|right|hidden|and|other|user-defined|sidebars)
  *                          negate: Revert previous filters
- * @param   object  Smarty object
+ * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
  */
-function serendipity_smarty_showPlugin($params, &$smarty) {
+function serendipity_smarty_showPlugin($params, Smarty_Internal_Template $template) {
     global $serendipity;
 
-    if (!isset($params['class']) && !isset($params['id'])) {
+    if (empty($params['class']) && empty($params['id'])) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'class' or 'id' parameter", E_USER_WARNING);
         return;
     }
-
-    if (!isset($params['side'])) {
+#echo $params['side'].'-';
+    if (empty($params['side'])) {
         $params['side'] = '*';
     }
-
-    if (!isset($params['negate'])) {
+    if ($params['side'] === 'hidden') {
+        $params['side'] = 'hide'; //compat, since being announced false in the doc for a long time
+    }
+#echo $params['negate'];
+    if (empty($params['negate']) || $params['negate'] === 'null') {
         $params['negate'] = null;
+    }
+    if ($params['negate'] === 'true' || $params['negate'] === 'false') {
+        $params['negate'] = serendipity_db_bool($params['negate']);
     }
     if (empty($params['template'])) {
         $params['template'] = 'sidebar.tpl';
@@ -492,11 +500,11 @@ function serendipity_smarty_showPlugin($params, &$smarty) {
  * @access public
  * @param   array       Smarty parameter input array:
  *                      what: The type of count to show: "entries", "trackbacks", "comments"
- * @param   object      Smarty object
+ * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
  */
-function serendipity_smarty_getTotalCount($params, &$smarty) {
-    if (!isset($params['what'])) {
+function serendipity_smarty_getTotalCount($params, Smarty_Internal_Template $template) {
+    if (empty($params['what'])) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'what' parameter", E_USER_WARNING);
         return;
     }
@@ -517,17 +525,17 @@ function serendipity_smarty_getTotalCount($params, &$smarty) {
  *                          hookAll: boolean whether unknown hooks shall be executed
  *                          data: The $eventData to an event plugin
  *                          addData: the $addData to an event plugin
- * @param   object  Smarty object
+ * @param   object      Smarty template object
  * @return null
  */
-function serendipity_smarty_hookPlugin($params, &$smarty) {
+function serendipity_smarty_hookPlugin($params, Smarty_Internal_Template $template) {
     global $serendipity;
     static $hookable = array('frontend_header',
                              'entries_header',
                              'entries_footer',
                              'frontend_comment',
                              'frontend_footer');
-    if (!isset($params['hook'])) {
+    if (empty($params['hook'])) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'hook' parameter", E_USER_WARNING);
         return;
     }
@@ -550,11 +558,13 @@ function serendipity_smarty_hookPlugin($params, &$smarty) {
         return;
     }
 
-    if (!isset($params['data'])) {
-        $params['data'] = &$serendipity;
+    if (empty($params['data'])) {
+        $params['data'] = &$serendipity;//RQ: ???? really ALL ???, but this should only be eventData something or null shouldn't it ??? (but null gives nothing at certain places)
+        #see for example 'backend_header' with echo '<pre>ref-Serendipity: ';print_r($eventData);echo '</pre>'; outputs all and the plugins have a global $serendipity and still need this as params['data'] referenced. WHY???
+        #echo '<pre>ref-Serendipity: ';print_r($params['data']);echo '</pre>';
     }
 
-    if (!isset($params['addData'])) {
+    if (empty($params['addData'])) {
         $params['addData'] = null;
     }
 
@@ -577,7 +587,7 @@ function serendipity_smarty_hookPlugin($params, &$smarty) {
 function serendipity_smarty_refhookPlugin(&$eventData, $hook, $addData = null) {
     global $serendipity;
 
-    if (!isset($hook)) {
+    if (empty($hook)) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'hook' parameter", E_USER_WARNING);
         return;
     }
@@ -604,16 +614,16 @@ function serendipity_smarty_refhookPlugin(&$eventData, $hook, $addData = null) {
  * @access public
  * @param   array       Smarty parameter input array:
  *                          side: The plugin side to show (left|right|hidden)
- * @param   object  Smarty object
+ * @param   object      Smarty template object
  * @return string       The HTML code of a plugin's output
  */
-function serendipity_smarty_printSidebar($params, &$smarty) {
-    if ( !isset($params['side']) ) {
+function serendipity_smarty_printSidebar($params, Smarty_Internal_Template $template) {
+    if ( empty($params['side']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'side' parameter", E_USER_WARNING);
         return;
     }
 
-    if (isset($params['template'])) {
+    if (!empty($params['template'])) {
         return serendipity_plugin_api::generate_plugins($params['side'], false, null, null, $params['template']);
     } else {
         return serendipity_plugin_api::generate_plugins($params['side']);
@@ -626,27 +636,45 @@ function serendipity_smarty_printSidebar($params, &$smarty) {
  * @access public
  * @param   array       Smarty parameter input array:
  *                          file: The filename you want to include (any file within your template directry or the 'default' template if not found)
- * @param   object  Smarty object
+ * @param   object      Smarty template object
  * @return  string      The requested filename with full path
  */
-function serendipity_smarty_getFile($params, &$smarty) {
-    if ( !isset($params['file']) ) {
+function serendipity_smarty_getFile($params, Smarty_Internal_Template $template) {
+    if ( empty($params['file']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'file' parameter", E_USER_WARNING);
         return;
     }
     return serendipity_getTemplateFile($params['file']);
 }
 
-function serendipity_smarty_getConfigVar($params, &$smarty) {
-    if ( !isset($params['key']) ) {
+/**
+ * Smarty Function: Get a plugins config value by key
+ *
+ * @access public
+ * @param   array       Smarty parameter input array:
+ *                          key: The plugin config value
+ * @param   object      Smarty template object
+ * @return  string      The requested configutation value
+ */
+function serendipity_smarty_getConfigVar($params, Smarty_Internal_Template $template) {
+    if ( empty($params['key']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'key' parameter", E_USER_WARNING);
         return;
     }
     return serendipity_get_config_var($params['key']);
 }
 
-function serendipity_smarty_setFormToken($params, &$smarty) {
-    if ( isset($params['type']) ) {
+/**
+ * Smarty Function: Set the valid form token by type or default
+ *
+ * @access public
+ * @param   array       Smarty parameter input array:
+ *                          type: The form token by a given type
+ * @param   object      Smarty template object
+ * @return  string      The requested valid form token
+ */
+function serendipity_smarty_setFormToken($params, Smarty_Internal_Template $template) {
+    if ( !empty($params['type']) ) {
         return serendipity_setFormToken($params['type']);
     }
     return serendipity_setFormToken();
@@ -661,16 +689,16 @@ function serendipity_smarty_setFormToken($params, &$smarty) {
  *                          array: The array you want to check
  *                          key: The keyname
  *                          default: What (string) to return when array does not contain the key.
- * @param   object       Smarty object
+ * @param   object      Smarty template object
  * @return  string      The requested filename with full path
  */
-function serendipity_smarty_pickKey($params, &$smarty) {
-    if ( !isset($params['array']) ) {
+function serendipity_smarty_pickKey($params, Smarty_Internal_Template $template) {
+    if ( empty($params['array']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'array' parameter", E_USER_WARNING);
         return;
     }
 
-    if ( !isset($params['key']) ) {
+    if ( empty($params['key']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'key' parameter", E_USER_WARNING);
         return;
     }
@@ -686,15 +714,15 @@ function serendipity_smarty_pickKey($params, &$smarty) {
  * @param   array       Smarty parameter input array:
  *                          entry: $entry data to pull title etc. out of
  *                          is_comments: Whether a permalink for a comment feed should be embedded
- * @param   object  Smarty object
+ * @param   object      Smarty template object
  * @return string       The permalink
  */
-function serendipity_smarty_rss_getguid($params, &$smarty) {
-    if ( !isset($params['entry']) ) {
+function serendipity_smarty_rss_getguid($params, Smarty_Internal_Template $template) {
+    if ( empty($params['entry']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'entry' parameter", E_USER_WARNING);
         return;
     }
-    if ( !isset($params['is_comments']) ) {
+    if ( empty($params['is_comments']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'is_comments' parameter", E_USER_WARNING);
         return;
     }
@@ -732,18 +760,18 @@ function serendipity_smarty_formatTime($timestamp, $format, $useOffset = true, $
  * @param   array       Smarty parameter input array:
  *                          entry: The $entry data
  *                          mode: The default viewmode (threaded/linear)
- * @param   object  Smarty object
+ * @param   object      Smarty template object
  * @return  string      The HTML code with the comments
  */
-function &serendipity_smarty_printComments($params, &$smarty) {
+function &serendipity_smarty_printComments($params, Smarty_Internal_Template $template) {
     global $serendipity;
 
-    if (!isset($params['entry'])) {
+    if (empty($params['entry'])) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'entry' parameter", E_USER_WARNING);
         return;
     }
 
-    if (!isset($params['mode'])) {
+    if (empty($params['mode'])) {
         $params['mode'] = VIEWMODE_THREADED;
     }
 
@@ -791,11 +819,11 @@ function &serendipity_smarty_printComments($params, &$smarty) {
  * @access public
  * @param   array       Smarty parameter input array:
  *                          entry: The $entry data for the trackbacks
- * @param   object  Smarty object
+ * @param   object      Smarty template object
  * @return
  */
-function &serendipity_smarty_printTrackbacks($params, &$smarty) {
-    if ( !isset($params['entry']) ) {
+function &serendipity_smarty_printTrackbacks($params, Smarty_Internal_Template $template) {
+    if ( empty($params['entry']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'entry' parameter", E_USER_WARNING);
         return;
     }
@@ -829,17 +857,17 @@ function &serendipity_smarty_printTrackbacks($params, &$smarty) {
  * @param   array       Smarty parameter input array:
  *                      file: The image file to get image data for
  *                      assign: The variable to assign the image data array to
- * @param   object      Smarty object
+ * @param   object      Smarty template object
  * @return  string      Empty
  */
-function serendipity_smarty_getImageSize($params, &$smarty) {
+function serendipity_smarty_getImageSize($params, Smarty_Internal_Template $template) {
     global $serendipity;
 
-    if (!isset($params['file'])) {
+    if (empty($params['file'])) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'file' parameter", E_USER_WARNING);
         return;
     }
-    if (!isset($params['assign'])) {
+    if (empty($params['assign'])) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'assign' parameter", E_USER_WARNING);
         return;
     }
@@ -859,20 +887,49 @@ function serendipity_smarty_getImageSize($params, &$smarty) {
         trigger_error("Smarty Error: " . __FUNCTION__ .': file ' . $params['file'] . NOT_FOUND . ' ', E_USER_WARNING);
         return;
     }
-    $smarty->assign($params['assign'], serendipity_getimagesize($file));
+    $template->assign($params['assign'], serendipity_getimagesize($file));
 }
 
 /**
- * Smarty Prefilter: Replace constants to direkt $smarty.const. access
+ * Smarty Prefilter: Replace constants to direct $smarty.const. access
+ *
+ * PLEASE NOTE:
+ *  Since PHP5 it's no longer required to pass objects as reference. References should be removed from Smarty 2 plugins, filter etc.
+ *  Starting with Smarty 3.1.28 we can register closures as filter. For that reason the filter functions are now called as callback
+ *  with call_user_func() which does not pass the reference.
+ *  Smarty 3 does pass the template object instead of the Smarty object to plugins and filter.
+ *
+ *  It was originally not intended by Smarty, that you can call fetch() and display() on a template object with parameters to get output from another template.
+ *  The correct code of your function should then be in this case:
+ *      function smarty_function_test($params, Smarty_Internal_Template $template)
+ *      {
+ *          return $template->smarty->fetch('string:testing');
+ *      }
+ *
+ *  You may use the template object, eg by assign to a current template:
+ *      $template->assign($params['bar'], $foo);
+ *  OR by assign to a parent template (or the smarty instance):
+ *      $template->parent->assign($params['bar'], $foo);
+ *  OR by assign to the smarty instance:
+ *      $template->smarty->assign($params['bar'], $foo);
+ *  OR to load a smarty plugin depended functionality
+ *      $template->smarty->loadPlugin('another_smarty_plugin_dependency');
+ *
+ *  As a general rule, the currently evaluated template's Smarty_Internal_Template object is always passed to the plugins as the last parameter with two exceptions:
+ *      - modifiers do not get passed the Smarty_Internal_Template object at all
+ *      - blocks get passed $repeat after the Smarty_Internal_Template object, to keep backwards compatibility to older versions of Smarty.
+ *
+ *  Plugin functions naming convention is smarty_type_name() and plugin files must be named as follows: type.name.php.
+ *  Where type is one of these plugin types: function, modifier, block, compiler, prefilter, postfilter, outputfilter, resource, insert.
+ *
  *
  * @access public
  * @param   string  Template source content
- * @param   object  Smarty object
+ * @param   object  Smarty template object
  * @return
  */
-function &serendipity_replaceSmartyVars($tpl_source, &$smarty) {
-    $tpl_source = str_replace('$CONST.', '$smarty.const.', $tpl_source);
-    return $tpl_source;
+function serendipity_replaceSmartyVars($source, Smarty_Internal_Template $template) {
+     return str_replace('$CONST.', '$smarty.const.', $source);
 }
 
 /**
@@ -884,7 +941,7 @@ function &serendipity_replaceSmartyVars($tpl_source, &$smarty) {
 function serendipity_smarty_init($vars = array()) {
     global $serendipity, $template_config, $template_global_config, $template_config_groups;
 
-    if (!isset($serendipity['smarty'])) {
+    if (empty($serendipity['smarty'])) {
 
         $template_dir = $serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'];
 
@@ -908,7 +965,7 @@ function serendipity_smarty_init($vars = array()) {
                 @define('SMARTY_RESOURCE_CHAR_SET', LANG_CHARSET);
             }
 
-            // define cache resources to load with smarty - see smarty cache readme - needs enabled cache!
+            // define cache resources to load with smarty - see smarty cache readme - needs enabled cache, which does not work the way we use Smarty!
             #@define('APC_EXTENSION_LOADED', extension_loaded('apc') && ini_get('apc.enabled'));
             #@define('MEMCACHE_EXTENSION_LOADED', (class_exists('Memcached',false) || class_exists('Memcache',false)) && (extension_loaded("memcached") || extension_loaded("memcache")));
 
@@ -932,7 +989,7 @@ function serendipity_smarty_init($vars = array()) {
             }
 
             // set smarty instance
-            #$serendipity['smarty'] = new Serendipity_Smarty;
+            #$serendipity['smarty'] = new \Serendipity_Smarty;
             // initialize smarty object by instance
             $serendipity['smarty'] = Serendipity_Smarty::getInstance();
             // debug moved to class
@@ -979,11 +1036,11 @@ function serendipity_smarty_init($vars = array()) {
             $serendipity['smarty']->registerPlugin('function', 'serendipity_getConfigVar', 'serendipity_smarty_getConfigVar');
             $serendipity['smarty']->registerPlugin('function', 'serendipity_setFormToken', 'serendipity_smarty_setFormToken');
 
-            $serendipity['smarty']->registerFilter('pre', 'serendipity_replaceSmartyVars');
+            $serendipity['smarty']->registerFilter('pre', 'serendipity_replaceSmartyVars'); // see the DOC Note
 
         }
 
-        if (!isset($serendipity['smarty_file'])) {
+        if (empty($serendipity['smarty_file'])) {
             $serendipity['smarty_file'] = 'index.tpl';
         }
 
@@ -998,7 +1055,7 @@ function serendipity_smarty_init($vars = array()) {
             }
         }
 
-        if (!isset($serendipity['smarty_vars']['head_link_stylesheet'])) {
+        if (empty($serendipity['smarty_vars']['head_link_stylesheet'])) {
             $serendipity['smarty_vars']['head_link_stylesheet_frontend'] = serendipity_rewriteURL('serendipity.css');
 
             if (IN_serendipity_admin === true) {
@@ -1017,7 +1074,7 @@ function serendipity_smarty_init($vars = array()) {
             }
         }
 
-        if (!isset($serendipity['smarty_vars']['head_link_script'])) {
+        if (empty($serendipity['smarty_vars']['head_link_script'])) {
             if (IN_serendipity_admin === true) {
                 $serendipity['smarty_vars']['head_link_script'] = serendipity_rewriteURL('serendipity_admin.js');
             } else {
@@ -1179,7 +1236,7 @@ function serendipity_smarty_purge() {
  * have been called before, and will be parsed into Smarty here
  *
  * @access public
- * @param   string  The path to Serendipity
+ * @param  string  The path to Serendipity
  * @return null
  */
 function serendipity_smarty_shutdown($serendipity_directory = '') {
@@ -1201,12 +1258,16 @@ function serendipity_smarty_shutdown($serendipity_directory = '') {
 
 /**
  * Render a smarty-template
- * $template: path to the template-file
- * $data: map with the variables to assign
- * $debugtype: If set, debug string is prepended. Can be set to HTML or JS.
- * $debug: Possible debug string that is prepended to output
+ *
+ * @access public
+ * @param  string  $tplfile: path to the template-file
+ * @param  array   $data: map with the variables to assign
+ * @param  string  $debugtype: If set, debug string is prepended. Can be set to HTML or JS.
+ * @param  string  $debug: Possible debug string that is prepended to output
+ * 
+ * @return string  compiled file
  */
-function serendipity_smarty_show($template, $data = null, $debugtype = null, $debug = null) {
+function serendipity_smarty_show($tplfile, $data = null, $debugtype = null, $debug = null) {
     global $serendipity;
 
     if (!is_object($serendipity['smarty'])) {
@@ -1215,14 +1276,15 @@ function serendipity_smarty_show($template, $data = null, $debugtype = null, $de
 
     $serendipity['smarty']->assign($data);
 
-    $tplfile = ($template == 'preview_iframe.tpl') ? serendipity_getTemplateFile($template, 'serendipityPath', true) : serendipity_getTemplateFile($template, 'serendipityPath');
+    $tfile = ($tplfile == 'preview_iframe.tpl') ? serendipity_getTemplateFile($tplfile, 'serendipityPath', true) : serendipity_getTemplateFile($tplfile, 'serendipityPath');
+
     if ($debug !== null) {
         if ($debugtype == "HTML") {
-            $debug = "<!-- Dynamically fetched " . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tplfile)) . " on " . date('Y-m-d H:i') . ", called from: " . $debug . " -->\n";
+            $debug = "<!-- Dynamically fetched " . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . " on " . date('Y-m-d H:i') . ", called from: " . $debug . " -->\n";
         } else {
-            $debug = "/* Dynamically fetched " . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tplfile)) . " on " . date('Y-m-d H:i') . ", called from: " . $debug . " */\n";
+            $debug = "/* Dynamically fetched " . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . " on " . date('Y-m-d H:i') . ", called from: " . $debug . " */\n";
         }
     }
 
-    return $debug . $serendipity['smarty']->fetch('file:'. $tplfile);
+    return $debug . $serendipity['smarty']->fetch('file:'. $tfile);
 }
