@@ -7,11 +7,10 @@
 * Technical choices are described in the 'docs/technical' file
 *
 * @package Cache_Lite
-* @version $Id: Output.php,v 1.4 2006/01/29 00:22:07 fab Exp $
 * @author Fabien MARTY <fab@php.net>
 */
 
-require_once dirname(__FILE__) . '/../Lite.php';
+require_once('Cache/Lite.php');
 
 class Cache_Lite_Output extends Cache_Lite
 {
@@ -27,7 +26,7 @@ class Cache_Lite_Output extends Cache_Lite
     * @param array $options options
     * @access public
     */
-    function Cache_Lite_Output($options)
+    public function __construct($options)
     {
         $this->Cache_Lite($options);
     }
@@ -67,6 +66,3 @@ class Cache_Lite_Output extends Cache_Lite
     }
 
 }
-
-
-?>
