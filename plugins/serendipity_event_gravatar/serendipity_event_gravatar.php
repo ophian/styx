@@ -386,9 +386,8 @@ class serendipity_event_gravatar extends serendipity_event
                     echo '<div class="serendipity_commentDirection serendipity_comment_gravatar">' . sprintf(PLUGIN_EVENT_GRAVATAR_SUPPORTED, $supported_methods) . '</div>';
                     break;
 
-              default:
-                return false;
-
+                default:
+                    return false;
             }
             return true;
         } else {
