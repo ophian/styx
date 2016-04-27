@@ -25,8 +25,8 @@ switch($serendipity['GET']['adminAction']) {
         // to not have the following automated recompile, force the servers memory to get exhausted,
         // when using plugins like serendipity_event_gravatar plugin, which can eat up some MB...
         // Restriction to template means: leave the page we are on: ../admin/index.tpl and all others, which are set, included and compiled by runtime. (plugins, etc. this can be quite some..!)
-        if(method_exists($serendipity['smarty'], 'clearCompiledTemplate')) {
-            $data['cleanup_finish']   = (int)$serendipity['smarty']->clearCompiledTemplate(null, $serendipity['template']);
+        if (method_exists($serendipity['smarty'], 'clearCompiledTemplate')) {
+            $data['cleanup_finish']   = $serendipity['smarty']->clearCompiledTemplate($serendipity['template'], $serendipity['template']);
             $data['cleanup_template'] = $serendipity['template'];
         }
         break;
