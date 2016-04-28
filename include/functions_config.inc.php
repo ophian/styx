@@ -387,12 +387,17 @@ function serendipity_logout() {
 function serendipity_session_destroy() {
     $no_smarty = $_SESSION['no_smarty'];
     @session_destroy();
-    // temporary reset for PHP7 testing
-    if (PHP_MAJOR_VERSION < 7) {
+    try {
+        // Code that may throw an Exception or Error.
         session_regenerate_id();
+    } catch (Throwable $t) {
+        // Executed only in PHP 7, will not match in PHP 5.x
+        echo $t->getMessage(), "\n";
+    } catch (Exception $e) {
+        // Executed only in PHP 5.x, will not be reached in PHP 7
+        echo $e->getMessage(), "\n";
     }
     session_start();
-    #session_regenerate_id();
 
     $_SESSION['SERVER_GENERATED_SID'] = true;
     $_SESSION['no_smarty']            = $no_smarty;
