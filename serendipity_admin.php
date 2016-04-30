@@ -174,7 +174,7 @@ if (!$use_installer && $is_logged_in) {
             break;
 
         case 'comments':
-            // perms are checked by author
+            // perms are checked inside
             include S9Y_INCLUDE_PATH . 'include/admin/comments.inc.php';
             $admin_section = COMMENTS;
             break;
