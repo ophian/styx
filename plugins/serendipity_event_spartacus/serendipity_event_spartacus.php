@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.35');
+        $propbag->add('version',       '2.36');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -48,7 +48,9 @@ class serendipity_event_spartacus extends serendipity_event
             'cronjob'                           => true,
         ));
         $propbag->add('groups', array('BACKEND_FEATURES'));
-        $propbag->add('configuration', array('enable_plugins', 'enable_themes', 'enable_remote', 'remote_url', 'cronjob', 'mirror_xml', 'mirror_files', 'custommirror', 'chown', 'chmod_files', 'chmod_dir', 'use_ftp', 'ftp_server', 'ftp_username', 'ftp_password', 'ftp_basedir'));
+        $propbag->add('configuration',  array(
+            'enable_plugins', 'enable_themes', 'enable_remote', 'remote_url', 'cronjob', 'mirror_xml', 'mirror_files', 'custommirror',
+            'chown', 'chmod_files', 'chmod_dir', 'use_ftp', 'ftp_server', 'ftp_username', 'ftp_password', 'ftp_basedir'));
 
     }
 
@@ -174,7 +176,7 @@ class serendipity_event_spartacus extends serendipity_event
             case 'remote_url':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL);
-                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC);
+                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC . sprintf(PLUGIN_EVENT_SPARTACUS_CSPRNG, 'spartacus_', str_replace(array('/', '+', '='), '', base64_encode(openssl_random_pseudo_bytes(16)))));
                 $propbag->add('default',     'spartacus_remote');
                 break;
 
@@ -865,6 +867,22 @@ class serendipity_event_spartacus extends serendipity_event
                 foreach($subtree['children'] AS $child => $childtree) {
                     if (is_array($childtree) && isset($childtree['tag'])) {
                         switch($childtree['tag']) {
+/*                            case 'name':
+                                $pluginstack[$i]['name']         = $childtree['value'];
+                                break;
+
+                            case 'summary':
+                                $pluginstack[$i]['summary']      = $childtree['value'];
+                                break;
+
+                            case 'template':
+                                $pluginstack[$i]['template']     = $childtree['value'];
+                                break;
+
+                            case 'description':
+                                $pluginstack[$i]['description']  = $childtree['value'];
+                                break;
+*/
                             case 'release':
                                 $pluginstack[$i]['version']      = $childtree['children'][0]['value'];
 
@@ -888,8 +906,9 @@ class serendipity_event_spartacus extends serendipity_event
                                 break;
 
                             case 'maintainers':
-                                $pluginstack[$i]['author']       = $childtree['children'][0]['children'][0]['value'];
+                                $pluginstack[$i]['author'] = $childtree['children'][0]['children'][0]['value'];
                                 break;
+
                             default:
                                 # Catches name, summary, template, description and recommended. Also a way to extend this later on
                                 $pluginstack[$i][$childtree['tag']]  = $childtree['value'];
@@ -1222,16 +1241,24 @@ class serendipity_event_spartacus extends serendipity_event
 
                 case 'backend_pluginlisting_header':
                     if (serendipity_db_bool($this->get_config('enable_plugins'))) {
-                        echo '<div id="upgrade_notice" class="clearfix">';
                         if (version_compare($serendipity['version'], '2.1-alpha3', '<')) {    
-                            echo '    <a id="upgrade_sidebar" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE">'. PLUGIN_EVENT_SPARTACUS_CHECK_SIDEBAR .'</a>';
-                            echo '    <a id="upgrade_event" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE&amp;serendipity[type]=event">'. PLUGIN_EVENT_SPARTACUS_CHECK_EVENT .'</a> ';
-                            
+?>
+
+        <div id="upgrade_notice" class="clearfix">
+            <a id="upgrade_sidebar" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE"><?php echo PLUGIN_EVENT_SPARTACUS_CHECK_SIDEBAR ?></a>
+            <a id="upgrade_event" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE&amp;serendipity[type]=event"><?php echo PLUGIN_EVENT_SPARTACUS_CHECK_EVENT ?></a>
+        </div>
+
+<?php
                         } else {
-                            echo '    <a id="upgrade_plugins" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE">'. PLUGIN_EVENT_SPARTACUS_CHECK .'</a>';
-                        }
-                        echo '</div>';
-                    }
+?>
+
+        <div id="upgrade_notice" class="clearfix">
+            <a id="upgrade_plugins" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE"><?php echo PLUGIN_EVENT_SPARTACUS_CHECK ?></a>
+        </div>
+
+<?php
+                        }                    }
                     break;
 
                 case 'backend_templates_fetchlist':
@@ -1262,6 +1289,8 @@ class serendipity_event_spartacus extends serendipity_event
                            'upgradeURI'  => '&amp;serendipity[spartacus_upgrade]=true',
                            'baseURI'     => '&amp;serendipity[spartacus_fetch]=' . $type
                         );
+                        // remove here deprecated plugins from list by option?
+                        #echo '<pre>';print_r($eventData);echo '</pre>';
                     }
                     break;
 

@@ -30,7 +30,6 @@
 @define('PLUGIN_EVENT_SPARTACUS_CHMOD_DIR', 'Permissions downloaded directories');
 @define('PLUGIN_EVENT_SPARTACUS_CHMOD_DIR_DESC', 'Here you can enter the octal mode (like "0777") of the directory permissions for directories (FTP/Shell) downloaded by Spartacus. If empty, the default permission mask of the system are used. Note that not all servers allow changing/setting permissions. Pay attention that the applied permissions allow reading and writing for the webserver user. Else spartacus/Serendipity cannot overwrite existing directories.');
 
-@define('PLUGIN_EVENT_SPARTACUS_CHECK', 'Update plugins');
 @define('PLUGIN_EVENT_SPARTACUS_CHECK_SIDEBAR', 'Update sidebar plugins');
 @define('PLUGIN_EVENT_SPARTACUS_CHECK_EVENT', 'Update event plugins');
 @define('PLUGIN_EVENT_SPARTACUS_CHECK_HINT', 'You can upgrade multiple plugins at once by opening the update-link in a new tab (middle mouse button)');
@@ -65,3 +64,8 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB', 'This plugin supports the Serendipity Cronjob plugin. Go and install it if you want scheduled execution.');
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB_WHEN', 'Execute regular cronjob to check for plugin updates, and mail those to the configured blog\'s mail address (%s)?');
+
+@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Random example: "%s%s"');
+
+@define('PLUGIN_EVENT_SPARTACUS_CHECK', 'Update plugins');
+
