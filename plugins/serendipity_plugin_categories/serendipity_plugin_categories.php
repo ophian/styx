@@ -4,6 +4,8 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
+@define('CATEGORY_PLUGIN_SHOWALL_DESC', 'In case of Smarty set true, you need to add and build your own link for the sidebar, eg "<div class="category_link_all"><a href="{$serendipityHTTPPath}{$serendipityIndexFile}?frontpage">" title="{$CONST.ALL_CATEGORIES}">{$CONST.ALL_CATEGORIES}</a></div>"');
+
 class serendipity_plugin_categories extends serendipity_plugin
 {
     var $title = CATEGORIES;
@@ -15,7 +17,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.05');
+        $propbag->add('version',       '2.06');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -71,21 +73,21 @@ class serendipity_plugin_categories extends serendipity_plugin
                 $propbag->add('type',         'boolean');
                 $propbag->add('name',         CATEGORIES_HIDE_PARENT);
                 $propbag->add('description',  CATEGORIES_HIDE_PARENT_DESC);
-                $propbag->add('default',      false);
+                $propbag->add('default',      'false');
                 break;
 
             case 'hide_parallel':
                 $propbag->add('type',         'boolean');
                 $propbag->add('name',         CATEGORIES_HIDE_PARALLEL);
                 $propbag->add('description',  CATEGORIES_HIDE_PARALLEL_DESC);
-                $propbag->add('default',      false);
+                $propbag->add('default',      'false');
                 break;
 
             case 'allow_select':
                 $propbag->add('type',         'boolean');
                 $propbag->add('name',         CATEGORIES_ALLOW_SELECT);
                 $propbag->add('description',  CATEGORIES_ALLOW_SELECT_DESC);
-                $propbag->add('default',      false);
+                $propbag->add('default',      'false');
                 break;
 
             case 'sort_order':
@@ -123,21 +125,21 @@ class serendipity_plugin_categories extends serendipity_plugin
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        CATEGORY_PLUGIN_TEMPLATE);
                 $propbag->add('description', CATEGORY_PLUGIN_TEMPLATE_DESC);
-                $propbag->add('default',     false);
+                $propbag->add('default',     'false');
                 break;
 
             case 'show_count':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        CATEGORY_PLUGIN_SHOWCOUNT);
                 $propbag->add('description', '');
-                $propbag->add('default',     false);
+                $propbag->add('default',     'false');
                 break;
                 
             case 'show_all':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        CATEGORY_PLUGIN_SHOWALL);
                 $propbag->add('description', CATEGORY_PLUGIN_SHOWALL_DESC);
-                $propbag->add('default',     false);
+                $propbag->add('default',     'false');
                 break;
 
             default:
@@ -171,7 +173,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $categories = serendipity_fetchCategories(empty($which_category) ? 'all' : $which_category, '', $sort, 'read');
 
         $cat_count = array();
-        if (serendipity_db_bool($this->get_config('show_count'))) {
+        if (serendipity_db_bool($this->get_config('show_count', 'false'))) {
             $cat_sql = "SELECT c.categoryid, c.category_name, count(e.id) as postings
                           FROM {$serendipity['dbPrefix']}entrycat ec,
                                {$serendipity['dbPrefix']}category c,
@@ -194,21 +196,20 @@ class serendipity_plugin_categories extends serendipity_plugin
         $html = '';
 
         if (!$smarty && $is_form) {
-            $html .= '<form action="' . $serendipity['baseURL'] . $serendipity['indexFile'] . '?frontpage" method="post">
-              <div id="serendipity_category_form_content">'."\n";
+            $html .= '<form action="' . $serendipity['baseURL'] . $serendipity['indexFile'] . '?frontpage" method="post">'."\n";
         }
         if (!$smarty) {
-            $html .= '<ul id="serendipity_categories_list" style="list-style: none; margin: 0px; padding: 0px">'."\n";
+            $html .= '<ul id="serendipity_categories_list" class="plainList">'."\n";
         }
 
         $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif'));
         $image = (($image == "'none'" || $image == 'none') ? '' : $image);
 
         $use_parent  = $this->get_config('parent_base');
-        $hide_parent = serendipity_db_bool($this->get_config('hide_parent'));
+        $hide_parent = serendipity_db_bool($this->get_config('hide_parent', 'false'));
         $parentdepth = 0;
 
-        $hide_parallel = serendipity_db_bool($this->get_config('hide_parallel'));
+        $hide_parallel = serendipity_db_bool($this->get_config('hide_parallel', 'false'));
         $hidedepth     = 0;
 
         if (is_array($categories) && count($categories)) {
@@ -273,7 +274,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                         $html .= '<input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="' . $cat['categoryid'] . '" />';
                     }
 
-                    if ( !empty($image) ) {
+                    if (!empty($image)) {
                         $html .= '<a class="serendipity_xml_icon" href="'. $categories[$cid]['feedCategoryURL'] .'"><img src="'. $image .'" alt="XML" style="border: 0px" /></a> ';
                     }
                     $html .= '<a href="'. $categories[$cid]['categoryURL'] .'" title="'. serendipity_specialchars($cat['category_description']) .'" style="padding-left: '. $categories[$cid]['paddingPx'] .'px">'. serendipity_specialchars($categories[$cid]['category_name']) .'</a>';
@@ -293,7 +294,6 @@ class serendipity_plugin_categories extends serendipity_plugin
         if (!$smarty && serendipity_db_bool($this->get_config('show_all', 'false'))) {
             $html .= sprintf(
                 '<div class="category_link_all"><a href="%s" title="%s">%s</a></div>'."\n",
-
                 $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?frontpage',
                 ALL_CATEGORIES,
                 ALL_CATEGORIES
@@ -301,7 +301,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         }
 
         if (!$smarty && $is_form) {
-            $html .= "</div>\n</form>\n";
+            $html .= "</form>\n";
         }
 
         if (!$smarty) {
