@@ -657,6 +657,7 @@ class serendipity_event_spamblock extends serendipity_event
 
             default:
                 break;
+
         }
 
         if (function_exists('serendipity_request_end')) serendipity_request_end();
@@ -1641,6 +1642,7 @@ class serendipity_event_spamblock extends serendipity_event
 
                 serendipity_db_query($q);
                 break;
+
         }
     }
 
