@@ -188,12 +188,6 @@ $dead_dirs_200 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/YahooUI'
 );
 
-/*
-    'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_append.php',
-    'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_autoloadfilter.php',
-    'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_hhvm.php',
-    'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_loadplugin.php',
-*/
 /* A list of old or beta Serendipity files, which were not marked obsolet with the 2.0.2 upgrade, or were removed by 2.1.0 */
 $dead_files_202 = array(
     'docs/CHANGED_FILES',
@@ -201,6 +195,7 @@ $dead_files_202 = array(
 	'docs/INSTALL_SHARED',
     'docs/UPGRADE',
     'docs/upgrade.sh',
+    'bundled-libs/PEAR5.php',
     'templates/default/admin/media_showitem.tpl',
     'templates/2k11/admin/media_showitem.tpl',
     'templates/Sagittarius-A/admin/media_showitem.tpl',
