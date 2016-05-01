@@ -1,15 +1,11 @@
 <?php
+
 if (IN_serendipity !== true) {
   die ("Don't hack!");
 }
 
-$probelang = dirname(__FILE__) . '/' . $serendipity['charset'] . 'lang_' . $serendipity['lang'] . '.inc.php';
-
-if (file_exists($probelang)) {
-    include $probelang;
-}
-
-include dirname(__FILE__) . '/lang_en.inc.php';
+// Load possible language files.
+@serendipity_plugin_api::load_language(dirname(__FILE__));
 
 $serendipity['smarty']->assign(array('currpage'=> "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
 $serendipity['smarty']->assign(array('currpage2'=> $_SERVER['REQUEST_URI']));
@@ -37,23 +33,23 @@ if ($serendipity['GET']['adminModule'] == 'templates' || $serendipity['POST']['a
 }
 
 $template_config_groups = array(
-    THEME_COLORSET  => array('colorset', 'layouttype', 'jscolumns'),
+    THEME_COLORSET  => array('colorset', 'userstylesheet', 'layouttype', 'jscolumns'),
     THEME_HEADER    => array('custheader', 'headerimage', 'headertype')
 );
 
 $template_config = array(
-    array(
-      'var'           => 'infobp',
-      'name'          => 'infobp',
-      'type'          => 'custom',
-      'custom'        => USER_STYLESHEET,
-    ),
     array(
         'var'           => 'colorset',
         'name'          => THEME_COLORSET,
         'type'          => 'select',
         'default'       => 'default',
         'select_values' => $colorsets
+    ),
+    array(
+        'var'           => 'userstylesheet',
+        'name'          => USER_STYLESHEET,
+        'type'          => 'boolean',
+        'default'       => 'false',
     ),
     array(
         'var'           => 'layouttype',
