@@ -11,6 +11,12 @@ Version 2.1 ()
 
   * Restrict category author permissions
 
+  * Fix an old bug with {serendipity_showPlugin
+    id="serendipity_plugin_freetag:<the-hash>" side="right"
+    negate="true"}
+    in the functions_smarty.inc file, since the parameter
+    $params['negate'] was never being read correctly.
+
   * Add Smarty 3.1.30-dev and rework the functions_smarty.inc file.
     Smarty 3.1.28 introduces run time template inheritance *
     Read the NEW_FEATURES and INHERITANCE_RELEASE_NOTES file for recent
