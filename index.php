@@ -66,6 +66,18 @@ if (preg_match(PAT_APPROVE, $uri, $res) && $serendipity['serendipityAuthedUser']
     define('DATA_TRACKBACK_APPROVED', false);
 }
 
+if (isset($serendipity['POST']['isMultiCat']) && is_array($serendipity['POST']['multiCat'])) {
+    $is_multicat = true;
+} else {
+    $is_multicat = false;
+}
+
+if (isset($serendipity['POST']['isMultiAuth']) && is_array($serendipity['POST']['multiAuth'])) {
+    $is_multiauth = true;
+} else {
+    $is_multiauth = false;
+}
+
 if (preg_match(PAT_ARCHIVES, $uri, $matches) || isset($serendipity['GET']['range']) && is_numeric($serendipity['GET']['range'])) {
     serveArchives();
 } else if (preg_match(PAT_PERMALINK, $uri, $matches) ||
@@ -78,17 +90,18 @@ if (preg_match(PAT_ARCHIVES, $uri, $matches) || isset($serendipity['GET']['range
     exit;
 } else if (preg_match(PAT_PLUGIN, $uri, $matches)) {
     servePlugin($matches);
-    exit;
+    if (!defined('NO_EXIT')) {
+        exit;
+    }
 } else if (preg_match(PAT_ADMIN, $uri)) {
     gotoAdmin();
     exit;
 } else if (preg_match(PAT_ARCHIVE, $uri)) {
     serveArchive();
-} else if ((isset($serendipity['POST']['isMultiCat']) && is_array($serendipity['POST']['multiCat'])) ||
-            preg_match(PAT_PERMALINK_CATEGORIES, $uri, $matches)) {
-    serveCategory($matches);
-} else if (preg_match(PAT_PERMALINK_AUTHORS, $uri, $matches)) {
-    serveAuthorPage($matches);
+} else if ($is_multicat || preg_match(PAT_PERMALINK_CATEGORIES, $uri, $matches)) {
+    serveCategory($matches, $is_multicat);
+} else if ($is_multiauth || preg_match(PAT_PERMALINK_AUTHORS, $uri, $matches)) {
+    serveAuthorPage($matches, $is_multiauth);
 } else if (preg_match(PAT_SEARCH, $uri, $matches)) {
     serveSearch();
 } elseif (preg_match(PAT_CSS, $uri, $matches)) {

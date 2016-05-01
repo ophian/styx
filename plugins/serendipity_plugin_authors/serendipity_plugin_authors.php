@@ -34,6 +34,13 @@ class serendipity_plugin_authors extends serendipity_plugin
                 $propbag->add('default',       AUTHORS);
                 break;
 
+            case 'allow_select':
+                $propbag->add('type',         'boolean');
+                $propbag->add('name',         AUTHORS_ALLOW_SELECT);
+                $propbag->add('description',  AUTHORS_ALLOW_SELECT_DESC);
+                $propbag->add('default',      'true');
+                break;
+
             case 'image':
                 $propbag->add('type',         'string');
                 $propbag->add('name',         XML_IMAGE_TO_DISPLAY);
@@ -73,10 +80,15 @@ class serendipity_plugin_authors extends serendipity_plugin
         } else {
             $sort .= ' ' . $this->get_config('sort_method');
         }
+        $is_form   = serendipity_db_bool($this->get_config('allow_select', 'true'));
         $is_count  = serendipity_db_bool($this->get_config('showartcount', 'false'));
         $mincount  = (int)$this->get_config('mincount');
         $authors   = serendipity_fetchUsers(null, 'hidden', $is_count);
         $html      = '';
+
+        if ($is_form) {
+            $html .= '<form action="' . $serendipity['baseURL'] . $serendipity['indexFile'] . '?frontpage" method="post">';
+        }
 
         $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif'));
         $image = (($image == "'none'" || $image == 'none') ? '' : $image);
@@ -97,6 +109,10 @@ class serendipity_plugin_authors extends serendipity_plugin
 
                 $html .= '<li>';
 
+                if ($is_form) {
+                    $html .= '    <input style="width: 15px" type="checkbox" name="serendipity[multiAuth][]" value="' . $auth['authorid'] . '" />';
+                }
+
                 if ( !empty($image) ) {
                     $html .= '    <a class="serendipity_xml_icon" href="'. serendipity_feedAuthorURL($auth, 'serendipityHTTPPath') .'"><img src="'. $image .'" alt="XML" style="border: 0px" /></a> ';
                 }
@@ -107,6 +123,10 @@ class serendipity_plugin_authors extends serendipity_plugin
 
         $html .= '</ul>' . "\n";
 
+        if ($is_form) {
+            $html .= '<div><input type="submit" name="serendipity[isMultiAuth]" value="' . GO . '" /></div>'."\n";
+        }
+
         $html .= sprintf(
             '<div><a href="%s" title="%s">%s</a></div>'."\n",
 
@@ -114,8 +134,13 @@ class serendipity_plugin_authors extends serendipity_plugin
             ALL_AUTHORS,
             ALL_AUTHORS
         );
+
+        if ($is_form) {
+            $html .= "</form>\n";
+        }
         print $html;
     }
+
 }
 
 ?>

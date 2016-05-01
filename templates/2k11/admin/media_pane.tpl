@@ -185,7 +185,6 @@
                 </div>
                 {/if}
 
-            </li>
             </div>
             <div class="form_buttons">
                 <input name="go" type="submit" value="{$CONST.GO}"> <input class="reset_media_filters" name="media_filters_reset" type="reset" value="Reset">

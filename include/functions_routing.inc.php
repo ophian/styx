@@ -27,10 +27,10 @@ function serve404() {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
-
 /* Attempt to locate hidden variables within the URI */
 function locateHiddenVariables($_args) {
     global $serendipity;
+
     foreach ($_args AS $k => $v){
         if ($v == PATH_COMMENTS || $v == PATH_CATEGORIES || $v == PATH_ARCHIVE || $v == PATH_ARCHIVES) {
             continue;
@@ -189,19 +189,31 @@ function serveSearch() {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
-function serveAuthorPage($matches) {
+function serveAuthorPage($matches, $is_multiauth=false) {
     global $serendipity;
+
     $serendipity['view'] = 'authors';
-    $serendipity['GET']['viewAuthor'] = $matches[1];
+
+    if ($is_multiauth) {
+        $serendipity['GET']['viewAuthor'] = implode(';', $serendipity['POST']['multiAuth']);
+        $serendipity['uriArguments'][]    = PATH_AUTHORS;
+        $serendipity['uriArguments'][]    = serendipity_db_escape_string($serendipity['GET']['viewAuthor']) . '-multi';
+    } elseif (empty($matches[1]) && preg_match('@/([0-9;]+)@', $uri, $multimatch)) {
+        $is_multiauth = true;
+        $serendipity['GET']['viewAuthor'] = $multimatch[1];
+    } else {
+        $serendipity['GET']['viewAuthor'] = $matches[1];
+    }
 
     $serendipity['GET']['action'] = 'read';
 
-    locateHiddenVariables($serendipity['uriArguments']);
+    $_args = locateHiddenVariables($serendipity['uriArguments']);
 
-
-    $matches[1] = serendipity_searchPermalink($serendipity['permalinkAuthorStructure'], implode('/', $serendipity['uriArguments']), $matches[1], 'author');
-    $serendipity['GET']['viewAuthor'] = $matches[1];
-    $serendipity['GET']['action'] = 'read';
+    if (!$is_multiauth) {
+        $matches[1] = serendipity_searchPermalink($serendipity['permalinkAuthorStructure'], implode('/', $_args), $matches[1], 'author');
+        $serendipity['GET']['viewAuthor'] = $matches[1];
+        $serendipity['GET']['action'] = 'read';
+    }
 
     $uInfo = serendipity_fetchUsers($serendipity['GET']['viewAuthor']);
 
@@ -218,12 +230,12 @@ function serveAuthorPage($matches) {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
-function serveCategory($matches) {
+function serveCategory($matches, $is_multicat=false) {
     global $serendipity;
+
     $serendipity['view'] = 'categories';
     $uri = $_SERVER['REQUEST_URI'];
 
-    $is_multicat = (isset($serendipity['POST']['isMultiCat']) && is_array($serendipity['POST']['multiCat']));
     if ($is_multicat) {
         $serendipity['GET']['category'] = implode(';', $serendipity['POST']['multiCat']);
         $serendipity['uriArguments'][]  = PATH_CATEGORIES;
@@ -388,6 +400,14 @@ function serveArchives() {
     $serendipity['view'] = 'archives';
 
     $_args = locateHiddenVariables($serendipity['uriArguments']);
+    foreach ($_args AS $k => $v) {
+        if ($v[0] == 'W') { /* Week */
+            $week = substr($v, 1);
+            if (is_numeric($week)) {
+                unset($_args[$k]);
+            }
+        }
+    }
 
     /* We must always *assume* that Year, Month and Day are the first 3 arguments */
     list(,$year, $month, $day) = $_args;
@@ -410,7 +430,7 @@ function serveArchives() {
         $year = date('Y');
     }
 
-    if (isset($month) && !is_numeric($month)) {
+    if ((isset($month) && !is_numeric($month)) || !isset($month)) {
         $month = date('m');
     }
 
@@ -501,4 +521,3 @@ function serveArchives() {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 
 }
-    
