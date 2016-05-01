@@ -151,7 +151,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     $serendipity['smarty']->assign('admin_view', 'entryform');
     serendipity_plugin_api::hook_event('backend_entryform_smarty', $template_vars);
     $serendipity['smarty']->assignByRef('entry_vars', $template_vars);
-    return serendipity_smarty_show($template_vars['entry_template']);
+    return serendipity_smarty_showTemplate($template_vars['entry_template']);
 }
 
 function serendipity_emit_htmlarea_code($item, $jsname, $spawnMulti = false) {
@@ -180,7 +180,7 @@ function serendipity_emit_htmlarea_code($item, $jsname, $spawnMulti = false) {
         }
 
         $data = array('init' => $init, 'spawnMulti' => $spawnMulti, 'jsname' => $jsname, 'item' => $item, 'buttons' => $eventData['buttons']);
-        echo serendipity_smarty_show('admin/wysiwyg_init.tpl', $data);
+        echo serendipity_smarty_showTemplate('admin/wysiwyg_init.tpl', $data);
     }
     $init = true;
 

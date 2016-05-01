@@ -242,6 +242,6 @@ if ($serendipity['template'] != $serendipity['template_backend'] && isset($data[
 }
 unset($data['recommended_templates'][$serendipity['template']]);
 
-echo serendipity_smarty_show('admin/templates.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/templates.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */

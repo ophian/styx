@@ -129,6 +129,6 @@ if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
-echo serendipity_smarty_show('admin/personal.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/personal.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */

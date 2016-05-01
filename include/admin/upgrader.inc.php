@@ -478,6 +478,6 @@ if (!is_object($serendipity['smarty'])) {
 /* see on top */
 #$serendipity['smarty']->registerPlugin('function', 'serendipity_upgraderResultDiagnose', 'serendipity_smarty_backend_upgraderResultDiagnose');
 
-echo serendipity_smarty_show('admin/upgrader.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/upgrader.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */

@@ -349,7 +349,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
     if ( serendipity_updateConfiguration() ) {
         $data['s9y_installed'] = true;
     }
-    echo serendipity_smarty_show("admin/installer.inc.tpl", $data);
+    echo serendipity_smarty_showTemplate('admin/installer.inc.tpl', $data);
     return;
 }
 

@@ -443,6 +443,6 @@ $data['get'] = $serendipity['GET']; // don't trust {$smarty.get.vars} if not pro
 if (!isset($data['urltoken']))  $data['urltoken']  = serendipity_setFormToken('url');
 if (!isset($data['formtoken'])) $data['formtoken'] = serendipity_setFormToken();
 
-echo serendipity_smarty_show('admin/entries.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/entries.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */

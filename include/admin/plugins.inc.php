@@ -472,7 +472,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $data['updateAllMsg'] = isset($serendipity['GET']['updateAllMsg']);
 }
 
-echo serendipity_smarty_show('admin/plugins.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/plugins.inc.tpl', $data);
 
 
 /* vim: set sts=4 ts=4 expandtab : */

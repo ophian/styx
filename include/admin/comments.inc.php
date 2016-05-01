@@ -60,7 +60,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     if (!empty($comment['comment'])) {
         if (serendipity_saveComment($serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
             $data['commentReplied'] = true;
-            echo serendipity_smarty_show('admin/comments.inc.tpl', $data);
+            echo serendipity_smarty_showTemplate('admin/comments.inc.tpl', $data);
             return true;
         } else {
             $errormsg .= COMMENT_NOT_ADDED;
@@ -372,6 +372,6 @@ if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
-echo serendipity_smarty_show('admin/comments.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/comments.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */

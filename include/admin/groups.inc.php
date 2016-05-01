@@ -124,7 +124,7 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
     $data['formToken'] = serendipity_setFormToken();
 }
 
-echo serendipity_smarty_show('admin/groups.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/groups.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */
 ?>

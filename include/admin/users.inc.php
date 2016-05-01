@@ -244,7 +244,7 @@ if ( ($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermissio
     }
 }
 
-echo serendipity_smarty_show('admin/users.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/users.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */
 ?>

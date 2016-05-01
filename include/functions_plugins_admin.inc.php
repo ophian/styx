@@ -205,7 +205,7 @@ function show_plugins($event_only = false, $sidebars = null)
     }
 
     $data['total'] = $i;
-    return serendipity_smarty_show('admin/show_plugins.fnc.tpl', $data);
+    return serendipity_smarty_showTemplate('admin/show_plugins.fnc.tpl', $data);
 }
 
 /**
@@ -303,7 +303,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
 
         $assign_plugin_config = function($data) use (&$plugin_options, $tfile, $config_item) {
         $plugin_options[$config_item] = array(
-                                'config' => serendipity_smarty_show($tfile, $data),
+                                'config' => serendipity_smarty_showTemplate($tfile, $data),
                                 'ctype'  => $data['ctype']
                         );
         };
@@ -650,5 +650,5 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         $data['ev'] = $ev;
     }
 
-    return serendipity_smarty_show('admin/plugin_config.tpl', $data);
+    return serendipity_smarty_showTemplate('admin/plugin_config.tpl', $data);
 }

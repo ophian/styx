@@ -200,6 +200,6 @@ if ( $serendipity['GET']['adminAction'] == 'view' ) {
     }
 }
 
-echo serendipity_smarty_show('admin/category.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/category.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */

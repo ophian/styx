@@ -1267,7 +1267,7 @@ function serendipity_smarty_shutdown($serendipity_directory = '') {
  * 
  * @return string  compiled file
  */
-function serendipity_smarty_show($tplfile, $data = null, $debugtype = null, $debug = null) {
+function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = null, $debug = null) {
     global $serendipity;
 
     if (!is_object($serendipity['smarty'])) {

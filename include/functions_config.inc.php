@@ -851,7 +851,7 @@ function serendipity_iframe(&$entry, $mode = null) {
             $data['preview'] = serendipity_printEntries(array($entry), ($entry['extended'] != '' ? 1 : 0), true);
             break;
     }
-    return serendipity_smarty_show('preview_iframe.tpl', $data);
+    return serendipity_smarty_showTemplate('preview_iframe.tpl', $data);
 }
 
 /**

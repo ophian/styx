@@ -436,7 +436,7 @@ function serendipity_guessInput($type, $name, $value='', $default='') {
     $data['default'] = $default;
     $data['selected'] = $curOptions;
 
-    return serendipity_smarty_show('admin/guess_input.tpl', $data);
+    return serendipity_smarty_showTemplate('admin/guess_input.tpl', $data);
 }
 
 /**
@@ -505,7 +505,7 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
         }
     }
     $data['config'] = $config;
-    return serendipity_smarty_show('admin/config_template.tpl', $data);
+    return serendipity_smarty_showTemplate('admin/config_template.tpl', $data);
 }
 
 /**

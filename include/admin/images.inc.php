@@ -746,7 +746,7 @@ switch ($serendipity['GET']['adminAction']) {
         }
         $media = array_merge($serendipity['GET'], $media);
         $serendipity['smarty']->assignByRef('media', $media);
-        echo serendipity_smarty_show('admin/media_choose.tpl', $data);
+        echo serendipity_smarty_showTemplate('admin/media_choose.tpl', $data);
         break;
 
     default:
@@ -770,6 +770,6 @@ if (! isset($data['showML'])) {
 $data['get']['fid']       = $serendipity['GET']['fid']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipty['GET'] by runtime
 $data['get']['only_path'] = $serendipity['GET']['only_path'];
 
-echo serendipity_smarty_show('admin/images.inc.tpl', $data);
+echo serendipity_smarty_showTemplate('admin/images.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */
