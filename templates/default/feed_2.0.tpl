@@ -35,7 +35,7 @@
 {if !$is_comments}
     <slash:comments>{$entry.comments}</slash:comments>
     <wfw:commentRss>{$serendipityBaseURL}rss.php?version={$metadata.version}&amp;type=comments&amp;cid={$entry.feed_id}</wfw:commentRss>
-{/if}    
+{/if}
 
     <author>{$entry.feed_email} ({$entry.feed_author})</author>
 {if !empty($entry.body)}

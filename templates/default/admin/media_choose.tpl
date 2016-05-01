@@ -64,7 +64,7 @@
             if (parent.frames && parent.frames['tree']) { 
                 parent.frames['tree'].document.getElementById('newdirlink').href =
                     parent.frames['tree'].basenewdirurl +
-                    "{$media.only_path|@escape}"
+                    "{$media.only_path|escape}"
             } 
         {/if}
     </script>
@@ -121,7 +121,7 @@
     {if $media.file.is_image}
         {serendipity_hookPlugin hook="frontend_image_selector" eventData=$media.file hookAll=true}
         <img align="right" src="{$media.file.imgsrc}" />
-        <h1>{$CONST.YOU_CHOSE|@sprintf:$media.file.realname}</h1>
+        <h1>{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
         <p>
             <form action="#" method="GET" id="imageForm" name="serendipity[selForm]" onsubmit="serendipity_imageSelector_done()">
                 <div>
@@ -137,22 +137,22 @@
                     <input type="hidden" name="thumbName" value="{$media.file.show_thumb}" />
                     <input type="hidden" name="hotlink" value="{$media.file.hotlink}" />
                     {if $media.htmltarget}
-                    <input type="hidden" name="serendipity[htmltarget]" value="{$media.htmltarget|@escape}" />
+                    <input type="hidden" name="serendipity[htmltarget]" value="{$media.htmltarget|escape}" />
                     {/if}
                     {if $media.filename_only}
-                    <input type="hidden" name="serendipity[filename_only]" value="{$media.filename_only|@escape}" />
+                    <input type="hidden" name="serendipity[filename_only]" value="{$media.filename_only|escape}" />
                     {/if}
 
                     {if $media.file.fast_select}
                     <script type="text/javascript">
                         {serendipity_hookPlugin hookAll=true hook='frontend_image_add_filenameonly' eventData=$media.file}
-                        serendipity_imageSelector_done('{$media.textarea|@escape}');
+                        serendipity_imageSelector_done('{$media.textarea|escape}');
                     </script>
                     {else}
                     <b>{$CONST.IMAGE_SIZE}:</b>
                     <br />
-                    <input class="input_radio" id="radio_link_no" type="radio"  name="serendipity[linkThumbnail]" value="no" {'linkThumbnail'|@ifRemember:'no':true} /><label for="radio_link_no">{$CONST.I_WANT_THUMB}</label><br />
-                    <input class="input_radio" id="radio_link_yes" type="radio" name="serendipity[linkThumbnail]" value="yes" {'linkThumbnail'|@ifRemember:'yes'} /><label for="radio_link_yes">{$CONST.I_WANT_BIG_IMAGE}</label><br />
+                    <input class="input_radio" id="radio_link_no" type="radio"  name="serendipity[linkThumbnail]" value="no" {'linkThumbnail'|ifRemember:'no':true} /><label for="radio_link_no">{$CONST.I_WANT_THUMB}</label><br />
+                    <input class="input_radio" id="radio_link_yes" type="radio" name="serendipity[linkThumbnail]" value="yes" {'linkThumbnail'|ifRemember:'yes'} /><label for="radio_link_yes">{$CONST.I_WANT_BIG_IMAGE}</label><br />
                     {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagesize' eventData=$media.file}
                     <br />
 
@@ -160,17 +160,17 @@
                     <b>{$CONST.IMAGE_ALIGNMENT}:</b>
                     <br />
 
-                    <input class="input_radio" type="radio" name="serendipity[align]" {'align'|@ifRemember:''}           value="" />     <img src="{serendipity_getFile file='img/img_align_top.png'}"   vspace="5" /><br />
-                    <input class="input_radio" type="radio" name="serendipity[align]" {'align'|@ifRemember:'left':true}  value="left" /> <img src="{serendipity_getFile file='img/img_align_left.png'}"  vspace="5" /><br />
-                    <input class="input_radio" type="radio" name="serendipity[align]" {'align'|@ifRemember:'right'}      value="right" /><img src="{serendipity_getFile file='img/img_align_right.png'}" vspace="5" /><br />
+                    <input class="input_radio" type="radio" name="serendipity[align]" {'align'|ifRemember:''} value="" /><img src="{serendipity_getFile file='img/img_align_top.png'}" vspace="5" /><br />
+                    <input class="input_radio" type="radio" name="serendipity[align]" {'align'|ifRemember:'left':true} value="left" /><img src="{serendipity_getFile file='img/img_align_left.png'}" vspace="5" /><br />
+                    <input class="input_radio" type="radio" name="serendipity[align]" {'align'|ifRemember:'right'} value="right" /><img src="{serendipity_getFile file='img/img_align_right.png'}" vspace="5" /><br />
                     {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagealign' eventData=$media.file}
                     <br />
 
                     <b>{$CONST.IMAGE_AS_A_LINK}:</b>
                     <br />
 
-                    <input class="input_radio" type="radio" id="radio_islink_no" type="radio" name="serendipity[isLink]" value="no" {'isLink'|@ifRemember:'no':true} /><label for="radio_islink_no"> {$CONST.I_WANT_NO_LINK}</label><br />
-                    <input class="input_radio" type="radio" id="radio_islink_yes"  type="radio" name="serendipity[isLink]" value="yes"  {'isLink'|@ifRemember:'yes'} /><label for="radio_islink_yes"> {$CONST.I_WANT_IT_TO_LINK}</label>
+                    <input class="input_radio" type="radio" id="radio_islink_no" type="radio" name="serendipity[isLink]" value="no" {'isLink'|ifRemember:'no':true} /><label for="radio_islink_no"> {$CONST.I_WANT_NO_LINK}</label><br />
+                    <input class="input_radio" type="radio" id="radio_islink_yes"  type="radio" name="serendipity[isLink]" value="yes"  {'isLink'|ifRemember:'yes'} /><label for="radio_islink_yes"> {$CONST.I_WANT_IT_TO_LINK}</label>
                     {if $media.file.hotlink}
 
                     <input class="input_textbox" type="text"  name="serendipity[url]" size="30" value="{$media.file.path}" /><br />
@@ -181,10 +181,10 @@
 
                     <label for="select_image_target">{$CONST.MEDIA_TARGET}</label>
                         <select name="serendipity[target]" id="select_image_target">
-                            <option value="none"   {'target'|@ifRemember:'none':false:'selected'}>{$CONST.NONE}</option>
-                            <option value="js"     {'target'|@ifRemember:'js':false:'selected'}>{$CONST.MEDIA_TARGET_JS}</option>
-                            <option value="plugin" {'target'|@ifRemember:'plugin':false:'selected'}>{$CONST.MEDIA_ENTRY}</option>
-                            <option value="_blank" {'target'|@ifRemember:'_blank':false:'selected'}>{$CONST.MEDIA_TARGET_BLANK}</option>
+                            <option value="none"   {'target'|ifRemember:'none':false:'selected'}>{$CONST.NONE}</option>
+                            <option value="js"     {'target'|ifRemember:'js':false:'selected'}>{$CONST.MEDIA_TARGET_JS}</option>
+                            <option value="plugin" {'target'|ifRemember:'plugin':false:'selected'}>{$CONST.MEDIA_ENTRY}</option>
+                            <option value="_blank" {'target'|ifRemember:'_blank':false:'selected'}>{$CONST.MEDIA_TARGET_BLANK}</option>
                         </select>
                     <br />
 
@@ -193,19 +193,19 @@
 
                     <b>{$CONST.COMMENT}:</b>
                     <br />
-                    <textarea id="serendipity_imagecomment" name="serendipity[imagecomment]" rows="5" cols="40">{$media.file.props.base_property.COMMENT1|@escape}</textarea>
+                    <textarea id="serendipity_imagecomment" name="serendipity[imagecomment]" rows="5" cols="40">{$media.file.props.base_property.COMMENT1|escape}</textarea>
                     {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagecomment' eventData=$media.file}
                     <br />
 
                     <b>{$CONST.MEDIA_ALT}:</b>
                     <br />
-                    <input size="30" class="input_textbox" type="text" id="serendipity_alt" name="serendipity[alt]" value="{$media.file.props.base_property.ALT|@escape}" /></textarea>
+                    <input size="30" class="input_textbox" type="text" id="serendipity_alt" name="serendipity[alt]" value="{$media.file.props.base_property.ALT|escape}" /></textarea>
                     {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_alt' eventData=$media.file}
                     <br />
 
                     <b>{$CONST.MEDIA_TITLE}:</b>
                     <br />
-                    <input size="30" class="input_textbox" type="text" id="serendipity_title" name="serendipity[title]" value="{$media.file.props.base_property.TITLE|@escape}" /></textarea>
+                    <input size="30" class="input_textbox" type="text" id="serendipity_title" name="serendipity[title]" value="{$media.file.props.base_property.TITLE|escape}" /></textarea>
                     {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_title' eventData=$media.file}
                     <br />
                     {/if}
@@ -232,7 +232,7 @@
         </script>
         {else}
         <script type="text/javascript">
-            block = '<a href="{$media.file.full_file}" title="{$media.file.realname|@escape}" target="_blank">{$media.file.realname|@escape}</a>';
+            block = '<a href="{$media.file.full_file}" title="{$media.file.realname|escape}" target="_blank">{$media.file.realname|escape}</a>';
             {serendipity_hookPlugin hookAll=true hook='frontend_image_add_unknown' eventData=$media}
             if (parent.self.opener == undefined) {
                 // in iframes, there is no opener, and the magnific popup is wrapped

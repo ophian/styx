@@ -1,5 +1,4 @@
-<?php
-
+<?php # $Id$
 @define('REPLY', 'Reply');
 @define('SAYS', 'says');
 @define('LINK_TO_COMMENT', 'Link to comment #%d');
@@ -9,5 +8,4 @@
 @define('SUBJECT_TO_MODERATION', 'All new comments are subject to moderation before being displayed.');
 @define('COMMENTS_CLOSED', 'Both comments and trackbacks are currently closed.');
 @define('PROUDLY_POWERED_BY', 'My weblog is proudly powered by');
-
 ?>
