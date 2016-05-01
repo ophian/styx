@@ -75,19 +75,12 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         $limitsql = serendipity_db_limit_sql(serendipity_db_limit($start, $limit));
     }
 
-    if ($hideSubdirFiles == false) {
-        if (!empty($directory)) {
-            $cond['parts']['directory'] = " AND i.path LIKE '" . serendipity_db_escape_string($directory) . "%'\n";
-        }
-        // if in root, having no directory set, the query fetches all files by default, meaning we are done
-    } else {
-        if (!empty($directory)) {
-            $cond['parts']['directory'] = " AND i.path LIKE '" . serendipity_db_escape_string($directory) . "%'\n";
-        } else {
-            $cond['parts']['directory'] = " AND i.path = ''\n";
-        }
+    if ($hideSubdirFiles) {
+        $cond['parts']['directory'] = " AND i.path = '" . serendipity_db_escape_string($directory) . "'\n";
+    } elseif (!empty($directory)) {
+        $cond['parts']['directory'] = " AND i.path LIKE '" . serendipity_db_escape_string($directory) . "%'\n";
     }
-    
+
     if (!empty($filename)) {
         $cond['parts']['filename'] = " AND (i.name     like '%" . serendipity_db_escape_string($filename) . "%' OR
                   i.realname like '%" . serendipity_db_escape_string($filename) . "%')\n";
@@ -1459,8 +1452,11 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     global $serendipity;
     static $debug = false;
 
-    $extraParems = serendipity_generateImageSelectorParems();
-    
+    $extraParems     = serendipity_generateImageSelectorParems();
+    $hideSubdirFiles = ($serendipity['GET']['hideSubdirFiles'] == 'yes') ? true : false; // default
+
+    $userPerms     = array('delete' => serendipity_checkPermission('adminImagesDelete'));
+
     $serendipity['GET']['only_path']     = serendipity_uploadSecure($limit_path . $serendipity['GET']['only_path'], true);
     $serendipity['GET']['only_filename'] = serendipity_specialchars(str_replace(array('*', '?'), array('%', '_'), $serendipity['GET']['only_filename']));
 
@@ -1603,6 +1599,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     ## Aply ACL afterwards:
     serendipity_directoryACL($paths, 'read');
 
+    // set filters (first part of serendipity_showMedia() remember filter settings for SetCookie ~1450)
     // set remember filter settings for SetCookie
     if (!isset($serendipity['GET']['filter'])) {
         serendipity_restoreVar($serendipity['COOKIE']['filter'], $serendipity['GET']['filter']);
@@ -1618,7 +1615,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                                   (isset($serendipity['GET']['only_filename']) ? $serendipity['GET']['only_filename'] : ''),
                                   (isset($serendipity['GET']['keywords']) ? $serendipity['GET']['keywords'] : ''),
                                   (isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : ''),
-                                  isset($serendipity['GET']['hideSubdirFiles'])
+                                  $hideSubdirFiles
     );
 
     $pages         = ceil($totalImages / $perPage);
@@ -1666,6 +1663,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         'limit_path'    => $limit_path,
         'perPage'       => $perPage,
         'show_upload'   => $show_upload,
+        'perms'         => $userPerms,
         'page'          => $page,
         'pages'         => $pages,
         'linkFirst'     => $linkFirst,
@@ -2953,7 +2951,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'filter'            => $serendipity['GET']['filter'],
         'sort_order'        => $order_fields,
         'simpleFilters'     => $serendipity['simpleFilters'],
-        'hideSubdirFiles'   => $serendipity['GET']['hideSubdirFiles'],
+        'hideSubdirFiles'   => empty($serendipity['GET']['hideSubdirFiles']) ? 'yes' : $serendipity['GET']['hideSubdirFiles'],
         'authors'           => serendipity_fetchUsers(),
         'sort_row_interval' => array(8, 16, 50, 100),
         'nr_files'          => count($file),

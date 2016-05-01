@@ -168,13 +168,23 @@
                     </select>
                 </div>
                 {if !$media.simpleFilters}
-                    <div class="form_field">
+
+                <div class="form_field">
+                    <div class="clearfix">
                         <div class="form_radio">
-                            <input type="checkbox" id="hide_subdir_files" name="serendipity[hideSubdirFiles]" {if $media.hideSubdirFiles}checked{/if} value="on">
-                            <label for="hide_subdir_files">{$CONST.HIDE_SUBDIR_FILES}</label>
+                            <input id="radio_link_no" name="serendipity[hideSubdirFiles]" type="radio" value="no" {if $media.hideSubdirFiles == 'no'}checked="checked"{/if}>
+                            <label for="radio_link_no">{$CONST.NO}</label>
                         </div>
+
+                        <div class="form_radio">
+                            <input id="radio_link_yes" name="serendipity[hideSubdirFiles]" type="radio" value="yes" {if $media.hideSubdirFiles == 'yes'}checked="checked"{/if}>
+                            <label for="radio_link_yes">{$CONST.YES}</label>
+                        </div>
+                        <div class="hideSubDirLabel">{$CONST.HIDE_SUBDIR_FILES|default:'Hide Files of Subdirectories'}</div>
                     </div>
+                </div>
                 {/if}
+
             </li>
             </div>
             <div class="form_buttons">
