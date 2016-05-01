@@ -353,14 +353,14 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
     return;
 }
 
-include_once  dirname(dirname(__FILE__)) . "/functions.inc.php";
+include_once  dirname(dirname(__FILE__)) . '/functions.inc.php';
 
 if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
 $serendipity['smarty']->assign($data);
-$tfile = serendipity_getTemplateFile("admin/installer.inc.tpl");
+$tfile = serendipity_getTemplateFile('admin/installer.inc.tpl');
 
 ob_start();
 include $tfile;
