@@ -190,20 +190,7 @@ $dead_dirs_200 = array(
 
 /* A list of old or beta Serendipity files, which were not marked obsolet with the 2.0.2 upgrade, or were removed by 2.1.0 */
 $dead_files_202 = array(
-    'docs/CHANGED_FILES',
-	'docs/INSTALL_EMBEDED',
-	'docs/INSTALL_SHARED',
-    'docs/UPGRADE',
-    'docs/upgrade.sh',
     'bundled-libs/PEAR5.php',
-    'templates/default/admin/media_showitem.tpl',
-    'templates/2k11/admin/media_showitem.tpl',
-    'templates/Sagittarius-A/admin/media_showitem.tpl',
-    'plugins/serendipity_event_gravatar/ycon/UTF-8/lang_pl.inc.php',
-    'plugins/serendipity_event_gravatar/UTF-8/documentation_cz.html',
-    'plugins/serendipity_event_gravatar/UTF-8/documentation_cs.html',
-    'plugins/serendipity_event_creativecommons/UTF-8/documentation_cz.html',
-    'plugins/serendipity_event_creativecommons/UTF-8/documentation_cs.html',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_codeframe.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_config.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_defaulttemplatehandler.php',
@@ -212,7 +199,20 @@ $dead_files_202 = array(
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_get_include_path.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_runtime_inline.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_utility.php',
-    'bundled-libs/Smarty/libs/sysplugins/smarty_internal_write_file.php'
+    'bundled-libs/Smarty/libs/sysplugins/smarty_internal_write_file.php',
+    'docs/CHANGED_FILES',
+	'docs/INSTALL_EMBEDED',
+	'docs/INSTALL_SHARED',
+    'docs/UPGRADE',
+    'docs/upgrade.sh',
+    'plugins/serendipity_event_gravatar/ycon/UTF-8/lang_pl.inc.php',
+    'plugins/serendipity_event_gravatar/UTF-8/documentation_cz.html',
+    'plugins/serendipity_event_gravatar/UTF-8/documentation_cs.html',
+    'plugins/serendipity_event_creativecommons/UTF-8/documentation_cz.html',
+    'plugins/serendipity_event_creativecommons/UTF-8/documentation_cs.html',
+    'templates/default/admin/media_showitem.tpl',
+    'templates/2k11/admin/media_showitem.tpl',
+    'templates/Sagittarius-A/admin/media_showitem.tpl'
 );
 
 /* A list of old directories which were removed with 2.1.0 */
