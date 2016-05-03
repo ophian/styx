@@ -2420,6 +2420,8 @@ label .perm_name,
 .js .media_file_preview,
 .js .template_preview {
     position: relative;
+    height: 17.5em;
+    overflow: hidden;
 }
 
 .js .media_pane .media_file_meta,
@@ -2431,7 +2433,6 @@ label .perm_name,
     box-sizing: border-box;
     color: #fcfcfc;
     height: 100%;
-    min-height: 7em;
     overflow: auto;
     padding: .5em 1em;
     position: absolute;
@@ -2529,6 +2530,11 @@ input[name="serendipity[filter][fileCategory]"] {
     clear: right;
     float: left;
     margin: -0.75em 0px;
+}
+
+#media_pane_sort .hideSubDirLabel {
+    margin-top: 0.75em;
+    width: 100%;
 }
 
 #overlay {
@@ -2897,8 +2903,8 @@ img.mfp-img {
 
 @media screen and (max-width: 800px) and (orientation: landscape), screen and (max-height: 300px) {
   /**
-       * Remove all paddings around the image on small screen
-       */
+   * Remove all paddings around the image on small screen
+   */
   .mfp-img-mobile .mfp-image-holder {
     padding-left: 0;
     padding-right: 0; }
@@ -3103,6 +3109,10 @@ img.mfp-img {
         float: left;
         margin-right: 2%;
         width: 48%;
+    }
+
+    #plugin_groups.update_group {
+        min-height: 2em;
     }
 
     #plugin_filter {
@@ -3361,6 +3371,9 @@ img.mfp-img {
         clear: left;
     }
 
+    #pluginlist_sidebar .equal_heights {
+        min-height: inherit !important;
+    }
     #meta p {
         font-size: .875em;
         padding: .85715em;
@@ -3603,6 +3616,10 @@ img.mfp-img {
 
     .manage h3 {
         width: 14em;
+    }
+
+    #media_pane_sort .hideSubDirLabel {
+        white-space: pre;
     }
 
     #login {
