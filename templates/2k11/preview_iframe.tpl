@@ -26,6 +26,7 @@
 {else}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
 {/if}
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
 {serendipity_hookPlugin hook="backend_header" hookAll="true"}
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
