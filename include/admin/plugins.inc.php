@@ -94,7 +94,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $cbag = new serendipity_property_bag;
             if ($plugin->introspect_config_item($config_item, $cbag)) {
                 $value    = $_POST['serendipity']['plugin'][$config_item];
-
                 $validate = $plugin->validate($config_item, $cbag, $value);
                 if ($validate === true) {
                     if (!empty($_POST['serendipity']['plugin']['override'][$config_item])) {
@@ -154,13 +153,12 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $serendipity['GET']['type'] = $serendipity['GET']['type'] ?: 'sidebar';
     $data['adminAction'] = 'addnew';
     $data['type'] = $serendipity['GET']['type'];
-
     $foreignPlugins = $pluginstack = $errorstack = array();
     serendipity_plugin_api::hook_event('backend_plugins_fetchlist', $foreignPlugins);
     $pluginstack = array_merge((array)$foreignPlugins['pluginstack'], $pluginstack);
     $errorstack  = array_merge((array)$foreignPlugins['errorstack'], $errorstack);
     if ($serendipity['GET']['only_group'] == 'UPGRADE') {
-        // for upgrades, the distinction in sidebar and event-plugins is not useful. We will fetch both and mix the lists    
+        // for upgrades, the distinction in sidebar and event-plugins is not useful. We will fetch both and mix the lists
         if ($serendipity['GET']['type'] == 'event') {
             $serendipity['GET']['type'] = 'sidebar';
         } else {
@@ -172,7 +170,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $errorstack  = array_merge((array)$foreignPluginsTemp['errorstack'], $errorstack);
         $foreignPlugins = array_merge($foreignPlugins, $foreignPluginsTemp);
     }
-
     $plugins = serendipity_plugin_api::get_installed_plugins();
     $classes = serendipity_plugin_api::enum_plugin_classes(($serendipity['GET']['type'] === 'event'));
     if ($serendipity['GET']['only_group'] == 'UPGRADE') {
@@ -208,7 +205,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
         if (is_array($props)) {
             if (version_compare($props['version'], $props['upgrade_version'], '<')) {
-                $props['upgradable']      = true;
+                $props['upgradable'] = true;
                 // since we merged sidebar and event plugins before, we can no longer rely on spartacus' $foreignPlugins['baseURI']
                 // NOTE: This is not nice and it would be better to move it into the plugins array instead, but that collides with the cache
                 if (strpos($class_data['name'], 'serendipity_plugin') !== false) {
@@ -305,10 +302,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                     $requirement_failures[$plug['class_name']] = array("smarty" => true);
                 }
             }
-
         }
     }
     $data['requirements_failues'] = $requirement_failures;
+
 } elseif ( $serendipity['GET']['adminAction'] == 'renderOverlay' ) {
     $data['adminAction'] = 'overlay';
 } else {
