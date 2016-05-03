@@ -50,6 +50,14 @@
                             <dd>{$cur_tpl.info.custom_config|default:$CONST.NO}</dd>
                             <dt class="template_admin">{$CONST.CUSTOM_ADMIN_INTERFACE}:</dt>
                             <dd>{$cur_tpl.info.custom_admin_interface}</dd>
+                            {if isset($cur_tpl.info.summary)}
+                            <dt class="template_summary">Summary:</dt>
+                            <dd>{$cur_tpl.info.summary}</dd>
+                            {/if}
+                            {if isset($cur_tpl.info.description)}
+                            <dt class="template_description">Description:</dt>
+                            <dd>{$cur_tpl.info.description}</dd>
+                            {/if}
                         </dl>
                         {if !$cur_tpl.info.custom_config}<p>{$CONST.STYLE_OPTIONS_NONE}</p>{/if}
                     </footer>
@@ -116,6 +124,14 @@
                                     <dd>{$info.info.custom_config|default:$CONST.NO}</dd>
                                     <dt class="template_admin">{$CONST.CUSTOM_ADMIN_INTERFACE}:</dt>
                                     <dd>{if $info.info.custom_admin_interface} {$info.info.custom_admin_interface} {else} {$CONST.NO} {/if}</dd>
+                                    {if isset($info.info.summary)}
+                                    <dt class="template_summary">Summary:</dt>
+                                    <dd>{$info.info.summary}</dd>
+                                    {/if}
+                                    {if isset($info.info.description)}
+                                    <dt class="template_description">Description:</dt>
+                                    <dd>{$info.info.description}</dd>
+                                    {/if}
                                 </dl>
                             </footer>
                         </div>
@@ -141,17 +157,16 @@
 
         <h2>{$CONST.RECOMMENDED}</h2>
         <ul class="plainList clearfix">
-        {foreach $recommended_templates as $template=>$info}
-            {templateBlock template=$template info=$info key=$info@key}
+        {foreach $recommended_templates as $templateR=>$infoR}
+            {templateBlock template=$templateR info=$infoR key=$infoR@key}
         {/foreach}
         </ul>
         
-
         <h2>{$CONST.AVAILABLE_TEMPLATES}</h2>
 
         <ul class="plainList clearfix">
-        {foreach $templates as $template=>$info}
-            {templateBlock template=$template info=$info key=$info@key}
+        {foreach $templates as $templateA=>$infoA}
+            {templateBlock template=$templateA info=$infoA key=$infoA@key}
         {/foreach}
         </ul>
     </section>
