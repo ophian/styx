@@ -38,6 +38,7 @@
     {/if}
 
     {if $no_create !== true}
+        {if $no_default !== true}
         <section id="dashboard_comments" class="equal_heights quick_list dashboard_widget">
             <h3>{if 'adminComments'|checkPermission}<a href="serendipity_admin.php?serendipity[adminModule]=comments">{/if}{$CONST.COMMENTS}{if 'adminComments'|checkPermission}</a>{/if}</h3>
 
@@ -114,6 +115,7 @@
             {/if}
             </ol>
         </section>
+        {/if}
 
         {serendipity_hookPlugin hook="backend_dashboard" hookAll="true"}
     {/if}
