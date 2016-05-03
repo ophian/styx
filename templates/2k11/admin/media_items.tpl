@@ -70,7 +70,7 @@
                     </div>
                     {/if}
 
-                    <h3 title="{$file.realname}">{$file.realname|truncate:50:"&hellip;":true}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}</h3>
+                    <h3 title="{$file.realname}">{$file.realname|truncate:38:"&hellip;":true}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}</h3>
                     {if $file.authorid != 0}<span class="author block_level">{$file.authorname}</span>{/if}
 
                 </header>
@@ -88,7 +88,7 @@
                             {else}
                                 {if $file.realname != $file.diskname}
 
-                                <li title="{$file.diskname}">{$file.diskname|truncate:30:"&hellip;"}</li>
+                                <li title="{$file.diskname}">{$file.diskname|truncate:38:"&hellip;"}</li>
                                 {/if}
                                 {if $file.mime}
 
