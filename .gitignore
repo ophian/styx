@@ -16,3 +16,4 @@ plugins/additional_plugins*
 .editorconfig
 *.git
 tests/phpunit.xml
+Thumbs.db
