@@ -1116,3 +1116,8 @@
 @define('USE_CACHE', 'Enable caching');
 @define('USE_CACHE_DESC', 'Enables an internal cache to not repeat specific database queries. This reduces the load on servers with medium to high traffic and improves page load time.');
 @define('CONFIG_PERMALINK_PATH_DESC', 'Please note that you have to use a prefix so that Serendipity can properly map the URL to the proper action. You may change the prefix to any unique name, but not remove it. This applies to all path prefix definitions.');
+
+@define('HIDE_SUBDIR_FILES', 'Hide Files of Subdirectories');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Default dashboard widgets?');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Show default and hardcoded dashboard widgets, like draft entries and last comments.');
+

@@ -1119,3 +1119,8 @@
 @define('USE_CACHE', '캐시 사용하기');
 @define('USE_CACHE_DESC', '특정 데이터베이스 질의를 반복하지 않도록 내부 캐시를 사용하도록 합니다. 중간에서 높은 접속량이 걸리는 서버의 부하를 줄이며 페이지를 불러오는 속도를 향상시킵니다.');
 @define('CONFIG_PERMALINK_PATH_DESC', '세렌디피티가 주소(URL)와 작업을 제대로 연동시킬 수 있도록 반드시 접두사를 지정해야 한다는 점에 유의하기 바랍니다. 접두사는 고유한 이름이면 아무렇게나 지정할 수 있지만 비워둘 수는 없습니다. 이는 모든 접두사 지정사항에 대해 동일하게 적용됩니다.');
+
+@define('HIDE_SUBDIR_FILES', 'Hide Files of Subdirectories');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Default dashboard widgets?');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Show default and hardcoded dashboard widgets, like draft entries and last comments.');
+
