@@ -180,7 +180,7 @@
                             <input id="radio_link_yes" name="serendipity[hideSubdirFiles]" type="radio" value="yes" {if $media.hideSubdirFiles == 'yes'}checked="checked"{/if}>
                             <label for="radio_link_yes">{$CONST.YES}</label>
                         </div>
-                        <div class="hideSubDirLabel">{$CONST.HIDE_SUBDIR_FILES|default:'Hide Files of Subdirectories'}</div>
+                        <div class="hideSubDirLabel">{$CONST.HIDE_SUBDIR_FILES}</div>
                     </div>
                 </div>
                 {/if}
