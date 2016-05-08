@@ -120,6 +120,14 @@
                                           'flags'       => array('config'),
                                           'view'        => 'dangerous'),
 
+                                    array('var'         => 'default_widgets',
+                                          'title'       => USERCONF_DASHBOARD_DEFAULT_WIDGETS,
+                                          'description' => USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC,
+                                          'type'        => 'bool',
+                                          'default'     => true,
+                                          'permission'  => 'personalConfiguration',
+                                          'flags'       => array('config')),
+
                                     array('var'         => 'right_publish',
                                           'title'       => USERCONF_ALLOWPUBLISH,
                                           'description' => USERCONF_ALLOWPUBLISH_DESC,

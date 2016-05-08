@@ -132,7 +132,7 @@ $data['urltoken'] = serendipity_setFormToken('url');
 $data['token'] = serendipity_setFormToken();
 
 $data['no_create'] = $serendipity['no_create'];
-$data['no_default'] = $serendipity['dashboardNoDefaultWidget'];
+$data['default_widgets'] = $serendipity['default_widgets'];
 
 echo serendipity_smarty_showTemplate('admin/overview.inc.tpl', $data);
 
