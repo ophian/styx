@@ -122,8 +122,10 @@ function debug_ErrorLevelType($type)
 if (!function_exists('errorToExceptionHandler')) {
     function errorToExceptionHandler($errNo, $errStr, $errFile = '', $errLine = NULL, $errContext = array()) {
         global $serendipity;
+
         // By default, we will continue our process flow, unless:
         $exit = false;
+
         switch ($errNo) {
             case E_ERROR:
             case E_USER_ERROR:
@@ -149,9 +151,12 @@ if (!function_exists('errorToExceptionHandler')) {
                 $exit = true;
                 break;
         }
+
         // NOTE: We do NOT use ini_get('error_reporting'), because that would return the global error reporting,
         // and not the one in our current content. @-silenced errors would otherwise never be caught on.
         $rep  = error_reporting();
+        $args = func_get_args();
+
         // Bypass error processing because it's @-silenced.
         if ($rep == 0) {
             return false;
@@ -165,7 +170,7 @@ if (!function_exists('errorToExceptionHandler')) {
             #if (!headers_sent()) echo "<strong>Compatibility warning:</strong> Please upgrade file old '{$args[2]}', it contains incompatible signatures.<br/>Details: {$args[1]}<br/>";
             return false;
         }
-        $args = func_get_args();
+
         /*
          * $serendipity['production'] can be:
          *
@@ -174,6 +179,7 @@ if (!function_exists('errorToExceptionHandler')) {
          * (string) 'debug'     Developer build, specifically enabled.
          */
         $debug_note = '<br />For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a stack-trace.';
+
         // Debug environments shall be verbose...
         if ($serendipity['production'] === 'debug') {
             echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br />\n";
