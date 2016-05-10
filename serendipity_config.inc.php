@@ -62,10 +62,8 @@ if ($serendipity['production'] !== true) {
     @ini_set('display_errors', 'on');
 }
 
-// The serendipity errorhandler string - temporary reset for PHP7 testing
-if (PHP_MAJOR_VERSION < 7) {
-    $serendipity['errorhandler'] = 'errorToExceptionHandler';
-}
+// The serendipity errorhandler string
+$serendipity['errorhandler'] = 'errorToExceptionHandler';
 
 // Default rewrite method
 $serendipity['rewrite'] = 'none';
@@ -280,23 +278,16 @@ if ($serendipity['production'] === false) {
 
 $errLevel = error_reporting();
 
-/* debug make correct error levels readable
+/* [DEBUG] Helper to display current error levels, meant for developers.
 echo $errLevel."<br>\n";
 for ($i = 0; $i < 15;  $i++ ) {
     print debug_ErrorLevelType($errLevel & pow(2, $i)) . "<br>\n";
 }
 */
-
 // [internal callback function]: errorToExceptionHandler()
 if (is_callable($serendipity['errorhandler'], false, $callable_name)) {
     // set serendipity global error to exeption handler
-    if ($serendipity['production'] === 'debug') {
-        set_error_handler($serendipity['errorhandler'], $errLevel); // Yes, DEBUG mode should actually report E_STRICT errors! In PHP 5.4+ contained in E_ALL already
-    } elseif ($serendipity['production'] === false) {
-        set_error_handler($serendipity['errorhandler'], $errLevel); // most E_STRICT errors are thrown during the page's compilation process and can not be suppressed here.
-    } else {
-        set_error_handler($serendipity['errorhandler'], $errLevel); // different, see ln 56
-    }
+    set_error_handler($serendipity['errorhandler'], $errLevel); // See error_reporting() earlier to see which errors are passed to the handler, depending on $serendipity['production'].
 }
 
 define('IS_up2date', version_compare($serendipity['version'], $serendipity['versionInstalled'], '<='));

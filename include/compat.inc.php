@@ -122,8 +122,9 @@ function debug_ErrorLevelType($type)
 if (!function_exists('errorToExceptionHandler')) {
     function errorToExceptionHandler($errNo, $errStr, $errFile = '', $errLine = NULL, $errContext = array()) {
         global $serendipity;
+        // By default, we will continue our process flow, unless:
         $exit = false;
-        switch ( $errNo ) {
+        switch ($errNo) {
             case E_ERROR:
             case E_USER_ERROR:
                 $type = 'Fatal Error';
@@ -148,58 +149,59 @@ if (!function_exists('errorToExceptionHandler')) {
                 $exit = true;
                 break;
         }
-        $rep  = ini_get('error_reporting');
-        $args = func_get_args();
-
-        // respect user has set php error_reporting to not display any errors at all
-        if (!($rep & $errStr)) { return false; }
-        // user used @ to specify ignoring all errors or $php_errormsg messages returned with error_reporting = 0
-        if ($rep == 0) { return false; }
-        // if not using Serendipity testing and user or ISP has set PHPs display_errors to show no errors at all, respect
-        if ($serendipity['production'] === true && ini_get('display_errors') == 0) { return false; }
+        // NOTE: We do NOT use ini_get('error_reporting'), because that would return the global error reporting,
+        // and not the one in our current content. @-silenced errors would otherwise never be caught on.
+        $rep  = error_reporting();
+        // Bypass error processing because it's @-silenced.
+        if ($rep == 0) {
+            return false;
+        }
+        // if not using Serendipity testing and user or ISP has set PHPs display_errors to show no errors at all, respect this:
+        if ($serendipity['production'] === true && ini_get('display_errors') == 0) {
+            return false;
+        }
         // Several plugins might not adapt to proper style. This should not completely kill our execution.
         if ($serendipity['production'] !== 'debug' && preg_match('@Declaration.*should be compatible with@i', $args[1])) {
             #if (!headers_sent()) echo "<strong>Compatibility warning:</strong> Please upgrade file old '{$args[2]}', it contains incompatible signatures.<br/>Details: {$args[1]}<br/>";
             return false;
         }
-        // any other errors go here - throw errors as exception
+        $args = func_get_args();
+        /*
+         * $serendipity['production'] can be:
+         *
+         * (bool) TRUE:         Live-blog, conceal error messages
+         * (bool) FALSE         Beta/alpha builds
+         * (string) 'debug'     Developer build, specifically enabled.
+         */
+        $debug_note = '<br />For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a stack-trace.';
+        // Debug environments shall be verbose...
         if ($serendipity['production'] === 'debug') {
-
-            // We don't want the notices - but everything else !
-            echo " == FULL DEBUG ERROR MODE == \n";
+            echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br />\n";
+            echo " == (When you copy this debug output to a forum or other places, make sure to remove your username/passwords, as they may be contained within function calls) == \n";
             echo '<pre>';
-            // trying to be as detailled as possible - but avoid using args containing sensibel data like passwords
-            if (function_exists('debug_backtrace') && version_compare(PHP_VERSION, '5.3.6') >= 0) {
-                if ( version_compare(PHP_VERSION, '5.4') >= 0 ) {
-                    $debugbacktrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 8);
-                } else {
-                    $debugbacktrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
-                }
-                print_r($debugbacktrace);
-            }
-            //print_r($args); // debugging [Use with care! Not to public, since holding password and credentials!!!]
-            // debugbacktrace is nice, but additional it is good to have the verbosity of SPL EXCEPTIONS, except for db connect errors
-        }
-        if ($serendipity['production'] === false) {
-            echo " == TESTING ERROR MODE == \n";
+            debug_print_backtrace(); // Unlimited output, debugging shall show us everything. (sets requirement to 5.4+)
+            echo "</pre>";
+            $debug_note = '';
+        } elseif ($serendipity['production'] === false) {
+            echo " == ERROR-REPORT (BETA/ALPHA-BUILDS) == \n";
         }
         if ($serendipity['production'] !== true) {
+            // Display error (production: FALSE and production: 'debug')
             if (!$serendipity['dbConn'] || $exit) {
-                echo '<p><b>' . $type.':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '</p>';
+                echo '<p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . '</p>';
             } else {
-                echo '<pre style="white-space: pre-line;">';
-                throw new \ErrorException($type.': '.$errStr, 0, $errNo, $errFile, $errLine); // tracepath = all, if not ini_set('display_errors', 0);
-                echo '</pre>'; // if using throw new ... this ending tag will not be send and displayed, but it still looks better and browsers don't really care
+            echo '<pre style="white-space: pre-line;">';
+            throw new \ErrorException($type . ': ' . $errStr, 0, $errNo, $errFile, $errLine); // tracepath = all, if not ini_set('display_errors', 0);
+            if (!$serendipity['dbConn'] || $exit) {
+                exit; // make sure to exit in case of database connection errors or fatal errors.
             }
-            if (!$serendipity['dbConn'] || $exit) exit; // make sure to exit in case of database connection errors.
         } else {
-            if( $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN ) {
-                // ToDo: enhance for more special serendipity error needs
+            // Only display error (production blog) if an admin is logged in, else we discard the error.
+            if ($serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
                 $str  = " == SERENDIPITY ERROR == ";
-                $str .= '<p>' . $errStr . ' in ' . $errFile . ' on line ' . $errLine . '</p>';
-                #var_dump(headers_list());
+                $str .= '<p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . '</p>';
                 if (headers_sent()) {
-                    serendipity_die($str); // case HTTP headers: needs to halt with die() here, else it will path through and gets written underneath blog content, or into streamed js files, which hardly isn't seen by many users
+                    serendipity_die($str); // case HTTP headers: needs to halt with die() here, else it will pass through and gets written underneath blog content, or into streamed js files, which hardly isn't seen by many users
                 } else {
                     // see global include of function in plugin_api.inc.php
                     // this also reacts on non eye-displayed errors with following small javascript,
