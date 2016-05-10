@@ -12,7 +12,7 @@ class Serendipity_Import_phpbb extends Serendipity_Import {
     var $inputFields = array();
     var $categories  = array();
 
-    function Serendipity_Import_phpbb($data) {
+    function __construct($data) {
         $this->data = $data;
         $this->inputFields = array(array('text' => INSTALL_DBHOST,
                                          'type' => 'input',
@@ -123,8 +123,8 @@ class Serendipity_Import_phpbb extends Serendipity_Import {
         }
 
         /* Categories */
-        $res = @$this->nativeQuery("SELECT cat_id AS cat_ID, 
-                                    cat_title AS cat_name 
+        $res = @$this->nativeQuery("SELECT cat_id AS cat_ID,
+                                    cat_title AS cat_name
                                FROM {$this->data['prefix']}categories", $gdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($gdb));
@@ -148,9 +148,9 @@ class Serendipity_Import_phpbb extends Serendipity_Import {
 
         /* Categories */
         $res = @$this->nativeQuery("SELECT forum_id AS cat_ID,
-                                    cat_id   AS parent_cat_id, 
-                                    forum_name AS cat_name, 
-                                    forum_desc AS category_description 
+                                    cat_id   AS parent_cat_id,
+                                    forum_name AS cat_name,
+                                    forum_desc AS category_description
                                FROM {$this->data['prefix']}forums ORDER BY forum_order;", $gdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($gdb));
@@ -184,7 +184,7 @@ class Serendipity_Import_phpbb extends Serendipity_Import {
         serendipity_rebuildCategoryTree();
 
         /* Entries */
-        $res = @$this->nativeQuery("SELECT t.topic_title, 
+        $res = @$this->nativeQuery("SELECT t.topic_title,
                                     t.topic_poster,
                                     t.forum_id,
                                     p.post_time,
@@ -241,7 +241,7 @@ class Serendipity_Import_phpbb extends Serendipity_Import {
 
             /* Comments */
             $topic_id = $entries[$x]['topic_id'];
-            $c_res = @$this->nativeQuery("SELECT t.topic_title, 
+            $c_res = @$this->nativeQuery("SELECT t.topic_title,
                                         t.topic_poster,
                                         p.poster_id,
                                         t.forum_id,
@@ -254,7 +254,7 @@ class Serendipity_Import_phpbb extends Serendipity_Import {
                                      ON t.topic_id = p.topic_id
                         LEFT OUTER JOIN {$this->data['prefix']}posts_text  AS pt
                                      ON pt.post_id = p.post_id
-                                  WHERE p.topic_id = {$topic_id} 
+                                  WHERE p.topic_id = {$topic_id}
                                ", $gdb);
             if (!$c_res) {
                 return sprintf(COULDNT_SELECT_COMMENT_INFO, mysqli_error($gdb));

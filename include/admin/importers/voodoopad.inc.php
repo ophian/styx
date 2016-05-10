@@ -41,7 +41,7 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import {
     var $inputFields = array();
     var $force_recode = false;
 
-    function Serendipity_Import_VoodooPad($data) {
+    function __construct($data) {
         $this->data = $data;
         $this->inputFields = array(
                                 array('text'      => IMPORTER_VOODOO_FILEPROMPT,
@@ -129,8 +129,8 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import {
                     $mykey = basename($this->data['keyPrefix']) . $mykey;
 
                     // Pluck out the existing one if its there
-                    $page = serendipity_db_query("SELECT * 
-                                                    FROM {$serendipity['dbPrefix']}staticpages 
+                    $page = serendipity_db_query("SELECT *
+                                                    FROM {$serendipity['dbPrefix']}staticpages
                                                     WHERE filename = '" . serendipity_db_escape_string($mykey.'.htm') . "'
                                                     LIMIT 1", true, 'assoc');
                     if (is_array($page)) {

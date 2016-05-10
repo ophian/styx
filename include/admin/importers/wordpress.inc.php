@@ -12,7 +12,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import {
     var $inputFields = array();
 
 
-    function Serendipity_Import_WordPress($data) {
+    function __construct($data) {
         $this->data = $data;
         $this->inputFields = array(array('text' => INSTALL_DBHOST,
                                          'type' => 'input',
@@ -146,8 +146,8 @@ class Serendipity_Import_WordPress extends Serendipity_Import {
         $no_cat = false;
 
         /* Categories (WP < 2.3 style) */
-        $res = @$this->nativeQuery("SELECT cat_ID, cat_name, category_description, category_parent 
-                                      FROM {$this->data['prefix']}categories 
+        $res = @$this->nativeQuery("SELECT cat_ID, cat_name, category_description, category_parent
+                                      FROM {$this->data['prefix']}categories
                                   ORDER BY category_parent, cat_ID;", $wpdb);
         if (!$res) {
             $no_cat = mysqli_error($wpdb);
@@ -186,8 +186,8 @@ class Serendipity_Import_WordPress extends Serendipity_Import {
                     }
 
                     if ($par_id != 0) {
-                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}category 
-                                                 SET parentid={$par_id} 
+                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}category
+                                                 SET parentid={$par_id}
                                                WHERE categoryid={$cat['categoryid']};");
                     }
                 }
@@ -203,9 +203,9 @@ class Serendipity_Import_WordPress extends Serendipity_Import {
         }
 
         /* Categories (WP >= 2.3 style) */
-        $res = @$this->nativeQuery("SELECT taxonomy.description      AS category_description, 
-                                           taxonomy.parent           AS category_parent, 
-                                           taxonomy.term_taxonomy_id AS cat_ID, 
+        $res = @$this->nativeQuery("SELECT taxonomy.description      AS category_description,
+                                           taxonomy.parent           AS category_parent,
+                                           taxonomy.term_taxonomy_id AS cat_ID,
                                            terms.name                AS cat_name
 
                                       FROM {$this->data['prefix']}term_taxonomy AS taxonomy
@@ -213,7 +213,7 @@ class Serendipity_Import_WordPress extends Serendipity_Import {
                                       JOIN {$this->data['prefix']}terms AS terms
                                         ON taxonomy.term_id = terms.term_id
 
-                                     WHERE taxonomy.taxonomy = 'category' 
+                                     WHERE taxonomy.taxonomy = 'category'
                                   ORDER BY taxonomy.parent, taxonomy.term_taxonomy_id", $wpdb);
         if (!$res && !$no_cat) {
             $no_cat = mysqli_error($wpdb);
@@ -253,8 +253,8 @@ class Serendipity_Import_WordPress extends Serendipity_Import {
                     }
 
                     if ($par_id != 0) {
-                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}category 
-                                                 SET parentid={$par_id} 
+                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}category
+                                                 SET parentid={$par_id}
                                                WHERE categoryid={$cat['categoryid']};");
                     }
                 }
@@ -328,8 +328,8 @@ class Serendipity_Import_WordPress extends Serendipity_Import {
         }
 
         /* Entry/category (WP > 2.3 style)*/
-        $res = @$this->nativeQuery("SELECT rel.object_id        AS post_id, 
-                                           rel.term_taxonomy_id AS category_id 
+        $res = @$this->nativeQuery("SELECT rel.object_id        AS post_id,
+                                           rel.term_taxonomy_id AS category_id
                                       FROM {$this->data['prefix']}term_relationships AS rel;", $wpdb);
         if (!$res && !$no_entrycat) {
             $no_entrycat = mysqli_error($wpdb);

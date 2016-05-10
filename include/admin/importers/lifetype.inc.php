@@ -16,7 +16,7 @@ class Serendipity_Import_lifetype extends Serendipity_Import {
         return '';
     }
 
-    function Serendipity_Import_lifetype($data) {
+    function __construct($data) {
         $this->data = $data;
         $this->inputFields = array(array('text' => INSTALL_DBHOST,
                                          'type' => 'input',
@@ -89,7 +89,7 @@ class Serendipity_Import_lifetype extends Serendipity_Import {
         }
 
         /* Users */
-        $res = @$this->nativeQuery("SELECT 
+        $res = @$this->nativeQuery("SELECT
                                             user AS user_login,
                                             `password` AS user_pass,
                                             email AS user_email,
@@ -126,14 +126,14 @@ class Serendipity_Import_lifetype extends Serendipity_Import {
         serendipity_rebuildCategoryTree();
 
         /* Entries */
-        $res = @$this->nativeQuery("SELECT 
+        $res = @$this->nativeQuery("SELECT
                                            article_id AS ID,
-                                           UNIX_TIMESTAMP(`date`) AS tstamp, 
-                                           user_id AS post_author, 
+                                           UNIX_TIMESTAMP(`date`) AS tstamp,
+                                           user_id AS post_author,
                                            status AS post_status,
                                            text AS post_content,
                                            topic AS post_title
-                                      FROM lt_articles 
+                                      FROM lt_articles
                                       JOIN lt_articles_text
                                         ON lt_articles_text.article_id = lt_articles.id
                                ORDER BY ID;", $ltdb);
@@ -166,8 +166,8 @@ class Serendipity_Import_lifetype extends Serendipity_Import {
         }
 
         /* Even more category stuff */
-        $res = @$this->nativeQuery("SELECT article_id AS postcat_post_ID, 
-                                           category_id AS postcat_cat_ID 
+        $res = @$this->nativeQuery("SELECT article_id AS postcat_post_ID,
+                                           category_id AS postcat_cat_ID
                                       FROM lt_article_categories_link", $ltdb);
         if (!$res) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($ltdb));
