@@ -91,7 +91,7 @@ class Cache_Lite_Function extends Cache_Lite
             }
         }
         reset($options);
-        $this->Cache_Lite($options);
+        parent::__construct($options);
     }
 
     /**
