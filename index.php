@@ -90,9 +90,7 @@ if (preg_match(PAT_ARCHIVES, $uri, $matches) || isset($serendipity['GET']['range
     exit;
 } else if (preg_match(PAT_PLUGIN, $uri, $matches)) {
     servePlugin($matches);
-    if (!defined('NO_EXIT')) {
-        exit;
-    }
+    exit;
 } else if (preg_match(PAT_ADMIN, $uri)) {
     gotoAdmin();
     exit;
