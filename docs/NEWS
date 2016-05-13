@@ -1,6 +1,9 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
+  * Fix issue utf8 'private use area' symbols were cut off
+    on saving (#394)
+
   * Updated some bundled libs to better support PHP 7
 
   * Update entryproperties grouping grid option boxes
