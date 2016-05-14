@@ -1,9 +1,9 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
-  * Fix issue utf8 'private use area' symbols were cut off
-    on saving (#394), though we only allow this within entries,
-    not in comments userland.
+  * Fix database issue, that text after utf8 'private use area' symbols
+    was cut off on saving (#394). Though we only allow this within
+    entries, not in comments userland.
 
   * Updated some bundled libs to better support PHP 7
 
@@ -26,7 +26,7 @@ Version 2.1 ()
     Read the NEW_FEATURES and INHERITANCE_RELEASE_NOTES file for recent
     extensions to Smarty 3.1 functionality
 
-  * Fix clearCompiledTemplate needs template name
+  * Fix clearCompiledTemplate() needs template name
 
   * Korean localization lang updates
 

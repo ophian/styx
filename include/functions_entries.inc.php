@@ -1409,12 +1409,12 @@ function serendipity_updertEntry($entry) {
 
     include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
 
-    // sanitize 'private use area' symbols to unicode/HTML Entity
+    // sanitize utf8 'private use area' symbols to unicode/HTML Entity
     if (!empty($entry['body'])) {
-        $entry['body'] = symbol_sanitize_string($entry['body']);
+        $entry['body'] = symbol_sanitize($entry['body']);
     }
     if (!empty($entry['extended'])) {
-        $entry['extended'] = symbol_sanitize_string($entry['extended']);
+        $entry['extended'] = symbol_sanitize($entry['extended']);
     }
 
     $errors = array();

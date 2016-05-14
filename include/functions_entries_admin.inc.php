@@ -189,22 +189,25 @@ function serendipity_emit_htmlarea_code($item, $jsname, $spawnMulti = false) {
 /**
  * Sanitize 'private use area' font symbols to unicode / html entities before saving to database
  * Thanks to http://stackoverflow.com/questions/8240030/how-to-convert-symbol-font-to-standard-utf8-html-entity
+ * Conversion table used http://www.fileformat.info/info/unicode/font/symbol/nonunicode.htm
  *
  * @see     https://github.com/s9y/Serendipity/issues/394
+ * @see     symbol_map_utf8()
+ * @see     symbol_utf8()
  * @param   string  $string ($entry[body] && entry[extended])
  * @return  string  $string ($entry[body] && entry[extended])
  */
-function symbol_sanitize_string($string) {
+function symbol_sanitize($string) {
     // replace font symbols
-    $string =  preg_replace_callback('/&#(61\d+?);/i', 'symbol_alone2utf8', $string);
+    $string =  preg_replace_callback('/&#(61\d+?);/i', 'symbol_map_utf8', $string);
     return $string;
 }
 
-function symbol_alone2utf8( $match ){
-    return symbol2utf8( $match[1] );
+function symbol_map_utf8( $match ){
+    return symbol_utf8( $match[1] );
 }
 
-function symbol2utf8( $decimal ) {
+function symbol_utf8( $decimal ) {
     $_Symbol = array(
         61472 => '020',
         61473 => '021',
@@ -397,14 +400,12 @@ function symbol2utf8( $decimal ) {
     );
     $key = $decimal;
     if ( array_key_exists( $key, $_Symbol ) ) {
-
         if( $key <= 61487 ) {
             $c = '0';
         } else {
             $c = 'f';
         }
         $char = json_decode( '"\u' . $c . $_Symbol[ $key ] . '"');
-
         return $char;
     } else {
         return "&#$decimal;";
