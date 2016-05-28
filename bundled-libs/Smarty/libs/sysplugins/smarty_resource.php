@@ -13,6 +13,10 @@
  *
  * @package    Smarty
  * @subpackage TemplateResources
+ *
+ * @method renderUncompiled(Smarty_Template_Source $source, Smarty_Internal_Template $_template)
+ * @method populateCompiledFilepath(Smarty_Template_Compiled $compiled, Smarty_Internal_Template $_template)
+ * @method process(Smarty_Internal_Template $_smarty_tpl)
  */
 abstract class Smarty_Resource
 {
@@ -48,7 +52,7 @@ abstract class Smarty_Resource
      * @var bool
      */
     public $hasCompiledHandler = false;
-    
+
     /**
      * Load template's source into current template object
      *
@@ -110,7 +114,7 @@ abstract class Smarty_Resource
      */
     public function getBasename(Smarty_Template_Source $source)
     {
-        return null;
+        return basename(preg_replace('![^\w]+!', '_', $source->name));
     }
 
     /**
@@ -216,7 +220,7 @@ abstract class Smarty_Resource
         ) {
             $parentPath = $obj->parent->source->filepath;
             // if we are inside an {block} tag the path must be relative to template of {block}
-            if (isset($obj->ext->_inheritance) && $path = $obj->ext->_inheritance->getBlockFilepath()) {
+            if (isset($obj->inheritance) && $path = $obj->inheritance->getBlockFilepath()) {
                 $parentPath = $path;
             }
             $name = $smarty->_realpath(dirname($parentPath) . DS . $name);

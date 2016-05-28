@@ -45,7 +45,7 @@ class Smarty_Internal_Resource_File extends Smarty_Resource
             }
             $parentPath = $_template->parent->source->filepath;
             // if we are inside an {block} tag the path must be relative to template of {block}
-            if (isset($_template->ext->_inheritance) && $path = $_template->ext->_inheritance->getBlockFilepath()) {
+            if (isset($_template->inheritance) && $path = $_template->inheritance->getBlockFilepath()) {
                 $parentPath = $path;
             }
             // normalize path
@@ -129,12 +129,9 @@ class Smarty_Internal_Resource_File extends Smarty_Resource
             $source->exists = true;
             $source->uid = sha1($source->filepath . ($source->isConfig ? $source->smarty->_joined_config_dir :
                                     $source->smarty->_joined_template_dir));
-            if ($source->smarty->compile_check == 1) {
-                $source->timestamp = filemtime($source->filepath);
-            }
+            $source->timestamp = filemtime($source->filepath);
         } else {
-            $source->timestamp = false;
-            $source->exists = false;
+            $source->timestamp = $source->exists = false;
         }
     }
 

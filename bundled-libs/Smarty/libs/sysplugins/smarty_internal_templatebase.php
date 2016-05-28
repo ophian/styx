@@ -160,12 +160,11 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
                 throw new SmartyException($function . '():Template object expected');
             }
         } else {
-           // get template object
+            // get template object
             /* @var Smarty_Internal_Template $template */
             $saveVars = false;
-            
-                $template =
-                    $smarty->createTemplate($template, $cache_id, $compile_id, $parent ? $parent : $this, false);
+
+            $template = $smarty->createTemplate($template, $cache_id, $compile_id, $parent ? $parent : $this, false);
             if ($this->_objType == 1) {
                 // set caching in template object
                 $template->caching = $this->caching;
@@ -198,9 +197,8 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
                     $template->tpl_vars = array_merge(Smarty::$global_tpl_vars, $template->tpl_vars);
                 }
                 $result = $template->render(false, $function);
-                unset($template->ext->_inheritance);
-                $template->tpl_function = array();
-                 if ($saveVars) {
+                $template->_cleanUp();
+                if ($saveVars) {
                     $template->tpl_vars = $savedTplVars;
                     $template->config_vars = $savedConfigVars;
                 } else {

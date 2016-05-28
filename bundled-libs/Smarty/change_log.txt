@@ -1,5 +1,22 @@
 ﻿ ===== 3.1.30-dev ===== (xx.xx.xx)
- 02.05.2026
+ 27.05.2016
+ - bugfix/improvement of compileAlltemplates() follow symlinks in template folder (PHP >= 5.3.1) https://github.com/smarty-php/smarty/issues/224
+      clear internal cache and expension handler for each template to avoid possible conflicts https://github.com/smarty-php/smarty/issues/231
+
+ 16.05.2016
+  - optimization {foreach} compiler and processing
+  - broken PHP 5.3 and 5.4 compatibility
+
+ 15.05.2016
+  - optimization and cleanup of resource code
+
+ 10.05.2016
+  - optimization of inheritance processing
+
+ 07.05.2016
+  -bugfix Only variables should be assigned by reference https://github.com/smarty-php/smarty/issues/227
+
+ 02.05.2016
   - enhancement {block} tag names can now be variable https://github.com/smarty-php/smarty/issues/221
 
  01.05.2016
