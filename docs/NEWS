@@ -1,6 +1,28 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
+  * Fix issue (#340) - missing newly created entry id re-added back
+    to entry form for follow-up submits.
+    Please check your template "preview_iframe.tpl" file to execute
+    this code in the html head part:
++    {if isset($lastSavedEntry) && (int)$lastSavedEntry}
++
++        <script type="text/javascript">
++            window.onload = function() {ldelim}
++                parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
++            {rdelim};
++        </script>
++    {/if}
++
+    and remove the starting + signs.
+    This isssue is already fixed in the following pre-delivered themes:
+    "2k11, default, bulletproof, clean_blog, next".
+    Please make sure to update your themes preview_iframe.tpl file!
+    This adds a native javascript delayed load execution versus the
+    previous used $(document.ready) and/or missing jquery loading.
+    Now the iframe_preview tpl file really updates the entryform hidden
+    serendipty[id] value for direct further on submits to that entry!
+
   * Fix database issue, that text after utf8 'private use area' symbols
     was cut off on saving (#394). Though we only allow this within
     entries, not in comments userland.

@@ -261,6 +261,12 @@ $tasks = array(
                     'title'     => 'Rewrite path of big feedicon',
                     'desc'      => 'Rewrite path of the big feedicon to not include the template path, since that path is not automatically detected'),
 
+            array(  'version'   => '2.1.0-beta1',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> Check the 2.1 changeLog doc/NEWS file for theme file changes',
+                    'desc'      => 'Serendipity 2.1.0-beta fixes an issue creating the entry ID, caused by a wrong javascript execution. Please read the docs/NEWS file to add this manually to your custom/unsupported theme.'),
+
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'title'     => 'Removal of old dead files in v.2.0.2',
