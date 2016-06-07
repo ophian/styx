@@ -1,6 +1,9 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
+  * Allow "title quoting" in backend entries overview title link
+    but keep secured escaping.
+
   * Fix issue (#340) - missing newly created entry id re-added back
     to entry form for follow-up submits.
     Please check your template "preview_iframe.tpl" file to execute
