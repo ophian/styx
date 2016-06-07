@@ -26,10 +26,12 @@ if (!empty($serendipity['GET']['editSubmit'])) {
 $preview_only = false;
 
 switch($serendipity['GET']['adminAction']) {
+
     case 'preview':
-        $entry        = serendipity_fetchEntry('id', $serendipity['GET']['id'], 1, 1);
+        $entry = serendipity_fetchEntry('id', $serendipity['GET']['id'], 1, 1);
         $serendipity['POST']['preview'] = true;
         $preview_only = true;
+        // no break [PSR-2] - extends save
 
     case 'save':
         if (!$preview_only) {
@@ -85,7 +87,7 @@ switch($serendipity['GET']['adminAction']) {
             $data['switched_output'] = true;
             if ($serendipity['POST']['preview'] != 'true') {
                 /* We don't need an iframe to save a draft */
-                if ( $serendipity['POST']['isdraft'] == 'true' ) {
+                if ($serendipity['POST']['isdraft'] == 'true') {
                     $data['is_draft'] = true;
                     $errors = serendipity_updertEntry($entry);
                     if (is_numeric($errors)) {
@@ -108,7 +110,7 @@ switch($serendipity['GET']['adminAction']) {
                 }
 
                 if (!is_numeric($entry['timestamp'])) {
-                    $entry['timestamp']  = time();
+                    $entry['timestamp'] = time();
                 }
 
                 if (!isset($entry['trackbacks']) || !$entry['trackbacks']) {
@@ -116,17 +118,17 @@ switch($serendipity['GET']['adminAction']) {
                 }
 
                 if (!isset($entry['comments']) || !$entry['comments']) {
-                    $entry['comments']   = 0;
+                    $entry['comments'] = 0;
                 }
 
                 if (!isset($entry['realname']) || !$entry['realname']) {
                     if (is_numeric($entry['id'])) {
                         $_entry = serendipity_fetchEntry('id', $entry['id'], 1, 1);
-                        $entry['realname']   = $_entry['author'];
+                        $entry['realname'] = $_entry['author'];
                     } elseif (!empty($serendipity['realname'])) {
-                        $entry['realname']   = $serendipity['realname'];
+                        $entry['realname'] = $serendipity['realname'];
                     } else {
-                        $entry['realname']   = $serendipity['serendipityUser'];
+                        $entry['realname'] = $serendipity['serendipityUser'];
                     }
                 }
 
@@ -179,7 +181,6 @@ switch($serendipity['GET']['adminAction']) {
                 $errors
             );
         }
-
         break;
 
     case 'doDelete':
@@ -192,6 +193,7 @@ switch($serendipity['GET']['adminAction']) {
         $data['switched_output'] = true;
         $data['is_doDelete']     = true;
         $data['del_entry']       = sprintf(RIP_ENTRY, $entry['id'] . ' - ' . serendipity_specialchars($entry['title']));
+        // no break [PSR-2] - extends editSelect
 
     case 'doMultiDelete':
         if ($serendipity['GET']['adminAction'] != 'doDelete') {
@@ -212,6 +214,7 @@ switch($serendipity['GET']['adminAction']) {
                 }
             }
         }
+        // no break [PSR-2] - extends editSelect
 
     case 'editSelect':
         $data['switched_output'] = false;
@@ -380,7 +383,8 @@ switch($serendipity['GET']['adminAction']) {
             $data['sort_import']       = $sort_import;
         } else {
             $data['no_entries'] = true;
-        } // if entries end
+        }
+        // if entries end
         break;
 
     case 'delete':
@@ -393,7 +397,7 @@ switch($serendipity['GET']['adminAction']) {
         $data['switched_output'] = true;
         $data['is_delete']       = true;
         $data['newLoc']          = $newLoc;
-        // for smartification printf had to turn into sprintf!!
+        // for Smarty, printf had to turn into sprintf!!
         $data['rip_entry']       = sprintf(DELETE_SURE, $entry['id'] . ' - ' . serendipity_specialchars($entry['title']));
         break;
 
@@ -421,6 +425,7 @@ switch($serendipity['GET']['adminAction']) {
 
     case 'edit':
         $entry = serendipity_fetchEntry('id', $serendipity['GET']['id'], 1, 1);
+        // no break [PSR-2] - extends default
 
     default:
         include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
@@ -434,6 +439,7 @@ switch($serendipity['GET']['adminAction']) {
             ),
             (isset($entry) ? $entry : array())
         );
+        break;
 }
 
 $data['entryForm'] = $entryForm;
