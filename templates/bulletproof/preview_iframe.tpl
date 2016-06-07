@@ -35,6 +35,15 @@
              parent.document.getElementById('serendipity_iframe').style.border = 0;
            {rdelim}
         </script>
+    {if isset($lastSavedEntry) && (int)$lastSavedEntry}
+
+        <script type="text/javascript">
+            window.onload = function() {ldelim}
+                parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
+            {rdelim};
+        </script>
+    {/if}
+
     </head>
 
     <body style="padding: 0px; margin: 0px;">

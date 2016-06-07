@@ -31,16 +31,25 @@
 {serendipity_hookPlugin hook="backend_header" hookAll="true"}
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
     <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
-<script type="text/javascript">
-window.onload = function() {ldelim}
-    parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('main').offsetHeight
-                                                                      + parseInt(document.getElementById('main').style.marginTop)
-                                                                      + parseInt(document.getElementById('main').style.marginBottom)
-                                                                      + 'px';
-    parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-    parent.document.getElementById('serendipity_iframe').style.border = 0;
-{rdelim}
-</script>
+    <script type="text/javascript">
+        window.onload = function() {ldelim}
+            parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('main').offsetHeight
+                                                                              + parseInt(document.getElementById('main').style.marginTop)
+                                                                              + parseInt(document.getElementById('main').style.marginBottom)
+                                                                              + 'px';
+            parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
+            parent.document.getElementById('serendipity_iframe').style.border = 0;
+        {rdelim}
+    </script>
+{if isset($lastSavedEntry) && (int)$lastSavedEntry}
+
+    <script type="text/javascript">
+        window.onload = function() {ldelim}
+            parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
+        {rdelim};
+    </script>
+{/if}
+
 </head>
 <body style="padding: 0; margin: 0;"{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
     <div id="main" class="clearfix" style="padding: 0; margin: 5px auto; width: 98%;">

@@ -31,7 +31,7 @@
 {serendipity_hookPlugin hook="backend_header" hookAll="true"}
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
     <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
-    <script>
+    <script type="text/javascript">
         window.onload = function() {ldelim}
             parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('content').offsetHeight
                                                                               + parseInt(document.getElementById('content').style.marginTop)
@@ -55,12 +55,15 @@
             {if $res}
                 <div class="serendipity_msg_important">{$CONST.ERROR}: <b>{$res}</b></div>
             {else}
-                {if $lastSavedEntry}
-                    <script type="text/javascript">$(document).ready(function() {
-                                                        parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                    });
+                {if isset($lastSavedEntry) && (int)$lastSavedEntry}
+
+                    <script type="text/javascript">
+                        window.onload = function() {ldelim}
+                            parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
+                        {rdelim};
                     </script>
                 {/if}
+
                 <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
                 <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
             {/if}
