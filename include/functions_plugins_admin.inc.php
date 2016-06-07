@@ -88,6 +88,7 @@ function show_plugins($event_only = false, $sidebars = null)
     $opts['event'] = PLUGIN_ACTIVE;
     $opts['eventh'] = PLUGIN_INACTIVE;
 
+    $data = array(); // init smarty assigned data
 
     $data['event_only'] = $event_only;
     if (!$event_only) {
