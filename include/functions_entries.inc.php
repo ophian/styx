@@ -218,7 +218,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
             return unserialize($entries);
         }
     }
-    
+
     $cond = array();
     $cond['orderby'] = $orderby;
     if (isset($serendipity['short_archives']) && $serendipity['short_archives']) {
@@ -892,7 +892,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
         }
         $search = array_merge($searchresults, $search);
     }
-    
+
     //if * wasn't already appended and if there are none or not enough
     //results, search again for entries containing the searchterm as a part
     if (strpos($term, '*') === false && $serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite' && $serendipity['dbType'] != 'sqlite3oo') {
@@ -946,7 +946,7 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null) {
     if ($totalPages <= 0 ) {
         $totalPages = 1;
     }
-    
+
     if (!isset($serendipity['GET']['page']) && serendipity_db_bool($serendipity['archiveSortStable']) && $serendipity['GET']['action'] != 'search') {
         $serendipity['GET']['page'] = $totalPages;
     } else if (!isset($serendipity['GET']['page'])) {
@@ -1271,7 +1271,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
         $key = md5(serialize($args));
         $cache->save(serialize($dategroup), $key, "printEntries");
     }
-    
+
     unset($entries, $dategroup);
 
     $serendipity['smarty']->assign(array(
@@ -1314,7 +1314,6 @@ function serendipity_printEntriesCached($entries, $extended = 0, $preview = fals
             }
         }
 
-       
         if (isset($serendipity['short_archives']) && $serendipity['short_archives']) {
             serendipity_smarty_fetch($smarty_block, 'entries_summary.tpl', true);
         } elseif ($smarty_fetch == true) {
@@ -1323,7 +1322,7 @@ function serendipity_printEntriesCached($entries, $extended = 0, $preview = fals
         return true;
     } else {
         return false;
-    }   
+    }
 }
 
 function serendipity_cleanCache() {
@@ -1341,8 +1340,8 @@ function serendipity_cleanCache() {
     $cache = new Cache_Lite($options);
     $successFetch = $cache->clean("fetchEntries");
     $successPrint = $cache->clean("printEntries");
+
     return $successFetch && $successPrint;
-    
 }
 
 function serendipity_setupCache() {
