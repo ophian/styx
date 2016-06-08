@@ -223,7 +223,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     $cond['orderby'] = $orderby;
     if (isset($serendipity['short_archives']) && $serendipity['short_archives']) {
         // In the short listing of all titles for a month, we don't want to have a limit applied. And we don't need/want toe
-        // full article body (consumes memory)
+        // full article body (consumes memory) - but, see the $body note below!
         $limit   = '';
         $full    = false;
     }
@@ -232,7 +232,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
         $noCache = true; // So no entryproperties related to body/extended caching will be loaded
         $body = ', e.body, e.extended';
     } else {
-        $body = '';
+        $body = ', e.body'; // we at least need the body field though! Since the $full @param indicates, if the full entry will be fetched (body+extended: TRUE), or only the body (FALSE).
     }
 
     if ($fetchDrafts === false) {

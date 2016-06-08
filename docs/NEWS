@@ -1,6 +1,10 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
+  * fix case $serendipity['short_archives'] SQL query fetch in
+    serendipity_fetchEntries(), if a themes entries_summary.tpl file
+    wants to use a body teaser.
+
   * Allow "title quoting" in backend entries overview title link,
     but keep escaping for security, using double_encode false.
 
