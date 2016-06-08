@@ -1,11 +1,11 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
-  * Allow "title quoting" in backend entries overview title link
-    but keep secured escaping.
+  * Allow "title quoting" in backend entries overview title link,
+    but keep escaping for security, using double_encode false.
 
   * Fix issue (#340) - missing newly created entry id re-added back
-    to entry form for follow-up submits.
+    to entry form for follow-up submits of the same entry.
     Please check your template "preview_iframe.tpl" file to execute
     this code in the html head part:
 +    {if isset($lastSavedEntry) && (int)$lastSavedEntry}
@@ -18,21 +18,23 @@ Version 2.1 ()
 +    {/if}
 +
     and remove the starting + signs.
-    This isssue is already fixed in the following pre-delivered themes:
-    "2k11, default, bulletproof, clean_blog, next".
-    Please make sure to update your themes preview_iframe.tpl file!
-    This adds a native javascript delayed load execution versus the
-    previous used $(document.ready) and/or missing jquery loading.
+    This issue is already fixed within the following pre-delivered
+    themes: "2k11, default, bulletproof, clean_blog, next".
+    Please make sure to update your themes "preview_iframe.tpl" file!
+    This adds a native javascript delayed (lazy) load execution versus
+    the previous used $(document.ready) and/or missing jquery loading.
     Now the iframe_preview tpl file really updates the entryform hidden
-    serendipty[id] value for direct further on submits to that entry!
+    serendipty[id] value for direct further-on-submits to that entry!
 
   * Fix database issue, that text after utf8 'private use area' symbols
     was cut off on saving (#394). Though we only allow this within
-    entries, not in comments userland.
+    entries, not in comments userland, for security by now.
 
   * Updated some bundled libs to better support PHP 7
 
-  * Update entryproperties grouping grid option boxes
+  * Update entryproperties grouping grid option boxes. Please configure
+    the sort placed options in the "Entry editing screen" to fit nicely
+    into the backend entries entry form.
 
   * Update spartacus remote url changes to support a hidden URL
     for upcoming serendipity_event_plugup plugin, which adds an upgrade
