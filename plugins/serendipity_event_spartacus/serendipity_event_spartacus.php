@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.38');
+        $propbag->add('version',       '2.39');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -610,7 +610,7 @@ class serendipity_event_spartacus extends serendipity_event
             }
 
         } else {
-            $mirror  = $mirrors[$this->get_config('mirror_xml', 0)];
+            $mirror = $mirrors[$this->get_config('mirror_xml', 0)];
             $url    = $mirror . '/package_' . $url_type .  $lang . '.xml';
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
             $target = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_' . $url_type . $lang . '.xml';
@@ -1040,6 +1040,11 @@ class serendipity_event_spartacus extends serendipity_event
             $gitloc = 'master/';
         }
 
+        // fixes for custom mirror
+        if (!empty($custom)) {
+            $sfloc  = '';
+            $gitloc = '';
+        }
         foreach($files AS $file) {
             $url    = $mirror . '/' . $sfloc . '/' . $gitloc . $file . '?revision=1.9999';
             $target = $pdir . $file;

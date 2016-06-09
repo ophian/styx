@@ -1,6 +1,8 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
+  * fix Spartacus plugin to v. 2.39 for custom mirror (GitHub) cases
+
   * fix case $serendipity['short_archives'] SQL query fetch in
     serendipity_fetchEntries(), if a themes entries_summary.tpl file
     wants to use a body teaser.
