@@ -4,7 +4,7 @@
   TODO:
 
   - Perform Serendipity version checks to only install plugins available for version
-  - Allow fetching files from mirrors / different locations - don't use ViewCVS hack (revision 1.999 dumbness)
+  - Allow fetching files from mirrors / different locations - don't use ViewCVS hack (revision 1.999 dumbness) (done for gitHub cases in v.2.40)
 
  ***********/
 
@@ -26,8 +26,8 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_SPARTACUS_NAME);
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '2.39');
+        $propbag->add('author',        'Garvin Hicking, Ian');
+        $propbag->add('version',       '2.40');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -958,7 +958,8 @@ class serendipity_event_spartacus extends serendipity_event
     {
         global $serendipity;
 
-        $gitloc = '';
+        $gitloc  = '';
+        $cvshack = '?revision=1.9999';
         switch($sub) {
             case 'plugins':
             default:
@@ -1038,6 +1039,7 @@ class serendipity_event_spartacus extends serendipity_event
 
         if (stristr($mirror, 'github.com')) {
             $gitloc = 'master/';
+            $cvshack = '';
         }
 
         // fixes for custom mirror
@@ -1046,7 +1048,7 @@ class serendipity_event_spartacus extends serendipity_event
             $gitloc = '';
         }
         foreach($files AS $file) {
-            $url    = $mirror . '/' . $sfloc . '/' . $gitloc . $file . '?revision=1.9999';
+            $url    = $mirror . '/' . $sfloc . '/' . $gitloc . $file . $cvshack;
             $target = $pdir . $file;
             $target = $this->fixUrl($target);
             $this->rmkdir($pdir . $plugin_to_install,$sub);
