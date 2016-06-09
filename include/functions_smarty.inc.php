@@ -887,7 +887,7 @@ function serendipity_smarty_getImageSize($params, Smarty_Internal_Template $temp
         trigger_error("Smarty Error: " . __FUNCTION__ .': file ' . $params['file'] . NOT_FOUND . ' ', E_USER_WARNING);
         return;
     }
-    $template->assign($params['assign'], serendipity_getimagesize($file));
+    $template->assign($params['assign'], @serendipity_getimagesize($file));
 }
 
 /**

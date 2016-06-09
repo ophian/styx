@@ -1125,7 +1125,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         }
 
         $ft_mime = serendipity_guessMime($f[1]);
-        $fdim    = serendipity_getimagesize($ffull, $ft_mime);
+        $fdim    = @serendipity_getimagesize($ffull, $ft_mime);
 
         // If we're supposed to delete thumbs, this is the easiest place. Leave messages plain unstiled.
         if (is_readable($fthumb)) {
@@ -1136,7 +1136,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                 }
             } else if ($deleteThumbs == 'checksize') {
                 // Find existing thumbnail dimensions
-                $tdim = serendipity_getimagesize($fthumb);
+                $tdim = @serendipity_getimagesize($fthumb);
                 if ($tdim['noimage']) {
                     // Delete it so it can be regenerated
                     if (@unlink($fthumb)) {
