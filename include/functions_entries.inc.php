@@ -1401,7 +1401,7 @@ function serendipity_purgeEntry($id, $timestamp = null) {
  *
  * @access public
  * @param   array       The new/modified entry data.
- * @return  mixed       Integer with new entry ID if successfull, a string or array if error(s).
+ * @return  mixed       Integer with new entry ID if successful, a string or array if error(s).
  */
 function serendipity_updertEntry($entry) {
     global $serendipity;

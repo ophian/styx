@@ -527,7 +527,7 @@ class serendipity_event_gravatar extends serendipity_event
     }
 
     /**
-     * Will try to fetch a fresh avatar image by user configuration. If retreiving was successfull,
+     * Will try to fetch a fresh avatar image by user configuration. If retreiving was successful,
      * the image will cached and displayed as binary image response.
      */
     function fetchAvatar(&$eventData)
@@ -548,7 +548,7 @@ class serendipity_event_gravatar extends serendipity_event
             $this->avatarConfiguration = unserialize(fread($fp, filesize($lastrun_fname)));
             fclose($fp);
             $this->avatarConfiguration['loaded_from_cache'] = true;
-            // go to last successfull methodnr:
+            // go to last successful methodnr:
             if (isset($this->avatarConfiguration['methodnr'])) {
                 $methodnr = $this->avatarConfiguration['methodnr'];
                 $this->log("MethodNr by lastrun: $methodnr");
@@ -622,7 +622,7 @@ class serendipity_event_gravatar extends serendipity_event
         global $serendipity;
 
         $this->log("Gravatar: url=" . $eventData['url'] . " email_md5=" . $eventData['email_md5'] . " author=" .$eventData['author']) ;
-        // Was lastrun successfull?
+        // Was lastrun successful?
         if (isset($this->avatarConfiguration['gravatar_found']) && !$this->avatarConfiguration['gravatar_found']) {
             return false;
         }
@@ -680,7 +680,7 @@ class serendipity_event_gravatar extends serendipity_event
         require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
         global $serendipity;
 
-        // Was lastrun successfull?
+        // Was lastrun successful?
         if (isset($this->avatarConfiguration['mybloglog_found']) && !$this->avatarConfiguration['mybloglog_found']) {
             return false;
         }
@@ -859,7 +859,7 @@ class serendipity_event_gravatar extends serendipity_event
     {
         require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
 
-        // Was lastrun successfull?
+        // Was lastrun successful?
         if (isset($this->avatarConfiguration['twitter_found']) && !$this->avatarConfiguration['twitter_found']) {
             return false;
         }
@@ -937,7 +937,7 @@ class serendipity_event_gravatar extends serendipity_event
     {
         require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
 
-        // Was lastrun successfull?
+        // Was lastrun successful?
         if (isset($this->avatarConfiguration['identica_found']) && !$this->avatarConfiguration['identica_found']) {
             return false;
         }

@@ -12,7 +12,7 @@ define('S9Y_U_WARNING', 0);
 define('S9Y_U_SUCCESS', 1);
 
 /**
- * Checks a return code constant if it's successfull or an error and return HTML code
+ * Checks a return code constant if it is successful or an error and return HTML code
  *
  * The diagnosis checks return codes of several PHP checks. Depending
  * on the input, a specially formatted string is returned.

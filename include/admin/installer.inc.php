@@ -33,7 +33,7 @@ $data['templatePath']  = $serendipity['templatePath'];
 $data['installerHTTPPath'] = str_replace('//', '/', dirname($_SERVER['PHP_SELF']) . '/'); // since different OS handlers for enddir
 
 /**
- * Checks a return code constant if it's successfull or an error and return HTML code
+ * Checks a return code constant if it is successful or an error and return HTML code
  *
  * The diagnosis checks return codes of several PHP checks. Depending
  * on the input, a specially formatted string is returned.
