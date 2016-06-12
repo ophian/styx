@@ -2,7 +2,7 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 # Translated by CapriSkye <admin@capriskye.com>
-# 				http://open.38.com
+# http://open.38.com
 /* vim: set sts=4 ts=4 expandtab : */
 
 @define('LANG_CHARSET', 'UTF-8');
@@ -1124,4 +1124,7 @@ $i18n_unknown = 'tw';
 @define('HIDE_SUBDIR_FILES', 'Hide Files of Subdirectories');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Default dashboard widgets?');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Show default and hardcoded dashboard widgets, like draft entries and last comments.');
+
+@define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE file URL');
+@define('UPDATE_NOTIFICATION_URL_DESC', 'Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autopudate plugin. The default value to apply here is "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE" and points to a file containing Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
 

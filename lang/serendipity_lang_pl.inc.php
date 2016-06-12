@@ -518,7 +518,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('VIEW_COMMENT', 'Zobacz komentarz');
 @define('VIEW_ENTRY', 'Zobacz wpis');
 @define('DELETE_FILE_FAIL' , 'Usuwanie pliku <b>%s</b> nie powiod³o siê');
-@define('DELETE_THUMBNAIL', 'Usuniêto minturkê o nazwie	<b>%s</b>');
+@define('DELETE_THUMBNAIL', 'Usuniêto minturkê o nazwie <b>%s</b>');
 @define('DELETE_FILE', 'Usuniêto plik o nazwie <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'Masz zamiar usun±c plik <b>%s</b><br />Je¶li w którym¶ z wpisów zosta³o zdefiniowane odwo³anie do pliku, plik ten nie bêdzie wiêcej dla tego odwa³ania dostêpny (link nie bêdzie dzia³a³ prawid³owo).<br />Czy chcesz kontynuowaæ?<br /><br />');
 @define('TRACKBACK_SENDING', 'Wysy³anie ¶ladu do URI %s...');
@@ -1117,4 +1117,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('HIDE_SUBDIR_FILES', 'Hide Files of Subdirectories');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Default dashboard widgets?');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Show default and hardcoded dashboard widgets, like draft entries and last comments.');
+
+@define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE file URL');
+@define('UPDATE_NOTIFICATION_URL_DESC', 'Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autopudate plugin. The default value to apply here is "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE" and points to a file containing Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
 
