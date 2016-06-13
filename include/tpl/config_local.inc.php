@@ -422,6 +422,13 @@
                                           'default'     => array('stable' => UPDATE_STABLE, 'beta' => UPDATE_BETA, 'false' => NO),
                                           'permission'  => 'blogConfiguration'),
 
+                                    array('var'         => 'updateReleaseFileUrl',
+                                          'title'       => UPDATE_NOTIFICATION_URL,
+                                          'description' => UPDATE_NOTIFICATION_URL_DESC,
+                                          'type'        => 'string',
+                                          'default'     => 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE',
+                                          'permission'  => 'blogConfiguration'),
+
                                     array('var'         => 'logLevel',
                                           'title'       => LOG_LEVEL,
                                           'description' => LOG_LEVEL_DESC,
@@ -526,8 +533,8 @@
                                           'flags'       => array('probeDefault'))
                             ));
 
-    if(function_exists('date_default_timezone_set')) {
-        $res['display']['items'][] = array('var'           =>   'useServerOffset',
+    if (function_exists('date_default_timezone_set')) {
+        $res['display']['items'][] = array('var'       =>   'useServerOffset',
                                        'title'         =>   INSTALL_OFFSET_ON_SERVER_TIME,
                                        'description'   =>   INSTALL_OFFSET_ON_SERVER_TIME_DESC,
                                        'type'          =>   'bool',
