@@ -133,7 +133,7 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
  * @return null
  */
 function serendipity_installDatabase() {
-  global $serendipity;
+    global $serendipity;
 
     $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql');
     $queries = str_replace('{PREFIX}', $serendipity['dbPrefix'], $queries);
@@ -1076,7 +1076,7 @@ function serendipity_check_rewrite($default) {
  * @return null
  */
 function serendipity_removeObsoleteVars() {
-global $serendipity;
+    global $serendipity;
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);
     foreach($config as $category) {
@@ -1213,12 +1213,11 @@ function serendipity_verifyFTPChecksums() {
     return $badsums;
 }
 
-
 /**
- * Check https://raw.github.com/s9y/Serendipity/master/docs/RELEASE for the newest available version
+ * Check the Serendipity docs/RELEASE file for the newest available (stable/beta) version
  *
- * If the file is not fetch- or parseable (behind a proxy, malformed by Garvin), this will return -1
- * */
+ * @return  string/integer  filed version / -1 error code
+ */
 function serendipity_getCurrentVersion() {
     global $serendipity;
 
@@ -1234,7 +1233,10 @@ function serendipity_getCurrentVersion() {
     }
 
     serendipity_set_config_var('last_update_check_' . $serendipity['updateCheck'], time());
-    $updateURL = 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE';
+
+    $config_rv = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE');
+
+    $updateURL = (string)$config_rv;
     $context   = stream_context_create(array('http' => array('timeout' => 5.0)));
     $file      = @file_get_contents($updateURL, false, $context);
 
@@ -1249,7 +1251,7 @@ function serendipity_getCurrentVersion() {
     }
 
     if ($file) {
-        if ($serendipity['updateCheck'] == "stable") {
+        if ($serendipity['updateCheck'] == 'stable') {
             if (preg_match('/^stable:(.+)\b/m', $file, $match)) {
                 serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
                 return $match[1];
