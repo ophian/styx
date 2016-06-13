@@ -880,8 +880,9 @@ function serendipity_smarty_getImageSize($params, Smarty_Internal_Template $temp
     }
     // Maybe wants a template file (returns filesystem path)
     if (!file_exists($file)) {
-        $file = serendipity_getTemplateFile($params['file']);
+        $file = serendipity_getTemplateFile($params['file'], true);
     }
+
     // If no file, trigger an error
     if (!file_exists($file)) {
         trigger_error("Smarty Error: " . __FUNCTION__ .': file ' . $params['file'] . NOT_FOUND . ' ', E_USER_WARNING);
