@@ -953,13 +953,13 @@
 @define('MEDIA_PROPERTY_ALT', 'Bildinhalt (im ALT-Attribut)');
 @define('MEDIA_TITLE', 'TITLE-Attribut (wird beim Überfahren mit der Maus angezeigt)');
 
-@define('QUICKSEARCH_SORT', 'How should search-results be sorted?');
+@define('QUICKSEARCH_SORT', 'Wie sollen Such-Resultate sortiert werden?');
 
-@define('QUICKSEARCH_SORT_RELEVANCE', 'Relevance');
+@define('QUICKSEARCH_SORT_RELEVANCE', 'Relevanz');
 
 @define('PERMISSION_HIDDENGROUP', 'Hidden group / Non-Author');
 
-@define('SEARCH_FULLENTRY', 'Show full entry');
+@define('SEARCH_FULLENTRY', 'Zeige vollen Eintrag');
 @define('NAVLINK_AMOUNT', 'Anzahl der Links in der Navigationsleiste (Themes verwalten-Seite muss danach neu geladen werden)');
 @define('NAV_LINK_TEXT', 'Text des Navigationsleisten-Links');
 @define('NAV_LINK_URL', 'URL des Navigationsleisten-Links');
@@ -968,12 +968,12 @@
 @define('ACTIVE_COMMENT_SUBSCRIPTION', 'Subscribed');
 @define('PENDING_COMMENT_SUBSCRIPTION', 'Pending confirmation');
 @define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
-@define('SUMMARY', 'Summary');
+@define('SUMMARY', 'Zusammenfassung');
 
 // Next lines were translated on 2012/05/29
 @define('ABOUT_TO_DELETE_FILES', 'Sie beabsichtigen mehrere Dateien auf einmal zu löschen.<br />Wenn Sie diese in ihren Einträgen verwenden, wird das Löschen Lücken erzeugen.<br />Soll trotzdem fortgefahren werden?<br /><br />');
-@define('ARCHIVE_SORT_STABLE', 'Stable Archives');
-@define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
+@define('ARCHIVE_SORT_STABLE', 'Stabile Archive');
+@define('ARCHIVE_SORT_STABLE_DESC', 'Sortiert die Archiv-Seiten absteigend, so dass sie auf einer festen Seite bleiben und Suchmaschinen sie nicht immer wieder neu indizieren müssen. Voreingestellt ist die fortlaufende Sortierung.');
 
 // added 2012-11-29
 @define('PLAIN_ASCII_NAMES', '(keine Sonderzeichen, Umlaute)');
@@ -1049,7 +1049,7 @@
 @define('PLUGIN_ALREADY_INSTALLED', 'Plugin ist bereits installiert und unterstützt die Mehrfachinstallation ("stackable") nicht.');
 @define('INSTALL_DBPREFIX_INVALID', 'Der Datenbank-Tabellenpräfix darf nicht leer sein und darf nur Zahlen, Nummern und den Unterstrich enthalten.');
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
-@define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Zeigt den subToMe button, mit dem Feed-Abonnements einfacher für Besucher verwaltet werden können.');
+@define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Zeigt den subToMe Button, mit dem Feed-Abonnements einfacher für Besucher verwaltet werden können.');
 @define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Zeigt ein (großes) Bild oberhalb der Seitenleiste. Hier kann eine volle (oder absolut referenzierte) URL eingetragen werden oder "none" für einen Textlink (bisheriger Standard)');
 @define('INSTALL_BACKENDPOPUP', 'Popups für das Backend verwenden?');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Sollen im Backend Popup-Fenster eingesetzt werden? Wenn deaktiviert (standard), werden eingebettete modale Dialoge z.b. für die Mediendatenbank und die Kategorieauswahl verwendet.');
@@ -1098,30 +1098,30 @@
 @define('INSTALL_PASSWORD_INVALID', 'Die eingebenen Administrator-Passwörter stimmen nicht überein.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Popups in speziellen Bereichen erzwingen');
 @define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'Wenn Popups generell deaktiviert wurden, kann an speziellen Stellen dennoch der Einsatz von Popups forciert werden, indem die Liste jener Stellen hier aufgeführt wird (kommasepariert). Die vollständige Liste ist: ');
-@define('START_UPDATE', 'Starting Update ...');
-@define('UPDATE_ALL', 'Update All');
-@define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
-@define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
-@define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');
+@define('START_UPDATE', 'Starte Update ...');
+@define('UPDATE_ALL', 'Update Alle');
+@define('JS_FAILURE', 'Die Serendipity JavaScript-Datei konnte nicht geladen werden. Dies kann aufgrund von PHP- oder Plugin-Fehlern, oder sogar von einem fehlerhaften Browser Pufferspeicher (cache) geschehen. Um die exakte Fehlermeldung anzusehen, öffnen Sie bitte diesen Link <a href="%1$s">%1$s</a> in ihrem Browser. Ein solcher Fehler kann vielfältige Ursachen haben, ist aber meist eine Stapel (Fehler-) Ausgabe zur Unzeit und verhindert hier die korrekte Ausführung der Javascript Datei.');
+@define('THEMES_PREVIEW_BLOG', 'Siehe Demo auf blog.s9y.org');
+@define('SYNDICATION_PLUGIN_XML_DESC', 'Setze auf "none", wenn Sie nur einen Text-Link ausgeben wollen.');
 
-@define('MULTICHECK_NO_ITEM', 'No item selected, please check at least one. <a href="%s">Return to previous page</a>.');
-@define('MULTICHECK_NO_DIR', 'No directory selected, please choose one. <a href="%s">Return to previous page</a>.');
-@define('BULKMOVE_INFO', 'Bulk-move info');
-@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action cannot be undone, just like bulk-deletion of multiple files. All checked files will be physically moved, and referring blog entries are rewritten to point to the new location.');
-@define('FIRST_PAGE', 'First Page');
-@define('LAST_PAGE', 'Last Page');
-@define('MEDIA_PROPERTIES_DONE', 'Properties of #%d changed.');
-@define('DIRECTORY_INFO', 'Directory info');
-@define('DIRECTORY_INFO_DESC', 'Directories reflect their physical folder directory name. If you want to change or move directories which contain items, you have two choices. Either create the directory or subdirectory you want, then move the items to the new directory via the media library and afterwards, delete the empty old directory there. Or completely change the whole old directory via the edit directory button below and rename it to whatever you like (existing subdir/ + newname). This will move all directories and items and change referring blog entries.');
-@define('MEDIA_RESIZE_EXISTS', 'File dimensions already exist!');
-@define('USE_CACHE', 'Enable caching');
-@define('USE_CACHE_DESC', 'Enables an internal cache to not repeat specific database queries. This reduces the load on servers with medium to high traffic and improves page load time.');
-@define('CONFIG_PERMALINK_PATH_DESC', 'Please note that you have to use a prefix so that Serendipity can properly map the URL to the proper action. You may change the prefix to any unique name, but not remove it. This applies to all path prefix definitions.');
+@define('MULTICHECK_NO_ITEM', 'Nichts ausgewählt, wählen Sie mindestens einen. <a href="%s">Zurück zur vorherigen Seite</a>.');
+@define('MULTICHECK_NO_DIR', 'Kein Verzeichnis ausgewählt, wählen Sie eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
+@define('BULKMOVE_INFO', 'Bulk-move Information');
+@define('BULKMOVE_INFO_DESC', 'Setzen Sie ein Häckchen bei den entsprechenden Dateien und wählen hier den Ort zum Verschieben aus. <b>Achtung:</b> Diese Aktion tritt sofort in Kraft und wird nicht noch einmal gegengefragt, wie beim Löschen. Alle gewählten Dateien werden auch physisch an den neuen Ort verschoben und alle Blog Einträge nach entsprechenden Pfaden durchsucht und geändert. Mit Staticpage Versionen ab v.4.52(!) gilt dies auch für Statische-Seiten-Einträge.');
+@define('FIRST_PAGE', 'Erste Seite');
+@define('LAST_PAGE', 'Letzte Seite');
+@define('MEDIA_PROPERTIES_DONE', 'Eigenschaften von #%d geändert.');
+@define('DIRECTORY_INFO', 'Verzeichnis Information');
+@define('DIRECTORY_INFO_DESC', 'Verzeichnisse spiegeln ihren physikalischen Verzeichnis Namen. Wenn Sie Verzeichnisse ändern oder verschieben wollen, welche bereits Elemente enthalten, haben Sie zwei Möglichkeiten: Entweder erstellen Sie vorher das benötigte Verzeichnis oder Unterverzeichnis und verschieben dann die Elemente über die Medienbibliothek in das neue Verzeichnis und löschen danach das leere alte Verzeichnis. Oder, Sie ändern den Namen des alten Verzeichnisses einfach über die unten gegebene Schaltfläche "Verzeichnis Bearbeiten" und benennen es um (zB. bestehendes Unterverzeichnis / + neuerName). Dadurch werden alle Verzeichnisse und Elemente verschoben und verweisende Blog-Einträge entsprechend geändert.');
+@define('MEDIA_RESIZE_EXISTS', 'Datei-Dimensionen bereits vorhanden!');
+@define('USE_CACHE', 'Erlaube caching');
+@define('USE_CACHE_DESC', 'Erlaubt einen internen Puffer (cache), um spezifische SQL queries zwischenzuspeichern. Dadurch verringert sich die Last auf Servern mit mittlerem bis hohem Traffic und verbessert die Ladezeit.');
+@define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein Präfix verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden individuellen Namen ändern, es aber nicht einfach entfernen. Dies gilt für alle Pfadpräfix Definitionen.');
 
-@define('HIDE_SUBDIR_FILES', 'Hide Files of Subdirectories');
-@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Default dashboard widgets?');
-@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Show default and hardcoded dashboard widgets, like draft entries and last comments.');
+@define('HIDE_SUBDIR_FILES', 'Ohne Dateien von Unterverzeichnissen');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Standard Dashboard widgets anzeigen?');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Zeige voreingestellte und fest eingebaute Dashboard widgets, wie gepeicherte Entwurfs-Einträge und letzte Kommentare.');
 
-@define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE file URL');
-@define('UPDATE_NOTIFICATION_URL_DESC', 'Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autopudate plugin. The default value to apply here is "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE" and points to a file containing Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
+@define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE Datei URL');
+@define('UPDATE_NOTIFICATION_URL_DESC', 'Bitte nur ändern, wenn Sie eine andere RELEASE-Datei Verortung für benutzerdefinierte Serendipity downloads, in Kombination mit dem Serendipity Autopudate Plugin, erstellen wollen. Der Standard-URL Inhalt verweist auf die Serendipity RELEASE-Datei: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE", die Versions Nummern für stabile and beta Ankündigungen für ein Autoupdate per Zeile, zB. "stable:5.3.0", beinhaltet.');
 
