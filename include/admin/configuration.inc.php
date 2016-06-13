@@ -21,10 +21,12 @@ if (!serendipity_checkPermission('siteConfiguration') && !serendipity_checkPermi
 $data = array();
 
 if ($_POST['installAction'] == 'check' && serendipity_checkFormToken()) {
+
     $data['installAction'] = 'check';
     $oldConfig = $serendipity;
     $res = serendipity_updateConfiguration();
     $data['res'] = $res;
+
     if (is_array($res)) {
         $data['diagnosticError'] = true;
     } else {
@@ -45,13 +47,13 @@ if ($_POST['installAction'] == 'check' && serendipity_checkFormToken()) {
 
         // Compare all old permalink section values against new one. A change in any of those
         // will force to update the .htaccess for rewrite rules.
-            $permconf = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);
-            if (is_array($permconf) && is_array($permconf['permalinks']['items'])) {
-                foreach($permconf['permalinks']['items'] AS $permitem) {
-                    $permalinkOld[] = $oldConfig[$permitem['var']];
-                    $permalinkNew[] = $serendipity[$permitem['var']];
-                }
+        $permconf = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);
+        if (is_array($permconf) && is_array($permconf['permalinks']['items'])) {
+            foreach($permconf['permalinks']['items'] AS $permitem) {
+                $permalinkOld[] = $oldConfig[$permitem['var']];
+                $permalinkNew[] = $serendipity[$permitem['var']];
             }
+        }
 
         if (serendipity_checkPermission('siteConfiguration') && serialize($permalinkOld) != serialize($permalinkNew)) {
             $data['htaccessRewrite'] = true;
@@ -61,6 +63,11 @@ if ($_POST['installAction'] == 'check' && serendipity_checkFormToken()) {
             serendipity_buildPermalinks();
         }
     }
+}
+
+// set a config default value - else the input will be empty, since a config default value still relies on the global $serendipity array
+if (empty($serendipity['updateReleaseFileUrl'])) {
+    $serendipity['updateReleaseFileUrl'] = 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE';
 }
 
 $data['config'] = serendipity_printConfigTemplate(serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE), $serendipity, false, true);

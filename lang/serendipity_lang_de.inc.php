@@ -1122,6 +1122,6 @@
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Standard Dashboard widgets anzeigen?');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Zeige voreingestellte und fest eingebaute Dashboard widgets, wie gepeicherte Entwurfs-Einträge und letzte Kommentare.');
 
-@define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE Datei URL');
-@define('UPDATE_NOTIFICATION_URL_DESC', 'Bitte nur ändern, wenn Sie eine andere RELEASE-Datei Verortung für benutzerdefinierte Serendipity downloads, in Kombination mit dem Serendipity Autopudate Plugin, erstellen wollen. Der Standard-URL Inhalt verweist auf die Serendipity RELEASE-Datei: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE", die Versions Nummern für stabile and beta Ankündigungen für ein Autoupdate per Zeile, zB. "stable:5.3.0", beinhaltet.');
+@define('UPDATE_NOTIFICATION_URL', 'Serendipity RELEASE-Datei URL');
+@define('UPDATE_NOTIFICATION_URL_DESC', 'Bitte nur ändern, wenn Sie eine andere RELEASE-Datei Verortung für benutzerdefinierte Serendipity downloads, in Kombination mit dem Serendipity Autopudate Plugin, erstellen wollen. Der Standard-URL Inhalt verweist auf die Serendipity RELEASE-Datei: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE", die Versions Nummern für stabile and beta Ankündigungen für das Autoupdate per Zeile beinhaltet, zB. "stable:5.3.0".');
 
