@@ -325,7 +325,7 @@ function serendipity_addDefaultGroups() {
 /**
  * baseURL is now defaultBaseURL in the database, so copy if not already set
  *
- * */
+ */
 function serendipity_copyBaseURL() {
     global $serendipity;
     if ((serendipity_get_config_var("defaultBaseURL") === false || serendipity_get_config_var("defaultBaseURL") == "" ) && serendipity_get_config_var("baseURL") !== false) {
@@ -333,11 +333,19 @@ function serendipity_copyBaseURL() {
     }
 }
 
+/**
+ * DELETEs a plugin name value in the database by name
+ *
+ * @param   string  $name
+ *
+ * @return void
+ */
 function serendipity_killPlugin($name) {
     global $serendipity;
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}plugins WHERE name LIKE '" . serendipity_db_escape_string($name) . "%'");
 }
+
 /**
  * Empty a given directory recursively using the Standard PHP Library (SPL) iterator
  * Use as full purge by serendipity_removeDeadFiles_SPL(/path/to/dir)
@@ -353,6 +361,7 @@ function serendipity_killPlugin($name) {
  * @return void
  */
 function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=null, $list_only=false) {
+
     if (!is_dir($dir)) return;
     try {
         $_dir = new RecursiveDirectoryIterator($dir);
@@ -360,31 +369,42 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
     } catch (Exception $e) {
         return;
     }
+
+    $debugSPL = false; // dev debug only
     $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST);
     $search   = array("\\", '//');
     $replace  = array('/');
+
     foreach ($iterator as $file) {
         $thisfile = str_replace($search, $replace, $file->__toString());
         if ($file->isFile()) {
             if (is_array($deadfiles) && !empty($deadfiles)) {
                 foreach ($deadfiles AS $deadfile) {
-                    #if( basename($deadfile) == basename($thisfile) ) echo 'LIST FILE: '.$dir . '/' . $deadfile . ' == ' . $thisfile . ' && basename(file) == ' . basename($thisfile) . "<br>\n";
+                    if ($debugSPL) {
+                        if (basename($deadfile) == basename($thisfile)) echo 'LIST FILE: ' . $dir . '/' . $deadfile . ' == ' . $thisfile . ' && basename(file) == ' . basename($thisfile) . "<br>\n";
+                    }
                     if ($dir . '/' . $deadfile === $thisfile) {
-                         #echo '<b>LIST & REMOVE FILE</b>: '.basename($deadfile) . ' == <b>REAL FILE</b>: ' . basename($thisfile) . '<br><u>Remove</u>: '.$thisfile."<br>\n";
-                         @unlink($thisfile);
-                         continue;
+                        if ($debugSPL) {
+                            echo '<b>LIST & REMOVE FILE</b>: ' . basename($deadfile) . ' == <b>REAL FILE</b>: ' . basename($thisfile) . '<br><u>Remove</u>: ' . $thisfile . "<br>\n";
+                        }
+                        @unlink($thisfile);
+                        continue;
                     }
                 }
             } else {
                 // this is original file purge
-                #echo '<b>FULL PURGE EACH FILE</b>: '.$thisfile."<br>\n";
+                if ($debugSPL) {
+                    echo '<b>FULL PURGE EACH FILE</b>: ' . $thisfile . "<br>\n";
+                }
                 @unlink($thisfile);
             }
         } else {
             if (is_array($purgedir) && !empty($purgedir) ) {
                 foreach ($purgedir AS $pdir) {
                     if (basename($thisfile) == $pdir) {
-                        #echo '<b><u>LIST & REMOVE EMPTY DIRECTORY</u></b>: '.$thisfile."<br><br>\n";
+                        if ($debugSPL) {
+                            echo '<b><u>LIST & REMOVE EMPTY DIRECTORY</u></b>: ' . $thisfile . "<br><br>\n";
+                        }
                         @rmdir($thisfile);
                         continue;
                     }
@@ -392,13 +412,22 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
             }
             // this is original directory purge
             if (!$list_only) {
-                #echo '<b><u>FULL PURGE DIRECTORY</u></b>: '.$thisfile."<br>\n";
+                if ($debugSPL) {
+                    echo '<b><u>FULL PURGE DIRECTORY</u></b>: ' . $thisfile . "<br>\n";
+                }
                 @rmdir($thisfile);
             }
         }
     }
 }
 
+/**
+ * Select and rename old plugin (class) name values in the database by name
+ * due to plugin naming convention (serendipity_plugin_* and serendipity_event_*)
+ * and now being filed and removed into '/plugins' with 2.0
+ *
+ * @return void
+ */
 function serendipity_upgrader_rename_plugins() {
     global $serendipity;
 
@@ -408,8 +437,9 @@ function serendipity_upgrader_rename_plugins() {
         foreach($plugs AS $plugin) {
             $origname = $plugin['name'];
             $plugin['name'] = str_replace('@', '', $plugin['name']);
-            $plugin['name'] = preg_replace('@serendipity_([^_]+)_plugin@i', 'serendipity_plugin_\1', $plugin['name']);
-            $plugin['name'] = str_replace('serendipity_html_nugget_plugin', 'serendipity_plugin_html_nugget', $plugin['name']);
+            $plugin['name'] = preg_replace('@serendipity_([^_]+)_plugin@i', 'serendipity_plugin_\1', $plugin['name']); // force old (core) plugins to plugin naming convention with 2.0+
+            $plugin['name'] = str_replace('serendipity_html_nugget_plugin', 'serendipity_plugin_html_nugget', $plugin['name']); // dito force renaming of old nugget plugin name explicitly
+#            $plugin['name'] = str_replace('serendipity_plugin_topreferers', 'serendipity_plugin_topreferrers', $plugin['name']); // dito old plugin now lives as topreferrers plugin
             $pluginparts = explode(':', $plugin['name']);
 
             echo "<!-- " . serendipity_specialchars($origname) . " &gt;&gt; " . serendipity_specialchars($plugin['name']) . "-->\n";
@@ -431,9 +461,13 @@ function serendipity_upgrader_rename_plugins() {
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET name = '" . serendipity_db_escape_string($config['name']) . "' WHERE name = '" . serendipity_db_escape_string($origname) . "'");
         }
     }
-
 }
 
+/**
+ * Select and rewrite the syndication plugin feed icon path value in the database with 2.0+
+ *
+ * @return void
+ */
 function serendipity_upgrader_rewriteFeedIcon() {
     global $serendipity;
 
@@ -445,8 +479,14 @@ function serendipity_upgrader_rewriteFeedIcon() {
     serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET value = '" . serendipity_db_escape_string($path) . "' WHERE name LIKE '%serendipity_plugin_syndication%big_img'");
 }
 
+/**
+ * Select and rewrite syndication plugin feed config value names in the database with 2.0+
+ *
+ * @return void
+ */
 function serendipity_upgrader_move_syndication_config() {
     global $serendipity;
+
     $optionsToPort = array( 'bannerURL'             => 'feedBannerURL',
                             'fullfeed'              => 'feedFull',
                             'bannerWidth'           => 'feedBannerWidth',
@@ -467,8 +507,8 @@ function serendipity_upgrader_move_syndication_config() {
 
     $fbid = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE NAME LIKE 'serendipity_plugin_syndication%fb_id'");
     $show_feedburner = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE NAME LIKE 'serendipity_plugin_syndication%show_feedburner'");
-    if ($show_feedburner == "force") {
-        if (! empty($fbid) ) {
+    if ($show_feedburner == 'force') {
+        if (!empty($fbid)) {
             $fburl = 'http://feeds.feedburner.com/' . $fbid;
             serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}config(name, value) VALUES ('feedCustom', '" . serendipity_db_escape_string($fburl) ."')");
         }
