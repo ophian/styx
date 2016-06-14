@@ -1,6 +1,11 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
+  * Add ability to set and download a custom Serendipity autoupdater
+    download file and get notifications for this upgrade URL in the
+    Dashboard. This adds a new config option to configuration - general
+    settings.
+
   * fix Spartacus plugin to v. 2.39 for custom mirror (GitHub) cases
 
   * fix case $serendipity['short_archives'] SQL query fetch in
