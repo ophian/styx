@@ -3,7 +3,7 @@ Version 2.1 ()
 
   * Add ability to set and download a custom Serendipity autoupdater
     download file and get notifications for this upgrade URL in the
-    Dashboard. This adds a new config option to configuration - general
+    dashboard. This adds a new config option to configuration - general
     settings.
 
   * fix Spartacus plugin to v. 2.39 for custom mirror (GitHub) cases
@@ -53,6 +53,9 @@ Version 2.1 ()
 
   * Restrict category author permissions
 
+  * Set a new option to "personal preferences" user options, to show
+    no default widgets (draft entries and comments) in the dashboard.
+
   * Fix an old bug with {serendipity_showPlugin
     id="serendipity_plugin_freetag:<the-hash>" side="right"
     negate="true"}
@@ -87,9 +90,9 @@ Version 2.1 ()
 
   * Fix missing perm checks for "standard user" in MediaLibrary
 
-  * Fix show Dashboard entries by authors entries
+  * Fix show dashboard entries by authors entries
 
-  * Fix show Dashboard comments by authors entries (#385)
+  * Fix show dashboard comments by authors entries (#385)
 
   * Use CDATA encoded body for ATOM feed
 
