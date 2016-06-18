@@ -3,6 +3,8 @@
 # All rights reserved.  See LICENSE file for licensing details
 
 // Here be dragons and NO application logic!
+// Keep in mind that PP will NOT show every option set, eg. no_create and right_publish
+// are only shown via users editform. A PP option between those, breaks the zebra.
 
     $res = array();
     $res['personal'] =
@@ -111,6 +113,14 @@
                                           'default'     => true,
                                           'permission'  => 'personalConfiguration'),
 
+                                    array('var'         => 'default_widgets',
+                                          'title'       => USERCONF_DASHBOARD_DEFAULT_WIDGETS,
+                                          'description' => USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC,
+                                          'type'        => 'bool',
+                                          'default'     => true,
+                                          'permission'  => 'personalConfiguration',
+                                          'flags'       => array('config')),
+
                                     array('var'         => 'no_create',
                                           'title'       => USERCONF_CREATE,
                                           'description' => USERCONF_CREATE_DESC,
@@ -119,14 +129,6 @@
                                           'permission'  => 'personalConfigurationNoCreate',
                                           'flags'       => array('config'),
                                           'view'        => 'dangerous'),
-
-                                    array('var'         => 'default_widgets',
-                                          'title'       => USERCONF_DASHBOARD_DEFAULT_WIDGETS,
-                                          'description' => USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC,
-                                          'type'        => 'bool',
-                                          'default'     => true,
-                                          'permission'  => 'personalConfiguration',
-                                          'flags'       => array('config')),
 
                                     array('var'         => 'right_publish',
                                           'title'       => USERCONF_ALLOWPUBLISH,
