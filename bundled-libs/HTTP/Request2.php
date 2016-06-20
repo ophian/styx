@@ -22,13 +22,13 @@
  * A class representing an URL as per RFC 3986.
  */
 if (!class_exists('Net_URL2', true)) {
-    require_once(dirname(__FILE__) . '/../Net/URL2.php');
+    require_once S9Y_PEAR_PATH . 'Net/URL2.php';
 }
 
 /**
  * Exception class for HTTP_Request2 package
  */
-require_once(dirname(__FILE__) . '/../HTTP/Request2/Exception.php');
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
 
 /**
  * Class representing a HTTP request message
@@ -623,7 +623,7 @@ class HTTP_Request2 implements SplSubject
                 return str_replace('%7E', '~', $body);
 
             } elseif (0 === strpos($this->headers['content-type'], 'multipart/form-data')) {
-                require_once 'HTTP/Request2/MultipartBody.php';
+                require_once S9Y_PEAR_PATH . 'HTTP/Request2/MultipartBody.php';
                 return new HTTP_Request2_MultipartBody(
                     $this->postParams, $this->uploads, $this->getConfig('use_brackets')
                 );
@@ -876,8 +876,8 @@ class HTTP_Request2 implements SplSubject
      */
     public function setCookieJar($jar = true)
     {
-        if (!class_exists('HTTP_Request2_CookieJar', false)) {
-            require_once 'HTTP/Request2/CookieJar.php';
+        if (!class_exists(S9Y_PEAR_PATH . 'HTTP_Request2_CookieJar', false)) {
+            require_once S9Y_PEAR_PATH . 'HTTP/Request2/CookieJar.php';
         }
 
         if ($jar instanceof HTTP_Request2_CookieJar) {

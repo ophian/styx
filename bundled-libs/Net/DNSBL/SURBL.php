@@ -30,10 +30,10 @@
  * @since     File available since Release 1.0.0
  */
 
-require_once 'Cache/Lite.php';
-require_once 'HTTP/Request2.php';
-require_once 'Net/DNSBL.php';
-require_once 'PEAR.php';
+require_once S9Y_PEAR_PATH . 'Cache/Lite.php';
+require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
+require_once S9Y_PEAR_PATH . 'Net/DNSBL.php';
+require_once S9Y_PEAR_PATH . 'PEAR.php';
 
 /**
  * PEAR::Net_DNSBL_SURBL

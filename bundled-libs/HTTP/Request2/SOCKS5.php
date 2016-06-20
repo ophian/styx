@@ -19,7 +19,7 @@
  */
 
 /** Socket wrapper class used by Socket Adapter */
-require_once 'HTTP/Request2/SocketWrapper.php';
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/SocketWrapper.php';
 
 /**
  * SOCKS5 proxy connection class (used by Socket Adapter)

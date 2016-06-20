@@ -19,7 +19,7 @@
  */
 
 /** Exception class for HTTP_Request2 package */
-require_once 'HTTP/Request2/Exception.php';
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
 
 /**
  * Class for building multipart/form-data request body

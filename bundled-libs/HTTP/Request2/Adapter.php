@@ -21,7 +21,7 @@
 /**
  * Class representing a HTTP response
  */
-require_once 'HTTP/Request2/Response.php';
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/Response.php';
 
 /**
  * Base class for HTTP_Request2 adapters

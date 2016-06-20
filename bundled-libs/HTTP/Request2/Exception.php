@@ -21,7 +21,7 @@
 /**
  * Base class for exceptions in PEAR
  */
-require_once 'PEAR/Exception.php';
+require_once S9Y_PEAR_PATH . 'PEAR/Exception.php';
 
 /**
  * Base exception class for HTTP_Request2 package

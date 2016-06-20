@@ -19,7 +19,7 @@
  */
 
 /** Class representing a HTTP request message */
-require_once 'HTTP/Request2.php';
+require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
 
 /**
  * Stores cookies and passes them between HTTP requests

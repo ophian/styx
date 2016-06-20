@@ -10,7 +10,7 @@
 * @author Fabien MARTY <fab@php.net>
 */
 
-require_once('Cache/Lite.php');
+require_once(S9Y_PEAR_PATH . 'Cache/Lite.php');
 
 class Cache_Lite_Output extends Cache_Lite
 {

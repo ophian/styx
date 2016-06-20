@@ -8,7 +8,7 @@
 * @author Markus Tacker <tacker@php.net>
 */
 
-require_once('Cache/Lite/Output.php');
+require_once(S9Y_PEAR_PATH . 'Cache/Lite/Output.php');
 
 class Cache_Lite_NestedOutput extends Cache_Lite_Output
 {

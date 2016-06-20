@@ -21,7 +21,7 @@
 /**
  * Base class for HTTP_Request2 adapters
  */
-require_once 'HTTP/Request2/Adapter.php';
+require_once S9Y_PEAR_PATH . 'HTTP/Request2/Adapter.php';
 
 /**
  * Adapter for HTTP_Request2 wrapping around cURL extension

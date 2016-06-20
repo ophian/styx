@@ -1,6 +1,9 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
+  * Fix and set strict S9Y_PEAR_PATH . to all relative PEAR package
+    requirements, due to requirement errors.
+
   * Add ability to set and download a custom Serendipity autoupdater
     download file and get notifications for this upgrade URL in the
     dashboard. This adds a new config option to configuration - general

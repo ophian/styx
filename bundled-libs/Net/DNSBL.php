@@ -31,7 +31,7 @@
  * @since     File available since Release 1.0.0
  */
 
-require_once 'Net/DNS.php';
+require_once S9Y_PEAR_PATH . 'Net/DNS.php';
 
 /**
  * PEAR::Net_DNSBL
