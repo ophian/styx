@@ -22,13 +22,13 @@
  * A class representing an URL as per RFC 3986.
  */
 if (!class_exists('Net_URL2', true)) {
-    require_once(dirname(__FILE__) . '/../Net/URL2.php';
+    require_once(dirname(__FILE__) . '/../Net/URL2.php');
 }
 
 /**
  * Exception class for HTTP_Request2 package
  */
-require_once(dirname(__FILE__) . '/../HTTP/Request2/Exception.php';
+require_once(dirname(__FILE__) . '/../HTTP/Request2/Exception.php');
 
 /**
  * Class representing a HTTP request message
