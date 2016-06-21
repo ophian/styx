@@ -7,3 +7,4 @@ Socket.php
 require_once('PEAR.php');
 require_once(dirname(__FILE__) . '/../PEAR.php');
 
+// see bundled-libs/NEW_BUNDLE_NOTICE

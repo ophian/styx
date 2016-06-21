@@ -1,0 +1,146 @@
+- REPLACE IN:
+
+bundled-libs/Cache/Lite/File.php:
+
+-   require_once('Cache/Lite.php');
+    +require_once(S9Y_PEAR_PATH . 'Cache/Lite.php');
+
+
+bundled-libs/Cache/Lite/Function.php:
+
+-   require_once('Cache/Lite.php');
++   require_once(S9Y_PEAR_PATH . 'Cache/Lite.php');
+
+
+bundled-libs/Cache/Lite/NestedOutput.php:
+
+-   require_once('Cache/Lite/Output.php');
++   require_once(S9Y_PEAR_PATH . 'Cache/Lite/Output.php');
+
+
+bundled-libs/Cache/Lite/Output.php:
+
+-   require_once('Cache/Lite.php');
++   require_once(S9Y_PEAR_PATH . 'Cache/Lite.php');
+
+
+bundled-libs/HTTP/Request2.php:
+
+-   require_once 'Net/URL2.php');
++   require_once S9Y_PEAR_PATH . 'Net/URL2.php';
+
+-   require_once 'HTTP/Request2/Exception.php');
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
+
+-   require_once 'HTTP/Request2/MultipartBody.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/MultipartBody.php';
+
+-   if (!class_exists('HTTP_Request2_CookieJar', false)) {
+-       require_once 'HTTP/Request2/CookieJar.php';
++   if (!class_exists(S9Y_PEAR_PATH . 'HTTP_Request2_CookieJar', false)) {
++       require_once S9Y_PEAR_PATH . 'HTTP/Request2/CookieJar.php';
+
+
+bundled-libs/HTTP/Request2/Adapter.php:
+
+-   require_once 'HTTP/Request2/Response.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Response.php';
+
+
+bundled-libs/HTTP/Request2/Adapter/Curl.php:
+
+-   require_once 'HTTP/Request2/Adapter.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Adapter.php';
+
+
+bundled-libs/HTTP/Request2/Adapter/Mock.php:
+
+-   require_once 'HTTP/Request2/Adapter.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Adapter.php';
+
+
+bundled-libs/HTTP/Request2/Adapter/Socket.php:
+
+-   require_once 'HTTP/Request2/Adapter.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Adapter.php';
+
+-   require_once 'HTTP/Request2/SocketWrapper.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/SocketWrapper.php';
+
+-   require_once 'HTTP/Request2/SOCKS5.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/SOCKS5.php';
+
+
+bundled-libs/HTTP/Request2/CookieJar.php:
+
+-   require_once 'HTTP/Request2.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
+
+
+bundled-libs/HTTP/Request2/Exception.php:
+
+-   require_once 'PEAR/Exception.php';
++   require_once S9Y_PEAR_PATH . 'PEAR/Exception.php';
+
+
+bundled-libs/HTTP/Request2/MultipartBody.php:
+
+-   require_once 'HTTP/Request2/Exception.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
+
+
+bundled-libs/HTTP/Request2/Observer/Log.php:
+
+-   require_once 'HTTP/Request2/Exception.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
+
+
+bundled-libs/HTTP/Request2/Observer/UncompressingDownload.php:
+
+-   require_once 'HTTP/Request2/Response.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Response.php';
+
+
+bundled-libs/HTTP/Request2/Response.php:
+
+-   require_once 'HTTP/Request2/Exception.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
+
+
+bundled-libs/HTTP/Request2/SOCKS5.php:
+
+-   require_once 'HTTP/Request2/SocketWrapper.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/SocketWrapper.php';
+
+
+bundled-libs/HTTP/Request2/SocketWrapper.php:
+
+-   require_once 'HTTP/Request2/Exception.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
+
+
+bundled-libs/Net/DNSBL.php:
+
+-   require_once 'Net/DNS.php';
++   require_once S9Y_PEAR_PATH . 'Net/DNS.php';
+
+
+bundled-libs/Net/DNSBL/SURBL.php:
+
+-   require_once 'Cache/Lite.php';
+-   require_once 'HTTP/Request2.php';
+-   require_once 'Net/DNSBL.php';
+-   require_once 'PEAR.php';
++   require_once S9Y_PEAR_PATH . 'Cache/Lite.php';
++   require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
++   require_once S9Y_PEAR_PATH . 'Net/DNSBL.php';
++   require_once S9Y_PEAR_PATH . 'PEAR.php';
+
+
+bundled-libs/XML/RPC/Dump.php:
+
+-   require_once 'PEAR.php';
++   require_once S9Y_PEAR_PATH . 'PEAR.php';
+
+-   require_once 'PEAR.php';
++   require_once S9Y_PEAR_PATH . 'PEAR.php';

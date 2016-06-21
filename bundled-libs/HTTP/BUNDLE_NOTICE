@@ -8,3 +8,5 @@ require_once(dirname(__FILE__) . '/../Net/Socket.php');
 
 require_once('Net/URL.php');
 require_once(dirname(__FILE__) . '/../Net/URL.php');
+
+// see bundled-libs/NEW_BUNDLE_NOTICE
