@@ -25,6 +25,27 @@ include_once(S9Y_INCLUDE_PATH . 'include/functions_permalinks.inc.php');
 include_once(S9Y_INCLUDE_PATH . 'include/functions_smarty.inc.php');
 
 /**
+ * Retrieve the raw request entity (body)
+ * Copied w/o public declaration from https://github.com/woothemes/woocommerce/blob/master/includes/api/class-wc-api-server.php
+ *
+ * @since 2.1
+ * @return string
+ */
+function get_raw_data() {
+    // $HTTP_RAW_POST_DATA is deprecated on PHP 5.6
+    if ( function_exists( 'phpversion' ) && version_compare( phpversion(), '5.6', '>=' ) ) {
+        return file_get_contents( 'php://input' );
+    }
+    global $HTTP_RAW_POST_DATA;
+    // A bug in PHP < 5.2.2 makes $HTTP_RAW_POST_DATA not set by default,
+    // but we can do it ourself.
+    if ( ! isset( $HTTP_RAW_POST_DATA ) ) {
+        $HTTP_RAW_POST_DATA = file_get_contents( 'php://input' );
+    }
+    return $HTTP_RAW_POST_DATA;
+}
+
+/**
  * Truncate a string to a specific length, multibyte aware. Appends '...' if successfully truncated
  *
  * @access public
