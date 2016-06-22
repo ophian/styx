@@ -52,7 +52,7 @@ class Net_CheckIP
     * @param  string $ip IP adress
     * @return bool       true if syntax is valid, otherwise false
     */
-    function check_ip($ip)
+    public function __construct($ip)
     {
         $oct = explode('.', $ip);
         if (count($oct) != 4) {
@@ -71,5 +71,7 @@ class Net_CheckIP
 
         return true;
     }
+
 }
+
 ?>
