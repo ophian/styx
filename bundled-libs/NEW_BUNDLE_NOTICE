@@ -122,7 +122,7 @@ bundled-libs/HTTP/Request2/SocketWrapper.php:
 bundled-libs/Net/DNSBL.php:
 
 -   require_once 'Net/DNS.php';
-+   require_once S9Y_PEAR_PATH . 'Net/DNS.php';
++   require_once S9Y_PEAR_PATH . 'Net/CheckIP2.php';
 
 
 bundled-libs/Net/DNSBL/SURBL.php:

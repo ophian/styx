@@ -25,13 +25,13 @@
  * @author    Ammar Ibrahim <fixxme@fixme.com>
  * @copyright 2004-2012 Sebastian Nohn <sebastian@nohn.net>
  * @license   http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version   CVS: $Id: DNSBL.php 325344 2012-04-20 04:31:30Z nohn $
+ * @version   CVS: $Id$
  * @link      http://pear.php.net/package/Net_DNSBL
  * @see       Net_DNS
  * @since     File available since Release 1.0.0
  */
 
-require_once S9Y_PEAR_PATH . 'Net/DNS.php';
+require_once S9Y_PEAR_PATH . 'Net/CheckIP2.php';
 
 /**
  * PEAR::Net_DNSBL
@@ -45,7 +45,7 @@ require_once S9Y_PEAR_PATH . 'Net/DNS.php';
  * @package  Net_DNSBL
  * @author   Sebastian Nohn <sebastian@nohn.net>
  * @license  http://www.php.net/license/3_01.txt  PHP License 3.01
- * @version  Release: 1.3.7
+ * @version  Release: @package_version@
  * @link     http://pear.php.net/package/net_dnsbl Package Home
  */
 
@@ -325,4 +325,5 @@ class Net_DNSBL
     } // function
 
 } // class
+
 ?>
