@@ -21,7 +21,7 @@
 /**
  * A class representing an URL as per RFC 3986.
  */
-if (!class_exists('Net_URL2', true)) {
+if (!class_exists(S9Y_PEAR_PATH . 'Net_URL2', true)) {
     require_once S9Y_PEAR_PATH . 'Net/URL2.php';
 }
 
@@ -37,7 +37,7 @@ require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
  * @package  HTTP_Request2
  * @author   Alexey Borzov <avb@php.net>
  * @license  http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
- * @version  Release: 2.3.0
+ * @version  Release: @package_version@
  * @link     http://pear.php.net/package/HTTP_Request2
  * @link     http://tools.ietf.org/html/rfc2616#section-5
  */
@@ -215,7 +215,7 @@ class HTTP_Request2 implements SplSubject
             $this->setMethod($method);
         }
         $this->setHeader(
-            'user-agent', 'HTTP_Request2/2.3.0 ' .
+            'user-agent', 'HTTP_Request2/@package_version@ ' .
             '(http://pear.php.net/package/http_request2) PHP/' . phpversion()
         );
     }
@@ -1033,5 +1033,7 @@ class HTTP_Request2 implements SplSubject
         }
         return empty($info)? 'application/octet-stream': $info;
     }
+
 }
+
 ?>

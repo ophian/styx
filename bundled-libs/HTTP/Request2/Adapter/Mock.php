@@ -44,7 +44,7 @@ require_once S9Y_PEAR_PATH . 'HTTP/Request2/Adapter.php';
  * @package  HTTP_Request2
  * @author   Alexey Borzov <avb@php.net>
  * @license  http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
- * @version  Release: 2.3.0
+ * @version  Release: @package_version@
  * @link     http://pear.php.net/package/HTTP_Request2
  */
 class HTTP_Request2_Adapter_Mock extends HTTP_Request2_Adapter
@@ -162,5 +162,7 @@ class HTTP_Request2_Adapter_Mock extends HTTP_Request2_Adapter
         }
         return $response;
     }
+
 }
+
 ?>
