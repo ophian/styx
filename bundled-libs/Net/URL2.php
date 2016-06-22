@@ -51,7 +51,7 @@
  * @author    Christian Schmidt <schmidt@php.net>
  * @copyright 2007-2009 Peytz & Co. A/S
  * @license   https://spdx.org/licenses/BSD-3-Clause BSD-3-Clause
- * @version   Release: 2.0.5
+ * @version   Release: @package_version@
  * @link      https://pear.php.net/package/Net_URL2
  */
 class Net_URL2
@@ -66,6 +66,12 @@ class Net_URL2
      * Represent arrays in query using PHP's [] notation. Default is true.
      */
     const OPTION_USE_BRACKETS = 'use_brackets';
+
+    /**
+     * Drop zero-based integer sequences in query using PHP's [] notation. Default
+     * is true.
+     */
+    const OPTION_DROP_SEQUENCE = 'drop_sequence';
 
     /**
      * URL-encode query variable keys. Default is true.
@@ -90,6 +96,7 @@ class Net_URL2
     private $_options = array(
         self::OPTION_STRICT           => true,
         self::OPTION_USE_BRACKETS     => true,
+        self::OPTION_DROP_SEQUENCE    => true,
         self::OPTION_ENCODE_KEYS      => true,
         self::OPTION_SEPARATOR_INPUT  => '&',
         self::OPTION_SEPARATOR_OUTPUT => '&',
@@ -271,7 +278,12 @@ class Net_URL2
         if ($password !== false) {
             $userinfo .= ':' . $password;
         }
-        $this->_userinfo = $this->_encodeData($userinfo);
+
+        if ($userinfo !== false) {
+            $userinfo = $this->_encodeData($userinfo);
+        }
+
+        $this->_userinfo = $userinfo;
         return $this;
     }
 
@@ -368,7 +380,12 @@ class Net_URL2
         $this->_host     = false;
         $this->_port     = false;
 
-        if (!preg_match('(^(([^\@]*)\@)?([^:]+)(:(\d*))?$)', $authority, $matches)) {
+        if ('' === $authority) {
+            $this->_host = $authority;
+            return $this;
+        }
+
+        if (!preg_match('(^(([^@]*)@)?(.+?)(:(\d*))?$)', $authority, $matches)) {
             return $this;
         }
 
@@ -377,7 +394,8 @@ class Net_URL2
         }
 
         $this->_host = $matches[3];
-        if (isset($matches[5])) {
+
+        if (isset($matches[5]) && strlen($matches[5])) {
             $this->_port = $matches[5];
         }
         return $this;
@@ -687,7 +705,12 @@ class Net_URL2
             $url .= $this->_scheme . ':';
         }
 
-        $url .= $this->_buildAuthorityAndPath($this->getAuthority(), $this->_path);
+        $authority = $this->getAuthority();
+        if ($authority === false && strtolower($this->_scheme) === 'file') {
+            $authority = '';
+        }
+
+        $url .= $this->_buildAuthorityAndPath($authority, $this->_path);
 
         if ($this->_query !== false) {
             $url .= '?' . $this->_query;
@@ -741,7 +764,7 @@ class Net_URL2
     {
         $url = clone $this;
         $url->normalize();
-        return $url->getUrl();
+        return $url->getURL();
     }
 
     /**
@@ -778,11 +801,14 @@ class Net_URL2
 
         // Normalize case of %XX percentage-encodings (RFC 3986, section 6.2.2.1)
         // Normalize percentage-encoded unreserved characters (section 6.2.2.2)
-        list($this->_userinfo, $this->_host, $this->_path)
-            = preg_replace_callback(
-                '((?:%[0-9a-fA-Z]{2})+)', array($this, '_normalizeCallback'),
-                array($this->_userinfo, $this->_host, $this->_path)
-            );
+        $fields = array(&$this->_userinfo, &$this->_host, &$this->_path,
+                        &$this->_query, &$this->_fragment);
+        foreach ($fields as &$field) {
+            if ($field !== false) {
+                $field = $this->_normalize("$field");
+            }
+        }
+        unset($field);
 
         // Path segment normalization (RFC 3986, section 6.2.2.3)
         $this->_path = self::removeDotSegments($this->_path);
@@ -802,12 +828,31 @@ class Net_URL2
     }
 
     /**
-     * callback for normalize() of %XX percentage-encodings
+     * Normalize case of %XX percentage-encodings (RFC 3986, section 6.2.2.1)
+     * Normalize percentage-encoded unreserved characters (section 6.2.2.2)
+     *
+     * @param string|array $mixed string or array of strings to normalize
+     *
+     * @return string|array
+     * @see normalize
+     * @see _normalizeCallback()
+     */
+    private function _normalize($mixed)
+    {
+        return preg_replace_callback(
+            '((?:%[0-9a-fA-Z]{2})+)', array($this, '_normalizeCallback'),
+            $mixed
+        );
+    }
+
+    /**
+     * Callback for _normalize() of %XX percentage-encodings
      *
      * @param array $matches as by preg_replace_callback
      *
      * @return string
      * @see normalize
+     * @see _normalize
      * @SuppressWarnings(PHPMD.UnusedPrivateMethod)
      */
     private function _normalizeCallback($matches)
@@ -1083,12 +1128,17 @@ class Net_URL2
     protected function buildQuery(array $data, $separator, $key = null)
     {
         $query = array();
+        $drop_names = (
+            $this->_options[self::OPTION_DROP_SEQUENCE] === true
+            && array_keys($data) === array_keys(array_values($data))
+        );
         foreach ($data as $name => $value) {
             if ($this->getOption(self::OPTION_ENCODE_KEYS) === true) {
                 $name = rawurlencode($name);
             }
             if ($key !== null) {
                 if ($this->getOption(self::OPTION_USE_BRACKETS) === true) {
+                    $drop_names && $name = '';
                     $name = $key . '[' . $name . ']';
                 } else {
                     $name = $key;
@@ -1136,12 +1186,14 @@ class Net_URL2
 
     /**
      * Encode characters that might have been forgotten to encode when passing
-     * in an URL. Applied onto Path and Query.
+     * in an URL. Applied onto Userinfo, Path and Query.
      *
      * @param string $url URL
      *
      * @return string
      * @see parseUrl
+     * @see setAuthority
+     * @link https://pear.php.net/bugs/bug.php?id=20425
      */
     private function _encodeData($url)
     {
@@ -1164,4 +1216,7 @@ class Net_URL2
     {
         return rawurlencode($matches[0]);
     }
+
 }
+
+?>
