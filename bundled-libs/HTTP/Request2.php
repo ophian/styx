@@ -21,7 +21,7 @@
 /**
  * A class representing an URL as per RFC 3986.
  */
-if (!class_exists(S9Y_PEAR_PATH . 'Net_URL2', true)) {
+if (!class_exists('Net_URL2', true)) {
     require_once S9Y_PEAR_PATH . 'Net/URL2.php';
 }
 
@@ -876,7 +876,7 @@ class HTTP_Request2 implements SplSubject
      */
     public function setCookieJar($jar = true)
     {
-        if (!class_exists(S9Y_PEAR_PATH . 'HTTP_Request2_CookieJar', false)) {
+        if (!class_exists('HTTP_Request2_CookieJar', false)) {
             require_once S9Y_PEAR_PATH . 'HTTP/Request2/CookieJar.php';
         }
 
