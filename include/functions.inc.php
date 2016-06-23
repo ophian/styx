@@ -46,7 +46,7 @@ function get_raw_data() {
  *
  * @since   2.1
  * @param   $url        string
- * @param   $method     string  Request method for dend
+ * @param   $method     string  Request method for send() (get,post,conn)
  * @param   $options    array   Request parameter
  *
  * @return  object
@@ -58,11 +58,21 @@ function serendipity_request_object($url = '', $method = 'get', $options = array
     if (version_compare(PHP_VERSION, '5.6.0', '<')) {
         $options['ssl_verify_peer'] = false;
     }
-    if ($method == 'get') {
-        $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $options);
-    }
-    if ($method == 'post') {
-        $req = new HTTP_Request2($url, HTTP_Request2::METHOD_POST, $options);
+    switch($method) {
+        case 'conn':
+            $req = new HTTP_Request2($url, HTTP_Request2::METHOD_CONNECT, $options);
+            break;
+
+        case 'post':
+            $req = new HTTP_Request2($url, HTTP_Request2::METHOD_POST, $options);
+            break;
+
+        case 'get':
+            $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $options);
+            break;
+
+        default:
+            return false;
     }
 
     return $ret;

@@ -344,6 +344,7 @@ class HTTP_Request2_Adapter_Socket extends HTTP_Request2_Adapter
      * This method will fail if 'ssl_verify_peer' is enabled. Probably because PHP
      * sees that we are connected to a proxy server (duh!) rather than the server
      * that presents its certificate.
+     * FIXED! By using serendipity API !
      *
      * @link     http://tools.ietf.org/html/rfc2817#section-5.2
      * @throws   HTTP_Request2_Exception
@@ -351,8 +352,8 @@ class HTTP_Request2_Adapter_Socket extends HTTP_Request2_Adapter
     protected function establishTunnel()
     {
         $donor   = new self;
-        $connect = new HTTP_Request2(
-            $this->request->getUrl(), HTTP_Request2::METHOD_CONNECT,
+        $connect = serendipity_request_object(
+            $this->request->getUrl(), 'conn',
             array_merge($this->request->getConfig(), array('adapter' => $donor))
         );
         $response = $connect->send();

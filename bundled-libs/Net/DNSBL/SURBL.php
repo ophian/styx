@@ -99,7 +99,7 @@ class Net_DNSBL_SURBL extends Net_DNSBL
             // Cache hit
         } else {
             // Cache miss
-            $http = new HTTP_Request2($this->doubleCcTldFile);
+            $http = serendipity_request_object($this->doubleCcTldFile);
             if (!PEAR::isError($http->send())) {
                 $data = $http->getBody();
             }
