@@ -1659,4 +1659,5 @@ class serendipity_event_spamblock extends serendipity_event
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
+
 ?>
