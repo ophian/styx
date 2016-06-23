@@ -39,6 +39,36 @@ function get_raw_data() {
 }
 
 /**
+ * Set a new PEAR Request object
+ * Includes the required PHP5 PEAR Request2 class and
+ * fixes failing CERT validation check for PHP versions below 5.6
+ * Make new Request Object
+ *
+ * @since   2.1
+ * @param   $url        string
+ * @param   $method     string  Request method for dend
+ * @param   $options    array   Request parameter
+ *
+ * @return  object
+ */
+function serendipity_request_object($url = '', $method = 'get', $options = array()) {
+    require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
+    // The OpenSSL extension of PHP below version 5.6 does not try to use the distribution-default values for CA file / CA path
+    // when explicit ones are not provided. Thus failing, we need to reset using ssl_verify_pear.
+    if (version_compare(PHP_VERSION, '5.6.0', '<')) {
+        $options['ssl_verify_peer'] = false;
+    }
+    if ($method == 'get') {
+        $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $options);
+    }
+    if ($method == 'post') {
+        $req = new HTTP_Request2($url, HTTP_Request2::METHOD_POST, $options);
+    }
+
+    return $ret;
+}
+
+/**
  * Truncate a string to a specific length, multibyte aware. Appends '...' if successfully truncated
  *
  * @access public
