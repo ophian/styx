@@ -483,11 +483,6 @@ class serendipity_event_spamblock extends serendipity_event
             'max_redirects'     => 3,
         );
 
-        if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-            // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-            $options['ssl_verify_peer'] = false;
-        }
-
         // Default server type to akismet, in case user has an older version of the plugin
         // where no server was set
         $server_type = $this->get_config('akismet_server', 'akismet');
@@ -523,7 +518,7 @@ class serendipity_event_spamblock extends serendipity_event
             // DEBUG
             //$this->log($this->logfile, $eventData['id'], 'AKISMET_SERVER', 'Using Akismet server at ' . $server, $addData);
         }
-        $req = new HTTP_Request2('http://' . $server . '/1.1/verify-key', HTTP_Request2::METHOD_POST, $options);
+        $req = serendipity_request_object('http://' . $server . '/1.1/verify-key', 'post', $options);
 
         $req->addPostParameter('key',  $api_key);
         $req->addPostParameter('blog', $serendipity['baseURL']);
@@ -548,7 +543,7 @@ class serendipity_event_spamblock extends serendipity_event
             return;
         }
 
-        $req = new HTTP_Request2('http://' . $api_key . '.' . $server . '/1.1/' . $action, HTTP_Request2::METHOD_GET, $options);
+        $req = serendipity_request_object('http://' . $api_key . '.' . $server . '/1.1/' . $action, 'get', $options);
 
         foreach($data AS $key => $value) {
             $req->addPostParameter($key, $value);
@@ -598,8 +593,7 @@ class serendipity_event_spamblock extends serendipity_event
                                       . " AND C.ip=L.ip AND C.body=L.body", true, 'assoc');
         if (!is_array($comment)) return;
 
-        require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-        if (function_exists('serendipity_request_start')) serendipity_request_start();
+        serendipity_request_start();
 
         switch($where) {
             case 'akismet.com':
@@ -624,7 +618,7 @@ class serendipity_event_spamblock extends serendipity_event
                 break;
         }
 
-        if (function_exists('serendipity_request_end')) serendipity_request_end();
+        serendipity_request_end();
     }
 
     function &getBlacklist($where, $api_key, &$eventData, &$addData)
@@ -632,8 +626,8 @@ class serendipity_event_spamblock extends serendipity_event
         global $serendipity;
 
         $ret = false;
-        require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-        if (function_exists('serendipity_request_start')) serendipity_request_start();
+
+        serendipity_request_start();
 
         // this switch statement is a leftover from blogg.de support (i.e. there were more options than just one). Leaving it in place in case we get more options again in the future.
         switch($where) {
@@ -661,7 +655,8 @@ class serendipity_event_spamblock extends serendipity_event
                 break;
         }
 
-        if (function_exists('serendipity_request_end')) serendipity_request_end();
+        serendipity_request_end();
+
         return $ret;
     }
 
@@ -1048,15 +1043,11 @@ class serendipity_event_spamblock extends serendipity_event
 
                         // Check Trackback URLs?
                         if (($addData['type'] == 'TRACKBACK' || $addData['type'] == 'PINGBACK') && serendipity_db_bool($this->get_config('trackback_check_url'))) {
-                            require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
+                            serendipity_request_start();
 
-                            if (function_exists('serendipity_request_start')) serendipity_request_start();
                             $options = array('follow_redirects' => true, 'max_redirects' => 5, 'timeout' => 10);
-                            if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-                                // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the funcitonality we had with HTTP/Request1
-                                $options['ssl_verify_peer'] = false;
-                            }
-                            $req = new HTTP_Request2($addData['url'], HTTP_Request2::METHOD_GET, $options);
+                            $req = serendipity_request_object($addData['url'], 'get', $options);
+
                             $is_valid = false;
                             try {
                                 $response = $req->send();
@@ -1075,7 +1066,7 @@ class serendipity_event_spamblock extends serendipity_event
                                 $is_valid = false;
                             }
 
-                            if (function_exists('serendipity_request_end')) serendipity_request_end();
+                            serendipity_request_end();
 
                             if ($is_valid === false) {
                                 $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_TRACKBACKURL, $addData);

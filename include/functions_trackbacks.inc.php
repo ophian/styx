@@ -126,16 +126,13 @@ function _serendipity_send($loc, $data, $contenttype = null) {
        $uri = $target['scheme'] . '://' . $target['host'] . ':' . $target['port'] . $target['path'] . $target['query'];
     }
 
-    require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
     serendipity_plugin_api::hook_event('backend_http_request', $options, 'trackback_send');
 
     serendipity_request_start();
-    if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-        // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-        $options['ssl_verify_peer'] = false;
-    }
-    $req = new HTTP_Request2($uri, HTTP_Request2::METHOD_POST, $options);
+
+    $req = serendipity_request_object($uri, 'post', $options);
+
     if (isset($contenttype)){
        $req->setHeader('Content-Type', $contenttype);
     }
@@ -148,8 +145,8 @@ function _serendipity_send($loc, $data, $contenttype = null) {
         return false;
     }
 
-
     $fContent = $res->getBody();
+
     serendipity_request_end();
 
     return $fContent;
@@ -274,16 +271,12 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
     echo '<div>&#8226; '. sprintf(TRACKBACK_CHECKING, $loc) .'</div>';
     flush();
 
-    require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
     serendipity_plugin_api::hook_event('backend_http_request', $options, 'trackback_detect');
 
     serendipity_request_start();
-    if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-        // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-        $options['ssl_verify_peer'] = false;
-    }
-    $req = new HTTP_Request2($parsed_loc, HTTP_Request2::METHOD_GET, $options);
+
+    $req = serendipity_request_object($parsed_loc, 'get', $options);
 
     try {
         $res = $req->send();
@@ -294,6 +287,7 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
     }
 
     $fContent = $res->getBody();
+
     serendipity_request_end();
 
     if (strlen($fContent) != 0) {
@@ -545,21 +539,18 @@ function fetchPingbackData(&$comment) {
     if (isset($serendipity['pingbackFetchPageMaxLength'])){
         $fetchPageMaxLength = $serendipity['pingbackFetchPageMaxLength'];
     }
-    require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
     $url = $comment['url'];
 
-    if (function_exists('serendipity_request_start')) serendipity_request_start();
+    serendipity_request_start();
 
     // Request the page
     $options = array('follow_redirects' => true, 'max_redirects' => 5, 'timeout' => 20);
-    if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-        // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-        $options['ssl_verify_peer'] = false;
-    }
-    $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $options);
+
+    $req = serendipity_request_object($url, 'get', $options);
 
     // code 200: OK, code 30x: REDIRECTION
     $responses = "/(200)|(30[0-9])/"; // |(30[0-9] Moved)
+
     try {
         $response = $req->send();
         if (preg_match($responses, $response->getStatus())) {
@@ -593,7 +584,7 @@ function fetchPingbackData(&$comment) {
         // do what?
     }
 
-    if (function_exists('serendipity_request_end')) serendipity_request_end();
+    serendipity_request_end();
 
 }
 

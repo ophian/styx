@@ -715,12 +715,11 @@ class serendipity_event_gravatar extends serendipity_event
      */
     function fetchPFavatar(&$eventData, $mode="F")
     {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
         global $serendipity;
 
         $default = $this->getDefaultImageConfiguration();
 
-        $url        = $eventData['url'];
+        $url = $eventData['url'];
         if (empty($url)) {
             return false;
         }
@@ -753,17 +752,12 @@ class serendipity_event_gravatar extends serendipity_event
             // use optimization for localhost
             $islocalhost = ($_SERVER['HTTP_HOST'] == $parts['host']);
 
-            if (function_exists('serendipity_request_start')) {
-                serendipity_request_start();
-            }
+            serendipity_request_start();
 
             // Evaluate URL of P/Favatar
             $options = array('follow_redirects' => true, 'max_redirects' => 3);
-            if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-                // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-                $options['ssl_verify_peer'] = false;
-            }
-            $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $options);
+            $req = serendipity_request_object($url, 'get', $options);
+
             $favicon = false;
             // code 200: OK, code 30x: REDIRECTION
             $responses = "/(200 OK)|(30[0-9] Found)/"; // |(30[0-9] Moved)
@@ -846,9 +840,8 @@ class serendipity_event_gravatar extends serendipity_event
                 }
             }
 
-            if (function_exists('serendipity_request_end')) {
-                serendipity_request_end();
-            }
+            serendipity_request_end();
+
         } // if favicon url not loaded from cache
 
         if (!empty($favicon)) {
@@ -862,14 +855,12 @@ class serendipity_event_gravatar extends serendipity_event
 
     function fetchTwitter(&$eventData)
     {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-
         // Was last run successful?
         if (isset($this->avatarConfiguration['twitter_found']) && !$this->avatarConfiguration['twitter_found']) {
             return false;
         }
 
-        // Let other plugins fill metadata. CommentSpice is perhaps able to fetch twitter infos.
+        // Let other plugins fill metadata. CommentSpice perhaps is able to fetch twitter infos.
         try {
             $original_url = $eventData['url'];
             $this->log("hook_event: avatar_fetch_userinfos");
@@ -896,13 +887,11 @@ class serendipity_event_gravatar extends serendipity_event
             $this->log("Twitteruser found ($url): $twittername");
 
             $twitter_search = 'http://search.twitter.com/search.atom?q=from%3A' . $twittername . '&rpp=1';
+
             serendipity_request_start();
-            $options = array();
-            if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-                // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-                $options['ssl_verify_peer'] = false;
-            }
-            $req = new HTTP_Request2($twitter_search, HTTP_Request2::METHOD_GET, $options);
+
+            $req = serendipity_request_object($twitter_search, 'get');
+
             try {
                 $response = $req->send();
 
@@ -920,6 +909,7 @@ class serendipity_event_gravatar extends serendipity_event
             }
 
             serendipity_request_end();
+
             $parser = xml_parser_create();
             $vals=array(); $index=array();
             $success = xml_parse_into_struct($parser, $response, $vals, $index);
@@ -945,8 +935,6 @@ class serendipity_event_gravatar extends serendipity_event
 
     function fetchIdentica(&$eventData)
     {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-
         // Was last run successful?
         if (isset($this->avatarConfiguration['identica_found']) && !$this->avatarConfiguration['identica_found']) {
             return false;
@@ -959,13 +947,11 @@ class serendipity_event_gravatar extends serendipity_event
         if (preg_match('@^http://identi\.ca/notice/(\d+)$@',$url,$matches)) {
             $status_id = $matches[1];
             $search = "http://identi.ca/api/statuses/show/$status_id.xml";
+
             serendipity_request_start();
-            $options = array();
-            if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-                // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-                $options['ssl_verify_peer'] = false;
-            }
-            $req = new HTTP_Request2($search, HTTP_Request2::METHOD_GET, $options);
+
+            $req = serendipity_request_object($search, 'get');
+
             try {
                 $response = $req->send();
                 $this->last_error = $response->getStatus();
@@ -979,7 +965,9 @@ class serendipity_event_gravatar extends serendipity_event
                 $this->log("Identica Error: {$this->last_error}");
                 return false;
             }
+
             serendipity_request_end();
+
             $parser = xml_parser_create();
             $vals=array(); $index=array();
             $success = xml_parse_into_struct($parser, $response, $vals, $index);
@@ -1126,13 +1114,11 @@ class serendipity_event_gravatar extends serendipity_event
      */
     function saveAndResponseAvatar($eventData, $url, $allow_redirection = 3)
     {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
         global $serendipity;
-        $fContent   = null;
 
-        if (function_exists('serendipity_request_start')) {
-            serendipity_request_start();
-        }
+        $fContent = null;
+
+        serendipity_request_start();
 
         if ($allow_redirection) {
             $request_pars['follow_redirects'] = true;
@@ -1142,12 +1128,8 @@ class serendipity_event_gravatar extends serendipity_event
             $request_pars['follow_redirects'] = false;
         }
 
-        if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-            // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-            $request_pars['ssl_verify_peer'] = false;
-        }
+        $req = serendipity_request_object($url, 'get', $request_pars);
 
-        $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $request_pars);
         try {
             $response = $req->send();
             if ($response->getStatus() != '200') {
@@ -1169,9 +1151,7 @@ class serendipity_event_gravatar extends serendipity_event
             }
         }
 
-        if (function_exists('serendipity_request_start')) {
-            serendipity_request_end();
-        }
+        serendipity_request_end();
 
         // if no content was fetched, return false
         if (!isset($fContent) || empty($fContent)){
@@ -1215,14 +1195,14 @@ class serendipity_event_gravatar extends serendipity_event
             else { // dummy MD5 file was not cached or was too old. We have to fetch the dummy icon now
                 $dummyurl = 'http://pub.mybloglog.com/coiserv.php?href=http://grunz.grunz.grunz&n=*';
                 $this->log("trying dummyUrl: " . $dummyurl);
-                if (function_exists('serendipity_request_start')) {
-                    serendipity_request_start();
-                }
+
+                serendipity_request_start();
+
                 $reqdummy = new HTTP_Request($dummyurl, $request_pars);
                 if (PEAR::isError($reqdummy->sendRequest()) || ($reqdummy->getResponseCode() != '200')) {
-                    if (function_exists('serendipity_request_start')) {
-                        serendipity_request_end();
-                    }
+
+                    serendipity_request_end();
+
                     $this->avatarConfiguration["mybloglog_dummy_error!"]=$reqdummy->getResponseCode();
                     // unable to fetch a dummy picture!
                     $this->log("unable to fetch a dummy picture!" . $dummyurl);
@@ -1237,9 +1217,9 @@ class serendipity_event_gravatar extends serendipity_event
                     if (count($mimeparts)!=2 || $mimeparts[0]!='image') {
                         // unable to fetch a dummy picture!
                         $this->log("unable to fetch a dummy picture!" . $dummyurl);
-                        if (function_exists('serendipity_request_start')) {
-                            serendipity_request_end();
-                        }
+
+                        serendipity_request_end();
+
                         return false; // what can we say else..
                     }
 
@@ -1251,9 +1231,8 @@ class serendipity_event_gravatar extends serendipity_event
                     fclose($fp);
                     $this->log("dummy MD5 saved: " . $this->mybloglog_dummy_md5);
                 }
-                if (function_exists('serendipity_request_start')) {
-                    serendipity_request_end();
-                }
+
+                serendipity_request_end();
             }
         }
 
@@ -1262,15 +1241,12 @@ class serendipity_event_gravatar extends serendipity_event
             $cachefilename = $this->getCacheFilePath($eventData);
 
             // fetch the icon
-            if (function_exists('serendipity_request_start')) {
-                serendipity_request_start();
-            }
+            serendipity_request_start();
+
             $this->log("Fetching mbl: " . $url);
             $req = new HTTP_Request($url, $request_pars);
             if (PEAR::isError($req->sendRequest()) || ($req->getResponseCode() != '200')) {
-                if (function_exists('serendipity_request_start')) {
-                    serendipity_request_end();
-                }
+                serendipity_request_end();
                 $this->log("Unable to fetch the correct image!");
                 // Unable to fetch the correct image!
                 return false;
@@ -1293,9 +1269,8 @@ class serendipity_event_gravatar extends serendipity_event
                 }
 
             }
-            if (function_exists('serendipity_request_start')) {
-                serendipity_request_end();
-            }
+
+            serendipity_request_end();
 
             if ($this->mybloglog_dummy_md5 == $avtmd5){ // This seems to be a dummy avatar!
                 return false;

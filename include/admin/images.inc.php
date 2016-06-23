@@ -267,15 +267,12 @@ switch ($serendipity['GET']['adminAction']) {
                 $realname = serendipity_imageAppend($tfile, $target, $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$tindex]);
             }
 
-            require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
             $options = array('follow_redirects' => true, 'max_redirects' => 5);
             serendipity_plugin_api::hook_event('backend_http_request', $options, 'image');
+
             serendipity_request_start();
-            if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-                // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-                $options['ssl_verify_peer'] = false;
-            }
-            $req = new HTTP_Request2($serendipity['POST']['imageurl'], HTTP_Request2::METHOD_GET, $options);
+
+            $req = serendipity_request_object($serendipity['POST']['imageurl'], 'get', $options);
 
             // Try to get the URL
             try {
@@ -326,7 +323,9 @@ switch ($serendipity['GET']['adminAction']) {
                         );
                     }
                 }
+
                 serendipity_request_end();
+
             } catch (HTTP_Request2_Exception $e) {
                 $messages[] = sprintf('<span class="msg_error"><span class="icon-attention-circled"></span> ' . REMOTE_FILE_NOT_FOUND . "</span>\n", $serendipity['POST']['imageurl']);
             }

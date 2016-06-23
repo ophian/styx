@@ -47,14 +47,8 @@ class s9y_remoterss_XMLTree
 
     function GetXMLTree($file)
     {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
         serendipity_request_start();
-        $options = array();
-        if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-            // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-            $options['ssl_verify_peer'] = false;
-        }
-        $req = new HTTP_Request2($file, HTTP_Request2::METHOD_GET, $options);
+        $req = serendipity_request_object($file, 'get');
         try {
             $response = $req->send();
             if ($response->getStatus() != '200') {
@@ -104,6 +98,7 @@ class s9y_remoterss_XMLTree
 
         return $tree;
     }
+
 }
 
 define('OPMLDEBUG', '0');

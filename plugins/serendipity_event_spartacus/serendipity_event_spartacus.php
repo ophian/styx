@@ -418,16 +418,11 @@ class serendipity_event_spartacus extends serendipity_event
             $data = file_get_contents($target);
             if (is_object($serendipity['logger'])) $serendipity['logger']->debug(sprintf(PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE, strlen($data), $target));
         } else {
-            require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
             $options = array('follow_redirects' => true, 'max_redirects' => 5);
-            if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-                // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-                $options['ssl_verify_peer'] = false;
-            }
             serendipity_plugin_api::hook_event('backend_http_request', $options, 'spartacus');
             serendipity_request_start();
 
-            $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $options);
+            $req = serendipity_request_object($url, 'get', $options);
 
             try {
                 $response = $req->send();
@@ -476,7 +471,8 @@ class serendipity_event_spartacus extends serendipity_event
 
                 $health_options = $options;
                 serendipity_plugin_api::hook_event('backend_http_request', $health_options, 'spartacus_health');
-                $health_req = new HTTP_Request2($health_url, HTTP_Request2::METHOD_GET, $health_options);
+                $health_req = serendipity_request_object($health_url, 'get', $health_options);
+
                 try {
                     $health_result = $health_req->send();
                     if ($health_result->getStatus() != '200') {

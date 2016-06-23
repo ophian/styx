@@ -4,13 +4,15 @@
 
 require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
 
-class Serendipity_Import_Generic extends Serendipity_Import {
+class Serendipity_Import_Generic extends Serendipity_Import
+{
     var $info        = array('software' => IMPORT_GENERIC_RSS);
     var $data        = array();
     var $inputFields = array();
     var $force_recode = false;
 
-    function __construct($data) {
+    function __construct($data)
+    {
         $this->data = $data;
         $this->inputFields = array(array('text'    => RSS . ' ' . URL,
                                          'type'    => 'input',
@@ -46,15 +48,18 @@ class Serendipity_Import_Generic extends Serendipity_Import {
          );
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function _getCategoryList() {
+    function _getCategoryList()
+    {
         $res = serendipity_fetchCategories('all');
         $ret = array(0 => NO_CATEGORY);
         if (is_array($res)) {
@@ -65,7 +70,8 @@ class Serendipity_Import_Generic extends Serendipity_Import {
         return $ret;
     }
 
-    function buildEntry($item, &$entry) {
+    function buildEntry($item, &$entry)
+    {
         global $serendipity;
 
         $bodyonly = serendipity_get_bool($this->data['bodyonly']);
@@ -133,22 +139,20 @@ class Serendipity_Import_Generic extends Serendipity_Import {
         return true;
     }
 
-    function import_wpxrss() {
+    function import_wpxrss()
+    {
         // TODO: Backtranscoding to NATIVE charset. Currently only works with UTF-8.
         $dry_run = false;
 
         $serendipity['noautodiscovery'] = 1;
         $uri = $this->data['url'];
 
-        require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-
         serendipity_request_start();
+
         $options = array('follow_redirects' => true, 'max_redirects' => 5);
-        if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-            // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-            $options['ssl_verify_peer'] = false;
-        }
-        $req = new HTTP_Request2($uri, HTTP_Request2::METHOD_GET, $options);
+
+        $req = serendipity_request_object($uri, 'get', $options);
+
         try {
             $res = $req->send();
             if ($res->getStatus() != '200') {
@@ -161,6 +165,7 @@ class Serendipity_Import_Generic extends Serendipity_Import {
         }
 
         $fContent = $res->getBody();
+
         serendipity_request_end();
 
         echo '<span class="block_level">' . strlen($fContent) . " Bytes</span>";
@@ -174,7 +179,6 @@ class Serendipity_Import_Generic extends Serendipity_Import {
 
         $xml = simplexml_load_string($fContent);
         unset($fContent);
-
 
         /* ************* USERS **********************/
         $_s9y_users = serendipity_fetchUsers();
@@ -328,7 +332,8 @@ class Serendipity_Import_Generic extends Serendipity_Import {
         return true;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         if (serendipity_db_bool($this->data['wpxrss'])) {
@@ -349,6 +354,7 @@ class Serendipity_Import_Generic extends Serendipity_Import {
 
         return true;
     }
+
 }
 
 return 'Serendipity_Import_Generic';

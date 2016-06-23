@@ -47,21 +47,18 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
         }
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         // Make sure Google login has been completed
         if (!empty($_REQUEST['token'])) {
 
             // Prepare session token request
-            $options = array();
-            if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-                // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-                $options['ssl_verify_peer'] = false;
-            }
-            $req = new HTTP_Request2('https://www.google.com/accounts/AuthSubSessionToken', HTTP_Request2::METHOD_GET, $options);
+            $req = serendipity_request_object('https://www.google.com/accounts/AuthSubSessionToken', 'get');
             $req->setHeader('Authorization', 'AuthSub token="'. $_REQUEST['token'] .'"');
 
             // Request token
@@ -82,7 +79,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
                                                      'default'   => $tokens['Token']));
 
             // Prepare blog list request
-            $req = new HTTP_Request2('https://www.blogger.com/feeds/default/blogs', HTTP_Request2::METHOD_GET, $options);
+            $req = serendipity_request_object('https://www.blogger.com/feeds/default/blogs', 'get');
             $req->setHeader('GData-Version', 2);
             $req->setHeader('Authorization', 'AuthSub token="'. $tokens['Token'] .'"');
 
@@ -144,12 +141,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
         $this->getTransTable();
 
         // Prepare export request
-        $options = array();
-        if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-            // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-            $options['ssl_verify_peer'] = false;
-        }
-        $req = new HTTP_Request2('https://www.blogger.com/feeds/'. $this->data['bId'] .'/archive', HTTP_Request2::METHOD_GET, $options);
+        $req = serendipity_request_object('https://www.blogger.com/feeds/'. $this->data['bId'] .'/archive', 'get');
         $req->setHeader('GData-Version', 2);
         $req->setHeader('Authorization', 'AuthSub token="'. $this->data['bAuthToken'] .'"');
 

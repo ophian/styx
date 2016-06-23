@@ -55,354 +55,317 @@ class ONYX_RSS
    // http://www.phpvolcano.com/eide/php5.php?page=start
    function __construct($charset = 'UTF-8')
    {
-      $this->conf = array();
-      $this->conf['error'] = '<br /><strong>Error on line %s of '.__FILE__.'</strong>: %s<br />';
-      $this->conf['cache_path'] = dirname(__FILE__);
-      $this->conf['cache_time'] = 180;
-      $this->conf['debug_mode'] = true;
-      $this->conf['fetch_mode'] = ONYX_FETCH_ASSOC;
+        $this->conf = array();
+        $this->conf['error'] = '<br /><strong>Error on line %s of '.__FILE__.'</strong>: %s<br />';
+        $this->conf['cache_path'] = dirname(__FILE__);
+        $this->conf['cache_time'] = 180;
+        $this->conf['debug_mode'] = true;
+        $this->conf['fetch_mode'] = ONYX_FETCH_ASSOC;
 
-      if (!function_exists('xml_parser_create'))
-      {
-         $this->raiseError((__LINE__-2), ONYX_ERR_NO_PARSER);
-         return false;
-      }
-
-      if ($charset == 'native') {
-         $charset = LANG_CHARSET;
-      }
-      $this->parser = @xml_parser_create($charset);
-      if (!is_resource($this->parser))
-      {
-         $this->raiseError((__LINE__-3), ONYX_ERR_NO_PARSER);
-         return false;
-      }
-      xml_set_object($this->parser, $this);
-      xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
-      @xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, LANG_CHARSET);
-      xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
-      xml_set_character_data_handler($this->parser, 'cdata');
-   }
-
-   function parse($uri, $file=false, $time=false, $local=false)
-   {
-      $this->rss = array();
-      $this->rss['cache_age'] = 0;
-      $this->rss['current_tag'] = '';
-      $this->rss['index'] = 0;
-      $this->rss['output_index'] = -1;
-      $this->data = array();
-
-      if ($file)
-      {
-         if (!is_writeable($this->conf['cache_path']))
-         {
-            $this->raiseError((__LINE__-2), ONYX_ERR_NOT_WRITEABLE);
+        if (!function_exists('xml_parser_create'))
+        {
+            $this->raiseError((__LINE__-2), ONYX_ERR_NO_PARSER);
             return false;
-         }
-         $file = str_replace('//', '/', $this->conf['cache_path'].'/'.$file);
-         if (!$time)
-            $time = $this->conf['cache_time'];
-         $this->rss['cache_age'] = file_exists($file) ? ceil((time() - filemtime($file)) / 60) : 0;
+        }
 
-         clearstatcache();
-         if (!$local && file_exists($file))
-            if (($mod = $this->mod_time($uri)) === false)
-            {
-               $this->raiseError((__LINE__-2), ONYX_ERR_INVALID_URI);
-               return false;
+        if ($charset == 'native') {
+            $charset = LANG_CHARSET;
+        }
+        $this->parser = @xml_parser_create($charset);
+        if (!is_resource($this->parser))
+        {
+            $this->raiseError((__LINE__-3), ONYX_ERR_NO_PARSER);
+            return false;
+        }
+        xml_set_object($this->parser, $this);
+        xml_parser_set_option($this->parser, XML_OPTION_CASE_FOLDING, false);
+        @xml_parser_set_option($this->parser, XML_OPTION_TARGET_ENCODING, LANG_CHARSET);
+        xml_set_element_handler($this->parser, 'tag_open', 'tag_close');
+        xml_set_character_data_handler($this->parser, 'cdata');
+    }
+
+    function parse($uri, $file=false, $time=false, $local=false)
+    {
+        $this->rss = array();
+        $this->rss['cache_age'] = 0;
+        $this->rss['current_tag'] = '';
+        $this->rss['index'] = 0;
+        $this->rss['output_index'] = -1;
+        $this->data = array();
+
+        if ($file)
+        {
+            if (!is_writeable($this->conf['cache_path'])) {
+                $this->raiseError((__LINE__-2), ONYX_ERR_NOT_WRITEABLE);
+                return false;
             }
-            else
-               $mod = ($mod !== 0) ? strtotime($mod) : (time()+3600);
-         elseif ($local)
-            $mod = (file_exists($file) && ($m = filemtime($uri))) ? $m : time()+3600;
-      }
-      if ( !$file ||
+            $file = str_replace('//', '/', $this->conf['cache_path'].'/'.$file);
+            if (!$time) {
+                $time = $this->conf['cache_time'];
+            }
+            $this->rss['cache_age'] = file_exists($file) ? ceil((time() - filemtime($file)) / 60) : 0;
+
+            clearstatcache();
+            if (!$local && file_exists($file)) {
+                if (($mod = $this->mod_time($uri)) === false) {
+                    $this->raiseError((__LINE__-2), ONYX_ERR_INVALID_URI);
+                    return false;
+                } else {
+                    $mod = ($mod !== 0) ? strtotime($mod) : (time()+3600);
+                }
+            } elseif ($local) {
+                $mod = (file_exists($file) && ($m = filemtime($uri))) ? $m : time()+3600;
+            }
+        }
+        if ( !$file ||
            ($file && !file_exists($file)) ||
            ($file && file_exists($file) && $time <= $this->rss['cache_age'] && $mod >= (time() - ($this->rss['cache_age'] * 60))))
-      {
-         clearstatcache();
+        {
+            clearstatcache();
 
-         require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-         serendipity_request_start();
-         $options = array('follow_redirects' => true, 'max_redirects' => 5);
-         if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-             // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-             $options['ssl_verify_peer'] = false;
-         }
-         $req = new HTTP_Request2($uri, HTTP_Request2::METHOD_GET, $options);
-         try {
-            $res = $req->send();
+            serendipity_request_start();
 
-            if ($res->getStatus() != '200') {
-               throw new HTTP_Request2_Exception('unable to fetch feed: status code != 200');
+            $req = serendipity_request_object($uri, 'get', array('follow_redirects' => true, 'max_redirects' => 5));
+
+            try {
+                $res = $req->send();
+
+                if ($res->getStatus() != '200') {
+                    throw new HTTP_Request2_Exception('unable to fetch feed: status code != 200');
+                }
+
+            } catch (HTTP_Request2_Exception $e) {
+                serendipity_request_end();
+                $this->raiseError((__LINE__-2), ONYX_ERR_INVALID_URI . ' (#' . $res->getStatus() . ')');
+                return false;
             }
 
-         } catch (HTTP_Request2_Exception $e) {
+            $fContent = $res->getBody();
+
             serendipity_request_end();
-            $this->raiseError((__LINE__-2), ONYX_ERR_INVALID_URI . ' (#' . $res->getStatus() . ')');
-            return false;
-         }
 
-         $fContent = $res->getBody();
-         serendipity_request_end();
-         if (@preg_match('@<?xml[^>]*encoding="([^"]+)"@i', $fContent, $xml_encoding)) {
-            $this->rss['encoding'] = strtolower($xml_encoding[1]);
-         }
-
-         $parsedOkay = xml_parse($this->parser, $fContent, true);
-         if (!$parsedOkay && xml_get_error_code($this->parser) != XML_ERROR_NONE)
-         {
-            $this->raiseError((__LINE__-3), 'File has an XML error (<em>'.xml_error_string(xml_get_error_code($this->parser)).'</em> at line <em>'.xml_get_current_line_number($this->parser).'</em>).');
-            return false;
-         }
-
-         clearstatcache();
-         if ($file)
-         {
-            if (!($cache = @fopen($file, 'w')))
-            {
-               $this->raiseError((__LINE__-2), 'Could not write to cache file (<em>'.$file.'</em>).  The path may be invalid or you may not have write permissions.');
-               return false;
+            if (@preg_match('@<?xml[^>]*encoding="([^"]+)"@i', $fContent, $xml_encoding)) {
+                $this->rss['encoding'] = strtolower($xml_encoding[1]);
             }
-            fwrite($cache, serialize($this->data));
-            fclose($cache);
-            $this->rss['cache_age'] = 0;
-         }
-      }
-      else
-      {
-         clearstatcache();
-         if (!($fp = @fopen($file, 'r')))
-         {
-            $this->raiseError((__LINE__-2), 'Could not read contents of cache file (<em>'.$file.'</em>).');
-            return false;
-         }
-         $this->data = unserialize(fread($fp, filesize($file)));
-         fclose($fp);
-      }
-      return true;
-   }
 
-   function parseLocal($uri, $file=false, $time=false)
-   {
-      return $this->parse($uri, $file, $time, true);
-   }
+            $parsedOkay = xml_parse($this->parser, $fContent, true);
+            if (!$parsedOkay && xml_get_error_code($this->parser) != XML_ERROR_NONE) {
+                $this->raiseError((__LINE__-3), 'File has an XML error (<em>'.xml_error_string(xml_get_error_code($this->parser)).'</em> at line <em>'.xml_get_current_line_number($this->parser).'</em>).');
+                return false;
+            }
 
-   //private function tag_open($parser, $tag, $attrs)
-   function tag_open($parser, $tag, $attrs)
-   {
-      $this->rss['current_tag'] = $tag = strtolower($tag);
-      switch ($tag)
-      {
-         case 'channel':
-         case 'image':
-         case 'textinput':
-            $this->type = $tag;
-            break;
-         case 'item':
-            $this->type = $tag;
-            $this->rss['index']++;
-            break;
-         default:
-            break;
-      }
-      if (sizeof($attrs))
-         foreach ($attrs as $k => $v)
-            if (strpos($k, 'xmlns') !== false)
-               $this->data['namespaces'][$k] = $v;
-   }
+            clearstatcache();
 
-   //private function tag_close($parser, $tag){}
-   function tag_close($parser, $tag){}
+            if ($file) {
+                if (!($cache = @fopen($file, 'w'))) {
+                    $this->raiseError((__LINE__-2), 'Could not write to cache file (<em>'.$file.'</em>).  The path may be invalid or you may not have write permissions.');
+                    return false;
+                }
+                fwrite($cache, serialize($this->data));
+                fclose($cache);
+                $this->rss['cache_age'] = 0;
+            }
+        } else {
+            clearstatcache();
+            if (!($fp = @fopen($file, 'r'))) {
+                $this->raiseError((__LINE__-2), 'Could not read contents of cache file (<em>'.$file.'</em>).');
+                return false;
+            }
+            $this->data = unserialize(fread($fp, filesize($file)));
+            fclose($fp);
+        }
+        return true;
+    }
 
-   //private function cdata($parser, $cdata)
-   function cdata($parser, $cdata)
-   {
-      if (strlen(trim($cdata)) && $cdata != "\n")
-         switch ($this->type)
-         {
+    function parseLocal($uri, $file=false, $time=false)
+    {
+        return $this->parse($uri, $file, $time, true);
+    }
+
+    //private function tag_open($parser, $tag, $attrs)
+    function tag_open($parser, $tag, $attrs)
+    {
+        $this->rss['current_tag'] = $tag = strtolower($tag);
+        switch ($tag) {
             case 'channel':
             case 'image':
             case 'textinput':
-               (!isset($this->data[$this->type][$this->rss['current_tag']]) ||
-                !strlen($this->data[$this->type][$this->rss['current_tag']])) ?
-                  $this->data[$this->type][$this->rss['current_tag']] = $cdata :
-                  $this->data[$this->type][$this->rss['current_tag']].= $cdata;
-               break;
+                $this->type = $tag;
+                break;
             case 'item':
-               (!isset($this->data['items'][$this->rss['index']-1][$this->rss['current_tag']]) ||
-                !strlen($this->data['items'][$this->rss['index']-1][$this->rss['current_tag']])) ?
-                  $this->data['items'][$this->rss['index']-1][$this->rss['current_tag']] = $cdata :
-                  $this->data['items'][$this->rss['index']-1][$this->rss['current_tag']].= $cdata;
-               break;
-         }
-   }
+                $this->type = $tag;
+                $this->rss['index']++;
+                break;
+            default:
+                break;
+        }
+        if (sizeof($attrs)) {
+            foreach ($attrs as $k => $v) {
+                if (strpos($k, 'xmlns') !== false) {
+                    $this->data['namespaces'][$k] = $v;
+                }
+            }
+        }
+    }
 
-   function getData($type)
-   {
-      if ($type == ONYX_META)
-         return $this->conf['fetch_mode'] == 1 ? $this->data['channel'] : (object)$this->data['channel'];
-      if ($type == ONYX_IMAGE)
-         return $this->conf['fetch_mode'] == 1 ? $this->data['image'] : (object)$this->data['image'];
-      if ($type == ONYX_TEXTINPUT)
-         return $this->conf['fetch_mode'] == 1 ? $this->data['textinput'] : (object)$this->data['textinput'];
-      if ($type == ONYX_ITEMS)
-      {
-         if ($this->conf['fetch_mode'] == 1)
-            return $this->data['items'];
+    //private function tag_close($parser, $tag){}
+    function tag_close($parser, $tag) {}
 
-         $temp = array();
-         for ($i=0; $i < sizeof($this->data['items']); $i++)
-            $temp[] = (object)$this->data['items'][$i];
+    //private function cdata($parser, $cdata)
+    function cdata($parser, $cdata)
+    {
+        if (strlen(trim($cdata)) && $cdata != "\n") {
+            switch ($this->type) {
+                case 'channel':
+                case 'image':
+                case 'textinput':
+                    (!isset($this->data[$this->type][$this->rss['current_tag']]) ||
+                     !strlen($this->data[$this->type][$this->rss['current_tag']]))
+                        ? $this->data[$this->type][$this->rss['current_tag']]  = $cdata
+                        : $this->data[$this->type][$this->rss['current_tag']] .= $cdata;
+                    break;
+                case 'item':
+                    (!isset($this->data['items'][$this->rss['index']-1][$this->rss['current_tag']]) ||
+                     !strlen($this->data['items'][$this->rss['index']-1][$this->rss['current_tag']]))
+                        ? $this->data['items'][$this->rss['index']-1][$this->rss['current_tag']]  = $cdata
+                        : $this->data['items'][$this->rss['index']-1][$this->rss['current_tag']] .= $cdata;
+                    break;
+            }
+        }
+    }
 
-         return $temp;
-      }
-      if ($type == ONYX_NAMESPACES)
-         return $this->conf['fetch_mode'] == 1 ? $this->data['namespaces'] : (object)$this->data['namespaces'];
-      if ($type == ONYX_CACHE_AGE)
-         return $this->rss['cache_age'];
+    function getData($type)
+    {
+        if ($type == ONYX_META)
+            return $this->conf['fetch_mode'] == 1 ? $this->data['channel'] : (object)$this->data['channel'];
+        if ($type == ONYX_IMAGE)
+            return $this->conf['fetch_mode'] == 1 ? $this->data['image'] : (object)$this->data['image'];
+        if ($type == ONYX_TEXTINPUT)
+            return $this->conf['fetch_mode'] == 1 ? $this->data['textinput'] : (object)$this->data['textinput'];
+        if ($type == ONYX_ITEMS) {
+            if ($this->conf['fetch_mode'] == 1) {
+                return $this->data['items'];
+            }
+            $temp = array();
+            for ($i=0; $i < sizeof($this->data['items']); $i++) {
+                $temp[] = (object)$this->data['items'][$i];
+            }
+            return $temp;
+        }
+        if ($type == ONYX_NAMESPACES)
+            return $this->conf['fetch_mode'] == 1 ? $this->data['namespaces'] : (object)$this->data['namespaces'];
+        if ($type == ONYX_CACHE_AGE)
+            return $this->rss['cache_age'];
 
-      return false;
-   }
+        return false;
+    }
 
-   function numItems()
-   {
-      return sizeof($this->data['items']);
-   }
+    function numItems()
+    {
+        return sizeof($this->data['items']);
+    }
 
-   function getNextItem($max=false)
-   {
-      $type = $this->conf['fetch_mode'];
-      $this->rss['output_index']++;
-      if (($max && $this->rss['output_index'] > $max) || !isset($this->data['items'][$this->rss['output_index']]))
-         return false;
+    function getNextItem($max=false)
+    {
+        $type = $this->conf['fetch_mode'];
+        $this->rss['output_index']++;
+        if (($max && $this->rss['output_index'] > $max) || !isset($this->data['items'][$this->rss['output_index']])) {
+            return false;
+        }
+        return ($type == ONYX_FETCH_ASSOC)
+                    ? $this->data['items'][$this->rss['output_index']]
+                    : (($type == ONYX_FETCH_OBJECT) ? (object)$this->data['items'][$this->rss['output_index']] : false);
+    }
 
-      return ($type == ONYX_FETCH_ASSOC) ? $this->data['items'][$this->rss['output_index']] :
-             (($type == ONYX_FETCH_OBJECT) ? (object)$this->data['items'][$this->rss['output_index']] : false);
-   }
+    function itemAt($num)
+    {
+        if (!isset($this->data['items'][$num])) {
+            $this->raiseError((__LINE__-3), ONYX_ERR_INVALID_ITEM);
+            return false;
+        }
 
-   function itemAt($num)
-   {
-      if (!isset($this->data['items'][$num]))
-      {
-         $this->raiseError((__LINE__-3), ONYX_ERR_INVALID_ITEM);
-         return false;
-      }
+        $type = $this->conf['fetch_mode'];
+        return ($type == ONYX_FETCH_ASSOC)
+                    ? $this->data['items'][$num]
+                    : (($type == ONYX_FETCH_OBJECT) ? (object)$this->data['items'][$num] : false);
+    }
 
-      $type = $this->conf['fetch_mode'];
-      return ($type == ONYX_FETCH_ASSOC) ? $this->data['items'][$num] :
-             (($type == ONYX_FETCH_OBJECT) ? (object)$this->data['items'][$num] : false);
-   }
+    function startBuffer($file=false)
+    {
+        $this->conf['output_file'] = $file;
+        ob_start();
+    }
 
-   function startBuffer($file=false)
-   {
-      $this->conf['output_file'] = $file;
-      ob_start();
-   }
-
-   function endBuffer()
-   {
-      if (!$this->conf['output_file'])
-         ob_end_flush();
-      else
-      {
-         if (!($fp = @fopen($this->conf['output_file'], 'w')))
-         {
-            $this->raiseError((__LINE__-2), ONYX_ERR_NO_STREAM);
+    function endBuffer()
+    {
+        if (!$this->conf['output_file']) {
             ob_end_flush();
-            return;
-         }
-         fwrite($fp, ob_get_contents());
-         fclose($fp);
-         ob_end_clean();
-      }
-   }
+        } else {
+            if (!($fp = @fopen($this->conf['output_file'], 'w'))) {
+                $this->raiseError((__LINE__-2), ONYX_ERR_NO_STREAM);
+                ob_end_flush();
+                return;
+            }
+            fwrite($fp, ob_get_contents());
+            fclose($fp);
+            ob_end_clean();
+        }
+    }
 
-   //private function raiseError($line, $err)
-   function raiseError($line, $err)
-   {
-      if ($this->conf['debug_mode'])
-         printf($this->conf['error'], $line, $err);
-   }
+    //private function raiseError($line, $err)
+    function raiseError($line, $err)
+    {
+        if ($this->conf['debug_mode']) {
+            printf($this->conf['error'], $line, $err);
+        }
+    }
 
-   function setCachePath($path)
-   {
-      $this->conf['cache_path'] = $path;
-   }
+    function setCachePath($path)
+    {
+        $this->conf['cache_path'] = $path;
+    }
 
-   function setExpiryTime($time)
-   {
-      $this->conf['cache_time'] = $time;
-   }
+    function setExpiryTime($time)
+    {
+        $this->conf['cache_time'] = $time;
+    }
 
-   function setDebugMode($state)
-   {
-      $this->conf['debug_mode'] = (bool)$state;
-   }
+    function setDebugMode($state)
+    {
+        $this->conf['debug_mode'] = (bool)$state;
+    }
 
-   function setFetchMode($mode)
-   {
-      $this->conf['fetch_mode'] = $mode;
-   }
+    function setFetchMode($mode)
+    {
+        $this->conf['fetch_mode'] = $mode;
+    }
 
-   //private function mod_time($uri)
-   function mod_time($uri)
-   {
-      if (function_exists('version_compare') && version_compare(phpversion(), '4.3.0') >= 0)
-      {
-         require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-         serendipity_request_start();
-         $options = array();
-         if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-            // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-            $options['ssl_verify_peer'] = false;
-         }
-         $req = new HTTP_Request2($uri, HTTP_Request2::METHOD_GET, $options);
+    //private function mod_time($uri)
+    function mod_time($uri)
+    {
+        serendipity_request_start();
 
-         try {
+        $req = serendipity_request_object($uri, 'get');
+
+        try {
             $response = $req->send();
             if ($response->getStatus() != '200') {
                throw new HTTP_Request2_Exception('could not fetch url: status code != 200');
             }
-         } catch (HTTP_Request2_Exception $e) {
+        } catch (HTTP_Request2_Exception $e) {
             serendipity_request_end();
             return false;
-         }
+        }
 
-         $fHeader = $response->getHeader();
-         if (isset($fHeader['last-modified'])) {
+        $fHeader = $response->getHeader();
+        if (isset($fHeader['last-modified'])) {
             $modtime = $fHeader['last-modified'];
         }
         serendipity_request_end();
-      }
-      else
-      {
-         $parts = parse_url($uri);
-         $host  = $parts['host'];
-         $path  = $parts['path'];
 
-         if (!($fp = @fsockopen($host, 80)))
-            return false;
-
-         $req = "HEAD $path HTTP/1.1\r\nUser-Agent: PHP/".phpversion();
-         $req.= "\r\nHost: $host\r\nAccept: */*\r\n\r\n";
-         fputs($fp, $req);
-
-         while (!feof($fp))
-         {
-            $str = fgets($fp, 4096);
-            if (strpos(strtolower($str), 'last-modified') !== false)
-            {
-               $modtime = substr($str, 15);
-               break;
-            }
-         }
-         fclose($fp);
-      }
-      return (isset($modtime)) ? $modtime : 0;
+        return (isset($modtime)) ? $modtime : 0;
    }
-}
 
+}
 
 ?>
