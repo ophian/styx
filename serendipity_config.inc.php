@@ -197,7 +197,6 @@ if (!version_compare(phpversion(), '5.3', '>=')) {
     serendipity_die(sprintf(SERENDIPITY_PHPVERSION_FAIL, phpversion(), '5.3'));
 }
 
-
 // Kill the script if we are not installed, and not inside the installer
 if ( !defined('IN_installer') && IS_installed === false ) {
     header('Status: 302 Found');
@@ -214,7 +213,6 @@ if (function_exists('get_include_path')) {
     $old_include = @ini_get('include_path');
 }
 
-
 require_once("bundled-libs/autoload.php");
 
 $new_include = ($serendipity['use_PEAR'] ? $old_include . PATH_SEPARATOR : '')
@@ -228,7 +226,7 @@ if (function_exists('set_include_path')) {
 } else {
     $use_include = @ini_set('include_path', $new_include);
 }
-
+// at here $new_include == full path to bundled-libs, to Smarty and to Serendipity as a Win/Unix style include_path string AND $use_include == .
 if ($use_include !== false && $use_include == $new_include) {
     @define('S9Y_PEAR', true);
     @define('S9Y_PEAR_PATH', '');
