@@ -548,7 +548,7 @@ class serendipity_event_spamblock extends serendipity_event
             return;
         }
 
-        $req = new HTTP_Request2('http://' . $api_key . '.' . $server . '/1.1/' . $action, $options);
+        $req = new HTTP_Request2('http://' . $api_key . '.' . $server . '/1.1/' . $action, HTTP_Request2::METHOD_GET, $options);
 
         foreach($data AS $key => $value) {
             $req->addPostParameter($key, $value);
