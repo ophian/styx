@@ -56,7 +56,12 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
         if (!empty($_REQUEST['token'])) {
 
             // Prepare session token request
-            $req = new HTTP_Request2('https://www.google.com/accounts/AuthSubSessionToken');
+            $options = array();
+            if (version_compare(PHP_VERSION, '5.6.0', '<')) {
+                // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
+                $options['ssl_verify_peer'] = false;
+            }
+            $req = new HTTP_Request2('https://www.google.com/accounts/AuthSubSessionToken', HTTP_Request2::METHOD_GET, $options);
             $req->setHeader('Authorization', 'AuthSub token="'. $_REQUEST['token'] .'"');
 
             // Request token
@@ -77,7 +82,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
                                                      'default'   => $tokens['Token']));
 
             // Prepare blog list request
-            $req = new HTTP_Request2('http://www.blogger.com/feeds/default/blogs');
+            $req = new HTTP_Request2('https://www.blogger.com/feeds/default/blogs', HTTP_Request2::METHOD_GET, $options);
             $req->setHeader('GData-Version', 2);
             $req->setHeader('Authorization', 'AuthSub token="'. $tokens['Token'] .'"');
 
@@ -139,7 +144,12 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
         $this->getTransTable();
 
         // Prepare export request
-        $req = new HTTP_Request2('http://www.blogger.com/feeds/'. $this->data['bId'] .'/archive');
+        $options = array();
+        if (version_compare(PHP_VERSION, '5.6.0', '<')) {
+            // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
+            $options['ssl_verify_peer'] = false;
+        }
+        $req = new HTTP_Request2('https://www.blogger.com/feeds/'. $this->data['bId'] .'/archive', HTTP_Request2::METHOD_GET, $options);
         $req->setHeader('GData-Version', 2);
         $req->setHeader('Authorization', 'AuthSub token="'. $this->data['bAuthToken'] .'"');
 

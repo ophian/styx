@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.86');
+        $propbag->add('version',       '1.87');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -477,11 +477,16 @@ class serendipity_event_spamblock extends serendipity_event
     {
         global $serendipity;
 
-        $opt = array(
+        $options = array(
             'timeout'           => 20,
-            'follow_redirects'    => true,
-            'max_redirects'      => 3,
+            'follow_redirects'  => true,
+            'max_redirects'     => 3,
         );
+
+        if (version_compare(PHP_VERSION, '5.6.0', '<')) {
+            // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
+            $options['ssl_verify_peer'] = false;
+        }
 
         // Default server type to akismet, in case user has an older version of the plugin
         // where no server was set
@@ -518,11 +523,7 @@ class serendipity_event_spamblock extends serendipity_event
             // DEBUG
             //$this->log($this->logfile, $eventData['id'], 'AKISMET_SERVER', 'Using Akismet server at ' . $server, $addData);
         }
-        $req    = new HTTP_Request2(
-            'http://' . $server . '/1.1/verify-key',
-            HTTP_Request2::METHOD_POST,
-            $opt
-        );
+        $req = new HTTP_Request2('http://' . $server . '/1.1/verify-key', HTTP_Request2::METHOD_POST, $options);
 
         $req->addPostParameter('key',  $api_key);
         $req->addPostParameter('blog', $serendipity['baseURL']);
@@ -547,10 +548,7 @@ class serendipity_event_spamblock extends serendipity_event
             return;
         }
 
-        $req = new HTTP_Request2(
-            'http://' . $api_key . '.' . $server . '/1.1/' . $action,
-            $opt
-        );
+        $req = new HTTP_Request2('http://' . $api_key . '.' . $server . '/1.1/' . $action, $options);
 
         foreach($data AS $key => $value) {
             $req->addPostParameter($key, $value);
@@ -1053,7 +1051,12 @@ class serendipity_event_spamblock extends serendipity_event
                             require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
 
                             if (function_exists('serendipity_request_start')) serendipity_request_start();
-                            $req     = new HTTP_Request2($addData['url'], HTTP_Request2::METHOD_GET, array('follow_redirects' => true, 'max_redirects' => 5, 'timeout' => 10));
+                            $options = array('follow_redirects' => true, 'max_redirects' => 5, 'timeout' => 10);
+                            if (version_compare(PHP_VERSION, '5.6.0', '<')) {
+                                // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the funcitonality we had with HTTP/Request1
+                                $options['ssl_verify_peer'] = false;
+                            }
+                            $req = new HTTP_Request2($addData['url'], HTTP_Request2::METHOD_GET, $options);
                             $is_valid = false;
                             try {
                                 $response = $req->send();

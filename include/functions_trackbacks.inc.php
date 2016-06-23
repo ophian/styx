@@ -129,8 +129,12 @@ function _serendipity_send($loc, $data, $contenttype = null) {
     require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
     serendipity_plugin_api::hook_event('backend_http_request', $options, 'trackback_send');
-    serendipity_request_start();
 
+    serendipity_request_start();
+    if (version_compare(PHP_VERSION, '5.6.0', '<')) {
+        // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
+        $options['ssl_verify_peer'] = false;
+    }
     $req = new HTTP_Request2($uri, HTTP_Request2::METHOD_POST, $options);
     if (isset($contenttype)){
        $req->setHeader('Content-Type', $contenttype);
@@ -147,6 +151,7 @@ function _serendipity_send($loc, $data, $contenttype = null) {
 
     $fContent = $res->getBody();
     serendipity_request_end();
+
     return $fContent;
 }
 
@@ -272,7 +277,12 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
     require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
     serendipity_plugin_api::hook_event('backend_http_request', $options, 'trackback_detect');
+
     serendipity_request_start();
+    if (version_compare(PHP_VERSION, '5.6.0', '<')) {
+        // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
+        $options['ssl_verify_peer'] = false;
+    }
     $req = new HTTP_Request2($parsed_loc, HTTP_Request2::METHOD_GET, $options);
 
     try {
@@ -541,7 +551,12 @@ function fetchPingbackData(&$comment) {
     if (function_exists('serendipity_request_start')) serendipity_request_start();
 
     // Request the page
-    $req = new HTTP_Request2($url, array('follow_redirects' => true, 'max_redirects' => 5, 'timeout' => 20));
+    $options = array('follow_redirects' => true, 'max_redirects' => 5, 'timeout' => 20);
+    if (version_compare(PHP_VERSION, '5.6.0', '<')) {
+        // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
+        $options['ssl_verify_peer'] = false;
+    }
+    $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $options);
 
     // code 200: OK, code 30x: REDIRECTION
     $responses = "/(200)|(30[0-9])/"; // |(30[0-9] Moved)
