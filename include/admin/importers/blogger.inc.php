@@ -6,14 +6,14 @@
  *      Blogger Importer v0.2, by Jawish Hameed (jawish.org)    *
  ****************************************************************/
 
-require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-
-class Serendipity_Import_Blogger extends Serendipity_Import {
+class Serendipity_Import_Blogger extends Serendipity_Import
+{
     var $info        = array('software' => 'Blogger.com [using API]');
     var $data        = array();
     var $inputFields = array();
 
-    function __construct($data) {
+    function __construct($data)
+    {
         global $serendipity;
 
         $this->data = $data;
@@ -36,7 +36,8 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
                                 );
     }
 
-    function getImportNotes(){
+    function getImportNotes()
+    {
         if (empty($_REQUEST['token'])) {
             $msg = 'In order to import your blog on Blogger, Serendipity needs to be able to access it via Google\'s Blogger Data APIs.';
             $msg .= 'Login to your Google/Blogger account and then click the link below.';
@@ -111,7 +112,8 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
         }
     }
 
-    function _getCategoryList() {
+    function _getCategoryList()
+    {
         $res = serendipity_fetchCategories('all');
         $ret = array(0 => NO_CATEGORY);
         if (is_array($res)) {
@@ -122,7 +124,8 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
         return $ret;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         // Force user to select a blog to act on
@@ -241,7 +244,6 @@ class Serendipity_Import_Blogger extends Serendipity_Import {
                     // Update entry list with comment count
                     $entryList[$cEntryId][2]++;
                 }
-
                 break;
             }
 

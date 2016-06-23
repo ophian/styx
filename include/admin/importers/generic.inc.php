@@ -6,9 +6,9 @@ require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
 
 class Serendipity_Import_Generic extends Serendipity_Import
 {
-    var $info        = array('software' => IMPORT_GENERIC_RSS);
-    var $data        = array();
-    var $inputFields = array();
+    var $info         = array('software' => IMPORT_GENERIC_RSS);
+    var $data         = array();
+    var $inputFields  = array();
     var $force_recode = false;
 
     function __construct($data)
@@ -169,13 +169,6 @@ class Serendipity_Import_Generic extends Serendipity_Import
         serendipity_request_end();
 
         echo '<span class="block_level">' . strlen($fContent) . " Bytes</span>";
-
-        if (version_compare(PHP_VERSION, '5.0') === -1) {
-            echo '<span class="block_level">';
-            printf(UNMET_REQUIREMENTS, 'PHP >= 5.0');
-            echo "</span>";
-            return false;
-        }
 
         $xml = simplexml_load_string($fContent);
         unset($fContent);
