@@ -7,8 +7,8 @@ if (IN_serendipity !== true) {
 // Load possible language files.
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
-// Actual version of this plugin
-@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.62'); // NOTE: This plugin is also in the central repository. Commit changes to the core, too :)
+// Actual version of this plugin - We should move it back to spartacus after next release though.
+@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.63'); // NOTE: This plugin is also in the central repository. Commit changes to the core, too :)
 
 // Defines the maximum available method  slots in the configuration.
 @define('PLUGIN_EVENT_GRAVATAR_METHOD_MAX', 6);
@@ -37,9 +37,8 @@ class serendipity_event_gravatar extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Grischa Brockhaus');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '2.0.99',
+            'php'         => '5.3.0'
         ));
         $propbag->add('version',       PLUGIN_EVENT_GRAVATAR_VERSION);
         $propbag->add('groups',        array('IMAGES'));
@@ -49,9 +48,9 @@ class serendipity_event_gravatar extends serendipity_event
             'external_plugin'  => true,
             'css'              => true,
         ));
-        $configuration =               array('longdescription', 'separator');
+        $configuration  =              array('longdescription', 'separator');
         $config_methods =              array();
-        for ($idx=1; $idx<=PLUGIN_EVENT_GRAVATAR_METHOD_MAX; $idx++) {
+        for ($idx = 1; $idx <= PLUGIN_EVENT_GRAVATAR_METHOD_MAX; $idx++) {
             $config_methods[] = "method_$idx";
         }
 
@@ -59,7 +58,7 @@ class serendipity_event_gravatar extends serendipity_event
             array_merge($configuration, $config_methods,
                 array('defaultavatar', 'recent_entries', 'infoline',
                     'autoralt', 'smartyimage', 'align', 'size', 'cache', 'rating',
-                    'gravatar_fallback','gravatar_fallback_use_always','warning')
+                    'gravatar_fallback', 'gravatar_fallback_use_always', 'warning')
             )
         );
     }
@@ -83,13 +82,13 @@ class serendipity_event_gravatar extends serendipity_event
         );
 
         // Add config for methods.
-        for ($idx=1; $idx<=PLUGIN_EVENT_GRAVATAR_METHOD_MAX; $idx++) {
-            if ($name=="method_$idx") {
-                $propbag->add('type',       'select');
-                $propbag->add('name',       "($idx) " . PLUGIN_EVENT_GRAVATAR_METHOD);
-                $propbag->add('description',PLUGIN_EVENT_GRAVATAR_METHOD_DESC);
-                $propbag->add('select_values', $types);
-                $propbag->add('default',     'pavatar');
+        for ($idx = 1; $idx <= PLUGIN_EVENT_GRAVATAR_METHOD_MAX; $idx++) {
+            if ($name == "method_$idx") {
+                $propbag->add('type',           'select');
+                $propbag->add('name',           "($idx) " . PLUGIN_EVENT_GRAVATAR_METHOD);
+                $propbag->add('description',    PLUGIN_EVENT_GRAVATAR_METHOD_DESC);
+                $propbag->add('select_values',  $types);
+                $propbag->add('default',        'pavatar');
                 return true;
             }
         }
@@ -140,58 +139,58 @@ class serendipity_event_gravatar extends serendipity_event
                 break;
 
             case 'gravatar_fallback':
-                $propbag->add('type',       'select');
-                $propbag->add('name',       PLUGIN_EVENT_GRAVATAR_FALLBACK);
-                $propbag->add('description',PLUGIN_EVENT_GRAVATAR_FALLBACK_DESC);
-                $propbag->add('select_values', $gravatar_fallbacks);
-                $propbag->add('default',     'none');
+                $propbag->add('type',           'select');
+                $propbag->add('name',           PLUGIN_EVENT_GRAVATAR_FALLBACK);
+                $propbag->add('description',    PLUGIN_EVENT_GRAVATAR_FALLBACK_DESC);
+                $propbag->add('select_values',  $gravatar_fallbacks);
+                $propbag->add('default',        'none');
                 break;
 
             case 'gravatar_fallback_use_always':
-                $propbag->add('type',        'boolean');
-                $propbag->add('name',       PLUGIN_EVENT_GRAVATAR_FALLBACK_ALLWAYS);
-                $propbag->add('description',PLUGIN_EVENT_GRAVATAR_FALLBACK_ALLWAYS_DESC);
-                $propbag->add('default',     false);
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_EVENT_GRAVATAR_FALLBACK_ALLWAYS);
+                $propbag->add('description',    PLUGIN_EVENT_GRAVATAR_FALLBACK_ALLWAYS_DESC);
+                $propbag->add('default',        false);
                 break;
 
             case 'defaultavatar':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_GRAVATAR_DEFAULTAVATAR);
-                $propbag->add('description', PLUGIN_EVENT_GRAVATAR_DEFAULTAVATAR_DESC);
-                $propbag->add('default',     '');
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_GRAVATAR_DEFAULTAVATAR);
+                $propbag->add('description',    PLUGIN_EVENT_GRAVATAR_DEFAULTAVATAR_DESC);
+                $propbag->add('default',        '');
                 break;
 
             case 'cache':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_GRAVATAR_CACHING);
-                $propbag->add('description', PLUGIN_EVENT_GRAVATAR_CACHING_DESC);
-                $propbag->add('default',     48);
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_GRAVATAR_CACHING);
+                $propbag->add('description',    PLUGIN_EVENT_GRAVATAR_CACHING_DESC);
+                $propbag->add('default',        48);
                 break;
 
             case 'size':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_GRAVATAR_SIZE);
-                $propbag->add('description', PLUGIN_EVENT_GRAVATAR_SIZE_DESC);
-                $propbag->add('default',     '40');
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_GRAVATAR_SIZE);
+                $propbag->add('description',    PLUGIN_EVENT_GRAVATAR_SIZE_DESC);
+                $propbag->add('default',        '40');
                 break;
 
             case 'border':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        PLUGIN_EVENT_GRAVATAR_BORDER);
-                $propbag->add('description', PLUGIN_EVENT_GRAVATAR_BORDER_DESC);
-                $propbag->add('default',     '');
+                $propbag->add('type',           'string');
+                $propbag->add('name',           PLUGIN_EVENT_GRAVATAR_BORDER);
+                $propbag->add('description',    PLUGIN_EVENT_GRAVATAR_BORDER_DESC);
+                $propbag->add('default',        '');
                 break;
 
             case 'rating':
-                $propbag->add('type',        'radio');
-                $propbag->add('name',        PLUGIN_EVENT_GRAVATAR_RATING);
-                $propbag->add('description', PLUGIN_EVENT_GRAVATAR_RATING_DESC);
-                $propbag->add('radio',       array(
+                $propbag->add('type',           'radio');
+                $propbag->add('name',           PLUGIN_EVENT_GRAVATAR_RATING);
+                $propbag->add('description',    PLUGIN_EVENT_GRAVATAR_RATING_DESC);
+                $propbag->add('radio',          array(
                     'value' => array('-', 'G', 'PG', 'R', 'X'),
                     'desc'  => array(PLUGIN_EVENT_GRAVATAR_RATING_NO,PLUGIN_EVENT_GRAVATAR_RATING_G, PLUGIN_EVENT_GRAVATAR_RATING_PG, PLUGIN_EVENT_GRAVATAR_RATING_R, PLUGIN_EVENT_GRAVATAR_RATING_X)
                 ));
-                $propbag->add('radio_per_row', '1');
-                $propbag->add('default',     '-');
+                $propbag->add('radio_per_row',  '1');
+                $propbag->add('default',        '-');
                 break;
 
             case 'align':
@@ -209,10 +208,10 @@ class serendipity_event_gravatar extends serendipity_event
                 break;
 
             case 'autoralt':
-                $propbag->add('type',        'boolean');
-                $propbag->add('name',        PLUGIN_EVENT_GRAVATAR_AUTOR_ALT);
-                $propbag->add('description', PLUGIN_EVENT_GRAVATAR_AUTOR_ALT_DESC);
-                $propbag->add('default',     false);
+                $propbag->add('type',           'boolean');
+                $propbag->add('name',           PLUGIN_EVENT_GRAVATAR_AUTOR_ALT);
+                $propbag->add('description',    PLUGIN_EVENT_GRAVATAR_AUTOR_ALT_DESC);
+                $propbag->add('default',        'false');
                 break;
 
             default:
@@ -677,7 +676,6 @@ class serendipity_event_gravatar extends serendipity_event
      */
     function fetchMyBlogLog(&$eventData)
     {
-        require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
         global $serendipity;
 
         // Was last run successful?
@@ -833,11 +831,14 @@ class serendipity_event_gravatar extends serendipity_event
 
                 // Remember the last result of the P/Favatar search
                 $this->avatarConfiguration['img_url_'.$mode] = $favicon;
+
             } catch (HTTP_Request2_Exception $e) {
+
                 if (!$islocalhost && preg_match($responses, $response->getStatus())) {
                     $favicon = false;
                     $this->log($mode . " - Error fetching $url: " . $response->getStatus());
                 }
+
             }
 
             serendipity_request_end();
@@ -902,10 +903,12 @@ class serendipity_event_gravatar extends serendipity_event
                 $response = trim($response->getBody());
 
             } catch (HTTP_Request2_Exception $e) {
+
                 $this->last_error = $response->getStatus();
                 serendipity_request_end();
                 $this->log("Twitter Error: {$this->last_error}");
                 return false;
+
             }
 
             serendipity_request_end();
@@ -959,11 +962,14 @@ class serendipity_event_gravatar extends serendipity_event
                     throw new HTTP_Request2_Exception("Could not search on identica");
                 }
                 $response = trim($response->getBody());
+
             } catch (HTTP_Request2_Exception $e) {
+
                 $this->last_error = $response->getStatus();
                 serendipity_request_end();
                 $this->log("Identica Error: {$this->last_error}");
                 return false;
+
             }
 
             serendipity_request_end();
@@ -1142,13 +1148,16 @@ class serendipity_event_gravatar extends serendipity_event
             if (count($mimeparts)==2 && $mimeparts[0]=='image') {
                 $fContent = $response->getBody();
             }
+
         } catch (HTTP_Request2_Exception $e) {
+
             $fContent = null;
             if ($response->getStatus() != '200') {
                 $this->log("Avatar fetch error: " . $response->getStatus() . " for url=" . $url);
             } else {
                 $this->log("Avatar fetch error: PEAR reported ERROR for url=" . $url);
             }
+
         }
 
         serendipity_request_end();
@@ -1174,7 +1183,7 @@ class serendipity_event_gravatar extends serendipity_event
     {
         global $serendipity;
 
-        $request_pars['allowRedirects'] = false;
+        $request_pars['follow_redirects'] = false;
 
         $this->log("saveAndResponseMyBlogAvatar: " . $url);
 
@@ -1198,17 +1207,13 @@ class serendipity_event_gravatar extends serendipity_event
 
                 serendipity_request_start();
 
-                $reqdummy = new HTTP_Request($dummyurl, $request_pars);
-                if (PEAR::isError($reqdummy->sendRequest()) || ($reqdummy->getResponseCode() != '200')) {
+                $reqdummy = serendipity_request_object($dummyurl, 'get', $request_pars);
 
-                    serendipity_request_end();
-
-                    $this->avatarConfiguration["mybloglog_dummy_error!"]=$reqdummy->getResponseCode();
-                    // unable to fetch a dummy picture!
-                    $this->log("unable to fetch a dummy picture!" . $dummyurl);
-                    return false; // what can we say else..
-                }
-                else {
+                try {
+                    $response = $reqdummy->send();
+                    if ($response->getStatus() != '200') {
+                        throw new HTTP_Request2_Exception("Could not reach dummyurl");
+                    }
 
                     // Allow only images as Avatar!
                     $mime = $reqdummy->getResponseHeader("content-type");
@@ -1216,7 +1221,7 @@ class serendipity_event_gravatar extends serendipity_event
                     $mimeparts = explode('/',$mime);
                     if (count($mimeparts)!=2 || $mimeparts[0]!='image') {
                         // unable to fetch a dummy picture!
-                        $this->log("unable to fetch a dummy picture!" . $dummyurl);
+                        $this->log("unable to fetch a dummy picture!" . " for url=" . $dummyurl);
 
                         serendipity_request_end();
 
@@ -1229,7 +1234,21 @@ class serendipity_event_gravatar extends serendipity_event
                     $fp = fopen($cache_file, 'wb');
                     fwrite($fp,$this->mybloglog_dummy_md5);
                     fclose($fp);
+
                     $this->log("dummy MD5 saved: " . $this->mybloglog_dummy_md5);
+
+                } catch (HTTP_Request2_Exception $e) {
+
+                    serendipity_request_end();
+
+                    $this->avatarConfiguration["mybloglog_dummy_error!"] = $reqdummy->getResponseCode();
+                    // unable to fetch a dummy picture!
+                    if ($response->getStatus() != '200') {
+                        $this->log("unable to fetch a dummy picture!" . $response->getStatus() . " for url=" . $dummyurl);
+                    } else {
+                        $this->log("Avatar fetch error: PEAR reported ERROR for url=" . $dummyurl);
+                    }
+                    return false; // what can we say else..
                 }
 
                 serendipity_request_end();
@@ -1244,16 +1263,17 @@ class serendipity_event_gravatar extends serendipity_event
             serendipity_request_start();
 
             $this->log("Fetching mbl: " . $url);
-            $req = new HTTP_Request($url, $request_pars);
-            if (PEAR::isError($req->sendRequest()) || ($req->getResponseCode() != '200')) {
-                serendipity_request_end();
-                $this->log("Unable to fetch the correct image!");
-                // Unable to fetch the correct image!
-                return false;
-            }
-            else {
+
+            $req = serendipity_request_object($url, 'get', $request_pars);
+
+            try {
+                $response = $req->send();
+                if ($response->getStatus() != '200') {
+                    throw new HTTP_Request2_Exception("Could not reach url");
+                }
+
                 // Test, if this realy is an image!
-                $mime_type  = $req->getResponseHeader('content-type');
+                $mime_type = $req->getResponseHeader('content-type');
                 if (!empty($mime_type)) $mt_parts = explode('/',$mime_type);
                 if (isset($mt_parts) && is_array($mt_parts) && $mt_parts[0] == 'image') {
                     $fContent = $req->getResponseBody();
@@ -1268,6 +1288,14 @@ class serendipity_event_gravatar extends serendipity_event
                     $avtmd5 = $this->mybloglog_dummy_md5; // Declare it as dummy in order not to save it.
                 }
 
+            } catch (HTTP_Request2_Exception $e) {
+
+                serendipity_request_end();
+
+                $this->log("Unable to fetch the correct image!" . $response->getStatus() . " for url=" . $url);
+
+                // Unable to fetch the correct image!
+                return false;
             }
 
             serendipity_request_end();

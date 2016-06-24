@@ -1,4 +1,14 @@
-#
+1.60 -> 1.63:
+-------------
+
+ * Consistent plugin usage fixes
+ * Use load_language API available since 1.6
+ * Append CSS to $eventData, not prepend!
+ * Cleanups
+ * Use PEAR Request2 package and notation
+ * Extend requirement for Serendipity to 2.0+
+
+Version (?)
     * Allows other plugins to fetch user metadata via
       avatar_fetch_userinfos hook.
     * supports !# twitter links now, too.
