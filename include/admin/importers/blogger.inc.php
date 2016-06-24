@@ -77,7 +77,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
             array_unshift($this->inputFields, array( 'text'    => 'Google Auth Token (leave alone)',
                                                      'type'    => 'input',
                                                      'name'    => 'bAuthToken',
-                                                     'default'   => $tokens['Token']));
+                                                     'default' => $tokens['Token']));
 
             // Prepare blog list request
             $req = serendipity_request_object('https://www.blogger.com/feeds/default/blogs', 'get');
