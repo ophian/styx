@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 // Actual version of this plugin - We should move it back to spartacus after next release though.
-@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.63'); // NOTE: This plugin is also in the central repository. Commit changes to the core, too :)
+@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.64'); // NOTE: This plugin is also in the central repository. Commit changes to the core, too :)
 
 // Defines the maximum available method  slots in the configuration.
 @define('PLUGIN_EVENT_GRAVATAR_METHOD_MAX', 6);
@@ -19,12 +19,8 @@ if (IN_serendipity !== true) {
 class serendipity_event_gravatar extends serendipity_event
 {
     var $title = PLUGIN_EVENT_GRAVATAR_NAME;
-
-    // Holds MD5 code for the MyBlogLog dummy icon.
-    var $mybloglog_dummy_md5        = null;
     var $cache_dir                  = null;
     var $defaultImageConfiguration  = null;
-
     var $avatarConfiguration        = array();
     var $cache_seconds              = 0;
 
@@ -73,7 +69,6 @@ class serendipity_event_gravatar extends serendipity_event
             'pavatar'   => "Pavatar",
             'twitter'   => "Twitter",
             'identica'  => "Identica",
-            'mybloglog' => "MyBlogLog",
             'monsterid' => "Monster ID",
             'wavatars'  => "Wavatars",
             'identicon' => "Identicon/YCon",
@@ -368,9 +363,6 @@ class serendipity_event_gravatar extends serendipity_event
                             case 'identica':
                                 $supported_methods .= (empty($supported_methods) ? '' : ', ') . '<a href="http://identi.ca">Identica</a>';
                                 break;
-                            case 'mybloglog':
-                                $supported_methods .= (empty($supported_methods) ? '' : ', ') . '<a href="http://www.mybloglog.com">MyBlogLog</a>';
-                                break;
                             case 'monsterid':
                                 $supported_methods .= (empty($supported_methods) ? '' : ', ') . '<a href="http://www.splitbrain.org/go/monsterid">Monster ID</a>';
                                 break;
@@ -573,9 +565,6 @@ class serendipity_event_gravatar extends serendipity_event
                 case 'identica':
                     $success = $this->fetchIdentica($eventData);
                     break;
-                case 'mybloglog':
-                    $success = $this->fetchMyBlogLog($eventData);
-                    break;
                 case 'monsterid':
                     $success = $this->fetchMonster($eventData);
                     break;
@@ -663,43 +652,6 @@ class serendipity_event_gravatar extends serendipity_event
         $this->avatarConfiguration['gravatar_found'] = $success;
 
         return $success;
-    }
-
-    /**
-     * Tries to add a MyBlogLog.com avatar to the comment.
-     *
-     * @param array eventdata the data given by the event
-     * @param int cache hours for fetching images from cache
-     * @param array default default values for avatar images
-     *
-     * @return boolean true, if Avatar was found and added to the comment buffer
-     */
-    function fetchMyBlogLog(&$eventData)
-    {
-        global $serendipity;
-
-        // Was last run successful?
-        if (isset($this->avatarConfiguration['mybloglog_found']) && !$this->avatarConfiguration['mybloglog_found']) {
-            return false;
-        }
-        if (empty($eventData['url'])) {
-            return false;
-        }
-
-        // Get configured plugin path:
-        $pluginPath = 'plugin';
-        if (isset($serendipity['permalinkPluginPath'])){
-            $pluginPath = $serendipity['permalinkPluginPath'];
-        }
-
-        $author_url = 'http://pub.mybloglog.com/coiserv.php?'
-            . 'href=' . $eventData['url']
-            . '&n='   . (!empty($eventData['author']) ? $eventData['author'] : '*');
-
-        $check = $this->saveAndResponseMyBlogAvatar($eventData, $author_url);
-        $this->avatarConfiguration['mybloglog_found'] = $check;
-
-        return $check;
     }
 
     /**
@@ -1143,6 +1095,7 @@ class serendipity_event_gravatar extends serendipity_event
             }
             // Allow only images as Avatar!
             $mime = $response->getHeader("content-type");
+            $this->avatarConfiguration['mime-type'] = $mime;
             $this->log("Avatar fetch mimetype: $mime"  . " for url=" . $url);
             $mimeparts = explode('/',$mime);
             if (count($mimeparts)==2 && $mimeparts[0]=='image') {
@@ -1152,11 +1105,7 @@ class serendipity_event_gravatar extends serendipity_event
         } catch (HTTP_Request2_Exception $e) {
 
             $fContent = null;
-            if ($response->getStatus() != '200') {
-                $this->log("Avatar fetch error: " . $response->getStatus() . " for url=" . $url);
-            } else {
-                $this->log("Avatar fetch error: PEAR reported ERROR for url=" . $url);
-            }
+            $this->log("Avatar fetch error: " . $e);
 
         }
 
@@ -1168,7 +1117,7 @@ class serendipity_event_gravatar extends serendipity_event
             return false;
         }
 
-        $cache_file = $this->cacheAvatar($eventData, $fContent,$req);
+        $cache_file = $this->cacheAvatar($eventData, $fContent);
         if ($cache_file) {
             $this->show($cache_file);
         }
@@ -1179,138 +1128,6 @@ class serendipity_event_gravatar extends serendipity_event
         return true;
     }
 
-    function saveAndResponseMyBlogAvatar($eventData, $url)
-    {
-        global $serendipity;
-
-        $request_pars['follow_redirects'] = false;
-
-        $this->log("saveAndResponseMyBlogAvatar: " . $url);
-
-        // First a dummy icon is fetched. This is done by fetching a MyBlog Avatar for a not existing domain.
-        // If we have done this before, the dummy_md5 is already set, so we can skip this fetching here.
-        if (!isset($this->mybloglog_dummy_md5)) {
-
-            $cachefilename = '_mybloglogdummy.md5';
-            $cache_file = $this->getCacheDirectory() . '/' . $cachefilename;
-
-            // Look up the cache for the md5 of the MyBlogLog dummy icon saved earlier:
-            if (file_exists($cache_file)  && time() - filemtime($cache_file) < $this->cache_seconds){
-                $fp = fopen($cache_file, 'rb');
-                $this->mybloglog_dummy_md5 = fread($fp, filesize($cache_file));
-                fclose($fp);
-                $this->log("Loaded dummy MD5: " . $this->mybloglog_dummy_md5);
-            }
-            else { // dummy MD5 file was not cached or was too old. We have to fetch the dummy icon now
-                $dummyurl = 'http://pub.mybloglog.com/coiserv.php?href=http://grunz.grunz.grunz&n=*';
-                $this->log("trying dummyUrl: " . $dummyurl);
-
-                serendipity_request_start();
-
-                $reqdummy = serendipity_request_object($dummyurl, 'get', $request_pars);
-
-                try {
-                    $response = $reqdummy->send();
-                    if ($response->getStatus() != '200') {
-                        throw new HTTP_Request2_Exception("Could not reach dummyurl");
-                    }
-
-                    // Allow only images as Avatar!
-                    $mime = $reqdummy->getResponseHeader("content-type");
-                    $this->log("MyBlogLog Avatar fetch mimetype: $mime");
-                    $mimeparts = explode('/',$mime);
-                    if (count($mimeparts)!=2 || $mimeparts[0]!='image') {
-                        // unable to fetch a dummy picture!
-                        $this->log("unable to fetch a dummy picture!" . " for url=" . $dummyurl);
-
-                        serendipity_request_end();
-
-                        return false; // what can we say else..
-                    }
-
-                    $fContent = $reqdummy->getResponseBody();
-                    $this->mybloglog_dummy_md5 = md5($fContent);
-                    // Save MD5 of dummy icon for later runs
-                    $fp = fopen($cache_file, 'wb');
-                    fwrite($fp,$this->mybloglog_dummy_md5);
-                    fclose($fp);
-
-                    $this->log("dummy MD5 saved: " . $this->mybloglog_dummy_md5);
-
-                } catch (HTTP_Request2_Exception $e) {
-
-                    serendipity_request_end();
-
-                    $this->avatarConfiguration["mybloglog_dummy_error!"] = $reqdummy->getResponseCode();
-                    // unable to fetch a dummy picture!
-                    if ($response->getStatus() != '200') {
-                        $this->log("unable to fetch a dummy picture!" . $response->getStatus() . " for url=" . $dummyurl);
-                    } else {
-                        $this->log("Avatar fetch error: PEAR reported ERROR for url=" . $dummyurl);
-                    }
-                    return false; // what can we say else..
-                }
-
-                serendipity_request_end();
-            }
-        }
-
-        // Fetch the correct icon and compare:
-        if (isset($this->mybloglog_dummy_md5)) {
-            $cachefilename = $this->getCacheFilePath($eventData);
-
-            // fetch the icon
-            serendipity_request_start();
-
-            $this->log("Fetching mbl: " . $url);
-
-            $req = serendipity_request_object($url, 'get', $request_pars);
-
-            try {
-                $response = $req->send();
-                if ($response->getStatus() != '200') {
-                    throw new HTTP_Request2_Exception("Could not reach url");
-                }
-
-                // Test, if this realy is an image!
-                $mime_type = $req->getResponseHeader('content-type');
-                if (!empty($mime_type)) $mt_parts = explode('/',$mime_type);
-                if (isset($mt_parts) && is_array($mt_parts) && $mt_parts[0] == 'image') {
-                    $fContent = $req->getResponseBody();
-                    $avtmd5 = md5($fContent);
-                    $this->log("mbl image fetched, MD5: " . $avtmd5);
-                    if ($this->mybloglog_dummy_md5 != $avtmd5) {
-                        $this->log("caching mbl image: " . $cachefilename);
-                        $this->cacheAvatar($eventData,$fContent,$req);
-                    }
-                } else {
-                    $this->log("MyBlogLog did not return an image: " . $mime_type );
-                    $avtmd5 = $this->mybloglog_dummy_md5; // Declare it as dummy in order not to save it.
-                }
-
-            } catch (HTTP_Request2_Exception $e) {
-
-                serendipity_request_end();
-
-                $this->log("Unable to fetch the correct image!" . $response->getStatus() . " for url=" . $url);
-
-                // Unable to fetch the correct image!
-                return false;
-            }
-
-            serendipity_request_end();
-
-            if ($this->mybloglog_dummy_md5 == $avtmd5){ // This seems to be a dummy avatar!
-                return false;
-            }
-            else {
-                $this->show($cachefilename);
-                return true;
-            }
-        }
-        return false;
-    }
-
     /**
      * Caches an avatar file.
      *
@@ -1318,7 +1135,7 @@ class serendipity_event_gravatar extends serendipity_event
      * @param string fContent content to be cached
      * @param request req optional the request that produced this content (for logging)
      */
-    function cacheAvatar($eventData, $fContent, $req=null)
+    function cacheAvatar($eventData, $fContent)
     {
 
         $cache_file = $this->getCacheFilePath($eventData);
@@ -1339,11 +1156,6 @@ class serendipity_event_gravatar extends serendipity_event
         fwrite($fp, $fContent);
         fclose($fp);
 
-        if (isset($req)){
-            // Remember mime type
-            $mime_type  = $req->getResponseHeader('content-type');
-            $this->avatarConfiguration['mime-type'] = $mime_type;
-        }
         return $cache_file;
     }
 
