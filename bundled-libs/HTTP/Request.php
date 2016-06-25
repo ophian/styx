@@ -235,7 +235,7 @@ class HTTP_Request {
     * </ul>
     * @access public
     */
-    function HTTP_Request($url = '', $params = array())
+    function __construct($url = '', $params = array())
     {
         $this->_sock           = new Net_Socket();
         $this->_method         =  HTTP_REQUEST_METHOD_GET;
