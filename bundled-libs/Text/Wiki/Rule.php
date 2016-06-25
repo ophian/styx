@@ -126,7 +126,7 @@ class Text_Wiki_Rule {
     * 
     */
     
-    function Text_Wiki_Rule(&$obj, $name)
+    function __construct(&$obj, $name)
     {
         // set the reference to the calling Text_Wiki object;
         // this allows us access to the shared source text, token
@@ -341,5 +341,7 @@ class Text_Wiki_Rule {
         return $arg;
 
     }
+
 }
+
 ?>

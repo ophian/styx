@@ -42,7 +42,7 @@ class Text_Wiki_Parse_Wikilink extends Text_Wiki_Parse {
     * 
     */
     
-    function Text_Wiki_Parse_Wikilink(&$obj)
+    function __construct(&$obj)
     {
         parent::Text_Wiki_Parse($obj);
         
@@ -154,5 +154,7 @@ class Text_Wiki_Parse_Wikilink extends Text_Wiki_Parse {
         // create and return the replacement token and preceding text
         return $matches[1] . $this->wiki->addToken($this->rule, $options);
     }
+
 }
+
 ?>

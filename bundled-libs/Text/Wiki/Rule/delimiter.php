@@ -46,7 +46,7 @@ class Text_Wiki_Rule_delimiter extends Text_Wiki_Rule {
     * 
     */
     
-    function Text_Wiki_Rule_delimiter(&$obj, $name)
+    function __construct(&$obj, $name)
     {
         parent::Text_Wiki_Rule($obj, $name);
         $this->regex = '/' . $this->_wiki->delim . '/';
@@ -91,5 +91,7 @@ class Text_Wiki_Rule_delimiter extends Text_Wiki_Rule {
     {
         return $this->_wiki->delim;
     }
+
 }
+
 ?>

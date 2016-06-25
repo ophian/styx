@@ -54,7 +54,7 @@ class Text_Wiki_Rule_freelink extends Text_Wiki_Rule {
     * 
     */
     
-    function Text_Wiki_Rule_freelink(&$obj, $name)
+    function __construct(&$obj, $name)
     {
         parent::Text_Wiki_Rule($obj, $name);
         
@@ -175,5 +175,7 @@ class Text_Wiki_Rule_freelink extends Text_Wiki_Rule {
             
         }
     }
+
 }
+
 ?>

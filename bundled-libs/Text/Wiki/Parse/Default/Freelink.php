@@ -35,7 +35,7 @@ class Text_Wiki_Parse_Freelink extends Text_Wiki_Parse {
     * 
     */
     
-    function Text_Wiki_Parse_Freelink(&$obj)
+    function __construct(&$obj)
     {
         parent::Text_Wiki_Parse($obj);
         
@@ -107,5 +107,7 @@ class Text_Wiki_Parse_Freelink extends Text_Wiki_Parse {
         // return a token placeholder
         return $this->wiki->addToken($this->rule, $options);
     }
+
 }
+
 ?>

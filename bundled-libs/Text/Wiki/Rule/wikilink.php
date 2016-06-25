@@ -52,7 +52,7 @@ class Text_Wiki_Rule_wikilink extends Text_Wiki_Rule {
     * 
     */
 
-    function Text_Wiki_Rule_wikilink(&$obj, $name)
+    function __construct(&$obj, $name)
     {
         parent::Text_Wiki_Rule($obj, $name);
 
@@ -237,5 +237,7 @@ class Text_Wiki_Rule_wikilink extends Text_Wiki_Rule {
             return $text . "<a href=\"$href\">{$this->_conf['new_text']}</a>";
         }
     }
+
 }
+
 ?>
