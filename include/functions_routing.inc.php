@@ -304,7 +304,7 @@ function servePlugin($matches) {
     serendipity_plugin_api::hook_event('external_plugin', $matches[2]);
 }
 
-function serveFeed() {
+function serveFeed($matches) {
     global $serendipity;
     $serendipity['view'] = 'feed';
     header('Content-Type: text/html; charset=utf-8');
