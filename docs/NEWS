@@ -50,8 +50,8 @@ Version 2.1 ()
     the sort placed options in the "Entry editing screen" to fit nicely
     into the backend entries entry form.
 
-  * Update spartacus remote url changes to support a hidden URL
-    for upcoming serendipity_event_plugup plugin, which adds an upgrade
+  * Update the spartacus_remote url option to support a hidden (obfuscated)
+    URI for the serendipity_event_plugup plugin, which adds an upgrade
     note for Spartacus plugin updates to the dashboard.
 
   * Restrict category author permissions
