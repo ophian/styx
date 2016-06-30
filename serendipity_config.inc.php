@@ -296,6 +296,10 @@ define('IS_up2date', version_compare($serendipity['version'], $serendipity['vers
 // Include main functions
 include(S9Y_INCLUDE_PATH . 'include/functions.inc.php');
 
+// while being deprecated in PHP7+
+if (!isset( $HTTP_RAW_POST_DATA ) && function_exists('get_raw_data')) {
+    $HTTP_RAW_POST_DATA = get_raw_data();
+}
 if (serendipity_FUNCTIONS_LOADED !== true) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
