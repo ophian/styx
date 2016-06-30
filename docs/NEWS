@@ -9,9 +9,11 @@ Version 2.1 ()
     dashboard. This adds a new config option to configuration - general
     settings.
 
-  * fix Spartacus plugin to v. 2.39 for custom mirror (GitHub) cases
+  * Fix Spartacus plugin for custom mirror (GitHub) cases.
+    This is currently used for plugin(s) cases only!
+    Templates are fetched from the originated mirror(s).
 
-  * fix case $serendipity['short_archives'] SQL query fetch in
+  * Fix case $serendipity['short_archives'] SQL query fetch in
     serendipity_fetchEntries(), if a themes entries_summary.tpl file
     wants to use a body teaser.
 

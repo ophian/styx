@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.41');
+        $propbag->add('version',       '2.42');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.2.0'
@@ -592,7 +592,8 @@ class serendipity_event_spartacus extends serendipity_event
 
         $mirrors = $this->getMirrors('xml', true);
         $custom  = $this->get_config('custommirror');
-        if (strlen($custom) > 2) {
+        // we currently disable custom template mirrors
+        if (strlen($custom) > 2 && $type != 'template') {
             $servers = explode('|', $custom);
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
             $valid = false;
@@ -849,11 +850,13 @@ class serendipity_event_spartacus extends serendipity_event
         $mirrors = $this->getMirrors('files', true);
         $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
 
+        // currently disabled
+        /*
         $custom  = $this->get_config('custommirror');
         if (strlen($custom) > 2) {
             $servers = explode('|', $custom);
             $mirror = $servers[0];
-        }
+        }*/
 
         if (stristr($mirror, 'github.com')) {
             $gitloc = 'master/';
@@ -956,9 +959,9 @@ class serendipity_event_spartacus extends serendipity_event
     function download(&$tree, $plugin_to_install, $sub = 'plugins')
     {
         global $serendipity;
-
         $gitloc  = '';
         $cvshack = '?revision=1.9999';
+
         switch($sub) {
             case 'plugins':
             default:
@@ -1031,7 +1034,8 @@ class serendipity_event_spartacus extends serendipity_event
         $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
 
         $custom  = $this->get_config('custommirror');
-        if (strlen($custom) > 2) {
+        // currently allowed for non-templates only
+        if (strlen($custom) > 2 && $sub != 'templates') {
             $servers = explode('|', $custom);
             $mirror = $servers[0];
         }
@@ -1041,8 +1045,8 @@ class serendipity_event_spartacus extends serendipity_event
             $cvshack = '';
         }
 
-        // fixes for custom mirror
-        if (!empty($custom)) {
+        // fixes for custom mirror - currently custom mirror(s) for plugins only!
+        if (!empty($custom) && $sub != 'templates') {
             $sfloc  = '';
             $gitloc = '';
         }
