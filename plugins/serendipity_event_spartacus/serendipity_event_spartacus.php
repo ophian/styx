@@ -203,7 +203,7 @@ class serendipity_event_spartacus extends serendipity_event
             case 'custommirror':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR);
-                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC);
+                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC . ' PLEASE NOTE: Currently this is limited to "additional_plugins" for custom mirrors only! Themes are fetched by the mirrors above.');
                 $propbag->add('default',     '');
                 break;
 
