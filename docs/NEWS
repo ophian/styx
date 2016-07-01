@@ -43,8 +43,7 @@ Version 2.1 ()
     serendipty[id] value for direct further-on-submits to that entry!
 
   * Fix database issue, that text after utf8 'private use area' symbols
-    was cut off on saving (#394). Though we only allow this within
-    entries, not in comments userland, for security by now.
+    was cut off on saving (#394). Allowed for entry and comment bodies.
 
   * Updated some bundled libs to better support PHP 7
 

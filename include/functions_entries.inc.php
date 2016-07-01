@@ -1408,7 +1408,7 @@ function serendipity_updertEntry($entry) {
 
     include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
 
-    // sanitize utf8 'private use area' symbols to unicode/HTML Entity
+    // sanitize utf8 'private use area' (emoji) symbols to unicode/HTML Entity
     if (!empty($entry['body'])) {
         $entry['body'] = symbol_sanitize($entry['body']);
     }

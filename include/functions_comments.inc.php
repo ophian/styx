@@ -795,6 +795,11 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         $authorEmail = $serendipity['serendipityEmail'];
     }
 
+    // sanitize utf8 'private use area' (emoji) symbols to unicode/HTML Entity
+    if (!empty($commentInfo['comment'])) {
+        $commentInfo['comment'] = symbol_sanitize($commentInfo['comment']);
+    }
+
     $title         = serendipity_db_escape_string(isset($commentInfo['title']) ? $commentInfo['title'] : '');
     $comments      = $commentInfo['comment'];
     $ip            = serendipity_db_escape_string(isset($commentInfo['ip']) ? $commentInfo['ip'] : $_SERVER['REMOTE_ADDR']);
