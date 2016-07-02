@@ -816,8 +816,8 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
                 FROM {$serendipity['dbPrefix']}entries AS e
      LEFT OUTER JOIN {$serendipity['dbPrefix']}authors AS a
                   ON a.authorid = e.authorid
-             WHERE e.id  = '". (int)$id ."'
-               AND e.isdraft = 'false'";
+               WHERE e.id  = '". (int)$id ."'
+                 AND e.isdraft = 'false'";
     if (!serendipity_db_bool($serendipity['showFutureEntries'])) {
         $query .= " AND e.timestamp <= " . serendipity_db_time();
     }
