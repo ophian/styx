@@ -75,7 +75,7 @@ function serendipity_request_object($url = '', $method = 'get', $options = array
             return false;
     }
 
-    return $ret;
+    return $req;
 }
 
 /**
