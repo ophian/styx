@@ -1200,6 +1200,7 @@ class serendipity_event_spartacus extends serendipity_event
                     if (!serendipity_db_bool($this->get_config('enable_remote'))) {
                         return false;
                     }
+                    $details = ($eventData == 'spartacus_remote') ? true : false;
 
                     if ($eventData == $this->get_config('remote_url')) {
                         header('Content-Type: text/plain');
@@ -1241,12 +1242,13 @@ class serendipity_event_spartacus extends serendipity_event
                                 if (is_array($props)) {
                                     #print_r($props);
                                     if (version_compare($props['version'], $props['upgrade_version'], '<')) {
-                                        echo "UPGRADE: " . $class_data['name'] . " -- " . $props['upgrade_version'] . "\n";
+                                        // in case of obfuscated hidden remote url, we need to set the Upgrade notice for each, but not any details
+                                        echo "UPGRADE: " . ($details ? $class_data['name'] . " -- " . $props['upgrade_version'] : substr($class_data['name'], 0, 18)) . "\n";
                                     } else {
-                                        echo "OK: " . $class_data['name'] . " -- " . $props['version'] . "\n";
+                                        if ($details) echo "OK: " . $class_data['name'] . " -- " . $props['version'] . "\n";
                                     }
                                 } else {
-                                    echo "ERROR: " . $class_data['true_name'] . "\n";
+                                    if ($details) echo "ERROR: " . $class_data['true_name'] . "\n";
                                 }
                             }
                         }

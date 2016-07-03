@@ -65,7 +65,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB', 'This plugin supports the Serendipity Cronjob plugin. Go and install it if you want scheduled execution.');
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB_WHEN', 'Execute regular cronjob to check for plugin updates, and mail those to the configured blog\'s mail address (%s)?');
 
-@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Random string example: "%s%s". Please take this "obfuscated" string to use it remotely with the serendipity_event_plugup Dashboard-Plugin Check-Update notification plugin and allow the remote option above.)');
+@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Random string example: "%s%s". Please take this "obfuscated" string to use it remotely with the serendipity_event_plugup Dashboard-Plugin Check-Update notification plugin and allow the remote option above. Such page does not provide any details like name or version, like the origin "spartacus_remote" string.)');
 
 @define('PLUGIN_EVENT_SPARTACUS_CHECK', 'Update plugins');
 
