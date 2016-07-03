@@ -170,7 +170,8 @@ class serendipity_plugin_categories extends serendipity_plugin
             }
         }
 
-        $categories = serendipity_fetchCategories(empty($which_category) ? 'all' : $which_category, '', $sort, 'read');
+        $wcat = empty($which_category) ? 'all' : $which_category;
+        $categories = serendipity_fetchCategories($wcat, '', $sort, 'read');
 
         $cat_count = array();
         if (serendipity_db_bool($this->get_config('show_count', 'false'))) {
@@ -190,7 +191,6 @@ class serendipity_plugin_categories extends serendipity_plugin
                     $cat_count[$cat['categoryid']] = $cat['postings'];
                 }
             }
-
         }
 
         $html = '';
