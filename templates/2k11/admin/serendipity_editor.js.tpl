@@ -34,6 +34,17 @@
         }
     }
 
+    // Generic function to purge cookies
+    serendipity.PurgeCookie = function(name) {
+        if (serendipity.GetCookie(name) === null) return;
+        if (name.indexOf("[") != -1) {
+            document.cookie = 'serendipity' + name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        } else {
+            document.cookie = 'serendipity[' + name + ']=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+    }
+
+    // Generic function to get cookies
     serendipity.GetCookie = function(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
@@ -940,6 +951,10 @@
             } else {
                 $('#overlay').fadeOut("normal", function () {
                     window.location = $('#back').attr('href') + '&serendipity[updateAllMsg]=true';
+                    // purge plugup plugin cookies after all
+                    serendipity.PurgeCookie('plugsEvent');
+                    serendipity.PurgeCookie('plugsPlugin');
+                    serendipity.PurgeCookie('plugsCheckTime');
                 });
             }
         })

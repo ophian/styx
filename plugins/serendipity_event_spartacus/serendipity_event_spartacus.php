@@ -439,7 +439,7 @@ class serendipity_event_spartacus extends serendipity_event
                 $check_health = true;
                 if (function_exists('curl_init')) {
                     $this->outputMSG('notice', PLUGIN_EVENT_SPARTACUS_TRYCURL);
-                    $curl_handle=curl_init();
+                    $curl_handle = curl_init();
                     curl_setopt($curl_handle, CURLOPT_URL, $url);
                     curl_setopt($curl_handle, CURLOPT_HEADER, 0);
                     $curl_result = curl_exec($curl_handle);

@@ -1,6 +1,8 @@
 Version 2.1 ()
 ------------------------------------------------------------------------
 
+  * Add Plugin Update Notifier serendipity_event_plugup plugin
+
   * Fix upgrader to not run upgrade tasks for versions higher than the
     upgrade version.
 
