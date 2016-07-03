@@ -330,7 +330,7 @@ if ($serendipity['GET']['action'] == 'ignore') {
     /* Call functions */
     $data['call_tasks'] = array();
     foreach ($tasks as $task) {
-        if (!empty($task['function']) && version_compare($serendipity['versionInstalled'], $task['version'], '<') ) {
+        if (!empty($task['function']) && version_compare($serendipity['versionInstalled'], $task['version'], '<') && version_compare($task['version'], $serendipity['version'], '<=')) {
             if (is_callable($task['function'])) {
                 $data['is_callable_task'] = true;
                 $data['call_tasks'][] = sprintf('Calling %s ...<br />', (is_array($task['function']) ? $task['function'][0] . '::'. $task['function'][1] : $task['function']));
@@ -464,7 +464,7 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
         $taskCount = 0;
         $data['tasks'] = array();
         foreach ( $tasks as $task ) {
-            if (version_compare($serendipity['versionInstalled'], $task['version'], '<'))  {
+            if (version_compare($serendipity['versionInstalled'], $task['version'], '<') && version_compare($task['version'], $serendipity['version'], '<='))  {
                 $data['tasks'][] = $task;
                 $taskCount++;
             }
