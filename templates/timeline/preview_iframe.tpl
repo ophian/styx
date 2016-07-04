@@ -21,6 +21,15 @@
     {serendipity_hookPlugin hook="backend_header" hookAll="true"}
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
     <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
+{if isset($lastSavedEntry) && (int)$lastSavedEntry}
+
+    <script type="text/javascript">
+        window.onload = function() {ldelim}
+            parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
+        {rdelim};
+    </script>
+{/if}
+
     <script>
         window.onload = function() {ldelim}
             parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('maincontent').offsetHeight
