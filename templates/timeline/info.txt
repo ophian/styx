@@ -1,0 +1,6 @@
+Name: Timeline
+Author: Don Chambers
+Date: 2016-04-20
+Require Serendipity: 2.0
+Backend: No
+Recommended: Yes
