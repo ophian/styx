@@ -1,12 +1,12 @@
 /*
-Theme: Timeline                                                             
+Theme: Timeline
 Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
-orange colorset                                                          
+orange colorset
 */
 
-/* 
-* Orange Color: #e67e22; 
-* Orange Hover Color: #d35400; 
+/*
+* Orange Color: #e67e22;
+* Orange Hover Color: #d35400;
 * Darkest color: #bf4d02;
 */
 
@@ -20,12 +20,12 @@ a:focus {
 }
 
 a.subtome:link,
-a.subtome:visited { 
+a.subtome:visited {
     background: url('img/subtome-orange.png') left bottom no-repeat;
 }
 
 a.subtome:hover,
-a.subtome:focus { 
+a.subtome:focus {
     background: url('img/subtome-orange.png') -64px center no-repeat;
 }
 

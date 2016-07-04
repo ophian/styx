@@ -1,11 +1,11 @@
 /*
-Theme: Timeline                                                             
+Theme: Timeline
 Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
-purple colorset                                                          
+purple colorset
 */
 
-/* 
-* Purple Color: #9b6bcc; 
+/*
+* Purple Color: #9b6bcc;
 * Purple Hover Color: #814fb5;
 * Darkest color: #7240a6;
 */
@@ -20,12 +20,12 @@ a:focus {
 }
 
 a.subtome:link,
-a.subtome:visited { 
+a.subtome:visited {
     background: url('img/subtome-purple.png') left bottom no-repeat;
 }
 
 a.subtome:hover,
-a.subtome:focus { 
+a.subtome:focus {
     background: url('img/subtome-purple.png') -64px center no-repeat;
 }
 

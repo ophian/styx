@@ -8,7 +8,7 @@
                     &nbsp;/&nbsp; {if !$smarty.foreach.crumbs.last}<a href="{$crumb.link}">{$crumb.name|@escape}</a>{else}{$crumb.name|@escape}{/if}
                 {/foreach}
             </div>
-        {/if}  
+        {/if}
     </header>
     {if $staticpage_pass AND $staticpage_form_pass != $staticpage_pass}
         <form class="staticpage_password_form" action="{$staticpage_form_url}" method="post">
@@ -33,16 +33,16 @@
                         {/foreach}
                     </ul>
                 </nav>
-            {/if}            
+            {/if}
             {if $staticpage_content}
                 <div class="{if $staticpage_articleformat}serendipity_entry_body clearfix{else}staticpage_content{/if}">
                     {$staticpage_content}
                 </div>
             {/if}
-{*NOTE: file staticpage-entries-listing.tpl must exist in theme folder *}            
+{*NOTE: file staticpage-entries-listing.tpl must exist in theme folder *}
             <div class="staticpage_related_category_entry_list">
                 {serendipity_fetchPrintEntries category=$staticpage_related_category_id template="staticpage-entries-listing.tpl" limit=5 noSticky="true" noCache="false" fetchDrafts=false full="false" use_footer="false"}
-            </div>            
+            </div>
         </section>
     {/if}
     {if $staticpage_navigation AND $staticpage_shownavi}
@@ -52,11 +52,11 @@
                   {if $staticpage_navigation.next.link}<li class="next"><a href="{$staticpage_navigation.next.link}" title="next">{$staticpage_navigation.next.name|@escape} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>{/if}
                 </ul>
         </nav>
-    {/if}    
+    {/if}
     {if $staticpage_custom.show_author =='true' || $staticpage_custom.show_date =='true' || ($staticpage_adminlink && $staticpage_adminlink.page_user)}
         <footer class="staticpage-footer">
-            <p class="post-meta">           
-                {if $staticpage_custom.show_author =='true'}{$CONST.POSTED_BY} {$staticpage_author|@escape}{/if}{if $staticpage_custom.show_date =='true'}{if $staticpage_custom.show_author =='true'} {$CONST.ON} {/if}<time datetime="{$staticpage_lastchange|@serendipity_html5time}">{$staticpage_lastchange|@formatTime:$template_option.date_format}</time>{/if}{if $staticpage_adminlink AND $staticpage_adminlink.page_user}{if $staticpage_custom.show_author =='true' || $staticpage_custom.show_date =='true'}&nbsp;&nbsp;{/if}<a href="{$staticpage_adminlink.link_edit}"  title="{$staticpage_adminlink.link_name|@escape}"><button class="btn btn-sm btn-default btn-theme"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$staticpage_adminlink.link_name|@escape}</span></button></a>{/if}                
+            <p class="post-meta">
+                {if $staticpage_custom.show_author =='true'}{$CONST.POSTED_BY} {$staticpage_author|@escape}{/if}{if $staticpage_custom.show_date =='true'}{if $staticpage_custom.show_author =='true'} {$CONST.ON} {/if}<time datetime="{$staticpage_lastchange|@serendipity_html5time}">{$staticpage_lastchange|@formatTime:$template_option.date_format}</time>{/if}{if $staticpage_adminlink AND $staticpage_adminlink.page_user}{if $staticpage_custom.show_author =='true' || $staticpage_custom.show_date =='true'}&nbsp;&nbsp;{/if}<a href="{$staticpage_adminlink.link_edit}"  title="{$staticpage_adminlink.link_name|@escape}"><button class="btn btn-sm btn-default btn-theme"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$staticpage_adminlink.link_name|@escape}</span></button></a>{/if}
             </p>
         </footer>
     {/if}

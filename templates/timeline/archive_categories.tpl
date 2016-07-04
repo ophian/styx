@@ -18,7 +18,7 @@
                 {if $template_option.category_rss_archive == true}<a class="btn btn-sm btn-default btn-theme serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}" title="{$plugin_category.category_name|escape} rss"><i class="fa fa-rss"></i></a>{/if}
                 <a class="btn btn-sm btn-default btn-theme" href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
             {if $smarty.foreach.each_category.last}
-                {if $plugin_category.catdepth>0}    
+                {if $plugin_category.catdepth>0}
                     {for $i=1 to $plugin_category.catdepth}
                         </li>
                         </ul>
@@ -26,7 +26,7 @@
                 {/if}
                 </li>
             {/if}
-            {assign var="prevdepth" value=$plugin_category.catdepth}       
+            {assign var="prevdepth" value=$plugin_category.catdepth}
         {/foreach}
     </ul>
 {else}

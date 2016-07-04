@@ -12,13 +12,13 @@
         {foreach from=$sentries.entries item="entry"}
             {if $entry.body || $entry.extended || $entry.properties.timeline_image}
                 <div class="row each-archive-entry">
-                    
+
                         <div class="col-md-2 archive-post-thumb">
                             {if $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                                 <div>{$entry.properties.timeline_image}</div>
                             {else}
                                 <a href="{$entry.link}" title="{$entry.title}"><img class="img-thumbnail" {if $entry.properties.timeline_image}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
-                            {/if}                        
+                            {/if}
                         </div>
                         <div class="col-md-10 archive-post-body">
                             <h4><a href="{$entry.link}">{$entry.title}</a></h4>

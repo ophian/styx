@@ -1,12 +1,12 @@
 /*
-Theme: Timeline                                                             
+Theme: Timeline
 Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
 blue colorset
 */
 
-/* 
-* Blue Color: #3498db; 
-* Blue Hover Color: #2980b9; 
+/*
+* Blue Color: #3498db;
+* Blue Hover Color: #2980b9;
 * Darkest color: #1c6ca1;
 */
 
@@ -20,12 +20,12 @@ a:focus {
 }
 
 a.subtome:link,
-a.subtome:visited { 
+a.subtome:visited {
     background: url('img/subtome-blue.png') left bottom no-repeat;
 }
 
 a.subtome:hover,
-a.subtome:focus { 
+a.subtome:focus {
     background: url('img/subtome-blue.png') -64px center no-repeat;
 }
 

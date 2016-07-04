@@ -34,7 +34,7 @@ if ($serendipity['GET']['adminModule'] == 'templates' || $serendipity['POST']['a
 function distanceOfTimeInWords($fromTime, $toTime = 0) {
     $distanceInSeconds = round(abs($toTime - $fromTime));
     $distanceInMinutes = round($distanceInSeconds / 60);
-       
+
     if ( $distanceInMinutes <= 1 ) {
         if ( $distanceInSeconds < 60 ) {
             return ELAPSED_LESS_THAN_MINUTE_AGO;
@@ -93,13 +93,13 @@ function is_in_string($string, $search) {
   return false;
 }
 $serendipity['smarty']->registerPlugin('modifier', 'is_in_string', 'is_in_string');
-   
+
 if (class_exists('serendipity_event_entryproperties')) {
     $ep_msg=THEME_EP_YES;
     } else {
     $ep_msg=THEME_EP_NO;
 }
-   
+
 $template_config = array(
     array(
          'var'          => 'sidebars',
@@ -110,7 +110,7 @@ $template_config = array(
         'var'           => 'theme_instructions',
         'type'          => 'content',
         'default'       => '<p>' . THEME_DEMO_AVAILABLE . '</p>' . $ep_msg . THEME_INSTRUCTIONS . '<p>' . CATEGORIES_ON_ARCHIVE_DESC . '</p><p>' . TAGS_ON_ARCHIVE_DESC . '</p>',
-    ),    
+    ),
     array(
         'var'           => 'use_corenav',
         'name'          => USE_CORENAV,
@@ -123,14 +123,14 @@ $template_config = array(
         'type'          => 'select',
         'default'       => 'green',
         'select_values' => $colorsets
-    ),   
+    ),
     array(
         'var'           => 'skinset',
         'name'          => THEME_SKINSET,
         'type'          => 'select',
         'default'       => 'light',
         'select_values' => $skinsets
-    ),      
+    ),
     array(
         'var'           => 'header_img',
         'name'          => HEADER_IMG,
@@ -150,7 +150,7 @@ $template_config = array(
         'name'          => ENTRY_DATE_FORMAT . ' (http://php.net/strftime)',
         'type'          => 'string',
         'default'       => DATE_FORMAT_ENTRY,
-    ), 
+    ),
     array(
         'var'           => 'comment_time_format',
         'name'          => COMMENT_TIME_FORMAT,
@@ -165,7 +165,7 @@ $template_config = array(
         'description'   => DISPLAY_AS_TIMELINE_DESC,
         'type'          => 'boolean',
         'default'       => true,
-    ),    
+    ),
     array(
         'var'           => 'months_on_timeline',
         'name'          => MONTHS_ON_TIMELINE,
@@ -178,7 +178,7 @@ $template_config = array(
         'name'          => MONTHS_ON_TIMELINE_FORMAT . ' (http://php.net/strftime)',
         'type'          => 'string',
         'default'       => '%B, %Y',
-    ),     
+    ),
     array(
         'var'           => 'categories_on_archive',
         'name'          => CATEGORIES_ON_ARCHIVE,
@@ -197,7 +197,7 @@ $template_config = array(
         'description'   => TAGS_ON_ARCHIVE_DESC,
         'type'          => 'boolean',
         'default'       => true,
-    ),  
+    ),
     array(
         'var'           => 'copyright',
         'name'          => COPYRIGHT,
@@ -209,12 +209,12 @@ $template_config = array(
         'name'          => SOCIAL_ICONS_AMOUNT,
         'type'          => 'string',
         'default'       => '2',
-    ),   
+    ),
 );
 
 // register footer sidebar with smarty
 $FooterSidebarElements = serendipity_plugin_api::count_plugins('footer');
-$serendipity['smarty']->assign_by_ref('FooterSidebarElements', $FooterSidebarElements); 
+$serendipity['smarty']->assign_by_ref('FooterSidebarElements', $FooterSidebarElements);
 
     //$template_global_config = array('navigation' => true);
     //$template_loaded_config = serendipity_loadThemeOptions($template_config, $serendipity['smarty_vars']['template_option'], true);
@@ -271,7 +271,7 @@ for ($i = 0; $i < $template_loaded_config['social_icons_amount']; $i++) {
                                  'Vine'        => 'Vine',
                                  'Xing'        => 'Xing',
                                  'YouTube'     => 'YouTube')
-    );    
+    );
     $template_config[] = array(
         'var'           => 'social_icon' . $i . 'url',
         'name'          => SOCIAL_ICON_URL . ' #' .($i+1),
@@ -281,7 +281,7 @@ for ($i = 0; $i < $template_loaded_config['social_icons_amount']; $i++) {
     $socialicons[] = array(
         'service'           => $template_loaded_config['social_icon' . $i . 'service'],
         'url'               => $template_loaded_config['social_icon' . $i . 'url'],
-    );    
+    );
 }
 $serendipity['smarty']->assign_by_ref('socialicons', $socialicons);
 
@@ -310,7 +310,7 @@ for ($i = 0; $i < $template_loaded_config['social_icons_amount']; $i++) {
 $template_config_groups = array(
     THEME_README        => array('theme_instructions'),
     THEME_IDENTITY      => array('sidebars', 'header_img', 'subheader_img', 'colorset', 'skinset', 'copyright'),
-    THEME_PAGE_OPTIONS  => array('date_format', 'comment_time_format', 'display_as_timeline', 'months_on_timeline', 'months_on_timeline_format', 'categories_on_archive', 'category_rss_archive', 'tags_on_archive'),   
+    THEME_PAGE_OPTIONS  => array('date_format', 'comment_time_format', 'display_as_timeline', 'months_on_timeline', 'months_on_timeline_format', 'categories_on_archive', 'category_rss_archive', 'tags_on_archive'),
     THEME_NAVIGATION    => $navlinks_collapse,
     THEME_SOCIAL_LINKS  => $sociallinks_collapse
 );
@@ -325,7 +325,7 @@ function entry_option_get_value($property_key, &$eventData) {
     global $serendipity;
     if (isset($eventData['properties'][$property_key])) return $eventData['properties'][$property_key];
     if (isset($serendipity['POST']['properties'][$property_key])) return $serendipity['POST']['properties'][$property_key];
-     return false;    
+     return false;
 }
 
 // Function to store form values into the serendipity database, so that they will be retrieved later.
@@ -359,7 +359,7 @@ function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$add
             $is_timeline_image = entry_option_get_value ($timeline_image_key, $eventData);
 
             // This is the actual HTML output on the backend screen.
-            //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';  
+            //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
             echo '<div class="entryproperties">';
             echo '  <input type="hidden" value="true" name="serendipity[propertyform]">';
             echo '      <div class="entryproperties_customfields adv_opts_box">';
@@ -377,7 +377,7 @@ function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$add
             echo '              </div>';
             echo '          </div>';
             echo '      </div>';
-            echo ' </div>';     
+            echo ' </div>';
 
             break;
 
@@ -387,17 +387,17 @@ function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$add
             // Call the helper function with all custom variables here.
             entry_option_store('timeline_image', $serendipity['POST']['properties']['timeline_image'], $eventData);
             break;
-            
+
         case 'css':
-            $tfile = dirname(__FILE__) . '/' . $serendipity['template_loaded_config']['skinset'] . '_skin.css';            
+            $tfile = dirname(__FILE__) . '/' . $serendipity['template_loaded_config']['skinset'] . '_skin.css';
             if ($tfile) {
                 $tfilecontent = str_replace('img/', 'templates/' . $serendipity['template'] . '/img/', @file_get_contents($tfile));
             }
             if (!empty($tfilecontent)) {
                 $eventData .= "/* Skinset styles loaded via theme config */ \n\n" . $tfilecontent . "\n\n";
-                $tfilecontent = ''; // so as not to have content in next condition since reusing var.                
+                $tfilecontent = ''; // so as not to have content in next condition since reusing var.
             }
-            $tfile = dirname(__FILE__) . '/' . $serendipity['template_loaded_config']['colorset'] . '_style.css';            
+            $tfile = dirname(__FILE__) . '/' . $serendipity['template_loaded_config']['colorset'] . '_style.css';
             if ($tfile) {
                 $tfilecontent = str_replace('img/', 'templates/' . $serendipity['template'] . '/img/', @file_get_contents($tfile));
             }

@@ -3,7 +3,7 @@
 <html lang="{$lang}">
 <head>
     <meta charset="{$head_charset}">
-    <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>    
+    <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity v.{$serendipityVersion}">
@@ -17,22 +17,22 @@
     {/if}
     {if ($view == "start")}
         <link rel="canonical" href="{$serendipityBaseURL}">
-    {/if}    
+    {/if}
 {* BOOTSTRAP CORE CSS *}
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 {* S9Y CSS *}
-    <link rel="stylesheet" href="{$head_link_stylesheet}"> 
+    <link rel="stylesheet" href="{$head_link_stylesheet}">
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
     <link rel="alternate" type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
     {if $entry_id}
         <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
-    {/if} 
-{* CUSTOM FONTS *}   
+    {/if}
+{* CUSTOM FONTS *}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
     {serendipity_hookPlugin hook="frontend_header"}
     <script src="{$head_link_script}"></script>
-{* SUBHEADER IMAGE *}    
+{* SUBHEADER IMAGE *}
 {if $template_option.subheader_img}
     <style type="text/css">.subheader_image {ldelim}background-image: url('{$template_option.subheader_img}');{rdelim}</style>
 {/if}
@@ -56,7 +56,7 @@
                                 <a class="logo" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"><img src="{$template_option.header_img}" alt="{$blogTitle} Logo"><h1 class="sr-only">{$blogTitle}</h1></a>
                             {else}
                                 <a class="navbar-brand" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"><h1>{$blogTitle}</h1></a>
-                            {/if} 
+                            {/if}
                             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                                 <span class="sr-only">Toggle navigation</span>{* LANG? *}
                                 <span class="fa fa-bars"></span>
@@ -66,7 +66,7 @@
                         <div class="collapse navbar-collapse navbar-responsive-collapse">
                             <ul class="nav navbar-nav navbar-right">{foreach from=$navlinks item="navlink" name="sitenav"}<li><a {if $currpage==$navlink.href}class="navbar_current_page"{/if} href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}<li><a  href="#basicModal" data-toggle="modal" data-target="#basicModal" title="{$CONST.SEARCH}"><i class="fa fa-search" aria-hidden="true"></i></a></li></ul>
                         </div><!--/navbar-collapse-->
-                    </div>    
+                    </div>
                 </div>{* End Navbar *}
             </div>
         {/if}
@@ -82,9 +82,9 @@
                     <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
                         <input type="hidden" name="serendipity[action]" value="search">
                         <label for="serendipityQuickSearchTermField" class="sr-only">{$CONST.QUICKSEARCH}</label>
-                        <input id="serendipityQuickSearchTermField" class="form-control" name="serendipity[searchTerm]" type="search" value="" placeholder="{$CONST.SEARCH} ...">        
+                        <input id="serendipityQuickSearchTermField" class="form-control" name="serendipity[searchTerm]" type="search" value="" placeholder="{$CONST.SEARCH} ...">
                         <div class="modal-footer">
-                            <input class="btn btn-default btn-theme" id="gobutton" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">   
+                            <input class="btn btn-default btn-theme" id="gobutton" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
                             <button type="button" class="btn btn-default" data-dismiss="modal">{$CONST.CLOSE}</button>
                         </div>
                     </form>
@@ -92,7 +92,7 @@
                 </div>
             </div>
         </div>
-    </div>        
+    </div>
     <div class="subheader{if $template_option.subheader_img} subheader_image{/if}">
         <div class="container">
             <h2 class="pull-left">
@@ -109,7 +109,7 @@
                 {elseif $head_subtitle}{$head_subtitle}
                 {/if}
             </h2>
-            
+
             {if $footer_totalPages >1 && !isset($staticpage_pagetitle)}
                 <nav class="pagination pull-right">
                     {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
@@ -164,9 +164,9 @@
                                 <div class="panel-body">
                                     <p><span class="fa-stack text-danger" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.ERROR_404}</p>
                                     <div class="input-group" style="width:100%; margin-bottom: 20px;">{* REMOVE INLINE STYLES *}
-                                        <form id="searchform" class="input-group" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">                
-                                            <input type="hidden" name="serendipity[action]" value="search" /> 
-                                            <label for="serendipityQuickSearchTermFieldBox" class="sr-only">{$CONST.QUICKSEARCH}</label>                       
+                                        <form id="searchform" class="input-group" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
+                                            <input type="hidden" name="serendipity[action]" value="search" />
+                                            <label for="serendipityQuickSearchTermFieldBox" class="sr-only">{$CONST.QUICKSEARCH}</label>
                                             <input class="form-control" alt="{$CONST.SEARCH_SITE}" type="text" id="serendipityQuickSearchTermFieldBox" name="serendipity[searchTerm]" value="{$CONST.SEARCH}..." onfocus="if(this.value=='{$CONST.SEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.SEARCH}...';" />
                                             <span class="input-group-btn">
                                                 <input class="btn btn-sm btn-default btn-theme quicksearch_submit" type="submit" value="{$CONST.GO}" alt="{$CONST.SEARCH_SITE}" name="serendipity[searchButton]" title="{$CONST.SEARCH}" />
@@ -174,13 +174,13 @@
                                             <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
                                         </form>
                                     </div>
-                                    {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}       
+                                    {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     <div id="search-block" class="row">
-                        <div class="col-md-8 col-md-offset-2">                    
+                        <div class="col-md-8 col-md-offset-2">
                             <nav class="text-center">
                                  <button class="btn btn-md btn-default btn-theme" onclick="goBack()" title="{$CONST.BACK}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.BACK}</span> {$CONST.BACK}</button>
                                  <script>
@@ -206,7 +206,7 @@
         </div>
     </div>	
     <div class="footer-container">
-        {if $FooterSidebarElements > 0}    
+        {if $FooterSidebarElements > 0}
         <div class="footer">
             <div class="container">
                 <div class="row">
@@ -214,13 +214,13 @@
                         {serendipity_printSidebar side="footer" template="footerbar.tpl"}
                     </div>
                 </div>
-            </div> 
+            </div>
         </div><!--/footer-->
-        {/if}        
+        {/if}
         <div class="copyright">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">                     
+                    <div class="col-md-6">
                         <p class="copyright-text">{$template_option.copyright}</p>
                     </div>
                     <div class="col-md-6">
@@ -228,12 +228,12 @@
                             {foreach from=$socialicons item="socialicon" name="social_networking"}
                                 <li>
                                     <a href="{$socialicon.url}" title="{$socialicon.service}"><i class="fa fa-lg {service_icon from_service=$socialicon.service}"></i></a>
-                                </li>        
-                            {/foreach}         
+                                </li>
+                            {/foreach}
                         </ul>
                     </div>
                 </div>
-            </div> 
+            </div>
         </div><!--/copyright-->
     </div>
 </div>{* wrapper *}

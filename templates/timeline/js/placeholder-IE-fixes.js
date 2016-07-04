@@ -1,7 +1,7 @@
 var PlaceholderIEFixes = function () {
 
     return {
-        
+ 
         //Placeholder IE Fixes
         initPlaceholderIEFixes: function () {
 	        if (jQuery.browser.msie && jQuery.browser.version.substr(0, 1) < 9) { // ie7&ie8

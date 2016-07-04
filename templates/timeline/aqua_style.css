@@ -1,11 +1,11 @@
 /*
-Theme: Timeline                                                             
+Theme: Timeline
 Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
-aqua colorset                                                          
+aqua colorset
 */
 
-/* 
-* Aqua Color: #27d7e7; 
+/*
+* Aqua Color: #27d7e7;
 * Aqua Hover Color: #26bac8;
 * Darkest color: #11adbc;
 */
@@ -20,12 +20,12 @@ a:focus {
 }
 
 a.subtome:link,
-a.subtome:visited { 
+a.subtome:visited {
     background: url('img/subtome-aqua.png') left bottom no-repeat;
 }
 
 a.subtome:hover,
-a.subtome:focus { 
+a.subtome:focus {
     background: url('img/subtome-aqua.png') -64px center no-repeat;
 }
 
@@ -107,7 +107,7 @@ blockquote {
 
 .timeline_freeTag a {
     background-color: #27d7e7;
-    border: 1px solid #27d7e7;  
+    border: 1px solid #27d7e7;
 }
 
 .timeline_freeTag a:hover,

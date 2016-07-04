@@ -1,7 +1,7 @@
 /*
-Theme: Timeline                                                             
+Theme: Timeline
 Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
-blueviolet                                                       
+blueviolet colorset
 */
 
 body {
@@ -127,22 +127,22 @@ hr {
 
 @media (max-width: 992px) {
 	.timeline > li > .timeline-panel:before {
-		border-left: 11px solid #36404A;     
+		border-left: 11px solid #36404A;
 	}
 
 	.timeline > li > .timeline-panel:after {
-		border-left: 10px solid #36404A;       
+		border-left: 10px solid #36404A;
 	}
 }
 
 
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
     ul.timeline > li > .timeline-panel:before {
-		border-left: 0;        
+		border-left: 0;
 	}
 
 	ul.timeline > li > .timeline-panel:after {
-		border-left: 0;        
+		border-left: 0;
 	}
 }
 
@@ -226,9 +226,9 @@ table table {
     border: 1px solid #36404A;
     color: #959da5;
 
-} 
- 
-/* bootstrap classes for darker skin */ 
+}
+
+/* bootstrap classes for darker skin */
  .alert-success {
   background-color: #62c462;
   border-color: #62bd4f;

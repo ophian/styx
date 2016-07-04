@@ -3,7 +3,7 @@
  Last revised April 20, 2016
  Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
  Inspired by Unify/htmlstream
- Font Awesome by Dave Gandy - http://fontawesome.io 
+ Font Awesome by Dave Gandy - http://fontawesome.io
 */
 
 /*
@@ -37,17 +37,17 @@ a:focus {
 }
 
 a.subtome:link,
-a.subtome:visited { 
+a.subtome:visited {
     /* background: url('{TEMPLATE_PATH}img/subtome-green.png') left bottom no-repeat;*/ /* see colorsets for subtome images */
     height: 64px!important;
-    margin: 0;    
+    margin: 0;
     padding: 24px 0;
     visibility: visible;
-    width: 64px!important;    
+    width: 64px!important;
 }
 
 a.subtome:hover,
-a.subtome:active { 
+a.subtome:active {
     /*background: url('{TEMPLATE_PATH}img/subtome-green.png') -64px center no-repeat;*/
 }
 
@@ -111,7 +111,7 @@ p {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height:100%;    
+    height:100%;
     padding: 80px 0;
 }
 
@@ -227,7 +227,7 @@ p {
     .header .navbar-default .navbar-nav > li > a:hover {
         /*color: #72c02c;*/
     }
-    
+
     .subheader h2.pull-left, .subheader nav.pull-right {
         text-align: center;
         width: 100%;
@@ -292,11 +292,11 @@ p {
     .header .navbar-header .logo {
         padding-top:20px;
     }
-    
+
     .mainpanel  {
         /*padding-left: 0px !important;*/
     }
-    
+
 }
 
 .header .logo {
@@ -408,7 +408,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 .pager li > span {
     /*background-color: #72c02c;
     border: 1px solid #72c02c; COLORSET */
-    border-radius: 3px;   
+    border-radius: 3px;
     color: #fff;
     cursor: pointer;
     display: inline-block;
@@ -446,7 +446,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 	content: " ";
 	left: 50%;
 	margin-left: -1.5px;
-	position: absolute;    
+	position: absolute;
 	top: 0;
 	width: 3px;
 }
@@ -483,7 +483,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 	border: 1px solid #d4d4d4;
 	float: left;
 	position: relative;
-	width: 94%;    
+	width: 94%;
 }
 
 .timeline > li > .timeline-panel:before {
@@ -494,7 +494,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 	content: " ";
 	display: inline-block;
 	position: absolute;
-	right: -15px;    
+	right: -15px;
 	top: 26px;
 }
 
@@ -506,14 +506,14 @@ a, a:focus, a:hover, a:active, button, button:hover {
 	content: " ";
 	display: inline-block;
 	position: absolute;
-	right: -14px;    
+	right: -14px;
 	top: 27px;
 }
 
 .timeline > li.timeline-month-heading {
 	color: #ccc;
    	text-align: center;
-    width:100%;    
+    width:100%;
 	z-index: 9;
 }
 
@@ -535,10 +535,10 @@ a, a:focus, a:hover, a:active, button, button:hover {
 	height: 24px;
 	line-height: 50px;
 	position: absolute;
-	right: -12px;    
+	right: -12px;
 	text-align: center;
 	top: 19px;
-	width: 24px;    
+	width: 24px;
 	z-index: 9;
 }
 
@@ -587,7 +587,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 .timeline .timeline-footer{
     border-top: 1px solid #ccc;
     font-size: 14px;
-    overflow: hidden;    
+    overflow: hidden;
     padding: 6px 10px;
     width: 100%;
 }
@@ -608,7 +608,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 }
 
 .timeline > li.timeline-inverted{
-	float: right; 
+	float: right;
 	clear: right;
 	margin-bottom: 40px;
 }
@@ -623,18 +623,18 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 @media (max-width: 992px) {
 	.timeline > li > .timeline-panel:before {
-		border-bottom: 11px solid transparent;        
-		border-left: 11px solid #ccc;    
+		border-bottom: 11px solid transparent;
+		border-left: 11px solid #ccc;
 		border-top: 11px solid transparent;
- 		right: -11px;   
+ 		right: -11px;
 		top: 31px;
 	}
 
 	.timeline > li > .timeline-panel:after {
- 		border-bottom: 10px solid transparent;   
+ 		border-bottom: 10px solid transparent;
 		border-left: 10px solid #fff;
 		border-top: 10px solid transparent;
- 		right: -10px;       
+ 		right: -10px;
 		top: 32px;
 	}
 	.timeline > li.timeline-inverted > .timeline-panel:before {
@@ -654,7 +654,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
     ul.timeline > li {
       clear: left;
-      float: left;      
+      float: left;
       margin-bottom: 20px;
       position: relative;
       width:100%;
@@ -676,10 +676,10 @@ a, a:focus, a:hover, a:active, button, button:hover {
     }
 
     ul.timeline > li > .timeline-panel:before {
-		border-bottom: 12px solid transparent;    
+		border-bottom: 12px solid transparent;
 		border-left: 12px solid #ccc;
 		border-top: 12px solid transparent;
-		right: -12px;        
+		right: -12px;
     	top: 27px;
 	}
 
@@ -687,7 +687,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 		border-bottom: 11px solid transparent;
 		border-left: 11px solid #fff;
 		border-top: 11px solid transparent;
-		right: -11px;        
+		right: -11px;
 		top: 28px;
 	}
 
@@ -704,9 +704,9 @@ a, a:focus, a:hover, a:active, button, button:hover {
         left: -11px;
         right: auto;
     }
-    
+
 	.timeline > li.timeline-inverted{
-		float: left; 
+		float: left;
 		clear: left;
 		margin-top: 30px;
 		margin-bottom: 30px;
@@ -1025,7 +1025,7 @@ blockquote {
 }
 
 .serendipity_entry_body {
-    margin-top: 20px; 
+    margin-top: 20px;
 }
 
 .serendipity_pageSummary {
@@ -1080,8 +1080,8 @@ blockquote {
     position: relative;
     text-decoration: none;
     text-align: center;
-    vertical-align: middle; 
-    white-space: nowrap;   
+    vertical-align: middle;
+    white-space: nowrap;
 }
 
 .RightSideBar .timeline_freeTag a {
@@ -1194,6 +1194,6 @@ table table {
     -ms-transform: translate3d(0, 100%, 0);
     -o-transform: translate3d(0, 100%, 0);
     transform: translate3d(0, 100%, 0);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);      
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
   }
 }

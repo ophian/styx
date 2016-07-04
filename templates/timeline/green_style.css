@@ -1,12 +1,12 @@
 /*
-Theme: Timeline                                                             
+Theme: Timeline
 Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
-green colorset                                                          
+green colorset
 */
 
-/* 
-* Green Color: #72c02c;  
-* Green Hover Color: #57a70f; 
+/*
+* Green Color: #72c02c;
+* Green Hover Color: #57a70f;
 * Darkest color: #4b920c;
 */
 
@@ -20,12 +20,12 @@ a:focus {
 }
 
 a.subtome:link,
-a.subtome:visited { 
+a.subtome:visited {
     background: url('img/subtome-green.png') left bottom no-repeat;
 }
 
 a.subtome:hover,
-a.subtome:focus { 
+a.subtome:focus {
     background: url('img/subtome-green.png') -64px center no-repeat;
 }
 

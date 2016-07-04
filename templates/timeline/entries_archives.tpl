@@ -2,23 +2,23 @@
     {if $template_option.categories_on_archive || $template_option.tags_on_archive}
         <div class="row">
             {if $template_option.categories_on_archive}
-                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12 archive-categories">      
+                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12 archive-categories">
                     {serendipity_showPlugin class="serendipity_plugin_categories" template="archive_categories.tpl"}
                 </section>
             {/if}
             {if $template_option.tags_on_archive}
-                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12 archive-tags">      
+                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12 archive-tags">
                     {serendipity_showPlugin class="serendipity_plugin_freetag" template="archive_freetag.tpl"}
                 </section>
             {/if}
         </div>
     {/if}
-    <div class="row"> 
+    <div class="row">
         <section class="col-lg-12 archive-archive_history">
             {if $template_option.categories_on_archive || $template_option.tags_on_archive}
                 <h3>{if $category}{$category_info.category_name} - {/if}{$CONST.ARCHIVES}</h3>
             {/if}
-            <ul class="timeline">    
+            <ul class="timeline">
                 {foreach from=$archives item="archive"}
                     <li class="{cycle values='left,timeline-inverted timeline-top-margin'}">
                         <div class="timeline-badge"><i class="fa fa-dot-circle-o" aria-hidden="true"></i></div>
@@ -39,12 +39,12 @@
                                         {else}
                                             <button type="button" class="btn btn-default btn-theme disabled dropdown-toggle archive-button-months" data-toggle="dropdown" aria-expanded="false">{$month.date|@formatTime:"%b"}</button>
                                         {/if}
-                                    </div>                         
+                                    </div>
                                 </div>
                             {/foreach}
                             </div>
                         </div>
-                    </li>    
+                    </li>
                 {/foreach}
                 <li class="clearfix" style="float: none;"></li>
             </ul>

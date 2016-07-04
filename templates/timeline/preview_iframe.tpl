@@ -51,7 +51,7 @@
                         {/if}
                         <span class="alert alert-success"><span class="fa-stack text-success" aria-hidden="true"></i><i class="fa fa-smile-o fa-2x"></i></span> {$CONST.ENTRY_SAVED}. &nbsp;&nbsp; <a class="btn btn-md btn-default btn-theme" href="{$entrylink}" target="_blank">{$CONST.VIEW_ENTRY}</a></span>
                     {/if}
-                {/if}                
+                {/if}
             </div>
         </div>
     </main>

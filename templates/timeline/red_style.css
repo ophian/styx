@@ -1,11 +1,11 @@
 /*
-Theme: Timeline                                                             
+Theme: Timeline
 Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
-red colorset                                                          
+red colorset
 */
 
-/* 
-* Red Color: #e74c3c; 
+/*
+* Red Color: #e74c3c;
 * Red Hover Color: #c0392b;
 * Darkest color: #b02d20;
 */
@@ -20,12 +20,12 @@ a:focus {
 }
 
 a.subtome:link,
-a.subtome:visited { 
+a.subtome:visited {
     background: url('img/subtome-red.png') left bottom no-repeat;
 }
 
 a.subtome:hover,
-a.subtome:focus { 
+a.subtome:focus {
     background: url('img/subtome-red.png') -64px center no-repeat;
 }
 

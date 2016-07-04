@@ -13,7 +13,7 @@
                 {if $template_option.months_on_timeline == true}
                     {assign var="curmonth" value=$entry.timestamp|@formatTime:"%B"}
                     {if $prevmonth != $curmonth}
-                        <li class="timeline-month-heading"><div class="tldate">{$entry.timestamp|@formatTime:$template_option.months_on_timeline_format}</div></li> 
+                        <li class="timeline-month-heading"><div class="tldate">{$entry.timestamp|@formatTime:$template_option.months_on_timeline_format}</div></li>
                         {assign var="timelinetmargin" value="timeline-no-top-margin"}
                     {else}
                         {if $timelinetmargin =="timeline-top-margin"}{assign var="timelinetmargin" value="timeline-no-top-margin"}{else}{assign var="timelinetmargin" value="timeline-top-margin"}{/if}
@@ -53,13 +53,13 @@
                                 <div>{$entry.properties.timeline_image}</div>
                             {else}
                                 <a href="{$entry.link}" title="{$entry.title}"><img class="img-responsive" {if $entry.properties.timeline_image}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
-                            {/if}                        
+                            {/if}
                         </div>
                         <div class="col-md-7 blogstyle-post-body">
                             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
                             <p class="post-info"><span class="sr-only">{$CONST.POSTED_BY}</span>
                                 <span class="sr-only"> {$CONST.ON}</span><span class="entry-timestamp"><i class="fa fa-clock-o" aria-hidden="true"></i><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time></span>
-                                <span class="entry-comment-link"><i class="fa {if $entry.comments == 0}fa-comment-o{elseif $entry.comments == 1}fa-comment{else}fa-comments-o{/if}" aria-hidden="true"></i><a href="{$entry.link}#comments">{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}</a></span>                                
+                                <span class="entry-comment-link"><i class="fa {if $entry.comments == 0}fa-comment-o{elseif $entry.comments == 1}fa-comment{else}fa-comments-o{/if}" aria-hidden="true"></i><a href="{$entry.link}#comments">{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}</a></span>
                             </p>
                             {$entry.body}
                             {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
@@ -91,7 +91,7 @@
                         <img class="{if $img_size[0]>=800}image-full-width{else}serendipity_image_left{/if}" src="{$entry.properties.timeline_image}" width="{$img_size[0]}" height="{$img_size[1]}" alt=""/>
                     {/if}
                 {/if}
-                <div class="serendipity_entry_body clearfix">            
+                <div class="serendipity_entry_body clearfix">
                     {if $entry.categories}{foreach from=$entry.categories item="entry_category"}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|@escape}{$entry_category.category_description|@emptyPrefix}" alt="{$entry_category.category_name|@escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
                     {$entry.body}
                 </div>
@@ -132,7 +132,7 @@
                             {/if}
                         {else}
                             {$entry.freetag}
-                        {/if}                    
+                        {/if}
                         {$entry.add_footer}
                     </footer>
                 {/if}
@@ -159,28 +159,28 @@
         {/if}
         {if $CONST.DATA_TRACKBACK_DELETED}
             <div id="search-block" class="row">
-                <div class="col-md-10 col-md-offset-1">        
+                <div class="col-md-10 col-md-offset-1">
                     <p class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_DELETED|@sprintf:$CONST.TRACKBACK_DELETED}</p>
                 </div>
             </div>
         {/if}
         {if $CONST.DATA_TRACKBACK_APPROVED}
             <div id="search-block" class="row">
-                <div class="col-md-10 col-md-offset-1">        
+                <div class="col-md-10 col-md-offset-1">
                     <p class="alert alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_APPROVED|@sprintf:$CONST.TRACKBACK_APPROVED}</p>
                 </div>
             </div>
         {/if}
         {if $CONST.DATA_COMMENT_DELETED}
             <div id="search-block" class="row">
-                <div class="col-md-10 col-md-offset-1">        
+                <div class="col-md-10 col-md-offset-1">
                     <p class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_DELETED|@sprintf:$CONST.COMMENT_DELETED}</p>
                 </div>
             </div>
         {/if}
         {if $CONST.DATA_COMMENT_APPROVED}
             <div id="search-block" class="row">
-                <div class="col-md-10 col-md-offset-1">        
+                <div class="col-md-10 col-md-offset-1">
                     <p class="alert alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_APPROVED|@sprintf:$CONST.COMMENT_APPROVED}</p>
                 </div>
             </div>
@@ -228,16 +228,16 @@
         {/foreach}
         {if $is_comment_added}
             <div id="search-block" class="row">
-                <div class="col-md-10 col-md-offset-1">        
+                <div class="col-md-10 col-md-offset-1">
                     <div class="alert alert-success alert-dismissible fade in" role="alert">
-                        <button type="button" class="close" data-target="#search-block" data-dismiss="alert" aria-label="Close" title="{$CONST.CLOSE}"><span aria-hidden="true">&times;</span></button>                
+                        <button type="button" class="close" data-target="#search-block" data-dismiss="alert" aria-label="Close" title="{$CONST.CLOSE}"><span aria-hidden="true">&times;</span></button>
                         <span class="fa-stack text-success" aria-hidden="true"><i class="fa fa-smile-o fa-2x"></i></span> {$CONST.COMMENT_ADDED}
                     </div>
                 </div>
             </div>
         {elseif $is_comment_moderate}
             <div id="search-block" class="row">
-                <div class="col-md-10 col-md-offset-1">           
+                <div class="col-md-10 col-md-offset-1">
                     <div class="alert alert-warning alert-dismissible fade in" role="alert">
                         <button type="button" class="close" data-target="#search-block" data-dismiss="alert" aria-label="Close" title="{$CONST.CLOSE}"><span aria-hidden="true">&times;</span></button>
                         <p class="text-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-smile-o fa-2x"></i></span> {$CONST.COMMENT_ADDED}</p>
@@ -247,7 +247,7 @@
             </div>
         {elseif not $entry.allow_comments}
             <div id="search-block" class="row">
-                <div class="col-md-10 col-md-offset-1">          
+                <div class="col-md-10 col-md-offset-1">
                     <p class="alert alert-danger text-danger"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.COMMENTS_CLOSED}</p>
                 </div>
             </div>
@@ -264,7 +264,7 @@
 {foreachelse}
     {if not $plugin_clean_page}
         <div id="search-block" class="row">
-            <div class="col-md-10 col-md-offset-1">    
+            <div class="col-md-10 col-md-offset-1">
                 <p class="alert alert-info noentries"><span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
             </div>
         </div>
@@ -282,7 +282,7 @@
         {if $footer_info}
             <p class="summary serendipity_center">{$footer_info}</p>
         {/if}
-            
+
         {if $footer_totalPages >1 }
             <nav class="pagination">
                 {assign var="paginationStartPage" value="`$footer_currentPage-3`"}

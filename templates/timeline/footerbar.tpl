@@ -10,7 +10,7 @@
                 {/if}
                 <div class="footerbar_content">{$item.content}</div>
             </section>
-        </div>    
+        </div>
     {/if}
 {/foreach}
 {if $is_raw_mode}

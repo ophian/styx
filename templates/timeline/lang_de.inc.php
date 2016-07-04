@@ -68,3 +68,4 @@
 @define('STATIC_SHOW_AUTHOR_TEXT','Autorennamen anzeigen');
 @define('STATIC_SHOW_DATE_TEXT','Datum anzeigen');
 @define('STATIC_SHOW_SIDEBARS_TEXT','Show sidebars?');
+

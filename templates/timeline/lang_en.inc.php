@@ -71,3 +71,4 @@
 @define('STATIC_SHOW_AUTHOR_TEXT','Show Author\'s name?');
 @define('STATIC_SHOW_DATE_TEXT','Show date last modified?');
 @define('STATIC_SHOW_SIDEBARS_TEXT','Show sidebars?');
+
