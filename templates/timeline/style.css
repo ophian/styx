@@ -435,86 +435,86 @@ a, a:focus, a:hover, a:active, button, button:hover {
 }
 
 .timeline {
-	list-style: none;
-	padding: 0 0 20px 0;
-	position: relative;
+    list-style: none;
+    padding: 0 0 20px 0;
+    position: relative;
 }
 
 .timeline:before { /* this is the vertical line */
-	background-color: #eeeeee;
-	bottom: 0;
-	content: " ";
-	left: 50%;
-	margin-left: -1.5px;
-	position: absolute;
-	top: 0;
-	width: 3px;
+    background-color: #eeeeee;
+    bottom: 0;
+    content: " ";
+    left: 50%;
+    margin-left: -1.5px;
+    position: absolute;
+    top: 0;
+    width: 3px;
 }
 
 .timeline > li {
-	clear: left;
-	float: left;
-	margin-bottom: 40px;
-	position: relative;
-	width: 50%;
+    clear: left;
+    float: left;
+    margin-bottom: 40px;
+    position: relative;
+    width: 50%;
 }
 
 .timeline > li:before,
 .timeline > li:after {
-	content: " ";
-	display: table;
+    content: " ";
+    display: table;
 }
 
 .timeline > li:after {
-	clear: both;
+    clear: both;
 }
 
 .timeline > li:before,
 .timeline > li:after {
-	content: " ";
-	display: table;
+    content: " ";
+    display: table;
 }
 
 .timeline > li:after {
-	clear: both;
+    clear: both;
 }
 
 .timeline > li > .timeline-panel {
-	border: 1px solid #d4d4d4;
-	float: left;
-	position: relative;
-	width: 94%;
+    border: 1px solid #d4d4d4;
+    float: left;
+    position: relative;
+    width: 94%;
 }
 
 .timeline > li > .timeline-panel:before {
-	border-top: 15px solid transparent;
-	border-left: 15px solid #ccc;
-	border-right: 0 solid #ccc;
-	border-bottom: 15px solid transparent;
-	content: " ";
-	display: inline-block;
-	position: absolute;
-	right: -15px;
-	top: 26px;
+    border-top: 15px solid transparent;
+    border-left: 15px solid #ccc;
+    border-right: 0 solid #ccc;
+    border-bottom: 15px solid transparent;
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    right: -15px;
+    top: 26px;
 }
 
 .timeline > li > .timeline-panel:after {
-	border-top: 14px solid transparent;
-	border-left: 14px solid #fff;
-	border-right: 0 solid #fff;
-	border-bottom: 14px solid transparent;
-	content: " ";
-	display: inline-block;
-	position: absolute;
-	right: -14px;
-	top: 27px;
+    border-top: 14px solid transparent;
+    border-left: 14px solid #fff;
+    border-right: 0 solid #fff;
+    border-bottom: 14px solid transparent;
+    content: " ";
+    display: inline-block;
+    position: absolute;
+    right: -14px;
+    top: 27px;
 }
 
 .timeline > li.timeline-month-heading {
-	color: #ccc;
-   	text-align: center;
+    color: #ccc;
+       text-align: center;
     width:100%;
-	z-index: 9;
+    z-index: 9;
 }
 
 .tldate {
@@ -530,40 +530,40 @@ a, a:focus, a:hover, a:active, button, button:hover {
 }
 
 .timeline > li > .timeline-badge {
-	color: #ccc;
-	font-size: 1.4em;
-	height: 24px;
-	line-height: 50px;
-	position: absolute;
-	right: -12px;
-	text-align: center;
-	top: 19px;
-	width: 24px;
-	z-index: 9;
+    color: #ccc;
+    font-size: 1.4em;
+    height: 24px;
+    line-height: 50px;
+    position: absolute;
+    right: -12px;
+    text-align: center;
+    top: 19px;
+    width: 24px;
+    z-index: 9;
 }
 
 .timeline > li.timeline-inverted > .timeline-panel {
-	float: right;
+    float: right;
 }
 .timeline > li.timeline-inverted > .timeline-panel:before {
-	border-left-width: 0;
-	border-right-width: 15px;
-	left: -15px;
-	right: auto;
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: -15px;
+    right: auto;
 }
 .timeline > li.timeline-inverted > .timeline-panel:after {
-	border-left-width: 0;
-	border-right-width: 14px;
-	left: -14px;
-	right: auto;
+    border-left-width: 0;
+    border-right-width: 14px;
+    left: -14px;
+    right: auto;
 }
 
 .timeline > li > .timeline-panel .timeline-heading {
-	padding: 5px;
+    padding: 5px;
 }
 
 .timeline > li > .timeline-panel .timeline-heading img {
-	width: 100%;
+    width: 100%;
 }
 
 .timeline > li > .timeline-panel .timeline-heading h4{
@@ -594,23 +594,23 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .timeline .timeline-footer .timeline-footer-date {
     clear: left;
-	float: left;
+    float: left;
 }
 
 .timeline .timeline-footer .timeline-footer-comments {
     clear: right;
-	float: right;
+    float: right;
 }
 
 .timeline .timeline-footer i {
-	color: #777;
+    color: #777;
     margin-right: 6px;
 }
 
 .timeline > li.timeline-inverted{
-	float: right;
-	clear: right;
-	margin-bottom: 40px;
+    float: right;
+    clear: right;
+    margin-bottom: 40px;
 }
 
 .timeline-top-margin {
@@ -618,33 +618,33 @@ a, a:focus, a:hover, a:active, button, button:hover {
 }
 
 .timeline > li.timeline-inverted > .timeline-badge{
-  	left: -12px;
+      left: -12px;
 }
 
 @media (max-width: 992px) {
-	.timeline > li > .timeline-panel:before {
-		border-bottom: 11px solid transparent;
-		border-left: 11px solid #ccc;
-		border-top: 11px solid transparent;
- 		right: -11px;
-		top: 31px;
-	}
+    .timeline > li > .timeline-panel:before {
+        border-bottom: 11px solid transparent;
+        border-left: 11px solid #ccc;
+        border-top: 11px solid transparent;
+         right: -11px;
+        top: 31px;
+    }
 
-	.timeline > li > .timeline-panel:after {
- 		border-bottom: 10px solid transparent;
-		border-left: 10px solid #fff;
-		border-top: 10px solid transparent;
- 		right: -10px;
-		top: 32px;
-	}
-	.timeline > li.timeline-inverted > .timeline-panel:before {
-		border-right-width: 11px;
-		left: -11px;
-	}
-	.timeline > li.timeline-inverted > .timeline-panel:after {
-		border-right-width: 10px;
-		left: -10px;
-	}
+    .timeline > li > .timeline-panel:after {
+         border-bottom: 10px solid transparent;
+        border-left: 10px solid #fff;
+        border-top: 10px solid transparent;
+         right: -10px;
+        top: 32px;
+    }
+    .timeline > li.timeline-inverted > .timeline-panel:before {
+        border-right-width: 11px;
+        left: -11px;
+    }
+    .timeline > li.timeline-inverted > .timeline-panel:after {
+        border-right-width: 10px;
+        left: -10px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -676,20 +676,20 @@ a, a:focus, a:hover, a:active, button, button:hover {
     }
 
     ul.timeline > li > .timeline-panel:before {
-		border-bottom: 12px solid transparent;
-		border-left: 12px solid #ccc;
-		border-top: 12px solid transparent;
-		right: -12px;
-    	top: 27px;
-	}
+        border-bottom: 12px solid transparent;
+        border-left: 12px solid #ccc;
+        border-top: 12px solid transparent;
+        right: -12px;
+        top: 27px;
+    }
 
-	ul.timeline > li > .timeline-panel:after {
-		border-bottom: 11px solid transparent;
-		border-left: 11px solid #fff;
-		border-top: 11px solid transparent;
-		right: -11px;
-		top: 28px;
-	}
+    ul.timeline > li > .timeline-panel:after {
+        border-bottom: 11px solid transparent;
+        border-left: 11px solid #fff;
+        border-top: 11px solid transparent;
+        right: -11px;
+        top: 28px;
+    }
 
     ul.timeline > li > .timeline-panel:before {
         border-left-width: 0;
@@ -705,32 +705,32 @@ a, a:focus, a:hover, a:active, button, button:hover {
         right: auto;
     }
 
-	.timeline > li.timeline-inverted{
-		float: left;
-		clear: left;
-		margin-top: 30px;
-		margin-bottom: 30px;
-	}
+    .timeline > li.timeline-inverted{
+        float: left;
+        clear: left;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
 
-	.timeline > li.timeline-inverted > .timeline-badge{
-		left: -12px;
-	}
+    .timeline > li.timeline-inverted > .timeline-badge{
+        left: -12px;
+    }
 }
 
 .footer-container .footer {
-	background-color: #272727;
+    background-color: #272727;
     line-height: 1.4;
-	padding: 40px 0;	
+    padding: 40px 0;
 }
 
 .footer-container .footer,
 .footer-container .footer  li,
 .footer-container .footer  p {
-	color: #ddd;
+    color: #ddd;
 }
 
 .footer-container .footer h3 {
-	color: #eee;
+    color: #eee;
 }
 
 .FooterSideBar h3,
@@ -748,28 +748,28 @@ a, a:focus, a:hover, a:active, button, button:hover {
 }
 
 .copyright {
-	background: #222;
-	border-top: none;
-	padding: 10px 0 5px;
+    background: #222;
+    border-top: none;
+    padding: 10px 0 5px;
 }
 
 .copyright p {
-	margin-top: 8px;
+    margin-top: 8px;
 }
 
 .copyright a {
     color: #777;
-	margin: 0 2px;
+    margin: 0 2px;
 }
 
 .footer-socials {
-	margin-top: 12px;
-	text-align: right;
+    margin-top: 12px;
+    text-align: right;
 }
 
 .footer-socials a {
-	color: #777;
-	font-size: 16px;
+    color: #777;
+    font-size: 16px;
 }
 
 @media (max-width: 991px) {

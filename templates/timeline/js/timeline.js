@@ -118,7 +118,7 @@ jQuery(document).ready(function(){
 
 
 /*---------------------------------*/
-/*	SCROLL TO TOP
+/*    SCROLL TO TOP
 /*---------------------------------*/
 ! function (a, b, c) {
     a.fn.scrollUp = function (b) {

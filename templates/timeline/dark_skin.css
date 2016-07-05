@@ -6,7 +6,7 @@ dark skin
 
 body {
     background-color: #252525;
-	color: #999;
+    color: #999;
 }
 
 .RightSideBar a{
@@ -85,25 +85,25 @@ hr {
 }
 
 .timeline:before { /* this is the vertical line */
-	background-color: #383838;
+    background-color: #383838;
 }
 
 .timeline > li > .timeline-panel {
-	border: 1px solid #383838;
+    border: 1px solid #383838;
 }
 
 .timeline > li > .timeline-panel:before {
-	border-left: 15px solid #383838;
-	border-right: 0 solid #383838;
+    border-left: 15px solid #383838;
+    border-right: 0 solid #383838;
 }
 
 .timeline > li > .timeline-panel:after {
-	border-left: 14px solid #383838;
-	border-right: 0 solid #383838;
+    border-left: 14px solid #383838;
+    border-right: 0 solid #383838;
 }
 
 .timeline > li.timeline-month-heading {
-	color: #ccc;
+    color: #ccc;
 }
 
 .tldate {
@@ -114,7 +114,7 @@ hr {
 
 .entry-footer .fa,
 .timeline > li > .timeline-badge {
-	color: #777;
+    color: #777;
 }
 
 .timeline .timeline-footer{
@@ -122,39 +122,39 @@ hr {
 }
 
 .timeline .timeline-footer i {
-	color: #777;
+    color: #777;
 }
 
 
 @media (max-width: 992px) {
-	.timeline > li > .timeline-panel:before {
-		border-left: 11px solid #383838;
-	}
+    .timeline > li > .timeline-panel:before {
+        border-left: 11px solid #383838;
+    }
 
-	.timeline > li > .timeline-panel:after {
-		border-left: 10px solid #383838;
-	}
+    .timeline > li > .timeline-panel:after {
+        border-left: 10px solid #383838;
+    }
 }
 
 
 @media (max-width: 767px) {
     ul.timeline > li > .timeline-panel:before {
-		border-left: 0;
-	}
+        border-left: 0;
+    }
 
-	ul.timeline > li > .timeline-panel:after {
-		border-left: 0;
-	}
+    ul.timeline > li > .timeline-panel:after {
+        border-left: 0;
+    }
 }
 
 .footer-container .footer {
-	background-color: #1c1c1c;
+    background-color: #1c1c1c;
 }
 
 .footer-container .footer,
 .footer-container .footer  li,
 .footer-container .footer  p {
-	color: #999;
+    color: #999;
 }
 
 .FooterSideBar a {
@@ -162,11 +162,11 @@ hr {
 }
 
 .copyright {
-	background: #222;
+    background: #222;
 }
 
 .footer-socials a {
-	color: #777;
+    color: #777;
 }
 
 .comment-date {

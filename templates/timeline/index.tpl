@@ -204,7 +204,7 @@
                 </aside>
             {/if}
         </div>
-    </div>	
+    </div>
     <div class="footer-container">
         {if $FooterSidebarElements > 0}
         <div class="footer">
@@ -252,4 +252,4 @@
 {if $is_embedded != true}
 </body>
 </html>
-{/if}	
+{/if}

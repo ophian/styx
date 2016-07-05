@@ -299,12 +299,12 @@ function getServiceIcon ($params, &$smarty) {
 
 $navlinks_collapse = array( 'use_corenav', 'amount');
 for ($i = 0; $i < $template_loaded_config['amount']; $i++) {
-	array_push($navlinks_collapse, 'navlink' . $i . 'text' ,'navlink' . $i . 'url');
+    array_push($navlinks_collapse, 'navlink' . $i . 'text' ,'navlink' . $i . 'url');
 }
 
 $sociallinks_collapse = array('social_icons_amount');
 for ($i = 0; $i < $template_loaded_config['social_icons_amount']; $i++) {
-	array_push($sociallinks_collapse, 'social_icon' . $i . 'service' ,'social_icon' . $i . 'url');
+    array_push($sociallinks_collapse, 'social_icon' . $i . 'service' ,'social_icon' . $i . 'url');
 }
 
 $template_config_groups = array(
