@@ -19,7 +19,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian');
-        $propbag->add('version',        '1.01');
+        $propbag->add('version',        '1.02');
         $propbag->add('requirements',   array(
             'serendipity' => '2.0.99',
             'smarty'      => '3.1.0',
@@ -35,6 +35,10 @@ class serendipity_event_plugup extends serendipity_plugin
             'show_updates',
             'spartacus_url'
         ));
+        // Register (multiple) dependencies. KEY is the name of the depending plugin. VALUE is a mode of either 'remove' or 'keep'.
+        // If the mode 'remove' is set, removing the plugin results in a removal of the depending plugin.
+        // 'Keep' meens to not touch the depending plugin.
+        $this->dependencies = array('serendipity_event_spartacus' => 'keep');
     }
 
     function introspect_config_item($name, &$propbag)
@@ -83,6 +87,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $inc    = file_get_contents($url);
         $event  = (int)substr_count($inc, 'UPGRADE: serendipity_event');
         $plugin = (int)substr_count($inc, 'UPGRADE: serendipity_plugin');
+        #echo "$url\n$event\n$plugin\n";
         // store
         serendipity_setCookie('plugsEvent', $event, true, $ts);
         serendipity_setCookie('plugsPlugin', $plugin, true, $ts);
