@@ -160,6 +160,9 @@ class Smarty_Internal_Template extends Smarty_Internal_TemplateBase
     {
         $parentIsTpl = isset($this->parent) && $this->parent->_objType == 2;
         if ($this->smarty->debugging) {
+            if (!isset($this->smarty->_debug)) {
+                $this->smarty->_debug = new Smarty_Internal_Debug();
+            }
             $this->smarty->_debug->start_template($this, $display);
         }
         // checks if template exists
@@ -339,6 +342,9 @@ class Smarty_Internal_Template extends Smarty_Internal_TemplateBase
         $tpl->_cache = array();
         if (isset($uid)) {
             if ($smarty->debugging) {
+                if (!isset($smarty->_debug)) {
+                    $smarty->_debug = new Smarty_Internal_Debug();
+                }
                 $smarty->_debug->start_template($tpl);
                 $smarty->_debug->start_render($tpl);
             }
@@ -476,7 +482,7 @@ class Smarty_Internal_Template extends Smarty_Internal_TemplateBase
             //            $tpl->compiled->nocache_hash = $properties['nocache_hash'];
             $resource->file_dependency = $properties[ 'file_dependency' ];
             if (isset($properties[ 'tpl_function' ])) {
-                $tpl->tpl_function = $properties[ 'tpl_function' ];
+                $tpl->tpl_function = array_merge($tpl->tpl_function, $properties[ 'tpl_function' ]);
             }
         }
         return $is_valid && !function_exists($properties[ 'unifunc' ]);
