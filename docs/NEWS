@@ -1,6 +1,18 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * PLEASE NOTE:
+    A while ago phpMyAdmin versions 4.0+ changed their behaviour for
+    tables edit handling, for database tables not having a unique key.
+    You now may edit or create the/a phpMyAdmin config.inc.php file for
+    PMA versions from 4.5 and set:
+       $cfg['RowActionLinksWithoutUnique'] = true;
+    to be able to edit some of the tables used in Serendipity again.
+    References:
+    https://github.com/s9y/Serendipity/issues/341
+    https://docs.phpmyadmin.net/en/latest/setup.html#manually-creating-the-file
+    https://sourceforge.net/p/phpmyadmin/bugs/4963/
+
   * Add Plugin Update Notifier serendipity_event_plugup plugin
 
   * Fix upgrader to not run upgrade tasks for versions higher than the
