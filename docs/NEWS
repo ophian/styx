@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fix templates loop key chaining for latest Smarty
+
   * PLEASE NOTE:
     A while ago phpMyAdmin versions 4.0+ changed their behaviour for
     tables edit handling, for database tables not having a unique key.

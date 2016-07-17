@@ -101,36 +101,36 @@
 
         {function name=templateBlock}
             <li><article class="clearfix">
-                    <h3 title="{$info.info.name}">{$info.info.name|truncate:25:"&hellip;"}</h3>
+                    <h3 title="{$template.info.name}">{$template.info.name|truncate:25:"&hellip;"}</h3>
                     <div class="clearfix equal_heights template_wrap">
                         <div class="template_preview">
-                        {if $info.fullsize_preview || $info.preview}
-                            {if $info.fullsize_preview}
-                                <a class="media_fullsize" href="{$info.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$info.info.name}">
-                                    <img src="{$info.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                        {if $template.fullsize_preview || $template.preview}
+                            {if $template.fullsize_preview}
+                                <a class="media_fullsize" href="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
+                                    <img src="{$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
                                 </a>
                             {else}
-                                <img src="{$info.preview}" alt="{$CONST.PREVIEW}" >
+                                <img src="{$template.preview}" alt="{$CONST.PREVIEW}" >
                             {/if}
                         {/if}
 
                             <footer id="template_info_{$key}" class="template_info additional_info">
                                 <dl class="clearfix">
                                     <dt class="template_author">{$CONST.AUTHOR}:</dt>
-                                    <dd>{$info.info.author}</dd>
+                                    <dd>{$template.info.author}</dd>
                                     <dt class="template_date">{$CONST.LAST_UPDATED}:</dt>
-                                    <dd>{$info.info.date}</dd>
+                                    <dd>{$template.info.date}</dd>
                                     <dt class="template_config">{$CONST.CUSTOM_CONFIG}:</dt>
-                                    <dd>{$info.info.custom_config|default:$CONST.NO}</dd>
+                                    <dd>{$template.info.custom_config|default:$CONST.NO}</dd>
                                     <dt class="template_admin">{$CONST.CUSTOM_ADMIN_INTERFACE}:</dt>
-                                    <dd>{if $info.info.custom_admin_interface} {$info.info.custom_admin_interface} {else} {$CONST.NO} {/if}</dd>
-                                    {if isset($info.info.summary)}
+                                    <dd>{if $template.info.custom_admin_interface} {$template.info.custom_admin_interface} {else} {$CONST.NO} {/if}</dd>
+                                    {if isset($template.info.summary)}
                                     <dt class="template_summary">Summary:</dt>
-                                    <dd>{$info.info.summary}</dd>
+                                    <dd>{$template.info.summary}</dd>
                                     {/if}
-                                    {if isset($info.info.description)}
+                                    {if isset($template.info.description)}
                                     <dt class="template_description">Description:</dt>
-                                    <dd>{$info.info.description}</dd>
+                                    <dd>{$template.info.description}</dd>
                                     {/if}
                                 </dl>
                             </footer>
@@ -138,18 +138,18 @@
                     </div>
 
                     <button class="template_show_info button_link" type="button" data-href="#template_info_{$key}" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
-                {if $info.demoURL}
-                    <a class="demo_link button_link" href="{$info.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank"><span class="icon-search"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>
+                {if $template.demoURL}
+                    <a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank"><span class="icon-search"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>
                 {/if}
-                {if !$info.unmetRequirements}
-                    {if $info.info.custom_admin_interface == $CONST.YES && $cur_tpl_backend.info.name != $info.info.name}
-                    <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-frontend&amp;serendipity[theme]={$template}{$info.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>
-                    <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$template}{$info.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>
+                {if !$template.unmetRequirements}
+                    {if $template.info.custom_admin_interface == $CONST.YES && $cur_tpl_backend.info.name != $template.info.name}
+                    <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-frontend&amp;serendipity[theme]={$key}{$template.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>
+                    <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$key}{$template.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>
                     {else}
-                    <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install&amp;serendipity[theme]={$template}{$info.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>
+                    <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install&amp;serendipity[theme]={$key}{$template.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>
                     {/if}
                 {else}
-                    <span class="unmet_requirements msg_error"><span class="icon-attention-circled"></span> {$info.unmetRequirements}></span>
+                    <span class="unmet_requirements msg_error"><span class="icon-attention-circled"></span> {$template.unmetRequirements}></span>
                 {/if}
                 </article>
             </li>
@@ -157,16 +157,16 @@
 
         <h2>{$CONST.RECOMMENDED}</h2>
         <ul class="plainList clearfix">
-        {foreach $recommended_templates as $templateR=>$infoR}
-            {templateBlock template=$templateR info=$infoR key=$infoR@key}
+        {foreach $recommended_templates as $template}
+            {templateBlock template=$template key=$template@key}
         {/foreach}
         </ul>
         
         <h2>{$CONST.AVAILABLE_TEMPLATES}</h2>
 
         <ul class="plainList clearfix">
-        {foreach $templates as $templateA=>$infoA}
-            {templateBlock template=$templateA info=$infoA key=$infoA@key}
+        {foreach $templates as $template}
+            {templateBlock template=$template key=$template@key}
         {/foreach}
         </ul>
     </section>
