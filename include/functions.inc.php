@@ -1289,8 +1289,8 @@ function serendipity_initLog() {
  * @see     https://github.com/s9y/Serendipity/issues/394
  * @see     symbol_map_utf8()
  * @see     symbol_utf8()
- * @param   string  $string ($entry[body] && entry[extended])
- * @return  string  $string ($entry[body] && entry[extended])
+ * @param   string  $string $entry[body] | [extended] | $commentInfo['comment']
+ * @return  string  $string
  */
 function symbol_sanitize($string) {
     // replace font symbols
