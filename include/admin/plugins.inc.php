@@ -364,10 +364,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
              // we need to catch the spartacus messages to return only them to the ajax call (used by the update all button)
             ob_start();
         }
+
         $fetchplugin_data = array('GET'     => &$serendipity['GET'],
                                   'install' => true);
-       
-           
+
         serendipity_plugin_api::hook_event('backend_plugins_fetchplugin', $fetchplugin_data);
 
         // we now have to check that the plugin is not already installed, or stackable, to prevent invalid double instances
@@ -398,9 +398,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             /* Load the new plugin */
             $plugin = &serendipity_plugin_api::load_plugin($inst);
             if (!is_object($plugin)) {
-                echo "DEBUG: Plugin " . serendipity_specialchars($inst) . " not an object: " . serendipity_specialchars(print_r($plugin, true)) 
-                     . ".<br />Input: " . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br /><br />\n\nThis error 
-                     can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin 
+                echo "DEBUG: Plugin " . serendipity_specialchars($inst) . " not an object: " . serendipity_specialchars(print_r($plugin, true))
+                     . ".<br />Input: " . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br /><br />\n\nThis error
+                     can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin
                      was downloaded) or the inclusion of a file failed (permissions?)<br />\n";
                 echo "Backtrace:<br />\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br />";
             }
@@ -419,8 +419,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 die();
             }
         } else {
+            // please note, in this plugins event hook you have to use die() after the redirect, if in need to force the direct config fallback, eg. see CKEditor plugin
             serendipity_plugin_api::hook_event('backend_plugins_update', $serendipity['GET']['install_plugin'], $fetchplugin_data);
         }
+
         if ($serendipity['ajax']) {
             $data['ajax_output'] = ob_get_contents();
             ob_end_clean();
