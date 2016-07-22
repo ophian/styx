@@ -19,7 +19,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian');
-        $propbag->add('version',        '1.02');
+        $propbag->add('version',        '1.03');
         $propbag->add('requirements',   array(
             'serendipity' => '2.0.99',
             'smarty'      => '3.1.0',
@@ -96,7 +96,11 @@ class serendipity_event_plugup extends serendipity_plugin
         return (int)($event+$plugin);
     }
 
-    function purge_plugupCookies()
+    /**
+     * Purges plugup cookies after plugin updates.
+     * May be called by other plugins
+     */
+    public static function purge_plugupCookies()
     {
         global $serendipity;
         // purge plugup plugin cookies
