@@ -99,6 +99,7 @@ class serendipity_event_plugup extends serendipity_plugin
     /**
      * Purges plugup cookies after plugin updates.
      * May be called by other plugins
+     * @see serendipity_event_ckeditor upgrade as example
      */
     public static function purge_plugupCookies()
     {
