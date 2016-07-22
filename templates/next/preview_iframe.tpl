@@ -41,32 +41,43 @@
             parent.document.getElementById('serendipity_iframe').style.border = 0;
         {rdelim}
     </script>
+    {if $mode == 'save'}{* overwrite next style.css conflicts *}
+    <style>
+        html { padding:0; background-color: #fcfcfc; }
+        body { margin: 0px; padding: 0.5em 0px; border: 0px none; width: 100%; }
+        #primary { padding:0; }
+    </style>
+    {/if}
 </head>
-<body style="padding: 0; margin: 0;"{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
+<body{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
     <div id="main" class="clearfix" style="padding: 0; margin: 5px auto; width: 98%;">
         <main id="primary">
         {if $mode == 'save'}
 
             <div style="float: left; height: 75px"></div>
-            {$updertHooks}
-    {if $res}
+            <div class="clearfix">
+                {$updertHooks}
+            {if $res}
 
-            <div class="serendipity_msg_important">{$CONST.ERROR}: <b>{$res}</b></div>
-    {else}
-        {if isset($lastSavedEntry) && (int)$lastSavedEntry}
+            <span class="msg-error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></span>
+            {else}
+                {* PLEASE NOTE: This is for case new entry first save only! *}
+                {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
             <script type="text/javascript">
                 window.onload = function() {ldelim}
                     parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
                 {rdelim};
             </script>
-        {/if}
+                {/if}
 
-                <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
-                <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
-    {/if}
+            <span class="msg-success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
+            <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
+            {/if}
+
+            </div>
         {/if}
-            {$preview}
+                {$preview}
 
         </main>
     </div>
