@@ -1,7 +1,7 @@
 <?php
 
-@define('PLUGIN_EVENT_PLUGUP_TITLE', 'Plugin Update Notifier');
-@define('PLUGIN_EVENT_PLUGUP_TITLE_DESC', 'The Dashboard Plugin Update Notifier');
+@define('PLUGIN_EVENT_PLUGUP_TITLE', 'Plugin-Update Notifier');
+@define('PLUGIN_EVENT_PLUGUP_TITLE_DESC', 'The Dashboard Plugin-Update Notifier');
 @define('PLUGIN_EVENT_PLUGUP_SHOW_UPDATE_NOTIFIER', 'Show available Plugin updates?');
 @define('PLUGIN_EVENT_PLUGUP_SHOW_UPDATE_NOTIFIER_DESC', 'Will check new every 6 hours');
 @define('PLUGIN_EVENT_PLUGUP_SPARTACUS_URL', 'Spartacus remote fetch url');
