@@ -1764,6 +1764,7 @@ form > .button_link:first-of-type,
 #serendipity_iframe {
     box-shadow: 0 0 4px rgba(0,0,0,.5);
     margin-top: 1.5em;
+    width: 99.75%
 }
 
 #template_select article,
