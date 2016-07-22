@@ -27,7 +27,7 @@
 <!--[if lte IE 8]>
     <link rel="stylesheet" href="{serendipity_getFile file="oldie.css"}">
 <![endif]-->
-    <script src="{serendipity_getFile file="scripts/modernizr/modernizr.js"}"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/scripts/modernizr/modernizr.js"></script>
 {serendipity_hookPlugin hook="backend_header" hookAll="true"}
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
     <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
@@ -71,6 +71,6 @@
         </main>
     </div>
 
-    <script src="{serendipity_getFile file="scripts/master.js"}"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/scripts/master.js"></script>
 </body>
 </html>
