@@ -1152,6 +1152,7 @@ function serendipity_smarty_init($vars = array()) {
                 'category'                  => $category,
                 'category_info'             => $category_info,
                 'template'                  => $serendipity['template'],
+                'templatePath'              => $serendipity['templatePath'],
                 'template_backend'          => $serendipity['template_backend'],
                 'wysiwygToolbar'            => $serendipity['wysiwygToolbar'],
                 'wysiwyg_customPlugin'      => $wysiwyg_customPlugin,
