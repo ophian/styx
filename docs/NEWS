@@ -1,7 +1,33 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
-  * Fix templates loop key chaining for latest Smarty
+  * Allow missing {$templatePath} Smarty variable globally set, to fix
+    and extend the following issues:
+
+    - If a theme/template has its own preview_iframe.tpl file, it needs to
+      distinguish between the backend theme with {serendipity_getFile ...},
+        eg. {serendipity_getFile file="admin/js/modernizr.min.js"}
+      and its very own files without using the fallback template cascade.
+      These files can now be loaded locally by
+        {$serendipityHTTPPath}{$templatePath}{$template}/***
+      or http-wise with
+        {$serendipityBaseURL}{$templatePath}{$template}/***
+      and have been fixed for these themes:
+        [ next, clean-blog, bulletproof, timeline ]
+      within this release.
+      For copies please remember, that files from 2k11 are special,
+      since being the standard $serendipity['defaultTemplate'] template,
+      which does not need this care.
+
+    - If a frontend theme needs to link, or includes assets which might
+      be problematic using the template fallback cascade, it may now
+      use these fully assigned path variables, eg for the favicon:
+        {$serendipityBaseURL}{$templatePath}{$template}/favicon.ico
+
+  * Fix bulletproof, default and next theme iframe_preview.tpl file
+    not showing up correctly on mode 'save' in the backend.
+
+  * Fix and simplify templates loop key chaining for latest Smarty
 
   * PLEASE NOTE:
     A while ago phpMyAdmin versions 4.0+ changed their behaviour for
