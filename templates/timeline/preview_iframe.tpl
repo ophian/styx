@@ -18,18 +18,12 @@
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
 {* ADDTIONAL COLORSET & SKIN STYLESHEETS - INCLUDED SETS ARE LOADED VIA CONFIG *}
-    {serendipity_hookPlugin hook="backend_header" hookAll="true"}
-    <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
-    <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
-{if isset($lastSavedEntry) && (int)$lastSavedEntry}
+{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
 
-    <script type="text/javascript">
-        window.onload = function() {ldelim}
-            parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-        {rdelim};
-    </script>
+    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
+{else}
+    <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
 {/if}
-
     <script>
         window.onload = function() {ldelim}
             parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('maincontent').offsetHeight
@@ -48,6 +42,14 @@
                 {if $mode == 'preview'}
                     {$preview}
                 {elseif $mode == 'save'}
+{if isset($lastSavedEntry) && (int)$lastSavedEntry}
+
+                <script type="text/javascript">
+                    window.onload = function() {ldelim}
+                        parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
+                    {rdelim};
+                </script>
+{/if}
                     {$updertHooks}
                     {if $res}
                         <div class="alert alert-danger"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.ERROR}: <b>{$res}</b></div>
@@ -58,13 +60,17 @@
             </div>
         </div>
     </main>
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src={serendipity_getFile file="js/timeline.js"}></script>
+
+{if $mode == 'preview'}
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/timeline.js"></script>
 
 <!--[if lt IE 9]>
-    <script src={serendipity_getFile file="js/respond.js"}></script>
-    <script src={serendipity_getFile file="js/html5shiv.js"}></script>
-    <script src={serendipity_getFile file="js/placeholder-IE-fixes.js"}></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/respond.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/html5shiv.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/placeholder-IE-fixes.js"></script>
 <![endif]-->
+{/if}
+
 </body>
 </html>
