@@ -27,10 +27,11 @@
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
 {/if}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
+{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
+
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
-{serendipity_hookPlugin hook="backend_header" hookAll="true"}
-    <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
-    <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
+{/if}
+
     <script type="text/javascript">
         window.onload = function() {ldelim}
             parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('content').offsetHeight
@@ -42,36 +43,38 @@
         {rdelim}
     </script>
 </head>
+
 <body{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
-<div id="page" class="clearfix container">
-    <div class="clearfix{if $leftSidebarElements > 0 && $rightSidebarElements > 0} col3{elseif $leftSidebarElements > 0 && $rightSidebarElements == 0} col2l{else} col2r{/if}">
-        <main id="content" style="padding: 1em 0; margin: 0;">
-        {if $mode == 'preview'}
-            <div class="clearfix">
-        {elseif $mode == 'save'}
-            <div class="clearfix">
-            <div style="float: left; height: 75px"></div>
-            {$updertHooks}
-            {if $res}
-                <div class="serendipity_msg_important">{$CONST.ERROR}: <b>{$res}</b></div>
-            {else}
-                {if isset($lastSavedEntry) && (int)$lastSavedEntry}
+    <div id="page" class="clearfix container">
+        <div class="clearfix{if $leftSidebarElements > 0 && $rightSidebarElements > 0} col3{elseif $leftSidebarElements > 0 && $rightSidebarElements == 0} col2l{else} col2r{/if}">
+            <main id="content" style="padding: 1em 0; margin: 0;">
+            {if $mode == 'preview'}
+                <div class="clearfix">
+            {elseif $mode == 'save'}
+                <div class="clearfix">
+                    <div style="float: left; height: 75px"></div>
+                    {$updertHooks}
+                {if $res}
+                    <div class="serendipity_msg_important">{$CONST.ERROR}: <b>{$res}</b></div>
+                {else}
+                    {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
                     <script type="text/javascript">
                         window.onload = function() {ldelim}
                             parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
                         {rdelim};
                     </script>
-                {/if}
+                    {/if}
 
-                <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
-                <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
+                    <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
+                    <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
+                {/if}
             {/if}
-        {/if}
-        {$preview}
+                {$preview}
+                </div>
+            </main>
         </div>
-        </main>
     </div>
-</div>
+
 </body>
 </html>
