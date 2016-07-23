@@ -27,6 +27,9 @@ Version 2.1 () Styx
   * Fix bulletproof, default and next theme iframe_preview.tpl file
     not showing up correctly on mode 'save' in the backend.
 
+  * Fix a possible bulletproof config loading error on theme change,
+    regarding serendipity_plugin_api_event_hook already used.
+
   * Fix and simplify templates loop key chaining for latest Smarty
 
   * PLEASE NOTE:
