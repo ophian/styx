@@ -27,10 +27,14 @@
 <!--[if lte IE 8]>
     <link rel="stylesheet" href="{serendipity_getFile file="oldie.css"}">
 <![endif]-->
-    <script src="{serendipity_getFile file="scripts/modernizr/modernizr.js"}"></script>
-{serendipity_hookPlugin hook="backend_header" hookAll="true"}
-    <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
-    <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
+{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
+
+    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
+{else}
+    <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/scripts/modernizr/modernizr.js"></script>
+{/if}
+
     <script type="text/javascript">
         window.onload = function() {ldelim}
             parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('main').offsetHeight
@@ -49,6 +53,7 @@
     </style>
     {/if}
 </head>
+
 <body{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
     <div id="main" class="clearfix" style="padding: 0; margin: 5px auto; width: 98%;">
         <main id="primary">
@@ -82,6 +87,9 @@
         </main>
     </div>
 
-    <script src="{serendipity_getFile file="scripts/master.js"}"></script>
+{if $mode == 'preview'}
+    <script src="{$serendipityHTTPPath}{$templatePath}{$template}/scripts/master.js"></script>
+{/if}
+
 </body>
 </html>
