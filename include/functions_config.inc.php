@@ -826,7 +826,6 @@ function serendipity_iframe(&$entry, $mode = null) {
         return false;
     }
 
-
     $data = array();
     $data['is_preview'] =  true;
     $data['mode'] =  $mode;
