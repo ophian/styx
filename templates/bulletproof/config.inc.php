@@ -10,17 +10,18 @@ if (IN_serendipity !== true) {
 $serendipity['smarty']->assign(array('currpage'=> "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
 $serendipity['smarty']->assign(array('currpage2'=> $_SERVER['REQUEST_URI']));
 
-function serendipity_plugin_api_event_hook($event, &$bag, &$eventData, $addData = null) {
-    global $serendipity;
+if (!function_exists('serendipity_plugin_api_event_hook')) {
+    function serendipity_plugin_api_event_hook($event, &$bag, &$eventData, $addData = null) {
+        global $serendipity;
 
-    switch($event) {
-        case 'frontend_footer':
-            echo '<!--PLUGIN API-->';
+        switch($event) {
+            case 'frontend_footer':
+                echo '<!--PLUGIN API-->';
+        }
+
+        return true;
     }
-
-    return true;
 }
-
 
 if ($serendipity['GET']['adminModule'] == 'templates' || $serendipity['POST']['adminModule'] == 'templates' || $serendipity['GET']['adminAction'] == 'cattemplate') {
     $css_files = glob(dirname(__FILE__) . '/*_style.css');
