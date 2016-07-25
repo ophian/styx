@@ -1,7 +1,15 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
-  * Add engine information to theme list info layer
+  * Add and set a new global full path variable to the Spartacus plugin,
+        $serendipity['spartacus_cachedXMLfile']
+    to easily be able to nuke the current package_***_**.xml cache file,
+    eg. within a possible plugin 'backend_plugins_update' redirector hook
+    in need to exit the current upgrade runtime execution. This would break
+    the the search and list of other pending plugin upgrades.
+    Thus it'd need a new xml cache file fetch.
+
+  * Add theme engine information to the themes list info layer
 
   * Allow missing {$templatePath} Smarty variable globally set, to fix
     and extend the following issues:
@@ -15,9 +23,9 @@ Version 2.1 () Styx
       or http-wise with
         {$serendipityBaseURL}{$templatePath}{$template}/***
       and have been fixed for these themes:
-        [ next, clean-blog, bulletproof, timeline ]
+        [ <next>, <clean-blog>, <bulletproof>, <timeline> ]
       within this release.
-      For copies please remember, that files from 2k11 are special,
+      For copies please remember, that files from <2k11> are special,
       since being the standard $serendipity['defaultTemplate'] template,
       which does not need this care.
 
@@ -26,10 +34,10 @@ Version 2.1 () Styx
       use these fully assigned path variables, eg for the favicon:
         {$serendipityBaseURL}{$templatePath}{$template}/favicon.ico
 
-  * Fix bulletproof, default and next theme iframe_preview.tpl file
-    not showing up correctly on mode 'save' in the backend.
+  * Fixed <bulletproof>, <default> and <next> themes iframe_preview.tpl
+    files not showing up correctly on mode: 'save' in the backend.
 
-  * Fix a possible bulletproof config loading error on theme change,
+  * Fix a possible <bulletproof> config loading error on theme change,
     regarding serendipity_plugin_api_event_hook already used.
 
   * Fix and simplify templates loop key chaining for latest Smarty
