@@ -50,6 +50,10 @@
                             <dd>{$cur_tpl.info.custom_config|default:$CONST.NO}</dd>
                             <dt class="template_admin">{$CONST.CUSTOM_ADMIN_INTERFACE}:</dt>
                             <dd>{$cur_tpl.info.custom_admin_interface}</dd>
+                            {if isset($cur_tpl.info.engine)}
+                            <dt class="template_description">Engine:</dt>
+                            <dd>{$cur_tpl.info.engine}</dd>
+                            {/if}
                             {if isset($cur_tpl.info.summary)}
                             <dt class="template_summary">Summary:</dt>
                             <dd>{$cur_tpl.info.summary}</dd>
@@ -124,6 +128,10 @@
                                     <dd>{$template.info.custom_config|default:$CONST.NO}</dd>
                                     <dt class="template_admin">{$CONST.CUSTOM_ADMIN_INTERFACE}:</dt>
                                     <dd>{if $template.info.custom_admin_interface} {$template.info.custom_admin_interface} {else} {$CONST.NO} {/if}</dd>
+                                    {if isset($template.info.engine)}
+                                    <dt class="template_description">Engine:</dt>
+                                    <dd>{$template.info.engine}</dd>
+                                    {/if}
                                     {if isset($template.info.summary)}
                                     <dt class="template_summary">Summary:</dt>
                                     <dd>{$template.info.summary}</dd>

@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Add engine information to theme list info layer
+
   * Allow missing {$templatePath} Smarty variable globally set, to fix
     and extend the following issues:
 
