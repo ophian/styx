@@ -602,7 +602,7 @@ class serendipity_event_spartacus extends serendipity_event
 
                 $url    = $server . '/package_' . $url_type .  $lang . '.xml';
                 $target = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_' . $url_type . $lang . '.xml';
-                $serendipity['spartacus_localxmlfile'] = $target; // keep the local file target path to nuke the file within possible 'backend_plugins_update' to config redirects/breaks.
+                $serendipity['spartacus_cachedXMLfile'] = $target; // keep the cache file target path to nuke the file within possible 'backend_plugins_update' to config redirects/breaks.
 
                 $xml = $this->fetchfile($url, $target, $cacheTimeout, true);
                 if (strlen($xml) > 0) {
@@ -615,7 +615,7 @@ class serendipity_event_spartacus extends serendipity_event
             $url    = $mirror . '/package_' . $url_type .  $lang . '.xml';
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
             $target = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_' . $url_type . $lang . '.xml';
-            $serendipity['spartacus_localxmlfile'] = $target; // keep the local file target path to nuke the file within possible 'backend_plugins_update' to config redirects/breaks.
+            $serendipity['spartacus_cachedXMLfile'] = $target; // keep the cache file target path to nuke the file within possible 'backend_plugins_update' to config redirects/breaks.
 
             $xml = $this->fetchfile($url, $target, $cacheTimeout, true);
         }
