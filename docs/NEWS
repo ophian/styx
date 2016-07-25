@@ -5,8 +5,8 @@ Version 2.1 () Styx
         $serendipity['spartacus_cachedXMLfile']
     to easily be able to nuke the current package_***_**.xml cache file,
     eg. within a possible plugin 'backend_plugins_update' redirector hook
-    in need to exit the current upgrade runtime execution. This would break
-    the the search and list of other pending plugin upgrades.
+    in need to exit the current upgrade runtime execution. This would reset
+    any pending plugin version settings and their listing until next run.
     Thus it'd need a new xml cache file fetch.
 
   * Add theme engine information to the themes list info layer
