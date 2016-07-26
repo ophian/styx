@@ -678,7 +678,7 @@ function serendipity_installFiles($serendipity_core = '') {
         }
     }
 
-    if (php_sapi_name() == 'cgi' || php_sapi_name() == 'cgi-fcgi') {
+    if (php_sapi_name() == 'cgi' || php_sapi_name() == 'cgi-fcgi' || php_sapi_name() == 'fpm-fcgi' || (php_sapi_name() === 'cli' OR defined('STDIN')) || false !== strpos(php_sapi_name(), 'cgi')) {
         $htaccess_cgi = '_cgi';
     } else {
         $htaccess_cgi = '';
