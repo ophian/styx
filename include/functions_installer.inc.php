@@ -164,7 +164,7 @@ function serendipity_installDatabase() {
 function serendipity_query_default($optname, $default, $usertemplate = false, $type = 'string') {
     global $serendipity;
 
-    /* I won't tell you the password, it's MD5 anyway, you can't do anything with it */
+    /* I won't tell you the password, it's a salted hash anyway, you can't do anything with it */
     if ($type == 'protected' && IS_installed === true) {
         return '';
     }
@@ -390,7 +390,6 @@ function serendipity_replaceEmbeddedConfigVars ($s) {
  * @param   string  The default value of the configuration item
  * @return null
  */
-
 function serendipity_guessInput($type, $name, $value='', $default='') {
     $data = array();
     $curOptions = array();
@@ -603,17 +602,17 @@ function serendipity_checkInstallation() {
     // Attempt to create the template compile directory, it might already be there, but we just want to be sure
     if (!is_dir($_POST['serendipityPath'] . PATH_SMARTY_COMPILE) && @mkdir($_POST['serendipityPath'] . PATH_SMARTY_COMPILE, $umask) !== true) {
         $errs[] = sprintf(DIRECTORY_CREATE_ERROR, serendipity_specialchars($_POST['serendipityPath']) . PATH_SMARTY_COMPILE);
-        $errs[] = sprintf(DIRECTORY_RUN_CMD     , 'mkdir'      , serendipity_specialchars($_POST['serendipityPath']) . PATH_SMARTY_COMPILE);
-        $errs[] = sprintf(DIRECTORY_RUN_CMD     , 'chmod go+rwx', serendipity_specialchars($_POST['serendipityPath']) . PATH_SMARTY_COMPILE);
+        $errs[] = sprintf(DIRECTORY_RUN_CMD, 'mkdir'      , serendipity_specialchars($_POST['serendipityPath']) . PATH_SMARTY_COMPILE);
+        $errs[] = sprintf(DIRECTORY_RUN_CMD, 'chmod go+rwx', serendipity_specialchars($_POST['serendipityPath']) . PATH_SMARTY_COMPILE);
     } elseif (is_dir($_POST['serendipityPath'] . PATH_SMARTY_COMPILE) && !is_writeable($_POST['serendipityPath'] . PATH_SMARTY_COMPILE) && @chmod($_POST['serendipityPath'] . PATH_SMARTY_COMPILE, $umask) !== true) {
-        $errs[] = sprintf(DIRECTORY_RUN_CMD     , 'chmod go+rwx', serendipity_specialchars($_POST['serendipityPath']) . PATH_SMARTY_COMPILE);
+        $errs[] = sprintf(DIRECTORY_RUN_CMD, 'chmod go+rwx', serendipity_specialchars($_POST['serendipityPath']) . PATH_SMARTY_COMPILE);
     }
 
     // Attempt to create the archives directory
     if (!is_dir($_POST['serendipityPath'] . PATH_ARCHIVES) && @mkdir($_POST['serendipityPath'] . PATH_ARCHIVES, $umask) !== true) {
         $errs[] = sprintf(DIRECTORY_CREATE_ERROR, serendipity_specialchars($_POST['serendipityPath']) . PATH_ARCHIVES);
-        $errs[] = sprintf(DIRECTORY_RUN_CMD     , 'mkdir'      , serendipity_specialchars($_POST['serendipityPath']) . PATH_ARCHIVES);
-        $errs[] = sprintf(DIRECTORY_RUN_CMD     , 'chmod go+rwx', serendipity_specialchars($_POST['serendipityPath']) . PATH_ARCHIVES);
+        $errs[] = sprintf(DIRECTORY_RUN_CMD, 'mkdir'      , serendipity_specialchars($_POST['serendipityPath']) . PATH_ARCHIVES);
+        $errs[] = sprintf(DIRECTORY_RUN_CMD, 'chmod go+rwx', serendipity_specialchars($_POST['serendipityPath']) . PATH_ARCHIVES);
     }
 
     // Check imagick
@@ -735,7 +734,6 @@ function serendipity_installFiles($serendipity_core = '') {
         }
     }
 
-
     if ($rewrite == 'rewrite2') {
          $template = 'htaccess' . $htaccess_cgi . '_rewrite2.tpl';
     } elseif ($rewrite == 'rewrite') {
@@ -823,7 +821,6 @@ function serendipity_installFiles($serendipity_core = '') {
         fclose($fp);
         return true;
     }
-
 }
 
 /**
@@ -1092,14 +1089,14 @@ function serendipity_removeObsoleteVars() {
 /**
  * Retrieve an FTP-compatible checksum for a file.
  *
- * @access public
- * @param string filename is the path to the file to checksum
- * @param string type forces a particular interpretation of newlines.  Mime
- *    types and strings starting with 'text' will cause newlines to be stripped
- *    before the checksum is calculated (default: null, determine from finfo
- *    and extension)
- * @return string An MD5 checksum of the file, with newlines removed if it's
- *    an ASCII type; or false if the file cannot be read
+ * @access  public
+ * @param   string      filename is the path to the file to checksum
+ * @param   string      type forces a particular interpretation of newlines.  Mime
+ *          types and strings starting with 'text' will cause newlines to be stripped
+ *          before the checksum is calculated (default: null, determine from finfo
+ *          and extension)
+ * @return  string      An MD5 checksum of the file, with newlines removed if it's
+ *          an ASCII type; or false if the file cannot be read
  */
 function serendipity_FTPChecksum($filename, $type = null) {
     /** Only read the finfo database once */
