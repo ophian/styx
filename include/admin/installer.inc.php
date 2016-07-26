@@ -362,6 +362,7 @@ if (!is_object($serendipity['smarty'])) {
 $serendipity['smarty']->assign($data);
 $tfile = serendipity_getTemplateFile('admin/installer.inc.tpl');
 
+$content = '';
 ob_start();
 include $tfile;
 $content = ob_get_contents();
