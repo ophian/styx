@@ -75,7 +75,7 @@
             {/if}
         </div>
     </form>
-    {if $only_group == 'UPGRADE' && !$available_upgrades}
+    {if $only_group == 'UPGRADE' && $available_upgrades !== true}
         <span class="msg_notice"><span class="icon-attention-circled"></span> {$CONST.NO_UPDATES}</span>
     {else}
         {foreach $pluggroups AS $pluggroup => $groupstack}
