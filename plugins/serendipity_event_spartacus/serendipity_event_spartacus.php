@@ -203,7 +203,7 @@ class serendipity_event_spartacus extends serendipity_event
             case 'custommirror':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR);
-                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC . ' PLEASE NOTE: Currently this is limited to "additional_plugins" for custom mirrors only! Themes are fetched by the mirrors above.');
+                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC . ' PLEASE NOTE: Currently this is limited to "additional_plugins" for custom mirrors only! Additional_themes are fetched by the mirrors above.');
                 $propbag->add('default',     '');
                 break;
 
@@ -592,7 +592,8 @@ class serendipity_event_spartacus extends serendipity_event
 
         $mirrors = $this->getMirrors('xml', true);
         $custom  = $this->get_config('custommirror');
-        // we currently disable custom template mirrors
+
+        // we currently disable custom template mirrors with $type != 'template'
         if (strlen($custom) > 2 && $type != 'template') {
             $servers = explode('|', $custom);
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
@@ -1308,7 +1309,7 @@ class serendipity_event_spartacus extends serendipity_event
                            'baseURI'     => '&amp;serendipity[spartacus_fetch]=' . $type
                         );
                         // remove here deprecated plugins from list by option?
-                        #echo '<pre>';print_r($eventData);echo '</pre>';
+                        #echo '<pre>' . print_r($eventData, true) . '</pre>';
                     }
                     break;
 
