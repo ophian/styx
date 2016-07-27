@@ -1424,6 +1424,14 @@ summary {
 
 
 /* HEADER */
+#banner .chop-title {
+    text-overflow: ellipsis;
+    width: 7.4em;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: top;
+    display: inline-block;
+}
 #top {
     background: #3e5f81;
     background-image: -webkit-linear-gradient(#3e5f81, #294564);
@@ -2978,6 +2986,9 @@ img.mfp-img {
 
 /* SMALL SCREEN */
 @media only screen and (min-width: 360px) {
+    #banner .chop-title {
+        width: 8em;
+    }
     .manage h3 {
         width: 15em;
     }
@@ -2996,6 +3007,9 @@ img.mfp-img {
 }
 
 @media only screen and (min-width: 480px) {
+    #banner .chop-title {
+        width: 9em;
+    }
     #serendipityEntry {
         padding-top: 0;
     }
@@ -3075,6 +3089,9 @@ img.mfp-img {
 }
 
 @media only screen and (min-width: 640px) {
+    #banner .chop-title {
+        width: 24em;
+    }
     #entries_list h3,
     #serendipity_comments_list h4,
     .karmalog h4 {
@@ -3400,6 +3417,9 @@ img.mfp-img {
 
 /* LARGE SCREEN */
 @media only screen and (min-width: 860px) {
+    #banner .chop-title {
+        width: 26em;
+    }
     .manage h3 {
         width: 17em;
     }
@@ -3499,6 +3519,10 @@ img.mfp-img {
         font-size: 1.125em;
         line-height: 1.3333em;
         margin: .6667em 0;
+    }
+
+    #banner .chop-title {
+        width: 18em;
     }
 
     #top > div,
