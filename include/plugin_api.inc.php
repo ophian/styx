@@ -92,7 +92,7 @@ function errorHandlerCreateDOM(htmlStr) {
 
         case 'backend_save':
         case 'backend_publish':
-            // this is preview_iframe.tpl updertHooks [ NOT ONLY!! See freetags ]
+            // this is preview_iframe.tpl updertHooks [ NOT ONLY! See freetags - keep it strictly set to iframe mode save!]
             if ($_GET['serendipity']['is_iframe'] == 'true' && $_GET['serendipity']['iframe_mode'] == 'save') {
                 echo "\n".'<script>document.addEventListener("DOMContentLoaded", function() { if (window.parent.Modernizr.indexedDB) { window.parent.serendipity.eraseEntryEditorCache(); } });</script>'."\n";
             }
@@ -668,7 +668,7 @@ class serendipity_plugin_api
      * @access public
      * @param   string      The filename of the plugin to get information about
      * @param   array       A referenced array that holds information about the plugin instance (self::load_plugin() response)
-     * @param   type        The type of the plugin (local|spartacus|...)
+     * @param   type        The type of the plugin (local|spartacus|...) - the type is either event or sidebar
      * @return  array       Information about the plugin
      */
     static function &getPluginInfo(&$pluginFile, &$class_data, $type)
