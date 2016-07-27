@@ -1179,7 +1179,6 @@ function serendipity_smarty_init($vars = array()) {
                 if (file_exists($config)) {
                     include_once $config;
                 }
-
             }
         }
 
@@ -1218,9 +1217,9 @@ function serendipity_smarty_purge() {
     global $serendipity;
 
     serendipity_smarty_init();  # need initiated smarty to get the compile/cache dir
-    $dir = new RecursiveDirectoryIterator($serendipity['smarty']->getCompileDir());
-    $ite = new RecursiveIteratorIterator($dir);
-    $files = new RegexIterator($ite, '@.*\.tpl\.php$@', RegexIterator::GET_MATCH);
+    $_cdir = new RecursiveDirectoryIterator($serendipity['smarty']->getCompileDir());
+    $_dirs = new RecursiveIteratorIterator($_cdir);
+    $files = new RegexIterator($_dirs, '@.*\.tpl\.php$@', RegexIterator::GET_MATCH);
     foreach($files as $file) {
         if (is_writable($file[0])) {
             unlink($file[0]);
