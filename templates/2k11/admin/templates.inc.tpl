@@ -55,11 +55,11 @@
                             <dd>{$cur_tpl.info.engine}</dd>
                             {/if}
                             {if isset($cur_tpl.info.summary)}
-                            <dt class="template_summary">Summary:</dt>
+                            <dt class="template_summary">{$CONST.SUMMARY}:</dt>
                             <dd>{$cur_tpl.info.summary}</dd>
                             {/if}
                             {if isset($cur_tpl.info.description)}
-                            <dt class="template_description">Description:</dt>
+                            <dt class="template_description">{$CONST.DESCRIPTION}:</dt>
                             <dd>{$cur_tpl.info.description}</dd>
                             {/if}
                         </dl>
@@ -133,11 +133,11 @@
                                     <dd>{$template.info.engine}</dd>
                                     {/if}
                                     {if isset($template.info.summary)}
-                                    <dt class="template_summary">Summary:</dt>
+                                    <dt class="template_summary">{$CONST.SUMMARY}:</dt>
                                     <dd>{$template.info.summary}</dd>
                                     {/if}
                                     {if isset($template.info.description)}
-                                    <dt class="template_description">Description:</dt>
+                                    <dt class="template_description">{$CONST.DESCRIPTION}:</dt>
                                     <dd>{$template.info.description}</dd>
                                     {/if}
                                 </dl>
