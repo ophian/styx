@@ -811,7 +811,7 @@
 @define('CATEGORY_PLUGIN_SHOWCOUNT', 'Show number of entries per category?');
 @define('AUTHORS_SHOW_ARTICLE_COUNT', 'Show number of articles next to author name?');
 @define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'If this option is enabled, the number of articles by this author is shown next to the authors name in parentheses.');
-@define('CUSTOM_ADMIN_INTERFACE', 'Custom admin interface available');
+@define('CUSTOM_ADMIN_INTERFACE', 'Custom admin interface');
 
 @define('COMMENT_NOT_ADDED', 'Comentariul tău nu a putut fi adăugat, deoarece autorul nu permite comentarii la această însemnare. '); // Retranslate: 'Your comment could not be added, because comments for this entry have either been disabled, you entered invalid data, or your comment was caught by anti-spam measurements.'
 @define('INSTALL_TRACKREF', 'Enable referrer tracking?');

@@ -811,7 +811,7 @@
 @define('CATEGORY_PLUGIN_SHOWCOUNT', 'Anzahl der Einträge pro Kategorie anzeigen?');
 @define('AUTHORS_SHOW_ARTICLE_COUNT', 'Anzahl der Artikel neben dem Autor-Namen anzeigen? ');
 @define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'Wenn diese Option aktiviert ist, wird die Anzahl der von diesem Autor verfassten Artikel in Klammern neben seinem Namen angezeigt.');
-@define('CUSTOM_ADMIN_INTERFACE', 'Angepasste Admin-Oberfläche vorhanden');
+@define('CUSTOM_ADMIN_INTERFACE', 'Eigene Admin-Oberfläche');
 @define('INSTALL_TRACKREF', 'Referrer-Tracking aktivieren?');
 @define('INSTALL_TRACKREF_DESC', 'Wenn das Referrer-Tracking aktiviert ist, werden Verweise auf Ihre Einträge gespeichert. Heutzutage wird dies leider häufig für Spam missbraucht und kann daher deaktiviert werden.');
 @define('CATEGORIES_HIDE_PARENT', 'Die gewählte Oberkategorie verstecken?');

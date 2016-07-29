@@ -813,7 +813,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CATEGORY_PLUGIN_SHOWCOUNT', 'Показывать количество записей в каждой категории?');
 @define('AUTHORS_SHOW_ARTICLE_COUNT', 'Показывать количество записей возле имени автора?');
 @define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', 'Если эта опция включена, то в скобках возле имени автора приводится общее число сделанных им записей.');
-@define('CUSTOM_ADMIN_INTERFACE', 'Custom admin interface available');
+@define('CUSTOM_ADMIN_INTERFACE', 'Custom admin interface');
 
 @define('COMMENT_NOT_ADDED', 'Ваш комментарий не смог быть добавлен, потому что эту запись запрещено комментировать. '); // Retranslate: 'Your comment could not be added, because comments for this entry have either been disabled, you entered invalid data, or your comment was caught by anti-spam measurements.'
 @define('INSTALL_TRACKREF', 'Enable referrer tracking?');
