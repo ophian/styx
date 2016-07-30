@@ -198,6 +198,10 @@ if (!$use_installer && $is_logged_in) {
             if ($serendipity['no_create'] !== true) {
                 serendipity_plugin_api::hook_event('backend_sidebar_entries_event_display_' . $serendipity['GET']['adminAction'], $serendipity);
             }
+            // check for special cases
+            $plugintabname = (!empty($serendipity['GET']['adminAction']) ? $serendipity['GET']['adminAction'] : '');
+            $plugintabname = ($serendipity['GET']['adminAction'] == 'managetags' ? 'freetags' : $plugintabname);
+            $admin_section = (!empty($plugintabname) ? ucfirst($plugintabname) . ' Plugin' : MENU_PLUGINS);
             break;
 
         case 'maintenance':
