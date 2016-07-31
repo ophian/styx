@@ -1,6 +1,6 @@
 /**
  * @fileOverview The Serendipity CKEDITOR custom config file:
- *               ckeditor_s9y_config.js, v. 1.15, last modified 2015-08-15 by Ian
+ *               ckeditor_s9y_config.js, v. 1.16, last modified 2016-07-31 by Ian
  */
 
 /**
@@ -12,6 +12,18 @@
  * NOTE: Use at own risk! Be careful!
  */
 CKEDITOR.editorConfig = function( config ) {
+
+    /** Web-Spellchecker SCAYT plug-in for CKEditor **/
+    // evaluate SCAYT on startup
+    // config.scayt_autoStartup = true;
+    // enable/disable the "More Suggestions" sub-menu in the context menu.
+    // The possible values are "on" or "off".
+    config.scayt_moreSuggestions = 'off';
+    // set the visibility of the SCAYT tabs in the settings dialog and toolbar
+    // button. The value must contain a "1" (enabled) or "0" (disabled) number for
+    // each of the following entries, in this precise order, separated by a
+    // comma (","): "Options", "Languages" and "Dictionary".
+    config.scayt_uiTabs = '1,0,1'; // we disable the language tab option, since it does not work in this context getting a list of languages and also breaks the popup-layer!
 
     /** SECTION: ACF
         Advanced Content Filter works in two modes:
