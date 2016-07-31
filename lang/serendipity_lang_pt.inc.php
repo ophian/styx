@@ -9,7 +9,7 @@
 @define('SQL_CHARSET', 'latin1');
 @define('DATE_LOCALES', 'pt_BR.ISO-8859-1, pt_BR.ISO8859-1, pt_BR, portuguese brazilian, pt');
 @define('DATE_FORMAT_ENTRY', '%A, %e de %B de %Y');
-@define('WYSIWYG_LANG', 'pt_pt');
+@define('WYSIWYG_LANG', 'pt_BR');
 @define('LANG_DIRECTION', 'ltr');
 
 @define('SERENDIPITY_ADMIN_SUITE', 'Painel de Administração do Serendipity');

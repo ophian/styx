@@ -9,10 +9,9 @@
 
 @define('LANG_CHARSET', 'UTF-8');
 @define('SQL_CHARSET', 'utf8');
-//@define('DATE_LOCALES', 'bg_BG');
 @define('DATE_LOCALES', 'bulgarian, bg, bg_BG');
 @define('DATE_FORMAT_ENTRY', '%A, %e %B %Y');
-@define('WYSIWYG_LANG', 'en');
+@define('WYSIWYG_LANG', 'bg_BG');
 @define('LANG_DIRECTION', 'ltr');
 $i18n_filename_from = array(' ', 'а', 'А', 'б', 'Б', 'в', 'В', 'г', 'Г', 'д', 'Д', 'е', 'Е', 'Ж', 'ж', 'з', 'З', 'и', 'И', 'й', 'Й', 'к', 'К', 'л', 'Л', 'м', 'М', 'н', 'Н', 'о', 'О', 'п', 'П', 'р', 'Р', 'с', 'С', 'т', 'Т', 'у', 'У', 'ф', 'Ф', 'х', 'Х', 'ц', 'Ц', 'ч', 'Ч', 'ш', 'Ш', 'щ', 'Щ', 'ъ', 'Ъ', 'ь', 'Ь', 'ю', 'Ю', 'я', 'Я');
 $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D', 'e', 'E', 'Zh', 'zh', 'z', 'Z', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L', 'm', 'M', 'n', 'N', 'o', 'O', 'p', 'P', 'r', 'R', 's', 'S', 't', 'T', 'u', 'U', 'f', 'F', 'h', 'H', 'c', 'C', 'ch', 'Ch', 'sh', 'Sh', 'sht', 'Sht', 'a', 'A', 'y', 'Y', 'ju', 'Ju', 'ja', 'Ja');

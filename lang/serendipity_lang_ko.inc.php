@@ -10,7 +10,7 @@
 @define('DATE_LOCALES', 'ko_KR.UTF-8, korean, ko, ko_KR');
 @define('DATE_FORMAT_ENTRY', '%Y년 %B %e일 %A');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
-@define('WYSIWYG_LANG', 'en');
+@define('WYSIWYG_LANG', 'ko_KR');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');

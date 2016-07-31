@@ -9,7 +9,7 @@
 @define('DATE_LOCALES', 'no_NO.UTF-8, no_NO.UTF8, norwegian, no, no_NO, no_');
 @define('DATE_FORMAT_ENTRY', '%A - %e. %B %Y');
 @define('DATE_FORMAT_SHORT', '%d.%m.%Y %H:%M');
-@define('WYSIWYG_LANG', 'no-utf');
+@define('WYSIWYG_LANG', 'no_NO');
 @define('LANG_DIRECTION', 'ltr');
 
 @define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Administrasjonssuite');

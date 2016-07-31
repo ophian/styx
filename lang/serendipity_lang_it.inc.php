@@ -10,7 +10,7 @@
 @define('DATE_LOCALES', 'it_IT.ISO-8859-1, it_IT.ISO8859-1, italiano, it, it_IT');
 @define('DATE_FORMAT_ENTRY', '%A, %e %B %Y');
 @define('DATE_FORMAT_SHORT', '%d-%m-%Y %H:%M');
-@define('WYSIWYG_LANG', 'it');
+@define('WYSIWYG_LANG', 'it_IT');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', ',');
 @define('NUMBER_FORMAT_THOUSANDS', '.');

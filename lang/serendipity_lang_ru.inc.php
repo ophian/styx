@@ -9,7 +9,7 @@
 @define('DATE_LOCALES', 'ru_RU.utf-8');
 @define('DATE_FORMAT_ENTRY', '%A, %e %B. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
-@define('WYSIWYG_LANG', 'en');
+@define('WYSIWYG_LANG', 'ru_RU');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ', ');

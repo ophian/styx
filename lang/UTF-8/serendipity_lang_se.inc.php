@@ -9,7 +9,7 @@
 @define('DATE_LOCALES', 'sv_SV.UTF8, sv_SV.UTF-8, swedish, sv, sv_SV, sv_SE.UTF8, sv_SE.UTF-8, sv_SE');
 @define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
-@define('WYSIWYG_LANG', 'se-utf');
+@define('WYSIWYG_LANG', 'sv_SE');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');

@@ -11,7 +11,7 @@
 @define('DATE_LOCALES', 'da_DK.ISO8859-1, da_DK.ISO-8859-1, danish, da, da_DK');
 @define('DATE_FORMAT_ENTRY', '%A d. %e. %B %Y');
 @define('DATE_FORMAT_SHORT', '%d.%m.%Y %H:%M');
-@define('WYSIWYG_LANG', 'da');
+@define('WYSIWYG_LANG', 'da_DK');
 @define('LANG_DIRECTION', 'ltr');
 
 @define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Administrationssuite');

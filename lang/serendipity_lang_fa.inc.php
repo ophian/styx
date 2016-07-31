@@ -10,7 +10,7 @@
 @define('DATE_LOCALES', 'fa_IR.UTF-8, fa_IR, persian, fa');
 @define('DATE_FORMAT_ENTRY', '%A، %e %B %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
-@define('WYSIWYG_LANG', 'en');
+@define('WYSIWYG_LANG', 'fa_IR');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', '٫');

@@ -40,7 +40,7 @@ $i18n_filename_to = array (
 @define('DATE_LOCALES', 'cs_CZ.windows-1250, czech, cs');
 @define('DATE_FORMAT_ENTRY', '%A, %e. %B %Y');
 @define('DATE_FORMAT_SHORT', '%d.%m.%Y %H:%M');
-@define('WYSIWYG_LANG', 'cs-win');
+@define('WYSIWYG_LANG', 'cs_CZ');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', ',');
 @define('NUMBER_FORMAT_THOUSANDS', ' ');

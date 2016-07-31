@@ -9,7 +9,7 @@
 @define('DATE_LOCALES', 'hu_HU.UTF-8, hu_HU.UTF8, hungarian, hu, hu_HU');
 @define('DATE_FORMAT_ENTRY', '%Y. %B %e. (%A) ');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
-@define('WYSIWYG_LANG', 'en');
+@define('WYSIWYG_LANG', 'hu_HU');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', ',');
 @define('NUMBER_FORMAT_THOUSANDS', '.');

@@ -5,10 +5,10 @@
 /* vim: set sts=4 ts=4 expandtab : */
 
 @define('LANG_CHARSET', 'cp1256');
-@define('DATE_LOCALES', 'Arabic,ar , ar_SA.windows-1256');
+@define('DATE_LOCALES', 'Arabic, ar, ar_SA.windows-1256');
 @define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
-@define('WYSIWYG_LANG', 'en');
+@define('WYSIWYG_LANG', 'ar_SA');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');

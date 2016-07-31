@@ -1,6 +1,11 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fix WYSIWYG editor languages by changing the lang constant defines
+    for WYSIWYG_LANG to the POSIX locale standard formatting of language
+    tags, eg "en_US". This is better to handle than the IETF language
+    Unicode standard tag eg. "en-US" using a dash.
+
   * Add and set a new global full path variable to the Spartacus plugin,
         $serendipity['spartacus_cachedXMLfile']
     to easily be able to nuke the current package_***_**.xml cache file,

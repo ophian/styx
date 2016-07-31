@@ -10,7 +10,7 @@
 @define('SQL_CHARSET', 'utf8');
 @define('DATE_LOCALES', 'zh_CN.UTF-8, cn, zh, zh_GB, zh_CN');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
-@define('WYSIWYG_LANG', 'en');
+@define('WYSIWYG_LANG', 'zh_CN');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');

@@ -13,7 +13,7 @@
 @define('DATE_LOCALES', 'es_ES.ISO8859-15, es_ES.ISO8859-1, spanish, sp, es, es_ES, es-ES, es_ES.ISO_8859-15, es_ES.ISO_8859-1');
 @define('DATE_FORMAT_ENTRY', '%A, %e de %B del %Y');
 @define('DATE_FORMAT_SHORT', '%d.%m.%Y %H:%M');
-@define('WYSIWYG_LANG', 'es');
+@define('WYSIWYG_LANG', 'es_ES');
 @define('LANG_DIRECTION', 'ltr');
 
 /* rlazo[20061114]: dado que el español tiene varias traducciones para ciertas

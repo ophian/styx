@@ -12,7 +12,7 @@
 @define('DATE_LOCALES', 'fr_FR.UTF-8, fr_FR.UTF8, french, fr, fr_FR, fr_FR@euro, en_US');
 @define('DATE_FORMAT_ENTRY', '%A, %e %B %Y');
 @define('DATE_FORMAT_SHORT', '%d.%m.%Y %H:%M');
-@define('WYSIWYG_LANG', 'fr-utf');
+@define('WYSIWYG_LANG', 'fr_FR');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', '.');
 @define('NUMBER_FORMAT_THOUSANDS', ',');
