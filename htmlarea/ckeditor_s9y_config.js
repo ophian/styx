@@ -13,18 +13,6 @@
  */
 CKEDITOR.editorConfig = function( config ) {
 
-    /** Web-Spellchecker SCAYT plug-in for CKEditor **/
-    // evaluate SCAYT on startup
-    // config.scayt_autoStartup = true;
-    // enable/disable the "More Suggestions" sub-menu in the context menu.
-    // The possible values are "on" or "off".
-    config.scayt_moreSuggestions = 'off';
-    // set the visibility of the SCAYT tabs in the settings dialog and toolbar
-    // button. The value must contain a "1" (enabled) or "0" (disabled) number for
-    // each of the following entries, in this precise order, separated by a
-    // comma (","): "Options", "Languages" and "Dictionary".
-    config.scayt_uiTabs = '1,0,1'; // we disable the language tab option, since it does not work in this context getting a list of languages and also breaks the popup-layer!
-
     /** SECTION: ACF
         Advanced Content Filter works in two modes:
             automatic - the filter is configured by editor features (like plugins, buttons, and commands) that are enabled with configuration options
@@ -154,9 +142,23 @@ CKEDITOR.editorConfig = function( config ) {
     // The general idea is that you would need to remove all plugins that depend on the "contextmenu" one for removing the "contextmenu" one itself to work. But this has other sideeffects!
     //config.removePlugins = 'wsc,scayt,menubutton,liststyle,tabletools,contextmenu';
     //config.browserContextMenuOnCtrl = true;
+    */
+
+    /** Web-Spellchecker SCAYT plug-in for CKEditor **/
+    // evaluate SCAYT on startup
+    // config.scayt_autoStartup = true;
+    // enable/disable the "More Suggestions" sub-menu in the context menu.
+    // The possible values are "on" or "off".
+    config.scayt_moreSuggestions = 'off';
+    // set the visibility of the SCAYT tabs in the settings dialog and toolbar
+    // button. The value must contain a "1" (enabled) or "0" (disabled) number for
+    // each of the following entries, in this precise order, separated by a
+    // comma (","): "Options", "Languages" and "Dictionary".
+    config.scayt_uiTabs = '1,0,1'; // we disable the language tab option, since it does not work in this context getting a list of languages and also breaks the popup-layer!
+    // You may set a specific default language here, best in the 4-letter POSIX notation, if the automatically set lang does not work for your case.
     //config.wsc_lang = 'de_DE'; //Defaults to: 'en_US'
     //config.scayt_sLang = 'de_DE'; //Defaults to: 'en_US'
-    */
+
 
     // Remove custom toolbar buttons and plugins from all toolbars
     // A list of plugins that must not be loaded. This setting makes it possible to avoid loading some plugins defined in the CKEDITOR.config.plugins setting, without having to touch it and potentially break it.
