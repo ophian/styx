@@ -637,14 +637,6 @@ class serendipity_event_entryproperties extends serendipity_event
 
 /* entryproperties plugin backend start */
 
-/* //achtung achtung!! */
-#adv_opts fieldset {
-    margin: 1em 0;
-    background: #FDFDFD;
-    border-top: 1px solid #FFF;
-    border-bottom: 1px solid #CCC;
-    box-shadow: 1px 1px 3px #EEEEEE;/*2px 2px 4px #DFDFDF;*/
-}
 #edit_entry_freetags div,
 #edit_entry_custompermalinks div,
 .entryproperties_customfields {
