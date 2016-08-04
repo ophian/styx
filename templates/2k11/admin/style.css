@@ -459,6 +459,12 @@ progress div.progress-undefined {
 .icon-rocket:before { content: '\e82c'; }
 .icon-to-start:before { content: '\e82d'; }
 
+/* pure unicode helper icons */
+.black-up-pointing-triangle:before {
+    content: "\25B2"; /* U+25B2 BLACK UP-POINTING TRIANGLE */
+    color: #000;
+}
+
 /* BACKEND HELPER CLASSES */
 .icon_link,
 .button_link,
