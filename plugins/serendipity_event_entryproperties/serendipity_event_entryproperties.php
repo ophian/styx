@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.41');
+        $propbag->add('version',       '1.42');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -620,6 +620,9 @@ class serendipity_event_entryproperties extends serendipity_event
 ?>
                     <fieldset id="edit_entry_entryproperties" class="entryproperties_entryproperties" style="<?php echo ($serendipity['version'][0] > 1) ? 'margin: 1em 0' : 'margin: 5px'; ?>">
                         <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_TITLE; ?></legend></span>
+                        <div id="edit_entry_submit" class="ep_entry_submit">
+                            <a href="#top" class="button_link" title="<?php echo UP; ?>"><span class="black-up-pointing-triangle"></span></a>
+                        </div>
 <?php
 
                     $elements = explode(',', $this->get_config('sequence'));
@@ -645,6 +648,11 @@ class serendipity_event_entryproperties extends serendipity_event
 #ep_spacer label {
     opacity: .3;
 }
+#edit_entry_entryproperties .ep_entry_submit {
+    top: initial;
+    margin-top: -1.5em;
+    margin-right: auto;
+}
 
 @media only screen and (min-width: 768px) {
     #ep_sticky,
@@ -667,6 +675,9 @@ class serendipity_event_entryproperties extends serendipity_event
     }
     #ep_access_pw input {
         width: 70%;
+    }
+    #edit_entry_entryproperties .ep_entry_submit {
+        margin-right: 1.2em;
     }
 }
 

@@ -1,3 +1,20 @@
+1.42:
+-----
+    * Add #top anchor to entryproperties part hooked into entry form
+
+1.41:
+-----
+    * Update entryproperties grouping grid option boxes
+
+1.40:
+-----
+    * Consistent plugin usage - entryproperties
+      mainly use load_language API and append CSS to eventData
+
+1.39:
+-----
+    * Fix checkbox entryproperties re-sets
+
 1.38:
 -----
     * Fixed preview of extended properties by 1.37
