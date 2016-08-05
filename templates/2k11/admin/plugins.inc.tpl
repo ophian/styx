@@ -119,9 +119,6 @@
                         {if !empty($plug.local_documentation)}
                             <li class="plugin_localdoc"><a href="{$plug.local_documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a></li>
                         {/if}
-                        {if !empty($plug.changelog)}
-                            <li class="plugin_changelog"><a href="{$plug.changelog|escape}">{$CONST.PLUGIN_DOCUMENTATION_CHANGELOG}</a></li>
-                        {/if}
                         {if !empty({$plug.upgrade_version}) && $plug.upgrade_version != $plug.version}
                             <li class="plugin_toversion">{$CONST.UPGRADE_TO_VERSION|sprintf:"{$plug.upgrade_version}"}{if !empty($plug.pluginlocation) && $plug.pluginlocation != 'local'} ({$plug.pluginlocation|escape}){/if}</li>
                         {/if}
