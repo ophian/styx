@@ -5,7 +5,7 @@
 /* vim: set sts=4 ts=4 expandtab : */
 
 @define('LANG_CHARSET', 'UTF-8');
-@define('DATE_LOCALES', 'Arabic,ar , ar_SA.windows-1256');
+@define('DATE_LOCALES', 'Arabic, ar, ar_SA.windows-1256');
 @define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'ar_SA');
