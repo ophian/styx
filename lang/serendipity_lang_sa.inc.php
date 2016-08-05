@@ -1,7 +1,7 @@
 <?php
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
-# Arabic issue was translated by Way http://www.flyingway.com  windows-1256
+# Arabic issue was translated by Way http://www.flyingway.com  cp1256
 /* vim: set sts=4 ts=4 expandtab : */
 
 @define('LANG_CHARSET', 'windows-1256');
