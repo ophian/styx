@@ -427,9 +427,9 @@ $i18n_unknown = 'tw';
 @define('INSTALL_THUMBDIM_LARGEST', 'Largest');
 @define('INSTALL_THUMBDIM_WIDTH', 'Width');
 @define('INSTALL_THUMBDIM_HEIGHT', 'Height');
-@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the thumbnail max size. The default "' . 
-    INSTALL_THUMBDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' . 
-    INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT . 
+@define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the thumbnail max size. The default "' .
+    INSTALL_THUMBDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' .
+    INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
 /* Personal details */
@@ -816,7 +816,7 @@ $i18n_unknown = 'tw';
 @define('AUTHORS_SHOW_ARTICLE_COUNT_DESC', '如果開啟這個設定，作者的文章數會顯示在名稱旁邊。');
 @define('CUSTOM_ADMIN_INTERFACE', '可用自訂的管理介面');
 
-@define('COMMENT_NOT_ADDED', '您的迴響不能加入因為此篇文章不允許迴響，輸入了錯誤的訊息，或不通過垃圾管理。'); 
+@define('COMMENT_NOT_ADDED', '您的迴響不能加入因為此篇文章不允許迴響，輸入了錯誤的訊息，或不通過垃圾管理。');
 @define('INSTALL_TRACKREF', '記錄來源？');
 @define('INSTALL_TRACKREF_DESC', '開啟記錄來源會顯示哪個網站引用了您的文章。您可以關閉這個功能如果收到太多垃圾廣告。');
 @define('CATEGORIES_HIDE_PARENT', '隱藏選擇的類別？');
@@ -926,7 +926,7 @@ $i18n_unknown = 'tw';
 @define('COMMENT_TOKENS_DESC', 'If tokens are used, comments can be approved and deleted by clicking the email links without requiring login access to the blog. Note that this is a convenience feature, and if your mails get hijacked, those people can approve/delete the referenced comment without further authentication.');
 @define('COMMENT_NOTOKENMATCH', 'Moderation link has expired or comment #%s has already been approved or deleted');
 @define('TRACKBACK_NOTOKENMATCH', 'Moderation link has expired or trackback #%s has already been approved or deleted');
-@define('BADTOKEN', 'Invalid Moderation Link'); 
+@define('BADTOKEN', 'Invalid Moderation Link');
 
 @define('CONFIRMATION_MAIL_ALWAYS', "Hello %s,\n\nYou have sent a new comment to \"%s\". Your comment was:\n\n%s\n\nThe owner of the blog has enabled mail verification, so you need to click on the following link to authenticate your comment:\n<%s>\n");
 @define('CONFIRMATION_MAIL_ONCE', "Hello %s,\n\nYou have sent a new comment to \"%s\". Your comment was:\n\n%s\n\nThe owner of the blog has enabled one-time mail verification, so you need to click on the following link to authenticate your comment:\n<%s>\n\nAfter you have done that, you can always post comments on that blog with your username and e-mail address without receiving such notifications.");

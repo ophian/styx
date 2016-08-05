@@ -427,9 +427,9 @@
 @define('INSTALL_THUMBDIM_LARGEST', '양방향 모두');
 @define('INSTALL_THUMBDIM_WIDTH', '폭');
 @define('INSTALL_THUMBDIM_HEIGHT', '높이');
-@define('INSTALL_THUMBDIM_DESC', '작은 그림의 최대 크기를 정하기 위한 제약의 기준. 기본값인 "' . 
-    INSTALL_THUMBDIM_LARGEST .  '" 선택 시 폭과 높이를 모두 제한하므로 어느 쪽도 최대 크기를 초과할 수 없으며 "' . 
-    INSTALL_THUMBDIM_WIDTH . '"과 "' .  INSTALL_THUMBDIM_HEIGHT . 
+@define('INSTALL_THUMBDIM_DESC', '작은 그림의 최대 크기를 정하기 위한 제약의 기준. 기본값인 "' .
+    INSTALL_THUMBDIM_LARGEST .  '" 선택 시 폭과 높이를 모두 제한하므로 어느 쪽도 최대 크기를 초과할 수 없으며 "' .
+    INSTALL_THUMBDIM_WIDTH . '"과 "' .  INSTALL_THUMBDIM_HEIGHT .
     '"는 선택된 방향으로만 제한하므로 다른 한 방향은 최대 크기보다 클 수 있습니다.');
 
 /* Personal details */
@@ -926,7 +926,7 @@
 @define('COMMENT_TOKENS_DESC', '토큰을 사용할 경우 블로그에 로그인하지 않고도 전자우편 링크를 통해 덧글을 승인하거나 삭제할 수 있습니다. 편의 기능이라는 점에 유의하십시오. 만약 전자우편 계정을 다른 사람이 탈취할 경우 그 사람이 별도의 인증 없이 덧글을 승인하거나 삭제할 수 있게 됩니다.');
 @define('COMMENT_NOTOKENMATCH', '중재 링크의 유효기간이 지났거나 %s번 덧글이 이미 승인 또는 삭제되었습니다');
 @define('TRACKBACK_NOTOKENMATCH', '중재 링크의 유효기간이 지났거나 %s번 트랙백이 이미 승인 또는 삭제되었습니다');
-@define('BADTOKEN', '유효하지 않은 중재 링크'); 
+@define('BADTOKEN', '유효하지 않은 중재 링크');
 
 @define('CONFIRMATION_MAIL_ALWAYS', "안녕하세요, %s님.\n\n새로운 덧글을 \"%s\"에 추가하셨습니다. 내용은 다음과 같습니다:\n\n%s\n\n블로그 주인이 전자우편을 통한 인증을 사용하고 있으므로 다음 링크를 눌러서 덧글을 인증하시기 바랍니다:\n<%s>\n");
 @define('CONFIRMATION_MAIL_ONCE', "안녕하세요 %s님.\n\n새로운 덧글을 \"%s\"에 추가하셨습니다. 내용은 다음과 같습니다:\n\n%s\n\n블로그 주인이 1회성 전자우편 인증을 사용하고 있으므로 다음 링크를 눌러서 덧글을 인증하시기 바랍니다:\n<%s>\n\n인증이 된 이후에는 동일한 사용자 이름과 전자우편 주소로 더 이상 인증을 안 거치고 덧글을 달 수 있게 됩니다.");

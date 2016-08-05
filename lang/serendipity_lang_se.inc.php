@@ -425,9 +425,9 @@
 @define('INSTALL_THUMBDIM_LARGEST', 'Störst');
 @define('INSTALL_THUMBDIM_WIDTH', 'Bredd');
 @define('INSTALL_THUMBDIM_HEIGHT', 'Höjd');
-@define('INSTALL_THUMBDIM_DESC', 'Dimension att begränsa till miniatyrbildens maxstorlek. Ursprungsvärdet "' . 
-    INSTALL_THUMBDIM_LARGEST .  '" begränsar båda dimensionerna, så att ingen av dem kan vara större än maxstorleken; "' . 
-    INSTALL_THUMBDIM_WIDTH . '" och "' .  INSTALL_THUMBDIM_HEIGHT . 
+@define('INSTALL_THUMBDIM_DESC', 'Dimension att begränsa till miniatyrbildens maxstorlek. Ursprungsvärdet "' .
+    INSTALL_THUMBDIM_LARGEST .  '" begränsar båda dimensionerna, så att ingen av dem kan vara större än maxstorleken; "' .
+    INSTALL_THUMBDIM_WIDTH . '" och "' .  INSTALL_THUMBDIM_HEIGHT .
     '" begränsa endast den valda dimensionen, så att den andra kan vara större än maxstorleken.');
 
 /* Personal details */
@@ -921,7 +921,7 @@
 @define('COMMENT_TOKENS_DESC', 'If tokens are used, comments can be approved and deleted by clicking the email links without requiring login access to the blog. Note that this is a convenience feature, and if your mails get hijacked, those people can approve/delete the referenced comment without further authentication.');
 @define('COMMENT_NOTOKENMATCH', 'Moderation link has expired or comment #%s has already been approved or deleted');
 @define('TRACKBACK_NOTOKENMATCH', 'Moderation link has expired or trackback #%s has already been approved or deleted');
-@define('BADTOKEN', 'Invalid Moderation Link'); 
+@define('BADTOKEN', 'Invalid Moderation Link');
 
 @define('CONFIRMATION_MAIL_ALWAYS', "Hello %s,\n\nYou have sent a new comment to \"%s\". Your comment was:\n\n%s\n\nThe owner of the blog has enabled mail verification, so you need to click on the following link to authenticate your comment:\n<%s>\n");
 @define('CONFIRMATION_MAIL_ONCE', "Hello %s,\n\nYou have sent a new comment to \"%s\". Your comment was:\n\n%s\n\nThe owner of the blog has enabled one-time mail verification, so you need to click on the following link to authenticate your comment:\n<%s>\n\nAfter you have done that, you can always post comments on that blog with your username and e-mail address without receiving such notifications.");
