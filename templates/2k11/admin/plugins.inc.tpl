@@ -98,6 +98,9 @@
                                 <div class="plugin_desc clearfix">
                                 {$plug.description}
                                 </div>
+                                {if !empty($plug.author)}
+                                <div class="plugin_author"><b>{$CONST.AUTHOR}:</b> {$plug.author}</div>
+                                {/if}
                             </details>
                         {else}
                             <div class="plugin_data">
@@ -107,23 +110,20 @@
                         </div>
 
                         <ul class="plugin_info plainList">
-                        {if ! empty($plug.author)}
-                            <li class="plugin_author"><b>{$CONST.AUTHOR}:</b> {$plug.author}</li>
-                        {/if}
-                        {if ! empty($plug.version)}
+                        {if !empty($plug.version)}
                             <li class="plugin_version"><b>{$CONST.VERSION}:</b> {$plug.version}</li>
                         {/if}
-                        {if ! empty($plug.website)}
+                        {if !empty($plug.website)}
                             <li class="plugin_web"><a href="{$plug.website|escape}">{$CONST.PLUGIN_DOCUMENTATION}</a></li>
                         {/if}
-                        {if ! empty($plug.local_documentation)}
+                        {if !empty($plug.local_documentation)}
                             <li class="plugin_localdoc"><a href="{$plug.local_documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a></li>
                         {/if}
-                        {if ! empty($plug.changelog)}
+                        {if !empty($plug.changelog)}
                             <li class="plugin_changelog"><a href="{$plug.changelog|escape}">{$CONST.PLUGIN_DOCUMENTATION_CHANGELOG}</a></li>
                         {/if}
-                        {if ! empty({$plug.upgrade_version}) && $plug.upgrade_version != $plug.version}
-                            <li class="plugin_toversion">{$CONST.UPGRADE_TO_VERSION|sprintf:"{$plug.upgrade_version}"}{if ! empty($plug.pluginlocation) && $plug.pluginlocation != 'local'} ({$plug.pluginlocation|escape}){/if}</li>
+                        {if !empty({$plug.upgrade_version}) && $plug.upgrade_version != $plug.version}
+                            <li class="plugin_toversion">{$CONST.UPGRADE_TO_VERSION|sprintf:"{$plug.upgrade_version}"}{if !empty($plug.pluginlocation) && $plug.pluginlocation != 'local'} ({$plug.pluginlocation|escape}){/if}</li>
                         {/if}
                         </ul>
                     </div>
