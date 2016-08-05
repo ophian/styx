@@ -648,7 +648,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NONE', 'Никакой');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Настройки по умолчанию для новых записей');
 @define('UPGRADE', 'Апгрейд');
-@define('UPGRADE_TO_VERSION', 'Сделать апгрейд до версии %s');
+@define('UPGRADE_TO_VERSION', '<b>Сделать апгрейд до версии:</b> %s');
 @define('DELETE_DIRECTORY', 'Удалить директорию');
 @define('DELETE_DIRECTORY_DESC', 'Вы собираетесь удалить директорию в которой находятся медиа файлы, возможно они используются в каких-то записях.');
 @define('FORCE_DELETE', 'Удалить ВСЕ файлы в этой директории, включая те, которые неизвестны Serendipity');

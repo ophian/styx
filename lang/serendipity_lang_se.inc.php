@@ -644,7 +644,7 @@
 @define('NONE', 'ingen');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Normalinställningar för nya artiklar');
 @define('UPGRADE', 'Uppgradera');
-@define('UPGRADE_TO_VERSION', 'Uppgradera till version %s');
+@define('UPGRADE_TO_VERSION', '<b>Uppgradera till version:</b> %s');
 @define('DELETE_DIRECTORY', 'Ta bort katalog');
 @define('DELETE_DIRECTORY_DESC', 'Du är på väg att ta bort en katalog som innehåller mediafiler vilka  ev. används i dina artiklar.');
 @define('FORCE_DELETE', 'Ta bort ALLA filer i denna katalog, inklusive dem som inte är kända av Serendipity');

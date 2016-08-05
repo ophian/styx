@@ -550,7 +550,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SIDEBAR_PLUGIN', 'Wtyczkê Panelu Bocznego');
 @define('EVENT_PLUGIN', 'Wtyczkê Zdarzenia');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Kliknij by zainstalowaæ now± %s');
-@define('VERSION', 'wersja');
+@define('VERSION', 'Wersja');
 @define('INSTALL', 'Zainstaluj');
 @define('ALREADY_INSTALLED', 'Ju¿ zainstalowane');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Wybierz wtyczkê, któr± chcesz zainstalowaæ');
@@ -646,7 +646,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('NONE', '¿adne');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Standardowe ustawienia dla nowych wpisów');
 @define('UPGRADE', 'Uaktualnienie');
-@define('UPGRADE_TO_VERSION', 'uaktualnienie do wersji %s');
+@define('UPGRADE_TO_VERSION', '<b>Uaktualnienie do wersji:</b> %s');
 @define('DELETE_DIRECTORY', 'Usuñ katalog');
 @define('DELETE_DIRECTORY_DESC', 'Zamierzasz usun±æ zawarto¶æ katalogu, w którym znajduj± siê pliki mediów prawdopodobnie u¿ytych w Twoich wpisach.');
 @define('FORCE_DELETE', 'Usuñ WSZYSTKIE pliki w tym katalogu, tak¿e te nie znane Serendipity i nie wy¶wietlane w Bibliotece mediów');

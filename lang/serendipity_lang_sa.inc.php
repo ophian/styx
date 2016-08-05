@@ -645,7 +645,7 @@
 @define('NONE', 'בÇ םזÌÏ');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'ÇבÇÚÏÇÏÇÊ ÇבÇÝÊÑÇÖםו בבדזÇÖםÚ ÇבÌÏםÏÉ');
 @define('UPGRADE', 'ÊÍÏםË');
-@define('UPGRADE_TO_VERSION', 'ÊÍÏםË בבÃÕÏÇÑ %s');
+@define('UPGRADE_TO_VERSION', '<b>ÊÍÏםË בבÃÕÏÇÑ:</b> %s');
 @define('DELETE_DIRECTORY', 'ÍÐÝ ÇבדÌבÏ');
 @define('DELETE_DIRECTORY_DESC', 'ÃהÊ Úבל זÔ‗ ÍÐÝ דÌבÏ  ÈדÍÊזםÇÊו דה דבÝÇÊ דםÏםÇ זÕזÑ זÛםÑוÇ! ! ! דה Çבדד‗ה Ãה ÈÚÖ וÐו ÇבדבÝÇÊ דÓÊÎÏדÉ Ýם ÇÍÏ דזÇÖםÚ‗. ÊÃ‗Ï ! ! !');
 @define('FORCE_DELETE', 'ÃÍÐÝ ÌדםÚ דÍÊזםÇÊ וÐÇ ÇבדÌבÏ ÈדÇ ÝםוÇ ÇבדבÝÇÊ ÇבÊם בםÓÊ בבדÏזהÉ! ! !');

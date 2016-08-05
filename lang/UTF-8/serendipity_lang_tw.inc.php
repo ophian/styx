@@ -647,7 +647,7 @@ $i18n_unknown = 'tw';
 @define('NONE', '沒有');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', '新文章將使用預設設定');
 @define('UPGRADE', '更新');
-@define('UPGRADE_TO_VERSION', '更新至版本 %s');
+@define('UPGRADE_TO_VERSION', '<b>更新至版本:</b> %s');
 @define('DELETE_DIRECTORY', '刪除目錄');
 @define('DELETE_DIRECTORY_DESC', '您將刪除目錄內的媒體檔案，注意檔案也許出現在其他文章內。');
 @define('FORCE_DELETE', '刪除此目錄內的檔案，包括 Serendipity 無法識別的檔案');

@@ -636,7 +636,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NONE', 'няма');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Начални настройки на нови статии');
 @define('UPGRADE', 'Надграждане');
-@define('UPGRADE_TO_VERSION', 'Надграждане до версия %s');
+@define('UPGRADE_TO_VERSION', '<b>Надграждане до версия:</b> %s');
 @define('DELETE_DIRECTORY', 'Изтриване на директория');
 @define('DELETE_DIRECTORY_DESC', 'На път сте да изтриете директория, която съдържа медийни файлове, може би използвани във ваши статии.');
 @define('FORCE_DELETE', 'Изтриване на ВСИЧКИ файлове в тази директория, включително непознатите за Serendipity');

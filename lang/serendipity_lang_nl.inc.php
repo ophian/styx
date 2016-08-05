@@ -550,7 +550,7 @@
 @define('SIDEBAR_PLUGIN', 'zijbalkplugin');
 @define('EVENT_PLUGIN', 'evenementenplugin');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Klik hier om een nieuwe %s te installeren');
-@define('VERSION', 'versie');
+@define('VERSION', 'Versie');
 @define('INSTALL', 'Installeren');
 @define('ALREADY_INSTALLED', 'Reeds geïnstalleerd');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Selecteer welke plugin u wenst te installeren');
@@ -645,7 +645,7 @@
 @define('NONE', 'geen');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Standaardinstellingen voor nieuwe artikelen');
 @define('UPGRADE', 'Bijwerken');
-@define('UPGRADE_TO_VERSION', 'Bijwerken naar versie %s');
+@define('UPGRADE_TO_VERSION', '<b>Bijwerken naar versie:</b> %s');
 @define('DELETE_DIRECTORY', 'Verwijder map');
 @define('DELETE_DIRECTORY_DESC', 'U staat op het punt om een map te verwijderen met mediabestanden die mogelijk gebruikt worden in uw artikelen.');
 @define('FORCE_DELETE', ' Verwijder ALLE bestanden in deze map, inclusief diegenen die niet bekend zijn bij Serendipity');

@@ -556,7 +556,7 @@
 @define('SIDEBAR_PLUGIN', 'plugin da barra lateral');
 @define('EVENT_PLUGIN', 'plugin de evento');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Clique aqui para instalar um novo %s');
-@define('VERSION', 'versão');
+@define('VERSION', 'Versão');
 @define('INSTALL', 'Instalar');
 @define('ALREADY_INSTALLED', 'Já instalado');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Seleccione o plugin que pretende instalar');
@@ -654,7 +654,7 @@
 @define('NONE', 'nenhum');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Características por omissão de novas entradas');
 @define('UPGRADE', 'Actualizar');
-@define('UPGRADE_TO_VERSION', 'Actualizar para a versão %s');
+@define('UPGRADE_TO_VERSION', '<b>Actualizar para a versão:</b> %s');
 @define('DELETE_DIRECTORY', 'Apagar directoria');
 @define('DELETE_DIRECTORY_DESC', 'Está prestes a apagar o conteúdo duma directoria que contém ficheiros de multimédia que podem ser usados por outras das suas entradas.'); // Verify
 @define('FORCE_DELETE', 'Apagar TODOS os ficheiros nesta directoria, incluindo os desconhecidos pelo Serendipity');

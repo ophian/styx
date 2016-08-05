@@ -647,7 +647,7 @@
 @define('NONE', 'None');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', '新文章将使用预设设定');
 @define('UPGRADE', '更新');
-@define('UPGRADE_TO_VERSION', '更新至新版本 %s');
+@define('UPGRADE_TO_VERSION', '<b>更新至新版本:</b> %s');
 @define('DELETE_DIRECTORY', '删除目录');
 @define('DELETE_DIRECTORY_DESC', '删除目录内的媒体文件，注意文件也许出现在其它文章内。');
 @define('FORCE_DELETE', '删除此目录内的文件，包括无法识别的文件');

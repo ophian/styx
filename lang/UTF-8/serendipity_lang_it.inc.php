@@ -548,7 +548,7 @@
 @define('SIDEBAR_PLUGIN', 'plugin della barra laterale');
 @define('EVENT_PLUGIN', 'plugin di evento');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Clicca qui per installare un nuovo %s');
-@define('VERSION', 'versione');
+@define('VERSION', 'Versione');
 @define('INSTALL', 'Installa');
 @define('ALREADY_INSTALLED', 'Già installato');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Seleziona il plugin che vuoi installare');
@@ -646,7 +646,7 @@
 @define('NONE', 'none');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Impostazioni predefinite per le nuove notize');
 @define('UPGRADE', 'Aggiorna');
-@define('UPGRADE_TO_VERSION', 'Aggiorna alla versione %s');
+@define('UPGRADE_TO_VERSION', '<b>Aggiorna alla versione:</b> %s');
 @define('DELETE_DIRECTORY', 'Cancella la directory');
 @define('DELETE_DIRECTORY_DESC', 'Stai per cancellare il contenuto di una directory che contiene files media, possibilmente utilizzati in alcune delle tue notizie.');
 @define('FORCE_DELETE', 'Cancella TUTTI i files in questa directory, inclusi quelli non conosciuti a Serendipity');

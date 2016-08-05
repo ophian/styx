@@ -579,7 +579,7 @@ $i18n_filename_to = array (
 @define('SIDEBAR_PLUGIN', 'postrann? plugin');
 @define('EVENT_PLUGIN', 'plugin ud?losti');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Klikn?te a instalujte nov? %s');
-@define('VERSION', 'verze');
+@define('VERSION', 'Verze');
 @define('INSTALL', 'Instalovat');
 @define('ALREADY_INSTALLED', 'Instalov?n');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Vyberte plugin, kter? chcete instalovat');
@@ -675,7 +675,7 @@ $i18n_filename_to = array (
 @define('NONE', 'nic');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Z?kladn? nastaven? pro nov? z?znamy');
 @define('UPGRADE', 'Aktualizace');
-@define('UPGRADE_TO_VERSION', 'Aktualizace na verzi %s');
+@define('UPGRADE_TO_VERSION', '<b>Aktualizace na verzi:</b> %s');
 @define('DELETE_DIRECTORY', 'Vymazat adres??');
 @define('DELETE_DIRECTORY_DESC', 'Chcete vymazat obsah adres??e, obsahuj?c? medi?ln? soubory, kter? mohou b?t pou??v?ny ve va?ich z?znamech.');
 @define('FORCE_DELETE', 'Vymazat V?ECHNY soubory v adres??i, v?etn? t?ch, kter? nejsou vytvo?eny pomoc? Serendipity');

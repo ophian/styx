@@ -549,7 +549,7 @@
 @define('SIDEBAR_PLUGIN', 'extensie pentru Bară Laterală');
 @define('EVENT_PLUGIN', 'Extensie Eveniment');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Click aici ca să instalezi o nouă %s');
-@define('VERSION', 'versiune');
+@define('VERSION', 'Versiune');
 @define('INSTALL', 'Instalare');
 @define('ALREADY_INSTALLED', 'Deja instalat');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Alege extensia pe care vrei să o instalezi');
@@ -645,7 +645,7 @@
 @define('NONE', 'nimic');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Setări implicite pentru însemnări');
 @define('UPGRADE', 'Actualizare');
-@define('UPGRADE_TO_VERSION', 'Actualizare la versiunea %s');
+@define('UPGRADE_TO_VERSION', '<b>Actualizare la versiunea:</b> %s');
 @define('DELETE_DIRECTORY', 'Şterge director');
 @define('DELETE_DIRECTORY_DESC', 'Eşti pe cale să ştergi un director care conţine fişiere media care e posibil să fie folosite în unele însemnări.');
 @define('FORCE_DELETE', 'Şterge TOATE fişierele din acest director, inclusiv cele necunoscute de Serendipity');

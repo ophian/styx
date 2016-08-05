@@ -551,7 +551,7 @@
 @define('SIDEBAR_PLUGIN', 'plugin de barre latérale');
 @define('EVENT_PLUGIN', 'plugin d\'évènement');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Cliquez ici pour installer un nouveau %s');
-@define('VERSION', 'version');
+@define('VERSION', 'Version');
 @define('INSTALL', 'Installer');
 @define('ALREADY_INSTALLED', 'Déjà installé');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Sélectionnez le plugin que vous voulez installer');
@@ -649,7 +649,7 @@
 @define('NONE', 'aucun');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Paramètres par défaut pour les nouveaux billets');
 @define('UPGRADE', 'Mise à jour');
-@define('UPGRADE_TO_VERSION', 'Mise à jour vers la version %s');
+@define('UPGRADE_TO_VERSION', '<b>Mise à jour vers la version:</b> %s');
 @define('DELETE_DIRECTORY', 'Supprimer le répertoire');
 @define('DELETE_DIRECTORY_DESC', 'Vous êtes sur le point de supprimer le contenu d\'un répertoire contenant des fichiers média qui peuvent être utilisés par certains de vos billets.');
 @define('FORCE_DELETE', 'Suprimer TOUS les fichiers de ce répertoire, y compris ceux inconnus de Serendipity');

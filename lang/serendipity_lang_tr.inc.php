@@ -550,7 +550,7 @@
 @define('SIDEBAR_PLUGIN', 'Yanblok eklentileri');
 @define('EVENT_PLUGIN', 'Olay Eklentileri');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Yeni eklenti kurmak için tıklayın %s');
-@define('VERSION', 'sürüm');
+@define('VERSION', 'Sürüm');
 @define('INSTALL', 'Kurulum');
 @define('ALREADY_INSTALLED', 'Zaten kurulu');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Kurmak istediğiniz eklentiyi seçin');
@@ -646,7 +646,7 @@
 @define('NONE', 'yok');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Yeni yazı için öntanımlı ayarlar');
 @define('UPGRADE', 'Güncelle');
-@define('UPGRADE_TO_VERSION', 'Sürümü güncelle %s');
+@define('UPGRADE_TO_VERSION', '<b>Sürümü güncelle:</b> %s');
 @define('DELETE_DIRECTORY', 'Dizini sil');
 @define('DELETE_DIRECTORY_DESC', 'Olasılıkla bazı yazılarınızda kullanmış olabileceğiniz medya dosyalarının da bulunduğu bir dizini silmek istiyorsunuz.Emin misiniz?');
 @define('FORCE_DELETE', 'Bu dizindeki tüm dosyaları sil, Serendipity tarafından bilinmeyenler de dahil olmak üzere');

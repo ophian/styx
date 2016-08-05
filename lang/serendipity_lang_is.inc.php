@@ -548,7 +548,7 @@
 @define('SIDEBAR_PLUGIN', 'hliðarrammaviðbót');
 @define('EVENT_PLUGIN', 'atburðaviðbót');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Smelltu hér til að setja inn nýja %s');
-@define('VERSION', 'útgáfa');
+@define('VERSION', 'Útgáfa');
 @define('INSTALL', 'Setja upp');
 @define('ALREADY_INSTALLED', 'Þegar uppsett');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Veldu viðbót til að setja inn');
@@ -644,7 +644,7 @@
 @define('NONE', 'engin(n)');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Sjálfgefnar stillingar fyrir nýjar færslur');
 @define('UPGRADE', 'Uppfæra');
-@define('UPGRADE_TO_VERSION', 'Uppfæra í útgáfu %s');
+@define('UPGRADE_TO_VERSION', '<b>Uppfæra í útgáfu:</b> %s');
 @define('DELETE_DIRECTORY', 'Eyða þessari möppu');
 @define('DELETE_DIRECTORY_DESC', 'Þú ert að fara að eyða innihaldi möppu sem er með margmiðlunargögn, sem eru mögulega í notkun í sumum færsla þinna.');
 @define('FORCE_DELETE', 'Neyða eyðslu skráa sem eru ekki inni í miðlunargagnagrunninum');

@@ -648,7 +648,7 @@
 @define('NONE', '없음');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', '새 글에 대한 기본 설정');
 @define('UPGRADE', '업그레이드');
-@define('UPGRADE_TO_VERSION', '버전 %s(으)로 업그레이드');
+@define('UPGRADE_TO_VERSION', '버전 %s(으)로 업그레이드'); // check style
 @define('DELETE_DIRECTORY', '디렉토리 삭제');
 @define('DELETE_DIRECTORY_DESC', '미디어 파일이 담긴 디렉토리의 내용을 삭제하려고 합니다. 이 파일들은 본문에 사용 중일 수 있습니다.');
 @define('FORCE_DELETE', '이 디렉토리에 있는 모든 파일 (세렌디피티가 모르는 종류 포함) 삭제');

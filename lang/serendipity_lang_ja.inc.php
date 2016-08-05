@@ -644,7 +644,7 @@
 @define('NONE', 'なし');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', '新規エントリーのデフォルト設定');
 @define('UPGRADE', 'アップグレード');
-@define('UPGRADE_TO_VERSION', 'バージョン %s へアップグレード');
+@define('UPGRADE_TO_VERSION', 'バージョン %s へアップグレード'); // check style
 @define('DELETE_DIRECTORY', 'ディレクトリーの削除');
 @define('DELETE_DIRECTORY_DESC', 'メディア ファイル(恐らくあなたのエントリーのうちのいくつかの中で使用されるファイル)を含むディレクトリーの内容を削除をします。');
 @define('FORCE_DELETE', 'Serendipity でこのディレクトリー中の未知のものを含むファイルをすべて削除します。');

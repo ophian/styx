@@ -549,7 +549,7 @@
 @define('SIDEBAR_PLUGIN', 'barra lateral de plugins');
 @define('EVENT_PLUGIN', 'plugin de eventos');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Clique aqui para instalar um novo %s');
-@define('VERSION', 'versão');
+@define('VERSION', 'Versão');
 @define('INSTALL', 'Instalar');
 @define('ALREADY_INSTALLED', 'Já instalado');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Selecione o plugin que você deseja instalar');
@@ -647,7 +647,7 @@
 @define('NONE', 'nenhum');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Configuração padrão para novas entradas');
 @define('UPGRADE', 'Atualização');
-@define('UPGRADE_TO_VERSION', 'Atualização para a versão %s');
+@define('UPGRADE_TO_VERSION', '<b>Atualização para a versão:</b> %s');
 @define('DELETE_DIRECTORY', 'Apagar pasta');
 @define('DELETE_DIRECTORY_DESC', 'Você está apagando o conteúdo de um diretório que contém arquivos multimídia, possivelmente usados em outras entradas.');
 @define('FORCE_DELETE', 'Apagar TODOS os arquivos no diretório, incluindo os não conhecidos pelo Serendipity');

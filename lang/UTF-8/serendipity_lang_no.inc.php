@@ -548,7 +548,7 @@
 @define('SIDEBAR_PLUGIN', 'sidebar plugin'); // Translate
 @define('EVENT_PLUGIN', 'event plugin'); // Translate
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Click here to install a new %s'); // Translate
-@define('VERSION', 'versjon');
+@define('VERSION', 'Versjon');
 @define('INSTALL', 'Installer');
 @define('ALREADY_INSTALLED', 'Allerede installert');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Select the plugin which you wish to install'); // Translate
@@ -646,7 +646,7 @@
 @define('NONE', 'ingen');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Default settings for new entries'); // Translate
 @define('UPGRADE', 'Upgrade'); // Translate
-@define('UPGRADE_TO_VERSION', 'Upgrade to version %s'); // Translate
+@define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s'); // Translate
 @define('DELETE_DIRECTORY', 'Delete directory'); // Translate
 @define('DELETE_DIRECTORY_DESC', 'You are about to delete the contents of a directory that contains media files, possibly files used in some of your entries.'); // Translate
 @define('FORCE_DELETE', 'Delete ALL files in this directory, including those not known by Serendipity'); // Translate

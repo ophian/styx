@@ -644,7 +644,7 @@
 @define('NONE', 'none');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'புதிய குறிப்புகளின் ஆதிநிலை');
 @define('UPGRADE', 'Upgrade');
-@define('UPGRADE_TO_VERSION', 'Upgrade to version %s');
+@define('UPGRADE_TO_VERSION', '<b>Upgrade to version:</b> %s');
 @define('DELETE_DIRECTORY', 'Delete directory');
 @define('DELETE_DIRECTORY_DESC', 'You are about to delete the contents of a directory that contains media files, possibly files used in some of your entries.');
 @define('FORCE_DELETE', 'Delete ALL files in this directory, including those not known by Serendipity');

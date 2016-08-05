@@ -548,7 +548,7 @@
 @define('SIDEBAR_PLUGIN', 'Margó modul');
 @define('EVENT_PLUGIN', 'Esemény modul');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Kattints ide új %s telepítéséhez');
-@define('VERSION', 'verzió');
+@define('VERSION', 'Verzió');
 @define('INSTALL', 'Telepítés');
 @define('ALREADY_INSTALLED', 'Már telepített');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Válaszd ki a telepítendõ modult');
@@ -644,7 +644,7 @@
 @define('NONE', 'egyik sem');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Alapértelmezett beállítások új bejegyzésekhez');
 @define('UPGRADE', 'Frissítés');
-@define('UPGRADE_TO_VERSION', 'Frissítés erre a verzióra: %s');
+@define('UPGRADE_TO_VERSION', '<b>Frissítés erre a verzióra:</b> %s');
 @define('DELETE_DIRECTORY', 'Könyvtár törlése');
 @define('DELETE_DIRECTORY_DESC', 'Törölni készül egy könyvtárat, amelyben média fájlok vannak. Lehetséges hogy ezekre hivatkozik bejegyzésekbõl is.');
 @define('FORCE_DELETE', 'Az ÖSSZES fájl törlése a könyvtárból, azokat is amelyeket a Serendipity nem ismer');

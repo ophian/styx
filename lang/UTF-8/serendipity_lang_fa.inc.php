@@ -645,7 +645,7 @@
 @define('NONE', 'هیچ کدام');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'تنظیمات پیش فرض برای ارسال های جدید');
 @define('UPGRADE', 'به روز رسانی');
-@define('UPGRADE_TO_VERSION', 'به روز رسانی به نسخه %s');
+@define('UPGRADE_TO_VERSION', '<b>به روز رسانی به نسخه:</b> %s');
 @define('DELETE_DIRECTORY', 'حذف این شاخه');
 @define('DELETE_DIRECTORY_DESC', 'شما می خواهید شاخه ای را حذف کنید که دارای فایل می باشد, ممکن است این فایل ها در ارسال های شما استفاده شده باشند.');
 @define('FORCE_DELETE', 'فایل هایی که در پایگاه داده فایل ها وجود ندارند را هم حذف کن');

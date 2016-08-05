@@ -547,7 +547,7 @@
 @define('SIDEBAR_PLUGIN', 'sivupalstan laajennos');
 @define('EVENT_PLUGIN', 'tapahtumalaajennos');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Napsauta lisätäksesi uusi %s');
-@define('VERSION', 'versio');
+@define('VERSION', 'Versio');
 @define('INSTALL', 'Asenna');
 @define('ALREADY_INSTALLED', 'Asennettu jo');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Valitse laajennos, jonka haluat asentaa');
@@ -643,7 +643,7 @@
 @define('NONE', 'ei yhtään');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Uusien merkintöjen oletusasetukset'); 
 @define('UPGRADE', 'Päivitä'); 
-@define('UPGRADE_TO_VERSION', 'Päivitä versioon %s'); 
+@define('UPGRADE_TO_VERSION', '<b>Päivitä versioon:</b> %s');
 @define('DELETE_DIRECTORY', 'Tuhoa hakemisto'); 
 @define('DELETE_DIRECTORY_DESC', 'Olet aikeissa tuhota hakemiston, jossa on media-tiedostoja, mahdollisesti sellaisia, jotka ovat käytössä merkinnöissäsi.'); 
 @define('FORCE_DELETE', 'Tuhoa hakemisto kaikkine tiedostoineen, mukaan lukien tiedostot, jotka eivät Serendipityn mielestä liity blogiisi'); 

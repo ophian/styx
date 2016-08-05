@@ -563,7 +563,7 @@
 @define('SIDEBAR_PLUGIN', 'extensión de barra lateral');
 @define('EVENT_PLUGIN', 'extensión de evento');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Click aquí para instalar una nueva %s');
-@define('VERSION', 'versión');
+@define('VERSION', 'Versión');
 @define('INSTALL', 'Instalar');
 @define('ALREADY_INSTALLED', 'Ya está instalado');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Selecciona la extensión que quieras instalar');
@@ -659,7 +659,7 @@
 @define('NONE', 'ninguno');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Configuración predeterminada para las nuevas entradas');
 @define('UPGRADE', 'Actualizar');
-@define('UPGRADE_TO_VERSION', 'Actualizar a la versión %s');
+@define('UPGRADE_TO_VERSION', '<b>Actualizar a la versión:</b> %s');
 @define('DELETE_DIRECTORY', 'Borrar directorio');
 @define('DELETE_DIRECTORY_DESC', 'Estás a punto de borrar los contenidos de un directorio que contiene ficheros de medios, posiblemente ficheros utilizados en algunas de tus entradas.');
 @define('FORCE_DELETE', 'Borrar TODOS los ficheros de este directorio, incluyendo aquellos desconocidos para Serendipity');

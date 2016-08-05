@@ -560,7 +560,7 @@ $i18n_filename_to = array (
 @define('SIDEBAR_PLUGIN', 'doplnok boènej li¹ty');
 @define('EVENT_PLUGIN', 'doplnok udalostí');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Tu kliknite pre nain¹talovanie %s');
-@define('VERSION', 'verzia');
+@define('VERSION', 'Verzia');
 @define('INSTALL', 'In¹talova»');
 @define('ALREADY_INSTALLED', 'Nain¹talované');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Vyberte doplnok, ktorý chcete nain¹talova»');
@@ -658,7 +658,7 @@ $i18n_filename_to = array (
 @define('NONE', 'niè');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Prednastavené voµby pre nové èlánky');
 @define('UPGRADE', 'Aktualizácia');
-@define('UPGRADE_TO_VERSION', 'Aktualizácia na verziu %s');
+@define('UPGRADE_TO_VERSION', '<b>Aktualizácia na verziu:</b> %s');
 @define('DELETE_DIRECTORY', 'Zmaza» prieèinok');
 @define('DELETE_DIRECTORY_DESC', 'Chcete zmaza» obsah prieèinka obsahujúceho mediálne súbory, ktoré mô¾u by» pou¾ité vo Va¹ich existujúcich èlánkoch.');
 @define('FORCE_DELETE', 'Zmaza» V©ETKY súbory v prieèinku vrátane súborov, ktoré neboli vytvorené pomocou Serendipity');

@@ -547,7 +547,7 @@
 @define('SIDEBAR_PLUGIN', 'sidebar plugin');
 @define('EVENT_PLUGIN', 'event plugin');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Klik her for at installere et nyt %s');
-@define('VERSION', 'version');
+@define('VERSION', 'Version');
 @define('INSTALL', 'Installer');
 @define('ALREADY_INSTALLED', 'Allerede installeret');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Vælg det plugin du ønsker at installere');
@@ -645,7 +645,7 @@
 @define('NONE', 'ingen');
 @define('USERCONF_CAT_DEFAULT_NEW_ENTRY', 'Standard indstillinger for nye artikler');
 @define('UPGRADE', 'Opgrader');
-@define('UPGRADE_TO_VERSION', 'Opgrader til v%s');
+@define('UPGRADE_TO_VERSION', '<b>Opgrader til v:</b>%s');
 @define('DELETE_DIRECTORY', 'Slet mappe');
 @define('DELETE_DIRECTORY_DESC', 'Du er ved at slette indholdet af en mappe der indeholder multimedia filer, muligvis filer brugt i dine artikler.');
 @define('FORCE_DELETE', 'Slet ALLE filer i denne mappe, inklusiv dem ikke kendt af Serendipity');
