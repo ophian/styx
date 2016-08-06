@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Add maintenance "serendipity_event_changelog" widget, active by core.
+
   * Fix WYSIWYG editor languages by changing the lang constant defines
     for WYSIWYG_LANG to the POSIX locale standard formatting of language
     tags, eg "en_US". This is better to handle than the IETF language
