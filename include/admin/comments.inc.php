@@ -7,7 +7,7 @@ if (IN_serendipity !== true) {
 $data = array();
 
 $commentsPerPage = (int)(!empty($serendipity['GET']['filter']['perpage']) ? $serendipity['GET']['filter']['perpage'] : 10);
-$summaryLength = 200;
+$summaryLength = 120;
 
 $errormsg = '';
 $msg = '';
@@ -325,14 +325,14 @@ if (is_array($sql)) {
         $comment['entrylink'] = $entrylink;
 
         if (strlen($comment['fullBody']) > strlen($comment['summary']) ) {
-            $comment['summary'] .= ' ...';
+            $comment['summary'] .= '&hellip;';
             $comment['excerpt'] = true;
 
             // When summary is not the full body, strip HTML tags from summary, as it might break and leave unclosed HTML.
             $comment['fullBody'] = nl2br(serendipity_specialchars($comment['fullBody']));
             $comment['summary']  = nl2br(strip_tags($comment['summary']));
         } else {
-            $comment['excerpt']  = false;
+            $comment['excerpt']  = (strlen($comment['summary']) < strlen(nl2br(strip_tags($comment['summary'])))) ? true : false; // allows to open up a non stripped fullBody box, if summary was stripped before!
             $comment['fullBody'] = $comment['summary'] = nl2br(serendipity_specialchars($comment['fullBody']));
         }
 

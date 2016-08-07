@@ -1,6 +1,10 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fix backend comments bodies. Summary-truncation set to 120 chars and
+    use summary strict (tag) stripped. Else, if comment.summary was
+    stripped, allow excerpt button switch to comment.fullBody.
+
   * Add maintenance "serendipity_event_changelog" widget, active by core.
 
   * Fix WYSIWYG editor languages by changing the lang constant defines
