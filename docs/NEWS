@@ -1,8 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
-  * Fix backend comments bodies. Summary-truncation set to 120 chars and
-    use summary strict (tag) stripped. Else, if comment.summary was
+  * Fix backend comment bodies. Summary-truncation is now stricly set to
+    120 chars and always showed stripped. Else, if comment.summary was
     stripped, allow excerpt button switch to comment.fullBody.
 
   * Add maintenance "serendipity_event_changelog" widget, active by core.
