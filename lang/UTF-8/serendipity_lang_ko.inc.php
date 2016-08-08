@@ -1054,7 +1054,8 @@
 @define('SYNDICATE_THIS_BLOG', '구독하기');
 @define('SYNDICATION_PLUGIN_BIGIMG_DESC', '옆줄에 나타나는 피드 맨 위에 (대형) 그림을 표시합니다. 그림 파일에 대한 전체 또는 절대 경로를 입력합니다. "없음"으로 설정하면 문자 링크를 표시합니다(예전 기본 설정).');
 @define('INSTALL_BACKENDPOPUP', '관리 페이지에서 팝업 창을 사용할 수 있게 함');
-@define('INSTALL_BACKENDPOPUP_DESC', '일부 관리 페이지 기능에서 팝업 창을 사용하고자 합니까? 사용하지 않을 경우 (기본값) 인라인 모달 대화상자를 범주 선택, 미디어 보관함 등에 사용하게 됩니다.');
+#@define('INSTALL_BACKENDPOPUP_DESC', '일부 관리 페이지 기능에서 팝업 창을 사용하고자 합니까? 사용하지 않을 경우 (기본값) 인라인 모달 대화상자를 범주 선택, 미디어 보관함 등에 사용하게 됩니다.');
+@define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', '안정화 버전');
 @define('UPDATE_BETA', '베타 버전');
 @define('SYNDICATION_PLUGIN_FEEDFORMAT', '피드 규격');
@@ -1099,8 +1100,10 @@
 @define('INSTALL_PASSWORD2', '관리자 암호 (다시 입력)');
 @define('INSTALL_PASSWORD2_DESC', '검증을 위해 관리자 로그인을 위한 암호를 다시 입력합니다.');
 @define('INSTALL_PASSWORD_INVALID', '입력한 관리자 암호가 일치하지 않습니다.');
-@define('INSTALL_BACKENDPOPUP_GRANULAR', '특정 관리자 화면 팝업 창을 강제로 표시');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', '일반적으로 관리자 화면의 팝업 창을 사용하고 있지 않을 경우라도 팝업 창을 강제로 사용하고자 하는 곳이 있으면 여기에 해당 장소들을 각각 쉼표로 분리하여 입력해둘 수 있습니다. 사용 가능한 장소는: ');
+#@define('INSTALL_BACKENDPOPUP_GRANULAR', '특정 관리자 화면 팝업 창을 강제로 표시');
+@define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
+#@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', '일반적으로 관리자 화면의 팝업 창을 사용하고 있지 않을 경우라도 팝업 창을 강제로 사용하고자 하는 곳이 있으면 여기에 해당 장소들을 각각 쉼표로 분리하여 입력해둘 수 있습니다. 사용 가능한 장소는: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', '업데이트 시작...');
 @define('UPDATE_ALL', '모두 업데이트');
 @define('JS_FAILURE', '세렌디피티의 자바스크립트 라이브러리를 불러들일 수 없습니다. 이는 PHP나 플러그인 오류 때문에 발생할 수도 있고 브라우저 캐시가 비정상적일 경우에도 경험할 수 있습니다. 정확한 상황을 파악하고자 한다면 <a href="%1$s">%1$s</a> 주소를 브라우저에서 수동으로 열고 오류 내용을 확인하기 바랍니다.');
