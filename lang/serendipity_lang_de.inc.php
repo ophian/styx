@@ -1052,7 +1052,7 @@
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Zeigt den subToMe Button, mit dem Feed-Abonnements einfacher für Besucher verwaltet werden können.');
 @define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Zeigt ein (großes) Bild oberhalb der Seitenleiste. Hier kann eine volle (oder absolut referenzierte) URL eingetragen werden oder "none" für einen Textlink (bisheriger Standard)');
 @define('INSTALL_BACKENDPOPUP', 'Popups für das Backend verwenden?');
-@define('INSTALL_BACKENDPOPUP_DESC', 'Sollen im Backend Popup-Fenster eingesetzt werden? Wenn deaktiviert (standard), werden eingebettete modale Dialoge z.b. für die Mediendatenbank und die Kategorieauswahl verwendet.');
+@define('INSTALL_BACKENDPOPUP_DESC', 'Sollen im Backend Popup-Fenster eingesetzt werden? Wenn deaktiviert (Standard), werden eingebettete modale Dialoge z.b. für die Mediendatenbank und die Kategorieauswahl verwendet. Andererseits gilt diese Popup-Option nur für bestimmte Elemente, wie die Mediendatenbank oder auch einige Plugins. Anderes, wie die Kategorien, wird eingebettet angezeigt.');
 @define('UPDATE_STABLE', 'stabil');
 @define('UPDATE_BETA', 'beta');
 @define('SYNDICATION_PLUGIN_FEEDFORMAT', 'Feed-Format');
@@ -1096,8 +1096,8 @@
 @define('INSTALL_PASSWORD2', 'Admin-Passwort (erneut)');
 @define('INSTALL_PASSWORD2_DESC', 'Passwort für den Administrator-Zugang, nochmal zur Bestätigung eingeben.');
 @define('INSTALL_PASSWORD_INVALID', 'Die eingebenen Administrator-Passwörter stimmen nicht überein.');
-@define('INSTALL_BACKENDPOPUP_GRANULAR', 'Popups in speziellen Bereichen erzwingen');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'Wenn Popups generell deaktiviert wurden, kann an speziellen Stellen dennoch der Einsatz von Popups forciert werden, indem die Liste jener Stellen hier aufgeführt wird (kommasepariert). Die vollständige Liste ist: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR', 'Popup Verhalten in speziellen Bereichen erzwingen');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'Wenn Popups generell deaktiviert wurden (s.o.), kann an speziellen Stellen dennoch der Einsatz von Popups, bzw. eingebetteter Elemente forciert werden, indem die Liste jener Stellen hier aufgeführt wird (kommasepariert). Die vollständige Liste ist: ');
 @define('START_UPDATE', 'Starte Update ...');
 @define('UPDATE_ALL', 'Update Alle');
 @define('JS_FAILURE', 'Die Serendipity JavaScript-Datei konnte nicht geladen werden. Dies kann aufgrund von PHP- oder Plugin-Fehlern, oder sogar von einem fehlerhaften Browser Pufferspeicher (cache) geschehen. Um die exakte Fehlermeldung anzusehen, öffnen Sie bitte diesen Link <a href="%1$s">%1$s</a> in ihrem Browser. Ein solcher Fehler kann vielfältige Ursachen haben, ist aber meist eine Stapel (Fehler-) Ausgabe zur Unzeit und verhindert hier die korrekte Ausführung der Javascript Datei.');

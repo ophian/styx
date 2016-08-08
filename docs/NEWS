@@ -1,6 +1,9 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Changed Personal Preferences popup-window/force-popup option constants
+    to better reflect the embedded mode for some elements
+
   * Changed weight and iconize backend comments shortened title line
 
   * Fix backend comment bodies. Summary-truncation is now stricly set to
