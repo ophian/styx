@@ -307,6 +307,7 @@ if (is_array($sql)) {
             'summary'   => serendipity_mb('substr', $rs['body'], 0, $summaryLength),
             'status'    => $rs['status'],
             'type'      => $rs['type'],
+            'stype'     => $rs['type'] == 'NORMAL' ? 'C' : ($rs['type'] == 'TRACKBACK' ? 'T' : 'P'),
             'id'        => $rs['id'],
             'title'     => $rs['title'],
             'timestamp' => $rs['timestamp'],

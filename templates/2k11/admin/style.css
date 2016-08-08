@@ -459,10 +459,14 @@ progress div.progress-undefined {
 .icon-rocket:before { content: '\e82c'; }
 .icon-to-start:before { content: '\e82d'; }
 
-/* pure unicode helper icons */
+/* pure unicode character helper icons */
 .black-up-pointing-triangle:before {
     content: "\25B2"; /* U+25B2 BLACK UP-POINTING TRIANGLE */
-    color: #000;
+    color: #222;
+}
+.ucc-pinned-to:before {
+    content: "\1F4CC"; /* U+1F4CC \xF0\x9F\x93\x8C PUSHPIN */
+    color: #222;
 }
 
 /* BACKEND HELPER CLASSES */
@@ -587,6 +591,9 @@ form > button,
     font-style: italic;
 }
 
+.text-normal {
+    font-weight: initial;
+}
 
 /* FORM STYLES */
 input[type="radio"],

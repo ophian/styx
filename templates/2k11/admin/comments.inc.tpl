@@ -111,14 +111,15 @@
             {if is_array($comments)}
                 <ul id="serendipity_comments_list" class="clearfix plainList zebra_list">
                 {foreach $comments AS $comment}
-                    <li id="comment_{$comment.id}" class="clearfix {cycle values="odd,even"} {if ($comment.status == 'pending') || ($comment.status == 'confirm')}pending{/if}"><div class="form_check">
+                    <li id="comment_{$comment.id}" class="clearfix {cycle values="odd,even"} {if ($comment.status == 'pending') || ($comment.status == 'confirm')}pending{/if}">
+                        <div class="form_check">
                             <input id="multidelete_comment{$comment.id}" class="multidelete" type="checkbox" name="serendipity[delete][{$comment.id}]" value="{$comment.entry_id}" data-multidelid="comment_{$comment.id}">
                             <label for="serendipity_multidelete_comment_{$comment.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT}</label>
                         </div>
 
-                        <h4 id="c{$comment.id}">{$comment.author|escape|truncate:40:"&hellip;"} {$CONST.IN} {($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : $CONST.PINGBACK )} #{$comment.id} - {$CONST.IN_REPLY_TO}
+                        <h4 id="c{$comment.id}">{$comment.author|escape|truncate:40:"&hellip;"} <span class="text-normal">{$CONST.IN}</span> <span class="comment-type-title" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : $CONST.PINGBACK )}">{$comment.stype}#{$comment.id}</span> <span class="ucc-pinned-to" title="{$CONST.IN_REPLY_TO}"></span>
                             <a href="{$comment.entry_url}">{$comment.title|escape}</a>
-                            {$CONST.ON} {$comment.timestamp|formatTime:'%b %e %Y, %H:%M'}
+                            <span class="text-normal">{$CONST.ON} {$comment.timestamp|formatTime:'%b %e %Y, %H:%M'}</span>
                             <button class="toggle_info button_link" type="button" data-href="#comment_data_{$comment.id}"><span class="icon-info-circled"></span><span class="visuallyhidden"> More</span></button>
                         </h4>
                     {if ($comment.status == 'pending') || ($comment.status == 'confirm')}
