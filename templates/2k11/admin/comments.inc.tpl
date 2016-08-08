@@ -139,7 +139,7 @@
                             </dl>
                         </div>
 
-                        <div id="c{$comment.id}_summary" class="comment_summary">{$comment.summary|strip_tags}</div>
+                        <div id="c{$comment.id}_summary" class="comment_summary">{$comment.summary|strip_tags:false}</div>
 
                         <div id="c{$comment.id}_full" class="comment_full additional_info">{$comment.fullBody}</div>
 
