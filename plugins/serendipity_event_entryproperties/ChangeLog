@@ -1,3 +1,7 @@
+1.43:
+-----
+    * Remove fieldset inline style making trouble with .mfp-content layer.
+
 1.42:
 -----
     * Add #top anchor to entryproperties part hooked into entry form

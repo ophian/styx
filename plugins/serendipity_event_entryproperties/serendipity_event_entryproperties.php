@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.42');
+        $propbag->add('version',       '1.43');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -518,14 +518,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         </figure>
                         <?php } ?>
                     </div>
-<?php            /* ?>?serendipity[htmltarget]=prop<?php echo $_fieldname; ?>&amp;serendipity[filename_only]=true
-                    <div id="ep_column_<?php echo $_fieldname; ?>" class="clearfix form_area">
-                        <label for="prop<?php echo $_fieldname; ?>"><?php echo $_fieldname; ?></label>
-                        <textarea id="prop<?php echo $_fieldname; ?>" name="serendipity[properties][<?php echo $_fieldname; ?>]"><?php echo serendipity_specialchars($value); ?></textarea>
-                        <button class="customfieldMedia" type="button" name="insImage" title="<?php echo MEDIA ; ?>"><span class="icon-picture"></span><span class="visuallyhidden"><?php echo MEDIA ; ?></span></button>
-                    </div>
-            <?php */
-            
+<?php
                     }
 ?>
                 </div>
@@ -618,7 +611,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     }
 
 ?>
-                    <fieldset id="edit_entry_entryproperties" class="entryproperties_entryproperties" style="<?php echo ($serendipity['version'][0] > 1) ? 'margin: 1em 0' : 'margin: 5px'; ?>">
+                    <fieldset id="edit_entry_entryproperties" class="entryproperties_entryproperties">
                         <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_TITLE; ?></legend></span>
                         <div id="edit_entry_submit" class="ep_entry_submit">
                             <a href="#top" class="button_link" title="<?php echo UP; ?>"><span class="black-up-pointing-triangle"></span></a>
