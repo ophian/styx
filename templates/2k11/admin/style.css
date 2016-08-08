@@ -460,7 +460,7 @@ progress div.progress-undefined {
 .icon-to-start:before { content: '\e82d'; }
 
 /* pure unicode character helper icons */
-.black-up-pointing-triangle:before {
+.ucc-up-pointing-triangle:before {
     content: "\25B2"; /* U+25B2 BLACK UP-POINTING TRIANGLE */
     color: #222;
 }

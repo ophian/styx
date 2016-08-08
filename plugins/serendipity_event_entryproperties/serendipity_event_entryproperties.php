@@ -614,7 +614,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     <fieldset id="edit_entry_entryproperties" class="entryproperties_entryproperties">
                         <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_TITLE; ?></legend></span>
                         <div id="edit_entry_submit" class="ep_entry_submit">
-                            <a href="#top" class="button_link" title="<?php echo UP; ?>"><span class="black-up-pointing-triangle"></span></a>
+                            <a href="#top" class="button_link" title="<?php echo UP; ?>"><span class="ucc-up-pointing-triangle"></span></a>
                         </div>
 <?php
 
