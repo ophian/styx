@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.44');
+        $propbag->add('version',       '2.45');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'
@@ -413,10 +413,14 @@ class serendipity_event_spartacus extends serendipity_event
             $url_hostname = $url_parts['host'];
         }
         $url_ip = gethostbyname($url_hostname);
-        if (is_object($serendipity['logger'])) $serendipity['logger']->debug(sprintf(PLUGIN_EVENT_SPARTACUS_FETCHING, '<a target="_blank" href="' . $url . '">' . basename($url) . '</a>'));
+        if (is_object($serendipity['logger'])) {
+            $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHING, 'UTF-8', LANG_CHARSET), '<a target="_blank" href="' . $url . '">' . basename($url) . '</a>'));
+        }
         if (file_exists($target) && filesize($target) > 0 && filemtime($target) >= (time()-$cacheTimeout)) {
             $data = file_get_contents($target);
-            if (is_object($serendipity['logger'])) $serendipity['logger']->debug(sprintf(PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE, strlen($data), $target));
+            if (is_object($serendipity['logger'])) {
+                $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE, 'UTF-8', LANG_CHARSET), strlen($data), $target));
+            }
         } else {
             $options = array('follow_redirects' => true, 'max_redirects' => 5);
             serendipity_plugin_api::hook_event('backend_http_request', $options, 'spartacus');
@@ -501,7 +505,9 @@ class serendipity_event_spartacus extends serendipity_event
                 if (!$data) {
                     $data = $response->getBody();
                 }
-                if (is_object($serendipity['logger'])) $serendipity['logger']->debug(sprintf(PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL, strlen($data), $target));
+                if (is_object($serendipity['logger'])) {
+                    $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL, 'UTF-8', LANG_CHARSET), strlen($data), $target));
+                }
                 $tdir = dirname($target);
                 if (!is_dir($tdir) && !$this->rmkdir($tdir, $sub)) {
                     $this->outputMSG('error', sprintf(FILE_WRITE_ERROR, $tdir));
