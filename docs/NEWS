@@ -1,6 +1,9 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Allow the maintenance changelog widget to open up log files
+    set with $serendipity['logger']
+
   * $serendipity['logger'] - fix logging encoding when using constants
     (currently only Spartacus and a critical database logging effected)
 
