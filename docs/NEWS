@@ -2,7 +2,7 @@ Version 2.1 () Styx
 ------------------------------------------------------------------------
 
   * $serendipity['logger'] - fix logging encoding when using constants
-    (currently only Spartacus effected)
+    (currently only Spartacus and a critical database logging effected)
 
   * Update psr/log and katzgrau/klogger libs to current masters
 
