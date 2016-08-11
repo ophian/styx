@@ -1,6 +1,10 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Update Zendframework Zend/DB to version 2.2.10 to fetch at least
+    some security flaws in old 2.2.2 package
+    (This too without touching composer and old json files)
+
   * Allow the maintenance changelog widget to open up log files
     set with $serendipity['logger']
 
@@ -8,6 +12,7 @@ Version 2.1 () Styx
     (currently only Spartacus and a critical database logging effected)
 
   * Update psr/log and katzgrau/klogger libs to current masters
+    (without touching composer)
 
   * Moved backend comments action-bar to the right
 
