@@ -182,6 +182,9 @@ function serendipity_db_escape_string($string) {
 function serendipity_db_limit($offset, $limit) {
     global $serendipity;
     $sql = new Sql($serendipity['dbConn']);
+    // Fix " 13 OFFSET 228"
+    // Uncaught exception 'Zend\Db\Sql\Exception\InvalidArgumentException' with message 'Zend\Db\Sql\Select::limit expects parameter to be numeric, "string" given
+    // and end/next integer issues with wrongly set/read limit/offset integers in the entries paginator for next and end (see example) and we need the last integer for offset.
     $new = substr(strrchr($limit,' '),1);
     $offset = (false !== strpos($limit, 'OFFSET')) ? $new : $offset;
     $select = new Select;
