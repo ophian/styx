@@ -1010,7 +1010,12 @@ function serendipity_getTotalEntries() {
         if ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
             return count($query);
         } else {
-            return $query[0][0];
+            if (isset($query[0]['count(distinct e.id)'])) {
+                // zend-db delivers this as key, which otherwise throws a strange Smarty math exception while missing a correct assigned $totalEntries var
+                return $query[0]['count(distinct e.id)'];
+            } else {
+                return $query[0][0];
+            }
         }
     }
 

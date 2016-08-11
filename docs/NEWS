@@ -1,6 +1,9 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fix another Zend-Db issue adding a wrong key for the Smarty
+    $totalEntries assignment
+
   * Fix serendipity_db_limit($offset, $limit) paginator function in the
     Serendipity generic wrapper file for Zend-Db, which had issues with
     Serendipity SQL offset-limit-string query parts within all Zend-Db
