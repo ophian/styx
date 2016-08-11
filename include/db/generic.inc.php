@@ -182,8 +182,10 @@ function serendipity_db_escape_string($string) {
 function serendipity_db_limit($offset, $limit) {
     global $serendipity;
     $sql = new Sql($serendipity['dbConn']);
+    $new = substr(strrchr($limit,' '),1);
+    $offset = (false !== strpos($limit, 'OFFSET')) ? $new : $offset;
     $select = new Select;
-    $select->limit($limit);
+    $select->limit((int)$limit);
     $select->offset($offset);
     return str_replace("LIMIT", "", $sql->getSqlStringForSqlObject($select));    # TODO: Find a way to not hardcode the LIMIT here
 }

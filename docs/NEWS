@@ -1,6 +1,11 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fix serendipity_db_limit($offset, $limit) paginator function in the
+    Serendipity generic wrapper file for Zend-Db, which had issues with
+    Serendipity SQL offset-limit-string query parts within all Zend-Db
+    2.2.x versions.
+
   * Update Zendframework Zend/DB to version 2.2.10 to fetch at least
     some security flaws in old 2.2.2 package
     (This too without touching composer and old json files)
