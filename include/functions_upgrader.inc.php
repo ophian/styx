@@ -190,6 +190,7 @@ $dead_dirs_200 = array(
 
 /* A list of old or beta Serendipity files, which were not marked obsolet with the 2.0.2 upgrade, or were removed by 2.1.0 */
 $dead_files_202 = array(
+    'composer.phar',
     'bundled-libs/PEAR5.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_codeframe.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_config.php',
