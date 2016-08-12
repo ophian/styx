@@ -1,6 +1,9 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Removed Text/wiki lib from bundled-libs to be included to the wiki plugin
+    instead of bundled within the core
+
   * Fix zend-db (mysql) exception issue with Serendipity using CAST(expr AS type)
     type conversions on issueAutologin() and commentSubscription DELETE queries.
 
