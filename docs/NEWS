@@ -1,13 +1,13 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
-  * Fixed $sql->getSqlStringForSqlObject($select) using backticks under certain
+  * Fixed $sql->getSqlStringForSqlObject($select) adding backticks under certain
     conditions in the generic wrapper file for Zend-Db
 
   * Removed Text/wiki lib from bundled-libs to be included to the wiki plugin
     instead of bundled within the core
 
-  * Fix zend-db (mysql) exception issue with Serendipity using CAST(expr AS type)
+  * Fix Zend-Db (mysql) exception issue with Serendipity using CAST(expr AS type)
     type conversions on issueAutologin() and commentSubscription DELETE queries.
 
   * Removed old executable composer.phar file from Serendipity root.
@@ -22,7 +22,7 @@ Version 2.1 () Styx
     Serendipity SQL offset-limit-string query parts within all Zend-Db
     2.2.x versions.
 
-  * Update Zendframework Zend/DB to version 2.2.10 to fetch at least
+  * Update Zendframework Zend-Db to version 2.2.10 to fetch at least
     some security flaws in old 2.2.2 package
     (This too without touching composer and old json files)
 
