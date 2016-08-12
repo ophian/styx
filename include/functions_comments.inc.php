@@ -965,7 +965,7 @@ function serendipity_commentSubscriptionConfirm($hash) {
     // Delete possible current cookie. Also delete any confirmation hashs that smell like 3-week-old, dead fish.
     if (stristr($serendipity['dbType'], 'sqlite')) {
         $cast = "name";
-    } elseif ($serendipity['dbType'] == 'postgres') {
+    } elseif (stristr($serendipity['dbType'], 'postgres')) {
         // Adds explicits casting for postgresql.
         $cast = "cast(name as integer)";
     } else {

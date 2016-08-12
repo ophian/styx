@@ -478,7 +478,7 @@ function serendipity_issueAutologin($array) {
     // Delete possible current cookie. Also delete any autologin keys that smell like 3-week-old, dead fish.
     if (stristr($serendipity['dbType'], 'sqlite')) {
         $cast = "name";
-    } elseif ($serendipity['dbType'] == 'postgres') {
+    } elseif (stristr($serendipity['dbType'], 'postgres')) {
         // Adds explicits casting for postgresql.
         $cast = "cast(name as integer)";
     } else {
