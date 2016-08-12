@@ -1,6 +1,9 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fix zend-db (mysql) exception issue with Serendipity using CAST(expr AS type)
+    type conversions on issueAutologin() and commentSubscription DELETE queries.
+
   * Removed old executable composer.phar file from Serendipity root.
     This saves some Bytes and was never actively maintained!
     Developers may just drop their own fresh executor by hand.
