@@ -46,7 +46,11 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
     $sql = new Sql($serendipity['dbConn']);
     $select = new Select();
     $select->where->in($col, $search_ids);
-    return str_replace("WHERE", "", $sql->getSqlStringForSqlObject($select));     # the inserted WHERE is unexpected for the calling code
+    if (strpos($col, ".") !== false) {
+        return str_replace(array('WHERE ', '`'), array(''), $sql->getSqlStringForSqlObject($select)); // remove WHERE and possible backticks, eg '`ec`.`entryid`'
+    } else {
+        return str_replace('WHERE ', '', $sql->getSqlStringForSqlObject($select));     # the inserted WHERE is unexpected for the calling code
+    }
 }
 
 /**

@@ -1,6 +1,9 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fixed $sql->getSqlStringForSqlObject($select) using backticks under certain
+    conditions in the generic wrapper file for Zend-Db
+
   * Removed Text/wiki lib from bundled-libs to be included to the wiki plugin
     instead of bundled within the core
 
