@@ -46,11 +46,9 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
     $sql = new Sql($serendipity['dbConn']);
     $select = new Select();
     $select->where->in($col, $search_ids);
-    if (strpos($col, ".") !== false) {
-        return str_replace(array('WHERE ', '`'), array(''), $sql->getSqlStringForSqlObject($select)); // remove WHERE and possible backticks, eg '`ec`.`entryid`'
-    } else {
-        return str_replace('WHERE ', '', $sql->getSqlStringForSqlObject($select));     # the inserted WHERE is unexpected for the calling code
-    }
+    // Zend-DB (v.2.8.2) in its wisdom tries to be even smarter and additionally adds a (subselect) 'SELECT * ' string
+    // Zend-DB (v,2.2.10(+)) We have to remove added 'WHERE ' and possible backticks, eg in '`ec`.`entryid`'
+    return str_replace(array('SELECT * ', 'WHERE ', '`'), '', $sql->getSqlStringForSqlObject($select));
 }
 
 /**

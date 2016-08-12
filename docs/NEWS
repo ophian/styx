@@ -1,8 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
-  * Fixed $sql->getSqlStringForSqlObject($select) adding backticks under certain
-    conditions in the generic wrapper file for Zend-Db
+  * Fixed serendipity_db_in_sql() function in generic wrapper file with
+    Zend-Db adding bloat to the query part, trying to be smarter.
 
   * Removed Text/wiki lib from bundled-libs to be included to the wiki plugin
     instead of bundled within the core
