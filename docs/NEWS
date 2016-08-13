@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Add backend comments first / last pagination
+
   * DEV-NOTE: enabling Zend-Db in include/db/db.inc.php is still marked
     EXPERIMENTAL, since having known issues.
 

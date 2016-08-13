@@ -263,6 +263,9 @@ if ( $page == 0 || $page > $pages ) {
 
 $linkPrevious = 'serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[page]='. ($page-1) . $searchString;
 $linkNext     = 'serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[page]='. ($page+1) . $searchString;
+$linkFirst    = 'serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[page]=' . 1 . $searchString;
+$linkLast     = 'serendipity_admin.php?serendipity[adminModule]=comments&amp;serendipity[page]=' . $pages . $searchString;
+
 $filter_vals  = array(10, 20, 50, COMMENTS_FILTER_ALL);
 
 if ($commentsPerPage == COMMENTS_FILTER_ALL) {
@@ -289,8 +292,10 @@ $data['commentsPerPage'] = $commentsPerPage;
 $data['totalComments']   = $totalComments;
 $data['pages']           = $pages;
 $data['page']            = $page;
+$data['linkFirst']       = $linkFirst;
 $data['linkPrevious']    = $linkPrevious;
 $data['linkNext']        = $linkNext;
+$data['linkLast']        = $linkLast;
 $data['searchString']    = $searchString;
 $data['filter_vals']     = $filter_vals;
 $data['sql']             = $sql;
