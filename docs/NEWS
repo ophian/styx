@@ -1,6 +1,9 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * DEV-NOTE: enabling Zend-Db in include/db/db.inc.php is still marked
+    EXPERIMENTAL, since having known issues.
+
   * Fixed serendipity_db_in_sql() function in generic wrapper file with
     Zend-Db adding bloat to the query part, trying to be smarter.
 
