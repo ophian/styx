@@ -470,7 +470,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Erstellt eine https-URL als Login-Link zum Blog. Der Webserver muss dies unterstützen!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Externe Links klickbar?');
 @define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"Nein": Ungeprüfte externe Links (Top Exits, Top Referrer, Kommentare) werden unterdrückt/als Text angezeigt, um Google-Spam zu verhindern (empfohlen). "Ja": Externe Links werden als Hyperlinks angezeigt. Diese Einstellung kann in den einzelnen Plugins überschrieben werden.');
-@define('PAGE_BROWSE_COMMENTS', 'Seite %s von %s, %s Kommentare insgesamt');
+@define('PAGE_BROWSE_COMMENTS', 'Seite %s von %s, von %s Kommentaren insgesamt');
 @define('FILTERS', 'Filter');
 @define('FIND_ENTRIES', 'Einträge durchsuchen');
 @define('FIND_COMMENTS', 'Kommentare durchsuchen');
