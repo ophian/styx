@@ -2116,9 +2116,11 @@ function &serendipity_loadThemeOptions(&$template_config, $okey = '', $bc_bool =
         $okey = $serendipity['template'];
     }
 
-    $_template_vars =& serendipity_db_query("SELECT name, value FROM {$serendipity['dbPrefix']}options
-                                             WHERE okey = 't_" . serendipity_db_escape_string($okey) . "'
-                                                OR okey = 't_global'", false, 'assoc', false, 'name', 'value');
+    $sql = "SELECT name, value FROM {$serendipity['dbPrefix']}options
+             WHERE okey = 't_" . serendipity_db_escape_string($okey) . "'
+                OR okey = 't_global'";
+
+    $_template_vars =& serendipity_db_query($sql, false, 'assoc', false, 'name', 'value');
     if (!is_array($_template_vars)) {
         $template_vars = array();
     } else {
