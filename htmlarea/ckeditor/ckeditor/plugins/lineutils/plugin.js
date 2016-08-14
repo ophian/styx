@@ -1,5 +1,5 @@
 /**
- * @license Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
+ * @license Copyright (c) 2003-2016, CKSource - Frederico Knabben. All rights reserved.
  * For licensing, see LICENSE.md or http://ckeditor.com/license
  */
 
@@ -376,6 +376,11 @@
 				// Don't consider editable, as it might be inline,
 				// and i.e. checking it's siblings is pointless.
 				if ( el.equals( this.editable ) ) {
+					continue;
+				}
+
+				// On IE8 element.getElementsByTagName returns comments... sic! (#13176)
+				if ( el.type != CKEDITOR.NODE_ELEMENT ) {
 					continue;
 				}
 
