@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Upgrade core CKEDITOR lib to ckeditor_4.5.10_full
+
   * Add backend comments first / last pagination
 
   * DEV-NOTE: enabling Zend-Db in include/db/db.inc.php is still marked
