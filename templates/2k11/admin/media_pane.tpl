@@ -40,7 +40,7 @@
                 </fieldset>
             </li>
         {if $smarty.get.serendipity.showUpload}
-            <li class="popuplayer_showUpload"><a class="button_link" href="?serendipity[adminModule]=media&serendipity[adminAction]=addSelect&{$media.extraParems}">{$CONST.ADD_MEDIA}</a></li>
+            <li class="popuplayer_showUpload"><a class="button_link" href="?serendipity[adminModule]=media&amp;serendipity[adminAction]=addSelect&amp;{$media.extraParems}">{$CONST.ADD_MEDIA}</a></li>
         {/if}
         </ul>
 
