@@ -1419,7 +1419,7 @@ $(function() {
     });
 
     // Show media file info, template info, label info or filters
-    $('.media_show_info, .template_show_info, .filters_toolbar li > a, .toggle_info').click(function(e) {
+    $('.media_show_info, .template_show_info, .filters_toolbar li > a[href*=\\#], .toggle_info').click(function(e) {
         var $el = $(this);
         if ($el.attr('href')) {
             $($el.attr('href')).toggleClass('additional_info');
