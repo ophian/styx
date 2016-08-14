@@ -206,6 +206,7 @@ $dead_files_202 = array(
     'docs/INSTALL_SHARED',
     'docs/UPGRADE',
     'docs/upgrade.sh',
+    'htmlarea/ckeditor/ckeditor/build-config.js',
     'plugins/serendipity_event_gravatar/ycon/UTF-8/lang_pl.inc.php',
     'plugins/serendipity_event_gravatar/UTF-8/documentation_cz.html',
     'plugins/serendipity_event_gravatar/UTF-8/documentation_cs.html',
