@@ -157,7 +157,7 @@
 
                                     array('var'         => 'enableBackendPopupGranular',
                                           'title'       => INSTALL_BACKENDPOPUP_GRANULAR,
-                                          'description' => INSTALL_BACKENDPOPUP_GRANULAR_DESC
+                                          'description' => INSTALL_BACKENDPOPUP_GRANULAR_DESC .
                                                             '[ <em>images, comments, categories, tags, links</em> ].',
                                           'type'        => 'string',
                                           'permission'  => 'personalConfiguration',
