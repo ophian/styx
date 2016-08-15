@@ -164,7 +164,7 @@
                 {/foreach}
                 </ul>
             {/if}
-            {if ($page != 1 && $page <= $pages)||$page != $pages}
+            {if ($page != 1 && $page <= $pages) || $page != $pages}
                 <nav class="pagination">
                     <h3>{$CONST.PAGE_BROWSE_COMMENTS|sprintf:$page:$pages:$totalComments}</h3>
                     
