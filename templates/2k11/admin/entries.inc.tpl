@@ -180,7 +180,7 @@
             {/foreach}
             </ul>
             {if ($offSet > 0) || ($count > $perPage)}
-            {math equation="ceil(values/parts)" assign=totalPages values=$totalEntries parts=$perPage}
+            {math assign=totalPages equation="ceil(values/parts)" values=$totalEntries parts=$perPage}
             <nav class="pagination">
                 <h3>{$CONST.PAGE_BROWSE_ENTRIES|sprintf:($page+1):$totalPages:$totalEntries}</h3>
 
