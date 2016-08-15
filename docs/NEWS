@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Allow maintenance log view plugin to delete old log files
+
   * Upgrade core CKEDITOR lib to ckeditor_4.5.10_full
 
   * Add backend comments first / last pagination

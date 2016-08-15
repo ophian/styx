@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_plugin
         $propbag->add('description',    '');
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.11');
+        $propbag->add('version',       '1.20');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -61,7 +61,7 @@ class serendipity_event_changelog extends serendipity_plugin
                         }
                         header('Content-language: en');
                         header('Content-type: text/plain; charset=ISO-8859-1');
-                        $file = "PLEASE USE BROWSER BACK BUTTON TO RETURN TO MAINTENANCE PAGE.\n\n" . file_get_contents($serendipity['serendipityPath'].'docs/NEWS');
+                        $file = "PLEASE USE BROWSER BACK BUTTON TO RETURN TO MAINTENANCE PAGE.\n\n" . file_get_contents($serendipity['serendipityPath'] . 'docs/NEWS');
                         echo $file;
                     }
                     if ($part[0] == 'logs' && is_object($serendipity['logger'])) {
@@ -76,7 +76,7 @@ class serendipity_event_changelog extends serendipity_plugin
                         $x = count($files);
                         echo sprintf(PLUGIN_LOGGER_NUKE_WARNING, $x)."\n\n";
                         echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n";
-                        print_r($files);
+                        print_r(array_keys($files));
                         echo "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
                         arsort($files);
                         $latest_file = key($files);
@@ -91,7 +91,7 @@ class serendipity_event_changelog extends serendipity_plugin
                     }
 ?>
 
-    <section id="maintenance_logview" class="equal_heights quick_list">
+    <section id="maintenance_logview" class="quick_list">
         <h3><?php echo PLUGIN_CHANGELOG_MAINTAIN; ?></h3>
 
         <a id="logview" class="button_link" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?') ?>plugin/changelog" title=""><span><?php echo PLUGIN_CHANGELOG_BUTTON; ?></span></a>
@@ -99,9 +99,18 @@ class serendipity_event_changelog extends serendipity_plugin
         <span id="logview_info" class="comment_status additional_info"><?php echo sprintf(PLUGIN_CHANGELOG_TITLE_DESC, $serendipity['version']); ?></span>
 <?php
                     if (is_object($serendipity['logger'])) {
+                        $files = glob($serendipity['serendipityPath'] . 'templates_c/logs/*.txt');
+                        $files = array_combine($files, array_map("filemtime", $files));
+                        array_pop($files);
+                        #if (!empty($files)) print_r(array_keys($files));
+                        $delOld = !empty($files) ? '<a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=deletelogs" title="' . PLUGIN_CHANGELOG_DELETEOLDLOGS .'"><span class="icon-trash"></span><span class="visuallyhidden">' . PLUGIN_CHANGELOG_DELETEOLDLOGS .'</span></a>' : '';
+                        if (!empty($files) && $serendipity['GET']['adminModule'] == 'maintenance' && $serendipity['GET']['adminAction'] == 'deletelogs' && serendipity_checkPermission('adminImagesDelete')) {
+                            @array_map('unlink', array_keys($files));
+                        }
 ?>
 
         <div class="serendipity_logger">
+        <?php echo $delOld; ?>
         <a id="logger" class="button_link" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?') ?>plugin/logs" title=""><span><?php echo PLUGIN_LOGGER_BUTTON; ?></span></a>
         <button class="toggle_info button_link" type="button" data-href="#logger_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button>
         <span id="logger_info" class="comment_status additional_info"><?php echo sprintf(PLUGIN_CHANGELOG_LOGGER_DESC, $serendipity['version']); ?></span>
