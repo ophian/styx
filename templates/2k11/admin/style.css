@@ -1728,6 +1728,10 @@ form > .button_link:first-of-type,
 #pluginlist_sidebar {
     margin-bottom: 3em;
 }
+/* remove min heights on empty sidebar blocks (+ overrule inline ) */
+#pluginlist_sidebar ol.equal_heights {
+    min-height: inherit !important;
+}
 
 #serendipity_comments_list .actions,
 .actions_extra {
@@ -3447,9 +3451,6 @@ img.mfp-img {
         clear: left;
     }
 
-    #pluginlist_sidebar .equal_heights {
-        min-height: inherit !important;
-    }
     #meta p {
         font-size: .875em;
         padding: .85715em;
