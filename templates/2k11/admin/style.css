@@ -686,6 +686,16 @@ input[type="submit"].state_cancel:visited {
     border-color: #b94a48 #893634 #582322;
 }
 
+.state_update,
+.state_update:visited,
+input[type="update"],
+button[type="update"] {
+    background: #FCF3F3;
+    background-image: -webkit-linear-gradient(#FCF3F3, #FFE18C);
+    background-image: linear-gradient(#FCF3F3, #FFE18C);
+    border-color: #D7A936 #CB6A6A #2F1820;
+}
+
 .button_link:hover,
 .tabs > ul a:hover,
 button:hover,
@@ -718,6 +728,15 @@ input[type="submit"].state_cancel:focus {
     background: #cc7a79;
     background-image: -webkit-linear-gradient(#cc7a79, #c26260 1px, #a2403e);
     background-image: linear-gradient(#cc7a79, #c26260 1px, #a2403e);
+}
+
+.state_update:hover,
+.state_update:focus,
+input[type="update"]:hover,
+button[type="update"]:focus {
+    background: #F8E97C;
+    background-image: -webkit-linear-gradient(#FCFBF7, #F8E97C 1px, #FF8E3B);
+    background-image: linear-gradient(#FCFBF7, #F8E97C 1PX, #FF8E3B);
 }
 
 .active,
