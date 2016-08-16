@@ -1123,6 +1123,10 @@ button[type="submit"].publish_now,
     color: #222;
     text-decoration: none;
 }
+a.state_update:hover,
+a.state_update:focus {
+    color: #2A41A5;
+}
 
 .button_link > span:before {
     margin-right: 0;
