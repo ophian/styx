@@ -323,6 +323,7 @@ if (is_array($sql)) {
             'entry_url' => serendipity_archiveURL($rs['entry_id'], $rs['title']),
             'email'     => $rs['email'],
             'author'    => (empty($rs['author']) ? ANONYMOUS : $rs['author']),
+            'is_owner'  => ($rs['email'] === $serendipity['email'] && $rs['author'] === $serendipity['realname']),
             'entry_id'  => $rs['entry_id'],
             'subscribed'=> $rs['subscribed']
         );
