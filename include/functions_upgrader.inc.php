@@ -206,7 +206,10 @@ $dead_files_202 = array(
     'docs/INSTALL_SHARED',
     'docs/UPGRADE',
     'docs/upgrade.sh',
+    'htmlarea/autoload.php',
     'htmlarea/ckeditor/ckeditor/build-config.js',
+    'htmlarea/composer.json',
+    'htmlarea/composer.lock',
     'plugins/serendipity_event_gravatar/ycon/UTF-8/lang_pl.inc.php',
     'plugins/serendipity_event_gravatar/UTF-8/documentation_cz.html',
     'plugins/serendipity_event_gravatar/UTF-8/documentation_cs.html',
@@ -217,9 +220,11 @@ $dead_files_202 = array(
     'templates/Sagittarius-A/admin/media_showitem.tpl'
 );
 
-/* A list of old directories which were removed with 2.1.0 */
+/* A list of old non-empty directories which were removed with 2.1.0 */
 $dead_dirs_202 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/Text',
+    $serendipity['serendipityPath'] . 'htmlarea/ckeditor/ckeditor',
+    $serendipity['serendipityPath'] . 'htmlarea/composer',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_gravatar/ycon/UTF-8'
 );
 
