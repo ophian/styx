@@ -3,7 +3,7 @@
 {if $wysiwygToolbar != 'CKE'}
 <link rel="stylesheet" href="{$serendipityHTTPPath}htmlarea/s9y_cketoolbar.css">
 {/if}
-<script src="{$serendipityHTTPPath}htmlarea/ckeditor/ckeditor/ckeditor.js"></script>
+<script src="{$serendipityHTTPPath}htmlarea/ckeditor/ckeditor.js"></script>
 <script src="{$wysiwyg_customPlugin}"></script>
 
 {/if}
