@@ -1,6 +1,9 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Removed composer for ckeditor, since being a library which requires
+    maintaining. This moved the whole library path one directory up.
+
   * While developing Serendipity Styx Edition, some minor UI styling
     enhancements in the backend all over have been added or changed.
 
