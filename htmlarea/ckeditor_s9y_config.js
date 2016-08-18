@@ -1,6 +1,6 @@
 /**
  * @fileOverview The Serendipity CKEDITOR custom config file:
- *               ckeditor_s9y_config.js, v. 1.16, last modified 2016-07-31 by Ian
+ *               ckeditor_s9y_config.js, v. 1.17, last modified 2016-08-18 by Ian
  */
 
 /**
@@ -344,7 +344,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     /** SECTION: Howto add Custom Plugins into toolbars
         1. Adding additional CKEDITOR Plugins to the config
-           Download the Plugin, check version matching to this ckeditor version and drop the plugin to /htmlarea/ckeditor/ckeditor/plugins.
+           Download the Plugin, check version matching to this ckeditor version and drop the plugin to /htmlarea/ckeditor/plugins.
            Copy the directories plugin name, eg 'mediaembed'.
            Copy the file htmlarea/ckeditor_s9y_plugin.js to either /templates/2k11/admin, or to your template in /templates/xxx/admin and rename it to ckeditor_custom_plugin.js.
            Add the plugin name to the "extraPlugins" string.
