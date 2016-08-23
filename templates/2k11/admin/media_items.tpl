@@ -109,7 +109,7 @@
                         </footer>
                     </div>
                 </div>
-            {if $media.manage || {serendipity_getConfigVar key='showMediaToolbar'}}
+            {if (($media.manage || {serendipity_getConfigVar key='showMediaToolbar'}) && $media.metaActionBar)}
 
                 <ul class="media_file_actions actions plainList clearfix">
                     <li><a class="media_show_info button_link" href="#media_file_meta_{$file.id}" title="{$CONST.SHOW_METADATA}"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.SHOW_METADATA}</span></a></li>

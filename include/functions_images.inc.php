@@ -2951,6 +2951,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'filter'            => $serendipity['GET']['filter'],
         'sort_order'        => $order_fields,
         'simpleFilters'     => $serendipity['simpleFilters'],
+        'metaActionBar'     => ($serendipity['GET']['adminAction'] != 'properties' && empty($serendipity['GET']['fid'])),
         'hideSubdirFiles'   => empty($serendipity['GET']['hideSubdirFiles']) ? 'yes' : $serendipity['GET']['hideSubdirFiles'],
         'authors'           => serendipity_fetchUsers(),
         'sort_row_interval' => array(8, 16, 50, 100),
