@@ -68,10 +68,11 @@ function serveComments() {
     global $serendipity;
     $serendipity['view'] = 'comments';
     $uri = $_SERVER['REQUEST_URI'];
-    $_args = serendipity_getUriArguments($uri, true); // Need to also match "." character
+    $args = serendipity_getUriArguments($uri, true); // Need to also match "." character
     $timedesc = array();
 
     /* Attempt to locate hidden variables within the URI */
+    $_args = locateHiddenVariables($args);
     foreach ($_args AS $k => $v){
         if ($v == PATH_COMMENTS) {
             continue;

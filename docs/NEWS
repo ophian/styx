@@ -1,6 +1,11 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fixed routing refactoring for uri argument checks on comments page
+    pagings, and multiple others before, like multiauth and multicat,
+    week and archive path, or categories rss match and lots of older
+    uri fixes.
+
   * Re-integration of two very unique themes, which are default-php and
     default-xml. Both were reworked for Serendipity 2.1 Sty Edition and
     particularly in case of the PHP theme heftily extended with all kind
