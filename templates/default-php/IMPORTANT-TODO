@@ -3,17 +3,79 @@ CONVERTED FILES:
 100% index.tpl
 100% content.tpl
 100% entries.tpl
-100% plugin_calendar.tpl
+100% entries_summary.tpl
+100% entries_archives.tpl
 100% sidebar.tpl
+100% comments.tpl
+100% commentpopup.tpl
+100% commentform.tpl
+100% preview_iframe.tpl
+100% trackbacks.tpl
+100% media_showitem.tpl
+100% all feed*.tpl
+
+100% plugin_calendar.tpl
+100% plugin_categories.tpl
+100% plugin_commentsearch_searchresults.tpl
+100% plugin_staticblock.tpl
+100% plugin_linktrimmer.tpl
+100% all contactform plugin template files
+100% all staticpages plugin template files
+100% all guestbook plugin template files
+100% all downloadmanager plugin template files
+100% all amazonchooser plugin template files
 
 UNFINISHED:
 
-plugin_categories.tpl
-preview_iframe.tpl
-entries_summary.tpl
-entries_archives.tpl
-comments.tpl
-commentpopup.tpl
-commentform.tpl
-trackbacks.tpl
-feed*.tpl
+...various other plugin tpl files that may reside in a theme,
+or in special cases are used in the backend for popups or includes
+(eg. see for linktrimmer, or amazonchooser template files, or the
+special admin/serendipity_editor.js(.php) template file, which
+are already done).
+
+
+ADDITIONAL NOTE:
+
+ All variables that are assigned to your templates/.php files
+ will be put into $GLOBALS['tpl'].
+
+ Since the scope of includes can vary, you'll need to use $GLOBALS['tpl'] instead
+ of just $tpl in some cases. Thus it's recommended to always use the $GLOBALS['tpl']
+ way. Also it's safer to use $GLOBALS['serendipity'] / $GLOBALS['template'] in most
+ cases because of the same reason.
+
+ Instead of Smarty $CONST.XXX constants you can use the usual 'XXX' constant access
+ method by PHP, eg <?= XXX ?>.
+
+ You can use any Smarty template file to construct your custom PHP template. You
+ just need to do this:
+
+  - Replace '{$variable}' calls with '<?= $GLOBALS['tpl']['variable'] ?>'.
+
+  - Replace '{$variable|XXX}' smarty modifiers with corresponding PHP code, like:
+    '<?= substr($GLOBALS['tpl']['XXX'], 0, 25) ?>'
+     would correspond with
+    '{$variable|truncate:'...':25}'
+
+  - Replace '{if CONDITION} ... {/if}' checks with '<?php if (CONDITION): ?> ... <?php endif; ?>'
+
+  - Replace '{foreach} ... {/foreach}' calls correspondingly.
+
+  - Replace '{smartycommand param1=x param2=x}' function calls with
+    '<?php $GLOBALS['template']->call('smartycommand', array('param1' => 'x', 'param2' => 'x')); ?>' ones
+
+  - Replace '{serendipity_hookPlugin ... }' calls for a single-entry-id with
+    <?php serendipity_plugin_api::hook_event('frontend_comment', $GLOBALS['tpl']['single-entry-id']); ?>
+    and globally eg {serendipity_hookPlugin hook="frontend_header"} for the template like
+    <?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template']) ?>.
+
+  - Replace '{serendipity_getFile file="img/foo.png"}' calls with
+    <?php echo serendipity_getTemplateFile('img/foo.png'); ?> or <?= serendipity_getTemplateFile('img/foo.png'); ?>
+
+  - NOTA BENE: Be aware that many smarty function calls are just wrappers to Serendipity API
+    calls. To save grandma's performance pennies you should search the original Serendipity API
+    function before calling them with the $GLOBALS['template']->call() wrapper! This costs dearly.
+
+ The Serendipity Admin backend will still make use of Smarty. It rocks.
+
+ Know your PHP before you think about using this. :-)
