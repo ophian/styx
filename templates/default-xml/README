@@ -1,2 +1,2 @@
-This template is experimental and more of a "proof of concept". It needs adapting to Serendipity 2.x if needed,
-several simple methods like getConfigDir() need to be added to the template API include file.
+This template is experimental and more of a "proof of concept".
+It has some minor limitations in the Backend including some minor plugins for popup, though it does work with some well known plugin apps.

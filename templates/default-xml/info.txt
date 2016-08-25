@@ -1,4 +1,7 @@
 Name: XML Engine (Dev)
-Author: Garvin Hicking
-Date: 06.06.2006
-Require Serendipity: 1.1
+Author: Garvin Hicking, Ian
+Date: 2016-08-24
+Require Serendipity: 2.0.99
+Summary: Raw XML output XML-Template theme for the Serendipity Styx Blog system
+Description: Simple theme from 2006, newly refurbished to work with Serendipity Styx Edition. This theme outputs raw XML on the frontside, to make the content readable by XML-Readers.
+It does still effect some minor plugin integrations on the backend side, like linktrimmer or amazonchooser, and is more or less meant to be used in a non-too-much-extended core release blog, though it does works with some well known plugin apps, like staticpages, freetags etc.
