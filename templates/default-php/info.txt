@@ -1,4 +1,7 @@
-Name: PHP Engine (Experimental)
-Author: Garvin Hicking
-Date: 06.06.2006
-Require Serendipity: 1.1
+Name: PHP Engine (Dev)
+Author: Garvin Hicking, Ian
+Date: 2016-08-23
+Require Serendipity: 2.0.99
+Summary: Default PHP-Template Responsive HTML5 Theme for the Serendipity Styx Blog system
+Description: Simple theme based on the old default theme from 2006, newly refurbished to work with Serendipity Styx Edition. May still miss some template files converted to PHP.
+Read the themes IMPORTANT-TODO file for more.
