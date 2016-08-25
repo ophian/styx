@@ -1277,7 +1277,7 @@ function serendipity_initLog() {
         } else {
             $log_level = Psr\Log\LogLevel::ERROR;
         }
-        $serendipity['logger'] = new Katzgrau\KLogger\Logger($serendipity['serendipityPath'] . '/templates_c/logs', $log_level);
+        $serendipity['logger'] = new Katzgrau\KLogger\Logger($serendipity['serendipityPath'] . 'templates_c/logs', $log_level);
     }
 }
 
