@@ -1,2 +1,0 @@
-This template is experimental and more of a "proof of concept". It needs adapting to Serendipity 2.x if needed,
-several simple methods like getConfigDir() need to be added to the template API include file.
