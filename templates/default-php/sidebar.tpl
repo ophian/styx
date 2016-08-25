@@ -3,7 +3,7 @@
 <?php endif; ?>
 <?php foreach($GLOBALS['tpl']['plugindata'] AS $item): ?>
     <div class="serendipitySideBarItem container_<?= $item['class'] ?>">
-        <?php if ($item.title != ''): ?><h3 class="serendipitySideBarTitle <?= $item['class'] ?>"><?= $item['title'] ?></h3><?php endif; ?>
+        <?php if ($item['title'] != ''): ?><h3 class="serendipitySideBarTitle <?= $item['class'] ?>"><?= $item['title'] ?></h3><?php endif; ?>
         <div class="serendipitySideBarContent"><?= $item['content'] ?></div>
     </div>
 <?php endforeach; ?>

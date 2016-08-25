@@ -28,16 +28,16 @@
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment"><?= COMMENT ?></label></td>
             <td class="serendipity_commentsValue">
                 <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"><?= $GLOBALS['tpl']['commentform_data'] ?></textarea><br />
-                {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
+                <?php serendipity_plugin_api::hook_event('frontend_comment', $GLOBALS['tpl']['commentform_entry']); ?>
             </td>
         </tr>
 
-{if $is_commentform_showToolbar}
+<?php if ($GLOBALS['tpl']['is_commentform_showToolbar']): ?>
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
                 <input id="checkbox_remember" type="checkbox" name="serendipity[remember]" <?= $GLOBALS['tpl']['commentform_remember'] ?> /><label for="checkbox_remember"><?= REMEMBER_INFO ?></label>
-    {if $is_allowSubscriptions}
+    <?php if ($GLOBALS['tpl']['is_allowSubscriptions']): ?>
                 <br />
                 <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]" <?= $GLOBALS['tpl']['commentform_subscribe'] ?> /><label for="checkbox_subscribe"><?= SUBSCRIBE_TO_THIS_ENTRY ?></label>
     <?php endif; ?>
@@ -45,7 +45,7 @@
        </tr>
 <?php endif; ?>
 
-{if $is_moderate_comments}
+<?php if ($GLOBALS['tpl']['is_moderate_comments']): ?>
        <tr>
             <td class="serendipity_commentsValue serendipity_msg_important" colspan="2"><?= COMMENTS_WILL_BE_MODERATED ?></td>
        </tr>

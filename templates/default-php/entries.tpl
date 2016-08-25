@@ -1,11 +1,8 @@
 <!-- ENTRIES START -->
     <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl']['entry_id']); ?>
-
-    <?php if (count($GLOBALS['tpl']['entries']) < 1): ?>
-        <?= NO_ENTRIES_TO_PRINT ?>
-    <?php endif; ?>
-
-    <?php foreach($GLOBALS['tpl']['entries'] AS $dategroup): ?>
+<?php /* NOTE: in case of staticpages it needs to check is_array() or cast foreach($GLOBALS as (array) */ ?>
+    <?php if (is_array($GLOBALS['tpl']['entries'])):
+    foreach($GLOBALS['tpl']['entries'] AS $dategroup): ?>
     <div class="serendipity_Entry_Date">
         <?php if ($dategroup['is_sticky']): ?>
         <h3 class="serendipity_date"><?= STICKY_POSTINGS ?></h3>
@@ -20,8 +17,8 @@
             <?php if ($entry['categories']): ?>
             <span class="serendipity_entryIcon">
             <?php foreach($entry['categories'] AS $entry_category): ?>
-                <?php if ($entry_category.category_icon): ?>
-                    <a href="<?= $entry_category['category_link'] ?>"><img class="serendipity_entryIcon" title="<?= htmlspecialchars($entry_category['category_name']) ?> <?= $entry_category['category_description'] ?>" alt="<?= htmlspecialchars($entry_category['category_name']) ?>" src="<?= $entry_category['category_icon'] ?>" /></a>
+                <?php if ($entry_category['category_icon']): ?>
+                    <a href="<?= $entry_category['category_link'] ?>"><img class="serendipity_entryIcon" title="<?= serendipity_specialchars($entry_category['category_name']) ?> <?= $entry_category['category_description'] ?>" alt="<?= serendipity_specialchars($entry_category['category_name']) ?>" src="<?= $entry_category['category_icon'] ?>" /></a>
                 <?php endif; ?>
             <?php endforeach; ?>
             </span>
@@ -39,10 +36,10 @@
             <br /><a href="<?= $entry['link'] ?>#extended"><?php printf(VIEW_EXTENDED_ENTRY, $entry['title']) ?></a><br /><br />
             <?php endif; ?>
 
-            <div class='serendipity_entryFooter'>
+            <div class="serendipity_entryFooter">
                 <?= POSTED_BY ?> <a href="<?= $entry['link_author'] ?>"><?= $entry['author'] ?></a>
                 <?php if ($entry['categories']): ?>
-                   <?= IN ?> <?php foreach($entry['categories'] AS $entry_category): ?><a href="<?= $entry_category['category_link'] ?>"><?= htmlspecialchars($entry_category['category_name']); ?></a>, <?php endforeach; ?>
+                   <?= IN ?> <?php foreach($entry['categories'] AS $entry_category): ?><a href="<?= $entry_category['category_link'] ?>"><?= serendipity_specialchars($entry_category['category_name']); ?></a>, <?php endforeach; ?>
                 <?php endif; ?>
 
                 <?php if ($dategroup['is_sticky']): ?>
@@ -88,24 +85,24 @@
         <?= $entry['plugin_display_dat'] ?>
 
         <?php if ($GLOBALS['tpl']['is_single_entry'] AND !$GLOBALS['tpl']['use_popups'] AND !$GLOBALS['tpl']['is_preview']): ?>
-            <?php if (defined('DATA_UNSUBSCRIBED')): ?>
-                <br /><div class="serendipity_center serendipity_msg_notice"><? printf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br />
+            <?php if (defined(DATA_UNSUBSCRIBED)): ?>
+                <br /><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br />
             <?php endif; ?>
 
-            <?php if (defined('DATA_TRACKBACK_DELETED')): ?>
-                <br /><div class="serendipity_center serendipity_msg_notice"><? printf(DATA_TRACKBACK_DELETED, TRACKBACK_DELETED) ?></div><br />
+            <?php if (defined(DATA_TRACKBACK_DELETED)): ?>
+                <br /><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_TRACKBACK_DELETED, TRACKBACK_DELETED) ?></div><br />
             <?php endif; ?>
 
-            <?php if (defined('DATA_TRACKBACK_APPROVED')): ?>
-                <br /><div class="serendipity_center serendipity_msg_notice"><? printf(DATA_TRACKBACK_APPROVED, TRACKBACK_APPROVED) ?></div><br />
+            <?php if (defined(DATA_TRACKBACK_APPROVED)): ?>
+                <br /><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_TRACKBACK_APPROVED, TRACKBACK_APPROVED) ?></div><br />
             <?php endif; ?>
 
-            <?php if (defined('DATA_COMMENT_DELETED')): ?>
-                <br /><div class="serendipity_center serendipity_msg_notice"><? printf(DATA_COMMENT_DELETED, COMMENT_DELETED) ?></div><br />
+            <?php if (defined(DATA_COMMENT_DELETED)): ?>
+                <br /><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_COMMENT_DELETED, COMMENT_DELETED) ?></div><br />
             <?php endif; ?>
 
-            <?php if (defined('DATA_COMMENT_APPROVED')): ?>
-                <br /><div class="serendipity_center serendipity_msg_notice"><? printf(DATA_COMMENT_APPROVED, COMMENT_APPROVED) ?></div><br />
+            <?php if (defined(DATA_COMMENT_APPROVED)): ?>
+                <br /><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_COMMENT_APPROVED, COMMENT_APPROVED) ?></div><br />
             <?php endif; ?>
 
             <div class="serendipity_comments serendipity_section_trackbacks">
@@ -113,14 +110,14 @@
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle"><?= TRACKBACKS ?></div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="<?= $entry['link_trackback'] ?>" onclick="alert('<?= htmlspecialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?>'); return false;" title="<?= htmlspecialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?>"><?= TRACKBACK_SPECIFIC; ?></a>
+                        <a rel="nofollow" style="font-weight: normal" href="<?= $entry['link_trackback'] ?>" onclick="alert('<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?>'); return false;" title="<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?>"><?= TRACKBACK_SPECIFIC; ?></a>
                     </div>
                     <br />
                         <?php echo serendipity_printTrackbacks(serendipity_fetchTrackbacks($entry['id'])) ?>
             </div>
         <?php endif; ?>
 
-        <?php if ($GLOBALS['tpl']['is_single_entry'] AND !$GLOBALS['tpl']['is_preview']): ?>
+        <?php if ($GLOBALS['tpl']['is_single_entry'] && !$GLOBALS['tpl']['is_preview']): ?>
             <div class="serendipity_comments serendipity_section_comments">
                 <br />
                 <a id="comments"></a>
@@ -133,7 +130,7 @@
                 <?php endif; ?>
                 </div>
                 <br />
-                    <?php $GLOBALS['template']->call('printComments', array('entry' => $entry['id'], 'mode' => $entry['viewmode'])); ?>
+                    <?= $GLOBALS['template']->call('printComments', array('entry' => $entry['id'], 'mode' => $entry['viewmode'])); ?>
 
                 <?php if ($entry['is_entry_owner']): ?>
                     <?php if ($entry['allow_comments']): ?>
@@ -144,9 +141,11 @@
                 <?php endif; ?>
                 <a id="feedback"></a>
 
+                <?php if ( !empty($GLOBALS['tpl']['comments_messagestack'])): ?>
                 <?php foreach($GLOBALS['tpl']['comments_messagestack'] AS $message): ?>
                 <div class="serendipity_center serendipity_msg_important"><?= $GLOBALS['tpl']['message'] ?></div>
                 <?php endforeach; ?>
+                <?php endif; ?>
 
                 <?php if ($GLOBALS['tpl']['is_comment_added']): ?>
 
@@ -158,7 +157,7 @@
                 <br />
                 <div class="serendipity_center serendipity_msg_notice"><?= COMMENT_ADDED; ?><br /><?= THIS_COMMENT_NEEDS_REVIEW ?></div>
 
-                <?php elseif ($entry['allow_comments']): ?>
+                <?php elseif (!$entry['allow_comments']): ?>
 
                 <br />
                 <div class="serendipity_center serendipity_msg_important"><?= COMMENTS_CLOSED; ?></div>
@@ -179,8 +178,15 @@
         <?php endforeach; ?>
     </div>
     <?php endforeach; ?>
+    <?php endif; ?>
 
-    <div class='serendipity_entryFooter' style="text-align: center">
+    <?php if ((count($GLOBALS['tpl']['entries']) < 1) && !$GLOBALS['tpl']['plugin_clean_page']): ?>
+    <div class="serendipity_overview_noentries">
+        <?= NO_ENTRIES_TO_PRINT ?>
+    </div>
+    <?php endif; ?>
+
+    <div class="serendipity_entryFooter" style="text-align: center">
     <?php if ($GLOBALS['tpl']['footer_prev_page']): ?>
         <a href="<?= $GLOBALS['tpl']['footer_prev_page'] ?>">&laquo; <?= PREVIOUS_PAGE; ?></a>&#160;&#160;
     <?php endif; ?>

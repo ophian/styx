@@ -1,5 +1,6 @@
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
-<html>
+<!doctype html>
+<html lang="<?= $GLOBALS['tpl']['lang'] ?>">
 <head>
     <title><?= $GLOBALS['template']->getdefault('head_title', 'blogTitle'); ?> - <?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset']; ?>" />
@@ -45,4 +46,3 @@
 </body>
 </html>
 <?php endif; ?>
-
