@@ -1,6 +1,26 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Re-integration of two very unique themes, which are default-php and
+    default-xml. Both were reworked for Serendipity 2.1 Sty Edition and
+    particularly in case of the PHP theme heftily extended with all kind
+    of other template files. Both themes use the core included
+    include/template_api.inc.php file as an emulator class for the still
+    overall used Smarty engine. The XML theme is meant for Blog output as
+    XML for XML-Readers. The PHP theme is meant for all Blog Administrators
+    to use an (Smarty independent) PHP theme only.
+    The theme preview files just advert to the fallback usage binding of
+    the default theme stylesheet style.css file. In case of the PHP theme,
+    you may just want to create your own. The PHP theme may also still
+    miss some plugin template files and the XML theme may still have some
+    minor isues in the backend.
+    You are very welcome to help making this more bulletproof!
+
+  * Fixed an old issue with the default fallback template not reading the
+    full serendipity_editor.js.tpl file. An already parsed fallback was
+    added and updated, as well as a php parsable file, which is only used
+    by the XML theme.
+
   * Removed composer for ckeditor, since being a library which requires
     maintaining. This moved the whole library path one directory up.
 
