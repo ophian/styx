@@ -1,6 +1,40 @@
 <?php
-# Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
-# All rights reserved.  See LICENSE file for licensing details
+/**
+ * PLEASE NOTE:
+ *  Since PHP5 it's no longer required to pass objects as reference. References should be removed from Smarty 2 plugins, filter etc.
+ *  Starting with Smarty 3.1.28 we can register closures as filter. For that reason the filter functions are now called as callback
+ *  with call_user_func() which does not pass the reference.
+ *  Smarty 3 does pass the template object instead of the Smarty object to plugins and filter.
+ *
+ *  It was originally not intended by Smarty, that you can call fetch() and display() on a template object with parameters to get output from another template.
+ *  The correct code of your function should then be in this case:
+ *      function smarty_function_test($params, Smarty_Internal_Template $template)
+ *      {
+ *          return $template->smarty->fetch('string:testing');
+ *      }
+ *
+ *  You may use the template object, eg by assign to a current template:
+ *      $template->assign($params['bar'], $foo);
+ *  OR by assign to a parent template (or the smarty instance):
+ *      $template->parent->assign($params['bar'], $foo);
+ *  OR by assign to the smarty instance:
+ *      $template->smarty->assign($params['bar'], $foo);
+ *  OR to load a smarty plugin depended functionality
+ *      $template->smarty->loadPlugin('another_smarty_plugin_dependency');
+ *
+ *  As a general rule, the currently evaluated template instanceOf Smarty_Internal_Template object is always passed to the plugins as the last parameter with two exceptions:
+ *      - modifiers do not get passed the Smarty_Internal_Template object at all
+ *      - blocks get passed $repeat after the Smarty_Internal_Template object, to keep backwards compatibility to older versions of Smarty.
+ *
+ *  ATTENTION: Since having reworked the default-php and default-xml theme this type declaration (Smarty_Internal_Template) of the $template object
+ *             has here been removed from all functions that do not need it. You would otherwise need to clone them to the template_api.inc.php file
+ *             without the Smarty_Internal_Template type declaration. There are two very special cased functions left:
+ *             serendipity_smarty_showCommentForm() and serendipity_smarty_getImageSize(), which both don't need to be used or have better origin methods.
+ *
+ *  Plugin functions naming convention is smarty_type_name() and plugin files must be named as follows: type.name.php.
+ *  Where type is one of these plugin types: function, modifier, block, compiler, prefilter, postfilter, outputfilter, resource, insert.
+ *
+ */
 
 if (IN_serendipity !== true) {
     die ("Don't hack!");
@@ -171,7 +205,7 @@ function serendipity_ifRemember($name, $value, $isDefault = false, $att = 'check
  * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
  */
-function serendipity_smarty_fetchPrintEntries($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_fetchPrintEntries($params, $template) {
     global $serendipity;
     static $entrycount = 0;
     static $restore_var_GET_keys = array('category', 'viewAuthor', 'page', 'hide_category');
@@ -460,7 +494,7 @@ function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $t
  * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
  */
-function serendipity_smarty_showPlugin($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_showPlugin($params, $template) {
     global $serendipity;
 
     if (empty($params['class']) && empty($params['id'])) {
@@ -503,7 +537,7 @@ function serendipity_smarty_showPlugin($params, Smarty_Internal_Template $templa
  * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
  */
-function serendipity_smarty_getTotalCount($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_getTotalCount($params, $template) {
     if (empty($params['what'])) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'what' parameter", E_USER_WARNING);
         return;
@@ -528,7 +562,7 @@ function serendipity_smarty_getTotalCount($params, Smarty_Internal_Template $tem
  * @param   object      Smarty template object
  * @return null
  */
-function serendipity_smarty_hookPlugin($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_hookPlugin($params, $template) {
     global $serendipity;
     static $hookable = array('frontend_header',
                              'entries_header',
@@ -617,7 +651,7 @@ function serendipity_smarty_refhookPlugin(&$eventData, $hook, $addData = null) {
  * @param   object      Smarty template object
  * @return string       The HTML code of a plugin's output
  */
-function serendipity_smarty_printSidebar($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_printSidebar($params, $template) {
     if ( empty($params['side']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'side' parameter", E_USER_WARNING);
         return;
@@ -639,7 +673,7 @@ function serendipity_smarty_printSidebar($params, Smarty_Internal_Template $temp
  * @param   object      Smarty template object
  * @return  string      The requested filename with full path
  */
-function serendipity_smarty_getFile($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_getFile($params, $template) {
     if ( empty($params['file']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'file' parameter", E_USER_WARNING);
         return;
@@ -656,7 +690,7 @@ function serendipity_smarty_getFile($params, Smarty_Internal_Template $template)
  * @param   object      Smarty template object
  * @return  string      The requested configutation value
  */
-function serendipity_smarty_getConfigVar($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_getConfigVar($params, $template) {
     if ( empty($params['key']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'key' parameter", E_USER_WARNING);
         return;
@@ -673,7 +707,7 @@ function serendipity_smarty_getConfigVar($params, Smarty_Internal_Template $temp
  * @param   object      Smarty template object
  * @return  string      The requested valid form token
  */
-function serendipity_smarty_setFormToken($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_setFormToken($params, $template) {
     if ( !empty($params['type']) ) {
         return serendipity_setFormToken($params['type']);
     }
@@ -692,7 +726,7 @@ function serendipity_smarty_setFormToken($params, Smarty_Internal_Template $temp
  * @param   object      Smarty template object
  * @return  string      The requested filename with full path
  */
-function serendipity_smarty_pickKey($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_pickKey($params, $template) {
     if ( empty($params['array']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'array' parameter", E_USER_WARNING);
         return;
@@ -717,7 +751,7 @@ function serendipity_smarty_pickKey($params, Smarty_Internal_Template $template)
  * @param   object      Smarty template object
  * @return string       The permalink
  */
-function serendipity_smarty_rss_getguid($params, Smarty_Internal_Template $template) {
+function serendipity_smarty_rss_getguid($params, $template) {
     if ( empty($params['entry']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'entry' parameter", E_USER_WARNING);
         return;
@@ -763,7 +797,7 @@ function serendipity_smarty_formatTime($timestamp, $format, $useOffset = true, $
  * @param   object      Smarty template object
  * @return  string      The HTML code with the comments
  */
-function &serendipity_smarty_printComments($params, Smarty_Internal_Template $template) {
+function &serendipity_smarty_printComments($params, $template) {
     global $serendipity;
 
     if (empty($params['entry'])) {
@@ -822,7 +856,7 @@ function &serendipity_smarty_printComments($params, Smarty_Internal_Template $te
  * @param   object      Smarty template object
  * @return
  */
-function &serendipity_smarty_printTrackbacks($params, Smarty_Internal_Template $template) {
+function &serendipity_smarty_printTrackbacks($params, $template) {
     if ( empty($params['entry']) ) {
         trigger_error("Smarty Error: " . __FUNCTION__ .": missing 'entry' parameter", E_USER_WARNING);
         return;
@@ -894,42 +928,12 @@ function serendipity_smarty_getImageSize($params, Smarty_Internal_Template $temp
 /**
  * Smarty Prefilter: Replace constants to direct $smarty.const. access
  *
- * PLEASE NOTE:
- *  Since PHP5 it's no longer required to pass objects as reference. References should be removed from Smarty 2 plugins, filter etc.
- *  Starting with Smarty 3.1.28 we can register closures as filter. For that reason the filter functions are now called as callback
- *  with call_user_func() which does not pass the reference.
- *  Smarty 3 does pass the template object instead of the Smarty object to plugins and filter.
- *
- *  It was originally not intended by Smarty, that you can call fetch() and display() on a template object with parameters to get output from another template.
- *  The correct code of your function should then be in this case:
- *      function smarty_function_test($params, Smarty_Internal_Template $template)
- *      {
- *          return $template->smarty->fetch('string:testing');
- *      }
- *
- *  You may use the template object, eg by assign to a current template:
- *      $template->assign($params['bar'], $foo);
- *  OR by assign to a parent template (or the smarty instance):
- *      $template->parent->assign($params['bar'], $foo);
- *  OR by assign to the smarty instance:
- *      $template->smarty->assign($params['bar'], $foo);
- *  OR to load a smarty plugin depended functionality
- *      $template->smarty->loadPlugin('another_smarty_plugin_dependency');
- *
- *  As a general rule, the currently evaluated template's Smarty_Internal_Template object is always passed to the plugins as the last parameter with two exceptions:
- *      - modifiers do not get passed the Smarty_Internal_Template object at all
- *      - blocks get passed $repeat after the Smarty_Internal_Template object, to keep backwards compatibility to older versions of Smarty.
- *
- *  Plugin functions naming convention is smarty_type_name() and plugin files must be named as follows: type.name.php.
- *  Where type is one of these plugin types: function, modifier, block, compiler, prefilter, postfilter, outputfilter, resource, insert.
- *
- *
  * @access public
  * @param   string  Template source content
  * @param   object  Smarty template object
  * @return
  */
-function serendipity_replaceSmartyVars($source, Smarty_Internal_Template $template) {
+function serendipity_replaceSmartyVars($source, $template) {
      return str_replace('$CONST.', '$smarty.const.', $source);
 }
 
@@ -1275,9 +1279,11 @@ function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = nu
         serendipity_smarty_init();
     }
 
-    $serendipity['smarty']->assign($data);
+    if ($data !== null) $serendipity['smarty']->assign($data);
 
-    $tfile = ($tplfile == 'preview_iframe.tpl') ? serendipity_getTemplateFile($tplfile, 'serendipityPath', true) : serendipity_getTemplateFile($tplfile, 'serendipityPath');
+    $tfile = ($tplfile == 'preview_iframe.tpl')
+                ? serendipity_getTemplateFile($tplfile, 'serendipityPath', true)
+                : serendipity_getTemplateFile($tplfile, 'serendipityPath');
 
     if ($debug !== null) {
         if ($debugtype == "HTML") {
