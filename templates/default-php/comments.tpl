@@ -34,6 +34,7 @@
         </div>
     </div>
     <?php $i++; ?>
-<?php foreachelse: ?>
-    <div class="serendipity_center nocomments"><?= NO_COMMENTS ?></div>
 <?php endforeach; ?>
+<?php if (empty($GLOBALS['tpl']['comments'])): ?>
+    <div class="serendipity_center nocomments"><?= NO_COMMENTS ?></div>
+<?php endif; ?>

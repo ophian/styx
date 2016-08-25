@@ -14,7 +14,8 @@ foreach($GLOBALS['tpl']['trackbacks'] AS $trackback): ?>
         <?php endif; ?>
         </div>
     </div>
-<?php foreachelse: ?>
-    <div class="serendipity_center"><?= NO_TRACKBACKS ?></div>
 <?php endforeach; ?>
+<?php endif; ?>
+<?php if (empty($GLOBALS['tpl']['trackbacks'])): ?>
+    <div class="serendipity_center"><?= NO_TRACKBACKS ?></div>
 <?php endif; ?>
