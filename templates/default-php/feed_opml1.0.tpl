@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<opml version="{$metadata.version}" {$namespace_display_dat}>
+<opml version="<?= $GLOBALS['tpl']['metadata']['version'] ?>" <?= $GLOBALS['tpl']['namespace_display_dat'] ?>>
 <head>
-    <title>{$metadata.title}</title>
-    <dateModified>{$last_modified}</dateModified>
-    <ownerName>Serendipity {$serendipityVersion} - http://www.s9y.org/</ownerName>
+    <title><?= $GLOBALS['tpl']['metadata']['title'] ?></title>
+    <dateModified><?= $GLOBALS['tpl']['last_modified'] ?></dateModified>
+    <ownerName>Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - http://www.s9y.org/</ownerName>
 </head>
 <body>
 
-{foreach from=$entries item="entry"}
-    <outline text="{$entry.feed_title}" type="url" htmlUrl="{$entry.feed_entryLink}" urlHTTP="{$entry.feed_entryLink}" />
-{/foreach}
+<?php foreach ($GLOBALS['tpl']['entries'] AS $entry): ?>
+    <outline text="<?= $entry['feed_title'] ?>" type="url" htmlUrl="<?= $entry['feed_entryLink'] ?>" urlHTTP="<?= $entry['feed_entryLink'] ?>" />
+<?php foreachend; ?>
 
 </body>
 </opml>

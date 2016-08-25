@@ -13,17 +13,17 @@
     <link><?= $GLOBALS['tpl']['metadata']['link'] ?></link>
     <description><?= $GLOBALS['tpl']['metadata']['description'] ?></description>
     <dc:language><?= $GLOBALS['tpl']['metadata']['language'] ?></dc:language>
-{if $metadata.showMail}
+<?php if ($metadata['showMail']): ?>
     <admin:errorReportsTo rdf:resource="mailto:<?= $GLOBALS['tpl']['metadata']['email'] ?>" />
-{/if}
+<?php endif; ?>
 
     <?= $GLOBALS['tpl']['metadata']['additional_fields']['image_rss10_channel'] ?>
 
     <items>
       <rdf:Seq>
-{foreach from=$entries item="entry"}
-        <rdf:li resource="{serendipity_rss_getguid entry=$entry is_comments=$is_comments}" />
-{/foreach}
+<?php foreach ($GLOBALS['tpl']['entries'] AS $entry): ?>
+        <rdf:li resource="{serendipity_rss_getguid entry=$entry is_comments=$is_comments ?>" />
+<?php foreachend; ?>
       </rdf:Seq>
     </items>
 </channel>
@@ -31,29 +31,29 @@
 <?= $GLOBALS['tpl']['metadata']['additional_fields']['image_rss10_rdf'] ?>
 <?= $GLOBALS['tpl']['once_display_dat'] ?>
 
-{foreach from=$entries item="entry"}
+<?php foreach ($GLOBALS['tpl']['entries'] AS $entry): ?>
 <item rdf:about="<?= $entry['feed_guid'] ?>">
     <title><?= $entry['feed_title'] ?></title>
     <link><?= $entry['feed_entryLink'] ?></link>
-{if !empty($entry.body)}
+<?php if (!empty($entry['body'])): ?>
     <description>
-    {$entry.feed_body|@escape} {$entry.feed_ext|@escape}
+    <?= serendipity_specialchars($entry['feed_body']) ?> <?= serendipity_specialchars($entry['feed_ext']) ?>
     </description>
-{/if}
+<?php endif; ?>
 
     <dc:publisher><?= $entry['feed_blogTitle'] ?></dc:publisher>
     <dc:creator><?= $entry['feed_email'] ?> (<?= $entry['feed_author'] ?>)</dc:creator>
     <dc:subject>
-    {foreach from=$entry.categories item="cat"}<?= $cat['feed_category_name'] ?>, {/foreach}</dc:subject>
+    <?php foreach ($entry['categories'] AS $cat): ?><?= $cat['feed_category_name'] ?>, <?php foreachend; ?></dc:subject>
     <dc:date><?= $entry['feed_timestamp'] ?></dc:date>
     <wfw:comment><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>wfwcomment.php?cid=<?= $entry['feed_id'] ?></wfw:comment>
-{if !$is_comments}
+<?php if (!$is_comments): ?>
         <slash:comments><?= $entry['comments'] ?></slash:comments>
         <wfw:commentRss><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>rss.php?version=<?= $GLOBALS['tpl']['metadata']['version'] ?>&amp;type=comments&amp;cid=<?= $entry['feed_id'] ?></wfw:commentRss>
-{/if}
+<?php endif; ?>
     <?= $entry['per_entry_display_dat'] ?>
 </item>
-{/foreach}
+<?php foreachend; ?>
 
 </rdf:RDF>
 

@@ -8,18 +8,18 @@
 <language><?= $GLOBALS['tpl']['metadata']['language'] ?></language>
 <?= $GLOBALS['tpl']['metadata']['additional_fields']['image'] ?>
 
-{foreach from=$entries item="entry"}
+<?php foreach ($GLOBALS['tpl']['entries'] AS $entry): ?>
 <item>
     <title><?= $entry['feed_title'] ?></title>
     <link><?= $entry['feed_entryLink'] ?></link>
 
-{if !empty($entry.body)}
+<?php if (!empty($entry['body'])): ?>
     <description>
-        {$entry.feed_body|@escape} {$entry.feed_ext|@escape}
+        <?= serendipity_specialchars($entry['feed_body']) ?> <?= serendipity_specialchars($entry['feed_ext']) ?>
     </description>
-{/if}
+<?php endif; ?>
 </item>
-{/foreach}
+<?php foreachend; ?>
 
 </channel>
 </rss>

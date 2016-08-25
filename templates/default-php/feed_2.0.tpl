@@ -1,53 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
-<rss version="2.0" 
+<rss version="2.0"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:admin="http://webns.net/mvcb/"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
    xmlns:wfw="http://wellformedweb.org/CommentAPI/"
    xmlns:content="http://purl.org/rss/1.0/modules/content/"
-   {$namespace_display_dat}>
+   <?= $GLOBALS['tpl']['namespace_display_dat'] ?>>
 <channel>
-    <title>{$metadata.title}</title>
-    <link>{$metadata.link}</link>
-    <description>{$metadata.description}</description>
-    <dc:language>{$metadata.language}</dc:language>
-{if $metadata.showMail}
-    <admin:errorReportsTo rdf:resource="mailto:{$metadata.email}" />
-{/if}
-    <generator>Serendipity {$serendipityVersion} - http://www.s9y.org/</generator>
-    {$metadata.additional_fields.channel}
-    {$metadata.additional_fields.image}
+    <title><?= $GLOBALS['tpl']['metadata']['title'] ?></title>
+    <link><?= $GLOBALS['tpl']['metadata']['link'] ?></link>
+    <description><?= $GLOBALS['tpl']['metadata']['description'] ?></description>
+    <dc:language><?= $GLOBALS['tpl']['metadata']['language'] ?></dc:language>
+<?php if ($metadata['showMail']): ?>
+    <admin:errorReportsTo rdf:resource="mailto:<?= $GLOBALS['tpl']['metadata']['email'] ?>" />
+<?php endif; ?>
+    <generator>Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - http://www.s9y.org/</generator>
+    <?= $GLOBALS['tpl']['metadata']['additional_fields']['channel'] ?>
+    <?= $GLOBALS['tpl']['metadata']['additional_fields']['image'] ?>
 
-{foreach from=$entries item="entry"}
+<?php foreach ($GLOBALS['tpl']['entries'] AS $entry): ?>
 <item>
-    <title>{$entry.feed_title}</title>
-    <link>{$entry.feed_entryLink}</link>
-    {foreach from=$entry.categories item="cat"}
-        <category>{$cat.feed_category_name}</category>
-    {/foreach}
+    <title><?= $entry['feed_title'] ?></title>
+    <link><?= $entry['feed_entryLink'] ?></link>
+    <?php foreach ($entry['categories'] AS $cat): ?>
+        <category><?= $cat['feed_category_name'] ?></category>
+    <?php foreachend; ?>
 
-    <comments>{$entry.feed_entryLink}#comments</comments>
-    <wfw:comment>{$serendipityBaseURL}wfwcomment.php?cid={$entry.feed_id}</wfw:comment>
+    <comments><?= $entry['feed_entryLink'] ?>#comments</comments>
+    <wfw:comment><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>wfwcomment.php?cid=<?= $entry['feed_id'] ?></wfw:comment>
 
-{if !$is_comments}
-    <slash:comments>{$entry.comments}</slash:comments>
-    <wfw:commentRss>{$serendipityBaseURL}rss.php?version={$metadata.version}&amp;type=comments&amp;cid={$entry.feed_id}</wfw:commentRss>
-{/if}    
+<?php if (!$GLOBALS['tpl']['is_comments']): ?>
+    <slash:comments><?= $entry['comments'] ?></slash:comments>
+    <wfw:commentRss><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>rss.php?version=<?= $metadata['version'] ?>&amp;type=comments&amp;cid=<?= $entry['feed_id'] ?></wfw:commentRss>
+<?php endif; ?>
 
-    <author>{$entry.feed_email} ({$entry.feed_author})</author>
-{if !empty($entry.body)}
+    <author><?= $entry['feed_email'] ?> (<?= $entry['feed_author'] ?>)</author>
+<?php if (!empty($entry['body'])): ?>
     <content:encoded>
-    {$entry.feed_body|@escape} {$entry.feed_ext|@escape}
+    <?= serendipity_specialchars($entry['feed_body']) ?> <?= serendipity_specialchars($entry['feed_ext']) ?>
     </content:encoded>
-{/if}
+<?php endif; ?>
 
-    <pubDate>{$entry.feed_timestamp_r}</pubDate>
-    <guid isPermaLink="false">{$entry.feed_guid}</guid>
-    {$entry.per_entry_display_dat}
+    <pubDate><?= $entry['feed_timestamp_r'] ?></pubDate>
+    <guid isPermaLink="false"><?= $entry['feed_guid'] ?></guid>
+    <?= $entry['per_entry_display_dat'] ?>
 </item>
-{/foreach}
+<?php foreachend; ?>
 
 </channel>
 </rss>
