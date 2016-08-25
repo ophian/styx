@@ -26,9 +26,25 @@
         var today  = new Date();
         var expire = new Date();
         expire.setTime(today.getTime() + (60*60*24*30*1000));
-        document.cookie = 'serendipity[' + name + ']='+escape(value) + ';expires=' + expire.toGMTString();
+        // get array like or simple string argument items
+        if (name.indexOf("[") != -1) {
+            document.cookie = 'serendipity' + name + '=' + escape(value) + ';expires=' + expire.toGMTString();
+        } else {
+            document.cookie = 'serendipity[' + name + ']=' + escape(value) + ';expires=' + expire.toGMTString();
+        }
     }
 
+    // Generic function to purge cookies
+    serendipity.PurgeCookie = function(name) {
+        if (serendipity.GetCookie(name) === null) return;
+        if (name.indexOf("[") != -1) {
+            document.cookie = 'serendipity' + name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        } else {
+            document.cookie = 'serendipity[' + name + ']=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+        }
+    }
+
+    // Generic function to get cookies
     serendipity.GetCookie = function(name) {
         var nameEQ = name + "=";
         var ca = document.cookie.split(';');
@@ -65,6 +81,11 @@
 
         // http://stackoverflow.com/questions/1712417/jquery-wrap-selected-text-in-a-textarea
         var $txtarea = $(txtarea);
+
+        if (!$txtarea.length) {
+            return;
+        }
+
         var len = $txtarea.val().length;
         var start = $txtarea[0].selectionStart;
         var end = $txtarea[0].selectionEnd;
@@ -72,9 +93,9 @@
         var replacement = openTag + selectedText + closeTag;
         $txtarea.val($txtarea.val().substring(0, start) + replacement + $txtarea.val().substring(end, len));
 
-        $txtarea[0].selectionStart = start + replacement.length
-        $txtarea[0].selectionEnd = start + replacement.length
-        
+        $txtarea[0].selectionStart = start + replacement.length;
+        $txtarea[0].selectionEnd = start + replacement.length;
+
         if (scrollPos) {
             txtarea.focus();
             txtarea.scrollTop = scrollPos;
@@ -87,7 +108,7 @@
         var my_link = prompt("Enter URL:","http://");
 
         if (my_link) {
-            if (getSelection($(txtarea) ) == "") {
+            if (serendipity.getSelection($(txtarea) ) == "") {
                 var my_desc = prompt("Enter Description", '');
             }
             var my_title = prompt("Enter title/tooltip:", "");
@@ -137,7 +158,7 @@
     }
 
     // Used by non-wysiwyg editor toolbar buttons to wrap selection
-    // in <img> element (only); doesn't really "wrap", merely inserts
+    // in <img> element (only); does not really "wrap", merely inserts
     // an <img> element before selected text
     serendipity.wrapInsImage = function(txtarea) {
         var loc = prompt('Enter the image location: ');
@@ -149,19 +170,16 @@
     }
     /* end Better-Editor functions */
 
-    // Switches preview of image selected from media db by changing the
-    // container's background image
-    serendipity.change_preview = function(id) {
-        var text_box = document.getElementById('serendipity[template][' + id + ']');
-        var image_box = document.getElementById(id + '_preview'); 
-        var filename = text_box.value;
-
-        image_box.style.backgroundImage = 'url(' + filename + ')';
+    // Switches preview of image selected from media db
+    serendipity.change_preview = function(input, output) {
+        var filename = document.getElementById(input).value;
+        var $target = $('#' + output + '_preview > img');
+        $target.attr('src', filename);
     }
 
     // Opens media db image selection in new window
     serendipity.choose_media = function(id) {
-        serendipity.openPopup('serendipity_admin_image_selector.php?serendipity[htmltarget]=' + id + '&serendipity[filename_only]=true');
+        serendipity.openPopup('serendipity_admin.php?serendipity[adminModule]=media&serendipity[noBanner]=true&serendipity[noSidebar]=true&serendipity[noFooter]=true&serendipity[showMediaToolbar]=false&serendipity[showUpload]=true&serendipity[htmltarget]=' + id + '&serendipity[filename_only]=true');
     }
 
     // "Transfer" value from media db popup to form element, used for example for selecting a category-icon
@@ -169,7 +187,7 @@
         id = serendipity.escapeBrackets(id);
         var $input = $('#' + id);
         $input.val(str);
-        
+
         if ($input.attr('type') != 'hidden') {
             $input.focus();    // IE would generate an error when focusing an hidden element
         }
@@ -181,7 +199,7 @@
     // Escape [ and ] to be able to use the string as selector
     // jQuery fails to select the input when the selector contains unescaped [ or ]
     serendipity.escapeBrackets = function(str) {
-        str = str.replace(/\[/g, "\\[");  
+        str = str.replace(/\[/g, "\\[");
         str = str.replace(/\]/g, "\\]");
         return str;
     }
@@ -225,17 +243,18 @@
             if (oEditor._editMode != 'textmode') {
                 oEditor.insertHTML(str);
                 return;
-            } 
+            }
         } else if(typeof(TinyMCE) != 'undefined') {
             // for the TinyMCE editor we do not have a text mode insert
             tinyMCE.execInstanceCommand('serendipity[' + textarea + ']', 'mceInsertContent', false, str);
             return;
         } else if (typeof(CKEDITOR) != 'undefined') {
             oEditor = (typeof(isinstance) == 'undefined') ? CKEDITOR.instances[textarea] : isinstance;
-            if (oEditor.mode == "wysiwyg") { 
+            if (typeof(oEditor) == 'undefined') oEditor = popupEditorInstance;
+            if (oEditor.mode == "wysiwyg") {
                 oEditor.insertHtml(str);
                 return;
-            } 
+            }
         }
 
         serendipity.noWysiwygAdd(str, textarea);
@@ -245,7 +264,19 @@
     // which works fine in NO WYSIWYG mode
     // NOTE: the serendipity_imageSelector_addToBody could add any valid HTML string to the textarea
     serendipity.noWysiwygAdd = function(str, textarea) {
-        serendipity.wrapSelection($('#'+serendipity.escapeBrackets(textarea)), str, '');
+        escapedElement = serendipity.escapeBrackets(textarea);
+        if ($('#' + escapedElement).length) {
+            // Proper ID was specified (hopefully by plugins)
+        } else {
+            // Let us try the serendipity[] prefix
+            escapedElement = serendipity.escapeBrackets('serendipity[' + textarea + ']');
+
+            if (!$('#' + escapedElement).length) {
+                console.log("Serendipity plugin error: " + escapedElement + " not found.");
+            }
+        }
+
+        serendipity.wrapSelection($('#'+escapedElement), str, '');
     }
 
     // Inserting media db img markup including s9y-specific container markup
@@ -276,7 +307,7 @@
         if (f['serendipity[filename_only]']) {
             // this part is used when selecting only the image without further markup (-> category-icon)
             var starget = f['serendipity[htmltarget]'] ? f['serendipity[htmltarget]'].value : 'serendipity[' + textarea + ']';
-            
+
             switch(f['serendipity[filename_only]'].value) {
             case 'true':
                 parent.self.opener.serendipity.serendipity_imageSelector_addToElement(img, f['serendipity[htmltarget]'].value);
@@ -311,7 +342,7 @@
         }
         img = "<!-- s9ymdb:" + imgID + " --><img class=\"serendipity_image_"+ floating +"\" width=\"" + imgWidth + "\" height=\"" + imgHeight + '"  src="' + img + "\" " + (title != '' ? 'title="' + title + '"' : '') + " alt=\"" + alt + "\">";
 
-        if ($("#radio_islink_yes").attr("checked")) {
+        if ($(':input[name="serendipity[isLink]"]:checked').val() == "yes") {
             // wrap the img in a link to the image. TODO: The label in the media_chooser.tpl explains it wrong
             var targetval = $('#select_image_target').val();
 
@@ -339,7 +370,7 @@
             }
 
             var img = prepend + "<a class=\"serendipity_image_link\" " + (title != '' ? 'title="' + title + '"' : '') + " href='" + ilink + "'" + itarget + ">" + img + "</a>";
-        } 
+        }
 
         if ($('#serendipity_imagecomment').val() != '') {
             var comment = f['serendipity[imagecomment]'].value;
@@ -350,6 +381,11 @@
                   + '</div>';
         }
 
+        if (parent.self.opener.serendipity == undefined) {
+            // in iframes, there is no opener, and the magnific popup is wrapped
+            parent.self = window.parent.parent.$.magnificPopup;
+            parent.self.opener = window.parent.parent;
+        }
         parent.self.opener.serendipity.serendipity_imageSelector_addToBody(img, textarea);
         parent.self.close();
     }
@@ -365,22 +401,26 @@
                 e.preventDefault();
                 serendipity.toggle_extended(true);
             });
-            if (localStorage.show_extended_editor == "true") {
-                // the editor is visible by default - note the string, as bool isn't supported yet in localStorage
+            if (localStorage !== null && localStorage.show_extended_editor == "true") {
+                // the editor is visible by default - note the string, as bool is not supported yet in localStorage
                 return;
             }
         }
-        
+
         if ($('#extended_entry_editor:hidden').length > 0) {
             $('#extended_entry_editor').show(); // use name selector instead of id here; id does not work
             $('#tools_extended').show();
             $('#toggle_extended').find('> .icon-right-dir').removeClass('icon-right-dir').addClass('icon-down-dir');
-            localStorage.show_extended_editor = "true";
+            if (localStorage !== null) {
+                localStorage.show_extended_editor = "true";
+            }
         } else {
             $('#extended_entry_editor').hide();
             $('#tools_extended').hide();
             $('#toggle_extended').find('> .icon-down-dir').removeClass('icon-down-dir').addClass('icon-right-dir');
-            localStorage.show_extended_editor = "false";
+            if (localStorage !== null) {
+                localStorage.show_extended_editor = "false";
+            }
         }
         if (setCookie) {
             document.cookie = 'serendipity[toggle_extended]=' + (($('#extended_entry_editor:hidden').length == 0) ? "true" : "") + ';';
@@ -404,7 +444,7 @@
             $('#'+id).change(function(e) {
                 categoryselector_stored_categories = null;
             });
-            
+
             if ($('#'+id).children('*[selected="selected"]').length > 1) {
                 // when loading the page new for the preview and more than one category was
                 // selected, collapsing the category-selector would lose those categories
@@ -412,7 +452,7 @@
                 $('#toggle_' + id).find('> .icon-right-dir').removeClass('icon-right-dir').addClass('icon-down-dir');
                 return
             }
-            
+
         }
 
         if ($('#'+id).attr("multiple")) {
@@ -427,7 +467,7 @@
             $('#'+id).removeAttr("multiple");
             $('#'+id).removeAttr("size");
             $('#toggle_' + id).find('> .icon-down-dir').removeClass('icon-down-dir').addClass('icon-right-dir');
-            
+
         } else {
             $('#'+id).attr("multiple", "");
             $('#'+id).attr("size", $('#'+id).children().size);
@@ -442,7 +482,7 @@
                     }
                 });
             }
-            
+
         }
     }
 
@@ -456,13 +496,13 @@
     }
 
     // Rescale image
-    serendipity.rescale = function(dim, newval) { 
+    serendipity.rescale = function(dim, newval) {
         var ratio          = $('#serendipityScaleImg').attr('data-imgheight')/$('#serendipityScaleImg').attr('data-imgwidth');
         var trans          = new Array();
         trans['width']     = new Array('serendipity[height]', ratio);
         trans['height']    = new Array('serendipity[width]', 1/ratio);
 
-        if ($('#resize_keepprops').is(':checked')) { 
+        if ($('#resize_keepprops').is(':checked')) {
             document.serendipityScaleForm.elements[trans[dim][0]].value=Math.round(trans[dim][1]*newval);
         }
     }
@@ -471,9 +511,119 @@
     serendipity.rename = function(id, fname) {
         var newname;
         var media_rename = 'Enter the new name for: ';
-        var media_token_url = $('input[name*="serendipity[token]"]').val();
         if (newname = prompt(media_rename + fname, fname)) {
-            location.href='?serendipity[adminModule]=images&serendipity[adminAction]=rename&serendipity[fid]='+ escape(id) + '&serendipity[newname]='+ escape(newname) +'&serendipity[token]='+ media_token_url;
+            var media_token_url = $('input[name*="serendipity[token]"]').val();
+            $.ajax({
+                type: 'POST',
+                url: '?serendipity[adminModule]=images&serendipity[adminAction]=rename&serendipity[fid]='+ escape(id) +'&serendipity[newname]='+ escape(newname) +'&serendipity[token]='+ media_token_url,
+                async: true,
+                cache: false,
+                success: function(response) {
+                    $response = (response.trim() == '')
+                        ? '<p>Done!</p>\
+                           <button id="rename_ok" class="button_link state_submit" type="button" >Go!</button>\
+                          '
+                        : response + '\
+                           <input class="go_back" type="button" onClick="$.magnificPopup.close();" value="Back">\
+                          ';
+                    $.magnificPopup.open({
+                        items: {
+                            type: 'inline',
+                                src: $('<div id="rename_msg">\
+                                        <h4>Rename this file</h4>\
+                                        '+ $response +'\
+                                        </div>')
+                        },
+                        type: 'inline',
+                        midClick: true,
+                        callbacks: {
+                            open: function() {
+                                this.content.on('click', '#rename_ok', function() {
+                                    window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                                });
+                            },
+                        }
+                    });
+                },
+                error: function(XMLHttpRequest, textStatus, errorThrown) {
+                    $.magnificPopup.open({
+                        items: {
+                            type: 'inline',
+                                src: $('<div id="rename_msg">\
+                                        <h4>Rename this file</h4>\
+                                        <p>"Status: " + textStatus</p>\
+                                        '+ errorThrown +'\
+                                        <button id="rename_error" class="button_link state_submit" type="button" >Go!</button>\
+                                        </div>')
+                        },
+                        type: 'inline',
+                        midClick: true,
+                        callbacks: {
+                            open: function() {
+                                this.content.on('click', '#rename_error', function() {
+                                    window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                                });
+                            },
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+    // Delete file from ML
+    serendipity.deleteFromML = function(id, fname) {
+        if (confirm('Delete')) {
+            var media_token_url = $('input[name*="serendipity[token]"]').val();
+            $.post('?serendipity[adminModule]=images&serendipity[adminAction]=doDelete&serendipity[fid]='+ escape(id) +'&serendipity[token]='+ media_token_url)
+            .done(function(jqXHR, textStatus) {
+                if (textStatus == 'success') {
+                    $.magnificPopup.open({
+                        items: {
+                            type: 'inline',
+                                src: $('<div id="delete_msg">\
+                                        <h4>Delete this file</h4>\
+                                        '+ jqXHR + '\
+                                        <button id="delete_ok" class="button_link state_submit" type="button" >Go!</button>\
+                                        </div>')
+                        },
+                        type: 'inline',
+                        midClick: true,
+                        callbacks: {
+                            open: function() {
+                                this.content.on('click', '#delete_ok', function() {
+                                    window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                                });
+                            },
+                        }
+                    });
+                }
+            })
+            .fail(function(jqXHR, textStatus, errorThrown) {
+                if (textStatus != null) { // what could that be ? "timeout", "error", "abort", "parsererror" ?
+                    $.magnificPopup.open({
+                        items: {
+                            type: 'inline',
+                                src: $('<div id="delete_msg">\
+                                        <h4>Delete this file</h4>\
+                                        '+ jqXHR + '\
+                                        <p>"Status: " + textStatus</p>\
+                                        '+ errorThrown +'\
+                                        <button id="delete_error" class="button_link state_submit" type="button" >Go!</button>\
+                                        </div>')
+                        },
+                        type: 'inline',
+                        midClick: true,
+                        callbacks: {
+                            open: function() {
+                                this.content.on('click', '#delete_error', function() {
+                                    window.parent.parent.location.href= '?serendipity[adminModule]=images&serendipity[adminAction]=default';
+                                });
+                            },
+                        }
+                    });
+                }
+            });
         }
     }
 
@@ -492,39 +642,38 @@
     }
 
     // Used by media_upload.tpl to ..?
-    serendipity.getfilename = function(value) { 
+    serendipity.getfilename = function(value) {
         re = /^.+[\/\\]+?(.+)$/;
-        return value.replace(re, "$1"); 
+        return value.replace(re, "$1");
     }
 
     var inputStorage = new Array();
 
-    serendipity.checkInputs = function() { 
+    serendipity.checkInputs = function() {
         upload_fieldcount = $('.uploadform_userfile').length;
 
-        for (i = 1; i <= upload_fieldcount; i++) { 
-            if (!inputStorage[i]) { 
+        for (i = 1; i <= upload_fieldcount; i++) {
+            if (!inputStorage[i]) {
                 serendipity.fillInput(i, i);
-            } else if (inputStorage[i] == document.getElementById('target_filename_' + i).value) { 
+            } else if (inputStorage[i] == document.getElementById('target_filename_' + i).value) {
                 serendipity.fillInput(i, i);
             }
-        } 
+        }
     }
 
-    serendipity.fillInput = function(source, target) { 
+    serendipity.fillInput = function(source, target) {
         sourceval = serendipity.getfilename(document.getElementById('userfile_' + source).value);
 
-        if (sourceval.length > 0) { 
+        if (sourceval.length > 0) {
             document.getElementById('target_filename_' + target).value = sourceval;
             inputStorage[target] = sourceval;
         }
     }
 
     // ..?
-    serendipity.checkSave = function() { 
-        
+    serendipity.checkSave = function() {
         return true;
-    } 
+    }
 
     // save in which directory the first uploaded files is stored (the default when only inserting one file)
     serendipity.rememberUploadOptions = function() {
@@ -583,26 +732,25 @@
     }
 
     serendipity.closeCommentPopup = function() {
-                    window.parent.parent.$.magnificPopup.close();
-            }
+        window.parent.parent.$.magnificPopup.close();
+    }
 
     serendipity.openPopup = function(url) {
-                    $.magnificPopup.open({
+        $.magnificPopup.open({
               items: {
                 src: url
               },
               type: 'iframe'
             });
-                
     };
 
     serendipity.reloadImage = function(img) {
         $(img).attr('src', $(img).attr('src')+'?'+Math.random());
     }
 
-    serendipity.categoryList = function() {
+    serendipity.catsList = function() {
         var $source = $('#edit_entry_category');
-        var $target = $('#category_list > ul');
+        var $target = $('#cats_list > ul');
         var $selected = $source.find('input:checkbox:checked');
 
         $target.empty();
@@ -610,213 +758,211 @@
         if ($selected.length > 0) {
             $selected.each(function() {
                 var catText = $(this).next('label').text();
-                $('<li class="category_selected">'+ catText +'</li>').appendTo($target);
+                catText = $('<span>').text(catText).html();
+                $('<li class="selected">'+ catText +'</li>').appendTo($target);
             });
         } else {
             $('<li>No categories</li>').appendTo($target);
         }
     }
 
-}( window.serendipity = window.serendipity || {}, jQuery ));
+    serendipity.tagsList = function() {
+        var $source = $('#properties_freetag_tagList').val();
+        var $target = $('#tags_list > ul');
 
-// Source: https://github.com/yatil/accessifyhtml5.js
-var AccessifyHTML5 = function (defaults, more_fixes) {
-  "use strict";
+        if (typeof $source !== 'undefined') {
+            var tagged = $source.split(',');
+            $target.empty();
 
-  var fixes = {
-      'article'   :    { 'role':          'article'       },
-      'aside'     :    { 'role':          'complementary' },
-      'nav'       :    { 'role':          'navigation'    },
-      'main'      :    { 'role':          'main'          },
-      'output'    :    { 'aria-live':     'polite'        },
-      'section'   :    { 'role':          'region'        },
-      '[required]':    { 'aria-required': 'true'          }
-  },
-  fix, elems, attr, value, key, obj, i, mo, by_match, el_label,
-  ATTR_SECURE = /aria-[a-z]+|role|tabindex|title|alt|data-[\w\-]+|lang|style|maxlength|placeholder|pattern|type/,
-  ID_PREFIX = "acfy-id-",
-  n_label = 0,
-  Doc = document;
-
-  if (Doc.querySelectorAll) {
-
-    if (defaults) {
-      if (defaults.header) {
-        fixes[defaults.header] = {
-          'role': 'banner'
-        };
-      }
-      if (defaults.footer) {
-        fixes[defaults.footer] = {
-          'role': 'contentinfo'
-        };
-      }
-      if (defaults.main) {
-        fixes[defaults.main] = {
-          'role': 'main'
-        };
-        fixes.main = {
-          'role': ''
-        };
-      }
-    }
-
-    for (mo in more_fixes) {
-      fixes[mo] = more_fixes[mo];
-    }
-
-    for (fix in fixes) {
-      if (fixes.hasOwnProperty(fix)) {
-
-        elems = Doc.querySelectorAll(fix);
-        obj = fixes[fix];
-
-        for (i = 0; i < elems.length; i++) {
-
-          for (key in obj) {
-            if (obj.hasOwnProperty(key)) {
-
-              attr = key;
-              value = obj[key];
-
-              if (!attr.match(ATTR_SECURE)) {
-                continue;
-              }
-              if (!(typeof value).match(/string|number/)) {
-                continue;
-              }
-
-              by_match = attr.match(/(describ|label)l?edby/);
-              if (by_match) {
-                el_label = Doc.querySelector(value);
-
-                if (! el_label) { continue; }
-
-                if (! el_label.id) {
-                  el_label.id = ID_PREFIX + n_label;
-                }
-
-                value = el_label.id;
-                attr = "aria-" + ("label" === by_match[1] ? "labelledby" : "describedby");
-
-                n_label++;
-              }
-
-              if (!elems[i].hasAttribute(attr)) {
-                elems[i].setAttribute(attr, value);
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-};
-
-// mths.be/details
-;
-(function(a, f) {
-    var e = f.fn,
-        d, c = Object.prototype.toString.call(window.opera) == '[object Opera]',
-        g = (function(l) {
-            var j = l.createElement('details'),
-                i, h, k;
-            if (!('open' in j)) {
-                return false
-            }
-            h = l.body || (function() {
-                var m = l.documentElement;
-                i = true;
-                return m.insertBefore(l.createElement('body'), m.firstElementChild || m.firstChild)
-            }());
-            j.innerHTML = '<summary>a</summary>b';
-            j.style.display = 'block';
-            h.appendChild(j);
-            k = j.offsetHeight;
-            j.open = true;
-            k = k != j.offsetHeight;
-            h.removeChild(j);
-            if (i) {
-                h.parentNode.removeChild(h)
-            }
-            return k
-        }(a)),
-        b = function(i, l, k, h) {
-            var j = i.prop('open'),
-                m = j && h || !j && !h;
-            if (m) {
-                i.removeClass('open').prop('open', false).triggerHandler('close.details');
-                l.attr('aria-expanded', false);
-                k.hide()
+            if (tagged == '') {
+                $('<li>No tags</li>').appendTo($target);
             } else {
-                i.addClass('open').prop('open', true).triggerHandler('open.details');
-                l.attr('aria-expanded', true);
-                k.show()
+                $.each(tagged, function(key, tag) {
+                    $('<li class="selected">'+ tag +'</li>').appendTo($target);
+                });
             }
-        };
-    e.noSelect = function() {
-        var h = 'none';
-        return this.bind('selectstart dragstart mousedown', function() {
-            return false
-        }).css({
-            MozUserSelect: h,
-            msUserSelect: h,
-            webkitUserSelect: h,
-            userSelect: h
-        })
-    };
-    if (g) {
-        d = e.details = function() {
-            return this.each(function() {
-                var i = f(this),
-                    h = f('summary', i).first();
-                h.attr({
-                    role: 'button',
-                    'aria-expanded': i.prop('open')
-                }).on('click', function() {
-                    var j = i.prop('open');
-                    h.attr('aria-expanded', !j);
-                    i.triggerHandler((j ? 'close' : 'open') + '.details')
-                })
-            })
-        };
-        d.support = g
-    } else {
-        d = e.details = function() {
-            return this.each(function() {
-                var h = f(this),
-                    j = f('summary', h).first(),
-                    i = h.children(':not(summary)'),
-                    k = h.contents(':not(summary)');
-                if (!j.length) {
-                    j = f('<summary>').text('Details').prependTo(h)
-                }
-                if (i.length != k.length) {
-                    k.filter(function() {
-                        return this.nodeType == 3 && /[^ \t\n\f\r]/.test(this.data)
-                    }).wrap('<span>');
-                    i = h.children(':not(summary)')
-                }
-                h.prop('open', typeof h.attr('open') == 'string');
-                b(h, j, i);
-                j.attr('role', 'button').noSelect().prop('tabIndex', 0).on('click', function() {
-                    j.focus();
-                    b(h, j, i, true)
-                }).keyup(function(l) {
-                    if (32 == l.keyCode || (13 == l.keyCode && !c)) {
-                        l.preventDefault();
-                        j.click()
-                    }
-                })
-            })
-        };
-        d.support = g
+        }
     }
-}(document, jQuery));
+
+    serendipity.liveFilters = function(input, target, elem) {
+        var currentInput = $(input).val().toLowerCase();
+
+        if (currentInput == '') {
+            $(target).toggle(true);
+        } else {
+            $(target).each(function() {
+                var $el = $(this);
+
+                if ($el.find(elem).html().toLowerCase().indexOf(currentInput) > -1) {
+                    $el.toggle(true);
+                } else {
+                    $el.toggle(false);
+                }
+            });
+        }
+    }
+
+    if(Modernizr.indexeddb && false) {
+        serendipity.startEntryEditorCache = function() {
+            if ($('textarea[name="serendipity[body]"]').val() == "") {
+                serendipity.getCached("serendipity[body]",  function(res) {
+                    if (res && res != null && res != "null") {
+                        $('textarea[name="serendipity[body]"]').text(res);
+                    }
+                });
+                serendipity.getCached("serendipity[extended]",  function(res) {
+                    if (res && res != null && res != "null") {
+                        if ($('textarea[name="serendipity[extended]"]').val() == "") {
+                            $('textarea[name="serendipity[extended]"]').text(res);
+                            if (! $('textarea[name="serendipity[extended]"]').is(':visible')) {
+                                serendipity.toggle_extended();
+                            }
+                        }
+                    }
+                });
+            }
+
+            $('textarea[name="serendipity[body]"]').one('keyup', function() {
+                setInterval(function() {
+                    serendipity.cache("serendipity[body]", $('textarea[name="serendipity[body]"]').val())
+                }, 5000);
+            });
+            $('textarea[name="serendipity[extended]"]').one('keyup', function() {
+                setInterval(function() {
+                    serendipity.cache("serendipity[extended]", $('textarea[name="serendipity[extended]"]').val());
+                }, 5000);
+            });
+        }
+
+        serendipity.eraseEntryEditorCache = function() {
+            serendipity.cache("serendipity[body]", null);
+            serendipity.cache("serendipity[extended]", null);
+        }
+
+        var indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+
+        serendipity.cache = function (id, data) {
+            var request = indexedDB.open("cache", 1);
+            request.onupgradeneeded = function (event) {
+                event.target.result.createObjectStore("cache");
+            };
+            request.onsuccess = function(event) {
+                event.target.result.transaction(["cache"], 'readwrite').objectStore("cache").put(data, id);
+            };
+        }
+
+        serendipity.getCached = function(id, success) {
+            var request = indexedDB.open("cache", 1);
+            request.onupgradeneeded = function (event) {
+                event.target.result.createObjectStore("cache");
+            };
+            request.onsuccess = function(event) {
+                event.target.result.transaction(["cache"], 'readwrite').objectStore("cache").get(id).onsuccess = function (event) {
+                    success(event.target.result);
+                };
+            };
+        }
+    }
+
+    serendipity.toggle_collapsible = function(toggler, target, stateClass, stateIcon, stateOpen, stateClosed) {
+        // argument defaults
+        stateClass = stateClass || 'additional_info';
+        stateIcon = stateIcon || '> span';
+        stateOpen = stateOpen || 'icon-down-dir';
+        stateClosed = stateClosed || 'icon-right-dir';
+
+        var $toggleIcon = $(toggler).find(stateIcon);
+        var toggleState = $toggleIcon.attr('class');
+
+        // if toggler does not have an id, do not store state
+        var togglerId = $(toggler).attr('id');
+        if (togglerId !== undefined) {
+            var storageKey = 'show_' + $(toggler).attr('id');
+        }
+
+        if(toggleState == stateOpen) {
+            $toggleIcon.removeClass(stateOpen).addClass(stateClosed);
+            if (togglerId !== undefined && localStorage !== null) {
+                localStorage.setItem(storageKey, "false");
+            }
+        } else {
+            $toggleIcon.removeClass(stateClosed).addClass(stateOpen);
+            if (togglerId !== undefined && localStorage !== null) {
+                localStorage.setItem(storageKey, "true");
+            }
+        }
+
+        $(target).toggleClass(stateClass);
+    }
+
+    serendipity.sync_heights = function() {
+        if($('.equal_heights').length > 0) {
+            if($('html').hasClass('lt-ie9')) {
+                $('.equal_heights').syncHeight({
+                    updateOnResize: false
+                });
+            } else {
+                $('.equal_heights').syncHeight({
+                    updateOnResize: true
+                });
+            }
+        }
+    }
+
+    serendipity.skipScroll = function(target, time) {
+        time = typeof time !== 'undefined' ? time : 250;
+
+        $('html, body').animate({
+            scrollTop: $(target).offset().top
+        }, time);
+    }
+
+    serendipity.updateAll = function() {
+        var $overlay = $('<div id="overlay" />');
+        $.get('?serendipity[adminModule]=plugins&serendipity[adminAction]=renderOverlay')
+        .done(function(data) {
+            $overlay.append(data);
+            $overlay.appendTo(document.body);
+            $('#updateProgress').attr('max', $('.plugin_status').length);
+            serendipity.updateNext();
+        });
+    }
+
+    serendipity.updateNext = function() {
+        $('#updateMessage').text("Updating " + $('.plugins_installable > li:visible h4').first().text());
+        $.get($('.plugin_status .button_link:visible').first().attr('href'))
+        .done(function(messages) {
+            $('.plugins_installable > li:visible').first().fadeOut();
+            $('#updateProgress').attr('value', parseInt($('#updateProgress').attr('value')) + 1);
+            if ($('.plugins_installable > li:visible').length > 0) {
+                serendipity.updateNext();
+            } else {
+                $('#overlay').fadeOut("normal", function () {
+                    window.location = $('#back').attr('href') + '&serendipity[updateAllMsg]=true';
+                    // purge plugup plugin cookies after all
+                    serendipity.PurgeCookie('plugsEvent');
+                    serendipity.PurgeCookie('plugsPlugin');
+                    serendipity.PurgeCookie('plugsCheckTime');
+                });
+            }
+        })
+        .fail(function(data) {
+            $('#content').prepend(data.responseText);
+            $('#updateAll').hide();
+            $('#overlay').fadeOut();
+        });
+    }
+
+}( window.serendipity = window.serendipity || {}, jQuery ))
 
 $(function() {
+    // Breakpoints for responsive JS
+    var mq_small = Modernizr.mq('(min-width:640px)');
+    // IE 8 should always be larger than mq_small
+    if($('html').hasClass('lt-ie9')) { mq_small = true; }
+
     // Fire responsive nav
-    if($('body').has('#main_menu').size() > 0) {
+    if($('#main_menu').length > 0) {
         $('#nav-toggle').click(function(e) {
             var $el = $(this);
             var $target = $('body');
@@ -844,9 +990,19 @@ $(function() {
         footer: '#meta'
     });
 
+    // Layout helpers for IE < 9
+    if($('html').hasClass('lt-ie9')) {
+        if($('#dashboard').length > 0) {
+            // For some reason, .addClass() does not work here
+            $('.dashboard_widget:nth-child(odd)').css('clear', 'left');
+            $('.dashboard_widget:nth-child(even)').css('margin', '0 0 1em 2%');
+        }
+    }
+
     // Editor-area
-    if($('body').has('#serendipityEntry').size() > 0) {
-        serendipity.categoryList();
+    if($('#serendipityEntry').length > 0) {
+        serendipity.catsList();
+        serendipity.tagsList();
         serendipity.toggle_category_selector('categoryselector');
         serendipity.toggle_extended();
     }
@@ -864,12 +1020,15 @@ $(function() {
     //
     // Make the timestamp readable in browser not supporting datetime-local.
     // Has no effect in those supporting it, as the timestamp is invalid in HTML5
-    if($('body').has('#serendipityEntry').size() > 0) {
+    if($('#serendipityEntry').length > 0) {
         if(!Modernizr.inputtypes.date) {
             $('#serendipityNewTimestamp').val($('#serendipityNewTimestamp').val().replace("T", " "));
         }
+        if(Modernizr.indexeddb && false) {
+            serendipity.startEntryEditorCache();
+        }
     }
-    
+
     // Set entry timestamp
     $('#reset_timestamp').click(function(e) {
         $('#serendipityNewTimestamp').val($(this).attr('data-currtime'));
@@ -891,14 +1050,68 @@ $(function() {
         }, 5000);
     });
 
+    // Switch entry status
+    $('#switch_entry_status').click(function(e) {
+        var $el = $(this);
+        var oldState = $el.attr('title');
+        var newState = $el.attr('data-title-alt');
+        var entryState = $('#entry_status option');
+        var stateIcon = $el.find("[class^='icon']");
+
+        $(entryState).filter(function() {
+            return $(this).html() == oldState;
+        }).prop('selected', false);
+
+        $(entryState).filter(function() {
+            return $(this).html() == newState;
+        }).prop('selected', true);
+
+        $el.attr({
+            'title': newState,
+            'data-title-alt': oldState
+        }).find('> .visuallyhidden').text(newState);
+
+        if(stateIcon.hasClass('icon-toggle-on')) {
+            stateIcon.removeClass('icon-toggle-on').addClass('icon-toggle-off');
+        } else {
+            stateIcon.removeClass('icon-toggle-off').addClass('icon-toggle-on');
+        }
+
+        // Inline notification, we might want to make this reuseable
+        $('<span id="msg_entrystatus" class="msg_notice"><span class="icon-info-circled"></span>Entry status: ' + newState + ' <a class="remove_msg" href="#msg_entrystatus"><span class="icon-cancel"></span><span class="visuallyhidden">Hide</span></a></span>').insertBefore('#edit_entry_title');
+        // Remove entrystatus msg
+        $('.remove_msg').click(function(e) {
+            e.preventDefault();
+            var $target = $(this).parent();
+            $target.fadeOut(250, function() { $target.remove(); });
+        });
+        // Automagic removal after 5 secs
+        setTimeout(function() {
+            $('#msg_entrystatus').fadeOut(250).remove();
+        }, 5000);
+
+        e.preventDefault();
+    });
+
+    // Matching change event
+    $('#entry_status').change(function() {
+        $('#switch_entry_status').trigger('click');
+    });
+
     // Editor tools
     $('.wrap_selection').click(function() {
         var $el = $(this);
-        var $tag = $el.attr('data-tag');
+        var $tagOpen = $el.attr('data-tag-open');
+        var $tagClose = $el.attr('data-tag-close');
         //var target = document.forms['serendipityEntry']['serendipity[' + $el.attr('data-tarea') + ']'];
         var target =  $('#'+serendipity.escapeBrackets($el.attr('data-tarea')));
-        var open = '<' + $tag + '>';
-        var close = '</' + $tag + '>';
+        if ($el.hasClass('lang-html')) {
+            var open = '<' + $tagOpen + '>';
+            var close = '</' + $tagClose + '>';
+        } else {
+            var open = $tagOpen;
+            var close = $tagClose;
+        }
         serendipity.wrapSelection(target, open, close);
     });
 
@@ -917,59 +1130,114 @@ $(function() {
     });
 
     // Entry metadata
-    // NOTE: This probably should be rewritten as a general function which
-    //       also works for advanced options (see below); also not sure if
-    //       the localStorage stuff works here (seems to)
-    if($('body').has('#edit_entry_metadata').size() > 0) {
+    if($('#edit_entry_metadata').length > 0) {
         $('#toggle_metadata').click(function() {
-            var $el = $(this);
-            var $toggleIcon = $el.find('> span');
-            var $toggleState = $toggleIcon.attr('class');
-            if($toggleState == 'icon-down-dir') {
-                $toggleIcon.removeClass('icon-down-dir').addClass('icon-right-dir');
-                localStorage.show_advanced_options = "false";
-            } else {
-                $toggleIcon.removeClass('icon-right-dir').addClass('icon-down-dir');
-                localStorage.show_advanced_options = "true";
-            }
-            $('#meta_data').toggleClass('additional_info');
+            serendipity.toggle_collapsible($(this), '#meta_data');
         });
-        if (localStorage.show_advanced_options == "true") {
+        if (localStorage !== null && localStorage.getItem("show_toggle_metadata") == "true") {
             $('#toggle_metadata').click();
         }
     }
 
     // Show category selector
-            if($('body').has('#serendipityEntry').size() > 0) {
-            var btnText = 'Done';
+    $('#meta_data #edit_entry_category').addClass('mfp-hide');
 
-            $('#select_category').magnificPopup({
-                type: "inline",
-                closeMarkup: '<button title="%title%" class="mfp-close" type="button">'+ btnText +'</button>',
-                callbacks: {
-                    afterClose: function() {
-                        serendipity.categoryList();
+    if($('#serendipityEntry').length > 0) {
+        var btnText = 'Done';
+
+        $('#select_category').magnificPopup({
+            type: "inline",
+            closeMarkup: '<button title="%title%" class="mfp-close" type="button">'+ btnText +'</button>',
+            callbacks: {
+                open: function() {
+                    // Accessibility helper
+                    $('#edit_entry_category .form_check input[type="checkbox"]').attr('aria-hidden', 'true');
+                    if(localStorage !== null && localStorage.cat_view_state == "compact") {
+                        $('.mfp-content').addClass('compact_categories');
+                        $('#toggle_cat_view').find('.icon-th').removeClass('icon-th').addClass('icon-th-list');
                     }
+                },
+                afterClose: function() {
+                    // Accessibility helper
+                    $('#edit_entry_category .form_check input[type="checkbox"]').attr('aria-hidden', 'false');
+                    serendipity.catsList();
                 }
-            });
-        }
-    
-    // Advanced options
-    if($('body').has('#advanced_options').size() > 0) {
-        $('#toggle_advanced').click(function() {
-            var $el = $(this);
-            var $toggleIcon = $el.find('> span');
-            var $toggleState = $toggleIcon.attr('class');
-            if($toggleState == 'icon-down-dir') {
-                $toggleIcon.removeClass('icon-down-dir').addClass('icon-right-dir');
-                localStorage.show_advanced_options = "false";
-            } else {
-                $toggleIcon.removeClass('icon-right-dir').addClass('icon-down-dir');
-                localStorage.show_advanced_options = "true";
             }
-            $('#adv_opts').toggleClass('additional_info');
         });
-        if (localStorage.show_advanced_options == "true") {
+
+        $('#cats_list').on('click', 'h3, li', function() {
+            $('#select_category').trigger('click');
+        });
+    }
+
+    // Switch category view
+    if($('#serendipityEntry').length > 0) {
+        $('#toggle_cat_view').click(function() {
+            var $el = $(this);
+            var $target = $('.mfp-content');
+
+            if($target.hasClass('compact_categories')) {
+                $target.removeClass('compact_categories');
+                $el.find('.icon-th-list').removeClass('icon-th-list').addClass('icon-th');
+                if (localStorage !== null) {
+                    localStorage.cat_view_state = "hierarchical";
+                }
+            } else {
+                $target.addClass('compact_categories');
+                $el.find('.icon-th').removeClass('icon-th').addClass('icon-th-list');
+                if (localStorage !== null) {
+                    localStorage.cat_view_state = "compact";
+                }
+            }
+        });
+    };
+
+    // Show tag selector
+    if($('#serendipityEntry').length > 0) {
+        $('#select_tags').click(function(e) {
+            e.preventDefault();
+
+            if ($('#adv_opts').hasClass('additional_info')) {
+                $('#toggle_advanced').click();
+            }
+
+            serendipity.skipScroll($(this).attr('href'));
+        });
+    }
+
+    // Category live filter
+    $('#categoryfilter').keyup(function() {
+        serendipity.liveFilters($(this), '#edit_entry_category .form_check', 'label');
+    });
+
+    // Oldie helper for selecting categories
+    $('#edit_entry_category .form_check input').change(function(e) {
+        var $el = $(this);
+
+        if($el.is(":checked")) {
+            $el.siblings('label').addClass('selected');
+        } else {
+            $el.siblings('label').removeClass('selected');
+        }
+    });
+
+    // Plugins live filter
+    $('#pluginfilter').keyup(function() {
+        serendipity.liveFilters($(this), '.plugins_installable > li', '.plugin_features');
+    });
+
+    // Reset button for live filters
+    $('.reset_livefilter').click(function() {
+        var target = '#' + $(this).attr('data-target');
+        $(target).val('').keyup();
+    });
+
+    // Advanced options
+    if($('#advanced_options').length > 0) {
+        $('#toggle_advanced').click(function() {
+            serendipity.toggle_collapsible($(this), '#adv_opts');
+        });
+        if (localStorage !== null && localStorage.getItem("show_toggle_advanced") == "true") {
             $('#toggle_advanced').click();
         }
     }
@@ -980,7 +1248,7 @@ $(function() {
     });
 
     // Collapsible configuration elements
-    if($('body').has('#serendipity_config_options, #serendipity_category, #image_directory_edit_form').size() > 0) {
+    if($('#serendipity_config_options, #serendipity_category, #image_directory_edit_form').length > 0) {
         var optsCollapsed = true;
 
         $('.show_config_option').click(function(e) {
@@ -990,14 +1258,8 @@ $(function() {
             } else {
                 var $toggled = $el.data('href');
             }
-            var $toggleIcon = $el.find('> span');
-            var $toggleState = $toggleIcon.attr('class');
-            if($toggleState == 'icon-down-dir') {
-                $toggleIcon.removeClass('icon-down-dir').addClass('icon-right-dir');
-            } else {
-                $toggleIcon.removeClass('icon-right-dir').addClass('icon-down-dir');
-            }
-            $($toggled).toggleClass('additional_info');
+
+            serendipity.toggle_collapsible($el, $toggled);
             e.preventDefault();
         });
 
@@ -1028,34 +1290,13 @@ $(function() {
         $('.show_config_option_now').click();
     }
 
-    // Config option add media
-    if($('body').has('.media_choose').size() > 0) {
-        var $el = $('.media_choose');
-        var $item = $el.find('> input');
-        var configItem = $item.attr('data-configitem');
-        var mWidth = $item.attr('data-pmwidth');
-        var mHeight = $item.attr('data-pmheight');
-        if($item.val() != '') {
-            var bgImg = 'url(' + $item.val() + ')';
-        } else {
-            var bgImg = 'none';
-        }
-        $('<div id="'+configItem+'_preview" class="preview"/>').appendTo($el)
-            .css({
-                backgroundImage: bgImg,
-                // minWidth: mWidth,
-                minHeight: mHeight
-            });
-    }
-
     $('.change_preview').change(function() {
-        serendipity.change_preview($(this).attr('data-configitem'));
+        serendipity.change_preview($(this).attr('id'), $(this).attr('data-configitem'));
     });
 
-    $('.choose_media').click(function(e) {
+    $('.choose_media').click(function() {
         var configitem = $(this).parent().find('.change_preview').attr('id');
         serendipity.choose_media(configitem);
-        e.preventDefault();
     });
 
     $('.customfieldMedia').click(function() {
@@ -1076,22 +1317,7 @@ $(function() {
 
     $('.comments_reply').click(function(e) {
         e.preventDefault();
-                   $(this).magnificPopup({ type:'iframe' });
-            });
-
-    // Category icon preview
-    // NOTE: This is just to replace the old functionality; ideally, this should
-    //       have a working no-js fallback
-    if($('body').has('#category_icon').size() > 0) {
-        $('<button id="insert_image" type="button" name="insImage" title="Media library"><span class="icon-picture"></span><span class="visuallyhidden"> Media library</span></button>').insertAfter('#category_icon');
-    }
-
-    $('#insert_image').click(function(e) {
-        serendipity.openPopup('serendipity_admin.php?serendipity[adminModule]=media&serendipity[noBanner]=true&serendipity[noSidebar]=true&serendipity[noFooter]=true&serendipity[showMediaToolbar]=false&serendipity[htmltarget]=category_icon&serendipity[filename_only]=true');
-    });
-
-    $('#category_icon').change(function() {
-        $('#imagepreview').attr('src', $('#category_icon').val());
+        serendipity.openPopup($(this).attr('href'));
     });
 
     // Selection for multidelete
@@ -1125,54 +1351,58 @@ $(function() {
         serendipity.checkInputs();
     });
 
+    // Extra function for media db download
+    $('#imageurl').change(function() {
+        sourceval = serendipity.getfilename(document.getElementById('imageurl').value);
+
+        if (sourceval.length > 0) {
+            document.getElementById('imagefilename').value = sourceval;
+        }
+    });
+
     // Dashboard bookmarklet hint
     $('.s9y_bookmarklet').click(function(e) {
         e.preventDefault();
         alert('Bookmark this link and then use it on any page you want to blog about to quickly access your Serendipity Blog.');
     });
 
-    // Limit width of media file info
-    if($('body').has('.media_pane').size() > 0) {
-        var thumbsWidth = $('.media_pane').attr('data-thumbmaxwidth')  + 'px';
-        $('.media_file_meta').css('maxWidth', thumbsWidth);
-    }
-
     // Show media file info, template info, label info or filters
-    $('.media_show_info, .template_show_info, .filters_toolbar li > a').click(function(e) {
+    $('.media_show_info, .template_show_info, .filters_toolbar li > a[href*=\\#], .toggle_info').click(function(e) {
         var $el = $(this);
         if ($el.attr('href')) {
             $($el.attr('href')).toggleClass('additional_info');
         } else {
             $($el.data('href')).toggleClass('additional_info');
         }
+        if (mq_small) {
+            $el.closest('.has_info').toggleClass('info_expanded');
+        }
         $el.toggleClass('active');
         e.preventDefault();
     });
 
-    $('.toggle_info').click(function(e) {
-        if ($(this).attr('href')) {
-            $($(this).attr('href')).toggleClass('additional_info');
-        } else {
-            $($(this).data('href')).toggleClass('additional_info');
-        }
-        e.preventDefault();
-    });
-
     // Show further links
-            if($('body').has('#dashboard').size() > 0) {
+            if($('#dashboard').length > 0) {
             $('.toggle_links').magnificPopup({ type: "inline" });
         }
-    
+
     // Media file actions
-        if ($('body').has('.media_fullsize').size() > 0) {
+        if ($('.media_fullsize').length > 0) {
         $('.media_fullsize').magnificPopup({ type:'image' });
     }
-    
+
     $('.media_rename').click(function(e) {
         e.preventDefault();
         var $el = $(this);
         serendipity.rename($el.attr('data-fileid'), $el.attr('data-filename'));
     });
+
+    $('.media_delete').click(function(e) {
+        e.preventDefault();
+        var $el = $(this);
+        serendipity.deleteFromML($el.attr('data-fileid'), $el.attr('data-filename'));
+    });
+
 
     $('#media_crop').click(function(e) {
         window.open($(this).attr('href'), 'ImageCrop', 'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1').focus();
@@ -1202,19 +1432,14 @@ $(function() {
     $('.toggle_comment_full').click(function(e) {
         var $el = $(this);
         if ($el.attr('href')) {
-            var $toggles = $($el.attr('href'));
+            var $toggled = $($el.attr('href'));
         } else {
-            var $toggles = $($el.data('href'));
+            var $toggled = $($el.data('href'));
         }
-        $toggles.toggleClass('additional_info');
-        $toggles.prev().toggleClass('additional_info');
-        var $toggleIcon = $el.find('> span');
-        var $toggleState = $toggleIcon.attr('class');
-        if($toggleState == 'icon-down-dir') {
-            $toggleIcon.removeClass('icon-down-dir').addClass('icon-right-dir');
-        } else {
-            $toggleIcon.removeClass('icon-right-dir').addClass('icon-down-dir');
-        }
+
+        serendipity.toggle_collapsible($el, $toggled);
+
+        $toggled.prev().toggleClass('additional_info');
         e.preventDefault();
     });
 
@@ -1235,14 +1460,42 @@ $(function() {
     $('.karma_pane .pagination').clone().prependTo('.karma_pane');
 
     // close comment reply on button click
-    if ($('body').has('#comment_replied').size() > 0) {
+    if ($('#comment_replied').length > 0) {
         $('#comment_replied').click(function() {
             serendipity.closeCommentPopup();
         });
     }
 
+    // UI-flow when selecting multiple images in ML upload
+    if ($('.uploadform_userfile').length > 0) {
+        $('.uploadform_userfile').change(function() {
+            if ($(this).get(0).files.length > 1) {
+                $(this).parent().siblings(':first').fadeOut();
+                $(this).parent().siblings(':first').find('input').val('');
+                $(this).attr('name', $(this).attr('name') + '[]');
+            }
+            if ($(this).get(0).files.length == 1) {
+                $(this).parent().siblings(':first').fadeIn();
+            }
+        });
+    }
+
+    // update all button in plugin upgrade menu
+    if ($('#updateAll').length > 0) {
+        $('#updateAll').click(function() {
+            serendipity.updateAll();
+        });
+    }
+
+    // minify images before upload, approach taken from https://github.com/joelvardy/javascript-image-upload/
+    if ($('#serendipity_only_path').length > 0) {
+        $('#serendipity_only_path').change(function() {
+            serendipity.SetCookie('serendipity_only_path', $('#serendipity_only_path').val());
+        });
+    }
+
     // reopen detail element after spamblock action
-    if ($('body').has('#serendipity_comments_list').size() > 0 && window.location.hash && $('body').has('#' + window.location.hash.replace('#', '')).size() > 0) {
+    if ($('#serendipity_comments_list').length > 0 && window.location.hash && $('#' + window.location.hash.replace('#', '')).length > 0) {
         $('#' + window.location.hash.replace('#', '')).find(".toggle_info").click();
     }
 
@@ -1256,7 +1509,7 @@ $(function() {
     })
 
     // Tabs
-    if($('body').has('.tabs').size() > 0) {
+    if($('.tabs').length > 0) {
         var currTabText = 'Current tab: ';
 
         $('.tabs').accessibleTabs({
@@ -1273,32 +1526,78 @@ $(function() {
         });
     }
 
+    // Drag 'n' drop
+    if (! Modernizr.touch){
+        function getDragdropConfiguration(group) {
+            return {
+                containerSelector: '.pluginmanager_container',
+                group: group,
+                handle: '.pluginmanager_grablet',
+
+                onDrop: function ($item, container, _super) {
+                    var placement = $item.parents('.pluginmanager_container').data("placement");
+                    $item.find('select[name$="placement]"]').val(placement);
+                    $item.removeClass('dragged').removeAttr('style');
+                    $('body').removeClass('dragging');
+                    $.autoscroll.stop();
+                },
+                onDragStart: function ($item, container, _super) {
+                    $.autoscroll.init();
+                    $item.css({
+                        height: $item.height(),
+                        width: $item.width()
+                    });
+                    $item.addClass('dragged');
+                    $('body').addClass('dragging');
+                }
+            }
+        }
+
+        $('.pluginmanager_sidebar .pluginmanager_container').sortable(getDragdropConfiguration('plugins_sidebar'));
+        $('.pluginmanager_event .pluginmanager_container').sortable(getDragdropConfiguration('plugins_event'));
+        $('.configuration_group .pluginmanager_container').sortable(getDragdropConfiguration('plugins_event'));
+    }
+
     // Equal Heights
     $(window).load(function() {
-        if($('body').has('.equal_heights').size() > 0) {
-            if($('html').hasClass('lt-ie9')) {
-                $('.equal_heights').syncHeight({
-                    updateOnResize: false
-                });
-            } else {
-                $('.equal_heights').syncHeight({
-                    updateOnResize: true
-                });
-            }
+        if (mq_small) {
+            serendipity.sync_heights();
+        }
+    });
+
+    // Make sure plugin list heights are recalculated when switching tabs
+    $('#pluginlist_tabs a').click(function() {
+        if (mq_small) {
+            serendipity.sync_heights();
         }
     });
 });
 
 // This is kept for older plugins. Use of $(document).ready() is encouraged.
-// At some point, this will be removed.
-    addLoadEvent = function(func) {
-        var oldonload = window.onload;
-        if (typeof window.onload != 'function') {
-            window.onload = func;
-        } else {
-            window.onload = function() {
-                oldonload();
-                func();
-            }
+// At some point, these will be removed.
+addLoadEvent = function(func) {
+    var oldonload = window.onload;
+    if (typeof window.onload != 'function') {
+        window.onload = func;
+    } else {
+        window.onload = function() {
+            oldonload();
+            func();
         }
     }
+}
+
+// Several plugins use this in the global scope. Those API functions are
+// vital, so they reference to our new serendipity scope. This global
+// scope is deprecated and subject to removal in the future.
+serendipity_imageSelector_addToBody = function(block, textarea) {
+    return serendipity.serendipity_imageSelector_addToBody(block, textarea);
+}
+
+serendipity_imageSelector_done = function(textarea) {
+    return serendipity.serendipity_imageSelector_done(textarea);
+}
+
+serendipity_imageSelector_addToElement = function(str, id) {
+    return serendipity.serendipity_imageSelector_addToElement(str, id);
+}
