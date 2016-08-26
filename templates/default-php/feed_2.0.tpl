@@ -13,7 +13,7 @@
     <link><?= $GLOBALS['tpl']['metadata']['link'] ?></link>
     <description><?= $GLOBALS['tpl']['metadata']['description'] ?></description>
     <dc:language><?= $GLOBALS['tpl']['metadata']['language'] ?></dc:language>
-<?php if ($metadata['showMail']): ?>
+<?php if ($GLOBALS['tpl']['metadata']['showMail']): ?>
     <admin:errorReportsTo rdf:resource="mailto:<?= $GLOBALS['tpl']['metadata']['email'] ?>" />
 <?php endif; ?>
     <generator>Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - http://www.s9y.org/</generator>
@@ -33,7 +33,7 @@
 
 <?php if (!$GLOBALS['tpl']['is_comments']): ?>
     <slash:comments><?= $entry['comments'] ?></slash:comments>
-    <wfw:commentRss><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>rss.php?version=<?= $metadata['version'] ?>&amp;type=comments&amp;cid=<?= $entry['feed_id'] ?></wfw:commentRss>
+    <wfw:commentRss><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>rss.php?version=<?= $GLOBALS['tpl']['metadata']['version'] ?>&amp;type=comments&amp;cid=<?= $entry['feed_id'] ?></wfw:commentRss>
 <?php endif; ?>
 
     <author><?= $entry['feed_email'] ?> (<?= $entry['feed_author'] ?>)</author>

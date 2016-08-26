@@ -26,7 +26,7 @@
     <?php foreach($GLOBALS['tpl']['plugin_calendar_weeks'] AS $week): ?>
         <tr class="serendipity_calendar">
         <?php foreach($week['days'] AS $day): ?>
-            <td class="serendipity_calendarDay <?= $day['classes'] ?>"<?php if (isset($day['properties']['Title'])): ?> title="<?= $day['properties']['Title'] ?>"<?php endif; ?>><?php if (isset($day['properties']['Active']) AND $day['properties']['Active']): ?><a href="<?= $day['properties']['Link'] ?>"><?php endif; ?><?= $day['name']; ?><?php if (isset($day['properties']['Active']) AND $day['properties']['Active']): ?></a><?php endif; ?></td>
+            <td class="serendipity_calendarDay <?= $day['classes'] ?>"<?php if (isset($day['properties']['Title'])): ?> title="<?= $day['properties']['Title'] ?>"<?php endif; ?>><?php if (isset($day['properties']['Active']) && $day['properties']['Active']): ?><a href="<?= $day['properties']['Link'] ?>"><?php endif; ?><?= $day['name']; ?><?php if (isset($day['properties']['Active']) && $day['properties']['Active']): ?></a><?php endif; ?></td>
         <?php endforeach; ?>
         </tr>
     <?php endforeach; ?>

@@ -13,7 +13,7 @@
     <link><?= $GLOBALS['tpl']['metadata']['link'] ?></link>
     <description><?= $GLOBALS['tpl']['metadata']['description'] ?></description>
     <dc:language><?= $GLOBALS['tpl']['metadata']['language'] ?></dc:language>
-<?php if ($metadata['showMail']): ?>
+<?php if ($GLOBALS['tpl']['metadata']['showMail']): ?>
     <admin:errorReportsTo rdf:resource="mailto:<?= $GLOBALS['tpl']['metadata']['email'] ?>" />
 <?php endif; ?>
 

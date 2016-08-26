@@ -13,7 +13,7 @@
             <div class="serendipityAdminContent">
                 <div class="serendipity_amazonchr_body_list">
             <?php if ($GLOBALS['tpl']['plugin_amazonchooser_page'] == 'Search'): ?>
-              <?php if ($GLOBALS['tpl']['plugin_amazonchooser_item_count'] > 0 AND $GLOBALS['tpl']['plugin_amazonchooser_return_count'] > 0): ?>
+              <?php if ($GLOBALS['tpl']['plugin_amazonchooser_item_count'] > 0 && $GLOBALS['tpl']['plugin_amazonchooser_return_count'] > 0): ?>
                     <input type="button" class="serendipityPrettyButton input_button"  value="<?= BACK ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_search_url'] ?>" />
                     <div class="serendipity_amazonchr_body_count">
                         <span class="serendipity_amazonchr_pagecount"><?= PLUGIN_EVENT_AMAZONCHOOSER_DISPLAYING ?> <?= PLUGIN_EVENT_AMAZONCHOOSER_PAGE ?> <?= $GLOBALS['tpl']['plugin_amazonchooser_currentpage'] ?> <?= PLUGIN_EVENT_AMAZONCHOOSER_OF ?> <?= $GLOBALS['tpl']['plugin_amazonchooser_totalpages'] ?> <?= PLUGIN_EVENT_AMAZONCHOOSER_PAGES ?> (<?= PLUGIN_EVENT_AMAZONCHOOSER_PAGELIMIT ?>).</span>
@@ -51,7 +51,7 @@
                     <input type="button" class="serendipityPrettyButton input_button"  value="<?= BACK ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_search_url'] ?>" />
                 </div>
             <?php elseif ($GLOBALS['tpl']['plugin_amazonchooser_page'] == 'Lookup'): ?>
-              <?php if ($GLOBALS['tpl']['plugin_amazonchooser_item_count'] == 1 AND $GLOBALS['tpl']['plugin_amazonchooser_return_count'] == 1): ?>
+              <?php if ($GLOBALS['tpl']['plugin_amazonchooser_item_count'] == 1 && $GLOBALS['tpl']['plugin_amazonchooser_return_count'] == 1): ?>
                 <h3><?= PLUGIN_EVENT_AMAZONCHOOSER_CHOSE ?> - <?= $GLOBALS['tpl']['thingy']['strings']['title'] ?></h3>
                 <?= serendipity_getTemplateFile($GLOBALS['tpl']['plugin_amazonchooser_displaytemplate']); ?>
                 <form action="#" method="get" name="serendipity[selForm]">

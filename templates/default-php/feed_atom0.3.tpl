@@ -17,7 +17,7 @@
     <modified><?= $GLOBALS['tpl']['last_modified'] ?></modified>
     <generator url="http://www.s9y.org/" version="<?= $GLOBALS['tpl']['serendipityVersion'] ?>">Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - http://www.s9y.org/</generator>
     <dc:language><?= $GLOBALS['tpl']['metadata']['language'] ?></dc:language>
-<?php if ($metadata['showMail']): ?>
+<?php if ($GLOBALS['tpl']['metadata']['showMail']): ?>
     <admin:errorReportsTo rdf:resource="mailto:<?= $GLOBALS['tpl']['metadata']['email'] ?>" />
 <?php endif; ?>
     <info mode="xml" type="text/html">
@@ -38,7 +38,7 @@
         <wfw:comment><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>wfwcomment.php?cid=<?= $entry['feed_id'] ?></wfw:comment>
 <?php if (!$GLOBALS['tpl']['is_comments']): ?>
         <slash:comments><?= $entry['comments'] ?></slash:comments>
-        <wfw:commentRss><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>rss.php?version=<?= $metadata['version'] ?>&amp;type=comments&amp;cid=<?= $entry['feed_id'] ?></wfw:commentRss>
+        <wfw:commentRss><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>rss.php?version=<?= $GLOBALS['tpl']['metadata']['version'] ?>&amp;type=comments&amp;cid=<?= $entry['feed_id'] ?></wfw:commentRss>
 <?php endif; ?>
         <id><?= $entry['feed_guid'] ?></id>
         <title mode="escaped" type="text/html"><?= $entry['feed_title'] ?></title>

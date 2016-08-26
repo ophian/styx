@@ -2,7 +2,7 @@
 <article id="staticpage_<?= serendipity_makeFilename($GLOBALS['tpl']['staticpage_pagetitle']); ?>" class="clearfix serendipity_staticpage<?php if ($GLOBALS['tpl']['staticpage_articleformat']): ?> serendipity_entry<?php endif; ?>">
     <header>
         <h2><?php if ($GLOBALS['tpl']['staticpage_articleformat']): ?><?php if ($GLOBALS['tpl']['staticpage_articleformattitle']): ?><?= $GLOBALS['tpl']['staticpage_articleformattitle'] ?><?php else: ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_pagetitle']) ?><?php endif; ?><?php else: ?><?php if ($GLOBALS['tpl']['staticpage_headline']): ?><?= $GLOBALS['tpl']['staticpage_headline'] ?><?php else: ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_pagetitle']) ?><?php endif; ?><?php endif; ?></h2>
-    <?php if (is_array($GLOBALS['tpl']['staticpage_navigation']) AND ($GLOBALS['tpl']['staticpage_shownavi'] OR $GLOBALS['tpl']['staticpage_show_breadcrumb'])): ?>
+    <?php if (is_array($GLOBALS['tpl']['staticpage_navigation']) && ($GLOBALS['tpl']['staticpage_shownavi'] || $GLOBALS['tpl']['staticpage_show_breadcrumb'])): ?>
         <div id="staticpage_nav">
         <?php if ($GLOBALS['tpl']['staticpage_shownavi']): ?>
             <ul class="staticpage_navigation">
@@ -24,7 +24,7 @@
         </div>
     <?php endif; ?>
     </header>
-<?php if ($GLOBALS['tpl']['staticpage_pass AND $staticpage_form_pass != $staticpage_pass']): ?>
+<?php if ($GLOBALS['tpl']['staticpage_pass'] && $GLOBALS['tpl']['staticpage_form_pass'] != $GLOBALS['tpl']['staticpage_pass']): ?>
     <form class="staticpage_password_form" action="<?= $GLOBALS['tpl']['staticpage_form_url'] ?>" method="post">
     <fieldset>
         <legend><?= STATICPAGE_PASSWORD_NOTICE ?></legend>
@@ -53,24 +53,24 @@
     </div>
     <?php endif; ?>
 <?php endif; ?>
-<?php if ($GLOBALS['tpl']['staticpage_author OR $staticpage_lastchange OR $staticpage_adminlink']): ?>
+<?php if ($GLOBALS['tpl']['staticpage_author || $staticpage_lastchange || $staticpage_adminlink']): ?>
     <footer class="staticpage_metainfo">
         <p>
         <?php if ($GLOBALS['tpl']['staticpage_author']): ?>
             <span class="single_user"><span class="visuallyhidden"><?= POSTED_BY ?> </span><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_author']) ?>
         <?php endif; ?>
-        <?php if ($GLOBALS['tpl']['staticpage_author'] AND $GLOBALS['tpl']['staticpage_lastchange']): ?> | </span><?php endif; ?>
+        <?php if ($GLOBALS['tpl']['staticpage_author'] && $GLOBALS['tpl']['staticpage_lastchange']): ?> | </span><?php endif; ?>
         <?php if ($GLOBALS['tpl']['staticpage_lastchange']): ?>
             <span class="visuallyhidden"><?= ON ?> </span>
             <?php if ($GLOBALS['tpl']['staticpage_use_lmdate']): ?>
             <time datetime="<?= date("c", $GLOBALS['tpl']['staticpage_lastchange']) ?>"><?= serendipity_formatTime(DATE_FORMAT_ENTRY, $GLOBALS['tpl']['staticpage_lastchange']); ?></time>
-            <?php if ($GLOBALS['tpl']['staticpage_adminlink AND $staticpage_adminlink']['page_user']): ?> (<?= strtolower(CREATED_ON) ?>: <?= $GLOBALS['tpl']['staticpage_created_on|@date_format:"%Y-%m-%d"'] ?>)<?php endif; ?>
+            <?php if ($GLOBALS['tpl']['staticpage_adminlink'] && $GLOBALS['tpl']['staticpage_adminlink']['page_user']): ?> (<?= strtolower(CREATED_ON) ?>: <?= serendipity_strftime("%Y-%m-%d", $GLOBALS['tpl']['staticpage_created_on']) ?>)<?php endif; ?>
             <?php else: ?>
             <time datetime="<?= date("c", $GLOBALS['tpl']['staticpage_created_on']) ?>"><?= serendipity_formatTime(DATE_FORMAT_ENTRY, $GLOBALS['tpl']['staticpage_created_on']); ?></time>
-            <?php if ($GLOBALS['tpl']['staticpage_adminlink AND $staticpage_adminlink']['page_user']): ?> (<?= strtolower(LAST_UPDATED) ?>: <?= $GLOBALS['tpl']['staticpage_lastchange|@date_format:"%Y-%m-%d"'] ?>)<?php endif; ?>
+            <?php if ($GLOBALS['tpl']['staticpage_adminlink'] && $GLOBALS['tpl']['staticpage_adminlink']['page_user']): ?> (<?= strtolower(LAST_UPDATED) ?>: <?= serendipity_strftime("%Y-%m-%d", $GLOBALS['tpl']['staticpage_lastchange']) ?>)<?php endif; ?>
             <?php endif; ?>
         <?php endif; ?>
-        <?php if ($GLOBALS['tpl']['staticpage_adminlink AND $staticpage_adminlink']['page_user']): ?>
+        <?php if ($GLOBALS['tpl']['staticpage_adminlink'] && $GLOBALS['tpl']['staticpage_adminlink']['page_user']): ?>
             | <a href="<?= $GLOBALS['tpl']['staticpage_adminlink']['link_edit'] ?>"><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_adminlink']['link_name']) ?></a>
         <?php endif; ?>
         </p>

@@ -32,7 +32,7 @@
             <div class="serendipity_entry_extended"><a id="extended"></a><?= $entry['extended'] ?></div>
             <?php endif; ?>
 
-            <?php if ($entry['has_extended'] AND !$GLOBALS['tpl']['is_single_entry'] AND !$entry['is_extended']): ?>
+            <?php if ($entry['has_extended'] && !$GLOBALS['tpl']['is_single_entry'] && !$entry['is_extended']): ?>
             <br /><a href="<?= $entry['link'] ?>#extended"><?php printf(VIEW_EXTENDED_ENTRY, $entry['title']) ?></a><br /><br />
             <?php endif; ?>
 
@@ -64,7 +64,7 @@
                     <?php endif; ?>
                 <?php endif; ?>
 
-                <?php if ($entry['is_entry_owner'] AND !$GLOBALS['tpl']['is_preview']): ?>
+                <?php if ($entry['is_entry_owner'] && !$GLOBALS['tpl']['is_preview']): ?>
                         | <a href="<?= $entry['link_edit'] ?>"><?= EDIT_ENTRY; ?></a>
                 <?php endif; ?>
 
@@ -84,7 +84,7 @@
         -->
         <?= $entry['plugin_display_dat'] ?>
 
-        <?php if ($GLOBALS['tpl']['is_single_entry'] AND !$GLOBALS['tpl']['use_popups'] AND !$GLOBALS['tpl']['is_preview']): ?>
+        <?php if ($GLOBALS['tpl']['is_single_entry'] && !$GLOBALS['tpl']['use_popups'] && !$GLOBALS['tpl']['is_preview']): ?>
             <?php if (defined(DATA_UNSUBSCRIBED)): ?>
                 <br /><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br />
             <?php endif; ?>
