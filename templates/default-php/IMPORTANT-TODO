@@ -77,6 +77,11 @@ ADDITIONAL NOTE:
     calls. To save grandma's performance pennies you should search the original Serendipity API
     function before calling them with the $GLOBALS['template']->call() wrapper! This costs dearly.
 
+  - Usage of media_item.tpl is done versus serendipity_admin_image_selector.php, eg
+    <a href="http://example.org/serendipity/serendipity_admin_image_selector.php?serendipity[step]=showItem&amp;serendipity[image]=42">open media_item in page</a>
+    or using only the image as
+    <a href="http://example.org/serendipity/serendipity_admin_image_selector.php?serendipity[step]=showItem&amp;serendipity[image]=42&amp;serendipity[show]=full&amp;serendipity[resizeWidth]=200">open media_item as plain image</a>
+
  The Serendipity Admin backend will still make use of Smarty. It rocks.
 
  Know your PHP before you think about using this. :-)
