@@ -45,7 +45,7 @@
   - Replace '{foreach} ... {/foreach}' calls correspondingly.
 
   - Replace '{smartycommand param1=x param2=x}' function calls with
-    '<?php $GLOBALS['template']->call('smartycommand', array('param1' => 'x', 'param2' => 'x')); ?>' ones
+    '<?= $GLOBALS['template']->call('smartycommand', array('param1' => 'x', 'param2' => 'x')); ?>' ones
 
   - NOTA BENE: Be aware that many smarty function calls are just wrappers to Serendipity API
     calls. To save grandma's performance pennies you should search the original Serendipity API

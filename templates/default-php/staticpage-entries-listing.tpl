@@ -5,7 +5,7 @@
 
 <ul>
 <?php foreach ($GLOBALS['tpl']['entries'] AS $dategroup): ?>
-    <?php foreach ($GLOBALS['tpl']['dategroup']['entries'] AS $entry): ?>
+    <?php foreach ($dategroup['entries'] AS $entry): ?>
     <li class="static-entries">
         (<?= serendipity_formatTime("%d.%m.%Y", $dategroup['date']); ?>) <a href="<?= $entry['link'] ?>"><?= (!empty($entry['title']) ? $entry['title'] : $entry['id']) ?></a>
     </li>
@@ -15,7 +15,7 @@
 
 
 <?php /*  for normal static pages  */ ?>
-&raquo; <a href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?><?php $GLOBALS['template']->call('getCategoryLinkByID', array('cid' => $GLOBALS['tpl']['staticpage_related_category_id'])); ?>"><?= STATICPAGE_ARTICLE_OVERVIEW ?></a><br />
+&raquo; <a href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?><?= $GLOBALS['template']->call('smarty_getCategoryLinkByID', array('cid' => $GLOBALS['tpl']['staticpage_related_category_id'])); ?>"><?= STATICPAGE_ARTICLE_OVERVIEW ?></a><br />
 
 <?php /* for a staticpage as startpage  */ ?>
 <?php /* &raquo; <a href="<?= $GLOBALS['tpl']['serendipityArchiveURL'] ?>/P1.html"><?= STATICPAGE_ARTICLE_OVERVIEW ?></a><br />  */ ?>

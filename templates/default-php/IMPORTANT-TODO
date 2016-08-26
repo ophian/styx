@@ -63,7 +63,7 @@ ADDITIONAL NOTE:
   - Replace '{foreach} ... {/foreach}' calls correspondingly.
 
   - Replace '{smartycommand param1=x param2=x}' function calls with
-    '<?php $GLOBALS['template']->call('smartycommand', array('param1' => 'x', 'param2' => 'x')); ?>' ones
+    '<?= $GLOBALS['template']->call('smartycommand', array('param1' => 'x', 'param2' => 'x')); ?>' ones
 
   - Replace '{serendipity_hookPlugin ... }' calls for a single-entry-id with
     <?php serendipity_plugin_api::hook_event('frontend_comment', $GLOBALS['tpl']['single-entry-id']); ?>

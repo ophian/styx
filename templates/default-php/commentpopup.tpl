@@ -34,13 +34,13 @@
         <dd><a href="<?= $GLOBALS['tpl']['comment_entryurl'] ?>"><?= $GLOBALS['tpl']['comment_entryurl'] ?></a></dd>
     </dl>
 
-    <?php $GLOBALS['template']->call('printTrackbacks', array('entry' => $entry_id)); ?>
+    <?= $GLOBALS['template']->call('printTrackbacks', array('entry' => $entry_id)); ?>
 
 <?php elseif ($is_showcomments): ?>
 
     <div class="serendipity_commentsTitle"><?= COMMENTS ?></div>
 
-    <?php $GLOBALS['template']->call('printComments', array('entry' => $entry_id)); ?>
+    <?= $GLOBALS['template']->call('printComments', array('entry' => $entry_id)); ?>
     <?php if ($is_comment_allowed): ?>
         <div class="serendipity_commentsTitle"><?= ADD_COMMENT ?></div>
         <?= $GLOBALS['tpl']['COMMENTFORM'] ?>

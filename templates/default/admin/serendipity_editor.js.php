@@ -1564,7 +1564,7 @@ $(function() {
     }
 
     // minify images before upload, approach taken from https://github.com/joelvardy/javascript-image-upload/
-    <?php if ($GLOBALS['template']->call('getConfigVar', array('key' => 'uploadResize')) && ($GLOBALS['template']->call('getConfigVar', array('key' => 'maxImgWidth')) > 0 || $GLOBALS['template']->call('getConfigVar', array('key' => 'maxImgHeight')) > 0)): ?>
+    <?php if (serendipity_get_config_var('uploadResize') && (serendipity_get_config_var('maxImgWidth') > 0 || serendipity_get_config_var('maxImgHeight') > 0)): ?>
         if ($('#uploadform').length > 0) {
             $('input[name="go_properties"]').hide();
             var progressIcon = document.createElement('span');
@@ -1641,8 +1641,8 @@ $(function() {
                                 if (type.substring(0, 6) == "image/") {
                                     image.onload = function (imageEvent) {
                                         var canvas = document.createElement('canvas'),
-                                            max_width = <?php if ($GLOBALS['template']->call('getConfigVar', array('key' => 'maxImgWidth'))): ?><?php $GLOBALS['template']->call('getConfigVar', array('key' => 'maxImgWidth')); ?><?php else: ?>0<?php endif; ?>,
-                                            max_height = <?php if ($GLOBALS['template']->call('getConfigVar', array('key' => 'maxImgHeight'))): ?><?php $GLOBALS['template']->call('getConfigVar', array('key' => 'maxImgHeight')); ?><?php else: ?>0<?php endif; ?>,
+                                            max_width = <?php if (serendipity_get_config_var('maxImgWidth')): ?><?= serendipity_get_config_var('maxImgWidth'); ?><?php else: ?>0<?php endif; ?>,
+                                            max_height = <?php if (serendipity_get_config_var('maxImgHeight')): ?><?= serendipity_get_config_var('maxImgHeight'); ?><?php else: ?>0<?php endif; ?>,
                                             width = image.width,
                                             height = image.height;
 

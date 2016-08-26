@@ -59,7 +59,7 @@
    PLEASE NOTE: (for S9y 2.0 and up, the fallback template name is 2k11 instead of bulletproof)
    The Serendipity fallback mode uses serendipity/templates/bulletproof/plugin_staticpage_related_category.tpl. That file overwrites this file here.
    If you need to change anything, better copy this file to your template, to make the desired changes! */ ?>
-<?php $GLOBALS['template']->call('serendipity_fetchPrintEntries', array('category' => $GLOBALS['tpl']['staticpage_related_category_id'], 'template' => "../../plugins/serendipity_event_staticpage/staticpage-entries-listing.tpl", 'limit' => "5", 'noSticky' => "true")); ?>
+<?= $GLOBALS['template']->call('fetchPrintEntries', array('category' => $GLOBALS['tpl']['staticpage_related_category_id'], 'template' => "staticpage-entries-listing.tpl", 'limit' => "5", 'noSticky' => "true")); ?>
 
 <?php /*  if you use your own static-entries.tpl in your template, take this:  */ ?>
 <?php /*  {serendipity_fetchPrintEntries category=$staticpage_related_category_id template="staticpage-entries-listing.tpl" limit="5" noSticky="true"} */ ?>
