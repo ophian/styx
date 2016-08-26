@@ -1,7 +1,7 @@
 <?php $i=1; ?>
 <?php foreach ($GLOBALS['tpl']['comments'] AS $comment): ?>
     <a id="c<?= $comment['id'] ?>"></a>
-    <div id="serendipity_comment_<?= $comment['id'] ?>" class="serendipity_comment serendipity_comment_author_<?= serendipity_makeFilename($comment['author']); ?> <?php if ($entry['author'] == $comment['author']): ?>serendipity_comment_author_self<?php endif; ?><?php if($i%2 == 0): ?>comment_oddbox<?php else: ?>comment_evenbox<?php endif; ?>" style="padding-left: <?= ($comment['depth']*20) ?>px">
+    <div id="serendipity_comment_<?= $comment['id'] ?>" class="serendipity_comment serendipity_comment_author_<?= serendipity_makeFilename($comment['author']); ?><?php if ($GLOBALS['tpl']['commentform_entry']['author'] == $comment['author']): ?> serendipity_comment_author_self <?php endif; ?><?php if($i%2 == 0): ?>comment_oddbox<?php else: ?> comment_evenbox<?php endif; ?>" style="padding-left: <?= ($comment['depth']*20) ?>px">
         <div class="serendipity_commentBody">
         <?php if ($comment['body'] == 'COMMENT_DELETED'): ?>
             <?= COMMENT_IS_DELETED ?>
@@ -24,10 +24,10 @@
             <?= ON ?>
             <span class="comment_source_date"><?= serendipity_formatTime($comment['timestamp'], DATE_FORMAT_SHORT); ?></span>
 
-            <?php if ($entry['is_entry_owner']): ?>
+            <?php if ($GLOBALS['tpl']['commentform_entry']['is_entry_owner']): ?>
                 (<a class="comment_source_ownerlink" href="<?= $comment['link_delete'] ?>" onclick="return confirm('<?= printf(COMMENT_DELETE_CONFIRM, $comment['id'], $comment['author']); ?>');"><?= DELETE ?></a>)
             <?php endif; ?>
-            <?php if ($entry['allow_comments'] AND $comment['body'] != 'COMMENT_DELETED'): ?>
+            <?php if ($GLOBALS['tpl']['commentform_entry']['allow_comments'] && $comment['body'] != 'COMMENT_DELETED'): ?>
                 (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_<?= $comment['id'] ?>" onclick="document.getElementById('serendipity_replyTo').value='<?= $comment['id'] ?>'; <?= $GLOBALS['tpl']['comment_onchange'] ?>"><?= REPLY ?></a>)
                 <div id="serendipity_replyform_<?= $comment['id'] ?>"></div>
             <?php endif; ?>
