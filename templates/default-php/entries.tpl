@@ -1,6 +1,6 @@
 <!-- ENTRIES START -->
     <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl']['entry_id']); ?>
-<?php /* NOTE: in case of staticpages it needs to check is_array() or cast foreach($GLOBALS as (array) */ ?>
+<?php /* NOTE: in case of staticpages it either needs to check is_array() or cast foreach($GLOBALS as (array) */ ?>
     <?php if (is_array($GLOBALS['tpl']['entries'])):
     foreach($GLOBALS['tpl']['entries'] AS $dategroup): ?>
     <div class="serendipity_Entry_Date">
@@ -143,7 +143,7 @@
 
                 <?php if ( !empty($GLOBALS['tpl']['comments_messagestack'])): ?>
                 <?php foreach($GLOBALS['tpl']['comments_messagestack'] AS $message): ?>
-                <div class="serendipity_center serendipity_msg_important"><?= $GLOBALS['tpl']['message'] ?></div>
+                <div class="serendipity_center serendipity_msg_important"><?= $message ?></div>
                 <?php endforeach; ?>
                 <?php endif; ?>
 
