@@ -55,14 +55,7 @@
 <?php endif; ?>
 
 <div class="clearfix content serendipity_preface staticpage_related_category_entry_list">
-<?php /* Standard - if you use it on a shared-s9y-installation you have to correct the path to staticpage-entries-listing.tpl
-   PLEASE NOTE: (for S9y 2.0 and up, the fallback template name is 2k11 instead of bulletproof)
-   The Serendipity fallback mode uses serendipity/templates/bulletproof/plugin_staticpage_related_category.tpl. That file overwrites this file here.
-   If you need to change anything, better copy this file to your template, to make the desired changes! */ ?>
 <?= $GLOBALS['template']->call('fetchPrintEntries', array('category' => $GLOBALS['tpl']['staticpage_related_category_id'], 'template' => "staticpage-entries-listing.tpl", 'limit' => "5", 'noSticky' => "true")); ?>
-
-<?php /*  if you use your own static-entries.tpl in your template, take this:  */ ?>
-<?php /*  {serendipity_fetchPrintEntries category=$staticpage_related_category_id template="staticpage-entries-listing.tpl" limit="5" noSticky="true"} */ ?>
 </div>
 
 <?php if ($GLOBALS['tpl']['staticpage_author'] or $GLOBALS['tpl']['staticpage_lastchange'] or $GLOBALS['tpl']['staticpage_adminlink']): ?>
