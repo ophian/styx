@@ -1,7 +1,7 @@
 <?php $i=1; ?>
 <?php foreach ($GLOBALS['tpl']['comments'] AS $comment): ?>
     <a id="c<?= $comment['id'] ?>"></a>
-    <div id="serendipity_comment_<?= $comment['id'] ?>" class="serendipity_comment serendipity_comment_author_<?= serendipity_makeFilename($comment['author']); ?><?php if ($GLOBALS['tpl']['commentform_entry']['author'] == $comment['author']): ?> serendipity_comment_author_self <?php endif; ?><?php if($i%2 == 0): ?>comment_oddbox<?php else: ?> comment_evenbox<?php endif; ?>" style="padding-left: <?= ($comment['depth']*20) ?>px">
+    <div id="serendipity_comment_<?= $comment['id'] ?>" class="serendipity_comment serendipity_comment_author_<?= serendipity_makeFilename($comment['author']); ?><?php if ($GLOBALS['tpl']['commentform_entry']['author'] == $comment['author']): ?> serendipity_comment_author_self <?php endif; ?><?php if($i%2 == 0): ?> comment_oddbox<?php else: ?> comment_evenbox<?php endif; ?>" style="padding-left: <?= ($comment['depth']*20) ?>px">
         <div class="serendipity_commentBody">
         <?php if ($comment['body'] == 'COMMENT_DELETED'): ?>
             <?= COMMENT_IS_DELETED ?>
