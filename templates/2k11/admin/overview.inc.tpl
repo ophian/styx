@@ -13,7 +13,7 @@
         <hr class="separator">
     {/if}
 
-    {if $updateCheck == "stable" || $updateCheck == "beta"}
+    {if $updateCheck == "stable" OR $updateCheck == "beta"}
         {if $curVersion == -1}
             <section id="dashboard_update">
                 <h3>{$CONST.UPDATE_NOTIFICATION}</h3>
@@ -53,7 +53,7 @@
                     <ul class="plainList actions">
                         <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;serendipity[authorid]={$comment.authorid}&amp;{$urltoken}" title="{$CONST.EDIT}"><span class="icon-edit"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
                         <li><a class="button_link comments_reply" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=reply&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[authorid]={$comment.authorid}&amp;{$urltoken}" title="{$CONST.REPLY}"><span class="icon-chat"></span><span class="visuallyhidden"> {$CONST.REPLY}</span></a></li>
-                    {if ($comment.status == 'pending') || ($comment.status == 'confirm')}
+                    {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
                         <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=approve&amp;serendipity[id]={$comment.id}&amp;serendipity[authorid]={$comment.authorid}&amp;{$urltoken}" title="{$CONST.APPROVE}"><span class="icon-thumbs-up-alt"></span><span class="visuallyhidden">{$CONST.APPROVE}</span></a></li>
                     {/if}
                     {if ($comment.status == 'approved')}
@@ -65,7 +65,7 @@
                         <li><button class="button_link toggle_comment_full" type="button" data-href="#c{$comment.id}_full" title="{$CONST.TOGGLE_ALL}"><span class="icon-right-dir"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span></button></li>
                     {/if}
                     </ul>
-                {if ($comment.status == 'pending') || ($comment.status == 'confirm')}
+                {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
                     <span class="comment_status">{$CONST.COMMENTS_FILTER_NEED_APPROVAL}</span>
                 {/if}
                 </li>
@@ -99,7 +99,7 @@
                         {/if}
 
                     </ul>
-                {if !$showFutureEntries && ($entry.timestamp >= $serverOffsetHour) && $entry.isdraft == "false"}
+                {if !$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour) AND $entry.isdraft == "false"}
                     <span class="entry_status status_future" title="{$CONST.SCHEDULED}: {$CONST.ENTRY_PUBLISHED_FUTURE}">{$entry.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT}</span>
                 {/if}
                 {if $entry.properties.ep_is_sticky}

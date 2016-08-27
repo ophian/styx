@@ -19,7 +19,7 @@
     {if !empty($license)}
         <p><b>{$CONST.MEDIA_PROPERTY_COPYRIGHT}:</b> {$license}</p>
     {/if}
-    {if ! empty($documentation) || $changelog || $documentation_local}
+    {if ! empty($documentation) OR $changelog OR $documentation_local}
         <ul class="plainList">
         {if !empty($documentation)}
             <li><a href="{$documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION}</a></li>
@@ -75,13 +75,13 @@
             {/if}
         </div>
     </form>
-    {if $only_group == 'UPGRADE' && $available_upgrades !== true}
+    {if $only_group == 'UPGRADE' AND $available_upgrades !== true}
         <span class="msg_notice"><span class="icon-attention-circled"></span> {$CONST.NO_UPDATES}</span>
     {else}
         {foreach $pluggroups AS $pluggroup => $groupstack}
-            {if $only_group && $pluggroup != $only_group}{continue}{/if}
+            {if $only_group AND $pluggroup != $only_group}{continue}{/if}
             <h3>{foreach $groupnames as $available_group => $available_name}{if $pluggroup == $available_group}{$available_name}{/if}{/foreach}</h3>
-            {if $only_group == 'UPGRADE' && $pluggroups['UPGRADE']|count > 1}
+            {if $only_group == 'UPGRADE' AND $pluggroups['UPGRADE']|count > 1}
                 <button id="updateAll">Update All</button>
             {/if}
             <ul class="plugins_installable plainList clearfix">
@@ -119,8 +119,8 @@
                         {if !empty($plug.local_documentation)}
                             <li class="plugin_localdoc"><a href="{$plug.local_documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a></li>
                         {/if}
-                        {if !empty({$plug.upgrade_version}) && $plug.upgrade_version != $plug.version}
-                            <li class="plugin_toversion">{$CONST.UPGRADE_TO_VERSION|sprintf:"{$plug.upgrade_version}"}{if !empty($plug.pluginlocation) && $plug.pluginlocation != 'local'} ({$plug.pluginlocation|escape}){/if}</li>
+                        {if !empty({$plug.upgrade_version}) AND $plug.upgrade_version != $plug.version}
+                            <li class="plugin_toversion">{$CONST.UPGRADE_TO_VERSION|sprintf:"{$plug.upgrade_version}"}{if !empty($plug.pluginlocation) AND $plug.pluginlocation != 'local'} ({$plug.pluginlocation|escape}){/if}</li>
                         {/if}
                         </ul>
                     </div>

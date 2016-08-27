@@ -29,7 +29,7 @@
     </div>
     {/if}
 {/if}
-{if $staticpage_author or $staticpage_lastchange or $staticpage_adminlink}
+{if $staticpage_author OR $staticpage_lastchange OR $staticpage_adminlink}
     <footer class="staticpage_metainfo">
         <p>
         {if $staticpage_author}

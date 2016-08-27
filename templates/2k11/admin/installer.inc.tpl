@@ -25,7 +25,7 @@
 
     <main class="clearfix serendipityAdminContent installer">
         <div id="content" class="clearfix">
-        {if $is_errors && is_array($errors)}
+        {if $is_errors AND is_array($errors)}
             <ul class="plainList">
             {foreach $errors AS $error}
                 <li><span class="msg_error">{$error}</span></li>

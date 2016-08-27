@@ -25,8 +25,8 @@
                         <option value="">-</option>
                 {if is_array($users)}
                     {foreach $users AS $user}
-                        {if isset($user.artcount) && $user.artcount < 1}{continue}{/if}
-                        <option value="{$user.authorid}" {(isset($get.filter.author) && ($get.filter.author == $user.authorid)) ? 'selected' : ''}>{$user.realname|escape}</option>
+                        {if isset($user.artcount) AND $user.artcount < 1}{continue}{/if}
+                        <option value="{$user.authorid}" {(isset($get.filter.author) AND ($get.filter.author == $user.authorid)) ? 'selected' : ''}>{$user.realname|escape}</option>
                     {/foreach}
                 {/if}
                     </select>
@@ -36,8 +36,8 @@
                     <label for="filter_draft">{$CONST.ENTRY_STATUS}</label>
                     <select id="filter_draft" name="serendipity[filter][isdraft]">
                         <option value="all">{$CONST.COMMENTS_FILTER_ALL}</option>
-                        <option value="draft" {(isset($get.filter.isdraft) && ($get.filter.isdraft == 'draft') ? 'selected' : '')}>{$CONST.DRAFT}</option>
-                        <option value="publish" {(isset($get.filter.isdraft) && ($get.filter.isdraft == 'publish') ? 'selected' : '')}>{$CONST.PUBLISH}</option>
+                        <option value="draft" {(isset($get.filter.isdraft) AND ($get.filter.isdraft == 'draft') ? 'selected' : '')}>{$CONST.DRAFT}</option>
+                        <option value="publish" {(isset($get.filter.isdraft) AND ($get.filter.isdraft == 'publish') ? 'selected' : '')}>{$CONST.PUBLISH}</option>
                     </select>
                 </div>
 
@@ -66,7 +66,7 @@
                     <label for="sort_order">{$CONST.SORT_BY}</label>
                     <select id="sort_order" name="serendipity[sort][order]">
                     {foreach $sort_order as $so_key => $so_val}
-                        <option value="{$so_key}" {(isset($get.sort.order) && ($get.sort.order == $so_key) ? 'selected': '')}>{$so_val}</option>
+                        <option value="{$so_key}" {(isset($get.sort.order) AND ($get.sort.order == $so_key) ? 'selected': '')}>{$so_val}</option>
                     {/foreach}
                     </select>
                 </div>
@@ -74,8 +74,8 @@
                 <div class="form_select">
                     <label for="sort_ordermode">{$CONST.SORT_ORDER}</label>
                     <select id="sort_ordermode" name="serendipity[sort][ordermode]">
-                        <option value="DESC" {(isset($get.sort.ordermode) && ($get.sort.ordermode == 'DESC') ? 'selected' : '')}>{$CONST.SORT_ORDER_DESC}</option>
-                        <option value="ASC" {(isset($get.sort.ordermode) && ($get.sort.ordermode == 'ASC') ? 'selected' : '')}>{$CONST.SORT_ORDER_ASC}</option>
+                        <option value="DESC" {(isset($get.sort.ordermode) AND ($get.sort.ordermode == 'DESC') ? 'selected' : '')}>{$CONST.SORT_ORDER_DESC}</option>
+                        <option value="ASC" {(isset($get.sort.ordermode) AND ($get.sort.ordermode == 'ASC') ? 'selected' : '')}>{$CONST.SORT_ORDER_ASC}</option>
                     </select>
                 </div>
 
@@ -83,7 +83,7 @@
                     <label for="sort_perpage">{$CONST.ENTRIES_PER_PAGE}</label>
                     <select id="sort_perpage" name="serendipity[sort][perPage]">
                     {foreach $per_page AS $per_page_nr}
-                        <option value="{$per_page_nr}" {((isset($get.sort.perPage) && ($get.sort.perPage == $per_page_nr)) ? 'selected' : '')}> {$per_page_nr}</option>
+                        <option value="{$per_page_nr}" {((isset($get.sort.perPage) AND ($get.sort.perPage == $per_page_nr)) ? 'selected' : '')}> {$per_page_nr}</option>
                     {/foreach}
                     </select>
                 </div>
@@ -145,7 +145,7 @@
                     <h3><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}" title="#{$entry.id}: {$entry.title|escape:'html':$CONST.LANG_CHARSET:false}">{$entry.title|escape:'html':$CONST.LANG_CHARSET:false}</a></h3>
 
                     <ul class="plainList clearfix actions">
-                    {if $entry.preview || (!$showFutureEntries && ($entry.timestamp >= $serverOffsetHour))}
+                    {if $entry.preview OR (!$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour))}
                         <li><a class="button_link" href="{$entry.preview_link}" title="{$CONST.PREVIEW} #{$entry.id}"><span class="icon-search"></span><span class="visuallyhidden"> {$CONST.PREVIEW}</span></a></li>
                     {else}
                         <li><a class="button_link" href="{$entry.archive_link}" title="{$CONST.VIEW} #{$entry.id}"><span class="icon-search"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>
@@ -162,11 +162,11 @@
                         <span class="entry_meta">{$CONST.POSTED_BY} {$entry.author|escape}
                         {if count($entry.cats)} {$CONST.IN}
                           {foreach $entry.cats AS $cat}
-                            <a href="{$cat.link}">{$cat.category_name|escape}</a>{if (count($entry.cats) > 1) && !$cat@last}, {/if}
+                            <a href="{$cat.link}">{$cat.category_name|escape}</a>{if (count($entry.cats) > 1) AND !$cat@last}, {/if}
                           {/foreach}
                         {/if}
                         </span>
-                    {if !$showFutureEntries && ($entry.timestamp >= $serverOffsetHour)}
+                    {if !$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour)}
                         <span class="entry_status status_future">{$CONST.SCHEDULED}</span>
                     {/if}
                     {if $entry.ep_is_sticky}
@@ -179,7 +179,7 @@
                 </li>
             {/foreach}
             </ul>
-            {if ($offSet > 0) || ($count > $perPage)}
+            {if ($offSet > 0) OR ($count > $perPage)}
             {math assign=totalPages equation="ceil(values/parts)" values=$totalEntries parts=$perPage}
             <nav class="pagination">
                 <h3>{$CONST.PAGE_BROWSE_ENTRIES|sprintf:($page+1):$totalPages:$totalEntries}</h3>
@@ -210,15 +210,15 @@
 {/if}
 
 {if $switched_output}
-    {if ($get.adminAction && $dateval)}
+    {if ($get.adminAction AND $dateval)}
         <span class="msg_error"><span class="icon-attention-circled"></span> {$CONST.DATE_INVALID}</span>
     {/if}
-    {if ($get.adminAction && $use_legacy)}
-        {if $is_draft && ! $errors}
+    {if ($get.adminAction AND $use_legacy)}
+        {if $is_draft AND ! $errors}
         <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.IFRAME_SAVE_DRAFT}</span>
         {/if}
         {if $is_iframe}
-        {if $iframe === true && isset($smarty.post.serendipity.properties.lang_selected)}
+        {if $iframe === true AND isset($smarty.post.serendipity.properties.lang_selected)}
         <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.PLUGIN_EVENT_MULTILINGUAL_ENTRY_RELOADED|sprintf:{(''==$smarty.post.serendipity.properties.lang_selected)?$lang:$smarty.post.serendipity.properties.lang_selected}}</span>
         {else}
         <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.IFRAME_SAVE}</span>
@@ -228,12 +228,12 @@
         <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.IFRAME_PREVIEW}</span>
         {/if}
     {/if}
-    {if ($is_doDelete || $is_doMultiDelete )}
+    {if ($is_doDelete OR $is_doMultiDelete )}
         {foreach $del_entry AS $delent}
         <span class="msg_hint"><span class="icon-help-circled"></span> {$delent}</span>
         {/foreach}
     {/if}
-    {if ( $is_delete || $is_multidelete )}
+    {if ( $is_delete OR $is_multidelete )}
         {foreach $rip_entry AS $ripent}
         <span class="msg_hint"><span class="icon-help-circled"></span> {$ripent}</span>
         {/foreach}
@@ -243,5 +243,5 @@
         </div>
     {/if}
 {/if}
-{if $iframe !== true && !empty($iframe)}{$iframe}{/if}
+{if $iframe !== true AND !empty($iframe)}{$iframe}{/if}
 {$entryForm}

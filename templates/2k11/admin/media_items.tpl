@@ -2,7 +2,7 @@
     {if NOT $media.manage}
         {* ML got called for inserting media *}
             {if $file.is_image AND $file.full_thumb}
-                {if $media.textarea || $media.htmltarget}
+                {if $media.textarea OR $media.htmltarget}
                 {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
                 {else}
                     {if $file.url}
@@ -109,7 +109,7 @@
                         </footer>
                     </div>
                 </div>
-            {if (($media.manage || {serendipity_getConfigVar key='showMediaToolbar'}) && $media.metaActionBar)}
+            {if (($media.manage OR {serendipity_getConfigVar key='showMediaToolbar'}) AND $media.metaActionBar)}
 
                 <ul class="media_file_actions actions plainList clearfix">
                     <li><a class="media_show_info button_link" href="#media_file_meta_{$file.id}" title="{$CONST.SHOW_METADATA}"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.SHOW_METADATA}</span></a></li>

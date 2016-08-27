@@ -18,7 +18,7 @@
 <body id="serendipity_admin_page">
 {if NOT $admin_vars.no_banner}
     <header id="top">
-        <div id="banner{if not $admin_vars.is_logged_in}_install{/if}" class="clearfix">
+        <div id="banner{if NOT $admin_vars.is_logged_in}_install{/if}" class="clearfix">
         {if $admin_vars.is_logged_in}
             <a id="nav-toggle" class="button_link" href="#main_menu"><span class="icon-menu"></span><span class="visuallyhidden"> {$CONST.NAVIGATION}</span></a>
         {/if}

@@ -5,7 +5,7 @@
     <div class="comments_for_entry">{$entry_comments.tpl_comments}</div>
 </article>
 {/foreach}
-{if $footer_info or $footer_prev_page or $footer_next_page}
+{if $footer_info OR $footer_prev_page OR $footer_next_page}
     <nav class="serendipity_pagination block_level comments_by_author_pagination">
         <ul class="clearfix">
             {if $footer_info}

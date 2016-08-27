@@ -27,7 +27,7 @@
     {/if}
 {/if}
 
-{if $edit || $new}
+{if $edit OR $new}
     <h3>{if $edit}{$CONST.EDIT}{else}{$CONST.CREATE}{/if}</h3>
 
     <form id="serendipity_admin_groups" class="configuration_group option_list" action="?serendipity[adminModule]=groups" method="post">
@@ -56,7 +56,7 @@
             {if !isset($section)}
                 {$section=$perm@key}
             {/if}
-            {if $section != {$perm@key} && {{$perm@key}|truncate:"{$section|count_characters}":""} == $section}
+            {if $section != {$perm@key} AND {{$perm@key}|truncate:"{$section|count_characters}":""} == $section}
                 {$indent="&nbsp;&nbsp;"}
             {else}
                 {if $section != {$perm@key}}
@@ -64,20 +64,20 @@
                     {$section="{$perm@key}"}
                 {/if}
             {/if}
-            {if ! ($perm@first || ($in_indent != true && $indent == "&nbsp;&nbsp;"))}
+            {if ! ($perm@first OR ($in_indent != true AND $indent == "&nbsp;&nbsp;"))}
                 </li>
             {/if}
-            {if $indent == "&nbsp;&nbsp;" && $in_indent != true}
+            {if $indent == "&nbsp;&nbsp;" AND $in_indent != true}
                 {$in_indent=true}
                 <ul>
             {/if}
-            {if $indent == "<br>" && $in_indent == true}
+            {if $indent == "<br>" AND $in_indent == true}
                 {$in_indent=false}
                 </ul></li>
             {/if}
             <li>
             {if !$perm.permission}
-                <div><var class="perm_name">[{$perm.permission_name|escape}]</var>: <span class="perm_status">{(isset($from.{$perm@key}) && $from.{$perm@key} == "true") ? $CONST.YES : $CONST.NO}</span></div>
+                <div><var class="perm_name">[{$perm.permission_name|escape}]</var>: <span class="perm_status">{(isset($from.{$perm@key}) AND $from.{$perm@key} == "true") ? $CONST.YES : $CONST.NO}</span></div>
             {else}
                 <div class="form_check">
                     <input id="{{$perm@key}|escape}" name="serendipity[{{$perm@key}|escape}]" type="checkbox" value="true"{if isset({$from.{$perm@key}}) && {$from.{$perm@key}} == "true"} checked="checked"{/if}>

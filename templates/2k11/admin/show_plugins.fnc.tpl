@@ -44,7 +44,7 @@
                                         <option value="0">{$CONST.ALL_AUTHORS}</option>
                                 {/if}
                                 {foreach $users AS $user}
-                                    {if (! $plugin_data.is_plugin_owner && ($user['authorid'] == $plugin_data.authorid))}
+                                    {if (! $plugin_data.is_plugin_owner AND ($user['authorid'] == $plugin_data.authorid))}
                                         {assign var="realname" value="{$user['realname']|escape}"}
                                     {elseif $plugin_data.is_plugin_owner}
                                         <option value="{$user['authorid']}"{($user['authorid'] == $plugin_data.authorid) ? ' selected' : ''}>{$user['realname']|escape}</option>

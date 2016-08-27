@@ -51,7 +51,7 @@
             {foreach $media.sort_order AS $filtername => $filter}
 
                 <div class="{cycle values="left,center,right"}{if $filter@iteration > 6} bp_filters{/if}">
-                {if $filter.type == 'date' || $filter.type == 'intrange'}
+                {if $filter.type == 'date' OR $filter.type == 'intrange'}
 
                     <fieldset>
                         <span class="wrap_legend"><legend>{$filter.desc}</legend></span>
@@ -90,7 +90,7 @@
                         {* label is already set on loop start, when type is not date or intrange *}
                         <input id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]" type="text" value="{$media.filter[$filter@key]|escape}">
                 {/if}
-                {if $filter.type == 'date' || $filter.type == 'intrange'}
+                {if $filter.type == 'date' OR $filter.type == 'intrange'}
 
                     </fieldset>
                 {else}

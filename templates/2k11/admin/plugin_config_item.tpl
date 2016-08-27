@@ -1,4 +1,4 @@
-{if ($ctype == 'separator' || $ctype == 'seperator')}{* compat - due to misspelled word 'seper...' *}
+{if ($ctype == 'separator' OR $ctype == 'seperator')}{* compat - due to misspelled word 'seper...' *}
 
     <hr class="config_separator">
 {elseif $ctype == 'suboption'}
@@ -10,9 +10,9 @@
         <label for="serendipity_{$config_item}">{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item}_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
         {if $cdesc != ''}<span id="{$config_item}_info" class="field_info additional_info">{$cdesc}</span>{/if}
 
-        <select id="serendipity_{$config_item}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]{($is_multi_select) ? '[]' : ''}"{($is_multi_select) ? ' multiple' : ''}{($is_multi_select && ($select_size > 0)) ? " size='{$select_size}'" : ''}>
+        <select id="serendipity_{$config_item}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]{($is_multi_select) ? '[]' : ''}"{($is_multi_select) ? ' multiple' : ''}{($is_multi_select AND ($select_size > 0)) ? " size='{$select_size}'" : ''}>
         {foreach $select AS $select_value => $select_desc}
-            <option value="{$select_value}" {(in_array($select_value, $selected_options) || in_array($select_value, $pre_selected)) ? 'selected' : ''} title="{$select_desc|escape}">{$select_desc|escape}</option>
+            <option value="{$select_value}" {(in_array($select_value, $selected_options) OR in_array($select_value, $pre_selected)) ? 'selected' : ''} title="{$select_desc|escape}">{$select_desc|escape}</option>
         {/foreach}
         </select>
     </div>
@@ -38,10 +38,10 @@
         {if $cdesc != ''}<span id="{$config_item}_info" class="field_info additional_info">{$cdesc}</span>{/if}
         <input id="serendipity_{$config_item}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" type="{$input_type}" value="{$hvalue}">
     </div>
-{elseif (($ctype == 'html') || ($ctype == 'text'))}
+{elseif (($ctype == 'html') OR ($ctype == 'text'))}
 
     <div class="clearfix form_area{if $cdesc != ''} has_info{/if}">
-        <label for="nuggets{$elcount}">{$cname}{if $cdesc != '' && !$backend_wysiwyg} <button class="toggle_info button_link" type="button" data-href="#nuggets{$elcount}_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
+        <label for="nuggets{$elcount}">{$cname}{if $cdesc != '' AND !$backend_wysiwyg} <button class="toggle_info button_link" type="button" data-href="#nuggets{$elcount}_info"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
         {if $cdesc != ''}<span id="nuggets{$elcount}_info" class="field_info additional_info">{$cdesc}</span>{/if}
         <textarea id="nuggets{$elcount}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" rows="{$text_rows}">{$hvalue}</textarea>
     </div>

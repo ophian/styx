@@ -19,7 +19,7 @@
 {if NOT $admin_vars.no_banner}
     <header id="top">
         <div class="clearfix">
-            <div id="banner{if not $admin_vars.is_logged_in}_install{/if}">
+            <div id="banner{if NOT $admin_vars.is_logged_in}_install{/if}">
             {if $admin_vars.admin_installed}
                 <h1><a href="serendipity_admin.php"><span class="visuallyhidden">{$CONST.SERENDIPITY_ADMIN_SUITE}: </span>{$blogTitle}</a></h1>
             {else}
@@ -66,7 +66,7 @@
         {/if}
     {/if}
 
-    {if (($showAbort && $get.action == 'ignore') || $get.action == 'upgrade')}
+    {if (($showAbort AND $get.action == 'ignore') OR $get.action == 'upgrade')}
         {if $get.action == 'ignore'}
             <span class="msg_notice upgrade_done"><span class="icon-info-circled"></span> {$CONST.SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED}</span>
         {elseif $get.action == 'upgrade'}
@@ -129,7 +129,7 @@
                 <h3>{$database_update_types}:</h3>
 
                 <p>{$CONST.SERENDIPITY_UPGRADER_FOUND_SQL_FILES}:</p>
-                {if is_array($sqlfiles) && !empty($sqlfiles)}
+                {if is_array($sqlfiles) AND !empty($sqlfiles)}
                 <ul>
                 {foreach $sqlfiles as $sqlfile}
                     <li>{$sqlfile}</li>
@@ -138,7 +138,7 @@
                 {/if}
             {/if}
                 <h3>{$CONST.SERENDIPITY_UPGRADER_VERSION_SPECIFIC}:</h3>
-            {if is_array($tasks) && !empty($tasks)}
+            {if is_array($tasks) AND !empty($tasks)}
                 <dl class="upgrader_tasks">
                 {foreach $tasks as $task}
                     <dt>{$task.version} - {$task.title}</dt>
@@ -149,7 +149,7 @@
             {if ($taskCount == 0)}
                 <p>{$CONST.SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC}</p>
             {/if}
-            {if (($taskCount > 0) || (sizeof($sqlfiles) > 0))}
+            {if (($taskCount > 0) OR (sizeof($sqlfiles) > 0))}
                 <h3>{$CONST.SERENDIPITY_UPGRADER_PROCEED_QUESTION}</h3>
 
                 <a class="button_link state_submit" href="{$upgradeLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_DOIT}</a>{if $showAbort} <a class="button_link state_cancel" href="{$abortLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_ABORT}</a>{/if}

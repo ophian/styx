@@ -21,7 +21,7 @@
 
             <fieldset id="el{$config_groupkeys@iteration}" class="config_optiongroup{if $config_groupkeys@last} config_optiongroup_last{/if} additional_info">
             {foreach $config_groupkeys AS $config_groupkey}
-                {if ($plugin_option[$config_groupkey]['ctype'] == 'separator' || $plugin_option[$config_groupkey]['ctype'] == 'seperator')}{* compat - due to misspelled word 'seper...' *}
+                {if ($plugin_option[$config_groupkey]['ctype'] == 'separator' OR $plugin_option[$config_groupkey]['ctype'] == 'seperator')}{* compat - due to misspelled word 'seper...' *}
                     {$plugin_options[$config_groupkey]['config']}
                 {else}
                     <div class="{cycle values='odd,even'}">
@@ -35,7 +35,7 @@
     </div>
 {/if}
 {foreach $plugin_options_ungrouped as $plugin_option}
-    {if ($plugin_option['ctype'] == 'separator' || $plugin_option['ctype'] == 'seperator') || $plugin_option['ctype'] == 'suboption'}{* compat - due to misspelled word 'seper...' *}
+    {if ($plugin_option['ctype'] == 'separator' OR $plugin_option['ctype'] == 'seperator') OR $plugin_option['ctype'] == 'suboption'}{* compat - due to misspelled word 'seper...' *}
         {$plugin_option['config']}
     {else if !empty($plugin_option['config'])}
         <div class="configuration_group {cycle values='odd,even'}">
@@ -61,7 +61,7 @@
 {if $spawnNuggets}
     {serendipity_hookPlugin hook="backend_wysiwyg_nuggets" eventData=$ev hookAll=true}
 
-    {if $ev['skip_nuggets'] === false && $init !== false}
+    {if $ev['skip_nuggets'] === false AND $init !== false}
 
     <script>
     function Spawnnugget() {

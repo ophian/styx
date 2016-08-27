@@ -31,7 +31,7 @@
 
             <div class="clearfix equal_heights template_wrap">
                 <div class="template_preview">
-                {if $cur_tpl.fullsize_preview || $cur_tpl.preview}
+                {if $cur_tpl.fullsize_preview OR $cur_tpl.preview}
                     {if $cur_tpl.fullsize_preview}
                         <a class="media_fullsize" href="{$cur_tpl.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl.info.name}">
                             <img src="{$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
@@ -70,7 +70,7 @@
 
             <button class="template_show_info button_link" type="button" data-href="#template_info_cur" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
             {if $cur_tpl.info.custom_config}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=editConfiguration" title="{$CONST.CONFIGURATION}">{$CONST.CONFIGURATION}</a>{/if}
-            {if $cur_tpl.info.custom_admin_interface == $CONST.YES and $cur_tpl.info.name != $cur_tpl_backend.info.name}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$template}{$info.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>{/if}
+            {if $cur_tpl.info.custom_admin_interface == $CONST.YES AND $cur_tpl.info.name != $cur_tpl_backend.info.name}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$template}{$info.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>{/if}
         </article>
 
         {if $cur_template_backend}
@@ -79,7 +79,7 @@
 
                 <div class="clearfix equal_heights template_wrap">
                     <div class="template_preview">
-                    {if $cur_tpl_backend.fullsize_backend_preview || $cur_tpl_backend.preview_backend}
+                    {if $cur_tpl_backend.fullsize_backend_preview OR $cur_tpl_backend.preview_backend}
                         {if $cur_tpl_backend.fullsize_backend_preview}
                             <a class="media_fullsize" href="{$cur_tpl_backend.fullsize_backend_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl_backend.info.name}">
                                 <img src="{$cur_tpl_backend.fullsize_backend_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
@@ -108,7 +108,7 @@
                     <h3 title="{$template.info.name}">{$template.info.name|truncate:25:"&hellip;"}</h3>
                     <div class="clearfix equal_heights template_wrap">
                         <div class="template_preview">
-                        {if $template.fullsize_preview || $template.preview}
+                        {if $template.fullsize_preview OR $template.preview}
                             {if $template.fullsize_preview}
                                 <a class="media_fullsize" href="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
                                     <img src="{$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
@@ -150,7 +150,7 @@
                     <a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank"><span class="icon-search"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>
                 {/if}
                 {if !$template.unmetRequirements}
-                    {if $template.info.custom_admin_interface == $CONST.YES && $cur_tpl_backend.info.name != $template.info.name}
+                    {if $template.info.custom_admin_interface == $CONST.YES AND $cur_tpl_backend.info.name != $template.info.name}
                     <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-frontend&amp;serendipity[theme]={$key}{$template.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>
                     <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$key}{$template.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>
                     {else}

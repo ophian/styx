@@ -25,7 +25,7 @@
         <span class="msg_error"><span class="icon-attention-circled"></span>{$CONST.CLEANCOMPILE_FAIL}</span>
 {/if}
 
-{if 'siteConfiguration'|checkPermission || 'blogConfiguration'|checkPermission}
+{if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
     <section id="maintenance_integrity" class="equal_heights quick_list">
         <h3>{$CONST.INTEGRITY}</h3>
 

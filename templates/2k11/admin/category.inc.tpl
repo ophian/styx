@@ -3,7 +3,7 @@
         <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.CATEGORY_SAVED}</span>
     {/if}
     {if $edit}
-        {if isset($editPermission) && $editPermission == false}
+        {if isset($editPermission) AND $editPermission == false}
         <span class="msg_error"><span class="icon-attention-circled"></span> {$CONST.PERM_DENIED}</span>
         {else}
         {if $subcat}{$subcat}{else}
@@ -44,7 +44,7 @@
     {/if}
 {/if}
 
-{if (! $post_save) && ($edit || $new)}
+{if (! $post_save) AND ($edit OR $new)}
     {if $edit}
         <h2>{$category_name|escape|string_format:"{$CONST.EDIT_THIS_CAT}"}</h2>
     {/if}

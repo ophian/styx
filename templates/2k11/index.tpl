@@ -9,7 +9,7 @@
     <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
     <meta name="generator" content="Serendipity v.{$serendipityVersion}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{if ($view == "entry" || $view == "start" || $view == "feed" || $view == "plugin" || $staticpage_pagetitle != "" || $robots_index == 'index')}
+{if ($view == "entry" OR $view == "start" OR $view == "feed" OR $view == "plugin" OR $staticpage_pagetitle != "" OR $robots_index == 'index')}
     <meta name="robots" content="index,follow">
 {else}
     <meta name="robots" content="noindex,follow">
@@ -50,7 +50,7 @@
 {if $is_raw_mode != true}
 <a class="visuallyhidden" href="#content"><span lang="en">Skip to content</span></a>
 <div id="page" class="clearfix">
-    <header id="banner" class="clearfix{if $leftSidebarElements > 0 && $rightSidebarElements > 0} col3{elseif $leftSidebarElements > 0 && $rightSidebarElements == 0} col2l{else} col2r{/if}{if not $template_option.use_corenav} no-nav{/if}">
+    <header id="banner" class="clearfix{if $leftSidebarElements > 0 AND $rightSidebarElements > 0} col3{elseif $leftSidebarElements > 0 AND $rightSidebarElements == 0} col2l{else} col2r{/if}{if NOT $template_option.use_corenav} no-nav{/if}">
         <div id="identity">
             <a href="{$serendipityBaseURL}">
                 <h1>{$blogTitle}</h1>
@@ -75,10 +75,10 @@
     <nav id="primary-nav">
         <h2 class="visuallyhidden">{$CONST.TWOK11_NAV_TITLE}</h2>
 
-        <ul class="clearfix">{foreach $navlinks AS $navlink}{if $navlink.title!=""&&$navlink.href!=""}<li>{if $currpage==$navlink.href or $currpage2==$navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage==$navlink.href or $currpage2==$navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}</ul>
+        <ul class="clearfix">{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}<li>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}</ul>
     </nav>
     {/if}
-    <div class="clearfix{if $leftSidebarElements > 0 && $rightSidebarElements > 0} col3{elseif $leftSidebarElements > 0 && $rightSidebarElements == 0} col2l{else} col2r{/if}">
+    <div class="clearfix{if $leftSidebarElements > 0 AND $rightSidebarElements > 0} col3{elseif $leftSidebarElements > 0 AND $rightSidebarElements == 0} col2l{else} col2r{/if}">
         <main id="content" {if $template_option.imgstyle != 'none'} class="{$template_option.imgstyle}"{/if}>
         {$CONTENT}
         </main>
