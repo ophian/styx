@@ -494,12 +494,14 @@ function serendipity_printCommentsByAuthor() {
     }
 
     $fc = "SELECT count(co.id) AS counter
-                                  FROM {$serendipity['dbPrefix']}comments AS co
-                                 WHERE co.entry_id > 0
-                                   AND co.type LIKE '" . $type . "'
-                                   AND co.status = 'approved' " . $sql_where . " "
-                                   .  $group_by;
+             FROM {$serendipity['dbPrefix']}comments AS co
+            WHERE co.entry_id > 0
+              AND co.type LIKE '" . $type . "'
+              AND co.status = 'approved' " . $sql_where . " "
+            .  $group_by;
+
     $cc = serendipity_db_query($fc, true, 'assoc');
+
     if (!isset($cc['counter'])) {
         $totalComments = 0;
     } else {
