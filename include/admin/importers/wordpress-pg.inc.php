@@ -143,11 +143,11 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import {
         }
 
         // There has to be a more efficient way of doing this...
-        foreach ( $categories as $cat ) {
+        foreach ( $categories AS $cat ) {
             if ( $cat['category_parent'] != 0 ) {
                 // Find the parent
                 $par_id = 0;
-                foreach ( $categories as $possible_par ) {
+                foreach ( $categories AS $possible_par ) {
                     if ( $possible_par['cat_ID'] == $cat['category_parent'] ) {
                         $par_id = $possible_par['categoryid'];
                         break;
@@ -177,7 +177,7 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import {
                            'timestamp'      => strtotime($entries[$x]['post_date']),
                            'body'           => $this->strtr($entries[$x]['post_content']));
 
-            foreach ( $users as $user ) {
+            foreach ( $users AS $user ) {
                 if ( $user['ID'] == $entries[$x]['post_author'] ) {
                     $entry['authorid'] = $user['authorid'];
                     break;
@@ -196,9 +196,9 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import {
         }
 
         while ( $a = pg_fetch_assoc($res) ) {
-            foreach ( $categories as $category ) {
+            foreach ( $categories AS $category ) {
                 if ( $category['cat_ID'] == $a['category_id'] ) {
-                    foreach ( $entries as $entry ) {
+                    foreach ( $entries AS $entry ) {
                         if ( $a['post_id'] == $entry['ID'] ) {
                             $data = array('entryid' => $entry['entryid'],
                                           'categoryid' => $category['categoryid']);
@@ -218,7 +218,7 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import {
         }
 
         while ( $a = pg_fetch_assoc($res) ) {
-            foreach ( $entries as $entry ) {
+            foreach ( $entries AS $entry ) {
                 if ( $entry['ID'] == $a['comment_post_ID'] ) {
                     $comment = array('entry_id ' => $entry['entryid'],
                                      'parent_id' => 0,

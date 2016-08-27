@@ -39,7 +39,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
     serendipity_plugin_api::hook_event('frontend_entries_rss', $entries, $options);
 
     if (is_array($entries)) {
-        foreach ($entries as $key => $_entry) {
+        foreach ($entries AS $key => $_entry) {
             $entry = &$entries[$key];
 
             if (isset($entry['entrytimestamp'])) {

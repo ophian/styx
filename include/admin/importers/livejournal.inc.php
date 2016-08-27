@@ -43,7 +43,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
         $res = serendipity_fetchCategories('all');
         $ret = array(0 => NO_CATEGORY);
         if (is_array($res)) {
-            foreach ($res as $v) {
+            foreach ($res AS $v) {
                 $ret[$v['categoryid']] = $v['category_name'];
             }
         }
@@ -109,7 +109,7 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
             'children'   => array()
         );
 
-        foreach($xml_matches[0] as $xml_index => $xml_package) {
+        foreach($xml_matches[0] AS $xml_index => $xml_package) {
             $i = 0;
 
             switch(strtolower($encoding)) {

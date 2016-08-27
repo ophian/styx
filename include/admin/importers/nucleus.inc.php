@@ -163,7 +163,7 @@ class Serendipity_Import_Nucleus extends Serendipity_Import {
 
             $entry['authorid'] = '';
             $entry['author']   = '';
-            foreach ($users as $user) {
+            foreach ($users AS $user) {
                 if ($user['ID'] == $entries[$x]['iauthor']) {
                     $entry['authorid'] = $user['authorid'];
                     $entry['author']   = $user['realname'];
@@ -176,7 +176,7 @@ class Serendipity_Import_Nucleus extends Serendipity_Import {
             }
 
             /* Entry/category */
-            foreach ($categories as $category) {
+            foreach ($categories AS $category) {
                 if ($category['cat_ID'] == $entries[$x]['icat'] ) {
                     $data = array('entryid'    => $entries[$x]['entryid'],
                                   'categoryid' => $category['categoryid']);
@@ -193,7 +193,7 @@ class Serendipity_Import_Nucleus extends Serendipity_Import {
         }
 
         while ($a = mysqli_fetch_assoc($res)) {
-            foreach ($entries as $entry) {
+            foreach ($entries AS $entry) {
                 if ($entry['inumber'] == $a['citem'] ) {
                     $author   = '';
                     $mail     = '';

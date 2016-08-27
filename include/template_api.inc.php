@@ -124,7 +124,7 @@ class serendipity_smarty_emulator
     function assign($tpl_var, $value = null)
     {
         if (is_array($tpl_var)) {
-            foreach ($tpl_var as $key => $val) {
+            foreach ($tpl_var AS $key => $val) {
                 if ($key != '') {
                     $GLOBALS['tpl'][$key] = $tpl_var[$key];
                 }
@@ -229,7 +229,7 @@ class serendipity_smarty_emulator
     function getdefault()
     {
         $vars = func_get_args();
-        foreach($vars as $title) {
+        foreach($vars AS $title) {
             if (!empty($GLOBALS['tpl'][$title])) {
                 return $GLOBALS['tpl'][$title];
             }
@@ -308,11 +308,11 @@ class serendipity_smarty_emulator
             preg_match_all('#(([.]?[\\\\/])*([.][.])[\\\\/]([.]?[\\\\/])*)+#', $path, $match)
         ) {
             $counts = array();
-            foreach ($match[ 0 ] as $m) {
+            foreach ($match[ 0 ] AS $m) {
                 $counts[] = (int) ((strlen($m) - 1) / 3);
             }
             sort($counts);
-            foreach ($counts as $count) {
+            foreach ($counts AS $count) {
                 $path = preg_replace('#(([\\\\/]([.]?[\\\\/])*[^\\\\/.]+){' . $count .
                                      '}[\\\\/]([.]?[\\\\/])*([.][.][\\\\/]([.]?[\\\\/])*){' . $count . '})(?=[^.])#',
                                      $this->ds, $path);
@@ -340,7 +340,7 @@ class serendipity_smarty_emulator
         if (!is_array($dir)) {
             $dir = (array) $dir;
         }
-        foreach ($dir as $k => $v) {
+        foreach ($dir AS $k => $v) {
             if (!isset($processed[ $k ])) {
                 $dir[ $k ] = $v = $this->_realpath(rtrim($v, "/\\") . $this->ds, true);
                 $processed[ $k ] = true;
@@ -439,7 +439,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
         $_stream_resolve_include_path = function_exists('stream_resolve_include_path');
 
         // test if all registered template_dir are accessible
-        foreach ($GLOBALS['template']->getTemplateDir() as $template_dir) {
+        foreach ($GLOBALS['template']->getTemplateDir() AS $template_dir) {
             $_template_dir = $template_dir;
             $template_dir = realpath($template_dir);
             // resolve include_path or fail existence
@@ -581,7 +581,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     {
         if (!$this->match()) { return false; }
         if (is_array($tpl_var)) {
-            foreach ($tpl_var as $key => $val) {
+            foreach ($tpl_var AS $key => $val) {
                 $this->createXML($level, $key, $val);
             }
         } else {
@@ -603,7 +603,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     {
         if (!$this->match()) { return false; }
         if (is_array($value)) {
-            foreach ($value as $key => $val) {
+            foreach ($value AS $key => $val) {
                 $this->createXML($level, $key, $val);
             }
         } else {
@@ -625,7 +625,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     {
         if (!$this->match()) { return false; }
         if (is_array($value)) {
-            foreach ($value as $key => $val) {
+            foreach ($value AS $key => $val) {
                 $this->createXML($level, $key, $val);
             }
         } else {

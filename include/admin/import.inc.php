@@ -122,7 +122,7 @@ class Serendipity_Import {
  * @return  array   output array
  */
     function strtrRecursive($data) {
-        foreach ($data as $key => $val) {
+        foreach ($data AS $key => $val) {
             if (is_array($val)) {
                 $data[$key] = $this->strtrRecursive($val);
             } else {
@@ -150,7 +150,7 @@ class Serendipity_Import {
 
         // We need to convert interesting characters to HTML entities, except for those with special relevance to HTML.
         $this->trans_table = get_html_translation_table(HTML_ENTITIES);
-        foreach (get_html_translation_table(HTML_SPECIALCHARS) as $char => $encoded) {
+        foreach (get_html_translation_table(HTML_SPECIALCHARS) AS $char => $encoded) {
             if (isset($this->trans_table[$char])) {
                 unset($this->trans_table[$char]);
             }
@@ -222,7 +222,7 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
         } else {
             $data['formToken'] = serendipity_setFormToken();
             $fields = $importer->getInputFields();
-            foreach ($fields as &$field ) {
+            foreach ($fields AS &$field ) {
                 $field['guessedInput'] = serendipity_guessInput($field['type'], 'serendipity[import]['. $field['name'] .']', (isset($serendipity['POST']['import'][$field['name']]) ? $serendipity['POST']['import'][$field['name']] : $field['default']), $field['default']);
             }
             $data['fields'] = $fields;

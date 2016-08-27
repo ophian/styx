@@ -160,7 +160,7 @@ class Serendipity_Import_bblog extends Serendipity_Import {
 
             $entry['authorid'] = '';
             $entry['author']   = '';
-            foreach ($users as $user) {
+            foreach ($users AS $user) {
                 if ($user['ID'] == $entries[$x]['author']) {
                     $entry['authorid'] = $user['authorid'];
                     $entry['author']   = $user['user_login'];
@@ -199,7 +199,7 @@ class Serendipity_Import_bblog extends Serendipity_Import {
         }
 
         while ($a = mysqli_fetch_assoc($res)) {
-            foreach ($entries as $entry) {
+            foreach ($entries AS $entry) {
                 if ($entry['postid'] == $a['postid'] ) {
                     $comment = array('entry_id ' => $entry['entryid'],
                                      'parent_id' => 0,
@@ -227,7 +227,7 @@ class Serendipity_Import_bblog extends Serendipity_Import {
         }
 
         while ($a = mysqli_fetch_assoc($res)) {
-            foreach ($entries as $entry) {
+            foreach ($entries AS $entry) {
                 if ($entry['postid'] == $a['postid'] ) {
                     $trackback = array('entry_id ' => $entry['entryid'],
                                      'parent_id' => 0,

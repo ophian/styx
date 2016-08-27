@@ -220,7 +220,7 @@ class Serendipity_Import_smf extends Serendipity_Import {
 
             $entry['authorid'] = '';
             $entry['author']   = '';
-            foreach ($users as $user) {
+            foreach ($users AS $user) {
                 if ($user['ID'] == $entries[$x]['topic_poster']) {
                     $entry['authorid'] = $user['authorid'];
                     $entry['author']   = $user['user_login'];
@@ -233,7 +233,7 @@ class Serendipity_Import_smf extends Serendipity_Import {
             }
 
             /* Entry/category */
-            foreach ($categories as $category) {
+            foreach ($categories AS $category) {
                 if ($category['cat_ID'] == $entries[$x]['forum_id'] ) {
                     $data = array('entryid'    => $entries[$x]['entryid'],
                                   'categoryid' => $category['categoryid']);

@@ -81,7 +81,7 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
 
         if (is_array($update_array) && is_array($where_array)) {
             $where = '';
-            foreach ($where_array as $key => $value) {
+            foreach ($where_array AS $key => $value) {
                 if (strlen($where)) {
                     $where .= ' AND ';
                 }
@@ -97,7 +97,7 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
                 $update = array();
                 switch ($moveto) {
                     case 'up':
-                        foreach ($update_array as $key => $value) {
+                        foreach ($update_array AS $key => $value) {
                             if ($value) {
                                 $where[$key] = ($old[$key] - 1);
                                 $update[$key] = $old[$key];
@@ -108,7 +108,7 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
                         }
                         break;
                     case 'down':
-                        foreach ($update_array as $key => $value) {
+                        foreach ($update_array AS $key => $value) {
                             if ($value) {
                                 $where[$key] = ($old[$key] + 1);
                                 $update[$key] = $old[$key];

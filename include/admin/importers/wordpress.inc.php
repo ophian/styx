@@ -174,11 +174,11 @@ class Serendipity_Import_WordPress extends Serendipity_Import {
                 $assoc['categories'][$categories[$x]['cat_ID']] = $categories[$x]['categoryid'];
             }
 
-            foreach ($categories as $cat) {
+            foreach ($categories AS $cat) {
                 if ($cat['category_parent'] != 0) {
                     // Find the parent
                     $par_id = 0;
-                    foreach ($categories as $possible_par) {
+                    foreach ($categories AS $possible_par) {
                         if ($possible_par['cat_ID'] == $cat['category_parent']) {
                             $par_id = $possible_par['categoryid'];
                             break;
@@ -241,11 +241,11 @@ class Serendipity_Import_WordPress extends Serendipity_Import {
                 $assoc['categories'][$categories[$x]['cat_ID']] = $categories[$x]['categoryid'];
             }
 
-            foreach ($categories as $cat) {
+            foreach ($categories AS $cat) {
                 if ($cat['category_parent'] != 0) {
                     // Find the parent
                     $par_id = 0;
-                    foreach ($categories as $possible_par) {
+                    foreach ($categories AS $possible_par) {
                         if ($possible_par['cat_ID'] == $cat['category_parent']) {
                             $par_id = $possible_par['categoryid'];
                             break;

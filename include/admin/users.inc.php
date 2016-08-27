@@ -46,8 +46,8 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
         $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
         /* Save all the properties */
         $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
-        foreach($config as $category) {
-            foreach ($category['items'] as $item) {
+        foreach($config AS $category) {
+            foreach ($category['items'] AS $item) {
                 if (in_array('groups', $item['flags'])) {
                     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
 
@@ -110,8 +110,8 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
     } else {
         $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
         $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
-        foreach($config as $category) {
-            foreach ($category['items'] as $item) {
+        foreach($config AS $category) {
+            foreach ($category['items'] AS $item) {
                 if (in_array('groups', $item['flags'])) {
                     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
 
@@ -182,7 +182,7 @@ if ($serendipity['GET']['adminAction'] != 'delete') {
     $data['users'] = $users;
     $data['urlFormToken'] = serendipity_setFormToken('url');
     if (is_array($users)) {
-        foreach($users as $user => $userdata) {
+        foreach($users AS $user => $userdata) {
             if ($userdata['userlevel'] < $serendipity['serendipityUserlevel'] || $userdata['authorid'] == $serendipity['authorid'] || $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN ) {
                     $data['users'][$user]['isEditable'] = true;
                     $data['users'][$user]['authorUrl'] = serendipity_authorURL($userdata);

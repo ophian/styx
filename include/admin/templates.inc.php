@@ -182,14 +182,14 @@ foreach($themes AS $theme) {
 }
 ksort($stack);
 
-foreach ($stack as $theme => $info) {
+foreach ($stack AS $theme => $info) {
     /* Sorry, but we don't display engines */
     if ( strtolower($info['engine']) == 'yes') {
         continue;
     }
     $data['templates'][$theme]['info'] = $info;
 
-    foreach(array('', '_backend') as $backendId) {
+    foreach(array('', '_backend') AS $backendId) {
 
         if (file_exists($serendipity["serendipityPath"] . $serendipity["templatePath"] . $theme . "/preview${backendId}_fullsize.jpg")) {
             $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity["baseURL"] . $serendipity["templatePath"] . $theme . "/preview${backendId}_fullsize.jpg";

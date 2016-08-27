@@ -120,7 +120,7 @@ ENDPOST
         preg_match_all("/STARTPOST(.*)ENDPOST/sU", $html, $posts);
 
         # iterate through all posts
-        foreach($posts[1] as $post) {
+        foreach($posts[1] AS $post) {
 
             # locate the post title
             if (preg_match("/TITLE:(.*)/", $post, $title)) {
@@ -200,7 +200,7 @@ ENDPOST
 
             # iterate through all comments
             $c = 0;
-            foreach($commentlist[1] as $comment) {
+            foreach($commentlist[1] AS $comment) {
                 $c++;
 
                 # locate the author and author url

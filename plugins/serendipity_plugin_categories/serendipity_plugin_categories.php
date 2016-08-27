@@ -39,7 +39,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                 $row_authors = serendipity_db_query("SELECT realname, authorid FROM {$serendipity['dbPrefix']}authors");
                 $authors     = array('all' => ALL_AUTHORS, 'login' => CURRENT_AUTHOR);
                 if (is_array($row_authors)) {
-                    foreach($row_authors as $row) {
+                    foreach($row_authors AS $row) {
                         $authors[$row['authorid']] = $row['realname'];
                     }
                 }
@@ -57,7 +57,7 @@ class serendipity_plugin_categories extends serendipity_plugin
 
                 if (is_array($cats)) {
                     $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
-                    foreach($cats as $cat) {
+                    foreach($cats AS $cat) {
                         $categories[$cat['categoryid']] = str_repeat(' . ', $cat['depth']) . $cat['category_name'];
                     }
                 }
@@ -175,7 +175,7 @@ class serendipity_plugin_categories extends serendipity_plugin
 
         $cat_count = array();
         if (serendipity_db_bool($this->get_config('show_count', 'false'))) {
-            $cat_sql = "SELECT c.categoryid, c.category_name, count(e.id) as postings
+            $cat_sql = "SELECT c.categoryid, c.category_name, count(e.id) AS postings
                           FROM {$serendipity['dbPrefix']}entrycat ec,
                                {$serendipity['dbPrefix']}category c,
                                {$serendipity['dbPrefix']}entries e
@@ -214,7 +214,7 @@ class serendipity_plugin_categories extends serendipity_plugin
 
         if (is_array($categories) && count($categories)) {
             $categories = serendipity_walkRecursive($categories, 'categoryid', 'parentid', VIEWMODE_THREADED);
-            foreach ($categories as $cid => $cat) {
+            foreach ($categories AS $cid => $cat) {
                 // Hide parents not wanted
                 if ($use_parent && $use_parent != 'all') {
                     if ($parentdepth == 0 && $cat['parentid'] != $use_parent && $cat['categoryid'] != $use_parent) {

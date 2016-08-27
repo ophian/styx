@@ -196,9 +196,9 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import {
 
         $pages= &serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}staticpages  ORDER BY pagetitle DESC");
 
-        foreach ($pages as $thispage) {
+        foreach ($pages AS $thispage) {
             // Parse the content string
-            foreach ($aliases as $alias => $permalink) {
+            foreach ($aliases AS $alias => $permalink) {
                 $thispage['content'] = Serendipity_Import_VoodooPad::wikify($alias, $permalink, $thispage['content']);
             }
 

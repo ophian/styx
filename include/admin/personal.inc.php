@@ -41,8 +41,8 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
     } else {
         $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
         $data['realname'] = $_POST['realname'];
-        foreach($config as $category) {
-            foreach ($category['items'] as $item) {
+        foreach($config AS $category) {
+            foreach ($category['items'] AS $item) {
                 if (in_array('groups', $item['flags'])) {
                     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
 

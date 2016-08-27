@@ -124,7 +124,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
 
         $this->debug("doEntryWork: " . print_r($mt_entry, true));
 
-        foreach($mt_entry as $name => $data) {
+        foreach($mt_entry AS $name => $data) {
             $name = trim($name);
             if (is_string($data)) {
                 $data = trim($data);
@@ -228,7 +228,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
             }
         }
 
-        foreach($parsed_entry as $name => $data){
+        foreach($parsed_entry AS $name => $data){
             $data = trim($data);
             $name = trim($name);
 
@@ -426,7 +426,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
 
         if ( !sizeof($tasks) || $force == true ) {
             serendipity_db_begin_transaction();
-            foreach ($entries as $entry) {
+            foreach ($entries AS $entry) {
                 #echo '<pre>' . printR_($entry, true) . '</pre>';
                 #continue;
                 if (empty($entry['authorid'])) {
