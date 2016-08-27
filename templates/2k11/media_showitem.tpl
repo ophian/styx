@@ -100,13 +100,13 @@
                         <dd class="meta_name">{$meta_name}</dd>
                         <dd class="meta_value">
                         {if is_array($meta_value)}
-                            <pre>{$meta_value|@print_r}</pre>
+                            <pre>{$meta_value|print_r}</pre>
                         {else}
-                            <span>{$meta_value|@formatTime:DATE_FORMAT_SHORT:false:$meta_name}</span>
+                            <span>{$meta_value|formatTime:DATE_FORMAT_SHORT:false:$meta_name}</span>
                         {/if}</dd>
                         {/foreach}
                     {else}
-                        <dd>{$meta_data|@formatTime:DATE_FORMAT_SHORT:false:$meta_type}</dd>
+                        <dd>{$meta_data|formatTime:DATE_FORMAT_SHORT:false:$meta_type}</dd>
                     {/if}
                 {/foreach}
                 </dl>

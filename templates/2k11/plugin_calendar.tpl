@@ -2,7 +2,7 @@
 <thead>
     <tr>
     {foreach from=$plugin_calendar_dow item="dow"}
-        <th scope="col"><abbr title="{$dow.date|@formatTime:"%A":false}">{$dow.date|@formatTime:"%a":false}</abbr></th>
+        <th scope="col"><abbr title="{$dow.date|formatTime:"%A":false}">{$dow.date|formatTime:"%a":false}</abbr></th>
     {/foreach}
     </tr>
 </thead>

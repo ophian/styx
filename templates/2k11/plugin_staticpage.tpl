@@ -1,10 +1,10 @@
-<article id="staticpage_{$staticpage_pagetitle|@makeFilename}" class="clearfix serendipity_staticpage{if $staticpage_articleformat} serendipity_entry{/if}">
+<article id="staticpage_{$staticpage_pagetitle|makeFilename}" class="clearfix serendipity_staticpage{if $staticpage_articleformat} serendipity_entry{/if}">
     <header>
-        <h2>{if $staticpage_articleformat}{if $staticpage_articleformattitle}{$staticpage_articleformattitle|@escape}{else}{$staticpage_pagetitle}{/if}{else}{if $staticpage_headline}{$staticpage_headline|@escape}{else}{$staticpage_pagetitle}{/if}{/if}</h2>
+        <h2>{if $staticpage_articleformat}{if $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}{else}{$staticpage_pagetitle}{/if}{else}{if $staticpage_headline}{$staticpage_headline|escape}{else}{$staticpage_pagetitle}{/if}{/if}</h2>
     {if is_array($staticpage_childpages)}
         <ul id="staticpage_childpages">
             {foreach from=$staticpage_childpages item="childpage"}
-            <li><a href="{$childpage.permalink|@escape}" title="{$childpage.pagetitle|@escape}">{$childpage.pagetitle|@escape}</a></li>
+            <li><a href="{$childpage.permalink|escape}" title="{$childpage.pagetitle|escape}">{$childpage.pagetitle|escape}</a></li>
             {/foreach}
         </ul>
     {/if}
@@ -33,14 +33,14 @@
     <footer class="staticpage_metainfo">
         <p>
         {if $staticpage_author}
-            <span class="single_user"><span class="visuallyhidden">{$CONST.POSTED_BY} </span>{$staticpage_author|@escape}
+            <span class="single_user"><span class="visuallyhidden">{$CONST.POSTED_BY} </span>{$staticpage_author|escape}
         {/if}
         {if $staticpage_author AND $staticpage_lastchange} | </span>{/if}
         {if $staticpage_lastchange}
-            <span class="visuallyhidden">{$CONST.ON} </span><time datetime="{$staticpage_lastchange|@serendipity_html5time}">{$staticpage_lastchange|@formatTime:$template_option.date_format}</time>
+            <span class="visuallyhidden">{$CONST.ON} </span><time datetime="{$staticpage_lastchange|serendipity_html5time}">{$staticpage_lastchange|formatTime:$template_option.date_format}</time>
         {/if}
         {if $staticpage_adminlink AND $staticpage_adminlink.page_user}
-            | <a href="{$staticpage_adminlink.link_edit}">{$staticpage_adminlink.link_name|@escape}</a>
+            | <a href="{$staticpage_adminlink.link_edit}">{$staticpage_adminlink.link_name|escape}</a>
         {/if}
         </p>
     </footer>
