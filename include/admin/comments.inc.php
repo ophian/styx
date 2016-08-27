@@ -132,10 +132,10 @@ if (isset($serendipity['GET']['adminAction']) && ($serendipity['GET']['adminActi
         }
 
         $target_url = '?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=doReply&amp;serendipity[id]=' . (int)$serendipity['GET']['id'] . '&amp;serendipity[entry_id]=' . (int)$serendipity['GET']['entry_id'] . '&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;' . serendipity_setFormToken('url');
-        $codata       = $serendipity['POST'];
+        $codata     = $serendipity['POST'];
         $codata['replyTo'] = (int)$serendipity['GET']['id'];
         $out        = serendipity_printComments($c);
-        $serendipity['smarty']->display(serendipity_getTemplateFile('comments.tpl', 'serendipityPath'));
+        $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comment_reply.tpl', 'serendipityPath'));
 
         if (!isset($codata['name'])) {
             $codata['name']  = $serendipity['serendipityRealname'];
