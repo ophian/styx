@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fix backend commentreply by adding an admin template (d2b1dd9c)
+
   * Fixed routing refactoring for uri argument checks on comments page
     pagings, and multiple others before, like multiauth and multicat,
     week and archive path, or categories rss match and lots of older
