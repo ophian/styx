@@ -135,7 +135,7 @@
                         <button id="toggle_cat_view" class="icon_link" type="button" title="{$CONST.TOGGLE_VIEW}"><span class="icon-th"></span><span class="visuallyhidden">{$CONST.TOGGLE_VIEW}</span></button>
                     </div>
 
-                {foreach from=$entry_vars.category_options item="entry_cat"}
+                {foreach $entry_vars.category_options AS $entry_cat}
                     <div class="form_check">
                         <input type="hidden" name="serendipity[had_categories]" value="1">
                         <span class="cat_view_pad">{$entry_cat.depth_pad}</span>
