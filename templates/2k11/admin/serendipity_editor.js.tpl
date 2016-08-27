@@ -1564,7 +1564,7 @@ $(function() {
     }
 
     // minify images before upload, approach taken from https://github.com/joelvardy/javascript-image-upload/
-    {if {serendipity_getConfigVar key='uploadResize'} && ({serendipity_getConfigVar key='maxImgWidth'} > 0 OR {serendipity_getConfigVar key='maxImgHeight'} > 0)}
+    {if {serendipity_getConfigVar key='uploadResize'} AND ({serendipity_getConfigVar key='maxImgWidth'} > 0 OR {serendipity_getConfigVar key='maxImgHeight'} > 0)}
         if ($('#uploadform').length > 0) {
             $('input[name="go_properties"]').hide();
             var progressIcon = document.createElement('span');
