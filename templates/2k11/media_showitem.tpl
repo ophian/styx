@@ -68,7 +68,7 @@
                 <h3>{$CONST.MEDIA_PROP}</h3>
 
                 <dl>
-                {foreach from=$media.file.base_property key="prop_fieldname" item="prop_content"}
+                {foreach $media.file.base_property AS $prop_fieldname => $prop_content}
                     {if $prop_content.val}
                     <dt>{$prop_content.label}</dt>
                     <dd>{$prop_content.val|escape}</dd>
@@ -82,7 +82,7 @@
                 <h3>{$CONST.MEDIA_KEYWORDS}</h3>
 
                 <div class="media_keywords">
-                {foreach from=$media.file.props.base_keyword key="prop_fieldname" item="prop_content"}
+                {foreach $media.file.props.base_keyword AS $prop_fieldname => $prop_content}
                     <span>{$prop_fieldname|escape}</span>
                 {/foreach}
                 <div>
@@ -93,10 +93,10 @@
                 <h3>EXIF/IPTC/XMP</h3>
 
                 <dl>
-                {foreach from=$media.file.props.base_metadata key="meta_type" item="meta_data"}
+                {foreach $media.file.props.base_metadata AS $meta_type => $meta_data}
                     <dt>{$meta_type}</dt>
                     {if is_array($meta_data)}
-                        {foreach from=$meta_data key="meta_name" item="meta_value"}
+                        {foreach $meta_data AS $meta_name => $meta_value}
                         <dd class="meta_name">{$meta_name}</dd>
                         <dd class="meta_value">
                         {if is_array($meta_value)}
@@ -117,7 +117,7 @@
                 <h3>{$CONST.REFERER}</h3>
 
                 <ul class="plainList">
-                {foreach from=$media.file.references item="ref"}
+                {foreach $media.file.references AS $ref}
                     <li><a rel="nofollow" href="{$ref.link|escape}">{$ref.link|default:$CONST.NONE|escape}</a> ({$ref.name|escape})</li>
                 {/foreach}
                 </ul>

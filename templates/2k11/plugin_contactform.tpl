@@ -9,7 +9,7 @@
 {else}
     {if $is_contactform_error}
     <p class="serendipity_msg_important">{$plugin_contactform_error}</p>
-    {foreach from=$comments_messagestack item="message"}
+    {foreach $comments_messagestack AS $message}
     <p class="serendipity_msg_important">{$message}</p>
     {/foreach}
     {/if}
