@@ -791,7 +791,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 
         $names[$i] = strip_tags($names[$i]);
         if (empty($names[$i])) {
-            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Found reference $locations[$i] w/o name. Adding location AS name");
+            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Found reference $locations[$i] w/o name. Adding location as name");
             $names[$i] = $locations[$i];
         }
 
