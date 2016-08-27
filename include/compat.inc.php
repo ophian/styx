@@ -265,37 +265,37 @@ if (!isset($_SERVER)) {
 }
 
 if (extension_loaded('filter') && function_exists('input_name_to_filter') && input_name_to_filter(ini_get('filter.default')) !== FILTER_UNSAFE_RAW) {
-    foreach ($_POST as $key => $value) {
+    foreach ($_POST AS $key => $value) {
         $_POST[$key] = input_get(INPUT_POST, $key, FILTER_UNSAFE_RAW);
     }
-    foreach ($_GET as $key => $value) {
+    foreach ($_GET AS $key => $value) {
         $_GET[$key] = input_get(INPUT_GET, $key, FILTER_UNSAFE_RAW);
     }
-    foreach ($_COOKIE as $key => $value) {
+    foreach ($_COOKIE AS $key => $value) {
         $_COOKIE[$key] = input_get(INPUT_COOKIE, $key, FILTER_UNSAFE_RAW);
     }
     // NOT YET IMPLEMENTED IN PHP:
     /*
-    foreach ($_SESSION as $key => $value) {
+    foreach ($_SESSION AS $key => $value) {
         $_SESSION[$key] = input_get(INPUT_SESSION, $key, FILTER_UNSAFE_RAW);
     }
     */
 }
 
 if (extension_loaded('filter') && function_exists('filter_id') && function_exists('filter_input') && filter_id(ini_get('filter.default')) !== FILTER_UNSAFE_RAW) {
-    foreach ($_POST as $key => $value) {
+    foreach ($_POST AS $key => $value) {
         $_POST[$key] = filter_input(INPUT_POST, $key, FILTER_UNSAFE_RAW);
     }
-    foreach ($_GET as $key => $value) {
+    foreach ($_GET AS $key => $value) {
         $_GET[$key] = filter_input(INPUT_GET, $key, FILTER_UNSAFE_RAW);
     }
-    foreach ($_COOKIE as $key => $value) {
+    foreach ($_COOKIE AS $key => $value) {
         $_COOKIE[$key] = filter_input(INPUT_COOKIE, $key, FILTER_UNSAFE_RAW);
     }
 
     // NOT YET IMPLEMENTED IN PHP:
     /*
-    foreach ($_SESSION as $key => $value) {
+    foreach ($_SESSION AS $key => $value) {
         $_SESSION[$key] = filter_input(INPUT_SESSION, $key, FILTER_UNSAFE_RAW);
     }
     */
@@ -308,7 +308,7 @@ if (extension_loaded('filter') && function_exists('filter_id') && function_exist
 function serendipity_strip_quotes(&$var)
 {
     if (is_array($var)) {
-        foreach ($var as $k => $v) {
+        foreach ($var AS $k => $v) {
             if (is_array($v)) {
                 array_walk($var[$k], 'serendipity_strip_quotes');
             } else {
@@ -415,7 +415,7 @@ function serendipity_detectLang($use_include = false) {
     if (is_array($possible_languages)) {
         $charset = serendipity_getCharset();
 
-        foreach($possible_languages as $index => $lang) {
+        foreach($possible_languages AS $index => $lang) {
             $preferred_language = strtolower(preg_replace('@^([^\-_;]*)_?.*$@', '\1', $lang));
             if (in_array($preferred_language, $supported_languages)) {
                 if ($use_include) {

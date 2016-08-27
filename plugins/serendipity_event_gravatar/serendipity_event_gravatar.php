@@ -870,7 +870,7 @@ class serendipity_event_gravatar extends serendipity_event
             $success = xml_parse_into_struct($parser, $response, $vals, $index);
             xml_parser_free($parser);
             if ($success) {
-                foreach ($index['LINK'] as $index) {
+                foreach ($index['LINK'] AS $index) {
                     if ($vals[$index]['attributes']['REL'] == 'image') {
                         $img_url = $vals[$index]['attributes']['HREF'];
                         $success = true;

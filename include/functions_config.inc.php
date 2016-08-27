@@ -300,7 +300,7 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
         }
     }
 
-    foreach ($directories as $directory) {
+    foreach ($directories AS $directory) {
         $templateFile = $serendipity['templatePath'] . $directory . $file;
         if (file_exists($serendipity['serendipityPath'] . $templateFile)) {
             return $serendipity[$key] . $templateFile;
@@ -350,7 +350,7 @@ function serendipity_load_configuration($author = null) {
     }
 
     if (is_array($rows)) {
-        foreach ($rows as $row) {
+        foreach ($rows AS $row) {
             // Convert 'true' and 'false' into booleans
             $serendipity[$row['name']] = serendipity_get_bool($row['value']);
         }
@@ -480,7 +480,7 @@ function serendipity_issueAutologin($array) {
         $cast = "name";
     } elseif (stristr($serendipity['dbType'], 'postgres')) {
         // Adds explicits casting for postgresql.
-        $cast = "cast(name as integer)";
+        $cast = "cast(name AS integer)";
     } else {
         // and all others eg mysql(i), zend-db, ...
         $cast = "cast(name AS UNSIGNED)";
@@ -1344,7 +1344,7 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
                                       ORDER BY  g.name", false, 'assoc');
     }
     if (is_array($groups)) {
-        foreach ($groups as $k => $v) {
+        foreach ($groups AS $k => $v) {
             if ('USERLEVEL_' == substr($v['confvalue'], 0, 10)) {
                 $groups[$k]['confvalue'] = $groups[$k]['name'] = constant($v['confvalue']);
             }

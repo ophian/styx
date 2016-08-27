@@ -74,7 +74,7 @@ if ($serendipity['default_widgets']) {
     $comments = serendipity_db_query($cquery);
 
     if (is_array($comments) && count($comments) > 0) {
-        foreach ($comments as &$comment) {
+        foreach ($comments AS &$comment) {
             $comment['entrylink'] = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true) . '#c' . $comment['id'];
 
             $comment['fullBody']  = $comment['body'];

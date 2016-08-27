@@ -735,7 +735,7 @@ function serendipity_rebuildCategoryTree($parent = 0, $left = 0) {
 
     $result = serendipity_db_query("SELECT categoryid FROM {$serendipity['dbPrefix']}category WHERE parentid = '" . (int)$parent . "'");
     if ( is_array($result) ) {
-        foreach ( $result as $category ) {
+        foreach ( $result AS $category ) {
             $right = serendipity_rebuildCategoryTree($category['categoryid'], $right);
         }
     }
@@ -1103,8 +1103,8 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
         $dategroup =& $entries;
     }
 
-    foreach($dategroup as $dategroup_idx => $properties) {
-        foreach($properties['entries'] as $x => $_entry) {
+    foreach($dategroup AS $dategroup_idx => $properties) {
+        foreach($properties['entries'] AS $x => $_entry) {
             if ($smarty_fetch === 'return') {
                 $entry = &$dategroup[$dategroup_idx]['entries'][$x]; // PHP4 Compat
             } else {
@@ -1123,7 +1123,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             if ($serendipity['action'] == 'search') {
                 $searchterms = str_replace('"', '', $serendipity['GET']['searchterms']);
                 $searchterms = explode($searchterms, ' ');
-                foreach($searchterms as $searchdx => $searchterm) {
+                foreach($searchterms AS $searchdx => $searchterm) {
                     $searchclass = "foundterm foundterm".$searchdx;
                     $entry['body'] = str_replace($searchterm, '<span class="'.$searchclass.'">' . $searchterm . '</span>', $entry['body']);
                 }
@@ -1184,7 +1184,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             $entry['link_author']            = serendipity_authorURL($authorData);
 
             if (is_array($entry['categories'])) {
-                foreach ($entry['categories'] as $k => $v) {
+                foreach ($entry['categories'] AS $k => $v) {
                     if (!isset($entry['categories'][$k]['category_link'])) {
                         $entry['categories'][$k]['category_link'] =  serendipity_categoryURL($entry['categories'][$k]);
                     }
@@ -1305,8 +1305,8 @@ function serendipity_printEntriesCached($entries, $extended = 0, $preview = fals
         $serendipity['smarty']->assign('entries', $dategroup);
 
         # now let plugins do their magic and hope they don't do it twice
-        foreach($dategroup as $dategroup_idx => $properties) {
-            foreach($properties['entries'] as $x => $_entry) {
+        foreach($dategroup AS $dategroup_idx => $properties) {
+            foreach($properties['entries'] AS $x => $_entry) {
                 $addData = array('from' => 'functions_entries:printEntries');
                 if ($entry['is_cached']) {
                     $addData['no_scramble'] = true;
@@ -1490,7 +1490,7 @@ function serendipity_updertEntry($entry) {
         if ($res) {
             $entry['id'] = $serendipity['lastSavedEntry'] = serendipity_db_insert_id('entries', 'id');
             if (is_array($categories)) {
-                foreach ($categories as $cat) {
+                foreach ($categories AS $cat) {
                     if (is_numeric($cat)) {
                         serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, {$cat})");
                     } elseif (is_array($cat) && !empty($cat['categoryid'])) {
@@ -1524,7 +1524,7 @@ function serendipity_updertEntry($entry) {
 
         if (is_array($categories)) {
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}entrycat WHERE entryid={$entry['id']}");
-            foreach ($categories as $cat) {
+            foreach ($categories AS $cat) {
                 serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, {$cat})");
             }
         } elseif ($had_categories) {
@@ -1539,7 +1539,7 @@ function serendipity_updertEntry($entry) {
         if ($entry['isdraft'] === 0) {
             $entry['isdraft'] = 'false'; // this needs to be set as string, which might be missing when being published from the dashboard
 
-            foreach (array('title', 'body', 'extended', 'author') as $required_field) {
+            foreach (array('title', 'body', 'extended', 'author') AS $required_field) {
                 // dashboard publishing a draft does not pass title, body, extended, and author, so we need to set it here
                 if (!isset($entry[$required_field])) {
                     $entry[$required_field] = $_entry[$required_field];
@@ -1653,7 +1653,7 @@ function serendipity_generateCategoryList($cats, $select = array(0), $type = 0, 
         return;
 
     $ret = '';
-    foreach ($cats as $cat) {
+    foreach ($cats AS $cat) {
         if ($cat['parentid'] == $id) {
             switch ($type) {
                 case 0:

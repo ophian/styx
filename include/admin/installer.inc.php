@@ -73,8 +73,8 @@ if ( sizeof($_POST) > 1 && $serendipity['GET']['step'] == '3' ) {
        Therefore we fetch all config vars with their default values, and merge them with our POST data */
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);
-    foreach ( $config as $category ) {
-        foreach ( $category['items'] as $item ) {
+    foreach ( $config AS $category ) {
+        foreach ( $category['items'] AS $item ) {
             if ( !isset($_POST[$item['var']]) ) {
                 $_POST[$item['var']] = serendipity_query_default($item['var'], $item['default']);
             }
@@ -107,7 +107,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         if (empty($badsums)) {
             $data['installerResultDiagnose_CHECKSUMS'][] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, CHECKSUMS_PASS);
         } else {
-            foreach ($badsums as $file => $sum) {
+            foreach ($badsums AS $file => $sum) {
                 $data['installerResultDiagnose_CHECKSUMS'][] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, sprintf(CHECKSUM_FAILED, $file));
             }
         }

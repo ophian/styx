@@ -14,7 +14,7 @@ $msg = '';
 
 if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['POST']['delete']) != 0 && serendipity_checkFormToken()) {
     if ($serendipity['POST']['togglemoderate'] != '') {
-        foreach ( $serendipity['POST']['delete'] as $k => $v ) {
+        foreach ( $serendipity['POST']['delete'] AS $k => $v ) {
             $ac = serendipity_approveComment((int)$k, (int)$v, false, 'flip');
             if ($ac > 0) {
                 $msg .= DONE . ': '. sprintf(COMMENT_APPROVED, (int)$k);
@@ -23,7 +23,7 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
             }
         }
     } else {
-        foreach ( $serendipity['POST']['delete'] as $k => $v ) {
+        foreach ( $serendipity['POST']['delete'] AS $k => $v ) {
             serendipity_deleteComment($k, $v);
             $msg .= DONE . ': '. sprintf(COMMENT_DELETED, (int)$k);
         }
@@ -74,7 +74,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 
 /* We approve a comment */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'approve' && serendipity_checkFormToken()) {
-    $sql = "SELECT c.*, e.title, a.email as authoremail, a.mail_comments
+    $sql = "SELECT c.*, e.title, a.email AS authoremail, a.mail_comments
             FROM {$serendipity['dbPrefix']}comments c
             LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
             LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
@@ -90,7 +90,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 }
 
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'pending' && serendipity_checkFormToken()) {
-    $sql = "SELECT c.*, e.title, a.email as authoremail, a.mail_comments
+    $sql = "SELECT c.*, e.title, a.email AS authoremail, a.mail_comments
             FROM {$serendipity['dbPrefix']}comments c
             LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
             LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
@@ -201,7 +201,7 @@ if (isset($serendipity['GET']['adminAction']) && ($serendipity['GET']['adminActi
 $filters = array('author', 'email', 'ip', 'url', 'body', 'referer');
 
 /* Compress the filters into an "AND" SQL query, and a querystring */
-foreach ($filters as $filter) {
+foreach ($filters AS $filter) {
     $and          .= (!empty($serendipity['GET']['filter'][$filter]) ? "AND c.". $filter ." LIKE '%". serendipity_db_escape_string($serendipity['GET']['filter'][$filter]) ."%'" : "");
     $searchString .= (!empty($serendipity['GET']['filter'][$filter]) ? "&amp;serendipity[filter][". $filter ."]=". serendipity_specialchars($serendipity['GET']['filter'][$filter]) : "");
 }
@@ -305,7 +305,7 @@ $i = 0;
 $comments = array();
 
 if (is_array($sql)) {
-    foreach ($sql as $rs) {
+    foreach ($sql AS $rs) {
         $i++;
         $comment = array(
             'fullBody'  => $rs['body'],

@@ -205,7 +205,7 @@ class serendipity_plugin_api
             $pluginPath = $key;
         }
 
-        $rs = serendipity_db_query("SELECT MAX(sort_order) as sort_order_max FROM {$serendipity['dbPrefix']}plugins WHERE placement = '$default_placement'", true, 'num');
+        $rs = serendipity_db_query("SELECT MAX(sort_order) AS sort_order_max FROM {$serendipity['dbPrefix']}plugins WHERE placement = '$default_placement'", true, 'num');
 
         if (is_array($rs)) {
             $nextidx = intval($rs[0] + 1);
@@ -1093,7 +1093,7 @@ class serendipity_plugin_api
         $plugins = serendipity_plugin_api::get_event_plugins();
 
         if ($serendipity['core_events'][$event_name]) {
-            foreach($serendipity['core_events'][$event_name] as $apifunc_key => $apifunc) {
+            foreach($serendipity['core_events'][$event_name] AS $apifunc_key => $apifunc) {
                 $apifunc($event_name, $bag, $eventData, $addData);
             }
         }

@@ -998,7 +998,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     // This is important because of its caching mechanism!
 
                     // Fetch maximum sort_order value. This will be the new value of our current plugin.
-                    $q  = "SELECT MAX(sort_order) as sort_order_max FROM {$serendipity['dbPrefix']}plugins WHERE placement = '" . $addData['default_placement'] . "'";
+                    $q  = "SELECT MAX(sort_order) AS sort_order_max FROM {$serendipity['dbPrefix']}plugins WHERE placement = '" . $addData['default_placement'] . "'";
                     $rs  = serendipity_db_query($q, true, 'num');
 
                     // Fetch current sort_order of current plugin.

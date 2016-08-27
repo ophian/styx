@@ -311,7 +311,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         }
     }
 
-    foreach ($data as $k => $v) {
+    foreach ($data AS $k => $v) {
         $data[$k] = implode("\n", $v);
     }
 
@@ -427,7 +427,7 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
     $query_group    = '';
     $query_distinct = '';
     if ($is_count) {
-        $query_select = ", count(e.authorid) as artcount";
+        $query_select = ", count(e.authorid) AS artcount";
         $query_join   = "LEFT OUTER JOIN {$serendipity['dbPrefix']}entries AS e
                                       ON (a.authorid = e.authorid AND e.isdraft = 'false')";
     }
@@ -992,7 +992,7 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
     $rows = serendipity_db_query($query);
     $output = "<span class='serendipityReferer'>";
     if (is_array($rows)) {
-        foreach ($rows as $row) {
+        foreach ($rows AS $row) {
             if ($use_links) {
                 $output .= sprintf(
                     '<span class="block_level"><a href="%1$s://%2$s" title="%2$s" >%2$s</a> (%3$s) </span>',
@@ -1202,7 +1202,7 @@ function serendipity_build_query(&$array, $array_prefix = null, $comb_char = '&a
         return '';
     }
 
-    foreach ($array as $k => $v) {
+    foreach ($array AS $k => $v) {
         $newkey = urlencode($k);
         if ($array_prefix) {
             $newkey = $array_prefix . '[' . $newkey . ']';

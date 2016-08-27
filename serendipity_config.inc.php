@@ -387,7 +387,7 @@ $serendipity['charsets'] = array(
 // Set current locale, if any has been defined
 if (defined('DATE_LOCALES')) {
     $locales = explode(',', DATE_LOCALES);
-    foreach ($locales as $locale) {
+    foreach ($locales AS $locale) {
         $locale = trim($locale);
         if (setlocale(LC_TIME, $locale) == $locale) {
             break;

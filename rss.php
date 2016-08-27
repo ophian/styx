@@ -187,7 +187,7 @@ IMAGE;
 // First, do some sanity checks
 $metadata['additional_fields']['channel'] = '';
 $rssFields = array('feedManagingEditor' => 'managingEditor', 'feedWebmaster' => 'webMaster', 'feedTtl' => 'ttl', 'feedPubDate' => 'pubDate');
-foreach( $rssFields as $configName => $field) {
+foreach( $rssFields AS $configName => $field) {
     $fieldValue = serendipity_get_config_var($configName);
 
     switch($field) {

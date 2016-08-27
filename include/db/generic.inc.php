@@ -79,7 +79,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
         $resultArray = $resultArray[0];
         if (is_array($resultArray) && $result_type != "assoc") {
             $i=0;       # the underlying code expects additional numerical indices
-            foreach ($resultArray as $key=>$value) {
+            foreach ($resultArray AS $key=>$value) {
                 $resultArray[$i] = $value;
                 $i+=1;
             }

@@ -63,7 +63,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
         $res = serendipity_fetchCategories('all');
         $ret = array(0 => NO_CATEGORY);
         if (is_array($res)) {
-            foreach ($res as $v) {
+            foreach ($res AS $v) {
                 $ret[$v['categoryid']] = $v['category_name'];
             }
         }
@@ -177,7 +177,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
         $_s9y_users = serendipity_fetchUsers();
         $s9y_users = array();
         if (is_array($s9y_users)) {
-            foreach ($_s9y_users as $v) {
+            foreach ($_s9y_users AS $v) {
                 $s9y_users[$v['realname']] = $v;
             }
         }
@@ -186,7 +186,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
         $_s9y_cat = serendipity_fetchCategories('all');
         $s9y_cat  = array();
         if (is_array($s9y_cat)) {
-            foreach ($_s9y_cat as $v) {
+            foreach ($_s9y_cat AS $v) {
                 $s9y_cat[$v['category_name']] = $v['categoryid'];
             }
         }

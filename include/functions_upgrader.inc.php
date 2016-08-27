@@ -383,7 +383,7 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
     $search   = array("\\", '//');
     $replace  = array('/');
 
-    foreach ($iterator as $file) {
+    foreach ($iterator AS $file) {
         $thisfile = str_replace($search, $replace, $file->__toString());
         if ($file->isFile()) {
             if (is_array($deadfiles) && !empty($deadfiles)) {
@@ -505,7 +505,7 @@ function serendipity_upgrader_move_syndication_config() {
                             'field_ttl'             => 'feedTtl',
                             'field_pubDate'         => 'feedPubDate'
                     );
-    foreach ($optionsToPort as $oldPluginOption => $newGeneralOption) {
+    foreach ($optionsToPort AS $oldPluginOption => $newGeneralOption) {
         $value = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE NAME LIKE 'serendipity_plugin_syndication%{$oldPluginOption}'", true);
         if (is_array($value)) {
             $value = $value[0];

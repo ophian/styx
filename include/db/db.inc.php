@@ -34,14 +34,14 @@ function serendipity_db_update($table, $keys, $values, $action = 'execute')
 
     $set = '';
 
-    foreach ($values as $k => $v) {
+    foreach ($values AS $k => $v) {
         if (strlen($set))
             $set .= ', ';
         $set .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
     }
 
     $where = '';
-    foreach ($keys as $k => $v) {
+    foreach ($keys AS $k => $v) {
         if (strlen($where))
             $where .= ' AND ';
         $where .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
@@ -77,7 +77,7 @@ function serendipity_db_insert($table, $values, $action = 'execute')
     $names = implode(',', array_keys($values));
 
     $vals = '';
-    foreach ($values as $k => $v) {
+    foreach ($values AS $k => $v) {
         if (strlen($vals))
             $vals .= ', ';
         $vals .= '\'' . serendipity_db_escape_string($v) . '\'';

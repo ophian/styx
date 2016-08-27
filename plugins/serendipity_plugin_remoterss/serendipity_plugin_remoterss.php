@@ -643,7 +643,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                     $content = '';
                     $smarty_items = array();
 
-                    foreach($simplefeed->get_items() as $simpleitem) {
+                    foreach($simplefeed->get_items() AS $simpleitem) {
                         // map SimplePie items to s9y items
                         $item['title']       = $simpleitem->get_title();
                         $item['link']        = $simpleitem->get_permalink();

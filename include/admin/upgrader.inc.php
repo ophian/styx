@@ -295,7 +295,7 @@ while (($file = readdir($dir)) !== false ) {
 
 $sqlfiles = array();
 if (is_array($tmpFiles)) {
-    foreach ($tmpFiles as $version => $db) {
+    foreach ($tmpFiles AS $version => $db) {
         if (array_key_exists($serendipity['dbType'], $db) === false ) {
             $sqlfiles[$version] = $db['mysql'];
         } else {
@@ -315,11 +315,11 @@ if ($serendipity['GET']['action'] == 'ignore') {
     $errors = array();
 
     /* Install SQL files */
-    foreach ($sqlfiles as $sqlfile) {
+    foreach ($sqlfiles AS $sqlfile) {
         $sql = file_get_contents(S9Y_INCLUDE_PATH .'sql/'. $sqlfile);
         $sql = str_replace('{PREFIX}', $serendipity['dbPrefix'], $sql);
         preg_match_all("@(.*);@iUs", $sql, $res);
-        foreach ($res[0] as $sql) {
+        foreach ($res[0] AS $sql) {
             $r = serendipity_db_schema_import($sql);
             if (is_string($r)) {
                 $errors[] = trim($r);
@@ -329,7 +329,7 @@ if ($serendipity['GET']['action'] == 'ignore') {
 
     /* Call functions */
     $data['call_tasks'] = array();
-    foreach ($tasks as $task) {
+    foreach ($tasks AS $task) {
         if (!empty($task['function']) && version_compare($serendipity['versionInstalled'], $task['version'], '<') && version_compare($task['version'], $serendipity['version'], '<=')) {
             if (is_callable($task['function'])) {
                 $data['is_callable_task'] = true;
@@ -401,7 +401,7 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
         if ( empty($badsums) ) {
             $data['upgraderResultDiagnose1'][] = serendipity_upgraderResultDiagnose(S9Y_U_SUCCESS, CHECKSUMS_PASS);
         } else {
-            foreach ($badsums as $rfile => $sum) {
+            foreach ($badsums AS $rfile => $sum) {
                 $data['upgraderResultDiagnose1'][] = serendipity_upgraderResultDiagnose(S9Y_U_WARNING, sprintf(CHECKSUM_FAILED, $rfile));
             }
         }
@@ -420,7 +420,7 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
         #serendipity_config_local.inc.php
         # For completeness we could test to make sure the directories
         # really are directories, but that's probably overkill
-        foreach (array('archives/', PATH_SMARTY_COMPILE . '/', 'uploads/', '.htaccess', 'serendipity_config_local.inc.php') as $path) {
+        foreach (array('archives/', PATH_SMARTY_COMPILE . '/', 'uploads/', '.htaccess', 'serendipity_config_local.inc.php') AS $path) {
             if (!is_writeable($basedir . $path)) {
                 $data['upgraderResultDiagnose2'][] = serendipity_upgraderResultDiagnose(S9Y_U_ERROR, NOT_WRITABLE);
                 $showWritableNote = true;
@@ -463,7 +463,7 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
 
         $taskCount = 0;
         $data['tasks'] = array();
-        foreach ( $tasks as $task ) {
+        foreach ( $tasks AS $task ) {
             if (version_compare($serendipity['versionInstalled'], $task['version'], '<') && version_compare($task['version'], $serendipity['version'], '<='))  {
                 $data['tasks'][] = $task;
                 $taskCount++;

@@ -73,7 +73,7 @@ class serendipity_event_spartacus extends serendipity_event
             return false;
         }
 
-        foreach ($files as $file) {
+        foreach ($files AS $file) {
             $this->outputMSG('notice', sprintf(DELETING_FILE . '<br />', $file['name']));
             @unlink($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/' . $file['name']);
         }
@@ -661,7 +661,7 @@ class serendipity_event_spartacus extends serendipity_event
             'children'   => array()
         );
 
-        foreach($xml_matches[0] as $xml_index => $xml_package) {
+        foreach($xml_matches[0] AS $xml_index => $xml_package) {
             $i = 0;
 
             switch(strtolower($encoding)) {
@@ -1108,7 +1108,7 @@ class serendipity_event_spartacus extends serendipity_event
             return false;
         } else {
             $paths  = preg_split('@/@', $basedir.$dir,-1,PREG_SPLIT_NO_EMPTY);
-            foreach ($paths as $path) {
+            foreach ($paths AS $path) {
                 // trying to change directory, if not succesfull, it means
                 // the directory does not exist and we must create it
                 if (!ftp_chdir($conn_id,$path)) {
@@ -1160,7 +1160,7 @@ class serendipity_event_spartacus extends serendipity_event
 
                         $mailtext = '';
                         foreach($meth AS $method) {
-                            foreach ($install[$method] as $class_data) {
+                            foreach ($install[$method] AS $class_data) {
                                 #echo "Probe " . $class_data['name']. "<br />\n"; // DEBUG
                                 $pluginFile = serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
                                 $plugin     = serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $method);
@@ -1226,7 +1226,7 @@ class serendipity_event_spartacus extends serendipity_event
 
                         foreach($meth AS $method) {
                             echo "LISTING: $method\n-------------------\n";
-                            foreach ($install[$method] as $class_data) {
+                            foreach ($install[$method] AS $class_data) {
                                 $pluginFile = serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
                                 $plugin     = serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $method);
 

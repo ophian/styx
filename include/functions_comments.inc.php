@@ -139,7 +139,7 @@ function serendipity_rememberComment() {
 function serendipity_rememberCommentDetails($details) {
     global $serendipity;
 
-    foreach ($details as $n => $v) {
+    foreach ($details AS $n => $v) {
         serendipity_setCookie($n, $v);
     }
 }
@@ -267,7 +267,7 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
                     e.timestamp AS entrytimestamp,
                     e.id AS entryid,
                     e.authorid,
-                    e.author as entryauthor,
+                    e.author AS entryauthor,
                     co.id AS commentid,
                     co.parent_id AS parent_id,
                     co.status
@@ -317,7 +317,7 @@ function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $
     $retval = $parent ? '' : '<select id="serendipity_replyTo" onchange="' . (!empty($serendipity['plugindata']['onchange']) ? $serendipity['plugindata']['onchange'] : '') . '" name="serendipity[replyTo]"><option value="0">[ ' . TOP_LEVEL . ' ]</option>';
 
     $i = 0;
-    foreach ($comments as $comment) {
+    foreach ($comments AS $comment) {
         if ($comment['parent_id'] == $parent) {
             $i++;
             $retval .= '<option value="' . $comment['id'] . '"'. ($selected == $comment['id'] || (isset($serendipity['POST']['replyTo']) && $comment['id'] == $serendipity['POST']['replyTo']) ? ' selected="selected"' : '') .'>' . str_repeat('&#160;', $level * 2) . '#' . $indent . $i . ': ' . (empty($comment['author']) ? ANONYMOUS : serendipity_specialchars($comment['author'])) . ' ' . ON . ' ' . serendipity_mb('ucfirst', serendipity_strftime(DATE_FORMAT_SHORT, $comment['timestamp'])) . "</option>\n";
@@ -358,7 +358,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
     }
 
     $i = 0;
-    foreach ($comments as $comment) {
+    foreach ($comments AS $comment) {
         if ($parentid === VIEWMODE_LINEAR || !isset($comment['parent_id']) || $comment['parent_id'] == $parentid) {
             $i++;
 
@@ -471,7 +471,7 @@ function serendipity_printCommentsByAuthor() {
     $c = serendipity_fetchComments(null, $sql_limit, 'co.entry_id DESC, co.id ASC', false, $type, $sql_where);
 
     $entry_comments = array();
-    foreach($c as $i => $comment) {
+    foreach($c AS $i => $comment) {
         if (!isset($entry_comments[$comment['entry_id']])) {
             $comment['link'] = serendipity_archiveURL($comment['entry_id'], $comment['title'], 'serendipityHTTPPath', true, array('timestamp' => $comment['entrytimestamp']));
             $entry_comments[$comment['entry_id']] = $comment;
@@ -644,7 +644,7 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
 
     /* Get data about the comment, we need this query because this function can be called from anywhere */
     /* This also makes sure we are either the author of the comment, or a USERLEVEL_ADMIN */
-    $sql = "SELECT c.*, e.title, a.email as authoremail, a.mail_comments, e.timestamp AS entry_timestamp, e.last_modified AS entry_last_modified, e.authorid AS entry_authorid
+    $sql = "SELECT c.*, e.title, a.email AS authoremail, a.mail_comments, e.timestamp AS entry_timestamp, e.last_modified AS entry_last_modified, e.authorid AS entry_authorid
                 FROM {$serendipity['dbPrefix']}comments c
                 LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
                 LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
@@ -967,7 +967,7 @@ function serendipity_commentSubscriptionConfirm($hash) {
         $cast = "name";
     } elseif (stristr($serendipity['dbType'], 'postgres')) {
         // Adds explicits casting for postgresql.
-        $cast = "cast(name as integer)";
+        $cast = "cast(name AS integer)";
     } else {
         // and all others eg mysql(i), zend-db, ...
         $cast = "cast(name AS UNSIGNED)";
@@ -1073,7 +1073,7 @@ function serendipity_mailSubscribers($entry_id, $poster, $posterMail, $title, $f
         return;
     }
 
-    foreach ($subscribers as $subscriber) {
+    foreach ($subscribers AS $subscriber) {
         if ($subscriber['type'] == 'TRACKBACK') {
             $text = sprintf(
                       SUBSCRIPTION_TRACKBACK_MAIL,
@@ -1174,7 +1174,7 @@ function serendipity_sendComment($comment_id, $to, $fromName, $fromEmail, $fromU
     serendipity_plugin_api::hook_event('backend_sendcomment', $eventData);
 
     $action_more = '';
-    foreach($eventData['action_more'] as $action) {
+    foreach($eventData['action_more'] AS $action) {
         $action_more .= "\n" . str_repeat(' ', 3) . $action;
     }
 

@@ -48,7 +48,7 @@ if (isset($_GET['serendipity']['plugin_to_move']) && isset($_GET['submit']) && s
         $plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'] = (int)$tmp;
 
         /* Update table */
-        foreach($plugins as $plugin) {
+        foreach($plugins AS $plugin) {
             $key = serendipity_db_escape_string($plugin['name']);
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}plugins SET sort_order = {$plugin['sort_order']} WHERE name='$key'");
         }
@@ -90,7 +90,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         /* enum properties and set their values */
 
         $save_errors = array();
-        foreach ($config_names as $config_item) {
+        foreach ($config_names AS $config_item) {
             $cbag = new serendipity_property_bag;
             if ($plugin->introspect_config_item($config_item, $cbag)) {
                 $value    = $_POST['serendipity']['plugin'][$config_item];
@@ -102,7 +102,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
                     if (is_array($_POST['serendipity']['plugin']['activate'][$config_item])) {
                         $active_values = array();
-                        foreach($_POST['serendipity']['plugin']['activate'][$config_item] as $ordered_item_value) {
+                        foreach($_POST['serendipity']['plugin']['activate'][$config_item] AS $ordered_item_value) {
                             $ordered_item_value;
                             $active_values[] = $ordered_item_value;
                         }
@@ -179,7 +179,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     usort($classes, 'serendipity_pluginListSort');
 
     $counter    = 0;
-    foreach ($classes as $class_data) {
+    foreach ($classes AS $class_data) {
         $pluginFile =  serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
         $plugin     =& serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $serendipity['GET']['type']);
 
@@ -271,7 +271,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $available_groups = array_keys($pluggroups);
     $data['available_groups'] = $available_groups;
     $groupnames = array();
-    foreach($available_groups as $available_group) {
+    foreach($available_groups AS $available_group) {
         $groupnames[$available_group] = serendipity_groupname($available_group);
     }
     $data['groupnames'] = $groupnames;
@@ -282,7 +282,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $requirement_failures = array();
 
     foreach($pluggroups AS $pluggroup => $groupstack) {
-        foreach ($groupstack as $plug) {
+        foreach ($groupstack AS $plug) {
             if ( !empty($plug['requirements']['serendipity']) && version_compare($plug['requirements']['serendipity'], serendipity_getCoreVersion($serendipity['version']), '>') ) {
                 $requirement_failures[$plug['class_name']] = array("s9y" => true);
             }
@@ -337,7 +337,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
     if (isset($_POST['SAVE'])  && serendipity_checkFormToken()) {
         $pos=0;
-        foreach($_POST['serendipity']['plugin'] as $plugin) {
+        foreach($_POST['serendipity']['plugin'] AS $plugin) {
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}plugins
                                      SET sort_order = ".  $pos . "
                                    WHERE name='" . serendipity_db_escape_string($plugin['id']) . "'");
@@ -374,7 +374,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $new_plugin = true;
         if ($fetchplugin_data['install']) {
             // spartacus will set this to false on upgrade, and we want to check this only on install
-            foreach (serendipity_plugin_api::get_installed_plugins() as $pluginName) {
+            foreach (serendipity_plugin_api::get_installed_plugins() AS $pluginName) {
                 if ($serendipity['GET']['install_plugin'] === $pluginName) {
                     $existingPlugin =& serendipity_plugin_api::load_plugin($serendipity['GET']['install_plugin']);
                     if (is_object($existingPlugin)) {
@@ -431,7 +431,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
     if (isset($_POST['REMOVE']) && serendipity_checkFormToken()) {
         if (is_array($_POST['serendipity']['plugin_to_remove'])) {
-            foreach ($_POST['serendipity']['plugin_to_remove'] as $key) {
+            foreach ($_POST['serendipity']['plugin_to_remove'] AS $key) {
                 $plugin =& serendipity_plugin_api::load_plugin($key);
 
                 if ($plugin->serendipity_owner == '0' || $plugin->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers')) {

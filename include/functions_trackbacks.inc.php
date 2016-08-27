@@ -771,7 +771,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 
         if (preg_match_all('@<img[^>]+?alt=["\']?([^\'">]+?)[\'"][^>]+?>@i', $names[$i], $img_alt)) {
             if (is_array($img_alt) && is_array($img_alt[0])) {
-                foreach($img_alt[0] as $alt_idx => $alt_img) {
+                foreach($img_alt[0] AS $alt_idx => $alt_img) {
                     // Replace all <img>s within a link with their respective ALT tag, so that references
                     // can be stored with a title.
                     $names[$i] = str_replace($alt_img, $img_alt[1][$alt_idx], $names[$i]);
@@ -791,7 +791,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 
         $names[$i] = strip_tags($names[$i]);
         if (empty($names[$i])) {
-            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Found reference $locations[$i] w/o name. Adding location as name");
+            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Found reference $locations[$i] w/o name. Adding location AS name");
             $names[$i] = $locations[$i];
         }
 
@@ -870,7 +870,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     // Add citations
     preg_match_all('@<cite[^>]*>([^<]+)</cite>@i', $text, $matches);
 
-    foreach ($matches[1] as $citation) {
+    foreach ($matches[1] AS $citation) {
         $query = "INSERT INTO {$serendipity['dbPrefix']}references (entry_id, name) VALUES(";
         $query .= (int)$id . ", '" . serendipity_db_escape_string($citation) . "')";
 

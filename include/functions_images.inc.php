@@ -1724,7 +1724,7 @@ function serendipity_generateImageSelectorParems($format = 'url') {
         serendipity_restoreVar($serendipity['COOKIE']['filter'][$filterParam], $serendipity['GET']['filter'][$filterParam]);
         if (!empty($serendipity['GET']['filter'][$filterParam]) && $serendipity['GET']['filter'][$filterParam] != "undefined") {
             if (is_array($filterValue)) {
-                foreach($filterValue as $key => $value) {
+                foreach($filterValue AS $key => $value) {
                     $parems['serendipity[filter][' . $filterParam . '][' . $key . ']'] = $value;
                 }
             } else {
@@ -1733,7 +1733,7 @@ function serendipity_generateImageSelectorParems($format = 'url') {
         }
     }
 
-    foreach ($parems as $param => $value) {
+    foreach ($parems AS $param => $value) {
         if ($format == "form") {
             $extraParems .= '<input type="hidden" name="'. $param .'" value="'. serendipity_specialchars($value) .'">'."\n";
         } else {

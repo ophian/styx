@@ -586,7 +586,7 @@ class serendipity_event_spamblock extends serendipity_event
     function tellAboutComment($where, $api_key, $comment_id, $is_spam)
     {
         global $serendipity;
-        $comment = serendipity_db_query(" SELECT C.*, L.useragent as log_useragent, E.title as entry_title "
+        $comment = serendipity_db_query(" SELECT C.*, L.useragent AS log_useragent, E.title AS entry_title "
                                       . " FROM {$serendipity['dbPrefix']}comments C, {$serendipity['dbPrefix']}spamblocklog L , {$serendipity['dbPrefix']}entries E "
                                       . " WHERE C.id = '" . (int)$comment_id . "' AND C.entry_id=L.entry_id AND C.entry_id=E.id "
                                       . " AND C.author=L.author AND C.url=L.url AND C.referer=L.referer "
@@ -881,7 +881,7 @@ class serendipity_event_spamblock extends serendipity_event
                         // Check required fields
                         if ($addData['type'] == 'NORMAL' && !empty($required_fields)) {
                             $required_field_list = explode(',', $required_fields);
-                            foreach($required_field_list as $required_field) {
+                            foreach($required_field_list AS $required_field) {
                                 $required_field = trim($required_field);
                                 if (empty($addData[$required_field])) {
                                     $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_REQUIRED_FIELD, $addData);
@@ -977,7 +977,7 @@ class serendipity_event_spamblock extends serendipity_event
                             $this->IsHardcoreSpammer();
                             $exclude_urls = explode(';',$this->get_config('trackback_ipvalidation_url_exclude', $this->get_default_exclude_urls()));
                             $found_exclude_url = false;
-                            foreach ($exclude_urls as $exclude_url) {
+                            foreach ($exclude_urls AS $exclude_url) {
                                 $exclude_url = trim($exclude_url);
                                 if (empty($exclude_url)) continue;
                                 $found_exclude_url = preg_match('@' . $exclude_url . '@',$addData['url']);

@@ -95,7 +95,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
 
             // Generate list of the blogs under the authenticated account
             $bList = array();
-            foreach ($bXml->entry as $entry) {
+            foreach ($bXml->entry AS $entry) {
                 $bList[substr($entry->id, strpos($entry->id, 'blog-') + 5)] = $entry->title;
             }
 
@@ -117,7 +117,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
         $res = serendipity_fetchCategories('all');
         $ret = array(0 => NO_CATEGORY);
         if (is_array($res)) {
-            foreach ($res as $v) {
+            foreach ($res AS $v) {
                 $ret[$v['categoryid']] = $v['category_name'];
             }
         }
@@ -163,7 +163,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
         // Get Serendipity authors list
         $authorList = array();
         $s9y_users = serendipity_fetchUsers();
-        foreach ($s9y_users as $user) {
+        foreach ($s9y_users AS $user) {
             $authorList[$user['authorid']] = $user['username'];
         }
         unset($s9y_users);
@@ -173,7 +173,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
 
         // Process entries
         $entryList = $entryFailList = array();
-        foreach ($bXml->entry as $bEntry) {
+        foreach ($bXml->entry AS $bEntry) {
 
             // Check entry type
             switch ($bEntry->category['term']) {
@@ -255,7 +255,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
         // Do cleanup and report on entries
         echo '<span class="block_level">The following entries were successfully imported:</span>';
         echo '<ul>';
-        foreach ($entryList as $eId => $eDetails) {
+        foreach ($entryList AS $eId => $eDetails) {
             // Update comment count for entry in s9y
             serendipity_db_query("UPDATE ". $serendipity['dbPrefix'] ."entries SET comments = ". $eDetails[2] ." WHERE id = ". $eDetails[0]);
             
@@ -266,7 +266,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
         // Report fails
         echo '<span class="block_level">The following entries ran into trouble and was not imported:</span>';
         echo '<ul>';
-        foreach ($entryFailList as $eId => $eDetails) {
+        foreach ($entryFailList AS $eId => $eDetails) {
             echo '<li>'. $eDetails .'</li>';
         }
         echo '</ul>';

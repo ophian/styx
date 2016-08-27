@@ -96,7 +96,7 @@ class serendipity_plugin_authors extends serendipity_plugin
         $html .= '<ul class="plainList">' . "\n";
 
         if (is_array($authors) && count($authors)) {
-            foreach ($authors as $auth) {
+            foreach ($authors AS $auth) {
 
                 if ($is_count) {
                     if ($auth['artcount'] < $mincount) {

@@ -306,7 +306,7 @@ switch ($serendipity['GET']['adminAction']) {
                         ));
                         serendipity_plugin_api::hook_event('backend_media_makethumb', $thumbs);
 
-                        foreach($thumbs as $thumb) {
+                        foreach($thumbs AS $thumb) {
                             // Create thumbnail
                             if ( $created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$tindex], $thumb['thumbSize'], $thumb['thumb']) ) {
                                 $messages[] = '<span class="msg_success"><span class="icon-ok-circled"></span> ' . THUMB_CREATED_DONE . "</span>\n";
@@ -390,7 +390,7 @@ switch ($serendipity['GET']['adminAction']) {
                         ));
                         serendipity_plugin_api::hook_event('backend_media_makethumb', $thumbs);
 
-                        foreach($thumbs as $thumb) {
+                        foreach($thumbs AS $thumb) {
                             // Create thumbnail
                             if ( $created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$idx], $thumb['thumbSize'], $thumb['thumb']) ) {
                                 $messages[] = '<span class="msg_success"><span class="icon-ok-circled"></span> ' . THUMB_CREATED_DONE . "</span>\n";

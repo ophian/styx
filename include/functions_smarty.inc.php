@@ -1224,7 +1224,7 @@ function serendipity_smarty_purge() {
     $_cdir = new RecursiveDirectoryIterator($serendipity['smarty']->getCompileDir());
     $_dirs = new RecursiveIteratorIterator($_cdir);
     $files = new RegexIterator($_dirs, '@.*\.tpl\.php$@', RegexIterator::GET_MATCH);
-    foreach($files as $file) {
+    foreach($files AS $file) {
         if (is_writable($file[0])) {
             unlink($file[0]);
         } else {
