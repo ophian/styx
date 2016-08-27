@@ -4,7 +4,7 @@
         <h2><span class="icon-attention-circled"></span> {$CONST.ERROR}:</h2>
 
         <ul class="plainList">
-        {foreach $save_errors as $save_error}
+        {foreach $save_errors AS $save_error}
             <li>$save_error</li>
         {/foreach}
         </ul>
@@ -40,7 +40,7 @@
     </form>
 {elseif $adminAction == 'addnew'}
     <h2>{if $type == 'event'}{$CONST.EVENT_PLUGINS}{/if}{if $type == 'sidebar'}{$CONST.SIDEBAR_PLUGINS}{/if}{if $type == 'both'}{$CONST.MENU_PLUGINS}{/if}{if $only_group != UPGRADE} <span class="plugins_available">({$CONST.PLUGIN_AVAILABLE_COUNT|sprintf:$count_pluginstack})</span>{/if}</h2>
-    {foreach $errorstack as $e_idx => $e_name}
+    {foreach $errorstack AS $e_idx => $e_name}
     <span class="msg_error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: {$e_name}</span>
     {/foreach}
 
@@ -55,7 +55,7 @@
                 <div id="plugin_groups" class="update_group form_select">
                     <label for="only_group">{$CONST.GROUP}</label>
                     <select id="only_group" name="serendipity[only_group]">
-                    {foreach $groupnames as $available_group => $available_name}
+                    {foreach $groupnames AS $available_group => $available_name}
                         <option value="{$available_group}"{if $only_group == $available_group} selected{/if}>{$available_name|default:$CONST.ALL_CATEGORIES}</option>
                     {/foreach}
                     </select>
@@ -80,12 +80,12 @@
     {else}
         {foreach $pluggroups AS $pluggroup => $groupstack}
             {if $only_group AND $pluggroup != $only_group}{continue}{/if}
-            <h3>{foreach $groupnames as $available_group => $available_name}{if $pluggroup == $available_group}{$available_name}{/if}{/foreach}</h3>
+            <h3>{foreach $groupnames AS $available_group => $available_name}{if $pluggroup == $available_group}{$available_name}{/if}{/foreach}</h3>
             {if $only_group == 'UPGRADE' AND $pluggroups['UPGRADE']|count > 1}
                 <button id="updateAll">Update All</button>
             {/if}
             <ul class="plugins_installable plainList clearfix">
-            {foreach $groupstack as $plug}
+            {foreach $groupstack AS $plug}
                 <li class="clearfix">
                     <div class="equal_heights">
                         <div class="plugin_features">

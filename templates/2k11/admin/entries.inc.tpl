@@ -45,7 +45,7 @@
                     <label for="filter_category">{$CONST.CATEGORY}</label>
                     <select id="filter_category" name="serendipity[filter][category]">
                         <option value="">-</option>
-                    {foreach $categories as $cat}
+                    {foreach $categories AS $cat}
                         <option value="{$cat.categoryid}"{($get.filter.category == $cat.categoryid) ? ' selected' : ''}>{'&nbsp;'|str_repeat:$cat.depth} {$cat.category_name|escape}</option>
                     {/foreach}
                     </select>
@@ -65,7 +65,7 @@
                 <div class="form_select">
                     <label for="sort_order">{$CONST.SORT_BY}</label>
                     <select id="sort_order" name="serendipity[sort][order]">
-                    {foreach $sort_order as $so_key => $so_val}
+                    {foreach $sort_order AS $so_key => $so_val}
                         <option value="{$so_key}" {(isset($get.sort.order) AND ($get.sort.order == $so_key) ? 'selected': '')}>{$so_val}</option>
                     {/foreach}
                     </select>
@@ -133,7 +133,7 @@
 
         <div class="entries_pane">
             <ul id="entries_list" class="plainList zebra_list">
-            {foreach $entries as $entry}
+            {foreach $entries AS $entry}
                 {if ($entry@index >= $perPage)}{continue}{/if}
                 <li id="entry_{$entry.id}" class="clearfix {cycle values="odd,even"}">
                     {if NOT $simpleFilters}

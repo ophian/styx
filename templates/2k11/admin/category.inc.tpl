@@ -33,7 +33,7 @@
                 <label for="remaining_cat">{$CONST.CATEGORY_REMAINING}:</label>
                 <select id="remaining_cat" name="serendipity[cat][remaining_catid]">
                     <option value="0">{$CONST.NO_CATEGORY}</option>
-                {foreach $cats as $cat_data}
+                {foreach $cats AS $cat_data}
                     <option value="{$cat_data.categoryid}">{$cat_data.category_name|escape}</option>
                 {/foreach}
                 </select>
@@ -54,7 +54,7 @@
             <div id="category_basics" class="clearfix">
                 <div class="form_field">
                     <label for="category_name">{$CONST.NAME}</label>
-                    <input id="category_name" pattern="{if $new}^(?!({foreach $categories as $cat}{$cat.category_name}|{/foreach})$).*{else}^(?!({foreach $categories as $cat}{if $this_cat.category_name != $cat.category_name}{$cat.category_name}{/if}|{/foreach})$).*{/if}" name="serendipity[cat][name]" type="text" value="{$this_cat.category_name|default:""|escape}" title="Categoryname">
+                    <input id="category_name" pattern="{if $new}^(?!({foreach $categories AS $cat}{$cat.category_name}|{/foreach})$).*{else}^(?!({foreach $categories AS $cat}{if $this_cat.category_name != $cat.category_name}{$cat.category_name}{/if}|{/foreach})$).*{/if}" name="serendipity[cat][name]" type="text" value="{$this_cat.category_name|default:""|escape}" title="Categoryname">
                 </div>
 
                 <div class="form_field">
@@ -72,7 +72,7 @@
                     <label for="parent_cat">{$CONST.PARENT_CATEGORY}</label>
                     <select id="parent_cat" name="serendipity[cat][parent_cat]">
                         <option value="0"{if $cid == 0} selected{/if}>{$CONST.NO_CATEGORY}</option>
-                    {foreach $categories as $cat}
+                    {foreach $categories AS $cat}
                         {if $cat.categoryid == $cid}{continue}{/if}
                         <option value="{$cat.categoryid}"{if $this_cat.parentid == $cat.categoryid} selected{/if}>{for $i=1 to $cat.depth}&nbsp{/for} {$cat.category_name}</option>
                     {/foreach}
@@ -107,7 +107,7 @@
                     <label for="read_authors">{$CONST.PERM_READ}</label>
                     <select id="read_authors" size="6" multiple name="serendipity[cat][read_authors][]">
                         <option value="0"{if $selectAllReadAuthors} selected{/if}>{$CONST.ALL_AUTHORS}</option>
-                    {foreach $groups as $group}
+                    {foreach $groups AS $group}
                         <option value="{$group.confkey}"{if isset($read_groups.{$group.confkey})} selected{/if} >{$group.confvalue|escape}</option>
                     {/foreach}
                     </select>
@@ -117,7 +117,7 @@
                     <label for="write_authors">{$CONST.PERM_WRITE}</label>
                     <select id="write_authors" size="6" multiple name="serendipity[cat][write_authors][]">
                         <option value="0"{if $selectAllReadAuthors} selected{/if}>{$CONST.ALL_AUTHORS}</option>
-                    {foreach $groups as $group}
+                    {foreach $groups AS $group}
                         <option value="{$group.confkey}"{if isset($read_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
                     {/foreach}
                     </select>
@@ -153,7 +153,7 @@
     <h2>{$CONST.CATEGORIES}</h2>
     {if is_array($viewCats)}
         <ul id="categories" class="option_list">
-        {foreach $viewCategories as $category}
+        {foreach $viewCategories AS $category}
             {if ! $category@first}
                 {if $category.depth > $priorDepth}
                     <ul>

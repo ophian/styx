@@ -12,7 +12,7 @@
     <h2>{$CONST.GROUP}</h2>
 
     <ul id="serendipity_groups" class="plainList zebra_list">
-    {foreach $groups as $group}
+    {foreach $groups AS $group}
         <li class="clearfix {cycle values="odd,even"}">
             <span class="group_name"><span class="icon-users"></span> {$group.name|escape}</span>
             <ul class="plainList clearfix edit_actions">
@@ -44,14 +44,14 @@
         <div class="clearfix even form_select">
             <label for="group_members">{$CONST.USERCONF_GROUPS}</label>
             <select id="group_members" name="serendipity[members][]" multiple size="5">
-                {foreach $allusers as $user}
+                {foreach $allusers AS $user}
                 <option{if isset($selected.{$user.authorid})} selected{/if} value="{$user.authorid}">{$user.realname|escape}</option>
                 {/foreach}
             </select>
         </div>
         
         <ul>
-        {foreach $perms as $perm}
+        {foreach $perms AS $perm}
             {if {{$perm@key}|truncate:"2":""} == 'f_'}{continue}{/if}
             {if !isset($section)}
                 {$section=$perm@key}
@@ -91,7 +91,7 @@
             <div class="clearfix form_select">
                 <label for="forbidden_plugins">{$CONST.PERMISSION_FORBIDDEN_PLUGINS}</label>
                 <select id="forbidden_plugins" name="serendipity[forbidden_plugins][]" multiple size="5">
-                {foreach $allplugins as $plugin}
+                {foreach $allplugins AS $plugin}
                     <option{if $plugin.has_permission === false} selected{/if} value="{{$plugin@key}|escape:'url'}">{$plugin.b->properties.name|escape}</option>
                 {/foreach}
                 </select>
@@ -100,7 +100,7 @@
             <div class="clearfix form_select">
                 <label for="forbidden_hooks">{$CONST.PERMISSION_FORBIDDEN_HOOKS}</label>
                 <select name="serendipity[forbidden_hooks][]" multiple size="5">
-                {foreach $allhooks as $hook}
+                {foreach $allhooks AS $hook}
                     <option{if $hook.has_permission === false} selected{/if} value="{{$hook@key}|escape:'url'}">{{$hook@key}|escape}</option>
                 {/foreach}
                 </select>

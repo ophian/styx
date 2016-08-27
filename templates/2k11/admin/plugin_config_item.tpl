@@ -99,7 +99,7 @@
         </noscript>
 
         <ol id="{$config_item}" class="sequence_container pluginmanager_container">
-        {foreach $order_id as $orid}
+        {foreach $order_id AS $orid}
             <li id="{$orid['id']}" class="sequence_item pluginmanager_item_even">
                 <div id="g{$orid['id']}" class="pluginmanager_grablet sequence_grablet">
                     <button class="icon_link" type="button" title="Move"><span class="icon-move"></span><span class="visuallyhidden"> {$CONST.MOVE}</span></button>

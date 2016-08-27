@@ -27,7 +27,7 @@
 
         s9ymediabuttons.push('s9y_medialibrary_{$item}');
 
-        {foreach $buttons as $button}
+        {foreach $buttons AS $button}
 
             CKEDITOR.plugins.add('{$button.id}', {
                 init: function( editor ) {
@@ -51,7 +51,7 @@
 
         {/foreach}
 
-        var s9yplugins = customplugins.concat('s9y_medialibrary_{$item}{foreach $buttons as $button},{$button.id}{/foreach}');
+        var s9yplugins = customplugins.concat('s9y_medialibrary_{$item}{foreach $buttons AS $button},{$button.id}{/foreach}');
 
         CKEDITOR.replace($('#'+serendipity.escapeBrackets('{$item}')).get(0), {
             extraPlugins : s9yplugins,

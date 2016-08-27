@@ -1,4 +1,4 @@
-{foreach $messages as $message}
+{foreach $messages AS $message}
     {$message}
 {/foreach}
 
@@ -145,7 +145,7 @@
             <label for="dircreate_parent">{$CONST.PARENT_DIRECTORY}</label>
             <select id="dircreate_parent" name="serendipity[parent]">
                 <option value="">{$CONST.BASE_DIRECTORY}</option>
-            {foreach $folders as $folder}
+            {foreach $folders AS $folder}
                 <option{if $folder.relpath == $get.only_path OR $folder.relpath == $dir} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
             {/foreach}
             </select>
@@ -166,7 +166,7 @@
     </header>
 
     <ul id="serendipity_image_folders" class="option_list">
-    {foreach $folders as $folder}
+    {foreach $folders AS $folder}
         {if ! $folder@first}
             {if ($folder.depth > $priorDepth)}
 

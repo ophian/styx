@@ -34,7 +34,7 @@
     {/foreach}
     </div>
 {/if}
-{foreach $plugin_options_ungrouped as $plugin_option}
+{foreach $plugin_options_ungrouped AS $plugin_option}
     {if ($plugin_option['ctype'] == 'separator' OR $plugin_option['ctype'] == 'seperator') OR $plugin_option['ctype'] == 'suboption'}{* compat - due to misspelled word 'seper...' *}
         {$plugin_option['config']}
     {else if !empty($plugin_option['config'])}

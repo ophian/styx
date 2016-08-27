@@ -44,7 +44,7 @@
 
             <ol class="plainList">
             {if is_array($comments)}
-                {foreach $comments as $comment}
+                {foreach $comments AS $comment}
                 <li class="clearfix"><b>{$comment.author|escape|truncate:30:"&hellip;"} {$CONST.IN} <a href="{$comment.entrylink}" title="Comment to {$comment.title}">#{$comment.id}</a></b>
                     <div class="comment_summary">{$comment.body|escape|truncate:100:"&hellip;"}</div>
 
@@ -81,7 +81,7 @@
 
             <ol class="plainList">
             {if is_array($entries)}
-                {foreach $entries as $entry}
+                {foreach $entries AS $entry}
                 <li class="clearfix">
                     <a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}" title="#{$entry.id}: {$entry.title|escape}">{$entry.title|escape}</a>
                     <ul class="plainList actions">

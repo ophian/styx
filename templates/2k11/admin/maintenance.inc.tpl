@@ -10,7 +10,7 @@
         <span class="msg_success"><span class="icon-ok-circled"></span>{$CONST.CHECKSUMS_PASS}</span>
         {else}
         <ul class="plainList">
-            {foreach $badsums as $rpath => $calcsum}
+            {foreach $badsums AS $rpath => $calcsum}
             <li class="msg_error"><span class="icon-attention-circled"></span>{$CONST.CHECKSUM_FAILED|sprintf:$rpath}</li>
             {/foreach}
         </ul>

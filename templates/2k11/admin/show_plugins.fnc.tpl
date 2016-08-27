@@ -7,13 +7,13 @@
     {/if}
         {$serendipity_setFormToken}
         <div class="clearfix pluginmanager">
-        {foreach $placement as $plugin_placement}
+        {foreach $placement AS $plugin_placement}
             <div class="pluginmanager_side pluginmanager_{($event_only) ? 'event' : 'sidebar'}">
                 <h4>{$plugin_placement['ptitle']}</h4>
 
                 <ol id="{$plugin_placement['pid']}_col" data-placement="{$plugin_placement['pid']}" class="pluginmanager_container plainList equal_heights">
                 {if !is_array($plugin_placement)}{continue}{/if}
-                {foreach $plugin_placement['plugin_data'] as $plugin_data}
+                {foreach $plugin_placement['plugin_data'] AS $plugin_data}
                     <li id="{$plugin_data['css_key']}" class="pluginmanager_plugin pluginmanager_item_{cycle values="odd,even"}">
                         <input type="hidden" name="serendipity[plugin][{$plugin_data['name']}][id]" value="{$plugin_data['name']}" />
                         <input type="hidden" name="serendipity[plugin][{$plugin_data['name']}][position]" value="{$plugin_data@index}" />
@@ -59,7 +59,7 @@
                             </li>
                             <li class="pluginmanager_place nojs-controls">
                                 <select name="serendipity[plugin][{$plugin_data['name']}][placement]">
-                                    {foreach $plugin_data.gopts as $k => $v}
+                                    {foreach $plugin_data.gopts AS $k => $v}
                                         <option value="{$k}" {if $k == $plugin_data['placement']}selected="selected"{/if}>{$v}</option>
                                     {/foreach}
                                 </select>

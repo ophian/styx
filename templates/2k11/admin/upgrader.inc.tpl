@@ -131,7 +131,7 @@
                 <p>{$CONST.SERENDIPITY_UPGRADER_FOUND_SQL_FILES}:</p>
                 {if is_array($sqlfiles) AND !empty($sqlfiles)}
                 <ul>
-                {foreach $sqlfiles as $sqlfile}
+                {foreach $sqlfiles AS $sqlfile}
                     <li>{$sqlfile}</li>
                 {/foreach}
                 </ul>
@@ -140,7 +140,7 @@
                 <h3>{$CONST.SERENDIPITY_UPGRADER_VERSION_SPECIFIC}:</h3>
             {if is_array($tasks) AND !empty($tasks)}
                 <dl class="upgrader_tasks">
-                {foreach $tasks as $task}
+                {foreach $tasks AS $task}
                     <dt>{$task.version} - {$task.title}</dt>
                     <dd>{$task.desc|nl2br}</dd>
                 {/foreach}
