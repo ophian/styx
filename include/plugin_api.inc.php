@@ -1125,7 +1125,7 @@ class serendipity_plugin_api
                 if (isset($phooks[$event_name])) {
 
                     // Check for cachable events.
-                    if (isset($eventData['is_cached']) && $eventData['is_cached']) {
+                    if (is_array($eventData) && isset($eventData['is_cached']) && $eventData['is_cached']) {
                         $chooks = &$bag->get('cachable_events');
                         if (is_array($chooks) && isset($chooks[$event_name])) {
                             continue;
