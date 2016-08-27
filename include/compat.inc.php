@@ -196,8 +196,8 @@ if (!function_exists('errorToExceptionHandler')) {
             if (!$serendipity['dbConn'] || $exit) {
                 echo '<p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . '</p>';
             } else {
-                echo $debug_note;
-                echo '<pre style="white-space: pre-line;">';
+                echo $debug_note."\n\n";
+                echo '<pre style="white-space: pre-line;">'."\n\n";
                 throw new \ErrorException($type . ': ' . $errStr, 0, $errNo, $errFile, $errLine); // tracepath = all, if not ini_set('display_errors', 0);
                 if (!$serendipity['dbConn'] || $exit) {
                     exit; // make sure to exit in case of database connection errors or fatal errors.
