@@ -163,7 +163,7 @@
 
 </form>
 {if $entry_vars.wysiwyg}
-    {foreach from=$entry_vars.wysiwyg_blocks item="wysiwyg_block_item" key="wysiwyg_block_jsname"}
+    {foreach $entry_vars.wysiwyg_blocks AS $wysiwyg_block_jsname => $wysiwyg_block_item}
         {$wysiwyg_block_item|emit_htmlarea_code:$wysiwyg_block_jsname}
     {/foreach}
     {$entry_vars.wysiwyg_blocks|serendipity_refhookPlugin:'backend_wysiwyg_finish'}
