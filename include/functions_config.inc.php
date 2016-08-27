@@ -263,7 +263,7 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
 
     $directories = array();
 
-    if (defined('IN_serendipity_admin') && $serendipity['smarty_preview'] == false) {
+    if (defined('IN_serendipity_admin') && !$serendipity['smarty_preview']) {
         if ($force_frontend_fallback) {
             // If enabled, even when within the admin suite it will be possible to reference files that
             // reside within a frontend-only template directory.
@@ -275,7 +275,6 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
                 }
             }
         }
-
         if (!$simple_plugin_fallback) {
             // Backend will always use our default backend (=defaultTemplate) as fallback.
             $directories[] = isset($serendipity['template_backend']) ? $serendipity['template_backend'] . '/' : '';
