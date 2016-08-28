@@ -1009,11 +1009,18 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
 
     $query = "SELECT id, allow_comments, moderate_comments, last_modified, timestamp, title FROM {$serendipity['dbPrefix']}entries WHERE id = '". (int)$id ."'";
     $ca    = serendipity_db_query($query, true);
-
+    $users = serendipity_fetchUsers();
+    $isUin = false;
+    foreach ($users as $user) {
+        if (!empty($user['realname'])) $allusers[] = $user['realname'];
+    }
+    if (in_array($commentInfo['name'], (array)$allusers) && !serendipity_userLoggedIn()) {
+        $isUin = true;
+    }
     $commentInfo['type'] = $type;
     $commentInfo['source'] = $source;
     serendipity_plugin_api::hook_event('frontend_saveComment', $ca, $commentInfo);
-    if (!is_array($ca) || serendipity_db_bool($ca['allow_comments'])) {
+    if ((!is_array($ca) || serendipity_db_bool($ca['allow_comments'])) && !$isUin) {
         if ($GLOBALS['tb_logging']) {
             $fp = fopen('trackback2.log', 'a');
             fwrite($fp, '[' . date('d.m.Y H:i') . '] insert comment into DB' . "\n");

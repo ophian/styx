@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Restrict comments author names a little more
+
   * Fix backend commentreply by adding an admin template (d2b1dd9c)
 
   * Fixed routing refactoring for uri argument checks on comments page
