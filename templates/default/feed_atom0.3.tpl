@@ -25,7 +25,7 @@
         <div xmlns="http://www.w3.org/1999/xhtml">You are viewing an ATOM formatted XML site feed. Usually this file is inteded to be viewed in an aggregator or syndication software. If you want to know more about ATOM, please visist <a href="http://atomenabled.org/">Atomenabled.org</a></div>
     </info>
 
-{foreach from=$entries item="entry"}
+{foreach $entries AS $entry}
     <entry>
         <link href="{$entry.feed_entryLink}{if $is_comments}#c{$entry.commentid}{/if}" rel="alternate" title="{$entry.feed_title}" type="text/html" />
         <author>

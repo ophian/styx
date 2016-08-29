@@ -288,7 +288,7 @@
             coreNode.href     = baseurl;
             coreNode.target   = 'media';
             coreNode.expanded = true;
-        {foreach from=$media.paths item="item" key="id"}
+        {foreach $media.paths AS $id => $item}
             mydir = { id: "{$id}", label: "{$item.name}", target : "media", href: baseurl + "{$item.relpath}", relpath: "{$item.relpath}" };
         {if $item.depth == 1}
             tmpNode = new YAHOO.widget.TextNode(mydir, coreNode, false);

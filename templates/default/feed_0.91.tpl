@@ -8,14 +8,14 @@
 <language>{$metadata.language}</language>
 {$metadata.additional_fields.image}
 
-{foreach from=$entries item="entry"}
+{foreach $entries AS $entry}
 <item>
     <title>{$entry.feed_title}</title>
     <link>{$entry.feed_entryLink}{if $is_comments}#c{$entry.commentid}{/if}</link>
 
 {if !empty($entry.body)}
     <description>
-        {$entry.feed_body|@escape} {$entry.feed_ext|@escape}
+        {$entry.feed_body|escape} {$entry.feed_ext|escape}
     </description>
 {/if}
 </item>

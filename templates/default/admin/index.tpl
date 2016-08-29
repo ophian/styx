@@ -40,7 +40,7 @@
 {if NOT $admin_vars.is_logged_in}
 {*** LOGIN-AREA START ***}
 
-    {$admin_vars.out|@serendipity_refhookPlugin:'backend_login_page'}
+    {$admin_vars.out|serendipity_refhookPlugin:'backend_login_page'}
                 <td colspan="2" class="serendipityAdminContent">
                     <div id="serendipityAdminWelcome" align="center">
                         <h2>{$CONST.WELCOME_TO_ADMIN}</h2>

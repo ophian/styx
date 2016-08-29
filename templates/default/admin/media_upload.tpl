@@ -59,7 +59,7 @@
                 <td>{$CONST.STORE_IN_DIRECTORY}</td>
                 <td><select class="uploadform_target_directory" id="target_directory_1" name="serendipity[target_directory][1]">
                     <option value="">{$CONST.BASE_DIRECTORY}</option>
-                    {foreach from=$media.folders item="folder"}
+                    {foreach $media.folders AS $folder}
                     <option {if $media.only_path == $folder.relpath}selected="selected"{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
                     {/foreach}
                     </select>
@@ -86,7 +86,7 @@
             <br />
             <input onclick="checkInputs();" type="submit" value="{$CONST.GO}" class="serendipityPrettyButton input_button" />
             - {$CONST.WORD_OR} -
-            <input onclick="checkInputs();" name="go_properties" type="submit" value="{$CONST.GO_ADD_PROPERTIES|@escape}" class="serendipityPrettyButton input_button" />
+            <input onclick="checkInputs();" name="go_properties" type="submit" value="{$CONST.GO_ADD_PROPERTIES|escape}" class="serendipityPrettyButton input_button" />
         </div>
     </div>
     <div class="image_add_note">{$CONST.ADD_MEDIA_BLAHBLAH_NOTE}</div>

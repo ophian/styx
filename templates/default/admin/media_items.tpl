@@ -1,10 +1,10 @@
-{foreach from=$media.files item="file" name="mediafiles" key="mediakey"}
+{foreach $media.files AS $mediakey => $file}
     {if $media.enclose}
     <td nowrap="nowrap" align="center" valign="{if $media.manage}top{else}middle{/if}" width="{$media.lineBreakP}%" class="serendipity_admin_list_item serendipity_admin_list_item_even">
     {/if}
 
     {if NOT $media.manage}
-        {$file.preview}{if $file.orderkey != ''}: {$file.orderkey|@escape}{/if}
+        {$file.preview}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}
     {else}
         <table width="100%" border="0" cellspacing="0" cellpadding="3">
             <tr>
@@ -21,7 +21,7 @@
                {/if}
                 </td>
                 <td colspan="2">
-                    <div class="serendipity_media_filename" style="font-weight: bold; font-size: 8pt">{$file.realname}{if $file.orderkey != ''}: {$file.orderkey|@escape}{/if}</div>
+                    <div class="serendipity_media_filename" style="font-weight: bold; font-size: 8pt">{$file.realname}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}</div>
                     <div class="serendipity_media_author"   style="font-size: 8pt">{if $file.authorid != 0}{$file.authorname}{else}<br />{/if}</div>
                 </td>
             </tr>
@@ -54,7 +54,7 @@
     {if NOT $media.enclose}
         <h3>{$file.realname} [<em>{$file.mime}</em>{if $file.realname != $file.diskname}, {$file.diskname}{/if}]</h3>
         <div>
-            {if $file.authorid != 0}{$CONST.POSTED_BY} {$file.authorname}{/if} {$CONST.ON} {$file.date|@formatTime:DATE_FORMAT_SHORT}.
+            {if $file.authorid != 0}{$CONST.POSTED_BY} {$file.authorname}{/if} {$CONST.ON} {$file.date|formatTime:DATE_FORMAT_SHORT}.
             {if $file.hotlink}
                 {$file.nice_hotlink}
             {elseif $file.is_image}
@@ -67,25 +67,25 @@
         <input type="hidden" name="serendipity[mediaProperties][{$mediakey}][image_id]" value="{$file.image_id}" />
         <h3>{$CONST.MEDIA_PROP}</h3>
         <div>
-        {foreach from=$file.base_property key="prop_fieldname" item="prop_content"}
+        {foreach $file.base_property AS $prop_fieldname => $prop_content}
             <label for="mediaProperty{$prop_fieldname}">{$prop_content.label}</label><br />
             <div>
             {if $prop_content.type == 'textarea'}
-                <textarea cols="80" rows="5" id="mediaProperty{$prop_fieldname}" name="serendipity[mediaProperties][{$mediakey}][{$prop_content.title}]">{$prop_content.val|@escape}</textarea>
+                <textarea cols="80" rows="5" id="mediaProperty{$prop_fieldname}" name="serendipity[mediaProperties][{$mediakey}][{$prop_content.title}]">{$prop_content.val|escape}</textarea>
             {elseif $prop_content.type == 'readonly'}
-                <div>{$prop_content.val|@escape}</div>
+                <div>{$prop_content.val|escape}</div>
             {elseif $prop_content.type == 'input'}
-                <input class="input_textbox" id="mediaProperty{$prop_fieldname}" type="text" name="serendipity[mediaProperties][{$mediakey}][{$prop_content.title}]" value="{$prop_content.val|@escape}" />
+                <input class="input_textbox" id="mediaProperty{$prop_fieldname}" type="text" name="serendipity[mediaProperties][{$mediakey}][{$prop_content.title}]" value="{$prop_content.val|escape}" />
             {/if}
             </div>
         {/foreach}
         {if  NOT $file.hotlink}
             <label for="newDir{$mediakey}">{$CONST.FILTER_DIRECTORY}</label><br />
             <div>
-                <input type="hidden" name="serendipity[oldDir][{$mediakey}]" value="{$file.path|@escape}" />
+                <input type="hidden" name="serendipity[oldDir][{$mediakey}]" value="{$file.path|escape}" />
                 <select id="newDir{$mediakey}" name="serendipity[newDir][{$mediakey}]">
                 <option value=""></option>
-                {foreach from=$media.paths item="folder"}
+                {foreach $media.paths AS $folder}
                 <option {if ($file.path == $folder.relpath)}selected="selected"{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
                 {/foreach}
                 </select>
@@ -101,9 +101,9 @@
         <h3>{$CONST.MEDIA_KEYWORDS}</h3>
         <div>
             <table>
-            {foreach from=$file.base_keywords key="keyword_row" item="keyword_cells"}
+            {foreach $file.base_keywords key="keyword_row" AS $keyword_cells}
                 <tr>
-                {foreach from=$keyword_cells key="keyword_cell" item="keyword"}
+                {foreach $keyword_cells key="keyword_cell" AS $keyword}
                     <td>
                     {if $keyword.name}
                         <input class="input_checkbox" id="mediaKeyword{$keyword.name}{$mediakey}" type="checkbox" name="serendipity[mediaKeywords][{$mediakey}][{$keyword.name}]" value="true" {if $keyword.selected}checked="checked"{/if} />&nbsp;<label for="mediaKeyword{$keyword.name}{$mediakey}">{$keyword.name}</label>
@@ -120,20 +120,20 @@
         <h3>EXIF/IPTC/XMP</h3>
         <div>
         <dl>
-        {foreach from=$file.metadata key="meta_type" item="meta_data"}
+        {foreach $file.metadata key="meta_type" AS $meta_data}
             <dt><h4>{$meta_type}</h4></dt>
             <dd>
             {if is_array($meta_data)}
             <table>
-            {foreach from=$meta_data key="meta_name" item="meta_value"}
+            {foreach $meta_data key="meta_name" AS $meta_value}
                 <tr>
                     <td valign="top"><em>{$meta_name}!</em></td>
-                    <td>{if is_array($meta_value)}<pre>{$meta_value|@print_r}</pre>{else}{$meta_value|@formatTime:DATE_FORMAT_SHORT:false:$meta_name}{/if}</td>
+                    <td>{if is_array($meta_value)}<pre>{$meta_value|print_r}</pre>{else}{$meta_value|formatTime:DATE_FORMAT_SHORT:false:$meta_name}{/if}</td>
                 </tr>
             {/foreach}
             </table>
             {else}
-            {$meta_data|@formatTime:DATE_FORMAT_SHORT:false:$meta_type}
+            {$meta_data|formatTime:DATE_FORMAT_SHORT:false:$meta_type}
             {/if}
             </dd>
         {/foreach}
@@ -143,14 +143,14 @@
         {if $file.references}
         <h3>{$CONST.REFERER}</h3>
         <ul>
-        {foreach from=$file.references item="ref"}
-        <li>({$ref.name|@escape}) <a rel="nofollow" href="{$ref.link|@escape}">{$ref.link|@default:$CONST.NONE|@escape}</a></li>
+        {foreach $file.references AS $ref}
+        <li>({$ref.name|escape}) <a rel="nofollow" href="{$ref.link|escape}">{$ref.link|default:$CONST.NONE|escape}</a></li>
         {/foreach}
         </ul>
         {/if}
     {/if}
 
-    {if $media.enclose AND (($smarty.foreach.mediafiles.iteration % $media.lineBreak) == 0)}
+    {if $media.enclose AND (($file@iteration % $media.lineBreak) == 0)}
     </tr><tr>
     {/if}
 {/foreach}

@@ -19,7 +19,7 @@
         <td colspan="2">
             <table width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr>
-                    <td><input class="input_textbox" type="text" id="entryTitle" name="serendipity[title]" value="{$entry_vars.entry.title|@escape}" size="60" /></td>
+                    <td><input class="input_textbox" type="text" id="entryTitle" name="serendipity[title]" value="{$entry_vars.entry.title|escape}" size="60" /></td>
                     <td align="right">
                         <select name="serendipity[isdraft]">
                             {if $entry_vars.serendipityRightPublish}
@@ -43,8 +43,8 @@
         </td>
         <td>
             <input type="hidden" name="serendipity[chk_timestamp]" value="{$entry_vars.timestamp}" />
-            <input class="input_textbox" type="text" name="serendipity[new_timestamp]" id="serendipityNewTimestamp" value="{$entry_vars.timestamp|@formatTime:DATE_FORMAT_2:true:false:true}" />
-            <a href="#" onclick="document.getElementById('serendipityNewTimestamp').value = '{$entry_vars.reset_timestamp|@formatTime:DATE_FORMAT_2:true:false:true}'; return false;" title="{$CONST.RESET_DATE_DESC}"><img src="{serendipity_getFile file='admin/img/clock.png'}" border="0"  style="vertical-align: text-top;" alt="{$CONST.RESET_DATE}" /></a>
+            <input class="input_textbox" type="text" name="serendipity[new_timestamp]" id="serendipityNewTimestamp" value="{$entry_vars.timestamp|formatTime:DATE_FORMAT_2:true:false:true}" />
+            <a href="#" onclick="document.getElementById('serendipityNewTimestamp').value = '{$entry_vars.reset_timestamp|formatTime:DATE_FORMAT_2:true:false:true}'; return false;" title="{$CONST.RESET_DATE_DESC}"><img src="{serendipity_getFile file='admin/img/clock.png'}" border="0"  style="vertical-align: text-top;" alt="{$CONST.RESET_DATE}" /></a>
         </td>
         <td align="right">
     {else}
@@ -53,7 +53,7 @@
             <a style="border:0; text-decoration: none" href="#" onclick="showItem('categoryselector'); return false" title="{$CONST.TOGGLE_OPTION}"><img src="{serendipity_getFile file='img/plus.png'}" id="option_categoryselector" style="border: 20px" alt="" border="0" /></a> <b>{$CONST.CATEGORY}:</b>
             <select id="categoryselector" name="serendipity[categories][]" style="vertical-align: middle;" multiple="multiple">
                 <option value="0">[{$CONST.NO_CATEGORY}]</option>
-                {foreach from=$entry_vars.category_options item="entry_cat"}
+                {foreach $entry_vars.category_options AS $entry_cat}
                 <option value="{$entry_cat.categoryid}" {if $entry_cat.is_selected}selected="selected"{/if}>{$entry_cat.depth_pad}{$entry_cat.category_name}</option>
                 {/foreach}
             </select>
@@ -117,7 +117,7 @@
     {*** ENTRY BODY START ***}
     <tr>
         <td colspan="3">
-            <textarea style="width: 100%" name="serendipity[body]" id="serendipity[body]" cols="80" rows="20">{$entry_vars.entry.body|@escape}</textarea>
+            <textarea style="width: 100%" name="serendipity[body]" id="serendipity[body]" cols="80" rows="20">{$entry_vars.entry.body|escape}</textarea>
         </td>
     </tr>
     {*** ENTRY BODY START ***}
@@ -184,7 +184,7 @@
     {*** EXTENDED ENTRY BODY START ***}
     <tr>
         <td colspan="3">
-            <textarea style="width: 100%;" name="serendipity[extended]" id="serendipity[extended]" cols="80" rows="20">{$entry_vars.entry.extended|@escape}</textarea>
+            <textarea style="width: 100%;" name="serendipity[extended]" id="serendipity[extended]" cols="80" rows="20">{$entry_vars.entry.extended|escape}</textarea>
             {if NOT $entry_vars.wysiwyg}
             <script type="text/javascript" language="JavaScript">
                toggle_extended();
@@ -200,7 +200,7 @@
             <fieldset>
                 <legend><b>{$CONST.ADVANCED_OPTIONS}</b></legend>
     {*** EXTERNAL PLUGINS OUTPUT START ***}
-                {$entry_vars.entry|@serendipity_refhookPlugin:'backend_display'}
+                {$entry_vars.entry|serendipity_refhookPlugin:'backend_display'}
     {*** EXTERNAL PLUGINS OUTPUT END ***}
             </fieldset>
         </td>
@@ -217,10 +217,10 @@
 {/if}
 
 {if $entry_vars.wysiwyg}
-    {foreach from=$entry_vars.wysiwyg_blocks item="wysiwyg_block_item" key="wysiwyg_block_jsname"}
+    {foreach $entry_vars.wysiwyg_blocks AS $wysiwyg_block_jsname => $wysiwyg_block_item}
         {$wysiwyg_block_item|emit_htmlarea_code:$wysiwyg_block_jsname}
     {/foreach}
-    {$entry_vars.wysiwyg_blocks|@serendipity_refhookPlugin:'backend_wysiwyg_finish'}
+    {$entry_vars.wysiwyg_blocks|serendipity_refhookPlugin:'backend_wysiwyg_finish'}
 {/if}
 {*** SPAWN WYSIWYG EDITORS END ***}
 

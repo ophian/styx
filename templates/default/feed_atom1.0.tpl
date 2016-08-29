@@ -23,7 +23,7 @@
     <admin:errorReportsTo rdf:resource="mailto:{$metadata.email}" />
 {/if}
 
-{foreach from=$entries item="entry"}
+{foreach $entries AS $entry}
     <entry>
         <link href="{$entry.feed_entryLink}{if $is_comments}#c{$entry.commentid}{/if}" rel="alternate" title="{$entry.feed_title}" />
         <author>
@@ -40,7 +40,7 @@
         <wfw:commentRss>{$serendipityBaseURL}rss.php?version={$metadata.version}&amp;type=comments&amp;cid={$entry.feed_id}</wfw:commentRss>
 {/if}
     
-    {foreach from=$entry.categories item="cat"}
+    {foreach $entry.categories AS $cat}
         <category scheme="{$cat.categoryURL}" label="{$cat.feed_category_name}" term="{$cat.feed_category_name}" />
     {/foreach}
 

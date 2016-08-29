@@ -21,7 +21,7 @@
 
     <items>
       <rdf:Seq>
-{foreach from=$entries item="entry"}
+{foreach $entries AS $entry}
         <rdf:li resource="{serendipity_rss_getguid entry=$entry is_comments=$is_comments}" />
 {/foreach}
       </rdf:Seq>
@@ -31,20 +31,20 @@
 {$metadata.additional_fields.image_rss10_rdf}
 {$once_display_dat}
 
-{foreach from=$entries item="entry"}
+{foreach $entries AS $entry}
 <item rdf:about="{$entry.feed_guid}">
     <title>{$entry.feed_title}</title>
     <link>{$entry.feed_entryLink}{if $is_comments}#c{$entry.commentid}{/if}</link>
 {if !empty($entry.body)}
     <description>
-    {$entry.feed_body|@escape} {$entry.feed_ext|@escape}
+    {$entry.feed_body|escape} {$entry.feed_ext|escape}
     </description>
 {/if}
 
     <dc:publisher>{$entry.feed_blogTitle}</dc:publisher>
     <dc:creator>{$entry.feed_email} ({$entry.feed_author})</dc:creator>
     <dc:subject>
-    {foreach from=$entry.categories item="cat"}{$cat.feed_category_name}, {/foreach}</dc:subject>
+    {foreach $entry.categories AS $cat}{$cat.feed_category_name}, {/foreach}</dc:subject>
     <dc:date>{$entry.feed_timestamp}</dc:date>
     <wfw:comment>{$serendipityBaseURL}wfwcomment.php?cid={$entry.feed_id}</wfw:comment>
 {if !$is_comments}

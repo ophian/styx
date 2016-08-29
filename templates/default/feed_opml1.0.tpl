@@ -8,7 +8,7 @@
 </head>
 <body>
 
-{foreach from=$entries item="entry"}
+{foreach $entries AS $entry}
     <outline text="{$entry.feed_title}" type="url" htmlUrl="{$entry.feed_entryLink}{if $is_comments}#c{$entry.commentid}{/if}" urlHTTP="{$entry.feed_entryLink}{if $is_comments}#c{$entry.commentid}{/if}" />
 {/foreach}
 
