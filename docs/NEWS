@@ -7,6 +7,7 @@ Version 2.1 () Styx
   * Fixed $entry scope for comments.tpl "_self" class issues, in
     entries.tpl to {assign var="entry" value=$entry scope="root"}
     for proper propagation of $entry to "sub"-templates.
+    PLEASE UPDATE your theme or custom template copies!
 
   * Restrict comments author names a little more
 

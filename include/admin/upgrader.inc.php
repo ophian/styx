@@ -261,11 +261,11 @@ $tasks = array(
                     'title'     => 'Rewrite path of big feedicon',
                     'desc'      => 'Rewrite path of the big feedicon to not include the template path, since that path is not automatically detected'),
 
-            array(  'version'   => '2.1.0-beta1',
+            array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
                     'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> Check the 2.1 changeLog doc/NEWS file for theme file changes',
-                    'desc'      => 'Serendipity 2.1.0-beta fixes an issue creating the entry ID, caused by a wrong javascript execution. Please read the docs/NEWS file to add this manually to your custom/unsupported theme.'),
+                    'desc'      => 'Serendipity 2.1.0 fixes an issue creating the entry ID, caused by a wrong javascript execution. Please read the docs/NEWS file to add this manually to your custom/unsupported theme.'),
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
@@ -278,6 +278,21 @@ $tasks = array(
                     'title'     => 'Removal of obsolete and dead directories',
                     'arguments' => array($dead_dirs_202),
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_202) . '</pre>'),
+
+            array(  'version'   => '2.1.0',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file "entries.tpl" needs a specific assignment',
+                    'desc'      => 'to transport the $entry variable to "sub"-templates like comments.tpl and trackbacks.tpl.
+                                   All release shipped templates files have been changed already, so make sure you are using a recent version of your blog\'s theme template.
+                                   If using a custom template, make sure the {foreach from=$dategroup.entries item="entry"} loop has this line after it:
+                                   <strong>{assign var="entry" value=$entry scope="root"}</strong>'),
+
+            array(  'version'   => '2.1.0',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file "comments.tpl" and "comments_by_authors.tpl" now use some slightly changed variables,',
+                    'desc'      => 'to check and set the "serendipity_comment_author_self" class. Please make sure to check both your files, if have in your custom theme.'),
 
 );
 
