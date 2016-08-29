@@ -67,7 +67,7 @@
             <span class="msg-error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></span>
             {else}
                 {* PLEASE NOTE: This is for case new entry first save only! *}
-                {if isset($lastSavedEntry) && (int)$lastSavedEntry}
+                {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
             <script type="text/javascript">
                 window.onload = function() {ldelim}

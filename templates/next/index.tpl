@@ -7,7 +7,7 @@
     <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
     <meta name="generator" content="Serendipity v.{$head_version}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-{if ($view == "entry" || $view == "start" || $view == "feed" || $view == "plugin" || $staticpage_pagetitle != "" || $robots_index == 'index')}
+{if ($view == "entry" OR $view == "start" OR $view == "feed" OR $view == "plugin" OR $staticpage_pagetitle != "" OR $robots_index == 'index')}
     <meta name="robots" content="index,follow">
 {else}
     <meta name="robots" content="noindex,follow">
@@ -44,7 +44,7 @@
 {/if}
 {serendipity_hookPlugin hook="frontend_header"}
 </head>
-<body class="columns-{if $leftSidebarElements > 0 && $rightSidebarElements > 0}3{else}2{/if}{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
+<body class="columns-{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}3{else}2{/if}{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
 {else}
 {serendipity_hookPlugin hook="frontend_header"}
 {/if}
@@ -72,7 +72,7 @@
         <a id="open-nav" class="nav-toggle" href="#site-nav"><span class="icon-menu" aria-hidden="true"></span><span class="fallback-text">{$CONST.NEXT_NAVTEXT}</span></a>
 
         <nav id="site-nav" class="nav-collapse">
-            <ul>{foreach $navlinks AS $navlink}{if $navlink.title!=""&&$navlink.href!=""}<li>{if $currpage==$navlink.href or $currpage2==$navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage==$navlink.href or $currpage2==$navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}</ul>
+            <ul>{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}<li>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}</ul>
         </nav>
     </div>
 

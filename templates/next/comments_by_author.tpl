@@ -4,10 +4,10 @@
     <div class="comments_for_entry">{$entry_comments.tpl_comments}</div>
 </article>
 {/foreach}
-{if $footer_info or $footer_prev_page or $footer_next_page}
+{if $footer_info OR $footer_prev_page OR $footer_next_page}
     <nav class="pagination clearfix">
         {if $footer_info}<h3>{$footer_info}</h3>{/if}
-    {if $footer_prev_page||$footer_next_page}
+    {if $footer_prev_page OR $footer_next_page}
         <ul>
             <li class="prev-page">{if $footer_prev_page}<a href="{$footer_prev_page}"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.PREVIOUS_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
             <li class="next-page">{if $footer_next_page}<a href="{$footer_next_page}"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NEXT_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
