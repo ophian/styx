@@ -1,6 +1,9 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Fixed and enhanced comments.tpl vars in comments_by_authors.tpl
+    template file to get proper results for "_self" class issues.
+
   * Fixed $entry scope for comments.tpl "_self" class issues, in
     entries.tpl to {assign var="entry" value=$entry scope="root"}
     for proper propagation of $entry to "sub"-templates.
