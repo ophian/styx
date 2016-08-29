@@ -7,7 +7,7 @@
 
 {foreach from=$entries item="dategroup" name="entrytop"}
     {foreach from=$dategroup.entries item="entry"}
-        {assign var="entry" value=$entry scope="parent"}
+        {assign var="entry" value=$entry scope="root"}{* See previous scoping issue and secondly with Smarty 3.1.28+ for comments template file, which now needs root *}
         {if !$is_single_entry and not $entry.is_extended and not $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO *}
             {if $template_option.display_as_timeline}
                 {if $template_option.months_on_timeline == true}

@@ -8,7 +8,7 @@
       {/if}
 
       {foreach from=$dategroup.entries item="entry"}
-      {assign var="entry" value=$entry scope="parent"}
+      {assign var="entry" value=$entry scope="root"}{* See previous scoping issue and secondly with Smarty 3.1.28+ for comments template file, which now needs root *}
         <div class="post">
         <h3 class="storytitle" id="post-{$entry.id}"><a href="{$entry.link}" rel="bookmark" title="Permanent Link: {$entry.title}">{$entry.title}</a></h3>
 

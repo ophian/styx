@@ -1,7 +1,7 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
 {foreach from=$entries item="dategroup"}
     {foreach from=$dategroup.entries item="entry"}
-    {assign var="entry" value=$entry scope="parent"}
+    {assign var="entry" value=$entry scope="root"}{* See previous scoping issue and secondly with Smarty 3.1.28+ for comments template file, which now needs root *}
     <article id="post_{$entry.id}" class="post{if !$is_single_entry and not $entry.is_extended and not $is_preview}-preview{/if} serendipity_entry{if $dategroup.is_sticky} sticky{/if}" role="article">
     {if !$is_single_entry and not $entry.is_extended and not $is_preview}
         <a href="{$entry.link}"><h2 class="post-title">{$entry.title}</h2>

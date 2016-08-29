@@ -6,7 +6,7 @@
 
 
         {foreach from=$dategroup.entries item="entry"}
-        {assign var="entry" value=$entry scope="parent"}
+        {assign var="entry" value=$entry scope="root"}{* See previous scoping issue and secondly with Smarty 3.1.28+ for comments template file, which now needs root *}
         <h4 class="serendipity_title"><a href="{$entry.link}">{$entry.title}</a></h4>
                 {if $dategroup.is_sticky}
         <h3 class="serendipity_date">{$CONST.STICKY_POSTINGS}</h3>
