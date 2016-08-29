@@ -388,6 +388,9 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
 
             if (isset($comment['no_email']) && $comment['no_email']) {
                 $comment['email'] = false;
+                if (!empty($comment['entry_author_email'])) {
+                    $comment['entry_author_email'] = ''; // case: comment_by_authors only
+                }
             } elseif (!empty($comment['email'])) {
                 $comment['clear_email'] = $comment['email'];
                 $comment['email']       = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
@@ -469,6 +472,14 @@ function serendipity_printCommentsByAuthor() {
     }
     $sql_limit = $serendipity['fetchLimit'] * ($serendipity['GET']['page']-1) . ',' . $serendipity['fetchLimit'];
     $c = serendipity_fetchComments(null, $sql_limit, 'co.entry_id DESC, co.id ASC', false, $type, $sql_where);
+
+    // Since not passing via entries.tpl template file, $entries -> $entry (scoped) array are not available in /comments/ to check or comments "_self", thus we quickly push the missing vars to $comments AS $comment
+    // This certainly does work only, if spamblock (or others) not have set serendipity[plugin][hide_email] to true!
+    foreach ($c AS &$co) {
+        $e = serendipity_db_query("SELECT email, realname FROM {$serendipity['dbPrefix']}authors WHERE username='{$co['entryauthor']}'", false, 'assoc');
+        $co['entry_author_email']    = $e[0]['email'];
+        $co['entry_author_realname'] = $e[0]['realname'];
+    }
 
     $entry_comments = array();
     foreach($c AS $i => $comment) {
