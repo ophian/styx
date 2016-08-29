@@ -19,13 +19,13 @@ Version 2.1 () Styx
     uri fixes.
 
   * Re-integration of two very unique themes, which are default-php and
-    default-xml. Both were reworked for Serendipity 2.1 Sty Edition and
+    default-xml. Both were reworked for Serendipity 2.1 Styx Edition and
     particularly in case of the PHP theme heftily extended with all kind
     of other template files. Both themes use the core included
     include/template_api.inc.php file as an emulator class for the still
     overall used Smarty engine. The XML theme is meant for Blog output as
     XML for XML-Readers. The PHP theme is meant for all Blog Administrators
-    to use an (Smarty independent) PHP theme only.
+    to use an ("Smarty independent") PHP theme only.
     The theme preview files just advert to the fallback usage binding of
     the default theme stylesheet style.css file. In case of the PHP theme,
     you may just want to create your own. The PHP theme may also still
