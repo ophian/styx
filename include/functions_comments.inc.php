@@ -473,7 +473,8 @@ function serendipity_printCommentsByAuthor() {
     $sql_limit = $serendipity['fetchLimit'] * ($serendipity['GET']['page']-1) . ',' . $serendipity['fetchLimit'];
     $c = serendipity_fetchComments(null, $sql_limit, 'co.entry_id DESC, co.id ASC', false, $type, $sql_where);
 
-    // Since not passing via entries.tpl template file, $entries -> $entry (scoped) array are not available in /comments/ to check or comments "_self", thus we quickly push the missing vars to $comments AS $comment
+    // Since not passing via entries.tpl template file, $entries -> $entry (scoped) array are not available
+    // in /comments/ to check for comments "_self", thus we quickly push the missing vars to $comments AS $comment.
     // This certainly does work only, if spamblock (or others) not have set serendipity[plugin][hide_email] to true!
     foreach ($c AS &$co) {
         $e = serendipity_db_query("SELECT email, realname FROM {$serendipity['dbPrefix']}authors WHERE username='{$co['entryauthor']}'", false, 'assoc');
