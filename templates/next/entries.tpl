@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
-{foreach from=$entries item="dategroup"}
-    {foreach from=$dategroup.entries item="entry"}
+{foreach $entries AS $dategroup}
+    {foreach $dategroup.entries AS $entry}
     {assign var="entry" value=$entry scope=parent}
     <article class="post{if $dategroup.is_sticky} sticky{/if} clearfix">
         <header>
@@ -24,7 +24,7 @@
         <footer class="post-info">
             <ul class="meta">
             {if $entry.categories}
-                <li><span class="info-label">{$CONST.CATEGORIES}: </span>{foreach from=$entry.categories item="entry_category" name="categories"}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}</li>
+                <li><span class="info-label">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}</li>
             {/if}
             {if $entry.has_comments}
                 <li><a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a></li>
@@ -87,7 +87,7 @@
     </section>
 
     <a id="feedback"></a>
-    {foreach from=$comments_messagestack item="message"}
+    {foreach $comments_messagestack AS $message}
     <p class="msg-notice"><span class="icon-info-circled" aria-hidden="true"></span> {$message}</p>
     {/foreach}
     {if $is_comment_added}

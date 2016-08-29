@@ -1,4 +1,4 @@
-{foreach from=$trackbacks item=trackback}
+{foreach $trackbacks item=trackback}
     <article id="c{$trackback.id}" class="trackback">
         <h4><cite>{$trackback.author|default:$CONST.ANONYMOUS}</cite> {$CONST.ON} <time datetime="{$trackback.timestamp|serendipity_html5time}">{$trackback.timestamp|formatTime:$template_option.date_format}</time>: <a href="{$trackback.url|strip_tags}">{$trackback.title}</a></h4>
 	{if $trackback.body == ''}

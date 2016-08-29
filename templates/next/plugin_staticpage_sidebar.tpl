@@ -9,7 +9,7 @@
         <li><a href="{$frontpage_path}">{$CONST.PLUGIN_STATICPAGELIST_FRONTPAGE_LINKNAME}</a></li>
         {/if}
     {if is_array($staticpage_listContent) and !empty($staticpage_listContent)}
-    {foreach name="pageList" from=$staticpage_listContent item="pageList"}
+    {foreach name="pageList" from=$staticpage_listContent AS $pageList}
         {if !empty($pageList.permalink)}
         <li class="depth_{$pageList.depth}"><a href="{$pageList.permalink}" title="{$pageList.pagetitle}">{$pageList.headline|truncate:20:"..."}</a></li>
         {else}

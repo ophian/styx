@@ -7,7 +7,7 @@
 {else}
     {if $is_contactform_error}
     <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$plugin_contactform_error}</p>
-    {foreach from=$comments_messagestack item="message"}
+    {foreach $comments_messagestack AS $message}
     <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$message}</p>
     {/foreach}
     {/if}

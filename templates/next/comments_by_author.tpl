@@ -1,4 +1,4 @@
-{foreach from=$comments_by_authors item="entry_comments"}
+{foreach $comments_by_authors AS $entry_comments}
 <article class="post">
     <h2 class="post-title"><a href="{$entry_comments.link}">{$entry_comments.title|default:$entry_comments.link}</a></h2>
     <div class="comments_for_entry">{$entry_comments.tpl_comments}</div>

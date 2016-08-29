@@ -7,7 +7,7 @@
     </header>
 {if is_array($staticpage_childpages)}
     <ul id="child-pages">
-    {foreach from=$staticpage_childpages item="childpage"}
+    {foreach $staticpage_childpages AS $childpage}
         <li><a href="{$childpage.permalink|escape}" title="{$childpage.pagetitle|escape}">{$childpage.pagetitle|escape}</a></li>
     {/foreach}
     </ul>
