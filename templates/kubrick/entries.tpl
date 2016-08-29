@@ -3,7 +3,7 @@
 
     {foreach from=$entries item="dategroup"}
         {foreach from=$dategroup.entries item="entry"}
-        {assign var="entry" value=$entry scope="root"}{* See previous scoping issue and secondly with Smarty 3.1.28+ for comments template file, which now needs root *}
+        {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
         <div class="post">
             <h2 id="post-{$entry.id}"><a href="{$entry.link}">{$entry.title}</a></h2>
             {if !$is_single_entry}<div class="small">{$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY}</div>{/if}

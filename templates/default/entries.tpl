@@ -10,7 +10,7 @@
         {/if}
 
         {foreach from=$dategroup.entries item="entry"}
-        {assign var="entry" value=$entry scope="root"}{* See previous scoping issue and secondly with Smarty 3.1.28+ for comments template file, which now needs root *}
+        {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
 
         <h4 class="serendipity_title"><a href="{$entry.link}">{$entry.title}</a></h4>
 
