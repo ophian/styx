@@ -58,7 +58,7 @@
         '<font color="red">Ansonsten werden Pavatare und Favatare Avatare nicht funktionieren!</font>');
 
 @define('PLUGIN_EVENT_GRAVATAR_FALLBACK',           'Gravatar Fallback');
-@define('PLUGIN_EVENT_GRAVATAR_FALLBACK_DESC',      'Gravatar implementiert einige eigene Fallback Methoden für den Fal, dass kein Gravatar für den Benutzer gefunden wurde. Es wurde ebenso Moster ID, Identicon und Wavatar. Wenn Du einen dieser Fallbacks einstellst, so wird keine weitere Methode nach Gravatar versucht, falls der Benutzer eine EMail angegeben hat.');
+@define('PLUGIN_EVENT_GRAVATAR_FALLBACK_DESC',      'Gravatar implementiert einige eigene Fallback Methoden für den Fal, dass kein Gravatar für den Benutzer gefunden wurde. Es wurde ebenso Monster ID, Identicon und Wavatar. Wenn Du einen dieser Fallbacks einstellst, so wird keine weitere Methode nach Gravatar versucht, falls der Benutzer eine EMail angegeben hat.');
 @define('PLUGIN_EVENT_GRAVATAR_FALLBACK_ALLWAYS',   'Gravatar Fallback immer benutzen');
 @define('PLUGIN_EVENT_GRAVATAR_FALLBACK_ALLWAYS_DESC', 'Gravatar Fallbacks auch dann benutzen, wenn der Benutzer keine EMail (aber eine URL oder einen Namen) eingegeben hat.');
 
