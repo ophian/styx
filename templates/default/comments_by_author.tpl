@@ -13,7 +13,7 @@
 
 <div class="comments_by_author">
 {foreach from=$comments_by_authors item="entry_comments"}
-    <div class="serendipity_entry{if $entry_comments.entryauthor == $entry_comments.author} serendipity_comment_author_self{/if}">
+    <div class="serendipity_entry">
         <h4 class="serendipity_title"><a href="{$entry_comments.link}">{$entry_comments.title|@default:$entry_comments.link}</a></h4>
         {* tpl_comments is the parsed "comments.tpl" template! *}
         <div class="comments_for_entry">

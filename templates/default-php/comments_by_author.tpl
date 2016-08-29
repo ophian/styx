@@ -13,7 +13,7 @@
 
 <div class="comments_by_author">
 <?php foreach ($GLOBALS['tpl']['comments_by_authors'] AS $entry_comments): ?><?php /* author_self will only work here for the first element, since comments is already parsed and passed as a string only and there are no vars to check this in scope */ ?>
-    <div class="serendipity_entry<?php if ($entry_comments['entryauthor'] == $entry_comments['author']): ?> serendipity_comment_author_self<?php endif; ?>">
+    <div class="serendipity_entry">
         <h4 class="serendipity_title"><a href="<?= $entry_comments['link'] ?>"><?= ($entry_comments['title'] ? $entry_comments['title'] : $entry_comments['link']) ?></a></h4>
         <?php /* tpl_comments is the already parsed "comments.tpl" template! */ ?>
         <div class="comments_for_entry">
