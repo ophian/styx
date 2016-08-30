@@ -26,7 +26,7 @@ Version 2.1 () Styx
     include/template_api.inc.php file as an emulator class for the still
     overall used Smarty engine. The XML theme is meant for Blog output as
     XML for XML-Readers. The PHP theme is meant for all Blog Administrators
-    to use an ("Smarty independent") PHP theme only.
+    to use or create a ("Smarty independent") PHP theme only.
     The theme preview files just advert to the fallback usage binding of
     the default theme stylesheet style.css file. In case of the PHP theme,
     you may just want to create your own. The PHP theme may also still
@@ -52,7 +52,7 @@ Version 2.1 () Styx
 
   * Upgrade core CKEDITOR lib to ckeditor_4.5.10_full
 
-  * Add backend comments first / last pagination
+  * Add backend comments list first / last pagination buttons
 
   * DEV-NOTE: enabling Zend-Db in include/db/db.inc.php is still marked
     EXPERIMENTAL, since having known issues.
