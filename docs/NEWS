@@ -1,11 +1,12 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
-  * Fixed and enhanced comments.tpl vars in comments_by_authors.tpl
-    template file to get proper results for "_self" class issues.
+  * Fixed and enhanced comments.tpl vars via comments_by_authors.tpl
+    template file to get proper results for "*_self" class issues, since
+    outside of entries.tpl scope.
 
-  * Fixed $entry scope for comments.tpl "_self" class issues, in
-    entries.tpl to {assign var="entry" value=$entry scope="root"}
+  * Fixed Smarty $entry scope for comments.tpl "*_self" class issues,
+    in entries.tpl to {assign var="entry" value=$entry scope="root"}
     for proper propagation of $entry to "sub"-templates.
     PLEASE UPDATE your theme or custom template copies!
 
@@ -35,7 +36,7 @@ Version 2.1 () Styx
 
   * Fixed an old issue with the default fallback template not reading the
     full serendipity_editor.js.tpl file. An already parsed fallback was
-    added and updated, as well as a php parsable file, which is only used
+    added and updated, as well as a PHP parsable file, which is only used
     by the XML theme.
 
   * Removed composer for ckeditor, since being a library which requires
