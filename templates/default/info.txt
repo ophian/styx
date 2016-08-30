@@ -3,4 +3,4 @@ Author: Tom Sommer
 Date: 2016-08-29
 Require Serendipity: 1.7
 Summary: The Serendipity default fallback template
-Description: This theme isn't meant to be a theme out of hundrets. Since bulletproof and later on 2k11 became the standard template(s), this theme was used as a backup and error fallback theme when something was searched for compile and not in your usual theme or the fallback theme cascade. It also is chosen if no engine and no style is set and like for the default-php and/or default-xml themes. Its admin directory template files are mostly set deprecated and will be removed or exchanged with others in future.
+Description: This theme isn't meant to be a theme out of hundrets. Since bulletproof and later on 2k11 became the standard template(s), this theme was used as a backup and error fallback theme when something was searched for compile and not in your usual theme or the fallback theme cascade. It also is chosen if no engine and no style is set, like for the default-php and/or default-xml themes. Its admin directory template files are mostly set deprecated and will be removed or exchanged with others in future.
