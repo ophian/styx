@@ -1,6 +1,6 @@
 Name: Next
 Author: Matthias Mees, mm@yellowled.de
-Date: 2015-05-07
+Date: 2016-08-29
 Require Serendipity: 2.0
 Backend: No
 Recommended: Yes
