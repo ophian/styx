@@ -1,5 +1,5 @@
 Name: Bulletproof v1.4 (s9y-bulletproof.com)
 Author: Bulletproof development team
-Date: 2016-08-29
+Date: 2016-08-31
 Require Serendipity: 1.6
 Engine: default

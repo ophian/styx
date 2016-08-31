@@ -1,6 +1,6 @@
-Name: 2k11
+Name: 2k11 [ Standard ]
 Author: Matthias Mees, Veit Lehmann
-Date: 2016-08-29
+Date: 2016-08-31
 Require Serendipity: 2.0
 Backend: Yes
 Recommended: Yes
