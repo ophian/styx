@@ -1,16 +1,28 @@
+{* bulletproof frontend plugin_staticpage_related_category.tpl file v. 1.06, 2015-02-01 *}
 {if $staticpage_articleformat}
-<div id="staticpage_{$staticpage_pagetitle|@makeFilename}" class="serendipity_Entry_Date serendipity_staticpage">
-    <h3 class="serendipity_date">{$staticpage_articleformattitle|@escape}</h3>
+<div id="staticpage_{$staticpage_pagetitle|makeFilename}" class="serendipity_Entry_Date serendipity_staticpage">
+    <h3 class="serendipity_date">{if $staticpage_articleformattitle}{$staticpage_articleformattitle}{else}{$staticpage_pagetitle|escape}{/if}</h3>
 {/if}
 
-    <h4 class="serendipity_title"><a href="#">{$staticpage_headline|@escape}</a></h4>
-
-{if $staticpage_navigation AND $staticpage_shownavi}
-    <ul class="staticpage_navigation">
-      <li class="staticpage_navigation_left"><a href="{$staticpage_navigation.prev.link}" title="prev">{$staticpage_navigation.prev.name|@escape}</a></li>
-      <li class="staticpage_navigation_center"><a href="{$staticpage_navigation.top.link}" title="top">{$staticpage_navigation.top.name|@escape}</a></li>
-      <li class="staticpage_navigation_right"><a href="{$staticpage_navigation.next.link}" title="next">{$staticpage_navigation.next.name|@escape}</a></li>
-    </ul>
+    <h4>{if $staticpage_headline}{$staticpage_headline}{else}{$staticpage_pagetitle|escape}{/if}</h4>
+{if is_array($staticpage_navigation) AND ($staticpage_shownavi OR $staticpage_show_breadcrumb)}
+    <div id="staticpage_nav">
+    {if $staticpage_shownavi}
+        <ul class="staticpage_navigation">
+            <li class="staticpage_navigation_left">{if !empty($staticpage_navigation.prev.link)}<a href="{$staticpage_navigation.prev.link}" title="prev">{$staticpage_navigation.prev.name|escape}</a>{else}<span class="staticpage_navigation_dummy">{$CONST.PREVIOUS}</span>{/if}</li>
+            <li class="staticpage_navigation_center">{if $staticpage_navigation.top.new}{if !empty($staticpage_navigation.top.topp_name)}<a href="{$staticpage_navigation.top.topp_link}" title="top">{$staticpage_navigation.top.topp_name|escape}</a> | {/if}&#171 {$staticpage_navigation.top.curr_name|escape} &#187; {if !empty($staticpage_navigation.top.exit_name)}| <a href="{$staticpage_navigation.top.exit_link}" title="exit">{$staticpage_navigation.top.exit_name|escape}</a>{/if}{else}<a href="{$staticpage_navigation.top.link}" title="current page">{$staticpage_navigation.top.name|escape}</a>{/if}</li>
+            <li class="staticpage_navigation_right">{if !empty($staticpage_navigation.next.link)}<a href="{$staticpage_navigation.next.link}" title="next">{$staticpage_navigation.next.name|escape}</a>{else}<span class="staticpage_navigation_dummy">{$CONST.NEXT}</span>{/if}</li>
+        </ul>{* 'top' is just a synonym for current page, or top parent, or exit *}
+    {/if}
+    {if $staticpage_show_breadcrumb}
+        <div class="staticpage_navigation_breadcrumb">
+            <a href="{$serendipityBaseURL}">{$CONST.HOMEPAGE}</a> &#187;
+        {foreach name="crumbs" from=$staticpage_navigation.crumbs item="crumb"}
+            {if !$smarty.foreach.crumbs.first}&#187;{/if}{if $crumb.id != $staticpage_pid}<a href="{$crumb.link}">{$crumb.name|escape}</a>{else}{$crumb.name|escape}{/if}
+        {/foreach}
+        </div>
+    {/if}
+    </div>
 {/if}
 
 {if $staticpage_articleformat}
@@ -31,7 +43,7 @@
         {if is_array($staticpage_childpages)}
         <ul id="staticpage_childpages">
             {foreach from=$staticpage_childpages item="childpage"}
-            <li><a href="{$childpage.permalink|@escape}" title="{$childpage.pagetitle|@escape}">{$childpage.pagetitle|@escape}</a></li>
+            <li><a href="{$childpage.permalink}" title="{$childpage.pagetitle|escape}">{$childpage.pagetitle|escape}</a></li>
             {/foreach}
         </ul>
         {/if}
@@ -45,7 +57,7 @@
 {/if}
 
 <div class="staticpage_related_category_entry_list">
-{* standart - if you use it on a shared-s9y-installation you have to correct the path to staticpage-entries-listing.tpl *}
+{* standard - if you use it on a shared-s9y-installation you have to correct the path to the staticpage-entries-listing.tpl file *}
 {serendipity_fetchPrintEntries category=$staticpage_related_category_id template="../../plugins/serendipity_event_staticpage/staticpage-entries-listing.tpl" limit=5 noSticky="true"}
 
 {*  if you use your own static-entries.tpl in your template, take this:  *}
@@ -57,7 +69,7 @@
 {/if}
 
 {if $staticpage_author}
-    <div class="staticpage_author">{$staticpage_author|@escape}</div>
+    <div class="staticpage_author">{$staticpage_author|escape}</div>
 {/if}
 
     <div class="staticpage_metainfo">
@@ -66,7 +78,7 @@
 {/if}
 
 {if $staticpage_adminlink AND $staticpage_adminlink.page_user}
-    | <a class="staticpage_metainfo_editlink" href="{$staticpage_adminlink.link_edit}">{$staticpage_adminlink.link_name|@escape}</a>
+    | <a class="staticpage_metainfo_editlink" href="{$staticpage_adminlink.link_edit}">{$staticpage_adminlink.link_name|escape}</a>
 {/if}
     </div>
 {if $staticpage_articleformat}
