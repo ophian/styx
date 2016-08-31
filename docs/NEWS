@@ -1,6 +1,10 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Touched template files "plugin_staticpage_*" in 2k11, bulletproof and
+    next theme to support the new navigational structures of Staticpages-5.
+    Clean-blog and timeline need some review from its author.
+
   * Fixed and enhanced comments.tpl vars via comments_by_authors.tpl
     template file to get proper results for "*_self" class issues, since
     outside of entries.tpl scope.
