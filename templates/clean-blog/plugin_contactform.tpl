@@ -6,7 +6,7 @@
         <div class="content serendipity_entry_body">
             {if $is_contactform_error}
                 <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$plugin_contactform_error}</p>
-                {foreach from=$comments_messagestack item="message"}
+                {foreach $comments_messagestack AS $message}
                     <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$message}</p>
                 {/foreach}
             {/if}

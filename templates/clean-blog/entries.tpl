@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
-{foreach from=$entries item="dategroup"}
-    {foreach from=$dategroup.entries item="entry"}
+{foreach $entries AS $dategroup}
+    {foreach $dategroup.entries AS $entry}
     {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
     <article id="post_{$entry.id}" class="post{if !$is_single_entry and not $entry.is_extended and not $is_preview}-preview{/if} serendipity_entry{if $dategroup.is_sticky} sticky{/if}" role="article">
     {if !$is_single_entry and not $entry.is_extended and not $is_preview}
@@ -8,15 +8,15 @@
         {if $entry.properties.entry_subtitle}
             <h3 class="post-subtitle">{$entry.properties.entry_subtitle|escape}</h3>
         {elseif $template_option.subtitle_use_entrybody==true && $template_option.entrybody_detailed_only == true}
-            <h3 class="post-subtitle">{$entry.body|@strip_tags|@strip|@truncate:70:" ..."}</h3>
+            <h3 class="post-subtitle">{$entry.body|strip_tags|strip|truncate:70:" ..."}</h3>
         {/if}
         </a>
-        <p class="post-meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|@serendipity_html5time}">{$entry.timestamp|@formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-sm btn-default"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if $entry.is_entry_owner and not $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
+        <p class="post-meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-sm btn-default"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if $entry.is_entry_owner and not $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
     {/if}
     {if $template_option.entrybody_detailed_only != true || $entry.is_extended || $is_single_entry || $is_preview}
         <section id="entry">
             <div class="content serendipity_entry_body clearfix">
-                {if $entry.categories}{foreach from=$entry.categories item="entry_category"}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|@escape}{$entry_category.category_description|@emptyPrefix}" alt="{$entry_category.category_name|@escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+                {if $entry.categories}{foreach $entry.categories AS $entry_category"}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
                 {$entry.body}
                 {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
                     <a class="read_more" href="{$entry.link}#extended"><button class="btn btn-md btn-default pull-right">{$CONST.READ_MORE} <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
@@ -35,14 +35,14 @@
                     {if $entry.categories}
                         <span class="sr-only">{$CONST.CATEGORIES}: </span>
                         <i class="fa fa-folder-open" aria-hidden="true"></i>
-                        {foreach from=$entry.categories item="entry_category" name="categories"}<a class="btn btn-sm btn-default" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|@escape}">{$entry_category.category_name|@escape}</a>{if !$smarty.foreach.categories.last}&nbsp;{/if}{/foreach}
+                        {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if !$entry_category@last}&nbsp;{/if}{/foreach}
                     {/if}
                     {if isset($entry.freetag.extended) && $entry.freetag.extended == 1}
                         {if $entry.freetag.tags.tags}
                             <div class="clean-blog_freeTag">
                             <span class="sr-only">{$entry.freetag.tags.description}</span>
                             <i class="fa fa-tags" aria-hidden="true"></i>
-                                {foreach from=$entry.freetag.tags.tags item="tag"}
+                                {foreach $entry.freetag.tags.tags AS $tag}
                                     {$tag}
                                 {/foreach}
                             </div>
@@ -50,7 +50,7 @@
                                 <div class="cleanblog_freeTag_related">
                                     <span>{$entry.freetag.related.description}</span>
                                     <ul class="plainList">
-                                    {foreach from=$entry.freetag.related.entries item="link"}
+                                    {foreach $entry.freetag.related.entries AS $link}
                                         <li>{$link}</li>
                                     {/foreach}
                                     </ul>
@@ -72,31 +72,31 @@
         <rdf:Description
                  rdf:about="{$entry.link_rdf}"
                  trackback:ping="{$entry.link_trackback}"
-                 dc:title="{$entry.title_rdf|@default:$entry.title}"
+                 dc:title="{$entry.title_rdf|default:$entry.title}"
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
     {if $is_single_entry and not $is_preview}
         {if $CONST.DATA_UNSUBSCRIBED}
-            <p class="alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_UNSUBSCRIBED|@sprintf:$CONST.UNSUBSCRIBE_OK}</p>
+            <p class="alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
         {/if}
         {if $CONST.DATA_TRACKBACK_DELETED}
-            <p class="alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_DELETED|@sprintf:$CONST.TRACKBACK_DELETED}</p>
+            <p class="alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_DELETED|sprintf:$CONST.TRACKBACK_DELETED}</p>
         {/if}
         {if $CONST.DATA_TRACKBACK_APPROVED}
-            <p class="alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_APPROVED|@sprintf:$CONST.TRACKBACK_APPROVED}</p>
+            <p class="alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_APPROVED|sprintf:$CONST.TRACKBACK_APPROVED}</p>
         {/if}
         {if $CONST.DATA_COMMENT_DELETED}
-            <p class="alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_DELETED|@sprintf:$CONST.COMMENT_DELETED}</p>
+            <p class="alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_DELETED|sprintf:$CONST.COMMENT_DELETED}</p>
         {/if}
         {if $CONST.DATA_COMMENT_APPROVED}
-            <p class="alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_APPROVED|@sprintf:$CONST.COMMENT_APPROVED}</p>
+            <p class="alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</p>
         {/if}
         <a id="feedback"></a>
         {if $entry.trackbacks != 0}
             <section id="trackbacks" class="serendipity_comments serendipity_section_trackbacks">
                 <h3>{if $entry.trackbacks == 0}{$CONST.NO_TRACKBACKS}{else}{$entry.trackbacks} {$entry.label_trackbacks}{/if}</h3>
-                <p id="trackback_url"><small><a rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|@escape}">{$CONST.TRACKBACK_SPECIFIC}</a></small></p>
+                <p id="trackback_url"><small><a rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape}">{$CONST.TRACKBACK_SPECIFIC}</a></small></p>
                 {serendipity_printTrackbacks entry=$entry.id}
             </section>
         {/if}
@@ -126,7 +126,7 @@
                 </p>
             {/if}
         </section>
-        {foreach from=$comments_messagestack item="message"}
+        {foreach $comments_messagestack AS $message}
             <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$message}</p>
         {/foreach}
         {if $is_comment_added}
