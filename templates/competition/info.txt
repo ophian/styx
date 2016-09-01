@@ -1,3 +1,4 @@
 Name: Coffee Cup
 Author: David Cummins
-Date: 2016-08-29
+Date: 2016-09-01
+Require Serendipity: 1.7
