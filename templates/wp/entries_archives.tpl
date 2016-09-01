@@ -15,5 +15,5 @@
     {/foreach}
 </table>
 {/foreach}
-<div class='serendipity_entryFooter' style="text-align: center">
+<div class="serendipity_entryFooter" style="text-align: center">
 {serendipity_hookPlugin hook="entries_footer"}</div>

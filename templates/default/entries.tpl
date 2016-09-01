@@ -37,7 +37,7 @@
             <br /><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a><br /><br />
             {/if}
 
-            <div class='serendipity_entryFooter'>
+            <div class="serendipity_entryFooter">
                 {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
                 {if $entry.categories}
                    {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
@@ -182,7 +182,7 @@
     {/if}
     {/foreach}
 
-    <div class='serendipity_entryFooter' style="text-align: center">
+    <div class="serendipity_entryFooter" style="text-align: center">
     {if $footer_prev_page}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
     {/if}

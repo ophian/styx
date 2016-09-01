@@ -98,7 +98,7 @@
                 {if $template_option.entryfooterpos == 'splitfoot'}
                   {if $template_option.footerauthor == 'false' and $template_option.footercategories == 'false' and $template_option.footertimestamp == 'false'}
                   {else}
-                    <div class='serendipity_entryFooter byline'>
+                    <div class="serendipity_entryFooter byline">
                         {if $template_option.footerauthor == 'true'}
                             {$CONST.POSTED_BY} <address class="author"><a href="{$entry.link_author}">{$entry.author}</a></address>
                         {/if}
@@ -146,7 +146,7 @@
 
             {if (not $dategroup.is_sticky or ($dategroup.is_sticky and $template_option.show_sticky_entry_footer == 'true'))}
                 {if $template_option.entryfooterpos == 'belowentry'}
-                    <div class='serendipity_entryFooter belowentry'>
+                    <div class="serendipity_entryFooter belowentry">
                         {if $template_option.footerauthor == 'true'}
                             {$CONST.POSTED_BY} <address class="author"><a href="{$entry.link_author}">{$entry.author}</a></address>
                         {/if}
@@ -219,7 +219,7 @@
                 {/if}
 
                 {if $template_option.entryfooterpos == 'splitfoot'}
-                    <div class='serendipity_entryFooter infofooter'>
+                    <div class="serendipity_entryFooter infofooter">
                         {if $template_option.footercomments == 'true'}
                             {if $entry.has_comments}
                                 {if $use_popups}
@@ -375,7 +375,7 @@
     {/if}
 {/foreach}
 
-<div class='serendipity_pageFooter' style="text-align: center">
+<div class="serendipity_pageFooter" style="text-align: center">
     {if $footer_prev_page}
         {if $template_option.prev_next_style == 'texticon'}
             {if $template_option.colorset == 'blank'}

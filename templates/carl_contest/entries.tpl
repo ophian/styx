@@ -10,10 +10,10 @@
         {else}
         <h3 class="serendipity_date">{$dategroup.date|formatTime:DATE_FORMAT_ENTRY}</h3>
         {/if}
-        </div>
-<div class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if $entry.is_entry_owner}serendipity_entry_author_self{/if} ">
+    </div>
+    <div class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if $entry.is_entry_owner}serendipity_entry_author_self{/if} ">
 
-       <div class='serendipity_entryFooter'>
+       <div class="serendipity_entryFooter">
 
 		{if $entry.categories}
             <span class="serendipity_entryIcon">
@@ -181,7 +181,7 @@
     {/if}
     {/foreach}
 
-  <div class='serendipity_pageFooter' style="text-align: center">
+  <div class="serendipity_pageFooter" style="text-align: center">
   	{if $footer_info}
 		{if $footer_prev_page}
 		<a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
