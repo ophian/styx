@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Converted all release file themes to use Smarty3 syntax
+
   * Touched template files "plugin_staticpage_*" in 2k11, bulletproof and
     next theme to support the new navigational structures of Staticpages-5.
     Clean-blog and timeline need some review from its author.
