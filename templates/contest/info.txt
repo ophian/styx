@@ -1,4 +1,4 @@
 Name: Blue Streak
 Author: Garvin Hicking
-Date: 2016-08-29
-Require Serendipity: 0.8
+Date: 2016-09-01
+Require Serendipity: 1.7
