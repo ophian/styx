@@ -177,7 +177,8 @@ $dead_files_200 = array(
     'htmlarea/dialog.js',
     'htmlarea/release-notes.html',
     'include/plugin_internal.inc.php',
-    'templates/HOWTO'
+    'templates/HOWTO',
+    'templates/default-rtl/htmlarea.css'
 );
 
 /* A list of old lib directories which were not marked obsolet with 2.0.0 upgrade - now 2.0.2 */
