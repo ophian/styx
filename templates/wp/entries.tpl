@@ -1,22 +1,22 @@
     {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
 
-    {foreach from=$entries item="dategroup"}
+    {foreach $entries AS $dategroup}
       {if $dategroup.is_sticky}
         <h2>{$CONST.STICKY_POSTINGS}</h2>
       {else}
-        <h2>{$dategroup.date|@formatTime:DATE_FORMAT_ENTRY}</h2>
+        <h2>{$dategroup.date|formatTime:DATE_FORMAT_ENTRY}</h2>
       {/if}
 
-      {foreach from=$dategroup.entries item="entry"}
+      {foreach $dategroup.entries AS $entry}
       {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
         <div class="post">
         <h3 class="storytitle" id="post-{$entry.id}"><a href="{$entry.link}" rel="bookmark" title="Permanent Link: {$entry.title}">{$entry.title}</a></h3>
 
         <div class="meta">Filed under:
-          <ul class="post-categories">{foreach from=$entry.categories item="entry_category"}
-            <li><a title="View all posts in {$entry_category.category_name}" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}{$CONST.PATH_CATEGORIES}/{$entry_category.category_id}-{$entry_category.category_name|@makeFilename}">{$entry_category.category_name}</a></li>
+          <ul class="post-categories">{foreach $entry.categories AS $entry_category}
+            <li><a title="View all posts in {$entry_category.category_name}" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}{$CONST.PATH_CATEGORIES}/{$entry_category.category_id}-{$entry_category.category_name|makeFilename}">{$entry_category.category_name}</a></li>
           {/foreach}</ul>
-          &#8212; {$entry.author} @ {$entry.timestamp|@formatTime:'%I:%M %p'}
+          &#8212; {$entry.author} @ {$entry.timestamp|formatTime:'%I:%M %p'}
         </div>
 
 	<div class="storycontent">
@@ -27,7 +27,7 @@
             {/if}
           </p>
           {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
-            <p><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|@sprintf:$entry.title}</a></p>
+            <p><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a></p>
           {/if}
 	</div>
 
@@ -43,7 +43,7 @@
         <rdf:Description
                  rdf:about="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/ei_{$entry.id}.rdf"
                  trackback:ping="{$serendipityBaseURL}comment.php?type=trackback&amp;entry_id={$entry.id}"
-                 dc:title="{$entry.title_rdf|@default:$entry.title}"
+                 dc:title="{$entry.title_rdf|default:$entry.title}"
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->

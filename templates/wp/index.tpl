@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head xmlns="http://www.w3.org/1999/xhtml" xml:lang="{$lang}" lang="{$lang}">
-	<title>{$head_title|@default:$blogTitle} {if $head_subtitle} - {$head_subtitle}{/if}</title>
+	<title>{$head_title|default:$blogTitle} {if $head_subtitle} - {$head_subtitle}{/if}</title>
 
 	<meta name="generator" content="Serendipity v.{$serendipityVersion}" />
 {if ($view == "entry" || $view == "start" || $view == "feed" || $view == "plugin" || $staticpage_pagetitle != "" || $robots_index == 'index')}
@@ -29,7 +29,7 @@
 
 {if $is_raw_mode != true}
 <div id="rap">
-<h1 id="header"><a href="{$serendipityBaseURL}" title="{$head_title|@default:$blogTitle}: {$head_subtitle|@default:$blogDescription}">{$head_title|@default:$blogTitle}</a></h1>
+<h1 id="header"><a href="{$serendipityBaseURL}" title="{$head_title|default:$blogTitle}: {$head_subtitle|default:$blogDescription}">{$head_title|default:$blogTitle}</a></h1>
 
 <div id="content">
 

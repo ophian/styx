@@ -21,10 +21,10 @@
   </tfoot>
 
   <tbody>
-    {foreach from=$plugin_calendar_weeks item="week"}
+    {foreach $plugin_calendar_weeks AS $week}
       <tr>
-        {foreach from=$week.days item="day"}
-            <td class="serendipity_calendarDay {$day.classes}"{if isset($day.properties.Title)} title="{$day.properties.Title}"{/if}>{if isset($day.properties.Active) and $day.properties.Active}<a href="{$day.properties.Link}">{/if}{$day.name|@default:"&#160;"}{if isset($day.properties.Active) and $day.properties.Active}</a>{/if}</td>
+        {foreach $week.days AS $day}
+            <td class="serendipity_calendarDay {$day.classes}"{if isset($day.properties.Title)} title="{$day.properties.Title}"{/if}>{if isset($day.properties.Active) and $day.properties.Active}<a href="{$day.properties.Link}">{/if}{$day.name|default:"&#160;"}{if isset($day.properties.Active) and $day.properties.Active}</a>{/if}</td>
         {/foreach}
       </tr>
     {/foreach}

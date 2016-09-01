@@ -1,4 +1,5 @@
 Name: WP-compat
 Author: Evan Nemerson
-Date: 2016-08-29
+Date: 2016-09-01
+Require Serendipity: 1.7
 Engine: yes
