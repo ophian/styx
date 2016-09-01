@@ -54,7 +54,7 @@
 function default_php_staticpage_show_tags($params) {
     $o = $GLOBALS['serendipity']['GET']['tag'];
     $GLOBALS['serendipity']['GET']['tag'] = $params['tag'];
-    $e = serendipity_smarty_fetchPrintEntries($params, $smarty);
+    $e = serendipity_smarty_fetchPrintEntries($params, template);
     echo $e;
     if (!empty($o)) {
         $GLOBALS['serendipity']['GET']['tag'] = $o;
