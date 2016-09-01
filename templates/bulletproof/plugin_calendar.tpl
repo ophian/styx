@@ -1,4 +1,4 @@
-<table cellspacing="0" cellpadding="0" summary="this table is a calendar for the month of {$smarty.now|@formatTime:"%B, %Y"}" class="serendipity_calendar">
+<table cellspacing="0" cellpadding="0" summary="this table is a calendar for the month of {$smarty.now|formatTime:"%B, %Y"}" class="serendipity_calendar">
     <thead>
       <tr>
         <th id="back" scope="col" colspan="1" class="serendipity_calendarHeader" style="text-align: right">
@@ -31,20 +31,20 @@
     </tr>
 
     <tr>
-    {foreach from=$plugin_calendar_dow item="dow"}
-        <th id="{$dow.date|@formatTime:"%a":false|@truncate:3:'':true}" scope="col" abbr="{$dow.date|@formatTime:"%A":false}" title="{$dow.date|@formatTime:"%A":false}" class="serendipity_weekDayName" align="center">{$dow.date|@formatTime:"%a":false|@truncate:2:'':true}</th>
+    {foreach $plugin_calendar_dow AS $dow}
+        <th id="{$dow.date|formatTime:"%a":false|truncate:3:'':true}" scope="col" abbr="{$dow.date|formatTime:"%A":false}" title="{$dow.date|formatTime:"%A":false}" class="serendipity_weekDayName" align="center">{$dow.date|formatTime:"%a":false|truncate:2:'':true}</th>
     {/foreach}
     </tr>
 </thead>
 <tfoot class="serendipity_calendarHeader">
-<tr><td id="today" scope="col" colspan="7">{$smarty.now|@formatTime:$template_option.date_format}</td></tr>
+<tr><td id="today" scope="col" colspan="7">{$smarty.now|formatTime:$template_option.date_format}</td></tr>
 </tfoot>
 <tbody>
-    {foreach from=$plugin_calendar_weeks item="week"}
+    {foreach $plugin_calendar_weeks AS $week}
         <tr class="serendipity_calendar {cycle values="row1, row2, row3, row4, row5, row6"}">
-        {foreach from=$week.days item="day"}
+        {foreach $week.days AS $day}
             <td class="serendipity_calendarDay {$day.classes}"{if isset($day.properties.Title)} title="{$day.properties.Title}"{/if}>{if isset($day.properties.Active) and $day.properties.Active}
-                <a href="{$day.properties.Link}">{/if}{$day.name|@default:"&#160;"}{if isset($day.properties.Active) and $day.properties.Active}</a>{/if}</td>
+                <a href="{$day.properties.Link}">{/if}{$day.name|default:"&#160;"}{if isset($day.properties.Active) and $day.properties.Active}</a>{/if}</td>
         {/foreach}
         </tr>
     {/foreach}

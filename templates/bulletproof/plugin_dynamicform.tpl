@@ -8,7 +8,7 @@
 {if $is_contactform_error}
    <div class="serendipity_center serendipity_msg_important">{$plugin_contactform_error}</div>
    <!-- Needed for Captchas -->
-   {foreach from=$comments_messagestack item="message"}
+   {foreach $comments_messagestack AS $message}
       <div class="serendipity_center serendipity_msg_important">{$message}</div>
    {/foreach}
 {/if}
@@ -31,7 +31,7 @@
         <div>
             <input type="hidden" name="serendipity[subpage]" value="{$commentform_sname}" />
             <input type="hidden" name="serendipity[commentform]" value="true" />
-            {foreach name="field" from=$commentform_dynamicfields item="field"}
+            {foreach $commentform_dynamicfields AS $field}
                 {if $field.type == "hidden"}
                     <input type="hidden" name="serendipity[{$field.id}]" value="{$field.default}" />
               {/if}
@@ -41,7 +41,7 @@
        <fieldset>
            <legend>{$plugin_contactform_pagetitle}</legend>
            <dl>
-               {foreach name="field" from=$commentform_dynamicfields item="field"}
+               {foreach $commentform_dynamicfields AS $field}
                    {if $field.type != "hidden"}
                        <dt class="serendipity_commentsLabel">
                            {if $field.required}<sup>*</sup>{/if}<label for="serendipity_commentform_{$field.id}">{$field.name}</label>
@@ -50,12 +50,12 @@
                            {if $field.type == "checkbox"}
                                <input class="frm_check" type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default} /><label class="frm_check_label" for="{$field.id}">{$field.message}</label>
                            {elseif $field.type == "radio"}
-                               {foreach name="radio_option" from=$field.options item="option"}
+                               {foreach $field.options AS $option}
                                    <input class="frm_radio" type="radio" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} /><label class="frm_radio_label" for="{$field.id}.{$option.id}">{$option.name}</label>
                                {/foreach}
                            {elseif $field.type == "select"}
                                <select name="{$field.id}">
-                                   {foreach name="radio_option" from=$field.options item="option"}
+                                   {foreach $field.options AS $option}
                                        <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} >{$option.name}</option>
                                    {/foreach}
                                </select>

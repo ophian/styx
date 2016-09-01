@@ -5,10 +5,10 @@
 coco =
 {ldelim}
      tool          : "Serendipity",
-     siteurl       : "{$serendipityBaseURL|@escape:javascript}",
-     sitetitle     : "{$blogTitle|@escape:javascript}",
-     pageurl       : "{$commentform_entry.rdf_ident|@escape:javascript}",
-     pagetitle     : "{$commentform_entry.title|@escape:javascript}",
+     siteurl       : "{$serendipityBaseURL|escape:javascript}",
+     sitetitle     : "{$blogTitle|escape:javascript}",
+     pageurl       : "{$commentform_entry.rdf_ident|escape:javascript}",
+     pagetitle     : "{$commentform_entry.title|escape:javascript}",
      author        : "{$commentform_name}",
      authorID      : "serendipity[name]",
      formID        : "serendipity_comment",

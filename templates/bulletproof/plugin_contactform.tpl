@@ -8,7 +8,7 @@
 {if $is_contactform_error}
    <div class="serendipity_center serendipity_msg_important">{$plugin_contactform_error}</div>
    <!-- Needed for Captchas -->
-   {foreach from=$comments_messagestack item="message"}
+   {foreach $comments_messagestack AS $message}
    <div class="serendipity_center serendipity_msg_important">{$message}</div>
    {/foreach}
 {/if}

@@ -17,8 +17,8 @@
     {if $staticpage_show_breadcrumb}
         <div class="staticpage_navigation_breadcrumb">
             <a href="{$serendipityBaseURL}">{$CONST.HOMEPAGE}</a> &#187;
-        {foreach name="crumbs" from=$staticpage_navigation.crumbs item="crumb"}
-            {if !$smarty.foreach.crumbs.first}&#187;{/if}{if $crumb.id != $staticpage_pid}<a href="{$crumb.link}">{$crumb.name|escape}</a>{else}{$crumb.name|escape}{/if}
+        {foreach $staticpage_navigation.crumbs AS $crumb}
+            {if !$crumb@first}&#187;{/if}{if $crumb.id != $staticpage_pid}<a href="{$crumb.link}">{$crumb.name|escape}</a>{else}{$crumb.name|escape}{/if}
         {/foreach}
         </div>
     {/if}
@@ -42,7 +42,7 @@
 
 {if is_array($staticpage_extchildpages)}
 <dl class="staticpage_list_of_childpages">
-{foreach from=$staticpage_extchildpages item="child"}
+{foreach $staticpage_extchildpages AS $child}
   <dt>{if $child.image}<img src="{$child.image}" alt="" />{/if}<a href="{$child.permalink}">{$child.pagetitle|escape}</a></dt>
   <dd>{$child.precontent|truncate:200:"...":true}</dd>
 {/foreach}
