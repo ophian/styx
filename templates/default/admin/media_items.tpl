@@ -101,9 +101,9 @@
         <h3>{$CONST.MEDIA_KEYWORDS}</h3>
         <div>
             <table>
-            {foreach $file.base_keywords key="keyword_row" AS $keyword_cells}
+            {foreach $file.base_keywords AS $keyword_row => $keyword_cells}
                 <tr>
-                {foreach $keyword_cells key="keyword_cell" AS $keyword}
+                {foreach $keyword_cells AS $keyword_cell => $keyword}
                     <td>
                     {if $keyword.name}
                         <input class="input_checkbox" id="mediaKeyword{$keyword.name}{$mediakey}" type="checkbox" name="serendipity[mediaKeywords][{$mediakey}][{$keyword.name}]" value="true" {if $keyword.selected}checked="checked"{/if} />&nbsp;<label for="mediaKeyword{$keyword.name}{$mediakey}">{$keyword.name}</label>
@@ -120,12 +120,12 @@
         <h3>EXIF/IPTC/XMP</h3>
         <div>
         <dl>
-        {foreach $file.metadata key="meta_type" AS $meta_data}
+        {foreach $file.metadata AS $meta_type => $meta_data}
             <dt><h4>{$meta_type}</h4></dt>
             <dd>
             {if is_array($meta_data)}
             <table>
-            {foreach $meta_data key="meta_name" AS $meta_value}
+            {foreach $meta_data AS $meta_name => $meta_value}
                 <tr>
                     <td valign="top"><em>{$meta_name}!</em></td>
                     <td>{if is_array($meta_value)}<pre>{$meta_value|print_r}</pre>{else}{$meta_value|formatTime:DATE_FORMAT_SHORT:false:$meta_name}{/if}</td>
