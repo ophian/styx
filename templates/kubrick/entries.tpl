@@ -1,18 +1,18 @@
 <!-- ENTRIES START -->
     {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
 
-    {foreach from=$entries item="dategroup"}
-        {foreach from=$dategroup.entries item="entry"}
+    {foreach $entries AS $dategroup}
+        {foreach $dategroup.entries AS $entry}
         {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
         <div class="post">
             <h2 id="post-{$entry.id}"><a href="{$entry.link}">{$entry.title}</a></h2>
-            {if !$is_single_entry}<div class="small">{$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY}</div>{/if}
+            {if !$is_single_entry}<div class="small">{$entry.timestamp|formatTime:DATE_FORMAT_ENTRY}</div>{/if}
 
             {if $entry.categories}
             <span class="categoryIcon">
-            {foreach from=$entry.categories item="entry_category"}
+            {foreach $entry.categories AS $entry_category}
                 {if $entry_category.category_icon}
-                    <a href="{$entry_category.category_link}"><img class="categoryIcon" title="{$entry_category.category_name|@escape}{$entry_category.category_description|@emptyPrefix}" alt="{$entry_category.category_name|@escape}" src="{$entry_category.category_icon}" /></a>
+                    <a href="{$entry_category.category_link}"><img class="categoryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}" /></a>
                 {/if}
             {/foreach}
             </span>
@@ -27,15 +27,15 @@
               </div>
 
                 {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
-                <br /><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|@sprintf:$entry.title}</a><br /><br />
+                <br /><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a><br /><br />
                 {/if}
 
             <div class="postmetadata{if $is_single_entry} graybox{/if}">
                 {if $is_single_entry}
 
-				{$CONST.ENTRY_POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} {$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY} {$CONST.AT} {$entry.timestamp|@formatTime:"%H:%M"}.
+				{$CONST.ENTRY_POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} {$entry.timestamp|formatTime:DATE_FORMAT_ENTRY} {$CONST.AT} {$entry.timestamp|formatTime:"%H:%M"}.
                 {if $entry.categories}
-                   {$CONST.FILED_UNDER} {foreach from=$entry.categories item="entry_category" name="categories"}<a href="{$entry_category.category_link}">{$entry_category.category_name|@escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}.
+                   {$CONST.FILED_UNDER} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}.
                 {/if}
                 {if $entry.allow_comments}
                     {$CONST.LEAVE_RESPONSE|sprintf:'<a href="#serendipity_CommentForm">':'</a>':"<a href=\"$entry[link]\">":'</a>'}
@@ -49,14 +49,14 @@
                 {else}
                 {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
                 {if $entry.categories}
-                   {$CONST.IN} {foreach from=$entry.categories item="entry_category" name="categories"}<a href="{$entry_category.category_link}">{$entry_category.category_name|@escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}
+                   {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}
                 {/if}
 
                 {if $dategroup.is_sticky}
                     {$CONST.ON}
                 {else}
                     {$CONST.AT}
-                {/if} <a href="{$entry.link}">{if $dategroup.is_sticky}{$entry.timestamp|@formatTime:DATE_FORMAT_ENTRY} {/if}{$entry.timestamp|@formatTime:'%H:%M'}</a>
+                {/if} <a href="{$entry.link}">{if $dategroup.is_sticky}{$entry.timestamp|formatTime:DATE_FORMAT_ENTRY} {/if}{$entry.timestamp|formatTime:'%H:%M'}</a>
 
                 {if $entry.has_comments}
                     {if $use_popups}
@@ -89,7 +89,7 @@
         <rdf:Description
                  rdf:about="{$entry.link_rdf}"
                  trackback:ping="{$entry.link_trackback}"
-                 dc:title="{$entry.title_rdf|@default:$entry.title}"
+                 dc:title="{$entry.title_rdf|default:$entry.title}"
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
@@ -97,27 +97,27 @@
 
         {if $is_single_entry and not $use_popups and not $is_preview}
             {if $CONST.DATA_UNSUBSCRIBED}
-                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_UNSUBSCRIBED|@sprintf:$CONST.UNSUBSCRIBE_OK}</div><br />
+                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</div><br />
             {/if}
 
             {if $CONST.DATA_TRACKBACK_DELETED}
-                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_TRACKBACK_DELETED|@sprintf:$CONST.TRACKBACK_DELETED}</div><br />
+                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_TRACKBACK_DELETED|sprintf:$CONST.TRACKBACK_DELETED}</div><br />
             {/if}
 
             {if $CONST.DATA_TRACKBACK_APPROVED}
-                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_TRACKBACK_APPROVED|@sprintf:$CONST.TRACKBACK_APPROVED}</div><br />
+                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_TRACKBACK_APPROVED|sprintf:$CONST.TRACKBACK_APPROVED}</div><br />
             {/if}
 
             {if $CONST.DATA_COMMENT_DELETED}
-                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_COMMENT_DELETED|@sprintf:$CONST.COMMENT_DELETED}</div><br />
+                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_COMMENT_DELETED|sprintf:$CONST.COMMENT_DELETED}</div><br />
             {/if}
 
             {if $CONST.DATA_COMMENT_APPROVED}
-                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_COMMENT_APPROVED|@sprintf:$CONST.COMMENT_APPROVED}</div><br />
+                <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</div><br />
             {/if}
                 <a id="trackbacks"></a><h3>{$CONST.TRACKBACKS}</h3>
                     <div class="serendipity_center">
-                        <a style="font-weight: normal" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|@escape:html}'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|@escape}">{$CONST.TRACKBACK_SPECIFIC}</a>
+                        <a style="font-weight: normal" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:html}'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape}">{$CONST.TRACKBACK_SPECIFIC}</a>
                     </div>
                     <ol class="commentlist">
                         {serendipity_printTrackbacks entry=$entry.id}
@@ -147,7 +147,7 @@
                 {/if}
                 <a id="feedback"></a>
 
-                {foreach from=$comments_messagestack item="message"}
+                {foreach $comments_messagestack AS $message}
                 <div class="serendipity_center serendipity_msg_important">{$message}</div>
                 {/foreach}
 

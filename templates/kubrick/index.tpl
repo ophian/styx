@@ -9,7 +9,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{$lang}" lang="{$lang}">
 <head>
-    <title>{$head_title|@default:$blogTitle} {if $head_subtitle} - {$head_subtitle}{/if}</title>
+    <title>{$head_title|default:$blogTitle} {if $head_subtitle} - {$head_subtitle}{/if}</title>
     <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
     <meta name="generator" content="Serendipity v.{$serendipityVersion}" />
 {if ($view == "entry" || $view == "start" || $view == "feed" || $view == "plugin" || $staticpage_pagetitle != "" || $robots_index == 'index')}
@@ -40,8 +40,8 @@
 <div id="page">
 <div id="header" onclick="location.href='{$serendipityBaseURL}';" style="cursor: pointer;">
     <div id="headerimg">
-        <h1>{$head_title|@default:$blogTitle}</h1>
-        <div class="description">{$head_subtitle|@default:$blogDescription}</div>
+        <h1>{$head_title|default:$blogTitle}</h1>
+        <div class="description">{$head_subtitle|default:$blogDescription}</div>
     </div>
 </div>
 <hr />
