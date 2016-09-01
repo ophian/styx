@@ -64,7 +64,7 @@
                         </div>
                         <!-- Collect the nav links, forms, and other content for toggling -->
                         <div class="collapse navbar-collapse navbar-responsive-collapse">
-                            <ul class="nav navbar-nav navbar-right">{foreach from=$navlinks item="navlink" name="sitenav"}<li><a {if $currpage==$navlink.href}class="navbar_current_page"{/if} href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}<li><a  href="#basicModal" data-toggle="modal" data-target="#basicModal" title="{$CONST.SEARCH}"><i class="fa fa-search" aria-hidden="true"></i></a></li></ul>
+                            <ul class="nav navbar-nav navbar-right">{foreach $navlinks AS $navlink}<li><a {if $currpage==$navlink.href}class="navbar_current_page"{/if} href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}<li><a  href="#basicModal" data-toggle="modal" data-target="#basicModal" title="{$CONST.SEARCH}"><i class="fa fa-search" aria-hidden="true"></i></a></li></ul>
                         </div><!--/navbar-collapse-->
                     </div>
                 </div>{* End Navbar *}
@@ -232,7 +232,7 @@
                     </div>
                     <div class="col-md-6">
                         <ul class="footer-socials list-inline">
-                            {foreach from=$socialicons item="socialicon" name="social_networking"}
+                            {foreach $socialicons AS $socialicon}
                                 <li>
                                     <a href="{$socialicon.url}" title="{$socialicon.service}"><i class="fa fa-lg {service_icon from_service=$socialicon.service}"></i></a>
                                 </li>

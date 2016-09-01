@@ -5,15 +5,15 @@
     {assign var="prevmonth" value=''}
 {/if}
 
-{foreach from=$entries item="dategroup" name="entrytop"}
-    {foreach from=$dategroup.entries item="entry"}
+{foreach $entries AS $dategroup}
+    {foreach $dategroup.entries AS $entry}
         {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
         {if !$is_single_entry and not $entry.is_extended and not $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO *}
             {if $template_option.display_as_timeline}
                 {if $template_option.months_on_timeline == true}
-                    {assign var="curmonth" value=$entry.timestamp|@formatTime:"%B"}
+                    {assign var="curmonth" value=$entry.timestamp|formatTime:"%B"}
                     {if $prevmonth != $curmonth}
-                        <li class="timeline-month-heading"><div class="tldate">{$entry.timestamp|@formatTime:$template_option.months_on_timeline_format}</div></li>
+                        <li class="timeline-month-heading"><div class="tldate">{$entry.timestamp|formatTime:$template_option.months_on_timeline_format}</div></li>
                         {assign var="timelinetmargin" value="timeline-no-top-margin"}
                     {else}
                         {if $timelinetmargin =="timeline-top-margin"}{assign var="timelinetmargin" value="timeline-no-top-margin"}{else}{assign var="timelinetmargin" value="timeline-top-margin"}{/if}
@@ -39,12 +39,12 @@
                             {/if}
                         </div>
                         <div class="timeline-footer">
-                            <span class="timeline-footer-date"><i class="fa fa-clock-o"></i><time datetime="{$entry.timestamp|@serendipity_html5time}">{$entry.timestamp|@formatTime:$template_option.date_format}</time></span>
+                            <span class="timeline-footer-date"><i class="fa fa-clock-o"></i><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time></span>
                             <span class="timeline-footer-comments"><i class="fa {if $entry.comments == 0}fa-comment-o{elseif $entry.comments == 1}fa-comment{else}fa-comments-o{/if}" aria-hidden="true"></i> <a href="{$entry.link}#comments">{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}</a></span>
                         </div>
                     </div>
                     </li>
-                    {assign var="prevmonth" value=$entry.timestamp|@formatTime:"%B"}
+                    {assign var="prevmonth" value=$entry.timestamp|formatTime:"%B"}
             {else}{* not using timeline - use blog format instead *}
                 {if $entry.body || $entry.properties.timeline_image}
                     <div class="row each-blogstyle-entry">
@@ -92,7 +92,7 @@
                     {/if}
                 {/if}
                 <div class="serendipity_entry_body clearfix">
-                    {if $entry.categories}{foreach from=$entry.categories item="entry_category"}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|@escape}{$entry_category.category_description|@emptyPrefix}" alt="{$entry_category.category_name|@escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+                    {if $entry.categories}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
                     {$entry.body}
                 </div>
                 {if $entry.is_extended}
@@ -108,14 +108,14 @@
                         {if $entry.categories}
                             <span class="sr-only">{$CONST.CATEGORIES}: </span>
                             <i class="fa fa-folder-open" aria-hidden="true"></i>
-                            {foreach from=$entry.categories item="entry_category" name="categories"}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|@escape}">{$entry_category.category_name|@escape}</a>{if !$smarty.foreach.categories.last}&nbsp;{/if}{/foreach}
+                            {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if !$entry_category@last}&nbsp;{/if}{/foreach}
                         {/if}
                         {if isset($entry.freetag.extended) && $entry.freetag.extended == 1}
                             {if $entry.freetag.tags.tags}
                                 <div class="timeline_freeTag">
                                 <span class="sr-only">{$entry.freetag.tags.description}</span>
                                 <i class="fa fa-tags" aria-hidden="true"></i>
-                                    {foreach from=$entry.freetag.tags.tags item="tag"}
+                                    {foreach $entry.freetag.tags.tags AS $tag}
                                         {$tag}
                                     {/foreach}
                                 </div>
@@ -123,7 +123,7 @@
                                     <div class="timeline_freeTag_related">
                                         <span>{$entry.freetag.related.description}</span>
                                         <ul class="plainList">
-                                        {foreach from=$entry.freetag.related.entries item="link"}
+                                        {foreach $entry.freetag.related.entries AS $link}
                                             <li>{$link}</li>
                                         {/foreach}
                                         </ul>
@@ -145,7 +145,7 @@
         <rdf:Description
                  rdf:about="{$entry.link_rdf}"
                  trackback:ping="{$entry.link_trackback}"
-                 dc:title="{$entry.title_rdf|@default:$entry.title}"
+                 dc:title="{$entry.title_rdf|default:$entry.title}"
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
@@ -153,35 +153,35 @@
         {if $CONST.DATA_UNSUBSCRIBED}
             <div id="search-block" class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_UNSUBSCRIBED|@sprintf:$CONST.UNSUBSCRIBE_OK}</p>
+                    <p class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
                 </div>
             </div>
         {/if}
         {if $CONST.DATA_TRACKBACK_DELETED}
             <div id="search-block" class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_DELETED|@sprintf:$CONST.TRACKBACK_DELETED}</p>
+                    <p class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_DELETED|sprintf:$CONST.TRACKBACK_DELETED}</p>
                 </div>
             </div>
         {/if}
         {if $CONST.DATA_TRACKBACK_APPROVED}
             <div id="search-block" class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p class="alert alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_APPROVED|@sprintf:$CONST.TRACKBACK_APPROVED}</p>
+                    <p class="alert alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_TRACKBACK_APPROVED|sprintf:$CONST.TRACKBACK_APPROVED}</p>
                 </div>
             </div>
         {/if}
         {if $CONST.DATA_COMMENT_DELETED}
             <div id="search-block" class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_DELETED|@sprintf:$CONST.COMMENT_DELETED}</p>
+                    <p class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_DELETED|sprintf:$CONST.COMMENT_DELETED}</p>
                 </div>
             </div>
         {/if}
         {if $CONST.DATA_COMMENT_APPROVED}
             <div id="search-block" class="row">
                 <div class="col-md-10 col-md-offset-1">
-                    <p class="alert alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_APPROVED|@sprintf:$CONST.COMMENT_APPROVED}</p>
+                    <p class="alert alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</p>
                 </div>
             </div>
         {/if}
@@ -189,7 +189,7 @@
         {if $entry.trackbacks != 0}
             <section id="trackbacks" class="serendipity_comments serendipity_section_trackbacks">
                 <h3>{if $entry.trackbacks == 0}{$CONST.NO_TRACKBACKS}{else}{$entry.trackbacks} {$entry.label_trackbacks}{/if}</h3>
-                <p id="trackback_url"><small><a rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|@escape}">{$CONST.TRACKBACK_SPECIFIC}</a></small></p>
+                <p id="trackback_url"><small><a rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape}">{$CONST.TRACKBACK_SPECIFIC}</a></small></p>
                 {serendipity_printTrackbacks entry=$entry.id}
             </section>
         {/if}
@@ -219,7 +219,7 @@
                 </p>
             {/if}
         </section>
-        {foreach from=$comments_messagestack item="message"}
+        {foreach $comments_messagestack AS $message}
             <div id="search-block" class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$message}</p>
@@ -278,7 +278,7 @@
 
 
 {if $footer_info or $footer_prev_page or $footer_next_page}
-    <div class='serendipity_pageSummary'>
+    <div class="serendipity_pageSummary">
         {if $footer_info}
             <p class="summary serendipity_center">{$footer_info}</p>
         {/if}

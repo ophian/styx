@@ -1,8 +1,8 @@
 {if $tags}
     <h3>{$CONST.EDITOR_TAGS}</h3>
     <div class="timeline_freeTag">
-        {foreach from=$tags key="tag_name" item="plugin_tags" name="each_tag"}
-            <a href="{$plugin_tags.href}">{$tag_name}</a>{if !$smarty.foreach.each_tag.last}{/if}
+        {foreach $tags AS $tag_name => $plugin_tags}
+            <a href="{$plugin_tags.href}">{$tag_name}</a>{if !$tag_name@last}{/if}
         {/foreach}
     </div>
 {else}

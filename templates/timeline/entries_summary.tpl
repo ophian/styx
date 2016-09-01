@@ -1,15 +1,15 @@
 {serendipity_hookPlugin hook="entries_header"}
 {counter start=0 assign='entry_count'}
-{foreach from=$entries item="countme"}
-    {foreach from=$countme.entries item="entry"}
+{foreach $entries AS $countme}
+    {foreach $countme.entries AS $entry}
         {counter assign='entry_count'}
     {/foreach}
 {/foreach}
 <article class="archive-summary">
-    <h3>{if $category}{$category_info.category_name} - {/if}{$entry_count} {$CONST.TOPICS_OF} {$dateRange.0|@formatTime:"%B, %Y"}</h3>
+    <h3>{if $category}{$category_info.category_name} - {/if}{$entry_count} {$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B, %Y"}</h3>
     <div class="archives_summary">
-    {foreach from=$entries item="sentries" name="archivesummarylist"}
-        {foreach from=$sentries.entries item="entry"}
+    {foreach $entries AS $sentries}
+        {foreach $sentries.entries AS $entry}
             <div class="row each-archive-entry">
                 <div class="col-md-2 archive-post-thumb">
                     {if $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
