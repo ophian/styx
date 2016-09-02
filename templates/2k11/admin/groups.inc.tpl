@@ -49,14 +49,14 @@
                 {/foreach}
             </select>
         </div>
-        
+
         <ul>
         {foreach $perms AS $perm}
-            {if {{$perm@key}|truncate:"2":""} == 'f_'}{continue}{/if}
+            {if {{$perm@key}|truncate:2:""} == 'f_'}{continue}{/if}
             {if !isset($section)}
                 {$section=$perm@key}
             {/if}
-            {if $section != {$perm@key} AND {{$perm@key}|truncate:"{$section|count_characters}":""} == $section}
+            {if $section != {$perm@key} AND {{$perm@key}|truncate:{$section|count_characters}:""} == $section}
                 {$indent="&nbsp;&nbsp;"}
             {else}
                 {if $section != {$perm@key}}
@@ -124,7 +124,7 @@
         <h2>{$CONST.MANAGE_GROUPS}</h2>
 
         <span class="msg_notice"><span class="icon-info-circled"></span> {$CONST.DELETE_GROUP|sprintf:"{$group_id}":"{$group.name|escape}"}</span>
-        
+
         <div id="groups_delete_action" class="form_buttons">
             <input class="state_cancel" name="NO" type="submit" value="{$CONST.NOT_REALLY}">
             <input name="DELETE_YES" type="submit" value="{$CONST.DUMP_IT}">
