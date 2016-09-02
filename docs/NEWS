@@ -1,6 +1,8 @@
 Version 2.1 () Styx
 ------------------------------------------------------------------------
 
+  * Added serendipity_comment_author_self class to standard 2k11 theme
+
   * Converted all core release themes to use Smarty3 syntax
 
   * Touched template files "plugin_staticpage_*" in 2k11, bulletproof and

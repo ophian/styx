@@ -546,7 +546,10 @@ pre .geshi {
 .serendipity_comment cite { font-style: normal; }
 
 .serendipity_comment { margin: 0 0 2em; }
-
+.serendipity_comment_author_self {
+    background: #FFFFCC;
+    border: 1px solid #CCC;
+}
 .serendipity_comment h4 { margin: 0 0 .25em; }
 
 .form_tarea,
