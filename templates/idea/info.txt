@@ -1,3 +1,5 @@
 Name: Idea
 Author: Evan Nemerson
-Date: 01/07/2004
+Date: 2004-07-01
+Summary: CSS complete theme only.
+Description: Simple example theme from 2004 using all the template files from the old default fallback (Serendipity 2.3) theme. Styled by CSS only.
