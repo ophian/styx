@@ -30,18 +30,17 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
     }
 }
 
-
 /* We are asked to save the edited comment, and we are not in preview mode */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'doEdit' && !isset($serendipity['POST']['preview']) && serendipity_checkFormToken()) {
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
-                    SET
-                        author    = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
-                        email     = '" . serendipity_db_escape_string($serendipity['POST']['email'])   . "',
-                        url       = '" . serendipity_db_escape_string($serendipity['POST']['url'])     . "',
-                        " . ($serendipity['POST']['replyTo'] != $serendipity['GET']['id'] ? "parent_id = '" . serendipity_db_escape_string($serendipity['POST']['replyTo']) . "'," : '') . "
-                        body      = '" . serendipity_db_escape_string($serendipity['POST']['comment']) . "'
-            WHERE id = " . (int)$serendipity['GET']['id'] . " AND
-                  entry_id = " . (int)$serendipity['POST']['entry_id'];
+               SET
+                    author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
+                    email  = '" . serendipity_db_escape_string($serendipity['POST']['email'])   . "',
+                    url    = '" . serendipity_db_escape_string($serendipity['POST']['url'])     . "',
+                    " . ($serendipity['POST']['replyTo'] != $serendipity['GET']['id'] ? "parent_id = '" . serendipity_db_escape_string($serendipity['POST']['replyTo']) . "'," : '') . "
+                    body   = '" . serendipity_db_escape_string($serendipity['POST']['comment']) . "'
+             WHERE id      = " . (int)$serendipity['GET']['id'] . "
+               AND entry_id= " . (int)$serendipity['POST']['entry_id'];
     serendipity_db_query($sql);
     serendipity_plugin_api::hook_event('backend_updatecomment', $serendipity['POST'], $serendipity['GET']['id']);
     $msg .= COMMENT_EDITED;
@@ -75,10 +74,10 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 /* We approve a comment */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'approve' && serendipity_checkFormToken()) {
     $sql = "SELECT c.*, e.title, a.email AS authoremail, a.mail_comments
-            FROM {$serendipity['dbPrefix']}comments c
-            LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
-            LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
-            WHERE c.id = " . (int)$serendipity['GET']['id']  ." AND (status = 'pending' OR status LIKE 'confirm%')";
+              FROM {$serendipity['dbPrefix']}comments c
+         LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
+         LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
+             WHERE c.id = " . (int)$serendipity['GET']['id']  ." AND (status = 'pending' OR status LIKE 'confirm%')";
     $rs  = serendipity_db_query($sql, true);
 
     if ($rs === false) {
@@ -91,10 +90,10 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'pending' && serendipity_checkFormToken()) {
     $sql = "SELECT c.*, e.title, a.email AS authoremail, a.mail_comments
-            FROM {$serendipity['dbPrefix']}comments c
-            LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
-            LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
-            WHERE c.id = " . (int)$serendipity['GET']['id']  ." AND status = 'approved'";
+              FROM {$serendipity['dbPrefix']}comments c
+         LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
+         LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
+             WHERE c.id = " . (int)$serendipity['GET']['id']  ." AND status = 'approved'";
     $rs  = serendipity_db_query($sql, true);
 
     if ($rs === false) {
@@ -275,10 +274,10 @@ if ($commentsPerPage == COMMENTS_FILTER_ALL) {
 }
 
 $sql = serendipity_db_query("SELECT c.*, e.title FROM {$serendipity['dbPrefix']}comments c
-                                LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
-                                WHERE 1 = 1 " . ($c_type !== null ? " AND c.type = '$c_type' " : '') . $and
-                                . (!serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int)$serendipity['authorid'] : '') . "
-                                ORDER BY c.id DESC $limit");
+                          LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
+                              WHERE 1 = 1 " . ($c_type !== null ? " AND c.type = '$c_type' " : '') . $and
+                            . (!serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int)$serendipity['authorid'] : '') . "
+                           ORDER BY c.id DESC $limit");
 
 if (serendipity_checkPermission('adminComments')) {
     ob_start();
