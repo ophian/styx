@@ -366,7 +366,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             $comment['url']     = strip_tags($comment['url']);
             $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments';
 
-            /* Fix invalid cases in protocoll part */
+            /* Fix invalid cases in protocol part */
             if (!empty($comment['url'])) {
                 $comment['url'] = preg_replace('@^http://@i','http://', $comment['url']);
                 $comment['url'] = preg_replace('@^https://@i','https://', $comment['url']);
@@ -1049,7 +1049,6 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
             fwrite($fp, '[' . date('d.m.Y H:i') . '] discarding comment from DB' . "\n");
             fclose($fp);
         }
-
         return false;
     }
 }
@@ -1118,7 +1117,6 @@ function serendipity_mailSubscribers($entry_id, $poster, $posterMail, $title, $f
                       serendipity_rewriteURL('unsubscribe/' . urlencode($subscriber['email']) . '/' . (int)$entry_id, 'baseURL')
             );
         }
-
         serendipity_sendMail($subscriber['email'], $subject, $text, $fromEmail);
     }
 }
