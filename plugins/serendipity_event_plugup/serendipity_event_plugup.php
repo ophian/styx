@@ -19,7 +19,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian');
-        $propbag->add('version',        '1.04');
+        $propbag->add('version',        '1.05');
         $propbag->add('requirements',   array(
             'serendipity' => '2.0.99',
             'smarty'      => '3.1.0',
@@ -84,16 +84,23 @@ class serendipity_event_plugup extends serendipity_plugin
         $defurl = $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/spartacus_remote';
         $url    = $this->get_config('spartacus_url', $defurl);
 
-        $inc    = file_get_contents($url);
-        $event  = (int)substr_count($inc, 'UPGRADE: serendipity_event');
-        $plugin = (int)substr_count($inc, 'UPGRADE: serendipity_plugin');
-        #echo "$url\n$event\n$plugin\n";
-        // store
-        serendipity_setCookie('plugsEvent', $event, true, $ts);
-        serendipity_setCookie('plugsPlugin', $plugin, true, $ts);
-        serendipity_setCookie('plugsCheckTime', $ts, true, $ts);
+        try {
+            $inc = file_get_contents($url);
+        } catch (Exception $e) {
+            echo "Error: " . $e->getMessage();
+            return 0;
+        }
+        if ($inc) {
+            $event  = (int)substr_count($inc, 'UPGRADE: serendipity_event');
+            $plugin = (int)substr_count($inc, 'UPGRADE: serendipity_plugin');
+            #echo "$url\n$event\n$plugin\n";
+            // store
+            serendipity_setCookie('plugsEvent', $event, true, $ts);
+            serendipity_setCookie('plugsPlugin', $plugin, true, $ts);
+            serendipity_setCookie('plugsCheckTime', $ts, true, $ts);
 
-        return (int)($event+$plugin);
+            return (int)($event+$plugin);
+        }
     }
 
     /**
