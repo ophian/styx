@@ -39,7 +39,7 @@
         {$config}
     </form>
 {elseif $adminAction == 'addnew'}
-    <h2>{if $type == 'event'}{$CONST.EVENT_PLUGINS}{/if}{if $type == 'sidebar'}{$CONST.SIDEBAR_PLUGINS}{/if}{if $type == 'both'}{$CONST.MENU_PLUGINS}{/if}{if $only_group != UPGRADE} <span class="plugins_available">({$CONST.PLUGIN_AVAILABLE_COUNT|sprintf:$count_pluginstack})</span>{/if}</h2>
+    <h2>{if $type == 'event'}{$CONST.EVENT_PLUGINS}{/if}{if $type == 'sidebar'}{$CONST.SIDEBAR_PLUGINS}{/if}{if $type == 'both'}{$CONST.MENU_PLUGINS}{/if}{if $only_group != 'UPGRADE'} <span class="plugins_available">({$CONST.PLUGIN_AVAILABLE_COUNT|sprintf:$count_pluginstack})</span>{/if}</h2>
     {foreach $errorstack AS $e_idx => $e_name}
     <span class="msg_error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: {$e_name}</span>
     {/foreach}
@@ -82,7 +82,7 @@
             {if $only_group AND $pluggroup != $only_group}{continue}{/if}
             <h3>{foreach $groupnames AS $available_group => $available_name}{if $pluggroup == $available_group}{$available_name}{/if}{/foreach}</h3>
             {if $only_group == 'UPGRADE' AND $pluggroups['UPGRADE']|count > 1}
-                <button id="updateAll">Update All</button>
+                <button id="updateAll">{$CONST.UPDATE_ALL}</button>
             {/if}
             <ul class="plugins_installable plainList clearfix">
             {foreach $groupstack AS $plug}
@@ -143,7 +143,7 @@
     {/if}
 {elseif $adminAction == 'overlay'}
     <div id="progressWidget">
-        <span id="updateMessage">Starting Update ...</span>
+        <span id="updateMessage">{$CONST.START_UPDATE}</span>
         <div id="updateIndicator" class="animated-css"></div>
         <progress id="updateProgress" value="0" />
     </div>
@@ -160,7 +160,7 @@
         <span class="msg_error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: {$CONST.PLUGIN_ALREADY_INSTALLED}</span>
     {/if}
     {if $updateAllMsg}
-        <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.DONE}: All Plugins updated</span> {* i18n *}
+        <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.DONE}: All Plugins updated</span>{* i18n *}
     {/if}
     <div class="tabs" id="pluginlist_tabs">
         <section id="pluginlist_sidebar" class="panel">
