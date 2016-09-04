@@ -224,6 +224,7 @@ $dead_files_202 = array(
 /* A list of old non-empty directories which were removed with 2.1.0 */
 $dead_dirs_202 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/Text',
+    $serendipity['serendipityPath'] . 'bundled-libs/docs',
     $serendipity['serendipityPath'] . 'htmlarea/ckeditor/ckeditor',
     $serendipity['serendipityPath'] . 'htmlarea/composer',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_gravatar/ycon/UTF-8'
