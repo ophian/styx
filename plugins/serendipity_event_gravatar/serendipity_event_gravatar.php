@@ -849,7 +849,7 @@ class serendipity_event_gravatar extends serendipity_event
                 $response = $req->send();
 
                 $this->last_error = $response->getStatus();
-                if ($response->getStatus() != 200) {
+                if ($response->getStatus() != '200') {
                     throw new HTTP_Request2_Exception("Could not search on twitter");
                 }
                 $response = trim($response->getBody());
@@ -910,7 +910,7 @@ class serendipity_event_gravatar extends serendipity_event
             try {
                 $response = $req->send();
                 $this->last_error = $response->getStatus();
-                if ($response->getStatus() != 200) {
+                if ($response->getStatus() != '200') {
                     throw new HTTP_Request2_Exception("Could not search on identica");
                 }
                 $response = trim($response->getBody());
