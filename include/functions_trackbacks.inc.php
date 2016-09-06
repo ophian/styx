@@ -553,8 +553,8 @@ function fetchPingbackData(&$comment) {
 
     try {
         $response = $req->send();
-        if (preg_match($responses, $response->getStatus())) {
-
+        if (preg_match($responses, $response->getStatus()) && $response->getStatus() != '200') {
+            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Request url: $url failed in: " . __FUNCTION__ . " with response Code: " . response->getStatus());
         }
         $fContent = $response->getBody();
 
@@ -581,7 +581,9 @@ function fetchPingbackData(&$comment) {
             $comment['comment'] = $body . '[..]';
         }
     } catch (HTTP_Request2_Exception $e) {
-        // do what?
+        serendipity_request_end();
+        // do what? Don't touch $comments
+        return;
     }
 
     serendipity_request_end();
