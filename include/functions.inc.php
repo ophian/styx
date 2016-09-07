@@ -46,7 +46,8 @@ function get_raw_data() {
  *
  * @since   2.1
  * @param   $url        string
- * @param   $method     string  Request method for send() (get,post,conn)
+ * @param   $method     string  Request method for send() (trace,conn,post,get,head,put,delete)
+ *                      one of the methods defined in RFC 2616 (https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html)
  * @param   $options    array   Request parameter
  *
  * @return  object
@@ -59,6 +60,10 @@ function serendipity_request_object($url = '', $method = 'get', $options = array
         $options['ssl_verify_peer'] = false;
     }
     switch($method) {
+        case 'trace':
+            $req = new HTTP_Request2($url, HTTP_Request2::METHOD_TRACE, $options);
+            break;
+
         case 'conn':
             $req = new HTTP_Request2($url, HTTP_Request2::METHOD_CONNECT, $options);
             break;
@@ -69,6 +74,18 @@ function serendipity_request_object($url = '', $method = 'get', $options = array
 
         case 'get':
             $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $options);
+            break;
+
+        case 'head':
+            $req = new HTTP_Request2($url, HTTP_Request2::METHOD_HEAD, $options);
+            break;
+
+        case 'put':
+            $req = new HTTP_Request2($url, HTTP_Request2::METHOD_PUT, $options);
+            break;
+
+        case 'delete':
+            $req = new HTTP_Request2($url, HTTP_Request2::METHOD_DELETE, $options);
             break;
 
         default:
