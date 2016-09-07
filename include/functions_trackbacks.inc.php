@@ -554,7 +554,7 @@ function fetchPingbackData(&$comment) {
     try {
         $response = $req->send();
         if (preg_match($responses, $response->getStatus()) && $response->getStatus() != '200') {
-            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Request url: $url failed in: " . __FUNCTION__ . " with response Code: " . response->getStatus());
+            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Request url: $url failed in: " . __FUNCTION__ . " with response Code: " . $response->getStatus());
         }
         $fContent = $response->getBody();
 
