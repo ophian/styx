@@ -1,3 +1,11 @@
+Version 2.1 Styx ()
+------------------------------------------------------------------------
+
+  * Sync some Smarty bugfix updates 3.1.31-dev/12
+
+  * Add all RFC 2616 methods to the serendipity REQUEST2 wrapper
+
+
 Version 2.1-beta1 Styx (September 3th, 2016)
 ------------------------------------------------------------------------
 
