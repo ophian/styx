@@ -30,6 +30,8 @@
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
 
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
+{else}
+    <script src="{serendipity_getFile file="js/modernizr-2.7.1.min.js"}"></script>
 {/if}
 
     <script type="text/javascript">
