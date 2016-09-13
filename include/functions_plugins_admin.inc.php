@@ -315,7 +315,6 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
             case 'separator':
             case 'suboption':
                 $assign_plugin_config($data);
-
                 break;
 
             case 'multiselect':
@@ -337,7 +336,6 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 $data['select']           = $select       = $cbag->get('select_values');
 
                 $assign_plugin_config($data);
-
                 break;
 
             case 'tristate':
@@ -389,7 +387,6 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 }
 
                 $assign_plugin_config($data);
-
                 break;
 
             case 'string':
@@ -402,7 +399,6 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 }
                 $data['input_type'] = $input_type;
                 $assign_plugin_config($data);
-
                 break;
 
             case 'html': $data['ctype'] = 'html';
@@ -423,21 +419,18 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                     serendipity_emit_htmlarea_code("nuggets{$elcount}","nuggets{$elcount}");
                 }
                 $assign_plugin_config($data);
-
-               break;
+                break;
 
             case 'content':
                 $data['ctype'] = 'content';
                 $data['cbag_default'] = $cbag->get('default');
                 $assign_plugin_config($data);
-
                 break;
 
             case 'custom':
                 $data['ctype'] = 'custom';
                 $data['cbag_custom'] = $cbag->get('custom');
                 $assign_plugin_config($data);
-
                 break;
 
             case 'color':
@@ -445,14 +438,12 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 $data['input_type'] = 'color';
                 $data['cbag_value'] = $cbag->get('value');
                 $assign_plugin_config($data);
-
                 break;
 
             case 'hidden':
                 $data['ctype'] = 'hidden';
                 $data['cbag_value'] = $cbag->get('value');
                 $assign_plugin_config($data);
-
                 break;
 
             case 'media':
@@ -471,7 +462,6 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 $data['value'] = $value;
 
                 $assign_plugin_config($data);
-
                 break;
 
             case 'sequence':
@@ -598,7 +588,6 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 // Print the Javascript to drag-n-drop the list
                 // Finish the row
                 $assign_plugin_config($data);
-
                 break;
 
             default:
@@ -622,7 +611,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         }
 
     }
-    $data['config_groups'] = $config_groups;
+    $data['config_groups']  = $config_groups;
     $data['plugin_options'] = $plugin_options;
 
     if (is_array($config_groups)) {
