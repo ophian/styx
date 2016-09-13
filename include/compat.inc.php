@@ -64,6 +64,21 @@ function memSnap($tshow = '') {
 
 
 /**
+ * Make fatal Errors readable
+ *
+ * @access public
+ *
+ * @return string  constant error string as Exception
+ */
+function fatalErrorShutdownHandler() {
+    $last_error = error_get_last();
+    if ($last_error['type'] === E_ERROR) {
+        // fatal error send to
+        errorToExceptionHandler(E_ERROR, $last_error['message'], $last_error['file'], $last_error['line']);
+    }
+}
+
+/**
  * Make readable error types for debugging error_reporting levels
  *
  * @access public

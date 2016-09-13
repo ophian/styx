@@ -1,6 +1,8 @@
 Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
+  * Send fatal errors to the Serendipity Exception handler
+
   * Fix compatibility bug preventing Internet Explorer (+Edge) to
     clear the entry editor autosave cache when saving an entry.
 
