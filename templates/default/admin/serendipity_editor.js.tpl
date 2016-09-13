@@ -205,7 +205,7 @@
     }
 
     // Add another (image) keyword
-    serendipity.AddKeyword = function(keyword)  {
+    serendipity.AddKeyword = function(keyword) {
         s = document.getElementById('keyword_input').value;
         document.getElementById('keyword_input').value = (s != '' ? s + ';' : '') + keyword;
     }
