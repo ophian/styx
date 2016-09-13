@@ -216,7 +216,7 @@ class serendipity_smarty_emulator
      */
     function trigger_error($txt)
     {
-        echo '<b>SMARTY EMULATOR ERROR: ' . $txt;
+        trigger_error("SMARTY EMULATOR ERROR: $txt", E_USER_WARNING);
     }
 
     /**
