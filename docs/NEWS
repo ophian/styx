@@ -1,6 +1,9 @@
 Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
+  * Fix compatibility bug preventing Internet Explorer (+Edge) to
+    clear the entry editor autosave cache when saving an entry.
+
   * Sync some Smarty bugfix updates 3.1.31-dev/12
 
   * Add all RFC 2616 methods to the serendipity REQUEST2 wrapper
