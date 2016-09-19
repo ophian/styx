@@ -647,7 +647,7 @@ class serendipity_event_entryproperties extends serendipity_event
 }
 #edit_entry_entryproperties .ep_entry_submit {
     top: initial;
-    margin-top: -1.5em;
+    margin-top: -2.7em; /* without core #adv_opts background: -1.5em; */
     margin-right: auto;
 }
 
