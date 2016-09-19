@@ -1,6 +1,8 @@
 Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
+  * Fix bug in get URI arguments where uniqueness is bad
+
   * Send fatal errors to the Serendipity Exception handler
 
   * Fix compatibility bug preventing Internet Explorer (+Edge) to
