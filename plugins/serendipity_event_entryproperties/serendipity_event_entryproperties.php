@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.43');
+        $propbag->add('version',       '1.44');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -640,6 +640,10 @@ class serendipity_event_entryproperties extends serendipity_event
 }
 #ep_spacer label {
     opacity: .3;
+}
+#edit_entry_entryproperties legend {
+    margin-top: 1em;
+    margin-bottom: 1em;
 }
 #edit_entry_entryproperties .ep_entry_submit {
     top: initial;

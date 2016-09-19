@@ -1,3 +1,7 @@
+1.44:
+-----
+    * Add the fieldset legend margins to backend css
+
 1.43:
 -----
     * Remove fieldset inline style making trouble with .mfp-content layer.
