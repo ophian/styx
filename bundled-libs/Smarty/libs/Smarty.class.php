@@ -114,7 +114,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * smarty version
      */
-    const SMARTY_VERSION = '3.1.31-dev/12';
+    const SMARTY_VERSION = '3.1.31-dev/23';
 
     /**
      * define variable scopes
@@ -1103,6 +1103,9 @@ class Smarty extends Smarty_Internal_TemplateBase
         } else {
             $data = null;
         }
+        if (!$this->_templateDirNormalized) {
+            $this->_nomalizeTemplateConfig(false);
+        }
         $_templateId = $this->_getTemplateId($template, $cache_id, $compile_id);
         $tpl = null;
         if ($this->caching && isset($this->_cache[ 'isCached' ][ $_templateId ])) {
@@ -1241,6 +1244,16 @@ class Smarty extends Smarty_Internal_TemplateBase
     {
         $this->_cache[ 'isCached' ] = array();
         $this->_cache[ 'tplObjects' ] = array();
+    }
+
+    /**
+     * Get Smarty object
+     *
+     * @return Smarty
+     */
+    public function _getSmartyObj()
+    {
+        return $this;
     }
 
     /**
