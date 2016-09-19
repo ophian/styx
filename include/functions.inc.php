@@ -97,6 +97,41 @@ function serendipity_request_object($url = '', $method = 'get', $options = array
 }
 
 /**
+ * Serendipity strpos iteration mapper to also check needled arrays
+ *
+ * @access public
+ * @param   string          The haystack
+ * @param   string/array    The needle
+ * @return
+ */
+function serendipity_strpos($haystack, $needles) {
+    if (is_array($needles)) {
+        foreach ($needles AS $str) {
+            // keep in mind if needle is not a string, it is converted to an integer and applied as the ordinal value of a character
+            if (is_string($str)) {
+                return strpos($haystack, $str);
+            } else {
+                serendipity_strpos($haystack, $str);
+            }
+        }
+    } else {
+        return strpos($haystack, $needles);
+    }
+}
+
+/**
+ * Get the Referer calling function name for the current HTTP Request
+ *
+ * @access public
+ * @return string parent level function name
+ */
+function serendipity_debugCallerId(){
+    $trace = debug_backtrace();
+    $level = count($trace)-1;
+    return $trace[$level]['function'];
+}
+
+/**
  * Truncate a string to a specific length, multibyte aware. Appends '...' if successfully truncated
  *
  * @access public

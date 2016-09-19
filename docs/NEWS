@@ -1,6 +1,9 @@
 Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
+  * Added two API functions for strpos() array neddles and
+    debugging referer parent level function name.
+
   * Fix bug in get URI arguments where uniqueness is bad
 
   * Send fatal errors to the Serendipity Exception handler
