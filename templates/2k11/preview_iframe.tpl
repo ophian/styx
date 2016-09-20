@@ -35,26 +35,24 @@
 {/if}
 
     <script type="text/javascript">
-        window.onload = function() {ldelim}
-            parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('content').offsetHeight
-                                                                              + parseInt(document.getElementById('content').style.marginTop)
-                                                                              + parseInt(document.getElementById('content').style.marginBottom)
-                                                                              + 'px';
-            parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-            parent.document.getElementById('serendipity_iframe').style.border = 0;
-        {rdelim}
+    window.onload = function() {ldelim}
+        var frameheight = document.querySelector('html').offsetHeight{if $mode == 'preview'}-14{/if};
+        parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
+        parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
+        parent.document.getElementById('serendipity_iframe').style.border = 0;
+    {rdelim}
     </script>
 </head>
 
-<body{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
-    <div id="page" class="clearfix container">
+<body class="{$mode}_preview_body{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
+    <div id="page" class="clearfix container {$mode}_preview_container">
         <div class="clearfix{if $leftSidebarElements > 0 AND $rightSidebarElements > 0} col3{elseif $leftSidebarElements > 0 AND $rightSidebarElements == 0} col2l{else} col2r{/if}">
-            <main id="content" style="padding: 1em 0; margin: 0;">
+            <main id="content" class="{$mode}_preview_content">
             {if $mode == 'preview'}
                 <div class="clearfix">
             {elseif $mode == 'save'}
                 <div class="clearfix">
-                    <div style="float: left; height: 75px"></div>
+                    <div class="{$mode}_preview_sizing"></div>
                     {$updertHooks}
                 {if $res}
                     <div class="serendipity_msg_important">{$CONST.ERROR}: <b>{$res}</b></div>

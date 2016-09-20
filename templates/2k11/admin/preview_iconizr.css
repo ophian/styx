@@ -116,3 +116,33 @@
     color: #777;
 }
 
+/* preview iframe styles only */
+
+/* on save and preview actions */
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#page {
+    border: 0 none;
+    margin: inherit;
+    width: 100%;
+    box-shadow: 0 none;
+}
+
+#content {
+    padding: 1em .5em;
+    margin: 0;
+}
+
+#content .xsave_preview_sizing {
+    float: left;
+    height: 75px
+}
+
+/* don't tyle content for preview */
+#content {
+    width: 100%;
+}
