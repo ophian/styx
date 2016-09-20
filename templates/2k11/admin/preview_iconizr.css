@@ -137,12 +137,7 @@ body {
     margin: 0;
 }
 
-#content .xsave_preview_sizing {
-    float: left;
-    height: 75px
-}
-
-/* don't tyle content for preview */
+/* wide content for preview */
 #content {
     width: 100%;
 }
