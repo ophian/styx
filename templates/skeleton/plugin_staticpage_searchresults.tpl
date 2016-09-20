@@ -3,9 +3,9 @@
     <h3>{$CONST.STATICPAGE_SEARCHRESULTS|sprintf:$staticpage_searchresults}</h3>
 
     <ul class="plainList">
-    {foreach from=$staticpage_results item="result"}
-        <li><a href="{$result.permalink|escape}" title="{$result.pagetitle|escape} ({$result.realname})">{$result.headline}</a>
-            <div class="page_result_content">{$result.content|strip_tags|truncate:200:"..."}</div>
+    {foreach from=$staticpage_results AS $result}
+        <li><a href="{$result.permalink|escape}" title="{$result.pagetitle|escape}">{if !empty($result.headline)}{$result.headline}{else}{$result.pagetitle|escape}{/if}</a> ({$result.realname|escape})
+            <div class="page_result_content">{$result.content|strip_tags|strip|truncate:200:"&hellip;"}</div>
         </li>
     {/foreach}
     </ul>

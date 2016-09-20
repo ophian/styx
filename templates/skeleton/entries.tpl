@@ -1,7 +1,7 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
-{foreach from=$entries item="dategroup"}
-    {foreach from=$dategroup.entries item="entry"}
-    {assign var="entry" value=$entry scope=parent}
+{foreach $entries AS $dategroup}
+    {foreach $dategroup.entries AS $entry}
+    {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
     <article class="post{if $dategroup.is_sticky} post_sticky{/if}">
         <header>
             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
@@ -10,9 +10,9 @@
         </header>
 
         <div class="post_content">
-        {if $entry.categories}{foreach from=$entry.categories item="entry_category"}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+        {if $entry.categories}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
         {$entry.body}
-        {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+        {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
         <a class="button read_more" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
         {/if}
         </div>
@@ -25,9 +25,9 @@
         <footer class="post_footer u-cf">
             <div class="post_meta">
             {if $entry.categories}
-                <span class="info_label">{$CONST.CATEGORIES}: </span>{foreach from=$entry.categories item="entry_category" name="categories"}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}
+                <span class="info_label">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
             {/if}
-            {if $entry.categories and $entry.has_comments} | {/if}
+            {if $entry.categories AND $entry.has_comments} | {/if}
             {if $entry.has_comments}
                 <a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a>
             {/if}
@@ -46,7 +46,7 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
-{if $is_single_entry and not $use_popups and not $is_preview}
+{if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
     {if $CONST.DATA_UNSUBSCRIBED}
         <p class="serendipity_msg_notice">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
     {/if}
@@ -70,7 +70,7 @@
         {serendipity_printTrackbacks entry=$entry.id}
     </section>
 {/if}
-{if $is_single_entry and not $is_preview}
+{if $is_single_entry AND NOT $is_preview}
     <section id="comments">
         <h3>{$CONST.COMMENTS}</h3>
 
@@ -87,14 +87,14 @@
     </section>
 
     <a id="feedback"></a>
-    {foreach from=$comments_messagestack item="message"}
+    {foreach $comments_messagestack AS $message}
     <p class="serendipity_msg_important">{$message}</p>
     {/foreach}
     {if $is_comment_added}
     <p class="serendipity_msg_notice">{$CONST.COMMENT_ADDED}</p>
     {elseif $is_comment_moderate}
     <p class="serendipity_msg_important">{$CONST.COMMENT_ADDED}{$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
-    {elseif not $entry.allow_comments}
+    {elseif NOT $entry.allow_comments}
     <p class="serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</p>
     {else}
     <section id="reply">
@@ -107,11 +107,11 @@
     </article>
     {/foreach}
 {foreachelse}
-    {if not $plugin_clean_page}
+    {if NOT $plugin_clean_page}
     <p class="serendipity_msg_notice">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
-{if not $is_preview}
+{if NOT $is_preview}
     {if $staticpage_pagetitle == ''}
     <nav class="pager u-cf" role="navigation">
         <p>{$footer_info}</p>

@@ -27,12 +27,15 @@
         {if $res}
             <div class="serendipity_msg_important">{$CONST.ERROR}: <b>{$res}</b></div>
         {else}
-            {if $lastSavedEntry}
-            <script type="text/javascript">$(document).ready(function() {
-                parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-            });
+            {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
+
+            <script type="text/javascript">
+                window.onload = function() {ldelim}
+                    parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
+                {rdelim};
             </script>
-            {/if}
+           {/if}
+
             <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
             <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
         {/if}
