@@ -382,23 +382,23 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     if ($joinauthors) {
         $serendipity['fullCountQuery'] .= "
                     LEFT JOIN {$serendipity['dbPrefix']}authors a
-                        ON e.authorid = a.authorid";
+                           ON e.authorid = a.authorid";
     }
 
     if ($joincategories || !isset($serendipity['enableACL']) || $serendipity['enableACL'] == true) {
         // Category joins are REQUIRED when the ACLs are enabled.
         $serendipity['fullCountQuery'] .= "
                     LEFT JOIN {$serendipity['dbPrefix']}entrycat ec
-                        ON e.id = ec.entryid
+                           ON e.id = ec.entryid
                     LEFT JOIN {$serendipity['dbPrefix']}category c
-                        ON ec.categoryid = c.categoryid";
+                           ON ec.categoryid = c.categoryid";
     }
 
     if ($joinown) {
         $cond['joins'] .= $joinown;
     }
 
-    $serendipity['fullCountQuery'] .="
+    $serendipity['fullCountQuery'] .= "
                     {$cond['joins']}
                     {$cond['and']}";
 
@@ -997,6 +997,11 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null) {
 function serendipity_getTotalEntries() {
     global $serendipity;
 
+    if (empty($serendipity['fullCountQuery'])) {
+        $serendipity['fullCountQuery'] = "
+                FROM
+                    {$serendipity['dbPrefix']}entries AS e";
+    }
     // The unique query condition was built previously in serendipity_fetchEntries()
     if ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'pdo-sqlite' || $serendipity['dbType'] == 'sqlite3oo') {
         $querystring  = "SELECT count(e.id) {$serendipity['fullCountQuery']} GROUP BY e.id";
