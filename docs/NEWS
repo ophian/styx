@@ -1,6 +1,9 @@
 Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
+  * Added new theme "Skeleton".  Skeleton is a responsive, mobile first
+    HTML5/CSS3 theme built on the Skeleton framework.
+
   * Update to Smarty 3.1.31-dev/23
 
   * Added two API functions for strpos() array neddles and
@@ -391,7 +394,7 @@ Version 2.0.3 (January 4th, 2016)
 
   * Fix XSS in backend comment editing form for logged-in authors,
     thanks to Onur Yilmaz and Robert Abela from Netsparker.com
-          
+
   * Fix some backend entry form related event messages
 
 
