@@ -232,86 +232,92 @@ $template_config_groups = array(
 //                Any custom variables can later be queried inside the .tpl files through
 //                  {if $entry.properties.key_value == 'true'}...{/if}
 
-// Function to get the content of a non-boolean entry variable
-function entry_option_get_value($property_key, &$eventData) {
-    global $serendipity;
-    if (isset($eventData['properties'][$property_key])) {
-        return $eventData['properties'][$property_key];
+if (!function_exists('entry_option_get_value')) {
+    // Function to get the content of a non-boolean entry variable
+    function entry_option_get_value($property_key, &$eventData) {
+        global $serendipity;
+        if (isset($eventData['properties'][$property_key])) {
+            return $eventData['properties'][$property_key];
+        }
+        if (isset($serendipity['POST']['properties'][$property_key])) {
+            return $serendipity['POST']['properties'][$property_key];
+        }
+        return false;
     }
-    if (isset($serendipity['POST']['properties'][$property_key])) {
-        return $serendipity['POST']['properties'][$property_key];
-    }
-    return false;
 }
 
-// Function to store form values into the serendipity database, so that they will be retrieved later.
-function entry_option_store($property_key, $property_val, &$eventData) {
-    global $serendipity;
+if (!function_exists('entry_option_store')) {
+    // Function to store form values into the serendipity database, so that they will be retrieved later.
+    function entry_option_store($property_key, $property_val, &$eventData) {
+        global $serendipity;
 
-    $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key) . "'";
-    serendipity_db_query($q);
-
-    if (!empty($property_val)) {
-        $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($property_key) . "', '" . serendipity_db_escape_string($property_val) . "')";
+        $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key) . "'";
         serendipity_db_query($q);
+
+        if (!empty($property_val)) {
+            $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($property_key) . "', '" . serendipity_db_escape_string($property_val) . "')";
+            serendipity_db_query($q);
+        }
     }
 }
 
-function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$addData) {
-    global $serendipity;
+if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
+    function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$addData) {
+        global $serendipity;
 
-    // Check what Event is coming in, only react to those we want.
-    switch($event) {
+        // Check what Event is coming in, only react to those we want.
+        switch($event) {
 
-        // Displaying the backend entry section
-        case 'backend_display':
-            // INFO: The whole 'entryproperties' injection is easiest to store any data you want. The entryproperties plugin
-            // should actually not even be required to do this, as serendipity loads all properties regardless of the installed plugin
+            // Displaying the backend entry section
+            case 'backend_display':
+                // INFO: The whole 'entryproperties' injection is easiest to store any data you want. The entryproperties plugin
+                // should actually not even be required to do this, as serendipity loads all properties regardless of the installed plugin
 
-            // The name of the variable
-            $entry_subtitle_key = 'entry_subtitle';
-            $entry_specific_header_image_key = 'entry_specific_header_image';
+                // The name of the variable
+                $entry_subtitle_key = 'entry_subtitle';
+                $entry_specific_header_image_key = 'entry_specific_header_image';
 
-            // Check what our special key is set to (checks both POST data as well as the actual data)
-            $is_entry_subtitle = (function_exists('serendipity_specialchars') ? serendipity_specialchars(entry_option_get_value($entry_subtitle_key, $eventData)) : htmlspecialchars(entry_option_get_value($entry_subtitle_key, $eventData), ENT_COMPAT, LANG_CHARSET));
-            $is_entry_specific_header_image = entry_option_get_value ($entry_specific_header_image_key, $eventData);
+                // Check what our special key is set to (checks both POST data as well as the actual data)
+                $is_entry_subtitle = (function_exists('serendipity_specialchars') ? serendipity_specialchars(entry_option_get_value($entry_subtitle_key, $eventData)) : htmlspecialchars(entry_option_get_value($entry_subtitle_key, $eventData), ENT_COMPAT, LANG_CHARSET));
+                $is_entry_specific_header_image = entry_option_get_value ($entry_specific_header_image_key, $eventData);
 
-            // This is the actual HTML output on the backend screen.
-            //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
-            echo '<div class="entryproperties">';
-            echo '  <input type="hidden" value="true" name="serendipity[propertyform]">';
-            echo '  <h3>' . THEME_ENTRY_PROPERTIES_HEADING . '</h3>';
-            echo '      <div class="entryproperties_customfields adv_opts_box">';
-            echo '          <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>';
-            echo '          <span>' . THEME_CUSTOM_FIELD_DEFINITION . '</span>';
-            echo '          <div class="serendipity_customfields clearfix">';
-            echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $entry_subtitle_key . '">';
-            echo '                  <label for="'. $entry_subtitle_key . '">' . THEME_ENTRY_SUBTITLE . '</label>';
-            echo '                  <input id="' . $entry_subtitle_key . '" type="text" value="' . $is_entry_subtitle . '" name="serendipity[properties][' . $entry_subtitle_key . ']" style="width: 100%;">';
-            echo '              </div>';
-            echo '          </div>';
-            echo '          <div class="serendipity_customfields clearfix">';
-            echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $entry_specific_header_image_key . '">';
-            echo '                  <label for="' . $entry_specific_header_image_key . '">' . THEME_ENTRY_HEADER_IMAGE. '</label>';
-            echo '                  <textarea data-configitem="' . $entry_specific_header_image_key . '" name="serendipity[properties][' . $entry_specific_header_image_key . ']" class="change_preview" id="prop' . $entry_specific_header_image_key . '">' . $is_entry_specific_header_image . '</textarea>';
-            echo '                  <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture"></span><span class="visuallyhidden">' . MEDIA . '</span></button>';
-            echo '                  <figure id="' . $entry_specific_header_image_key . '_preview">';
-            echo '                      <figcaption>' . PREVIEW . '</figcaption>';
-            echo '                      <img alt="" src="' . $is_entry_specific_header_image . '">';
-            echo '                  </figure>';
-            echo '              </div>';
-            echo '          </div>';
-            echo '      </div>';
-            echo ' </div>';
+                // This is the actual HTML output on the backend screen.
+                //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
+                echo '<div class="entryproperties">';
+                echo '  <input type="hidden" value="true" name="serendipity[propertyform]">';
+                echo '  <h3>' . THEME_ENTRY_PROPERTIES_HEADING . '</h3>';
+                echo '      <div class="entryproperties_customfields adv_opts_box">';
+                echo '          <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>';
+                echo '          <span>' . THEME_CUSTOM_FIELD_DEFINITION . '</span>';
+                echo '          <div class="serendipity_customfields clearfix">';
+                echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $entry_subtitle_key . '">';
+                echo '                  <label for="'. $entry_subtitle_key . '">' . THEME_ENTRY_SUBTITLE . '</label>';
+                echo '                  <input id="' . $entry_subtitle_key . '" type="text" value="' . $is_entry_subtitle . '" name="serendipity[properties][' . $entry_subtitle_key . ']" style="width: 100%;">';
+                echo '              </div>';
+                echo '          </div>';
+                echo '          <div class="serendipity_customfields clearfix">';
+                echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $entry_specific_header_image_key . '">';
+                echo '                  <label for="' . $entry_specific_header_image_key . '">' . THEME_ENTRY_HEADER_IMAGE. '</label>';
+                echo '                  <textarea data-configitem="' . $entry_specific_header_image_key . '" name="serendipity[properties][' . $entry_specific_header_image_key . ']" class="change_preview" id="prop' . $entry_specific_header_image_key . '">' . $is_entry_specific_header_image . '</textarea>';
+                echo '                  <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture"></span><span class="visuallyhidden">' . MEDIA . '</span></button>';
+                echo '                  <figure id="' . $entry_specific_header_image_key . '_preview">';
+                echo '                      <figcaption>' . PREVIEW . '</figcaption>';
+                echo '                      <img alt="" src="' . $is_entry_specific_header_image . '">';
+                echo '                  </figure>';
+                echo '              </div>';
+                echo '          </div>';
+                echo '      </div>';
+                echo ' </div>';
 
-            break;
+                break;
 
-        // To store the value of our entryproperties
-        case 'backend_publish':
-        case 'backend_save':
-            // Call the helper function with all custom variables here.
-            entry_option_store('entry_subtitle', $serendipity['POST']['properties']['entry_subtitle'], $eventData);
-            entry_option_store('entry_specific_header_image', $serendipity['POST']['properties']['entry_specific_header_image'], $eventData);
-            break;
+            // To store the value of our entryproperties
+            case 'backend_publish':
+            case 'backend_save':
+                // Call the helper function with all custom variables here.
+                entry_option_store('entry_subtitle', $serendipity['POST']['properties']['entry_subtitle'], $eventData);
+                entry_option_store('entry_specific_header_image', $serendipity['POST']['properties']['entry_specific_header_image'], $eventData);
+                break;
+        }
     }
 }

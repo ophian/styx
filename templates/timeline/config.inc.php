@@ -325,94 +325,100 @@ $template_config_groups = array(
 //                Any custom variables can later be queried inside the .tpl files through
 //                  {if $entry.properties.key_value == 'true'}...{/if}
 
-// Function to get the content of a non-boolean entry variable
-function entry_option_get_value($property_key, &$eventData) {
-    global $serendipity;
-    if (isset($eventData['properties'][$property_key])) {
-        return $eventData['properties'][$property_key];
+if (!function_exists('entry_option_get_value')) {
+    // Function to get the content of a non-boolean entry variable
+    function entry_option_get_value($property_key, &$eventData) {
+        global $serendipity;
+        if (isset($eventData['properties'][$property_key])) {
+            return $eventData['properties'][$property_key];
+        }
+        if (isset($serendipity['POST']['properties'][$property_key])) {
+            return $serendipity['POST']['properties'][$property_key];
+        }
+        return false;
     }
-    if (isset($serendipity['POST']['properties'][$property_key])) {
-        return $serendipity['POST']['properties'][$property_key];
-    }
-    return false;
 }
 
-// Function to store form values into the serendipity database, so that they will be retrieved later.
-function entry_option_store($property_key, $property_val, &$eventData) {
-    global $serendipity;
+if (!function_exists('entry_option_store')) {
+    // Function to store form values into the serendipity database, so that they will be retrieved later.
+    function entry_option_store($property_key, $property_val, &$eventData) {
+        global $serendipity;
 
-    $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key) . "'";
-    serendipity_db_query($q);
-
-    if (!empty($property_val)) {
-        $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($property_key) . "', '" . serendipity_db_escape_string($property_val) . "')";
+        $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key) . "'";
         serendipity_db_query($q);
+
+        if (!empty($property_val)) {
+            $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($property_key) . "', '" . serendipity_db_escape_string($property_val) . "')";
+            serendipity_db_query($q);
+        }
     }
 }
 
-function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$addData) {
-    global $serendipity;
+if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
+    function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$addData) {
+        global $serendipity;
 
-    // Check what Event is coming in, only react to those we want.
-    switch($event) {
+        // Check what Event is coming in, only react to those we want.
+        switch($event) {
 
-        // Displaying the backend entry section
-        case 'backend_display':
-            // INFO: The whole 'entryproperties' injection is easiest to store any data you want. The entryproperties plugin
-            // should actually not even be required to do this, as serendipity loads all properties regardless of the installed plugin
+            // Displaying the backend entry section
+            case 'backend_display':
+                // INFO: The whole 'entryproperties' injection is easiest to store any data you want. The entryproperties plugin
+                // should actually not even be required to do this, as serendipity loads all properties regardless of the installed plugin
 
-            // The name of the variable
-            $timeline_image_key = 'timeline_image';
+                // The name of the variable
+                $timeline_image_key = 'timeline_image';
 
-            // Check what our special key is set to (checks both POST data as well as the actual data)
-            $is_timeline_image = entry_option_get_value ($timeline_image_key, $eventData);
+                // Check what our special key is set to (checks both POST data as well as the actual data)
+                $is_timeline_image = entry_option_get_value ($timeline_image_key, $eventData);
 
-            // This is the actual HTML output on the backend screen.
-            //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
-            echo '<div class="entryproperties">';
-            echo '  <input type="hidden" value="true" name="serendipity[propertyform]">';
-            echo '      <div class="entryproperties_customfields adv_opts_box">';
-            echo '          <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>';
-            echo '          <span>' . THEME_CUSTOM_FIELD_DEFINITION . '</span>';
-            echo '          <div class="serendipity_customfields clearfix">';
-            echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $timeline_image_key . '">';
-            echo '                  <label for="' . $timeline_image_key . '">' . THEME_ENTRY_IMAGE. '</label>';
-            echo '                  <textarea data-configitem="' . $timeline_image_key . '" name="serendipity[properties][' . $timeline_image_key . ']" class="change_preview" id="prop' . $timeline_image_key . '">' . $is_timeline_image . '</textarea>';
-            echo '                  <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture"></span><span class="visuallyhidden">' . MEDIA . '</span></button>';
-            echo '                  <figure id="' . $timeline_image_key . '_preview">';
-            echo '                      <figcaption>' . PREVIEW . '</figcaption>';
-            echo '                      <img alt="" src="' . $is_timeline_image . '">';
-            echo '                  </figure>';
-            echo '              </div>';
-            echo '          </div>';
-            echo '      </div>';
-            echo ' </div>';
+                // This is the actual HTML output on the backend screen.
+                //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
+                echo '<div class="entryproperties">';
+                echo '  <input type="hidden" value="true" name="serendipity[propertyform]">';
+                echo '      <div class="entryproperties_customfields adv_opts_box">';
+                echo '          <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>';
+                echo '          <span>' . THEME_CUSTOM_FIELD_DEFINITION . '</span>';
+                echo '          <div class="serendipity_customfields clearfix">';
+                echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $timeline_image_key . '">';
+                echo '                  <label for="' . $timeline_image_key . '">' . THEME_ENTRY_IMAGE. '</label>';
+                echo '                  <textarea data-configitem="' . $timeline_image_key . '" name="serendipity[properties][' . $timeline_image_key . ']" class="change_preview" id="prop' . $timeline_image_key . '">' . $is_timeline_image . '</textarea>';
+                echo '                  <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture"></span><span class="visuallyhidden">' . MEDIA . '</span></button>';
+                echo '                  <figure id="' . $timeline_image_key . '_preview">';
+                echo '                      <figcaption>' . PREVIEW . '</figcaption>';
+                echo '                      <img alt="" src="' . $is_timeline_image . '">';
+                echo '                  </figure>';
+                echo '              </div>';
+                echo '          </div>';
+                echo '      </div>';
+                echo ' </div>';
 
-            break;
+                break;
 
-        // To store the value of our entryproperties
-        case 'backend_publish':
-        case 'backend_save':
-            // Call the helper function with all custom variables here.
-            entry_option_store('timeline_image', $serendipity['POST']['properties']['timeline_image'], $eventData);
-            break;
+            // To store the value of our entryproperties
+            case 'backend_publish':
+            case 'backend_save':
+                // Call the helper function with all custom variables here.
+                entry_option_store('timeline_image', $serendipity['POST']['properties']['timeline_image'], $eventData);
+                break;
 
-        case 'css':
-            $tfile = dirname(__FILE__) . '/' . $serendipity['template_loaded_config']['skinset'] . '_skin.css';
-            if ($tfile) {
-                $tfilecontent = str_replace('img/', 'templates/' . $serendipity['template'] . '/img/', @file_get_contents($tfile));
-            }
-            if (!empty($tfilecontent)) {
-                $eventData .= "/* Skinset styles loaded via theme config */ \n\n" . $tfilecontent . "\n\n";
-                $tfilecontent = ''; // so as not to have content in next condition since reusing var.
-            }
-            $tfile = dirname(__FILE__) . '/' . $serendipity['template_loaded_config']['colorset'] . '_style.css';
-            if ($tfile) {
-                $tfilecontent = str_replace('img/', 'templates/' . $serendipity['template'] . '/img/', @file_get_contents($tfile));
-            }
-            if (!empty($tfilecontent)) {
-                $eventData .= "/* Colorset styles loaded via theme config */ \n\n" . $tfilecontent . "\n\n";
-            }
-            break;
+            case 'css':
+                $tfile = dirname(__FILE__) . '/' . $serendipity['template_loaded_config']['skinset'] . '_skin.css';
+                if ($tfile) {
+                    $tfilecontent = str_replace('img/', 'templates/' . $serendipity['template'] . '/img/', @file_get_contents($tfile));
+                }
+                if (!empty($tfilecontent)) {
+                    $eventData .= "/* Skinset styles loaded via theme config */ \n\n" . $tfilecontent . "\n\n";
+                    $tfilecontent = ''; // so as not to have content in next condition since reusing var.
+                }
+                $tfile = dirname(__FILE__) . '/' . $serendipity['template_loaded_config']['colorset'] . '_style.css';
+                if ($tfile) {
+                    $tfilecontent = str_replace('img/', 'templates/' . $serendipity['template'] . '/img/', @file_get_contents($tfile));
+                }
+                if (!empty($tfilecontent)) {
+                    $eventData .= "/* Colorset styles loaded via theme config */ \n\n" . $tfilecontent . "\n\n";
+                }
+                break;
+        }
     }
 }
