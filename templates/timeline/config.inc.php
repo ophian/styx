@@ -30,81 +30,86 @@ if ($serendipity['GET']['adminModule'] == 'templates' || $serendipity['POST']['a
     }
 }
 
-// show elapsed time in words, such as x hours ago.
-function distanceOfTimeInWords($fromTime, $toTime = 0) {
-    $distanceInSeconds = round(abs($toTime - $fromTime));
-    $distanceInMinutes = round($distanceInSeconds / 60);
+if (!function_exists('distanceOfTimeInWords')) {
+    // show elapsed time in words, such as x hours ago.
+    function distanceOfTimeInWords($fromTime, $toTime = 0) {
+        $distanceInSeconds = round(abs($toTime - $fromTime));
+        $distanceInMinutes = round($distanceInSeconds / 60);
 
-    if ( $distanceInMinutes <= 1 ) {
-        if ( $distanceInSeconds < 60 ) {
-            return ELAPSED_LESS_THAN_MINUTE_AGO;
+        if ( $distanceInMinutes <= 1 ) {
+            if ( $distanceInSeconds < 60 ) {
+                return ELAPSED_LESS_THAN_MINUTE_AGO;
+            }
+            return ELAPSED_ONE_MINUTE_AGO;
         }
-        return ELAPSED_ONE_MINUTE_AGO;
+        if ( $distanceInMinutes < 45 ) {
+            return (sprintf(ELAPSED_MINUTES_AGO, $distanceInMinutes));
+        }
+        if ( $distanceInMinutes < 90 ) {
+            return ELAPSED_ABOUT_ONE_HOUR_AGO;
+        }
+        // less than 24 hours
+        if ( $distanceInMinutes < 1440 ) {
+            return (sprintf(ELAPSED_HOURS_AGO, round(floatval($distanceInMinutes) / 60.0)));
+        }
+        //less than 48hours
+        if ( $distanceInMinutes < 2880 ) {
+            return ELAPSED_ONE_DAY_AGO;
+        }
+        // less than 30 days
+        if ( $distanceInMinutes < 43200 ) {
+            return (sprintf(ELAPSED_DAYS_AGO, round(floatval($distanceInMinutes) / 1440)));
+        }
+        //less than 60 days
+        if ( $distanceInMinutes < 86400 ) {
+            return ELAPSED_ABOUT_ONE_MONTH_AGO;
+        }
+        // less than 365 days
+        if ( $distanceInMinutes < 525600 ) {
+            return (sprintf(ELAPSED_MONTHS_AGO, round(floatval($distanceInMinutes) / 43200)));
+        }
+        // less than 2 years
+        if ( $distanceInMinutes < 1051199 ) {
+            return ELAPSED_ABOUT_ONE_YEAR_AGO;
+        }
+        return (sprintf(ELAPSED_OVER_YEARS_AGO, round(floatval($distanceInMinutes) / 525600)));
     }
-    if ( $distanceInMinutes < 45 ) {
-        return (sprintf(ELAPSED_MINUTES_AGO, $distanceInMinutes));
-    }
-    if ( $distanceInMinutes < 90 ) {
-        return ELAPSED_ABOUT_ONE_HOUR_AGO;
-    }
-    // less than 24 hours
-    if ( $distanceInMinutes < 1440 ) {
-        return (sprintf(ELAPSED_HOURS_AGO, round(floatval($distanceInMinutes) / 60.0)));
-    }
-    //less than 48hours
-    if ( $distanceInMinutes < 2880 ) {
-        return ELAPSED_ONE_DAY_AGO;
-    }
-    // less than 30 days
-    if ( $distanceInMinutes < 43200 ) {
-        return (sprintf(ELAPSED_DAYS_AGO, round(floatval($distanceInMinutes) / 1440)));
-    }
-    //less than 60 days
-    if ( $distanceInMinutes < 86400 ) {
-        return ELAPSED_ABOUT_ONE_MONTH_AGO;
-    }
-    // less than 365 days
-    if ( $distanceInMinutes < 525600 ) {
-        return (sprintf(ELAPSED_MONTHS_AGO, round(floatval($distanceInMinutes) / 43200)));
-    }
-    // less than 2 years
-    if ( $distanceInMinutes < 1051199 ) {
-        return ELAPSED_ABOUT_ONE_YEAR_AGO;
-    }
-    return (sprintf(ELAPSED_OVER_YEARS_AGO, round(floatval($distanceInMinutes) / 525600)));
 }
 
-// smarty function to use distanceOfTimeInWords function
-// call from tpl as {elapsed_time_words from_time=$comment.timestamp}
-$serendipity['smarty']->register_function('elapsed_time_words', 'timeAgoInWords');
+if (!function_exists('timeAgoInWords')) {
 
-function timeAgoInWords($params, &$smarty) {
+    function timeAgoInWords($params, $template) {
         return distanceOfTimeInWords($params['from_time'], time());
     }
+    // smarty function to use distanceOfTimeInWords function
+    // call from tpl as {elapsed_time_words from_time=$comment.timestamp}
+    $serendipity['smarty']->registerPlugin('function', 'elapsed_time_words', 'timeAgoInWords');
+}
+
 
 //  Used to determine if entry image begins with <iframe,<embed,<object.  See entries.tpl
 function is_in_string($string, $search) {
-  $array = explode(',', $search);
-  foreach($array AS $idx => $searchval) {
-  if (strpos($string, $searchval) === 0) {
-    return true;
-  }
-  }
-  return false;
+    $array = explode(',', $search);
+    foreach($array AS $idx => $searchval) {
+        if (strpos($string, $searchval) === 0) {
+            return true;
+        }
+    }
+    return false;
 }
 $serendipity['smarty']->registerPlugin('modifier', 'is_in_string', 'is_in_string');
 
 if (class_exists('serendipity_event_entryproperties')) {
-    $ep_msg=THEME_EP_YES;
-    } else {
-    $ep_msg=THEME_EP_NO;
+    $ep_msg = THEME_EP_YES;
+} else {
+    $ep_msg = THEME_EP_NO;
 }
 
 $template_config = array(
     array(
-         'var'          => 'sidebars',
-         'type'         => 'hidden',
-         'value'        => 'right,footer,hide',
+        'var'           => 'sidebars',
+        'type'          => 'hidden',
+        'value'         => 'right,footer,hide',
     ),
     array(
         'var'           => 'theme_instructions',
@@ -191,7 +196,8 @@ $template_config = array(
         'name'          => CATEGORY_RSS_ON_ARCHIVE,
         'type'          => 'boolean',
         'default'       => true,
-    ),    array(
+    ),
+    array(
         'var'           => 'tags_on_archive',
         'name'          => TAGS_ON_ARCHIVE,
         'description'   => TAGS_ON_ARCHIVE_DESC,
@@ -209,12 +215,12 @@ $template_config = array(
         'name'          => SOCIAL_ICONS_AMOUNT,
         'type'          => 'string',
         'default'       => '2',
-    ),
+    )
 );
 
 // register footer sidebar with smarty
 $FooterSidebarElements = serendipity_plugin_api::count_plugins('footer');
-$serendipity['smarty']->assign_by_ref('FooterSidebarElements', $FooterSidebarElements);
+$serendipity['smarty']->assignByRef('FooterSidebarElements', $FooterSidebarElements);
 
     //$template_global_config = array('navigation' => true);
     //$template_loaded_config = serendipity_loadThemeOptions($template_config, $serendipity['smarty_vars']['template_option'], true);
@@ -283,19 +289,18 @@ for ($i = 0; $i < $template_loaded_config['social_icons_amount']; $i++) {
         'url'               => $template_loaded_config['social_icon' . $i . 'url'],
     );
 }
-$serendipity['smarty']->assign_by_ref('socialicons', $socialicons);
+$serendipity['smarty']->assignByRef('socialicons', $socialicons);
 
 function getIcon($service) {
    $icons = array('Amazon' => 'fa-amazon', 'Digg' => 'fa-digg', 'Dribbble' => 'fa-dribbble', 'Dropbox' => 'fa-dropbox', 'Facebook' => 'fa-facebook', 'Flickr' => 'fa-flickr', 'Github' => 'fa-github', 'Google' =>'fa-google', 'Google Plus' => 'fa-google-plus', 'Instagram' => 'fa-instagram', 'LastFM' => 'fa-lastfm', 'Linkedin' => 'fa-linkedin', 'Paypal' => 'fa-paypal', 'Pinterest' => 'fa-pinterest', 'RSS' => 'fa-rss', 'Skype' => 'fa-skype', 'Reddit' => 'fa-reddit', 'Stumbleupon' => 'fa-stumbleupon', 'Tumblr' => 'fa-tumblr', 'Twitter' => 'fa-twitter', 'Vimeo' => 'fa-vimeo', 'Vine' => 'fa-vine', 'Xing' => 'fa-xing', 'YouTube' => 'fa-youtube',);
    return $icons[$service];
 }
 
-$serendipity['smarty']->register_function('service_icon', 'getServiceIcon');
+$serendipity['smarty']->registerPlugin('function', 'service_icon', 'getServiceIcon');
 
-function getServiceIcon ($params, &$smarty) {
+function getServiceIcon ($params, $template) {
     return getIcon($params['from_service']);
 }
-
 
 $navlinks_collapse = array( 'use_corenav', 'amount');
 for ($i = 0; $i < $template_loaded_config['amount']; $i++) {
@@ -323,9 +328,13 @@ $template_config_groups = array(
 // Function to get the content of a non-boolean entry variable
 function entry_option_get_value($property_key, &$eventData) {
     global $serendipity;
-    if (isset($eventData['properties'][$property_key])) return $eventData['properties'][$property_key];
-    if (isset($serendipity['POST']['properties'][$property_key])) return $serendipity['POST']['properties'][$property_key];
-     return false;
+    if (isset($eventData['properties'][$property_key])) {
+        return $eventData['properties'][$property_key];
+    }
+    if (isset($serendipity['POST']['properties'][$property_key])) {
+        return $serendipity['POST']['properties'][$property_key];
+    }
+    return false;
 }
 
 // Function to store form values into the serendipity database, so that they will be retrieved later.
@@ -404,6 +413,6 @@ function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$add
             if (!empty($tfilecontent)) {
                 $eventData .= "/* Colorset styles loaded via theme config */ \n\n" . $tfilecontent . "\n\n";
             }
-        break;
+            break;
     }
 }
