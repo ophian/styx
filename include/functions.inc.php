@@ -365,7 +365,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
     }
 
     foreach ($data AS $k => $v) {
-        $data[$k] = implode("\n", $v);
+        $data[$k] = @trim(implode("\n", $v));
     }
 
     if (@is_file($serendipity['templatePath'] . $theme . '/config.inc.php')) {
@@ -389,9 +389,8 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
     }
 
     if ( $theme != 'default' && $theme != 'default-rtl'
-      && @is_dir($serendipity['templatePath'] . $theme . '/admin')
-      && strtolower($data['backend']) == 'yes' ) {
-
+                && @is_dir($serendipity['templatePath'] . $theme . '/admin')
+                && strtolower($data['backend']) == 'yes' ) {
         $data['custom_admin_interface'] = YES;
     } else {
         $data['custom_admin_interface'] = NO;
