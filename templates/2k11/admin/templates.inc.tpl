@@ -31,15 +31,18 @@
 
             <div class="clearfix equal_heights template_wrap">
                 <div class="template_preview">
-                {if $cur_tpl.fullsize_preview OR $cur_tpl.preview}
-                    {if $cur_tpl.fullsize_preview}
-                        <a class="media_fullsize" href="{$cur_tpl.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl.info.name}">
-                            <img src="{$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                        </a>
-                    {else}
-                        <img src="{$cur_tpl.preview}" alt="{$CONST.PREVIEW}" >
-                    {/if}
+            {if $cur_tpl.fullsize_preview OR $cur_tpl.preview}
+                {if $cur_tpl.fullsize_preview}
+
+                    <a class="media_fullsize" href="{$cur_tpl.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl.info.name}">
+                        <img src="{$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                    </a>
+                {else}
+
+                    <img src="{$cur_tpl.preview}" alt="{$CONST.PREVIEW}" >
                 {/if}
+            {/if}
+
                     <footer id="template_info_cur" class="template_info additional_info">
                         <dl class="clearfix">
                             <dt class="template_author">{$CONST.AUTHOR}:</dt>
@@ -50,20 +53,17 @@
                             <dd>{$cur_tpl.info.custom_config|default:$CONST.NO}</dd>
                             <dt class="template_admin">{$CONST.CUSTOM_ADMIN_INTERFACE}:</dt>
                             <dd>{$cur_tpl.info.custom_admin_interface}</dd>
-                            {if isset($cur_tpl.info.engine)}
-                            <dt class="template_description">Engine:</dt>
+                            {if isset($cur_tpl.info.engine)}<dt class="template_description">Engine:</dt>
                             <dd>{$cur_tpl.info.engine}</dd>
-                            {/if}
-                            {if isset($cur_tpl.info.summary)}
-                            <dt class="template_summary">{$CONST.SUMMARY}:</dt>
+                            {/if}{if isset($cur_tpl.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
                             <dd>{$cur_tpl.info.summary}</dd>
-                            {/if}
-                            {if isset($cur_tpl.info.description)}
-                            <dt class="template_description">{$CONST.DESCRIPTION}:</dt>
+                            {/if}{if isset($cur_tpl.info.description)}<dt class="template_description">{$CONST.DESCRIPTION}:</dt>
                             <dd>{$cur_tpl.info.description}</dd>
                             {/if}
+
                         </dl>
                         {if !$cur_tpl.info.custom_config}<p>{$CONST.STYLE_OPTIONS_NONE}</p>{/if}
+
                     </footer>
                 </div>
             </div>
@@ -71,52 +71,61 @@
             <button class="template_show_info button_link" type="button" data-href="#template_info_cur" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
             {if $cur_tpl.info.custom_config}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=editConfiguration" title="{$CONST.CONFIGURATION}">{$CONST.CONFIGURATION}</a>{/if}
             {if $cur_tpl.info.custom_admin_interface == $CONST.YES AND $cur_tpl.info.name != $cur_tpl_backend.info.name}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$template}{$info.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>{/if}
+
         </article>
 
-        {if $cur_template_backend}
-            <article class="clearfix current_backend_template">
-                <h3 title="{$cur_tpl_backend.info.name}">{$CONST.BACKEND}: {$cur_tpl_backend.info.name|truncate:25:"&hellip;"}</h3>
+    {if $cur_template_backend}
 
-                <div class="clearfix equal_heights template_wrap">
-                    <div class="template_preview">
-                    {if $cur_tpl_backend.fullsize_backend_preview OR $cur_tpl_backend.preview_backend}
-                        {if $cur_tpl_backend.fullsize_backend_preview}
-                            <a class="media_fullsize" href="{$cur_tpl_backend.fullsize_backend_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl_backend.info.name}">
-                                <img src="{$cur_tpl_backend.fullsize_backend_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                            </a>
-                        {else}
-                            <img src="{$cur_tpl_backend.preview_backend}" alt="{$CONST.PREVIEW}" >
-                        {/if}
-                    {/if}
-                        <footer id="template_info_cur_backend" class="template_info additional_info">
-                            <dl class="clearfix">
-                                <dt class="template_author">{$CONST.AUTHOR}:</dt>
-                                <dd>{$cur_tpl_backend.info.author}</dd>
-                                <dt class="template_date">{$CONST.LAST_UPDATED}:</dt>
-                                <dd>{$cur_tpl_backend.info.date}</dd>
-                            </dl>
-                        </footer>
-                    </div>
+        <article class="clearfix current_backend_template">
+            <h3 title="{$cur_tpl_backend.info.name}">{$CONST.BACKEND}: {$cur_tpl_backend.info.name|truncate:27:"&hellip;"}</h3>
+
+            <div class="clearfix equal_heights template_wrap">
+                <div class="template_preview">
+            {if $cur_tpl_backend.fullsize_backend_preview OR $cur_tpl_backend.preview_backend}
+                {if $cur_tpl_backend.fullsize_backend_preview}
+
+                    <a class="media_fullsize" href="{$cur_tpl_backend.fullsize_backend_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl_backend.info.name}">
+                        <img src="{$cur_tpl_backend.fullsize_backend_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                    </a>
+                {else}
+
+                    <img src="{$cur_tpl_backend.preview_backend}" alt="{$CONST.PREVIEW}" >
+                {/if}
+            {/if}
+
+                    <footer id="template_info_cur_backend" class="template_info additional_info">
+                        <dl class="clearfix">
+                            <dt class="template_author">{$CONST.AUTHOR}:</dt>
+                            <dd>{$cur_tpl_backend.info.author}</dd>
+                            <dt class="template_date">{$CONST.LAST_UPDATED}:</dt>
+                            <dd>{$cur_tpl_backend.info.date}</dd>
+                        </dl>
+                    </footer>
                 </div>
+            </div>
 
-                <button class="template_show_info button_link" type="button" data-href="#template_info_cur_backend" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
-            </article>
-        {/if}
+            <button class="template_show_info button_link" type="button" data-href="#template_info_cur_backend" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
+        </article>
+    {/if}
 
         {function name=templateBlock}
-            <li><article class="clearfix">
-                    <h3 title="{$template.info.name}">{$template.info.name|truncate:25:"&hellip;"}</h3>
+
+            <li>
+                <article class="clearfix">
+                    <h3 title="{$template.info.name}">{$template.info.name|truncate:27:"&hellip;"}</h3>
                     <div class="clearfix equal_heights template_wrap">
                         <div class="template_preview">
-                        {if $template.fullsize_preview OR $template.preview}
-                            {if $template.fullsize_preview}
-                                <a class="media_fullsize" href="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
-                                    <img src="{$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                                </a>
-                            {else}
-                                <img src="{$template.preview}" alt="{$CONST.PREVIEW}" >
-                            {/if}
+                    {if $template.fullsize_preview OR $template.preview}
+                        {if $template.fullsize_preview}
+
+                            <a class="media_fullsize" href="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
+                                <img src="{$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                            </a>
+                        {else}
+
+                            <img src="{$template.preview}" alt="{$CONST.PREVIEW}" >
                         {/if}
+                    {/if}
 
                             <footer id="template_info_{$key}" class="template_info additional_info">
                                 <dl class="clearfix">
@@ -128,37 +137,35 @@
                                     <dd>{$template.info.custom_config|default:$CONST.NO}</dd>
                                     <dt class="template_admin">{$CONST.CUSTOM_ADMIN_INTERFACE}:</dt>
                                     <dd>{if $template.info.custom_admin_interface}{$template.info.custom_admin_interface}{else}{$CONST.NO}{/if}</dd>
-                                    {if isset($template.info.engine)}
-                                    <dt class="template_description">Engine:</dt>
+                                    {if isset($template.info.engine)}<dt class="template_description">Engine:</dt>
                                     <dd>{$template.info.engine}</dd>
-                                    {/if}
-                                    {if isset($template.info.summary)}
-                                    <dt class="template_summary">{$CONST.SUMMARY}:</dt>
+                                    {/if}{if isset($template.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
                                     <dd>{$template.info.summary}</dd>
-                                    {/if}
-                                    {if isset($template.info.description)}
-                                    <dt class="template_description">{$CONST.DESCRIPTION}:</dt>
+                                    {/if}{if isset($template.info.description)}<dt class="template_description">{$CONST.DESCRIPTION}:</dt>
                                     <dd>{$template.info.description}</dd>
                                     {/if}
+
                                 </dl>
                             </footer>
                         </div>
                     </div>
 
                     <button class="template_show_info button_link" type="button" data-href="#template_info_{$key}" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
-                {if $template.demoURL}
-                    <a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank"><span class="icon-search"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>
-                {/if}
+                    {if $template.demoURL}<a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank"><span class="icon-search"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>{/if}
                 {if !$template.unmetRequirements}
                     {if $template.info.custom_admin_interface == $CONST.YES AND $cur_tpl_backend.info.name != $template.info.name}
+
                     <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-frontend&amp;serendipity[theme]={$key}{$template.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>
                     <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$key}{$template.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>
                     {else}
+
                     <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install&amp;serendipity[theme]={$key}{$template.info.customURI}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>
                     {/if}
                 {else}
+
                     <span class="unmet_requirements msg_error"><span class="icon-attention-circled"></span> {$template.unmetRequirements}></span>
                 {/if}
+
                 </article>
             </li>
         {/function}
