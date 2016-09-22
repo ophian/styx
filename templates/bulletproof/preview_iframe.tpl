@@ -23,7 +23,7 @@
         <![endif]-->
         <!-- additional colorset stylesheet -->
         <link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}{$templatePath}{$template}/{$template_option.colorset}_style.css" />
-        {if $mode == 'save'}}
+        {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
 
         <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
         {/if}
