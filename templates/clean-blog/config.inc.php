@@ -7,65 +7,68 @@ if (IN_serendipity !== true) {
 
 $serendipity['smarty']->assign('archiveURL', serendipity_rewriteURL(PATH_ARCHIVE));
 
-// show elapsed time in words, such as x hours ago.
-function distanceOfTimeInWords($fromTime, $toTime = 0) {
-    $distanceInSeconds = round(abs($toTime - $fromTime));
-    $distanceInMinutes = round($distanceInSeconds / 60);
-       
-    if ( $distanceInMinutes <= 1 ) {
-        if ( $distanceInSeconds < 60 ) {
-            return ELAPSED_LESS_THAN_MINUTE_AGO;
+if (!function_exists('distanceOfTimeInWords')) {
+    // show elapsed time in words, such as x hours ago.
+    function distanceOfTimeInWords($fromTime, $toTime = 0) {
+        $distanceInSeconds = round(abs($toTime - $fromTime));
+        $distanceInMinutes = round($distanceInSeconds / 60);
+
+        if ( $distanceInMinutes <= 1 ) {
+            if ( $distanceInSeconds < 60 ) {
+                return ELAPSED_LESS_THAN_MINUTE_AGO;
+            }
+            return ELAPSED_ONE_MINUTE_AGO;
         }
-        return ELAPSED_ONE_MINUTE_AGO;
+        if ( $distanceInMinutes < 45 ) {
+            return (sprintf(ELAPSED_MINUTES_AGO, $distanceInMinutes));
+        }
+        if ( $distanceInMinutes < 90 ) {
+            return ELAPSED_ABOUT_ONE_HOUR_AGO;
+        }
+        // less than 24 hours
+        if ( $distanceInMinutes < 1440 ) {
+            return (sprintf(ELAPSED_HOURS_AGO, round(floatval($distanceInMinutes) / 60.0)));
+        }
+        //less than 48hours
+        if ( $distanceInMinutes < 2880 ) {
+            return ELAPSED_ONE_DAY_AGO;
+        }
+        // less than 30 days
+        if ( $distanceInMinutes < 43200 ) {
+            return (sprintf(ELAPSED_DAYS_AGO, round(floatval($distanceInMinutes) / 1440)));
+        }
+        //less than 60 days
+        if ( $distanceInMinutes < 86400 ) {
+            return ELAPSED_ABOUT_ONE_MONTH_AGO;
+        }
+        // less than 365 days
+        if ( $distanceInMinutes < 525600 ) {
+            return (sprintf(ELAPSED_MONTHS_AGO, round(floatval($distanceInMinutes) / 43200)));
+        }
+        // less than 2 years
+        if ( $distanceInMinutes < 1051199 ) {
+            return ELAPSED_ABOUT_ONE_YEAR_AGO;
+        }
+        return (sprintf(ELAPSED_OVER_YEARS_AGO, round(floatval($distanceInMinutes) / 525600)));
     }
-    if ( $distanceInMinutes < 45 ) {
-        return (sprintf(ELAPSED_MINUTES_AGO, $distanceInMinutes));
-    }
-    if ( $distanceInMinutes < 90 ) {
-        return ELAPSED_ABOUT_ONE_HOUR_AGO;
-    }
-    // less than 24 hours
-    if ( $distanceInMinutes < 1440 ) {
-        return (sprintf(ELAPSED_HOURS_AGO, round(floatval($distanceInMinutes) / 60.0)));
-    }
-    //less than 48hours
-    if ( $distanceInMinutes < 2880 ) {
-        return ELAPSED_ONE_DAY_AGO;
-    }
-    // less than 30 days
-    if ( $distanceInMinutes < 43200 ) {
-        return (sprintf(ELAPSED_DAYS_AGO, round(floatval($distanceInMinutes) / 1440)));
-    }
-    //less than 60 days
-    if ( $distanceInMinutes < 86400 ) {
-        return ELAPSED_ABOUT_ONE_MONTH_AGO;
-    }
-    // less than 365 days
-    if ( $distanceInMinutes < 525600 ) {
-        return (sprintf(ELAPSED_MONTHS_AGO, round(floatval($distanceInMinutes) / 43200)));
-    }
-    // less than 2 years
-    if ( $distanceInMinutes < 1051199 ) {
-        return ELAPSED_ABOUT_ONE_YEAR_AGO;
-    }
-    return (sprintf(ELAPSED_OVER_YEARS_AGO, round(floatval($distanceInMinutes) / 525600)));
 }
 
-// smarty function to use distanceOfTimeInWords function
-// call from tpl as {elapsed_time_words from_time=$comment.timestamp}
-$serendipity['smarty']->register_function('elapsed_time_words', 'timeAgoInWords');
+if (!function_exists('timeAgoInWords')) {
 
-function timeAgoInWords($params, &$smarty) {
+    function timeAgoInWords($params, $template) {
         return distanceOfTimeInWords($params['from_time'], time());
     }
+    // smarty function to use distanceOfTimeInWords function
+    // call from tpl as {elapsed_time_words from_time=$comment.timestamp}
+    $serendipity['smarty']->registerPlugin('function', 'elapsed_time_words', 'timeAgoInWords');
+}
 
 if (class_exists('serendipity_event_entryproperties')) {
-    $ep_msg=THEME_EP_YES;
-    } else {
-    $ep_msg=THEME_EP_NO;
-} 
+    $ep_msg = THEME_EP_YES;
+} else {
+    $ep_msg = THEME_EP_NO;
+}
 
-    
 $template_config = array(
     array(
         'var'           => 'theme_instructions',
@@ -104,7 +107,7 @@ $template_config = array(
         'name'          => ARCHIVE_HEADER_IMAGE,
         'type'          => 'media',
         'default'       => serendipity_getTemplateFile('img/archive-bg.jpg', 'serendipityHTTPPath', true)
-    ),    
+    ),
     array(
         'var'           => 'date_format',
         'name'          => ENTRY_DATE_FORMAT . ' (http://php.net/strftime)',
@@ -130,13 +133,13 @@ $template_config = array(
         'name'          => ENTRYBODY_DETAILED_ONLY,
         'type'          => 'boolean',
         'default'       => true,
-    ), 
+    ),
     array(
         'var'           => 'show_comment_link',
         'name'          => SHOW_COMMENT_LINK,
         'type'          => 'boolean',
         'default'       => false,
-    ),     
+    ),
     array(
         'var'           => 'categories_on_archive',
         'name'          => CATEGORIES_ON_ARCHIVE,
@@ -162,7 +165,7 @@ $template_config = array(
         'name'          => HOME_LINK_TEXT,
         'type'          => 'string',
         'default'       => $serendipity['blogTitle'],
-    ),    
+    ),
      array(
         'var'           => 'twitter_url',
         'name'          => TWITTER_URL,
@@ -180,31 +183,31 @@ $template_config = array(
         'name'          => RSS_URL,
         'type'          => 'string',
         'default'       => $serendipity['baseURL'] . 'index.php?/feeds/index.rss2',
-    ), 
+    ),
       array(
         'var'           => 'github_url',
         'name'          => GITHUB_URL,
         'type'          => 'string',
         'default'       => '',
-    ), 
+    ),
       array(
         'var'           => 'instagram_url',
         'name'          => INSTAGRAM_URL,
         'type'          => 'string',
         'default'       => '',
-    ),  
+    ),
         array(
         'var'           => 'pinterest_url',
         'name'          => PINTEREST_URL,
         'type'          => 'string',
         'default'       => '',
-    ),   
+    ),
         array(
         'var'           => 'copyright',
         'name'          => COPYRIGHT,
         'type'          => 'string',
         'default'       => 'Copyright &copy; ' . $serendipity['blogTitle'] . ' ' . date(Y) . ' | <a href="' . $serendipity['baseURL'] . 'serendipity_admin.php">Admin</a>',
-    ),  
+    )
 );
 
 // Collapse template options into groups.
@@ -220,7 +223,7 @@ for ($i = 0; $i < $template_loaded_config['amount']; $i++) {
 $template_config_groups = array(
     THEME_README        => array('theme_instructions'),
     THEME_HEADERS       => array('default_header_image', 'entry_default_header_image', 'staticpage_header_image', 'contactform_header_image', 'archive_header_image'),
-    THEME_PAGE_OPTIONS  => array('home_link_text', 'date_format', 'comment_time_format','subtitle_use_entrybody', 'entrybody_detailed_only', 'show_comment_link', 'categories_on_archive', 'tags_on_archive', 'copyright'),   
+    THEME_PAGE_OPTIONS  => array('home_link_text', 'date_format', 'comment_time_format','subtitle_use_entrybody', 'entrybody_detailed_only', 'show_comment_link', 'categories_on_archive', 'tags_on_archive', 'copyright'),
     THEME_SOCIAL_LINKS  => array('twitter_url', 'facebook_url', 'rss_url', 'github_url', 'instagram_url', 'pinterest_url'),
     THEME_NAVIGATION    => $navlinks_collapse
 );
@@ -232,9 +235,13 @@ $template_config_groups = array(
 // Function to get the content of a non-boolean entry variable
 function entry_option_get_value($property_key, &$eventData) {
     global $serendipity;
-    if (isset($eventData['properties'][$property_key])) return $eventData['properties'][$property_key];
-    if (isset($serendipity['POST']['properties'][$property_key])) return $serendipity['POST']['properties'][$property_key];
-     return false;    
+    if (isset($eventData['properties'][$property_key])) {
+        return $eventData['properties'][$property_key];
+    }
+    if (isset($serendipity['POST']['properties'][$property_key])) {
+        return $serendipity['POST']['properties'][$property_key];
+    }
+    return false;
 }
 
 // Function to store form values into the serendipity database, so that they will be retrieved later.
@@ -270,7 +277,7 @@ function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$add
             $is_entry_specific_header_image = entry_option_get_value ($entry_specific_header_image_key, $eventData);
 
             // This is the actual HTML output on the backend screen.
-            //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';  
+            //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
             echo '<div class="entryproperties">';
             echo '  <input type="hidden" value="true" name="serendipity[propertyform]">';
             echo '  <h3>' . THEME_ENTRY_PROPERTIES_HEADING . '</h3>';
@@ -278,11 +285,11 @@ function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$add
             echo '          <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>';
             echo '          <span>' . THEME_CUSTOM_FIELD_DEFINITION . '</span>';
             echo '          <div class="serendipity_customfields clearfix">';
-            echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $entry_subtitle_key . '">'; 
+            echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $entry_subtitle_key . '">';
             echo '                  <label for="'. $entry_subtitle_key . '">' . THEME_ENTRY_SUBTITLE . '</label>';
             echo '                  <input id="' . $entry_subtitle_key . '" type="text" value="' . $is_entry_subtitle . '" name="serendipity[properties][' . $entry_subtitle_key . ']" style="width: 100%;">';
             echo '              </div>';
-            echo '          </div>';            
+            echo '          </div>';
             echo '          <div class="serendipity_customfields clearfix">';
             echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $entry_specific_header_image_key . '">';
             echo '                  <label for="' . $entry_specific_header_image_key . '">' . THEME_ENTRY_HEADER_IMAGE. '</label>';
@@ -295,7 +302,7 @@ function serendipity_plugin_api_pre_event_hook($event, &$bag, &$eventData, &$add
             echo '              </div>';
             echo '          </div>';
             echo '      </div>';
-            echo ' </div>';    
+            echo ' </div>';
 
             break;
 
