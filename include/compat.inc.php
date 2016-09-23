@@ -71,8 +71,8 @@ function memSnap($tshow = '') {
  * @return string  constant error string as Exception
  */
 function fatalErrorShutdownHandler() {
-    $last_error = error_get_last();
-    if ($last_error['type'] === E_ERROR) {
+    $last_error = @error_get_last();
+    if (@$last_error['type'] === E_ERROR) {
         // fatal error send to
         errorToExceptionHandler(E_ERROR, $last_error['message'], $last_error['file'], $last_error['line']);
     }
@@ -85,8 +85,7 @@ function fatalErrorShutdownHandler() {
  * @param  int     error value
  * @return string  constant error string
  */
-function debug_ErrorLevelType($type)
-{
+function debug_ErrorLevelType($type) {
     switch($type)
     {
         case E_ERROR: // 1 //
@@ -125,7 +124,7 @@ function debug_ErrorLevelType($type)
 
 
 /**
- * Set our own exeption handler to convert all errors into exeptions automatically
+ * Set our own Exception handler to convert all errors into Exceptions automatically
  * function_exists() avoids 'cannot redeclare previously declared' fatal errors in XML feed context.
  *
  * See Notes about returning false
@@ -138,7 +137,7 @@ if (!function_exists('errorToExceptionHandler')) {
     function errorToExceptionHandler($errNo, $errStr, $errFile = '', $errLine = NULL, $errContext = array()) {
         global $serendipity;
 
-        // By default, we will continue our process flow, unless:
+        // By default, we will continue our process flow, unless exit is true:
         $exit = false;
 
         switch ($errNo) {
@@ -199,13 +198,25 @@ if (!function_exists('errorToExceptionHandler')) {
         if ($serendipity['production'] === 'debug') {
             echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br />\n";
             echo " == (When you copy this debug output to a forum or other places, make sure to remove your username/passwords, as they may be contained within function calls) == \n";
-            echo '<pre>';
-            debug_print_backtrace(); // Unlimited output, debugging shall show us everything. (sets requirement to 5.4+)
-            echo "</pre>";
+            echo "<pre>\n";
+            // trying to be as detailled as possible - but avoid using args containing sensibel data like passwords
+            if (function_exists('debug_backtrace') && version_compare(PHP_VERSION, '5.3.6') >= 0) {
+                if ( version_compare(PHP_VERSION, '5.4') >= 0 ) {
+                    $debugbacktrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 8);
+                } else {
+                    $debugbacktrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
+                }
+                print_r($debugbacktrace);
+            }
+            // print_r($args); // debugging [Use with care! Not to public, since holding password and credentials!!!]
+            // debugbacktrace is nice, but additional it is good to have the verbosity of SPL EXCEPTIONS, except for db connect errors
+            echo "</pre>\n";
             $debug_note = '';
-        } elseif ($serendipity['production'] === false) {
+        }
+        elseif ($serendipity['production'] === false) {
             echo " == ERROR-REPORT (BETA/ALPHA-BUILDS) == \n";
         }
+
         if ($serendipity['production'] !== true) {
             // Display error (production: FALSE and production: 'debug')
             if (!$serendipity['dbConn'] || $exit) {
@@ -214,6 +225,7 @@ if (!function_exists('errorToExceptionHandler')) {
                 echo $debug_note."\n\n";
                 echo '<pre style="white-space: pre-line;">'."\n\n";
                 throw new \ErrorException($type . ': ' . $errStr, 0, $errNo, $errFile, $errLine); // tracepath = all, if not ini_set('display_errors', 0);
+                echo "</pre>\n";
                 if (!$serendipity['dbConn'] || $exit) {
                     exit; // make sure to exit in case of database connection errors or fatal errors.
                 }

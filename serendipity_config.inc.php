@@ -289,8 +289,11 @@ for ($i = 0; $i < 15;  $i++ ) {
 // [internal callback function]: errorToExceptionHandler()
 if (is_callable($serendipity['errorhandler'], false, $callable_name)) {
     // set serendipity global error to exeption handler
-    set_error_handler($serendipity['errorhandler'], $errLevel); // depends on upper set error_reporting(), to see which errors are passed to the handler, switched by $serendipity['production'].
-    register_shutdown_function('fatalErrorShutdownHandler'); // make fatal errors not die in a white screen of death
+    try {
+        set_error_handler($serendipity['errorhandler'], $errLevel); // depends on upper set error_reporting(), to see which errors are passed to the handler, switched by $serendipity['production'].
+    } catch (Exception $e) {
+        register_shutdown_function('fatalErrorShutdownHandler'); // make fatal errors not die in a white screen of death
+    }
 }
 
 define('IS_up2date', version_compare($serendipity['version'], $serendipity['versionInstalled'], '<='));
