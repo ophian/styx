@@ -431,15 +431,21 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
     if (isset($_POST['REMOVE']) && serendipity_checkFormToken()) {
         if (is_array($_POST['serendipity']['plugin_to_remove'])) {
+            $msg = '<ul class="msg_success plainList plugins_removed">
+            <span><span class="icon-ok-circled"></span> ' . REMOVE_TICKED_PLUGINS . ": </span>\n";
             foreach ($_POST['serendipity']['plugin_to_remove'] AS $key) {
                 $plugin =& serendipity_plugin_api::load_plugin($key);
 
                 if ($plugin->serendipity_owner == '0' || $plugin->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers')) {
                     serendipity_plugin_api::remove_plugin_instance($key);
+                    $msg .= '<li>' . $key . ' - ' . DONE . "</li>\n";
                 }
             }
+            $msg .= "</ul>\n";
+            echo $msg;
         }
     }
+
     if (isset($_POST['SAVE'])) {
         $data['save'] = true;
         $data['timestamp'] = serendipity_strftime('%H:%M:%S');

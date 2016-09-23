@@ -1794,6 +1794,10 @@ form > .button_link:first-of-type,
     margin: 0 0 1em;
 }
 
+.plugins_removed li {
+    margin-left: 1.5em;
+}
+
 .filter_pane,
 #meta_data > div,
 .adv_opts_box,
