@@ -264,8 +264,8 @@ $tasks = array(
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
                     'function'  => '',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> Check the 2.1 changeLog doc/NEWS file for theme file changes',
-                    'desc'      => 'Serendipity 2.1.0 fixes an issue creating the entry ID, caused by a wrong javascript execution. Please read the docs/NEWS file to add this manually to your custom/unsupported theme.'),
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> Check the Styx 2.1 changeLog doc/NEWS file for theme file changes',
+                    'desc'      => 'Serendipity Styx 2.1.0 fixes an issue creating the entry ID, caused by a wrong javascript execution. Please read the docs/NEWS file to add this manually to your custom/unsupported theme.'),
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
