@@ -1,6 +1,25 @@
 Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
+
+Version 2.1-beta2 Styx (September 26th, 2016)
+------------------------------------------------------------------------
+
+  * [Security] Prevent moving files by using their directory name.
+    [Security] Possible SQL injection for entry category assignment.
+    [Security] Possible SQL injection for removing & adding a plugin.
+
+    All issues require a valid backend login.
+    Thanks to Hendrik Buchwald for finding this via their
+    RIPS source code analyzer (www.ripstech.com).
+
+  * [Security] Add new configuration option to enable fetching
+    local files for the media uploader. By default this is now
+    disabled to prevent Server Side Request Forgery (SSRF).
+    Thanks to Xu Yue for pointing this out!
+
+  * Added redirector message for "Page not found".
+
   * Added new theme "Skeleton".  Skeleton is a responsive, mobile first
     HTML5/CSS3 theme built on the Skeleton framework.
 
