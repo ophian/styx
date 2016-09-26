@@ -548,7 +548,7 @@
 @define('SIDEBAR_PLUGIN', 'sidebar plugin');
 @define('EVENT_PLUGIN', 'event plugin');
 @define('CLICK_HERE_TO_INSTALL_PLUGIN', 'Click here to install a new %s');
-@define('VERSION', 'version');
+@define('VERSION', 'Version');
 @define('INSTALL', 'Install');
 @define('ALREADY_INSTALLED', 'Already installed');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Select the plugin which you wish to install');
@@ -1121,4 +1121,10 @@
 
 @define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE file URL');
 @define('UPDATE_NOTIFICATION_URL_DESC', 'Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autopudate plugin. The default value to apply here is "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE" and points to a file containing Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
+
+@define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.');
+
+@define('CONFIG_ALLOW_LOCAL_URL', 'Allow to fetch data from local URLs');
+@define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server Side Request Forgers (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
+@define('REMOTE_FILE_INVALID', 'The given URL appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your blog configuration.');
 

@@ -37,11 +37,11 @@ while(($file = readdir($d)) !== false) {
     if ($file[0] == '.') {
         continue;
     }
-    
+
     if (!is_dir($base . '/' . $file)) {
         continue;
     }
-    
+
     $tfile = $base . '/' . $file . '/lang_en.inc.php';
     $sfile = $base . '/' . $file . '/lang_' . $lang . '.inc.php';
 
@@ -56,14 +56,14 @@ while(($file = readdir($d)) !== false) {
         echo "NOTICE: English language of $file does not exist.\n";
         continue;
     }
-    
+
     if (file_exists($sfile)) {
         echo "Parsing differences for $file - ";
         include $sfile;
         $current = get_defined_constants();
         $const['missing'][$file] = array_diff($current, $const['checked']);
         $const['checked'] = array_merge($const['checked'], $current);
-       
+
         echo count($const['missing'][$file]) . " missing constants.\n";
     } else {
         $const['missing'][$file] = $const['native'][$file];

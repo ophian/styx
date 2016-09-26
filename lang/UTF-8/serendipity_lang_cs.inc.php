@@ -26,8 +26,8 @@
  *  @revisionDate 2012/01/08
  */
 $i18n_filename_from = array (
-'�','c','d','�','e','�','l','l','n','�','r','r','s','�','t','�','u','�','z','�',
-'�','C','D','�','E','�','L','L','N','�','R','R','S','�','T','�','U','�','Z','�',
+'á','č','ď','é','ě','í','ĺ','ľ','ň','ó','ŕ','ř','ś','š','ť','ú','ů','ý','ź','ž',
+'Á','Č','Ď','É','Ě','Í','Ĺ','Ľ','Ň','Ó','Ŕ','Ř','Ś','Š','Ť','Ú','Ů','Ý','Ź','Ž',
 ' ',',','.','!',
 );
 $i18n_filename_to = array (
@@ -1153,4 +1153,10 @@ $i18n_filename_to = array (
 
 @define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE file URL');
 @define('UPDATE_NOTIFICATION_URL_DESC', 'Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autopudate plugin. The default value to apply here is "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE" and points to a file containing Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
+
+@define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.');
+
+@define('CONFIG_ALLOW_LOCAL_URL', 'Allow to fetch data from local URLs');
+@define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server Side Request Forgers (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
+@define('REMOTE_FILE_INVALID', 'The given URL appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your blog configuration.');
 

@@ -1125,3 +1125,9 @@
 @define('UPDATE_NOTIFICATION_URL', 'Serendipity RELEASE-Datei URL');
 @define('UPDATE_NOTIFICATION_URL_DESC', 'Bitte nur ändern, wenn Sie eine andere RELEASE-Datei Verortung für benutzerdefinierte Serendipity downloads, in Kombination mit dem Serendipity Autopudate Plugin, erstellen wollen. Der Standard-URL Inhalt verweist auf die Serendipity RELEASE-Datei: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE", die Versions Nummern für stabile and beta Ankündigungen für das Autoupdate per Zeile beinhaltet, zB. "stable:5.3.0".');
 
+@define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.');
+
+@define('CONFIG_ALLOW_LOCAL_URL', 'Allow to fetch data from local URLs');
+@define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server Side Request Forgers (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
+@define('REMOTE_FILE_INVALID', 'The given URL appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your blog configuration.');
+
