@@ -4,7 +4,7 @@
 # Arabic issue was translated by Way http://www.flyingway.com  cp1256
 /* vim: set sts=4 ts=4 expandtab : */
 
-@define('LANG_CHARSET', 'windows-1256');
+@define('LANG_CHARSET', 'cp1256');
 @define('DATE_LOCALES', 'Arabic, ar, ar_SA.windows-1256');
 @define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
