@@ -2,6 +2,10 @@ Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
 
+  * Update CKEditor to 4.5.11 and extend with the autogrow plugin,
+    which allows a flexible size of textareas.
+
+
 Version 2.1-beta2 Styx (September 26th, 2016)
 ------------------------------------------------------------------------
 
@@ -40,7 +44,7 @@ Version 2.1-beta2 Styx (September 26th, 2016)
   * Add all RFC 2616 methods to the serendipity REQUEST2 wrapper
 
 
-Version 2.1-beta1 Styx (September 3th, 2016)
+Version 2.1-beta1 Styx (September 3rd, 2016)
 ------------------------------------------------------------------------
 
   * Added serendipity_comment_author_self class to standard 2k11 theme

@@ -1,6 +1,6 @@
 /**
  * @fileOverview The Serendipity CKEDITOR custom config file:
- *               ckeditor_s9y_config.js, v. 1.17, last modified 2016-08-18 by Ian
+ *               ckeditor_s9y_config.js, v. 1.18, last modified 2016-09-27 by Ian
  */
 
 /**
@@ -129,7 +129,7 @@ CKEDITOR.editorConfig = function( config ) {
     /** SECTION: Custom Config Content Styles
         We can not use templates/xxx/admin/ as a path here, since we would need template and userTemplate path parts as dynamic vars
     */
-    // Add custom Serendipity styles to ckeditor content wysiwyg-mode, to repect css image floats
+    // Add custom Serendipity styles to ckeditor content wysiwyg-mode, to respect CSS image floats
     config.contentsCss = 'htmlarea/wysiwyg-style.css';
 
 
@@ -159,6 +159,11 @@ CKEDITOR.editorConfig = function( config ) {
     //config.wsc_lang = 'de_DE'; //Defaults to: 'en_US'
     //config.scayt_sLang = 'de_DE'; //Defaults to: 'en_US'
 
+    // Plugin: Autogrow textareas configuration
+    config.autoGrow_minHeight = 120;
+    config.autoGrow_maxHeight = 420;
+    config.autoGrow_bottomSpace = 50;
+    config.autoGrow_onStartup = true;
 
     // Remove custom toolbar buttons and plugins from all toolbars
     // A list of plugins that must not be loaded. This setting makes it possible to avoid loading some plugins defined in the CKEDITOR.config.plugins setting, without having to touch it and potentially break it.

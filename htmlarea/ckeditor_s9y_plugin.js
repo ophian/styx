@@ -1,6 +1,6 @@
 /**
  * @fileOverview A Serendipity custom CKEDITOR additional plugin creator file:
- *               ckeditor_s9y_plugin.js, v. 1.4, last modified 2014-11-19, by Ian
+ *               ckeditor_s9y_plugin.js, v. 1.5, last modified 2016-09-27, by Ian
  *
  * Please Note:  To use a custom plugin.js file, copy this file to templates/2k11/admin,
  *               or to your template in /templates/xxx/admin
@@ -13,11 +13,12 @@
 
  // Init CKEDITOR added plugins
  // Seperate by comma, no whitespace allowed, and keep last comma, since later on concatenated with Serendipity hooked plugins, eg MediaLibrary!
- // For some CKEDITOR plugin you need the widget plugin, which is added here.
- //    Plugin Dependencies: widget      Add-on Dependencies: Line Utilities and Clipboard
- // mediaembed is a fast and simple YouTube code CKEditor-Plugin: v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12) to avoid ACF restrictions
- // procurator and cheatsheet are S9y only plugins
- var customplugins = 'mediaembed,procurator,cheatsheet,';
+ // For some CKEDITOR plugin you need the "widget" plugin, which is added here.
+ //    Plugin Dependencies: "widget"      Add-on Dependencies: "Line Utilities" and "Clipboard"
+ // "mediaembed" is a fast and simple YouTube code CKEditor-Plugin: v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12) to avoid ACF restrictions
+ // "procurator" and "cheatsheet" are S9y only plugins
+ // "autogrow" is a ckeditor plugin for automatic sizing of textareas by entry content between a range
+ var customplugins = 'mediaembed,procurator,cheatsheet,autogrow,';
 
  // for any new instance when it is created - listen on load
  CKEDITOR.on('instanceReady', function(evt){
