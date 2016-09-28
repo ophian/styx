@@ -6,27 +6,33 @@
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,300,600">
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
-{serendipity_hookPlugin hook="backend_header" hookAll="true"}
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
+
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
     <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
-<script>window.onload = function() {ldelim}
-    parent.document.getElementById('serendipity_iframe').style.height = document.querySelector('html').offsetHeight + 'px';
-    parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-    parent.document.getElementById('serendipity_iframe').style.border = 0;
-{rdelim}
-</script>
+{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
+    <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
+{/if}
+    <script>window.onload = function() {ldelim}
+        parent.document.getElementById('serendipity_iframe').style.height = document.querySelector('html').offsetHeight + 'px';
+        parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
+        parent.document.getElementById('serendipity_iframe').style.border = 0;
+    {rdelim}
+    </script>
+    <style> .save_preview_content, .preview_preview_content { margin: .5em; } </style>
 </head>
-<body>
-    <main role="main">
+<body class="{$mode}_preview_body">
+    <main class="{$mode}_preview_content" role="main">
+        <div class="clearfix">
     {if $mode == 'preview'}
-        <div class="clearfix">
+        {$preview}
     {elseif $mode == 'save'}
-        <div class="clearfix">
-            <div style="float: left; height: 75px"></div>
+            <div class="{$mode}_preview_sizing"></div>
             {$updertHooks}
         {if $res}
-            <div class="serendipity_msg_important">{$CONST.ERROR}: <b>{$res}</b></div>
+            <span class="msg_error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></span>
         {else}
+            {* PLEASE NOTE: This is for case new entry first save only! *}
             {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
             <script type="text/javascript">
@@ -34,13 +40,12 @@
                     parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
                 {rdelim};
             </script>
-           {/if}
+            {/if}
 
             <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
             <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
         {/if}
     {/if}
-        {$preview}
         </div>
     </main>
 </body>
