@@ -27,8 +27,9 @@
 <!--[if lte IE 8]>
     <link rel="stylesheet" href="{serendipity_getFile file="oldie.css"}">
 <![endif]-->
-{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
 
+{if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
 {else}
     <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
@@ -36,56 +37,59 @@
 {/if}
 
     <script type="text/javascript">
-        window.onload = function() {ldelim}
-            parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('main').offsetHeight
-                                                                              + parseInt(document.getElementById('main').style.marginTop)
-                                                                              + parseInt(document.getElementById('main').style.marginBottom)
-                                                                              + 'px';
-            parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-            parent.document.getElementById('serendipity_iframe').style.border = 0;
-        {rdelim}
+    window.onload = function() {ldelim}
+        var frameheight = document.querySelector('html').offsetHeight;
+        parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
+        parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
+        parent.document.getElementById('serendipity_iframe').style.border = 0;
+    {rdelim}
     </script>
-    {if $mode == 'save'}{* overwrite next style.css conflicts *}
+
+    {if $mode == 'save'}{* overwrite Next style.css conflicts *}
     <style>
         html { padding:0; background-color: #fcfcfc; }
         body { margin: 0px; padding: 0.5em 0px; border: 0px none; width: 100%; }
         #primary { padding:0; }
     </style>
     {/if}
+    {if $mode == 'preview'}{* overwrite Next style.css conflicts *}
+    <style>
+        html { padding: 0; }
+        .preview_preview_body { max-width: 100%; }
+    </style>
+    {/if}
 </head>
 
-<body{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
-    <div id="main" class="clearfix" style="padding: 0; margin: 5px auto; width: 98%;">
-        <main id="primary">
-        {if $mode == 'save'}
-
-            <div style="float: left; height: 75px"></div>
+<body class="{$mode}_preview_body{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
+    <div id="main" class="clearfix {$mode}_preview_container">
+        <main id="primary" class="{$mode}_preview_content">
             <div class="clearfix">
+        {if $mode == 'preview'}
+            {$preview}
+        {elseif $mode == 'save'}
+                <div class="{$mode}_preview_sizing"></div>
                 {$updertHooks}
             {if $res}
-
-            <span class="msg-error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></span>
+                <span class="msg-error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></span>
             {else}
                 {* PLEASE NOTE: This is for case new entry first save only! *}
                 {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
 
-            <script type="text/javascript">
-                window.onload = function() {ldelim}
-                    parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                {rdelim};
-            </script>
+                <script type="text/javascript">
+                    window.onload = function() {ldelim}
+                        parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
+                    {rdelim};
+                </script>
                 {/if}
 
-            <span class="msg-success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
-            <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
+                <span class="msg-success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
+                <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
             {/if}
-
-            </div>
         {/if}
-                {$preview}
-
+            </div>
         </main>
     </div>
+<!-- filed by theme "Next" -->
 
 {if $mode == 'preview'}
     <script src="{$serendipityHTTPPath}{$templatePath}{$template}/scripts/master.js"></script>
