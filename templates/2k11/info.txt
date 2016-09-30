@@ -4,6 +4,19 @@ Date: 2016-09-02
 Require Serendipity: 2.0
 Backend: Yes
 Recommended: Yes
+
 Summary: The Serendipity Backend/Frontend Standard Theme
-Description: This theme defines the current standard, defined and used by the core Serendipity blog system.
-Regarding Serendipitys infinite possibilities, it is the currently best-concatenated and interlocked theme, covering most of them as simple as possible in a wide frame, made easy to look through.
+
+Description:
+This theme defines the current standard, defined and used by the core Serendipity blog system.
+Regarding Serendipitys infinite possibilities, it is the currently best-concatenated and interlocked theme,
+covering most of them as simple as possible in a wide frame, made easy to look through.
+
+Backenddesc:
+This theme accommodates the Serendipity core backend templates in the "2k11/admin" subdirectory.
+The template files in that directory build and create the look of the complete admin interface.
+They also contain some workflow and logic, as well as the javascript libraries.
+If you want to use your own backend theme, copy the "admin" directory to a theme.
+In there, change the "info.txt" file to add a "Backend&colon; Yes" line and select the new backend theme in the newly loaded theme list.
+From now on, you can edit the files and styles of own backend theme and adapt it to your extending needs.
+Please Note&colon; This only is recommended for highly experienced users and completely off the update track!

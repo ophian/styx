@@ -99,6 +99,8 @@
                             <dd>{$cur_tpl_backend.info.author}</dd>
                             <dt class="template_date">{$CONST.LAST_UPDATED}:</dt>
                             <dd>{$cur_tpl_backend.info.date}</dd>
+                            <dt class="template_bdesc">{$CONST.DESCRIPTION}:</dt>
+                            <dd>{$cur_tpl_backend.info.backenddesc}</dd>
                         </dl>
                     </footer>
                 </div>
