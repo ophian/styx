@@ -18,5 +18,5 @@ The template files in that directory build and create the look of the complete a
 They also contain some workflow and logic, as well as the javascript libraries.
 If you want to use your own backend theme, copy the "admin" directory to a theme.
 In there, change the "info.txt" file to add a "Backend&colon; Yes" line and select the new backend theme in the newly loaded theme list.
-From now on, you can edit the files and styles of own backend theme and adapt it to your extending needs.
-Please Note&colon; This only is recommended for highly experienced users and completely off the update track!
+From now on, you can edit the files and styles of own backend theme and adapt it to your extending needs.<br>
+<u><b>Please Note&colon;</b></u> This only is recommended for highly experienced users and completely off the update track!
