@@ -69,6 +69,7 @@ a.homelink2:visited,
   border-bottom: 1px dashed #4068ab;
   padding: 20px;
   vertical-align: top;
+  width: 22%;
 }
 
 #serendipityLeftSideBar {
@@ -77,6 +78,7 @@ a.homelink2:visited,
   border-bottom: 1px dashed #4068ab;
   padding: 20px;
   vertical-align: top;
+  width: 18%;
 }
 
 div.serendipitySideBarTitle {
