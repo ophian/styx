@@ -175,7 +175,7 @@
         <h2>{$CONST.RECOMMENDED}</h2>
         <ul class="plainList clearfix">
         {foreach $recommended_templates as $template}
-            {if $template@key == $cur_template_backend AND $cur_tpl_backend.info.modul == 'backend'}{continue}{/if}
+            {if $template@key == $cur_template_backend AND $cur_tpl_backend.info.modul|lower == 'backend'}{continue}{/if}
             {templateBlock template=$template key=$template@key}
         {/foreach}
         </ul>
