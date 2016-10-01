@@ -292,7 +292,9 @@ $tasks = array(
                     'type'      => 'TEMPLATE_NOTICE',
                     'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file "comments.tpl" and "comments_by_authors.tpl" now use some slightly changed variables,',
-                    'desc'      => 'to check and set the "serendipity_comment_author_self" class. Please make sure to check both your files, if have in your custom theme.'),
+                    'desc'      => 'to check and set the "serendipity_comment_author_self" class. Please make sure to check both your files, if have in your custom theme.
+                                   Also please check that the entries.tpl file within your {foreach from=$dategroup.entries item="entry"} loop has this line after it:
+                                   <strong>{assign var="entry" value=$entry scope="root"}</strong>, which scope had to change to "root" because of the mentioned class and the Smarty upgrades.'),
 
 );
 
