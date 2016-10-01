@@ -396,6 +396,15 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         $data['custom_admin_interface'] = NO;
     }
 
+    // Templates can depend on a modul only setting (i.e. "Modul: backend"). This might get extended in future...
+    if (!empty($data['modul'])) {
+        $modul = explode(',', $data['modul']);
+        if ($modul[0] == 'backend') {
+            $data['custom_admin_only_interface'] = true;
+            $data['custom_config'] = NO;
+        }
+    }
+
     return $data;
 }
 
