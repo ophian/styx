@@ -1,3 +1,5 @@
 Name: blue
 Author: Sebastian Bergmann
 Date: 2004-02-16
+Summary: CSS complete theme only.
+Description: Simple example theme from 2004 using all the template files from the old default fallback (Serendipity 2.3) theme. Styled by CSS only.
