@@ -4,3 +4,7 @@ Date: 2016-08-31
 Require Serendipity: 2.0
 Backend: No
 Recommended: Yes
+
+Summary: The mobile first successor of the 2k11 frontend
+
+Description: Regarding the extended possibilities of Serendipity "Next" is a more simplifying successor. It is modernized and <em>successing</em> only in terms of styling and selector settings.
