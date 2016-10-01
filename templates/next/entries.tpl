@@ -1,7 +1,7 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
-    {assign var="entry" value=$entry scope=parent}
+    {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
     <article class="post{if $dategroup.is_sticky} sticky{/if} clearfix">
         <header>
             <h2 class="post-title"><a href="{$entry.link}">{$entry.title}</a></h2>
