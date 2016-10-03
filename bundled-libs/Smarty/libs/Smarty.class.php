@@ -114,7 +114,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * smarty version
      */
-    const SMARTY_VERSION = '3.1.31-dev/23';
+    const SMARTY_VERSION = '3.1.31-dev/32';
 
     /**
      * define variable scopes
@@ -432,6 +432,14 @@ class Smarty extends Smarty_Internal_TemplateBase
      */
     public $merge_compiled_includes = false;
 
+    /*
+    * flag for behaviour when extends: resource  and {extends} tag are used simultaneous
+    *   if false disable execution of {extends} in templates called by extends resource.
+    *   (behaviour as versions < 3.1.28)
+    *
+    * @var boolean
+    */
+    public $extends_recursion = true;
     /**
      * force cache file creation
      *
@@ -1005,6 +1013,9 @@ class Smarty extends Smarty_Internal_TemplateBase
         if (!$this->_compileDirNormalized) {
             $this->_normalizeDir('compile_dir', $this->compile_dir);
             $this->_compileDirNormalized = true;
+            if ($this->_isNewRelease($this->compile_dir)) {
+                $this->clearCompiledTemplate();
+            }
         }
         return $this->compile_dir;
     }
@@ -1033,6 +1044,9 @@ class Smarty extends Smarty_Internal_TemplateBase
         if (!$this->_cacheDirNormalized) {
             $this->_normalizeDir('cache_dir', $this->cache_dir);
             $this->_cacheDirNormalized = true;
+            if ($this->_isNewRelease($this->cache_dir)) {
+                $this->clearAllCache();
+            }
         }
         return $this->cache_dir;
     }
@@ -1114,6 +1128,7 @@ class Smarty extends Smarty_Internal_TemplateBase
             $tpl->tpl_vars = $tpl->config_vars = array();
         } else if (!$do_clone && isset($this->_cache[ 'tplObjects' ][ $_templateId ])) {
             $tpl = clone $this->_cache[ 'tplObjects' ][ $_templateId ];
+            $tpl->tpl_vars = $tpl->config_vars = array();
         } else {
             /* @var Smarty_Internal_Template $tpl */
             $tpl = new $this->template_class($template, $this, null, $cache_id, $compile_id, null, null);
@@ -1244,6 +1259,22 @@ class Smarty extends Smarty_Internal_TemplateBase
     {
         $this->_cache[ 'isCached' ] = array();
         $this->_cache[ 'tplObjects' ] = array();
+    }
+
+    /**
+     * check if new release was installed
+     *
+     * @param string $dir compiled oder cache dir path
+     *
+     * @return bool
+     */
+    public function _isNewRelease ($dir) {
+        if (!is_file($file =  $dir. 'version.txt') || file_get_contents($file) !== Smarty::SMARTY_VERSION) {
+            file_put_contents($file, Smarty::SMARTY_VERSION);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**

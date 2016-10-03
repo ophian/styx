@@ -1,4 +1,27 @@
 ﻿===== 3.1.31-dev ===== (xx.xx.xx)
+ 29.09.2016
+  - improvement new Smarty::$extends_recursion property to disable execution of {extends} in templates called by extends resource
+     https://github.com/smarty-php/smarty/issues/296
+
+ 28.09.2016
+  - bugfix the generated code for calling a subtemplate must pass the template resource name in single quotes https://github.com/smarty-php/smarty/issues/299
+  - bugfix nocache hash was not removed for <?xml ?> tags in subtemplates https://github.com/smarty-php/smarty/issues/300
+
+ 27.09.2016
+  - bugfix when Smarty does use an internally cached template object on Smarty::fetch() calls
+           the template and config variables must be cleared https://github.com/smarty-php/smarty/issues/297
+
+ 20.09.2016
+  - bugfix some $smarty special template variables are no longer accessed as real variable.
+    using them on calls like {if isset($smarty.foo)} or {if empty($smarty.foo)} will fail
+    http://www.smarty.net/forums/viewtopic.php?t=26222
+  - temporary fix for https://github.com/smarty-php/smarty/issues/293 main reason still under investigation
+  - improvement new tags {block_parent} {block_child} in template inheritance
+
+ 19.09.2016
+  - optimization clear compiled and cached folder completely on detected version change
+  - cleanup convert cache resource file method clear into runtime extension
+
  15.09.2016
   - bugfix assigning a variable in if condition by function like {if $value = array_shift($array)} the function got called twice https://github.com/smarty-php/smarty/issues/291
   - bugfix function plugins called with assign attribute like {foo assign='bar'} did not output returned content because
