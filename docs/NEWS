@@ -1,7 +1,14 @@
 Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
-  * Bugfix update Smarty to 3.1.31-dev/32
+  * Bugfix update to Smarty to 3.1.31-dev/32
+
+  * Enhanced themes info.txt descriptive notes
+
+  * Added example Styx backend theme
+
+  * Optimized preview_iframe files (2k11, Next, Skeleton, default, and
+    default-php)
 
   * Update CKEditor to 4.5.11 and extend with the autogrow plugin,
     which allows a flexible size of textareas.
