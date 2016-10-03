@@ -52,9 +52,22 @@
     function before calling them with the $GLOBALS['template']->call() wrapper! This costs dearly.
 
  The Serendipity Admin backend will still make use of Smarty. It rocks.
+ Currently there is a restriction!
+    The GLOBALS superarray for the backend entries <u>preview_iframe</u> does not work, and nothing is parsed and returned by content.
+    So you may edit old entries as ever or save new entries ONCE. Don't use the returned form again without a new page request!
+    If you just entered a NEW ENTRY and your preview iframe is an empty blue field, go somewhere else iin the backend and return,
+    since a completely new created entry relies on its ID passed back to core by the iframe.
 
  Know your PHP before you think about using this. :-)
 */
+
+class Smarty
+{
+    /**
+     * smarty version
+     */
+    const SMARTY_VERSION = '3.1.31~'; // while some Plugins check if Smarty::SMARTY_VERSION is defined to switch API methods
+}
 
 class serendipity_smarty_emulator
 {
@@ -103,10 +116,9 @@ class serendipity_smarty_emulator
     {
         $smarty = isset($obj->smarty) ? $obj->smarty : $obj;
         if (isset($smarty->registered_plugins[ $type ][ $name ])) {
-            throw new SmartyException("Plugin tag \"{$name}\" already registered");
+            $this->trigger_error("Plugin tag \"{$name}\" already registered");
         } elseif (!is_callable($callback)) {
-            #throw new SmartyException("Plugin \"{$name}\" not callable");
-            //do nothing
+            $this->trigger_error("Plugin \"{$type}\" calling \"{$name}\" not callable\n");
         } else {
             $smarty->registered_plugins[ $type ][ $name ] = array($callback, (bool) $cacheable, (array) $cache_attr);
         }
@@ -389,7 +401,11 @@ class serendipity_smarty_emulator
             ob_start();
         }
 
-        include $resource_name;
+        if (file_exists($resource_name)) {
+            include $resource_name;
+        } else {
+            return false;
+        }
 
         if (!$display) {
             $out = ob_get_contents();
