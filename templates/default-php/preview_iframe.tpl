@@ -15,22 +15,20 @@
     <?php endif; ?>
 
         <script type="text/javascript">
-            window.onload = function() {
-                parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('mainpane').offsetHeight
-                                                                                  + parseInt(document.getElementById('mainpane').style.marginTop)
-                                                                                  + parseInt(document.getElementById('mainpane').style.marginBottom)
-                                                                                  + 'px';
-                parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-                parent.document.getElementById('serendipity_iframe').style.border = 0;
-            }
+        window.onload = function() {ldelim}
+            var frameheight = document.querySelector('html').offsetHeight;
+            parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
+            parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
+            parent.document.getElementById('serendipity_iframe').style.border = 0;
+        {rdelim}
         </script>
     </head>
 
-    <body style="padding: 0px; margin: 0px;">
-        <div id="mainpaine" style="border: 0 none; max-width: 100%; min-width: 100%; margin: 0px;">
-            <div id="content" style="margin: 0px; padding: 1em 0.5em; width: 98.75%;">
+    <body class="<?= $GLOBALS['tpl']['mode'] ?>_preview_body">
+        <div id="mainpaine" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_container">
+            <div id="content" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_content">
         <?php if ($GLOBALS['tpl']['mode'] == 'save'): ?>
-                <div style="float: left; height: 75px"></div>
+                <div class="<?= $GLOBALS['tpl']['mode'] ?>_preview_sizing"></div>
                 <?= $GLOBALS['tpl']['updertHooks'] ?>
             <?php if ($GLOBALS['tpl']['res']):  ?>
                 <div class="serendipity_msg_error"><?= $GLOBALS['tpl']['ERROR'] ?>: <b><?= $GLOBALS['tpl']['res'] ?></b></div>
@@ -44,7 +42,7 @@
                     </script>
                 <?php endif; ?>
 
-                <div class="serendipity_msg_notice"> <?= $GLOBALS['tpl']['ENTRY_SAVED'] ?></div>
+                <span class="msg_success"><span class="icon-ok-circled"></span> <?= $GLOBALS['tpl']['ENTRY_SAVED'] ?></span>
                 <a href="<?= $GLOBALS['tpl']['entrylink'] ?>" target="_blank"><?= $GLOBALS['tpl']['VIEW'] ?></a>
             <?php endif; ?>
         <?php endif; ?>
