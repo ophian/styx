@@ -1,6 +1,7 @@
 Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
+  * Bugfix update Smarty to 3.1.31-dev/32
 
   * Update CKEditor to 4.5.11 and extend with the autogrow plugin,
     which allows a flexible size of textareas.
