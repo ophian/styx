@@ -55,7 +55,7 @@
  Currently there is a restriction!
     The GLOBALS superarray for the backend entries <u>preview_iframe</u> does not work, and nothing is parsed and returned by content.
     So you may edit old entries as ever or save new entries ONCE. Don't use the returned form again without a new page request!
-    If you just entered a NEW ENTRY and your preview iframe is an empty blue field, go somewhere else iin the backend and return,
+    If you just entered a NEW ENTRY and your preview iframe is an empty blue field, go somewhere else in the backend and return,
     since a completely new created entry relies on its ID passed back to core by the iframe.
 
  Know your PHP before you think about using this. :-)
