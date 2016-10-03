@@ -16,41 +16,43 @@
     {else}
         <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
     {/if}
+
+        <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
+
     {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
         <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
     {/if}
 
         <script type="text/javascript">
-           window.onload = function() {ldelim}
-             parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('mainpane').offsetHeight
-                                                                               + parseInt(document.getElementById('mainpane').style.marginTop)
-                                                                               + parseInt(document.getElementById('mainpane').style.marginBottom)
-                                                                               + 'px';
-             parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-             parent.document.getElementById('serendipity_iframe').style.border = 0;
-           {rdelim}
+        window.onload = function() {ldelim}
+            var frameheight = document.querySelector('html').offsetHeight;
+            parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
+            parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
+            parent.document.getElementById('serendipity_iframe').style.border = 0;
+        {rdelim}
         </script>
+
     </head>
 
-    <body style="padding: 0px; margin: 0px;">
-        <div id="mainpaine" style="border: 0 none; max-width: 100%; min-width: 100%; margin: 0px;">
-            <div id="content" style="margin: 0px; padding: 1em 0.5em; width: 98.75%;">
+    <body class="{$mode}_preview_body">
+        <div id="mainpaine" class="{$mode}_preview_container">
+            <div id="content" class="{$mode}_preview_content">
         {if $mode == 'save'}
-                <div style="float: left; height: 75px"></div>
+                <div class="{$mode}_preview_sizing"></div>
                 {$updertHooks}
             {if $res}
                 <div class="serendipity_msg_error">{$CONST.ERROR}: <b>{$res}</b></div>
             {else}
                 {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
-                    <script type="text/javascript">
-                        window.onload = function() {ldelim}
-                            parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                        {rdelim};
-                    </script>
+                <script type="text/javascript">
+                    window.onload = function() {ldelim}
+                        parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
+                    {rdelim};
+                </script>
                 {/if}
 
-                <div class="serendipity_msg_notice"> {$CONST.ENTRY_SAVED}</div>
+                <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
                 <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
             {/if}
         {/if}
