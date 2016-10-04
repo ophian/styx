@@ -41,7 +41,7 @@
                 <div class="{$mode}_preview_sizing"></div>
                 {$updertHooks}
             {if $res}
-                <div class="serendipity_msg_error">{$CONST.ERROR}: <b>{$res}</b></div>
+                <div class="msg_error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></div>
             {else}
                 {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
