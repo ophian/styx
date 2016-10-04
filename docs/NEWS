@@ -7,8 +7,8 @@ Version 2.1 Styx ()
 
   * Added example Styx backend theme
 
-  * Optimized preview_iframe files (2k11, Next, Skeleton, default, and
-    default-php)
+  * Optimized preview_iframe template files (default, 2k11, Next, Skeleton,
+    Bulletproof and default-php)
 
   * Update CKEditor to 4.5.11 and extend with the autogrow plugin,
     which allows a flexible size of textareas.
