@@ -23,34 +23,34 @@
         <![endif]-->
         <!-- additional colorset stylesheet -->
         <link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}{$templatePath}{$template}/{$template_option.colorset}_style.css" />
-        {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
 
+        <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
+
+    {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
         <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
-        {/if}
+    {/if}
 
         <script type="text/javascript">
-           window.onload = function() {ldelim}
-             parent.document.getElementById('serendipity_iframe').style.height = document.getElementById('content').offsetHeight
-                                                                               + parseInt(document.getElementById('content').style.marginTop)
-                                                                               + parseInt(document.getElementById('content').style.marginBottom)
-                                                                               + 'px';
-             parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-             parent.document.getElementById('serendipity_iframe').style.border = 0;
-           {rdelim}
+        window.onload = function() {ldelim}
+            var frameheight = document.querySelector('html').offsetHeight;
+            parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
+            parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
+            parent.document.getElementById('serendipity_iframe').style.border = 0;
+        {rdelim}
         </script>
     </head>
 
-  <body id="preview_iframe_body"{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
-    <div id="wrapper" style="border: 0 none; max-width: 100%; min-width: 100%; margin: 0px;">
-        <div id="content" style="margin: 0px; padding: 1em 0.5em; width: 98.75%;">
+  <body id="preview_iframe_body" class="{$mode}_preview_body{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
+    <div id="wrapper" class="{$mode}_preview_container">
+        <div id="content" class="{$mode}_preview_content">
+            <div class="clearfix">
         {if $mode == 'preview'}
-            <div class="clearfix">
+            {$preview}
         {elseif $mode == 'save'}
-            <div class="clearfix">
-                <div style="float: left; height: 75px"></div>
+                <div class="{$mode}_preview_sizing"></div>
                 {$updertHooks}
             {if $res}
-                <div class="serendipity_msg_error">{$CONST.ERROR}: <b>{$res}</b></div>
+                <div class="msg_error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></div>
             {else}
                 {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
@@ -61,11 +61,10 @@
                     </script>
                 {/if}
 
-                <div class="serendipity_msg_notice"> {$CONST.ENTRY_SAVED}</div>
+                <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
                 <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
             {/if}
         {/if}
-            {$preview}
             </div>
         </div>
     </div>
