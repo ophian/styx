@@ -1,6 +1,8 @@
 Version 2.1 Styx ()
 ------------------------------------------------------------------------
 
+  * Fix and optimize default-php themes empty preview call
+
   * Bugfix update to Smarty to 3.1.31-dev/32
 
   * Enhanced themes info.txt descriptive notes
