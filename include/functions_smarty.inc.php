@@ -953,6 +953,7 @@ function serendipity_smarty_init($vars = array()) {
         if (!defined('IN_serendipity_admin') && file_exists($template_dir . '/template.inc.php')) {
             // If this file exists, a custom template engine will be loaded.
             // Beware: Smarty is used in the Admin backend, despite of this.
+            // Special case "preview_iframe(d) backend previews" are configurated directly in the serendipity_iframe() function, since being a different "scope"
             include_once $template_dir . '/template.inc.php';
         } else {
 
