@@ -52,15 +52,11 @@
     function before calling them with the $GLOBALS['template']->call() wrapper! This costs dearly.
 
  The Serendipity Admin backend will still make use of Smarty. It rocks.
- Currently there is a restriction!
-    The GLOBALS superarray for the backend entries <u>preview_iframe</u> does not work, and nothing is parsed and returned by content.
-    So you may edit old entries as ever or save new entries ONCE. Don't use the returned form again without a new page request!
-    If you just entered a NEW ENTRY and your preview iframe is an empty blue field, go somewhere else in the backend and return,
-    since a completely new created entry relies on its ID passed back to core by the iframe.
 
  Know your PHP before you think about using this. :-)
 */
 
+/* wrapper fake class */
 class Smarty
 {
     /**
@@ -69,6 +65,7 @@ class Smarty
     const SMARTY_VERSION = '3.1.31~'; // while some Plugins check if Smarty::SMARTY_VERSION is defined to switch API methods
 }
 
+/* PHP template Smarty emulator */
 class serendipity_smarty_emulator
 {
     var $compile_dir = '/tmp'; // Not used
@@ -116,9 +113,12 @@ class serendipity_smarty_emulator
     {
         $smarty = isset($obj->smarty) ? $obj->smarty : $obj;
         if (isset($smarty->registered_plugins[ $type ][ $name ])) {
-            $this->trigger_error("Plugin tag \"{$name}\" already registered");
+            #throw new SmartyException("Plugin tag \"{$name}\" already registered");
+            $this->trigger_error("Plugin tag \"{$name}\" already registered\n");
         } elseif (!is_callable($callback)) {
-            $this->trigger_error("Plugin \"{$type}\" calling \"{$name}\" not callable\n");
+            #throw new ErrorException("Plugin \"{$type}\" calling \"{$name}\" not callable");
+            #$this->trigger_error("Plugin \"{$type}\" calling \"{$name}\" not callable\n");
+            //do nothing to not break the workflow
         } else {
             $smarty->registered_plugins[ $type ][ $name ] = array($callback, (bool) $cacheable, (array) $cache_attr);
         }
