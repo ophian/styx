@@ -848,10 +848,45 @@ function serendipity_iframe(&$entry, $mode = null) {
             break;
 
         case 'preview':
+            if ($serendipity['template'] == 'default-php') {
+                // catch the entry already parsed through entries.tpl
+                ob_start();
+                echo serendipity_printEntries(array($entry), ($entry['extended'] != '' ? 1 : 0), true); //ok
+                $php_preview = ob_get_contents();
+                ob_end_clean();
+            }
+
             $serendipity['smarty_preview']  = true;
-            $data['preview'] = serendipity_printEntries(array($entry), ($entry['extended'] != '' ? 1 : 0), true);
+
+            if (!empty($php_preview)) {
+                $data['preview'] = $php_preview;
+            } else {
+                $data['preview'] = serendipity_printEntries(array($entry), ($entry['extended'] != '' ? 1 : 0), true);
+            }
             break;
     }
+
+    // The "hermaphrodite" preview_iframe is not that easy to parse through template_api.inc, thus we workaround it
+    if ($serendipity['template'] == 'default-php' && (!empty($php_preview) || $mode == 'save')) {
+        $data['lang']                           = $serendipity['smarty']->tpl_vars['lang']->value;
+        $data['iconizr']                        = serendipity_getTemplateFile("admin/preview_iconizr.css"); // unforced since backend
+        $data['modernizr']                      = serendipity_getTemplateFile("admin/js/modernizr.min.js"); // dito
+        $data['head_charset']                   = $serendipity['smarty']->tpl_vars['head_charset']->value;
+        $data['head_version']                   = $serendipity['smarty']->tpl_vars['head_version']->value;
+        $data['head_link_stylesheet']           = $serendipity['smarty']->tpl_vars['head_link_stylesheet']->value;
+        $data['head_link_stylesheet_frontend']  = $serendipity['smarty']->tpl_vars['head_link_stylesheet_frontend']->value;
+        $data['serendipityHTTPPath']            = $serendipity['smarty']->tpl_vars['serendipityHTTPPath']->value;
+        $data['serendipityRewritePrefix']       = $serendipity['smarty']->tpl_vars['serendipityRewritePrefix']->value;
+        // mode save vars already are in $data array
+        $GLOBALS['tpl'] = $data; // assign to
+        // catch the right preview_iframe file
+        ob_start();
+        include serendipity_getTemplateFile('preview_iframe.tpl', 'serendipityPath', true); // forced!
+        $php_iframe = ob_get_contents();
+        ob_end_clean();
+        return $php_iframe;
+    }
+
     return serendipity_smarty_showTemplate('preview_iframe.tpl', $data);
 }
 
