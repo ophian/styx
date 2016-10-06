@@ -6,21 +6,23 @@
         <meta name="Powered-By" content="Serendipity v.<?= $GLOBALS['tpl']['head_version'] ?>" />
         <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>" />
     <?php if ($GLOBALS['tpl']['head_link_stylesheet_frontend']): ?>
-        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet_frontend'] ?>">
+        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet_frontend'] ?>" />
     <?php else: ?>
-        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['serendipityHTTPPath'] ?><?= $GLOBALS['tpl']['serendipityRewritePrefix'] ?>serendipity.css">
+        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['serendipityHTTPPath'] ?><?= $GLOBALS['tpl']['serendipityRewritePrefix'] ?>serendipity.css" />
     <?php endif; ?>
+        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['iconizr'] ?>" />
+        <style> #content { width: 99%; background-color: #fcfcfc; } </style>
     <?php if ($GLOBALS['tpl']['mode'] == 'save'): /* we need this for modernizr.indexDB cleaning up autosave entry modifications */ ?>
-        <script src="<?= serendipity_getTemplateFile("admin/js/modernizr.min.js"); ?>"></script>
+        <script src="<?= $GLOBALS['tpl']['modernizr'] ?>"></script>
     <?php endif; ?>
 
         <script type="text/javascript">
-        window.onload = function() {ldelim}
+        window.onload = function() {
             var frameheight = document.querySelector('html').offsetHeight;
             parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
             parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
             parent.document.getElementById('serendipity_iframe').style.border = 0;
-        {rdelim}
+        }
         </script>
     </head>
 
@@ -31,7 +33,7 @@
                 <div class="<?= $GLOBALS['tpl']['mode'] ?>_preview_sizing"></div>
                 <?= $GLOBALS['tpl']['updertHooks'] ?>
             <?php if ($GLOBALS['tpl']['res']):  ?>
-                <div class="serendipity_msg_error"><?= $GLOBALS['tpl']['ERROR'] ?>: <b><?= $GLOBALS['tpl']['res'] ?></b></div>
+                <div class="serendipity_msg_error"><?= ERROR ?>: <b><?= $GLOBALS['tpl']['res'] ?></b></div>
             <?php else: ?>
                 <?php if (isset($GLOBALS['tpl']['lastSavedEntry']) && (int)$GLOBALS['tpl']['lastSavedEntry']): ?>
 
@@ -42,8 +44,8 @@
                     </script>
                 <?php endif; ?>
 
-                <span class="msg_success"><span class="icon-ok-circled"></span> <?= $GLOBALS['tpl']['ENTRY_SAVED'] ?></span>
-                <a href="<?= $GLOBALS['tpl']['entrylink'] ?>" target="_blank"><?= $GLOBALS['tpl']['VIEW'] ?></a>
+                <span class="msg_success"><span class="icon-ok-circled"></span> <?= ENTRY_SAVED ?></span>
+                <a href="<?= $GLOBALS['tpl']['entrylink'] ?>" target="_blank"><?= VIEW ?></a>
             <?php endif; ?>
         <?php endif; ?>
             <?= $GLOBALS['tpl']['preview'] ?>
