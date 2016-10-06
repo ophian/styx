@@ -78,7 +78,7 @@
         <rdf:Description
                  rdf:about="<?= $entry['link_rdf'] ?>"
                  trackback:ping="<?= $entry['link_trackback'] ?>"
-                 dc:title="<?= $GLOBALS['template']->getdefault($entry['title_rdf'], $entry['title']) ?>"
+                 dc:title="<?php if ($entry['title_rdf']): ?><?= $entry['title_rdf']; ?><?php else: ?><?= $entry['title'] ?><?php endif; ?>"
                  dc:identifier="<?= $entry['rdf_ident'] ?>" />
         </rdf:RDF>
         -->
