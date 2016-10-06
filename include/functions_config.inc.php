@@ -884,6 +884,7 @@ function serendipity_iframe(&$entry, $mode = null) {
         include serendipity_getTemplateFile('preview_iframe.tpl', 'serendipityPath', true); // forced!
         $php_iframe = ob_get_contents();
         ob_end_clean();
+        unset ($GLOBALS['tpl']);
         return $php_iframe;
     }
 
