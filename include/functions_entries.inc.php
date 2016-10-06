@@ -1280,11 +1280,26 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
         $cache->save(serialize($dategroup), $key, "printEntries");
     }
 
-    unset($entries, $dategroup);
-
     $serendipity['smarty']->assign(array(
         'is_preview' => $preview
     ));
+
+    // special case - else this would fetch 2k11 entries.tpl file
+    if ($smarty_block == 'ENTRIES' && $serendipity['template'] == 'default-php' && $preview) {
+        $GLOBALS['tpl']['entries'] = $dategroup; // assign to
+        ob_start();
+        // we seem to be not able to use a true switch in serendipity_smarty_fetch() function though
+        include serendipity_getTemplateFile('entries.tpl', 'serendipityPath', true); // yeah, this needs the forced frontend fallback, since being this "hermaphrodite" like case, inbetween front- and backend
+        $entry_out = ob_get_contents();
+        ob_end_clean();
+        unset ($GLOBALS['tpl']['entries']);
+    }
+
+    unset($entries, $dategroup);
+
+    if (isset($entry_out)) {
+        return $entry_out; // special case, see above
+    }
 
     if (isset($serendipity['short_archives']) && $serendipity['short_archives']) {
         return serendipity_smarty_fetch($smarty_block, 'entries_summary.tpl', true);
