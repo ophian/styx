@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.45');
+        $propbag->add('version',       '2.46');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'php'         => '5.3.0'
@@ -873,6 +873,9 @@ class serendipity_event_spartacus extends serendipity_event
 
         $this->checkArray($tree);
 
+        uksort($tree, "natcasesort");
+        $convert = array('adaptation', 'brownpaper', 'freshy', 'hemingway', 'iphone.app', 'RoundedCorner', 'rubyx', 'terrafirma', 'translucency', 'wp', 'xhtml_mp', 'youngbutstrong');
+
         if (! file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache')) {
             mkdir($serendipity['serendipityPath'] . '/templates_c/template_cache');
         }
@@ -936,7 +939,11 @@ class serendipity_event_spartacus extends serendipity_event
 
                 $plugname = $pluginstack[$i]['template'];
                 $pluginstack[$i]['demoURL'] = 'http://blog.s9y.org?user_template=additional_themes/' . $plugname;
-                $pluginstack[$i]['previewURL'] = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.png?revision=1.9999');
+                if (in_array($plugname, $convert)) {
+                    $pluginstack[$i]['previewURL'] = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.jpg?revision=1.9999');
+                } else {
+                    $pluginstack[$i]['previewURL'] = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.png?revision=1.9999');
+                }
                 $preview_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.jpg?revision=1.9999');
                 if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.jpg')) {
                     $pluginstack[$i]['preview_fullsizeURL'] = $preview_fullsizeURL;
