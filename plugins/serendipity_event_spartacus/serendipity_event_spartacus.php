@@ -859,7 +859,7 @@ class serendipity_event_spartacus extends serendipity_event
         $mirrors = $this->getMirrors('files', true);
         $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
 
-        // currently disabled
+        // currently disabled, since Styx GitHub repo does not host additional_themes
         /*
         $custom  = $this->get_config('custommirror');
         if (strlen($custom) > 2) {
