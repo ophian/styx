@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php
 
 /**
  *  @version 1.0
@@ -83,3 +83,4 @@
 @define('NAVLINK_AMOUNT',               'Zadajte poèet odkazov navigaènej li¹ty (po zadaní tohto nastavenia kliknite na "Ulo¾i»" a obnovte stránku)');
 @define('NAV_LINK_TEXT',                'Test odkazu');
 @define('NAV_LINK_URL',                 'URL adresa odkazu');
+
