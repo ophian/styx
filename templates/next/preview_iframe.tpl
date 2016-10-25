@@ -70,7 +70,7 @@
                 <div class="{$mode}_preview_sizing"></div>
                 {$updertHooks}
             {if $res}
-                <span class="msg-error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></span>
+                <span class="msg_error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></span>
             {else}
                 {* PLEASE NOTE: This is for case new entry first save only! *}
                 {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
@@ -82,7 +82,7 @@
                 </script>
                 {/if}
 
-                <span class="msg-success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
+                <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
                 <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
             {/if}
         {/if}
