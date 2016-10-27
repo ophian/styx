@@ -19,7 +19,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian');
-        $propbag->add('version',        '1.05');
+        $propbag->add('version',        '1.06');
         $propbag->add('requirements',   array(
             'serendipity' => '2.0.99',
             'smarty'      => '3.1.0',
@@ -161,10 +161,10 @@ class serendipity_event_plugup extends serendipity_plugin
         <div id="dash_plup" class="plugups">
             <div id="plup_header" class="plup_header">
 <?php       if ($num == 0) {
-                echo '<span class="msg_hint"><span class="icon-info-circled"></span> ' . PLUGIN_DASHBOARD_PLUGUP_UP_TO_DATE . "</span>\n";
+                echo '<span class="msg_hint"><span class="icon-info-circled" aria-hidden="true"></span> ' . PLUGIN_DASHBOARD_PLUGUP_UP_TO_DATE . "</span>\n";
             } else {
 ?>
-                <span class="msg_notice"><span class="icon-info-circled"></span> <?php echo sprintf(PLUGIN_DASHBOARD_PLUGUP_UP_AVAILABLE, $num) ?></span>
+                <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> <?php echo sprintf(PLUGIN_DASHBOARD_PLUGUP_UP_AVAILABLE, $num) ?></span>
                 <?php /*if ($plugin > 0 || $event > 0) {*/ ?>
                 <div id="plup_notice" class="clearfix">
                     <a id="upgrade_plugins" class="button_link state_submit" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE"><?php echo PLUGIN_EVENT_SPARTACUS_CHECK ?></a>

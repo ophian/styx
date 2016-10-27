@@ -50,7 +50,7 @@
                 <div class="{$mode}_preview_sizing"></div>
                 {$updertHooks}
             {if $res}
-                <div class="msg_error"><span class="icon-attention-circled"></span> {$CONST.ERROR}: <b>{$res}</b></div>
+                <div class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: <b>{$res}</b></div>
             {else}
                 {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
@@ -61,7 +61,7 @@
                     </script>
                 {/if}
 
-                <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
+                <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ENTRY_SAVED}</span>
                 <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
             {/if}
         {/if}

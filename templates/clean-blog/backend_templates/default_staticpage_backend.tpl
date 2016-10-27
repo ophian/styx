@@ -57,7 +57,7 @@
             <div class="clearfix form_area media_choose" id="ep_column_staticpage_header_image">
                 <label for="staticpage_header_image">{$CONST.STATICPAGE_SPECIFIC_HEADER_IMAGE}</label>
                 <textarea data-configitem="staticpage_header_image" name="serendipity[plugin][custom][staticpage_header_image]" class="change_preview"  id="propstaticpage_header_image">{$form_values.custom.staticpage_header_image}</textarea>
-                <button title="{$CONST.MEDIA}" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture"></span><span class="visuallyhidden">{$CONST.MEDIA}</span></button>
+                <button title="{$CONST.MEDIA}" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.MEDIA}</span></button>
                 <figure id="staticpage_header_image_preview">
                     <figcaption>{$CONST.PREVIEW}</figcaption>
                     <img alt="" src="{$form_values.custom.staticpage_header_image}">

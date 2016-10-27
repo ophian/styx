@@ -2059,7 +2059,7 @@ function serendipity_reportXSRF($type = 0, $reset = true, $use_config = false) {
     // Set this in your serendipity_config_local.inc.php if you want HTTP Referrer blocking:
     // $serendipity['referrerXSRF'] = true;
 
-    $string = '<div class="msg_error XSRF_' . $type . '"><span class="icon-attention"></span> ' . ERROR_XSRF . '</div>';
+    $string = '<div class="msg_error XSRF_' . $type . '"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_XSRF . '</div>';
     if ($reset) {
         // Config key "referrerXSRF" can be set to enable blocking based on HTTP Referrer. Recommended for Paranoia.
         if (($use_config && isset($serendipity['referrerXSRF']) && $serendipity['referrerXSRF']) || $use_config === false) {

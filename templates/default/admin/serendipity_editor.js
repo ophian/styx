@@ -434,7 +434,7 @@
             // this function got called on load of the editor
             var toggleButton = '#toggle_' + id;
 
-            $('#'+id).before('<button id="toggle_' + id + '" class="button_link" type="button" href="#' + id + '"><span class="icon-right-dir"></span><span class="visuallyhidden"> Toggle expand all</span></button>');
+            $('#'+id).before('<button id="toggle_' + id + '" class="button_link" type="button" href="#' + id + '"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> Toggle expand all</span></button>');
 
             $(toggleButton).click(function(e) {
                 e.preventDefault();
@@ -1041,7 +1041,7 @@ $(function() {
         }
         e.preventDefault();
         // Inline notification, we might want to make this reuseable
-        $('<span id="msg_timestamp" class="msg_notice"><span class="icon-info-circled"></span>The timestamp has been reset to the current time. <a class="remove_msg" href="#msg_timestamp"><span class="icon-cancel"></span><span class="visuallyhidden">Hide</span></a></span>').insertBefore('#edit_entry_title');
+        $('<span id="msg_timestamp" class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span>The timestamp has been reset to the current time. <a class="remove_msg" href="#msg_timestamp"><span class="icon-cancel"></span><span class="visuallyhidden">Hide</span></a></span>').insertBefore('#edit_entry_title');
         // Remove timestamp msg
         $('.remove_msg').click(function(e) {
             e.preventDefault();
@@ -1082,7 +1082,7 @@ $(function() {
         }
 
         // Inline notification, we might want to make this reuseable
-        $('<span id="msg_entrystatus" class="msg_notice"><span class="icon-info-circled"></span>Entry status: ' + newState + ' <a class="remove_msg" href="#msg_entrystatus"><span class="icon-cancel"></span><span class="visuallyhidden">Hide</span></a></span>').insertBefore('#edit_entry_title');
+        $('<span id="msg_entrystatus" class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span>Entry status: ' + newState + ' <a class="remove_msg" href="#msg_entrystatus"><span class="icon-cancel"></span><span class="visuallyhidden">Hide</span></a></span>').insertBefore('#edit_entry_title');
         // Remove entrystatus msg
         $('.remove_msg').click(function(e) {
             e.preventDefault();

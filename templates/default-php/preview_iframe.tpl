@@ -33,7 +33,7 @@
                 <div class="<?= $GLOBALS['tpl']['mode'] ?>_preview_sizing"></div>
                 <?= $GLOBALS['tpl']['updertHooks'] ?>
             <?php if ($GLOBALS['tpl']['res']):  ?>
-                <div class="serendipity_msg_error"><?= ERROR ?>: <b><?= $GLOBALS['tpl']['res'] ?></b></div>
+                <div class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <?= ERROR ?>: <b><?= $GLOBALS['tpl']['res'] ?></b></div>
             <?php else: ?>
                 <?php if (isset($GLOBALS['tpl']['lastSavedEntry']) && (int)$GLOBALS['tpl']['lastSavedEntry']): ?>
 
@@ -44,7 +44,7 @@
                     </script>
                 <?php endif; ?>
 
-                <span class="msg_success"><span class="icon-ok-circled"></span> <?= ENTRY_SAVED ?></span>
+                <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <?= ENTRY_SAVED ?></span>
                 <a href="<?= $GLOBALS['tpl']['entrylink'] ?>" target="_blank"><?= VIEW ?></a>
             <?php endif; ?>
         <?php endif; ?>

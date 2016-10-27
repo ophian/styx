@@ -49,7 +49,7 @@
         <?php endif; ?>
 
         <?php if ($GLOBALS['tpl']['linktrimmer_error']): ?>
-            <span class="msg_error"><span class="icon-attention-circled"></span> <?= PLUGIN_LINKTRIMMER_ERROR ?></span>
+            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <?= PLUGIN_LINKTRIMMER_ERROR ?></span>
         <?php endif; ?>
 
             <div class="form_field">

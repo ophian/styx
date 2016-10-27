@@ -1,11 +1,11 @@
 {if !empty($errormsg)}
-    <span class="msg_error"><span class="icon-attention"></span> {$errormsg}</span>
+    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$errormsg}</span>
 {/if}
 {if !empty($msg)}
-    <span class="msg_notice"><span class="icon-info-circled"></span> {$msg}</span>
+    <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$msg}</span>
 {/if}
 {if $commentReplied}
-    <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.COMMENT_ADDED}</span>
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED}</span>
     <button id="comment_replied" type="button">{$CONST.BACK}</button>
 {else}
     <h2>{$CONST.COMMENTS}</h2>
@@ -16,7 +16,7 @@
         <input name="serendipity[page]" type="hidden" value="{$page}">
 
         <ul class="filters_toolbar plainList">
-            <li><a class="button_link" href="#filter_comments" title="{$CONST.FILTERS}"><span class="icon-filter"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
+            <li><a class="button_link" href="#filter_comments" title="{$CONST.FILTERS}"><span class="icon-filter" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
             <li><div class="backend_comments">{$backend_comments_top}</div></li>
         </ul>
 
@@ -91,7 +91,7 @@
     </form>
     {if !is_array($sql)}
         
-        <span class="msg_notice"><span class="icon-info-circled"></span>
+        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span>
             {if $c_type == 'TRACKBACK'}
                 {$CONST.NO_TRACKBACKS}
             {else if $c_type == 'PINGBACK'}
@@ -120,7 +120,7 @@
                         <h4 id="c{$comment.id}">{$comment.author|escape|truncate:40:"&hellip;"} <span class="text-normal">{$CONST.IN}</span> <span class="comment-type-title" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : $CONST.PINGBACK )}">{$comment.stype}#{$comment.id}</span> <span class="ucc-pinned-to" title="{$CONST.IN_REPLY_TO}"></span>
                             <a href="{$comment.entry_url}">{$comment.title|escape}</a>
                             <span class="text-normal">{$CONST.ON} {$comment.timestamp|formatTime:'%b %e %Y, %H:%M'}</span>
-                            <button class="toggle_info button_link" type="button" data-href="#comment_data_{$comment.id}"><span class="icon-info-circled"></span><span class="visuallyhidden"> More</span></button>
+                            <button class="toggle_info button_link" type="button" data-href="#comment_data_{$comment.id}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> More</span></button>
                         </h4>
                     {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
                         <span class="comment_status">{$CONST.COMMENTS_FILTER_NEED_APPROVAL}</span>
@@ -145,18 +145,18 @@
                         <div id="c{$comment.id}_full" class="comment_full additional_info">{$comment.fullBody}</div>
 
                         <ul class="plainList clearfix actions">
-                            <li><a class="button_link" href="{$comment.entrylink}" title="{$CONST.VIEW}"><span class="icon-search"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>                        
-                            <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;{$urltoken}" title="{$CONST.EDIT}"><span class="icon-edit"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                            <li><a class="button_link comments_reply" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=reply&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;{$urltoken}" title="{$CONST.REPLY}"><span class="icon-chat"></span><span class="visuallyhidden"> {$CONST.REPLY}</span></a></li>
+                            <li><a class="button_link" href="{$comment.entrylink}" title="{$CONST.VIEW}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>                        
+                            <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;{$urltoken}" title="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                            <li><a class="button_link comments_reply" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=reply&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;{$urltoken}" title="{$CONST.REPLY}"><span class="icon-chat" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.REPLY}</span></a></li>
                         {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
-                            <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=approve&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.APPROVE}"><span class="icon-thumbs-up-alt"></span><span class="visuallyhidden">{$CONST.APPROVE}</span></a></li>
+                            <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=approve&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.APPROVE}"><span class="icon-thumbs-up-alt" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.APPROVE}</span></a></li>
                         {/if}
                         {if ($comment.status == 'approved')}
-                            <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=pending&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.SET_TO_MODERATED}"><span class="icon-thumbs-down-alt"></span><span class="visuallyhidden"> {$CONST.SET_TO_MODERATED}</span></a></li>
+                            <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=pending&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.SET_TO_MODERATED}"><span class="icon-thumbs-down-alt" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SET_TO_MODERATED}</span></a></li>
                         {/if}
-                            <li><a class="button_link comments_delete" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;{$urltoken}" data-delmsg='{($CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author)|escape}' title="{$CONST.DELETE}"><span class="icon-trash"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                            <li><a class="button_link comments_delete" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;{$urltoken}" data-delmsg='{($CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author)|escape}' title="{$CONST.DELETE}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
                         {if $comment.excerpt}
-                            <li><button class="button_link toggle_comment_full" type="button" data-href="#c{$comment.id}_full" title="{$CONST.TOGGLE_ALL}"><span class="icon-right-dir"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span></button></li>
+                            <li><button class="button_link toggle_comment_full" type="button" data-href="#c{$comment.id}_full" title="{$CONST.TOGGLE_ALL}"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span></button></li>
                         {/if}
                         </ul>
                         {$comment.action_more}
@@ -169,10 +169,10 @@
                     <h3>{$CONST.PAGE_BROWSE_COMMENTS|sprintf:$page:$pages:$totalComments}</h3>
                     
                     <ul class="clearfix">{* set last before next since float fixes the order *}
-                        <li class="first">{if $page > 1}<a class="button_link" href="{$linkFirst}" title="{$CONST.FIRST_PAGE}"><span class="visuallyhidden">{$CONST.FIRST_PAGE} </span><span class="icon-to-start"></span></a>{/if}</li>
-                        <li class="prev">{if ($page != 1 AND $page <= $pages)}<a class="button_link" href="{$linkPrevious}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
-                        <li class="last">{if $page < $pages}<a class="button_link" href="{$linkLast}" title="{$CONST.LAST_PAGE}"><span class="visuallyhidden">{$CONST.LAST_PAGE} </span><span class="icon-to-end"></span></a>{/if}</li>
-                        <li class="next">{if $page != $pages}<a class="button_link" href="{$linkNext}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir"></span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
+                        <li class="first">{if $page > 1}<a class="button_link" href="{$linkFirst}" title="{$CONST.FIRST_PAGE}"><span class="visuallyhidden">{$CONST.FIRST_PAGE} </span><span class="icon-to-start" aria-hidden="true"></span></a>{/if}</li>
+                        <li class="prev">{if ($page != 1 AND $page <= $pages)}<a class="button_link" href="{$linkPrevious}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
+                        <li class="last">{if $page < $pages}<a class="button_link" href="{$linkLast}" title="{$CONST.LAST_PAGE}"><span class="visuallyhidden">{$CONST.LAST_PAGE} </span><span class="icon-to-end" aria-hidden="true"></span></a>{/if}</li>
+                        <li class="next">{if $page != $pages}<a class="button_link" href="{$linkNext}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir" aria-hidden="true"></span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
                     </ul>
                 </nav>
             {/if}

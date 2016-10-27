@@ -27,9 +27,9 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.46');
+        $propbag->add('version',       '2.47');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
+            'serendipity' => '2.0.99',
             'php'         => '5.3.0'
         ));
         $propbag->add('event_hooks',    array(
@@ -380,11 +380,11 @@ class serendipity_event_spartacus extends serendipity_event
         global $serendipity;
         switch($status) {
             case 'notice':
-                echo '<span class="msg_notice"><span class="icon-info-circled"></span> '. $msg .'</span>' . "\n";
+                echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
                 break;
 
             case 'error':
-                echo '<span class="msg_error"><span class="icon-attention-circled"></span> '. $msg .'</span>' . "\n";
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
                 if ($serendipity['ajax']) {
                     // we need to set an actual error header so the ajax request can react to the error state
                     header('HTTP/1.1 400');
@@ -393,7 +393,7 @@ class serendipity_event_spartacus extends serendipity_event
 
             case 'success':
             default:
-                echo '<span class="msg_success"><span class="icon-ok-circled"></span> '. $msg .'</span>' . "\n";
+                echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
                 break;
         }
     }
@@ -845,7 +845,7 @@ class serendipity_event_spartacus extends serendipity_event
             "Please try again later or switch your XML/File mirror location. ".
             "You can also try to go to the plugin configuration of the Spartacus Plugin and simply click on 'Save' - this will purge all cached XML files and try to download it again.\n".
             '<div style="display: none">' . print_r($tree, true) . "</div>\n";
-            echo '<span class="msg_error"><span class="icon-attention-circled"></span> '. $msg .'</span>' . "\n";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
         }
     }
 
@@ -1038,7 +1038,7 @@ class serendipity_event_spartacus extends serendipity_event
 
         if (count($files) == 0) {
             $msg = "DEBUG: ERROR: XML tree did not contain requested plugin:\n<div>" . print_r($tree, true) . "</div>\n";
-            echo '<span class="msg_error"><span class="icon-attention-circled"></span> '. $msg .'</span>' . "\n";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
         }
 
         $mirrors = $this->getMirrors('files', true);
