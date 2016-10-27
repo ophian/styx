@@ -91,9 +91,9 @@
                         <div class="plugin_features">
                             <h4>{$plug.name}</h4>
 
-                        {if $plug.description}
+                        {if $plug.description}{* for plugin UPGRADE page *}
                             <details class="plugin_data">
-                                <summary><var class="perm_name">{$plug.class_name}</var></summary>
+                                <summary><var class="perm_name">{$plug.class_name} <span class="icon-info-circled"></span></var></summary>
 
                                 <div class="plugin_desc clearfix">
                                 {$plug.description}

@@ -573,7 +573,14 @@ form > button,
 }
 
 .plugin_desc {
-    margin-top: .25em;
+    padding-top: 2em;
+}
+.plugin_data {
+    margin-bottom: 1.75em;
+    padding-top: .25em; /* updates only */
+}
+.plugin_data[open=""] {
+    margin-bottom: .25em;
 }
 
 #categories,
@@ -1183,8 +1190,7 @@ h4,
 }
 
 #diagnose caption,
-.no-js #mediaupload_tabs h3:first-child,
-.plugin_data {
+.no-js #mediaupload_tabs h3:first-child {
     margin-top: 0;
 }
 
@@ -1270,9 +1276,7 @@ summary {
     box-sizing: border-box;
 }
 
-#workspace,
-.plugin_data,
-.plugin_data summary {
+#workspace {
     overflow: hidden;
 }
 

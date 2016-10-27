@@ -23,9 +23,7 @@
                             <label for="remove_{$plugin_data['name']}" class="visuallyhidden">{$CONST.REMOVE_TICKED_PLUGINS}</label>
                         </div>
                     {/if}
-                        <h5>
-                            {$plugin_data['title']}
-                        </h5>
+                        <h5>{$plugin_data['title']}</h5>
 
                         <div id="g{$plugin_data['css_key']}" class="pluginmanager_grablet">
                             <button id="grab{$plugin_data['css_key']}" class="icon_link button_link" type="button" title="{$CONST.MOVE}"><span class="icon-move"></span><span class="visuallyhidden"> {$CONST.MOVE}</span></button>

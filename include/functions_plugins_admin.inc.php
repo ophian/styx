@@ -98,7 +98,7 @@ function show_plugins($event_only = false, $sidebars = null)
     $data['serendipity_setFormToken'] = serendipity_setFormToken();
     $data['serendipity_setFormTokenUrl'] = serendipity_setFormToken('url');
 
-    /* Block display the plugins per placement location. */
+    // Block display the plugins per placement location
     if ($event_only) {
         $plugin_placements = array('event', 'eventh');
     } else {
@@ -138,6 +138,7 @@ function show_plugins($event_only = false, $sidebars = null)
             $plugin  =& serendipity_plugin_api::load_plugin($plugin_data['name'], $plugin_data['authorid']);
             $key     = urlencode($plugin_data['name']);
             $css_key = 's9ycid' . str_replace('%', '-', $key);
+            $crc32   = hash("crc32b", $css_key);
             $is_plugin_owner    = ($plugin_data['authorid'] == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'));
             $is_plugin_editable = ($is_plugin_owner || $plugin_data['authorid'] == '0');
             $cname = explode(':', $plugin_data['name']);
@@ -147,15 +148,15 @@ function show_plugins($event_only = false, $sidebars = null)
                 $desc          = ERROR . ': ' . $plugin_data['name'];
                 $can_configure = false;
             } else {
-                /* query for its name, description and configuration data */
-
+                // query for its name, description and configuration data
                 $bag = new serendipity_property_bag;
                 $plugin->introspect($bag);
 
                 $name  = serendipity_specialchars($bag->get('name'));
+                $kname = str_replace(array('serendipity_event_', 'serendipity_plugin_'), '', $cname[0]);
 
-                $desc  = '<details class="plugin_data">';
-                $desc .= '<summary><var class="perm_name">'.$cname[0].'</var></summary>';
+                $desc  = '<details id="details_'.$crc32.'" class="plugin_data">';
+                $desc .= '<summary><var class="perm_name" title="'.$cname[0].'">' . $kname . ' <span class="icon-info-circled"></span></var></summary>';
                 $desc .= '<div class="plugin_desc clearfix">' . serendipity_specialchars($bag->get('description')) . '</div>';
                 $desc .= '<span class="block_level">' . VERSION  . ': ' . $bag->get('version') . '</span>';
                 $desc .= '</details>';
@@ -196,6 +197,7 @@ function show_plugins($event_only = false, $sidebars = null)
             $data['placement'][$plugin_placement]['plugin_data'][$i]['authorid'] = $plugin_data['authorid'];
             $data['placement'][$plugin_placement]['plugin_data'][$i]['can_configure'] = $can_configure;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['key'] = $key;
+            #$data['placement'][$plugin_placement]['plugin_data'][$i]['crc32'] = $crc32; // may be good for exchanging the ID key hash(es) in template
             $data['placement'][$plugin_placement]['plugin_data'][$i]['title'] = $title;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['desc'] = $desc;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['placement'] = $plugin_data['placement'];
