@@ -1104,7 +1104,7 @@
 @define('THEMES_PREVIEW_BLOG', 'Siehe Demo auf blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Setze auf "none", wenn Sie nur einen Text-Link ausgeben wollen.');
 
-@define('MULTICHECK_NO_ITEM', 'Nichts ausgewählt, wählen Sie mindestens einen. <a href="%s">Zurück zur vorherigen Seite</a>.');
+@define('MULTICHECK_NO_ITEM', 'Kein Element ausgewählt, wählen Sie mindestens eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
 @define('MULTICHECK_NO_DIR', 'Kein Verzeichnis ausgewählt, wählen Sie eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
 @define('BULKMOVE_INFO', 'Bulk-move Information');
 @define('BULKMOVE_INFO_DESC', 'Setzen Sie ein Häckchen bei den entsprechenden Dateien und wählen hier den Ort zum Verschieben aus. <b>Achtung:</b> Diese Aktion tritt sofort in Kraft und wird nicht noch einmal gegengefragt, wie beim Löschen. Alle gewählten Dateien werden auch physisch an den neuen Ort verschoben und alle Blog Einträge nach entsprechenden Pfaden durchsucht und geändert. Mit Staticpage Versionen ab v.4.52(!) gilt dies auch für Statische-Seiten-Einträge.');
@@ -1116,7 +1116,7 @@
 @define('MEDIA_RESIZE_EXISTS', 'Datei-Dimensionen bereits vorhanden!');
 @define('USE_CACHE', 'Erlaube caching');
 @define('USE_CACHE_DESC', 'Erlaubt einen internen Puffer (cache), um spezifische SQL queries zwischenzuspeichern. Dadurch verringert sich die Last auf Servern mit mittlerem bis hohem Traffic und verbessert die Ladezeit.');
-@define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein Präfix verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden individuellen Namen ändern, es aber nicht einfach entfernen. Dies gilt für alle Pfadpräfix Definitionen.');
+@define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein Präfix verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden einzigartigen Ascii-Namen ändern, aber nicht komplett entfernen. Dies gilt für alle Pfad-Präfix Definitionen.');
 
 @define('HIDE_SUBDIR_FILES', 'Ohne Dateien von Unterverzeichnissen');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Standard Dashboard widgets anzeigen?');
@@ -1125,9 +1125,9 @@
 @define('UPDATE_NOTIFICATION_URL', 'Serendipity RELEASE-Datei URL');
 @define('UPDATE_NOTIFICATION_URL_DESC', 'Bitte nur ändern, wenn Sie eine andere RELEASE-Datei Verortung für benutzerdefinierte Serendipity downloads, in Kombination mit dem Serendipity Autopudate Plugin, erstellen wollen. Der Standard-URL Inhalt verweist auf die Serendipity RELEASE-Datei: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE", die Versions Nummern für stabile and beta Ankündigungen für das Autoupdate per Zeile beinhaltet, zB. "stable:5.3.0".');
 
-@define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.');
+@define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.'); // better keep en
 
-@define('CONFIG_ALLOW_LOCAL_URL', 'Allow to fetch data from local URLs');
-@define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server Side Request Forgers (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
-@define('REMOTE_FILE_INVALID', 'The given URL appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your blog configuration.');
+@define('CONFIG_ALLOW_LOCAL_URL', 'Erlaube, Daten über lokale URLs abzurufen');
+@define('CONFIG_ALLOW_LOCAL_URL_DESC', 'Standardmäßig ist es aus Sicherheitsgründen verboten, Daten über lokale URLs abzurufen, um Server Side Request Forgers (SSRF) zu vermeiden. Wenn Sie ein lokales Intranet verwenden, können sie die Datenabfrage über diese Option explizit erlauben.');
+@define('REMOTE_FILE_INVALID', 'Die angegebene URL scheint eine lokale zu sein und darf nicht abgerufen werden. Sie können dies explizit gestatten, in dem Sie in der Konfiguration die Option "Erlaube, Daten über lokale URLs abzurufen" setzen.');
 
