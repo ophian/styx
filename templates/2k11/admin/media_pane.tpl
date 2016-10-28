@@ -252,7 +252,7 @@
         <input name="serendipity[adminAction]" type="hidden" value="multidelete">
     {/if}
 
-        <div class="clearfix media_pane" data-thumbmaxwidth="{$media.thumbSize}">
+        <div class="media_pane" data-thumbmaxwidth="{$media.thumbSize}">
             {$MEDIA_ITEMS}
 
         {if ($media.page != 1 AND $media.page <= $media.pages) OR $media.page != $media.pages}
@@ -294,7 +294,7 @@
         </div>
         <div class="form_buttons">
             <input class="state_submit" name="toggle_move" type="submit" value="{$CONST.MOVE}">
-            <span class="media_file_actions actions"><a class="media_show_info button_link" href="#media_file_bulkmove" title="{$CONST.BULKMOVE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.BULKMOVE_INFO}</span></a></span>
+            <span class="media_file_footer actions "><a class="media_show_info button_link" href="#media_file_bulkmove" title="{$CONST.BULKMOVE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.BULKMOVE_INFO}</span></a></span>
         </div>
 
         <footer id="media_file_bulkmove" class="media_file_bulkmove additional_info">
