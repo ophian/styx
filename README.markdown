@@ -1,6 +1,6 @@
-# Serendipity - a PHP Weblog/Blog software
+# Serendipity - A reliable, secure & extensible PHP blog
 
-[Serendipity](http://s9y.org) is a PHP-powered weblog application which gives the user an easy way to maintain an online diary, weblog or even a complete homepage. While the default package is designed for the casual blogger, Serendipity offers a flexible, expandable and easy-to-use framework with the power for professional applications.
+[Serendipity](https://s9y.org) is a PHP-powered weblog engine which gives the user an easy way to maintain a blog. While the default package is designed for the casual blogger, Serendipity offers an expandable framework with the power for professional applications.
 
 ### Why Styx?
 Its project name originally originates from *"River Styx"* in Greek classical mythology. Make your mind why this was chosen.
