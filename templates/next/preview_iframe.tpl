@@ -55,7 +55,8 @@
     {if $mode == 'preview'}{* overwrite Next style.css conflicts *}
     <style>
         html { padding: 0; }
-        .preview_preview_body { max-width: 100%; }
+        .preview_preview_body { width: 100%; max-width: 100%; }
+        .serendipity_entry { max-width: 98%; margin: 0 1%; }
     </style>
     {/if}
 </head>
