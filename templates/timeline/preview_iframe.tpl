@@ -52,7 +52,7 @@
 {/if}
                     {$updertHooks}
                     {if $res}
-                        <div class="alert alert-danger"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.ERROR}: <b>{$res}</b></div>
+                        <span class="alert alert-danger"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.ERROR}: <b>{$res}</b></span>
                     {else}
                         <span class="alert alert-success"><span class="fa-stack text-success" aria-hidden="true"></i><i class="fa fa-smile-o fa-2x"></i></span> {$CONST.ENTRY_SAVED}. &nbsp;&nbsp; <a class="btn btn-md btn-default btn-theme" href="{$entrylink}" target="_blank">{$CONST.VIEW_ENTRY}</a></span>
                     {/if}

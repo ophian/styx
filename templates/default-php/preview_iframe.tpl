@@ -33,7 +33,7 @@
                 <div class="<?= $GLOBALS['tpl']['mode'] ?>_preview_sizing"></div>
                 <?= $GLOBALS['tpl']['updertHooks'] ?>
             <?php if ($GLOBALS['tpl']['res']):  ?>
-                <div class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <?= ERROR ?>: <b><?= $GLOBALS['tpl']['res'] ?></b></div>
+                <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <?= ERROR ?>: <b><?= $GLOBALS['tpl']['res'] ?></b></span>
             <?php else: ?>
                 <?php if (isset($GLOBALS['tpl']['lastSavedEntry']) && (int)$GLOBALS['tpl']['lastSavedEntry']): ?>
 
