@@ -1776,15 +1776,19 @@ $(function() {
 
     // Equal Heights
     $(window).load(function() {
-        if (mq_small) {
-            serendipity.sync_heights();
+        if (!Modernizr.flexbox) {
+            if (mq_small) {
+                serendipity.sync_heights();
+            }
         }
     });
 
     // Make sure plugin list heights are recalculated when switching tabs
     $('#pluginlist_tabs a').click(function() {
-        if (mq_small) {
-            serendipity.sync_heights();
+        if (!Modernizr.flexbox) {
+            if (mq_small) {
+                serendipity.sync_heights();
+            }
         }
     });
 });
