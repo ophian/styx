@@ -61,7 +61,6 @@
                     </select>
                 </div>
 
-
                 <div id="plugin_filter" class="form_field">
                     <label for="pluginfilter">{$CONST.QUICKSEARCH}</label>
                     <input id="pluginfilter" type="text">
