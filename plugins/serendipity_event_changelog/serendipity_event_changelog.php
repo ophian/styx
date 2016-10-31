@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_plugin
         $propbag->add('description',    '');
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.21');
+        $propbag->add('version',       '1.22');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -130,7 +130,7 @@ class serendipity_event_changelog extends serendipity_plugin
     float: none;
     margin: 0 0 .5em;
 }
-#maintenance_logview.quick_list {
+.no-flexbox #maintenance_logview.quick_list {
     margin: 0 0 1em 2%;
 }
 #maintenance_logview .serendipity_logger {
