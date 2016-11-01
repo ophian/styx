@@ -102,17 +102,16 @@ function errorHandlerCreateDOM(htmlStr) {
 }
 
 
-/* This file defines the plugin API for serendipity.
+/**
+ * This file defines the plugin API for serendipity.
  * By extending these classes, you can add your own code
  * to appear in the sidebar(s) of serendipity.
  *
- *
  * The system defines a number of built-in plugins; these are
- * identified by @class_name.
+ * identified by class_name only.
  *
  * Third-party plugins are identified by the name of the folder into
- * which they were uploaded (so there is no @ sign at the start of
- * their class name.
+ * which they were uploaded.
  *
  * The user creates instances of plugins; an instance is assigned
  * an identifier like this:
@@ -133,11 +132,11 @@ class serendipity_plugin_api
     static function register_default_plugins()
     {
         /* Register default sidebar plugins, order matters */
-        serendipity_plugin_api::create_plugin_instance('@serendipity_plugin_archives');
-        serendipity_plugin_api::create_plugin_instance('@serendipity_plugin_categories');
-        serendipity_plugin_api::create_plugin_instance('@serendipity_plugin_syndication');
-        serendipity_plugin_api::create_plugin_instance('@serendipity_plugin_superuser');
-        serendipity_plugin_api::create_plugin_instance('@serendipity_plugin_plug');
+        serendipity_plugin_api::create_plugin_instance('serendipity_plugin_archives');
+        serendipity_plugin_api::create_plugin_instance('serendipity_plugin_categories');
+        serendipity_plugin_api::create_plugin_instance('serendipity_plugin_syndication');
+        serendipity_plugin_api::create_plugin_instance('serendipity_plugin_superuser');
+        serendipity_plugin_api::create_plugin_instance('serendipity_plugin_plug');
 
         /* Register default event plugins */
         serendipity_plugin_api::create_plugin_instance('serendipity_event_s9ymarkup', null, 'event');
@@ -170,7 +169,7 @@ class serendipity_plugin_api
      * Create an instance of a plugin.
      *
      * $plugin_class_id is of the form:
-     *    @class_name        for a built-in plugin
+     *    class_name         for a built-in plugin
      * or
      *    plugin_dir_name    for a third-party plugin
      * returns the instance identifier for the newly created plugin.
@@ -192,7 +191,7 @@ class serendipity_plugin_api
     {
         global $serendipity;
 
-        $id = md5(uniqid(''));
+        $id = md5(uniqid('', true)); // add entropy, since the installers first ~10 (depending on response time) enabled plugins all get the same token, while uniqid is Unixtime(8) + Microseconds(5)
 
         $key = $plugin_class_id . ':' . $id;
         $key = serendipity_db_escape_string($key);
@@ -215,7 +214,7 @@ class serendipity_plugin_api
 
         $serendipity['debug']['pluginload'][] = "Installing plugin: " . print_r(func_get_args(), true);
 
-        $iq = "INSERT INTO {$serendipity['dbPrefix']}plugins (name, sort_order, placement, authorid, path) values ('" . serendipity_db_escape_string(serendipity_specialchars($key)) . "', $nextidx, '$default_placement', '$authorid', '" . serendipity_specialchars($pluginPath) . "')";
+        $iq = "INSERT INTO {$serendipity['dbPrefix']}plugins (name, sort_order, placement, authorid, path) VALUES ('" . serendipity_specialchars($key) . "', $nextidx, '$default_placement', '$authorid', '" . serendipity_specialchars($pluginPath) . "')";
         $serendipity['debug']['pluginload'][] = $iq;
         serendipity_db_query($iq);
         serendipity_plugin_api::hook_event('backend_plugins_new_instance', $key, array('default_placement' => $default_placement));
@@ -256,13 +255,13 @@ class serendipity_plugin_api
             $plugin->uninstall($bag);
         }
 
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}plugins where name='$plugin_instance_id'");
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}plugins WHERE name='$plugin_instance_id'");
 
         if (is_object($plugin)) {
             $plugin->register_dependencies(true);
         }
 
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config  where name LIKE '$plugin_instance_id/%'");
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name LIKE '$plugin_instance_id/%'");
     }
 
     /**
