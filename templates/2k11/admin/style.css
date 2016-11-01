@@ -1871,9 +1871,10 @@ form > .button_link:first-of-type,
 }
 
 .media_file_actions {
-    position: absolute;
-    bottom: 0;
+    position: relative;
+    font-size: initial;
 }
+
 .media_file_footer {
     position: relative;
 }
