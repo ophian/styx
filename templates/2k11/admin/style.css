@@ -1620,8 +1620,26 @@ summary {
     top: 0;
 }
 
-.plugin_data .perm_name {
+.pluginmanager_container .plugin_data .perm_name {
     left: 1.25em;
+}
+.plugin_data[open=""] .block_level,
+.plugin_data .plugin_desc,
+.plugin_data .plugin_author {
+    font-size: .875em;
+}
+.plugin_author {
+    margin-top: .5em;
+}
+.plugin_data[open=""] {
+    border: 1px dashed #777;
+    margin-bottom: .5em;
+    padding: .25em;
+    background: #F5F5F5;
+}
+.pluginmanager_container .plugin_data[open=""] .perm_name {
+    left: 0;
+    padding-left: .25em;
 }
 
 .ac_results {
