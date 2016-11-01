@@ -2379,6 +2379,12 @@ label .perm_name,
     padding: .25em;
     position: relative;
 }
+.pluginmanager_sidebar .pluginmanager_container {
+    height: 94%;
+}
+.pluginmanager_event .pluginmanager_container {
+    height: 96.8%;
+}
 
 .flexbox .pluginmanager_side,
 .no-flexbox .pluginmanager_container {
