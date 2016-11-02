@@ -284,6 +284,7 @@
             <img src="{$file}" name="serendipityScaleImg" alt="{$CONST.PREVIEW}">
         </div>
     </div>
+    <a class="button_link" href="javascript: window.history.go(-1);">{$CONST.BACK}</a>
 {/if}
 {if $case_default}
     {if $showML}{$showML}{/if}
