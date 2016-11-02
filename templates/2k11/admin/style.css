@@ -1684,8 +1684,7 @@ fieldset p,
     padding: .25em 0;
 }
 
-.importer_data dd > div,
-.media_file .actions {
+.importer_data dd > div {
     margin-top: 0;
     margin-bottom: 0;
 }
@@ -1871,8 +1870,9 @@ form > .button_link:first-of-type,
 }
 
 .media_file_actions {
-    position: relative;
+    position: absolute;
     font-size: initial;
+    margin-top: 1em;
 }
 
 .media_file_footer {
