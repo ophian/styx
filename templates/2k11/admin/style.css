@@ -2528,11 +2528,11 @@ label .perm_name,
 .media_file h3 {
     margin: .5em 0 1em;
 }
-.manage h3 {
+.media_file h3 {
     white-space: nowrap;
     overflow: hidden;
-    text-overflow: ellipsis;
     width: 14em;
+    text-overflow: ellipsis;
     vertical-align: middle;
 }
 
@@ -3127,7 +3127,8 @@ img.mfp-img {
     #banner .chop-title {
         width: 8em;
     }
-    .manage h3 {
+
+    .media_file h3 {
         width: 15em;
     }
 
@@ -3150,6 +3151,10 @@ img.mfp-img {
     }
     #serendipityEntry {
         padding-top: 0;
+    }
+
+    .media_file h3 {
+        width: 18em;
     }
 
     .actions li,
@@ -3230,6 +3235,11 @@ img.mfp-img {
     #banner .chop-title {
         width: 24em;
     }
+
+    .media_file h3 {
+        width: 19em;
+    }
+
     #entries_list h3,
     #serendipity_comments_list h4,
     .karmalog h4 {
@@ -3333,6 +3343,10 @@ img.mfp-img {
         font-size: .875em;
         line-height: 1.71429em;
         margin: 1.71429em 0;
+    }
+
+    .media_file h3 {
+        width: 16em;
     }
 
     .no-flexbox #template_select article,
@@ -3612,8 +3626,8 @@ img.mfp-img {
     #banner .chop-title {
         width: 26em;
     }
-    .manage h3 {
-        width: 17em;
+    .media_file h3 {
+        width: 19em;
     }
 }
 
@@ -3693,12 +3707,6 @@ img.mfp-img {
 
     #keyword_list {
         padding-top: 2em;
-    }
-}
-
-@media only screen and (min-width: 950px) {
-    .manage h3 {
-        width: 19em;
     }
 }
 
@@ -3847,10 +3855,6 @@ img.mfp-img {
         width: 100%;
     }
 
-    .manage h3 {
-        width: 14em;
-    }
-
     #media_pane_sort .hideSubDirLabel {
         white-space: pre;
     }
@@ -3865,9 +3869,6 @@ img.mfp-img {
     .js .configuration_group .media_choose input {
         max-width: 42.5%;
     }
-    .manage h3 {
-        width: 18em;
-    }
     #edit_entry_metadata #categoryfilter {
         max-width: 22em;
         min-width: 0;
@@ -3880,8 +3881,5 @@ img.mfp-img {
 @media only screen and (min-width: 1600px) {
     html {
         font-size: 1.125em;
-    }
-    .manage h3 {
-        width: 19em;
     }
 }
