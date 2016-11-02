@@ -20,7 +20,7 @@
         <tr>
             <td>{$CONST.FILTER_DIRECTORY}</td>
             <td><select name="serendipity[only_path]">
-                    <option value="">{if NOT $media.limit_path}{$CONST.ALL_DIRECTORIES}{else}{$media.blimit_path}{/if}</option>
+                    <option value="">{if NOT $media.limit_path}{if $media.toggle_dir == 'yes' OR $media.hideSubdirFiles == 'yes'}{$CONST.BASE_DIRECTORY}{else}{$CONST.ALL_DIRECTORIES}{/if}{else}{$media.blimit_path}{/if}</option>
                     {foreach $media.paths AS $folder}
                     <option {if ($media.only_path == $media.limit_path|cat:$folder.relpath)}selected="selected"{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
                     {/foreach}

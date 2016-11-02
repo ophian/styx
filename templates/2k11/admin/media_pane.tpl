@@ -19,7 +19,7 @@
                 <div class="form_select">
                     <label for="serendipity_only_path" class="visuallyhidden">{$CONST.FILTER_DIRECTORY}</label>
                     <select id="serendipity_only_path" name="serendipity[only_path]">
-                        <option value="">{if NOT $media.limit_path}{if $media.toggle_dir == 'yes'}{$CONST.BASE_DIRECTORY}{else}{$CONST.ALL_DIRECTORIES}{/if}{else}{$media.blimit_path}{/if}</option>
+                        <option value="">{if NOT $media.limit_path}{if $media.toggle_dir == 'yes' OR $media.hideSubdirFiles == 'yes'}{$CONST.BASE_DIRECTORY}{else}{$CONST.ALL_DIRECTORIES}{/if}{else}{$media.blimit_path}{/if}</option>
                     {foreach $media.paths AS $folderHead}
 
                         <option{if ($media.only_path == $media.limit_path|cat:$folderHead.relpath)} selected{/if} value="{$folderHead.relpath}">{'&nbsp;'|str_repeat:($folderHead.depth*2)}{$folderHead.name}</option>
