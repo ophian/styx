@@ -602,7 +602,7 @@
       - use fresh Smarty object to display the debug console because of possible problems when the Smarty
         was extended or Smarty properties had been modified in the class source
       - display Smarty version number
-      - Truncate lenght of Origin display and extend strin value display to 80 character
+      - Truncate length of Origin display and extend string value display to 80 character
   - bugfix in Smarty_Security  'nl2br' should be a trusted modifier, not PHP function (code.google issue 223)
 
  12.05.2015
