@@ -1,5 +1,32 @@
-Version 2.1 Styx ()
-------------------------------------------------------------------------
+Version 2.1-beta-3 Styx (November 28th, 2016)
+ ------------------------------------------------------------------------
+
+  * Smarty bugfix and optimization update to 3.1.31-dev/47
+
+  * [Security] Enhanced media upload check to also check redirects
+    for local files, thanks to Xu Yue (again!)
+
+  * [Security] Prevent XSS in adding category and directory names,
+    thanks to Edric Teo @smarterbitbybit.
+
+  * Add back button to scale image page
+
+  * Fix BASE_DIRECTORY option in case of hideSubdirFiles
+
+  * Fix extended filter action buttons shown when no entries available
+
+  * Fix plugin API instance token
+
+  * Fix installer iconfont issue
+
+  * Add Styx backend template example index, which removes relevant
+    informations and assets when not logged in.
+
+  * Partial Sync - flexbox solution
+
+  * Sync core iconfont acessibility fixes
+
+  * Fix and optimize Plugin description
 
   * Fix and optimize default-php themes empty preview call
 
