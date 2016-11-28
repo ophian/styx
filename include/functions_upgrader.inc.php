@@ -194,6 +194,7 @@ $dead_files_202 = array(
     'composer.phar',
     'bundled-libs/PEAR5.php',
     'bundled-libs/Smarty/.travis.yml',
+    'bundled-libs/Smarty/composer.json',
     'bundled-libs/Smarty/COPYING.lib',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_clear.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_codeframe.php',
