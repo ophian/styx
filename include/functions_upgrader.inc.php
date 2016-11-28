@@ -193,6 +193,8 @@ $dead_dirs_200 = array(
 $dead_files_202 = array(
     'composer.phar',
     'bundled-libs/PEAR5.php',
+    'bundled-libs/Smarty/.travis.yml',
+    'bundled-libs/Smarty/COPYING.lib',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_clear.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_codeframe.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_extension_config.php',
@@ -203,6 +205,7 @@ $dead_files_202 = array(
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_runtime_inline.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_utility.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_write_file.php',
+    'bundled-libs/Smarty/travis.ini',
     'docs/CHANGED_FILES',
     'docs/INSTALL_EMBEDED',
     'docs/INSTALL_SHARED',
