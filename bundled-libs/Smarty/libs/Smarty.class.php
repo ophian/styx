@@ -66,23 +66,16 @@ if (!defined('SMARTY_RESOURCE_DATE_FORMAT')) {
 }
 
 /**
- * Try loading the Smarty_Internal_Data class
- * If we fail we must load Smarty's autoloader.
- * Otherwise we may have a global autoloader like Composer
+ * Load Smarty_Autoloader
  */
-if (!class_exists('Smarty_Autoloader', false)) {
-    if (!class_exists('Smarty_Internal_Data', true)) {
-        require_once dirname(__FILE__) . '/Autoloader.php';
-        Smarty_Autoloader::registerBC();
-    }
+if (!class_exists('Smarty_Autoloader')) {
+    include __DIR__ . '/bootstrap.php';
 }
 
 /**
  * Load always needed external class files
  */
-if (!class_exists('Smarty_Internal_Data', false)) {
-    require_once SMARTY_SYSPLUGINS_DIR . 'smarty_internal_data.php';
-}
+require_once SMARTY_SYSPLUGINS_DIR . 'smarty_internal_data.php';
 require_once SMARTY_SYSPLUGINS_DIR . 'smarty_internal_extension_handler.php';
 require_once SMARTY_SYSPLUGINS_DIR . 'smarty_internal_templatebase.php';
 require_once SMARTY_SYSPLUGINS_DIR . 'smarty_internal_template.php';
@@ -90,6 +83,7 @@ require_once SMARTY_SYSPLUGINS_DIR . 'smarty_resource.php';
 require_once SMARTY_SYSPLUGINS_DIR . 'smarty_variable.php';
 require_once SMARTY_SYSPLUGINS_DIR . 'smarty_template_source.php';
 require_once SMARTY_SYSPLUGINS_DIR . 'smarty_template_resource_base.php';
+require_once SMARTY_SYSPLUGINS_DIR . 'smarty_internal_resource_file.php';
 
 /**
  * This is the main Smarty class
@@ -114,7 +108,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * smarty version
      */
-    const SMARTY_VERSION = '3.1.31-dev/40';
+    const SMARTY_VERSION = '3.1.31-dev/47';
 
     /**
      * define variable scopes
@@ -440,6 +434,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     * @var boolean
     */
     public $extends_recursion = true;
+
     /**
      * force cache file creation
      *
@@ -751,6 +746,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      */
     public function __construct()
     {
+        $this->_clearTemplateCache();
         parent::__construct();
         if (is_callable('mb_internal_encoding')) {
             mb_internal_encoding(Smarty::$_CHARSET);
@@ -1013,9 +1009,6 @@ class Smarty extends Smarty_Internal_TemplateBase
         if (!$this->_compileDirNormalized) {
             $this->_normalizeDir('compile_dir', $this->compile_dir);
             $this->_compileDirNormalized = true;
-            if ($this->_isNewRelease($this->compile_dir)) {
-                $this->clearCompiledTemplate();
-            }
         }
         return $this->compile_dir;
     }
@@ -1044,9 +1037,6 @@ class Smarty extends Smarty_Internal_TemplateBase
         if (!$this->_cacheDirNormalized) {
             $this->_normalizeDir('cache_dir', $this->cache_dir);
             $this->_cacheDirNormalized = true;
-            if ($this->_isNewRelease($this->cache_dir)) {
-                $this->clearAllCache();
-            }
         }
         return $this->cache_dir;
     }
@@ -1122,12 +1112,14 @@ class Smarty extends Smarty_Internal_TemplateBase
         }
         $_templateId = $this->_getTemplateId($template, $cache_id, $compile_id);
         $tpl = null;
-        if ($this->caching && isset($this->_cache[ 'isCached' ][ $_templateId ])) {
-            $tpl = $do_clone ? clone $this->_cache[ 'isCached' ][ $_templateId ] :
-                $this->_cache[ 'isCached' ][ $_templateId ];
+        if ($this->caching && isset(Smarty_Internal_Template::$isCacheTplObj[ $_templateId ])) {
+            $tpl = $do_clone ? clone Smarty_Internal_Template::$isCacheTplObj[ $_templateId ] :
+                Smarty_Internal_Template::$isCacheTplObj[ $_templateId ];
+            $tpl->inheritance = null;
             $tpl->tpl_vars = $tpl->config_vars = array();
-        } else if (!$do_clone && isset($this->_cache[ 'tplObjects' ][ $_templateId ])) {
-            $tpl = clone $this->_cache[ 'tplObjects' ][ $_templateId ];
+        } else if (!$do_clone && isset(Smarty_Internal_Template::$tplObjCache[ $_templateId ])) {
+            $tpl = clone Smarty_Internal_Template::$tplObjCache[ $_templateId ];
+            $tpl->inheritance = null;
             $tpl->tpl_vars = $tpl->config_vars = array();
         } else {
             /* @var Smarty_Internal_Template $tpl */
@@ -1257,24 +1249,8 @@ class Smarty extends Smarty_Internal_TemplateBase
      */
     public function _clearTemplateCache()
     {
-        $this->_cache[ 'isCached' ] = array();
-        $this->_cache[ 'tplObjects' ] = array();
-    }
-
-    /**
-     * check if new release was installed
-     *
-     * @param string $dir compiled oder cache dir path
-     *
-     * @return bool
-     */
-    public function _isNewRelease ($dir) {
-        if (!is_file($file =  $dir. 'version.txt') || file_get_contents($file) !== Smarty::SMARTY_VERSION) {
-            file_put_contents($file, Smarty::SMARTY_VERSION);
-            return true;
-        } else {
-            return false;
-        }
+        Smarty_Internal_Template::$isCacheTplObj = array();
+        Smarty_Internal_Template::$tplObjCache = array();
     }
 
     /**

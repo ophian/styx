@@ -1,4 +1,23 @@
-﻿===== 3.1.31-dev ===== (xx.xx.xx)
+﻿===== 3.1.31 ===== (23.11.2016)
+  23.11.2016
+   - move template object cache into static variables
+
+  19.11.2016
+  - bugfix inheritance root child templates containing nested {block}{/block} could call sub-bock content from parent
+    template https://github.com/smarty-php/smarty/issues/317
+  - change version checking
+
+ 11.11.2016
+  - bugfix when Smarty is using a cached template object on Smarty::fetch() or Smarty::isCached() the inheritance data
+    must be removed https://github.com/smarty-php/smarty/issues/312
+  - smaller speed optimization
+
+ 08.11.2016
+  - add bootstrap file to load and register Smarty_Autoloader. Change composer.json to make it known to composer
+
+ 07.11.2016
+  - optimization of lexer speed https://github.com/smarty-php/smarty/issues/311
+
  27.10.2016
   - bugfix template function definitions array has not been cached between Smarty::fetch() and Smarty::display() calls
     https://github.com/smarty-php/smarty/issues/301
