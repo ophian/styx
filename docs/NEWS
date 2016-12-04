@@ -1,5 +1,7 @@
-Version 2.1-beta-3 Styx (November 28th, 2016)
+Version 2.1-beta-3 Styx (Dezember 4th, 2016)
  ------------------------------------------------------------------------
+
+  * Fix #430 RSS set email by config, thanks to fugue88
 
   * Smarty bugfix and optimization update to 3.1.31-dev/47
 
