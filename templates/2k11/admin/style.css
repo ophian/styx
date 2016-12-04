@@ -2582,7 +2582,7 @@ label .perm_name,
     margin: 0;
 }
 
-.js .media_file_preview,
+.js .media_pane .media_file_preview,
 .js .template_preview {
     position: relative;
     min-height: 12em;
