@@ -1193,6 +1193,10 @@ h2 {
     margin: 1.05em 0;
 }
 
+h2, h3 {
+    color: #1a559c;
+}
+
 .js .mfp-wrap #edit_entry_category .wrap_legend,
 h3 {
     font-size: 1.28571em;
