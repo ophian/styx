@@ -1958,7 +1958,7 @@ function serendipity_deletePath($dir) {
 }
 
 /**
- * Transform a filename into a valid  upload path
+ * Transform a filename into a valid upload path
  *
  * @access public
  * @param   string      The input filename
