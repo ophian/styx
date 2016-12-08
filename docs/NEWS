@@ -1,5 +1,7 @@
-Version 2.1-beta-3 Styx (Dezember 4th, 2016)
+Version 2.1-beta-3 Styx (Dezember 8th, 2016)
  ------------------------------------------------------------------------
+
+  * Add upgrade task to rename internal used plugins (again)
 
   * Fix #430 RSS set email by config, thanks to fugue88
 

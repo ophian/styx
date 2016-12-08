@@ -296,6 +296,11 @@ $tasks = array(
                                    Also please check that the entries.tpl file within your {foreach from=$dategroup.entries item="entry"} loop has this line after it:
                                    <strong>{assign var="entry" value=$entry scope="root"}</strong>, which scope had to change to "root" because of the mentioned class and the Smarty upgrades.'),
 
+            array(  'version'   => '2.1.0',
+                    'function'  => 'serendipity_upgrader_rename_plugins',
+                    'title'     => 'Reset internal plugin names to a current format.',
+                    'desc'      => 'Queue the database to rename internal used plugins. This task will migrate any possible references to such plugins to the new format.'),
+
 );
 
 /* Fetch SQL files which needs to be run */
