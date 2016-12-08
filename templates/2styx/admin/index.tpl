@@ -185,7 +185,7 @@
 {if NOT $admin_vars.no_footer}
 
     <footer id="meta">
-        <p>{if $admin_vars.is_logged_in}{$admin_vars.version_info}{else}{$admin_vars.version_info|regex_replace:"/([\d]+.?)+([-|beta|alpha]?)+([\s]?)/":''}{/if}</p>
+        <p>{if $admin_vars.is_logged_in}{$admin_vars.version_info|replace:"Serendipity":"Serendipity Styx"}{else}{$admin_vars.version_info|regex_replace:"/([\d]+.?)+([-|beta|alpha]?)+([\s]?)/":''}{/if}</p>
     </footer>
 {/if}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}
