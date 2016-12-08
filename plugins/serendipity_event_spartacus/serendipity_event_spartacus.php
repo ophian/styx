@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.47');
+        $propbag->add('version',       '2.48');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.99',
             'php'         => '5.3.0'
@@ -162,7 +162,7 @@ class serendipity_event_spartacus extends serendipity_event
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES);
                 $propbag->add('description', '');
-                $propbag->add('default',     'true');
+                $propbag->add('default',     'false');
                 break;
 
             case 'enable_remote':
