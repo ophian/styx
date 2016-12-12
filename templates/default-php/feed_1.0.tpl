@@ -23,7 +23,7 @@
       <rdf:Seq>
 <?php foreach ($GLOBALS['tpl']['entries'] AS $entry): ?>
         <rdf:li resource="{serendipity_rss_getguid entry=$entry is_comments=$is_comments ?>" />
-<?php foreachend; ?>
+<?php endforeach; ?>
       </rdf:Seq>
     </items>
 </channel>
@@ -44,7 +44,7 @@
     <dc:publisher><?= $entry['feed_blogTitle'] ?></dc:publisher>
     <dc:creator><?= $entry['feed_email'] ?> (<?= $entry['feed_author'] ?>)</dc:creator>
     <dc:subject>
-    <?php foreach ($entry['categories'] AS $cat): ?><?= $cat['feed_category_name'] ?>, <?php foreachend; ?></dc:subject>
+    <?php foreach ($entry['categories'] AS $cat): ?><?= $cat['feed_category_name'] ?>, <?php endforeach; ?></dc:subject>
     <dc:date><?= $entry['feed_timestamp'] ?></dc:date>
     <wfw:comment><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>wfwcomment.php?cid=<?= $entry['feed_id'] ?></wfw:comment>
 <?php if (!$is_comments): ?>
@@ -53,7 +53,7 @@
 <?php endif; ?>
     <?= $entry['per_entry_display_dat'] ?>
 </item>
-<?php foreachend; ?>
+<?php endforeach; ?>
 
 </rdf:RDF>
 

@@ -26,7 +26,7 @@
     <link><?= $entry['feed_entryLink'] ?></link>
     <?php foreach ($entry['categories'] AS $cat): ?>
         <category><?= $cat['feed_category_name'] ?></category>
-    <?php foreachend; ?>
+    <?php endforeach; ?>
 
     <comments><?= $entry['feed_entryLink'] ?>#comments</comments>
     <wfw:comment><?= $GLOBALS['tpl']['serendipityBaseURL'] ?>wfwcomment.php?cid=<?= $entry['feed_id'] ?></wfw:comment>
@@ -47,7 +47,7 @@
     <guid isPermaLink="false"><?= $entry['feed_guid'] ?></guid>
     <?= $entry['per_entry_display_dat'] ?>
 </item>
-<?php foreachend; ?>
+<?php endforeach; ?>
 
 </channel>
 </rss>

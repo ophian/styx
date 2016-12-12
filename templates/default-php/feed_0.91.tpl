@@ -19,7 +19,7 @@
     </description>
 <?php endif; ?>
 </item>
-<?php foreachend; ?>
+<?php endforeach; ?>
 
 </channel>
 </rss>

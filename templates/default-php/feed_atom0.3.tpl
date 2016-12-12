@@ -52,5 +52,5 @@
 
         <?= $entry['per_entry_display_dat'] ?>
     </entry>
-<?php foreachend; ?>
+<?php endforeach; ?>
 </feed>

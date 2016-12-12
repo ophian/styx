@@ -41,7 +41,7 @@
 
     <?php foreach ($entry['categories'] AS $cat): ?>
         <category scheme="<?= $cat['categoryURL'] ?>" label="<?= $cat['feed_category_name'] ?>" term="<?= $cat['feed_category_name'] ?>" />
-    <?php foreachend; ?>
+    <?php endforeach; ?>
 
         <id><?= $entry['feed_guid'] ?></id>
         <title type="html"><?= $entry['feed_title'] ?></title>
@@ -54,6 +54,6 @@
     <?php endif; ?>
         <?= $entry['per_entry_display_dat'] ?>
     </entry>
-<?php foreachend; ?>
+<?php endforeach; ?>
 
 </feed>

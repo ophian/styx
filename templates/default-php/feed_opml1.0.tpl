@@ -10,7 +10,7 @@
 
 <?php foreach ($GLOBALS['tpl']['entries'] AS $entry): ?>
     <outline text="<?= $entry['feed_title'] ?>" type="url" htmlUrl="<?= $entry['feed_entryLink'] ?>" urlHTTP="<?= $entry['feed_entryLink'] ?>" />
-<?php foreachend; ?>
+<?php endforeach; ?>
 
 </body>
 </opml>
