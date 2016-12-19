@@ -2,7 +2,7 @@
     <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl']['entry_id']); ?>
 <?php /* NOTE: in case of staticpages it either needs to check is_array() or cast foreach($GLOBALS as (array) */ ?>
     <?php if (is_array($GLOBALS['tpl']['entries'])):
-    foreach($GLOBALS['tpl']['entries'] AS $dategroup): ?>
+    foreach($GLOBALS['tpl']['entries'] AS $dategroup):?>
     <div class="serendipity_Entry_Date">
         <?php if ($dategroup['is_sticky']): ?>
         <h3 class="serendipity_date"><?= STICKY_POSTINGS ?></h3>
@@ -10,13 +10,13 @@
         <h3 class="serendipity_date"><?= serendipity_formatTime(DATE_FORMAT_ENTRY, $dategroup['date']); ?></h3>
         <?php endif; ?>
 
-        <?php foreach($dategroup['entries'] AS $entry): ?>
+        <?php foreach($dategroup['entries'] AS $entry):?>
         <h4 class="serendipity_title"><a href="<?= $entry['link'] ?>"><?= $entry['title'] ?></a></h4>
 
         <div class="serendipity_entry serendipity_entry_author_<?= serendipity_makeFilename($entry['author']); ?> <?php if ($entry['is_entry_owner']): ?>serendipity_entry_author_self<?php endif; ?>">
             <?php if ($entry['categories']): ?>
             <span class="serendipity_entryIcon">
-            <?php foreach($entry['categories'] AS $entry_category): ?>
+            <?php foreach($entry['categories'] AS $entry_category):?>
                 <?php if ($entry_category['category_icon']): ?>
                     <a href="<?= $entry_category['category_link'] ?>"><img class="serendipity_entryIcon" title="<?= serendipity_specialchars($entry_category['category_name']) ?> <?= $entry_category['category_description'] ?>" alt="<?= serendipity_specialchars($entry_category['category_name']) ?>" src="<?= $entry_category['category_icon'] ?>" /></a>
                 <?php endif; ?>
@@ -39,7 +39,7 @@
             <div class="serendipity_entryFooter">
                 <?= POSTED_BY ?> <a href="<?= $entry['link_author'] ?>"><?= $entry['author'] ?></a>
                 <?php if ($entry['categories']): ?>
-                   <?= IN ?> <?php foreach($entry['categories'] AS $entry_category): ?><a href="<?= $entry_category['category_link'] ?>"><?= serendipity_specialchars($entry_category['category_name']); ?></a>, <?php endforeach; ?>
+                   <?= IN ?> <?php foreach($entry['categories'] AS $entry_category):?><a href="<?= $entry_category['category_link'] ?>"><?= serendipity_specialchars($entry_category['category_name']); ?></a>, <?php endforeach; ?>
                 <?php endif; ?>
 
                 <?php if ($dategroup['is_sticky']): ?>
@@ -142,7 +142,7 @@
                 <a id="feedback"></a>
 
                 <?php if ( !empty($GLOBALS['tpl']['comments_messagestack'])): ?>
-                <?php foreach($GLOBALS['tpl']['comments_messagestack'] AS $message): ?>
+                <?php foreach($GLOBALS['tpl']['comments_messagestack'] AS $message):?>
                 <div class="serendipity_center serendipity_msg_important"><?= $message ?></div>
                 <?php endforeach; ?>
                 <?php endif; ?>

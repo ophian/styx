@@ -8,7 +8,7 @@
     <?php if (is_array($GLOBALS['tpl']['staticpage_childpages'])) ?>
     <div class="clearfix content staticpage_childpages">
         <ul id="staticpage_childpages">
-            <?php foreach ($GLOBALS['tpl']['staticpage_childpages'] AS $childpage): ?>
+            <?php foreach ($GLOBALS['tpl']['staticpage_childpages'] AS $childpage):?>
             <li><a href="<?= $childpage['permalink'] ?>" title="<?= $childpage['pagetitle']) ?>"><?= $childpage['pagetitle']) ?></a></li>
             <?php endforeach; ?>
         </ul>

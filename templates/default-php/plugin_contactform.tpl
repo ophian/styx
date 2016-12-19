@@ -22,7 +22,7 @@
             <p class="serendipity_center serendipity_msg_important"><?= $GLOBALS['tpl']['plugin_contactform_error'] ?></p>
 
             <!-- Needed for Captchas -->
-            <?php foreach ((array)$GLOBALS['tpl']['comments_messagestack'] AS $message): ?>
+            <?php foreach ((array)$GLOBALS['tpl']['comments_messagestack'] AS $message):?>
             <p class="serendipity_center serendipity_msg_important"><?= $GLOBALS['tpl']['message'] ?></p>
             <?php endforeach; ?>
             <?php endif; ?>

@@ -15,7 +15,7 @@
             <div class="staticpage_navigation_breadcrumb">
                 <a href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?>"><?= HOMEPAGE ?></a> &#187;
             <?php $i=0; ?>
-            <?php foreach ($GLOBALS['tpl']['staticpage_navigation']['crumbs'] AS $crumb): ?>
+            <?php foreach ($GLOBALS['tpl']['staticpage_navigation']['crumbs'] AS $crumb):?>
                 <?php if (!$i == 0): ?>&#187;<?php endif; ?><?php if ($crumb['id'] != $GLOBALS['tpl']['staticpage_pid']): ?><a href="<?= $crumb['link'] ?>"><?= serendipity_specialchars($crumb['name']) ?></a><?php else: ?><?= serendipity_specialchars($crumb['name']) ?><?php endif; ?>
             <?php $i++; ?>
             <?php endforeach; ?>
@@ -41,7 +41,7 @@
     <?php if (is_array($GLOBALS['tpl']['staticpage_childpages'])): ?>
     <div class="clearfix content staticpage_childpages">
         <ul id="staticpage_childpages">
-            <?php foreach ($GLOBALS['tpl']['staticpage_childpages'] AS $childpage): ?>
+            <?php foreach ($GLOBALS['tpl']['staticpage_childpages'] AS $childpage):?>
             <li><a href="<?= serendipity_specialchars($childpage['permalink']) ?>" title="<?= serendipity_specialchars($childpage['pagetitle']) ?>"><?= serendipity_specialchars($childpage['pagetitle']) ?></a></li>
             <?php endforeach; ?>
         </ul>

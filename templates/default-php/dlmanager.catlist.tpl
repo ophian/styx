@@ -19,7 +19,7 @@
         <?php $i=0; foreach ($GLOBALS['tpl']['catlist'] AS $cat): ?><?php /* <pre><?= print_r($cat) ?></pre> */ ?>
 
             <tr class="dlm_subcat <?= (($i % 2) ? "even" : "odd") ?>">
-                <td><?php foreach ($cat['imgname'] AS $imagename): ?><img src="<?= $GLOBALS['tpl']['httppath'] ?>img/<?= $imagename ?>.gif" width="20" height="20" alt="" /><?php endforeach; ?><img src="<?= $GLOBALS['tpl']['httppath'] ?>img/f.png" width="20" height="20" alt="<?= CATEGORY ?>" /> <a href="<?= $cat['path'] ?>"><?= $cat['cat']['payload'] ?><?php /* $cat['catname'] */ ?></a></td>
+                <td><?php foreach ($cat['imgname'] AS $imagename):?><img src="<?= $GLOBALS['tpl']['httppath'] ?>img/<?= $imagename ?>.gif" width="20" height="20" alt="" /><?php endforeach; ?><img src="<?= $GLOBALS['tpl']['httppath'] ?>img/f.png" width="20" height="20" alt="<?= CATEGORY ?>" /> <a href="<?= $cat['path'] ?>"><?= $cat['cat']['payload'] ?><?php /* $cat['catname'] */ ?></a></td>
                 <td class="last_column"><?= $cat['filenum'] ?></td>
             </tr>
         <?php $i++; endforeach; ?>

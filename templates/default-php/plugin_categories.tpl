@@ -4,8 +4,8 @@
 <?php endif; ?>
 
     <ul id="serendipity_categories_list" style="list-style: none; margin: 0px; padding: 0px">
-php if is_array($categories)):
-foreach ($categories AS $plugin_category): ?>
+<?php if is_array($categories)):
+    foreach ($categories AS $plugin_category):?>
         <li style="display: block;">
         <?php if ($GLOBALS['tpl']['is_form']: ?>
             <input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="<?= $plugin_category['categoryid'] ?>" />

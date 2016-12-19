@@ -18,14 +18,14 @@
     </tr>
 
     <tr>
-    <?php foreach($GLOBALS['tpl']['plugin_calendar_dow'] AS $dow): ?>
+    <?php foreach($GLOBALS['tpl']['plugin_calendar_dow'] AS $dow):?>
         <td scope="col" abbr="<?= serendipity_formatTime('%A', $dow['date']); ?>" title="<?= serendipity_formatTime('%A', $dow['date']); ?>" class="serendipity_weekDayName" align="center"><?= serendipity_formatTime('%a', $dow['date']); ?></td>
     <?php endforeach; ?>
     </tr>
 
-    <?php foreach($GLOBALS['tpl']['plugin_calendar_weeks'] AS $week): ?>
+    <?php foreach($GLOBALS['tpl']['plugin_calendar_weeks'] AS $week):?>
         <tr class="serendipity_calendar">
-        <?php foreach($week['days'] AS $day): ?>
+        <?php foreach($week['days'] AS $day):?>
             <td class="serendipity_calendarDay <?= $day['classes'] ?>"<?php if (isset($day['properties']['Title'])): ?> title="<?= $day['properties']['Title'] ?>"<?php endif; ?>><?php if (isset($day['properties']['Active']) && $day['properties']['Active']): ?><a href="<?= $day['properties']['Link'] ?>"><?php endif; ?><?= $day['name']; ?><?php if (isset($day['properties']['Active']) && $day['properties']['Active']): ?></a><?php endif; ?></td>
         <?php endforeach; ?>
         </tr>

@@ -14,7 +14,7 @@
         <a class="spp_title" href="<?= $GLOBALS['tpl']['frontpage_path'] ?>"><?= PLUGIN_STATICPAGELIST_FRONTPAGE_LINKNAME ?></a>
     <?php endif; ?>
     <?php if (is_array($GLOBALS['tpl']['staticpage_listContent']) && !empty($GLOBALS['tpl']['staticpage_listContent'])): ?>
-        <?php foreach ($GLOBALS['tpl']['staticpage_listContent'] AS $pageList): ?>
+        <?php foreach ($GLOBALS['tpl']['staticpage_listContent'] AS $pageList):?>
             <?php if (!empty($pageList['permalink'])): ?>
         <a class="spp_title" href="<?= $pageList['permalink'] ?>" title="<?= serendipity_specialchars($pageList['pagetitle']) ?>" style="padding-left: <?= $pageList['depth'] ?>px;"><?= substr($pageList['headline'], 0, 32); ?>&hellip;</a>
             <?php else: ?>

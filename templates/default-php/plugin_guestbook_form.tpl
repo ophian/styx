@@ -3,7 +3,7 @@
  */ ?>
 
     <!-- Needed for Captchas -->
-    <?php foreach ($GLOBALS['tpl']['guestbook_messages'] AS $messages): ?>
+    <?php foreach ($GLOBALS['tpl']['guestbook_messages'] AS $messages):?>
     <p class="serendipity_center serendipity_msg_important"><?= $message ?></p>
     <?php endforeach; ?>
 

@@ -50,7 +50,7 @@
                     <h3><?= MEDIA_PROP ?></h3>
 
                     <dl>
-                    <?php foreach ($GLOBALS['tpl']['media']['file']['base_property'] AS $prop_fieldname => $prop_content): ?>
+                    <?php foreach ($GLOBALS['tpl']['media']['file']['base_property'] AS $prop_fieldname => $prop_content):?>
                         <?php if ($prop_content['val']): ?>
                         <dt><?= $prop_content['label'] ?></dt>
                         <dd><?= $prop_content['val'] ?></dd>
@@ -64,7 +64,7 @@
                     <h3><?= MEDIA_KEYWORDS ?></h3>
 
                     <div class="media_keywords">
-                    <?php foreach ($GLOBALS['tpl']['media']['file']['props']['base_keyword'] AS $prop_fieldname => $prop_content): ?>
+                    <?php foreach ($GLOBALS['tpl']['media']['file']['props']['base_keyword'] AS $prop_fieldname => $prop_content):?>
                         <span><?= $prop_fieldname ?></span>
                     <?php endforeach; ?>
                     <div>
@@ -75,10 +75,10 @@
                     <h3>EXIF/IPTC/XMP</h3>
 
                     <dl>
-                    <?php foreach ($GLOBALS['tpl']['media']['file']['props']['base_metadata'] AS $meta_type => $meta_data): ?>
+                    <?php foreach ($GLOBALS['tpl']['media']['file']['props']['base_metadata'] AS $meta_type => $meta_data):?>
                         <dt><?= $meta_type ?></dt>
                         <?php if (is_array($meta_data)): ?>
-                            <?php foreach ($meta_data AS $meta_name => $meta_value): ?>
+                            <?php foreach ($meta_data AS $meta_name => $meta_value):?>
                             <dd class="meta_name"><?= $meta_name ?></dd>
                             <dd class="meta_value">
                             <?php if (is_array($meta_value)): ?>
@@ -99,7 +99,7 @@
                     <h3><?= REFERER ?></h3>
 
                     <ul class="plainList">
-                    <?php foreach ($GLOBALS['tpl']['media']['file']['references'] AS $ref): ?>
+                    <?php foreach ($GLOBALS['tpl']['media']['file']['references'] AS $ref):?>
                         <li><a rel="nofollow" href="<?= $ref['link'] ?>"><?= (empty($ref) ? NONE : $ref['link']) ?></a> (<?= $ref['name'] ?>)</li>
                     <?php endforeach; ?>
                     </ul>

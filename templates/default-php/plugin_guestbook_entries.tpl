@@ -30,7 +30,7 @@
               <p class="serendipity_center serendipity_msg_important guestbook_errorbundled"><?= $GLOBALS['tpl']['error_occured'] ?></p>
               <?php if ($GLOBALS['tpl']['guestbook_messages']): ?>
                 <ul>
-                <?php foreach ($GLOBALS['tpl']['guestbook_messages'] AS $messages): ?>
+                <?php foreach ($GLOBALS['tpl']['guestbook_messages'] AS $messages):?>
                     <li class="guestbook_errors"><?= $messages ?></li>
                 <?php endforeach; ?>
                 </ul>
@@ -40,7 +40,7 @@
             <?php if ($GLOBALS['tpl']['guestbook_entry_paging']): ?><div id="guestbook_entrypaging"><?= $GLOBALS['tpl']['guestbook_paging'] ?></div><?php endif; ?>
 
             <?php if ($GLOBALS['tpl']['guestbook_entries']): ?>
-              <?php foreach ($GLOBALS['tpl']['guestbook_entries'] AS $entry): ?>
+              <?php foreach ($GLOBALS['tpl']['guestbook_entries'] AS $entry):?>
 
                 <div id="guestbook_entrybundle">
                   <div class="guestbook_entrytop">

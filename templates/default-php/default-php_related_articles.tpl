@@ -7,8 +7,8 @@
 
     <?php if (!empty($GLOBALS['tpl']['entries'])): ?>
         <ul>
-    <?php foreach ($GLOBALS['tpl']['entries'] AS $dategroup): ?>
-        <?php foreach ($dategroup['entries'] AS $entry): ?>
+    <?php foreach ($GLOBALS['tpl']['entries'] AS $dategroup):?>
+        <?php foreach ($dategroup['entries'] AS $entry):?>
 
             <li class="static-entries">
                 (<?= serendipity_formatTime("%d.%m.%Y", $dategroup['date']); ?>) <a href="<?= $entry['link'] ?>"><?= (!empty($entry['title']) ? $entry['title'] : $entry['id']) ?></a>

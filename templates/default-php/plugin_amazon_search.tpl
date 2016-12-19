@@ -26,7 +26,7 @@
                        <span class="serendipity_amazonchr_previousbutton"><input type="button" class="serendipityPrettyButton input_button"  value="<?= NEXT ?>" onclick=window.location.href="<?= $GLOBALS['tpl']['plugin_amazonchooser_this_url'] ?><?= $GLOBALS['tpl']['plugin_amazonchooser_nextpage'] ?>" /></span>
                        <?php endif; ?>
                     </div>
-                 <?php foreach ($GLOBALS['tpl']['plugin_amazonchooser_items'] AS $thingy): ?>
+                 <?php foreach ($GLOBALS['tpl']['plugin_amazonchooser_items'] AS $thingy):?>
                     <?= serendipity_getTemplateFile($GLOBALS['tpl']['plugin_amazonchooser_displaytemplate']); ?>
                  <?php endforeach; ?>
                     <div class="serendipity_amazonchr_page_buttons">
@@ -93,7 +93,7 @@
                                 <input type="hidden" name="simple" value="<?= $GLOBALS['tpl']['plugin_amazonchooser_simple'] ?>" />
                             </div>
                             <select name="mode">
-<?php foreach ($GLOBALS['tpl']['plugin_amazonchooser_mode'] AS $type => $mode_names): ?>
+<?php foreach ($GLOBALS['tpl']['plugin_amazonchooser_mode'] AS $type => $mode_names):?>
     <?php if ($GLOBALS['tpl']['plugin_amazonchooser_defaultmode'] == $type): ?>
                             <option value="<?= $type ?>" selected="selected"><?= $mode_names ?></option>
     <?php else: ?>

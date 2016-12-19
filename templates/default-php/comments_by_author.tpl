@@ -12,7 +12,7 @@
 </div>
 
 <div class="comments_by_author">
-<?php foreach ($GLOBALS['tpl']['comments_by_authors'] AS $entry_comments): ?>
+<?php foreach ($GLOBALS['tpl']['comments_by_authors'] AS $entry_comments):?>
     <div class="serendipity_entry">
         <h4 class="serendipity_title"><a href="<?= $entry_comments['link'] ?>"><?= ($entry_comments['title'] ? $entry_comments['title'] : $entry_comments['link']) ?></a></h4>
         <?php /* tpl_comments is the already parsed "comments.tpl" template! */ ?>

@@ -1,12 +1,12 @@
 <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl']['entry_id']); ?>
 <h3 class="serendipity_date"><?= ARCHIVES ?></h3>
 <?php if (is_array($GLOBALS['tpl']['archives'])):
-foreach ($GLOBALS['tpl']['archives'] AS $archive): ?>
+foreach ($GLOBALS['tpl']['archives'] AS $archive):?>
 <table class="archives_listing" cellspacing="4" cellpadding="4" border="0">
     <tr class="archives_header">
         <td class="archives_header" colspan="4"><h2><?= $archive['year'] ?></h2></td>
     </tr>
-    <?php foreach ($archive['months'] AS $month): ?>
+    <?php foreach ($archive['months'] AS $month):?>
     <tr class="archives_row">
         <td class="archives_graph" width="100"><img src="<?= serendipity_getTemplateFile("img/graph_bar_horisontal.png"); ?>" height="10" width="<?= ceil(($month['entry_count'] * 100 / $GLOBALS['tpl']['max_entries'])) ?>" style="border: 1px solid #000000"></td>
         <td class="archives_date"><?= serendipity_formatTime("%B", $month['date']); ?></td>
