@@ -1,17 +1,37 @@
-Version 2.1-beta-3 Styx (December 11th, 2016)
+Version 2.1-beta-3 Styx (December 19th, 2016)
  ------------------------------------------------------------------------
 
-  * Add upgrade task to rename internal used plugins (again)
+  * Upgrade to Smarty 3.1.31
+
+  * [Security] - See 2.0.6 Note:
+    Security bugfix to escape dbType parameter on first installation
+
+  * Fix pubDate and add the better S9y logo to the RSS outfile
+
+  * Revisited the old Default theme and its cloned default-php theme
+    for mobile first responsiveness, without a total rewrite, keeping
+    the origin simplicity.
+    The old default index.tpl file was added to the dependency themes
+    (blue, idea and default-rtl). Copy themes based on them need to
+    include this too.
+
+  * Add upgrade task (again) to rename internally used plugins for the
+    stable Styx release
+
+  * Synced/Added new API wrapper serendipity_request_url() to request
+    URLs for compat. Styx plugins currently still use the simpler Styx
+    approach.
+    Core Image hotlink requests do now support this new API method.
 
   * Fix #430 RSS set email by config, thanks to fugue88
 
   * Smarty bugfix and optimization update to 3.1.31-dev/47
 
-  * [Security] Enhanced media upload check to also check redirects
-    for local files, thanks to Xu Yue (again!)
+  * [Security] - See 2.0.5 Note:
+    Enhanced media upload check to also check redirects for local files
 
-  * [Security] Prevent XSS in adding category and directory names,
-    thanks to Edric Teo @smarterbitbybit.
+  * [Security] - See 2.0.5 Note:
+    Prevent XSS in adding category and directory names
 
   * Add back button to scale image page
 
@@ -26,7 +46,7 @@ Version 2.1-beta-3 Styx (December 11th, 2016)
   * Add Styx backend template example index, which removes relevant
     informations and assets when not logged in.
 
-  * Partial Sync - flexbox solution
+  * Partial Sync - flexbox backend solution
 
   * Sync core iconfont acessibility fixes
 
@@ -50,18 +70,15 @@ Version 2.1-beta-3 Styx (December 11th, 2016)
 Version 2.1-beta2 Styx (September 26th, 2016)
 ------------------------------------------------------------------------
 
-  * [Security] Prevent moving files by using their directory name.
-    [Security] Possible SQL injection for entry category assignment.
-    [Security] Possible SQL injection for removing & adding a plugin.
+  * [Security] - See 2.0.4 Note:
+    Prevent moving files by using their directory name.
+    Possible SQL injection for entry category assignment.
+    Possible SQL injection for removing & adding a plugin.
 
-    All issues require a valid backend login.
-    Thanks to Hendrik Buchwald for finding this via their
-    RIPS source code analyzer (www.ripstech.com).
-
-  * [Security] Add new configuration option to enable fetching
-    local files for the media uploader. By default this is now
-    disabled to prevent Server Side Request Forgery (SSRF).
-    Thanks to Xu Yue for pointing this out!
+  * [Security] - See 2.0.4 Note:
+    Add new configuration option to enable fetching local files for
+    the media uploader. By default this is now disabled to prevent
+    Server Side Request Forgery (SSRF).
 
   * Added redirector message for "Page not found".
 
@@ -451,6 +468,43 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     instead of directories, it was not used anymore
 
   * Some small enhancements to the error reporting
+
+
+Version 2.0.6 ()
+------------------------------------------------------------------------
+
+  * Fix Bug #428, regression when fetching remote files, wrong call
+    to HTTP_Request::getEffectiveUrl()
+
+  * Fix Bug #433, secure variable on first time installation to prevent
+    RCE, thanks to Shinkurt
+
+
+Version 2.0.5 (November 28th, 2016)
+------------------------------------------------------------------------
+
+  * [Security] Improve preventing fetching local files, thanks to
+    Xu Yue.
+
+  * [Security] Prevent XSS in adding category and directory names,
+    thanks to Edric Teo @smarterbitbybit.
+
+
+Version 2.0.4 (September 26th, 2016)
+------------------------------------------------------------------------
+
+  * [Security] Prevent moving files by using their directory name.
+    [Security] Possible SQL injection for entry category assignment
+    [Security] Possible SQL injection for removing&adding a plugin
+
+    All issues require a valid backend login.
+    Thanks to Hendrik Buchwald for finding this via their
+    RIPS source code analyzer (www.ripstech.com)
+
+  * [Security] Add new configuration option to enable fetching
+    local files for the media uploader. By default this is now
+    disabled to prevent Server Side Request Forgery (SSRF).
+    Thanks to Xu Yue for pointing this out!
 
 
 Version 2.0.3 (January 4th, 2016)
