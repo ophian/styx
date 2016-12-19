@@ -187,13 +187,15 @@ IMAGE;
 // First, do some sanity checks
 $metadata['additional_fields']['channel'] = '';
 $rssFields = array('feedManagingEditor' => 'managingEditor', 'feedWebmaster' => 'webMaster', 'feedTtl' => 'ttl', 'feedPubDate' => 'pubDate');
+$pubDateFallback = serendipity_get_config_var('last_template_change');
 foreach( $rssFields AS $configName => $field) {
     $fieldValue = serendipity_get_config_var($configName);
 
     switch($field) {
         case 'pubDate':
             if (serendipity_db_bool($fieldValue)) {
-                $fieldValue  = gmdate('D, d M Y H:i:s \G\M\T', $entries[0]['last_modified']);
+                $pdate = empty($entries[0]) ? $pubDateFallback : $entries[0]['last_modified'];
+                $fieldValue  = gmdate('D, d M Y H:i:s \G\M\T', $pdate);
             } else {
                 $fieldValue  = '';
             }
