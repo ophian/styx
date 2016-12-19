@@ -11,6 +11,7 @@
 <head>
     <title>{$head_title|default:$blogTitle} {if $head_subtitle} - {$head_subtitle}{/if}</title>
     <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content="Serendipity v.{$serendipityVersion}" />
 {if ($view == "entry" || $view == "start" || $view == "feed" || $view == "plugin" || $staticpage_pagetitle != "" || $robots_index == 'index')}
     <meta name="robots" content="index,follow" />
@@ -45,21 +46,41 @@
     <h2><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></h2>
 </div>
 
-<table id="mainpane">
-    <tr>
+<div id="mainpane">
+    <div id="content" valign="top">{$CONTENT}</div>
 {if $leftSidebarElements > 0}
-        <td id="serendipityLeftSideBar" valign="top">{serendipity_printSidebar side="left"}</td>
+    <div id="serendipityLeftSideBar" valign="top">{serendipity_printSidebar side="left"}</div>
 {/if}
-        <td id="content" valign="top">{$CONTENT}</td>
 {if $rightSidebarElements > 0}
-        <td id="serendipityRightSideBar" valign="top">{serendipity_printSidebar side="right"}</td>
+    <div id="serendipityRightSideBar" valign="top">{serendipity_printSidebar side="right"}</div>
 {/if}
-    </tr>
-</table>
+</div>
 {/if}
 
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
+
+<script type="text/javascript">
+/* toggle content/left sidebar markup nodes for responsiveness */
+(function ($) {
+    if ($(window).width() < 980) {
+        $("#serendipityLeftSideBar").before($("#content"));
+    }
+    else {
+        $("#content").before($("#serendipityLeftSideBar"));
+    }
+    $(window).resize(function() {
+        if ($(window).width() < 980) {
+            $("#serendipityLeftSideBar").before($("#content"));
+            $("#serendipityRightSideBar").before($("#serendipityLeftSideBar"));
+        }
+        else {
+            $("#content").before($("#serendipityLeftSideBar"));
+        }
+    });
+})(jQuery);
+</script>
+
 {if $is_embedded != true}
 </body>
 </html>

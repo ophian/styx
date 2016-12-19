@@ -1,131 +1,203 @@
-h4,h3 {
-    margin: 0;
+/* A simple mobile first responsive theme */
+
+*,*:before, *:after {
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box
 }
 
-.serendipitySideBarContent input {
-    width: 150px;
-}
-
-#mainpane {
-    border-bottom: 1px solid #000000;
-    margin: auto;
-    width: 100%;
-    border-top: 0px;
-    background-color: #FFFFFF;
-    border-top: 1px solid #000000;
-}
-
-#content {
-    padding: 10px;
-    margin: 10px;
-    width: auto;
-}
-
-#serendipityRightSideBar {
-    width: 170px;
-    border-left: 1px dashed #000000;
-    padding: 10px;
-    vertical-align: top;
-}
-
-#serendipityLeftSideBar {
-    width: 170px;
-    border-right: 1px dashed #000000;
-    padding: 10px;
-    vertical-align: top;
-}
+@-ms-viewport {
+  width: device-width; }
 
 body {
-    font-size: 10pt;
-    margin: 0;
-    background-color: #D2DFF2;
-    font-size: 10px;
+    background-color: #DDD;
+    font-size: 1em;
     font-family: verdana, arial, helvetica, sans-serif;
-    margin-bottom: 30px;
+    margin: 1em;
+    min-width: 288px;
+}
+
+img {
+    border: 0;
+    vertical-align: middle;
+    overflow: hidden;
+    position: relative;
+}
+
+embed, object, audio, video, img {
+    max-width: 100%;
+}
+
+video, img {
+    height: auto;
 }
 
 input, textarea {
-    font-size: 10pt;
+    font-size: .875em;
     font-family: verdana, arial, helvetica, sans-serif;
 }
 
 th, td {
-    font-size: 10pt;
+    font-size: .875em;
 }
 
 p, td, th, div, span {
     font-family: verdana, arial, helvetica, sans-serif;
 }
 
+h4,h3 {
+    margin: 0;
+}
+
+a:link,
+a:visited,
+a:active {
+    color: #baccde;
+    text-decoration: underline;
+}
+a:hover {
+    color: #e6e6e6;
+    text-decoration: underline;
+}
+
+#mainpane {
+    border-bottom: 1px solid #222;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    border-top: 0;
+    background-color: #FDFDFD;
+    border-top: 1px solid #222;
+}
+#mainpane.preview_preview_container {
+    display: inherit;
+    border: 0 none;
+}
+
+#content {
+    padding: 1em;
+    margin: 1em;
+    width: auto;
+    float: none;
+    vertical-align: top;
+}
+#content a:link,
+#content a:visited,
+#content a:active {
+    color: #001f3f;
+}
+#content a:hover {
+    color: #0074d9;
+}
+
+#content.preview_preview_content {
+    background: #FFF;
+}
+.save_preview_content a:hover {
+    color: #001f3f;
+}
+.save_preview_content a:link, .save_preview_content a:visited, .save_preview_content a:active {
+    color: #0074d9;
+}
+
+#serendipityLeftSideBar,
+#serendipityRightSideBar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: auto;
+    float: none;
+    padding: 1em;
+    vertical-align: top;
+    background: #333;
+    border: 0 none;
+    color: #ccdde7;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.8);
+}
+#serendipityLeftSideBar > div,
+#serendipityRightSideBar > div {
+    width: auto;
+    margin-right: 1em;
+    border-bottom: 0 none;
+}
+
 #serendipity_banner {
     margin: auto;
     width: 100%;
-    height: 72px;
-    background-image: url({TEMPLATE_PATH}img/background.png);
+    height: 5em;
+    background: #333;
+    background-image: -webkit-linear-gradient(#333, #4E4E4E);
+    background-image: linear-gradient(#333, #4E4E4E);
+    box-shadow: 0 1px 4px rgba(0,0,0,.5);
+    color: #ccdde7;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.8);
+    overflow: hidden;
+    white-space: nowrap;
 }
-
 a.homelink1,
 a.homelink1:hover,
 a.homelink1:link,
 a.homelink1:visited,
 #serendipity_banner h1 {
-    color: #FFFFFF;
+    color: #FDFDFD;
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
-    font-size : 20px;
-    padding-left:15px;
-    padding-top: 10px;
-    margin: 0px;
+    font-size: 1.125em;
     text-decoration: none;
+    line-height: 1.3333em;
+    margin: 0;
+    padding-top: 1em;
+    padding-left: 1em;
 }
-
 a.homelink2,
 a.homelink2:hover,
 a.homelink2:link,
 a.homelink2:visited,
 #serendipity_banner h2 {
-    color: #FFFFFF;
-    padding-left: 15px;
-    font-size: 14px;
-    margin: 0px;
+    color: #FDFDFD;
+    font-size: .9em;
     text-decoration: none;
+    margin: 0;
+    padding-left: 1.4em;
 }
 
 .serendipity_title {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: medium;
     font-weight: bold;
-    margin-top: 10px;
-    color: #333333;
-    padding-left: 5px;
-    border-bottom: 2px solid #36558C;
+    margin-top: 1em;
+    color: #333;
+    border-bottom: 2px ridge #DDD;
 }
-
 .serendipity_title a:link,
 .serendipity_title a:visited {
-   text-decoration: none;
-   border: 0;
-   color: #000000;
+    text-decoration: none;
+    border: 0 none;
+    color: #222;
 }
-
 .serendipity_title a:hover {
-   color: #FF0000;
+    color: #ff4136;
 }
 
 .serendipity_entry {
-    font-family:Verdana, Arial, Geneva, Helvetica, sans-serif;
-    color: #333333;
+    font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+    color: #333;
     font-size: 9.5pt;
     font-weight: normal;
-    padding-right: 10px;
-    width: 95%;
+    width: 100%;
     margin: auto;
-    margin-top: 10px;
+    margin-top: 1em;
 }
 
 .serendipity_entry_body_folded,
 .serendipity_entry_body_unfolded,
 .serendipity_entry_extended {
-    /* Inner blocks of .serendipity_entry, can be used for further customization */
+    /* Inner blocks of .serendipity_entry, can be used for further customization
+    display: table; */
+}
+
+.serendipity_entry p {
+    margin-top: 0;
+    padding-bottom: 0;
 }
 
 .serendipity_entry_date {
@@ -135,43 +207,38 @@ a.homelink2:visited,
 .serendipity_date {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: large;
-    color: #333333;
+    color: #333;
     margin: 0;
-    margin-top: 20px;
     text-align: right;
 }
 
 .serendipity_commentsTitle {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
-    font-size: small;
+    font-size: .9em;
     font-weight: bold;
-    margin-top: 10px;
-    color: #333333;
-    padding-left: 5px;
-    border-bottom: 2px solid #36558C;
+    margin-top: 1em;
+    color: #333;
+    padding-left: .5em;
+    border-bottom: 1px solid #BCBCBC;
 }
 
 div.serendipity_entryFooter {
-    font-family:Verdana, Arial, Geneva, Helvetica, sans-serif;
-    font-size: x-small;
-    color: #000000;
-    padding-top: 10px;
+    font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+    font-size: .75em;
+    text-align: center;
+    color: #222;
+    margin: auto;
+    padding-top: 1em;
     padding-bottom: 4px;
-    clear: both;
 }
 
 img.serendipity_entryIcon {
     float: right;
-    border: 0px;
-}
-
-img.serendipity_entryIcon {
-    float: right;
-    border: 0px;
+    border: 0 none;
 }
 
 td.serendipity_commentsLabel {
-    font-size: 12px;
+    font-size: 1em;
     font-weight: bold;
     vertical-align: top;
 }
@@ -179,205 +246,301 @@ td.serendipity_commentsLabel {
 td.serendipity_commentsValue input,
 td.serendipity_commentsValue select,
 td.serendipity_commentsValue textarea {
-    font-size: 12px;
+    font-size: 1em;
     padding: 2px;
-    width: 400px;
+    width: 100%;
+    max-width: 42em;
 }
 
+.serendipity_edit_nugget {
+    font-size: .75em;
+    text-align: right;
+    margin-top: .5em;
+}
 
 .serendipity_commentForm {
     font-size: 13px;
     color: #404040;
-    margin-bottom: 13px;
-    margin-right: 10px;
-    margin-left: 10px;
-    background-color: #FFFFFF;
+    margin-right: 1em;
+    margin-bottom: 1.25em;
+    margin-left: 1em;
+    background-color: #FDFDFD;
 }
 .serendipity_comment {
     font-size: 13px;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-top: 1em;
+    margin-right: 1em;
+    margin-left: 1em;
     color: #404040;
-    padding: 3px;
-    background-color: #FFFFFF;
+    padding: 0.25em;
+    background-color: #FDFDFD;
     overflow: auto;
 }
 
 .serendipity_comment_source {
-    margin-top: 5px;
-    padding-left: 5px;
-    margin-bottom: 5px;
-    padding-bottom: 3px;
-    border-bottom: 2px solid #36558C;
+    margin-top: .5em;
+    padding-left: .5em;
+    margin-bottom: .5em;
+    padding-bottom: 0.25em;
+    border-bottom: 2px ridge #DDD;
 }
 
-a:link,
-a:visited,
-a:active {
-    color: #003366;
-    text-decoration: underline;
-}
-a:hover {
-    color: #000000;
-    text-decoration: underline;
+.serendipitySideBarContent input[type="checkbox"],
+#serendipity_categories_list img {
+    vertical-align: middle;
 }
 
 table.serendipity_calendar td {
-    font-size:11px;
-    padding: 3px;
+    font-size: 11px;
+    padding: 0.25em;
 }
 table.serendipity_calendar a {
-    color: #FF0000;
+    color: #ff4136;
     font-weight: bold;
-    text-decoration:none;
+    text-decoration: none;
 }
-
 table.serendipity_calendar a:hover {
     text-decoration: none;
 }
-
 td.serendipity_weekDayName {
-    font-size:11px;
-    font-weight:bold;
+    font-size: 11px;
+    font-weight: bold;
 }
 td.serendipity_calendarHeader a:link,
 td.serendipity_calendarHeader a:visited,
 td.serendipity_calendarHeader a:hover {
-    border: 0;
+    border: 0 none;
     text-decoration: none;
 }
 
 div.serendipityPlug {
-    padding-left: 10px;
+    padding-left: 1em;
 }
 
 div.serendipityPlug a {
     text-decoration: none;
-    border: 0px;
+    border: 0 none;
 }
 
 /* Container for each item on the side bar */
 div.serendipitySideBarItem {
-    padding-bottom: 12px;
-    margin-bottom: 12px;
-    font-size: 12px;
-    font-weight:normal;
-    border-bottom: solid 2px #36558C;
+    margin-bottom: 1em;
+    font-size: .825em;
+    font-weight: normal;
+    border-bottom: 1px solid #DDD;
 }
 
 /* title of an individual item */
 .serendipitySideBarTitle {
+    font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
+    color: #ccdde7;
+    font-size: 1em;
+    font-weight: bold;
     margin: 0;
-    font-family:Verdana, Arial, Geneva, Helvetica, sans-serif;
-    color: #000000;
-    font-size: 12px;
-    font-weight:bold;
-    padding-left:2px;
-    padding-bottom:2px;
+    padding-bottom: .6em;
 }
 
 .serendipityImageButton {
     cursor: pointer;
-}
-.serendipity_entry p {
-    margin-top: 0px;
-    padding-bottom: 0px;
 }
 
 /** Embedded images with the s9y image manager **/
 .serendipity_imageComment_center,
 .serendipity_imageComment_left,
 .serendipity_imageComment_right {
-    border: 1px solid #DDDDDD;
-    background-color: #EFEFEF;
-    margin: 3px;
-    padding: 3px;
+    border: 1px solid #DDD;
+    background-color: #EFE;
+    margin: 0.25em;
+    padding: 0.25em;
     text-align: center;
 }
 
 .serendipity_imageComment_center {
-    margin: auto;
+    margin: .25em auto;
 }
 
 .serendipity_imageComment_left {
     float: left;
+    margin-right: .5em;
 }
 
 .serendipity_imageComment_right {
     float: right;
+    margin-left: .5em;
 }
 
 .serendipity_imageComment_img,
 .serendipity_imageComment_img img {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
 .serendipity_imageComment_txt {
-    border-top: 1px solid #DDDDDD;
-    margin: 0px;
-    padding: 3px;
+    border-top: 1px solid #DDD;
+    margin: 0;
+    padding: 0.25em;
     clear: both;
     font-size: 8pt;
     text-align: center;
 }
-
+/* image parent comment box responsiveness for mobile screens */
+.serendipity_imageComment_left,
+.serendipity_imageComment_center,
+.serendipity_imageComment_right {
+    width: auto !important; /* force overwrite delivered inline styles */
+    display: table;
+}
 .serendipity_comments {
+}
+/* overwrite fallback plain image padding */
+.serendipity_image_center {
+    padding: .25em;
 }
 
 .serendipity_center {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    font-size: 0.8em;
 }
-
+.serendipity_section_commentform {
+    font-size: 0.9em;
+}
 .serendipity_msg_important {
-    color: red;
+    color: #ff4136; /* new red */
 }
 
 .serendipity_msg_notice {
-    color: green;
+    color: #2ecc40; /* new green */
 }
 
 .serendipity_entry_author_self {
 }
 
 .serendipity_comment_author_self .serendipity_comment_source {
-    background-color: #EEEEFF;
+    background-color: #EEE;
 }
-
 
 /*** Additional plugin styles needed for the modernized output code ***/
 /*** added by Matthias 'YellowLed' Mees                             ***/
 
-.plainList {
-    list-style: none;
-    margin-left: 0;
-    padding-left: 0;
-}
-
 .container_serendipity_authors_plugin .serendipitySideBarContent div {
-    margin: 5px 0;
+    margin: .5em 0;
     padding-left: 0;
 }
 
 .serendipity_history_author { font-weight: bolder; }
 
 .serendipity_history_intro,
-.serendipity_history_info { margin-bottom: 3px; }
+.serendipity_history_info { margin-bottom: 0.25em; }
 
-.serendipity_history_body { margin-bottom: 10px; }
+.serendipity_history_body { margin-bottom: 1em; }
 
 .serendipity_recententries_entrylink { margin-bottom: 2px; }
 
 .serendipity_recententries_entrydate { margin: 0 0 4px 0; }
 
-.plugin_comment_body { padding: 3px 0; }
+.plugin_comment_body { padding: 0.25em 0; }
 
-.serendipity_shoutbox_date { margin: 5px 0 2px 0; }
+.serendipity_shoutbox_date { margin: .5em 0 2px 0; }
 
-.serendipity_shoutbox_comment { padding: 3px 0; }
+.serendipity_shoutbox_comment { padding: 0.25em 0; }
 
 /*** End Additional plugin styles                                   ***/
+
+/* bigger screens */
+
+@media screen and (min-width: 504px) {
+    #mainpane {
+        display: table;
+    }
+    .serendipity_entry_body,
+    .serendipity_entry_extended {
+        display: table;
+        clear: both;
+    }
+}
+@media screen and (min-width: 780px) {
+    #content {
+        float: none;
+        display: table-cell;
+        width: auto;
+    }
+    #serendipityLeftSideBar, #serendipityRightSideBar {
+        float: right;
+        display: table-cell;
+        width: 240px;
+        min-width: 14em;
+        flex-wrap: inherit;
+        justify-content: inherit;
+        background: initial;
+        color: initial;
+        text-shadow: inherit;
+        border-right: 0 none;
+        border-left: 1px dashed;
+    }
+    .serendipitySideBarTitle {
+        color: #222;
+    }
+    a:link,
+    a:visited,
+    a:active {
+        color: #001f3f;
+    }
+    a:hover {
+        color: #0074d9;
+    }
+    #serendipityLeftSideBar > div,
+    #serendipityRightSideBar > div {
+        width: auto;
+        margin-right: 1em;
+        border-bottom: 0 none;
+    }
+}
+@media screen and (min-width: 980px) {
+    #content,
+    #serendipityLeftSideBar,
+    #serendipityRightSideBar {
+        display: table-cell;
+    }
+    #serendipityLeftSideBar {
+        float: left;
+    }
+    #content {
+        width: auto;
+        float: unset;
+    }
+    #serendipityLeftSideBar,
+    #serendipityRightSideBar {
+        width: 14em;
+        height: 100%;
+        color: inherit;
+        text-shadow: inherit;
+        background: inherit;
+    }
+    #serendipityLeftSideBar {
+        border-left: 0 none;
+        border-right: 1px dashed #222;
+    }
+
+    #serendipityRightSideBar {
+        border-left: 1px dashed #222;
+        float: inherit;
+    }
+
+    #serendipityRightSideBar .serendipitySideBarTitle {
+        color: #222;
+    }
+    a:link,
+    a:visited,
+    a:active {
+        color: #001f3f;
+    }
+    a:hover {
+        color: #0074d9;
+    }
+    div.serendipitySideBarItem {
+        padding-bottom: 1em;
+    }
+}

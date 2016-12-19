@@ -8,7 +8,7 @@ foreach ($GLOBALS['tpl']['archives'] AS $archive):?>
     </tr>
     <?php foreach ($archive['months'] AS $month):?>
     <tr class="archives_row">
-        <td class="archives_graph" width="100"><img src="<?= serendipity_getTemplateFile("img/graph_bar_horisontal.png"); ?>" height="10" width="<?= ceil(($month['entry_count'] * 100 / $GLOBALS['tpl']['max_entries'])) ?>" style="border: 1px solid #000000"></td>
+        <td class="archives_graph" width="100"><img src="<?= serendipity_getTemplateFile("img/graph_bar_horisontal.png"); ?>" height="10" width="<?= ceil(($month['entry_count'] * 100 / $GLOBALS['tpl']['max_entries'])) ?>" style="height: 12px;border: 1px solid #000000"></td>
         <td class="archives_date"><?= serendipity_formatTime("%B", $month['date']); ?></td>
         <td class="archives_count"><?= $month['entry_count'] ?> <?= ENTRIES ?></td>
         <td class="archives_count_link">(<?php if ($month['entry_count']): ?><a href="<?= $month['link'] ?>"><?php endif; ?><?= VIEW_FULL ?><?php if ($month['entry_count']): ?></a><?php endif; ?>)</td>
@@ -18,6 +18,6 @@ foreach ($GLOBALS['tpl']['archives'] AS $archive):?>
 </table>
 <?php endforeach; ?>
 <?php endif; ?>
-<div class="serendipity_pageFooter" style="text-align: center">
+<div class="serendipity_pageFooter">
 <?php serendipity_plugin_api::hook_event('entries_footer', $GLOBALS['tpl']['entry_id']); ?>
 </div>

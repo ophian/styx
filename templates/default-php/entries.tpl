@@ -186,7 +186,7 @@
     </div>
     <?php endif; ?>
 
-    <div class="serendipity_entryFooter" style="text-align: center">
+    <div class="serendipity_entryFooter">
     <?php if ($GLOBALS['tpl']['footer_prev_page']): ?>
         <a href="<?= $GLOBALS['tpl']['footer_prev_page'] ?>">&laquo; <?= PREVIOUS_PAGE; ?></a>&#160;&#160;
     <?php endif; ?>

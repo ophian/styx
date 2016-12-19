@@ -11,6 +11,7 @@
 <head>
     <title>{$media.file.props.base_property.TITLE|default:$media.file.realname}</title>
     <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content="Serendipity v.{$serendipityVersion}" />
     <link rel="stylesheet" type="text/css" href="{$head_link_stylesheet}" />
     <link rel="alternate"  type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2" />
@@ -34,32 +35,30 @@
     <h2><a class="homelink2" href="{$serendipityBaseURL}">{$media.file.realname}</a></h2>
 </div>
 
-<table id="mainpane">
-    <tr>
-        <td id="content" valign="top">
-            <div class="serendipity_Entry_Date">
-                <h3 class="serendipity_date">{$media.file.realname}</h3>
-                <h4 class="serendipity_title"><a href="#">{$media.file.props.base_property.TITLE|default:''}</a></h4>
+<div id="mainpane">
+    <div id="content" valign="top">
+        <div class="serendipity_Entry_Date">
+            <h3 class="serendipity_date">{$media.file.realname}</h3>
+            <h4 class="serendipity_title"><a href="#">{$media.file.props.base_property.TITLE|default:''}</a></h4>
 
-                <div class="serendipity_entry">
-                    <div class="serendipity_entry_body">
-                    {if $perm_denied}
-                        {$CONST.PERM_DENIED}
-                    {else}
-                        <div class="serendipity_center">
-                            {if $media.file.is_image}
-                                <img src="{$media.file.full_file}" />
-                            {else}
-                                <a href="{$media.file.full_file}">{$media.file.realname} ({$media.file.displaymime})</a>
-                            {/if}
-                            <br /><a href="{$media.from|escape}" title="{$CONST.BACK_TO_BLOG}">{$CONST.BACK_TO_BLOG}</a>
-                        </div>
-                    {/if}
+            <div class="serendipity_entry">
+                <div class="serendipity_entry_body">
+                {if $perm_denied}
+                    {$CONST.PERM_DENIED}
+                {else}
+                    <div class="serendipity_center">
+                        {if $media.file.is_image}
+                            <img src="{$media.file.full_file}" />
+                        {else}
+                            <a href="{$media.file.full_file}">{$media.file.realname} ({$media.file.displaymime})</a>
+                        {/if}
+                        <br /><a href="{$media.from|escape}" title="{$CONST.BACK_TO_BLOG}">{$CONST.BACK_TO_BLOG}</a>
                     </div>
+                {/if}
                 </div>
             </div>
-        </td>
-        <td id="serendipityRightSideBar" valign="top">
+        </div>
+        <div id="serendipityRightSideBar" valign="top">
         {if $media.file.base_property}
             <div class="serendipitySideBarItem">
                 <h3 class="serendipitySideBarTitle">{$CONST.MEDIA_PROP}</h3>
@@ -130,9 +129,9 @@
                 </div>
             </div>
         {/if}
-        </td>
-    </tr>
-</table>
+        </div>
+    </div>
+</div>
 {/if}
 
 {$raw_data}

@@ -12,6 +12,6 @@
     <?php endforeach; ?>
     </ul>
 </div>
-<div class="serendipity_entryFooter" style="text-align: center">
+<div class="serendipity_entryFooter">
 <?php serendipity_plugin_api::hook_event('entries_footer', $GLOBALS['tpl']['entry_id']); ?>
 </div>

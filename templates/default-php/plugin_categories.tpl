@@ -3,7 +3,7 @@
     <div id="serendipity_category_form_content">
 <?php endif; ?>
 
-    <ul id="serendipity_categories_list" style="list-style: none; margin: 0px; padding: 0px">
+    <ul id="serendipity_categories_list" class="plainList">
 <?php if is_array($categories)):
     foreach ($categories AS $plugin_category):?>
         <li style="display: block;">

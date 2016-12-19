@@ -4,6 +4,7 @@
 <head>
     <title><?= $GLOBALS['template']->getdefault('head_title', 'blogTitle'); ?> - <?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset']; ?>" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content="Serendipity v.<?= $GLOBALS['tpl']['serendipityVersion']; ?>" />
     <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet']; ?>" />
     <link rel="alternate"  type="application/rss+xml" title="<?= $GLOBALS['tpl']['blogTitle']; ?> RSS feed" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?><?= $GLOBALS['tpl']['serendipityRewritePrefix']; ?>feeds/index.rss2" />
@@ -26,21 +27,40 @@
     <h2><a class="homelink2" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>"><?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></a></h2>
 </div>
 
-<table id="mainpane">
-    <tr>
+<div id="mainpane">
+    <div id="content" valign="top"><?= $GLOBALS['tpl']['CONTENT']; ?></div>
 <?php if ($GLOBALS['tpl']['leftSidebarElements'] > 0): ?>
-        <td id="serendipityLeftSideBar" valign="top"><?php echo serendipity_plugin_api::generate_plugins('left'); ?></td>
+    <div id="serendipityLeftSideBar" valign="top"><?php echo serendipity_plugin_api::generate_plugins('left'); ?></div>
 <?php endif; ?>
-        <td id="content" valign="top"><?= $GLOBALS['tpl']['CONTENT']; ?></td>
 <?php if ($GLOBALS['tpl']['rightSidebarElements'] > 0): ?>
-        <td id="serendipityRightSideBar" valign="top"><?php echo serendipity_plugin_api::generate_plugins('right'); ?></td>
+    <div id="serendipityRightSideBar" valign="top"><?php echo serendipity_plugin_api::generate_plugins('right'); ?></div>
 <?php endif; ?>
-    </tr>
-</table>
+</div>
 <?php endif; ?>
 
 <?= $GLOBALS['tpl']['raw_data']; ?>
 <?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['template']); ?>
+
+<script type="text/javascript">
+/* toggle content/left sidebar markup nodes for responsiveness */
+(function ($) {
+    if ($(window).width() < 980) {
+        $("#serendipityLeftSideBar").before($("#content"));
+    }
+    else {
+        $("#content").before($("#serendipityLeftSideBar"));
+    }
+    $(window).resize(function() {
+        if ($(window).width() < 980) {
+            $("#serendipityLeftSideBar").before($("#content"));
+            $("#serendipityRightSideBar").before($("#serendipityLeftSideBar"));
+        }
+        else {
+            $("#content").before($("#serendipityLeftSideBar"));
+        }
+    });
+})(jQuery);
+</script>
 
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 </body>

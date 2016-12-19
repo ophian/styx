@@ -182,7 +182,7 @@
     {/if}
     {/foreach}
 
-    <div class="serendipity_entryFooter" style="text-align: center">
+    <div class="serendipity_entryFooter">
     {if $footer_prev_page}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
     {/if}
