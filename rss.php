@@ -153,9 +153,9 @@ if (serendipity_get_config_var('feedBannerURL') != '') {
     $w   = $i[0];
     $h   = $i[1];
 } else {
-    $img = serendipity_getTemplateFile('img/s9y_banner_small.png', 'baseURL');
-    $w   = 100;
-    $h   = 21;
+    $img = $serendipity['baseURL'] . $serendipity['templatePath'] . 's9y_banner_small.png';
+    $w   = 120;
+    $h   = 58;
 }
 
 $metadata['additional_fields']['image'] = <<<IMAGE
