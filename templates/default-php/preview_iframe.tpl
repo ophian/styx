@@ -27,7 +27,7 @@
     </head>
 
     <body class="<?= $GLOBALS['tpl']['mode'] ?>_preview_body">
-        <div id="mainpaine" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_container">
+        <div id="mainpane" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_container">
             <div id="content" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_content">
         <?php if ($GLOBALS['tpl']['mode'] == 'save'): ?>
                 <div class="<?= $GLOBALS['tpl']['mode'] ?>_preview_sizing"></div>

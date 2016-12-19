@@ -35,7 +35,7 @@
     </head>
 
     <body class="{$mode}_preview_body">
-        <div id="mainpaine" class="{$mode}_preview_container">
+        <div id="mainpane" class="{$mode}_preview_container">
             <div id="content" class="{$mode}_preview_content">
         {if $mode == 'save'}
                 <div class="{$mode}_preview_sizing"></div>
