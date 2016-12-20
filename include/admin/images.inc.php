@@ -702,6 +702,7 @@ switch ($serendipity['GET']['adminAction']) {
             $data['is_done'] = true;
         }
         // fall back
+        $serendipity['GET']['fid'] = null; // reset to nil after done, to be able to get the tools metaActionBar on showML via $media.metaActionBar
         $data['showML'] = showMediaLibrary();
         break;
 
