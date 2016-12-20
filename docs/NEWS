@@ -3,6 +3,8 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
 
   * Upgrade to Smarty 3.1.31
 
+  * Various Styx GUI improvements
+
   * [Security] - See 2.0.6 Note:
     Security bugfix to escape dbType parameter on first installation
 
