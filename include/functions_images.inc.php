@@ -2882,8 +2882,10 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['mimeicon'] = $mimeicon;
     }
 
-    $file['popupWidth']   = ($file['is_image'] ? ($file['dimensions_width']  + 20) : 600);
-    $file['popupHeight']  = ($file['is_image'] ? ($file['dimensions_height'] + 20) : 500);
+    $_force_backendpopups = explode(',', $serendipity['enableBackendPopupGranular']);
+    $_iplus = (in_array('images', $_force_backendpopups) && $serendipity['enableBackendPopup']) ? 20 : 0;
+    $file['popupWidth']   = ($file['is_image'] ? ($file['dimensions_width']  + $_iplus) : 600);
+    $file['popupHeight']  = ($file['is_image'] ? ($file['dimensions_height'] + $_iplus) : 500);
     if ($file['hotlink']) {
         $file['nice_hotlink'] = wordwrap($file['path'], 45, '<br />', 1);
     }

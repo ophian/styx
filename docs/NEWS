@@ -1,6 +1,8 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Fix MediaLibrary image popUp dimensions not equal file dimensions
+
  * Fix MediaLibrary image scale return to show up the tools metaActionBar
 
 
