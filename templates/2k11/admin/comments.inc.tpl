@@ -101,7 +101,7 @@
             {/if}
         </span>
 
-        <a class="block_level" href="serendipity_admin.php?serendipity[adminModule]=comments">{$CONST.BACK}</a>
+        {if !empty($c_type) OR isset($smarty.get.submit)}<a class="block_level" href="serendipity_admin.php?serendipity[adminModule]=comments">{$CONST.BACK}</a>{/if}
     {else}
         <form id="formMultiDelete" action="" method="POST" name="formMultiDelete">
             {$formtoken}
