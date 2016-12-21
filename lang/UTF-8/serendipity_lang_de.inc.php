@@ -88,7 +88,7 @@
 @define('NEWSIZE', 'Neue Größe ');
 @define('RESIZE_BLAHBLAH', '<b>Größe von %s ändern</b>');
 @define('ORIGINAL_SIZE', 'Originalgröße: <i>%sx%s</i> Pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier können Sie die Bildgröße ändern. Um die Proportionen beizubehalten, einfach einen der beiden Werte eingeben, anschließend die TAB-Taste drücken, und Sie erhalten die Voreinstellung mit den korrekten Proportionen.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier können Sie die Bildgröße ändern. Um die Proportionen beizubehalten, einfach einen der beiden Werte eingeben, anschließend die TAB-Taste drücken, und Sie erhalten die Voreinstellung mit den korrekten Proportionen.<br><b>ACHTUNG:</b> Dies ist kein "high end" Skaldierungs Werkzeug, abgestimmt auf die spezifischen Bedürfnisse eines jeden Bildes.<br>Verglichen mit dem Ausgangsbild, bringt jede Skaldierung zwangsläufig einen kleineren oder größeren Qualitätsverlust mit sich!');
 @define('DATE_FORMAT_1', 'd.m.Y');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Kalender');
 @define('QUICKSEARCH', 'Suche');
