@@ -556,10 +556,6 @@ label > span,
     display: block;
 }
 
-.image_resize_hint p {
-    display: inline;
-}
-
 h5,
 h6,
 blockquote,
@@ -1669,8 +1665,7 @@ summary {
 }
 
 fieldset p,
-.media_file_meta > ul,
-.image_resize_hint p {
+.media_file_meta > ul {
     margin: 0;
 }
 
