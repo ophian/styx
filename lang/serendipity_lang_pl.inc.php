@@ -92,7 +92,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('NEWSIZE', 'Nowy rozmiar: ');
 @define('RESIZE_BLAHBLAH', '<b>Zmieñ rozmiar: %s</b>');
 @define('ORIGINAL_SIZE', 'Oryginalny rozmiar: <i>%sx%s</i> pikseli');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Tu mo¿esz zmieniæ rozmiar obrazka. Je¶li chcesz zmieniæ rozmiar proporcjonalnie, zaznacz odpowiedni± opcjê, wpisz warto¶æ w jedno z pól i wci¶nij TAB - nowy rozmiar dla drugiej warto¶ci zostanie automatycznie obliczony, tak by proporcje obrazka zosta³y zachowane.</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Tu mo¿esz zmieniæ rozmiar obrazka. Je¶li chcesz zmieniæ rozmiar proporcjonalnie, zaznacz odpowiedni± opcjê, wpisz warto¶æ w jedno z pól i wci¶nij TAB - nowy rozmiar dla drugiej warto¶ci zostanie automatycznie obliczony, tak by proporcje obrazka zosta³y zachowane.');
 @define('QUICKJUMP_CALENDAR', 'Kalendarz szybkiego dostêpu');
 @define('QUICKSEARCH', 'Wyszukaj na stronie');
 @define('SEARCH_FOR_ENTRY', 'Szukaj wpisu');

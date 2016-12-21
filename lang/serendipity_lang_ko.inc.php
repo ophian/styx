@@ -92,7 +92,7 @@
 @define('NEWSIZE', '새로운 크기: ');
 @define('RESIZE_BLAHBLAH', '<b>크기 조절: %s</b>');
 @define('ORIGINAL_SIZE', '원래 크기: <i>%sx%s</i> 픽셀');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>여기서 그림 크기를 조절할 수 있습니다. 비율을 유지하면서 크기를 조절하려면 입력상자 한 쪽에 값을 넣고 Tab 키를 누르면 됩니다. 비율이 유지되는 값이 자동으로 계산됩니다.</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '여기서 그림 크기를 조절할 수 있습니다. 비율을 유지하면서 크기를 조절하려면 입력상자 한 쪽에 값을 넣고 Tab 키를 누르면 됩니다. 비율이 유지되는 값이 자동으로 계산됩니다.');
 @define('QUICKJUMP_CALENDAR', '빨리 찾아보는 달력');
 @define('QUICKSEARCH', '빠른 검색');
 @define('SEARCH_FOR_ENTRY', '원하는 글 찾기');

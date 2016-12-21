@@ -90,7 +90,7 @@
 @define('NEWSIZE', 'New size: ');
 @define('RESIZE_BLAHBLAH', '<b>Resize %s</b>');
 @define('ORIGINAL_SIZE', 'Original size: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Here, you can adjust the image size. If you want to resize the image proportionally, just enter a value in one of the two boxes and press the TAB key --  I will automatically calculate the new size so the image proportions do not get messed up</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Here, you can adjust the image size. If you want to resize the image proportionally, just enter a value in one of the two boxes and press the TAB key -- It will automatically calculate the new size so the image proportions do not get messed up.');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Calendar');
 @define('QUICKSEARCH', 'Quicksearch');
 @define('SEARCH_FOR_ENTRY', 'Search for an entry');

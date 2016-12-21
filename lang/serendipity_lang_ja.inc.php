@@ -90,7 +90,7 @@
 @define('NEWSIZE', '新規サイズ: ');
 @define('RESIZE_BLAHBLAH', '<b>リサイズ %s</b>');
 @define('ORIGINAL_SIZE', '元サイズ: <i>%sx%s</i> ピクセル');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>ここで、画像サイズを調節することができます。画像の比率を変えずにサイズ変更をしたい場合は、2 つの入力ボックスのうちの 1 つにだけ値入力して、TAB キーを押してください - 自動的に新しいサイズを計算します。したがって、イメージは台無しになりません。</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'ここで、画像サイズを調節することができます。画像の比率を変えずにサイズ変更をしたい場合は、2 つの入力ボックスのうちの 1 つにだけ値入力して、TAB キーを押してください - 自動的に新しいサイズを計算します。したがって、イメージは台無しになりません。');
 @define('QUICKJUMP_CALENDAR', 'カレンダー クイック ジャンプ');
 @define('QUICKSEARCH', 'クイック サーチ');
 @define('SEARCH_FOR_ENTRY', 'エントリーの検索');

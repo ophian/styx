@@ -90,7 +90,7 @@
 @define('NEWSIZE', 'Uusi koko: ');
 @define('RESIZE_BLAHBLAH', '<b>Muokkaa kokoa %s</b>');
 @define('ORIGINAL_SIZE', 'Alkuperäinen koko: <i>%sx%s</i> pikseliä');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Kuvan koon muokkaus. Voit muokata kuvan kokoa säilyttäen suhteet, lisää toiseen laatikkoon arvo ja paina tab-näppäintä, niin lasken sinulle suhteen mukaisen toisen arvon automaattisesti.</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Kuvan koon muokkaus. Voit muokata kuvan kokoa säilyttäen suhteet, lisää toiseen laatikkoon arvo ja paina tab-näppäintä, niin lasken sinulle suhteen mukaisen toisen arvon automaattisesti.');
 @define('QUICKJUMP_CALENDAR', 'Pikasiirtymä kalenteriin');
 @define('QUICKSEARCH', 'Pikahaku');
 @define('SEARCH_FOR_ENTRY', 'Etsi merkintää');

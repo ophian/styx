@@ -90,7 +90,7 @@
 @define('NEWSIZE', 'Új méret: ');
 @define('RESIZE_BLAHBLAH', '<b>Átméretezés %s</b>');
 @define('ORIGINAL_SIZE', 'Eredeti méret: <i>%sx%s</i> képpont');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Itt módosíthatja a kép méretét. Ha arányosan szeretné a képet átméretezni, elég az egyik dobozban módosítani a számot,majd megnyomni a TAB billentyűt -- az új méret automatikusan kerül meghatározásra, így a kép nem lesz aránytalan</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Itt módosíthatja a kép méretét. Ha arányosan szeretné a képet átméretezni, elég az egyik dobozban módosítani a számot,majd megnyomni a TAB billentyűt -- az új méret automatikusan kerül meghatározásra, így a kép nem lesz aránytalan.');
 @define('QUICKJUMP_CALENDAR', 'Gyors naptárra ugrás');
 @define('QUICKSEARCH', 'Gyorskeresés');
 @define('SEARCH_FOR_ENTRY', 'Bejegyzés keresése');

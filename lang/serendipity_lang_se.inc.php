@@ -90,7 +90,7 @@
 @define('NEWSIZE', 'Ny storlek: ');
 @define('RESIZE_BLAHBLAH', '<b>Ändra storlek på %s</b>');
 @define('ORIGINAL_SIZE', 'Ursprunglig storlek: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Här kan du anpassa bildstorleken. Om du vill ändra storlek proportionellt, ändra bara ett värde i något av de två fälten och tryck på TAB - Då ändras  automatiskt storleken automatiskt så att bildens proportioner bibehålls</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Här kan du anpassa bildstorleken. Om du vill ändra storlek proportionellt, ändra bara ett värde i något av de två fälten och tryck på TAB - Då ändras automatiskt storleken automatiskt så att bildens proportioner bibehålls.');
 @define('QUICKJUMP_CALENDAR', 'Snabbkalender');
 @define('QUICKSEARCH', 'Snabbsök');
 @define('SEARCH_FOR_ENTRY', 'Sök efter artikel');

@@ -122,7 +122,7 @@ $i18n_filename_to = array (
 @define('NEWSIZE', 'Nov? rozm?r: ');
 @define('RESIZE_BLAHBLAH', '<b>Zm?nit rozm?r %s</b>');
 @define('ORIGINAL_SIZE', 'P?vodn? rozm?r: <i>%sx%s</i> pixel?');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Zde m??ete zadat nov? rozm?r obr?zku. Pokud chcete zachovat proporce, zadejte jen jednu hodnotu a stiskn?te kl?vesu TAB, nov? rozm?r bude dopo??t?n automaticky:');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Zde m??ete zadat nov? rozm?r obr?zku. Pokud chcete zachovat proporce, zadejte jen jednu hodnotu a stiskn?te kl?vesu TAB, nov? rozm?r bude dopo??t?n automaticky.');
 @define('QUICKJUMP_CALENDAR', 'Vyhled?vac? kalend??');
 @define('QUICKSEARCH', 'Rychl? hled?n?');
 @define('SEARCH_FOR_ENTRY', 'Hled?n? z?znamu');

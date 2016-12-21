@@ -122,7 +122,7 @@ $i18n_filename_to = array (
 @define('NEWSIZE', 'Nový rozměr: ');
 @define('RESIZE_BLAHBLAH', '<b>Změnit rozměr %s</b>');
 @define('ORIGINAL_SIZE', 'Původní rozměr: <i>%sx%s</i> pixelů');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Zde můžete zadat nový rozměr obrázku. Pokud chcete zachovat proporce, zadejte jen jednu hodnotu a stiskněte klávesu TAB, nový rozměr bude dopočítán automaticky:');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Zde můžete zadat nový rozměr obrázku. Pokud chcete zachovat proporce, zadejte jen jednu hodnotu a stiskněte klávesu TAB, nový rozměr bude dopočítán automaticky.');
 @define('QUICKJUMP_CALENDAR', 'Vyhledávací kalendář');
 @define('QUICKSEARCH', 'Rychlé hledání');
 @define('SEARCH_FOR_ENTRY', 'Hledání záznamu');

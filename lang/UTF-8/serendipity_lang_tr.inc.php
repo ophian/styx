@@ -92,7 +92,7 @@
 @define('NEWSIZE', 'Yeni boyut: ');
 @define('RESIZE_BLAHBLAH', '<b>Yeniden boyutlandır %s</b>');
 @define('ORIGINAL_SIZE', 'Özgün boyut: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Burada resmi yeniden boyutlandırabilirsiniz. Eğer resim özelliklerini değiştirmek istiyorsanız,İki kutudan birine bir değer girin ve TAB tuşuna basın --  Otomatik olarak resminiz yeniden boyutlandırılacaktır</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Burada resmi yeniden boyutlandırabilirsiniz. Eğer resim özelliklerini değiştirmek istiyorsanız,İki kutudan birine bir değer girin ve TAB tuşuna basın -- Otomatik olarak resminiz yeniden boyutlandırılacaktır');
 @define('QUICKJUMP_CALENDAR', 'Ajandaya hızlı bakış');
 @define('QUICKSEARCH', 'Hızlı Arama');
 @define('SEARCH_FOR_ENTRY', 'Bir yazı için ara');

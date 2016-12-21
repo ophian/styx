@@ -103,7 +103,7 @@ $i18n_filename_to = array (
 @define('NEWSIZE', 'Nový rozmer: ');
 @define('RESIZE_BLAHBLAH', '<b>Zmeni» rozmery %s</b>');
 @define('ORIGINAL_SIZE', 'Pôvodné rozmery: <i>%sx%s</i> pixelov');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Tu mô¾ete zada» nové rozmery obrázku. Ak chcete zachova» pomer strán, zadajte iba jednu stranu a stlaète klávesu TAB, rozmer druhej strany bude vypoèítaný automaticky:');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Tu mô¾ete zada» nové rozmery obrázku. Ak chcete zachova» pomer strán, zadajte iba jednu stranu a stlaète klávesu TAB, rozmer druhej strany bude vypoèítaný automaticky.');
 @define('QUICKJUMP_CALENDAR', 'Vyhµadávací kalendár');
 @define('QUICKSEARCH', 'Rýchle hµadanie');
 @define('SEARCH_FOR_ENTRY', 'Hµada» èlánky');

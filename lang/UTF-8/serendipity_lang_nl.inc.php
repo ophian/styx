@@ -92,7 +92,7 @@
 @define('NEWSIZE', 'Nieuwe grootte: ');
 @define('RESIZE_BLAHBLAH', '<b>Vergroten/Verkleinen %s</b>');
 @define('ORIGINAL_SIZE', 'Originele grootte: <i>%sx%s</i> pixels');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Hier kunt u de grootte van de afbeelding aanpassen. Als u de afbeeldingsverhoudingen wilt behouden, voer dan in één van de velden een waarde in en druk op de TAB-toets -- Het programma zal dan zelf de andere grootte berekenen zodat de verhoudingen hetzelfde blijven</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier kunt u de grootte van de afbeelding aanpassen. Als u de afbeeldingsverhoudingen wilt behouden, voer dan in één van de velden een waarde in en druk op de TAB-toets -- Het programma zal dan zelf de andere grootte berekenen zodat de verhoudingen hetzelfde blijven.');
 @define('QUICKJUMP_CALENDAR', 'Quickjump Kalender');
 @define('QUICKSEARCH', 'Zoeken');
 @define('SEARCH_FOR_ENTRY', 'Zoek naar een artikel');

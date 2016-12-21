@@ -95,7 +95,7 @@
 @define('NEWSIZE', 'Nuevo tamaño: ');
 @define('RESIZE_BLAHBLAH', '<b>Cambiar tamaño %s</b>');
 @define('ORIGINAL_SIZE', 'Tamaño original: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Aquí puedes ajustar el nuevo tamaño de la imagen. Si quieres mantener las proporciones sólo introduce uno de los valores y presiona la tecla tabulador (TAB), de esta forma se ajustará automáticamente:');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Aquí puedes ajustar el nuevo tamaño de la imagen. Si quieres mantener las proporciones sólo introduce uno de los valores y presiona la tecla tabulador (TAB), de esta forma se ajustará automáticamente.');
 @define('DATE_FORMAT_1', 'd.m.Y');
 @define('QUICKJUMP_CALENDAR', 'Calendario rápido');
 @define('QUICKSEARCH', 'Buscar');

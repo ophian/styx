@@ -92,7 +92,7 @@
 @define('NEWSIZE', 'Nuove dimensioni: ');
 @define('RESIZE_BLAHBLAH', '<b>Ridimensiona %s</b>');
 @define('ORIGINAL_SIZE', 'Dimensione originale: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Qui puoi definire le nuove dimensioni dell\'immagine. Se vuoi mantenere le proporzioni inserisci un solo valore e premi TAB, calcolerò automaticamente le nuove dimensioni in modo da non modificare le proporzioni:');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Qui puoi definire le nuove dimensioni dell\'immagine. Se vuoi mantenere le proporzioni inserisci un solo valore e premi TAB, calcolerò automaticamente le nuove dimensioni in modo da non modificare le proporzioni.');
 @define('QUICKJUMP_CALENDAR', 'Calendario di accesso veloce');
 @define('QUICKSEARCH', 'Ricerca veloce');
 @define('SEARCH_FOR_ENTRY', 'Cerca una notizia');

@@ -87,7 +87,7 @@
 @define('NEWSIZE', 'Ny størrelse: ');
 @define('RESIZE_BLAHBLAH', '<b>Ændre størrelse på %s</b>');
 @define('ORIGINAL_SIZE', 'Original størrelse: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Her kan du justere billedets størrelse. Hvis du vil bevare proportionerne, skal du bare indtaste én af værdirene og trykke på TAB-tasten, den anden værdi beregnes så automatisk:');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Her kan du justere billedets størrelse. Hvis du vil bevare proportionerne, skal du bare indtaste én af værdirene og trykke på TAB-tasten, den anden værdi beregnes så automatisk.');
 @define('QUICKJUMP_CALENDAR', 'Hurtigkalender');
 @define('QUICKSEARCH', 'Søgning');
 @define('SEARCH_FOR_ENTRY', 'Søg efter en artikel');

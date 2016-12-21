@@ -91,7 +91,7 @@
 @define('NEWSIZE', 'Noua mărime: ');
 @define('RESIZE_BLAHBLAH', '<b>Redimensionează %s</b>');
 @define('ORIGINAL_SIZE', 'Mărime originală: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '<p>Aici poţi ajusta mărimea imaginii. Dacă vrei să redimensionezi imaginea proporţional, introdu o valoare doar în una din cele 2 câmpuri şi apasă tastat TAB --  Voi calcula automat cealaltă mărime astfel încât proporţiile imaginii să nu fie alterate</p>');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Aici poţi ajusta mărimea imaginii. Dacă vrei să redimensionezi imaginea proporţional, introdu o valoare doar în una din cele 2 câmpuri şi apasă tastat TAB -- Voi calcula automat cealaltă mărime astfel încât proporţiile imaginii să nu fie alterate.');
 @define('QUICKJUMP_CALENDAR', 'Calendar Rapid');
 @define('QUICKSEARCH', 'Căutare rapidă');
 @define('SEARCH_FOR_ENTRY', 'Caută după o intrare');
