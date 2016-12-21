@@ -91,7 +91,7 @@
 @define('NEWSIZE', 'Noua mărime: ');
 @define('RESIZE_BLAHBLAH', '<b>Redimensionează %s</b>');
 @define('ORIGINAL_SIZE', 'Mărime originală: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Aici poţi ajusta mărimea imaginii. Dacă vrei să redimensionezi imaginea proporţional, introdu o valoare doar în una din cele 2 câmpuri şi apasă tastat TAB -- Voi calcula automat cealaltă mărime astfel încât proporţiile imaginii să nu fie alterate.');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Aici poţi ajusta mărimea imaginii. Dacă vrei să redimensionezi imaginea proporţional, introdu o valoare doar în una din cele 2 câmpuri şi apasă tastat TAB -- Voi calcula automat cealaltă mărime astfel încât proporţiile imaginii să nu fie alterate.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Calendar Rapid');
 @define('QUICKSEARCH', 'Căutare rapidă');
 @define('SEARCH_FOR_ENTRY', 'Caută după o intrare');

@@ -85,7 +85,7 @@
 @define('NEWSIZE', 'Ny størrelse: ');
 @define('RESIZE_BLAHBLAH', '<b>Endre størrelse på %s</b>');
 @define('ORIGINAL_SIZE', 'Original størrelse: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Her kan du justere bildets størrelse. Hvis du vil bevare proporsjonene, behøver du bare taste en av verdiene og trykke på TAB-tasten. Jeg vil automatisk beregne den andre verdien.');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Her kan du justere bildets størrelse. Hvis du vil bevare proporsjonene, behøver du bare taste en av verdiene og trykke på TAB-tasten. Jeg vil automatisk beregne den andre verdien.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Hurtigkalender');
 @define('QUICKSEARCH', 'Søk');
 @define('SEARCH_FOR_ENTRY', 'Søk etter en artikkel');

@@ -92,7 +92,7 @@
 @define('NEWSIZE', '澶у皬: ');
 @define('RESIZE_BLAHBLAH', '<b>閲嶈澶у皬 %s</b>');
 @define('ORIGINAL_SIZE', '鍘熸湁鐨勫ぇ灏: <i>%sx%s</i> 鍍忕礌');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '鍦ㄨ繖閲屼綘鍙互淇敼鍥剧墖澶у皬锛佸鏋滀綘瑕佷慨鏀规垚鐩稿悓鐨勫浘鐗囨瘮渚, 浣犲彧闇€瑕佽緭鍏ヤ竴涓暟鍊肩劧鍚庢寜 TAB -- 绯荤粺浼氳嚜鍔ㄥ府浣犺绠楁瘮渚嬩互鍏嶅嚭閿欍.');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '鍦ㄨ繖閲屼綘鍙互淇敼鍥剧墖澶у皬锛佸鏋滀綘瑕佷慨鏀规垚鐩稿悓鐨勫浘鐗囨瘮渚, 浣犲彧闇€瑕佽緭鍏ヤ竴涓暟鍊肩劧鍚庢寜 TAB -- 绯荤粺浼氳嚜鍔ㄥ府浣犺绠楁瘮渚嬩互鍏嶅嚭閿欍.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', '鏃ュ巻蹇€熻烦璺');
 @define('QUICKSEARCH', '蹇€熸悳瀵');
 @define('SEARCH_FOR_ENTRY', '鎼滃鏂囩珷');

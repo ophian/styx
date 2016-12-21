@@ -92,7 +92,7 @@
 @define('NEWSIZE', 'Yeni boyut: ');
 @define('RESIZE_BLAHBLAH', '<b>Yeniden boyutlandır %s</b>');
 @define('ORIGINAL_SIZE', 'Özgün boyut: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Burada resmi yeniden boyutlandırabilirsiniz. Eğer resim özelliklerini değiştirmek istiyorsanız,İki kutudan birine bir değer girin ve TAB tuşuna basın -- Otomatik olarak resminiz yeniden boyutlandırılacaktır.');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Burada resmi yeniden boyutlandırabilirsiniz. Eğer resim özelliklerini değiştirmek istiyorsanız,İki kutudan birine bir değer girin ve TAB tuşuna basın -- Otomatik olarak resminiz yeniden boyutlandırılacaktır.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Ajandaya hızlı bakış');
 @define('QUICKSEARCH', 'Hızlı Arama');
 @define('SEARCH_FOR_ENTRY', 'Bir yazı için ara');

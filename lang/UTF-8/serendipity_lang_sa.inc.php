@@ -90,7 +90,7 @@
 @define('NEWSIZE', 'المقاس الجديد: ');
 @define('RESIZE_BLAHBLAH', '<b>تغيير المقاييس %s</b>');
 @define('ORIGINAL_SIZE', 'الحجم الاصلي <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'يمكن لك تغيير قياسات الصورة - ان كنت تريد تغيير قياسات الصورة بأطوال متناسبة - كل ما عليك هو ادخل القياس الجديد في احد الصندوقين ثم أضغط زر Tab -- سوف تعطيك اتماتيكياً الحجم المناسب للقياس الجديد - لذلك الصورة سوف تستمر بشكلها الأصلي و لا تفقد شكل توازنها.');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'يمكن لك تغيير قياسات الصورة - ان كنت تريد تغيير قياسات الصورة بأطوال متناسبة - كل ما عليك هو ادخل القياس الجديد في احد الصندوقين ثم أضغط زر Tab -- سوف تعطيك اتماتيكياً الحجم المناسب للقياس الجديد - لذلك الصورة سوف تستمر بشكلها الأصلي و لا تفقد شكل توازنها.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Calendar');
 @define('QUICKSEARCH', 'بحث سريع');
 @define('SEARCH_FOR_ENTRY', 'ابحث عن أي معطيات');

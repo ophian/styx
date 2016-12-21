@@ -92,7 +92,7 @@
 @define('NEWSIZE', '大小: ');
 @define('RESIZE_BLAHBLAH', '<b>重设大小 %s</b>');
 @define('ORIGINAL_SIZE', '原有的大小: <i>%sx%s</i> 像素');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '在这里你可以修改图片大小！如果你要修改成相同的图片比例, 你只需要输入一个数值然后按 TAB -- 系统会自动帮你计算比例以免出错。');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', '在这里你可以修改图片大小！如果你要修改成相同的图片比例, 你只需要输入一个数值然后按 TAB -- 系统会自动帮你计算比例以免出错。<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', '日历快速跳跃');
 @define('QUICKSEARCH', '快速搜寻');
 @define('SEARCH_FOR_ENTRY', '搜寻文章');
