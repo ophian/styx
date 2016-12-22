@@ -2882,8 +2882,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['mimeicon'] = $mimeicon;
     }
 
-    $_force_backendpopups = explode(',', $serendipity['enableBackendPopupGranular']);
-    $_iplus = (in_array('images', $_force_backendpopups) && $serendipity['enableBackendPopup']) ? 20 : 0;
+    $_iplus = (false !== stripos($serendipity['enableBackendPopupGranular'], 'images') || $serendipity['enableBackendPopup']) ? 20 : 0;
     $file['popupWidth']   = ($file['is_image'] ? ($file['dimensions_width']  + $_iplus) : 600);
     $file['popupHeight']  = ($file['is_image'] ? ($file['dimensions_height'] + $_iplus) : 500);
     if ($file['hotlink']) {
