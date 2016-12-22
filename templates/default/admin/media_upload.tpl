@@ -17,10 +17,7 @@
         <table id="foreign_upload" class="image_add_foreign">
             <tr>
                 <td nowrap="nowrap">{$CONST.ENTER_MEDIA_URL}</td>
-                <td><input class="input_textbox" type="text" id="imageurl" name="serendipity[imageurl]"
-                         onchange="checkInputs()"
-                          value=""
-                           size="40" /></td>
+                <td><input class="input_textbox" type="text" id="imageurl" name="serendipity[imageurl]" onchange="checkInputs()" value="" size="40" /></td>
             </tr>
             <tr>
                 <td nowrap="nowrap">{$CONST.ENTER_MEDIA_URL_METHOD}</td>
@@ -41,9 +38,7 @@
         <table style="margin-top: 35px" id="upload_table" class="image_add_local">
             <tr>
                 <td nowrap='nowrap'>{$CONST.ENTER_MEDIA_UPLOAD}</td>
-                <td><input class="input_file uploadform_userfile" id="userfile_1" name="serendipity[userfile][1]"
-                         onchange="checkInputs();"
-                           type="file" /></td>
+                <td><input class="input_file uploadform_userfile" id="userfile_1" name="serendipity[userfile][1]" onchange="checkInputs();" type="file" /></td>
             </tr>
 
             <tr>
