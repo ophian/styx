@@ -1,6 +1,9 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Changed how the hidden password element is displayed to prevent
+   browsers from autofilling it into the entryproperties plugin
+
  * Fix MediaLibrary image popUp dimensions not equal file dimensions
 
  * Fix MediaLibrary image scale return to show up the tools metaActionBar

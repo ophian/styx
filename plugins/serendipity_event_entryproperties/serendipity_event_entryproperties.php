@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.45');
+        $propbag->add('version',       '1.46');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -366,7 +366,7 @@ class serendipity_event_entryproperties extends serendipity_event
 ?>
             <div id="ep_access_pw" class="entryproperties_access_pw adv_opts_box form_field">
                 <label for="properties_access_pw"><?php echo PASSWORD; ?>:</label>
-                <input type="password" name="ignore_password" value="" style="display:none">
+                <input type="password" name="ignore_password" value="" style="visibility: hidden; width: 1px">
                 <input id="properties_access_pw" name="serendipity[properties][entrypassword]" type="password" autocomplete="off" value="<?php echo serendipity_specialchars($password); ?>">
             </div>
 <?php

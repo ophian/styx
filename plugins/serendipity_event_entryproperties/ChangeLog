@@ -1,3 +1,8 @@
+1.46:
+-----
+    * Changed how the hidden password element is displayed to prevent
+      Chrome from autofilling
+
 1.45:
 -----
     * Iconfont accessibility fix
