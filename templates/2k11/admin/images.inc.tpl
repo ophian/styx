@@ -204,7 +204,9 @@
             </div>
     {/foreach}
 
-    </li>
+    {if $priorDepth > 1}
+            </li><!-- Depth:{$priorDepth} -->
+    {/if}
     {for $i=1 to $priorDepth}
         {if $i != $priorDepth}
 
