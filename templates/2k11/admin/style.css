@@ -2310,8 +2310,8 @@ h3 .media_file_actions {
 }
 .owner::before {
     content: '';
-    border-left: 2em solid transparent;
-    border-top: 2em solid #3e5f81;
+    border-left: 1.5em solid transparent;
+    border-top: 1.5em solid #3e5f81;
     float: right;
 }
 
