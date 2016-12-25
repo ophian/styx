@@ -60,26 +60,7 @@
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
 
-<script type="text/javascript">
-/* toggle content/left sidebar markup nodes for responsiveness */
-(function ($) {
-    if ($(window).width() < 980) {
-        $("#serendipityLeftSideBar").before($("#content"));
-    }
-    else {
-        $("#content").before($("#serendipityLeftSideBar"));
-    }
-    $(window).resize(function() {
-        if ($(window).width() < 980) {
-            $("#serendipityLeftSideBar").before($("#content"));
-            $("#serendipityRightSideBar").before($("#serendipityLeftSideBar"));
-        }
-        else {
-            $("#content").before($("#serendipityLeftSideBar"));
-        }
-    });
-})(jQuery);
-</script>
+<script type="text/javascript" src="{serendipity_getFile file="default.js"}"></script>
 
 {if $is_embedded != true}
 </body>

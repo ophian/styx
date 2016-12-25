@@ -41,26 +41,7 @@
 <?= $GLOBALS['tpl']['raw_data']; ?>
 <?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['template']); ?>
 
-<script type="text/javascript">
-/* toggle content/left sidebar markup nodes for responsiveness */
-(function ($) {
-    if ($(window).width() < 980) {
-        $("#serendipityLeftSideBar").before($("#content"));
-    }
-    else {
-        $("#content").before($("#serendipityLeftSideBar"));
-    }
-    $(window).resize(function() {
-        if ($(window).width() < 980) {
-            $("#serendipityLeftSideBar").before($("#content"));
-            $("#serendipityRightSideBar").before($("#serendipityLeftSideBar"));
-        }
-        else {
-            $("#content").before($("#serendipityLeftSideBar"));
-        }
-    });
-})(jQuery);
-</script>
+<script src="<?= serendipity_getTemplateFile('default.js') ?>"></script>
 
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 </body>
