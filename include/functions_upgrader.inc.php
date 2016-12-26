@@ -233,7 +233,11 @@ $dead_dirs_202 = array(
     $serendipity['serendipityPath'] . 'htmlarea/ckeditor/ckeditor',
     $serendipity['serendipityPath'] . 'htmlarea/composer',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_gravatar/ycon/UTF-8',
-    $serendipity['serendipityPath'] . 'templates/default-rtl/admin'
+/*    $serendipity['serendipityPath'] . 'templates/bulletproof/admin',*/
+    $serendipity['serendipityPath'] . 'templates/default-rtl/admin',
+    $serendipity['serendipityPath'] . 'templates/carl_contest/admin',
+    $serendipity['serendipityPath'] . 'templates/competition/admin',
+    $serendipity['serendipityPath'] . 'templates/contest/admin'
 );
 
 /**
