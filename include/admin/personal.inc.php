@@ -36,7 +36,8 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
                     &&
                 $_POST['password'] != $_SESSION['serendipityPassword']
                     &&
-                serendipity_passwordhash($_POST['password']) != $_SESSION['serendipityPassword']) ) {
+                serendipity_passwordhash($_POST['password']) != $_SESSION['serendipityPassword'])
+            ) {
          $data['password_check_fail'] = true;
     } else {
         $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
@@ -46,7 +47,7 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
                 if (in_array('groups', $item['flags'])) {
                     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
 
-                        // Void, no fixing neccessarry
+                        // Void, no fixing necessary
 
                     } elseif (serendipity_checkPermission('adminUsersMaintainSame')) {
                         if (!is_array($_POST[$item['var']])) {
@@ -73,7 +74,7 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
                     }
 /*
                     if (count($_POST[$item['var']]) < 1) {
-                        echo '<div class="serendipityAdminMsgError msg_error"><img class="img_error" src="' . serendipity_getTemplateFile('admin/img/admin_msg_error.png') . '" alt="" />' . WARNING_NO_GROUPS_SELECTED . '</div>';
+                        echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . WARNING_NO_GROUPS_SELECTED . "</span>\n";
                     } else {
                         serendipity_updateGroups($_POST[$item['var']], $serendipity['authorid'], false);
                     }
