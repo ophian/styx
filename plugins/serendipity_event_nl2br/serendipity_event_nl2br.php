@@ -18,11 +18,11 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.21');
+        $propbag->add('version',       '2.22');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '2.0',
+            'smarty'      => '3.0.0',
+            'php'         => '5.1.0'
         ));
         $propbag->add('cachable_events', array('frontend_display' => true));
 
@@ -51,7 +51,6 @@ class serendipity_event_nl2br extends serendipity_event
             )
         );
 
-
         $conf_array = array('check_markup', 'isolate', 'p_tags', 'isobr', 'clean_tags');
         foreach($this->markup_elements as $element) {
             $conf_array[] = $element['name'];
@@ -65,24 +64,21 @@ class serendipity_event_nl2br extends serendipity_event
 
         /* check possible config mismatch setting in combination with ISOBR */
         if ( serendipity_db_bool($this->get_config('isobr')) === true ) {
-            if( serendipity_db_bool($this->get_config('clean_tags')) === true ) {
+            if ( serendipity_db_bool($this->get_config('clean_tags')) === true ) {
                 $this->set_config('clean_tags', false);
-                echo '<div class="serendipityAdminMsgError msg_error"><img class="backend_attention" src="' . $serendipity['serendipityHTTPPath'] . 'templates/default/admin/img/admin_msg_note.png" alt="" />';
-                echo sprintf(PLUGIN_EVENT_NL2BR_CONFIG_ERROR, 'clean_tags', 'ISOBR') . '</div>';
+                echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(PLUGIN_EVENT_NL2BR_CONFIG_ERROR, 'clean_tags', 'ISOBR') . "</span>\n";
                 return false;
             }
             if ( serendipity_db_bool($this->get_config('p_tags')) === true ) {
                 $this->set_config('p_tags', false);
-                echo '<div class="serendipityAdminMsgError msg_error"><img class="backend_attention" src="' . $serendipity['serendipityHTTPPath'] . 'templates/default/admin/img/admin_msg_note.png" alt="" />';
-                echo sprintf(PLUGIN_EVENT_NL2BR_CONFIG_ERROR, 'p_tags', 'ISOBR') . '</div>';
+                echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(PLUGIN_EVENT_NL2BR_CONFIG_ERROR, 'p_tags', 'ISOBR') . "</span>\n";
                 return false;
             }
         }
         /* check possible config mismatch setting in combination with P_TAGS */
         if ( serendipity_db_bool($this->get_config('p_tags')) === true && serendipity_db_bool($this->get_config('clean_tags')) === true ) {
             $this->set_config('clean_tags', false);
-            echo '<div class="serendipityAdminMsgError msg_error"><img class="backend_attention" src="' . $serendipity['serendipityHTTPPath'] . 'templates/default/admin/img/admin_msg_note.png" alt="" />';
-            echo sprintf(PLUGIN_EVENT_NL2BR_CONFIG_ERROR, 'clean_tags', 'P_TAGS') . '</div>';
+                echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(PLUGIN_EVENT_NL2BR_CONFIG_ERROR, 'clean_tags', 'P_TAGS') . "</span>\n";
             return false;
         }
         return true;
@@ -172,7 +168,7 @@ class serendipity_event_nl2br extends serendipity_event
 
     function isolate($src, $regexp = NULL)
     {
-        if($regexp) return preg_replace_callback($regexp, array($this, 'isolate'), $src);
+        if ($regexp) return preg_replace_callback($regexp, array($this, 'isolate'), $src);
         global $_buf;
         $_buf[] = $src[0];
         return "\001" . (count($_buf) - 1);
@@ -275,7 +271,7 @@ class serendipity_event_nl2br extends serendipity_event
                                 $eventData[$element] = nl2br($eventData[$element]);
                                 $eventData[$element] = $this->restore($eventData[$element]);
                             } else {
-                                if($isobr) {
+                                if ($isobr) {
                                     $eventData[$element] = $this->isolate($eventData[$element], '~[<\[](nl).*?[>\]].*?[<\[]/\1[>\]]~si');
                                     $eventData[$element] = nl2br($eventData[$element]);
                                     $eventData[$element] = $this->restore($eventData[$element]);
@@ -299,8 +295,8 @@ class serendipity_event_nl2br extends serendipity_event
                 case 'backend_configure':
 
                     // check single entry for temporary disabled markups
-                    if( $isobr ) {
-                        $serendipity['nl2br']['iso2br'] = true; // include to global as also used by staticpages now
+                    if ($isobr) {
+                        $serendipity['nl2br']['iso2br'] = true; // include to global since also used by staticpages now
 
                         if (!is_object($serendipity['smarty'])) {
                             serendipity_smarty_init(); // if not set to avoid member function assign() on a non-object error, start Smarty templating
@@ -357,12 +353,12 @@ p.break {
              * for \\2 ( anything with spaces and characters following until )
              * for \\3 ( finally the > )
              * for \\4 ( <br followed by any number of spaces, the optional slash and ending with > )
-             * regex modifier : i - using a case-insensitive match, as upper <TAGS> are valid in HTML 
+             * regex modifier : i - using a case-insensitive match, as upper <TAGS> are valid in HTML
              * regex modifier : s - using the dot metacharacter in the pattern to match all characters, including newlines */
             $br2nl[] = "%(<\s*/?$tag)(.*?)([^>]*>)(<br\s*/?>)%is";
         }
 
-        if(sizeof($br2nl)) $entry = preg_replace($br2nl, '\\1\\2\\3', $entry);
+        if (sizeof($br2nl)) $entry = preg_replace($br2nl, '\\1\\2\\3', $entry);
 
         return $entry;
     }
