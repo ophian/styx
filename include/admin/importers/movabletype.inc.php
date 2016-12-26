@@ -8,23 +8,25 @@
 
 switch ($serendipity['lang']) {
     case 'de':
-        @define('IMPORTER_MT_WARN_PLUGIN',     'Bitte installieren Sie das Plugin "%s"');
+        @define('IMPORTER_MT_WARN_PLUGIN', 'Bitte installieren Sie das Plugin "%s"');
         @define('IMPORTER_MT_NOTE', 'Falls Sie weiter machen, ohne die Plugins zu installieren, werden möglicherweise Zeilenumbrüche falsch importiert (verdoppelt oder entfernt)');
         break;
 
     case 'en':
     default:
-        @define('IMPORTER_MT_WARN_PLUGIN',     'Please install the plugin "%s"');
+        @define('IMPORTER_MT_WARN_PLUGIN', 'Please install the plugin "%s"');
         @define('IMPORTER_MT_NOTE', 'If you continue without installing those plugins, line breaks may be incorrectly imported (doubled or removed)');
         break;
 }
 
-class Serendipity_Import_MovableType extends Serendipity_Import {
+class Serendipity_Import_MovableType extends Serendipity_Import
+{
     var $info        = array('software' => 'MovableType');
     var $data        = array();
     var $inputFields = array();
 
-    function __construct($data) {
+    function __construct($data)
+    {
         $this->data = $data;
         $this->inputFields = array(array('text'    => MT_DATA_FILE,
                                          'type'    => 'file',
@@ -53,7 +55,8 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
                             );
     }
 
-    function debug($string) {
+    function debug($string)
+    {
         static $debug = null;
         static $c = 0;
 
@@ -71,7 +74,8 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
         }
     }
 
-    function getImportNotes(){
+    function getImportNotes()
+    {
         $notes = array();
         if (!class_exists('serendipity_event_nl2br')){
             $notes[] = sprintf(IMPORTER_MT_WARN_PLUGIN, 'serendipity_event_nl2br');
@@ -83,15 +87,18 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
             return '<ul><li>'.implode('</li><li>', $notes).'</li></ul>'.IMPORTER_MT_NOTE;
         }
     }
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function toTime($string) {
+    function toTime($string)
+    {
         $ts = strtotime($string);
         $this->debug('Calling strtotime(' . $string . ') = ' . $ts);
         if ($ts <= 1) {
@@ -114,7 +121,8 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
         return $ts;
     }
 
-    function doEntryWork(&$mt_entry, &$tasks){
+    function doEntryWork(&$mt_entry, &$tasks)
+    {
         global $serendipity;
 
         $authors = array();
@@ -208,7 +216,8 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
         return $entry;
     }
 
-    function doCommentWork(&$mt_entry, &$tasks, $type = 'NORMAL'){
+    function doCommentWork(&$mt_entry, &$tasks, $type = 'NORMAL')
+    {
         $comment = array(
             'parent_id'  => 0,
             'status'     => 'approved',
@@ -267,7 +276,8 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
         return $comment;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         $force    = ($this->data['mt_force'] == 'true');
@@ -448,7 +458,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
                 unset($entry['s9y_comments']);
 
                 if ( !is_int($r = serendipity_updertEntry($entry)) ) {
-                    echo '<div class="serendipityAdminMsgError msg_error"><img class="img_error" src="' . serendipity_getTemplateFile('admin/img/admin_msg_error.png') . '" alt="" />' . $r . '</div>';
+                    echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . $r . "</span>\n";
                 } else {
                     $this->debug('Saved entry ' . $r . ' (' . $entry['title'] . ')');
                     $entry['id'] = $r;
@@ -458,7 +468,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
                             $cid = serendipity_db_insert_id('comments', 'id');
                             serendipity_approveComment($cid, $entry['id'], true);
                         } else {
-                            echo '<div class="serendipityAdminMsgError msg_error"><img class="img_error" src="' . serendipity_getTemplateFile('admin/img/admin_msg_error.png') . '" alt="" />' . $rc . '</div>';
+                            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . $rc . "</span>\n";
                         }
                     }
                     // Let the plugins do some additional stuff. Here it's used with
@@ -472,6 +482,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import {
             return '<ul><li>'.implode('</li><li>', array_unique($tasks)).'</li></ul>';
         }
     }
+
 }
 return 'Serendipity_Import_MovableType';
 ?>
