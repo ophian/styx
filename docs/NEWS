@@ -1,6 +1,9 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Cleanup old and deprecated theme(s) admin files.
+   Backend image fallback has moved to "default" admin theme.
+
  * Allow to set a default category for authors (personal preferences)
 
  * Changed how the hidden password element is displayed to prevent
