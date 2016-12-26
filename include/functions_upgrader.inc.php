@@ -232,7 +232,8 @@ $dead_dirs_202 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/docs',
     $serendipity['serendipityPath'] . 'htmlarea/ckeditor/ckeditor',
     $serendipity['serendipityPath'] . 'htmlarea/composer',
-    $serendipity['serendipityPath'] . 'plugins/serendipity_event_gravatar/ycon/UTF-8'
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_gravatar/ycon/UTF-8',
+    $serendipity['serendipityPath'] . 'templates/default-rtl/admin'
 );
 
 /**
