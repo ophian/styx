@@ -35,7 +35,8 @@ class serendipity_event_mailer extends serendipity_event
         $propbag->add('configuration', $config);
     }
 
-    function performConfig(&$bag) {
+    function performConfig(&$bag)
+    {
         if (is_object($bag)) {
             $conf = $bag->get('configuration');
         }
@@ -159,9 +160,8 @@ class serendipity_event_mailer extends serendipity_event
                     if (isset($serendipity['POST']['properties']['sendentry_all'])) {
                         $sendtoall = $serendipity['POST']['properties']['sendentry_all'];
                     } else {
-                        $sendtoall = serendipity_db_bool($this->get_config('sendtoall'));
+                        $sendtoall = serendipity_db_bool($this->get_config('sendtoall', 'false'));
                     }
-
 ?>
                     <fieldset class="entryproperties">
                         <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_MAILER_NAME; ?></legend></span>
