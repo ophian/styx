@@ -66,7 +66,7 @@ class serendipity_plugin_templatedropdown extends serendipity_plugin
 
         echo '<form id="theme_chooser" action="' . $url . '" method="post">'."\n";
         echo '<select name="user_template" onchange="document.getElementById(\'theme_chooser\').submit();">'."\n";
-        foreach (serendipity_fetchTemplates() as $template) {
+        foreach (serendipity_fetchTemplates() AS $template) {
             if ($template == 'default-php' || $template == 'default-xml') continue;
             $templateInfo = serendipity_fetchTemplateInfo($template);
             echo '    <option value="' . $template . '" ' . (serendipity_get_config_var('template', 'default') == $template ? 'selected="selected"' : '') . '>' . substr($templateInfo['name'], 0, 25) . "</option>\n";
