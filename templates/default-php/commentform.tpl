@@ -2,21 +2,21 @@
     <div id="serendipity_replyform_0"></div>
     <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment" action="<?= $GLOBALS['tpl']['commentform_action'] ?>#feedback" method="post">
-    <div><input type="hidden" name="serendipity[entry_id]" value="<?= $GLOBALS['tpl']['commentform_id'] ?>" /></div>
+    <div><input type="hidden" name="serendipity[entry_id]" value="<?= $GLOBALS['tpl']['commentform_id'] ?>"></div>
     <table border="0" width="100%" cellpadding="3">
         <tr>
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_name"><?= NAME ?></label></td>
-            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_name" name="serendipity[name]" value="<?= $GLOBALS['tpl']['commentform_name'] ?>" size="30" /></td>
+            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_name" name="serendipity[name]" value="<?= $GLOBALS['tpl']['commentform_name'] ?>" size="30"></td>
         </tr>
 
         <tr>
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_email"><?= EMAIL ?></label></td>
-            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="<?= $GLOBALS['tpl']['commentform_email'] ?>" /></td>
+            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_email" name="serendipity[email]" value="<?= $GLOBALS['tpl']['commentform_email'] ?>"></td>
         </tr>
 
         <tr>
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_url"><?= HOMEPAGE ?></label></td>
-            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_url" name="serendipity[url]" value="<?= $GLOBALS['tpl']['commentform_url'] ?>" /></td>
+            <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_url" name="serendipity[url]" value="<?= $GLOBALS['tpl']['commentform_url'] ?>"></td>
         </tr>
 
         <tr>
@@ -27,7 +27,7 @@
         <tr>
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment"><?= COMMENT ?></label></td>
             <td class="serendipity_commentsValue">
-                <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"><?= $GLOBALS['tpl']['commentform_data'] ?></textarea><br />
+                <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"><?= $GLOBALS['tpl']['commentform_data'] ?></textarea><br>
                 <?php serendipity_plugin_api::hook_event('frontend_comment', $GLOBALS['tpl']['commentform_entry']); ?>
             </td>
         </tr>
@@ -36,10 +36,10 @@
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]" <?= $GLOBALS['tpl']['commentform_remember'] ?> /><label for="checkbox_remember"><?= REMEMBER_INFO ?></label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]" <?= $GLOBALS['tpl']['commentform_remember'] ?>><label for="checkbox_remember"><?= REMEMBER_INFO ?></label>
     <?php if ($GLOBALS['tpl']['is_allowSubscriptions']): ?>
-                <br />
-                <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]" <?= $GLOBALS['tpl']['commentform_subscribe'] ?> /><label for="checkbox_subscribe"><?= SUBSCRIBE_TO_THIS_ENTRY ?></label>
+                <br>
+                <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]" <?= $GLOBALS['tpl']['commentform_subscribe'] ?>><label for="checkbox_subscribe"><?= SUBSCRIBE_TO_THIS_ENTRY ?></label>
     <?php endif; ?>
             </td>
        </tr>
@@ -53,7 +53,7 @@
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="<?= SUBMIT_COMMENT ?>" /> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="<?= PREVIEW ?>" /></td>
+            <td><input type="submit" name="serendipity[submit]" value="<?= SUBMIT_COMMENT ?>"> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="<?= PREVIEW ?>"></td>
         </tr>
     </table>
     </form>

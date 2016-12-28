@@ -2,7 +2,7 @@
                    <?php if ($GLOBALS['tpl']['plugin_amazonchooser_page'] == 'Search'): ?>
                         <?php if (isset($thingy['strings']['mediumurl'])): ?>
                             <div class="serendipity_amazonchr_image">
-                               <a href="<?= $GLOBALS['tpl']['plugin_amazonchooser_select_url'] ?><?= $thingy['strings']['ASIN'] ?>"><img class="serendipity_amazonchr_pic" src="<?= $thingy['strings']['mediumurl'] ?>" /></a>
+                               <a href="<?= $GLOBALS['tpl']['plugin_amazonchooser_select_url'] ?><?= $thingy['strings']['ASIN'] ?>"><img class="serendipity_amazonchr_pic" src="<?= $thingy['strings']['mediumurl'] ?>"></a>
                             </div>
                         <?php endif; ?>
                      <div class="serendipity_amazonchr_block">
@@ -12,7 +12,7 @@
                    <?php elseif ($GLOBALS['tpl']['plugin_amazonchooser_page'] == 'Lookup'): ?>
                         <?php if (isset($thingy['strings']['mediumurl'])): ?>
                            <div class="serendipity_amazonchr_image">
-                             <img border="0" src="<?= $thingy['strings']['mediumurl'] ?>" />
+                             <img border="0" src="<?= $thingy['strings']['mediumurl'] ?>">
                            </div>
                         <?php endif; ?>
                      <div class="serendipity_amazonchr_block">
@@ -22,7 +22,7 @@
                      <?php else: ?>
                         <?php if (isset($thingy['strings']['mediumurl'])): ?>
                            <div class="serendipity_amazonchr_image">
-                              <a href="<?= $thingy['strings']['DETAILPAGEURL'] ?>" target="_new"><img class="serendipity_amazonchr_pic" src="<?= $thingy['strings']['mediumurl'] ?>" /></a>
+                              <a href="<?= $thingy['strings']['DETAILPAGEURL'] ?>" target="_new"><img class="serendipity_amazonchr_pic" src="<?= $thingy['strings']['mediumurl'] ?>"></a>
                            </div>
                         <?php endif; ?>
                      <div class="serendipity_amazonchr_block">

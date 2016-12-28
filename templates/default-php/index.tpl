@@ -3,14 +3,14 @@
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
 <head>
     <title><?= $GLOBALS['template']->getdefault('head_title', 'blogTitle'); ?> - <?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset']; ?>" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content="Serendipity v.<?= $GLOBALS['tpl']['serendipityVersion']; ?>" />
-    <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet']; ?>" />
-    <link rel="alternate"  type="application/rss+xml" title="<?= $GLOBALS['tpl']['blogTitle']; ?> RSS feed" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?><?= $GLOBALS['tpl']['serendipityRewritePrefix']; ?>feeds/index.rss2" />
-    <link rel="alternate"  type="application/x.atom+xml"  title="<?= $GLOBALS['tpl']['blogTitle']; ?> Atom feed"  href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?><?= $GLOBALS['tpl']['serendipityRewritePrefix']; ?>feeds/atom.xml" />
+    <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset']; ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Serendipity v.<?= $GLOBALS['tpl']['serendipityVersion']; ?>">
+    <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet']; ?>">
+    <link rel="alternate"  type="application/rss+xml" title="<?= $GLOBALS['tpl']['blogTitle']; ?> RSS feed" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?><?= $GLOBALS['tpl']['serendipityRewritePrefix']; ?>feeds/index.rss2">
+    <link rel="alternate"  type="application/x.atom+xml"  title="<?= $GLOBALS['tpl']['blogTitle']; ?> Atom feed"  href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?><?= $GLOBALS['tpl']['serendipityRewritePrefix']; ?>feeds/atom.xml">
 <?php if ($GLOBALS['tpl']['entry_id']): ?>
-    <link rel="pingback" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>comment.php?type=pingback&amp;entry_id=<?= $GLOBALS['tpl']['entry_id']; ?>" />
+    <link rel="pingback" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>comment.php?type=pingback&amp;entry_id=<?= $GLOBALS['tpl']['entry_id']; ?>">
 <?php endif; ?>
 
 <?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template']); ?>

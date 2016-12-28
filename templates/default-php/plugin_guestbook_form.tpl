@@ -11,19 +11,19 @@
       <a id="serendipity_CommentForm"></a>
       <form id="serendipity_comment" action="<?= $GLOBALS['tpl']['is_guestbook_url'] ?>#feedback" method="post">
         <div>
-            <input type="hidden" name="serendipity[subpage]" value="<?= $GLOBALS['tpl']['plugin_guestbook_sname'] ?>" />
-            <input type="hidden" name="serendipity[guestbookform]" value="true" />
+            <input type="hidden" name="serendipity[subpage]" value="<?= $GLOBALS['tpl']['plugin_guestbook_sname'] ?>">
+            <input type="hidden" name="serendipity[guestbookform]" value="true">
         </div>
 
         <div class="input-text">
             <label for="serendipity_commentform_name"><?= NAME ?></label>
-            <input type="text" size="30" maxlength="39" name="serendipity[name]" value="<?= $GLOBALS['tpl']['plugin_guestbook_name'] ?>" id="serendipity_commentform_name" />
+            <input type="text" size="30" maxlength="39" name="serendipity[name]" value="<?= $GLOBALS['tpl']['plugin_guestbook_name'] ?>" id="serendipity_commentform_name">
         </div>
 
        <?php if ($GLOBALS['tpl']['is_show_mail']): ?>
         <div class="input-text">
             <label for="serendipity_commentform_email"><?= EMAIL ?></label>
-            <input type="text" size="30" maxlength="99" name="serendipity[email]" value="<?= $GLOBALS['tpl']['plugin_guestbook_email'] ?>" id="serendipity_commentform_email" />
+            <input type="text" size="30" maxlength="99" name="serendipity[email]" value="<?= $GLOBALS['tpl']['plugin_guestbook_email'] ?>" id="serendipity_commentform_email">
             <div class="guestbook_emailprotect"><?= $GLOBALS['tpl']['plugin_guestbook_emailprotect'] ?></div>
         </div>
        <?php endif; ?>
@@ -31,7 +31,7 @@
        <?php if ($GLOBALS['tpl']['is_show_url']): ?>
         <div class="input-text">
             <label for="serendipity_commentform_url"><?= HOMEPAGE ?></label>
-            <input type="text" size="30" maxlength="99" name="serendipity[url]" value="<?= $GLOBALS['tpl']['plugin_guestbook_url'] ?>" id="serendipity_commentform_url" />
+            <input type="text" size="30" maxlength="99" name="serendipity[url]" value="<?= $GLOBALS['tpl']['plugin_guestbook_url'] ?>" id="serendipity_commentform_url">
         </div>
        <?php endif; ?>
 
@@ -46,7 +46,7 @@
         </div>
 
         <div class="input-buttons">
-             <input type="submit" name="serendipity[submit]" value="<?= SUBMIT ?>" />
+             <input type="submit" name="serendipity[submit]" value="<?= SUBMIT ?>">
         </div>
 
       </form>

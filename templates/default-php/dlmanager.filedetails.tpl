@@ -19,7 +19,7 @@
         <?php if (is_array($GLOBALS['tpl']['thisfile'])): ?>
 
         <dl>
-            <dt><img src="<?= $GLOBALS['tpl']['thisfile']['iconfile'] ?>" width="<?= $GLOBALS['tpl']['thisfile']['iconwidth'] ?>" height="<?= $GLOBALS['tpl']['thisfile']['iconheight'] ?>" alt="<?= $GLOBALS['tpl']['thisfile']['icontype'] ?>" title="<?= $GLOBALS['tpl']['thisfile']['icontype'] ?>" /> <?= $GLOBALS['tpl']['thisfile']['filename'] ?></dt>
+            <dt><img src="<?= $GLOBALS['tpl']['thisfile']['iconfile'] ?>" width="<?= $GLOBALS['tpl']['thisfile']['iconwidth'] ?>" height="<?= $GLOBALS['tpl']['thisfile']['iconheight'] ?>" alt="<?= $GLOBALS['tpl']['thisfile']['icontype'] ?>" title="<?= $GLOBALS['tpl']['thisfile']['icontype'] ?>"> <?= $GLOBALS['tpl']['thisfile']['filename'] ?></dt>
             <dd><strong><?= PLUGIN_DOWNLOADMANAGER_EDIT_FILE_DESC ?>:</strong> <?= strip_tags($GLOBALS['tpl']['thisfile']['description']) ?></dd>
             <dd><strong><?= PLUGIN_DOWNLOADMANAGER_NUM_DOWNLOADS_BLAH ?>:</strong> <?= $GLOBALS['tpl']['thisfile']['dlcount'] ?></dd>
             <dd><strong><?= $GLOBALS['tpl']['thisfile']['filesize_field'] ?>:</strong> <?= $GLOBALS['tpl']['thisfile']['filesize'] ?></dd>
@@ -28,7 +28,7 @@
 
         <h5><?= PLUGIN_DOWNLOADMANAGER_DOWNLOAD_FILE ?></h5>
 
-        <div id="dlm_button"><a href="<?= $GLOBALS['tpl']['thisfile']['dlurl'] ?>"><img src="<?= $GLOBALS['tpl']['httppath'] ?>/img/download.png" alt="Download" /></a></div>
+        <div id="dlm_button"><a href="<?= $GLOBALS['tpl']['thisfile']['dlurl'] ?>"><img src="<?= $GLOBALS['tpl']['httppath'] ?>/img/download.png" alt="Download"></a></div>
         <?php endif; ?>
         <?php endif; ?>
     <?php else: ?>

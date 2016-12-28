@@ -46,7 +46,7 @@
                   <div class="guestbook_entrytop">
                     <dl class="guestbook_entries">
                       <dt><a href="mailto:<?= $entry['email'] ?>"><?= $entry['name'] ?></a>
-                           <?= PLUGIN_GUESTBOOK_USERSDATE_OF_ENTRY ?> <img src="<?= $entry['pluginpath'] ?>img/shorttime.gif" width="14" height="17" onfocus="this.blur();" align="absmiddle" alt="<?= TEXT_IMG_LASTMODIFIED ?>" title="<?= TEXT_IMG_LASTMODIFIED ?>" />&nbsp;
+                           <?= PLUGIN_GUESTBOOK_USERSDATE_OF_ENTRY ?> <img src="<?= $entry['pluginpath'] ?>img/shorttime.gif" width="14" height="17" onfocus="this.blur();" align="absmiddle" alt="<?= TEXT_IMG_LASTMODIFIED ?>" title="<?= TEXT_IMG_LASTMODIFIED ?>">&nbsp;
                            <?= $entry['timestamp'] ?>
                       </dt>
                       <?php if ($GLOBALS['tpl']['entry']['homepage']): ?>

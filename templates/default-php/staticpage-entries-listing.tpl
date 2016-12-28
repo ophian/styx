@@ -15,10 +15,10 @@
 
 
 <?php /*  for normal static pages  */ ?>
-&raquo; <a href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?><?= $GLOBALS['template']->call('smarty_getCategoryLinkByID', array('cid' => $GLOBALS['tpl']['staticpage_related_category_id'])); ?>"><?= STATICPAGE_ARTICLE_OVERVIEW ?></a><br />
+&raquo; <a href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?><?= $GLOBALS['template']->call('smarty_getCategoryLinkByID', array('cid' => $GLOBALS['tpl']['staticpage_related_category_id'])); ?>"><?= STATICPAGE_ARTICLE_OVERVIEW ?></a><br>
 
 <?php /* for a staticpage as startpage  */ ?>
-<?php /* &raquo; <a href="<?= $GLOBALS['tpl']['serendipityArchiveURL'] ?>/P1.html"><?= STATICPAGE_ARTICLE_OVERVIEW ?></a><br />  */ ?>
+<?php /* &raquo; <a href="<?= $GLOBALS['tpl']['serendipityArchiveURL'] ?>/P1.html"><?= STATICPAGE_ARTICLE_OVERVIEW ?></a><br>  */ ?>
 
 <?php endif; ?>
 <!-- ENTRIES END -->

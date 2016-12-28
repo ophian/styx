@@ -2,15 +2,15 @@
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
     <head>
         <title><?= SERENDIPITY_ADMIN_SUITE ?></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset'] ?>" />
-        <meta name="Powered-By" content="Serendipity v.<?= $GLOBALS['tpl']['head_version'] ?>" />
-        <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>" />
+        <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset'] ?>">
+        <meta name="Powered-By" content="Serendipity v.<?= $GLOBALS['tpl']['head_version'] ?>">
+        <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
     <?php if ($GLOBALS['tpl']['head_link_stylesheet_frontend']): ?>
-        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet_frontend'] ?>" />
+        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet_frontend'] ?>">
     <?php else: ?>
-        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['serendipityHTTPPath'] ?><?= $GLOBALS['tpl']['serendipityRewritePrefix'] ?>serendipity.css" />
+        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['serendipityHTTPPath'] ?><?= $GLOBALS['tpl']['serendipityRewritePrefix'] ?>serendipity.css">
     <?php endif; ?>
-        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['iconizr'] ?>" />
+        <link rel="stylesheet" href="<?= $GLOBALS['tpl']['iconizr'] ?>">
         <style> #content { width: 99%; background-color: #fcfcfc; } </style>
     <?php if ($GLOBALS['tpl']['mode'] == 'save'): /* we need this for modernizr.indexDB cleaning up autosave entry modifications */ ?>
         <script src="<?= $GLOBALS['tpl']['modernizr'] ?>"></script>
