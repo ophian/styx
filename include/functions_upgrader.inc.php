@@ -293,6 +293,8 @@ $dead_dirs_202 = array(
     $serendipity['serendipityPath'] . 'htmlarea/composer',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_gravatar/ycon/UTF-8',
     $serendipity['serendipityPath'] . 'templates/2k11/admin/img',
+    $serendipity['serendipityPath'] . 'templates/default/treeview',
+    $serendipity['serendipityPath'] . 'templates/default/YahooUI',
 /*    $serendipity['serendipityPath'] . 'templates/bulletproof/admin',*/
     $serendipity['serendipityPath'] . 'templates/default-rtl/admin',
     $serendipity['serendipityPath'] . 'templates/carl_contest/admin',
