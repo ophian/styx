@@ -28,7 +28,7 @@
 
     <body class="<?= $GLOBALS['tpl']['mode'] ?>_preview_body">
         <div id="mainpane" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_container">
-            <div id="content" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_content">
+            <main id="content" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_content">
         <?php if ($GLOBALS['tpl']['mode'] == 'save'): ?>
                 <div class="<?= $GLOBALS['tpl']['mode'] ?>_preview_sizing"></div>
                 <?= $GLOBALS['tpl']['updertHooks'] ?>
@@ -49,7 +49,7 @@
             <?php endif; ?>
         <?php endif; ?>
             <?= $GLOBALS['tpl']['preview'] ?>
-            </div>
+            </main>
         </div>
 
     </body>

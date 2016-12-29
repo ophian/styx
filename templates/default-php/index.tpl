@@ -22,18 +22,24 @@
 <?php endif; ?>
 
 <?php if ($GLOBALS['tpl']['is_raw_mode'] != true): ?>
-<div id="serendipity_banner">
-    <h1><a class="homelink1" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>"><?= $GLOBALS['template']->getdefault('head_title', 'blogTitle'); ?></a></h1>
-    <h2><a class="homelink2" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>"><?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></a></h2>
-</div>
+    <header id="serendipity_banner">
+        <h1><a class="homelink1" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>"><?= $GLOBALS['template']->getdefault('head_title', 'blogTitle'); ?></a></h1>
+        <h2><a class="homelink2" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>"><?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></a></h2>
+    </header>
 
 <div id="mainpane">
-    <div id="content" valign="top"><?= $GLOBALS['tpl']['CONTENT']; ?></div>
+    <main id="content" valign="top">
+        <?= $GLOBALS['tpl']['CONTENT']; ?>
+    </main>
 <?php if ($GLOBALS['tpl']['leftSidebarElements'] > 0): ?>
-    <div id="serendipityLeftSideBar" valign="top"><?php echo serendipity_plugin_api::generate_plugins('left'); ?></div>
+    <aside id="serendipityLeftSideBar" valign="top">
+        <?php echo serendipity_plugin_api::generate_plugins('left'); ?>
+    </aside>
 <?php endif; ?>
 <?php if ($GLOBALS['tpl']['rightSidebarElements'] > 0): ?>
-    <div id="serendipityRightSideBar" valign="top"><?php echo serendipity_plugin_api::generate_plugins('right'); ?></div>
+    <aside id="serendipityRightSideBar" valign="top">
+        <?php echo serendipity_plugin_api::generate_plugins('right'); ?>
+    </aside>
 <?php endif; ?>
 </div>
 <?php endif; ?>
