@@ -238,7 +238,7 @@ img.serendipity_entryIcon {
 }
 
 td.serendipity_commentsLabel {
-    font-size: 1em;
+    font-size: 9pt;
     font-weight: bold;
     vertical-align: top;
 }
@@ -283,6 +283,11 @@ td.serendipity_commentsValue textarea {
     margin-bottom: .5em;
     padding-bottom: 0.25em;
     border-bottom: 2px ridge #DDD;
+}
+
+.archives_graph img {
+    height: 1em;
+    border: 1px solid #000;
 }
 
 .serendipitySideBarContent input[type="checkbox"],
