@@ -434,9 +434,9 @@ if (!isset($serendipity['GET']['adminAction'])) {
     $serendipity['GET']['adminAction'] = (isset($serendipity['POST']['adminAction']) ? $serendipity['POST']['adminAction'] : '');
 }
 
-// Make sure this variable is always properly sanitized. Previously in compat.inc.php, but there LANG_CHARSET was not defined.
+// Make sure this variable is always properly sanitized, though it should have gone through routing taking care before. Previously in compat.inc.php, but there LANG_CHARSET was not defined.
 if (isset($serendipity['GET']['searchTerm'])) {
-    $serendipity['GET']['searchTerm'] = serendipity_specialchars(strip_tags($serendipity['GET']['searchTerm']));
+    $serendipity['GET']['searchTerm'] = serendipity_specialchars(strip_tags($serendipity['GET']['searchTerm']), null, LANG_CHARSET, false);
 }
 
 // Some stuff...
