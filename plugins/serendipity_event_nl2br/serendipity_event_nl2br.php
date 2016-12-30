@@ -138,7 +138,7 @@ class serendipity_event_nl2br extends serendipity_event
             case 'p_tags':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_NL2BR_PTAGS);
-                $propbag->add('description', PLUGIN_EVENT_NL2BR_PTAGS_DESC);
+                $propbag->add('description', PLUGIN_EVENT_NL2BR_PTAGS_DESC . ' ' . PLUGIN_EVENT_NL2BR_PTAGS_DESC2);
                 $propbag->add('default',     'false');
                 break;
 

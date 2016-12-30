@@ -14,6 +14,7 @@
 @define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'Suggestion: "code,pre,geshi,textarea". Seperate multiple tags with a comma. Hint: The entered tags are evaluated as regular expressions.');
 @define('PLUGIN_EVENT_NL2BR_PTAGS', 'Use P-Tags');
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'Insert p-tags instead of br.');
+@define('PLUGIN_EVENT_NL2BR_PTAGS_DESC2', 'This may break with some non-simple markup cases!');
 @define('PLUGIN_EVENT_NL2BR_ISOBR_TAG', 'ISOBR isolations-default BR setting');
 @define('PLUGIN_EVENT_NL2BR_ISOBR_TAG_DESC', 'With this newly added NON-HTML-Tag <nl> </nl>, as a NL2BR Isolations-Default setting, you can use the NL2BR function now by shutting down the parsing inside this tag. You can use it multiple times inside your entry, but not nested! Example: <nl>do not parse newline to br inside</nl>');
 @define('PLUGIN_EVENT_NL2BR_CLEANTAGS', 'Use BR-Clean-Tags as fallback, when ISOBR false');
