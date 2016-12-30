@@ -1259,6 +1259,14 @@ summary {
     color: #b94a48;
 }
 
+.msg_error_list {
+    background: #f2dede;
+    border-bottom: 1px solid #e4b9b9;
+    margin: 0 0;
+    padding: .1em;
+    color: #b94a48;
+}
+
 .msg_success {
     background: #dff0d8;
     border: 1px solid #c1e2b3;
