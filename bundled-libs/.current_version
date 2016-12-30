@@ -1,4 +1,4 @@
-All libs more or less being touched for PHP5 constructors
+All libs have more or less being touched for PHP5 constructors
 
 Cache_Lite              1.7.16 (CVS 1.7.16)
 HTTP_Request            1.2.4  (CVS 1.43)
@@ -14,7 +14,7 @@ Net_SURBL               1.4    (latest, 2016-06-22)
 Onyx (customized)       1.0
 PEAR                    1.10.1
 SimplePie               1.2.1
-Smarty                  3.1.30
+Smarty                  3.1.31
 Text_Wiki               0.25.0 (CVS 1.27)
 XML_RPC                 1.4.0  (1.5.5)
 
