@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.22');
+        $propbag->add('version',       '2.23');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.0.0',
@@ -90,7 +90,7 @@ class serendipity_event_nl2br extends serendipity_event
         <p>This plugin transfers linebreaks to HTML-linebreaks, so that they show up in your blog entry.</p>
         <p>In two cases this can raise problematic issues for you:</p>
         <ul>
-            <li>if you use a <strong>WYSIWYG editor</strong> to write your entries. In that case, the WYSIWYG editor already inserts proper HTML linebreaks, so the nl2br plugin would actually double those linebreaks.</li>
+            <li>previously, if you used a <strong>WYSIWYG editor</strong> to write your entries. In that case, the WYSIWYG editor already placed proper HTML linebreaks, so the nl2br plugin would have actually doubled those linebreaks. Since <strong>Serendipity 2.0</strong> you don\'t need to take care about this any more, in blog entries and static pages, since nl2br parsing is automatically disabled.</li>
             <li>if you use any other markup plugins in conjunction with this plugin that already translate linebreaks. The <strong>TEXTILE and MARKDOWN plugins</strong> are examples for plugins like these.</li>
         </ul>
         <p>To prevent problems, you should disable the nl2br plugin on entries globally or per entry within the "Extended properties" section of an entry, if you have the entryproperties plugin installed.</p>
