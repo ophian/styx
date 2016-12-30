@@ -1,6 +1,6 @@
 <?php
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
-# All rights reserved.  See LICENSE file for licensing details
+# All rights reserved. See LICENSE file for licensing details
 
 if (defined('S9Y_FRAMEWORK')) {
     return;
@@ -445,7 +445,7 @@ if (!isset($_SESSION['serendipityAuthedUser'])) {
 }
 
 if (isset($_SESSION['serendipityUser'])) {
-    $serendipity['user']  = $_SESSION['serendipityUser'];
+    $serendipity['user'] = $_SESSION['serendipityUser'];
 }
 
 if (isset($_SESSION['serendipityEmail'])) {
