@@ -240,15 +240,21 @@ img.serendipity_entryIcon {
     border: 0 none;
 }
 
-td.serendipity_commentsLabel {
+.serendipity_commentsLabel {
     font-size: 9pt;
     font-weight: bold;
     vertical-align: top;
 }
+.serendipity_commentsLabel input {
+    margin: .1em .2em 0 0;
+}
+.serendipity_commentsLabel label {
+    vertical-align: bottom;
+}
 
-td.serendipity_commentsValue input,
-td.serendipity_commentsValue select,
-td.serendipity_commentsValue textarea {
+.serendipity_commentsValue input,
+.serendipity_commentsValue select,
+.serendipity_commentsValue textarea {
     font-size: 1em;
     padding: 2px;
     width: 100%;
