@@ -1,6 +1,9 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Fix issue #435, secure HTTP_REFERER message, to prevent possible
+   XSS in trusted area, thanks to Shinkurt
+
  * Cleanup old and deprecated theme(s) admin files.
    Backend image fallback has moved to "default" admin theme.
 
