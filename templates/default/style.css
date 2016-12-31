@@ -227,7 +227,7 @@ a.homelink2:visited,
     border-bottom: 1px solid #BCBCBC;
 }
 
-div.serendipity_entryFooter {
+.serendipity_entryFooter {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: .75em;
     text-align: center;
@@ -481,7 +481,7 @@ div.serendipitySideBarItem {
     #content {
         float: none;
         display: table-cell;
-        width: auto;
+        width: 100%;
     }
     #serendipityLeftSideBar, #serendipityRightSideBar {
         float: right;
@@ -524,7 +524,7 @@ div.serendipitySideBarItem {
         float: left;
     }
     #content {
-        width: auto;
+        width: 100%;
         float: unset;
     }
     #serendipityLeftSideBar,
