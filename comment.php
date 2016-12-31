@@ -1,4 +1,4 @@
-<?php # $Id$
+<?php
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
@@ -27,9 +27,9 @@ if (!empty($_REQUEST['c']) && !empty($_REQUEST['hash'])) {
     $serendipity['view'] = 'notification';
     $serendipity['GET']['action'] = 'custom';
     $serendipity['smarty_custom_vars'] = array(
-        'content_message'       => ($res ? NOTIFICATION_CONFIRM_MAIL : NOTIFICATION_CONFIRM_MAIL_FAIL),
-        'subscribe_confirm_error'				=> !$res,
-        'subscribe_confirm_success'				=> $res,
+        'content_message'            => ($res ? NOTIFICATION_CONFIRM_MAIL : NOTIFICATION_CONFIRM_MAIL_FAIL),
+        'subscribe_confirm_error'    => !$res,
+        'subscribe_confirm_success'  => $res,
     );
     include S9Y_INCLUDE_PATH . 'include/genpage.inc.php';
     $serendipity['smarty']->display(serendipity_getTemplateFile('index.tpl', 'serendipityPath'));
@@ -41,9 +41,9 @@ if (!empty($_REQUEST['optin'])) {
     $serendipity['view'] = 'notification';
     $serendipity['GET']['action'] = 'custom';
     $serendipity['smarty_custom_vars'] = array(
-        'content_message'       => ($res ? NOTIFICATION_CONFIRM_SUBMAIL : NOTIFICATION_CONFIRM_SUBMAIL_FAIL),
-        'subscribe_confirm_error'				=> !$res,
-        'subscribe_confirm_success'				=> $res,
+        'content_message'           => ($res ? NOTIFICATION_CONFIRM_SUBMAIL : NOTIFICATION_CONFIRM_SUBMAIL_FAIL),
+        'subscribe_confirm_error'   => !$res,
+        'subscribe_confirm_success' => $res,
     );
     include S9Y_INCLUDE_PATH . 'include/genpage.inc.php';
     $serendipity['smarty']->display(serendipity_getTemplateFile('index.tpl', 'serendipityPath'));
@@ -70,10 +70,10 @@ if (!($type = @$_REQUEST['type'])) {
         ob_end_clean();
         log_pingback('NO TYPE HANDED!');
     }
-    
+
     // WordPress pingbacks don't give any parameter. If it is a XML POST asume it's a pigback
     if ($_SERVER['CONTENT_TYPE'] == 'text/xml' && isset($HTTP_RAW_POST_DATA)) {
-        $type = 'pingback'; 
+        $type = 'pingback';
     }
     else {
         $type = 'normal';
