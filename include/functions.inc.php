@@ -1231,7 +1231,7 @@ function serendipity_discover_rss($name, $ext) {
  * @return  boolean     Return true on success, false on failure
  */
 function serendipity_isResponseClean($d) {
-    return (strpos($d, "\r") === false && strpos($d, "\n") === false);
+    return (strpos($d, "\r") === false && strpos($d, "\n") === false && strpos($d, "%0d%0a") === false);
 }
 
 /**
