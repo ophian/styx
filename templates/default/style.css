@@ -112,7 +112,7 @@ a:hover {
     float: none;
     padding: 1em;
     vertical-align: top;
-    background: #333;
+    background-color: #26292b;
     border: 0 none;
     color: #ccdde7;
     text-shadow: 1px 1px 1px rgba(0,0,0,.8);
@@ -128,9 +128,11 @@ a:hover {
     margin: auto;
     width: 100%;
     height: 5em;
-    background: #333;
-    background-image: -webkit-linear-gradient(#333, #4E4E4E);
-    background-image: linear-gradient(#333, #4E4E4E);
+    background-color: #26292b; /* fallback color if gradients are not supported */
+    background-image: -webkit-linear-gradient(top, #26292b, #4E4E4E); /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
+    background-image:    -moz-linear-gradient(top, #26292b, #4E4E4E); /* For Firefox (3.6 to 15) */
+    background-image:      -o-linear-gradient(top, #26292b, #4E4E4E); /* For old Opera (11.1 to 12.0) */
+    background-image:         linear-gradient(to bottom, #26292b, #4E4E4E); /* Standard syntax; must be last */
     box-shadow: 0 1px 4px rgba(0,0,0,.5);
     color: #ccdde7;
     text-shadow: 1px 1px 1px rgba(0,0,0,.8);
