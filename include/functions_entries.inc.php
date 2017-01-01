@@ -1454,7 +1454,7 @@ function serendipity_updertEntry($entry) {
     serendipity_plugin_api::hook_event('backend_entry_updertEntry', $errors, $entry);
     if (count($errors) > 0) {
         // Return error message(s)
-        return implode("\n", $errors);
+        return is_array($errors) ? implode("\n", $errors) : $errors;
     }
 
     serendipity_plugin_api::hook_event('backend_entry_presave', $entry);
