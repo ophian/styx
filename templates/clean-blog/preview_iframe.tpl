@@ -49,7 +49,7 @@
                 {elseif $mode == 'save'}
                     {$updertHooks}
                     {if $res}
-                        <span class="alert alert-danger"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.ERROR}: <b>{$res}</b></span>
+                        <span class="alert alert-danger"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
                     {else}
                     {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 

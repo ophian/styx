@@ -24,12 +24,12 @@
     {/if}
 
         <script type="text/javascript">
-        window.onload = function() {ldelim}
-            var frameheight = document.querySelector('html').offsetHeight;
-            parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
-            parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
-            parent.document.getElementById('serendipity_iframe').style.border = 0;
-        {rdelim}
+            window.onload = function() {ldelim}
+                var frameheight = document.querySelector('html').offsetHeight;
+                parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
+                parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
+                parent.document.getElementById('serendipity_iframe').style.border = 0;
+            {rdelim}
         </script>
 
     </head>
@@ -41,7 +41,7 @@
                 <div class="{$mode}_preview_sizing"></div>
                 {$updertHooks}
             {if $res}
-                <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: <b>{$res}</b></span>
+                <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
             {else}
                 {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
