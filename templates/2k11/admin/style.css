@@ -3690,7 +3690,7 @@ img.mfp-img {
     }
 
     #media_filter > div.keywords {/*simple filter*/
-        float: right;
+        float: unset;
         margin-top: -2.5em;
         margin-bottom: 0;
     }
