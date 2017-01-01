@@ -1,6 +1,9 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Fix issue #437 - Remove the hardcoded media filter only_filename
+   input field and re-allow the $order_fields['i.name'].
+
  * Fix issue #435, secure HTTP_REFERER message, to prevent possible
    XSS in trusted area, thanks to Shinkurt
 
