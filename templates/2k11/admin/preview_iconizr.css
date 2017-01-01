@@ -115,6 +115,14 @@
     border: 1px solid #aaa;
     color: #777;
 }
+/* While arrified error messages are possible */
+.msg_error,
+.msg_success,
+.msg_notice,
+.msg_hint {
+    font-size: .875em;
+    display: inherit;
+}
 
 /* preview iframe styles only */
 
