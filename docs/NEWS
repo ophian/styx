@@ -1,6 +1,8 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Disabled Selenium test files unless enabled
+
  * Fix issue #437 - Remove the hardcoded media filter only_filename
    input field and re-allow the $order_fields['i.name'].
 
