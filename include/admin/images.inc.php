@@ -124,12 +124,12 @@ switch ($serendipity['GET']['adminAction']) {
             return; // blank content page, but default token check parameter is presenting a XSRF message when false
         }
         if (!is_array($serendipity['POST']['multiDelete']) && isset($_POST['toggle_move'])) {
-            echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_ITEM, $_SERVER['HTTP_REFERER']) . '</div>'."\n";
-            break;
+            echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_ITEM, serendipity_specialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES | ENT_HTML401)) . '</div>'."\n";
+            return; // blank content page exit
         }
         if (is_array($serendipity['POST']['multiDelete']) && isset($serendipity['POST']['oldDir']) && empty($serendipity['POST']['newDir']) && isset($_POST['toggle_move'])) {
-            echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_DIR, $_SERVER['HTTP_REFERER']) . '</div>'."\n";
-            break;
+            echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_DIR, serendipity_specialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES | ENT_HTML401)) . '</div>'."\n";
+            return; // blank content page exit
         }
         // case bulk multimove (leave the fake oldDir being send as an empty dir)
         if (isset($serendipity['POST']['oldDir']) && !empty($serendipity['POST']['newDir'])) {
