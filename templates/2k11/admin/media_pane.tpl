@@ -199,8 +199,6 @@
 
                 serendipity.SetCookie("only_path", "{$media.only_path}");
 
-                serendipity.SetCookie("only_filename", "{$media.only_filename}");
-
                 serendipity.SetCookie("hideSubdirFiles", "{$media.hideSubdirFiles}");
             {foreach $media.filter AS $k => $v}
                 {if !is_array($media.filter[{$k}])}

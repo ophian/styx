@@ -40,7 +40,7 @@ function serendipity_isActiveFile($file) {
  * @param   string  The "ORDER BY" sql part when fetching items
  * @param   string  Order by DESC or ASC
  * @param   string  Only fetch files from a specific directory
- * @param   string  Only fetch specific filenames (including check for realname match)
+ * @param   string  Only fetch specific filenames (including check for realname match) - deprecated, since now in filters
  * @param   string  Only fetch media with specific keyword
  * @param   array   An array of restricting filter sets
  * @param   boolean Apply strict directory checks, or include subdirectories?
@@ -1454,11 +1454,10 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
     $extraParems     = serendipity_generateImageSelectorParems();
     $hideSubdirFiles = ($serendipity['GET']['hideSubdirFiles'] == 'yes') ? true : false; // default
+    $userPerms       = array('delete' => serendipity_checkPermission('adminImagesDelete'));
 
-    $userPerms     = array('delete' => serendipity_checkPermission('adminImagesDelete'));
-
-    $serendipity['GET']['only_path']     = serendipity_uploadSecure($limit_path . $serendipity['GET']['only_path'], true);
-    $serendipity['GET']['only_filename'] = serendipity_specialchars(str_replace(array('*', '?'), array('%', '_'), $serendipity['GET']['only_filename']));
+    $serendipity['GET']['only_path']        = serendipity_uploadSecure($limit_path . $serendipity['GET']['only_path'], true);
+    $serendipity['GET']['filter']['i.name'] = serendipity_specialchars(str_replace(array('*', '?'), array('%', '_'), $serendipity['GET']['filter']['i.name']));
 
     $perPage = (!empty($serendipity['GET']['sortorder']['perpage']) ? (int)$serendipity['GET']['sortorder']['perpage'] : 8);
     while ($perPage % $lineBreak !== 0) {
@@ -1612,7 +1611,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                                   (isset($serendipity['GET']['sortorder']['order']) ? $serendipity['GET']['sortorder']['order'] : false),
                                   (isset($serendipity['GET']['sortorder']['ordermode']) ? $serendipity['GET']['sortorder']['ordermode'] : false),
                                   (isset($serendipity['GET']['only_path']) ? $serendipity['GET']['only_path'] : ''),
-                                  (isset($serendipity['GET']['only_filename']) ? $serendipity['GET']['only_filename'] : ''),
+                                  null,
                                   (isset($serendipity['GET']['keywords']) ? $serendipity['GET']['keywords'] : ''),
                                   (isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : ''),
                                   $hideSubdirFiles
@@ -1699,7 +1698,7 @@ function serendipity_generateImageSelectorParems($format = 'url') {
     $extraParems  = '';
     $filterParams = $serendipity['GET']['filter'] ?: array(); // ?: elvis operator, see http://en.wikipedia.org/wiki/Elvis_operator and upcoming PHP 7 ?? (isset) operator
 
-    $standaloneFilterParams = array('only_path', 'only_filename');
+    $standaloneFilterParams = array('only_path');
     $parems = array();
 
     foreach($importParams AS $importParam) {
@@ -2944,7 +2943,6 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'form_hidden'       => $form_hidden,
         'blimit_path'       => empty($smarty_vars['limit_path']) ? '' : basename($smarty_vars['limit_path']),
         'only_path'         => $serendipity['GET']['only_path'],
-        'only_filename'     => $serendipity['GET']['only_filename'],
         'sortorder'         => $serendipity['GET']['sortorder'],
         'keywords_selected' => $serendipity['GET']['keywords'],
         'filter'            => $serendipity['GET']['filter'],
