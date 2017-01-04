@@ -201,7 +201,7 @@ if (!version_compare(phpversion(), '5.3', '>=')) {
 if ( !defined('IN_installer') && IS_installed === false ) {
     header('Status: 302 Found');
     header('X-RequireInstall: 1');
-    header('Location: ' . (strtolower($_SERVER['HTTPS']) == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . str_replace('\\', '/', urlencode(dirname($_SERVER['PHP_SELF']))) . '/serendipity_admin.php');
+    header('Location: ' . (strtolower($_SERVER['HTTPS']) == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . str_ireplace(array('\\', "%0A", "%0A"), array('/', '', ''), dirname($_SERVER['PHP_SELF'])) . '/serendipity_admin.php');
     serendipity_die(sprintf(SERENDIPITY_NOT_INSTALLED, 'serendipity_admin.php'));
 }
 
