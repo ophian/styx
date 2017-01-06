@@ -20,7 +20,7 @@
                 {$entry.body}
                 {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
                     <a class="read_more" href="{$entry.link}#extended"><button class="btn btn-md btn-default pull-right">{$CONST.READ_MORE} <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
-                {/if}                
+                {/if}
             </div>
             {if $entry.is_extended}
                 <div id="extended" class="content serendipity_extended_body">
@@ -59,7 +59,7 @@
                         {/if}
                     {else}
                         {$entry.freetag}
-                    {/if}                    
+                    {/if}
                     {$entry.add_footer}
                 </footer>
             {/if}
@@ -144,7 +144,7 @@
     {/if}
     {$entry.backend_preview}
     </article>
-    {if !$is_single_entry and not $entry.is_extended}<hr>{/if}    
+    {if !$is_single_entry and not $entry.is_extended}<hr>{/if}
     {/foreach}
 {foreachelse}
     {if not $plugin_clean_page}

@@ -52,7 +52,7 @@
 
     <section id="maintenance_import" class="equal_heights quick_list">
         <h3>{$CONST.IMPORT_ENTRIES}</h3>
-    
+
         {$importMenu}
     </section>
 {/if}

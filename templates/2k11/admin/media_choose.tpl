@@ -11,7 +11,7 @@
         <h1>{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
 
         <img src="{$media.file.imgsrc}" alt="">
-        
+
         <form id="imageForm" name="serendipity[selForm]" action="#" method="GET">
             {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_hiddenfields' eventData=$media.file}
             <input name="imgThumbWidth" type="hidden" value="{$media.file.thumbWidth}">

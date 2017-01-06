@@ -9,11 +9,11 @@
                         {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
                     {/if}
                 {/if}
-                    
+
                 {$img_src="{$file.full_thumbHTTP}"}
                 {$img_title="{$file.path}{$file.name}"}
                 {$img_alt="{$file.realname}"}
-                
+
             {elseif $file.is_image AND $file.hotlink}
                 {if $media.textarea}
                     {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
@@ -49,7 +49,7 @@
             {$img_title="{$file.path}"}
             {$img_alt="{$file.realname}"}
         {else}
-            {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"} 
+            {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
             {$img_src="{$file.mimeicon}"}
             {$img_title="{$file.path}{$file.name}({$file.mime})"}
             {$img_alt="{$file.mime}"}

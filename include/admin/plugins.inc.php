@@ -398,9 +398,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             /* Load the new plugin */
             $plugin = &serendipity_plugin_api::load_plugin($inst);
             if (!is_object($plugin)) {
-                echo "DEBUG: Plugin " . serendipity_specialchars($inst) . " not an object: " . serendipity_specialchars(print_r($plugin, true)) 
+                echo "DEBUG: Plugin " . serendipity_specialchars($inst) . " not an object: " . serendipity_specialchars(print_r($plugin, true))
                     . ".<br />Input: " . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br /><br />\n\n
-                    This error can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin 
+                    This error can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin
                     was downloaded) or the inclusion of a file failed (permissions?)<br />\n";
                 echo "Backtrace:<br />\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br />";
             }

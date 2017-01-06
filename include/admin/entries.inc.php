@@ -272,7 +272,7 @@ switch($serendipity['GET']['adminAction']) {
                                               AND specific_catalog = '" . $serendipity['dbName'] . "'");
                 if (is_array($r) && $r[0]['counter'] > 0) {
                     $term = str_replace('&amp;', '&', $term);
-                    $filter[] = "( 
+                    $filter[] = "(
                     to_tsvector('english', title)    @@to_tsquery('$term') OR
                     to_tsvector('english', body)     @@to_tsquery('$term') OR
                     to_tsvector('english', extended) @@to_tsquery('$term')

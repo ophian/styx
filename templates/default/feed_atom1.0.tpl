@@ -30,16 +30,16 @@
             <name>{$entry.feed_author}</name>
             {if $entry.feed_email != 'nospam@example.com'}<email>{$entry.feed_email}</email>{/if}
         </author>
-    
+
         <published>{$entry.feed_timestamp}</published>
         <updated>{$entry.feed_last_modified}</updated>
         <wfw:comment>{$serendipityBaseURL}wfwcomment.php?cid={$entry.feed_id}</wfw:comment>
-    
+
 {if !$is_comments}
         <slash:comments>{$entry.comments}</slash:comments>
         <wfw:commentRss>{$serendipityBaseURL}rss.php?version={$metadata.version}&amp;type=comments&amp;cid={$entry.feed_id}</wfw:commentRss>
 {/if}
-    
+
     {foreach $entry.categories AS $cat}
         <category scheme="{$cat.categoryURL}" label="{$cat.feed_category_name}" term="{$cat.feed_category_name}" />
     {/foreach}

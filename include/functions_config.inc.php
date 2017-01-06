@@ -485,7 +485,7 @@ function serendipity_issueAutologin($array) {
         $cast = "cast(name AS UNSIGNED)";
     }
 
-    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options 
+    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
                                 WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'
                                    OR (okey LIKE 'l_%' AND $cast < " . (time() - 1814400) . ")");
 
@@ -598,7 +598,7 @@ function serendipity_authenticate_author($username = '', $password = '', $is_has
                 if (empty($row['hashtype']) || $row['hashtype'] == 0) {
 
                     if (isset($serendipity['hashkey']) && (time() - $serendipity['hashkey']) >= 15768000) {
-                        die('You can no longer login with an old-style MD5 hash to prevent MD5-Hostage abuse. 
+                        die('You can no longer login with an old-style MD5 hash to prevent MD5-Hostage abuse.
                              Please ask the Administrator to set you a new password.');
                     }
 

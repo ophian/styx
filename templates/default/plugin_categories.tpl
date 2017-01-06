@@ -6,10 +6,10 @@
     <ul id="serendipity_categories_list" style="list-style: none; margin: 0px; padding: 0px">
 {foreach $categories AS $plugin_category}
         <li class="category_depth{$plugin_category.catdepth} category_{$plugin_category.categoryid}" style="display: block;">
-        {if $is_form}    
+        {if $is_form}
             <input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="{$plugin_category.categoryid}" />
         {/if}
-    
+
         {if !empty($category_image)}
             <a class="serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}"><img src="{$category_image}" alt="XML" style="border: 0px" /></a>
         {/if}

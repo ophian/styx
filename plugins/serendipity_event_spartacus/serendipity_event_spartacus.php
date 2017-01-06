@@ -1268,7 +1268,7 @@ class serendipity_event_spartacus extends serendipity_event
 
                 case 'backend_pluginlisting_header':
                     if (serendipity_db_bool($this->get_config('enable_plugins'))) {
-                        if (version_compare($serendipity['version'], '2.1-alpha3', '<')) {    
+                        if (version_compare($serendipity['version'], '2.1-alpha3', '<')) {
 ?>
 
         <div id="upgrade_notice" class="clearfix">

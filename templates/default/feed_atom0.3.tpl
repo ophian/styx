@@ -32,7 +32,7 @@
             <name>{$entry.feed_author}</name>
             {if $entry.feed_email != 'nospam@example.com'}<email>{$entry.feed_email}</email>{/if}
         </author>
-    
+
         <issued>{$entry.feed_timestamp}</issued>
         <created>{$entry.feed_timestamp}</created>
         <modified>{$entry.feed_last_modified}</modified>
@@ -40,7 +40,7 @@
 {if !$is_comments}
         <slash:comments>{$entry.comments}</slash:comments>
         <wfw:commentRss>{$serendipityBaseURL}rss.php?version={$metadata.version}&amp;type=comments&amp;cid={$entry.feed_id}</wfw:commentRss>
-{/if}    
+{/if}
         <id>{$entry.feed_guid}</id>
         <title mode="escaped" type="text/html">{$entry.feed_title}</title>
 {if !empty($entry.body)}

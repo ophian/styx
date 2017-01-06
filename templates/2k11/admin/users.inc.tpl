@@ -45,7 +45,7 @@
         {if $user.isEditable}
         <li class="clearfix {cycle values="odd,even"}">
             <span class="user_name"><span class="icon-user" aria-hidden="true"></span> {$user.realname|escape} <span class="user_level">({$user.userlevel_name|escape})</span></span>
-            
+
             <ul class="plainList clearfix edit_actions">
                 <li><a class="button_link" href="{$user.authorUrl}" title="{$CONST.ENTRIES_FOR|sprintf:{$user.realname|escape}}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.ENTRIES_FOR|sprintf:{$user.realname}|escape}</span></a></li>
                 <li><a class="button_link" href="?serendipity[adminModule]=users&amp;serendipity[adminAction]=edit&amp;serendipity[userid]={$user.authorid}#editform" title="{$CONST.EDIT} {$user.realname|escape}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
@@ -78,7 +78,7 @@
     <form action="?serendipity[adminModule]=users" method="post">
         {$formToken}
         <input name="serendipity[user]" type="hidden" value="{$userid}">
-        
+
         <div class="users_delete_action">
             <h2>{$CONST.MANAGE_USERS}</h2>
 

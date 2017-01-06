@@ -18,16 +18,16 @@
     {/if}
     {if ($view == "start")}
        <link rel="canonical" href="{$serendipityBaseURL}">
-    {/if}    
+    {/if}
 {* BOOTSTRAP CORE CSS *}
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">    
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 {* S9Y CSS *}
-    <link rel="stylesheet" href="{$head_link_stylesheet}"> 
+    <link rel="stylesheet" href="{$head_link_stylesheet}">
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
     <link rel="alternate" type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
     {if $entry_id}
         <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
-    {/if}   
+    {/if}
 {* CUSTOM FONTS *}
     <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,600,800|Lora:400,400italic' rel='stylesheet' type='text/css'>
@@ -38,24 +38,24 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-   
+
 {* HEADER IMAGE *}
     {if $view=="entry"}
         {if $entry.properties.entry_specific_header_image}
-            <style type="text/css">.intro-header {ldelim}background-image: url('{$entry.properties.entry_specific_header_image}');{rdelim}</style>         
+            <style type="text/css">.intro-header {ldelim}background-image: url('{$entry.properties.entry_specific_header_image}');{rdelim}</style>
         {else}
-            <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.entry_default_header_image}{$template_option.entry_default_header_image}{else}{serendipity_getFile file="img/post-bg.jpg"}{/if}');{rdelim}</style> 
+            <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.entry_default_header_image}{$template_option.entry_default_header_image}{else}{serendipity_getFile file="img/post-bg.jpg"}{/if}');{rdelim}</style>
         {/if}
     {elseif $staticpage_pagetitle && !$plugin_contactform_name}
         {if $staticpage_custom.staticpage_header_image}
-            <style type="text/css">.intro-header {ldelim}background-image: url('{$staticpage_custom.staticpage_header_image}');{rdelim}</style>           
+            <style type="text/css">.intro-header {ldelim}background-image: url('{$staticpage_custom.staticpage_header_image}');{rdelim}</style>
         {else}
             <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.staticpage_header_image}{$template_option.staticpage_header_image}{else}{serendipity_getFile file="img/about-bg.jpg"}{/if}');{rdelim}</style>
         {/if}
     {elseif $plugin_contactform_name}
         <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.contactform_header_image}{$template_option.contactform_header_image}{else}{serendipity_getFile file="img/contact-bg.jpg"}{/if}');{rdelim}</style>
     {elseif $view=="archive"}
-        <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.archive_header_image}{$template_option.archive_header_image}{else}{serendipity_getFile file="img/archive-bg.jpg"}{/if}');{rdelim}</style>    
+        <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.archive_header_image}{$template_option.archive_header_image}{else}{serendipity_getFile file="img/archive-bg.jpg"}{/if}');{rdelim}</style>
     {else}
         <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.default_header_image}{$template_option.default_header_image}{else}{serendipity_getFile file="img/home-bg.jpg"}{/if}');{rdelim}</style>
     {/if}
@@ -68,7 +68,7 @@
 {/if}
 {if $is_raw_mode != true}
     {if $template_option.use_corenav}
-        <a class="sr-only sr-only-focusable" href="#maincontent"><span lang="en">Skip to main content</span></a>    
+        <a class="sr-only sr-only-focusable" href="#maincontent"><span lang="en">Skip to main content</span></a>
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-custom navbar-fixed-top" role="navigation">
             <div class="container-fluid">
@@ -85,11 +85,11 @@
                     <a class="navbar-brand" href="{$archiveURL}" title="{$CONST.ARCHIVES}"><i class="fa fa-calendar" aria-hidden="true"></i></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">{foreach $navlinks AS $navlink}<li><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}</ul>               
+                    <ul class="nav navbar-nav navbar-right">{foreach $navlinks AS $navlink}<li><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}</ul>
                 </div>
             </div>
         </nav>
-    {/if} 
+    {/if}
     <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -103,10 +103,10 @@
                             <input type="hidden" name="serendipity[action]" value="search">
                             <label for="serendipityQuickSearchTermField" class="sr-only">{$CONST.QUICKSEARCH}</label>
                             <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" value="" placeholder="{$CONST.SEARCH} ...">
-                                     
+
                         </div>
                         <div class="modal-footer">
-                            <input class="btn btn-primary" id="gobutton" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">   
+                            <input class="btn btn-primary" id="gobutton" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
                             <button type="button" class="btn btn-default" data-dismiss="modal">{$CONST.CLOSE}</button>
                         </div>
                     </form>
@@ -125,7 +125,7 @@
                             <hr class="small">
                             {if $head_subtitle}<span class="subheading">{$head_subtitle|default:$blogDescription}</span>{else}{$blogDescription}{/if}
                         {else}
-                            {if $entry.properties.entry_subtitle}<h2 class="subheading">{$entry.properties.entry_subtitle|escape}</h2>{/if}                        
+                            {if $entry.properties.entry_subtitle}<h2 class="subheading">{$entry.properties.entry_subtitle|escape}</h2>{/if}
                             <p class="meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-sm btn-default"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if $entry.is_entry_owner and not $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
                         {/if}
                     </div>
@@ -140,7 +140,7 @@
             {if $view=='404'}
                 <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.ERROR_404}</p>
                 <nav role="navigation">
-                    <ul class="pager">                
+                    <ul class="pager">
                         <li class="previous"><a href="{$serendipityBaseURL}">{$CONST.HOMEPAGE} - {$blogTitle}</a></li>
                     </ul>
                 </nav>
@@ -167,7 +167,7 @@
                                 </a>
                             </li>
                         {/if}
-                        {if $template_option.facebook_url}                        
+                        {if $template_option.facebook_url}
                             <li>
                                 <a href="{$template_option.facebook_url}">
                                     <span class="fa-stack fa-lg">
@@ -177,7 +177,7 @@
                                 </a>
                             </li>
                         {/if}
-                        {if $template_option.github_url}                         
+                        {if $template_option.github_url}
                             <li>
                                 <a href="{$template_option.github_url}">
                                     <span class="fa-stack fa-lg">
@@ -187,7 +187,7 @@
                                 </a>
                             </li>
                         {/if}
-                        {if $template_option.instagram_url}                         
+                        {if $template_option.instagram_url}
                             <li>
                                 <a href="{$template_option.instagram_url}">
                                     <span class="fa-stack fa-lg">
@@ -196,8 +196,8 @@
                                     </span>
                                 </a>
                             </li>
-                        {/if}   
-                        {if $template_option.pinterest_url}                         
+                        {/if}
+                        {if $template_option.pinterest_url}
                             <li>
                                 <a href="{$template_option.pinterest_url}">
                                     <span class="fa-stack fa-lg">
@@ -206,8 +206,8 @@
                                     </span>
                                 </a>
                             </li>
-                        {/if} 
-                        {if $template_option.rss_url}                         
+                        {/if}
+                        {if $template_option.rss_url}
                             <li>
                                 <a href="{$template_option.rss_url}">
                                     <span class="fa-stack fa-lg">
@@ -216,7 +216,7 @@
                                     </span>
                                 </a>
                             </li>
-                        {/if}                        
+                        {/if}
                     </ul>
                     {if $template_option.copyright}<p class="copyright text-muted">{$template_option.copyright}</p>{/if}
                 </div>

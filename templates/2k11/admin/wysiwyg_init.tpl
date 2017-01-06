@@ -21,7 +21,7 @@
                     command: 'openML',
                     icon: '{serendipity_getFile file="admin/img/thumbnail.png"}'
                 });
-                
+
             }
         });
 

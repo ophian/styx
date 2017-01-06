@@ -120,7 +120,7 @@ if (!isset($serendipity['expose_s9y'])) {
 // If set to true (in serendipity_config_local.inc.php) this prevents using imap_8bit
 // functions to send a mail, and use base64 encoding instead
 if (!isset($serendipity['forceBase64'])) {
-    $serendipity['forceBase64'] = false; 
+    $serendipity['forceBase64'] = false;
 }
 
 // Should IFRAMEs be used for previewing entries and sending trackbacks?

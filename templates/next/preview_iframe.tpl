@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic">
 {/if}
 {if $head_link_stylesheet_frontend}
-    <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">                                
+    <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
 {else}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
 {/if}

@@ -172,7 +172,7 @@
             {/if}
 
             {$priorDepth=$category.depth}
-            
+
             <li>
                 <div class="clearfix {cycle values="odd,even"}">
                     <details class="category_data">
