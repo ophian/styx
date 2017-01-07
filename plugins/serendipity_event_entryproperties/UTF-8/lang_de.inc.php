@@ -32,7 +32,7 @@
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS', 'Eintragsinhalt im RSS-Feed verstecken');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_HIDERSS_DESC', 'Falls aktiviert, wird dieser Artikel im RSS-Feed ohne Inhalt dargestellt und sofort per URL aufgerufen.');
-        
+
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Freie Felder');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Zusätzliche, freie Felder können in Ihrem Theme an beliebigen Stellen eingesetzt werden. Dafür müssen Sie nur Ihr entries.tpl-Template bearbeiten und Smarty-Tags wie {$entry.properties.ep_MyCustomField} an gewünschter Stelle einfügen. Bitte beachten Sie den Präfix ep_ für jedes Feld! ');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Geben Sie hier eine Liste von kommaseparierten Feldnamen an, die Sie für die Einträge verwenden möchten. Keine Sonderzeichen und Leerzeichen benutzen. Beispiel: "Customfield1, Customfield2". Zusätzliche, freie Felder können in Ihrem Theme an beliebigen Stellen eingesetzt werden. Dafür müssen Sie nur Ihr entries.tpl-Template bearbeiten und Smarty-Tags wie {$entry.properties.ep_MyCustomField} an gewünschter Stelle einfügen. Bitte beachten Sie den Präfix ep_ für jedes Feld!');

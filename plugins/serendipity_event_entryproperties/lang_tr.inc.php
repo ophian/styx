@@ -14,10 +14,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_MEMBERS', 'Yazarlar');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_ACCESS_PUBLIC', 'Herkes');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE', 'Yazýlar önbelleklensin mi?');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Eðer bu seçenek etkinse, yazýyý her kaydettiðinizde
-önbelleklenmiþ bir sürüm kendiliðinden oluþturulacaktýr. Önbellekleme yazýlarýn yayýn esnasýnda
-daha çabuk eriþilmesine imkan verir, siteye eriþim hýzýný arttýrýr, Ama diðer eklentilerle beraber çalýþýrken 
-ölçeklenebilir olma imkanýný da azaltýr..');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC', 'Eðer bu seçenek etkinse, yazýyý her kaydettiðinizde önbelleklenmiþ bir sürüm kendiliðinden oluþturulacaktýr. Önbellekleme yazýlarýn yayýn esnasýnda daha çabuk eriþilmesine imkan verir, siteye eriþim hýzýný arttýrýr, Ama diðer eklentilerle beraber çalýþýrken ölçeklenebilir olma imkanýný da azaltýr..');
 @define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE', 'Yazýlarý önbellekleme iþlemini gerçekleþtir');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT', 'Yazýlarýn kaydý gelecek iþlem için çekiliyor...');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO', 'Yazýlarýn çekilme iþlemi %d dan %d');
@@ -30,9 +27,7 @@ daha çabuk eriþilmesine imkan verir, siteye eriþim hýzýný arttýrýr, Ama diðer ek
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_NL2BR', 'nl2br Kapalý');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'Yazýyý  öngörünüm / anasayfadan gizle');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'Grup tabanlý yetkilendirme kullan');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Eðer bu seçenek etkinleþtirilirse, hangi kullanýcý grubunun
-kullanýcýlarýnýn bu yazýyý okuma yetkisi olduðunu belirleyebilirsiniz. Bu seçenek performansý olumsuz
-etkileyebilir. Sadece gerçekten ihtiyacýnýz varsa bu seçeneði etkinleþtirmeniz önerilir.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'Eðer bu seçenek etkinleþtirilirse, hangi kullanýcý grubunun kullanýcýlarýnýn bu yazýyý okuma yetkisi olduðunu belirleyebilirsiniz. Bu seçenek performansý olumsuz etkileyebilir. Sadece gerçekten ihtiyacýnýz varsa bu seçeneði etkinleþtirmeniz önerilir.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS', 'Kullanýcý tabanlý yetkilendirme kullan');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_USERS_DESC', 'Eðer bu seçenek etkinleþtirilirse, Bu yazýyý okuma izni olan özel kullanýcýlarý tanýmlayabilirsiniz. Bu seçenek performansý olumsuz
 etkileyebilir. Sadece gerçekten ihtiyacýnýz varsa bu seçeneði etkinleþtirmeniz önerilir.');

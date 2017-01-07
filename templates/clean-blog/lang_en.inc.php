@@ -8,7 +8,7 @@
 @define('READ_MORE','Read More');
 
 //Option groups and instructions
-@define('THEME_HEADERS', 'Header images'); 
+@define('THEME_HEADERS', 'Header images');
 @define('THEME_SOCIAL_LINKS', 'Social links');
 @define('THEME_PAGE_OPTIONS', 'Page Options');
 @define('THEME_NAVIGATION', 'Navigation Options');

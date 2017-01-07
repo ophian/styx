@@ -294,7 +294,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
             return $type_map['false'];
         return $type_map['true'];
     }
-    
+
     return $rows;
 }
 

@@ -233,10 +233,10 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
     if (!empty($params['entryprops'])) {
         if (preg_match_all('@(.*)(!)?=[\'"]*([^\'"]+)[\'"]*(,|$)@imsU', $params['entryprops'], $m)) {
             foreach($m[0] AS $idx => $p) {
-                $params['joinown'] .= "\n JOIN {$serendipity['dbPrefix']}entryproperties 
-                                          AS ep" . $idx . " 
-                                          ON (ep" . $idx . ".entryid = e.id AND 
-                                              ep" . $idx . ".property = '" . serendipity_db_escape_string($m[1][$idx]) . "' AND 
+                $params['joinown'] .= "\n JOIN {$serendipity['dbPrefix']}entryproperties
+                                          AS ep" . $idx . "
+                                          ON (ep" . $idx . ".entryid = e.id AND
+                                              ep" . $idx . ".property = '" . serendipity_db_escape_string($m[1][$idx]) . "' AND
                                               ep" . $idx . ".value " . $m[2][$idx] . "= '" . serendipity_db_escape_string($m[3][$idx]) . "') \n";
             }
         }
@@ -1270,7 +1270,7 @@ function serendipity_smarty_shutdown($serendipity_directory = '') {
  * @param  array   $data: map with the variables to assign
  * @param  string  $debugtype: If set, debug string is prepended. Can be set to HTML or JS.
  * @param  string  $debug: Possible debug string that is prepended to output
- * 
+ *
  * @return string  compiled file
  */
 function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = null, $debug = null) {

@@ -134,7 +134,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                 $propbag->add('description', '');
                 $propbag->add('default',     'false');
                 break;
-                
+
             case 'show_all':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        CATEGORY_PLUGIN_SHOWALL);

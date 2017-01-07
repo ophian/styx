@@ -1,5 +1,5 @@
 <?php
-# Translated by: Wesley Hwang-Chung <wesley96@gmail.com> 
+# Translated by: Wesley Hwang-Chung <wesley96@gmail.com>
 # (c) 2005 http://www.tool-box.info/
 
 @define('PLUGIN_EVENT_S9YMARKUP_NAME', '마크업: 세렌디피티');

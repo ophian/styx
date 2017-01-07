@@ -25,7 +25,7 @@
 * Usage:
 *   <?php
 *   require_once "Net/CheckIP.php";
-*     
+*
 *   if (Net_CheckIP::check_ip("your_ip_goes_here")) {
 *       // Syntax of the IP is ok
 *   }

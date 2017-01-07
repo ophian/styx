@@ -1,5 +1,5 @@
 <?php
-# Translated by: Wesley Hwang-Chung <wesley96@gmail.com> 
+# Translated by: Wesley Hwang-Chung <wesley96@gmail.com>
 # (c) 2005 http://www.tool-box.info/
 
 @define('PLUGIN_EVENT_WRAPPER_NAME', '이벤트 출력 틀');

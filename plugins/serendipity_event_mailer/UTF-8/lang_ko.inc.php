@@ -1,5 +1,5 @@
 <?php
-# Translated by: Wesley Hwang-Chung <wesley96@gmail.com> 
+# Translated by: Wesley Hwang-Chung <wesley96@gmail.com>
 # (c) 2005 http://www.tool-box.info/
 
 @define('PLUGIN_EVENT_MAILER_NAME', '글을 전자우편으로 발송');
