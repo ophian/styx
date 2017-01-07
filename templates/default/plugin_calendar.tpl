@@ -2,7 +2,7 @@
     <tr>
         <td class="serendipity_calendarHeader">
 {if $plugin_calendar_head.minScroll le $plugin_calendar_head.month_date}
-            <a title="{$CONST.BACK}" href="{$plugin_calendar_head.uri_previous}"><img alt="{$CONST.BACK}" src="{serendipity_getFile file="img/back.png"}" width="16" height="12" style="border: 0px" /></a>
+            <a title="{$CONST.BACK}" href="{$plugin_calendar_head.uri_previous}"><span class="icon icon-back" alt="{$CONST.BACK}"></a>
 {/if}
         </td>
 
@@ -12,7 +12,7 @@
 
         <td class="serendipity_calendarHeader" style="text-align: right">
 {if $plugin_calendar_head.maxScroll ge $plugin_calendar_head.month_date}
-            <a title="{$CONST.FORWARD}" href="{$plugin_calendar_head.uri_next}"><img alt="{$CONST.FORWARD}" src="{serendipity_getFile file="img/forward.png"}" width="16" height="12" style="border: 0px" /></a>
+            <a title="{$CONST.FORWARD}" href="{$plugin_calendar_head.uri_next}"><span class="icon icon-next" alt="{$CONST.FORWARD}"></span></a>
 {/if}
         </td>
     </tr>

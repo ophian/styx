@@ -63,6 +63,22 @@ a:hover {
     text-decoration: underline;
 }
 
+.icon-back::before {
+    content: "<";
+}
+.icon-next::before {
+    content: ">";
+}
+.icon {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 1.065em;
+    color: #FFF;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 #mainpane {
     border-bottom: 1px solid #222;
     margin: auto;
@@ -478,6 +494,9 @@ div.serendipitySideBarItem {
     }
 }
 @media screen and (min-width: 780px) {
+    .icon {
+        color: #222;
+    }
     #content {
         float: none;
         display: table-cell;
