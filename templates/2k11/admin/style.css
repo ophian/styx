@@ -427,7 +427,6 @@ progress {
     display: inline-block;
     text-decoration: inherit;
     width: 1em;
-    margin-right: .2em;
     text-align: center;
     opacity: 1;
     font-variant: normal;
@@ -664,7 +663,7 @@ input[type="submit"] {
     border: 1px solid;
     line-height: normal;
     outline: 0;
-    padding: 3px 10px;
+    padding: .25em .5em;
     text-decoration: none;
     width: auto;
 }
