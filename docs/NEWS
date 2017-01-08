@@ -1,6 +1,8 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Add tag and category list anchors to edit_entry fieldsets
+
  * Disabled Selenium test files unless enabled
 
  * Fix issue #437 - Remove the hardcoded media filter only_filename
