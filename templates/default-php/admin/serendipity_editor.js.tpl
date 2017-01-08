@@ -1167,6 +1167,10 @@ $(function() {
 
                 serendipity.skipScroll($(this).attr('href'));
             });
+
+            $('#cats_list').on('click', 'h3, li', function() {
+                $('#select_category').trigger('click');
+            });
         }
     <?php else: ?>
         $('#meta_data #edit_entry_category').addClass('mfp-hide');
@@ -1233,6 +1237,10 @@ $(function() {
                 }
 
                 serendipity.skipScroll($(this).attr('href'));
+            });
+
+            $('#tags_list').on('click', 'h3, li', function() {
+                $('#select_tags').trigger('click');
             });
         }
     <?php else: ?>
