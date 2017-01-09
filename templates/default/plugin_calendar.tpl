@@ -2,7 +2,7 @@
     <tr>
         <td class="serendipity_calendarHeader">
 {if $plugin_calendar_head.minScroll le $plugin_calendar_head.month_date}
-            <a title="{$CONST.BACK}" href="{$plugin_calendar_head.uri_previous}"><span class="icon icon-back" alt="{$CONST.BACK}"></a>
+            <a title="{$CONST.BACK}" href="{$plugin_calendar_head.uri_previous}"><span class="icon icon-back" alt="{$CONST.BACK}"></span></a>
 {/if}
         </td>
 
