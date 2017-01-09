@@ -192,6 +192,7 @@ $dead_dirs_200 = array(
 /* A list of old or beta Serendipity files, which were not marked obsolet with the 2.0.2 upgrade, or were removed by 2.1.0 */
 $dead_files_202 = array(
     'composer.phar',
+    'bundled-libs/katzgrau/klogger/phpunit.xml',
     'bundled-libs/PEAR5.php',
     'bundled-libs/Smarty/.travis.yml',
     'bundled-libs/Smarty/composer.json',
@@ -289,6 +290,8 @@ $dead_files_202 = array(
 $dead_dirs_202 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/Text',
     $serendipity['serendipityPath'] . 'bundled-libs/docs',
+    $serendipity['serendipityPath'] . 'bundled-libs/katzgrau/klogger/tests',
+    $serendipity['serendipityPath'] . 'bundled-libs/psr/log/Psr/Log/Test',
     $serendipity['serendipityPath'] . 'htmlarea/ckeditor/ckeditor',
     $serendipity['serendipityPath'] . 'htmlarea/composer',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_gravatar/ycon/UTF-8',
