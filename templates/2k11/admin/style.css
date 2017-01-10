@@ -1910,6 +1910,19 @@ h3 .media_file_actions {
     border: 1px solid #aaa;
 }
 
+#edit_entry_category fieldset > .form_check {
+    display: inline-flex;
+    width: auto;
+    margin-right: .5em;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.no-flexbox #edit_entry_category fieldset > .form_check {
+    display: inline-table;
+    flex-wrap: inherit;
+    justify-content: inherit;
+}
+
 .mfp-content #edit_entry_category,
 .mfp-content #edit_entry_freetags,
 .mfp-content #s9y_links {
@@ -1938,6 +1951,7 @@ h3 .media_file_actions {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+    display: inline-table;
     float: none;
     margin: 0 0 .5em;
     width: 100%;
