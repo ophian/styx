@@ -1648,6 +1648,10 @@ summary {
     left: 0;
     padding-left: .25em;
 }
+/* disable webkit only details marker icon as long it is not fully supported within Mozilla */
+.plugin_data summary::-webkit-details-marker {
+  display: none;
+}
 
 .ac_results {
     z-index: 2000;
