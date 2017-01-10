@@ -2,6 +2,10 @@
 # Copyright (c) 2003-2016, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 */
+/*
+# This is a non-dynamic, static fallback file, in case the cores fallback stack did not match.
+# It only supports rudimentary basic default core functionality for the backend.
+*/
 
 (function(serendipity, $, undefined ) {
     // Fires functions which are generated dynamically in backend PHP files
