@@ -70,20 +70,19 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     }
     $data['plugin_to_conf'] = true;
 
-    $bag  = new serendipity_property_bag;
+    $bag = new serendipity_property_bag;
     $plugin->introspect($bag);
 
     if (method_exists($plugin, 'performConfig')) {
         $plugin->performConfig($bag);
     }
 
-    $name = serendipity_specialchars($bag->get('name'));
-    $desc = serendipity_specialchars($bag->get('description'));
+    $name    = serendipity_specialchars($bag->get('name'));
+    $desc    = serendipity_specialchars($bag->get('description'));
     $license = serendipity_specialchars($bag->get('license'));
 
     $documentation = $bag->get('website');
-
-    $config_names = $bag->get('configuration');
+    $config_names  = $bag->get('configuration');
     $config_groups = $bag->get('config_groups');
 
     if (isset($_POST['SAVECONF']) && serendipity_checkFormToken()) {
@@ -125,7 +124,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $data['saveconf'] = true;
         $data['timestamp'] = serendipity_strftime('%H:%M:%S');
     }
-    $data['formToken'] =  serendipity_setFormToken();
+    $data['formToken'] = serendipity_setFormToken();
     $data['name'] = $name;
     $data['class'] = get_class($plugin);
     $data['desc'] = $desc;
@@ -166,8 +165,8 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         }
         $foreignPluginsTemp = array();
         serendipity_plugin_api::hook_event('backend_plugins_fetchlist', $foreignPluginsTemp);
-        $pluginstack = array_merge((array)$foreignPluginsTemp['pluginstack'], $pluginstack);
-        $errorstack  = array_merge((array)$foreignPluginsTemp['errorstack'], $errorstack);
+        $pluginstack    = array_merge((array)$foreignPluginsTemp['pluginstack'], $pluginstack);
+        $errorstack     = array_merge((array)$foreignPluginsTemp['errorstack'], $errorstack);
         $foreignPlugins = array_merge($foreignPlugins, $foreignPluginsTemp);
     }
     $plugins = serendipity_plugin_api::get_installed_plugins();
@@ -178,7 +177,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     }
     usort($classes, 'serendipity_pluginListSort');
 
-    $counter    = 0;
+    $counter = 0;
     foreach ($classes AS $class_data) {
         $pluginFile =  serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
         $plugin     =& serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $serendipity['GET']['type']);
@@ -258,7 +257,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $pluggroups[''][] = $plugdata;
         }
     }
-
     ksort($pluggroups);
 
     $data['count_pluginstack'] = count($pluginstack);
@@ -335,11 +333,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $col_assoc[$sidebar . '_col'] = $sidebar;
     }
 
-    if (isset($_POST['SAVE'])  && serendipity_checkFormToken()) {
-        $pos=0;
+    if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
+        $pos = 0;
         foreach($_POST['serendipity']['plugin'] AS $plugin) {
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}plugins
-                                     SET sort_order = ".  $pos . "
+                                     SET sort_order = " .  $pos . "
                                    WHERE name='" . serendipity_db_escape_string($plugin['id']) . "'");
 
             serendipity_plugin_api::update_plugin_placement(
@@ -404,7 +402,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                     was downloaded) or the inclusion of a file failed (permissions?)<br />\n";
                 echo "Backtrace:<br />\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br />";
             }
-            $bag  = new serendipity_property_bag;
+            $bag = new serendipity_property_bag;
             $plugin->introspect($bag);
 
             serendipity_plugin_api::hook_event('backend_plugins_install', $serendipity['GET']['install_plugin'], $fetchplugin_data);
@@ -456,7 +454,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $data['backend_pluginlisting_header'] = ob_get_contents();
     ob_end_clean();
 
-
     ob_start();
     serendipity_plugin_api::hook_event('backend_plugins_sidebar_header', $serendipity);
     $data['backend_plugins_sidebar_header'] = ob_get_contents();
@@ -478,6 +475,5 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 }
 
 echo serendipity_smarty_showTemplate('admin/plugins.inc.tpl', $data);
-
 
 /* vim: set sts=4 ts=4 expandtab : */
