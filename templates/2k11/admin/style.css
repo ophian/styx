@@ -1478,7 +1478,7 @@ summary {
 }
 
 #edit_entry_metadata #categoryfilter {
-    max-width: 16em;
+    max-width: 76%;
     min-width: 0;
 }
 
@@ -3879,7 +3879,7 @@ img.mfp-img {
         max-width: 42.5%;
     }
     #edit_entry_metadata #categoryfilter {
-        max-width: 22em;
+        max-width: 80%;
         min-width: 0;
     }
     #adv_opts > fieldset > span > legend {
