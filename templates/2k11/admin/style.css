@@ -301,6 +301,11 @@ nav ol {
     padding: 0;
 }
 
+/* details summary::-webkit-details-marker workaround for Mozilla and Webkit */
+details summary {
+    display: list-item;
+}
+
 /* details polyfill */
 .no-details details > * {
     display: none;
@@ -592,6 +597,7 @@ form > button,
     margin-bottom: 1.75em;
     padding-top: .25em; /* updates only */
 }
+.plugin_data.open, /*IE*/
 .plugin_data[open=""] {
     margin-bottom: .25em;
 }
@@ -1623,13 +1629,13 @@ summary {
 
 #media_pane_filter #toggle_filters,
 .plugin_data .perm_name {
-    position: absolute;
-    top: 0;
+    position: static;
 }
 
 .pluginmanager_container .plugin_data .perm_name {
     left: 1.25em;
 }
+.plugin_data.open .block_level, /*IE*/
 .plugin_data[open=""] .block_level,
 .plugin_data .plugin_desc,
 .plugin_data .plugin_author {
@@ -1638,19 +1644,17 @@ summary {
 .plugin_author {
     margin-top: .5em;
 }
+.plugin_data.open, /*IE*/
 .plugin_data[open=""] {
     border: 1px dashed #777;
     margin-bottom: .5em;
     padding: .25em;
     background: #F5F5F5;
 }
+.pluginmanager_container .plugin_data.open .perm_name, /*IE*/
 .pluginmanager_container .plugin_data[open=""] .perm_name {
     left: 0;
     padding-left: .25em;
-}
-/* disable webkit only details marker icon as long it is not fully supported within Mozilla */
-.plugin_data summary::-webkit-details-marker {
-  display: none;
 }
 
 .ac_results {
