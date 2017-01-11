@@ -509,8 +509,8 @@ div.serendipitySideBarItem {
         min-width: 14em;
         flex-wrap: inherit;
         justify-content: inherit;
-        background: initial;
-        color: initial;
+        background: transparent;
+        color: #222;
         text-shadow: inherit;
         border-right: 0 none;
         border-left: 1px dashed;
