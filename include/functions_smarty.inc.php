@@ -1121,6 +1121,7 @@ function serendipity_smarty_init($vars = array()) {
             $force_backendpopups[$fbp_val] = $fbp_val;
         }
 
+        /* Variable 'is_xhtml' deprecated with 2.1, keep for compatibility only, since this was configurable in old Serendipity versions and used in some themes (eg. bulletproof) */
         $serendipity['smarty']->assign(
             array(
                 'head_charset'              => LANG_CHARSET,
