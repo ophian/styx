@@ -178,6 +178,8 @@ $dead_files_200 = array(
     'htmlarea/release-notes.html',
     'include/plugin_internal.inc.php',
     'templates/HOWTO',
+    'templates/blue/htmlarea.css',
+    'templates/default/htmlarea.css',
     'templates/default-rtl/htmlarea.css'
 );
 
