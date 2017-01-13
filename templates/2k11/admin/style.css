@@ -1634,6 +1634,7 @@ summary {
 
 .pluginmanager_container .plugin_data .perm_name {
     left: 1.25em;
+    vertical-align: text-top; /* see position: static */
 }
 .plugin_data.open .block_level, /*IE*/
 .plugin_data[open=""] .block_level,
