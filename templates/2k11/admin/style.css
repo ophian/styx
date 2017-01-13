@@ -2270,6 +2270,36 @@ h3 .media_file_actions {
 #serendipity_image_folders .edit_actions li {
     padding: 0;
 }
+/* MediaLibrary directories - zebra to gradient replacement */
+#serendipity_image_folders > li {
+    margin-bottom: .5em;
+    background-color: #FCFCFC;
+}
+#serendipity_image_folders li > div,
+#serendipity_image_folders ul li ul {
+    background-color: transparent;
+    background-image: -webkit-linear-gradient(to bottom, transparent 50%, transparent 50%);
+    background-image:    -moz-linear-gradient(to bottom, transparent 50%, transparent 50%);
+    background-image:      -o-linear-gradient(to bottom, transparent 50%, transparent 50%);
+    background-image:         linear-gradient(to bottom, transparent 50%, transparent 50%);
+}
+#serendipity_image_folders li > ul {
+    background-color: #FCFCFC;
+    background-image: -webkit-linear-gradient(to bottom, #FCFCFC, #CECECE);
+    background-image:    -moz-linear-gradient(to bottom, #FCFCFC, #CECECE);
+    background-image:      -o-linear-gradient(to bottom, #FCFCFC, #CECECE);
+    background-image:         linear-gradient(to bottom, #FCFCFC, #CECECE);
+    border-left: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+}
+#serendipity_image_folders ul li div:last-of-type {
+    border-bottom: 0 none;
+}
+#serendipity_image_folders ul li > div,
+#serendipity_image_folders ul li ul {
+    border-left: 0 none;
+    border-bottom: 0 none;
+}
 
 #entries_list .entry_info span {
     margin: 0 1em .75em 0;
