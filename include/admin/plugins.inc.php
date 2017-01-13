@@ -149,13 +149,17 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $data['config'] = serendipity_plugin_config($plugin, $bag, $name, $desc, $config_names, true, true, true, true, 'plugin', $config_groups);
 
 } elseif ( $serendipity['GET']['adminAction'] == 'addnew' ) {
+
     $serendipity['GET']['type'] = $serendipity['GET']['type'] ?: 'sidebar';
     $data['adminAction'] = 'addnew';
     $data['type'] = $serendipity['GET']['type'];
+    $data['urltoken'] = serendipity_setFormToken('url');
+
     $foreignPlugins = $pluginstack = $errorstack = array();
     serendipity_plugin_api::hook_event('backend_plugins_fetchlist', $foreignPlugins);
     $pluginstack = array_merge((array)$foreignPlugins['pluginstack'], $pluginstack);
     $errorstack  = array_merge((array)$foreignPlugins['errorstack'], $errorstack);
+
     if ($serendipity['GET']['only_group'] == 'UPGRADE') {
         // for upgrades, the distinction in sidebar and event-plugins is not useful. We will fetch both and mix the lists
         if ($serendipity['GET']['type'] == 'event') {
@@ -169,8 +173,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $errorstack     = array_merge((array)$foreignPluginsTemp['errorstack'], $errorstack);
         $foreignPlugins = array_merge($foreignPlugins, $foreignPluginsTemp);
     }
+
     $plugins = serendipity_plugin_api::get_installed_plugins();
     $classes = serendipity_plugin_api::enum_plugin_classes(($serendipity['GET']['type'] === 'event'));
+
     if ($serendipity['GET']['only_group'] == 'UPGRADE') {
         $classes = array_merge($classes, serendipity_plugin_api::enum_plugin_classes(!($serendipity['GET']['type'] === 'event')));
         $data['type'] = 'both';
@@ -353,7 +359,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         }
     }
 
-    if (isset($serendipity['GET']['install_plugin'])) {
+    if (isset($serendipity['GET']['install_plugin']) && serendipity_checkFormToken()) {
         $authorid = $serendipity['authorid'];
         if (serendipity_checkPermission('adminPluginsMaintainOthers')) {
             $authorid = '0';
