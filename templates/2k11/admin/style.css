@@ -594,6 +594,11 @@ form > button,
     padding-top: 2em;
 }
 .plugin_data {
+    margin-top: 1em; /* reset early set global margins */
+    margin-bottom: .5em;
+    padding-top: 0;
+}
+.plugin_features .plugin_data {
     margin-bottom: 1.75em;
     padding-top: .25em; /* updates only */
 }
