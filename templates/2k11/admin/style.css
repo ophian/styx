@@ -599,8 +599,8 @@ form > button,
     padding-top: 0;
 }
 .plugin_features .plugin_data {
-    margin-bottom: 1.75em;
-    padding-top: .25em; /* updates only */
+    margin-bottom: 0.5em; /* updates only */
+    margin-top: -1em;
 }
 .plugin_data.open, /*IE*/
 .plugin_data[open=""] {
