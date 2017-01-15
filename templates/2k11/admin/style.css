@@ -3445,6 +3445,7 @@ img.mfp-img {
         justify-content: space-between;
     }
 
+    #dashboard,
     .plugins_installable {
         justify-content: flex-start;
     }
