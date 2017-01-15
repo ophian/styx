@@ -88,4 +88,12 @@
     text-align: center;
 }
 
+/* Disables spamblock and other user notifications for the adduser plugin forms, since more or less needed for comment or contact forms only */
+#adduserform .serendipity_comment_emoticate,
+#adduserform .serendipity_comment_s9ymarkup,
+#adduserform .serendipity_comment_spamblock {
+    visibility: hidden;
+    display: none;
+}
+
 /* END OF style_fallback.css */
