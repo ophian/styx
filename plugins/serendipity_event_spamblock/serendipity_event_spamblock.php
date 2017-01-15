@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.88');
+        $propbag->add('version',       '1.89');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -817,7 +817,7 @@ class serendipity_event_spamblock extends serendipity_event
             $captchas     = ($_captchas !== 'no' && ($_captchas === 'yes' || $_captchas === 'scramble' || serendipity_db_bool($_captchas)));
 
             // Check if the entry is older than the allowed amount of time. Enforce Captchas if that is true
-            // of if Captchas are activated for every entry
+            // or if Captchas are activated for every entry
             $show_captcha = ($captchas && isset($eventData['timestamp']) && ($captchas_ttl < 1 || ($eventData['timestamp'] < (time() - ($captchas_ttl*60*60*24)))) ? true : false);
 
             // Plugins can override with custom captchas
@@ -915,7 +915,7 @@ class serendipity_event_spamblock extends serendipity_event
                             if (!is_array($auth)) {
                                 // Filter authors names, Filter URL, Filter Content, Filter Emails, Check for maximum number of links before rejecting
                                 // moderate false
-                                if(false === $this->wordfilter($logfile, $eventData, $wordmatch, $addData, true)) {
+                                if (false === $this->wordfilter($logfile, $eventData, $wordmatch, $addData, true)) {
                                     // already there #$this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_FILTER_WORDS, $addData);
                                     // already there #$eventData = array('allow_comments' => false);
                                     // already there #$serendipity['messagestack']['emails'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY;
@@ -1076,7 +1076,7 @@ class serendipity_event_spamblock extends serendipity_event
                             }
                         }
 
-                        if(false === $this->wordfilter($logfile, $eventData, $wordmatch, $addData)) {
+                        if (false === $this->wordfilter($logfile, $eventData, $wordmatch, $addData)) {
                             return false;
                         }
 
@@ -1208,8 +1208,9 @@ class serendipity_event_spamblock extends serendipity_event
                     if (serendipity_userLoggedIn() && $this->inGroup()) {
                         return true;
                     }
+                    $_show_captcha = $show_captcha ? $show_captcha : ($captchas && ($serendipity['GET']['subpage'] == 'adduser' || $serendipity['POST']['subpage'] == 'adduser'));
 
-                    if ($show_captcha) {
+                    if ($_show_captcha) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_captcha">';
                         if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha'] != strtolower($_SESSION['spamblock']['captcha']))) {
                             echo '<br />' . PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . '<br />';
@@ -1406,7 +1407,7 @@ class serendipity_event_spamblock extends serendipity_event
         // Check for word filtering
         if ($filter_type = $this->get_config('contentfilter_activate', 'moderate')) {
 
-            if($ftc) $filter_type = 'reject';
+            if ($ftc) $filter_type = 'reject';
 
             // Filter authors names
             $filter_authors = explode(';', $this->get_config('contentfilter_authors', $this->filter_defaults['authors']));
@@ -1506,7 +1507,7 @@ class serendipity_event_spamblock extends serendipity_event
             }
         } // Content filtering end
 
-        if($ftc) {
+        if ($ftc) {
             // Check for maximum number of links before rejecting
             $link_count = substr_count(strtolower($addData['comment']), 'http://');
             $links_reject = $this->get_config('links_reject', 20);
