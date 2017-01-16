@@ -4,6 +4,8 @@ Version 2.1 ()
  * [Security] Fix missing integer casting for inserting new categories
    (thanks to cdxy)
 
+ * Disable adduserform hooked spamblock notifications via style_fallback
+
  * Add tag and category list anchors to edit_entry fieldsets
 
  * Disabled Selenium test files unless enabled
