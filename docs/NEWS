@@ -20,13 +20,21 @@ Version 2.1 ()
    if is_entry_owner via comment.php
 
  * [Security] Redirection of comment.php now checks the referrer
-    and only allows the blog's host (thanks to Lee Sheldon Victor)
+   and only allows the blog's host (thanks to Lee Sheldon Victor)
 
- * Fix issue #435, secure HTTP_REFERER message, to prevent possible
+ * [Security] [#435] Secure HTTP_REFERER message, to prevent possible
    XSS in trusted area, thanks to Shinkurt
 
- * Cleanup old and deprecated theme(s) admin files.
-   Backend image fallback has moved to "default" admin theme.
+ * Cleanup of old and deprecated theme(s) admin files.
+   FROM NOW ON, the Backends image fallback has moved to the "default"
+   theme admin directory.
+   The serendipity_editor.js.tpl in "default/admin" and its dependent php
+   files NOW are a fully available fallback stack file. Only some themes,
+   like the STANDARD theme or the default-php theme will fetch their own
+   file occurrence.
+   This all AND the revision for responsiveness corrects the "default"
+   theme to occur as something outdated, or no longer in common and
+   restores the original weighting.
 
  * Allow to set a default category for authors (personal preferences)
 
@@ -54,7 +62,7 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
     for mobile first responsiveness, without a total rewrite, keeping
     the origin simplicity.
     The old default index.tpl file was added to the dependency themes
-    (blue, idea and default-rtl). Copy themes based on them need to
+    (blue, idea and default-rtl). Copy themes, based on them, need to
     include this too.
 
   * Add upgrade task (again) to rename internally used plugins for the
