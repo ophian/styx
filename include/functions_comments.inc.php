@@ -7,7 +7,7 @@ if (IN_serendipity !== true) {
 }
 
 /**
- * Check if a comment token (from comment notification email) is valid for a given comment id.
+ * Check if a comment token (ie from comment notification email) is valid for a given comment id.
  *
  * @param string    The Token
  * @param int       The comment id
@@ -364,7 +364,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
 
             $comment['comment'] = serendipity_specialchars(strip_tags($comment['body']));
             $comment['url']     = strip_tags($comment['url']);
-            $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments';
+            $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
 
             /* Fix invalid cases in protocol part */
             if (!empty($comment['url'])) {
