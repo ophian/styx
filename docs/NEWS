@@ -10,6 +10,9 @@ Version 2.1 ()
    has the same partial search functionality in the filter panel.
    This sets "only_filename" deprecated.
 
+ * [Security] Check for CSRF token when disabling/enabling comments
+   toggle
+
  * [Security] Add comment deletion token check against CSRF,
    if is_entry_owner via comment.php
 

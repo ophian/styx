@@ -620,7 +620,8 @@ function serendipity_deleteComment($id, $entry_id, $type='comments', $token=fals
 function serendipity_allowCommentsToggle($entry_id, $switch = 'disable') {
     global $serendipity;
 
-    if ($_SESSION['serendipityAuthedUser'] === true) {
+    // toggle comments by authorized staff only
+    if ($_SESSION['serendipityAuthedUser'] === true && serendipity_checkFormToken()) {
         $admin = '';
         if (!serendipity_checkPermission('adminEntriesMaintainOthers')) {
             $admin = " AND authorid = " . (int)$_SESSION['serendipityAuthorid'];

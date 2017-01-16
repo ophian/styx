@@ -73,7 +73,7 @@ if (!($type = @$_REQUEST['type'])) {
         log_pingback('NO TYPE HANDED!');
     }
 
-    // WordPress pingbacks don't give any parameter. If it is a XML POST asume it's a pigback
+    // WordPress pingbacks don't give any parameter. If it is a XML POST assume it's a pingback
     if ($_SERVER['CONTENT_TYPE'] == 'text/xml' && isset($HTTP_RAW_POST_DATA)) {
         $type = 'pingback';
     }
