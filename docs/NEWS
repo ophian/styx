@@ -4,6 +4,9 @@ Version 2.1 ()
  * [Security] Fix missing integer casting for inserting new categories
    (thanks to cdxy)
 
+ * Spamblock fix for the missing captcha generation in combo with the
+   aduser plugin.
+
  * Disable adduserform hooked spamblock notifications via style_fallback
 
  * Add tag and category list anchors to edit_entry fieldsets
