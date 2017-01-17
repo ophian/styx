@@ -1,3 +1,8 @@
+1.47:
+-----
+    * Fix (some) floats not unset when responsiveness used for mobiles
+    * And hides the spacebox in this case too
+
 1.46:
 -----
     * Changed how the hidden password element is displayed to prevent

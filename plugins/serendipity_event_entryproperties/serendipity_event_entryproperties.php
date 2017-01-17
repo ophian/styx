@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.46');
+        $propbag->add('version',       '1.47');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -651,6 +651,7 @@ class serendipity_event_entryproperties extends serendipity_event
     margin-right: auto;
 }
 
+/* desktop */
 @media only screen and (min-width: 768px) {
     #ep_sticky,
     #ep_spacer,
@@ -675,6 +676,27 @@ class serendipity_event_entryproperties extends serendipity_event
     }
     #edit_entry_entryproperties .ep_entry_submit {
         margin-right: 1.2em;
+    }
+}
+/* mobile */
+@media only screen and (max-width: 768px) {
+    #ep_sticky,
+    #ep_spacer,
+    #ep_gather,
+    #ep_frontpage,
+    #ep_hiderss,
+    #ep_access_list,
+    #ep_access_pw,
+    #ep_access_groups,
+    #ep_access_users,
+    #ep_access_author,
+    #ep_markup {
+        float: unset;
+        width: 100%;
+    }
+    #ep_spacer {
+        visibility: hidden;
+        display: none;
     }
 }
 
