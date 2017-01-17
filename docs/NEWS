@@ -69,7 +69,7 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
     for mobile first responsiveness, without a total rewrite, keeping
     the origin simplicity.
     The old default index.tpl file was added to the dependency themes
-    (blue, idea and default-rtl). Copy themes, based on them, need to
+    (blue, idea and default-rtl). Copy-themes, based on them, need to
     include this too.
 
   * Add upgrade task (again) to rename internally used plugins for the
