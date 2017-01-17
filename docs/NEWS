@@ -5,7 +5,7 @@ Version 2.1 ()
    (thanks to cdxy)
 
  * Spamblock fix for the missing captcha generation in combo with the
-   aduser plugin.
+   adduser plugin.
 
  * Disable adduserform hooked spamblock notifications via style_fallback
 
