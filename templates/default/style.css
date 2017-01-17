@@ -550,9 +550,16 @@ div.serendipitySideBarItem {
     #serendipityLeftSideBar,
     #serendipityRightSideBar {
         width: 14em;
+        height: auto;
         color: inherit;
         text-shadow: inherit;
         background: inherit;
+    }
+    @-moz-document url-prefix() {
+        #serendipityLeftSideBar,
+        #serendipityRightSideBar {
+            height: 100%;
+        }
     }
     #serendipityLeftSideBar {
         border-left: 0 none;
