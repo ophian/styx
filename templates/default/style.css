@@ -502,11 +502,13 @@ div.serendipitySideBarItem {
         float: none;
         display: table-cell;
         width: 100%;
+        border-right: 1px dashed;
+
     }
     #serendipityLeftSideBar, #serendipityRightSideBar {
         float: right;
         display: table-cell;
-        width: 240px;
+        width: 15em;
         min-width: 14em;
         flex-wrap: inherit;
         justify-content: inherit;
@@ -514,7 +516,7 @@ div.serendipitySideBarItem {
         color: #222;
         text-shadow: inherit;
         border-right: 0 none;
-        border-left: 1px dashed;
+        border-left: 0 none;
     }
     .serendipitySideBarTitle {
         color: #222;
@@ -546,6 +548,7 @@ div.serendipitySideBarItem {
     #content {
         width: 100%;
         float: unset;
+        border-right: 0 none;
     }
     #serendipityLeftSideBar,
     #serendipityRightSideBar {
