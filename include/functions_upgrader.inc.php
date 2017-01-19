@@ -224,6 +224,8 @@ $dead_files_202 = array(
     'plugins/serendipity_event_gravatar/UTF-8/documentation_cs.html',
     'plugins/serendipity_event_creativecommons/UTF-8/documentation_cz.html',
     'plugins/serendipity_event_creativecommons/UTF-8/documentation_cs.html',
+    'templates/default/dragdrop.js',
+    'templates/default/imgedit.js',
     'templates/default/admin/admin_scripts.js',
     'templates/default/admin/entries.tpl',
     'templates/default/admin/header_spawn.js',
