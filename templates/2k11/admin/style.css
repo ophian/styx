@@ -1636,10 +1636,11 @@ summary {
 .plugin_data .perm_name {
     position: static;
 }
-
+.plugin_data .perm_name {
+    vertical-align: top; /* see position: static */
+}
 .pluginmanager_container .plugin_data .perm_name {
     left: 1.25em;
-    vertical-align: text-top; /* see position: static */
 }
 .plugin_data.open .block_level, /*IE*/
 .plugin_data[open=""] .block_level,
