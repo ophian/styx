@@ -477,19 +477,16 @@ function serendipity_getCoreVersion($version) {
  */
 function serendipity_die($html) {
     $charset = !defined('LANG_CHARSET') ? 'UTF-8' : LANG_CHARSET;
-    die(
-'<html>
+    die('<html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=' . $charset . '">
+        <style>
+            .msg_alert { display: block; margin: 1.5em 0; padding: .5em; background: #f2dede; border: 1px solid #e4b9b9; color: #b94a48; }
+        </style>
     </head>
-    <body><div class="msg_notice">' . $html . '</div><style>.msg_notice {
-    display: block;
-    margin: 1.5em 0;
-    padding: .5em;
-    background: #f2dede;
-    border: 1px solid #e4b9b9;
-    color: #b94a48;
-}</style></body>
+    <body>
+        <div class="msg_alert">' . $html . '</div>
+    </body>
 </html>');
 }
 
