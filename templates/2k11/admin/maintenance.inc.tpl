@@ -26,7 +26,7 @@
 {/if}
 
 {if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
-    <section id="maintenance_integrity" class="equal_heights quick_list">
+    <section id="maintenance_integrity" class="quick_list">
         <h3>{$CONST.INTEGRITY}</h3>
 
         <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=integrity" title="{$CONST.INTEGRITY}"><span>{$CONST.INTEGRITY}</span></a>
@@ -34,7 +34,7 @@
 {/if}
 
 {if 'adminTemplates'|checkPermission}
-    <section id="maintenance_cleanup" class="equal_heights quick_list">
+    <section id="maintenance_cleanup" class="quick_list">
         <h3>{$CONST.CLEANCOMPILE_TITLE}</h3>
 
         <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=runcleanup" title="{$CONST.CLEANCOMPILE_TITLE}"><span>{$CONST.CLEANCOMPILE_TITLE}</span></a>
@@ -44,13 +44,13 @@
 {/if}
 
 {if 'adminImport'|checkPermission}
-    <section id="maintenance_export" class="equal_heights quick_list">
+    <section id="maintenance_export" class="quick_list">
         <h3>{$CONST.EXPORT_ENTRIES}</h3>
 
         <a class="button_link" href="{$serendipityBaseURL}rss.php?version=2.0&amp;all=1"><span class="icon-rss" aria-hidden="true"></span> {$CONST.EXPORT_FEED}</a>
     </section>
 
-    <section id="maintenance_import" class="equal_heights quick_list">
+    <section id="maintenance_import" class="quick_list">
         <h3>{$CONST.IMPORT_ENTRIES}</h3>
 
         {$importMenu}
