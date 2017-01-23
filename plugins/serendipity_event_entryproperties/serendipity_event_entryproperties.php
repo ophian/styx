@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.47');
+        $propbag->add('version',       '1.48');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -708,7 +708,7 @@ class serendipity_event_entryproperties extends serendipity_event
 
                 case 'backend_maintenance':
                     if ($is_cache && $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
-                        echo '<section id="maintenance_buildcache" class="equal_heights quick_list">';
+                        echo '<section id="maintenance_buildcache" class="quick_list">';
                         echo '<h3>'. PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE .'</h3>';
                         echo '<a class="button_link build_cache" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=buildcache" data-delmsg="'. PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT .'">'. PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE .'</a></section>';
                     }
