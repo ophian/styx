@@ -1,6 +1,8 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Add experimental mode maintain plugin, activated by default
+
  * [Security] Fix missing integer casting for inserting new categories
    (thanks to cdxy)
 
