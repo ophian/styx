@@ -1261,6 +1261,10 @@ function serendipity_getCurrentVersion() {
                 serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
                 return $match[1];
             }
+            if (preg_match('/^rc:(.+)\b/m', $file, $match)) {
+                serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
+                return $match[1];
+            }
         }
     }
 
