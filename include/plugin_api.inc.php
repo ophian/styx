@@ -144,6 +144,7 @@ class serendipity_plugin_api
         serendipity_plugin_api::create_plugin_instance('serendipity_event_nl2br', null, 'event');
         serendipity_plugin_api::create_plugin_instance('serendipity_event_spamblock', null, 'event');
         serendipity_plugin_api::create_plugin_instance('serendipity_event_spartacus', null, 'event');
+        serendipity_plugin_api::create_plugin_instance('serendipity_event_modemaintain', null, 'event');
         serendipity_plugin_api::create_plugin_instance('serendipity_event_changelog', null, 'event');
         serendipity_plugin_api::create_plugin_instance('serendipity_event_entryproperties', null, 'event');
 
