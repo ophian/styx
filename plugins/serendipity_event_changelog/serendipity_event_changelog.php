@@ -17,10 +17,10 @@ class serendipity_event_changelog extends serendipity_plugin
     function introspect(&$propbag)
     {
         $propbag->add('name',           PLUGIN_CHANGELOG_TITLE);
-        $propbag->add('description',    '');
+        $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.23');
+        $propbag->add('version',       '1.24');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
