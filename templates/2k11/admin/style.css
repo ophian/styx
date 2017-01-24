@@ -592,6 +592,7 @@ form > button,
 
 .plugin_desc {
     padding-top: .5em;
+    padding-bottom: .5em;
 }
 .plugin_data {
     margin-top: 1em; /* reset early set global margins */
