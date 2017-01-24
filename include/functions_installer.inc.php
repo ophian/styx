@@ -1235,10 +1235,11 @@ function serendipity_getCurrentVersion() {
     serendipity_set_config_var('last_update_check_' . $serendipity['updateCheck'], time());
 
     $config_rv = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE');
-
     $updateURL = (string)$config_rv;
     $context   = stream_context_create(array('http' => array('timeout' => 5.0)));
     $file      = @file_get_contents($updateURL, false, $context);
+
+    $serendipity['updateVersionName'] = (false !== strpos($config_rv, 'styx')) ? 'Styx' : 'Serendipity';
 
     if (!$file) {
         if (function_exists('curl_init')) {
@@ -1256,7 +1257,8 @@ function serendipity_getCurrentVersion() {
                 serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
                 return $match[1];
             }
-        } elseif ($serendipity['updateCheck'] == 'beta') {
+        }
+        if ($serendipity['updateCheck'] == 'beta') {
             if (preg_match('/^beta:(.+)\b/m', $file, $match)) {
                 serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
                 return $match[1];

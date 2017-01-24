@@ -46,6 +46,7 @@ $data['backend_frontpage_display'] = $output['more'];
 $data['usedVersion']  = $serendipity['version'];
 $data['updateCheck']  = $serendipity['updateCheck'];
 $data['curVersion']   = serendipity_getCurrentVersion();
+$data['curVersName']  = $serendipity['updateVersionName'];
 $data['update']       = version_compare($data['usedVersion'], $data['curVersion'], '<');
 serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
 $data['updateButton'] = $output;
