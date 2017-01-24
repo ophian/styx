@@ -1256,7 +1256,7 @@ function serendipity_getCurrentVersion() {
                 serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
                 return $match[1];
             }
-        } else {
+        } elseif ($serendipity['updateCheck'] == 'beta') {
             if (preg_match('/^beta:(.+)\b/m', $file, $match)) {
                 serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
                 return $match[1];
