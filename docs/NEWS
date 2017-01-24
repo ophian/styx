@@ -1,7 +1,8 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
- * Add experimental mode maintain plugin, activated on install
+ * Add experimental modemaintain plugin, activated on install.
+   Upgrade Users will have to install it via plugin list.
 
  * [Security] Fix missing integer casting for inserting new categories
    (thanks to cdxy)
