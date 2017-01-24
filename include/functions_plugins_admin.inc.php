@@ -305,12 +305,11 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         $data['config_item'] = $config_item;
 
         $assign_plugin_config = function($data) use (&$plugin_options, $tfile, $config_item) {
-        $plugin_options[$config_item] = array(
-                                'config' => serendipity_smarty_showTemplate($tfile, $data),
-                                'ctype'  => $data['ctype']
-                        );
+            $plugin_options[$config_item] = array(
+                'config' => serendipity_smarty_showTemplate($tfile, $data),
+                'ctype'  => $data['ctype']
+            );
         };
-
 
         switch ($ctype) {
             case 'seperator':// compat, due being misspelled
