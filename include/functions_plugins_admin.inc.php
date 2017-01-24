@@ -266,7 +266,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         if (empty($lang_direction)) {
             $lang_direction = LANG_DIRECTION;
         }
-        $data['lang_direction']  = $lang_direction;
+        $data['lang_direction'] = $lang_direction;
 
         /* Apparently no value was set for this config item */
         if ($value === 'unset') {
@@ -297,7 +297,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         $input_type = null;
 
         $data['is_multi_select'] = $is_multi_select = false;
-        $data['ctype']           = $ctype    = $cbag->get('type');
+        $data['ctype']           = $ctype = $cbag->get('type');
 
         $data['elcount']     = $elcount;
         $data['hvalue']      = $hvalue;
