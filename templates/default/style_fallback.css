@@ -8,23 +8,23 @@
 
 /* Default image classes for left/right/usual layout */
 .serendipity_image_center {
-  border: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
+    border: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .serendipity_image_left {
-  float: left;
-  border: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
+    float: left;
+    border: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 .serendipity_image_right {
-  float: right;
-  border: 0px;
-  padding-left: 5px;
-  padding-right: 5px;
+    float: right;
+    border: 0px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 
 /* Default listing without spacers */
