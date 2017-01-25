@@ -2,7 +2,6 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-
 // We need to set this to return a 200 since we use .htaccess ErrorDocument
 // rules to handle archives.
 header('HTTP/1.0 200');
