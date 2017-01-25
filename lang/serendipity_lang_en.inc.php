@@ -1122,7 +1122,7 @@
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Show default and hardcoded dashboard widgets, like draft entries and last comments.');
 
 @define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE file URL');
-@define('UPDATE_NOTIFICATION_URL_DESC', 'Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autopudate plugin. The default value to apply here is "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE" and points to a file containing Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
+@define('UPDATE_NOTIFICATION_URL_DESC', 'Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autoupdate plugin. The default value to apply here is "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE" and points to a file containing Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
 
 @define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.');
 
