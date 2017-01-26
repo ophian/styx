@@ -161,9 +161,9 @@ class Serendipity_Import {
  * Execute a DB query on the source database of the import, instead of a DB query on the target database
  *
  * @access public
- * @param  string       SQL Query
- * @param  ressource    DB connection resource
- * @return ressource    SQL response
+ * @param  string      SQL Query
+ * @param  resource    DB connection resource
+ * @return resource    SQL response
  */
     function &nativeQuery($query, $db = false) {
         global $serendipity;
