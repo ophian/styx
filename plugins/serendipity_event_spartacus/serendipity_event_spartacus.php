@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.48');
+        $propbag->add('version',       '2.49');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.99',
             'php'         => '5.3.0'
@@ -1268,16 +1268,6 @@ class serendipity_event_spartacus extends serendipity_event
 
                 case 'backend_pluginlisting_header':
                     if (serendipity_db_bool($this->get_config('enable_plugins'))) {
-                        if (version_compare($serendipity['version'], '2.1-alpha3', '<')) {
-?>
-
-        <div id="upgrade_notice" class="clearfix">
-            <a id="upgrade_sidebar" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE"><?php echo PLUGIN_EVENT_SPARTACUS_CHECK_SIDEBAR ?></a>
-            <a id="upgrade_event" class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew&amp;serendipity[only_group]=UPGRADE&amp;serendipity[type]=event"><?php echo PLUGIN_EVENT_SPARTACUS_CHECK_EVENT ?></a>
-        </div>
-
-<?php
-                        } else {
 ?>
 
         <div id="upgrade_notice" class="clearfix">
@@ -1285,7 +1275,7 @@ class serendipity_event_spartacus extends serendipity_event
         </div>
 
 <?php
-                        }                    }
+                    }
                     break;
 
                 case 'backend_templates_fetchlist':
