@@ -161,7 +161,7 @@
                                                             '[ <em>images, comments, categories, tags, links</em> ].',
                                           'type'        => 'string',
                                           'permission'  => 'personalConfiguration',
-                                          'default'     => '',
+                                          'default'     => 'links',
                                           'flags'       => array('config')),
 
                                     array('var'         => 'showMediaToolbar',

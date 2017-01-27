@@ -2,7 +2,8 @@ Version 2.1 ()
  ------------------------------------------------------------------------
 
  * Add experimental Dashboard quicktip, bundled with the S9y link box.
-   This is available with the forced embedded elements option only.
+   This is available with the forced embedded elements option only and new
+   installs will have this already set by default in Personal Preferences.
 
  * Add experimental modemaintain plugin, activated on install.
    Upgrade Users will have to install it via plugin list.
