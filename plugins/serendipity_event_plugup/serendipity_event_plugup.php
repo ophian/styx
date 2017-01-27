@@ -156,7 +156,7 @@ class serendipity_event_plugup extends serendipity_plugin
                     // - try to unset them here in the 'backend_plugins_update' hook via the plugin api for Spartacus cases!
 ?>
 
-    <section id="dashboard_plugup" class="quick_list dashboard_widget">
+    <section id="dashboard_plugup" class="clearfix dashboard_widget">
         <h3><?php echo PLUGIN_DASHBOARD_PLUGUP_BOX_TITLE; ?></h3>
         <div id="dash_plup" class="plugups">
             <div id="plup_header" class="plup_header">

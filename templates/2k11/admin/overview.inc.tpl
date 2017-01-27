@@ -15,7 +15,7 @@
 
     {if $updateCheck == "stable" OR $updateCheck == "beta"}
         {if $curVersion == -1}
-            <section id="dashboard_update">
+            <section id="dashboard_update" class="clearfix dashboard_widget">
                 <h3>{$CONST.UPDATE_NOTIFICATION}</h3>
 
                 <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UPDATE_FAILMSG}</span>
@@ -27,7 +27,7 @@
             </section>
             <hr class="separator">
         {else if $update}
-            <section id="dashboard_update">
+            <section id="dashboard_update" class="clearfix dashboard_widget">
                 <h3>{$CONST.UPDATE_NOTIFICATION}</h3>
 
                 <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NEW_VERSION_AVAILABLE|replace:'Serendipity':$curVersName} {$curVersion}</span>
