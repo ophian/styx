@@ -144,11 +144,11 @@
                 </li>
                 <li>
                     <b>II. Configurate the Dashboard?</b><br>
-                    <span><em>Open your &#187;Personal Preferences&#171; via top navigation button.</em></span>
+                    <span><em>Open your &#187;{$CONST.PERSONAL_SETTINGS}&#171; options via top nav button.</em></span>
                 </li>
                 <li>
                     <b>III. Add even more to the Dashboard?</b><br>
-                    <span><em>Open up the plugin list via &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.MENU_PLUGINS}&#171; and install an <u>event</u> plugin, eg the recommended &#187;Serendipity Autoupdate&#171; Plugin. You may find it in the DASHBOARD group category.</em></span>
+                    <span><em>Open up the plugin list via &#187;{$CONST.MENU_SETTINGS}</em> &#10140; <em>{$CONST.MENU_PLUGINS}&#171; and install an <u>event</u> plugin, eg the recommended &#187;Serendipity Autoupdate&#171; Plugin. You may find it in the DASHBOARD group category.</em></span>
                 </li>
                 <li>
                     <b>IV. Searching for more themes?</b><br>
@@ -156,7 +156,7 @@
                 </li>
                 <li>
                     <b>V. Specific Configurations?</b><br>
-                    <span><em>For example the configuration for the Autoupdate is done specifically in its plugin configuration and the more general behaviour is set in the &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Section. Global theme options are set near that too, but some themes have their own configuration page, like the standard theme 2k11. The blog language in example is set in &#187;{$CONST.CONFIGURATION}&#171;... and in &#187;{$CONST.USERCONF_CAT_PERSONAL}&#171; for the user.</em></span>
+                    <span><em>For example the configuration for the Autoupdate is done specifically in its plugin configuration and the more general behaviour is set in the &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Section. Global theme options are set near that too, but some themes have their own configuration page, like the standard theme 2k11. The blog language in example is set in &#187;{$CONST.CONFIGURATION}&#171;... and in &#187;{$CONST.PERSONAL_SETTINGS}&#171; for the user.</em></span>
                 </li>
                 <li>
                     <b>VI. First Start Recommendation:</b><br>
