@@ -1259,13 +1259,18 @@ function serendipity_getCurrentVersion() {
             }
         }
         if ($serendipity['updateCheck'] == 'beta') {
-            if (preg_match('/^beta:(.+)\b/m', $file, $match)) {
-                serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
-                return $match[1];
+            if (preg_match('/^stable:(.+)\b/m', $file, $match)) {
+                $stable = $match[1];
             }
-            if (preg_match('/^rc:(.+)\b/m', $file, $match)) {
-                serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
-                return $match[1];
+            if (preg_match('/^beta:(.+)\b/m', $file, $match)) {
+                $beta = $match[1];
+            }
+            if (version_compare($beta, $stable, '>') ) {
+                serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $beta);
+                return $beta;
+            } else {
+                serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $stable);
+                return $stable;
             }
         }
     }
