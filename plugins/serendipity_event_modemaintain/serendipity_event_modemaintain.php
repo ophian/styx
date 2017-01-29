@@ -184,6 +184,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
                 case 'external_plugin':
                     $db['jspost'] = explode('/', $eventData);
                     $refererurl = $serendipity['baseURL'] . "serendipity_admin.php?serendipity[adminModule]=maintenance";
+
                     // [0]=modemaintence; [1]=setmoma [boolean]
                     if ($db['jspost'][0] == 'maintenance') {
                         $this->s9y_maintenance_mode(true);
@@ -216,7 +217,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
 <?php
                         break;
                     }
-                    $ew = "Experimental Warning: Currently there is a strange issue. You need to access the setmode and the undo button twice, with a ~1 second delay inbetween.";
+                    $ew = "Experimental Warning: Currently there is a strange issue. You need to access the setmode and the undo button twice, with a ~1 second delay inbetween, OR click somewhere else and return, to see the button change (which has to).";
                     if (serendipity_db_bool($serendipity['maintenance']) !== true && $this->blockMaintenance) {
 ?>
 
