@@ -453,7 +453,7 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
 
     if (!is_dir($dir)) return;
     try {
-        $_dir = new RecursiveDirectoryIterator($dir);
+        $_dir = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
     // NOTE: UnexpectedValueException thrown for PHP >= 5.3
     } catch (Exception $e) {
         return;
