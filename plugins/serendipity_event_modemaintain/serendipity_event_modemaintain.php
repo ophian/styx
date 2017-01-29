@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.00');
+        $propbag->add('version',       '1.10');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.99',
             'php'         => '5.3.0'
@@ -109,29 +109,15 @@ class serendipity_event_modemaintain extends serendipity_plugin
     {
         global $serendipity;
 
-        if ($set && !isset($serendipity['COOKIE']['author_information'])) {
+        if ($set && isset($serendipity['COOKIE']['author_information'])) {
             // set a global var to remember automatic autologin
             $serendipity['maintain']['autologin'] = true;
             serendipity_setCookie('maintain_autologin', 'true');
-            // Set super-remember-me cookie while in maintenance mode.
-            if( serendipity_authenticate_author($_SESSION['serendipityUser'], $_SESSION['serendipityPassword'], false, true) ) {
-                if($_SESSION['serendipityAuthedUser'] == true) {
-                    serendipity_issueAutologin(
-                        array('username' => $_SESSION['serendipityUser'],
-                              'password' => $_SESSION['serendipityPassword']
-                        )
-                    );
-                    echo 'true'; // console or ajax post answer
-                }
-            }
         }
         if (!$set && ($serendipity['maintain']['autologin'] || isset($serendipity['COOKIE']['maintain_autologin'])) ) {
             // automatic autologin logout
             $serendipity['maintain']['autologin'] = false;
             serendipity_deleteCookie('maintain_autologin');
-            serendipity_deleteCookie('author_information');
-            serendipity_deleteCookie('author_information_iv');
-            echo 'false'; // console or ajax post answer
         }
     }
 
@@ -217,6 +203,20 @@ class serendipity_event_modemaintain extends serendipity_plugin
                     if (!serendipity_checkPermission('adminUsers')) {
                         return false;
                     }
+                    // do not allow session based authentication
+                    if ($_SESSION['serendipityAuthedUser'] == true && !isset($serendipity['COOKIE']['author_information'])) {
+?>
+
+    <section id="maintenance_moma" class="quick_list">
+        <h3><?=PLUGIN_MODEMAINTAIN_MAINTAIN?></h3>
+
+        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_TITLE_AUTOLOGIN?></span>
+    </section>
+
+<?php
+                        break;
+                    }
+                    $ew = "Experimental Warning: Currently there is a strange issue. You need to access the setmode and the undo button twice, with a ~1 second delay inbetween.";
                     if (serendipity_db_bool($serendipity['maintenance']) !== true && $this->blockMaintenance) {
 ?>
 
@@ -226,6 +226,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         <a id="moma" class="button_link state_submit" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/maintenance/" title=""><span><?=PLUGIN_MODEMAINTAIN_BUTTON?></span></a>
         <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button>
         <span id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <?=PLUGIN_DASHBOARD_MAINTENANCE_MODE_DESC?></span>
+        <span class="msg_hint" style="margin: 0 0 .5em 0"><span class="icon-info-circled" aria-hidden="true"></span> <?=$ew?></span>
     </section>
 
 <?php
@@ -238,6 +239,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         <a id="moma" class="button_link state_cancel" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/public/" title=""><span><?=PLUGIN_MODEMAINTAIN_FREEBUTTON?></span></a>
         <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button>
         <span id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <?=PLUGIN_DASHBOARD_MAINTENANCE_MODE_DESC?></span>
+        <span class="msg_hint" style="margin: 0 0 .5em 0"><span class="icon-info-circled" aria-hidden="true"></span> <?=$ew?></span>
     </section>
 
 <?php
