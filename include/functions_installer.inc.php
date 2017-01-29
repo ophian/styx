@@ -1225,6 +1225,10 @@ function serendipity_getCurrentVersion() {
         return -1;
     }
 
+    $config_rv = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE');
+
+    $serendipity['updateVersionName'] = (false !== strpos((string)$config_rv, 'styx')) ? 'Styx' : 'Serendipity';
+
     // Perform update check once a day. We use a suffix of the configured channel, so when
     // the user switches channels, it has its own timer.
     if ($serendipity['last_update_check_' . $serendipity['updateCheck']] >= (time()-86400)) {
@@ -1234,12 +1238,9 @@ function serendipity_getCurrentVersion() {
 
     serendipity_set_config_var('last_update_check_' . $serendipity['updateCheck'], time());
 
-    $config_rv = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE');
     $updateURL = (string)$config_rv;
     $context   = stream_context_create(array('http' => array('timeout' => 5.0)));
     $file      = @file_get_contents($updateURL, false, $context);
-
-    $serendipity['updateVersionName'] = (false !== strpos($config_rv, 'styx')) ? 'Styx' : 'Serendipity';
 
     if (!$file) {
         if (function_exists('curl_init')) {
