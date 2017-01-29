@@ -460,7 +460,7 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
     }
 
     $debugSPL = false; // dev debug only
-    $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST);
+    $iterator = new RecursiveIteratorIterator($_dir, RecursiveIteratorIterator::CHILD_FIRST, RecursiveIteratorIterator::CATCH_GET_CHILD); // path, mode, flag
     $search   = array("\\", '//');
     $replace  = array('/');
 
