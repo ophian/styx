@@ -1,3 +1,10 @@
+Version 2.1 ()
+ ------------------------------------------------------------------------
+
+ * Keep maintenance mode privateVariables on upgrade, since we do not
+   want the public to access the update page.
+
+
 Version 2.1-rc1 (January, 30th 2017)
  ------------------------------------------------------------------------
 

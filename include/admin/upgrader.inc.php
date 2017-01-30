@@ -385,6 +385,10 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
     if (isset($serendipity['UpgraderShowAbort'])) {
         $privateVariables['UpgraderShowAbort'] = $serendipity['UpgraderShowAbort'];
     }
+    // on upgrade, check if maintenance mode is set
+    if (isset($serendipity['maintenance'])) {
+        $privateVariables['maintenance'] = $serendipity['maintenance'];
+    }
 
     $r = serendipity_updateLocalConfig(
            $serendipity['dbName'],
