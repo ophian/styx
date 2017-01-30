@@ -3477,6 +3477,11 @@ img.mfp-img {
         width: 48%;
     }
 
+    #dashboard_update.expand {
+        width: 98%;
+        height: 100%;
+    }
+
     .pluginmanager .pluginmanager_event {
         flex: 0 0 auto;
         margin: 0 1% 0 0;
