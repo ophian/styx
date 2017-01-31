@@ -1,6 +1,9 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Fix plugin API save/preview event to not execute the DOM listener
+   if $serendipity['use_autosave'] is not set.
+
  * Keep maintenance mode privateVariables on upgrade, since we do not
    want the public to access the update page.
 
