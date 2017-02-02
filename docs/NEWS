@@ -13,10 +13,10 @@ Version 2.1-rc1 (January, 30th 2017)
 
  * Add experimental Dashboard quicktip, bundled with the S9y link box.
    This is available with the forced embedded elements option only and new
-   installs will have this already set by default in Personal Preferences.
+   installs have this already set by default in Personal Preferences.
 
  * Add experimental modemaintain plugin, activated on install.
-   Upgrade Admin Users will have to install it via plugin list.
+   Upgrade Admin Users have to install it manually via plugin list.
 
  * [Security] Fix missing integer casting for inserting new categories
    (thanks to cdxy)
@@ -271,8 +271,8 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     some security flaws in old 2.2.2 package
     (This too without touching composer and old json files)
 
-  * Allow the maintenance changelog widget to open up log files
-    set with $serendipity['logger']
+  * Allow the Maintenance - changelog widget to also open up log files,
+    set with $serendipity['logger'].
 
   * $serendipity['logger'] - fix logging encoding when using constants
     (currently only Spartacus and a critical database logging effected)
@@ -294,7 +294,8 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     120 chars and always showed stripped. Else, if comment.summary was
     stripped, allow excerpt button switch to comment.fullBody.
 
-  * Add maintenance "serendipity_event_changelog" widget, active by core
+  * Add maintenance "serendipity_event_changelog" widget, active by core.
+    Upgrade Admin Users have to install it manually via plugin list.
 
   * Fix WYSIWYG editor languages by changing the lang constant defines
     for WYSIWYG_LANG to the POSIX locale standard formatting of language
