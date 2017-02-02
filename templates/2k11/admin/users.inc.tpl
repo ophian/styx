@@ -41,7 +41,7 @@
     <h2>{$CONST.USER} ({$CONST.USER_LEVEL})</h2>
 
     <ul id="serendipity_users" class="plainList zebra_list">
-    {foreach $users as $user}
+    {foreach $users AS $user}
         {if $user.isEditable}
         <li class="clearfix {cycle values="odd,even"}">
             <span class="user_name"><span class="icon-user" aria-hidden="true"></span> {$user.realname|escape} <span class="user_level">({$user.userlevel_name|escape})</span></span>

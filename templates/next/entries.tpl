@@ -12,7 +12,7 @@
         <div class="clearfix">
         {$entry.body}
         </div>
-        {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+        {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
         <a class="read-more" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
         {/if}
         {if $entry.is_extended}
@@ -24,7 +24,7 @@
         <footer class="post-info">
             <ul class="meta">
             {if $entry.categories}
-                <li><span class="info-label">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}</li>
+                <li><span class="info-label">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</li>
             {/if}
             {if $entry.has_comments}
                 <li><a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a></li>
@@ -44,7 +44,7 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
-{if $is_single_entry and not $use_popups and not $is_preview}
+{if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
     {if $CONST.DATA_UNSUBSCRIBED}
         <p class="msg-success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
     {/if}
@@ -70,7 +70,7 @@
         {serendipity_printTrackbacks entry=$entry.id}
     </section>
 {/if}
-{if $is_single_entry and not $is_preview}
+{if $is_single_entry AND NOT $is_preview}
     <section id="comments" class="clearfix">
         <h3>{$CONST.COMMENTS}</h3>
 
@@ -94,7 +94,7 @@
     <p class="msg-success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED}</p>
     {elseif $is_comment_moderate}
     <p class="msg-notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
-    {elseif not $entry.allow_comments}
+    {elseif NOT $entry.allow_comments}
     <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COMMENTS_CLOSED}</p>
     {else}
     <section id="reply" class="clearfix">
@@ -107,11 +107,11 @@
     </article>
     {/foreach}
 {foreachelse}
-    {if not $plugin_clean_page}
+    {if NOT $plugin_clean_page}
     <p class="msg-notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
-{if not $is_preview}
+{if NOT $is_preview}
     {if $staticpage_pagetitle == ''}
     <nav class="pagination clearfix">
         {if $footer_info}<h3>{$footer_info}</h3>{/if}

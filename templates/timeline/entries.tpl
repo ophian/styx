@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
 
-{if $template_option.display_as_timeline and $entries and !$is_single_entry and not $entry.is_extended and not $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - OPEN TIMELINE*}
+{if $template_option.display_as_timeline AND $entries AND !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - OPEN TIMELINE*}
     <ul class="timeline">
     {assign var="prevmonth" value=''}
 {/if}
@@ -8,7 +8,7 @@
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
         {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
-        {if !$is_single_entry and not $entry.is_extended and not $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO *}
+        {if !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO *}
             {if $template_option.display_as_timeline}
                 {if $template_option.months_on_timeline == true}
                     {assign var="curmonth" value=$entry.timestamp|formatTime:"%B"}
@@ -34,7 +34,7 @@
                         <div class="timeline-body">
                             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
                             {$entry.body}
-                            {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+                            {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
                                 <p class="read_more"><a class="btn btn-md btn-default btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
                             {/if}
                         </div>
@@ -62,7 +62,7 @@
                                 <span class="entry-comment-link"><i class="fa {if $entry.comments == 0}fa-comment-o{elseif $entry.comments == 1}fa-comment{else}fa-comments-o{/if}" aria-hidden="true"></i><a href="{$entry.link}#comments">{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}</a></span>
                             </p>
                             {$entry.body}
-                            {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+                            {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
                                 <p class="read_more"><a class="btn btn-md btn-default btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></p>
                             {/if}
                         </div>
@@ -78,7 +78,7 @@
                     <span class="entry-author-link"><i class ="fa fa-user" aria-hidden="true"></i><a href="{$entry.link_author}">{$entry.author}</a></span>
                     <span class="sr-only"> {$CONST.ON}</span><span class="entry-timestamp"><i class="fa fa-clock-o" aria-hidden="true"></i><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time></span>
                     <span class="entry-comment-link"><i class="fa {if $entry.comments == 0}fa-comment-o{elseif $entry.comments == 1}fa-comment{else}fa-comments-o{/if}" aria-hidden="true"></i><a href="{$entry.link}#comments">{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}</a></span>
-                    {if $entry.is_entry_owner and not $is_preview}<span class="entry-edit-link"><i class="fa fa-lg fa-edit"></i><a href="{$entry.link_edit}" title="{$CONST.EDIT_ENTRY}">{$CONST.EDIT_ENTRY}</a></span>{/if}
+                    {if $entry.is_entry_owner AND NOT $is_preview}<span class="entry-edit-link"><i class="fa fa-lg fa-edit"></i><a href="{$entry.link_edit}" title="{$CONST.EDIT_ENTRY}">{$CONST.EDIT_ENTRY}</a></span>{/if}
                 </p>
                 {if $is_preview}
                     {append var='entry' value=$smarty.session.save_entry_POST.properties index='properties'}{* gives us access to entry properties in preview *}
@@ -103,7 +103,7 @@
                 {if $entry.plugin_display_dat}
                     {$entry.plugin_display_dat}
                 {/if}
-                {if $entry.categories or $entry.add_footer}
+                {if $entry.categories OR $entry.add_footer}
                     <footer class="entry-footer">
                         {if $entry.categories}
                             <span class="sr-only">{$CONST.CATEGORIES}: </span>
@@ -119,7 +119,7 @@
                                         {$tag}
                                     {/foreach}
                                 </div>
-                                {if $is_single_entry or $is_preview}
+                                {if $is_single_entry OR $is_preview}
                                     <div class="timeline_freeTag_related">
                                         <span>{$entry.freetag.related.description}</span>
                                         <ul class="plainList">
@@ -149,7 +149,7 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
-    {if $is_single_entry and not $is_preview}
+    {if $is_single_entry AND NOT $is_preview}
         {if $CONST.DATA_UNSUBSCRIBED}
             <div id="search-block" class="row">
                 <div class="col-md-10 col-md-offset-1">
@@ -245,7 +245,7 @@
                     </div>
                 </div>
             </div>
-        {elseif not $entry.allow_comments}
+        {elseif NOT $entry.allow_comments}
             <div id="search-block" class="row">
                 <div class="col-md-10 col-md-offset-1">
                     <p class="alert alert-danger text-danger"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.COMMENTS_CLOSED}</p>
@@ -262,7 +262,7 @@
     {/foreach}
 
 {foreachelse}
-    {if not $plugin_clean_page}
+    {if NOT $plugin_clean_page}
         <div id="search-block" class="row">
             <div class="col-md-10 col-md-offset-1">
                 <p class="alert alert-info noentries"><span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
@@ -271,13 +271,13 @@
     {/if}
 
 {/foreach}
-{if $template_option.display_as_timeline and $entries and !$is_single_entry and not $entry.is_extended and not $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
+{if $template_option.display_as_timeline AND $entries AND !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
         <li class="clearfix" style="float: none;"></li>
     </ul>
 {/if}
 
 
-{if $footer_info or $footer_prev_page or $footer_next_page}
+{if $footer_info OR $footer_prev_page OR $footer_next_page}
     <div class="serendipity_pageSummary">
         {if $footer_info}
             <p class="summary serendipity_center">{$footer_info}</p>

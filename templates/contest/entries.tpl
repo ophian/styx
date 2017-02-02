@@ -17,7 +17,7 @@
         <div class="serendipity_title_footer">
             <span class="serendipity_footer_postedby">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a></span>
             {if $entry.categories}
-            <span class="serendipity_footer_categories">{$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}</span>
+            <span class="serendipity_footer_categories">{$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</span>
             {/if}
 
             <span class="serendipity_footer_posted">
@@ -70,12 +70,12 @@
             <div class="serendipity_entry_extended"><a id="extended"></a>{$entry.extended}</div>
             {/if}
 
-            {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+            {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
             <div class="serendipity_extended_link"><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a></div>
             {/if}
 
             <div class="serendipity_entryFooter">
-                {if $entry.is_entry_owner and not $is_preview}
+                {if $entry.is_entry_owner AND NOT $is_preview}
                     <span class="serendipity_footer_owner"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></span>
                 {/if}
                 {$entry.add_footer}
@@ -94,7 +94,7 @@
         -->
         <div class="serendipity_footer_plugin">{$entry.plugin_display_dat}</div>
 
-        {if $is_single_entry and not $use_popups and not $is_preview}
+        {if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
             {if $CONST.DATA_UNSUBSCRIBED}
                 <div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</div>
             {/if}
@@ -125,7 +125,7 @@
             </div>
         {/if}
 
-        {if $is_single_entry and not $is_preview}
+        {if $is_single_entry AND NOT $is_preview}
             <div class="serendipity_comments serendipity_section_comments">
                 <a id="comments"></a>
                 <div class="serendipity_commentsTitle">{$CONST.COMMENTS}</div>
@@ -156,7 +156,7 @@
                 <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}<br />{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
                 {elseif $is_comment_added}
                 <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}</div>
-                {elseif not $entry.allow_comments}
+                {elseif NOT $entry.allow_comments}
 
                 <div class="serendipity_center serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</div>
 
@@ -175,7 +175,7 @@
     </div>
     {/foreach}
 {foreachelse}
-    {if not $plugin_clean_page}
+    {if NOT $plugin_clean_page}
     <div class="serendipity_no_entries">
         {$CONST.NO_ENTRIES_TO_PRINT}
     </div>

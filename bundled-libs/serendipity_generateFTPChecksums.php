@@ -25,7 +25,7 @@ $excludes = array(
     'checksums.inc.php',
     );
 $files = serendipity_traversePath($basedir, '', false);
-foreach ($files as $fdata) {
+foreach($files AS $fdata) {
     echo $fdata['relpath'] . "\n";
     // Don't take checksums of directories
     if ($fdata['directory']) {
@@ -55,7 +55,7 @@ if (!empty($sums)) {
         die('Unable to open output file!');
     }
     fwrite($file, '<?php' . "\n" . 'global $serendipity;' . "\n" . '$serendipity[\'checksums_' . $vmatch[1] . '\'] = array (' . "\n");
-        foreach ($sums as $fname => $sum) {
+        foreach($sums AS $fname => $sum) {
             fwrite($file, "'$fname' => '$sum',\n");
         }
         fwrite($file, ');');

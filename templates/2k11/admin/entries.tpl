@@ -3,7 +3,7 @@
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$entry_vars.errMsg}</span>
 {/if}
 <form id="serendipityEntry" name="serendipityEntry" {$entry_vars.entry.entry_form} action="{$entry_vars.targetURL}" method="post">
-    {foreach $entry_vars.hiddens as $key => $value}
+    {foreach $entry_vars.hiddens AS $key => $value}
     <input type="hidden" name="{$key}" value="{$value}">
     {/foreach}
     <input type="hidden" id="entryid" name="serendipity[id]" value="{$entry_vars.entry.id|escape}">

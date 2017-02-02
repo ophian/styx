@@ -22,7 +22,7 @@
                 <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IMPORT_NOTES}: {$notes}</span>
                 {/if}
                 <dl class="importer_data">
-                {foreach $fields as $field}
+                {foreach $fields AS $field}
                     <dt>{$field.text}</dt>
                     <dd class="clearfix">{$field.guessedInput}</dd>
                 {/foreach}
@@ -42,7 +42,7 @@
         <div class="form_select">
             <label for="import_from">{$CONST.IMPORT_WEBLOG_APP}</label>
             <select id="import_from" name="serendipity[importFrom]">
-            {foreach $list as $v => $k}
+            {foreach $list AS $v => $k}
                 <option value="{$v}">{$k}</option>
             {/foreach}
             </select>

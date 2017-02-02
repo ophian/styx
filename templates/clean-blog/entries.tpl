@@ -2,8 +2,8 @@
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
     {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
-    <article id="post_{$entry.id}" class="post{if !$is_single_entry and not $entry.is_extended and not $is_preview}-preview{/if} serendipity_entry{if $dategroup.is_sticky} sticky{/if}" role="article">
-    {if !$is_single_entry and not $entry.is_extended and not $is_preview}
+    <article id="post_{$entry.id}" class="post{if !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}-preview{/if} serendipity_entry{if $dategroup.is_sticky} sticky{/if}" role="article">
+    {if !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}
         <a href="{$entry.link}"><h2 class="post-title">{$entry.title}</h2>
         {if $entry.properties.entry_subtitle}
             <h3 class="post-subtitle">{$entry.properties.entry_subtitle|escape}</h3>
@@ -11,14 +11,14 @@
             <h3 class="post-subtitle">{$entry.body|strip_tags|strip|truncate:70:" ..."}</h3>
         {/if}
         </a>
-        <p class="post-meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-sm btn-default"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if $entry.is_entry_owner and not $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
+        <p class="post-meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-sm btn-default"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if $entry.is_entry_owner AND NOT $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
     {/if}
     {if $template_option.entrybody_detailed_only != true || $entry.is_extended || $is_single_entry || $is_preview}
         <section id="entry">
             <div class="content serendipity_entry_body clearfix">
                 {if $entry.categories}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
                 {$entry.body}
-                {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+                {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
                     <a class="read_more" href="{$entry.link}#extended"><button class="btn btn-md btn-default pull-right">{$CONST.READ_MORE} <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                 {/if}
             </div>
@@ -30,7 +30,7 @@
             {if $entry.plugin_display_dat}
                 {$entry.plugin_display_dat}
             {/if}
-            {if $entry.categories or $entry.add_footer}
+            {if $entry.categories OR $entry.add_footer}
                 <footer class="entry-footer">
                     {if $entry.categories}
                         <span class="sr-only">{$CONST.CATEGORIES}: </span>
@@ -46,7 +46,7 @@
                                     {$tag}
                                 {/foreach}
                             </div>
-                            {if $is_single_entry or $is_preview}
+                            {if $is_single_entry OR $is_preview}
                                 <div class="cleanblog_freeTag_related">
                                     <span>{$entry.freetag.related.description}</span>
                                     <ul class="plainList">
@@ -76,7 +76,7 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
-    {if $is_single_entry and not $is_preview}
+    {if $is_single_entry AND NOT $is_preview}
         {if $CONST.DATA_UNSUBSCRIBED}
             <p class="alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
         {/if}
@@ -133,7 +133,7 @@
             <p class="alert alert-success"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-check fa-stack-1x"></i></span> {$CONST.COMMENT_ADDED}</p>
         {elseif $is_comment_moderate}
             <p class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.COMMENT_ADDED}: {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
-        {elseif not $entry.allow_comments}
+        {elseif NOT $entry.allow_comments}
             <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.COMMENTS_CLOSED}</p>
         {else}
             <section id="respond" class="serendipity_section_commentform">
@@ -144,14 +144,14 @@
     {/if}
     {$entry.backend_preview}
     </article>
-    {if !$is_single_entry and not $entry.is_extended}<hr>{/if}
+    {if !$is_single_entry AND NOT $entry.is_extended}<hr>{/if}
     {/foreach}
 {foreachelse}
-    {if not $plugin_clean_page}
+    {if NOT $plugin_clean_page}
         <p class="alert alert-info"><span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
-{if $footer_info or $footer_prev_page or $footer_next_page}
+{if $footer_info OR $footer_prev_page OR $footer_next_page}
             {if $footer_info}
                 <p class="summary serendipity_center">{$footer_info}</p>
             {/if}

@@ -17,7 +17,7 @@
 
         <div class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if $entry.is_entry_owner}serendipity_entry_author_self{/if}">
 
-            {if (not $dategroup.is_sticky or ($dategroup.is_sticky and $template_option.show_sticky_entry_footer == 'true'))}
+            {if (NOT $dategroup.is_sticky OR ($dategroup.is_sticky AND $template_option.show_sticky_entry_footer == 'true'))}
                 {if $template_option.entryfooterpos == 'belowtitle'}
                     <div class='serendipity_entryFooter belowtitle'>
                         {if $template_option.footerauthor == 'true'}
@@ -26,7 +26,7 @@
 
                         {if $template_option.footercategories == 'true'}
                             {if $entry.categories}
-                                {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}
+                                {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
                         {/if}
 
@@ -75,7 +75,7 @@
                             {/if}
                         {/if}
 
-                        {if $entry.is_entry_owner and not $is_preview}
+                        {if $entry.is_entry_owner AND NOT $is_preview}
                         <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
@@ -96,7 +96,7 @@
                 {/if}
 
                 {if $template_option.entryfooterpos == 'splitfoot'}
-                  {if $template_option.footerauthor == 'false' and $template_option.footercategories == 'false' and $template_option.footertimestamp == 'false'}
+                  {if $template_option.footerauthor == 'false' AND $template_option.footercategories == 'false' AND $template_option.footertimestamp == 'false'}
                   {else}
                     <div class="serendipity_entryFooter byline">
                         {if $template_option.footerauthor == 'true'}
@@ -105,7 +105,7 @@
 
                         {if $template_option.footercategories == 'true'}
                             {if $entry.categories}
-                                {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}
+                                {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
                         {/if}
 
@@ -134,7 +134,7 @@
   
             <div class="entry-content serendipity_entry_body">
                 {$entry.body}
-                {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+                {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
                     {assign var="shorttitle"  value=$entry.title|truncate:50:'...'}
                     <span class="continue_reading"><a href="{$entry.link}#extended" title='{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$shorttitle}'>{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$shorttitle} &#187;</a></span>
                 {/if}
@@ -144,7 +144,7 @@
                 <div class="serendipity_entry_extended"><a id="extended"></a>{$entry.extended}</div>
             {/if}
 
-            {if (not $dategroup.is_sticky or ($dategroup.is_sticky and $template_option.show_sticky_entry_footer == 'true'))}
+            {if (not $dategroup.is_sticky OR ($dategroup.is_sticky AND $template_option.show_sticky_entry_footer == 'true'))}
                 {if $template_option.entryfooterpos == 'belowentry'}
                     <div class="serendipity_entryFooter belowentry">
                         {if $template_option.footerauthor == 'true'}
@@ -153,7 +153,7 @@
 
                         {if $template_option.footercategories == 'true'}
                             {if $entry.categories}
-                                {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}
+                                {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
                         {/if}
 
@@ -202,7 +202,7 @@
                             {/if}
                         {/if}
 
-                        {if $entry.is_entry_owner and not $is_preview}
+                        {if $entry.is_entry_owner AND NOT $is_preview}
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
@@ -256,7 +256,7 @@
                             {/if}
                         {/if}
 
-                        {if $entry.is_entry_owner and not $is_preview}
+                        {if $entry.is_entry_owner AND NOT $is_preview}
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
@@ -291,7 +291,7 @@
         -->
         {$entry.plugin_display_dat}
 
-        {if $is_single_entry and not $use_popups and not $is_preview}
+        {if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
             {if $CONST.DATA_UNSUBSCRIBED}
                 <div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</div>
             {/if}
@@ -322,7 +322,7 @@
             </div>
         {/if}
 
-        {if $is_single_entry and not $is_preview}
+        {if $is_single_entry AND NOT $is_preview}
             <div class="serendipity_comments serendipity_section_comments">
                 <a id="comments"></a>
                 <div class="serendipity_commentsTitle">{$CONST.COMMENTS}</div>
@@ -352,7 +352,7 @@
                     <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}<br />{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
                 {elseif $is_comment_added}
                     <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}</div>
-                {elseif not $entry.allow_comments}
+                {elseif NOT $entry.allow_comments}
                     <div class="serendipity_center serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</div>
                 {else}
                    <div class="serendipity_section_commentform">
@@ -368,7 +368,7 @@
 </div>
 
 {foreachelse}
-    {if not $plugin_clean_page}
+    {if NOT $plugin_clean_page}
         <div class="serendipity_overview_noentries">
             {$CONST.NO_ENTRIES_TO_PRINT}
         </div>

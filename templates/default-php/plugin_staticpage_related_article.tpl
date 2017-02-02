@@ -76,7 +76,7 @@ function default_php_staticpage_show_tags($params) {
     <?php endif; ?>
 <?php endif; ?>
 
-<?php if ($GLOBALS['tpl']['staticpage_author'] or $GLOBALS['tpl']['staticpage_lastchange'] or $GLOBALS['tpl']['staticpage_adminlink']): ?>
+<?php if ($GLOBALS['tpl']['staticpage_author'] OR $GLOBALS['tpl']['staticpage_lastchange'] OR $GLOBALS['tpl']['staticpage_adminlink']): ?>
     <footer class="staticpage_metainfo">
         <p>
         <?php if ($GLOBALS['tpl']['staticpage_author']): ?>

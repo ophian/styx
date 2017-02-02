@@ -8,7 +8,7 @@
     <a id="show_config_all" class="button_link" href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span></a>
 {/if}
     <div id="serendipity_config_options">
-    {foreach $config as $category}
+    {foreach $config AS $category}
 
         <div class="configuration_group">
         {if $config|sizeof > 1}
@@ -24,7 +24,7 @@
 
             <div id="el{$category@index}" class="config_optiongroup{if $config_groupkeys@last} config_optiongroup_last{/if} additional_info option_list">
                 <legend class="visuallyhidden">{$category.description}</legend>
-        {foreach $category.items as $item}
+        {foreach $category.items AS $item}
             {cycle assign='zebra_class' values='odd,even'}
             {if $item.guessedInput}
                 {if $item.type == 'bool'}

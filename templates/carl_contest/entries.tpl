@@ -27,12 +27,12 @@
 			{if $is_single_entry}
 			{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
 			{if $entry.categories}
-                   	{$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}
-                {/if}
+                {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
+            {/if}
 			<br />
 			{else}<a href="{$entry.link}">{$entry.title|default:$entry.body|truncate:40:" ..."}</a> {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
                 {if $entry.categories}
-                   {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}
+                    {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                 {/if}
                 {if $dategroup.is_sticky}
                     {$CONST.ON}
@@ -40,7 +40,7 @@
                     {$CONST.AT}
                 {/if} {if $dategroup.is_sticky}{$entry.timestamp|formatTime:DATE_FORMAT_ENTRY}{else} {$entry.timestamp|formatTime:'%H:%M'}{/if}<br />
 		{/if}
-			{if $entry.is_entry_owner and not $is_preview}
+			{if $entry.is_entry_owner AND NOT $is_preview}
                         <br /><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a>
                 {/if}
                 {if $entry.has_comments}
@@ -64,7 +64,7 @@
 	<h4 class="serendipity_title"><a href="{$entry.link}">{$entry.title|default:$entry.body|truncate:200:" ..."}</a></h4>
 <div class="serendipity_entry_body">
 	{$entry.body}
-            {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+            {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
             <span class="continue_reading"><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a></span></div>
             {/if}
 
@@ -87,7 +87,7 @@
         -->
         {$entry.plugin_display_dat}
 
-        {if $is_single_entry and not $use_popups and not $is_preview}
+        {if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
             {if $CONST.DATA_UNSUBSCRIBED}
                 <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</div><br />
             {/if}
@@ -120,7 +120,7 @@
             </div>
         {/if}
 
-        {if $is_single_entry and not $is_preview}
+        {if $is_single_entry AND NOT $is_preview}
             <div class="serendipity_comments serendipity_section_comments">
                 <br />
                 <a id="comments"></a>
@@ -154,7 +154,7 @@
                 {elseif $is_comment_added}
                 <br />
                 <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}</div>
-                {elseif not $entry.allow_comments}
+                {elseif NOT $entry.allow_comments}
 
                 <br />
                 <div class="serendipity_center serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</div>
@@ -175,7 +175,7 @@
         {/foreach}
     </div>
     {foreachelse}
-    {if not $plugin_clean_page}
+    {if NOT $plugin_clean_page}
 	<h3 class="serendipity_date">{$CONST.ADMIN_FRONTPAGE}</h3>
 		<div class="serendipity_overview_noentries">{$CONST.NO_ENTRIES_TO_PRINT}</div>
     {/if}
@@ -204,7 +204,7 @@
 	{else}
 	{/if}
 
-	<br />{if not $startpage}<a href="{$serendipityBaseURL}">{$CONST.ADMIN_FRONTPAGE}</a>{/if}{if not $footer_info} - <a href="#topofpage">{$CONST.TOP_LEVEL}</a>{/if}
+	<br />{if NOT $startpage}<a href="{$serendipityBaseURL}">{$CONST.ADMIN_FRONTPAGE}</a>{/if}{if NOT $footer_info} - <a href="#topofpage">{$CONST.TOP_LEVEL}</a>{/if}
     {serendipity_hookPlugin hook="entries_footer"}
     </div>
 <!-- ENTRIES END -->

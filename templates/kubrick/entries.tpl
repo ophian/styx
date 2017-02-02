@@ -26,7 +26,7 @@
                 {/if}
               </div>
 
-                {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+                {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
                 <br /><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a><br /><br />
                 {/if}
 
@@ -35,7 +35,7 @@
 
 				{$CONST.ENTRY_POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} {$entry.timestamp|formatTime:DATE_FORMAT_ENTRY} {$CONST.AT} {$entry.timestamp|formatTime:"%H:%M"}.
                 {if $entry.categories}
-                   {$CONST.FILED_UNDER} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}.
+                   {$CONST.FILED_UNDER} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}.
                 {/if}
                 {if $entry.allow_comments}
                     {$CONST.LEAVE_RESPONSE|sprintf:'<a href="#serendipity_CommentForm">':'</a>':"<a href=\"$entry[link]\">":'</a>'}
@@ -49,7 +49,7 @@
                 {else}
                 {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
                 {if $entry.categories}
-                   {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $entry_category@last}, {/if}{/foreach}
+                   {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                 {/if}
 
                 {if $dategroup.is_sticky}
@@ -74,7 +74,7 @@
                     {/if}
                 {/if}
 
-                {if $entry.is_entry_owner and not $is_preview}
+                {if $entry.is_entry_owner AND NOT $is_preview}
                         | <a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a>
                 {/if}
                 {/if}
@@ -95,7 +95,7 @@
         -->
         {$entry.plugin_display_dat}
 
-        {if $is_single_entry and not $use_popups and not $is_preview}
+        {if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
             {if $CONST.DATA_UNSUBSCRIBED}
                 <br /><div class="serendipity_center serendipity_msg_notice">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</div><br />
             {/if}
@@ -124,7 +124,7 @@
                     </ol>
         {/if}
 
-        {if $is_single_entry and not $is_preview}
+        {if $is_single_entry AND NOT $is_preview}
                 <a id="comments"></a><h3>{$CONST.COMMENTS}</h3>
                 <div class="serendipity_center">{$CONST.DISPLAY_COMMENTS_AS}
                 {if $entry.viewmode eq $CONST.VIEWMODE_LINEAR}
@@ -161,7 +161,7 @@
                 <br />
                 <div class="serendipity_center serendipity_msg_notice">{$CONST.COMMENT_ADDED}</div>
 
-                {elseif not $entry.allow_comments}
+                {elseif NOT $entry.allow_comments}
 
                 <br />
                 <div class="serendipity_center serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</div>
@@ -178,7 +178,7 @@
         {$entry.backend_preview}
         {/foreach}
     {foreachelse}
-    {if not $plugin_clean_page}
+    {if NOT $plugin_clean_page}
         {$CONST.NO_ENTRIES_TO_PRINT}
     {/if}
     {/foreach}

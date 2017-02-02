@@ -1024,7 +1024,7 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
     $ca    = serendipity_db_query($query, true);
     $users = serendipity_fetchUsers();
     $isUin = false;
-    foreach ($users as $user) {
+    foreach($users AS $user) {
         if (!empty($user['realname'])) $allusers[] = $user['realname'];
     }
     if (in_array($commentInfo['name'], (array)$allusers) && !serendipity_userLoggedIn()) {

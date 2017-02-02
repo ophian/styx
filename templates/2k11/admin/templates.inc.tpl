@@ -174,7 +174,7 @@
 
         <h2>{$CONST.RECOMMENDED}</h2>
         <ul class="plainList">
-        {foreach $recommended_templates as $template}
+        {foreach $recommended_templates AS $template}
             {if $template@key == $cur_template_backend AND $cur_tpl_backend.info.modul|lower == 'backend'}{continue}{/if}
             {templateBlock template=$template key=$template@key}
         {/foreach}
@@ -183,7 +183,7 @@
         <h2>{$CONST.AVAILABLE_TEMPLATES}</h2>
 
         <ul class="plainList">
-        {foreach $templates as $template}
+        {foreach $templates AS $template}
             {templateBlock template=$template key=$template@key}
         {/foreach}
         </ul>

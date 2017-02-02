@@ -16,7 +16,7 @@
 
             <div class="entry-info">
               <?php if (!$GLOBALS['tpl']['plugin_guestbook_articleformat']): ?><h2 class="page-title"><?= $GLOBALS['tpl']['staticpage_headline'] ?></h1><?php endif; ?>
-              <?php if (!$GLOBALS['tpl']['is_contactform_sent'] and $GLOBALS['tpl']['plugin_guestbook_intro']): ?>
+              <?php if (!$GLOBALS['tpl']['is_contactform_sent'] AND $GLOBALS['tpl']['plugin_guestbook_intro']): ?>
 
               <div id="preface" class="preface guestbook_intro"><?= $GLOBALS['tpl']['plugin_guestbook_intro'] ?></div>
               <?php endif; ?>

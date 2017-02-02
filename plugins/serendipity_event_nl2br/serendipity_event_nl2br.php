@@ -52,7 +52,7 @@ class serendipity_event_nl2br extends serendipity_event
         );
 
         $conf_array = array('check_markup', 'isolate', 'p_tags', 'isobr', 'clean_tags');
-        foreach($this->markup_elements as $element) {
+        foreach($this->markup_elements AS $element) {
             $conf_array[] = $element['name'];
         }
         $propbag->add('configuration', $conf_array);
@@ -256,7 +256,7 @@ class serendipity_event_nl2br extends serendipity_event
                         }
                     }
 
-                    foreach ($this->markup_elements as $temp) {
+                    foreach ($this->markup_elements AS $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], true)) && isset($eventData[$temp['element']]) &&
                                 !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                                 @!in_array($this->instance, $serendipity['POST']['properties']['disable_markups']) &&
@@ -348,7 +348,7 @@ p.break {
 
         $br2nl = array();
 
-        foreach($allTags as $tag){
+        foreach($allTags AS $tag){
             /* for \\1 ( start with : < followed by any number of white spaces : \s* optionally a slash : /? and the tag itself )
              * for \\2 ( anything with spaces and characters following until )
              * for \\3 ( finally the > )
@@ -460,7 +460,7 @@ p.break {
     function formate_block_elements($textstring)
     {
         $block_elements = array('<blockquote');
-        foreach ($block_elements as $start_tag) {
+        foreach($block_elements AS $start_tag) {
             $end_tag = $this->end_tags($start_tag);
             //first see if block-element really exists
             $start_tag_position = strpos($textstring, $start_tag);
@@ -519,7 +519,7 @@ p.break {
         $block_elements = array('<table','<ul','<ol','<pre', '<dir', '<dl',
                                 '<h1', '<h2', '<h3', '<h4', '<h5', '<h6',
                                 '<menu', '<blockquote');
-        foreach ($block_elements as $start_tag) {
+        foreach($block_elements AS $start_tag) {
             $end_tag = $this->end_tags($start_tag);
             //first see if block-element really exists
             $start_tag_position = strpos($textstring, $start_tag);
