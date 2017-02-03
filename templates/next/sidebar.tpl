@@ -1,7 +1,7 @@
 {if $is_raw_mode}
 <div id="serendipity{$pluginside}SideBar">
 {/if}
-{foreach $plugindata item=item}
+{foreach $plugindata AS $item}
 {if $item.class != "serendipity_plugin_quicksearch"}
 	<section class="widget {$item.class}">
     {if $item.title != ""}
