@@ -1,6 +1,6 @@
 /**
  * @fileOverview The Serendipity CKEDITOR custom config file:
- *               ckeditor_s9y_config.js, v. 1.18, last modified 2016-09-27 by Ian
+ *               ckeditor_s9y_config.js, v. 1.19, last modified 2017-02-03 by Ian
  */
 
 /**
@@ -129,8 +129,9 @@ CKEDITOR.editorConfig = function( config ) {
     /** SECTION: Custom Config Content Styles
         We can not use templates/xxx/admin/ as a path here, since we would need template and userTemplate path parts as dynamic vars
     */
-    // Add custom Serendipity styles to ckeditor content wysiwyg-mode, to respect CSS image floats
-    config.contentsCss = 'htmlarea/wysiwyg-style.css';
+    // Add custom Serendipity styles to ckeditor content wysiwyg-mode, to respect S9y CSS image floats.
+    // If set here, we have to include the default styles, and this even since CKE 4.4. Else it isn't loaded!
+    config.contentsCss = [ 'htmlarea/ckeditor/contents.css', 'htmlarea/wysiwyg-style.css' ];
 
 
     /** SECTION: Custom Plugin and Button behaviour configurations **/

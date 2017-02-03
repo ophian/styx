@@ -1,6 +1,8 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Fix CKEditor default content styles loading
+
  * Fix plugin API save/preview event to not execute the DOM listener
    if $serendipity['use_autosave'] is not set.
 
