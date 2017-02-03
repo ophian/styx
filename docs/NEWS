@@ -1,6 +1,22 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Introduce new selector(s) to all theme plugin_contactform.tpl
+   template files, delivered by core:
+    "serendipity_staticpage staticpage_plugin_contactform"
+   This enables to disallow plugin to form hooked messages,
+   which don't make sense here. Example style via user.css:
+
+        .staticpage_plugin_contactform .serendipity_comment_emoticate,
+        .staticpage_plugin_contactform .serendipity_comment_s9ymarkup,
+        .staticpage_plugin_contactform .serendipity_comment_spamblock {
+            display: none;
+            visibility: hidden;
+        }
+
+   In some of them allowed only, if the plugin_contactform articleform
+   option is set true. Please update copy-themes including this file!
+
  * Fix CKEditor default content styles loading
 
  * Fix plugin API save/preview event to not execute the DOM listener

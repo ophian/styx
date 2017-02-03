@@ -1,7 +1,7 @@
 {if $plugin_contactform_articleformat}
    <div class="serendipity_Entry_Date">
        <h3 class="serendipity_date">{$plugin_contactform_name}</h3>
-       <div class="serendipity_entry">
+       <div class="serendipity_entry serendipity_staticpage staticpage_plugin_contactform">
            <div class="serendipity_entry_body">
 {/if}
 

@@ -1,4 +1,4 @@
-<article class="post clearfix">
+<article class="post clearfix serendipity_staticpage staticpage_plugin_contactform">
     <h2 class="post-title">{if $plugin_contactform_articleformat}{$plugin_contactform_name}{else}{$plugin_contactform_pagetitle}{/if}</h2>
 
     {$plugin_contactform_preface}
