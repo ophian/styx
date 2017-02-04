@@ -1,6 +1,9 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+ * Introduce a new html_nugget plugin option, to exclude a staticpage
+   set startpage, if the staticpage plugin is installed.
+
  * Introduce new selector(s) to all theme plugin_contactform.tpl
    template files, delivered by core:
     "serendipity_staticpage staticpage_plugin_contactform"

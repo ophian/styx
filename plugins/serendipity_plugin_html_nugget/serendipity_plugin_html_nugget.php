@@ -21,8 +21,8 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
         $propbag->add('name',          HTML_NUGGET);
         $propbag->add('description',   $desc);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.1');
+        $propbag->add('author',        'Serendipity Team, Ian');
+        $propbag->add('version',       '1.2');
         $propbag->add('configuration', array(
                                         'title',
                                         'backend_title',
@@ -69,6 +69,7 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
 
             case 'show_where':
                 $select = array('extended' => PLUGIN_ITEM_DISPLAY_EXTENDED, 'overview' => PLUGIN_ITEM_DISPLAY_OVERVIEW, 'both' => PLUGIN_ITEM_DISPLAY_BOTH);
+                if (defined('STATICPAGE_TITLE')) $select['nostart'] =  PLUGIN_ITEM_DISPLAY_BOTH . ', not ' . STATICPAGE_TITLE . ' ' . ADMIN_FRONTPAGE;
                 $propbag->add('type',        'select');
                 $propbag->add('select_values', $select);
                 $propbag->add('name',        PLUGIN_ITEM_DISPLAY);
@@ -92,6 +93,8 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
         if ($show_where == 'extended' && (!isset($serendipity['GET']['id']) || !is_numeric($serendipity['GET']['id']))) {
             return false;
         } else if ($show_where == 'overview' && isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])) {
+            return false;
+        } else if ($show_where == 'nostart' && $serendipity['view'] == 'start' && false === strpos($_SERVER['REQUEST_URI'], '?frontpage')) {
             return false;
         }
 
