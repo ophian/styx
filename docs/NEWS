@@ -1,99 +1,103 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
- * Introduce a new html_nugget plugin option, to exclude a staticpage
-   set startpage, if the staticpage plugin is installed.
+  * Introduce a new html_nugget plugin option, to exclude a staticpage
+    set startpage, if the staticpage plugin is installed.
 
- * Introduce new selector(s) to all theme "plugin_contactform.tpl"
-   template files, delivered by core:
-    "serendipity_staticpage staticpage_plugin_contactform"
-   This enables to disallow plugin to form hooked messages,
-   which don't make sense here. Example style via user.css:
+  * Introduce new selector(s) to all theme "plugin_contactform.tpl"
+    template files, delivered by core:
+        "serendipity_staticpage staticpage_plugin_contactform"
+    This enables to disallow plugin to form hooked messages,
+    which don't make sense here. Example style via user.css:
 
-    .staticpage_plugin_contactform .serendipity_comment_emoticate,
-    .staticpage_plugin_contactform .serendipity_comment_gravatar,
-    .staticpage_plugin_contactform .serendipity_comment_s9ymarkup,
-    .staticpage_plugin_contactform .serendipity_comment_spamblock {
-        display: none;
-        visibility: hidden;
-    }
+        .staticpage_plugin_contactform .serendipity_comment_emoticate,
+        .staticpage_plugin_contactform .serendipity_comment_gravatar,
+        .staticpage_plugin_contactform .serendipity_comment_s9ymarkup,
+        .staticpage_plugin_contactform .serendipity_comment_spamblock {
+            display: none;
+            visibility: hidden;
+        }
 
-   In some of the changed themes allowed only, if the plugin_contactform
-   articleform option is set true.
-   Please update your copy-themes including this file!
+    In some of these themes allowed only, if the plugin_contactform
+    articleform option is set true.
+    Please update your copy-themes including this file!
 
- * Fix CKEditor default content styles loading
+  * Fix CKEditor default content styles loading
 
- * Fix plugin API save/preview event to not execute the DOM listener
-   if $serendipity['use_autosave'] is not set.
+  * Fix plugin API save/preview event to not execute the DOM listener
+    if $serendipity['use_autosave'] is not set.
 
- * Keep maintenance mode privateVariables on upgrade, since we do not
-   want the public to access the update page.
+  * Keep maintenance mode privateVariables on upgrade, since we do not
+    want the public to access the update page.
 
 
 Version 2.1-rc1 (January, 30th 2017)
  ------------------------------------------------------------------------
 
- * Add experimental Dashboard quicktip, bundled with the S9y link box.
-   This is available with the forced embedded elements option only and new
-   installs have this already set by default in Personal Preferences.
+  * Add experimental Dashboard quicktip, bundled with the S9y link box.
+    This is available within the forced embedded elements option only.
+    New installs have this already set by default in Personal
+    Preferences.
 
- * Add experimental modemaintain plugin, activated on install.
-   Upgrade Admin Users have to install it manually via plugin list.
+  * Add experimental modemaintain plugin, activated on install.
+    Upgrade Admin Users have to install it manually via plugin list.
 
- * [Security] Fix missing integer casting for inserting new categories
-   (thanks to cdxy)
+  * [Security] Fix missing integer casting for inserting new categories
+    (thanks to cdxy)
 
- * Spamblock fix for the missing captcha generation in combo with the
-   adduser plugin.
+  * Spamblock fix for the missing captcha generation in combo with the
+    adduser plugin.
 
- * Disable adduserform hooked spamblock notifications via style_fallback
+  * Disable adduserform hooked spamblock notifications via
+    style_fallback.css
 
- * Add tag and category list anchors to edit_entry fieldsets
+  * Add tag and category list anchors to edit_entry fieldsets
 
- * Disabled Selenium test files unless enabled
+  * Disabled Selenium test files unless enabled
 
- * Various more Styx backend GUI improvements
+  * Various more Styx backend GUI improvements
 
- * Fix issue #437 - Remove the hardcoded media filter only_filename
-   input field and re-allow the $order_fields['i.name'], which (now)
-   has the same partial search functionality in the filter panel.
-   This sets "only_filename" deprecated.
+  * Fix issue #437 - Remove the hardcoded media filter only_filename
+    input field and re-allow the $order_fields['i.name'], which (now)
+    has the same partial search functionality in the filter panel.
+    This sets "only_filename" deprecated.
 
- * [Security] Check for CSRF token when disabling/enabling comments
-   toggle
+  * [Security] Check for CSRF token when disabling/enabling comments
+    toggle
 
- * [Security] Add comment deletion token check against CSRF,
-   if is_entry_owner via comment.php
+  * [Security] Add comment deletion token check against CSRF,
+    if is_entry_owner via comment.php
 
- * [Security] Redirection of comment.php now checks the referrer
-   and only allows the blog's host (thanks to Lee Sheldon Victor)
+  * [Security] Redirection of comment.php now checks the referrer
+    and only allows the blog's host (thanks to Lee Sheldon Victor)
 
- * [Security] [#435] Secure HTTP_REFERER message, to prevent possible
-   XSS in trusted area, thanks to Shinkurt
+  * [Security] [#435] Secure HTTP_REFERER message, to prevent possible
+    XSS in trusted area, thanks to Shinkurt
 
- * Cleanup of old and deprecated theme(s) admin files.
+  * Cleanup of old and deprecated theme(s) admin files.
 
-   FROM NOW ON, the Backends image fallback has moved to the "default"
-   theme admin directory.
-   The serendipity_editor.js.tpl in "default/admin" and its dependent php
-   files NOW are a fully available fallback stack file. Only some themes,
-   like the STANDARD theme or the default-php theme will fetch their own
-   file occurrence.
-   This all AND the revision for responsiveness corrects the "default"
-   theme to occur as something outdated, or no longer in common and
-   restores the original weighting.
+    FROM NOW ON, the Backends image fallback has moved to the "default"
+    theme admin directory.
+    The serendipity_editor.js.tpl in "default/admin" and its dependent
+    php files NOW are a fully available fallback stack file. Only some
+    themes, like the STANDARD theme or the default-php theme will fetch
+    their own file occurrence.
+    This all AND the revision for responsiveness corrects the "default"
+    theme to occur as something outdated, or no longer in common and
+    restores the original weighting.
 
- * Touched all preview_iframe template files again for error message markup.
+  * Touched all preview_iframe template files again for error message
+    markup.
 
- * Allow to set a default category for authors (personal preferences)
+  * Allow to set a default category for authors (personal preferences)
 
- * Changed how the hidden password element is displayed to prevent
-   browsers from autofilling it into the entryproperties plugin
+  * Changed how the hidden password element is displayed to prevent
+    browsers from autofilling it into the entryproperties plugin
 
- * Fix MediaLibrary image popUp dimensions not equal file dimensions
+  * Fix MediaLibrary image popUp dimensions not equal file dimensions
 
- * Fix MediaLibrary image scale return to show up the tools metaActionBar
+  * Fix MediaLibrary image scale return to show up the tools
+    metaActionBar
 
 
 Version 2.1-beta-3 Styx (December 19th, 2016)
@@ -160,8 +164,8 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
 
   * Added example Styx backend theme
 
-  * Optimized preview_iframe template files (default, 2k11, Next, Skeleton,
-    Bulletproof and default-php)
+  * Optimized preview_iframe template files (default, 2k11, Next,
+    Skeleton, Bulletproof and default-php)
 
   * Update CKEditor to 4.5.11 and extend with the autogrow plugin,
     which allows a flexible size of textareas.
@@ -209,8 +213,9 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Converted all core release themes to use Smarty3 syntax
 
-  * Touched template files "plugin_staticpage_*" in 2k11, bulletproof and
-    next theme to support the new navigational structures of Staticpages-5.
+  * Touched template files "plugin_staticpage_*" in 2k11, bulletproof
+    and Next theme to support the new navigational structures of
+    Staticpages v.5.x.
     Clean-blog and timeline need some review from its author.
 
   * Fixed and enhanced comments.tpl vars via comments_by_authors.tpl
@@ -236,11 +241,12 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     particularly in case of the PHP theme heftily extended with all kind
     of other template files. Both themes use the core included
     include/template_api.inc.php file as an emulator class for the still
-    overall used Smarty engine. The XML theme is meant for Blog output as
-    XML for XML-Readers. The PHP theme is meant for all Blog Administrators
-    to use or create a ("Smarty independent") PHP theme only.
+    overall used Smarty engine. The XML-theme is meant for Blog output
+    as XML for XML-Readers. The PHP-theme is meant for all Blog
+    Administrators to use or create a ("Smarty independent") PHP theme
+    only.
     The theme preview files just advert to the fallback usage binding of
-    the default theme stylesheet style.css file. In case of the PHP theme,
+    the default theme stylesheet style.css file. In case of the PHP-theme,
     you may just want to create your own. The PHP theme may also still
     miss some plugin template files and the XML theme may still have some
     minor isues in the backend.
@@ -272,11 +278,12 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
   * Fixed serendipity_db_in_sql() function in generic wrapper file with
     Zend-Db adding bloat to the query part, trying to be smarter.
 
-  * Removed Text/wiki lib from bundled-libs to be included to the wiki plugin
-    instead of bundled within the core
+  * Removed Text/wiki lib from bundled-libs to be included to the wiki
+    plugin instead of bundled within the core
 
   * Fix Zend-Db (mysql) exception issue with Serendipity using CAST(expr AS type)
-    type conversions on issueAutologin() and commentSubscription DELETE queries.
+    type conversions on issueAutologin() and commentSubscription DELETE
+    queries.
 
   * Removed old executable composer.phar file from Serendipity root.
     This saves some Bytes and was never actively maintained!
@@ -308,8 +315,8 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
   * Update Smarty lib to Smarty 3.1.30 release.
     See change notes in Smarty 3.1.30-dev commit note down below.
 
-  * Changed Personal Preferences popup-window/force-popup option constants
-    to better reflect the embedded mode for some elements
+  * Changed Personal Preferences popup-window/force-popup option
+    constants to better reflect the embedded mode for some elements
 
   * Changed weight and iconize backend comments shortened title line
 
@@ -329,16 +336,16 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         $serendipity['spartacus_cachedXMLfile']
     to easily be able to nuke the current package_***_**.xml cache file,
     eg. within a possible plugin 'backend_plugins_update' redirector hook
-    in need to exit the current upgrade runtime execution. This would reset
-    any pending plugin version settings and their listing until next run.
-    Thus it'd need a new xml cache file fetch.
+    in need to exit the current upgrade runtime execution. This would
+    reset any pending plugin version settings and their listing until
+    next run. Thus it'd need a new xml cache file fetch.
 
   * Add theme engine information to the themes list info layer
 
   * Allow missing {$templatePath} Smarty variable globally set, to fix
     and extend the following issues:
 
-    - If a theme/template has its own preview_iframe.tpl file, it needs to
+    - If a theme has its own preview_iframe.tpl file, it needs to
       distinguish between the backend theme with {serendipity_getFile ...},
         eg. {serendipity_getFile file="admin/js/modernizr.min.js"}
       and its very own files without using the fallback template cascade.
@@ -349,9 +356,9 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
       and have been fixed for these themes:
         [ <next>, <clean-blog>, <bulletproof>, <timeline> ]
       within this release.
-      For copies please remember, that files from <2k11> are special,
-      since being the standard $serendipity['defaultTemplate'] template,
-      which does not need this care.
+      For theme-copies please remember, that files from <2k11> are
+      "special", since being the standard $serendipity['defaultTemplate']
+      template, which does not need this care.
 
     - If a frontend theme needs to link, or includes assets which might
       be problematic using the template fallback cascade, it may now
@@ -433,9 +440,9 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     the sort placed options in the "Entry editing screen" to fit nicely
     into the backend entries entry form.
 
-  * Update the spartacus_remote url option to support a hidden (obfuscated)
-    URI for the serendipity_event_plugup plugin, which adds an upgrade
-    note for Spartacus plugin updates to the dashboard.
+  * Update the spartacus_remote url option to support a hidden
+    (obfuscated) URI for the serendipity_event_plugup plugin, which adds
+    an upgrade note for Spartacus plugin updates to the dashboard.
 
   * Restrict category author permissions
 
