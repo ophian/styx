@@ -82,8 +82,8 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
     }
 
     if (!empty($filename)) {
-        $cond['parts']['filename'] = " AND (i.name     like '%" . serendipity_db_escape_string($filename) . "%' OR
-                  i.realname like '%" . serendipity_db_escape_string($filename) . "%')\n";
+        $cond['parts']['filename'] = " AND (i.name LIKE '%" . serendipity_db_escape_string($filename) . "%' OR
+                  i.realname LIKE '%" . serendipity_db_escape_string($filename) . "%')\n";
     }
 
     if (!is_array($keywords)) {
