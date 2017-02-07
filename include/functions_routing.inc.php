@@ -353,7 +353,7 @@ function serveEntry($matches) {
     if (!empty($serendipity['POST']['submit']) && !isset($_REQUEST['serendipity']['csuccess'])) {
 
         $comment['url']       = $serendipity['POST']['url'];
-        $comment['comment']   = trim($serendipity['POST']['comment']);
+        $comment['comment']   = trim((string)$serendipity['POST']['comment']);
         $comment['name']      = $serendipity['POST']['name'];
         $comment['email']     = $serendipity['POST']['email'];
         $comment['subscribe'] = $serendipity['POST']['subscribe'];
