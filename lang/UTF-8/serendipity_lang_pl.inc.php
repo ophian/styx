@@ -1003,7 +1003,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('ENTRY_PUBLISHED', 'Entry #%s published');
 @define('PUBLISH_ERROR', 'Error publishing entry:');
 @define('UPDATE_NOTIFICATION', 'Update notification');
-@define('NEW_VERSION_AVAILABLE', 'New stable Serendipity version available: ');
+@define('NEW_VERSION_AVAILABLE', 'New Serendipity version available: ');
 @define('MOVE', 'Move');
 @define('MOVE_UP', 'Move up');
 @define('MOVE_DOWN', 'Move down');

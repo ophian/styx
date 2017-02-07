@@ -1009,7 +1009,7 @@
 @define('ENTRY_PUBLISHED', '%s번 글을 게시함');
 @define('PUBLISH_ERROR', '글을 게시하는 중 오류 발생:');
 @define('UPDATE_NOTIFICATION', '업데이트 알림');
-@define('NEW_VERSION_AVAILABLE', '세렌디피티의 새로운 안정화 버전이 있습니다: ');
+@define('NEW_VERSION_AVAILABLE', '세렌디피티의 새로운 안정화 버전이 있습니다: ');//remove stable
 @define('MOVE', '이동');
 @define('MOVE_UP', '위로 이동');
 @define('MOVE_DOWN', '아래로 이동');

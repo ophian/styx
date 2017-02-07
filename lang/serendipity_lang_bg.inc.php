@@ -996,7 +996,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ENTRY_PUBLISHED', 'Entry #%s published');
 @define('PUBLISH_ERROR', 'Error publishing entry:');
 @define('UPDATE_NOTIFICATION', 'Update notification');
-@define('NEW_VERSION_AVAILABLE', 'New stable Serendipity version available: ');
+@define('NEW_VERSION_AVAILABLE', 'New Serendipity version available: ');
 @define('MOVE', 'Move');
 @define('MOVE_UP', 'Move up');
 @define('MOVE_DOWN', 'Move down');

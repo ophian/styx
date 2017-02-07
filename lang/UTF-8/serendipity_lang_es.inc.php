@@ -1023,7 +1023,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('ENTRY_PUBLISHED', 'Entry #%s published');
 @define('PUBLISH_ERROR', 'Error publishing entry:');
 @define('UPDATE_NOTIFICATION', 'Update notification');
-@define('NEW_VERSION_AVAILABLE', 'New stable Serendipity version available: ');
+@define('NEW_VERSION_AVAILABLE', 'New Serendipity version available: ');
 @define('MOVE', 'Move');
 @define('MOVE_UP', 'Move up');
 @define('MOVE_DOWN', 'Move down');
