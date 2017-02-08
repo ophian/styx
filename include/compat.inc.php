@@ -528,11 +528,11 @@ function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARS
         $encoding = 'UTF-8';
     }
 
-    return htmlspecialchars($string, $flags, $encoding, $double_encode);
+    return htmlspecialchars((string)$string, $flags, $encoding, $double_encode);
 }
 
 /**
- * see serendipity_specialchars
+ * @see serendipity_specialchars()
  */
 function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
     if ($flags == null) {
@@ -547,11 +547,11 @@ function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, 
     if ($encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }
-    return htmlentities($string, $flags, $encoding, $double_encode);
+    return htmlentities((string)$string, $flags, $encoding, $double_encode);
 }
 
 /**
- * serendipity_specialchars
+ * @see serendipity_specialchars()
  */
 function serendipity_entity_decode($string, $flags = null, $encoding = LANG_CHARSET) {
     if ($flags == null) {
@@ -568,7 +568,7 @@ function serendipity_entity_decode($string, $flags = null, $encoding = LANG_CHAR
     if ($encoding == 'LANG_CHARSET') {
         $encoding = 'UTF-8';
     }
-    return html_entity_decode($string, $flags, $encoding);
+    return html_entity_decode((string)$string, $flags, $encoding);
 }
 
 /* vim: set sts=4 ts=4 expandtab : */
