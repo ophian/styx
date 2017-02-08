@@ -362,8 +362,8 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
         if ($parentid === VIEWMODE_LINEAR || !isset($comment['parent_id']) || $comment['parent_id'] == $parentid) {
             $i++;
 
-            $comment['comment']     = serendipity_specialchars(strip_tags($comment['body']));
-            $comment['url']         = strip_tags($comment['url']);
+            $comment['comment']     = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings for preview mode (only)
+            $comment['url']         = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
             $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
 
             /* Fix invalid cases in protocol part */
@@ -861,7 +861,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         $subscribe = 'false';
     }
 
-    $dbhash   = md5(uniqid(rand(), true));
+    $dbhash = md5(uniqid(rand(), true));
 
     if ($status == 'confirm') {
         $dbstatus = 'confirm' . $dbhash;
