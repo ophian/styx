@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.48');
+        $propbag->add('version',       '1.49');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -428,8 +428,10 @@ class serendipity_event_entryproperties extends serendipity_event
                     $selected_user = $serendipity['authorid'];
                 }
                 $avail_users =& $this->getValidAuthors();
-                foreach($avail_users AS $user) {
-                    echo '<option value="' . $user['authorid'] . '" ' . ($selected_user == $user['authorid'] ? ' selected="selected"' : '') . '>' . serendipity_specialchars($user['realname']) . '</option>' . "\n";
+                if (is_array($avail_users) && !empty($avail_users)) {
+                    foreach($avail_users AS $user) {
+                        echo '<option value="' . $user['authorid'] . '" ' . ($selected_user == $user['authorid'] ? ' selected="selected"' : '') . '>' . serendipity_specialchars($user['realname']) . '</option>' . "\n";
+                    }
                 }
                 ?>
                 </select>

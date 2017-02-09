@@ -1,3 +1,7 @@
+1.49:
+-----
+    * Check available users array before loop
+
 1.48:
 -----
     * Remove maintenance section equal_heights class selector
