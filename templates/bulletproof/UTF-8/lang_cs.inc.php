@@ -1,4 +1,4 @@
-<?php # lang_cs.inc.php 1.3 2011-01-08 10:43:18 VladaAjgl $
+<?php
 
 /**
  *  @version 1.3
@@ -103,3 +103,4 @@
 
 // Next lines were translated on 2011/01/08
 @define('THEME_HEADER',                 'Hlavička');
+

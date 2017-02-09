@@ -1,4 +1,4 @@
-<?php # lang_cz.inc.php 1.2 2013-03-31 13:05:31 VladaAjgl $
+<?php
 
 /**
  *  @version 1.2
@@ -45,3 +45,4 @@
 @define('TWOK11_IMGSTYLE_NONE', 'Bez rámeèku');
 @define('TWOK11_IMGSTYLE_BORDER', 'Jednoduchý rámeèek');
 @define('TWOK11_IMGSTYLE_SHADOW', 'Stínovaný rámeèek');
+
