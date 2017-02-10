@@ -1,6 +1,11 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+  * Add new backend plugin grouper constants for group bag consistency.
+    Changed:    'BACKEND', -> 'BACKEND_ADMIN',
+    Added:      'MAINTAIN' -> 'BACKEND_MAINTAIN',
+                'DASHBOARD' -> 'BACKEND_DASHBOARD'
+
   * Introduce a new html_nugget plugin option, to exclude a staticpage
     set startpage, if the staticpage plugin is installed.
 
