@@ -419,6 +419,9 @@ function serendipity_login($use_external = true) {
         #params
         return true;
     }
+    // Cast POST login values to strings to get the desired error or login
+    if (isset($serendipity['POST']['user'])) $serendipity['POST']['user'] = (string)$serendipity['POST']['user'];
+    if (isset($serendipity['POST']['pass'])) $serendipity['POST']['pass'] = (string)$serendipity['POST']['pass'];
 
     // First try login via POST data. If true, the userinformation will be stored in a cookie (optionally)
     if (serendipity_authenticate_author($serendipity['POST']['user'], $serendipity['POST']['pass'], false, $use_external)) {
