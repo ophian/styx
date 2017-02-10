@@ -733,7 +733,7 @@
 @define('INSTALL_DBPORT', 'Datenbank-Port');
 @define('INSTALL_DBPORT_DESC', 'Der Port, der verwendet wird, um zum Datenbankserver zu verbinden');
 @define('PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES', 'Frontend: Externe Services');
-@define('PLUGIN_GROUP_FRONTEND_FEATURES', 'Frontend: Features');
+@define('PLUGIN_GROUP_FRONTEND_FEATURES', 'Frontend: Fähigkeiten');
 @define('PLUGIN_GROUP_FRONTEND_FULL_MODS', 'Frontend: Vollständige Modifikationen');
 @define('PLUGIN_GROUP_FRONTEND_VIEWS', 'Frontend: Ansichten');
 @define('PLUGIN_GROUP_FRONTEND_ENTRY_RELATED', 'Frontend: Artikelbezogen');
@@ -741,7 +741,7 @@
 @define('PLUGIN_GROUP_BACKEND_USERMANAGEMENT', 'Backend: Benutzerverwaltung');
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Backend: Meta-Informationen');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Backend: Themes');
-@define('PLUGIN_GROUP_BACKEND_FEATURES', 'Backend: Features');
+@define('PLUGIN_GROUP_BACKEND_FEATURES', 'Backend: Fähigkeiten');
 @define('PLUGIN_GROUP_IMAGES', 'Bilder / Medien');
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Textformatierungen');
