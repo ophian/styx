@@ -743,6 +743,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Backend: Мета информация');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Backend: Шаблоны');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Backend: Общие возможности');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Изображения');
 @define('PLUGIN_GROUP_ANTISPAM', 'Антиспам');
 @define('PLUGIN_GROUP_MARKUP', 'Markup (Разметка)');

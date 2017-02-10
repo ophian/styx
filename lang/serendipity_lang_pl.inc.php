@@ -744,6 +744,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Niewidoczne: Meta informacje');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Niewidoczne: Szablony');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Niewidoczne: Cechy/Ustawienia/Dodatki');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Obrazki');
 @define('PLUGIN_GROUP_ANTISPAM', 'Antyspam');
 @define('PLUGIN_GROUP_MARKUP', 'Znaczniki');

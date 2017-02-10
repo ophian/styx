@@ -758,6 +758,9 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Motor: Meta información');//Backend, better translation?
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Motor: Plantillas');//Backend, better translation?
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Motor: Características');//Backend, better translation?
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Imágenes');
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 

@@ -742,6 +742,9 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'バックエンド: メタ情報');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'バックエンド: テンプレート');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'バックエンド: 機能');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', '画像');
 @define('PLUGIN_GROUP_ANTISPAM', 'アンチスパム');
 @define('PLUGIN_GROUP_MARKUP', 'マークアップ');

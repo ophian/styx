@@ -741,6 +741,9 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'باطن: اطلاعات متا');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'باطن: پوسته ها');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'باطن: امکانات');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'عکس ها');
 @define('PLUGIN_GROUP_ANTISPAM', 'ضد اسپم');
 @define('PLUGIN_GROUP_MARKUP', 'برچسب');

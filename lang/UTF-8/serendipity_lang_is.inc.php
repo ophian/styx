@@ -740,6 +740,9 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Backend: Meta upplýsingar');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Backend: Forsnið');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Backend: Möguleikar');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Myndir');
 @define('PLUGIN_GROUP_ANTISPAM', 'Spamvörn');
 @define('PLUGIN_GROUP_MARKUP', 'Textasnið');

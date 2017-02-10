@@ -744,6 +744,9 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Arkataraf: Meta Bilgisi');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Arkataraf: Şablonlar');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Arkataraf: Belirleyici Özellikler');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Resimler');
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Markup');

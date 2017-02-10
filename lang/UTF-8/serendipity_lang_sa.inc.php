@@ -743,6 +743,9 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Backend: Meta information');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Backend: قوالب');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Backend: ملامح');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'صور');
 @define('PLUGIN_GROUP_ANTISPAM', 'مقاومة السبام');
 @define('PLUGIN_GROUP_MARKUP', 'مؤشر عليها');

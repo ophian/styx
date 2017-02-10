@@ -756,6 +756,9 @@ $i18n_filename_to = array (
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Backend: Meta informácie');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Backend: Templates - ¹ablóny vzhµadov');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Backend: Dal¹ie mo¾nosti');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Obrázky');
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Markup - textové znaèky');

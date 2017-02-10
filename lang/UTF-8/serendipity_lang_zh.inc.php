@@ -744,6 +744,9 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', '鍚庣锛歁eta 璧勬枡');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', '鍚庣锛氫富棰');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', '鍚庣锛氬姛鑳');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', '鍥剧墖');
 @define('PLUGIN_GROUP_ANTISPAM', '闃叉骞垮憡');
 @define('PLUGIN_GROUP_MARKUP', '鏍囪');
