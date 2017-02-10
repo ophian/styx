@@ -19,13 +19,13 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian');
-        $propbag->add('version',        '1.07');
+        $propbag->add('version',        '1.08');
         $propbag->add('requirements',   array(
             'serendipity' => '2.0.99',
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('groups', array('BACKEND','DASHBOARD'));
+        $propbag->add('groups', array('BACKEND_ADMIN','BACKEND_DASHBOARD'));
         $propbag->add('event_hooks',    array(
             'backend_dashboard'         => true,
             'backend_plugins_update'    => true,

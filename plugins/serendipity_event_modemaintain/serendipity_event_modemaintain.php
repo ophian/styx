@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.11');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.99',
             'php'         => '5.3.0'
@@ -51,7 +51,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
             'external_plugin'     => true
         ));
         $propbag->add('configuration',  array('fiveothree'));
-        $propbag->add('groups',         array('BACKEND', 'BACKEND_FEATURES', 'MAINTAIN'));
+        $propbag->add('groups',         array('BACKEND_ADMIN', 'BACKEND_FEATURES', 'BACKEND_MAINTAIN'));
     }
 
     function introspect_config_item($name, &$propbag)
