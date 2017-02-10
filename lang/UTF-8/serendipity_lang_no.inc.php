@@ -1119,8 +1119,8 @@
 @define('CONFIG_PERMALINK_PATH_DESC', 'Please note that you have to use a prefix so that Serendipity can properly map the URL to the proper action. You may change the prefix to any unique name, but not remove it. This applies to all path prefix definitions.');
 
 @define('HIDE_SUBDIR_FILES', 'Hide Files of Subdirectories');
-@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Default dashboard widgets?');
-@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Show default and hardcoded dashboard widgets, like draft entries and last comments.');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Default Dashboard widgets?');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Show default and hardcoded Dashboard widgets, like draft entries and last comments.');
 
 @define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE file URL');
 @define('UPDATE_NOTIFICATION_URL_DESC', 'Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autoupdate plugin. The default value to apply here is "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE" and points to a file containing Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
