@@ -732,8 +732,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Тилова част: Метаинформация');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Тилова част: Шаблони');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Тилова част: Качества');
-@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
-@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Тилова част: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Тилова част: Dashboard');
 @define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Изображения');
 @define('PLUGIN_GROUP_ANTISPAM', 'Антиспам');

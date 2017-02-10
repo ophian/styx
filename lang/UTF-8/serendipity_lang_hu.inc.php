@@ -740,8 +740,8 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Háttér: Meta információk');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Háttér: Sablonok');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Háttér: Képességek');
-@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
-@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Háttér: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Háttér: Dashboard');
 @define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Képek');
 @define('PLUGIN_GROUP_ANTISPAM', 'Spamszűrő');

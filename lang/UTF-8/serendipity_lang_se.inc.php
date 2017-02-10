@@ -740,8 +740,8 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Administrationsgränssnitt: Meta information');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Administrationsgränssnitt: Templates');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Administrationsgränssnitt: Features');
-@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
-@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Administrationsgränssnitt: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Administrationsgränssnitt: Dashboard');
 @define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Bilder');
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');

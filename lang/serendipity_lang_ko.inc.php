@@ -743,8 +743,8 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', '관리 페이지: 메타 정보');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', '관리 페이지: 템플릿');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', '관리 페이지: 부가 기능');
-@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
-@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', '관리 페이지: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', '관리 페이지: Dashboard');
 @define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', '그림');
 @define('PLUGIN_GROUP_ANTISPAM', '스팸 방지');

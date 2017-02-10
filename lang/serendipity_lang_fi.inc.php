@@ -739,8 +739,8 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', 'Ylläpito: Meta-tiedot');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', 'Ylläpito: Mallit');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', 'Ylläpito: Ominaisuudet');
-@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
-@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Ylläpito: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Ylläpito: Dashboard');
 @define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', 'Kuvien hallinta');
 @define('PLUGIN_GROUP_ANTISPAM', 'Roskapostin torjunta');

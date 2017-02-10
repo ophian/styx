@@ -744,8 +744,8 @@
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', '后端：Meta 资料');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', '后端：主题');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', '后端：功能');
-@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
-@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', '后端: Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', '后端: Dashboard');
 @define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', '图片');
 @define('PLUGIN_GROUP_ANTISPAM', '防止广告');

@@ -743,8 +743,8 @@ $i18n_unknown = 'tw';
 @define('PLUGIN_GROUP_BACKEND_METAINFORMATION', '後端：Meta 資訊');
 @define('PLUGIN_GROUP_BACKEND_TEMPLATES', '後端：模板');
 @define('PLUGIN_GROUP_BACKEND_FEATURES', '後端：功能');
-@define('PLUGIN_GROUP_BACKEND_MAINTAIN', 'Backend: Maintenance');
-@define('PLUGIN_GROUP_BACKEND_DASHBOARD', 'Backend: Dashboard');
+@define('PLUGIN_GROUP_BACKEND_MAINTAIN', '後端： Maintenance');
+@define('PLUGIN_GROUP_BACKEND_DASHBOARD', '後端： Dashboard');
 @define('PLUGIN_GROUP_BACKEND_ADMIN', ADMIN); // is constant, no quotes, no translate!
 @define('PLUGIN_GROUP_IMAGES', '圖片');
 @define('PLUGIN_GROUP_ANTISPAM', '防止廣告');
