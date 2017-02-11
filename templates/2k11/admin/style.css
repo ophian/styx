@@ -1157,6 +1157,12 @@ input[type=checkbox],
     clear: both;
 }
 
+/* Disables spamblock msg per default for the backend comment form */
+#serendipityCommentFormC .serendipity_comment_spamblock {
+    visibility: hidden;
+    display: none;
+}
+
 
 /* COMMON STYLES  */
 a,
