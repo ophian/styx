@@ -824,8 +824,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Advarsel: Du har ikke valgt noget gruppemedlemskab. Da dette ville logge dig ud af brugergruppeadministrationen, er dine ændringer derfor ikke gemt.');
 @define('INSTALL_RSSFETCHLIMIT', 'Artikler i feeds');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Antallet af artikler der skal vises på hver side i RSS feeds.');
-@define('INSTAL_DB_UTF8', 'Brug database karaktersæt-oversættelse');
-@define('INSTAL_DB_UTF8_DESC', 'Udfører MySQL kommandoen "SET NAMES .." for at angive det krævede karaktersæt. Deaktiver hvis du ser underlige karakterer i din blog.');
+@define('INSTALL_DB_UTF8', 'Brug database karaktersæt-oversættelse');
+@define('INSTALL_DB_UTF8_DESC', 'Udfører MySQL kommandoen "SET NAMES .." for at angive det krævede karaktersæt. Deaktiver hvis du ser underlige karakterer i din blog.');
 @define('ONTHEFLYSYNCH', 'Automatisk medie synkronisering');
 @define('ONTHEFLYSYNCH_DESC', 'Hvis aktiv, vil  Serendipity sammenligne medie databasen med filerne der er gemt på serveren og synkronisere disse.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'Brugernavn skal indtastes.');

@@ -853,8 +853,8 @@ $i18n_filename_to = array (
 @define('WARNING_NO_GROUPS_SELECTED', 'Varov?n?: Nezvolili jste si ?lenstv? v ??dn? skupin?. To by v?s vylou?ilo z ??zen? pr?v u?ivatelsk?ch skupin, a proto va?e ?lenstv? ve skupin? nebude zm?n?no.');
 @define('INSTALL_RSSFETCHLIMIT', '?l?nky, kter? se maj? zobrazit v RSS Feedu');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Po?et ?l?nk?, kter? se m? zobrazit na ka?d? str?nce  v RSS Feedu.');
-@define('INSTAL_DB_UTF8', 'Povolit DB-charset conversion');
-@define('INSTAL_DB_UTF8_DESC', 'Vyvol? dotaz MySQL "SET NAMES", aby se zjistila po?adovan? znakov? sada pro datab?zi. Zapn?te to nebo vypn?te, pokud se v?m na blogu objevuj?  podivn? znaky.');
+@define('INSTALL_DB_UTF8', 'Povolit DB-charset conversion');
+@define('INSTALL_DB_UTF8_DESC', 'Vyvol? dotaz MySQL "SET NAMES", aby se zjistila po?adovan? znakov? sada pro datab?zi. Zapn?te to nebo vypn?te, pokud se v?m na blogu objevuj?  podivn? znaky.');
 @define('ONTHEFLYSYNCH', 'Povolit synchronizaci medi? za b?hu (on the fly)');
 @define('ONTHEFLYSYNCH_DESC', 'Pokud je to povoleno, Serendipity bude porovn?vat datab?zi medi? se soubory ulo?en?mi na serveru a bude synchronizovat obsah datab?ze a adres??e.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'Jm?no u?ivatele nem??e b?t pr?zdn?.');

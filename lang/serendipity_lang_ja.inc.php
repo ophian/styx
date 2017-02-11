@@ -826,8 +826,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', '警告: いくつかのグループメンバーを選択していません。This would effectively log you out of the usergroup management, and thus your group memberships werde not changed.');
 @define('INSTALL_RSSFETCHLIMIT', 'フィードに表示するエントリー数');
 @define('INSTALL_RSSFETCHLIMIT_DESC', '各ページでRSSフィードに表示するエントリーの数です。');
-@define('INSTAL_DB_UTF8', 'データベース文字エンコード変換を有効にする');
-@define('INSTAL_DB_UTF8_DESC', 'Issues a MySQL "SET NAMES" query to indicate the required charset for the database. Turn this on or off, if you see weird characters in your blog.');
+@define('INSTALL_DB_UTF8', 'データベース文字エンコード変換を有効にする');
+@define('INSTALL_DB_UTF8_DESC', 'Issues a MySQL "SET NAMES" query to indicate the required charset for the database. Turn this on or off, if you see weird characters in your blog.');
 @define('ONTHEFLYSYNCH', 'オンザフライメディアの同期を有効にする');
 @define('ONTHEFLYSYNCH_DESC', 'If enabled, Serendipity will compare the media database with the files stored on your server and synchronize the database and directory contents.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'ユーザー名は空にできません。');

@@ -847,8 +847,8 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('WARNING_NO_GROUPS_SELECTED', 'Advertencia: No haz seleccionado ningún grupo de miembros. Esto efectivamente te dejaría fuera de la gerencia del grupo de usuarios, por lo tanto, tu membresía de grupo no fue cambiada.');
 @define('INSTALL_RSSFETCHLIMIT', 'Entradas a mostrar en las sindicaciones');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Número de entradas a mostrar por cada página.');
-@define('INSTAL_DB_UTF8', 'Activar conversión del juego de caracteres en la BD');
-@define('INSTAL_DB_UTF8_DESC', 'Envía una consulta MySQL "SET NAMES" para definir el juego de caracteres requerido por la base de datos. Actívalo o desactívalo sí ves caracteres extraños en tu blog.');
+@define('INSTALL_DB_UTF8', 'Activar conversión del juego de caracteres en la BD');
+@define('INSTALL_DB_UTF8_DESC', 'Envía una consulta MySQL "SET NAMES" para definir el juego de caracteres requerido por la base de datos. Actívalo o desactívalo sí ves caracteres extraños en tu blog.');
 @define('ONTHEFLYSYNCH', 'Activar sincronización de medios al-vuelo');
 @define('ONTHEFLYSYNCH_DESC', 'Si lo activas, Serendipity comparará la base de datos de medios con los archivos almacenados en tu servidor y sincronizará la base de datos con el contenido del directorio.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'No puedes dejar el nombre de usuario en blanco.');

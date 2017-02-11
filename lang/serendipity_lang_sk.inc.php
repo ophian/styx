@@ -836,8 +836,8 @@ $i18n_filename_to = array (
 @define('WARNING_NO_GROUPS_SELECTED', 'Varovanie: Nevybrali ste èlenstvo v ¾iadnej skupine. To by Vás odhlásilo zo správy u¾ívateµských skupín a Va¹e nastavenie èlenstva v skupinách by zostalo nezmenené.');
 @define('INSTALL_RSSFETCHLIMIT', 'Èlánky, ktoré sa majú zobrazi» v RSS Feede');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Poèet èlánkov, ktoré sa majú zobrazi» na ka¾dej stránke v RSS Feede.');
-@define('INSTAL_DB_UTF8', 'Zapnú» konverziu databázovej znakovej sady');
-@define('INSTAL_DB_UTF8_DESC', 'Spustí dotaz MySQL "SET NAMES", aby sa zistila po¾adovaná znaková sada pre databázu. Zapnite alebo vypnite, ak sa Vám na blogu objevujú divné znaky.');
+@define('INSTALL_DB_UTF8', 'Zapnú» konverziu databázovej znakovej sady');
+@define('INSTALL_DB_UTF8_DESC', 'Spustí dotaz MySQL "SET NAMES", aby sa zistila po¾adovaná znaková sada pre databázu. Zapnite alebo vypnite, ak sa Vám na blogu objevujú divné znaky.');
 @define('ONTHEFLYSYNCH', 'Zapnú» synchronizáciu médií za behu (on the fly)');
 @define('ONTHEFLYSYNCH_DESC', 'Ak je zapnuté, Serendipity bude porovnáva» databázu médií so súbormi ulo¾enými na serveri a bude synchronizova» obsah databázy a prieèinkov.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'Meno pou¾ívateµa nemô¾e by» prázdne.');

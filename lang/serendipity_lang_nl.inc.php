@@ -824,8 +824,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Waarschuwing: u heeft geen enkel groepslidmaatschap geselecteerd. Dit zou u uitloggen uit het groepsbeheer, dus werden uw groepslidmaatschappen niet gewijzigd.');
 @define('INSTALL_RSSFETCHLIMIT', 'Artikelen per toevoer');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Aantal artikelen die getoond worden per pagina van de verzamelpublicatietoevoer.');
-@define('INSTAL_DB_UTF8', 'DB-tekensetconversie aanzetten');
-@define('INSTAL_DB_UTF8_DESC', 'Stuurt een MySQL-"SET NAMES"-query met de gewenste tekenset naar de databank. Wijzig deze optie als u rare tekens ziet in uw weblog.');
+@define('INSTALL_DB_UTF8', 'DB-tekensetconversie aanzetten');
+@define('INSTALL_DB_UTF8_DESC', 'Stuurt een MySQL-"SET NAMES"-query met de gewenste tekenset naar de databank. Wijzig deze optie als u rare tekens ziet in uw weblog.');
 @define('ONTHEFLYSYNCH', 'Automatische mediasynchronisatie aan zetten');
 @define('ONTHEFLYSYNCH_DESC', 'Als deze optie aan staat, zal Serendipity zelf de mediaverzameling met de bestanden op de server vergelijken en beide synchroniseren.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'De gebruikersnaam mag niet leeg gelaten worden.');

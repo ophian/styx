@@ -824,8 +824,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('WARNING_NO_GROUPS_SELECTED', 'Uwaga: Nie dokonano przydziałów do żadnej grupy. To spowoduje uniemożliwienie dministrowania przydziałami do grup. Twoje dotychczasowe przydziały nie zostały jednak zmienione. W przypadku problemów - skontaktuj się z administratorem.');
 @define('INSTALL_RSSFETCHLIMIT', 'Ilość wpisów wyświetlanych w feedach RSS');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Ilość wpisów wyświetlanych na każdej stronie feeda RSS');
-@define('INSTAL_DB_UTF8', 'Włącz konwersję kodowania zaków dla bazy danych');
-@define('INSTAL_DB_UTF8_DESC', 'Rozwiązuje problem z zapytaniem SET NAMES bazy danych aby ustalić prawidłowe kodowanie dla bazy danych. Włącz lub wyłącz tę opcję jeśli widzisz na swojej stronie dziwne znaczki zamiast znaków diakrytycznych.');
+@define('INSTALL_DB_UTF8', 'Włącz konwersję kodowania zaków dla bazy danych');
+@define('INSTALL_DB_UTF8_DESC', 'Rozwiązuje problem z zapytaniem SET NAMES bazy danych aby ustalić prawidłowe kodowanie dla bazy danych. Włącz lub wyłącz tę opcję jeśli widzisz na swojej stronie dziwne znaczki zamiast znaków diakrytycznych.');
 @define('ONTHEFLYSYNCH', 'Włącz synchronizację mediów "w locie"');
 @define('ONTHEFLYSYNCH_DESC', 'Jeśli włączone, Serendipity będzie porównywało zawartość bazy danych mediów z plikami istniejącymi na serwerze i w razie wystąpienia różnic wykona synchronizację bazy z zawartością katalogów na serwerze.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'Pole nazwy użytkownika nie może być puste.');

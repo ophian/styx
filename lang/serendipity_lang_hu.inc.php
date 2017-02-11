@@ -823,8 +823,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Figyelem: nem jelöltél ki egyetlen csoporttagságot sem. Így nem tudod majd a csoport jogokat szerkeszteni, ezért az eredeti csoporttagságaid nem változtak.');
 @define('INSTALL_RSSFETCHLIMIT', 'A hírcsatornában megjelenítendõ bejegyzések');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Az RSS hírcsatornában megjelenítendõ bejegyzések száma.');
-@define('INSTAL_DB_UTF8', 'Adatbázis katakterkonverzió engedélyezése');
-@define('INSTAL_DB_UTF8_DESC', 'MySQL esetében add ki a következõ parancsot a szükséges karakterkódolás megállapításához: "SET NAMES". Kapcsold ki vagy be ezt az opciót, ha furcsa karaktereket látsz a blog-ban.');
+@define('INSTALL_DB_UTF8', 'Adatbázis katakterkonverzió engedélyezése');
+@define('INSTALL_DB_UTF8_DESC', 'MySQL esetében add ki a következõ parancsot a szükséges karakterkódolás megállapításához: "SET NAMES". Kapcsold ki vagy be ezt az opciót, ha furcsa karaktereket látsz a blog-ban.');
 @define('ONTHEFLYSYNCH', 'Menet közbeni médiafájl-szinkronizáció engedélyezése');
 @define('ONTHEFLYSYNCH_DESC', 'Ha ezt engedélyezed, a Serendipity összehasonlítja a média adatbázist a szerveren található fájlokkal, és szinkronizálja õket.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'A felhasználói név nem lehet üres.');

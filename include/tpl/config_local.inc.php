@@ -73,8 +73,8 @@
                                           'flags'       => array('nosave')),
 
                                     array('var'         => 'dbNames',
-                                          'title'       => INSTAL_DB_UTF8,
-                                          'description' => INSTAL_DB_UTF8_DESC,
+                                          'title'       => INSTALL_DB_UTF8,
+                                          'description' => INSTALL_DB_UTF8_DESC,
                                           'type'        => 'bool',
                                           'default'     => true,
                                           'permission'  => 'siteConfiguration')

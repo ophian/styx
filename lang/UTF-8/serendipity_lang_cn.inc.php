@@ -827,8 +827,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', '警告：你没有选择会员群组。这会将你登出群组的管理，会员的群组不会被改变。');
 @define('INSTALL_RSSFETCHLIMIT', 'Entries to display in Feeds');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'RSS Feed 页面里显示的文章数量。');
-@define('INSTAL_DB_UTF8', '开启数据库编码转换');
-@define('INSTAL_DB_UTF8_DESC', '使用 MySQL 的 "SET NAMES" 查询来设定编码。如果文章出现乱码可以将这设定打开或关闭。');
+@define('INSTALL_DB_UTF8', '开启数据库编码转换');
+@define('INSTALL_DB_UTF8_DESC', '使用 MySQL 的 "SET NAMES" 查询来设定编码。如果文章出现乱码可以将这设定打开或关闭。');
 @define('ONTHEFLYSYNCH', '开启媒体同步');
 @define('ONTHEFLYSYNCH_DESC', '如果开启，Serendipity Blog会比较数据库和媒体目录的文件，然后进行数据同步。');
 @define('USERCONF_CHECK_USERNAME_ERROR', '帐号不能空白');

@@ -822,8 +822,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Varoitus: Et valinnut yhtään ryhmää. Tämä poistaisi sinulta kaikki oikeudet, joten valintaasi ei toteutettu.');
 @define('INSTALL_RSSFETCHLIMIT', 'Entries to display in Feeds');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Number of entries to display for each page on the RSS Feed.');
-@define('INSTAL_DB_UTF8', 'Enable DB-charset conversion');
-@define('INSTAL_DB_UTF8_DESC', 'Issues a MySQL "SET NAMES" query to indicate the required charset for the database. Turn this on or off, if you see weird characters in your blog.');
+@define('INSTALL_DB_UTF8', 'Enable DB-charset conversion');
+@define('INSTALL_DB_UTF8_DESC', 'Issues a MySQL "SET NAMES" query to indicate the required charset for the database. Turn this on or off, if you see weird characters in your blog.');
 @define('ONTHEFLYSYNCH', 'Enable on-the-fly media synchronization');
 @define('ONTHEFLYSYNCH_DESC', 'If enabled, Serendipity will compare the media database with the files stored on your server and synchronize the database and directory contents.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'The username cannot be left blank.');

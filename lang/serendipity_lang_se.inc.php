@@ -822,8 +822,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'OBS! Du valde inte något gruppmedlemskap. Det medför att du kommer att loggas ut från hanteringen av användargrupper. Ditt medlemskap har därför inte ändrats.');
 @define('INSTALL_RSSFETCHLIMIT', 'Artiklar som visas i flöden');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Antal artiklar att visa på varje sida i RSS-flödet.');
-@define('INSTAL_DB_UTF8', 'Aktivera Enable DB-teckenuppsättningskonvertering');
-@define('INSTAL_DB_UTF8_DESC', 'Utfärdare MySQL-förfrågan "SET NAMES" för att indikera den för databasen nödvändiga teckenuppsättningen. Ändra denna inställning om du ser märkliga tecken i din blogg.');
+@define('INSTALL_DB_UTF8', 'Aktivera Enable DB-teckenuppsättningskonvertering');
+@define('INSTALL_DB_UTF8_DESC', 'Utfärdare MySQL-förfrågan "SET NAMES" för att indikera den för databasen nödvändiga teckenuppsättningen. Ändra denna inställning om du ser märkliga tecken i din blogg.');
 @define('ONTHEFLYSYNCH', 'Aktivera mediasynkronisering');
 @define('ONTHEFLYSYNCH_DESC', 'Om aktiv kommer Serendipity att jämföra mediadatabasen med filerna som lagras på din server och synkronisera databasen med mappinnehållet.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'Användarnamnet kan inte utelämnas.');

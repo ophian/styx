@@ -827,8 +827,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', '璀﹀憡锛氫綘娌℃湁閫夋嫨浼氬憳缇ょ粍銆傝繖浼氬皢浣犵櫥鍑虹兢缁勭殑绠＄悊锛屼細鍛樼殑缇ょ粍涓嶄細琚敼鍙樸€');
 @define('INSTALL_RSSFETCHLIMIT', 'Entries to display in Feeds');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'RSS Feed 椤甸潰閲屾樉绀虹殑鏂囩珷鏁伴噺銆');
-@define('INSTAL_DB_UTF8', '寮€鍚暟鎹簱缂栫爜杞崲');
-@define('INSTAL_DB_UTF8_DESC', '浣跨敤 MySQL 鐨 "SET NAMES" 鏌ヨ鏉ヨ瀹氱紪鐮併€傚鏋滄枃绔犲嚭鐜颁贡鐮佸彲浠ュ皢杩欒瀹氭墦寮€鎴栧叧闂€');
+@define('INSTALL_DB_UTF8', '寮€鍚暟鎹簱缂栫爜杞崲');
+@define('INSTALL_DB_UTF8_DESC', '浣跨敤 MySQL 鐨 "SET NAMES" 鏌ヨ鏉ヨ瀹氱紪鐮併€傚鏋滄枃绔犲嚭鐜颁贡鐮佸彲浠ュ皢杩欒瀹氭墦寮€鎴栧叧闂€');
 @define('ONTHEFLYSYNCH', '寮€鍚獟浣撳悓姝');
 @define('ONTHEFLYSYNCH_DESC', '濡傛灉寮€鍚紝Serendipity Blog浼氭瘮杈冩暟鎹簱鍜屽獟浣撶洰褰曠殑鏂囦欢锛岀劧鍚庤繘琛屾暟鎹悓姝ャ€');
 @define('USERCONF_CHECK_USERNAME_ERROR', '甯愬彿涓嶈兘绌虹櫧');

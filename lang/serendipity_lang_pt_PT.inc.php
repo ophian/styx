@@ -830,8 +830,8 @@
 @define('WARNING_NO_GROUPS_SELECTED', 'Aviso: Não seleccionou afiliações em grupos. Isto encerrou a sua gestão de grupos, e as suas afiliações em grupos não foram alteradas.');
 @define('INSTALL_RSSFETCHLIMIT', 'Entradas a mostrar nos Feeds');  // Verify
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Número de entradas a mostrar por página do RSS Feed.'); // Verify
-@define('INSTAL_DB_UTF8', 'Activar conversão da codificação de caracteres na base de dados');
-@define('INSTAL_DB_UTF8_DESC', 'Envia um comando MySQL "SET NAMES" para indicar a codificação de caracteres requerida para a base de dados. Ligue ou desligue, se vir caracteres estranhos no seu blogue.');
+@define('INSTALL_DB_UTF8', 'Activar conversão da codificação de caracteres na base de dados');
+@define('INSTALL_DB_UTF8_DESC', 'Envia um comando MySQL "SET NAMES" para indicar a codificação de caracteres requerida para a base de dados. Ligue ou desligue, se vir caracteres estranhos no seu blogue.');
 @define('ONTHEFLYSYNCH', 'Activar a sincronização de multimédia instantânea');
 @define('ONTHEFLYSYNCH_DESC', 'Se activado, o Serendipity comparará a base de dados de multimédia com os ficheiros guardados no seu servidor e sincronizará a base de dados com o conteúdo da directoria.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'O nome do utilizador não pode ser deixado em branco.');
