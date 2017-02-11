@@ -437,7 +437,13 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     serendipty[id] value for direct further-on-submits to that entry!
 
   * Fix database issue, that text after utf8 'private use area' symbols
-    was cut off on saving (#394). Allowed for entry and comment bodies.
+    was cut OFF on saving (#394). Allowed for entry and comment bodies.
+
+    PLEASE NOTE:
+        The Configuration -  Database Settings - "Enable DB-charset
+        conversion" option must be set to "No" to allow this to work!
+        This also is the recommended setting if you want to allow
+        unicode symbols at all.
 
   * Updated some bundled libs to better support PHP 7
 
