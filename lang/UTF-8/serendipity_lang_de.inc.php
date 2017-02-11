@@ -824,7 +824,7 @@
 @define('INSTALL_RSSFETCHLIMIT', 'Einträge im Feed');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Anzahl der Einträge, die im RSS-Feed dargestellt werden sollen.');
 @define('INSTALL_DB_UTF8', 'Datenbank-Zeichensatzkonvertierung aktivieren');
-@define('INSTALL_DB_UTF8_DESC', 'Sendet einen MySQL "SET NAMES" Befehl, um den verwendeten Zeichensatz der Datenbank mitzuteilen. Falls sich merkwürdige Zeichen im Blog zeigen, ist es einen Versuch wert, diese Option zu (de)aktivieren.');
+@define('INSTALL_DB_UTF8_DESC', 'Sendet einen MySQL "SET NAMES" Befehl, um den verwendeten Zeichensatz der Datenbank mitzuteilen. Falls sich merkwürdige oder fehlende Zeichen im Blog zeigen, ist es einen Versuch wert, diese Option zu (de)aktivieren.');
 @define('ONTHEFLYSYNCH', 'Automagische Synchronisation der Mediendatenbank');
 @define('ONTHEFLYSYNCH_DESC', 'Falls diese Option aktiviert ist, wird Serendipity den Inhalt der Mediendatenbank mit dem echten Inhalt im Dateisystem abgleichen.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'Der Benutzername darf nicht leer gelassen werden.');
