@@ -1,4 +1,7 @@
-﻿===== 3.1.31 ===== (14.12.2016)
+﻿  11.02.2017
+   - bugfix {foreach} correct return order for the count of an ArrayIterator object. The iterator_count(object) method should be used, instead of count(object) https://github.com/smarty-php/smarty/issues/324
+
+===== 3.1.31 ===== (14.12.2016)
   23.11.2016
    - move template object cache into static variables
 
