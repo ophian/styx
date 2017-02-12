@@ -436,14 +436,87 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     Now the iframe_preview tpl file really updates the entryform hidden
     serendipty[id] value for direct further-on-submits to that entry!
 
-  * Fix database issue, that text after utf8 'private use area' symbols
-    was cut OFF on saving (#394). Allowed for entry and comment bodies.
+  * Partial fix a possible charset/symbol/database issue, that text
+    after UTF8 'private use area' symbols was cut OFF on saving (#394).
+    This partial fix applies to entry and comment bodies.
 
-    PLEASE NOTE:
-        The Configuration -  Database Settings - "Enable DB-charset
-        conversion" option must be set to "No" to allow this to work!
-        This also is the recommended setting if you want to allow
-        unicode symbols at all.
+    SADLY, this depends to your (MySQL) Database, its version and also
+    the tables/fields COLLATION settings. Even the maximum length of
+    columns and index keys play an important role when changing this
+    by Serendipity default. This is why we stick with we have for now.
+    If you now want to use this better UTF8 support, you may have to
+    make your hands a little dirty and follow the here described
+    procedure by 3 steps.
+
+    PLEASE NOTE: This is about MySQL and old or false set charset
+                 collations.
+
+     1. The (old) MySQL utf8 encoding is awkwardly named, as it is
+        different from proper UTF-8 encoding. Check up your version.
+        MySQL 5.5.3 (up from 2010) introduced a new encoding called
+        utf8mb4, which maps to proper UTF-8 and thus fully supports
+        Unicode. If it is not set to "utf8mb4" by default, you should
+        change it generally by this command:
+            ALTER DATABASE database_name CHARACTER SET = utf8mb4 COLLATE = utf_unicode_ci;
+        Because of the Serendipity tables unchanged columns length and
+        indexes (*), we stick to "utf_unicode_ci" and do NOT use
+        COLLATE = utf8mb4_unicode_ci; here.
+
+        (*) The MySQL UTF-8 character set actually only supports 3-byte
+            characters. This leads to a maximum limit of 765 byte indexes.
+            However, the utf8mb4 character set and utf8mb4_general_ci
+            collation introduced support for 4-byte characters, and thus
+            the full set of UTF-8 characters. This is when we hit length
+            errors, since the new maximum index length on a VARCHAR(255)
+            field becomes 1020 bytes for example. It would need to be a
+            VARCHAR(191) to stay below the 767 byte limit. As you can
+            see here, this is NOT trivial to change and error prone, to
+            be that robust as it has ever been.
+
+     2. To set the connection’s COLLATION to "unicode" instead of
+        "general" you have to convert these tables by using "SET NAMES
+        ... COLLATE ...".
+        You only need to use this better "utf8_unicode_ci" collation
+        for special characters sorting (*), otherwise you can stick to
+        use the old "utf8_general_ci", which is slightly faster as the
+        manual says. This only is relevant to the tables which actually
+        store (utf8) text data, like *_entries, *_comments and
+        *_entryproperties, *_staticpages, etc.
+        Example for the changes:
+            ALTER TABLE `s9y_comments` DEFAULT CHARSET=utf8 COLLATE utf8_unicode_ci;
+            ...
+
+        By default a new Serendipity (UTF-8) installation should already
+        be set to use the "utf8_unicode_ci" collation.
+
+        (*) Likewise ß=ss; utf8_unicode_ci uses the Unicode Collation
+            Algorithm as defined in the Unicode standards, whereas
+            utf8_general_ci is a more simple sort order which results
+            in "less accurate" sorting results.
+
+     3. At last, the Serendipity "Configuration / Database Settings /
+        Enable DB-charset conversion" option must be set to "No" to
+        allow this to work!
+        This also is the recommended setting, if you want to allow
+        (full) unicode symbols at all. You may face encoding issues with
+        old entries now. Check them up and try to save them again. Also
+        regard possible cached entries via entryproperties.
+
+    The trick in short:
+        Without these mentioned database changes, the S9y option change
+        set to "no" would just produce wrong encoded Umlauts/UTF-8.
+        In the old days of changing from native latin1 to utf8 charsets,
+        this option, per Serendipity default set to "yes", enabled to
+        workaround a bunch of posible errors.
+        The changes in the database in step 1 + 2 now enable us to NOT
+        face the cut OFF text issue after these symbols any more.
+        The unset Serendipity option, NOT to use SET NAMES, enables a
+        better automated, modern handshake between server and database.
+        Now these characters and symbols are actually stored in native
+        UTF-8.
+
+        For more about this in general, read:
+            https://mathiasbynens.be/notes/mysql-utf8mb4
 
   * Updated some bundled libs to better support PHP 7
 
