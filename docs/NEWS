@@ -1,6 +1,10 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+  * Fix the ChangeLog for the charset symbol text issue.
+    Please read about this carefully in the 2.1-beta1 changelog entry
+    down below.
+
   * Add new backend plugin grouper constants for group bag consistency.
     Changed:    'BACKEND', -> 'BACKEND_ADMIN',
     Added:      'MAINTAIN' -> 'BACKEND_MAINTAIN',
@@ -444,7 +448,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     the tables/fields COLLATION settings. Even the maximum length of
     columns and index keys play an important role when changing this
     by Serendipity default. This is why we stick with we have for now.
-    If you now want to use this better UTF8 support, you may have to
+    If you still want to use this better UTF8 support, you have to
     make your hands a little dirty and follow the here described
     procedure by 3 steps.
 
@@ -507,7 +511,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         set to "no" would just produce wrong encoded Umlauts/UTF-8.
         In the old days of changing from native latin1 to utf8 charsets,
         this option, per Serendipity default set to "yes", enabled to
-        workaround a bunch of posible errors.
+        workaround a bunch of possible errors.
         The changes in the database in step 1 + 2 now enable us to NOT
         face the cut OFF text issue after these symbols any more.
         The unset Serendipity option, NOT to use SET NAMES, enables a
