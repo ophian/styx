@@ -517,7 +517,9 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         The unset Serendipity option, NOT to use SET NAMES, enables a
         better automated, modern handshake between server and database.
         Now these characters and symbols are actually stored in native
-        UTF-8.
+        UTF-8. Since there are way too much possible settings/issues
+        around, which may play a role, not haven't been mentioned here,
+        please see this approach as "experimental" and at your own risk!
 
         For more about this in general, read:
             https://mathiasbynens.be/notes/mysql-utf8mb4
