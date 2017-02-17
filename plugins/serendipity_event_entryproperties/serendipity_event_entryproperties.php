@@ -1000,11 +1000,11 @@ class serendipity_event_entryproperties extends serendipity_event
                                             ON (e.id = ep_sticky.entryid AND ep_sticky.property = 'ep_is_sticky')";
                     }
 
-                    $cond = implode("\n", $joins);
+                    $join = implode("\n", $joins);
                     if (empty($eventData['joins'])) {
-                        $eventData['joins'] = $cond;
+                        $eventData['joins'] = $join;
                     } else {
-                        $eventData['joins'] .= $cond;
+                        $eventData['joins'] .= $join;
                     }
                     break;
 
