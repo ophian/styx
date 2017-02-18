@@ -305,7 +305,7 @@ $tasks = array(
                     'function'  => 'serendipity_cleanUpDirectories_SPL',
                     'title'     => 'Removal of empty directories in templates_c',
                     'arguments' => array($serendipity['serendipityPath'] . 'templates_c'),
-                    'desc'      => 'Purges empty Smarty (and other) directories leftovers.'),
+                    'desc'      => 'Purges empty Smarty (and other) directory leftovers.'),
 
 );
 
