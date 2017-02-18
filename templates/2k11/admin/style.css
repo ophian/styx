@@ -2329,6 +2329,9 @@ h3 .media_file_actions {
 #entries_list .entry_info span {
     margin: 0 1em .75em 0;
 }
+#entries_list .status_lang span {
+    margin: 0 0 .2em 0;
+}
 
 .entry_status,
 .comment_status,
