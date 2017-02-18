@@ -175,6 +175,9 @@
                     {if $entry.isdraft}
                         <span class="entry_status status_draft">{$CONST.DRAFT}</span>
                     {/if}
+                    {if isset($entry.lang) AND $entry.lang != 'all'}
+                        <span class="entry_status status_lang">{$CONST.INSTALL_LANG}: [ {$entry.lang} ]</span>
+                    {/if}
                     </div>
                 </li>
             {/foreach}

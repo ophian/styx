@@ -1,6 +1,9 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+  * Add entry language status to the entries list, if the multilingual
+    event plugin is installed and actually used by entries.
+
   * Fix the ChangeLog for the charset symbol text issue.
     Please read about this carefully in the 2.1-beta1 changelog entry
     down below.
