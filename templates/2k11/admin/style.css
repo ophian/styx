@@ -2393,10 +2393,12 @@ h3 .media_file_actions {
     color: #666;
 }
 .owner::before {
-    content: '';
     border-left: 1.5em solid transparent;
     border-top: 1.5em solid #3e5f81;
     float: right;
+    content: '';
+    right: 0;
+    top: 0;
 }
 
 #entries_list .entry_info .entry_status {
