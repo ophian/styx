@@ -1,6 +1,9 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+  * Add upgrade task to purge empty directory leftovers in
+    templates_c, primarily caused by Smarty.
+
   * Add entry language status to the entries list, if the multilingual
     event plugin is installed and actually used by entries.
 

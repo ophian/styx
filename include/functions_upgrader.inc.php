@@ -511,6 +511,35 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
 }
 
 /**
+ * Remove and cleanup empty directories using the Standard PHP Library (SPL) iterator
+ *
+ * @access private
+ *
+ * @param   string $path parent directory
+ *
+ * @return void
+ */
+function serendipity_cleanUpDirectories_SPL( $path=null ) {
+    if (!is_dir($path)) {
+        return false;
+    }
+    $files = new RecursiveIteratorIterator(
+        new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
+        RecursiveIteratorIterator::CHILD_FIRST
+    );
+    foreach ($files AS $fileinfo) {
+        if ($fileinfo->isDir()) {
+            // Count the number of "children" from the main directory iterator
+            if (iterator_count($files->getChildren()) === 0) {
+                #echo $fileinfo->getRealPath()."\n<br>";
+                @rmdir($fileinfo->getRealPath());
+            }
+        }
+    }
+    return true;
+}
+
+/**
  * Select and rename old plugin (class) name values in the database by name
  * due to plugin naming convention (serendipity_plugin_* and serendipity_event_*)
  * and now being filed and removed into '/plugins' with 2.0

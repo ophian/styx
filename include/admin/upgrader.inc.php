@@ -301,6 +301,12 @@ $tasks = array(
                     'title'     => 'Reset internal plugin names to a current format.',
                     'desc'      => 'Queue the database to rename internal used plugins. This task will migrate any possible references to such plugins to the new format.'),
 
+            array(  'version'   => '2.1.0',
+                    'function'  => 'serendipity_cleanUpDirectories_SPL',
+                    'title'     => 'Removal of empty directories in templates_c',
+                    'arguments' => array($serendipity['serendipityPath'] . 'templates_c'),
+                    'desc'      => 'Purges empty Smarty (and other) directories leftovers.'),
+
 );
 
 /* Fetch SQL files which needs to be run */
