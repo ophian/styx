@@ -512,6 +512,7 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
 
 /**
  * Remove and cleanup empty directories using the Standard PHP Library (SPL) iterator
+ * Use as a standard upgrade task on every release!
  *
  * @access private
  *
@@ -521,22 +522,27 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
  */
 function serendipity_cleanUpDirectories_SPL( $path=null ) {
     if (!is_dir($path)) {
-        return false;
+        return;
     }
-    $files = new RecursiveIteratorIterator(
-        new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
-        RecursiveIteratorIterator::CHILD_FIRST
-    );
-    foreach ($files AS $fileinfo) {
-        if ($fileinfo->isDir()) {
-            // Count the number of "children" from the main directory iterator
-            if (iterator_count($files->getChildren()) === 0) {
-                #echo $fileinfo->getRealPath()."\n<br>";
-                @rmdir($fileinfo->getRealPath());
+    try {
+        $files = array();
+        $files = new RecursiveIteratorIterator(
+            new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
+            RecursiveIteratorIterator::CHILD_FIRST
+        );
+        foreach ($files AS $fileinfo) {
+            if ($fileinfo->isDir()) {
+                // Count the number of "children" from the main directory iterator
+                if (iterator_count($files->getChildren()) === 0) {
+                    #DEBUG#echo $fileinfo->getRealPath()."\n<br>";
+                    @rmdir($fileinfo->getRealPath());
+                }
             }
         }
+        return true;
+    } catch (Exception $e) {
+        return;
     }
-    return true;
 }
 
 /**
