@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.11');
+        $propbag->add('version',       '1.12');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.99',
             'php'         => '5.3.0'
@@ -50,7 +50,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
             'backend_maintenance' => true,
             'external_plugin'     => true
         ));
-        $propbag->add('configuration',  array('fiveothree'));
+        $propbag->add('configuration',  array('fiveothree', 'use_s9ylogo'));
         $propbag->add('groups',         array('BACKEND_ADMIN', 'BACKEND_FEATURES', 'BACKEND_MAINTAIN'));
     }
 
@@ -63,6 +63,13 @@ class serendipity_event_modemaintain extends serendipity_plugin
                 $propbag->add('name',        PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE);
                 $propbag->add('description', '');
                 $propbag->add('default',     str_replace(array('&#187;','&#171;'), '"', MODEMAINTAIN_PRESET_MOMATXT));
+                break;
+
+            case 'use_s9ylogo':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO);
+                $propbag->add('description', '');
+                $propbag->add('default',     'true');
                 break;
 
             default:
@@ -83,7 +90,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
      * @access    private
      * @return
      */
-    private function service_mode()
+    private function service_mode($logo='')
     {
         $retry = 300; // seconds
         $protocol = $_SERVER["SERVER_PROTOCOL"];
@@ -95,7 +102,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         serendipity_header( 'X-S9y-Maintenance: true' ); // Used for debugging detection
         serendipity_header( 'Content-Type: text/html; charset=utf-8' );
         serendipity_header( "Retry-After: $retry" );
-        serendipity_die(nl2br("<h2>503 - SERENDIPITY STYX SERVICE MODE</h2>\n".$this->maintenanceText));
+        serendipity_die(nl2br("<h2>503 - SERENDIPITY STYX SERVICE MODE</h2>\n$logo".$this->maintenanceText));
         exit; // actually no need, but for security reasons left alive
     }
 
@@ -177,7 +184,8 @@ class serendipity_event_modemaintain extends serendipity_plugin
                     // if var is set to true and user is not authenticated and logged into admin users.
                     // This $serendipity['maintenance'] var is stored in serendipity_config_local.inc file!
                     if (!$superuser && !serendipity_checkPermission('adminUsers') && serendipity_db_bool($serendipity['maintenance']) ) {
-                        $this->service_mode();
+                        $logo = serendipity_db_bool($this->get_config('use_s9ylogo', 'true')) ? '<img class="logo" src="'.$serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 's9y_banner_small.png" alt="Serendipity Styx" />' : '';
+                        $this->service_mode($logo);
                     }
                     break;
 
@@ -217,7 +225,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
 <?php
                         break;
                     }
-                    $ew = "Experimental Warning: Currently there is a strange issue. You need to access the setmode and the undo button twice, with a ~1 second delay inbetween, OR click somewhere else and return, to see the button change (which has to).";
+                    $ew = "EXPERIMENTAL WARNING: Currently there may be a page loading issue not switching the mode button immediately. You then need to access the setmode and the undo button twice, with a ~1 second delay inbetween, OR click somewhere else and return, to see the button change (which has to).";
                     if (serendipity_db_bool($serendipity['maintenance']) !== true && $this->blockMaintenance) {
 ?>
 

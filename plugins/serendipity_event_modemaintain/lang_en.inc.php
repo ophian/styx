@@ -9,6 +9,7 @@
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Public Maintenance Mode Text');
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', 'This site &#187;%s&#171; is currently undergoing some maintenance work and therefore is temporarily unavailable. Please visit us later.');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Show the Serendipity logo?');
 
 @define('PLUGIN_MODEMAINTAIN_BUTTON', 'Set 503 Maintenance Mode');
 @define('PLUGIN_MODEMAINTAIN_FREEBUTTON', 'Unset 503 Maintenance Mode');

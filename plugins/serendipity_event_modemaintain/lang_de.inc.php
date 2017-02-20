@@ -8,6 +8,8 @@
 @define('PLUGIN_DASHBOARD_MAINTENANCE_MODE_DESC', "ACHTUNG:<br>\nNicht ausloggen, den Browser oder das Tab schließen, oder das generelle Konfigurations Formular absenden, ohne den Wartungsmodus zurückgesetzt zu haben!");
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Öffentlicher Wartungs Modus Text');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', 'This site &#187;%s&#171; is currently undergoing some maintenance work and therefore is temporarily unavailable. Please visit us later.');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Binde das Serendipity Logo ein?');
 
 @define('PLUGIN_MODEMAINTAIN_BUTTON', 'Setze 503 Wartungs Modus');
 @define('PLUGIN_MODEMAINTAIN_FREEBUTTON', 'Zurücksetzen des 503 Wartungs Modus');
