@@ -262,12 +262,6 @@ $tasks = array(
                     'desc'      => 'Rewrite path of the big feedicon to not include the template path, since that path is not automatically detected'),
 
             array(  'version'   => '2.1.0',
-                    'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> Check the Styx 2.1 changeLog doc/NEWS file for theme file changes',
-                    'desc'      => 'Serendipity Styx 2.1.0 fixes an issue creating the entry ID, caused by a wrong javascript execution. Please read the docs/NEWS file to add this manually to your custom/unsupported theme.'),
-
-            array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'title'     => 'Removal of old dead files in v.2.0.2',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_202, array('internals'), true),
@@ -278,6 +272,22 @@ $tasks = array(
                     'title'     => 'Removal of obsolete and dead directories',
                     'arguments' => array($dead_dirs_202),
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_202) . '</pre>'),
+
+            array(  'version'   => '2.1.0',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> Check the Styx 2.1 changeLog doc/NEWS file for theme file changes',
+                    'desc'      => 'Serendipity Styx 2.1.0 fixes an issue creating the entry ID, in preview.tpl, caused by a wrong javascript execution.
+                                    Please read the docs/NEWS file to add this manually to your custom/unsupported/copy theme.'),
+
+            array(  'version'   => '2.1.0',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> The "default", "default-php" and "default-xml" themes have been reworked.',
+                    'desc'      => 'This had effects to some depending themes ("blue", "idea" and "default-rtl") delivered by core.
+                                    Spartacus themes may be effected too. Also the general theme fallback stack has changed a little,
+                                    regarding images and some special files. Read the Styx changeLog NEWS file carefully for more detailed information.
+                                    Truly check if your theme is touched by this all.'),
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
