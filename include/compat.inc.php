@@ -482,6 +482,8 @@ function serendipity_die($html) {
         <meta http-equiv="Content-Type" content="text/html; charset=' . $charset . '">
         <style>
             .msg_alert { display: block; margin: 1.5em 0; padding: .5em; background: #f2dede; border: 1px solid #e4b9b9; color: #b94a48; }
+            .msg_alert .logo { float: right; margin-top: -4em; }
+            .msg_alert .logo:after { clear: right; }
         </style>
     </head>
     <body>
