@@ -1,6 +1,9 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+  * Add upgrade task to remove possible old compiler file leftovers
+    in root of templates_c, caused by Smarty2.
+
   * Add upgrade task to purge empty directory leftovers in
     templates_c, primarily caused by Smarty.
 

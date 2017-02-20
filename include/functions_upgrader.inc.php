@@ -546,6 +546,33 @@ function serendipity_cleanUpDirectories_SPL( $path=null ) {
 }
 
 /**
+ * Remove and cleanup old compiled Smarty2 files using the Standard PHP Library (SPL) iterator
+ * Use as an upgrade task probably only once!
+ *
+ * @access private
+ *
+ * @param   string $path parent directory
+ *
+ * @return void
+ */
+function serendipity_cleanUpOldCompilerFiles_SPL( $path=null ) {
+    if (!is_dir($path)) {
+        return;
+    }
+    foreach (new DirectoryIterator($path) AS $iterator) {
+        if ($iterator->isDot() || $iterator->isDir() || $iterator->getFilename()[0] === '.' ||
+                (false === stripos($iterator->getFilename(), '.tpl.php') &&
+                    (strlen($iterator->getFilename()) !== 9 && !empty($iterator->getExtension()) || false !== stripos($iterator->getFilename(), 'cache_'))
+                )
+            ) continue;
+            // removes wrtFWSSdg and name^%%4A^4AD^4AD14682%%content.tpl.php example files only
+        #echo  $path . '/' . $iterator->getFilename() . "<br>\n";
+        @unlink($path. '/' . $iterator->getFilename());
+    }
+    return;
+}
+
+/**
  * Select and rename old plugin (class) name values in the database by name
  * due to plugin naming convention (serendipity_plugin_* and serendipity_event_*)
  * and now being filed and removed into '/plugins' with 2.0

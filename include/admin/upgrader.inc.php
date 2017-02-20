@@ -307,6 +307,12 @@ $tasks = array(
                     'arguments' => array($serendipity['serendipityPath'] . 'templates_c'),
                     'desc'      => 'Purges empty Smarty (and other) directory leftovers.'),
 
+            array(  'version'   => '2.1.0',
+                    'function'  => 'serendipity_cleanUpOldCompilerFiles_SPL',
+                    'title'     => 'Removal of possible old Smarty2 compiler files leftovers in root of templates_c',
+                    'arguments' => array($serendipity['serendipityPath'] . 'templates_c'),
+                    'desc'      => ''),
+
 );
 
 /* Fetch SQL files which needs to be run */
