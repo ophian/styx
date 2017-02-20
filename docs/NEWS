@@ -38,7 +38,7 @@ Version 2.1 ()
 
     In some of these themes allowed only, if the plugin_contactform
     articleform option is set true.
-    Please update your copy-themes including this file!
+    Please update your COPY-THEMES including this file!
 
   * Fix CKEditor default content styles loading
 
@@ -95,13 +95,13 @@ Version 2.1-rc1 (January, 30th 2017)
   * Cleanup of old and deprecated theme(s) admin files.
 
     FROM NOW ON, the Backends image fallback has moved to the "default"
-    theme admin directory.
+    -theme admin directory.
     The serendipity_editor.js.tpl in "default/admin" and its dependent
     php files NOW are a fully available fallback stack file. Only some
-    themes, like the STANDARD theme or the default-php theme will fetch
-    their own file occurrence.
+    themes, like the STANDARD "2k11"-theme" or the "default-php" theme
+    will fetch their own file occurrence.
     This all AND the revision for responsiveness corrects the "default"
-    theme to occur as something outdated, or no longer in common and
+    -theme to occur as something outdated, or no longer in common and
     restores the original weighting.
 
   * Touched all preview_iframe template files again for error message
@@ -130,12 +130,12 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
 
   * Fix pubDate and add the better S9y logo to the RSS outfile
 
-  * Revisited the old Default theme and its cloned default-php theme
-    for mobile first responsiveness, without a total rewrite, keeping
-    the origin simplicity.
-    The old default index.tpl file was added to the dependency themes
-    (blue, idea and default-rtl). Copy-themes, based on them, need to
-    include this too.
+  * Revisited the old "default"-theme and its cloned "default-php"-
+    theme for mobile first responsiveness, without a total rewrite,
+    keeping the origin simplicity.
+    The old default index.tpl file was backported to the dependency
+    themes (blue, idea and default-rtl). COPY-THEMES, based on them,
+    need to include this too.
 
   * Add upgrade task (again) to rename internally used plugins for the
     stable Styx release
@@ -165,8 +165,9 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
 
   * Fix installer iconfont issue
 
-  * Add Styx backend template example index, which removes relevant
-    informations and assets when not logged in.
+  * Add Styx backend template example index,  which enables to suppress
+    the Serendipty and PHP version information and assets for unlogged
+    users.
 
   * Partial Sync - flexbox backend solution
 
@@ -174,13 +175,13 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
 
   * Fix and optimize Plugin description
 
-  * Fix and optimize default-php themes empty preview call
+  * Fix and optimize "default-php"-theme empty preview call
 
   * Bugfix update to Smarty to 3.1.31-dev/32
 
   * Enhanced themes info.txt descriptive notes
 
-  * Added example Styx backend theme
+  * Added example Styx BACKEND theme
 
   * Optimized preview_iframe template files (default, 2k11, Next,
     Skeleton, Bulletproof and default-php)
@@ -256,24 +257,24 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Re-integration of two very unique themes, which are default-php and
     default-xml. Both were reworked for Serendipity 2.1 Styx Edition and
-    particularly in case of the PHP theme heftily extended with all kind
+    particularly in case of the PHP-theme heftily extended with all kind
     of other template files. Both themes use the core included
     include/template_api.inc.php file as an emulator class for the still
     overall used Smarty engine. The XML-theme is meant for Blog output
     as XML for XML-Readers. The PHP-theme is meant for all Blog
-    Administrators to use or create a ("Smarty independent") PHP theme
+    Administrators to use or create a ("Smarty independent") PHP-theme
     only.
     The theme preview files just advert to the fallback usage binding of
-    the default theme stylesheet style.css file. In case of the PHP-theme,
-    you may just want to create your own. The PHP theme may also still
-    miss some plugin template files and the XML theme may still have some
+    the default-theme stylesheet style.css file. In case of the PHP-theme,
+    you may just want to create your own. The PHP-theme may also still
+    miss some plugin template files and the XML-theme may still have some
     minor isues in the backend.
     You are very welcome to help making this more bulletproof!
 
   * Fixed an old issue with the default fallback template not reading the
     full serendipity_editor.js.tpl file. An already parsed fallback was
     added and updated, as well as a PHP parsable file, which is only used
-    by the XML theme.
+    by the XML-theme.
 
   * Removed composer for ckeditor, since being a library which requires
     maintaining. This moved the whole library path one directory up.
@@ -374,7 +375,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
       and have been fixed for these themes:
         [ <next>, <clean-blog>, <bulletproof>, <timeline> ]
       within this release.
-      For theme-copies please remember, that files from <2k11> are
+      For THEME-COPIES please remember, that files from <2k11> are
       "special", since being the standard $serendipity['defaultTemplate']
       template, which does not need this care.
 
