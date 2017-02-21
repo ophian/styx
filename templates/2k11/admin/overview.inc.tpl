@@ -165,6 +165,10 @@
                     <span><em><br>Read the Documentation and the FAQ for more.</em></span><br>
                     <span><em>This System is highly configurable and some of these advanced options are not recommended to use naively without deeper knowledge of what they will do.</em></span>
                 </li>
+                <li>
+                    <b>VII. Styx Guide</b><br>
+                    <span><em>Read the Styx Upgrade Documentation and the hitchhikers guide to the Styx Backend for more</em> <a href="https://github.com/ophian/styx/wiki" target="_blank">here</a>.</span>
+                </li>
             </ol>
         </section>
     </div>
