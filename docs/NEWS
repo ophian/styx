@@ -1,6 +1,11 @@
 Version 2.1 ()
  ------------------------------------------------------------------------
 
+  * Allow unicode searches for Chinese / Japanese like languages, see:
+        https://board.s9y.org/viewtopic.php?f=4&t=15112
+    This also helps when using the full unicode approach described
+    below in 2.1-beta1.
+
   * Add upgrade task to remove possible old compiler file leftovers
     in root of templates_c, caused by Smarty2.
 
