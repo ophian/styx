@@ -144,7 +144,7 @@
                 </li>
                 <li>
                     <b>II. Configurate the Dashboard?</b><br>
-                    <span><em>Open your &#187;{$CONST.PERSONAL_SETTINGS}&#171; options via top nav button.</em></span>
+                    <span><em>Open &#187;{$CONST.PERSONAL_SETTINGS}&#171; options via top nav <span class="icon-cog-alt" aria-hidden="true"></span> button.</em></span>
                 </li>
                 <li>
                     <b>III. Add even more to the Dashboard?</b><br>
