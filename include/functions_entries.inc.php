@@ -825,10 +825,15 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
         $cond['distinct'] = '';
         $term             = str_replace('&quot;', '"', $term);
         $relevance_enabled = true;
-        if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
-            $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
+        if (@mb_detect_encoding($term, 'UTF-8', true)) {
+            $_term = str_replace('*', '', $term);
+            $cond['find_part'] = "(title LIKE '%$_term%' OR body LIKE '%$_term%' OR extended LIKE '%$_term%')";
         } else {
-            $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term')";
+            if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
+                $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
+            } else {
+                $cond['find_part'] = "MATCH(title,body,extended) AGAINST('$term')";
+            }
         }
     }
 

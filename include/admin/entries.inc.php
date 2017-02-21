@@ -285,10 +285,15 @@ switch($serendipity['GET']['adminAction']) {
                 $term = serendipity_mb('strtolower', $term);
                 $filter[] = "(lower(title) LIKE '%$term%' OR lower(body) LIKE '%$term%' OR lower(extended) LIKE '%$term%')";
             } else {
-                if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
-                    $filter[] = "MATCH (title,body,extended) AGAINST ('" . $term . "' IN BOOLEAN MODE)";
+                if (@mb_detect_encoding($term, 'UTF-8', true)) {
+                    $_term = str_replace('*', '', $term);
+                    $filter['find_part'] = "(title LIKE '%$_term%' OR body LIKE '%$_term%' OR extended LIKE '%$_term%')";
                 } else {
-                    $filter[] = "MATCH (title,body,extended) AGAINST ('" . $term . "')";
+                    if (preg_match('@["\+\-\*~<>\(\)]+@', $term)) {
+                        $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term' IN BOOLEAN MODE)";
+                    } else {
+                        $filter['find_part'] = "MATCH(title,body,extended) AGAINST('$term')";
+                    }
                 }
             }
         }
