@@ -516,7 +516,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         old entries now. Check them up and try to save them again. Also
         regard possible cached entries via entryproperties.
 
-    The trick in short:
+    THE TRICK, in short:
         Without these mentioned database changes, the S9y option change
         set to "no" would just produce wrong encoded Umlauts/UTF-8.
         In the old days of changing from native latin1 to utf8 charsets,
@@ -526,10 +526,12 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         face the cut OFF text issue after these symbols any more.
         The unset Serendipity option, NOT to use SET NAMES, enables a
         better automated, modern handshake between server and database.
-        Now these characters and symbols are actually stored in native
-        UTF-8. Since there are way too much possible settings/issues
-        around, which may play a role, not haven't been mentioned here,
-        please see this approach as "experimental" and at your own risk!
+        At this point, these characters and symbols are actually stored
+        in native UTF-8, eg. 'Ã'+'¼' for "ü".
+        But since there are way too much possible settings/issues
+        around, which may play a role, and not have been mentioned
+        here, please see this approach as "EXPERIMENTAL" and at your
+        own risk!
 
         For more about this in general, read:
             https://mathiasbynens.be/notes/mysql-utf8mb4
