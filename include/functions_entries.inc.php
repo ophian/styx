@@ -825,7 +825,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
         $cond['distinct'] = '';
         $term             = str_replace('&quot;', '"', $term);
         $relevance_enabled = true;
-        if (@mb_detect_encoding($term, 'UTF-8', true)) {
+        if (@mb_detect_encoding($term, 'UTF-8', true) && @mb_strlen($term, 'utf-8') < strlen($term)) {
             $_term = str_replace('*', '', $term);
             $cond['find_part'] = "(title LIKE '%$_term%' OR body LIKE '%$_term%' OR extended LIKE '%$_term%')";
         } else {
