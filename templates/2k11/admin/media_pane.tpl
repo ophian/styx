@@ -182,7 +182,7 @@
 
             </div>
             <div class="form_buttons">
-                <input name="go" type="submit" value="{$CONST.GO}"> <input class="reset_media_filters" name="media_filters_reset" type="reset" value="Reset">
+                <input name="go" type="submit" value="{$CONST.GO}"> <input class="reset_media_filters" name="media_filters_reset" title="{$CONST.RESET_FILTERS}" type="reset" value="Reset">
             </div>
         </fieldset>
         <script>
