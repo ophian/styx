@@ -90,7 +90,7 @@
             </div>
 
             <div class="form_buttons">
-                <input name="go" type="submit" value="{$CONST.GO}">
+                <input name="go" type="submit" value="{$CONST.GO}"> <input class="reset_entry_filters" name="entry_filters_reset" title="{$CONST.RESET_FILTERS}" type="reset" value="Reset">
             </div>
         </fieldset>
     </form>
@@ -112,12 +112,27 @@
 
     <script>
         $(document).ready(function() {
-    {foreach $filter_import AS $f_import}
-        serendipity.SetCookie("entrylist_filter_{$f_import}", "{$get_filter_{$f_import}}" )
-    {/foreach}
-    {foreach $sort_import AS $s_import}
-        serendipity.SetCookie("entrylist_sort_{$s_import}", "{$get_sort_{$s_import}}" )
-    {/foreach}
+        {foreach $filter_import AS $f_import}
+            serendipity.SetCookie("entrylist_filter_{$f_import}", "{$get_filter_{$f_import}}" )
+        {/foreach}
+        {foreach $sort_import AS $s_import}
+            serendipity.SetCookie("entrylist_sort_{$s_import}", "{$get_sort_{$s_import}}" )
+        {/foreach}
+
+            $('#filter_entries').find('.reset_entry_filters').addClass('reset_filter');
+            $('#sort_entries').find('.reset_entry_filters').addClass('reset_sort');
+
+            $('.reset_filter').click(function() {
+                $('#filter_author option:selected').removeAttr('selected');
+                $('#filter_draft option:selected').removeAttr('selected');
+                $('#filter_category option:selected').removeAttr('selected');
+                $('#filter_content').attr('value', '');
+            });
+            $('.reset_sort').click(function() {
+                $('#sort_order option:selected').removeAttr('selected');
+                $('#sort_ordermode option:selected').attr('selected', 'selected');
+                $('#sort_perpage option:selected').removeAttr('selected');
+            });
         });
     </script>
 
