@@ -90,7 +90,7 @@
             </div>
 
             <div class="form_buttons">
-                <input name="go" type="submit" value="{$CONST.GO}"> <input class="reset_entry_filters" name="entry_filters_reset" title="{$CONST.RESET_FILTERS}" type="reset" value="Reset">
+                <input name="go" type="submit" value="{$CONST.GO}"> <input class="reset_entry_filters state_cancel" name="entry_filters_reset" title="{$CONST.RESET_FILTERS}" type="submit" value="Reset">
             </div>
         </fieldset>
     </form>
