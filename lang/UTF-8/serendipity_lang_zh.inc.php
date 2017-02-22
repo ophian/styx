@@ -790,7 +790,7 @@
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', '娴忚浼氬憳鐨勫獟浣撴枃浠');
 @define('CHARSET_NATIVE', '棰勮');
 @define('INSTALL_CHARSET', '语言选项');
-@define('INSTALL_CHARSET_DESC', '这里可以让你转换 UTF-8 或预设编码 (ISO, UTF-8, ...)有些语言包只有 UTF-8 编码，所以换成预设语言有不会任何改变。新安装的日志建议使用 UTF-8 编码。记得不要改变这个设定如果你已经发布了文章。详情参阅 http://www.s9y.org/index.php?node=46');
+@define('INSTALL_CHARSET_DESC', '这里可以让你转换 UTF-8 或预设编码 (ISO, UTF-8, ...)有些语言包只有 UTF-8 编码，所以换成预设语言有不会任何改变。新安装的日志建议使用 UTF-8 编码。记得不要改变这个设定如果你已经发布了文章。详情参阅 https://docs.s9y.org/docs/developers/internationalization.html');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'External Events');
 @define('CALENDAR_EXTEVENT_DESC', '濡傛灉寮€鍚紝澶栨寕鍙互鍦ㄦ棩鍘嗗唴浠ラ鑹叉樉绀哄畠鐨勪簨浠躲€傚鏋滄病鏈変娇鐢ㄨ繖浜涚壒娈婄殑澶栨寕锛屽缓璁笉瑕佷娇鐢ㄣ€');
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API 鍔熻兘涓嶄細娣诲姞鍦 s9y 鐨勫畨瑁呴噷锛屽洜涓烘紡娲炲拰涓嶅浜轰娇鐢ㄧ殑鍏崇郴銆傛墍浠ュ繀椤诲畨瑁 XML-RPC 鐨勫鎸傚鏋滀娇鐢 XML-RPC API銆傛墍鏈夌殑 URL 涓嶄細鍥犳鏀瑰彉锛屽畨瑁呰繖涓鎸傚悗椹笂浣跨敤銆');
