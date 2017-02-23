@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.49');
+        $propbag->add('version',       '2.50');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.99',
             'php'         => '5.3.0'
@@ -203,8 +203,8 @@ class serendipity_event_spartacus extends serendipity_event
             case 'custommirror':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR);
-                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC . ' PLEASE NOTE: Currently this is limited to "additional_plugins" for custom mirrors only! Additional_themes are fetched by the mirrors above.');
-                $propbag->add('default',     '');
+                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC . PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD);
+                $propbag->add('default',     'https://raw.githubusercontent.com/ophian/additional_plugins/master/');
                 break;
 
             case 'mirror_xml':

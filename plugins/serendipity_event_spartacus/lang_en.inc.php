@@ -22,7 +22,8 @@
 @define('PLUGIN_EVENT_SPARTACUS_HEALTHDOWN', 'SPARTACUS can contact Google, but cannot contact the SPARTACUS repository. It is possible that your server is blocking some outgoing connections, or that the SPARTACUS health site is down. Please contact your website provider to ensure that outgoing connections are allowed. <b>You will not be able to use SPARTACUS unless your server can contact the SPARTACUS repository.</b>');
 @define('PLUGIN_EVENT_SPARTACUS_MIRROR_XML', 'File/Mirror location (XML metadata)');
 @define('PLUGIN_EVENT_SPARTACUS_MIRROR_FILES', 'File/Mirror location (files)');
-@define('PLUGIN_EVENT_SPARTACUS_MIRROR_DESC', 'Choose a download location. Do NOT change this value unless you know what you are doing and if servers get oudated. This option is available mainly for forward compatibility.');
+@define('PLUGIN_EVENT_SPARTACUS_MIRROR_DESC', 'Choose a download location. Do not change this value unless you know what you are doing and if servers get outdated. This option is available mainly for forward compatibility.');
+
 @define('PLUGIN_EVENT_SPARTACUS_CHOWN', 'Owner of downloaded files');
 @define('PLUGIN_EVENT_SPARTACUS_CHOWN_DESC', 'Here you can enter the (FTP/Shell) owner (like "nobody") of files downloaded by Spartacus. If empty, no changes are made to the ownership.');
 @define('PLUGIN_EVENT_SPARTACUS_CHMOD', 'Permissions downloaded files');
@@ -61,6 +62,7 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'Custom location for mirror');
 @define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'This option is for advanced users only. When the preconfigurable mirrors are down or malfunctioning, you can enter your own server name (like http://mirror.org/serendipity/). The server needs to maintain the XML files at URL level, and have subdirectories like additional_plugins and additional_themes. Only enter mirrors that you trust to be safe and which are a full duplicate of the files hosted in the CVS repository of Serendipity. You can enter multiple mirrors, separated by "|".');
+@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD', ' PLEASE NOTE: This warning does NOT apply to Styx. The here presented URL is currently limited to "additional_plugins" for custom mirrors only! Additional THEMES are still fetched by their origin set mirrors above. This may change in future. It is NOT recommended to fetch the origin Serendipity additional_plugin (plugin) repository mirrors within Styx! Too many changes and fixes have been applied and the Styx plugin repository is very well maintained.');
 
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB', 'This plugin supports the Serendipity Cronjob plugin. Go and install it if you want scheduled execution.');
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB_WHEN', 'Execute regular cronjob to check for plugin updates, and mail those to the configured blog\'s mail address (%s)?');

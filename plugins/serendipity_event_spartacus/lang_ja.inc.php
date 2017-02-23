@@ -16,7 +16,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_DONE', 'データの取得に成功しました。');
 @define('PLUGIN_EVENT_SPARTACUS_MIRROR_XML', 'ファイル/ミラーの場所 (XML メタデータ)');
 @define('PLUGIN_EVENT_SPARTACUS_MIRROR_FILES', 'ファイル/ミラーの場所 (ファイル)');
-@define('PLUGIN_EVENT_SPARTACUS_MIRROR_DESC', 'Choose a download location. Do NOT change this value unless you know what you are doing and if servers get oudated. This option is available mainly for forward compatibility.');
+@define('PLUGIN_EVENT_SPARTACUS_MIRROR_DESC', 'Choose a download location. Do not change this value unless you know what you are doing and if servers get outdated. This option is available mainly for forward compatibility.');
 @define('PLUGIN_EVENT_SPARTACUS_CHOWN', 'Owner of downloaded files');
 @define('PLUGIN_EVENT_SPARTACUS_CHOWN_DESC', 'Here you can enter the (FTP/Shell) owner (like "nobody") of files downloaded by Spartacus. If empty, no changes are made to the ownership.');
 @define('PLUGIN_EVENT_SPARTACUS_CHMOD', 'Permissions downloaded files');
