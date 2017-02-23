@@ -421,7 +421,9 @@ if (IS_up2date === false && !defined('IN_upgrader')) {
     if (preg_match('@/(serendipity_editor\.js$)@', $_SERVER['REQUEST_URI'], $matches)) {
         return 1;
     }
-    serendipity_die(sprintf(SERENDIPITY_NEEDS_UPGRADE, $serendipity['versionInstalled'], $serendipity['version'], $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php'));
+    if (serendipity_checkPermission('adminUsers')) {
+        serendipity_die(sprintf(SERENDIPITY_NEEDS_UPGRADE, $serendipity['versionInstalled'], $serendipity['version'], $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php'));
+    }
 }
 
 // We don't care who tells us what to do
