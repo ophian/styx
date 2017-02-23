@@ -426,7 +426,7 @@
                                           'title'       => UPDATE_NOTIFICATION_URL,
                                           'description' => UPDATE_NOTIFICATION_URL_DESC,
                                           'type'        => 'string',
-                                          'default'     => 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE',
+                                          'default'     => 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE',
                                           'permission'  => 'blogConfiguration'),
 
                                     array('var'         => 'logLevel',

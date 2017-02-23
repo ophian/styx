@@ -66,8 +66,9 @@ if ($_POST['installAction'] == 'check' && serendipity_checkFormToken()) {
 }
 
 // set a config default value - else the input will be empty, since a config default value still relies on the global $serendipity array
+// https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE
 if (empty($serendipity['updateReleaseFileUrl'])) {
-    $serendipity['updateReleaseFileUrl'] = 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE';
+    $serendipity['updateReleaseFileUrl'] = 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE';
 }
 
 $data['config'] = serendipity_printConfigTemplate(serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE), $serendipity, false, true);

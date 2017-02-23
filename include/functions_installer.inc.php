@@ -1224,8 +1224,8 @@ function serendipity_getCurrentVersion() {
     if ($serendipity['updateCheck'] != "stable" && $serendipity['updateCheck'] != "beta") {
         return -1;
     }
-
-    $config_rv = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE');
+    // https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE
+    $config_rv = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE');
 
     $serendipity['updateVersionName'] = (false !== strpos((string)$config_rv, 'styx')) ? 'Styx' : 'Serendipity';
 
