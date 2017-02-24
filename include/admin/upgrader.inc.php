@@ -277,7 +277,7 @@ $tasks = array(
                     'type'      => 'TEMPLATE_NOTICE',
                     'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> Check the Styx 2.1 changeLog doc/NEWS file for theme file changes',
-                    'desc'      => 'Serendipity Styx 2.1.0 fixes an issue creating the entry ID, in preview.tpl, caused by a wrong javascript execution.
+                    'desc'      => 'Serendipity Styx 2.1.0 fixes an issue creating the entry ID, in <em>"preview.tpl"</em>, caused by a wrong javascript execution.
                                     Please read the docs/NEWS file to add this manually to your custom/unsupported/copy theme.'),
 
             array(  'version'   => '2.1.0',
@@ -292,19 +292,18 @@ $tasks = array(
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
                     'function'  => '',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file "entries.tpl" needs a specific assignment',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"entries.tpl"</em> needs a specific assignment',
                     'desc'      => 'to transport the $entry variable to "sub"-templates like comments.tpl and trackbacks.tpl.
+                                   Due to scoping changes in recent Smarty versions we were in need to touch this again.
                                    All release shipped templates files have been changed already, so make sure you are using a recent version of your blog\'s theme template.
                                    If using a custom template, make sure the {foreach from=$dategroup.entries item="entry"} loop has this line after it:
-                                   <strong>{assign var="entry" value=$entry scope="root"}</strong>'),
+                                   <strong>{assign var="entry" value=$entry scope="root"}</strong>, which "scope" had to change to "root" because of the mentioned class and the Smarty upgrades.'),
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
                     'function'  => '',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file "comments.tpl" and "comments_by_authors.tpl" now use some slightly changed variables,',
-                    'desc'      => 'to check and set the "serendipity_comment_author_self" class. Please make sure to check both your files, if have in your custom theme.
-                                   Also please check that the entries.tpl file within your {foreach from=$dategroup.entries item="entry"} loop has this line after it:
-                                   <strong>{assign var="entry" value=$entry scope="root"}</strong>, which scope had to change to "root" because of the mentioned class and the Smarty upgrades.'),
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"comments.tpl"</em> and <em>"comments_by_authors.tpl"</em> now use some slightly changed variables,',
+                    'desc'      => 'to check and set the "serendipity_comment_author_self" class. Please make sure to check both your files, if have in your custom theme.'),
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_upgrader_rename_plugins',
@@ -319,7 +318,7 @@ $tasks = array(
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_cleanUpOldCompilerFiles_SPL',
-                    'title'     => 'Removal of possible old Smarty2 compiler files leftovers in root of templates_c',
+                    'title'     => 'Removal of possible old Smarty2 compiler files leftovers in the root of templates_c',
                     'arguments' => array($serendipity['serendipityPath'] . 'templates_c'),
                     'desc'      => ''),
 
