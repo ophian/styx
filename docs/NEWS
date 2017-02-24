@@ -1,12 +1,8 @@
-Version 2.2-alpha1 ()
+Version 2.1 (February, 24th 2017)
  ------------------------------------------------------------------------
 
   * Fix the "SERENDIPITY_NEEDS_UPGRADE" page redirector to allow admins
-    only. This now keeps a 503 Maintenance Mode fully intact until freed.
-
-
-Version 2.1 (February, 23rd 2017)
- ------------------------------------------------------------------------
+    only. This keeps a 503 Maintenance Mode fully intact, until freed.
 
   * Allow unicode searches for Chinese / Japanese like languages, see:
         https://board.s9y.org/viewtopic.php?f=4&t=15112
