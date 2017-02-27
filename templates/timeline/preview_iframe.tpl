@@ -7,7 +7,7 @@
     <meta name="generator" content="Serendipity v.{$serendipityVersion}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
 {* BOOTSTRAP CORE CSS *}
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 {* S9Y CSS *}
 {if $head_link_stylesheet_frontend}{* >= s9y 2.0.2 *}
     <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
 {/if}
 {* CUSTOM FONTS *}
-    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" type="text/css">
 {* ADDTIONAL COLORSET & SKIN STYLESHEETS - INCLUDED SETS ARE LOADED VIA CONFIG *}
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
 
@@ -62,7 +62,7 @@
     </main>
 
 {if $mode == 'preview'}
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/timeline.js"></script>
 
 <!--[if lt IE 9]>
