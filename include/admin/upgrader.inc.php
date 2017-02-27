@@ -429,8 +429,12 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
     }
     $data['return_here'] = true;
     $data['print_UPGRADER_RETURN_HERE'] = sprintf(SERENDIPITY_UPGRADER_RETURN_HERE, '<a href="'. $serendipity['serendipityHTTPPath'] .'">', '</a>');
-    $_SESSION['serendipityAuthedUser'] = false;
-    @session_destroy();
+    if (isset($serendipity['COOKIE']['author_information']) && serendipity_checkPermission('adminUsers')) {
+        $data['print_UPGRADER_RETURN_HERE'] .= ' / <a href="#">' . SERENDIPITY_ADMIN_SUITE . '</a>';
+    } else {
+        $_SESSION['serendipityAuthedUser'] = false;
+        @session_destroy();
+    }
 } else {
     $data['upgrade'] = true;
     $data['result_diagnose'] = sprintf(ERRORS_ARE_DISPLAYED_IN, serendipity_upgraderResultDiagnose(S9Y_U_ERROR, RED), serendipity_upgraderResultDiagnose(S9Y_U_WARNING, YELLOW), serendipity_upgraderResultDiagnose(S9Y_U_SUCCESS, GREEN));
