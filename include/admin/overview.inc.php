@@ -43,13 +43,16 @@ $data['js_failure_file'] = serendipity_getTemplateFile('admin/serendipity_editor
 serendipity_plugin_api::hook_event('backend_frontpage_display', $output);
 $data['backend_frontpage_display'] = $output['more'];
 
-$data['usedVersion']  = $serendipity['version'];
-$data['updateCheck']  = $serendipity['updateCheck'];
-$data['curVersion']   = serendipity_getCurrentVersion();
-$data['curVersName']  = $serendipity['updateVersionName'];
-$data['update']       = version_compare($data['usedVersion'], $data['curVersion'], '<');
-serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
-$data['updateButton'] = $output;
+if (serendipity_checkPermission('adminUsers')) {
+    $data['usedVersion']  = $serendipity['version'];
+    $data['updateCheck']  = $serendipity['updateCheck'];
+    $data['curVersion']   = serendipity_getCurrentVersion();
+    $data['curVersName']  = $serendipity['updateVersionName'];
+    $data['update']       = version_compare($data['usedVersion'], $data['curVersion'], '<');
+    serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
+    $output = !empty($output) ? : '<span class="msg_error"><span class="icon-info-circled"></span> To get a button, check if the autoupdate event plugin is installed!</span>';
+    $data['updateButton'] = $output;
+}
 
 if ($serendipity['default_widgets']) {
     // Can be set through serendipity_config_local.inc.php
