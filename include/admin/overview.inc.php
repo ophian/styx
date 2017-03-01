@@ -50,7 +50,7 @@ if (serendipity_checkPermission('adminUsers')) {
     $data['curVersName']  = $serendipity['updateVersionName'];
     $data['update']       = version_compare($data['usedVersion'], $data['curVersion'], '<');
     serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
-    $output = !empty($output) ? : '<span class="msg_error"><span class="icon-info-circled"></span> To get a button, check if the autoupdate event plugin is installed!</span>';
+    $output = !empty($output) ? $output : '<span class="msg_error"><span class="icon-info-circled"></span> To get a button, check if the autoupdate event plugin is installed!</span>';
     $data['updateButton'] = $output;
 }
 
