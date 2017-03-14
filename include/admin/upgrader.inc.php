@@ -494,7 +494,8 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
 
     $data['upgraderResultDiagnose4'] = array();
     if (is_dir($basedir . $serendipity['uploadHTTPPath'])) {
-        $data['isdir_uploadpath'] = is_dir($basedir . $serendipity['uploadHTTPPath']);
+        $data['uploadHTTPPath']   = $serendipity['uploadHTTPPath'];
+        $data['isdir_uploadpath'] = true;
         if (is_writable($basedir . $serendipity['uploadHTTPPath'])) {
             $data['upgraderResultDiagnose4'][] = serendipity_upgraderResultDiagnose(S9Y_U_SUCCESS, WRITABLE);
         } else {

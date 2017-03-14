@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Fix non-asssigned Smarty var in upgraderResultDiagnose, thanks to
+    Pascal Uhlmann (webcompas)
+
   * Allow the Dashboards autoupdate messaging to admin users only and
     check if the autoupdate plugin actually is installed.
 
