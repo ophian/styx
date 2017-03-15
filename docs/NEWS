@@ -1,6 +1,8 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Core ckeditor: Allow ul tag styles & classes to protect against ACF
+
   * Fix non-asssigned Smarty var in upgraderResultDiagnose, thanks to
     Pascal Uhlmann (webcompas)
 
