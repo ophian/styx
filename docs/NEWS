@@ -3,7 +3,7 @@ Version 2.2 ()
 
   * [Security] Add and check CSRF token for setting themes
 
-  * Core ckeditor: Allow ul tag styles & classes to protect against ACF
+  * Core CKEditor: Allow ul tag styles & classes to protect against ACF
 
   * Fix non-asssigned Smarty var in upgraderResultDiagnose, thanks to
     Pascal Uhlmann (webcompas)
