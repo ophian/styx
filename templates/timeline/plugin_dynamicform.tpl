@@ -8,7 +8,7 @@
                         <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$plugin_contactform_error}</p>
                     </div>
                 </div>
-                {foreach from=$comments_messagestack item="message"}
+                {foreach $comments_messagestack AS $message}
                     <div id="search-block" class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$message}</p>
@@ -62,13 +62,13 @@
                                 {foreach name="radio_option" from=$field.options item="option"}
                                     {if $option.default}{assign var="selectset" value='true'}{/if}
                                 {/foreach}
-                                <fieldset class="form-group{if $is_contactform_error && $field.required && $selectset!='true'} has-error{/if}">
+                                <fieldset class="form-group{if $is_contactform_error && $field.required && $selectset != 'true'} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">*</span>{/if}</legend>
                                     <select name="{$field.id}" class="form-control">
 {* CHANGE 'PLEASE SELECT' TO LANGUAGE CONSTANT *}
                                         {if $selectset != 'true'}<option value="" disabled selected style="display: none;">{$CONST.PLEASESELECT|default:'Please select'}...</option>{/if}
                                         {foreach name="radio_option" from=$field.options item="option"}
-                                            <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} >{$option.name}</option>     
+                                            <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} >{$option.name}</option>
                                         {/foreach}
                                     </select>
                                 </fieldset>
@@ -85,7 +85,7 @@
                             {elseif $field.type == "email"}
                                 <fieldset class="form-group{if $is_contactform_error && $field.required && !$field.default} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">*</span>{/if}</legend>
-                                    <input id="{$field.id}" class="form-control" name="serendipity[{$field.id}]" type="email" value="{$field.default}" placeholder="mail@example.org">                     
+                                    <input id="{$field.id}" class="form-control" name="serendipity[{$field.id}]" type="email" value="{$field.default}" placeholder="mail@example.org">
                                 </fieldset>
                             {else}
                                 <fieldset class="form-group{if $is_contactform_error && $field.required && !$field.default} has-error{/if}">
