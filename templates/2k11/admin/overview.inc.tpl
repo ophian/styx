@@ -131,6 +131,7 @@
                 <li><a href="http://spartacus.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS}</a></li>
                 <li><a href="https://github.com/s9y/Serendipity">GitHub Serendipity</a></li>
                 <li><a href="https://github.com/ophian/styx">GitHub Styx</a></li>
+                <li><a href="https://github.com/ophian/styx/wiki">GitHub Styx Wiki</a></li>
                 <li><a class="s9y_bookmarklet" href="{$bookmarklet}" title="{$CONST.FURTHER_LINKS_S9Y_BOOKMARKLET_DESC}">{$CONST.FURTHER_LINKS_S9Y_BOOKMARKLET}</a></li>
             </ul>
         </section>
@@ -160,7 +161,7 @@
                 </li>
                 <li>
                     <b>VI. First Start Recommendation:</b><br>
-                    <span><em>Do <u>not</u> start by installing various plugins at once. Each one allocates additional resources, like RAM or time, and slows down your blog. Keeping this in mind you may test and and remove all you want.</em></span><br>
+                    <span><em>Do <u>not</u> start by installing various plugins at once. Each one allocates additional resources, like RAM or time, and slows down your blog. Keeping this in mind you may test and remove all you want.</em></span><br>
                     <span><em>Themes are template based by the Smarty template engine, easy to learn. Each theme may easily be extended by creating a user.css file with some overwriting stylesheets of your need. If you want to have even more flexibility and independency, make yourself a copy-theme and extend it without having to mind any further system update.</em></span><br>
                     <span><em><br>Read the Documentation and the FAQ for more.</em></span><br>
                     <span><em>This System is highly configurable and some of these advanced options are not recommended to use naively without deeper knowledge of what they will do.</em></span>
