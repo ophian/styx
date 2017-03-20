@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.89');
+        $propbag->add('version',       '1.90');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -141,35 +141,35 @@ class serendipity_event_spamblock extends serendipity_event
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC);
-                $propbag->add('default', false);
+                $propbag->add('default', 'false');
                 break;
 
             case 'automagic_htaccess':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_HTACCESS);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_HTACCESS_DESC);
-                $propbag->add('default', false);
+                $propbag->add('default', 'false');
                 break;
 
             case 'hide_email':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_DESC);
-                $propbag->add('default', true);
+                $propbag->add('default', 'true');
                 break;
 
             case 'csrf':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_CSRF);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_CSRF_DESC);
-                $propbag->add('default', true);
+                $propbag->add('default', 'true');
                 break;
 
             case 'entrytitle':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE);
                 $propbag->add('description', '');
-                $propbag->add('default', false);
+                $propbag->add('default', 'false');
                 break;
 
             case 'checkmail':
@@ -195,7 +195,7 @@ class serendipity_event_spamblock extends serendipity_event
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_BODYCLONE);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_BODYCLONE_DESC);
-                $propbag->add('default', true);
+                $propbag->add('default', 'true');
                 break;
 
             case 'captchas':
@@ -232,7 +232,7 @@ class serendipity_event_spamblock extends serendipity_event
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_KILLSWITCH_DESC);
-                $propbag->add('default', false);
+                $propbag->add('default', 'false');
                 break;
 
             case 'contentfilter_activate':
@@ -733,7 +733,7 @@ class serendipity_event_spamblock extends serendipity_event
     {
         global $serendipity;
 
-        if (serendipity_db_bool($this->get_config('automagic_htaccess'))) {
+        if (serendipity_db_bool($this->get_config('automagic_htaccess', 'false'))) {
             $this->htaccess_update($_SERVER['REMOTE_ADDR']);
         }
     }
@@ -845,7 +845,7 @@ class serendipity_event_spamblock extends serendipity_event
             switch($event) {
 
                 case 'fetchcomments':
-                    if (is_array($eventData) && !$_SESSION['serendipityAuthedUser'] && serendipity_db_bool($this->get_config('hide_email', 'false'))) {
+                    if (is_array($eventData) && !$_SESSION['serendipityAuthedUser'] && serendipity_db_bool($this->get_config('hide_email', 'true'))) {
                         // Will force emails to be not displayed in comments and RSS feed for comments. Will not apply to logged in admins (so not in the backend as well)
                         @reset($eventData);
                         while(list($idx, $comment) = each($eventData)) {
@@ -940,7 +940,7 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check if entry title is the same as comment body
-                        if (serendipity_db_bool($this->get_config('entrytitle')) && trim($eventData['title']) == trim($addData['comment'])) {
+                        if (serendipity_db_bool($this->get_config('entrytitle', 'false')) && trim($eventData['title']) == trim($addData['comment'])) {
                             $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE, $addData);
                             $eventData = array('allow_comments' => false);
                             $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY;
@@ -1042,7 +1042,7 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check Trackback URLs?
-                        if (($addData['type'] == 'TRACKBACK' || $addData['type'] == 'PINGBACK') && serendipity_db_bool($this->get_config('trackback_check_url'))) {
+                        if (($addData['type'] == 'TRACKBACK' || $addData['type'] == 'PINGBACK') && serendipity_db_bool($this->get_config('trackback_check_url', 'false'))) {
                             serendipity_request_start();
 
                             $options = array('follow_redirects' => true, 'max_redirects' => 5, 'timeout' => 10);
@@ -1142,7 +1142,7 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check for identical comments. We allow to bypass trackbacks from our server to our own blog.
-                        if ( $this->get_config('bodyclone', true) === true && $_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR'] && $addData['type'] != 'PINGBACK') {
+                        if ( serendipity_db_bool($this->get_config('bodyclone', 'true')) === true && $_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR'] && $addData['type'] != 'PINGBACK') {
                             $query = "SELECT count(id) AS counter FROM {$serendipity['dbPrefix']}comments WHERE type = '" . $addData['type'] . "' AND body = '" . serendipity_db_escape_string($addData['comment']) . "'";
                             $row   = serendipity_db_query($query, true);
                             if (is_array($row) && $row['counter'] > 0) {
@@ -1192,7 +1192,7 @@ class serendipity_event_spamblock extends serendipity_event
                     break;
 
                 case 'frontend_comment':
-                    if (serendipity_db_bool($this->get_config('hide_email', 'false'))) {
+                    if (serendipity_db_bool($this->get_config('hide_email', 'true'))) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_spamblock">' . PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE . '</div>';
                     }
 
