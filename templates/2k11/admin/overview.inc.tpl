@@ -138,9 +138,9 @@
 
         <section id="s9y_quicktip" class="clearfix mfp-hide quick_list dashboard_widget">
             {if $head_charset == 'UTF-8'}
-            {include "./doc/UTF-8/quicktip_$lang.tpl"}
+            {include "./doc/UTF-8/quicktip_$lang.tpl" caching}
             {else}
-            {include "./doc/quicktip_$lang.tpl"}
+            {include "./doc/quicktip_$lang.tpl" caching}
             {/if}
         </section>
     </div>
