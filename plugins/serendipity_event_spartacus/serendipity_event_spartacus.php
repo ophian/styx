@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.50');
+        $propbag->add('version',       '2.51');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.99',
             'php'         => '5.3.0'
@@ -1208,7 +1208,7 @@ class serendipity_event_spartacus extends serendipity_event
                     break;
 
                 case 'external_plugin':
-                    if (!serendipity_db_bool($this->get_config('enable_remote'))) {
+                    if (!serendipity_db_bool($this->get_config('enable_remote', 'false'))) {
                         return false;
                     }
                     $details = ($eventData == 'spartacus_remote') ? true : false;
@@ -1267,7 +1267,7 @@ class serendipity_event_spartacus extends serendipity_event
                     break;
 
                 case 'backend_pluginlisting_header':
-                    if (serendipity_db_bool($this->get_config('enable_plugins'))) {
+                    if (serendipity_db_bool($this->get_config('enable_plugins', 'true'))) {
 ?>
 
         <div id="upgrade_notice" class="clearfix">
@@ -1279,13 +1279,13 @@ class serendipity_event_spartacus extends serendipity_event
                     break;
 
                 case 'backend_templates_fetchlist':
-                    if (serendipity_db_bool($this->get_config('enable_themes'))) {
+                    if (serendipity_db_bool($this->get_config('enable_themes', 'false'))) {
                         $eventData = $this->buildTemplateList($this->fetchOnline('template', true), 'template');
                     }
                     break;
 
                 case 'backend_templates_fetchtemplate':
-                    if (serendipity_db_bool($this->get_config('enable_themes'))) {
+                    if (serendipity_db_bool($this->get_config('enable_themes', 'false'))) {
                         if (!empty($eventData['GET']['spartacus_fetch'])) {
                             $this->download(
                                 $this->fetchOnline('template', true),
@@ -1297,8 +1297,8 @@ class serendipity_event_spartacus extends serendipity_event
                     break;
 
                 case 'backend_plugins_fetchlist':
-                    if (serendipity_db_bool($this->get_config('enable_plugins'))) {
-                        $type = (isset($serendipity['GET']['type']) && !empty($serendipity['GET']['type']) ? $serendipity['GET']['type'] : 'sidebar');
+                    if (serendipity_db_bool($this->get_config('enable_plugins', 'true'))) {
+                        $type = (isset($serendipity['GET']['type']) && !empty($serendipity['GET']['type'])) ? $serendipity['GET']['type'] : 'sidebar';
 
                         $eventData = array(
                            'pluginstack' => $this->buildList($this->fetchOnline($type), $type),
@@ -1312,7 +1312,7 @@ class serendipity_event_spartacus extends serendipity_event
                     break;
 
                 case 'backend_plugins_fetchplugin':
-                    if (serendipity_db_bool($this->get_config('enable_plugins'))) {
+                    if (serendipity_db_bool($this->get_config('enable_plugins', 'true'))) {
                         if (!empty($eventData['GET']['spartacus_fetch'])) {
                             $baseDir = $this->download($this->fetchOnline($eventData['GET']['spartacus_fetch'], true), $eventData['GET']['install_plugin']);
 
