@@ -2,7 +2,7 @@ Version 2.2 ()
  ------------------------------------------------------------------------
 
   * Add backend theme admin/doc directory for backend based lang
-    documentaries per template files.
+    documentary per template files, cached(!) by Smarty.
     The Dashboard Quicktip section uses it already.
 
   * [Security] Add and check CSRF token for setting themes
