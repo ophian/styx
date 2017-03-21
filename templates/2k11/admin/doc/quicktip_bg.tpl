@@ -10,7 +10,7 @@
                 </li>
                 <li>
                     <b>III. Add even more to the Dashboard?</b><br>
-                    <span><em>Open up the plugin list via &#187;{$CONST.MENU_SETTINGS}</em> &#10140; <em>{$CONST.MENU_PLUGINS}&#171; and install an <u>event</u> plugin, eg the recommended &#187;Serendipity Autoupdate&#171; Plugin. You may find it in the DASHBOARD group category.</em></span>
+                    <span><em>Open up the plugin list via &#187;{$CONST.MENU_SETTINGS}</em> &#10140; <em>{$CONST.MENU_PLUGINS}&#171; and install an <u>event</u> plugin, eg the recommended &#187;Serendipity Autoupdate&#171; Plugin. You may find it in the &#187;{$CONST.PLUGIN_GROUP_BACKEND_DASHBOARD}&#171; group category.</em></span>
                 </li>
                 <li>
                     <b>IV. Searching for more themes?</b><br>
@@ -22,7 +22,7 @@
                 </li>
                 <li>
                     <b>VI. First Start Recommendation:</b><br>
-                    <span><em>Do <u>not</u> start by installing various plugins at once. Each one allocates additional resources, like RAM or time, and slows down your blog. Keeping this in mind you may test and remove all you want.</em></span><br>
+                    <span><em>Do <u>not</u> start by installing various plugins at once. Each one allocates additional resources, like RAM, additional database queries, or time and slows down your blog. Keeping this in mind you may test and remove all you want.</em></span><br>
                     <span><em>Themes are template based by the Smarty template engine, easy to learn. Each theme may easily be extended by creating a user.css file with some overwriting stylesheets of your need. If you want to have even more flexibility and independency, make yourself a copy-theme and extend it without having to mind any further system update.</em></span><br>
                     <span><em><br>Read the Documentation and the FAQ for more.</em></span><br>
                     <span><em>This System is highly configurable and some of these advanced options are not recommended to use naively without deeper knowledge of what they will do.</em></span>

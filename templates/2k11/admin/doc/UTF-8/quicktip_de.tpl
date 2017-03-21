@@ -2,7 +2,7 @@
             <ol class="plainList quick_info">
                 <li>
                     <b>I. Was ist das hier?</b><br>
-                    <span><em>Dies ist das &#187;<b>Backend</b>&#171;; Der Platz der Administration.<br>Dieser ist für die Öffentlichkeit nicht zugänglich, welche nur auf das &#187;<b>Frontend</b>&#171;, das veröffentliche <u>Blog</u>, gestaltet durch ihr <u>Theme</u> zugreifen kann.</em></span>
+                    <span><em>Dies ist das &#187;<b>Backend</b>&#171;; Der Platz der Administration.<br>Dieses ist der Öffentlichkeit nicht zugänglich, welche nur auf das &#187;<b>Frontend</b>&#171;, das veröffentliche <u>Blog</u>, gestaltet durch ihr <u>Theme</u> zugreifen kann.</em></span>
                 </li>
                 <li>
                     <b>II. Die Übersicht konfigurieren?</b><br>
@@ -10,15 +10,15 @@
                 </li>
                 <li>
                     <b>III. Der Übersicht mehr hinzufügen?</b><br>
-                    <span><em>Öffnen Sie die Plugin Liste über &#187;{$CONST.MENU_SETTINGS}</em> &#10140; <em>{$CONST.MENU_PLUGINS}&#171; und installieren Sie <u>event</u> Plugins, zB. das empfohlene &#187;Serendipity Autoupdate&#171; Plugin. Sie werden es in der DASHBOARD Kategoriengruppe finden.</em></span>
+                    <span><em>Öffnen Sie die Plugin Liste über &#187;{$CONST.MENU_SETTINGS}</em> &#10140; <em>{$CONST.MENU_PLUGINS}&#171; und installieren Sie <u>(event)</u> Ereignis-Plugins, zB. das empfohlene &#187;Serendipity Autoupdate&#171; Plugin. Sie werden es in der &#187;{$CONST.PLUGIN_GROUP_BACKEND_DASHBOARD}&#171; Kategoriengruppe finden.</em></span>
                 </li>
                 <li>
                     <b>IV. Suche nach mehr Themes?</b><br>
-                    <span><em>Öffnen Sie die &#187;Spartacus&#171; Event Plugin Einstellungen und erlauben Sie die &#187;Themes&#171; Einstellung. Sie ist standardmäßig deaktiviert, da das erstmalige Laden durchaus ein wenig Zeit beanspruchen kann.</em></span>
+                    <span><em>Öffnen Sie die Einstellung des &#187;Spartacus&#171; Ereignis-Plugins und erlauben Sie die &#187;Themes&#171; Option. Sie ist standardmäßig deaktiviert, da das erstmalige Laden durchaus ein wenig Zeit beanspruchen kann.</em></span>
                 </li>
                 <li>
                     <b>V. Spezifische Konfigurationen?</b><br>
-                    <span><em>Die Einstellungen für das Autoupdate Plugins zum Beispiel werden and zwei Orten erteilt. In der Plugin Konfiguration und genereller in der &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Sektion. Globale Theme Einstellungen sind ebenfalls dort zu setzen, aber manche Themes haben noch erweiterte eigene Konfigurations-Einstellungen, wie das Standard Theme 2k11. Auch die Blog Sprache als weiteres Beispiel wird generell in &#187;{$CONST.CONFIGURATION}&#171;... und genauer für den Benutzer in &#187;{$CONST.PERSONAL_SETTINGS}&#171; eingestellt.</em></span>
+                    <span><em>Die Einstellungen für das Autoupdate Plugin zum Beispiel werden an zwei Orten erteilt. In der Plugin Konfiguration und genereller in der &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Sektion. Globale Theme Einstellungen sind ebenfalls dort zu setzen, aber manche Themes haben noch erweiterte eigene Konfigurations-Einstellungen, wie das Standard Theme 2k11. Auch die Blog Sprache als weiteres Beispiel wird generell in &#187;{$CONST.CONFIGURATION}&#171;... und genauer für den Benutzer in &#187;{$CONST.PERSONAL_SETTINGS}&#171; eingestellt.</em></span>
                 </li>
                 <li>
                     <b>VI. Empfehlungen für den ersten Start:</b><br>
