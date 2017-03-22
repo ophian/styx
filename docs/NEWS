@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Silence deprecated mcrypt_decrypt() error with PHP 7.1.x ++ versions
+    until this will be replaced.
+
   * Add backend theme admin/doc directory for backend based lang
     documentary per template files, cached(!) by Smarty.
     The Dashboard Quicktip section uses it already.

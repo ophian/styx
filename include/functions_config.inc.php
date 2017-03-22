@@ -513,7 +513,7 @@ function serendipity_checkAutologin($ident, $iv) {
     if (function_exists('mcrypt_decrypt') && !empty($iv)) {
         $key    = $iv;
         $iv     = base64_decode($iv);
-        $cookie = unserialize(mcrypt_decrypt(MCRYPT_BLOWFISH, $key, base64_decode($autologin['value']), MCRYPT_MODE_CBC, $iv));
+        $cookie = unserialize(@mcrypt_decrypt(MCRYPT_BLOWFISH, $key, base64_decode($autologin['value']), MCRYPT_MODE_CBC, $iv));
     } else {
         $cookie = unserialize(base64_decode($autologin['value']));
     }
