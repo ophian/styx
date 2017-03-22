@@ -1,7 +1,7 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
-  * Silence deprecated mcrypt_decrypt() error with PHP 7.1.x ++ versions
+  * Silence deprecated mcrypt_* login errors with PHP 7.1.x ++ versions
     until this will be replaced.
 
   * Add backend theme admin/doc directory for backend based lang

@@ -468,9 +468,9 @@ function serendipity_issueAutologin($array) {
 
     if (function_exists('mcrypt_encrypt')) {
         // Secure the package data when being stored inside the Database
-        $iv  = mcrypt_create_iv(mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_CBC), MCRYPT_RAND);
+        $iv  = @mcrypt_create_iv(@mcrypt_get_iv_size(MCRYPT_BLOWFISH, MCRYPT_MODE_CBC), MCRYPT_RAND);
         $key = base64_encode($iv);
-        $package = mcrypt_encrypt(MCRYPT_BLOWFISH, $key, $package, MCRYPT_MODE_CBC, $iv);
+        $package = @mcrypt_encrypt(MCRYPT_BLOWFISH, $key, $package, MCRYPT_MODE_CBC, $iv);
         serendipity_setCookie('author_information_iv', $key);
     }
     $package = base64_encode($package);
