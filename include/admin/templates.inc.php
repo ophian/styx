@@ -28,7 +28,7 @@ class template_option
         return $this->values[$item];
     }
 
-    function set_config($item, $value)
+    function set_config($name, $value, $implodekey = '^')
     {
         global $serendipity;
 
