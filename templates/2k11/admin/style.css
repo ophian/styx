@@ -1939,6 +1939,7 @@ h3 .media_file_actions {
     margin-right: .5em;
     flex-wrap: wrap;
     justify-content: space-between;
+    margin: .25em .5em .25em 0;
 }
 .no-flexbox #edit_entry_category fieldset > .form_check {
     display: inline-table;
