@@ -13,16 +13,16 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
         $this->title = $this->get_config('title', $this->title);
         $subtitle    = $this->get_config('backend_title', '');
         if (!empty($subtitle)) {
-            $desc    = '(' . $subtitle . ') ' . HOLDS_A_BLAHBLAH;
+            $desc = '(' . $subtitle . ') ' . HOLDS_A_BLAHBLAH;
         } else {
-            $desc    = HOLDS_A_BLAHBLAH;
+            $desc = HOLDS_A_BLAHBLAH;
         }
 
         $propbag->add('name',          HTML_NUGGET);
         $propbag->add('description',   $desc);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.3');
         $propbag->add('configuration', array(
                                         'title',
                                         'backend_title',
@@ -38,6 +38,8 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
 
     function introspect_config_item($name, &$propbag)
     {
+        global $serendipity;
+
         switch($name) {
             case 'title':
                 $propbag->add('type',        'string');
@@ -55,8 +57,8 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
 
             case 'content':
                 $propbag->add('type',        'html');
-                $propbag->add('name',        CONTENT);
-                $propbag->add('description', THE_NUGGET);
+                $propbag->add('name',        ($serendipity['wysiwyg'] ? '' : CONTENT));
+                $propbag->add('description', ($serendipity['wysiwyg'] ? '' : THE_NUGGET));
                 $propbag->add('default',     '');
                 break;
 
