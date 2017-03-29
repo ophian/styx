@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Fix missing escapement in the next theme staticpage.tpl file
+    array vars *.top.topp_name and *.top.exit_name
+
   * Silence deprecated mcrypt_* login warnings with PHP 7.1.x ++
     versions until this will be replaced.
 
