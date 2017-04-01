@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * PHP 7+ will now use openssl en-/decrytion for the cookie based login
+    authentication instead of the deprecated and outdated mcrypt routines.
+
   * Fix wrong counting limitation to 4 drafts in the Dashboard, if no
     future entries are available. As already stated in the 2.1-beta1
     notes, there are variables available which can influence the
