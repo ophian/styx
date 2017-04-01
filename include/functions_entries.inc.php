@@ -212,7 +212,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
         $args = func_get_args();
         $args = array_values($args);
-        $key = md5(serialize($args));
+        $key  = md5(serialize($args));
 
         if (($entries = $cache->get($key, "fetchEntries")) !== false) {
             return unserialize($entries);
@@ -463,7 +463,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     if ($serendipity['useInternalCache']) {
         $args = func_get_args();
         $args = array_values($args);
-        $key = md5(serialize($args));
+        $key  = md5(serialize($args));
         $cache->save(serialize($ret), $key, "fetchEntries");
     }
 
