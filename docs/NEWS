@@ -1,12 +1,13 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
-  * Fix limitation to 4 drafts in the Dashboard, if no future entries
-    are available. As already stated in the 2.1-beta1 notes, there are
-    variables available which can influence the Dashboard entry limit.
+  * Fix wrong counting limitation to 4 drafts in the Dashboard, if no
+    future entries are available. As already stated in the 2.1-beta1
+    notes, there are variables available which can influence the
+    Dashboard entry limit (default: 5).
 
-  * Fix missing escapement in the next theme staticpage.tpl file
-    array vars *.top.topp_name and *.top.exit_name
+  * Fix missing escapement in the "next" theme staticpage.tpl file
+    array vars *.top.topp_name and *.top.exit_name.
 
   * Silence deprecated mcrypt_* login warnings with PHP 7.1.x ++
     versions until this will be replaced.
@@ -20,7 +21,7 @@ Version 2.2 ()
   * Core CKEditor: Allow ul tag styles & classes to protect against ACF
 
   * Fix non-asssigned Smarty var in upgraderResultDiagnose, thanks to
-    Pascal Uhlmann (webcompas)
+    Pascal Uhlmann (webcompas).
 
   * Allow the Dashboards autoupdate messaging to admin users only and
     check if the autoupdate plugin actually is installed.
