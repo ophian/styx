@@ -15,5 +15,5 @@
 @define('PLUGIN_MODEMAINTAIN_FREEBUTTON', 'Zurücksetzen des 503 Wartungs Modus');
 @define('PLUGIN_MODEMAINTAIN_RETURN', 'Das Blog ist jetzt im %s Modus. <a href="%s">Zurück</a> zum Backend für die anstehenden Wartungsarbeiten.');
 
-@define('PLUGIN_MODEMAINTAIN_TITLE_AUTOLOGIN', 'Um den Wartungsmodus administrieren zu können, müssen sie sich abmelden und mit dem "Daten speichern" Modus wieder anmelden.');
+@define('PLUGIN_MODEMAINTAIN_TITLE_AUTOLOGIN', 'Um den Wartungsmodus administrieren zu können, müssen Sie sich abmelden und mit dem "Daten speichern" Modus wieder anmelden.');
 
