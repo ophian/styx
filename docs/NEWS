@@ -1,6 +1,10 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Fix limitation to 4 drafts in the Dashboard, if no future entries
+    are available. As already stated in the 2.1-beta1 notes, there are
+    variables available which can influence the Dashboard entry limit.
+
   * Fix missing escapement in the next theme staticpage.tpl file
     array vars *.top.topp_name and *.top.exit_name
 
@@ -445,7 +449,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Add ability to set and download a custom Serendipity autoupdater
     download file and get notifications for this upgrade URL in the
-    dashboard. This adds a new config option to configuration - general
+    Dashboard. This adds a new config option to configuration - general
     settings.
 
   * Fix Spartacus plugin for custom mirror (GitHub) cases.
@@ -575,12 +579,12 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Update the spartacus_remote url option to support a hidden
     (obfuscated) URI for the serendipity_event_plugup plugin, which adds
-    an upgrade note for Spartacus plugin updates to the dashboard.
+    an upgrade note for Spartacus plugin updates to the Dashboard.
 
   * Restrict category author permissions
 
   * Set a new option to "personal preferences" user options, to show
-    no default widgets (draft entries and comments) in the dashboard.
+    no default widgets (draft entries and comments) in the Dashboard.
 
   * Fix an old bug with {serendipity_showPlugin
     id="serendipity_plugin_freetag:<the-hash>" side="right"
@@ -616,9 +620,9 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Fix missing perm checks for "standard user" in MediaLibrary
 
-  * Fix show dashboard entries by authors entries
+  * Fix show Dashboard entries by authors entries
 
-  * Fix show dashboard comments by authors entries (#385)
+  * Fix show Dashboard comments by authors entries (#385)
 
   * Use CDATA encoded body for ATOM feed
 
@@ -670,13 +674,13 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
   * Added link to preview spartacus themes on blog.s9y.org
 
   * Added two configuration variables that can be set in
-    serendipity_config_local.inc.php to influence the dashboard entry
+    serendipity_config_local.inc.php to influence the Dashboard entry
     limit:
 
     - $serendipity['dashboardLimit']: How many future entries to fetch
       (default: 5)
     - $serendipity['dashboardDraftLimit']: How many entries in total
-      shall be displayed in the dashboard section (default: 5)
+      shall be displayed in the Dashboard section (default: 5)
     - $serendipity['dashboardCommentsLimit']: How many comments
       (default: 5)
 
@@ -869,7 +873,7 @@ Version 2.0.1 (March 12th, 2015)
     Teo for reporting this issue.
 
   * Improved detection for possible upgrade/plugin/PHP errors. A
-    warning will be emitted on the dashboard, when the Serendipity
+    warning will be emitted on the Dashboard, when the Serendipity
     JavaScript library could not be loaded.
 
   * syndication fix: use absolute urls for subtome
@@ -887,15 +891,15 @@ Version 2.0.1 (March 12th, 2015)
     subdirectory) theme. This file can be used for customized CSS of
     a blog-admin which carries over to future Serendipity updates
 
-  * Issue 299: Do not display dashboard for users with no permission
+  * Issue 299: Do not display Dashboard for users with no permission
     to perform actions in the backend (frontend-users)
 
   * Make "rewriteURL" smarty modifier available to do a
     {$CONST.PATH_ARCHIVE|rewriteURL} within a smarty template file.
 
-  * Add a generic odd/even for backend dashboard widgets to align
-    properly. Future dashboard widgets need to get the new extra
-    class dashboard widget on the section element they create.
+  * Add a generic odd/even for backend Dashboard widgets to align
+    properly. Future Dashboard widgets need to get the new extra
+    class Dashboard widget on the section element they create.
 
   * Fix event emoticate plugin to reflect proper call usage of
     serendipity_getTemplateFile(), if a theme uses custom emoticons.
@@ -915,7 +919,7 @@ Version 2.0.1 (March 12th, 2015)
   * Minor backend UI fixes (taxonomy quick view in entry editor,
      'Done' msg emitted by Bayes plugin)
 
-  * Clearer language constants for entries in dashboard, labelled
+  * Clearer language constants for entries in Dashboard, labelled
     "In progress"
 
 
@@ -933,7 +937,7 @@ Version 2.0 (January 23rd, 2015)
     when it is not actively used.
 
   * Fix entryproperties being removed when publishing an article
-    from the dashboard and by specific plugins (freetag, trackback)
+    from the Dashboard and by specific plugins (freetag, trackback)
     that modify entry data.
 
   * Fix deleting comments when user is not an admin, but the entry
@@ -1103,7 +1107,7 @@ Version 2.0-beta3 (July 25th, 2014)
 
   * Fixed media insert target bug (issued by #143, #145, #121)
 
-  * Fixed publish drafted-entries via dashboard (issue #160)
+  * Fixed publish drafted-entries via Dashboard (issue #160)
 
   * All frontend themes that rely on the bundled Core jQuery library
     are currently using the jquery.noConflict-mode for compatibility
@@ -1134,7 +1138,7 @@ Version 2.0-beta3 (July 25th, 2014)
   * Fixed wrong local documentation URL in plugin configuration
 
   * Added new "backend_dashboard" event-hook for plugins to use
-    within dashboard.
+    within Dashboard.
 
   * Backend and Frontend themes can now be set independently from
     each other. New backend themes now need to set:
@@ -1188,7 +1192,7 @@ Version 2.0-beta3 (July 25th, 2014)
   * RSS importer accepts pubDate in addition to pubdate element.
 
   * Upgrader in Dashboard can be disabled, returns error message when
-    URL not accessible
+    URL is not accessible
 
   * Added a category filtering ability for the entry editor
 

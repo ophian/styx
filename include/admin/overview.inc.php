@@ -80,7 +80,6 @@ if ($serendipity['default_widgets']) {
     if (is_array($comments) && count($comments) > 0) {
         foreach ($comments AS &$comment) {
             $comment['entrylink'] = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true) . '#c' . $comment['id'];
-
             $comment['fullBody']  = $comment['body'];
             $comment['summary']   = serendipity_mb('substr', $comment['body'], 0, 100);
 
@@ -107,7 +106,7 @@ if ($serendipity['default_widgets']) {
                         'e.timestamp >= ' . serendipity_serverOffsetHour() . $efilter
                     );
 
-    $entriesAmount = count($entries);
+    $entriesAmount = is_array($entries) ? count($entries) : 0; // since in case of an empty future $entries fetch, it returns the $result_type = $type_map[$result_type]; which is 1 in this case
     if ($entriesAmount < (int)$serendipity['dashboardDraftLimit']) {
         // there is still space for drafts
         $drafts = serendipity_fetchEntries(
@@ -119,6 +118,7 @@ if ($serendipity['default_widgets']) {
                         'timestamp DESC',
                         "isdraft = 'true' AND e.timestamp <= " . serendipity_serverOffsetHour() . $efilter
                     );
+
         if (is_array($entries) && is_array($drafts)) {
             $entries = array_merge($entries, $drafts);
         } else {
