@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * PHP 7+ will now use random_bytes() for the author token hash, to
+    generate cryptographically secure pseudo-random bytes.
+
   * PHP 7+ will now use openssl en-/decrytion for the cookie based login
     authentication instead of the deprecated and outdated mcrypt routines.
 
