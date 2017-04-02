@@ -42,6 +42,7 @@
         <div class="form_select">
             <label for="import_from">{$CONST.IMPORT_WEBLOG_APP}</label>
             <select id="import_from" name="serendipity[importFrom]">
+                <option value="none"></option>
             {foreach $list AS $v => $k}
                 <option value="{$v}">{$k}</option>
             {/foreach}

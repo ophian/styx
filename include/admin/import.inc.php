@@ -18,29 +18,33 @@ if (function_exists('set_time_limit')) {
 }
 
 /* Class construct. Each importer plugin must extend this class. */
-class Serendipity_Import {
+class Serendipity_Import
+{
     var $trans_table  = '';
     var $force_recode = true;
-/**
- * Return textual notes of an importer plugin
- *
- * If an importer plugin needs to show any notes on the userinterface, those can be returned in this method.
- *
- * @access public
- * @return string  HTML-code of a interface/user hint
- */
-    function getImportNotes() {
+
+    /**
+     * Return textual notes of an importer plugin
+     *
+     * If an importer plugin needs to show any notes on the userinterface, those can be returned in this method.
+     *
+     * @access public
+     * @return string  HTML-code of a interface/user hint
+     */
+    function getImportNotes()
+    {
         return "";
     }
 
-/**
- * Get a list of available charsets the user can choose from. Depends on current language of the blog.
- *
- * @access public
- * @param  boolean   If set to true, returns the option "UTF-8" as first select choice, which is then preselected. If false, the current language of the blog will be the default.
- * @return array     Array of available charsets to choose from
- */
-    function getCharsets($utf8_default = true) {
+    /**
+     * Get a list of available charsets the user can choose from. Depends on current language of the blog.
+     *
+     * @access public
+     * @param  boolean   If set to true, returns the option "UTF-8" as first select choice, which is then preselected. If false, the current language of the blog will be the default.
+     * @return array     Array of available charsets to choose from
+     */
+    function getCharsets($utf8_default = true)
+    {
         $charsets = array();
 
         if (!$utf8_default) {
@@ -62,14 +66,15 @@ class Serendipity_Import {
         return $charsets;
     }
 
-/**
- * Decodes/Transcodes a string according to the selected charset, and the charset of the blog
- *
- * @access public
- * @param  string   input string to convert
- * @return string   converted string
- */
-    function &decode($string) {
+    /**
+     * Decodes/Transcodes a string according to the selected charset, and the charset of the blog
+     *
+     * @access public
+     * @param  string   input string to convert
+     * @return string   converted string
+     */
+    function &decode($string)
+    {
         // xml_parser_* functions do recoding from ISO-8859-1/UTF-8
         if (!$this->force_recode && (LANG_CHARSET == 'ISO-8859-1' || LANG_CHARSET == 'UTF-8')) {
             return $string;
@@ -100,28 +105,30 @@ class Serendipity_Import {
         }
     }
 
-/**
- * Decode/Transcode a string with the indicated translation table (member property). Useful for transcoding HTML entities to native characters.
- *
- * @access public
- * @param  string   input string
- * @return string   output string
- */
-    function strtr($data) {
+    /**
+     * Decode/Transcode a string with the indicated translation table (member property). Useful for transcoding HTML entities to native characters.
+     *
+     * @access public
+     * @param  string   input string
+     * @return string   output string
+     */
+    function strtr($data)
+    {
         return strtr($this->decode($data), $this->trans_table);
     }
 
-/**
- * Decode/Transcode an array of strings.
- *
- * LONG
- *
- * @access public
- * @see $this->strtr()
- * @param   array   input array
- * @return  array   output array
- */
-    function strtrRecursive($data) {
+    /**
+     * Decode/Transcode an array of strings.
+     *
+     * LONG
+     *
+     * @access public
+     * @see $this->strtr()
+     * @param   array   input array
+     * @return  array   output array
+     */
+    function strtrRecursive($data)
+    {
         foreach ($data AS $key => $val) {
             if (is_array($val)) {
                 $data[$key] = $this->strtrRecursive($val);
@@ -133,16 +140,17 @@ class Serendipity_Import {
         return $data;
     }
 
-/**
- * Get the transcoding table, depending on whether it was enabled for the instance of the importer plugin
- *
- * The member property $this->trans_table will be filled with the output of this function
- *
- * @access public
- * @see    $this->strtr()
- * @return null
- */
-    function getTransTable() {
+    /**
+     * Get the transcoding table, depending on whether it was enabled for the instance of the importer plugin
+     *
+     * The member property $this->trans_table will be filled with the output of this function
+     *
+     * @access public
+     * @see    $this->strtr()
+     * @return null
+     */
+    function getTransTable()
+    {
         if (!serendipity_db_bool($this->data['use_strtr'])) {
             $this->trans_table = array();
             return true;
@@ -157,15 +165,16 @@ class Serendipity_Import {
         }
     }
 
-/**
- * Execute a DB query on the source database of the import, instead of a DB query on the target database
- *
- * @access public
- * @param  string      SQL Query
- * @param  resource    DB connection resource
- * @return resource    SQL response
- */
-    function &nativeQuery($query, $db = false) {
+    /**
+     * Execute a DB query on the source database of the import, instead of a DB query on the target database
+     *
+     * @access public
+     * @param  string      SQL Query
+     * @param  resource    DB connection resource
+     * @return resource    SQL response
+     */
+    function &nativeQuery($query, $db = false)
+    {
         global $serendipity;
 
         mysqli_select_db($db, $this->data['name']);
@@ -188,7 +197,7 @@ class Serendipity_Import {
         }
 
         if ($dbn && $serendipity['dbNames']) {
-            mysqli_set_charset ( $db, $dbn );
+            mysqli_set_charset( $db, $dbn );
         }
 
         $return = &mysqli_query($db, $query);
@@ -196,6 +205,7 @@ class Serendipity_Import {
         serendipity_db_reconnect();
         return $return;
     }
+
 }
 
 
