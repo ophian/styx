@@ -728,7 +728,7 @@ class serendipity_event_entryproperties extends serendipity_event
 
     <section id="maintenance_buildcache" class="quick_list">
         <h3><?=PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE?></h3>
-        <a class="button_link build_cache" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=buildcache" data-delmsg="<?=PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT?>"><?=PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE?></a>
+        <a class="button_link build_cache" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=buildcache" data-delmsg="<?=PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT?>"><?=PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE?> (EP)</a>
         <button class="toggle_info button_link" type="button" data-href="#ep_cacheinfo"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button>
         <div id="ep_cacheinfo" class="comment_status additional_info">
             <?=sprintf(PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_DESC, CONFIGURATION, INSTALL_CAT_SETTINGS)?>
