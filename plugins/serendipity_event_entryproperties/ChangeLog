@@ -1,3 +1,8 @@
+1.50:
+-----
+    * Add maintenance Cache info text to better understand its meaning
+      and comparisson against the cores configuration cache option.
+
 1.49:
 -----
     * Check available users array before loop

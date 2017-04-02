@@ -46,3 +46,5 @@
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_EMPTYBOX', 'Empty movable grouping grid-(space-)box');
 
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_DESC', 'This is the cache build by the entryproperties event plugin. It is <u>different</u> to the one in the "%s" / "%s" option. It enables to cache entries in the database, already formatted (prebuild) by the Markup Plugins in use, eg. nl2br, or markdown, textile, etc.<p>If you set the caching here, you are assigned to a new page where you have to cache entries in portions of 25 entries per page. Apart from a better control, this is done to not overload your blogs resources caching all your entries in once!</p>Once this is done, <b>no</b> further changes to any markup plugins or their usage, the "order" or "changing (markup) horses" in general, will have effect to the shown frontpage entries, until you have stored (cached) them here again. If you change older entries in the entryform and save them again, this also changes the cached copy though. This behaviour need to be remembered to not get confused by future blog configuations.');
+

@@ -44,3 +44,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE', 'Reihenfolge der Optionen');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_SEQUENCE_DESC', 'Hier kann ausgewählt werden, welche Optionen in welcher Reihenfolge im Editiermodus des Artikels angezeigt werden.');
 
+// Next lines were translated on 2017/04/02
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_EMPTYBOX', 'Funktionslose (Geschwister-)Leer-Box');
+@define('PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_DESC', 'Dies ist der Cache des entryproperties event Plugins. Er ist <u>verschieden</u> vom Cache in der "%s" / "%s" Option. Er erlaubt bereits formatierte Einträge in der Datenbank abzulegen, so wie sie normalerweise durch die gesetzten Markup Plugins, zB. nl2br, oder markdown, textile, etc. für das Frontend behandelt ausgegeben werden.<p>Wenn sie das Caching hier erlauben, werden Sie zu einer Seite weitergeleitet, wo sie die Einträge des Blogs in 25-iger Schritten portionsweise durchlaufen. Dies geschieht zur besseren Kontrolle und damit die Ressourcen des Systems nicht überschritten werden wenn viele Einträge zugleich formatiert und abgespeichert werden müssen.</p>Sobald dies getan ist, sind keine weiteren Änderungen in der Reihenfolge oder im Austausch von installierten Markup Plugins für die Ausgabe möglich, ohne das dieser Cache erneut durchlaufen wird. Natürlich werden erneut gespeicherte alte Einträge über das Eintragsformular auch für den Cache Eintrag gespeichert. Dieses Verhalten muss erinnert werden, wenn zukünftig Konfigurationen des Systems vorgenommen werden, damit man nicht durcheinander kommt.');
+

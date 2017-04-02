@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.49');
+        $propbag->add('version',       '1.50');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -652,6 +652,13 @@ class serendipity_event_entryproperties extends serendipity_event
     margin-top: -2.7em; /* without core #adv_opts background: -1.5em; */
     margin-right: auto;
 }
+#maintenance_buildcache {
+    display: inline-table;
+    width: 100%;
+}
+#ep_cacheinfo {
+    margin-bottom: 1em;
+}
 
 /* desktop */
 @media only screen and (min-width: 768px) {
@@ -678,6 +685,13 @@ class serendipity_event_entryproperties extends serendipity_event
     }
     #edit_entry_entryproperties .ep_entry_submit {
         margin-right: 1.2em;
+    }
+    #sequence {
+        float: right;
+        margin-right: inherit;
+    }
+    #ep_cacheinfo {
+        margin-bottom: 1.5em;
     }
 }
 /* mobile */
@@ -710,9 +724,17 @@ class serendipity_event_entryproperties extends serendipity_event
 
                 case 'backend_maintenance':
                     if ($is_cache && $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
-                        echo '<section id="maintenance_buildcache" class="quick_list">';
-                        echo '<h3>'. PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE .'</h3>';
-                        echo '<a class="button_link build_cache" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=buildcache" data-delmsg="'. PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT .'">'. PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE .'</a></section>';
+?>
+
+    <section id="maintenance_buildcache" class="quick_list">
+        <h3><?=PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE?></h3>
+        <a class="button_link build_cache" href="?serendipity[adminModule]=event_display&amp;serendipity[adminAction]=buildcache" data-delmsg="<?=PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNEXT?>"><?=PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE?></a>
+        <button class="toggle_info button_link" type="button" data-href="#ep_cacheinfo"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button>
+        <div id="ep_cacheinfo" class="comment_status additional_info">
+            <?=sprintf(PLUGIN_EVENT_ENTRYPROPERTY_BUILDCACHE_DESC, CONFIGURATION, INSTALL_CAT_SETTINGS)?>
+        </div>
+    </section>
+<?php
                     }
                     break;
 
