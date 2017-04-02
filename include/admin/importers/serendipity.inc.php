@@ -6,7 +6,8 @@
  *  Serendipity Importer,   by Garvin Hicking *
  * ****************************************************************/
 
-class Serendipity_Import_Serendipity extends Serendipity_Import {
+class Serendipity_Import_Serendipity extends Serendipity_Import
+{
     var $info        = array('software' => 'Serendipity');
     var $data        = array();
     var $inputFields = array();
@@ -15,7 +16,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
     var $debug       = true;
     var $counter     = 0;
 
-    function getImportNotes() {
+    function getImportNotes()
+    {
         // TODO: I18n!
         return '<p>This importer is still work in progress. It can currently import most things of the database. HOWEVER it can NOT import previously installed plugins (including their configuration) or any database tables of installed plugins. Those must be migrated manually. Also, you must use FTP to transfer your uploaded images to the new location.</p>
         <p>Please do a test-run first if you are SQL-savvy. If you encounter any errors, save the message output you get - it will definitely help debugging!</p>
@@ -24,7 +26,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
         <p>After these precautions: The importer code generally works very well for me and my purposes. Your mileage may vary.</p>';
     }
 
-    function __construct($data) {
+    function __construct($data)
+    {
         global $serendipity;
 
         $this->data = $data;
@@ -83,16 +86,18 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
                             );
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-
-    function import_table(&$s9ydb, $table, $primary_keys, $where = null, $dupe_check = false, $fix_relations = false, $skip_dupes = false) {
+    function import_table(&$s9ydb, $table, $primary_keys, $where = null, $dupe_check = false, $fix_relations = false, $skip_dupes = false)
+    {
         global $serendipity;
 
         echo "<span class='block_level'>Starting with table <strong>{$table}</strong>...</span>";
@@ -212,10 +217,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
         }
     }
 
-
-
-
-    function import_groups(&$s9ydb) {
+    function import_groups(&$s9ydb)
+    {
         global $serendipity;
 
         $this->import_table(
@@ -238,7 +241,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
         );
     }
 
-    function import_authors(&$s9ydb) {
+    function import_authors(&$s9ydb)
+    {
         global $serendipity;
 
         $this->import_table(
@@ -279,7 +283,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
         );
     }
 
-    function import_entries(&$s9ydb) {
+    function import_entries(&$s9ydb)
+    {
         global $serendipity;
 
         $this->import_table(
@@ -347,7 +352,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
         );
     }
 
-    function import_media(&$s9ydb) {
+    function import_media(&$s9ydb)
+    {
         global $serendipity;
 
         $this->import_table(
@@ -378,8 +384,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
         );
     }
 
-
-    function import_cat(&$s9ydb) {
+    function import_cat(&$s9ydb)
+    {
         global $serendipity;
 
         $this->import_table(
@@ -424,7 +430,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
         serendipity_rebuildCategoryTree();
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         // Save this so we can return it to its original value at the end of this method.
@@ -467,8 +474,10 @@ class Serendipity_Import_Serendipity extends Serendipity_Import {
         }
         return true;
     }
+
 }
 
 return 'Serendipity_Import_Serendipity';
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

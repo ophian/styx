@@ -5,13 +5,15 @@
 
 require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
 
-class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
+class Serendipity_Import_LiveJournalXML extends Serendipity_Import
+{
     var $info        = array('software' => 'LiveJournal XML');
     var $data        = array();
     var $inputFields = array();
     var $force_recode = false;
 
-    function __construct($data) {
+    function __construct($data)
+    {
         global $serendipity;
         $this->data = $data;
         $this->inputFields = array(array('text'    => 'LiveJournal XML',
@@ -39,7 +41,8 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
         );
     }
 
-    function _getCategoryList() {
+    function _getCategoryList()
+    {
         $res = serendipity_fetchCategories('all');
         $ret = array(0 => NO_CATEGORY);
         if (is_array($res)) {
@@ -50,7 +53,8 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
         return $ret;
     }
 
-    function GetChildren(&$vals, &$i) {
+    function GetChildren(&$vals, &$i)
+    {
         $children = array();
         $cnt = sizeof($vals);
         while (++$i < $cnt) {
@@ -83,7 +87,8 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
         }
     }
 
-    function &parseXML(&$xml) {
+    function &parseXML(&$xml)
+    {
         // XML functions
         $xml_string = '<?xml version="1.0" encoding="UTF-8" ?>';
         if (preg_match('@(<\?xml.+\?>)@imsU', $xml, $xml_head)) {
@@ -139,15 +144,18 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
         return $tree;
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function getTimestamp($string) {
+    function getTimestamp($string)
+    {
         if (preg_match('@(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})@', $string, $match)) {
             return mktime($match[4], $match[5], $match[6], $match[2], $match[3], $match[1]);
         } else {
@@ -155,7 +163,8 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
         }
     }
 
-    function gatherComments($entrydata) {
+    function gatherComments($entrydata)
+    {
         $comments = array();
         if (is_array($entrydata['children'])) {
             foreach($entrydata['children'] AS $idx3 => $commententry) {
@@ -197,7 +206,8 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
         return $comments;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         if (!file_exists($this->data['url'])) {
@@ -277,8 +287,10 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import {
 
         return true;
     }
+
 }
 
 return 'Serendipity_Import_LiveJournalXML';
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

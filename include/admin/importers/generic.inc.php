@@ -353,3 +353,4 @@ class Serendipity_Import_Generic extends Serendipity_Import
 return 'Serendipity_Import_Generic';
 
 /* vim: set sts=4 ts=4 expandtab : */
+?>

@@ -87,6 +87,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
             return '<ul><li>'.implode('</li><li>', $notes).'</li></ul>'.IMPORTER_MT_NOTE;
         }
     }
+
     function validateData()
     {
         return sizeof($this->data);
@@ -484,5 +485,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
     }
 
 }
+
 return 'Serendipity_Import_MovableType';
+
 ?>

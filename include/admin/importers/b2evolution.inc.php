@@ -6,17 +6,20 @@
  *  b2evolution  Importer,   by Garvin Hicking *
  * ****************************************************************/
 
-class Serendipity_Import_b2evolution extends Serendipity_Import {
+class Serendipity_Import_b2evolution extends Serendipity_Import
+{
     var $info        = array('software' => 'b2Evolution 0.9.0.11 Paris');
     var $data        = array();
     var $inputFields = array();
     var $categories  = array();
 
-    function getImportNotes() {
+    function getImportNotes()
+    {
         return '';
     }
 
-    function __construct($data) {
+    function __construct($data)
+    {
         $this->data = $data;
         $this->inputFields = array(array('text' => INSTALL_DBHOST,
                                          'type' => 'input',
@@ -52,15 +55,18 @@ class Serendipity_Import_b2evolution extends Serendipity_Import {
                             );
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         // Save this so we can return it to its original value at the end of this method.
@@ -258,7 +264,8 @@ class Serendipity_Import_b2evolution extends Serendipity_Import {
         return true;
     }
 
-    function importCategories($parentid = 0, $new_parentid = 0, $b2db) {
+    function importCategories($parentid = 0, $new_parentid = 0, $b2db)
+    {
         if (is_null($parentid)) {
             $where = 'WHERE ISNULL(cat_parent_ID)';
         } else {
@@ -289,6 +296,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import {
 
         return true;
     }
+
 }
 
 return 'Serendipity_Import_b2evolution';

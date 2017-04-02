@@ -6,18 +6,21 @@
  *  sunlog  Importer,    by Garvin Hicking *
  * ****************************************************************/
 
-class Serendipity_Import_sunlog extends Serendipity_Import {
+class Serendipity_Import_sunlog extends Serendipity_Import
+{
     var $info        = array('software' => 'Sunlog 0.4.4');
     var $data        = array();
     var $inputFields = array();
     var $categories  = array();
 
-    function getImportNotes() {
+    function getImportNotes()
+    {
         return '<p>Sunlog uses a crypted string to represent stored passwords. Thus, those passwords are incompatible with the MD5 hashing of Serendipity and can not be reconstructed. The passwords for all users have been set to "sunlog". <strong>You need to modify the passwords manually for each user</strong>, we are sorry for that inconvenience.</p>'
              . '<p>Sunlog has a granular control over access privileges which cannot be migrated to Serendipity. All Users will be migrated as Superusers, you may need to set them to editor or chief users manually after import.</p>';
     }
 
-    function __construct($data) {
+    function __construct($data)
+    {
         $this->data = $data;
         $this->inputFields = array(array('text' => INSTALL_DBHOST,
                                          'type' => 'input',
@@ -58,15 +61,18 @@ class Serendipity_Import_sunlog extends Serendipity_Import {
                             );
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         // Save this so we can return it to its original value at the end of this method.
@@ -240,7 +246,8 @@ class Serendipity_Import_sunlog extends Serendipity_Import {
         return true;
     }
 
-    function importCategories($parentid = 0, $new_parentid = 0, $sunlogdb) {
+    function importCategories($parentid = 0, $new_parentid = 0, $sunlogdb)
+    {
         $where = "WHERE parent = '" . mysqli_escape_string($parentid) . "'";
 
         $res = $this->nativeQuery("SELECT * FROM {$this->data['prefix']}categories
@@ -267,6 +274,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import {
 
         return true;
     }
+
 }
 
 return 'Serendipity_Import_sunlog';

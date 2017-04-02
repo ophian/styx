@@ -6,13 +6,15 @@
  *  phpbb  Importer,     by Garvin Hicking *
  * ****************************************************************/
 
-class Serendipity_Import_phpbb extends Serendipity_Import {
+class Serendipity_Import_phpbb extends Serendipity_Import
+{
     var $info        = array('software' => 'phpBB');
     var $data        = array();
     var $inputFields = array();
     var $categories  = array();
 
-    function __construct($data) {
+    function __construct($data)
+    {
         $this->data = $data;
         $this->inputFields = array(array('text' => INSTALL_DBHOST,
                                          'type' => 'input',
@@ -53,15 +55,18 @@ class Serendipity_Import_phpbb extends Serendipity_Import {
                             );
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         // Save this so we can return it to its original value at the end of this method.
@@ -300,6 +305,7 @@ class Serendipity_Import_phpbb extends Serendipity_Import {
         // That was fun.
         return true;
     }
+
 }
 
 return 'Serendipity_Import_phpbb';

@@ -2,12 +2,14 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
-class Serendipity_Import_OldBlogger extends Serendipity_Import {
+class Serendipity_Import_OldBlogger extends Serendipity_Import
+{
     var $info        = array('software' => 'Blogger.com [OLD]');
     var $data        = array();
     var $inputFields = array();
 
-    function __construct($data) {
+    function __construct($data)
+    {
         global $serendipity;
 
         $this->data = $data;
@@ -33,15 +35,18 @@ class Serendipity_Import_OldBlogger extends Serendipity_Import {
                                          'value'   => 'false'));
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function getImportNotes() {
+    function getImportNotes()
+    {
         $out = '
 <style type="text/css">
 <!--
@@ -102,7 +107,8 @@ ENDPOST
         return $out;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         if (empty($this->data['bloggerfile']) || !file_exists($this->data['bloggerfile'])) {
@@ -247,6 +253,7 @@ ENDPOST
 
         return true;
     }
+
 }
 
 return 'Serendipity_Import_OldBlogger';

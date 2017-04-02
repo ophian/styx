@@ -6,17 +6,20 @@
  *  textpattern  Importer,   by Garvin Hicking *
  * ****************************************************************/
 
-class Serendipity_Import_textpattern extends Serendipity_Import {
+class Serendipity_Import_textpattern extends Serendipity_Import
+{
     var $info        = array('software' => 'Textpattern 1.0rc1');
     var $data        = array();
     var $inputFields = array();
     var $categories  = array();
 
-    function getImportNotes() {
+    function getImportNotes()
+    {
         return '<p>Textpattern uses MySQLs native PASSWORD() function to save passwords. Thus, those passwords are incompatible with the MD5 hashing of Serendipity. The passwords for all users have been set to "txp". <strong>You need to modify the passwords manually for each user</strong>, we are sorry for that inconvenience.</p>';
     }
 
-    function __construct($data) {
+    function __construct($data)
+    {
         $this->data = $data;
         $this->inputFields = array(array('text' => INSTALL_DBHOST,
                                          'type' => 'input',
@@ -57,15 +60,18 @@ class Serendipity_Import_textpattern extends Serendipity_Import {
                             );
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         // Save this so we can return it to its original value at the end of this method.
@@ -218,7 +224,8 @@ class Serendipity_Import_textpattern extends Serendipity_Import {
         return true;
     }
 
-    function importCategories($parentname = 'root', $parentid = 0, $txpdb) {
+    function importCategories($parentname = 'root', $parentid = 0, $txpdb)
+    {
         $res = $this->nativeQuery("SELECT * FROM {$this->data['prefix']}txp_category
                                      WHERE parent = '" . mysqli_escape_string($parentname) . "' AND type = 'article'", $txpdb);
         if (!$res) {
@@ -243,6 +250,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import {
 
         return true;
     }
+
 }
 
 return 'Serendipity_Import_textpattern';

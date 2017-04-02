@@ -8,12 +8,14 @@
  *****************************************************************/
 
 // These are used by the XML parser
-class element{
+class element
+{
    var $name = '';
    var $attributes = array();
    var $data = '';
    var $depth = 0;
 }
+
 $elements = $stack = array();
 $count = $depth = 0;
 
@@ -35,13 +37,15 @@ switch ($serendipity['lang']) {
         break;
 }
 
-class Serendipity_Import_VoodooPad extends Serendipity_Import {
+class Serendipity_Import_VoodooPad extends Serendipity_Import
+{
     var $info        = array('software' => 'VoodooPad');
     var $data        = array();
     var $inputFields = array();
     var $force_recode = false;
 
-    function __construct($data) {
+    function __construct($data)
+    {
         $this->data = $data;
         $this->inputFields = array(
                                 array('text'      => IMPORTER_VOODOO_FILEPROMPT,
@@ -65,19 +69,23 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import {
                                       'default'   => 'true' ) );
     }
 
-    function getImportNotes(){
+    function getImportNotes()
+    {
         return IMPORTER_VOODOO_REQUIREMENTFAIL;
     }
 
-    function validateData() {
+    function validateData()
+    {
        return sizeof($_FILES['serendipity']['tmp_name']['import']['voodooPadXML']);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
         global $elements;
 
@@ -186,7 +194,8 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import {
         return true;
     }
 
-    function write_links($aliases) {
+    function write_links($aliases)
+    {
         // Here we run through the static pages database and put in cross links
         // around the keywords in the text
         global $serendipity;
@@ -215,7 +224,8 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import {
 
     // Search and replace avoiding content of links
     // **TODO** Fix this to avoid short links screwing up longer links
-    function wikify($alias, $link, $txt) {
+    function wikify($alias, $link, $txt)
+    {
         $r = preg_split('((>)|(<))', $txt, -1, PREG_SPLIT_DELIM_CAPTURE);
         $ns = '';
         for ($i = 0; $i < count($r); $i++) {
@@ -228,10 +238,11 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import {
 
         return join("", $r);
     }
+
 }
 
 // XML Parser callbacks
-function start_element_handler($parser, $name, $attribs){
+function start_element_handler($parser, $name, $attribs) {
     global $elements, $stack, $count, $depth;
 
     $id = $count;
@@ -250,7 +261,7 @@ function start_element_handler($parser, $name, $attribs){
    $depth++;
 }
 
-function end_element_handler($parser, $name){
+function end_element_handler($parser, $name) {
    global $stack, $depth;
 
    array_pop($stack);
@@ -258,11 +269,12 @@ function end_element_handler($parser, $name){
    $depth--;
 }
 
-function character_data_handler($parser, $data){
+function character_data_handler($parser, $data) {
    global $elements, $stack;
 
    $elements[$stack[count($stack)-1]]->data .= $data;
 }
 
 return 'Serendipity_Import_VoodooPad';
+
 ?>

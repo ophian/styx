@@ -5,12 +5,14 @@
 # Loosely based on the Importer by Stefan Koopmanschap for TXP:
 # http://www.leftontheweb.com/pivot_to_textpattern.phps
 
-class Serendipity_Import_Pivot extends Serendipity_Import {
+class Serendipity_Import_Pivot extends Serendipity_Import
+{
     var $info        = array('software' => 'Pivot');
     var $data        = array();
     var $inputFields = array();
 
-    function __construct($data) {
+    function __construct($data)
+    {
         $this->data = $data;
         $this->inputFields = array(array('text'    => PARENT_DIRECTORY,
                                          'type'    => 'input',
@@ -19,15 +21,18 @@ class Serendipity_Import_Pivot extends Serendipity_Import {
         );
     }
 
-    function validateData() {
+    function validateData()
+    {
         return sizeof($this->data);
     }
 
-    function getInputFields() {
+    function getInputFields()
+    {
         return $this->inputFields;
     }
 
-    function _getCategoryList() {
+    function _getCategoryList()
+    {
         $res = serendipity_fetchCategories('all');
         $ret = array(0 => NO_CATEGORY);
         if (is_array($res)) {
@@ -38,7 +43,8 @@ class Serendipity_Import_Pivot extends Serendipity_Import {
         return $ret;
     }
 
-    function toTimestamp($string) {
+    function toTimestamp($string)
+    {
         if (empty($string)) {
             return time();
         }
@@ -47,7 +53,8 @@ class Serendipity_Import_Pivot extends Serendipity_Import {
         return mktime($parts[3], $parts[4], 0, $parts[1], $parts[2], $parts[0]);
     }
 
-    function &unserialize($file) {
+    function &unserialize($file)
+    {
         $c = file_get_contents($file);
         $entrydata = str_replace(array('<?php /* pivot */ die(); ?>', "\r"), array('', ''), $c);
         $entrydata = unserialize($entrydata);
@@ -60,7 +67,8 @@ class Serendipity_Import_Pivot extends Serendipity_Import {
         return $entrydata;
     }
 
-    function import() {
+    function import()
+    {
         global $serendipity;
 
         $max_import = 9999;
@@ -196,6 +204,7 @@ class Serendipity_Import_Pivot extends Serendipity_Import {
 
         return true;
     }
+
 }
 
 return 'Serendipity_Import_Pivot';
