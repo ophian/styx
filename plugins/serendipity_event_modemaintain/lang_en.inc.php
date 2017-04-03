@@ -1,11 +1,13 @@
 <?php
 
 @define('PLUGIN_MODEMAINTAIN_TITLE', 'Maintenance Mode');
-@define('PLUGIN_MODEMAINTAIN_TITLE_DESC', 'Allows to set your public open blog - the frontend - into a 503 Service Temporarily Unavailable mode.');
+@define('PLUGIN_MODEMAINTAIN_TITLE_DESC', 'Allows to set your public open blog - the frontend - into a "503 - Service Temporarily Unavailable" mode.');
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN', 'Service Maintenance Mode');
 @define('PLUGIN_DASHBOARD_MAINTENANCE_MODE_ACTIVE', '...active maintenance...');
-@define('PLUGIN_DASHBOARD_MAINTENANCE_MODE_DESC', "ATTENTION:<br>\nDo not log-off, close your browser or tab, or submit the Configuration options form, until reset to false again!");
+@define('PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC', "ATTENTION:<br>\nDo <b>not</b> log-off, close your browser or tab, or submit the Configuration options form, until reset to false again!");
+@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC', "EXPERIMENTAL WARNING:<br>\nCurrently there <em>may</em> be a page loading issue not switching the mode button immediately. You then need to access the setmode and the undo button twice, with a ~1 second delay inbetween, OR click somewhere else and return, to see the button change (which has to: green to red, or vice versa).");
+@define('PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC', "EMERGENCY CASE:<br>\nIf you ever logged yourself out without resetting the 503 Maintenance Mode, or your login cookie got destroyed, you need to set the &dollar;serendipity['maintenance'] variable to 'false' in your serendipity_config_local.inc.php file to get public access to your blog again!");
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Public Maintenance Mode Text');
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', 'This site &#187;%s&#171; is currently undergoing some maintenance work and therefore is temporarily unavailable. Please visit us later.');

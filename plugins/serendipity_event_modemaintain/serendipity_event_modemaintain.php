@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.13');
+        $propbag->add('version',       '1.14');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.99',
             'php'         => '5.3.0'
@@ -225,8 +225,6 @@ class serendipity_event_modemaintain extends serendipity_plugin
 <?php
                         break;
                     }
-                    $ew = "EXPERIMENTAL WARNING: Currently there <em>may</em> be a page loading issue not switching the mode button immediately. You then need to access the setmode and the undo button twice, with a ~1 second delay inbetween, OR click somewhere else and return, to see the button change (which has to: green to red, or vice versa).";
-                    $ec = "EMERGENCY CASE: If you ever logged yourself out without resetting the 503 Maintenance Mode, or your login cookie got destroyed, you need to set the &dollar;serendipity['maintenance'] variable to 'false' in your serendipity_config_local.inc.php file to get public access to your blog again!";
                     if (serendipity_db_bool($serendipity['maintenance']) !== true && $this->blockMaintenance) {
 ?>
 
@@ -234,10 +232,10 @@ class serendipity_event_modemaintain extends serendipity_plugin
         <h3><?=PLUGIN_MODEMAINTAIN_MAINTAIN?></h3>
 
         <a id="moma" class="button_link state_submit" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/maintenance/" title=""><span><?=PLUGIN_MODEMAINTAIN_BUTTON?></span></a>
-        <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button> [ <b>README!</b> ]
-        <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_DASHBOARD_MAINTENANCE_MODE_DESC?>
-        <p><span class="icon-info-circled" aria-hidden="true"></span> <?=$ew?></p>
-        <div><span class="icon-info-circled" aria-hidden="true"></span> <?=$ec?></div></div>
+        <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button> <span title="README">[ <b>!</b> ]</span>
+        <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC?>
+        <p><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC?></p>
+        <div><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC?></div></div>
     </section>
 
 <?php
@@ -248,10 +246,10 @@ class serendipity_event_modemaintain extends serendipity_plugin
         <h3><?=PLUGIN_MODEMAINTAIN_MAINTAIN?></h3>
 
         <a id="moma" class="button_link state_cancel" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/public/" title=""><span><?=PLUGIN_MODEMAINTAIN_FREEBUTTON?></span></a>
-        <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button> [ <b>README!</b> ]
-        <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_DASHBOARD_MAINTENANCE_MODE_DESC?>
-        <p><span class="icon-info-circled" aria-hidden="true"></span> <?=$ew?></p>
-        <div><span class="icon-info-circled" aria-hidden="true"></span> <?=$ec?></div></div>
+        <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button> <span title="README">[ <b>!</b> ]</span>
+        <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC?>
+        <p><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC?></p>
+        <div><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC?></div></div>
     </section>
 
 <?php
