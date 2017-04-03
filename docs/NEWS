@@ -1,6 +1,10 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Enhance maintenance modemaintain (plugin) notification
+
+  * Enhance and add maintenance (entryproperties) cache notification
+
   * PHP 7+ will now use random_bytes() for the author token hash, to
     generate cryptographically secure pseudo-random bytes.
 
