@@ -523,7 +523,7 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
         //      but it does not do and ciphertext is always false with an "OpenSSL error: error:0607A082:digital envelope routines:EVP_CIPHER_CTX_set_key_length:invalid key length" error or empty.
         //      Which I think is a matter of storing (maybe SQL or Cookie related), since it does well without. Even using bin2hex/hex2bin with the Cookie data did not do, so far.
         //      Leaving my latest tries here for further testing. Remove double ## and disable cryptor class calls for testing. Allow the debugging with care!
-        ##$algo = ( version_compare(PHP_VERSION, '7.1.3') >= 0 ) ? 'aes-256-gcm' : 'aes-256-ctr';
+        ##$algo = ( PHP_VERSION_ID >= 70103 ) ? 'aes-256-gcm' : 'aes-256-ctr';
 
         if ($decrypt) {
             if (function_exists('openssl_decrypt')) {
