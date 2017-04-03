@@ -515,14 +515,15 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
     } else {
 
         require_once S9Y_PEAR_PATH . 'cryptor/cryptor.php';
-        // Uses 'aes-256-ctr' to avoid the need for padding and related issues. Unfortunately GCM cannot be used as the PHP openssl module does not provide
-        // a way to retrieve the GCM tag. This is remedied in PHP 7.1 when associated data can be retrieved.
-        // Ian: WELL, I DEFINITELY tried with GCM and setting of IV length for AEAD mode with Apache/2.4.25 (Win32) OpenSSL/1.0.2j PHP/7.1.3 on WIN,
-        // but it does not do and ciphertext is always false with an "OpenSSL error: error:0607A082:digital envelope routines:EVP_CIPHER_CTX_set_key_length:invalid key length" error or empty.
-        // Which I think is a matter of storing (maybe SQL or Cookie related), since it does well without. Even using bin2hex/hex2bin with the Cookie did not do, so far.
-        // Leaving my latest tries here for further testing.
+        // CRYPTOR NOTES:
+        //      Uses 'aes-256-ctr' to avoid the need for padding and related issues. Unfortunately GCM cannot be used as the PHP openssl module does not provide
+        //      a way to retrieve the GCM tag. This is remedied in PHP 7.1 when associated data can be retrieved.
+        // Ian:
+        //      WELL, I DEFINITELY tried long with GCM and setting of IV length for AEAD mode with OpenSSL/1.0.2j PHP/7.1.3 on WIN,
+        //      but it does not do and ciphertext is always false with an "OpenSSL error: error:0607A082:digital envelope routines:EVP_CIPHER_CTX_set_key_length:invalid key length" error or empty.
+        //      Which I think is a matter of storing (maybe SQL or Cookie related), since it does well without. Even using bin2hex/hex2bin with the Cookie data did not do, so far.
+        //      Leaving my latest tries here for further testing. Remove double ## and disable cryptor class calls for testing. Allow the debugging with care!
         ##$algo = ( version_compare(PHP_VERSION, '7.1.3') >= 0 ) ? 'aes-256-gcm' : 'aes-256-ctr';
-        #$algo = 'aes-256-ctr';
 
         if ($decrypt) {
             if (function_exists('openssl_decrypt')) {
@@ -641,7 +642,6 @@ function serendipity_checkAutologin($ident, $iv) {
     return $cookie;
 }
 
-
 /**
  * Set a session cookie which can identify a user accross http/https boundaries
  */
@@ -750,7 +750,7 @@ function serendipity_authenticate_author($username = '', $password = '', $is_has
                     serendipity_setCookie('old_session', session_id(), false);
                     if (!$is_hashed) {
                         serendipity_setAuthorToken();
-                        $_SESSION['serendipityPassword']    = $serendipity['serendipityPassword'] = $password;
+                        $_SESSION['serendipityPassword'] = $serendipity['serendipityPassword'] = $password;
                     }
 
                     $_SESSION['serendipityUser']         = $serendipity['serendipityUser']         = $username;
