@@ -6,10 +6,11 @@ Version 2.2 ()
   * Enhance and add maintenance (entryproperties) cache notification
 
   * PHP 7+ will now use random_bytes() for the author token hash, to
-    generate cryptographically secure pseudo-random bytes.
+    generate cryptographically secure pseudo-random bytes. The older
+    now seeds better with the Mersenne Twister random number generator.
 
   * PHP 7+ will now use openssl en-/decrytion for the cookie based login
-    authentication instead of the deprecated and outdated mcrypt routines.
+    authentication instead of the deprecated and outdated mcrypt library.
 
   * Fix wrong counting limitation to 4 drafts in the Dashboard, if no
     future entries are available. As already stated in the 2.1-beta1
