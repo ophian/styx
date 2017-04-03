@@ -655,7 +655,7 @@ function serendipity_setAuthorToken() {
  * Perform user authentication routine
  *
  * If a user is already authenticated via session data, this bypasses some routines.
- * After a user has ben authenticated, several SESSION variables ar set.
+ * After a user has been authenticated, several SESSION variables are set.
  * If the authentication fails, the session is destroyed.
  *
  * @access public
