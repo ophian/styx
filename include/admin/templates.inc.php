@@ -34,20 +34,20 @@ class template_option
 
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
                                     WHERE okey = 't_" . serendipity_db_escape_string($serendipity['template']) . "'
-                                      AND name = '" . serendipity_db_escape_string($item) . "'");
+                                      AND name = '" . serendipity_db_escape_string($name) . "'");
 
-        if ($this->config[$item]['scope'] == 'global') {
+        if ($this->config[$name]['scope'] == 'global') {
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
                                    WHERE okey = 't_global'
-                                     AND name = '" . serendipity_db_escape_string($item) . "'");
-            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (okey, name, value)
-                                       VALUES ('t_global', '" . serendipity_db_escape_string($item) . "', '" . serendipity_db_escape_string($value) . "')");
+                                     AND name = '" . serendipity_db_escape_string($name) . "'");
+            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
+                                       VALUES ('" . serendipity_db_escape_string($name) . "', '" . serendipity_db_escape_string($value) . "', 't_global')");
         } else {
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
                                    WHERE okey = 't_" . serendipity_db_escape_string($serendipity['template']) . "'
-                                     AND name = '" . serendipity_db_escape_string($item) . "'");
-            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (okey, name, value)
-                                       VALUES ('t_" . serendipity_db_escape_string($serendipity['template']) . "', '" . serendipity_db_escape_string($item) . "', '" . serendipity_db_escape_string($value) . "')");
+                                     AND name = '" . serendipity_db_escape_string($name) . "'");
+            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
+                                       VALUES ('" . serendipity_db_escape_string($name) . "', '" . serendipity_db_escape_string($value) . "', 't_" . serendipity_db_escape_string($serendipity['template']) . "')");
         }
         return true;
     }
@@ -131,7 +131,7 @@ if (is_array($template_config)) {
     serendipity_plugin_api::hook_event('backend_templates_configuration_top', $template_config);
     $data["has_config"] = true;
 
-    if ($serendipity['POST']['adminAction'] == 'configure' &&  serendipity_checkFormToken()) {
+    if ($serendipity['POST']['adminAction'] == 'configure' && serendipity_checkFormToken()) {
         $storage = new template_option();
         $storage->import($template_config);
         foreach($serendipity['POST']['template'] AS $option => $value) {
