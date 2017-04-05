@@ -2359,8 +2359,6 @@ function serendipity_loadGlobalThemeOptions(&$template_config, &$template_loaded
     serendipity_plugin_api::hook_event('backend_templates_globalthemeoptions', $template_config, $supported);
 }
 
-
-
 /**
  * Check if a member of a group has permissions to execute a plugin
  *
