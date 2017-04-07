@@ -376,7 +376,7 @@ function serendipity_db_schema_import($query)
 }
 
 /**
- * Returns the option to a LIMIT SQL statement, because it varies accross DB systems
+ * Returns the option to a LIMIT SQL statement, because it varies accros DB systems
  *
  * @access public
  * @param  int      Number of the first row to return data from

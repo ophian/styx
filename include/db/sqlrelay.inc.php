@@ -13,20 +13,20 @@ function serendipity_db_begin_transaction() {
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
         case 'mysql':
-           $sqlstr = 'start transaction';
-           break;
+            $sqlstr = 'start transaction';
+            break;
 
         case 'postgresql':
-           $sqlstr = 'begin work';
-           break;
+            $sqlstr = 'begin work';
+            break;
 
         case 'sqlite':
-           $sqlstr = 'begin transaction';
-           break;
+            $sqlstr = 'begin transaction';
+            break;
 
         default:
-           $sqlstr = 'start transaction';
-           break;
+            $sqlstr = 'start transaction';
+            break;
     }
     serendipity_db_query($sqlstr);
 }
@@ -115,12 +115,11 @@ function generate_resultset($cursor, $result_type = 'sqlr_BOTH') {
 
 function &serendipity_db_query($sql, $single = false, $result_type = "both", $reportErr = false, $assocKey = false, $assocVal = false, $expectError = false) {
     global $serendipity;
-    $type_map = array(
-                         'assoc' => sqlr_ASSOC,
-                         'num'   => sqlr_NUM,
-                         'both'  => sqlr_BOTH,
-                         'true'  => true,
-                         'false' => false
+    $type_map = array(  'assoc' => sqlr_ASSOC,
+                        'num'   => sqlr_NUM,
+                        'both'  => sqlr_BOTH,
+                        'true'  => true,
+                        'false' => false
     );
     static $benchmark = false;
 
@@ -146,16 +145,16 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     if ($benchmark) {
         $end = microtime_float();
 
-        $cur = sqlrcur_alloc($serendipity['dbConn']);
-        $sql_b="INSERT INTO BLOGLOG (request, timestamp, sql, exec_time, ip) VALUES ('" . serendipity_db_escape_string($_SERVER['REQUEST_URI']) . "', NOW(), '" . serendipity_db_escape_string($sql) . "', '" . (number_format($end-$start, 10)) . "', '" . serendipity_db_escape_string($_SERVER['REMOTE_ADDR']) . "')";
-        $c = sqlrcur_sendQuery($cur, $sql_b);
+        $cur   = sqlrcur_alloc($serendipity['dbConn']);
+        $sql_b = "INSERT INTO BLOGLOG (request, timestamp, sql, exec_time, ip) VALUES ('" . serendipity_db_escape_string($_SERVER['REQUEST_URI']) . "', NOW(), '" . serendipity_db_escape_string($sql) . "', '" . (number_format($end-$start, 10)) . "', '" . serendipity_db_escape_string($_SERVER['REMOTE_ADDR']) . "')";
+        $c     = sqlrcur_sendQuery($cur, $sql_b);
 
-        $psql = $sql;
-        $psql = preg_replace('@[0-9]{10}@', 'TIMESTAMP', $psql);
-        $sql_U="UPDATE BLOGLOG_TOTAL SET counter = counter + 1 WHERE sql = '" . serendipity_db_escape_string($psql) . "'";
-        $c = sqlrcur_sendQuery($cur, $sql_U);
+        $psql  = $sql;
+        $psql  = preg_replace('@[0-9]{10}@', 'TIMESTAMP', $psql);
+        $sql_U = "UPDATE BLOGLOG_TOTAL SET counter = counter + 1 WHERE sql = '" . serendipity_db_escape_string($psql) . "'";
+        $c     = sqlrcur_sendQuery($cur, $sql_U);
         if (sqlrcur_affectedRows() < 1) {
-           $sql_i="INSERT INTO BLOGLOG_TOTAL (sql, counter) VALUES ('" . serendipity_db_escape_string($psql) . "', 1)";
+           $sql_i = "INSERT INTO BLOGLOG_TOTAL (sql, counter) VALUES ('" . serendipity_db_escape_string($psql) . "', 1)";
            $c = sqlrcur_sendQuery($cur,$sql_i);
         }
     }
@@ -203,8 +202,8 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
                 return generate_resultset($cur, $result_type);
             }
 
-            $row=generate_resultset($cur);
-            $rows=array();
+            $row = generate_resultset($cur);
+            $rows = array();
 
             for($idx=0, $idxc = count($row); $idx < $idxc ; $idx++) {
                 if (!empty($assocKey)) {
@@ -239,19 +238,19 @@ function serendipity_db_insert_id($table = '', $id = '') {
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
         case 'mysql':
-           $sqlstr='SELECT LAST_INSERT_ID()';
-           break;
+            $sqlstr='SELECT LAST_INSERT_ID()';
+            break;
 
         case 'postgresql':
-           $sqlstr = "SELECT currval('{$serendipity['dbPrefix']}{$table}_{$id}_seq'::text) AS {$id}";
-           break;
+            $sqlstr = "SELECT currval('{$serendipity['dbPrefix']}{$table}_{$id}_seq'::text) AS {$id}";
+            break;
 
         case 'sqlite':
-           $sqlstr = 'SELECT last_insert_rowid()';
-           break;
+            $sqlstr = 'SELECT last_insert_rowid()';
+            break;
 
         default:
-           $sqlstr = 'SELECT LAST_INSERT_ID()';
+            $sqlstr = 'SELECT LAST_INSERT_ID()';
     }
 
     $row = serendipity_db_query($sqlstr, true);
@@ -361,7 +360,7 @@ function serendipity_db_escape_string($str) {
 }
 
 /**
- * Returns the option to a LIMIT SQL statement, because it varies accross DB systems
+ * Returns the option to a LIMIT SQL statement, because it varies across DB systems
  *
  * @access public
  * @param  int      Number of the first row to return data from
@@ -369,7 +368,7 @@ function serendipity_db_escape_string($str) {
  * @return string   SQL string to pass to a LIMIT statement
  */
 function serendipity_db_limit($start, $offset) {
-        return $start . ', ' . $offset;
+    return $start . ', ' . $offset;
 }
 
 /**
@@ -385,7 +384,7 @@ function serendipity_db_limit_sql($limitstring) {
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
     case "mysql":
-       return ' LIMIT ' . $limitstring;
+        return ' LIMIT ' . $limitstring;
     case "postgresql":
         $limit_split = explode(',', $limitstring);
         if (count($limit_split) > 1) {
@@ -395,7 +394,7 @@ function serendipity_db_limit_sql($limitstring) {
         }
         return $limit;
     default:
-       return ' LIMIT ' . $limitstring;
+        return ' LIMIT ' . $limitstring;
     }
 }
 
@@ -418,8 +417,8 @@ function serendipity_db_connect() {
         $function = 'sqlrcon_alloc';
     }
 
-    #$serendipity['dbHost']="localhost:9000"
-    $dbHostPort=explode(":", $serendipity['dbHost']);
+    #$serendipity['dbHost'] = "localhost:9000";
+    $dbHostPort = explode(":", $serendipity['dbHost']);
     $serendipity['dbConn'] = $function($dbHostPort[0], $dbHostPort[1], "", $serendipity['dbUser'], $serendipity['dbPass'], 0, 1);
     sqlrcon_debugOff($serendipity['dbConn']);
 

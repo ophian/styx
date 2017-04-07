@@ -12,7 +12,7 @@
  var s9ymediabuttons = [];
 
  // Init CKEDITOR added plugins
- // Seperate by comma, no whitespace allowed, and keep last comma, since later on concatenated with Serendipity hooked plugins, eg MediaLibrary!
+ // Separate by comma, no whitespace allowed, and keep last comma, since later on concatenated with Serendipity hooked plugins, eg MediaLibrary!
  // For some CKEDITOR plugin you need the "widget" plugin, which is added here.
  //    Plugin Dependencies: "widget"      Add-on Dependencies: "Line Utilities" and "Clipboard"
  // "mediaembed" is a fast and simple YouTube code CKEditor-Plugin: v. 0.5+ (https://github.com/frozeman/MediaEmbed, 2013-09-12) to avoid ACF restrictions

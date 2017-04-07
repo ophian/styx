@@ -26,7 +26,7 @@ function serendipity_upgraderResultDiagnose($result, $s) {
     global $errorCount, $data;
 
     if ( $result === S9Y_U_SUCCESS ) {
-        $data['u_success'] = true; // we dont need data here explicitely, but we keep it for possible future purposes
+        $data['u_success'] = true; // we do not need data here explicitly, but we keep it for possible future purposes
         return '<span class="msg_success">'. $s .'</span>';
     }
 

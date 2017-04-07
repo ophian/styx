@@ -46,7 +46,7 @@ $data['installerHTTPPath'] = str_replace('//', '/', dirname($_SERVER['PHP_SELF']
 function serendipity_installerResultDiagnose($result, $s) {
     global $errorCount, $data;
     if ( $result === S9Y_I_SUCCESS ) {
-        $data['i_success'] = true; // we dont need data here explicitely, but we keep it for possible future purposes
+        $data['i_success'] = true; // we do not need data here explicitly, but we keep it for possible future purposes
         return '<span class="msg_success">'. $s .'</span>';
     }
     if ( $result === S9Y_I_WARNING ) {
@@ -69,7 +69,7 @@ if (!empty($serendipity['POST']['getstep']) && is_numeric($serendipity['POST']['
 
 /* From configuration to install */
 if ( sizeof($_POST) > 1 && $serendipity['GET']['step'] == '3' ) {
-    /* One problem, if the user chose to do an easy install, not all config vars has been transfered
+    /* One problem, if the user chose to do an easy install, not all config vars has been transferred
        Therefore we fetch all config vars with their default values, and merge them with our POST data */
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);

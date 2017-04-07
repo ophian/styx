@@ -123,7 +123,7 @@ function serendipity_db_escape_string($string) {
 }
 
 /**
- * Returns the option to a LIMIT SQL statement, because it varies accross DB systems
+ * Returns the option to a LIMIT SQL statement, because it varies accros DB systems
  *
  * @access public
  * @param  int      Number of the first row to return data from
