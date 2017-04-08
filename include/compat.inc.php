@@ -192,7 +192,9 @@ if (!function_exists('errorToExceptionHandler')) {
          * (bool) FALSE         Beta/alpha builds
          * (string) 'debug'     Developer build, specifically enabled.
          */
-        $debug_note = '<br />For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a full stack-trace.';
+        $debug_note = ($serendipity['production'] !== 'debug')
+            ? '<br />For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a full stack-trace.'
+            : '';
 
         // Debug environments shall be verbose...
         if ($serendipity['production'] === 'debug') {
