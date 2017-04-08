@@ -175,7 +175,7 @@
     </div>
     {/foreach}
 {foreachelse}
-    {if NOT $plugin_clean_page}
+    {if NOT $plugin_clean_page AND $view != '404'}
     <div class="serendipity_no_entries">
         {$CONST.NO_ENTRIES_TO_PRINT}
     </div>
