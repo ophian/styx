@@ -147,7 +147,7 @@
     {if !$is_single_entry AND NOT $entry.is_extended}<hr>{/if}
     {/foreach}
 {foreachelse}
-    {if NOT $plugin_clean_page}
+    {if NOT $plugin_clean_page AND $view != '404'}
         <p class="alert alert-info"><span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}

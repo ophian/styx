@@ -180,7 +180,7 @@
     <?php endforeach; ?>
     <?php endif; ?>
 
-    <?php if ((count($GLOBALS['tpl']['entries']) < 1) && !$GLOBALS['tpl']['plugin_clean_page']): ?>
+    <?php if ((count($GLOBALS['tpl']['entries']) < 1) && !$GLOBALS['tpl']['plugin_clean_page'] && $GLOBALS['tpl']['view'] != '404'): ?>
     <div class="serendipity_overview_noentries">
         <?= NO_ENTRIES_TO_PRINT ?>
     </div>

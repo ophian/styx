@@ -177,7 +177,7 @@
         {/foreach}
     </div>
     {foreachelse}
-    {if NOT $plugin_clean_page}
+    {if NOT $plugin_clean_page AND $view != '404'}
         {$CONST.NO_ENTRIES_TO_PRINT}
     {/if}
     {/foreach}

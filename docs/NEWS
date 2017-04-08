@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Fix themes entries.pl:
+    Do not allow to echo NO ENTRIES TO PRINT if view is a 404 page.
+
   * Enhance maintenance modemaintain (plugin) notification
 
   * Enhance and add maintenance (entryproperties) cache notification

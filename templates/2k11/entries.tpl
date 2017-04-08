@@ -129,7 +129,7 @@
     </article>
     {/foreach}
 {foreachelse}
-    {if NOT $plugin_clean_page}
+    {if NOT $plugin_clean_page AND $view != '404'}
     <p class="nocontent">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
