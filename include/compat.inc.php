@@ -193,7 +193,7 @@ if (!function_exists('errorToExceptionHandler')) {
          * (string) 'debug'     Developer build, specifically enabled.
          */
         $debug_note = ($serendipity['production'] !== 'debug')
-            ? '<br />For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a full stack-trace.'
+            ? "<br />\nFor more details set $serendipity['production'] = 'debug' in serendipity_config_local.inc.php to receive a full stack-trace."
             : '';
 
         // Debug environments shall be verbose...
