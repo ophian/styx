@@ -223,7 +223,7 @@ class serendipity_plugin_api
         /* Check for multiple dependencies */
         $plugin =& serendipity_plugin_api::load_plugin($key, $authorid, $pluginPath);
         if (is_object($plugin)) {
-            $bag    = new serendipity_property_bag();
+            $bag = new serendipity_property_bag;
             $plugin->introspect($bag);
             serendipity_plugin_api::get_event_plugins(false, true); // Refresh static list of plugins to allow execution of added plugin
             $plugin->register_dependencies(false, $authorid);
@@ -251,7 +251,7 @@ class serendipity_plugin_api
 
         $plugin =& serendipity_plugin_api::load_plugin($plugin_instance_id);
         if (is_object($plugin)) {
-            $bag    = new serendipity_property_bag();
+            $bag = new serendipity_property_bag;
             $plugin->introspect($bag);
             $plugin->uninstall($bag);
         }
@@ -1529,7 +1529,7 @@ class serendipity_plugin
         }
 
         if (is_null($_res)) {
-            $cbag = new serendipity_property_bag();
+            $cbag = new serendipity_property_bag;
             $this->introspect_config_item($name, $cbag);
             $_res = $cbag->get('default');
             unset($cbag);

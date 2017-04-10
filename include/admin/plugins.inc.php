@@ -382,7 +382,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 if ($serendipity['GET']['install_plugin'] === $pluginName) {
                     $existingPlugin =& serendipity_plugin_api::load_plugin($serendipity['GET']['install_plugin']);
                     if (is_object($existingPlugin)) {
-                        $bag = new serendipity_property_bag();
+                        $bag = new serendipity_property_bag;
                         $existingPlugin->introspect($bag);
                         if ($bag->get('stackable') != true) {
                             $new_plugin = false;
