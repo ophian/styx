@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Fix non accessible SQLite database without notice issue (#427).
+    A forced check now is announced to the Dashboard after login.
+
   * Fix themes entries.pl:
     Do not allow to echo NO ENTRIES TO PRINT if view is a 404 page.
 

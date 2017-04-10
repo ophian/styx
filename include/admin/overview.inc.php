@@ -7,6 +7,23 @@ if (IN_serendipity !== true) {
 $data = array(); // init smartification data array
 $output = array(); // init backend_frontpage_display hook array
 
+// Alert non accessible SQLite database on login
+if (isset($serendipity['POST']['admin']['user']) && stristr($serendipity['dbType'], 'sqlite') && S9Y_DB_INCLUDED) {
+    $errs = array();
+    $probe = array(
+        'dbType' => $serendipity['dbType'],
+        'dbName' => $serendipity['dbName'],
+        'dbUser' => $serendipity['dbUser'],
+        'dbPass' => $serendipity['dbPass'],
+        'dbHost' => $serendipity['dbHost']
+    );
+    serendipity_db_probe($probe, $errs);
+    $errs = (count($errs) > 0 ? $errs : '');
+    if (is_array($errs)) {
+        $output['probe'] = '<span class="msg_error"><span class="icon-info-circled"></span> The SQLite Database is not accessible. Please check availability or missing write permissions!</span>'."\n";
+    }
+}
+
 switch($serendipity['POST']['adminAction']) {
     case 'publish':
         if (!serendipity_checkFormToken()) {
@@ -41,7 +58,7 @@ $data['username'] = $user[0]['realname'];
 $data['js_failure_file'] = serendipity_getTemplateFile('admin/serendipity_editor.js');
 
 serendipity_plugin_api::hook_event('backend_frontpage_display', $output);
-$data['backend_frontpage_display'] = $output['more'];
+$data['backend_frontpage_display'] = $output['probe'] . $output['more'];
 
 if (serendipity_checkPermission('adminUsers')) {
     $data['usedVersion']  = $serendipity['version'];
