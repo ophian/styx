@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.50');
+        $propbag->add('version',       '1.51');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -97,7 +97,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_ENTRYPROPERTIES_CACHE);
                 $propbag->add('description', PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DESC);
-                $propbag->add('default',     'true');
+                $propbag->add('default',     'false');
                 break;
 
             case 'sequence':
@@ -544,7 +544,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $hooks = &$bag->get('event_hooks');
 
         if ($is_cache === null) {
-            $is_cache   = serendipity_db_bool($this->get_config('cache', 'true'));
+            $is_cache   = serendipity_db_bool($this->get_config('cache', 'false'));
             $use_groups = serendipity_db_bool($this->get_config('use_groups'));
             $use_users  = serendipity_db_bool($this->get_config('use_users'));
             $ext_joins  = serendipity_db_bool($this->get_config('use_ext_joins'));
@@ -751,8 +751,8 @@ class serendipity_event_entryproperties extends serendipity_event
                     if ($is_cache) {
                         $per_fetch = 25;
                         $page = (isset($serendipity['GET']['page']) ? $serendipity['GET']['page'] : 1);
-                        $from = ($page-1)*$per_fetch;
-                        $to   = ($page)*$per_fetch;
+                        $from = (($page-1)*$per_fetch);
+                        $to   = ($page*$per_fetch);
                         printf('<h2>' . PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO, $from, $to);
                         $entries = serendipity_fetchEntries(
                             null,
@@ -873,7 +873,7 @@ class serendipity_event_entryproperties extends serendipity_event
 
                 case 'frontend_entryproperties':
                     $and = $this->returnQueryCondition($is_cache);
-                    $q = "SELECT entryid, property, value FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid IN (" . implode(', ', array_keys($addData)) . ") $and";
+                    $q   = "SELECT entryid, property, value FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid IN (" . implode(', ', array_keys($addData)) . ") $and";
 
                     $properties = serendipity_db_query($q);
                     if (!is_array($properties)) {
@@ -1049,7 +1049,7 @@ class serendipity_event_entryproperties extends serendipity_event
 
                     // Fetch maximum sort_order value. This will be the new value of our current plugin.
                     $q  = "SELECT MAX(sort_order) AS sort_order_max FROM {$serendipity['dbPrefix']}plugins WHERE placement = '" . $addData['default_placement'] . "'";
-                    $rs  = serendipity_db_query($q, true, 'num');
+                    $rs = serendipity_db_query($q, true, 'num');
 
                     // Fetch current sort_order of current plugin.
                     $q   = "SELECT sort_order FROM {$serendipity['dbPrefix']}plugins WHERE name = '" . $this->instance . "'";
