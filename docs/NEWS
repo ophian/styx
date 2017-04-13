@@ -1,6 +1,10 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Minor changes to staticpage breadcrumb regarding separator spaces
+    in all themes and staticpage templates files which use "$crumb".
+    Please keep your copy templates synced.
+
   * Fix non accessible SQLite database without notice issue (#427).
     A forced check now is announced to the Dashboard after login.
 

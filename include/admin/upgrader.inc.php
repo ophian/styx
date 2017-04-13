@@ -328,6 +328,12 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"entries.tpl"</em> now uses a slightly changed variable check,',
                     'desc'      => 'to evaluate if a 404 error page was assigned before announcing the possible "NO ENTRIES TO PRINT" constant error. Please make sure to check your own / or copy theme files to get the best results. Change "{if NOT $plugin_clean_page}" to "{if NOT $plugin_clean_page AND $view != \'404\'}."'),
 
+            array(  'version'   => '2.2.0',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"plugin_staticpage.tpl"</em> and its siblings were changed regarding separator spaces in the breadcrumb navigation.',
+                    'desc'      => 'Keep your own / or copy theme files in touch.'),
+
 );
 
 /* Fetch SQL files which needs to be run */
