@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Sync: "Suppress empty groups in plugin list" issue, which only
+    matters with the Serendipity origin additional_plugin repository.
+
   * Make backend page tab title order configurable.
     The default (tab) title of backend pages in Styx is in this order:
         "section | $admin | blog title"
