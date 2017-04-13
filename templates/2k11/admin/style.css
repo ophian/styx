@@ -2635,6 +2635,10 @@ label .perm_name,
     position: relative;
     top: .125em;
 }
+.media_file.manage header {
+    white-space: nowrap;
+    overflow: hidden;
+}
 
 .dragging,
 .dragging * {

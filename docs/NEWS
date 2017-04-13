@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Fix odd Chrome line break issue with MediaLibrary item titles and
+    the multidelete form_check box.
+
   * Sync: Fix comment preview for logged-in user overwriting user data
 
   * INFO: - No sync for adding a "delete" button to the backend entry form.
