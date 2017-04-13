@@ -1,6 +1,10 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * INFO: No sync for adding a "delete" button to the backend entry form.
+          Styx does not want to overload the entry form with tasks that
+          can better be done in the entry list.
+
   * Sync: "Suppress empty groups in plugin list" issue, which only
     matters with the Serendipity origin additional_plugin repository.
 
