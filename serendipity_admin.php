@@ -235,6 +235,10 @@ if ($ajax) {
     $admin_vars['out']       = array();
     $admin_vars['no_create'] = $serendipity['no_create'];
     $admin_vars['title']     = $admin_section;
+    // The Styx default page title of backend pages is "section | SERENDIPITY_ADMIN_SUITE | blog title"
+    // If set to true (in serendipity_config_local.inc.php), the pages (tab) title will be
+    // "blog title | section | SERENDIPITY_ADMIN_SUITE" instead
+    $admin_vars['backendBlogtitleFirst'] = !$serendipity['backendBlogtitleFirst'] ? false : true;
 
     if ($serendipity['expose_s9y']) {
         $admin_vars['version_info'] = sprintf(ADMIN_FOOTER_POWERED_BY, $serendipity['versionInstalled'], phpversion());

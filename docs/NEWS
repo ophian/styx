@@ -1,6 +1,15 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Make backend page tab title order configurable.
+    The default (tab) title of backend pages in Styx is in this order:
+        "section | $admin | blog title"
+    You are now able to change the order to "blog title | section | $admin"
+    by adding "$serendipity['backendBlogtitleFirst'] = true;" to your
+    serendipity_config_local.inc.php file.
+    [Post Scriptum: Or use the backend template approach. See the Styx
+     backend theme info layer.]
+
   * Minor changes to staticpage breadcrumb regarding separator spaces
     in all themes and staticpage templates files which use "$crumb".
     Please keep your copy templates synced.
