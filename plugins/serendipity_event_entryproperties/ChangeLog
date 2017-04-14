@@ -1,3 +1,7 @@
+1.52:
+-----
+    * Language constant fixes for < en> and < de >
+
 1.51:
 -----
     * Set cache option to "no" by default
