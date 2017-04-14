@@ -1,6 +1,13 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * INFO:
+        - Safety first. Admins are strongly requested to use the new
+          modemaintain plugins "503 maintenance mode", when performing
+          upgrades to the Styx system. This will keep everybody away
+          until the upgrade and the upgrade tasks have run through
+          with success!
+
   * Due to longstanding networking issues with netmirror.org, the
     default mirror of the Spartacus plugin was changed to use github.
     This will not touch Styx, since it uses the custom Styx github
