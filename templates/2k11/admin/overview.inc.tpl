@@ -128,7 +128,7 @@
                 <li><a href="https://docs.s9y.org/docs/">{$CONST.FURTHER_LINKS_S9Y_DOCS}</a></li>
                 <li><a href="https://blog.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_BLOG}</a></li>
                 <li><a href="https://board.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_FORUMS}</a></li>
-                <li><a href="http://spartacus.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS}</a></li>
+                <li><a href="http://spartacus.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS} Web</a></li>
                 <li><a href="https://github.com/s9y/Serendipity">GitHub Serendipity</a></li>
                 <li><a href="https://github.com/ophian/styx">GitHub Styx</a></li>
                 <li><a href="https://github.com/ophian/styx/wiki">GitHub Styx Wiki</a></li>
