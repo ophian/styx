@@ -101,7 +101,7 @@ class serendipity_event_spartacus extends serendipity_event
 
         static $http = array(
             'xml' => array(
-                'https://raw.github.com/s9y/additional_plugins/master/'
+                'https://raw.github.com/s9y/additional_plugins/master/',
                 'http://netmirror.org/mirror/serendipity/',
                 'http://s9y.org/mirror/'
 //                'http://openmirror.org/pub/s9y/',
