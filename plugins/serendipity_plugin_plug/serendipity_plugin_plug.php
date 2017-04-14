@@ -14,7 +14,7 @@ class serendipity_plugin_plug extends serendipity_plugin
         $propbag->add('description',   ADVERTISES_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('configuration', array(
                                         'image',
                                         'image2',
@@ -74,17 +74,19 @@ class serendipity_plugin_plug extends serendipity_plugin
         global $serendipity;
 
         $title = $this->title;
+        $url = isset($serendipity['edition']) ? 'https://ophian.github.io/' : 'https://www.s9y.org/';
+        $edition = isset($serendipity['edition']) ? 'Serendipity Styx' : 'Serendipity';
 ?>
 <div class="serendipityPlug">
 <?php if (serendipity_db_bool($this->get_config('image', 'false'))) { ?>
-    <a title="<?php echo $title ?> Serendipity" href="http://www.s9y.org/"><img src="<?php echo serendipity_getTemplateFile('img/s9y_banner_small.png') ?>" alt="Serendipity PHP Weblog" style="border: 0px" /></a>
+    <a title="<?php echo $title ?> <?=$edition?>" href="<?=$url?>"><img src="<?php echo serendipity_getTemplateFile('img/s9y_banner_small.png') ?>" alt="<?=$edition?> PHP Weblog" style="border: 0px" /></a>
 <?php } ?>
 <?php if (serendipity_db_bool($this->get_config('image2', 'false'))) { ?>
-    <a title="<?php echo $title ?> Serendipity" href="http://www.s9y.org/"><img src="<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 's9y_banner_small.png'; ?>" alt="Serendipity PHP Weblog" style="border: 0px" /></a>
+    <a title="<?php echo $title ?> <?=$edition?>" href="<?=$url?>"><img src="<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 's9y_banner_small.png'; ?>" alt="<?=$edition?> PHP Weblog" style="border: 0px" /></a>
 <?php } ?>
 <?php if (serendipity_db_bool($this->get_config('text', 'true'))) { ?>
     <div>
-        <a title="<?php echo $title ?> Serendipity" href="http://www.s9y.org/">Serendipity PHP Weblog</a>
+        <a title="<?php echo $title ?> Serendipity" href="<?=$url?>"><?=$edition?> PHP Weblog</a>
     </div>
 <?php } ?>
 </div>
