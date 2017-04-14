@@ -2185,6 +2185,10 @@ h3 .media_file_actions {
     overflow: auto;
     font-size: .875em;
 }
+#s9y_links .plainList,
+#s9y_quicktip .plainList {
+    line-height: 1.6;
+}
 
 .media_wrap_thumb {
     float: left;
