@@ -19,6 +19,12 @@
                 <li>
                     <b>V. Spezifische Konfigurationen?</b><br>
                     <span><em>Die Einstellungen für das Autoupdate Plugin zum Beispiel werden an zwei Orten erteilt. In der Plugin Konfiguration und genereller in der &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Sektion. Globale Theme Einstellungen sind ebenfalls dort zu setzen, aber manche Themes haben noch erweiterte eigene Konfigurations-Einstellungen, wie das Standard Theme 2k11. Auch die Blog Sprache als weiteres Beispiel wird generell in &#187;{$CONST.CONFIGURATION}&#171;... und genauer für den Benutzer in &#187;{$CONST.PERSONAL_SETTINGS}&#171; eingestellt.</em></span>
+                    <ul>
+                        <li>
+                            <b>Manuelle Einstellungen</b><br>
+                            <span><em>Durch die Nutzung der globalen &#187;&nbsp;$serendipity&nbsp;&#171; Variable gibt es des Weiteren die Möglichkeit <u>bestimmte</u> Standard Einstellungen mit Hilfe der &#187;serendipity_config_local.inc.php&#171; Datei zu überschreiben. Welche das sind, lesen Sie bitte <a href="https://docs.s9y.org/docs/developers/code-primer.html#docs-initializing-the-framework-serendipity_configincphp-and-serendipity_config_localincphp" target="_blank">hier</a>, in der Serendipity Dokumentation, nach. Nicht alle dort genannten Variablen sind wirklich <u>nur</u> auf diese Weise manuell zu setzen, da einige auch besser in den Konfigurationsoptionen zu finden sind. Allgemein sollten nur Nutzer mit ein wenig Erfahrung diese manuelle Erweiterungsmöglichkeit nutzen.</em></span>
+                        </li>
+                    </ul>
                 </li>
                 <li>
                     <b>VI. Empfehlungen für den ersten Start:</b><br>
