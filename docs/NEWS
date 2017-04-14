@@ -1,6 +1,11 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Due to longstanding networking issues with netmirror.org, the
+    default mirror of the Spartacus plugin was changed to use github.
+    This will not touch Styx, since it uses the custom Styx github
+    mirror by default.
+
   * Fix odd Chrome line break issue with MediaLibrary item titles and
     the multidelete form_check box.
 
