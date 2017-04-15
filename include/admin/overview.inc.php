@@ -55,6 +55,7 @@ $data['js_failure_file'] = serendipity_getTemplateFile('admin/serendipity_editor
 
 serendipity_plugin_api::hook_event('backend_frontpage_display', $output);
 $data['backend_frontpage_display'] = $output['probe'] . $output['more'];
+$output = array(); // re-new array for the autoupdate empty check below
 
 if (serendipity_checkPermission('adminUsers')) {
     $data['usedVersion']  = $serendipity['version'];
