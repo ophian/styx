@@ -18,7 +18,7 @@ if (isset($serendipity['POST']['admin']['user']) && stristr($serendipity['dbType
         'dbHost' => $serendipity['dbHost']
     );
     serendipity_db_probe($probe, $errs);
-    $errs = (count($errs) > 0 ? $errs : '');
+    $errs = (count($errs) > 0) ? $errs : null;
     if (is_array($errs)) {
         $output['probe'] = '<span class="msg_error"><span class="icon-info-circled"></span> The SQLite Database is not accessible. Please check availability or missing write permissions!</span>'."\n";
     }
