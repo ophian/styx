@@ -2191,7 +2191,7 @@ h3 .media_file_actions {
 }
 #s9y_quicktip span,
 .hyphenate {
-    overflow-wrap: break-word
+    overflow-wrap: break-word;
     word-wrap: break-word;
     -webkit-hyphens: auto;
     -ms-hyphens: auto;
