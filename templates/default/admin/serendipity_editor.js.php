@@ -814,6 +814,23 @@
         }
     }
 
+    serendipity.liveFiltersHeader = function(group) {
+        $(group).each(function() {
+            var $el = $(this);
+            var $cH = 0; // clientHeight
+
+            $el.each( function() {
+                // check the clientHeight of nextElementSibling (ul)
+                $cH = $(this).next().height();
+            });
+            if ($cH == 0) {
+                $el.hide();
+            } else {
+                $el.show();
+            }
+        });
+    }
+
     if(Modernizr.indexeddb && <?= $GLOBALS['serendipity']['use_autosave'] ? 'true' : 'false'; ?>) {
         serendipity.startEntryEditorCache = function() {
             if ($('textarea[name="serendipity[body]"]').val() == "") {
@@ -1288,6 +1305,7 @@ $(function() {
     // Plugins live filter
     $('#pluginfilter').keyup(function() {
         serendipity.liveFilters($(this), '.plugins_installable > li', '.plugin_features');
+        serendipity.liveFiltersHeader('#content h3');
     });
 
     // Reset button for live filters

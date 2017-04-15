@@ -1,6 +1,10 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Enhance search request results on installable plugins.
+    Remove plugins_installable group head names, if no inner element
+    was found to display by the javascript search routine.
+
   * INFO:
         - Safety first. Admins are strongly requested to use the new
           modemaintain plugins "503 maintenance mode", when performing
