@@ -26,9 +26,9 @@ Version 2.2 ()
         - No sync for adding a "delete" button to the backend entry form.
           Styx does not want to overload the entry form with tasks that
           can better be done in the entry list.
-        - No sync for Net/DNS2 as it seems ridiculous to add 84 library
-          files while some old plugins are out of date.
-          (see serendipity_event_spamblock_rbl/surbl)
+        - No sync for including the PEAR Net/DNS2 lib. Currently it seems
+          ridiculous to add a 84 file lib, while some old plugins are out
+          of date. See: serendipity_event_spamblock_(rbl/surbl).
 
   * Sync: "Suppress empty groups in plugin list" issue, which only
     matters with the Serendipity origin additional_plugin repository.
