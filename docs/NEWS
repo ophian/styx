@@ -88,6 +88,7 @@ Version 2.2 ()
   * Allow the Dashboards autoupdate messaging to admin users only and
     check if the autoupdate plugin actually is installed.
 
+
 Version 2.1 (February, 24th 2017)
  ------------------------------------------------------------------------
 
