@@ -26,8 +26,8 @@
  *  @revisionDate 2012/01/08
  */
 $i18n_filename_from = array (
-'á','č','ď','é','ě','í','ĺ','ľ','ň','ó','ŕ','ř','ś','š','ť','ú','ů','ý','ź','ž',
-'Á','Č','Ď','É','Ě','Í','Ĺ','Ľ','Ň','Ó','Ŕ','Ř','Ś','Š','Ť','Ú','Ů','Ý','Ź','Ž',
+'á','c','d','é','e','í','l','l','n','ó','r','r','s','š','t','ú','u','ý','z','ž'
+'Á','C','D','É','E','Í','L','L','N','Ó','R','R','S','Š','T','Ú','U','Ý','Z','Ž',
 ' ',',','.','!',
 );
 $i18n_filename_to = array (
@@ -1162,4 +1162,8 @@ $i18n_filename_to = array (
 @define('CONFIG_ALLOW_LOCAL_URL', 'Allow to fetch data from local URLs');
 @define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server Side Request Forgers (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
 @define('REMOTE_FILE_INVALID', 'The given URL appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your blog configuration.');
+
+@define('INSTALLER_TOKEN_NOTE', 'To continue a secure installation, you need to create a file called "%s" with the string "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" within this directory. Once that file exists, you must continue the installation within the next %s minutes and do not close your browser window, and you need to have Cookies enabled.');
+@define('INSTALLER_TOKEN_MISMATCH', 'You are not authorized to continue installation, since your install token is not identical (%s) to the one contained in the file "%s". Please make sure you created the file with the right content. You can get a new token by deleting the file.');
+@define('INSTALLER_TOKEN_MATCH', 'Your secure install token is valid.');
 

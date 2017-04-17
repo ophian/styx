@@ -90,7 +90,7 @@
 @define('NEWSIZE', 'Ny storlek: ');
 @define('RESIZE_BLAHBLAH', '<b>Ändra storlek på %s</b>');
 @define('ORIGINAL_SIZE', 'Ursprunglig storlek: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Här kan du anpassa bildstorleken. Om du vill ändra storlek proportionellt, ändra bara ett värde i något av de två fälten och tryck på TAB - Då ändras  automatiskt storleken automatiskt så att bildens proportioner bibehålls.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Här kan du anpassa bildstorleken. Om du vill ändra storlek proportionellt, ändra bara ett värde i något av de två fälten och tryck på TAB - Då ändras automatiskt storleken automatiskt så att bildens proportioner bibehålls.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Snabbkalender');
 @define('QUICKSEARCH', 'Snabbsök');
 @define('SEARCH_FOR_ENTRY', 'Sök efter artikel');
@@ -1131,4 +1131,8 @@
 @define('CONFIG_ALLOW_LOCAL_URL', 'Allow to fetch data from local URLs');
 @define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server Side Request Forgers (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
 @define('REMOTE_FILE_INVALID', 'The given URL appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your blog configuration.');
+
+@define('INSTALLER_TOKEN_NOTE', 'To continue a secure installation, you need to create a file called "%s" with the string "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" within this directory. Once that file exists, you must continue the installation within the next %s minutes and do not close your browser window, and you need to have Cookies enabled.');
+@define('INSTALLER_TOKEN_MISMATCH', 'You are not authorized to continue installation, since your install token is not identical (%s) to the one contained in the file "%s". Please make sure you created the file with the right content. You can get a new token by deleting the file.');
+@define('INSTALLER_TOKEN_MATCH', 'Your secure install token is valid.');
 
