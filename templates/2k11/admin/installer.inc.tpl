@@ -32,7 +32,16 @@
             {/foreach}
             </ul>
         {/if}
-        {if $getstepint0}
+        {if $install_blank}
+            <h3>{$CONST.SERENDIPITY_ADMIN_SUITE}:</h3>
+            <p class="msg_hint">{$CONST.INSTALLER_TOKEN_NOTE|sprintf:$install_token_file:$install_token:$install_lifetime}</p>
+        {elseif $install_token_fail}
+            <h3>{$CONST.ERROR}:</h3>
+            <p class="msg_error">{$CONST.INSTALLER_TOKEN_MISMATCH|sprintf:$install_token:$install_token_file}</p>
+            <div class="form_buttons">
+                <a class="block_level" href="serendipity_admin.php">{$CONST.RECHECK_INSTALLATION}</a>
+            </div>
+        {elseif $getstepint0}
             <h2>{$CONST.WELCOME_TO_INSTALLATION}</h2>
 
             <p>{$CONST.FIRST_WE_TAKE_A_LOOK}</p>
@@ -233,7 +242,24 @@
                 <div class="form_buttons">
                     <a class="block_level" href="serendipity_admin.php">{$CONST.RECHECK_INSTALLATION}</a>
                 </div>
-            {else}
+            {elseif $install_token_pass}
+                <table>
+                    <caption>Security</caption>
+                    <thead>
+                        <tr>
+                            <th>Temporary installer token</th>
+                            <th>Token status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><h5>Token check</h5></td>
+                            <td><span class="msg_success">{$CONST.INSTALLER_TOKEN_MATCH}</span></td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
                 <p><strong>{$CONST.SELECT_INSTALLATION_TYPE}:</strong></p>
 
                 <div class="form_buttons">
