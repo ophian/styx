@@ -36,13 +36,13 @@
             <h3>{$CONST.SERENDIPITY_ADMIN_SUITE}:</h3>
             <p class="msg_hint">{$CONST.INSTALLER_TOKEN_NOTE|sprintf:$install_token_file:$install_token:$install_lifetime}</p>
             <div class="form_buttons">
-                <a class="block_level" href="serendipity_admin.php">{$CONST.RECHECK_INSTALLATION}</a>
+                <a class="block_level" href="index.php">{$CONST.RECHECK_INSTALLATION}</a>
             </div>
         {elseif $install_token_fail}
             <h3>{$CONST.ERROR}:</h3>
             <p class="msg_error">{$CONST.INSTALLER_TOKEN_MISMATCH|sprintf:$install_token:$install_token_file}</p>
             <div class="form_buttons">
-                <a class="block_level" href="serendipity_admin.php">{$CONST.RECHECK_INSTALLATION}</a>
+                <a class="block_level" href="index.php">{$CONST.RECHECK_INSTALLATION}</a>
             </div>
         {elseif $getstepint0}
             <h2>{$CONST.WELCOME_TO_INSTALLATION}</h2>
