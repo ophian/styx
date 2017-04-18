@@ -1113,8 +1113,8 @@ $i18n_filename_to = array (
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Default Dashboard widgets?');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Show default and hardcoded Dashboard widgets, like draft entries and last comments.');
 
-@define('UPDATE_NOTIFICATION_URL', 'Serendipity update RELEASE file URL');
-@define('UPDATE_NOTIFICATION_URL_DESC', 'Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autoupdate plugin. The default value to apply here is "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE" and points to a file containing Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
+@define('UPDATE_NOTIFICATION_URL', 'Update RELEASE-file URL');
+@define('UPDATE_NOTIFICATION_URL_DESC', 'This is Styx! Do not change, if not applying a different RELEASE file location for custom core downloads in combination with the Serendipity Autoupdate plugin. The origin Serendipity default value to apply here would then be: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE". A here provided URL points to a file containing the current released Serendipity stable and beta version numbers per line, eg. "stable:5.3.0".');
 
 @define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.');
 
