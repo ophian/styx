@@ -1765,6 +1765,14 @@ form > .button_link:first-of-type,
 .installer .configuration_group h3 {
     margin: 1.16667em 0;
 }
+.installer .configuration_group .field_info {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
 
 #template_options,
 #pluginlist_sidebar {
