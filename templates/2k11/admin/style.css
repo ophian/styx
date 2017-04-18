@@ -2190,6 +2190,7 @@ h3 .media_file_actions {
     line-height: 1.6;
 }
 #s9y_quicktip span,
+#serendipity_config_options .field_info,
 .hyphenate {
     overflow-wrap: break-word;
     word-wrap: break-word;
