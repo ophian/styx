@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Merge Smarty 3.1.32-1: Fix compiling isset() and empty() functions
+    for differing PHP behaviour since PHP 5.5.
+
   * Sync and fix:
     Added secure installer with a token, manually created inside a file.
     This is to prevent unauthorized installation access at the very
