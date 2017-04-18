@@ -121,7 +121,7 @@ $data['install_token_fail'] = false;
 $data['install_token_file'] = basename($install_token_file);
 $data['install_lifetime'] = ceil($lifetime/60);
 
-if ( !$data['install_token_pass']) {
+if ((int)$serendipity['GET']['step'] !== 0 && !$data['install_token_pass']) {
     // Do not allow user to proceed to any action step unless token matches
     $data['s9yGETstep'] = $serendipity['GET']['step'] = 0;
     $data['install_token_fail'] = true;
@@ -352,6 +352,10 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
 } elseif ( $serendipity['GET']['step'] == '3' ) {
     $serendipity['dbPrefix'] = $_POST['dbPrefix'];
 
+    // do not allow cheating installer steps
+    if (!function_exists('serendipity_db_query') && trim($serendipity['dbPrefix']) == '') {
+        serendipity_die('<p class="msg_error">' . ERROR_SOMETHING . '..</p><p>' . SERENDIPITY_INSTALLATION . ': ' . sprintf(SERENDIPITY_NOT_INSTALLED, 'index.php') ." [!]</p>\n");
+    }
     $t = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors", false, 'both', false, false, false, true);
     $data['authors_query'] = $t;
 
