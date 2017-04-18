@@ -3,8 +3,8 @@ Version 2.2 ()
 
   * Sync and fix:
     Added secure installer with a token, manually created inside a file.
-    This is to prevent the possibility of an automated bot using the
-    installer before authorized users. Just follow the guided steps!
+    This is to prevent unauthorized installation access at the very
+    moment of install. Just follow the guided steps!
 
   * Enhance search request results on installable plugins.
     Remove plugins_installable group head names, if no inner element
