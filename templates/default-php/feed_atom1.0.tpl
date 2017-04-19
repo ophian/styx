@@ -16,7 +16,7 @@
     <?= $GLOBALS['tpl']['metadata']['additional_fields']['image_atom10'] ?>
     <id><?= $GLOBALS['tpl']['metadata']['link'] ?></id>
     <updated><?= $GLOBALS['tpl']['last_modified'] ?></updated>
-    <generator uri="http://www.s9y.org/" version="<?= $GLOBALS['tpl']['serendipityVersion'] ?>">Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - http://www.s9y.org/</generator>
+    <generator uri="https://www.s9y.org/" version="<?= $GLOBALS['tpl']['serendipityVersion'] ?>">Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - https://www.s9y.org/</generator>
     <dc:language><?= $GLOBALS['tpl']['metadata']['language'] ?></dc:language>
 <?php if ($GLOBALS['tpl']['metadata']['showMail']): ?>
     <admin:errorReportsTo rdf:resource="mailto:<?= $GLOBALS['tpl']['metadata']['email'] ?>" />

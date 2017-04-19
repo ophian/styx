@@ -54,7 +54,7 @@
 
             <div class="form_field">
                 <label for="linktrimmer_url"><?= PLUGIN_LINKTRIMMER_ENTER ?></label>
-                <input id="linktrimmer_url" class="input_textbox" type="text" onfocus="this.blur();" value="" name="linktrimmer_url" placeholder="http://www.s9y.org">
+                <input id="linktrimmer_url" class="input_textbox" type="text" onfocus="this.blur();" value="" name="linktrimmer_url" placeholder="https://www.s9y.org">
     <?php if ($GLOBALS['tpl']['linktrimmer_external'] === false): ?>
             </div>
 

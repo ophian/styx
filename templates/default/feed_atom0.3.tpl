@@ -16,7 +16,7 @@
     <tagline mode="escaped" type="text/html">{$metadata.description}</tagline>
     <id>{$metadata.link}</id>
     <modified>{$last_modified}</modified>
-    <generator url="http://www.s9y.org/" version="{$serendipityVersion}">Serendipity {$serendipityVersion} - http://www.s9y.org/</generator>
+    <generator url="https://www.s9y.org/" version="{$serendipityVersion}">Serendipity {$serendipityVersion} - https://www.s9y.org/</generator>
     <dc:language>{$metadata.language}</dc:language>
 {if $metadata.showMail}
     <admin:errorReportsTo rdf:resource="mailto:{$metadata.email}" />

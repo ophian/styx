@@ -73,7 +73,7 @@
     <footer class="page-footer" role="contentinfo">
         <div class="container">
             <div class="row">
-                <p class="twelve columns credit">Powered by <a href="http://s9y.org">Serendipity</a></p>
+                <p class="twelve columns credit">Powered by <a href="https://s9y.org">Serendipity</a></p>
             </div>
         </div>
     </footer>

@@ -4,7 +4,7 @@
 <head>
     <title><?= $GLOBALS['tpl']['metadata']['title'] ?></title>
     <dateModified><?= $GLOBALS['tpl']['last_modified'] ?></dateModified>
-    <ownerName>Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - http://www.s9y.org/</ownerName>
+    <ownerName>Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - https://www.s9y.org/</ownerName>
 </head>
 <body>
 
