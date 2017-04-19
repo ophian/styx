@@ -208,12 +208,6 @@ $template_config = array(
         'default'       => 'true',
     ),
     array(
-        'var'           => 'cocommentactive',
-        'name'          => COCOMMENT_ACTIVE,
-        'type'          => 'boolean',
-        'default'       => 'false',
-    ),
-    array(
         'var'           => 'prev_next_style',
         'name'          => PREV_NEXT_STYLE,
         'type'          => 'select',

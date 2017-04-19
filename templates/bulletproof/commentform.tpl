@@ -1,26 +1,3 @@
-<!-- support for cocomment -->
-{if $template_option.cocommentactive == 'active'}
-<script type="text/javascript">
-// this ensures coComment gets the correct values
-coco =
-{ldelim}
-     tool          : "Serendipity",
-     siteurl       : "{$serendipityBaseURL|escape:javascript}",
-     sitetitle     : "{$blogTitle|escape:javascript}",
-     pageurl       : "{$commentform_entry.rdf_ident|escape:javascript}",
-     pagetitle     : "{$commentform_entry.title|escape:javascript}",
-     author        : "{$commentform_name}",
-     authorID      : "serendipity[name]",
-     formID        : "serendipity_comment",
-     textareaID    : "serendipity[comment]",
-     buttonID      : "serendipity[submit]"
-{rdelim}
-</script>
-<script id="cocomment-fetchlet" src="http://www.cocomment.com/js/enabler.js" type="text/javascript">
-// this activates coComment
-</script>
-{/if}
-<!-- cocomment end -->
 <div class="serendipityCommentForm">
 <div id="serendipity_replyform_0"></div>
 <a id="serendipity_CommentForm"></a>
