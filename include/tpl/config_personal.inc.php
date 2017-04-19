@@ -213,7 +213,7 @@
                                           'title'       => CONF_USE_AUTOSAVE,
                                           'description' => CONF_USE_AUTOSAVE_DESC,
                                           'type'        => 'bool',
-                                          'default'     => true,
+                                          'default'     => false,
                                           'permission'  => 'personalConfiguration',
                                           'flags'       => array('config')),
                             ));
