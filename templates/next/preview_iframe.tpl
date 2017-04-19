@@ -9,7 +9,7 @@
 {if $template_option.webfonts == 'osans'}
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:400,400italic,700,700italic">
 {elseif $template_option.webfonts == 'ssans'}
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,700italic,400,700">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,700italic,400,700">
 {elseif $template_option.webfonts == 'rsans'}
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,400italic,700,700italic">
 {elseif $template_option.webfonts == 'lsans'}
