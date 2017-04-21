@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.90');
+        $propbag->add('version',       '1.91');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -543,7 +543,9 @@ class serendipity_event_spamblock extends serendipity_event
             return;
         }
 
-        $req = serendipity_request_object('http://' . $api_key . '.' . $server . '/1.1/' . $action, 'get', $options);
+        $req = serendipity_request_object('http://' . $api_key . '.' . $server . '/1.1/' . $action, 'post', $options);
+
+        $req->addPostParameter('blog', $serendipity['baseURL']);
 
         foreach($data AS $key => $value) {
             $req->addPostParameter($key, $value);
