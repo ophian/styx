@@ -1,6 +1,12 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Fix the experimental core cache option by recognising more states.
+    This removes the second part of this code, the cached html output,
+    and focuses on its first part, the internal cache to not repeat
+    specific database queries.
+    PLEASE see this still as an EXPERIMENTAL approach!
+
   * Fix spamblock Akismet API request Error
 
   * Change default value for "use_autosave" to false
