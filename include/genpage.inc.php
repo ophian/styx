@@ -123,14 +123,7 @@ switch ($serendipity['GET']['action']) {
 
     // Welcome screen or whatever
     default:
-        if ($serendipity['useInternalCache']) {
-            $entries = serendipity_fetchEntries(null, true, $serendipity['fetchLimit']);
-            if (! serendipity_printEntriesCached($entries)) {
-                serendipity_printEntries($entries);
-            }
-        } else {
-            serendipity_printEntries(serendipity_fetchEntries(null, true, $serendipity['fetchLimit']));
-        }
+        serendipity_printEntries(serendipity_fetchEntries(null, true, $serendipity['fetchLimit']));
         break;
 }
 
