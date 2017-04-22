@@ -437,7 +437,7 @@
                                           'permission'  => 'blogConfiguration'),
 
                                     array('var'         => 'useInternalCache',
-                                          'title'       => USE_CACHE,
+                                          'title'       => USE_CACHE . ' (EXPERIMENTAL)',
                                           'description' => USE_CACHE_DESC,
                                           'type'        => 'bool',
                                           'default'     => false,
