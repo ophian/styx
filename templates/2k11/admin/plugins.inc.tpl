@@ -124,12 +124,13 @@
                         </ul>
                     </div>
 
-                    <div class="plugin_status">
+                    <div class="plugin_status{if (!$plug.installable && !$plug['upgradable']) OR (!$plug['upgradable'] AND $plug.installable AND $plug.stacked)} installed{/if}">
                     {if isset($requirements_failures.{$plug.class_name})}
                         <span class="unmet_requirements msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.UNMET_REQUIREMENTS|sprintf:"{if $requirements_failures.{$plug.class_name}.s9y}s9y $plug.requirements..serendipity,{/if} {if $requirements_failures.{$plug.class_name}.php}PHP $plug.requirements.php,{/if} {if $requirements_failures.{$plug.class_name}.smarty}Smarty $plug.requirements.smarty{/if}"}</span>
-                    {elseif $plug['upgradable'] == true}
+                    {elseif $plug['upgradable']}
                         <a class="button_link state_update" href="?serendipity[adminModule]=plugins&amp;serendipity[pluginPath]={$plug.pluginPath}&amp;serendipity[install_plugin]={$plug.plugin_class}&amp;{$urltoken}{if isset($plug['customURI'])}{$plug.customURI}{/if}" title="{$CONST.PLUGIN_EVENT_SPARTACUS_CHECK_HINT}">{$CONST.UPGRADE}</a>
-                    {elseif $plug.installable == true}
+                    {elseif $plug.installable}
+                        {if $plug.stacked}<span class="block_level stackable"><span class="icon-ok-circled" aria-hidden="true"></span>  {$CONST.ALREADY_INSTALLED} <span class="icon-plus" aria-hidden="true"></span> </span>{/if}
                         <a class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[pluginPath]={$plug.pluginPath}&amp;serendipity[install_plugin]={$plug.plugin_class}&amp;{$urltoken}{if isset($plug.customURI)}{$plug.customURI}{/if}">{$CONST.INSTALL}</a>
                     {else}
                         <span class="block_level"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ALREADY_INSTALLED}</span>

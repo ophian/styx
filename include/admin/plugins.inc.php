@@ -221,6 +221,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 $props['customURI'] .= $baseURI . $foreignPlugins['upgradeURI'];
             }
 
+            $props['stacked']      = ($props['stackable'] === true && in_array($class_data['true_name'], $plugins));
             $props['installable']  = !($props['stackable'] === false && in_array($class_data['true_name'], $plugins));
             $props['requirements'] = unserialize($props['requirements']);
 

@@ -592,6 +592,13 @@ form > button,
 .plugins_available {
     font-size: .75em;
 }
+.plugin_status.installed {
+    background-color: #fffff0;
+    padding-right: .5em;
+}
+.block_level.stackable {
+    display: initial;
+}
 
 .plugin_desc {
     padding-top: .5em;

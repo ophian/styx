@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Optimise visual highlight of installed plugins, including those
+    being installed and stackable, in lists of installable plugins.
+
   * Fix the experimental core cache option by recognising more states.
     This removes the second part of this code, the cached html output,
     and focuses on its first part, the internal cache to not repeat
