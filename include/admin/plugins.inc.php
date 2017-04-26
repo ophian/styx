@@ -221,8 +221,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 $props['customURI'] .= $baseURI . $foreignPlugins['upgradeURI'];
             }
 
-            $props['stacked']      = ($props['stackable'] === true && in_array($class_data['true_name'], $plugins));
-            $props['installable']  = !($props['stackable'] === false && in_array($class_data['true_name'], $plugins));
+            $_installed            = in_array($class_data['true_name'], $plugins);
+            $props['stackable']    = ($props['stackable'] === true && $_installed);
+            $props['installable']  = !($props['stackable'] === false && $_installed);
             $props['requirements'] = unserialize($props['requirements']);
 
             if (empty($props['changelog']) && @file_exists(dirname($plugin->pluginFile) . '/ChangeLog')) {
