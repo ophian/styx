@@ -14,8 +14,8 @@ class serendipity_plugin_quicksearch extends serendipity_plugin
         $propbag->add('description',   SEARCH_FOR_ENTRY);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.2');
-        $propbag->add('configuration', array('fullentry'));
+        $propbag->add('version',       '1.3');
+        $propbag->add('configuration', array('fullentry', 'smartify'));
         $propbag->add('groups',        array('FRONTEND_ENTRY_RELATED'));
     }
 
@@ -26,7 +26,14 @@ class serendipity_plugin_quicksearch extends serendipity_plugin
                 $propbag->add('type',       'boolean');
                 $propbag->add('name',        SEARCH_FULLENTRY);
                 $propbag->add('description', '');
-                $propbag->add('default',     true);
+                $propbag->add('default',     'true');
+                break;
+
+            case 'smartify':
+                $propbag->add('type',       'boolean');
+                $propbag->add('name',        CATEGORY_PLUGIN_TEMPLATE);
+                $propbag->add('description', 'plugin_quicksearch.tpl');
+                $propbag->add('default',     'false');
                 break;
 
             default:
@@ -40,7 +47,18 @@ class serendipity_plugin_quicksearch extends serendipity_plugin
         global $serendipity;
 
         $title = $this->title;
-        $fullentry = serendipity_db_bool($this->get_config('fullentry', 'true'));
+        $data['fullentry'] = $this->get_config('fullentry', 'true');
+        $fullentry  = serendipity_db_bool($data['fullentry']);
+        $use_smarty = serendipity_db_bool($this->get_config('smartify', 'false'));
+        if ($use_smarty) {
+            $serendipity['smarty']->assign($data);
+            $tfile = serendipity_getTemplateFile('plugin_quicksearch.tpl', 'serendipityPath');
+            if (!$tfile || $tfile == 'quickblog.tpl') {
+                $tfile = dirname(__FILE__) . '/plugin_quicksearch.tpl';
+            }
+            $content = $this->parseTemplate($tfile);
+            echo $content;
+        } else {
 ?>
 <form id="searchform" action="<?php echo $serendipity['serendipityHTTPPath'] . $serendipity['indexFile']; ?>" method="get">
     <div>
@@ -53,6 +71,7 @@ class serendipity_plugin_quicksearch extends serendipity_plugin
 </form>
 <?php
         serendipity_plugin_api::hook_event('quicksearch_plugin', $serendipity);
+        }
     }
 
 }

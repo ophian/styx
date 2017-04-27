@@ -1,6 +1,8 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Smartify quicksearch form by option (default false).
+
   * Optimise visual highlight of installed plugins, including those
     being installed and stackable, in lists of installable plugins.
 
