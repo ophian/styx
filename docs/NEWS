@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Allowed <p> tag custom classes in ckeditor js config to the
+    Extra Allowed Content protection against ACF.
+
   * Smartify quicksearch form by option (default false).
 
   * Optimise visual highlight of installed plugins, including those
