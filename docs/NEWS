@@ -1,6 +1,8 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+ * Fix some more PHP 7 errors and fix some default-php theme templates
+
  * Added a new "view" type 'entries', in case the blog entries list is
    not the actual startpage. This is with a staticpage set to be the
    new 'start' page of your blog. The Smarty {$view} variable would
