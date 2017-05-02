@@ -199,6 +199,7 @@
         <a href="<?= $GLOBALS['tpl']['footer_next_page'] ?>">&raquo; <?= NEXT_PAGE; ?></a>
     <?php endif; ?>
 
-    <?php serendipity_plugin_api::hook_event('entries_footer', $GLOBALS['template']); ?>
+    <?php $template = str_replace('\\', '/', dirname(__FILE__).'/entries.tpl'); ?>
+    <?php serendipity_plugin_api::hook_event('entries_footer', $template); ?>
     </div>
 <!-- ENTRIES END -->

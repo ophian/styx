@@ -1,3 +1,4 @@
+<?php $template = str_replace('\\', '/', dirname(__FILE__).'/media_showitem.tpl'); ?>
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 <!doctype html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
@@ -7,12 +8,12 @@
     <meta name="generator" content="Serendipity v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
-<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template']) ?>
+<?php serendipity_plugin_api::hook_event('frontend_header', $template) ?>
     <script src="<?= $GLOBALS['tpl']['head_link_script'] ?>"></script>
 </head>
 <body>
 <?php else: ?>
-<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template']) ?>
+<?php serendipity_plugin_api::hook_event('frontend_header', $template) ?>
 <?php endif; ?>
 
 <?php if ($GLOBALS['tpl']['is_raw_mode'] != true): ?>
@@ -106,7 +107,7 @@
 
 <?php endif; ?>
 <?= $GLOBALS['tpl']['raw_data'] ?>
-<?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['template']) ?>
+<?php serendipity_plugin_api::hook_event('frontend_footer', $template) ?>
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 </body>
 </html>

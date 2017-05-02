@@ -8,7 +8,8 @@
 <?php if($GLOBALS['tpl']['footer_next_page']): ?>
     <a href="<?= $GLOBALS['tpl']['footer_next_page'] ?>">&raquo; <?= NEXT_PAGE ?></a>
 <?php endif; ?>
-<?php serendipity_plugin_api::hook_event('comments_by_author_footer', $GLOBALS['template']) ?>
+<?php $template = str_replace('\\', '/', dirname(__FILE__).'/comments_by_author.tpl'); ?>
+<?php serendipity_plugin_api::hook_event('comments_by_author_footer', $template) ?>
 </div>
 
 <div class="comments_by_author">

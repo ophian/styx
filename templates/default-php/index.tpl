@@ -1,3 +1,4 @@
+<?php $template = str_replace('\\', '/', dirname(__FILE__).'/index.tpl'); ?>
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 <!doctype html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
@@ -24,12 +25,12 @@
     <link rel="pingback" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>comment.php?type=pingback&amp;entry_id=<?= $GLOBALS['tpl']['entry_id']; ?>">
 <?php endif; ?>
 
-<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template']); ?>
+<?php serendipity_plugin_api::hook_event('frontend_header', $template); ?>
 </head>
 
 <body>
 <?php else: ?>
-<?php serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template']); ?>
+<?php serendipity_plugin_api::hook_event('frontend_header', $template); ?>
 <?php endif; ?>
 
 <?php if ($GLOBALS['tpl']['is_raw_mode'] != true): ?>
@@ -55,8 +56,8 @@
 </div>
 <?php endif; ?>
 
-<?= $GLOBALS['tpl']['raw_data']; ?>
-<?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['template']); ?>
+<?= $GLOBALS['tpl']['raw_data']; ?><?= $template ?>
+<?php serendipity_plugin_api::hook_event('frontend_footer', $template); ?>
 
 <script src="<?= serendipity_getTemplateFile('default.js') ?>"></script>
 
