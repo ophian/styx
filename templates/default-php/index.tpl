@@ -56,7 +56,7 @@
 </div>
 <?php endif; ?>
 
-<?= $GLOBALS['tpl']['raw_data']; ?><?= $template ?>
+<?= $GLOBALS['tpl']['raw_data']; ?>
 <?php serendipity_plugin_api::hook_event('frontend_footer', $template); ?>
 
 <script src="<?= serendipity_getTemplateFile('default.js') ?>"></script>
