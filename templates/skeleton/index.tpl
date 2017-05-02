@@ -6,15 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
     <meta name="generator" content="Serendipity v.{$head_version}">
-{if ($view == "entry" || $view == "start" || $view == "feed" || $view == "plugin" || $staticpage_pagetitle != "" || $robots_index == 'index')}
+{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
     <meta name="robots" content="index,follow">
 {else}
     <meta name="robots" content="noindex,follow">
 {/if}
-{if ($view == "entry")}
+{if $view == 'entry'}
     <link rel="canonical" href="{$entry.rdf_ident}">
 {/if}
-{if ($view == "start")}
+{if in_array($view, ['start', 'entries'])}
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,300,600">

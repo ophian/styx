@@ -6,6 +6,17 @@
     <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset']; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity v.<?= $GLOBALS['tpl']['serendipityVersion']; ?>">
+<?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries', 'entry', 'feed', 'plugin']) || $GLOBALS['tpl']['staticpage_pagetitle'] != '' || $GLOBALS['tpl']['robots_index'] == 'index'): ?>
+    <meta name="robots" content="index,follow">
+<?php else: ?>
+    <meta name="robots" content="noindex,follow">
+<?php endif; ?>
+<?php if ($GLOBALS['tpl']['view'] == 'entry'): ?>
+    <link rel="canonical" href="{$entry.rdf_ident}">
+<?php endif; ?>
+<?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries'])): ?>
+    <link rel="canonical" href="{$serendipityBaseURL}">
+<?php endif; ?>
     <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet']; ?>">
     <link rel="alternate"  type="application/rss+xml" title="<?= $GLOBALS['tpl']['blogTitle']; ?> RSS feed" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?><?= $GLOBALS['tpl']['serendipityRewritePrefix']; ?>feeds/index.rss2">
     <link rel="alternate"  type="application/x.atom+xml"  title="<?= $GLOBALS['tpl']['blogTitle']; ?> Atom feed"  href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?><?= $GLOBALS['tpl']['serendipityRewritePrefix']; ?>feeds/atom.xml">

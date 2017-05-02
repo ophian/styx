@@ -7,15 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity v.{$serendipityVersion}">
-    {if ($view == "entry" || $view == "start" || $view == "feed" || $view == "plugin" || $staticpage_pagetitle != "" || $robots_index == 'index')}
+    {if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
         <meta name="robots" content="index,follow">
     {else}
         <meta name="robots" content="noindex,follow">
     {/if}
-    {if ($view == "entry")}
+    {if $view == 'entry'}
         <link rel="canonical" href="{$entry.rdf_ident}">
     {/if}
-    {if ($view == "start")}
+    {if in_array($view, ['start', 'entries'])}
         <link rel="canonical" href="{$serendipityBaseURL}">
     {/if}
 {* BOOTSTRAP CORE CSS *}
@@ -96,21 +96,21 @@
     <div class="subheader{if $template_option.subheader_img} subheader_image{/if}">
         <div class="container">
             <h2 class="pull-left">
-                {if $view == 'start' || $view == 'entry' || $view == '404' || $view == 'search' || ($head_title =='' && $head_subtitle=='')}{$blogDescription}
+                {if in_array($view, ['start', 'entries', 'entry', '404', 'search']) OR ($head_title == '' AND $head_subtitle == '')}{$blogDescription}
                 {elseif $view == 'categories'}{$CONST.ENTRIES_FOR|sprintf:{$category_info.category_name|escape}}
-                {elseif $view == 'authors' || $view == 'comments'}{$head_title}
-                {elseif $staticpage_pagetitle !=''}
+                {elseif $view == 'authors' OR $view == 'comments'}{$head_title}
+                {elseif $staticpage_pagetitle != ''}
                     {if $staticpage_headline}{$staticpage_headline|escape}
                     {elseif $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}
                     {elseif $plugin_contactform_pagetitle}{$plugin_contactform_pagetitle}
                     {else}{$head_title}{/if}
-                {elseif $view == 'archives' && $category}{$head_title} - {$head_subtitle}
-                {elseif $view == 'archive' && $category}{$category_info.category_name} - {$head_subtitle}
+                {elseif $view == 'archives' AND $category}{$head_title} - {$head_subtitle}
+                {elseif $view == 'archive' AND $category}{$category_info.category_name} - {$head_subtitle}
                 {elseif $head_subtitle}{$head_subtitle}
                 {/if}
             </h2>
 
-            {if $footer_totalPages >1 && !isset($staticpage_pagetitle)}
+            {if $footer_totalPages > 1 && !isset($staticpage_pagetitle)}
                 <nav class="pagination pull-right">
                     {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
                     {if $footer_currentPage+3 > $footer_totalPages}
