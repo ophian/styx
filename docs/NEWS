@@ -24,7 +24,7 @@ Version 2.2 ()
    If you don't use the staticpage start (page) option, you have no need
    to change your theme immediately.
 
-   * Allowed <p> tag custom classes in ckeditor js config to the
+  * Allowed <p> tag custom classes in ckeditor js config to the
     Extra Allowed Content protection against ACF.
 
   * Smartify quicksearch form by option (default false).
@@ -33,12 +33,12 @@ Version 2.2 ()
     being installed and stackable, in lists of installable plugins.
 
   * Fix the experimental core cache option by recognising more states.
-   This removes the second part of this code, the cached html output,
-   and focuses on its first part, the internal cache to not repeat
-   specific database queries.
-   PLEASE see this still as an EXPERIMENTAL approach!
+    This removes the second part of this code, the cached html output,
+    and focuses on its first part, the internal cache to not repeat
+    specific database queries.
+    PLEASE see this still as an EXPERIMENTAL approach!
 
-   * Fix spamblock Akismet API request Error
+  * Fix spamblock Akismet API request Error
 
   * Change default value for "use_autosave" to false
 
