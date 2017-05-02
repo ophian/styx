@@ -1,6 +1,10 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+ * Add random_bytes() and random_int() polyfill for PHP5, which is used
+   for the author token hash to use the best and most safely available
+   random generator for Integers and Strings in PHP.
+
  * Fix some more PHP 7 errors and fix some default-php theme templates
 
  * Added a new "view" type 'entries', in case the blog entries list is
