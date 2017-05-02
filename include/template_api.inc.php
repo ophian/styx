@@ -529,7 +529,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
      * @access public
      * @return null
      */
-    function fetch()
+    function &fetch($resource_name, $cache_id = NULL, $compile_id = NULL, $display = false)
     {
         if ($GLOBALS['matches'][2] == 'admin/serendipity_editor.js') {
             if (!is_object($serendipity['smarty'])) {
@@ -554,7 +554,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
      * @access public
      * @return null
      */
-    function display()
+    function display($resource_name)
     {
         if (!$this->match()) { return false; }
         echo "</serendipity>\n";
