@@ -6,6 +6,9 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
+// This library exposes the CSPRNG functions added in PHP 7 for use in PHP 5 projects. Their behavior should be identical.
+require_once S9Y_PEAR_PATH . 'paragonie/random_compat/lib/random.php'; // skips automatically on PHP7+
+
 /**
  * Adds a new author account
  *
@@ -646,7 +649,19 @@ function serendipity_checkAutologin($ident, $iv) {
  * Set a session cookie which can identify a user across http/https boundaries
  */
 function serendipity_setAuthorToken() {
-    $hash = (PHP_MAJOR_VERSION < 7) ? sha1(uniqid(mt_srand(), true)) : base64_encode(random_bytes(30)); // SHA1 is 160 bits length, in hex is 40 chars long - the latter is about this
+    try {
+        $string = random_bytes(32);
+    } catch (TypeError $e) {
+        // Well, it's an integer, so this IS unexpected.
+        trigger_error("Login failed: An unexpected [type] error has occurred");
+    } catch (Error $e) {
+        // This is also unexpected because 32 is a reasonable integer.
+        trigger_error("Login failed: An unexpected error has occurred");
+    } catch (Exception $e) {
+        // If you get this message, the CSPRNG failed hard.
+        trigger_error("Login failed: Could not generate a random string. Is our OS secure?");
+    }
+    $hash = bin2hex($string);
     serendipity_setCookie('author_token', $hash);
     $_SESSION['author_token'] = $hash;
 }
