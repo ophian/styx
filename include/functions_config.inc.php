@@ -653,13 +653,16 @@ function serendipity_setAuthorToken() {
         $string = random_bytes(32);
     } catch (TypeError $e) {
         // Well, it's an integer, so this IS unexpected.
-        trigger_error("Login failed: An unexpected [type] error has occurred");
+        #trigger_error("Create author token failed: An unexpected [type] error has occurred");
+        $string = sha1(uniqid(mt_srand(), true));
     } catch (Error $e) {
         // This is also unexpected because 32 is a reasonable integer.
-        trigger_error("Login failed: An unexpected error has occurred");
+        #trigger_error("Create author token failed: An unexpected error has occurred");
+        $string = sha1(uniqid(mt_srand(), true));
     } catch (Exception $e) {
         // If you get this message, the CSPRNG failed hard.
-        trigger_error("Login failed: Could not generate a random string. Is our OS secure?");
+        #trigger_error("Create author token failed: Could not generate a random string. Is our OS secure?");
+        $string = sha1(uniqid(mt_srand(), true));
     }
     $hash = bin2hex($string);
     serendipity_setCookie('author_token', $hash);
