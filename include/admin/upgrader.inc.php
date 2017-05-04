@@ -334,6 +334,12 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"plugin_staticpage.tpl"</em> and its siblings were changed regarding separator spaces in the breadcrumb navigation.',
                     'desc'      => 'Keep your own / or copy theme files in touch.'),
 
+            array(  'version'   => '2.2.0',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'title'     => 'Removal of old dead files in v.2.2.0',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_220, array('internals'), true),
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_220) . '</pre>'),
+
 );
 
 /* Fetch SQL files which needs to be run */

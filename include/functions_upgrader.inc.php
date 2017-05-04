@@ -309,6 +309,11 @@ $dead_dirs_202 = array(
     $serendipity['serendipityPath'] . 'templates/contest/admin'
 );
 
+/* A list of Serendipity files, which were removed by 2.2.0 */
+$dead_files_220 = array(
+    'bundled-libs/simplepie/simplepie.inc'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
