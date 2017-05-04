@@ -271,12 +271,12 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('name',          PLUGIN_REMOTERSS_TITLE);
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison');
-        $propbag->add('version',       '1.23');
+        $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian');
+        $propbag->add('version',       '1.24');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.7',
+            'serendipity' => '2.1.99',
             'smarty'      => '3.1.0',
-            'php'         => '5.2.0'
+            'php'         => '5.3.0'
         ));
         $propbag->add('configuration', array('sidebartitle', 'feedtype', 'template', 'rssuri', 'show_rss_element', 'smarty', 'number', 'use_rss_link', 'escape_rss', 'displaydate', 'dateformat', 'charset', 'target', 'cachetime', 'bulletimg', 'markup'));
         $propbag->add('groups', array('FRONTEND_EXTERNAL_SERVICES'));
@@ -624,7 +624,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                     // Touching the feedcache file will prevent loops of death when the RSS target is the same URI than our blog.
                     @touch($feedcache);
 
-                    require_once S9Y_PEAR_PATH . '/simplepie/simplepie.inc';
+                    require_once S9Y_PEAR_PATH . '/simplepie/SimplePie.php';
 
                     $this->debug('Running simplepie Parser');
 
