@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+ * Update simplepie library to v.1.5. Requires new file name to call:
+        require_once S9Y_PEAR_PATH . '/simplepie/SimplePie.php';
+
  * Add random_bytes() and random_int() polyfill for PHP5, which is used
    for the author token hash to use the best and most safely available
    random generator for Integers and Strings in PHP.
