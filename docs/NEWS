@@ -1,31 +1,31 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
- * Update simplepie library to v.1.5. Requires new file name to call:
+  * Update simplepie library to v.1.5. Requires new file name to call:
         require_once S9Y_PEAR_PATH . '/simplepie/SimplePie.php';
 
- * Add random_bytes() and random_int() polyfill for PHP5, which is used
-   for the author token hash to use the best and most safely available
-   random generator for Integers and Strings in PHP.
+  * Add random_bytes() and random_int() polyfill for PHP5, which is used
+    for the author token hash to use the best and most safely available
+    random generator for Integers and Strings in PHP.
 
- * Fix some more PHP 7 errors and fix some default-php theme templates
+  * Fix some more PHP 7 errors and fix some default-php theme templates
 
- * Added a new "view" type 'entries', in case the blog entries list is
-   not the actual startpage. This is with a staticpage set to be the
-   new 'start' page of your blog. The Smarty {$view} variable would
-   then be the same for the entries list and the new staticpage
-   "startpage" and you would have had to check this by eg.
+  * Added a new "view" type 'entries', in case the blog entries list is
+    not the actual startpage. This is with a staticpage set to be the
+    new 'start' page of your blog. The Smarty {$view} variable would
+    then be the same for the entries list and the new staticpage
+    "startpage" and you would have had to check this by eg.
         {if $view == 'start' AND $staticpage_pagetitle != 'startpage'}
-   or anything similar, depending the case to check for.
-   In this static page case, the entries list since ever is called by
-   GET "/?frontpage" or "index.php?/frontpage" requests.
+    or anything similar, depending the case to check for.
+    In this static page case, the entries list since ever is called by
+    GET "/?frontpage" or "index.php?/frontpage" requests.
 
-   This exactly is the case where "view:start" changes to "view:entries"
-   for the list, eg {if $view == 'entries'} in your theme.
-   Please check your themes index.tpl file for possible conflicts.
-   All core delivered themes have been changed accordingly.
-   If you don't use the staticpage start (page) option, you have no need
-   to change your theme immediately.
+    This exactly is the case where "view:start" changes to "view:entries"
+    for the list, eg {if $view == 'entries'} in your theme.
+    Please check your themes index.tpl file for possible conflicts.
+    All core delivered themes have been changed accordingly.
+    If you don't use the staticpage start (page) option, you have no need
+    to change your theme immediately.
 
   * Allowed <p> tag custom classes in ckeditor js config to the
     Extra Allowed Content protection against ACF.
