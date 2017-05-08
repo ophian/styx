@@ -1142,6 +1142,6 @@
 @define('DASHBOARD_INFO_CONTENT', 'Abkürzungen');
 @define('DASHBOARD_INFO_EMPTY', 'Wir haben nicht genug Daten, um etwas Nützliches zu zeigen. Es sind keine anhängigen Kommentare, Zukunfts- oder Entwurfseinträge vorhanden.');
 @define('COMMENTS_PENDING', 'Zu bewilligende Kommentare');
-@define('FUTURES_AVAILABLE', '´Zukünftige Einträge');
+@define('FUTURES_AVAILABLE', 'Zukünftige Einträge');
 @define('DRAFTS_AVAILABLE', 'Entwurfs Einträge');
 
