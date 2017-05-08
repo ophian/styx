@@ -1138,3 +1138,10 @@
 @define('INSTALLER_TOKEN_MISMATCH', 'Sie sind nicht autorisiert die Installation auszuführen, da Ihr Install-Token (%s) nicht demjenigen aus der Datei "%s" entspricht. Stellen Sie sicher, dass Sie die Datei mit dem korrekten Inhalt erstellt haben. Sie können einen neuen Token erstellen in dem Sie die Datei löschen.');
 @define('INSTALLER_TOKEN_MATCH', 'Ihr sicherer Install-Token ist gültig.');
 
+@define('DASHBOARD_INFO_HEADER', 'Overview');
+@define('DASHBOARD_INFO_CONTENT', 'Shortcuts');
+@define('DASHBOARD_INFO_EMPTY', 'We don´t have enough data to show anything useful. No pending comments, future or draft entries are available.');
+@define('COMMENTS_PENDING', 'Pending comments');
+@define('FUTURES_AVAILABLE', 'Future entries');
+@define('DRAFTS_AVAILABLE', 'Draft entries');
+

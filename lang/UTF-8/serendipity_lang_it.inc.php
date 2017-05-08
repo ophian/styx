@@ -1139,3 +1139,10 @@
 @define('INSTALLER_TOKEN_MISMATCH', 'You are not authorized to continue installation, since your install token is not identical (%s) to the one contained in the file "%s". Please make sure you created the file with the right content. You can get a new token by deleting the file.');
 @define('INSTALLER_TOKEN_MATCH', 'Your secure install token is valid.');
 
+@define('DASHBOARD_INFO_HEADER', 'Overview');
+@define('DASHBOARD_INFO_CONTENT', 'Shortcuts');
+@define('DASHBOARD_INFO_EMPTY', 'We don´t have enough data to show anything useful. No pending comments, future or draft entries are available.');
+@define('COMMENTS_PENDING', 'Pending comments');
+@define('FUTURES_AVAILABLE', 'Future entries');
+@define('DRAFTS_AVAILABLE', 'Draft entries');
+
