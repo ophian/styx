@@ -3517,9 +3517,14 @@ img.mfp-img {
         width: 48%;
     }
 
+    #dashboard_ticker.expand,
     #dashboard_update.expand {
         width: 98%;
         height: 100%;
+    }
+    #dashboard_ticker .hl {
+        color: red;
+        font-weight: 600;
     }
 
     .pluginmanager .pluginmanager_event {
