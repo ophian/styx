@@ -37,8 +37,8 @@
         {/if}
     {/if}
 
-    {if $no_create !== true}
-        {if $default_widgets}
+{if $no_create !== true}
+    {if $default_widgets}
         <section id="dashboard_comments" class="equal_heights quick_list dashboard_widget">
             <h3>{if 'adminComments'|checkPermission}<a href="serendipity_admin.php?serendipity[adminModule]=comments">{/if}{$CONST.COMMENTS}{if 'adminComments'|checkPermission}</a>{/if}</h3>
 
@@ -115,10 +115,25 @@
             {/if}
             </ol>
         </section>
-        {/if}
+    {/if}
 
         {serendipity_hookPlugin hook="backend_dashboard" hookAll="true"}
+
+    {if NOT $default_widgets}
+        <section id="dashboard_ticker" class="clearfix dashboard_widget expand{if NOT isset($shortcuts)} blend{/if}">
+            <h3>{$CONST.DASHBOARD_INFO_HEADER}</h3>
+
+            <span class="msg_notice">
+                <span class="icon-info-circled" aria-hidden="true"></span> {if isset($shortcuts)}{$CONST.DASHBOARD_INFO_CONTENT}:{else}<em>{$CONST.DASHBOARD_INFO_EMPTY}</em>{/if}
+            {if isset($shortcuts)}
+                {if $comments['pending']['count'] > 0}<a href="{$comments['pending']['link']}">{$CONST.COMMENTS_PENDING}</a> (<span class="hl">{$comments['pending']['count']}</span>){/if}
+                {if $entries['futures']['count'] > 0}<a href="{$entries['futures']['link']}">{$CONST.FUTURES_AVAILABLE}</a> (<span class="hl">{$entries['futures']['count']}</span>){/if}
+                {if $entries['drafts']['count'] > 0}<a href="{$entries['drafts']['link']}">{$CONST.DRAFTS_AVAILABLE}</a> (<span class="hl">{$entries['drafts']['count']}</span>){/if}
+            {/if}
+            </span>
+        </section>
     {/if}
+{/if}{* no create end *}
 
         <section id="s9y_links" class="clearfix mfp-hide dashboard_widget">
             <h3>{$CONST.FURTHER_LINKS}</h3>
@@ -150,5 +165,6 @@ $(document).ready(function() {
     if (typeof(serendipity) != 'object' || typeof(serendipity.spawn) != 'function') {
         $('#dashboard_header').after("<span class=\"msg_error\"><span class=\"icon-attention-circled\"></span> {$CONST.JS_FAILURE|sprintf:$js_failure_file|escape:javascript}</span>");
     }
+    if ($("#dashboard_ticker").hasClass('blend')) { $("#dashboard_ticker").delay(5000).fadeOut( 2500, 'linear' ); }
 });
 </script>

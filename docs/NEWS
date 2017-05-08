@@ -1,6 +1,13 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Improve the Dashboards "no default widget" option, to show shortcut
+    links and amounts of comments approval, future or draft entries.
+
+    EDITORS NOTE:
+        DRAFT set entries should really be used some day, published
+        or rewritten with a new date and NOT kept forgotten!
+
   * Update simplepie library to v.1.5. Requires new file name to call:
         require_once S9Y_PEAR_PATH . '/simplepie/SimplePie.php';
 

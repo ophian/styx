@@ -68,6 +68,9 @@ if (serendipity_checkPermission('adminUsers')) {
     $data['updateButton'] = $output;
 }
 
+$data['urltoken'] = serendipity_setFormToken('url');
+$data['token'] = serendipity_setFormToken();
+
 if ($serendipity['default_widgets']) {
     // Can be set through serendipity_config_local.inc.php
     if (!isset($serendipity['dashboardCommentsLimit'])) {
@@ -144,10 +147,44 @@ if ($serendipity['default_widgets']) {
     }
 
     $data['entries'] = $entries;
-} //end default_widgets
+} // end default_widgets
+else {
+    // Init
+    $data['shortcuts'] = $data['comments']['pending'] = $data['entries']['futures'] =  $data['entries']['drafts'] = null;
 
-$data['urltoken'] = serendipity_setFormToken('url');
-$data['token'] = serendipity_setFormToken();
+    // SQL
+    $cjoin  = ($serendipity['serendipityUserlevel'] == USERLEVEL_EDITOR) ? "
+            LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
+                WHERE e.authorid = " . (int)$serendipity['authorid']
+            : '';
+    $cquery = "SELECT COUNT(c.id) AS newcom
+                 FROM {$serendipity['dbPrefix']}comments c
+            LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
+            " . $cjoin ."
+             WHERE status = 'pending'";
+    $efilter  = ($serendipity['serendipityUserlevel'] == USERLEVEL_EDITOR) ? ' AND e.authorid = ' . (int)$serendipity['authorid'] : '';
+    $comments = serendipity_db_query($cquery);
+    $futures  = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin WHERE e.timestamp >= " . serendipity_serverOffsetHour() . $efilter, true);
+    $drafts   = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin WHERE e.isdraft = 'true'" . $efilter, true);
+
+    // Assign
+    if (is_array($comments)) {
+        $data['comments']['pending']['count'] = $comments[0]['newcom'];
+        $permByAuthor = (!serendipity_checkPermission('adminUsers') && (int)$serendipity['authorid'] > 1) ? '&serendipity[filter][author]=' .(int)$serendipity['authorid'] : '';
+        $data['comments']['pending']['link'] = 'serendipity_admin.php?'.$data['urltoken'].'&serendipity[adminModule]=comments'.$permByAuthor.'&serendipity[filter][show]=pending&submit=1';
+        if ($comments[0]['newcom'] > 0) $data['shortcuts'] = true;
+    }
+    if (is_array($futures)) {
+        $data['entries']['futures']['count'] = $futures['count'];
+        $data['entries']['futures']['link']  = 'serendipity_admin.php?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&'.$data['urltoken'];
+        if ($futures['count'] > 0) $data['shortcuts'] = true;
+    }
+    if (is_array($drafts)) {
+        $data['entries']['drafts']['count'] = $drafts['count'];
+        $data['entries']['drafts']['link'] = 'serendipity_admin.php?serendipity[action]=admin&serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][author]=&serendipity[filter][isdraft]=draft&go=1&serendipity[sort][perPage]=12&'.$data['urltoken'].'';
+        if ($drafts['count'] > 0) $data['shortcuts'] = true;
+    }
+}
 
 $data['no_create'] = $serendipity['no_create'];
 $data['default_widgets'] = $serendipity['default_widgets'];
