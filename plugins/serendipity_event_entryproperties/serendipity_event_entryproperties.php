@@ -120,7 +120,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     'customfields' => array('display' => PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS),
                 );
                 $propbag->add('values',      $values);
-                $propbag->add('default',     'sticky,spacer,author,password,frontpage,hiderss,access,markup,groups,authors,multi_authors,spacer');
+                $propbag->add('default',     'sticky,spacer,author,password,frontpage,hiderss,access,markup,groups,authors,multi_authors');
                 break;
 
             default:
