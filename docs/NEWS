@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Sync: Updated entryproperties plugin to support a custom property
+    for multiple ownership of an article.
+
   * Improve the Dashboards "no default widget" option, to show shortcut
     links and amounts of comments approval, future or draft entries.
 
