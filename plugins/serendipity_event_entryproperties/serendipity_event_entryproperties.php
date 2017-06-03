@@ -409,14 +409,14 @@ class serendipity_event_entryproperties extends serendipity_event
                     <option value="<?php echo $user['authorid']; ?>" <?php echo (in_array($user['authorid'], $access_users) ? 'selected="selected"' : ''); ?>><?php echo serendipity_specialchars($user['realname']); ?></option>
 <?php
                     }
-                    echo '</select>';
-                    echo '</div>';
+                    echo "</select>\n";
+                    echo "</div>\n";
                 }
                 break;
 
         case 'multi_authors':
 ?>
-            <div class="entryproperties_access_author adv_opts_box form_multiselect">
+            <div id="ep_access_multiauthors" class="entryproperties_access_multi_authors adv_opts_box form_multiselect">
                 <label for="properties_access_multi_authors"><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_MULTI_AUTHORS; ?></label>
                 <select id="properties_access_multi_authors" name="serendipity[properties][multi_authors][]" multiple="multiple">
 <?php
@@ -717,6 +717,7 @@ class serendipity_event_entryproperties extends serendipity_event
     #ep_access_groups,
     #ep_access_users,
     #ep_access_author,
+    #ep_access_multiauthors,
     #ep_markup {
         float: left;
         margin-right: 2%;
