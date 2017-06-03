@@ -241,7 +241,7 @@ if ($ajax) {
     $admin_vars['backendBlogtitleFirst'] = !$serendipity['backendBlogtitleFirst'] ? false : true;
 
     if ($serendipity['expose_s9y']) {
-        $admin_vars['version_info'] = sprintf(ADMIN_FOOTER_POWERED_BY, $serendipity['versionInstalled'], phpversion());
+        $admin_vars['version_info'] = sprintf(ADMIN_FOOTER_POWERED_BY, $serendipity['versionInstalled'], PHP_VERSION);
     } else {
         $admin_vars['version_info'] = sprintf(ADMIN_FOOTER_POWERED_BY, '', '');
     }

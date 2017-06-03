@@ -31,7 +31,7 @@ if (defined('S9Y_DATA_PATH')) {
 }
 
 $data['basedir'] = $basedir;
-$data['phpversion'] = phpversion();
+$data['phpversion'] = PHP_VERSION;
 $data['versionInstalled'] = $serendipity['versionInstalled'];
 $data['templatePath']  = $serendipity['templatePath'];
 $data['installerHTTPPath'] = str_replace('//', '/', dirname($_SERVER['PHP_SELF']) . '/'); // since different OS handlers for enddir
@@ -154,8 +154,8 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
     $data['php_uname']     = php_uname('s') .' '. php_uname('r') .', '. php_uname('m');
     $data['php_sapi_name'] = php_sapi_name();
 
-    if ( version_compare(phpversion(), '5.3', '>=') ) {
-        $data['installerResultDiagnose_VERSION'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES .', '. phpversion());
+    if ( version_compare(PHP_VERSION, '5.3', '>=') ) {
+        $data['installerResultDiagnose_VERSION'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES .', '. PHP_VERSION);
     } else {
         $data['installerResultDiagnose_VERSION'] =  serendipity_installerResultDiagnose(S9Y_I_ERROR, NO);
     }

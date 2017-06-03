@@ -735,7 +735,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
         $maildata['headers'][] = 'Reply-To: "'. $maildata['fromName'] .'" <'. $maildata['fromMail'] .'>';
         if ($serendipity['expose_s9y']) {
             $maildata['headers'][] = 'X-Mailer: ' . $maildata['version'];
-            $maildata['headers'][] = 'X-Engine: PHP/'. phpversion();
+            $maildata['headers'][] = 'X-Engine: PHP/'. PHP_VERSION;
         }
         $maildata['headers'][] = 'Message-ID: <'. md5(microtime() . uniqid(time())) .'@'. $_SERVER['HTTP_HOST'] .'>';
         $maildata['headers'][] = 'MIME-Version: 1.0';

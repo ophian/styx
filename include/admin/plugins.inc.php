@@ -293,7 +293,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 $requirement_failures[$plug['class_name']] = array("s9y" => true);
             }
 
-            if ( !empty($plug['requirements']['php']) && version_compare($plug['requirements']['php'], phpversion(), '>') ) {
+            if ( !empty($plug['requirements']['php']) && version_compare($plug['requirements']['php'], PHP_VERSION, '>') ) {
                 if (isset($requirement_failures[$plug['class_name']])) {
                     $requirement_failures[$plug['class_name']] = array_merge($requirement_failures[$plug['class_name']] , array("php" => true));
                 } else {
