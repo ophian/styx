@@ -141,185 +141,185 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
     if (is_readable(S9Y_INCLUDE_PATH . 'checksums.inc.php')) {
         $badsums = serendipity_verifyFTPChecksums();
         if (empty($badsums)) {
-            $data['installerResultDiagnose_CHECKSUMS'][] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, CHECKSUMS_PASS);
+            $data['installerResultDiagnose_CHECKSUMS'][] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, CHECKSUMS_PASS);
         } else {
             foreach ($badsums AS $file => $sum) {
-                $data['installerResultDiagnose_CHECKSUMS'][] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, sprintf(CHECKSUM_FAILED, $file));
+                $data['installerResultDiagnose_CHECKSUMS'][] = serendipity_installerResultDiagnose(S9Y_I_WARNING, sprintf(CHECKSUM_FAILED, $file));
             }
         }
     } else {
-        $data['installerResultDiagnose_CHECKSUMS'][] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, CHECKSUMS_NOT_FOUND);
+        $data['installerResultDiagnose_CHECKSUMS'][] = serendipity_installerResultDiagnose(S9Y_I_WARNING, CHECKSUMS_NOT_FOUND);
     }
 
     $data['php_uname']     = php_uname('s') .' '. php_uname('r') .', '. php_uname('m');
     $data['php_sapi_name'] = php_sapi_name();
 
     if ( version_compare(PHP_VERSION, '5.3', '>=') ) {
-        $data['installerResultDiagnose_VERSION'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES .', '. PHP_VERSION);
+        $data['installerResultDiagnose_VERSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES .', '. PHP_VERSION);
     } else {
-        $data['installerResultDiagnose_VERSION'] =  serendipity_installerResultDiagnose(S9Y_I_ERROR, NO);
+        $data['installerResultDiagnose_VERSION'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NO);
     }
 
     if ( sizeof(($_res = serendipity_probeInstallation('dbType'))) == 0 ) {
-        $data['installerResultDiagnose_DBTYPE'] =  serendipity_installerResultDiagnose(S9Y_I_ERROR, NONE);
+        $data['installerResultDiagnose_DBTYPE'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NONE);
     } else {
-        $data['installerResultDiagnose_DBTYPE'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, implode(', ', $_res));
+        $data['installerResultDiagnose_DBTYPE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, implode(', ', $_res));
     }
 
     if ( extension_loaded('session') ) {
-        $data['installerResultDiagnose_SESSION'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+        $data['installerResultDiagnose_SESSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
-        $data['installerResultDiagnose_SESSION'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, NO);
+        $data['installerResultDiagnose_SESSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, NO);
     }
 
     if ( extension_loaded('pcre') ) {
-        $data['installerResultDiagnose_PCRE'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+        $data['installerResultDiagnose_PCRE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
-        $data['installerResultDiagnose_PCRE'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, NO);
+        $data['installerResultDiagnose_PCRE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, NO);
     }
 
     if ( extension_loaded('gd') ) {
-        $data['installerResultDiagnose_GD'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+        $data['installerResultDiagnose_GD'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
-        $data['installerResultDiagnose_GD'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
+        $data['installerResultDiagnose_GD'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
     if ( extension_loaded('openssl') ) {
-        $data['installerResultDiagnose_OPENSSL'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+        $data['installerResultDiagnose_OPENSSL'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
-        $data['installerResultDiagnose_OPENSSL'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
+        $data['installerResultDiagnose_OPENSSL'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
     if ( extension_loaded('mbstring') ) {
-        $data['installerResultDiagnose_MBSTR'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+        $data['installerResultDiagnose_MBSTR'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
-        $data['installerResultDiagnose_MBSTR'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
+        $data['installerResultDiagnose_MBSTR'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
     if ( extension_loaded('iconv') ) {
-        $data['installerResultDiagnose_ICONV'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+        $data['installerResultDiagnose_ICONV'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
-        $data['installerResultDiagnose_ICONV'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
+        $data['installerResultDiagnose_ICONV'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
     if ( extension_loaded('zlib') ) {
-        $data['installerResultDiagnose_ZLIB'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+        $data['installerResultDiagnose_ZLIB'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
-        $data['installerResultDiagnose_ZLIB'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
+        $data['installerResultDiagnose_ZLIB'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
     if ($binary = serendipity_query_default('convert', false)) {
-        $data['installerResultDiagnose_IM'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, $binary);
+        $data['installerResultDiagnose_IM'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, $binary);
     } else {
-        $data['installerResultDiagnose_IM'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_FOUND);
+        $data['installerResultDiagnose_IM'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_FOUND);
     }
 
     if ( !serendipity_ini_bool(ini_get('safe_mode')) ) {
-        $data['installerResultDiagnose_SSM'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
+        $data['installerResultDiagnose_SSM'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     } else {
-        $data['installerResultDiagnose_SSM'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
+        $data['installerResultDiagnose_SSM'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
     }
 
     if ( serendipity_ini_bool(ini_get('register_globals')) ) {
-        $data['installerResultDiagnose_SRG'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
+        $data['installerResultDiagnose_SRG'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
     } else {
-        $data['installerResultDiagnose_SRG'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
+        $data['installerResultDiagnose_SRG'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     }
 
     if ( !serendipity_ini_bool(ini_get('magic_quotes_gpc')) ) {
-        $data['installerResultDiagnose_SMQG'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
+        $data['installerResultDiagnose_SMQG'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     } else {
-        $data['installerResultDiagnose_SMQG'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
+        $data['installerResultDiagnose_SMQG'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
     }
 
     if ( !serendipity_ini_bool(ini_get('magic_quotes_runtime')) ) {
-        $data['installerResultDiagnose_SMQR'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
+        $data['installerResultDiagnose_SMQR'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     } else {
-        $data['installerResultDiagnose_SMQR'] =  serendipity_installerResultDiagnose(S9Y_I_ERROR, 'ON');
+        $data['installerResultDiagnose_SMQR'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, 'ON');
     }
 
     if ( !serendipity_ini_bool(ini_get('session.use_trans_sid')) ) {
-        $data['installerResultDiagnose_SSUTS'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
+        $data['installerResultDiagnose_SSUTS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     } else {
-        $data['installerResultDiagnose_SSUTS'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
+        $data['installerResultDiagnose_SSUTS'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
     }
 
     if ( serendipity_ini_bool(ini_get('allow_url_fopen')) ) {
-        $data['installerResultDiagnose_SAUF'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'ON');
+        $data['installerResultDiagnose_SAUF'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'ON');
     } else {
-        $data['installerResultDiagnose_SAUF'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, 'OFF');
+        $data['installerResultDiagnose_SAUF'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'OFF');
     }
 
     if ( serendipity_ini_bool(ini_get('file_uploads')) ) {
-        $data['installerResultDiagnose_SFU'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'ON');
+        $data['installerResultDiagnose_SFU'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'ON');
     } else {
-        $data['installerResultDiagnose_SFU'] =  serendipity_installerResultDiagnose(S9Y_I_ERROR, 'OFF');
+        $data['installerResultDiagnose_SFU'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, 'OFF');
     }
 
     if ( serendipity_ini_bytesize(ini_get('post_max_size')) >= (10*1024*1024) ) {
-        $data['installerResultDiagnose_SPMS'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, ini_get('post_max_size'));
+        $data['installerResultDiagnose_SPMS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, ini_get('post_max_size'));
     } else {
-        $data['installerResultDiagnose_SPMS'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, ini_get('post_max_size'));
+        $data['installerResultDiagnose_SPMS'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, ini_get('post_max_size'));
     }
 
     if ( serendipity_ini_bytesize(ini_get('upload_max_filesize')) >= (10*1024*1024) ) {
-        $data['installerResultDiagnose_SUMF'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, ini_get('upload_max_filesize'));
+        $data['installerResultDiagnose_SUMF'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, ini_get('upload_max_filesize'));
     } else {
-        $data['installerResultDiagnose_SUMF'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, ini_get('upload_max_filesize'));
+        $data['installerResultDiagnose_SUMF'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, ini_get('upload_max_filesize'));
     }
 
     if ( serendipity_ini_bytesize(ini_get('memory_limit')) >= ((PHP_INT_SIZE == 4 ? 8 : 16)*1024*1024) ) {
-        $data['installerResultDiagnose_SML'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, ini_get('memory_limit'));
+        $data['installerResultDiagnose_SML'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, ini_get('memory_limit'));
     } else {
-        $data['installerResultDiagnose_SML'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, ini_get('memory_limit'));
+        $data['installerResultDiagnose_SML'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, ini_get('memory_limit'));
     }
 
     $basewritable = False;
     if ( is_writable($basedir) ) {
-        $data['installerResultDiagnose_BASE_WRITABLE'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
+        $data['installerResultDiagnose_BASE_WRITABLE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
         $basewritable = True;
     }
 
     if ( is_writable($basedir . PATH_SMARTY_COMPILE) ) {
-        $data['installerResultDiagnose_COMPILE'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
+        $data['installerResultDiagnose_COMPILE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
     } else {
         if ($basewritable && !is_dir($basedir . PATH_SMARTY_COMPILE)) {
-            $data['installerResultDiagnose_COMPILE'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
+            $data['installerResultDiagnose_COMPILE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
             #This directory will be created later in the process
         } else {
-            $data['installerResultDiagnose_COMPILE'] =  serendipity_installerResultDiagnose(S9Y_I_ERROR, NOT_WRITABLE);
+            $data['installerResultDiagnose_COMPILE'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NOT_WRITABLE);
             $showWritableNote = true;
         }
     }
 
     if ( is_writable($basedir . 'archives/') ) {
-        $data['installerResultDiagnose_ARCHIVES'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
+        $data['installerResultDiagnose_ARCHIVES'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
     } else {
         if ($basewritable && !is_dir($basedir . 'archives/')) {
-            $data['installerResultDiagnose_ARCHIVES'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
+            $data['installerResultDiagnose_ARCHIVES'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
             #This directory will be created later in the process
         } else {
-            $data['installerResultDiagnose_ARCHIVES'] =  serendipity_installerResultDiagnose(S9Y_I_ERROR, NOT_WRITABLE);
+            $data['installerResultDiagnose_ARCHIVES'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NOT_WRITABLE);
             $showWritableNote = true;
         }
     }
 
     if ( is_writable($basedir . 'plugins/') ) {
-        $data['installerResultDiagnose_PLUGINS'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
+        $data['installerResultDiagnose_PLUGINS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
     } else {
-        $data['installerResultDiagnose_PLUGINS'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_WRITABLE . NOT_WRITABLE_SPARTACUS);
+        $data['installerResultDiagnose_PLUGINS'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_WRITABLE . NOT_WRITABLE_SPARTACUS);
     }
 
     if ( is_dir($basedir .'uploads/') ) {
         $data['is_dir_uploads'] = true;
         if ( is_writable($basedir . 'uploads/') ) {
-            $data['installerResultDiagnose_UPLOADS'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
+            $data['installerResultDiagnose_UPLOADS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
         } else {
             if ($basewritable && !is_dir($basedir . 'uploads/')) {
-                $data['installerResultDiagnose_UPLOADS'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
+                $data['installerResultDiagnose_UPLOADS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
                 #This directory will be created later in the process
             } else {
-                $data['installerResultDiagnose_UPLOADS'] =  serendipity_installerResultDiagnose(S9Y_I_ERROR, NOT_WRITABLE);
+                $data['installerResultDiagnose_UPLOADS'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NOT_WRITABLE);
                 $showWritableNote = true;
             }
         }
@@ -329,12 +329,12 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         $data['is_imb_executable'] = true;
         if ($binary = serendipity_query_default('convert', false)) {
             if (is_executable($binary)) {
-                $data['installerResultDiagnose_IMB'] =  serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+                $data['installerResultDiagnose_IMB'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
             } else {
-                $data['installerResultDiagnose_IMB'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
+                $data['installerResultDiagnose_IMB'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
             }
         } else {
-            $data['installerResultDiagnose_IMB'] =  serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_FOUND);
+            $data['installerResultDiagnose_IMB'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_FOUND);
         }
     }
 
@@ -366,7 +366,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         $data['install_DB'] = true;
 
         $authorid = serendipity_addAuthor($_POST['user'], $_POST['pass'], $_POST['realname'], $_POST['email'], USERLEVEL_ADMIN, 1);
-        $mail_comments =  (serendipity_db_bool($_POST['want_mail']) ? 1 : 0);
+        $mail_comments = (serendipity_db_bool($_POST['want_mail']) ? 1 : 0);
         serendipity_set_user_var('mail_comments', $mail_comments, $authorid);
         serendipity_set_user_var('mail_trackbacks', $mail_comments, $authorid);
         serendipity_set_user_var('right_publish', 1, $authorid);

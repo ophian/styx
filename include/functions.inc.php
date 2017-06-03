@@ -1448,7 +1448,7 @@ function serendipity_initLog() {
  */
 function symbol_sanitize($string) {
     // replace font symbols
-    $string =  preg_replace_callback('/&#(61\d+?);/i', 'symbol_map_utf8', $string);
+    $string = preg_replace_callback('/&#(61\d+?);/i', 'symbol_map_utf8', $string);
     return $string;
 }
 
