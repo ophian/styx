@@ -41,10 +41,12 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
         unset($_attr[ 'nocache' ]);
         if (isset($compiler->smarty->registered_plugins[ Smarty::PLUGIN_FUNCTION ][ $tag ])) {
             $tag_info = $compiler->smarty->registered_plugins[ Smarty::PLUGIN_FUNCTION ][ $tag ];
+            $is_registered = true;
         } else {
-            $tag_info = $compiler->default_handler_plugins[ Smarty::PLUGIN_FUNCTION ][ $tag ];
+             $tag_info = $compiler->default_handler_plugins[ Smarty::PLUGIN_FUNCTION ][ $tag ];
+             $is_registered = false;
         }
-        // not cachable?
+        // not cacheable?
         $compiler->tag_nocache = $compiler->tag_nocache || !$tag_info[ 1 ];
         // convert attributes into parameter array string
         $_paramsArray = array();
@@ -59,15 +61,17 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
             }
         }
         $_params = 'array(' . implode(",", $_paramsArray) . ')';
-        $function = $tag_info[ 0 ];
         // compile code
-        if (!is_array($function)) {
-            $output = "{$function}({$_params},\$_smarty_tpl)";
-        } elseif (is_object($function[ 0 ])) {
+        if ($is_registered) {
             $output =
-                "\$_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['{$tag}'][0][0]->{$function[1]}({$_params},\$_smarty_tpl)";
+                "call_user_func_array( \$_smarty_tpl->smarty->registered_plugins[Smarty::PLUGIN_FUNCTION]['{$tag}'][0], array( {$_params},\$_smarty_tpl ) )";
         } else {
-            $output = "{$function[0]}::{$function[1]}({$_params},\$_smarty_tpl)";
+            $function = $tag_info[ 0 ];
+            if (!is_array($function)) {
+                $output = "{$function}({$_params},\$_smarty_tpl)";
+            } else {
+                $output = "{$function[0]}::{$function[1]}({$_params},\$_smarty_tpl)";
+            }
         }
         if (!empty($parameter[ 'modifierlist' ])) {
             $output = $compiler->compileTag('private_modifier', array(),

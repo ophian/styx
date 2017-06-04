@@ -1,6 +1,8 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Bugfix upgrade to Smarty 3.1.32-dev-11
+
   * Sync: Updated entryproperties plugin to support a custom property
     for multiple ownership of an article.
 

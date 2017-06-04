@@ -200,7 +200,7 @@ class Smarty_Internal_Compile_Functionclose extends Smarty_Internal_CompileBase
 
     /**
      * Remove nocache code
-     *
+     * 
      * @param $match
      *
      * @return string

@@ -21,13 +21,13 @@
  * smarty-discussion-subscribe@googlegroups.com
  *
  * @link      http://www.smarty.net/
- * @copyright 2016 New Digital Group, Inc.
- * @copyright 2016 Uwe Tews
+ * @copyright 2017 New Digital Group, Inc.
+ * @copyright 2017 Uwe Tews
  * @author    Monte Ohrt <monte at ohrt dot com>
  * @author    Uwe Tews
  * @author    Rodney Rehm
  * @package   Smarty
- * @version   3.1.31
+ * @version   3.1.32-dev
  */
 
 /**
@@ -69,7 +69,7 @@ if (!defined('SMARTY_RESOURCE_DATE_FORMAT')) {
  * Load Smarty_Autoloader
  */
 if (!class_exists('Smarty_Autoloader')) {
-    include __DIR__ . '/bootstrap.php';
+    include dirname(__FILE__) . '/bootstrap.php';
 }
 
 /**
@@ -108,7 +108,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * smarty version
      */
-    const SMARTY_VERSION = '3.1.32-dev-1';
+    const SMARTY_VERSION = '3.1.32-dev-11';
 
     /**
      * define variable scopes
@@ -726,7 +726,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      *
      * @var string[]
      */
-    private $obsoleteProperties = array('resource_caching', 'template_resource_caching', 'direct_access_security',
+    protected $obsoleteProperties = array('resource_caching', 'template_resource_caching', 'direct_access_security',
                                         '_dir_perms', '_file_perms', 'plugin_search_order',
                                         'inheritance_merge_compiled_includes', 'resource_cache_mode',);
 
@@ -735,7 +735,7 @@ class Smarty extends Smarty_Internal_TemplateBase
      *
      * @var string[]
      */
-    private $accessMap = array('template_dir' => 'TemplateDir', 'config_dir' => 'ConfigDir',
+    protected $accessMap = array('template_dir' => 'TemplateDir', 'config_dir' => 'ConfigDir',
                                'plugins_dir' => 'PluginsDir', 'compile_dir' => 'CompileDir',
                                'cache_dir' => 'CacheDir',);
 
@@ -948,7 +948,7 @@ class Smarty extends Smarty_Internal_TemplateBase
     /**
      * Adds directory of plugin files
      *
-     * @param null|array $plugins_dir
+     * @param null|array|string $plugins_dir
      *
      * @return Smarty current Smarty instance for chaining
      */
