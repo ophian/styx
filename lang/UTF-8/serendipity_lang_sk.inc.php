@@ -522,7 +522,7 @@ $i18n_filename_to = array (
 @define('SUPERUSER_OPEN_ADMIN', 'Administrácia');
 @define('SUPERUSER_OPEN_LOGIN', 'Prihlásenie');
 @define('INVERT_SELECTIONS', 'Obrátiť výber');
-@define('COMMENTS_DELETE_CONFIRM', 'Naozaj chcete zmazazať vybrané komentáre??');
+@define('COMMENTS_DELETE_CONFIRM', 'Naozaj chcete zmazazať vybrané komentáre?');
 @define('COMMENT_DELETE_CONFIRM', 'Naozaj chcete zmazať komentár #%d, vložený %s?');
 @define('DELETE_SELECTED_COMMENTS', 'Zmazať vybrané komentáre');
 @define('VIEW_COMMENT', 'Zobraziť komentár');
