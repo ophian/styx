@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Sync: Emit and detect rel=trackback element to find trackback
+    url, to have a reliable alternative to RDF used so far
+
   * Bugfix upgrade to Smarty 3.1.32-dev-11
 
   * Sync: Updated entryproperties plugin to support a custom property
