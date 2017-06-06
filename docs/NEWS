@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Update this NEWS file documentary for the MySQL full unicode
+    implementation "bug" down below by a marked "JUNE 2017" part.
+
   * Sync and enhance: Add backend_view_entry hook, that is executed for
     every entry in the backend entry list.
 
@@ -701,6 +704,12 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
         around, which may play a role, and not have been mentioned
         here, please see this approach as "EXPERIMENTAL" and at your
         own risk!
+
+        PLEASE NOTE (JUNE 2017):
+            There may be a better solution, updating the Serendipity table
+            collations with recent mysql versions. This is supposed to come
+            with upcoming Styx 2.3+, since that needs some very deep cared
+            testing.
 
         For more about this in general, read:
             https://mathiasbynens.be/notes/mysql-utf8mb4
