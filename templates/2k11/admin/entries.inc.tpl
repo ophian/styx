@@ -193,6 +193,7 @@
                     {if isset($entry.lang) AND $entry.lang != 'all'}
                         <span class="entry_status status_lang"><span class="icon-plus" aria-hidden="true"></span> {$CONST.INSTALL_LANG}: [ {$entry.lang} ]</span>
                     {/if}
+                    {$entry.info_more|default:''}
                     </div>
                 </li>
             {/foreach}

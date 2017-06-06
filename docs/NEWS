@@ -1,8 +1,11 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Sync; Add backend_view_entry hook, that is executed for every entry
+    in the backend entry list.
+
   * Sync: Emit and detect rel=trackback element to find trackback
-    url, to have a reliable alternative to RDF used so far
+    url, to have a reliable alternative to RDF used so far.
 
   * Bugfix upgrade to Smarty 3.1.32-dev-11
 
