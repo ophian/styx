@@ -1,6 +1,8 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Add temporary Serendipity bugfix for Smarty modifier compiles
+
   * The Spartacus mirror "Netmirror" has been down for a while.
     Please use the GitHub or the S9y server for plugin and theme
     locations. This does not hit Styx by default, since Styx uses a
