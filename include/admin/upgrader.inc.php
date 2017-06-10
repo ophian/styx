@@ -340,6 +340,12 @@ $tasks = array(
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_220, array('internals'), true),
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_220) . '</pre>'),
 
+            array(  'version'   => '2.2.0',
+                    'type'      => 'PLUGIN_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>PLUGIN_NOTICE:</b> The Spartacus plugin mirror <em>"Netmirror"</em> server is <b>not</b> the default mirror any more.',
+                    'desc'      => 'The Spartacus mirror <em>"Netmirror"</em> has been down for a while. Please use the GitHub or the S9y server for plugin and theme locations. This does not hit Styx by default, since Styx uses a custom plugin repository.'),
+
 );
 
 /* Fetch SQL files which needs to be run */

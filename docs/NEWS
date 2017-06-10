@@ -3,11 +3,6 @@ Version 2.2 ()
 
   * Add temporary Serendipity bugfix for Smarty modifier compiles
 
-  * The Spartacus mirror "Netmirror" has been down for a while.
-    Please use the GitHub or the S9y server for plugin and theme
-    locations. This does not hit Styx by default, since Styx uses a
-    custom plugin repository.
-
   * Update this NEWS file documentary for the MySQL full unicode
     implementation "bug" down below by a marked "JUNE 2017" part.
 
