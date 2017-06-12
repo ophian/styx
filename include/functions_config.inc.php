@@ -155,7 +155,7 @@ function serendipity_get_user_config_var($name, $authorid, $default = '') {
 
     $author_sql = '';
     if (!empty($authorid)) {
-        $author_sql = "authorid = " . (int)$authorid . " AND ";
+        $author_sql = 'authorid = ' . (int)$authorid . ' AND ';
     } elseif (isset($serendipity[$name])) {
         return $serendipity[$name];
     }
@@ -308,7 +308,7 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
             return $serendipity[$key] . $templateFile;
         }
 
-        if (file_exists($serendipity['serendipityPath'] . $templateFile . ".tpl")) {
+        if (file_exists($serendipity['serendipityPath'] . $templateFile . '.tpl')) {
             # catch *.tpl files, used by the backend for serendipity_editor.js.tpl
             return $serendipity['baseURL'] . 'index.php?/plugin/' . $file;
         }
@@ -593,13 +593,13 @@ function serendipity_issueAutologin($array) {
 
     // Delete possible current cookie. Also delete any autologin keys that smell like 3-week-old, dead fish.
     if (stristr($serendipity['dbType'], 'sqlite')) {
-        $cast = "name";
+        $cast = 'name';
     } elseif (stristr($serendipity['dbType'], 'postgres')) {
         // Adds explicits casting for postgresql.
-        $cast = "cast(name AS integer)";
+        $cast = 'cast(name AS integer)';
     } else {
         // and all others eg mysql(i), zend-db, ...
-        $cast = "cast(name AS UNSIGNED)";
+        $cast = 'cast(name AS UNSIGNED)';
     }
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
@@ -653,15 +653,15 @@ function serendipity_setAuthorToken() {
         $string = random_bytes(32);
     } catch (TypeError $e) {
         // Well, it's an integer, so this IS unexpected.
-        #trigger_error("Create author token failed: An unexpected [type] error has occurred");
+        #trigger_error('Create author token failed: An unexpected [type] error has occurred');
         $string = sha1(uniqid(mt_srand(), true));
     } catch (Error $e) {
         // This is also unexpected because 32 is a reasonable integer.
-        #trigger_error("Create author token failed: An unexpected error has occurred");
+        #trigger_error('Create author token failed: An unexpected error has occurred');
         $string = sha1(uniqid(mt_srand(), true));
     } catch (Exception $e) {
         // If you get this message, the CSPRNG failed hard.
-        #trigger_error("Create author token failed: Could not generate a random string. Is our OS secure?");
+        #trigger_error('Create author token failed: Could not generate a random string. Is our OS secure?');
         $string = sha1(uniqid(mt_srand(), true));
     }
     $hash = bin2hex($string);
@@ -852,7 +852,7 @@ function serendipity_setCookie($name, $value, $securebyprot = true, $custom_time
     $host = $_SERVER['HTTP_HOST'];
     if ($securebyprot) {
         $secure = (strtolower($_SERVER['HTTPS']) == 'on') ? true : false;
-        if ($pos = strpos($host, ":")) {
+        if ($pos = strpos($host, ':')) {
             $host = substr($host, 0, $pos);
         }
     } else {
@@ -906,7 +906,7 @@ function serendipity_deleteCookie($name) {
     global $serendipity;
 
     $host = $_SERVER['HTTP_HOST'];
-    if ($pos = strpos($host, ":")) {
+    if ($pos = strpos($host, ':')) {
         $host = substr($host, 0, $pos);
     }
 
@@ -1005,8 +1005,8 @@ function serendipity_iframe(&$entry, $mode = null) {
     // The "hermaphrodite" preview_iframe is not that easy to parse through template_api.inc, thus we workaround it
     if ($serendipity['template'] == 'default-php' && (!empty($php_preview) || $mode == 'save')) {
         $data['lang']                           = $serendipity['smarty']->tpl_vars['lang']->value;
-        $data['iconizr']                        = serendipity_getTemplateFile("admin/preview_iconizr.css"); // unforced since backend
-        $data['modernizr']                      = serendipity_getTemplateFile("admin/js/modernizr.min.js"); // dito
+        $data['iconizr']                        = serendipity_getTemplateFile('admin/preview_iconizr.css'); // unforced since backend
+        $data['modernizr']                      = serendipity_getTemplateFile('admin/js/modernizr.min.js'); // dito
         $data['head_charset']                   = $serendipity['smarty']->tpl_vars['head_charset']->value;
         $data['head_version']                   = $serendipity['smarty']->tpl_vars['head_version']->value;
         $data['head_link_stylesheet']           = $serendipity['smarty']->tpl_vars['head_link_stylesheet']->value;

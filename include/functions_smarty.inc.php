@@ -22,17 +22,18 @@
  *  OR to load a smarty plugin depended functionality
  *      $template->smarty->loadPlugin('another_smarty_plugin_dependency');
  *
- *  As a general rule, the currently evaluated template instanceOf Smarty_Internal_Template object is always passed to the plugins as the last parameter with two exceptions:
+ *  As a general rule, the current evaluated template instanceOf Smarty_Internal_Template object is always passed to the plugins as the last parameter,
+ *  with two exceptions:
  *      - modifiers do not get passed the Smarty_Internal_Template object at all
  *      - blocks get passed $repeat after the Smarty_Internal_Template object, to keep backwards compatibility to older versions of Smarty.
  *
  *  ATTENTION: Since having reworked the default-php and default-xml theme this type declaration (Smarty_Internal_Template) of the $template object
- *             has here been removed from all functions that do not need it. You would otherwise need to clone them to the template_api.inc.php file
+ *             has been removed here from all functions that do not need it. You would otherwise need to clone them to the template_api.inc.php file
  *             without the Smarty_Internal_Template type declaration. There are two very special cased functions left:
  *             serendipity_smarty_showCommentForm() and serendipity_smarty_getImageSize(), which both don't need to be used or have better origin methods.
  *
- *  Plugin functions naming convention is smarty_type_name() and plugin files must be named as follows: type.name.php.
- *  Where type is one of these plugin types: function, modifier, block, compiler, prefilter, postfilter, outputfilter, resource, insert.
+ *  Plugin functions naming convention is "smarty_type_name()" and plugin files must be named as follows: "type.name.php".
+ *  Where type is one of these plugin types: [function, modifier, block, compiler, prefilter, postfilter, outputfilter, resource, insert].
  *
  */
 
@@ -95,7 +96,7 @@ function &serendipity_printTrackbacks(&$trackbacks) {
  * @return timestamp in ISO-format
  */
 function serendipity_smarty_html5time($timestamp) {
-    return date("c", $timestamp);
+    return date('c', $timestamp);
 }
 
 
@@ -1230,7 +1231,7 @@ function serendipity_smarty_purge() {
         if (is_writable($file[0])) {
             unlink($file[0]);
         } else {
-            if (is_object($serendipity['logger'])) $serendipity['logger']->warning("Could not delete " . $file[0]);
+            if (is_object($serendipity['logger'])) $serendipity['logger']->warning('Could not delete ' . $file[0]);
         }
     }
 }
@@ -1288,10 +1289,10 @@ function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = nu
                 : serendipity_getTemplateFile($tplfile, 'serendipityPath');
 
     if ($debug !== null) {
-        if ($debugtype == "HTML") {
-            $debug = "<!-- Dynamically fetched " . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . " on " . date('Y-m-d H:i') . ", called from: " . $debug . " -->\n";
+        if ($debugtype == 'HTML') {
+            $debug = '<!-- Dynamically fetched ' . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " -->\n";
         } else {
-            $debug = "/* Dynamically fetched " . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . " on " . date('Y-m-d H:i') . ", called from: " . $debug . " */\n";
+            $debug = '/* Dynamically fetched ' . serendipity_specialchars(str_replace($serendipity['serendipityPath'], '', $tfile)) . ' on ' . date('Y-m-d H:i') . ', called from: ' . $debug . " */\n";
         }
     }
 

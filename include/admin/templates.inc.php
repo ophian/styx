@@ -65,7 +65,7 @@ class template_option
 $data = array();
 
 if ($serendipity['GET']['adminAction'] == 'editConfiguration') {
-    $data["adminAction"] = "editConfiguration";
+    $data['adminAction'] = 'editConfiguration';
 }
 
 if (($serendipity['GET']['adminAction'] == 'install' || $serendipity['GET']['adminAction'] == 'install-frontend' || $serendipity['GET']['adminAction'] == 'install-backend') && serendipity_checkFormToken()) {
@@ -92,16 +92,16 @@ if (($serendipity['GET']['adminAction'] == 'install' || $serendipity['GET']['adm
     }
     serendipity_set_config_var('last_template_change', time());
 
-    $data["adminAction"] = "install";
-    $data["install_template"] = serendipity_specialchars($serendipity['GET']['theme']);
+    $data['adminAction'] = 'install';
+    $data['install_template'] = serendipity_specialchars($serendipity['GET']['theme']);
 }
 
 if ( @file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'] .'/layout.php') ) {
-    $data["deprecated"] = true;
+    $data['deprecated'] = true;
 }
 
-$data["cur_template"]         = $serendipity['template'];
-$data["cur_template_backend"] = $serendipity['template_backend'];
+$data['cur_template']         = $serendipity['template'];
+$data['cur_template_backend'] = $serendipity['template_backend'];
 $data['cur_template_info']    = serendipity_fetchTemplateInfo($serendipity['template']);
 
 // NOTE: config.inc.php currently only applies to frontend configuration. Backend configuration is not planned yet, and would preferably use a "config_backend.inc.php" file!
@@ -129,7 +129,7 @@ if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] .
 
 if (is_array($template_config)) {
     serendipity_plugin_api::hook_event('backend_templates_configuration_top', $template_config);
-    $data["has_config"] = true;
+    $data['has_config'] = true;
 
     if ($serendipity['POST']['adminAction'] == 'configure' && serendipity_checkFormToken()) {
         $storage = new template_option();
@@ -137,11 +137,11 @@ if (is_array($template_config)) {
         foreach($serendipity['POST']['template'] AS $option => $value) {
             $storage->set_config($option, $value);
         }
-        $data["adminAction"] = "configure";
-        $data["save_time"] = sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S'));
+        $data['adminAction'] = 'configure';
+        $data['save_time'] = sprintf(SETTINGS_SAVED_AT, serendipity_strftime('%H:%M:%S'));
     }
 
-    $data["form_token"] = serendipity_setFormToken();
+    $data['form_token'] = serendipity_setFormToken();
 
     include_once S9Y_INCLUDE_PATH . 'include/functions_plugins_admin.inc.php';
 
@@ -151,7 +151,7 @@ if (is_array($template_config)) {
     $template_options->import($template_config);
     $template_options->values =& $template_vars;
 
-    $data["configuration"] = serendipity_plugin_config(
+    $data['configuration'] = serendipity_plugin_config(
         $template_options,
         $template_vars,
         $serendipity['template'],
@@ -191,11 +191,11 @@ foreach ($stack AS $theme => $info) {
 
     foreach(array('', '_backend') AS $backendId) {
 
-        if (file_exists($serendipity["serendipityPath"] . $serendipity["templatePath"] . $theme . "/preview${backendId}_fullsize.jpg")) {
-            $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity["baseURL"] . $serendipity["templatePath"] . $theme . "/preview${backendId}_fullsize.jpg";
+        if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg")) {
+            $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg";
         } elseif (!empty($info["preview{$backendId}_fullsizeURL"])) { // preview{$backendId}_fullsizeURL is not actually set in spartacus yet
-            if (file_exists($serendipity["serendipityPath"] . "/templates_c/template_cache/". $theme ."{$backendId}.jpg")) {
-                $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity["baseURL"] . "templates_c/template_cache/". $theme ."{$backendId}.jpg";
+            if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $theme ."{$backendId}.jpg")) {
+                $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme ."{$backendId}.jpg";
             } else {
                 $data['templates'][$theme]["fullsize${backendId}_preview"] = $info["preview{$backendId}_fullsizeURL"];
             }
@@ -206,9 +206,9 @@ foreach ($stack AS $theme => $info) {
             $previewType = '.jpg';
         }
 
-        if (file_exists($serendipity["serendipityPath"] . $serendipity["templatePath"] . $theme . "/preview${backendId}${previewType}")) {
-            $data['templates'][$theme]["preview${backendId}"] = $serendipity["templatePath"] . $theme . "/preview${backendId}${previewType}";
-        } elseif (!empty($info["previewURL"])) {
+        if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . "/preview${backendId}${previewType}")) {
+            $data['templates'][$theme]["preview${backendId}"] = $serendipity['templatePath'] . $theme . "/preview${backendId}${previewType}";
+        } elseif (!empty($info['previewURL'])) {
             $data['templates'][$theme]["preview${backendId}"] = $info["previewURL${backendId}"];
         }
 
