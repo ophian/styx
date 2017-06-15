@@ -1,5 +1,9 @@
 <?php
 
+if (IN_serendipity !== true) {
+    die ("Don't hack!");
+}
+
 $data = array();
 
 // do not move to end of switch, since this will change smarty assignment scope
