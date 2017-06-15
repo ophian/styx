@@ -114,10 +114,10 @@ class serendipity_smarty_emulator
         $smarty = isset($obj->smarty) ? $obj->smarty : $obj;
         if (isset($smarty->registered_plugins[ $type ][ $name ])) {
             #throw new SmartyException("Plugin tag \"{$name}\" already registered");
-            $this->trigger_error("Plugin tag \"{$name}\" already registered\n");
+            $this->trigger_error("Plugin tag '{$name}' already registered\n");
         } elseif (!is_callable($callback)) {
-            #throw new ErrorException("Plugin \"{$type}\" calling \"{$name}\" not callable");
-            #$this->trigger_error("Plugin \"{$type}\" calling \"{$name}\" not callable\n");
+            #throw new ErrorException("Plugin '{$type}' calling '{$name}' not callable");
+            #$this->trigger_error("Plugin '{$type}' calling '{$name}' not callable\n");
             //do nothing to not break the workflow
         } else {
             $smarty->registered_plugins[ $type ][ $name ] = array($callback, (bool) $cacheable, (array) $cache_attr);
@@ -203,7 +203,7 @@ class serendipity_smarty_emulator
         } elseif (function_exists($funcname)) {
             return call_user_func($funcname, $params, $this);
         } else {
-            return "<span class='msg_error'>ERROR: " . serendipity_specialchars($funcname) . " NOT FOUND.</span>";
+            return '<span class="msg_error">ERROR: ' . serendipity_specialchars($funcname) . " NOT FOUND.</span>\n";
         }
     }
 

@@ -395,9 +395,9 @@ function add_trackback($id, $title, $url, $name, $excerpt) {
 
     if ($id>0) {
         // first check, if we already have this pingback
-        $comments = serendipity_fetchComments($id,1,'co.id',true,'TRACKBACK'," AND co.url='" . serendipity_db_escape_string($url) . "'");
+        $comments = serendipity_fetchComments($id,1, 'co.id', true, 'TRACKBACK', " AND co.url='" . serendipity_db_escape_string($url) . "'");
         if (is_array($comments) && sizeof($comments) == 1) {
-            log_pingback("We already have that TRACKBACK!");
+            log_pingback('We already have that TRACKBACK!');
             return 0; // We already have it!
         }
         // We don't have it, so save the pingback
@@ -422,7 +422,7 @@ function add_pingback($id, $postdata) {
 
     // XML-RPC Method call without named parameter. This seems to be the default way using XML-RPC
     if(preg_match('@<methodCall>\s*<methodName>\s*pingback.ping\s*</methodName>\s*<params>\s*<param>\s*<value>\s*<string>([^<]*)</string>\s*</value>\s*</param>\s*<param>\s*<value>\s*<string>([^<]*)</string>\s*</value>\s*</param>\s*</params>\s*</methodCall>@is', $postdata, $matches)) {
-        log_pingback("Pingback wp structure.");
+        log_pingback('Pingback wp structure.');
         $remote             = $matches[1];
         $local              = $matches[2];
         log_pingback("remote=$remote, local=$local");
@@ -435,16 +435,16 @@ function add_pingback($id, $postdata) {
 
         // if no ID parameter was given, try to get one from targetURI
         if (!isset($id) || $id==0) {
-            log_pingback("ID not found");
+            log_pingback('ID not found');
             $id = evaluateIdByLocalUrl($local);
             log_pingback("ID set to $id");
         }
 
         if ($id>0) {
             // first check, if we already have this pingback
-            $comments = serendipity_fetchComments($id,1,'co.id',true,'PINGBACK'," AND co.url='" . serendipity_db_escape_string($remote) . "'");
+            $comments = serendipity_fetchComments($id,1, 'co.id', true, 'PINGBACK', " AND co.url='" . serendipity_db_escape_string($remote) . "'");
             if (is_array($comments) && sizeof($comments) == 1) {
-                log_pingback("We already have that PINGBACK!");
+                log_pingback('We already have that PINGBACK!');
                 return 0; // We already have it!
             }
             // We don't have it, so save the pingback
@@ -459,7 +459,7 @@ function add_pingback($id, $postdata) {
     $sourceURI = getPingbackParam('sourceURI', $postdata);
     $targetURI = getPingbackParam('targetURI', $postdata);
     if (isset($sourceURI) && isset($targetURI)) {
-        log_pingback("Pingback spec structure.");
+        log_pingback('Pingback spec structure.');
         $path = parse_url($sourceURI);
         $local              = $targetURI;
         $comment['title']   = 'PingBack';
@@ -470,7 +470,7 @@ function add_pingback($id, $postdata) {
 
         // if no ID parameter was given, try to get one from targetURI
         if (!isset($id) || $id==0) {
-            log_pingback("ID not found");
+            log_pingback('ID not found');
             $id = evaluateIdByLocalUrl($local);
             log_pingback("ID set to $id");
         }
@@ -559,7 +559,7 @@ function fetchPingbackData(&$comment) {
     try {
         $response = $req->send();
         if (preg_match($responses, $response->getStatus()) && $response->getStatus() != '200') {
-            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Request url: $url failed in: " . __FUNCTION__ . " with response Code: " . $response->getStatus());
+            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Request url: $url failed in: " . __FUNCTION__ . ' with response Code: ' . $response->getStatus());
         }
         $fContent = $response->getBody();
 
@@ -704,7 +704,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     static $old_references = array();
     static $saved_references = array();
     static $saved_urls = array();
-    if (is_object($serendipity['logger'])) $serendipity['logger']->debug("serendipity_handle_references");
+    if (is_object($serendipity['logger'])) $serendipity['logger']->debug('serendipity_handle_references');
 
     if ($dry_run) {
         // Store the current list of references. We might need to restore them for later user.
@@ -722,14 +722,14 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
                 $saved_urls[$old_reference['link']] = true;
             }
         }
-        if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Got references in dry run: " . print_r($current_references, true));
+        if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Got references in dry run: ' . print_r($current_references, true));
     } else {
         // A dry-run was called previously and restorable references are found. Restore them now.
         $del = serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}references WHERE (type = '' OR type IS NULL) AND entry_id = " . (int)$id);
         if (is_string($del)) {
             if (is_object($serendipity['logger'])) $serendipity['logger']->debug($del);
         }
-        if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Deleted references");
+        if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Deleted references');
 
         if (is_array($old_references) && count($old_references) > 0) {
             $current_references = array();
@@ -744,7 +744,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
             }
         }
 
-        if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Got references in final run:" . print_r($current_references, true));
+        if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Got references in final run:' . print_r($current_references, true));
     }
 
     if (!preg_match_all('@<a[^>]+?href\s*=\s*["\']?([^\'" >]+?)[ \'"][^>]*>(.+?)</a>@i', $text, $matches)) {
@@ -772,7 +772,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
         }
 
         if (isset($checked_locations[$locations[$i]])) {
-            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Already checked");
+            if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Already checked');
             continue;
         }
 
@@ -810,24 +810,24 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
         if (!isset($serendipity['noautodiscovery']) || !$serendipity['noautodiscovery']) {
             if (!$dry_run) {
                 if (!isset($saved_urls[$locations[$i]])){
-                    if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Enabling autodiscovery");
+                    if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Enabling autodiscovery');
                     serendipity_reference_autodiscover($locations[$i], $url, $author, $title, serendipity_trackback_excerpt($text));
                 } else {
                     if (is_object($serendipity['logger'])) $serendipity['logger']->debug("This reference was already used before in $id and therefore will not be trackbacked again");
                 }
             } else {
-                if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Dry run: Skipping autodiscovery");
+                if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Dry run: Skipping autodiscovery');
             }
             $checked_locations[$locations[$i]] = true; // Store trackbacked link so that no further trackbacks will be sent to the same link
         } else {
-            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Skipping full autodiscovery");
+            if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Skipping full autodiscovery');
         }
     }
     $del = serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}references WHERE entry_id=" . (int)$id . " AND (type = '' OR type IS NULL)");
     if (is_string($del)) {
         if (is_object($serendipity['logger'])) $serendipity['logger']->debug($del);
     }
-    if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Deleted references again");
+    if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Deleted references again');
 
     if (!is_array($old_references)) {
         $old_references = array();

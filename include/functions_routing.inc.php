@@ -132,7 +132,7 @@ function serveJS($js_mode) {
 
     header('Content-type: application/javascript; charset=' . LANG_CHARSET);
 
-    $out = "";
+    $out = '';
 
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 
@@ -145,7 +145,7 @@ function serveJS($js_mode) {
     header('HTTP/1.0 200 OK');
     header('Status: 200 OK');
 
-    if ($js_mode == "serendipity_admin.js") {
+    if ($js_mode == 'serendipity_admin.js') {
         serendipity_plugin_api::hook_event('js_backend', $out);
     } else {
         serendipity_plugin_api::hook_event('js', $out);
@@ -267,7 +267,7 @@ function serveCategory($matches, $is_multicat=false) {
     } else {
         $serendipity['head_title'] = $cInfo['category_name'];
         if (isset($serendipity['GET']['page'])) {
-            $serendipity['head_title'] .= " - " . serendipity_specialchars($serendipity['GET']['page']);
+            $serendipity['head_title'] .= ' - ' . serendipity_specialchars($serendipity['GET']['page']);
         }
         $serendipity['head_subtitle'] = $serendipity['blogTitle'];
     }
@@ -383,7 +383,7 @@ function serveEntry($matches) {
     $_GET['serendipity']['action'] = 'read';
     $_GET['serendipity']['id']     = $id;
 
-    $title = serendipity_db_query("SELECT title FROM {$serendipity['dbPrefix']}entries WHERE id=$id AND isdraft = 'false' " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND timestamp <= " . serendipity_db_time() : ''), true);
+    $title = serendipity_db_query("SELECT title FROM {$serendipity['dbPrefix']}entries WHERE id=$id AND isdraft = 'false' " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : ''), true);
     if (is_array($title)) {
         $serendipity['head_title']    = serendipity_specialchars($title[0]);
         $serendipity['head_subtitle'] = serendipity_specialchars($serendipity['blogTitle']);
@@ -414,7 +414,7 @@ function serveArchives() {
 
     /* We must always *assume* that Year, Month and Day are the first 3 arguments */
     list(,$year, $month, $day) = $_args;
-    if ($year == "archives") {
+    if ($year == 'archives') {
         unset($year);
     }
 

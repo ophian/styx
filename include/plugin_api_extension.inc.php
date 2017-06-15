@@ -3,7 +3,7 @@
 # All rights reserved.  See LICENSE file for licensing details
 
 if (IN_serendipity !== true) {
-    die ('Don\'t hack!');
+    die ("Don't hack!");
 }
 
 class serendipity_plugin_api_extension extends serendipity_plugin_api
@@ -87,7 +87,7 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
                 }
                 $where .= $key . ' = ' . $value;
             }
-            $q = 'SELECT '.implode(", ", array_keys($update_array)).'
+            $q = 'SELECT '.implode(', ', array_keys($update_array)).'
                     FROM '. $serendipity['dbPrefix'] . $table .'
                    WHERE '.$where;
             $old = serendipity_db_query($q, true, 'assoc');

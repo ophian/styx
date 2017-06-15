@@ -213,7 +213,7 @@ class serendipity_plugin_api
             $nextidx = 0;
         }
 
-        $serendipity['debug']['pluginload'][] = "Installing plugin: " . print_r(func_get_args(), true);
+        $serendipity['debug']['pluginload'][] = 'Installing plugin: ' . print_r(func_get_args(), true);
 
         $iq = "INSERT INTO {$serendipity['dbPrefix']}plugins (name, sort_order, placement, authorid, path) VALUES ('" . serendipity_specialchars($key) . "', $nextidx, '$default_placement', '$authorid', '" . serendipity_specialchars($pluginPath) . "')";
         $serendipity['debug']['pluginload'][] = $iq;
@@ -229,7 +229,7 @@ class serendipity_plugin_api
             $plugin->register_dependencies(false, $authorid);
             $plugin->install();
         } else {
-            $serendipity['debug']['pluginload'][] = "Loading plugin failed painfully. File not found?";
+            $serendipity['debug']['pluginload'][] = 'Loading plugin failed painfully. File not found?';
             echo '<span class="msg_error">' . ERROR . ': ' . serendipity_specialchars($key) . ' (' . serendipity_specialchars($pluginPath) . ')</span>';
         }
 
@@ -585,7 +585,7 @@ class serendipity_plugin_api
             $filename = serendipity_plugin_api::includePlugin($class_name, $pluginPath, $instance_id);
             if (empty($filename) && !empty($instance_id)) {
                 // $serendipity['debug']['pluginload'][] = "No valid path/filename found.";
-                $sql = "SELECT path from {$serendipity['dbPrefix']}plugins WHERE name = '" . serendipity_db_escape_string($instance_id) . "'";
+                $sql = "SELECT path FROM {$serendipity['dbPrefix']}plugins WHERE name = '" . serendipity_db_escape_string($instance_id) . "'";
                 $plugdata = serendipity_db_query($sql, true, 'both', false, false, false, true);
                 if (is_array($plugdata) && isset($plugdata[0])) {
                     $pluginPath = $plugdata[0];
@@ -600,7 +600,7 @@ class serendipity_plugin_api
             }
 
             if (empty($filename)) {
-                $serendipity['debug']['pluginload'][] = "No valid path/filename found. Aborting.";
+                $serendipity['debug']['pluginload'][] = 'No valid path/filename found. Aborting.';
                 $retval = false;
                 return $retval;
             }

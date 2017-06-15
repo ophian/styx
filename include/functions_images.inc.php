@@ -99,7 +99,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         $cond['joinparts']['keywords'] = true;
     }
     foreach($filter AS $f => $fval) {
-        if (! (isset($orderfields[$f]) || $f == "fileCategory") || empty($fval)) {
+        if (! (isset($orderfields[$f]) || $f == 'fileCategory') || empty($fval)) {
             continue;
         }
 
@@ -115,7 +115,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
 
             if (substr($f, 0, 3) === 'bp.') {
                 $realf = substr($f, 3);
-                $cond['parts']['filter'] .= " AND (bp2.property = '$realf' AND bp2.value >= " . (int)$fval['from'] . " AND bp2.value <= " . (int)$fval['to'] . ")\n";
+                $cond['parts']['filter'] .= " AND (bp2.property = '$realf' AND bp2.value >= " . (int)$fval['from'] . ' AND bp2.value <= ' . (int)$fval['to'] . ")\n";
             } else {
                 $cond['parts']['filter'] .= " AND ($f >= " . (int)$fval['from'] . " AND $f <= " . (int)$fval['to'] . ")\n";
             }
@@ -154,7 +154,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
     }
 
     if (isset($serendipity['authorid']) && !serendipity_checkPermission('adminImagesViewOthers')) {
-        $cond['parts']['authorid'] .= " AND (i.authorid = 0 OR i.authorid = " . (int)$serendipity['authorid'] . ")\n";
+        $cond['parts']['authorid'] .= ' AND (i.authorid = 0 OR i.authorid = ' . (int)$serendipity['authorid'] . ")\n";
     }
 
     $cond['and']  = 'WHERE 1=1 ' . implode("\n", $cond['parts']);
@@ -245,14 +245,14 @@ function serendipity_fetchImageFromDatabase($id, $mode = 'read') {
 
     if (is_array($id)) {
         $cond = array(
-            'and' => "WHERE i.id IN (" . serendipity_db_implode(',', $id) . ")"
+            'and' => 'WHERE i.id IN (' . serendipity_db_implode(',', $id) . ')'
         );
         $single   = false;
         $assocKey = 'id';
         $assocVal = false;
     } else {
         $cond = array(
-            'and' => "WHERE i.id = " . (int)$id
+            'and' => 'WHERE i.id = ' . (int)$id
         );
         $single   = true;
         $assocKey = false;
@@ -301,7 +301,7 @@ function serendipity_updateImageInDatabase($updates, $id) {
         foreach ($updates AS $k => $v) {
             $q[] = $k ." = '" . serendipity_db_escape_string($v) . "'";
         }
-        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}images SET ". implode($q, ',') ." WHERE id = " . (int)$id . " $admin");
+        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}images SET ". implode($q, ',') .' WHERE id = ' . (int)$id . " $admin");
         $i++;
     }
     return $i;
@@ -1467,7 +1467,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
     if ($manage && $limit_path == NULL) {
         ## SYNCH START ##
-        $aExclude = array("CVS" => true, ".svn" => true, "_vti_cnf" => true); // _vti_cnf to exclude possible added servers frontpage extensions
+        $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true); // _vti_cnf to exclude possible added servers frontpage extensions
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
         $paths        = array();
         $aFilesOnDisk = array();
@@ -1484,10 +1484,10 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         );
         foreach ($aResultSet AS $sKey => $sFile) {
                 if ($sFile['directory']) {
-                    if ($debug) echo "<span class='block_level'>{$sFile['relpath']} is a directory.</span>";
+                    if ($debug) echo "<span class='block_level'>{$sFile['relpath']} is a directory.</span>\n";
                     array_push($paths, $sFile);
                 } else {
-                    if ($debug) echo "<span class='block_level'>{$sFile['relpath']} is a file.</span>";
+                    if ($debug) echo "<span class='block_level'>{$sFile['relpath']} is a file.</span>\n";
                     // Store the file in our array, remove any ending slashes
                     $aFilesOnDisk[$sFile['relpath']] = 1;
                 }
@@ -1496,7 +1496,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
         usort($paths, 'serendipity_sortPath');
 
-        if ($debug) echo "<p>Got files: <pre>" . print_r($aFilesOnDisk, true) . "</pre></p>";
+        if ($debug) echo "<p>Got files: <pre>" . print_r($aFilesOnDisk, true) . "</pre></p>\n";
         $serendipity['current_image_hash'] = md5(serialize($aFilesOnDisk));
 
         $nTimeStart = microtime_float();
@@ -1506,13 +1506,13 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
         $nCount = 0;
 
-        if ($debug) echo "<p>Image Sync Right: " . serendipity_checkPermission('adminImagesSync') . " Onthefly Sync: " . $serendipity['onTheFlySynch'] . " Hash: " . $serendipity['current_image_hash'] . "!=" . $serendipity['last_image_hash']. "</p>";
+        if ($debug) echo '<p>Image Sync Right: ' . serendipity_checkPermission('adminImagesSync') . ' Onthefly Sync: ' . $serendipity['onTheFlySynch'] . ' Hash: ' . $serendipity['current_image_hash'] . '!=' . $serendipity['last_image_hash']. "</p>\n";
 
         if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync') && ($debug  || ($serendipity['current_image_hash'] != $serendipity['last_image_hash']))) {
             $aResultSet = serendipity_db_query("SELECT path, name, extension, thumbnail_name, id
                                                 FROM {$serendipity['dbPrefix']}images", false, 'assoc');
 
-            if ($debug) echo "<p>Got images: <pre>" . print_r($aResultSet, true) . "</pre></p>";
+            if ($debug) echo '<p>Got images: <pre>' . print_r($aResultSet, true) . "</pre></p>\n";
 
             if (is_array($aResultSet)) {
                 foreach ($aResultSet AS $sKey => $sFile) {
@@ -1526,14 +1526,14 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
                     $sFileName = $sFile['path'] . $sFile['name'] . (empty($sFile['extension']) ? '' : '.' . $sFile['extension']);
 
-                    if ($debug) echo "<p>File name is $sFileName, thumbnail is $sThumbNailFile</p>";
+                    if ($debug) echo "<p>File name is $sFileName, thumbnail is $sThumbNailFile</p>\n";
 
                     unset($aResultSet[$sKey]);
 
                     if (isset($aFilesOnDisk[$sFileName])) {
                         unset($aFilesOnDisk[$sFileName]);
                     } else {
-                        if ($debug) echo "<span class='block_level'>Deleting Image {$sFile['id']}</span>";
+                        if ($debug) echo "<span class='block_level'>Deleting Image {$sFile['id']}</span>\n";
 
                         serendipity_deleteImage($sFile['id']);
                         ++$nCount;
@@ -1543,36 +1543,36 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             }
 
             if ($nCount > 0){
-                if ($debug) echo "<p>Cleaned up ".$nCount." database entries</p>";
+                if ($debug) echo "<p>Cleaned up $nCount database entries</p>\n";
             }
 
             serendipity_set_config_var('last_image_hash', $serendipity['current_image_hash'], 0);
             $aUnmatchedOnDisk = array_keys($aFilesOnDisk);
 
-            if ($debug) echo "<p>Got unmatched files: <pre>" . print_r($aUnmatchedOnDisk, true) . "</pre></p>";
+            if ($debug) echo '<p>Got unmatched files: <pre>' . print_r($aUnmatchedOnDisk, true) . "</pre></p>\n";
 
             $nCount = 0;
             foreach ($aUnmatchedOnDisk AS $sFile) {
                 if (preg_match('@\.' . $serendipity['thumbSuffix'] . '\.@', $sFile)) {
-                    if ($debug) echo "<p>Skipping thumbnailed file $sFile</p>";
+                    if ($debug) echo "<p>Skipping thumbnailed file $sFile</p>\n";
                     continue;
                 } else {
-                    if ($debug) echo "<p>Checking $sFile</p>";
+                    if ($debug) echo "<p>Checking $sFile</p>\n";
                 }
 
                 // MTG: 21/01/06: put files which have just 'turned up' into the database
                 $aImageData = serendipity_getImageData($sFile);
                 if (serendipity_isImage($aImageData, false, '(image)|(video)|(audio)/')) {
-                    $nPos = strrpos($sFile, "/");
+                    $nPos = strrpos($sFile, '/');
                     if (is_bool($nPos) && !$nPos) {
                        $sFileName  = $sFile;
-                       $sDirectory = "";
+                       $sDirectory = '';
                     } else {
                        ++$nPos;
                        $sFileName  = substr($sFile, $nPos);
                        $sDirectory = substr($sFile, 0, $nPos);
                     }
-                    if ($debug) echo "<p>Inserting image $sFileName from $sDirectory <pre>" . print_r($aImageData, true) . "</pre> into database</p>";
+                    if ($debug) echo "<p>Inserting image $sFileName from $sDirectory <pre>" . print_r($aImageData, true) . "</pre> into database</p>\n";
                     # TODO: Check if the thumbnail generation goes fine with Marty's code
                     serendipity_makeThumbnail($sFileName, $sDirectory);
                     serendipity_insertImageInDatabase($sFileName, $sDirectory);
@@ -1581,16 +1581,16 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             }
 
             if ($nCount > 0) {
-                if ($debug) echo "<p>Inserted ".$nCount." images into the database</p>";
+                if ($debug) echo "<p>Inserted $nCount images into the database</p>\n";
             }
         } else {
-            if ($debug) echo "<p>Media Gallery database is up to date</p>";
+            if ($debug) echo "<p>Media Gallery database is up to date</p>\n";
         }
 
          /*
          $nTimeEnd = microtime_float ( );
          $nDifference = $nTimeEnd - $nTimeStart;
-         echo "<p> total time taken was " . $nDifference . "</p>";
+         echo "<p> total time taken was $nDifference </p>\n";
         */
         ## SYNCH FINISHED ##
     }
@@ -1714,14 +1714,14 @@ function serendipity_generateImageSelectorParems($format = 'url') {
 
     foreach($standaloneFilterParams AS $filterParam) {
         serendipity_restoreVar($serendipity['COOKIE'][$filterParam], $serendipity['GET'][$filterParam]);
-        if (!empty($serendipity['GET'][$filterParam]) && $serendipity['GET'][$filterParam] != "undefined") {
+        if (!empty($serendipity['GET'][$filterParam]) && $serendipity['GET'][$filterParam] != 'undefined') {
             $parems['serendipity[' . $filterParam . ']'] = $serendipity['GET'][$filterParam];
         }
     }
 
     foreach($filterParams AS $filterParam => $filterValue) {
         serendipity_restoreVar($serendipity['COOKIE']['filter'][$filterParam], $serendipity['GET']['filter'][$filterParam]);
-        if (!empty($serendipity['GET']['filter'][$filterParam]) && $serendipity['GET']['filter'][$filterParam] != "undefined") {
+        if (!empty($serendipity['GET']['filter'][$filterParam]) && $serendipity['GET']['filter'][$filterParam] != 'undefined') {
             if (is_array($filterValue)) {
                 foreach($filterValue AS $key => $value) {
                     $parems['serendipity[filter][' . $filterParam . '][' . $key . ']'] = $value;
@@ -1733,7 +1733,7 @@ function serendipity_generateImageSelectorParems($format = 'url') {
     }
 
     foreach ($parems AS $param => $value) {
-        if ($format == "form") {
+        if ($format == 'form') {
             $extraParems .= '<input type="hidden" name="'. $param .'" value="'. serendipity_specialchars($value) .'">'."\n";
         } else {
             $extraParems .= $param.'='. serendipity_specialchars($value) .'&amp;';
@@ -1801,7 +1801,7 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
         // and preserve files not entered therein.
         $files = serendipity_fetchImagesFromDatabase(0, 0, $total, false, false, $directory);
         if (is_array($files)) {
-            echo "<ul class='plainList'>\n";
+            echo '<ul class="plainList">'."\n";
             foreach($files AS $f => $file) {
                 echo "<li>\n";
                 if ($serious) {
@@ -1819,7 +1819,7 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
 
         if (count($filestack) > 0) {
             if ($forceDelete) {
-                echo "<ul class='plainList'>\n";
+                echo '<ul class="plainList">'."\n";
                 foreach($filestack AS $f => $file) {
                     if ($serious && @unlink($basedir . $file)) {
                         printf('<li><span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . DONE . "</span></li>\n", $file);
@@ -1832,7 +1832,7 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_DIRECTORY_NOT_EMPTY . "</span>\n";
                 echo "<ul>\n";
                 foreach($filestack AS $f => $file) {
-                    echo '<li>' . $file . "</li>\n";
+                    echo "<li>$file</li>\n";
                 }
                 echo "</ul>\n";
             }
@@ -1872,7 +1872,7 @@ function serendipity_traversePath($basedir, $dir='', $onlyDirs = true, $pattern 
     if ($aExcludeDirs === null) {
         // add _vti_cnf to exclude possible added servers frontpage extensions
         // add ckeditor/kcfinders .thumb dir to exclude, since no hook
-        $aExcludeDirs = array("CVS" => true, ".svn" => true, ".thumbs" => true, "_vti_cnf" => true, ".git" => true);
+        $aExcludeDirs = array('CVS' => true, '.svn' => true, '.thumbs' => true, '_vti_cnf' => true, '.git' => true);
     }
 
     $odir = serendipity_dirSlash('end', $basedir) . serendipity_dirSlash('end', $dir);
@@ -3016,9 +3016,9 @@ function serendipity_metaFieldConvert(&$item, $type) {
 
         case 'IPTCtime':
             preg_match('@(\d{2})(\d{2})(\d{2})([\+-])(\d{2})(\d{2})@',$item,$parts);
-            $time = serendipity_strftime("%H:%M",mktime(intval($parts[1]), intval($parts[2]), intval($parts[3]), 0, 0, 0));
-            $timezone = serendipity_strftime("%H:%M",mktime(intval($parts[5]), intval($parts[6]), 0, 0, 0, 0));
-            return $time." GMT".$parts[4].$timezone;
+            $time = serendipity_strftime('%H:%M', mktime(intval($parts[1]), intval($parts[2]), intval($parts[3]), 0, 0, 0));
+            $timezone = serendipity_strftime('%H:%M', mktime(intval($parts[5]), intval($parts[6]), 0, 0, 0, 0));
+            return $time . ' GMT' . $parts[4] . $timezone;
             break;
 
         case 'rdf':
@@ -3845,7 +3845,7 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
 function &serendipity_getMediaPaths() {
     global $serendipity;
 
-    $aExclude = array("CVS" => true, ".svn" => true, "_vti_cnf" => true); // add _vti_cnf to exclude possible added servers frontpage extensions
+    $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true); // add _vti_cnf to exclude possible added servers frontpage extensions
     serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
 
     $paths        = array();

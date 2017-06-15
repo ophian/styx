@@ -82,7 +82,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             // Do some relative -> absolute URI replacing magic. Replaces all HREF/SRC (<a>, <img>, ...) references to only the serendipitypath with the full baseURL URI
             // garvin: Could impose some problems. Closely watch this one.
             // onli: Did impose some problems, when having //-links to stuff. following pattern-selection tries to workaround that
-            if ($serendipity['serendipityHTTPPath'] == "/") {
+            if ($serendipity['serendipityHTTPPath'] == '/') {
                 $pattern = '@(href|src)=(["\'])/([^/][^"\']*)@imsU';
             } else {
                 $pattern = '@(href|src)=(["\'])' . preg_quote($serendipity['serendipityHTTPPath']) . '([^"\']*)@imsU';
@@ -96,7 +96,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             if ((isset($entry['no_email']) && $entry['no_email']) || $options['showMail'] === FALSE) {
                 $entry['email'] = 'nospam@example.com'; // RSS Feeds need an E-Mail address!
             } elseif (empty($entry['email'])) {
-                $query = "select email FROM {$serendipity['dbPrefix']}authors WHERE authorid = '". serendipity_db_escape_string($entry['authorid']) ."'";
+                $query = "SELECT email FROM {$serendipity['dbPrefix']}authors WHERE authorid = '". serendipity_db_escape_string($entry['authorid']) ."'";
                 $results = serendipity_db_query($query);
                 $entry['email'] = $results[0]['email'];
             }

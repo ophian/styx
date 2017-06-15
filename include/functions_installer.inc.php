@@ -980,7 +980,7 @@ function serendipity_removeFiles($files = null) {
         }
 
         if (file_exists($target)) {
-            $target = $backupdir . '/' . time() . '.' . $sanefile; // Backupped file already exists. Append with timestamp as name.
+            $target = $backupdir . '/' . time() . '.' . $sanefile; // Backup file already exists. Append with timestamp as name.
         }
 
         if (!is_writable($source)) {
@@ -999,7 +999,7 @@ function serendipity_removeFiles($files = null) {
  * @return  string      The real directory name
  */
 function serendipity_getRealDir($file) {
-    $dir = str_replace( "\\", "/", dirname($file));
+    $dir = str_replace( '\\', '/', dirname($file));
     $base = preg_replace('@/include$@', '', $dir) . '/';
     return $base;
 }
@@ -1221,7 +1221,7 @@ function serendipity_verifyFTPChecksums() {
 function serendipity_getCurrentVersion() {
     global $serendipity;
 
-    if ($serendipity['updateCheck'] != "stable" && $serendipity['updateCheck'] != "beta") {
+    if ($serendipity['updateCheck'] != 'stable' && $serendipity['updateCheck'] != 'beta') {
         return -1;
     }
     // https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE
@@ -1246,7 +1246,7 @@ function serendipity_getCurrentVersion() {
         if (function_exists('curl_init')) {
             $ch = curl_init($updateURL);
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_TIMEOUT, "5");
+            curl_setopt($ch, CURLOPT_TIMEOUT, '5');
             $file = curl_exec($ch);
             curl_close($ch);
         }

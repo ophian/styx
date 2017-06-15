@@ -6,7 +6,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-include_once(S9Y_INCLUDE_PATH . "include/functions_trackbacks.inc.php");
+include_once(S9Y_INCLUDE_PATH . 'include/functions_trackbacks.inc.php');
 
 
 /**
@@ -21,7 +21,7 @@ include_once(S9Y_INCLUDE_PATH . "include/functions_trackbacks.inc.php");
  * @param   string      Any error messages that might have occurred on the last run
  * @return null
  */
-function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = array(), $errMsg = "") {
+function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = array(), $errMsg = '') {
     global $serendipity;
 
     $draftD = '';

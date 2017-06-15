@@ -138,7 +138,7 @@ function show_plugins($event_only = false, $sidebars = null)
             $plugin  =& serendipity_plugin_api::load_plugin($plugin_data['name'], $plugin_data['authorid']);
             $key     = urlencode($plugin_data['name']);
             $css_key = 's9ycid' . str_replace('%', '-', $key);
-            $crc32   = hash("crc32b", $css_key);
+            $crc32   = hash('crc32b', $css_key);
             $is_plugin_owner    = ($plugin_data['authorid'] == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'));
             $is_plugin_editable = ($is_plugin_owner || $plugin_data['authorid'] == '0');
             $cname = explode(':', $plugin_data['name']);
@@ -235,7 +235,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         return false;
     }
 
-    $tfile = "/admin/plugin_config_item.tpl";
+    $tfile = '/admin/plugin_config_item.tpl';
 
     $data = array();
 
@@ -371,14 +371,14 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 foreach($radio['value'] AS $radio_index => $radio_value) {
                     $id = serendipity_specialchars($config_item . $radio_value);
                     $counter++;
-                    $checked = "";
+                    $checked = '';
 
                     if ($radio_value == 'true' && ($hvalue === '1' || $hvalue === 'true')) {
-                        $checked = " checked";
+                        $checked = ' checked';
                     } elseif ($radio_value == 'false' && ($hvalue === '' || $hvalue === 'false')) {
-                        $checked = " checked";
+                        $checked = ' checked';
                     } elseif ($radio_value == $hvalue) {
-                        $checked = " checked";
+                        $checked = ' checked';
                     }
                     $data['radio_button'][$radio_index]['id'] = $id;
                     $data['radio_button'][$radio_index]['checked'] = $checked;
@@ -395,7 +395,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 if (empty($input_type)) {
                     $input_type = $cbag->get('input_type');
                     if (empty($input_type)) {
-                        $input_type = "text";
+                        $input_type = 'text';
                     }
                 }
                 $data['input_type'] = $input_type;
@@ -417,7 +417,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                         @include_once dirname(__FILE__) . '/functions_entries_admin.inc.php';
                     }
                     // use SpawnMulti false per default (for multi nugget textareas, eg linklist sidebar plugin) - but where do we use jsname though?
-                    serendipity_emit_htmlarea_code("nuggets{$elcount}","nuggets{$elcount}");
+                    serendipity_emit_htmlarea_code("nuggets{$elcount}", "nuggets{$elcount}");
                 }
                 $assign_plugin_config($data);
                 break;
@@ -451,11 +451,11 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 $data['ctype'] = 'media';
                 // Print the HTML to display the popup media selector
                 $preview_width = $cbag->get('preview_width');
-                if (!$preview_width || $preview_width == "") {
+                if (!$preview_width || $preview_width == '') {
                   $preview_width = '400px';
                 }
                 $preview_height = $cbag->get('preview_height');
-                if (!$preview_height || $preview_height == "") {
+                if (!$preview_height || $preview_height == '') {
                   $preview_height = '100px';
                 }
                 $data['preview_width']  = $preview_width;
