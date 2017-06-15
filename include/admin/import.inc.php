@@ -33,7 +33,7 @@ class Serendipity_Import
      */
     function getImportNotes()
     {
-        return "";
+        return '';
     }
 
     /**

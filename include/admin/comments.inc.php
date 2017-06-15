@@ -212,39 +212,39 @@ foreach ($filters AS $filter) {
 
 if ($serendipity['GET']['filter']['show'] == 'approved') {
     $and          .= "AND status = 'approved'";
-    $searchString .= "&amp;serendipity[filter][show]=approved";
+    $searchString .= '&amp;serendipity[filter][show]=approved';
 } elseif ($serendipity['GET']['filter']['show'] == 'pending') {
     $and           .= "AND status = 'pending'";
-    $searchString .= "&amp;serendipity[filter][show]=pending";
+    $searchString .= '&amp;serendipity[filter][show]=pending';
 } elseif ($serendipity['GET']['filter']['show'] == 'confirm') {
     $and           .= "AND status LIKE 'confirm%'";
-    $searchString .= "&amp;serendipity[filter][show]=confirm";
+    $searchString .= '&amp;serendipity[filter][show]=confirm';
 } else {
     $serendipity['GET']['filter']['show'] = 'all';
 }
 
 if ($serendipity['GET']['filter']['type'] == 'TRACKBACK') {
     $c_type = 'TRACKBACK';
-    $searchString .= "&amp;serendipity[filter][type]=TRACKBACK";
+    $searchString .= '&amp;serendipity[filter][type]=TRACKBACK';
 } elseif ($serendipity['GET']['filter']['type'] == 'PINGBACK') {
     $c_type = 'PINGBACK';
-    $searchString .= "&amp;serendipity[filter][type]=PINGBACK";
+    $searchString .= '&amp;serendipity[filter][type]=PINGBACK';
 } elseif ($serendipity['GET']['filter']['type'] == 'NORMAL') {
     $c_type = 'NORMAL';
-    $searchString .= "&amp;serendipity[filter][type]=NORMAL";
+    $searchString .= '&amp;serendipity[filter][type]=NORMAL';
 } else {
     $c_type = null;
 }
 
 if ($serendipity['GET']['filter']['type'] == 'TRACKBACK') {
     $c_type = 'TRACKBACK';
-    $searchString .= "&amp;serendipity[filter][type]=TRACKBACK";
+    $searchString .= '&amp;serendipity[filter][type]=TRACKBACK';
 } elseif ($serendipity['GET']['filter']['type'] == 'PINGBACK') {
     $c_type = 'PINGBACK';
-    $searchString .= "&amp;serendipity[filter][type]=PINGBACK";
+    $searchString .= '&amp;serendipity[filter][type]=PINGBACK';
 } elseif ($serendipity['GET']['filter']['type'] == 'NORMAL') {
     $c_type = 'NORMAL';
-    $searchString .= "&amp;serendipity[filter][type]=NORMAL";
+    $searchString .= '&amp;serendipity[filter][type]=NORMAL';
 } else {
     $c_type = null;
 }
@@ -320,7 +320,7 @@ if (is_array($sql)) {
             'id'        => $rs['id'],
             'title'     => $rs['title'],
             'timestamp' => $rs['timestamp'],
-            'pubdate'   => date("c", (int)$rs['timestamp']), /* added to comment array to support HTML5 time tags in tpl */
+            'pubdate'   => date('c', (int)$rs['timestamp']), /* added to comment array to support HTML5 time tags in tpl */
             'referer'   => $rs['referer'],
             'url'       => $rs['url'],
             'ip'        => $rs['ip'],

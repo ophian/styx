@@ -1,7 +1,7 @@
 <?php
 
 if (IN_serendipity !== true) {
-    die ('Don\'t hack!');
+    die ("Don't hack!");
 }
 
 if (!is_object($serendipity['smarty'])) {

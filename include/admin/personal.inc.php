@@ -16,7 +16,7 @@ $from = array();
 
 if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()) {
     $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
-    $data['adminAction'] = "save";
+    $data['adminAction'] = 'save';
     if ( (!serendipity_checkPermission('adminUsersEditUserlevel') || !serendipity_checkPermission('adminUsersMaintainOthers') )
           && (int)$_POST['userlevel'] > $serendipity['serendipityUserlevel']) {
         $data['not_authorized'] = true;

@@ -1,7 +1,7 @@
 <?php
 
 if (IN_serendipity !== true) {
-    die ('Don\'t hack!');
+    die ("Don't hack!");
 }
 
 if (!serendipity_checkPermission('adminUsersGroups')) {
@@ -84,7 +84,7 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
     $data['perms'] = $perms;
     foreach($perms AS $perm => $userlevels) {
         if (defined('PERMISSION_' . strtoupper($perm))) {
-            list($name, $note) = explode(":", constant('PERMISSION_' . strtoupper($perm)));
+            list($name, $note) = explode(':', constant('PERMISSION_' . strtoupper($perm)));
             $data['perms'][$perm]['permission_name'] = $name;
             $data['perms'][$perm]['permission_note'] = $note;
         } else {

@@ -10,7 +10,7 @@ if (!serendipity_checkPermission('adminCategories') && !serendipity_checkPermiss
     return;
 }
 
-$admin_category = (!serendipity_checkPermission('adminCategoriesMaintainOthers') ? "AND (authorid = 0 OR authorid = " . (int)$serendipity['authorid'] . ")" : '');
+$admin_category = (!serendipity_checkPermission('adminCategoriesMaintainOthers') ? 'AND (authorid = 0 OR authorid = ' . (int)$serendipity['authorid'] . ')' : '');
 $data = array();
 /* Add a new category */
 if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {

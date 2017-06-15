@@ -1,7 +1,7 @@
 <?php
 
 if (IN_serendipity !== true) {
-    die ('Don\'t hack!');
+    die ("Don't hack!");
 }
 
 require_once(S9Y_INCLUDE_PATH . 'include/functions_installer.inc.php');
@@ -371,7 +371,7 @@ if (is_array($tmpFiles)) {
     }
 }
 
-@uksort($sqlfiles, "strnatcasecmp");
+@uksort($sqlfiles, 'strnatcasecmp');
 
 if ($serendipity['GET']['action'] == 'ignore') {
     /* Todo: Don't know what to put here? */

@@ -91,7 +91,7 @@ switch($serendipity['GET']['adminAction']) {
                     $data['is_draft'] = true;
                     $errors = serendipity_updertEntry($entry);
                     if (is_numeric($errors)) {
-                        $errors = "";
+                        $errors = '';
                     }
                 } else {
                     if ($serendipity['use_iframe']) {
@@ -366,7 +366,7 @@ switch($serendipity['GET']['adminAction']) {
                     'last_modified' => (int)$ey['last_modified'],
                     'isdraft'       => serendipity_db_bool($ey['isdraft']),
                     'ep_is_sticky'  => (serendipity_db_bool($ey['properties']['ep_is_sticky']) ? true : false),
-                    'pubdate'       => date("c", (int)$ey['timestamp']),
+                    'pubdate'       => date('c', (int)$ey['timestamp']),
                     'author'        => serendipity_specialchars($ey['author']),
                     'cats'          => $entry_cats,
                     'preview'       => ((serendipity_db_bool($ey['isdraft']) || (!$serendipity['showFutureEntries'] && $ey['timestamp'] >= serendipity_serverOffsetHour())) ? true : false),
