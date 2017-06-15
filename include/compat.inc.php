@@ -119,7 +119,7 @@ function debug_ErrorLevelType($type) {
         case E_USER_DEPRECATED: // 16384 //
             return 'E_USER_DEPRECATED';
     }
-    return "";
+    return '';
 }
 
 
@@ -235,7 +235,7 @@ if (!function_exists('errorToExceptionHandler')) {
         } else {
             // Only display error (production blog) if an admin is logged in, else we discard the error.
             if ($serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
-                $str  = " == SERENDIPITY ERROR == ";
+                $str  = ' == SERENDIPITY ERROR == ';
                 $str .= '<p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . '</p>';
                 if (headers_sent()) {
                     serendipity_die($str); // case HTTP headers: needs to halt with die() here, else it will pass through and gets written underneath blog content, or into streamed js files, which hardly isn't seen by many users

@@ -126,7 +126,6 @@ if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] .
     }
 }
 
-
 if (is_array($template_config)) {
     serendipity_plugin_api::hook_event('backend_templates_configuration_top', $template_config);
     $data['has_config'] = true;

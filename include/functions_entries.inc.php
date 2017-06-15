@@ -66,7 +66,7 @@ function serendipity_getMultiCategoriesSQL($cats, $invert = false) {
         $categoryid  = (int)$categoryid;
 
         if ($categoryid != 0) {
-            $cat_sql_array[] = " (c.category_left " . ($invert ? " NOT " : "") . " BETWEEN " . implode(' AND ', serendipity_fetchCategoryRange($categoryid)) . ')';
+            $cat_sql_array[] = ' (c.category_left ' . ($invert ? ' NOT ' : '') . ' BETWEEN ' . implode(' AND ', serendipity_fetchCategoryRange($categoryid)) . ')';
         }
     }
 
@@ -229,9 +229,9 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
                     . '||' . $serendipity['plugindata']['smartyvars']['uriargs']
                 );
 
-        $entries = $cache->get($key, "fetchEntries");
+        $entries = $cache->get($key, 'fetchEntries');
         if ($entries !== false) {
-            $serendipity['fullCountQuery'] = $cache->get($key . '_fullCountQuery', "fetchEntries");
+            $serendipity['fullCountQuery'] = $cache->get($key . '_fullCountQuery', 'fetchEntries');
             return unserialize($entries);
         }
     }
@@ -281,7 +281,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
         $endts = serendipity_serverOffsetHour(mktime(0, 0, 0, $month, ($day == 0 ? 1 : $day), $year), true);
 
         $cond['and'] = " WHERE e.timestamp >= $startts AND e.timestamp <= $endts";
-    } elseif (is_array($range) && count($range)==2) {
+    } elseif (is_array($range) && count($range) == 2) {
         $startts = serendipity_serverOffsetHour((int)$range[0], true);
         $endts   = serendipity_serverOffsetHour((int)$range[1], true);
         $cond['and'] = " WHERE e.timestamp >= $startts AND e.timestamp <= $endts";
@@ -341,9 +341,9 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
     if (!isset($serendipity['GET']['adminModule']) && !serendipity_db_bool($serendipity['showFutureEntries'])) {
         if (!empty($cond['and'])) {
-            $cond['and'] .= " AND e.timestamp <= " . serendipity_db_time();
+            $cond['and'] .= ' AND e.timestamp <= ' . serendipity_db_time();
         } else {
-            $cond['and'] = "WHERE e.timestamp <= " . serendipity_db_time();
+            $cond['and'] = 'WHERE e.timestamp <= ' . serendipity_db_time();
         }
     }
 
@@ -449,7 +449,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
                      {$serendipity['fullCountQuery']}
                      {$cond['group']}
                      {$cond['having']}
-                     " . (!empty($cond['orderby']) ? "ORDER BY {$cond['orderby']}" : "") . "
+                     " . (!empty($cond['orderby']) ? "ORDER BY {$cond['orderby']}" : '') . "
                      $limit";
 
     // DEBUG:
@@ -495,8 +495,8 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
                     . '||' . $serendipity['plugindata']['smartyvars']['uriargs']
                 );
 
-        $cache->save(serialize($ret), $key, "fetchEntries");
-        $cache->save($serendipity['fullCountQuery'], $key . '_fullCountQuery', "fetchEntries");
+        $cache->save(serialize($ret), $key, 'fetchEntries');
+        $cache->save($serendipity['fullCountQuery'], $key . '_fullCountQuery', 'fetchEntries');
     }
 
     return $ret;
@@ -562,10 +562,10 @@ function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false
     global $serendipity;
 
     $cond = array();
-    $cond['and'] = " "; // intentional dummy string to attach dummy AND parts to the WHERE clauses
+    $cond['and'] = ' '; // intentional dummy string to attach dummy AND parts to the WHERE clauses
 
     if ($fetchDrafts == 'false') {
-        $cond['and'] = " AND e.isdraft = 'false' " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e.timestamp <= " . serendipity_db_time() : '');
+        $cond['and'] = " AND e.isdraft = 'false' " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND e.timestamp <= ' . serendipity_db_time() : '');
     }
 
     if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'entries' && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
@@ -874,13 +874,13 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
             if ($relevance_enabled) {
                 $cond['searchorderby'] = $cond['find_part'] . " DESC";
             } else {
-                $cond['searchorderby'] = "timestamp DESC";
+                $cond['searchorderby'] = 'timestamp DESC';
             }
             break;
 
         case 'timestamp':
         default:
-            $cond['searchorderby'] = "timestamp DESC";
+            $cond['searchorderby'] = 'timestamp DESC';
             break;
     }
 
@@ -1177,8 +1177,8 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 $searchterms = str_replace('"', '', $serendipity['GET']['searchterms']);
                 $searchterms = explode($searchterms, ' ');
                 foreach($searchterms AS $searchdx => $searchterm) {
-                    $searchclass = "foundterm foundterm".$searchdx;
-                    $entry['body'] = str_replace($searchterm, '<span class="'.$searchclass.'">' . $searchterm . '</span>', $entry['body']);
+                    $searchclass   = 'foundterm foundterm' . $searchdx;
+                    $entry['body'] = str_replace($searchterm, '<span class="' . $searchclass . '">' . $searchterm . '</span>', $entry['body']);
                 }
             }
 
@@ -1367,7 +1367,7 @@ function serendipity_cleanCache() {
     );
     $cache = new Cache_Lite($options);
 
-    return $cache->clean("fetchEntries");
+    return $cache->clean('fetchEntries');
 }
 
 /**
@@ -1812,10 +1812,10 @@ function serendipity_printArchives() {
        LEFT JOIN {$serendipity['dbPrefix']}category c
               ON ec.categoryid = c.categoryid" : "") . "
            WHERE isdraft = 'false'"
-                . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND timestamp <= " . serendipity_db_time() : '')
+                . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : '')
                 . (!empty($cat_sql) ? ' AND ' . $cat_sql : '')
                 . (!empty($serendipity['GET']['viewAuthor']) ? ' AND e.authorid = ' . (int)$serendipity['GET']['viewAuthor'] : '')
-                . (!empty($cat_sql) ? " GROUP BY e.id, e.timestamp" : '');
+                . (!empty($cat_sql) ? ' GROUP BY e.id, e.timestamp' : '');
     $entries =& serendipity_db_query($q, false, 'assoc');
 
     $group = array();
@@ -1890,19 +1890,19 @@ function serendipity_getTotalCount($what) {
             $res = serendipity_db_query("SELECT SUM(e.comments) AS sum
                                            FROM {$serendipity['dbPrefix']}entries AS e
                                           WHERE e.isdraft = 'false'
-                                                " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e.timestamp  <= " . serendipity_db_time() : ''), true, 'assoc');
+                                                " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND e.timestamp  <= ' . serendipity_db_time() : ''), true, 'assoc');
             return $res['sum'];
         case 'trackbacks':
             $res = serendipity_db_query("SELECT SUM(e.trackbacks) AS sum
                                            FROM {$serendipity['dbPrefix']}entries AS e
                                           WHERE e.isdraft = 'false'
-                                                " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e.timestamp  <= " . serendipity_db_time() : ''), true, 'assoc');
+                                                " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND e.timestamp  <= ' . serendipity_db_time() : ''), true, 'assoc');
             return $res['sum'];
         case 'entries':
             $res = serendipity_db_query("SELECT COUNT(e.id) AS sum
                                            FROM {$serendipity['dbPrefix']}entries AS e
                                           WHERE e.isdraft = 'false'
-                                                " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e.timestamp  <= " . serendipity_db_time() : ''), true, 'assoc');
+                                                " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND e.timestamp  <= ' . serendipity_db_time() : ''), true, 'assoc');
             return $res['sum'];
 
     }

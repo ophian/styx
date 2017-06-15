@@ -214,9 +214,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 // since we merged sidebar and event plugins before, we can no longer rely on spartacus' $foreignPlugins['baseURI']
                 // NOTE: This is not nice and it would be better to move it into the plugins array instead, but that collides with the cache
                 if (strpos($class_data['name'], 'serendipity_plugin') !== false) {
-                    $baseURI = "&amp;serendipity[spartacus_fetch]=sidebar";
+                    $baseURI = '&amp;serendipity[spartacus_fetch]=sidebar';
                 } else {
-                    $baseURI = "&amp;serendipity[spartacus_fetch]=event";
+                    $baseURI = '&amp;serendipity[spartacus_fetch]=event';
                 }
                 $props['customURI'] .= $baseURI . $foreignPlugins['upgradeURI'];
             }
@@ -290,22 +290,22 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     foreach($pluggroups AS $pluggroup => $groupstack) {
         foreach ($groupstack AS $plug) {
             if ( !empty($plug['requirements']['serendipity']) && version_compare($plug['requirements']['serendipity'], serendipity_getCoreVersion($serendipity['version']), '>') ) {
-                $requirement_failures[$plug['class_name']] = array("s9y" => true);
+                $requirement_failures[$plug['class_name']] = array('s9y' => true);
             }
 
             if ( !empty($plug['requirements']['php']) && version_compare($plug['requirements']['php'], PHP_VERSION, '>') ) {
                 if (isset($requirement_failures[$plug['class_name']])) {
-                    $requirement_failures[$plug['class_name']] = array_merge($requirement_failures[$plug['class_name']] , array("php" => true));
+                    $requirement_failures[$plug['class_name']] = array_merge($requirement_failures[$plug['class_name']] , array('php' => true));
                 } else {
-                    $requirement_failures[$plug['class_name']] = array("php" => true);
+                    $requirement_failures[$plug['class_name']] = array('php' => true);
                 }
             }
 
             if ( !empty($plug['requirements']['smarty']) && version_compare($plug['requirements']['smarty'], str_replace('Smarty-', '', Smarty::SMARTY_VERSION), '>') ) {
                 if (isset($requirement_failures[$plug['class_name']])) {
-                     $requirement_failures[$plug['class_name']] = array_merge($requirement_failures[$plug['class_name']] , array("smarty" => true));
+                     $requirement_failures[$plug['class_name']] = array_merge($requirement_failures[$plug['class_name']] , array('smarty' => true));
                 } else {
-                    $requirement_failures[$plug['class_name']] = array("smarty" => true);
+                    $requirement_failures[$plug['class_name']] = array('smarty' => true);
                 }
             }
         }
@@ -404,8 +404,8 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             /* Load the new plugin */
             $plugin = &serendipity_plugin_api::load_plugin($inst);
             if (!is_object($plugin)) {
-                echo "DEBUG: Plugin " . serendipity_specialchars($inst) . " not an object: " . serendipity_specialchars(print_r($plugin, true))
-                    . ".<br />Input: " . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br /><br />\n\n
+                echo 'DEBUG: Plugin ' . serendipity_specialchars($inst) . ' not an object: ' . serendipity_specialchars(print_r($plugin, true))
+                    . '.<br />Input: ' . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br /><br />\n\n
                     This error can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin
                     was downloaded) or the inclusion of a file failed (permissions?)<br />\n";
                 echo "Backtrace:<br />\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br />";

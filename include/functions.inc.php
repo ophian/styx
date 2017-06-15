@@ -250,7 +250,7 @@ function serendipity_gzCompression() {
         && function_exists('ob_gzhandler') && extension_loaded('zlib')
         && serendipity_ini_bool(ini_get('zlib.output_compression')) == false
         && serendipity_ini_bool(ini_get('session.use_trans_sid')) == false) {
-        ob_start("ob_gzhandler");
+        ob_start('ob_gzhandler');
     }
 }
 
@@ -581,7 +581,7 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
     $query_group    = '';
     $query_distinct = '';
     if ($is_count) {
-        $query_select = ", count(e.authorid) AS artcount";
+        $query_select = ', count(e.authorid) AS artcount';
         $query_join   = "LEFT OUTER JOIN {$serendipity['dbPrefix']}entries AS e
                                       ON (a.authorid = e.authorid AND e.isdraft = 'false')";
     }
@@ -622,7 +622,7 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
         if ($group === 'hidden') {
             $query_join .= "LEFT OUTER JOIN {$serendipity['dbPrefix']}groupconfig AS gc
                                          ON (gc.property = 'hiddenGroup' AND gc.id = ag.groupid AND gc.value = 'true')";
-            $where .= " AND gc.id IS NULL ";
+            $where .= ' AND gc.id IS NULL ';
         } elseif (is_array($group)) {
             foreach($group AS $idx => $groupid) {
                 $group[$idx] = (int)$groupid;
@@ -1129,22 +1129,22 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
          * interesting
          */
         $query = "SELECT scheme, host, SUM(count) AS total
-                  FROM {$serendipity['dbPrefix']}$list
-                  WHERE day > date_sub(current_date, interval " . (int)$interval . " day)
-                  GROUP BY host
-                  ORDER BY total DESC, host
+                    FROM {$serendipity['dbPrefix']}$list
+                   WHERE day > date_sub(current_date, interval " . (int)$interval . " day)
+                GROUP BY host
+                ORDER BY total DESC, host
                   $limit";
     } else {
         /* Portable version of the same query */
         $query = "SELECT scheme, host, SUM(count) AS total
-                  FROM {$serendipity['dbPrefix']}$list
-                  GROUP BY scheme, host
-                  ORDER BY total DESC, host
+                    FROM {$serendipity['dbPrefix']}$list
+                GROUP BY scheme, host
+                ORDER BY total DESC, host
                   $limit";
     }
 
     $rows = serendipity_db_query($query);
-    $output = "<span class='serendipityReferer'>";
+    $output = '<span class="serendipityReferer">';
     if (is_array($rows)) {
         foreach ($rows AS $row) {
             if ($use_links) {
@@ -1163,7 +1163,7 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
             }
         }
     }
-    $output .= "</span>";
+    $output .= "</span>\n";
     return $output;
 }
 
@@ -1178,7 +1178,7 @@ function serendipity_xhtml_target($target) {
     global $serendipity;
 
     if ($serendipity['enablePopup'] != true)
-        return "";
+        return '';
 
     return ' onclick="window.open(this.href, \'target' . time() . '\'); return false;" ';
 }
@@ -1336,7 +1336,7 @@ if (!function_exists('microtime_float')) {
      * @return float    the time
      */
     function microtime_float() {
-        list($usec, $sec) = explode(" ", microtime());
+        list($usec, $sec) = explode(' ', microtime());
         return ((float)$usec + (float)$sec);
     }
 }
@@ -1700,5 +1700,5 @@ function serendipity_url_allowed($url) {
     return true;
 }
 
-define("serendipity_FUNCTIONS_LOADED", true);
+define('serendipity_FUNCTIONS_LOADED', true);
 /* vim: set sts=4 ts=4 expandtab : */
