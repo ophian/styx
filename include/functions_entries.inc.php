@@ -1737,7 +1737,7 @@ function serendipity_updateEntryCategories($postid, $categories) {
         return;
     }
 
-    $query = "DELETE FROM $serendipity[dbPrefix]entrycat WHERE entryid = " . (int)$postid;
+    $query = "DELETE FROM {$serendipity['dbPrefix']}entrycat WHERE entryid = " . (int)$postid;
     serendipity_db_query($query);
 
     if (!is_array($categories)) {
@@ -1745,7 +1745,7 @@ function serendipity_updateEntryCategories($postid, $categories) {
     }
 
     foreach($categories AS $idx => $cat) {
-        $query = "INSERT INTO $serendipity[dbPrefix]entrycat (categoryid, entryid) VALUES (" . (int)$cat . ", " . (int)$postid . ")";
+        $query = "INSERT INTO {$serendipity['dbPrefix']}entrycat (categoryid, entryid) VALUES (" . (int)$cat . ", " . (int)$postid . ")";
         serendipity_db_query($query);
     }
     serendipity_cleanCache();

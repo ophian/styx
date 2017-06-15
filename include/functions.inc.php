@@ -956,7 +956,7 @@ function serendipity_track_referrer($entry = 0) {
         $url_parts['query'] = substr($url_parts['query'], 0, 255);
 
         $suppressq = "SELECT count(1)
-                      FROM $serendipity[dbPrefix]suppress
+                      FROM {$serendipity['dbPrefix']}suppress
                       WHERE ip = '" . serendipity_db_escape_string($_SERVER['REMOTE_ADDR']) . "'
                       AND scheme = '" . serendipity_db_escape_string($url_parts['scheme']) . "'
                       AND port = '" . serendipity_db_escape_string($url_parts['port']) . "'
@@ -965,14 +965,15 @@ function serendipity_track_referrer($entry = 0) {
                       AND query = '" . serendipity_db_escape_string($url_parts['query']) . "'
                       AND last > $ts - $interval";
 
-        $suppressp = "DELETE FROM $serendipity[dbPrefix]suppress
+        $suppressp = "DELETE FROM {$serendipity['dbPrefix']}suppress
                       WHERE ip = '" . serendipity_db_escape_string($_SERVER['REMOTE_ADDR']) . "'
                       AND scheme = '" . serendipity_db_escape_string($url_parts['scheme']) . "'
                       AND host = '" . serendipity_db_escape_string($url_parts['host']) . "'
                       AND port = '" . serendipity_db_escape_string($url_parts['port']) . "'
                       AND query = '" . serendipity_db_escape_string($url_parts['query']) . "'
                       AND path = '" . serendipity_db_escape_string($url_parts['path']) . "'";
-        $suppressu = "INSERT INTO $serendipity[dbPrefix]suppress
+
+        $suppressu = "INSERT INTO {$serendipity['dbPrefix']}suppress
                       (ip, last, scheme, host, port, path, query)
                       VALUES (
                       '" . serendipity_db_escape_string($_SERVER['REMOTE_ADDR']) . "',
@@ -1012,7 +1013,7 @@ function serendipity_track_referrer_gc() {
 
     $ts       = serendipity_db_get_interval('ts');
     $interval = serendipity_db_get_interval('interval', 900);
-    $gc = "DELETE FROM $serendipity[dbPrefix]suppress WHERE last <= $ts - $interval";
+    $gc = "DELETE FROM {$serendipity['dbPrefix']}suppress WHERE last <= $ts - $interval";
     serendipity_db_query($gc);
 }
 
