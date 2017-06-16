@@ -1698,6 +1698,13 @@ summary {
 #edit_entry_category label {
     vertical-align: top;
 }
+#edit_entry_category .compact label {
+    top: 4px;
+}
+@-moz-document url-prefix() {
+    #edit_entry_category .compact label {
+        position: relative; }
+}
 
 .filters_toolbar,
 .plugin_info {

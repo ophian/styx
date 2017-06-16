@@ -104,6 +104,9 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
 
             $template_vars['category_options'][] = $cat;
         }
+        if (false !== stripos($serendipity['enableBackendPopupGranular'], 'categories')) {
+            $template_vars['category_compact'] = true;
+        }
     }
 
     if (!empty($serendipity['GET']['title'])) {
