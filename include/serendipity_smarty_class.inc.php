@@ -61,7 +61,9 @@ class Serendipity_Smarty extends Smarty
     // BC mode for plugins Smarty2 compat INCLUDE_ANY fetch() calls - to avoid an undefinied property error.
     public $security_settings = false;
 
-
+    /**
+     * Magic set
+     */
     public function __set($name, $value)
     {
         if ($name == 'security') {
@@ -81,7 +83,7 @@ class Serendipity_Smarty extends Smarty
      * To obtain an instance of this class use:
      * $serendipity['smarty'] = Serendipity_Smarty::getInstance();
      * The first time this is called a new instance will be created. Thereafter, the same instance is handed back.
-     **/
+     */
     public static function getInstance($newInstance = null)
     {
         static $instance = null;
@@ -202,7 +204,7 @@ class Serendipity_Smarty extends Smarty
             in a way that allows smarty to do 304 handling - or implement the serve-stale-while-update approach,
             you should go with CACHEMISS.
         */
-        $this->compile_id    = &$serendipity['template']; // $this->setCompileId(&$serendipity['template'])
+        $this->compile_id = &$serendipity['template']; // $this->setCompileId(&$serendipity['template'])
         /*
             Note: rodneyrehm
             Please only specify the compile_id if you really need to.
@@ -213,9 +215,9 @@ class Serendipity_Smarty extends Smarty
 
         // S9y set production == debug extends from s9y version information (alpha|beta|cvs) is always debug | USE ===
         if ($serendipity['production'] === 'debug') {
-            $this->force_compile   = true;   // $this->setForceCompile(true);
-            $this->caching         = false;  // $this->setCaching(false);
-            $this->debugging       = true;   // $this->setDebugging(true);
+            $this->force_compile = true;   // $this->setForceCompile(true);
+            $this->caching       = false;  // $this->setCaching(false);
+            $this->debugging     = true;   // $this->setDebugging(true);
         }
 
         // Set smarty error reporting. General error_reporting is set in serendipity/serendipity_config.inc.php
