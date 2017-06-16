@@ -2003,6 +2003,7 @@ h3 .media_file_actions {
     width: 50%;
 }
 
+.compact .cat_view_pad,
 .compact_categories .cat_view_pad,
 .separator, .seperator {
     display: none !important;
