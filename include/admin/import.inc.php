@@ -6,6 +6,11 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
+if ($serendipity['GET']['importFrom'] == 'none') {
+    header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=maintenance');
+    exit;
+}
+
 $data = array();
 
 if (!serendipity_checkPermission('adminImport')) {
