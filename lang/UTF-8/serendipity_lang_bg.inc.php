@@ -55,7 +55,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NEW_ENTRY', 'Нова');
 @define('EDIT_ENTRIES', 'Редактиране');
 @define('CATEGORIES', 'Категории');
-@define('IMAGESYNC_WARNING', "Внимание!!!:\\n Възможно е операцията да продължи много време, ако има много изображения.");
+@define('IMAGESYNC_WARNING', "Внимание:\\n Възможно е операцията да продължи много време, ако има много изображения.");
 @define('CREATE_THUMBS', 'Създаване на миниатюри');
 @define('MANAGE_IMAGES', 'Управление на изображения');
 @define('NAME', 'Име');
