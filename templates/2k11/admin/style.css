@@ -949,6 +949,18 @@ textarea[disabled] {
     cursor: default;
 }
 
+/* Special cases rules */
+input#diredit_new {
+    resize: horizontal;
+    width: 25em;
+}
+input#diredit_new:active {
+    width: auto;
+}
+input#diredit_new:focus {
+    min-width: 25em;
+}
+
 /* Separate rule for FF + IE. Cannot stack with WebKit. */
 ::-webkit-input-placeholder {
     color: #888;
