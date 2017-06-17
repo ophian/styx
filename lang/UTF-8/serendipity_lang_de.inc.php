@@ -1026,7 +1026,7 @@
 @define('CLEANCOMPILE_PASS', '[smarty clearCompiledTemplate(%s)]');
 @define('CLEANCOMPILE_FAIL', 'Es sind derzeit keine Dateien zu löschen.');
 @define('CLEANCOMPILE_TITLE', 'Template-Cache leeren');
-@define('CLEANCOMPILE_INFO', 'Löscht alle kompilierten Template-Dateien des derzeit aktiven Themes. Die kompilierten Template-Dateien werden bei Bedarf vom Smarty-Framework automatisch neu erzeugt.');
+@define('CLEANCOMPILE_INFO', 'Löscht alle (zurzeit unbenutzten) kompilierten Template-Dateien des derzeit aktiven Themes. Die kompilierten Template-Dateien werden bei Bedarf vom Smarty-Framework automatisch neu erzeugt.');
 @define('INSTALLER_KEY', 'Schlüssel');
 @define('INSTALLER_VALUE', 'Wert');
 @define('CURRENT_TAB', 'Aktives Tab: ');
