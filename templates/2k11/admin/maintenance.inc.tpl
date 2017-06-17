@@ -61,8 +61,6 @@
     <section id="maintenance_thumbs" class="quick_list">
         <h3>{$CONST.CREATE_THUMBS}</h3>
 
-        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.WARNING_THIS_BLAHBLAH|replace:'\\n':'<br>'}</span>
-
         <form method="POST" action="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=doSync">
             <fieldset>
                 <span class="wrap_legend"><legend>{$CONST.SYNC_OPTION_LEGEND}</legend></span>
@@ -81,6 +79,11 @@
                     <div class="form_radio">
                         <input id="deletethumbs" name="serendipity[deleteThumbs]" type="radio" value="yes">
                         <label for="deletethumbs">{$CONST.SYNC_OPTION_DELETETHUMBS}</label>
+                        <button class="toggle_info button_link" type="button" data-href="#isync_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                    </div>
+
+                    <div id="isync_info" class="comment_status additional_info">
+                        <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.WARNING_THIS_BLAHBLAH|replace:'\\n':'<br>'}
                     </div>
                 </div>
             </fieldset>

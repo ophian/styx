@@ -582,6 +582,9 @@ form > button,
 #maintenance_thumbs .form_buttons {
     margin: 0.5em auto;
 }
+#maintenance_thumbs fieldset > span:first-of-type > legend {
+    margin-top: 1em;
+}
 
 .overviewListForm > button,
 .ping_services .form_check,
