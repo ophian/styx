@@ -54,7 +54,7 @@
 @define('NEW_ENTRY', '新規エントリーの追加');
 @define('EDIT_ENTRIES', 'エントリーの編集');
 @define('CATEGORIES', 'カテゴリの管理');
-@define('WARNING_THIS_BLAHBLAH', "警告:\\nサムネイルなしの画像が多い場合、長時間かかるかもしれません。");
+@define('IMAGESYNC_WARNING', "警告:\\nサムネイルなしの画像が多い場合、長時間かかるかもしれません。");
 @define('CREATE_THUMBS', 'サムネイル再構築');
 @define('MANAGE_IMAGES', '画像管理');
 @define('NAME', '名前');

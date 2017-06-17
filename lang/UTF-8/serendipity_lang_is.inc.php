@@ -54,7 +54,7 @@
 @define('NEW_ENTRY', 'Nýja færslu');
 @define('EDIT_ENTRIES', 'Breyta færslum');
 @define('CATEGORIES', 'Flokkar');
-@define('WARNING_THIS_BLAHBLAH', "VARÚÐ:\\nÞetta gæti tekið langan tíma ef það eru margar myndir án sýnishorna.");
+@define('IMAGESYNC_WARNING', "VARÚÐ:\\nÞetta gæti tekið langan tíma ef það eru margar myndir án sýnishorna.");
 @define('CREATE_THUMBS', 'Endurvinna sýnishorn');
 @define('MANAGE_IMAGES', 'Breyta myndum');
 @define('NAME', 'Nafn');

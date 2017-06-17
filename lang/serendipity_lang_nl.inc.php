@@ -56,7 +56,7 @@
 @define('NEW_ENTRY', 'Nieuw artikel');
 @define('EDIT_ENTRIES', 'Bewerk artikelen');
 @define('CATEGORIES', 'Categorieën');
-@define('WARNING_THIS_BLAHBLAH', "WAARSCHUWING:\\nDit kan veel tijd in beslag nemen als er veel grote afbeeldingen zijn zonder miniatuur.");
+@define('IMAGESYNC_WARNING', "WAARSCHUWING:\\nDit kan veel tijd in beslag nemen als er veel grote afbeeldingen zijn zonder miniatuur.");
 @define('CREATE_THUMBS', 'Creëer nieuwe indexafbeeldingen');
 @define('MANAGE_IMAGES', 'Beheer afbeeldingen');
 @define('NAME', 'Naam');

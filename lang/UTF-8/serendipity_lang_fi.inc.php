@@ -54,7 +54,7 @@
 @define('NEW_ENTRY', 'Uusi merkintä');
 @define('EDIT_ENTRIES', 'Muokkaa merkintöjä');
 @define('CATEGORIES', 'Kategoriat');
-@define('WARNING_THIS_BLAHBLAH', "HUOMAUTUS:\\nTämä saattaa kestää kauan jos pienoiskuvattomia kuvia on paljon..");
+@define('IMAGESYNC_WARNING', "HUOMAUTUS:\\nTämä saattaa kestää kauan jos pienoiskuvattomia kuvia on paljon..");
 @define('CREATE_THUMBS', 'Luo pienoiskuvat uudelleen');
 @define('MANAGE_IMAGES', 'Kuvien hallinta');
 @define('NAME', 'Nimi');

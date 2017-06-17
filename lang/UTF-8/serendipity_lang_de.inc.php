@@ -54,7 +54,7 @@
 @define('NEW_ENTRY', 'Neuer Eintrag');
 @define('EDIT_ENTRIES', 'Einträge bearbeiten');
 @define('CATEGORIES', 'Kategorien');
-@define('WARNING_THIS_BLAHBLAH', "ACHTUNG:\\nDas kann jetzt lange dauern, wenn für viele Bilder noch keine Vorschau existiert.");
+@define('IMAGESYNC_WARNING', "ACHTUNG:\\nDas kann jetzt lange dauern, wenn für viele Bilder noch keine Vorschau existiert.");
 @define('CREATE_THUMBS', 'Vorschauen erneuern');
 @define('MANAGE_IMAGES', 'Bilder verwalten');
 @define('NAME', 'Name');

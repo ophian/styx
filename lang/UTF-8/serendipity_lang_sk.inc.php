@@ -66,7 +66,7 @@ $i18n_filename_to = array (
 @define('NEW_ENTRY', 'Nový článok');
 @define('EDIT_ENTRIES', 'Editovat články');
 @define('CATEGORIES', 'Kategórie');
-@define('WARNING_THIS_BLAHBLAH', "POZOR:\\nTento úkon môže trvať dlhšie, ak máte veľa obrázkov bez náhľadov.");
+@define('IMAGESYNC_WARNING', "POZOR:\\nTento úkon môže trvať dlhšie, ak máte veľa obrázkov bez náhľadov.");
 @define('CREATE_THUMBS', 'Vytvoriť náhľady');
 @define('MANAGE_IMAGES', 'Správa obrázkov');
 @define('NAME', 'Meno');

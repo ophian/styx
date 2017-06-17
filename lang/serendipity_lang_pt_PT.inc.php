@@ -57,7 +57,7 @@
 @define('NEW_ENTRY', 'Novo artigo');
 @define('EDIT_ENTRIES', 'Editar artigos');
 @define('CATEGORIES', 'Categorias');
-@define('WARNING_THIS_BLAHBLAH', "ATENÇÃO:\\nIsso pode demorar muito tempo se existirem muitas imagens sem miniaturas.");
+@define('IMAGESYNC_WARNING', "ATENÇÃO:\\nIsso pode demorar muito tempo se existirem muitas imagens sem miniaturas.");
 @define('CREATE_THUMBS', 'Reconstruir miniaturas');
 @define('MANAGE_IMAGES', 'Gerir imagens');
 @define('NAME', 'Nome');

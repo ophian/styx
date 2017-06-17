@@ -55,7 +55,7 @@
 @define('NEW_ENTRY', 'Yeni yazı');
 @define('EDIT_ENTRIES', 'Yazıları düzenle');
 @define('CATEGORIES', 'Konu başlıkları');
-@define('WARNING_THIS_BLAHBLAH', "DİKKAT:\\nBu işlem resim sayısı çoksa uzun zaman alacaktır.");
+@define('IMAGESYNC_WARNING', "DİKKAT:\\nBu işlem resim sayısı çoksa uzun zaman alacaktır.");
 @define('CREATE_THUMBS', 'Küçükresimleri yeniden oluştur');
 @define('MANAGE_IMAGES', 'Resimleri Yönet');
 @define('NAME', 'Ad');

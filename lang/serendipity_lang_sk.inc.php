@@ -66,7 +66,7 @@ $i18n_filename_to = array (
 @define('NEW_ENTRY', 'Nový èlánok');
 @define('EDIT_ENTRIES', 'Editovat èlánky');
 @define('CATEGORIES', 'Kategórie');
-@define('WARNING_THIS_BLAHBLAH', "POZOR:\\nTento úkon mô¾e trva» dlh¹ie, ak máte veµa obrázkov bez náhµadov.");
+@define('IMAGESYNC_WARNING', "POZOR:\\nTento úkon mô¾e trva» dlh¹ie, ak máte veµa obrázkov bez náhµadov.");
 @define('CREATE_THUMBS', 'Vytvori» náhµady');
 @define('MANAGE_IMAGES', 'Správa obrázkov');
 @define('NAME', 'Meno');
