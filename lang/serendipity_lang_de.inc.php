@@ -1044,7 +1044,7 @@
 @define('FRONTEND', 'Frontend');
 @define('BACKEND', 'Backend');
 @define('MEDIA_UPLOAD_RESIZE', 'Vor dem Upload Größe anpassen');
-@define('MEDIA_UPLOAD_RESIZE_DESC', 'Mittels Javascript werden Bilder vor dem Upload an die gewählte Maximalgröße angepasst. Wenn aktiv, wird Ajax für den Bildupload verwendet was auch zu der Entfernung des "Eigenschaften eingeben"-Buttons führt, dies muss dann separat geschehen.');
+@define('MEDIA_UPLOAD_RESIZE_DESC', 'Mittels Javascript werden Bilder vor dem Upload an die gewählte Maximalgröße angepasst. Wenn aktiv, wird Ajax für den Bildupload verwendet, was auch zur Entfernung des "Eigenschaften angeben"-Buttons führt. Dieses muss dann separat geschehen.');
 @define('LOG_LEVEL', 'Log Level');
 @define('LOG_LEVEL_DESC', 'An einigen Stellen im Serendipity-Code wurden Debugging-Ausgaben platziert. Wenn diese Option auf "Debug" gesetzt wird, werden jene Ausgaben nach templates_c/logs/ geschrieben. Diese Option sollte nur aktiviert werden, wenn Probleme in der Funktionsausführung bestehen. Wird die Option auf "Fehler" gesetzt, werden PHP-Fehler in jenes Logfile geschrieben, hierbei wird die PHP error_log Option überschrieben.');
 @define('DEBUG', 'Debug');
