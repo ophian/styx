@@ -18,7 +18,7 @@
             <section id="dashboard_update" class="clearfix dashboard_widget{if $default_widgets} expand{/if}">
                 <h3>{$CONST.UPDATE_NOTIFICATION}</h3>
 
-                <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UPDATE_FAILMSG}</span>
+                <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UPDATE_FAILMSG|sprintf:$releaseFUrl}</span>
                 <form id="updateCheckDisable" method="POST">
                     <input type="hidden" name="serendipity[adminAction]" value="updateCheckDisable" />
                     {$token}

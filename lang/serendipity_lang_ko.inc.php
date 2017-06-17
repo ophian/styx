@@ -1039,7 +1039,7 @@
 @define('INSTALLER_CLI_TOOLSTATUS', '실행 가능 상태입니까?');
 @define('VIDEO', '동영상');
 @define('RESET_FILTERS', '필터 초기화 하기');
-@define('UPDATE_FAILMSG', '새로운 세렌디피티 버전을 확인하는데 실패했습니다. https://raw.github.com/s9y/Serendipity/master/docs/RELEASE 주소에 이상이 생겼거나, 서버가 외부 접속을 차단하고 있거나, 그 외의 접속 문제가 발생한 것으로 보입니다.');
+@define('UPDATE_FAILMSG', '새로운 세렌디피티 버전을 확인하는데 실패했습니다. %s 주소에 이상이 생겼거나, 서버가 외부 접속을 차단하고 있거나, 그 외의 접속 문제가 발생한 것으로 보입니다.');
 @define('UPDATE_FAILACTION', '자동 업데이트 확인을 사용하지 않기');
 @define('UPDATE_NOTIFICATION_DESC', '대시보드에 업데이트 알림을 표시하고, 어떤 채널에 나타내겠습니까?');
 @define('FRONTEND', '외부 페이지');
