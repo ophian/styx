@@ -2435,7 +2435,8 @@ h3 .media_file_actions {
     margin: .5em;
 }
 
-#maintenance_cleanup .comment_status {
+#maintenance_cleanup .comment_status,
+#maintenance_thumbs .comment_status {
     float: none;
     margin: 0 0 .5em;
 }
