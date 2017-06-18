@@ -1,6 +1,8 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Extend Modemaintain Plugin for security
+
   * Optimise Maintain section messages
 
   * Add temporary Serendipity bugfix for Smarty modifier compiles

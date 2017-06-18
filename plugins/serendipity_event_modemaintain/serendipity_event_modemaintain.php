@@ -39,9 +39,9 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.14');
+        $propbag->add('version',       '1.15');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.0.99',
+            'serendipity' => '2.1',
             'php'         => '5.3.0'
         ));
         $propbag->add('event_hooks',    array(
@@ -50,14 +50,14 @@ class serendipity_event_modemaintain extends serendipity_plugin
             'backend_maintenance' => true,
             'external_plugin'     => true
         ));
-        $propbag->add('configuration',  array('fiveothree', 'use_s9ylogo'));
+        $propbag->add('configuration',  array('momatext', 'use_s9ylogo'));
         $propbag->add('groups',         array('BACKEND_ADMIN', 'BACKEND_FEATURES', 'BACKEND_MAINTAIN'));
     }
 
     function introspect_config_item($name, &$propbag)
     {
         switch($name) {
-            case 'fiveothree':
+            case 'momatext':
                 $propbag->add('type',        'text');
                 $propbag->add('rows',        3);
                 $propbag->add('name',        PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE);
@@ -173,12 +173,13 @@ class serendipity_event_modemaintain extends serendipity_plugin
                 case 'frontend_configure':
                     // If the browser was closed without an unset maintenance mode,
                     // check maintenance autologin cookie to be able to return to login page at least w/o the 503 unavailable mode page
-                    if (isset($serendipity['COOKIE']['maintain_autologin'])) {
+                    // check the authentication and UserLevel for security
+                    if (isset($serendipity['COOKIE']['maintain_autologin']) && serendipity_userLoggedIn() && $_SESSION['serendipityUserlevel'] == '255') {
                         $superuser = true;
                     } else {
                         $superuser = false;
                     }
-                    $this->maintenanceText = (string) $this->get_config('fiveothree', MODEMAINTAIN_PRESET_MOMATXT);
+                    $this->maintenanceText = (string) $this->get_config('momatext', MODEMAINTAIN_PRESET_MOMATXT);
 
                     // This will stop Serendipity immediately throwing a '503 Service Temporarily Unavailable' maintenance message,
                     // if var is set to true and user is not authenticated and logged into admin users.
@@ -190,6 +191,9 @@ class serendipity_event_modemaintain extends serendipity_plugin
                     break;
 
                 case 'external_plugin':
+                    if (!serendipity_checkPermission('adminUsers')) {
+                        return false;
+                    }
                     $db['jspost'] = explode('/', $eventData);
                     $refererurl = $serendipity['baseURL'] . "serendipity_admin.php?serendipity[adminModule]=maintenance";
 
