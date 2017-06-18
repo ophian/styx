@@ -1,6 +1,8 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Optimise Maintain section messages
+
   * Add temporary Serendipity bugfix for Smarty modifier compiles
 
   * Update this NEWS file documentary for the MySQL full unicode
