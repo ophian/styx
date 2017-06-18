@@ -2,7 +2,11 @@
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$errormsg}</span>
 {/if}
 {if !empty($msg)}
+    {if $msgtype == 'notice'}
             <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$msg}</span>
+    {else}
+            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$msg}</span>
+    {/if}
 {/if}
 {if $commentReplied}
             <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED}</span>

@@ -11,6 +11,7 @@ $summaryLength = 120;
 
 $errormsg = '';
 $msg = '';
+$msgtype = 'notice';
 
 if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['POST']['delete']) != 0 && serendipity_checkFormToken()) {
     if ($serendipity['POST']['togglemoderate'] != '') {
@@ -18,6 +19,7 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
             $ac = serendipity_approveComment((int)$k, (int)$v, false, 'flip');
             if ($ac > 0) {
                 $msg .= DONE . ': '. sprintf(COMMENT_APPROVED, (int)$k);
+                $msgtype = 'success';
             } else {
                 $msg .= DONE . ': '. sprintf(COMMENT_MODERATED, (int)$k);
             }
@@ -26,6 +28,7 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
         foreach ( $serendipity['POST']['delete'] AS $k => $v ) {
             serendipity_deleteComment($k, $v);
             $msg .= DONE . ': '. sprintf(COMMENT_DELETED, (int)$k);
+            $msgtype = 'success';
         }
     }
 }
@@ -90,6 +93,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     } else {
         serendipity_approveComment((int)$serendipity['GET']['id'], (int)$rs['entry_id']);
         $msg .= DONE . ': '. sprintf(COMMENT_APPROVED, (int)$serendipity['GET']['id']);
+        $msgtype = 'success';
     }
 }
 
@@ -113,6 +117,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'delete' && serendipity_checkFormToken()) {
     serendipity_deleteComment($serendipity['GET']['id'], $serendipity['GET']['entry_id']);
     $msg .= DONE . ': '. sprintf(COMMENT_DELETED, (int)$serendipity['GET']['id']);
+    $msgtype = 'success';
 }
 
 /* We are either in edit mode, or preview mode */
@@ -375,6 +380,8 @@ if (is_array($sql)) {
 $data['comments']      = $comments;
 $data['errormsg']      = $errormsg;
 $data['msg']           = $msg;
+$data['msgtype']       = $msgtype;
+
 $data['urltoken']      = serendipity_setFormToken('url');
 $data['formtoken']     = serendipity_setFormToken();
 $data['get']['filter'] = $serendipity['GET']['filter']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipty['GET'] by runtime
