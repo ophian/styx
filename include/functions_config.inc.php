@@ -1382,7 +1382,7 @@ function serendipity_getPermissionNames() {
 /**
  * Checks if a permission is granted to a specific author
  *
- * This function caches all permission chacks in static function variables to not
+ * This function caches all permission checks in static function variables to not
  * fetch all permissions time and again.
  * The permission checks are performed against the values of each group. If a privilege
  * is set in one of the groups the author is a user of, the function returns true.
