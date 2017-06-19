@@ -86,7 +86,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
          LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
          LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
              WHERE c.id = " . (int)$serendipity['GET']['id']  ." AND (status = 'pending' OR status LIKE 'confirm%')";
-    $rs  = serendipity_db_query($sql, true);
+    $rs = serendipity_db_query($sql, true);
 
     if ($rs === false) {
         $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, (int)$serendipity['GET']['id']);
@@ -103,7 +103,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
          LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
          LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
              WHERE c.id = " . (int)$serendipity['GET']['id']  ." AND status = 'approved'";
-    $rs  = serendipity_db_query($sql, true);
+    $rs = serendipity_db_query($sql, true);
 
     if ($rs === false) {
         $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, (int)$serendipity['GET']['id']);
@@ -307,7 +307,7 @@ $data['linkNext']        = $linkNext;
 $data['linkLast']        = $linkLast;
 $data['searchString']    = $searchString;
 $data['filter_vals']     = $filter_vals;
-$data['sql']             = $sql;
+$data['c_list']          = ((is_array($sql) && !empty($sql)) ? true : false);
 $data['c_type']          = $c_type;
 
 $i = 0;
