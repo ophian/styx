@@ -121,7 +121,7 @@
                                 <label for="serendipity_multidelete_comment_{$comment.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT}</label>
                             </div>
 
-                            <h4 id="c{$comment.id}">{$comment.author|escape|truncate:40:"&hellip;"} <span class="text-normal">{$CONST.IN}</span> <span class="comment-type-title" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : $CONST.PINGBACK )}">{$comment.stype}#{$comment.id}</span> <span class="ucc-pinned-to" title="{$CONST.IN_REPLY_TO}"></span>
+                            <h4 id="c{$comment.id}">{$comment.author|escape|truncate:40:"&hellip;"} <span class="text-normal">{$CONST.IN}</span> <span class="comment-type-title" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : $CONST.PINGBACK )}">#{$comment.id}</span> <span class="ucc-pinned-to" title="{$CONST.IN_REPLY_TO}"></span>
                                 <a href="{$comment.entry_url}">{$comment.title|escape}</a>
                                 <span class="text-normal">{$CONST.ON} {$comment.timestamp|formatTime:'%b %e %Y, %H:%M'}</span>
                                 <button class="toggle_info button_link" type="button" data-href="#comment_data_{$comment.id}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> More</span></button>
@@ -164,6 +164,7 @@
                             {/if}
                             </ul>
                             {$comment.action_more}
+                            <div class="comment_type {$comment.type|lower}" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : $CONST.PINGBACK )}">{$comment.stype}</div>{if $comment.type != 'NORMAL'}{/if}
                         </li>
                     {/foreach}
                     </ul>
