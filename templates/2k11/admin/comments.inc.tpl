@@ -12,7 +12,7 @@
             <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED}</span>
             <button id="comment_replied" type="button">{$CONST.BACK}</button>
 {else}
-            <h2>{$CONST.COMMENTS}</h2>
+            <h2 title="+ {$CONST.TRACKBACKS} / {$CONST.PINGBACKS}">{$CONST.COMMENTS}</h2>
 
             <form action="" method="GET">
                 {$formtoken}
