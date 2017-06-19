@@ -1,6 +1,9 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Spend some love to backend comments list for a better distinction
+    of Comments/Trackbacks/Pingbacks.
+
   * Extend Modemaintain Plugin for security
 
   * Optimise Maintain section messages
