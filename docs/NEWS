@@ -1,6 +1,10 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Fixed wrong logic checking moderation and unset emailing options
+    for Comments and Track/Pingbacks. NO set "Send [..] announcements"
+    in Personal Preferences really means NO EMAIL.
+
   * Spend some love to backend comments list for a better distinction
     of Comments/Trackbacks/Pingbacks.
 

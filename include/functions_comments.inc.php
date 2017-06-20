@@ -815,6 +815,8 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         $commentInfo['comment'] = symbol_sanitize($commentInfo['comment']);
     }
 
+    $_setTo_moderation = serendipity_db_bool($ca['moderate_comments']);
+
     $title         = serendipity_db_escape_string(isset($commentInfo['title']) ? $commentInfo['title'] : '');
     $comments      = $commentInfo['comment'];
     $ip            = serendipity_db_escape_string(isset($commentInfo['ip']) ? $commentInfo['ip'] : $_SERVER['REMOTE_ADDR']);
@@ -823,7 +825,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     $url           = serendipity_db_escape_string($commentInfo['url']);
     $email         = serendipity_db_escape_string($commentInfo['email']);
     $parentid      = (isset($commentInfo['parent_id']) && is_numeric($commentInfo['parent_id'])) ? $commentInfo['parent_id'] : 0;
-    $status        = serendipity_db_escape_string(isset($commentInfo['status']) ? $commentInfo['status'] : (serendipity_db_bool($ca['moderate_comments']) ? 'pending' : 'approved'));
+    $status        = serendipity_db_escape_string(isset($commentInfo['status']) ? $commentInfo['status'] : ($_setTo_moderation ? 'pending' : 'approved'));
     $t             = serendipity_db_escape_string(isset($commentInfo['time']) ? $commentInfo['time'] : time());
     $referer       = substr((isset($_SESSION['HTTP_REFERER']) ? serendipity_db_escape_string($_SESSION['HTTP_REFERER']) : ''), 0, 200);
 
@@ -894,12 +896,25 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     serendipity_db_query($query);
     $cid = serendipity_db_insert_id('comments', 'id');
 
+    $_mail_comments    = serendipity_db_bool($row['mail_comments']);
+    $_mail_trackbacks  = serendipity_db_bool($row['mail_trackbacks']);
+    $_send_mod_comment = ($type == 'NORMAL' && $_mail_comments && $_setTo_moderation) ? true : false;
+    $_send_mod_tpback  = (($type == 'TRACKBACK' || $type == 'PINGBACK') && $_mail_trackbacks && $_setTo_moderation) ? true : false;
+
     // Send mail to the author if he chose to receive these mails, or if the comment is awaiting moderation
-    if ($status != 'confirm' && (serendipity_db_bool($ca['moderate_comments'])
-        || ($type == 'NORMAL' && serendipity_db_bool($row['mail_comments']))
-        || (($type == 'TRACKBACK' || $type == 'PINGBACK') && serendipity_db_bool($row['mail_trackbacks'])))) {
+    # 1. Don't do this on STATUS confirm
+    # 2. Check by OR - first come, first serve:
+    #   a.1) Comment - moderation and PP set mail_comments are true OR
+    #   a.2) Track/Pingback - moderation and PP set mail_trackbacks are true
+    #   b) Type Comment and PP set mail_comments are true
+    #   c) Type Track/Pingback and PP set mail_trackbacks are true
+    # 3. NOT isset serendipityAuthedUser and authorEmail vs systemEmail are different
+    if ($status != 'confirm' && (
+        ($_send_mod_comment || $_send_mod_tpback)
+        || ($type == 'NORMAL' && $_mail_comments)
+        || (($type == 'TRACKBACK' || $type == 'PINGBACK') && $_mail_trackbacks))) {
             if (! ($authorReply && $authorEmail == $row['email'])) {
-                serendipity_sendComment($cid, $row['email'], $name, $email, $url, $id, $row['title'], $comments, $type, serendipity_db_bool($ca['moderate_comments']), $referer);
+                serendipity_sendComment($cid, $row['email'], $name, $email, $url, $id, $row['title'], $comments, $type, $_setTo_moderation, $referer);
             }
     }
 
@@ -908,7 +923,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         fwrite($fp, '[' . date('d.m.Y H:i') . '] status: ' . $status . ', moderate: ' . $ca['moderate_comments'] . "\n");
     }
 
-    if ($status != 'confirm' && (empty($ca['moderate_comments']) || serendipity_db_bool($ca['moderate_comments']) == false)) {
+    if ($status != 'confirm' && (empty($ca['moderate_comments']) || $_setTo_moderation == false)) {
         if ($GLOBALS['tb_logging']) {
             fwrite($fp, '[' . date('d.m.Y H:i') . '] Approving...' . "\n");
         }
