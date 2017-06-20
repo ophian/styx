@@ -168,10 +168,11 @@ else {
     $futures  = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin WHERE e.timestamp >= " . serendipity_serverOffsetHour() . $efilter, true);
     $drafts   = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin WHERE e.isdraft = 'true'" . $efilter, true);
 
+    $permByAuthor = (!serendipity_checkPermission('adminUsers') && (int)$serendipity['authorid'] > 1) ? '&serendipity[filter][author]=' .(int)$serendipity['authorid'] : '';
+
     // Assign
     if (is_array($comments)) {
         $data['comments']['pending']['count'] = $comments[0]['newcom'];
-        $permByAuthor = (!serendipity_checkPermission('adminUsers') && (int)$serendipity['authorid'] > 1) ? '&serendipity[filter][author]=' .(int)$serendipity['authorid'] : '';
         $data['comments']['pending']['link'] = 'serendipity_admin.php?'.$data['urltoken'].'&serendipity[adminModule]=comments'.$permByAuthor.'&serendipity[filter][show]=pending&submit=1';
         if ($comments[0]['newcom'] > 0) $data['shortcuts'] = true;
     }
@@ -182,7 +183,7 @@ else {
     }
     if (is_array($drafts)) {
         $data['entries']['drafts']['count'] = $drafts['count'];
-        $data['entries']['drafts']['link'] = 'serendipity_admin.php?serendipity[action]=admin&serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][author]=&serendipity[filter][isdraft]=draft&dashboard[filter][noset]=1&go=1&serendipity[sort][perPage]=12&'.$data['urltoken'].'';
+        $data['entries']['drafts']['link'] = 'serendipity_admin.php?serendipity[action]=admin&serendipity[adminModule]=entries&serendipity[adminAction]=editSelect'.$permByAuthor.'&serendipity[filter][isdraft]=draft&dashboard[filter][noset]=1&go=1&serendipity[sort][perPage]=12&'.$data['urltoken'].'';
         if ($drafts['count'] > 0) $data['shortcuts'] = true;
     }
 }
