@@ -113,10 +113,11 @@
     <script>
         $(document).ready(function() {
         {foreach $filter_import AS $f_import}
-            serendipity.SetCookie("entrylist_filter_{$f_import}", "{$get_filter_{$f_import}}" )
+            {if $f_import == 'isdraft' AND isset($smarty.get.dashboard.filter.noset)}{continue}{/if}
+            serendipity.SetCookie("entrylist_filter_{$f_import}", "{$get_filter_{$f_import}}");
         {/foreach}
         {foreach $sort_import AS $s_import}
-            serendipity.SetCookie("entrylist_sort_{$s_import}", "{$get_sort_{$s_import}}" )
+            serendipity.SetCookie("entrylist_sort_{$s_import}", "{$get_sort_{$s_import}}");
         {/foreach}
 
             $('#filter_entries').find('.reset_entry_filters').addClass('reset_filter');

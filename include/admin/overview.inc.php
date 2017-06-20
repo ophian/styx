@@ -182,7 +182,7 @@ else {
     }
     if (is_array($drafts)) {
         $data['entries']['drafts']['count'] = $drafts['count'];
-        $data['entries']['drafts']['link'] = 'serendipity_admin.php?serendipity[action]=admin&serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][author]=&serendipity[filter][isdraft]=draft&go=1&serendipity[sort][perPage]=12&'.$data['urltoken'].'';
+        $data['entries']['drafts']['link'] = 'serendipity_admin.php?serendipity[action]=admin&serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][author]=&serendipity[filter][isdraft]=draft&dashboard[filter][noset]=1&go=1&serendipity[sort][perPage]=12&'.$data['urltoken'].'';
         if ($drafts['count'] > 0) $data['shortcuts'] = true;
     }
 }
