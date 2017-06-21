@@ -1,6 +1,13 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Revisited the "TRACKBACK_SPECIFIC_ON_CLICK" constant to clarify
+    trackback and trackback URI link usage.
+    All depending themes in core where changed and set to a new
+    date: 2017-06-21. Most languages already translated in the past were
+    reset. "EN" and "DE" are up to date. Translators welcome!
+    Please check your themes "entries.tpl" file for the change.
+
   * Fixed wrong logic checking moderation and unset emailing options
     for Comments and Track/Pingbacks. NO set "Send [..] announcements"
     in Personal Preferences really means NO EMAIL.
