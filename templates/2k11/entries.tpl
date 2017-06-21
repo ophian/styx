@@ -81,7 +81,7 @@
         <section id="trackbacks" class="serendipity_comments serendipity_section_trackbacks">
             <h3>{$CONST.TRACKBACKS}</h3>
 
-            <div id="trackback_url" class="block_level"><a rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;<u>{$entry.rdf_ident}</u>&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a></div>
+            <div id="trackback_url" class="block_level"><a rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a></div>
 
             {serendipity_printTrackbacks entry=$entry.id}
         </section>

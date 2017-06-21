@@ -96,7 +96,7 @@
         {if $entry.trackbacks != 0}
             <section id="trackbacks" class="serendipity_comments serendipity_section_trackbacks">
                 <h3>{if $entry.trackbacks == 0}{$CONST.NO_TRACKBACKS}{else}{$entry.trackbacks} {$entry.label_trackbacks}{/if}</h3>
-                <p id="trackback_url"><small><a rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;<u>{$entry.rdf_ident}</u>&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a></small></p>
+                <p id="trackback_url"><small><a rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a></small></p>
                 {serendipity_printTrackbacks entry=$entry.id}
             </section>
         {/if}
