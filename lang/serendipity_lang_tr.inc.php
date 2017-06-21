@@ -477,7 +477,7 @@
 @define('COMMENT_EDITED', 'Seçilen görüş düzenlenecek');
 @define('HIDE', 'Gizle');
 @define('VIEW_EXTENDED_ENTRY', 'okumaya devam et "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Bu bağlantıya tıklanamaz. Bu yazı için bırakılan URI adresi izidir. Bu URI adresini  bu yazı için haber verme-izbırakma amaçlı kullanabilirsiniz. Linki kopyala, ve tarayıcı adres çubuğuna yapıştır.Gittiğin adres senin yazın hakkında yazılan bir yazı ya da yazına verilen bağlantı olacaktır.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Bağlanmak için https gizlilik kurallarını kullan');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Bağlantı linki https-konumu. Sunucunuz bu güvenli bağlantı çeşidini destekliyorsa kullanabilirsiniz!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Site dışına giden linkler tıklanabilir olsun mu?');

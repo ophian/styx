@@ -477,7 +477,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('COMMENT_EDITED', 'Wybrany komentarz zosta³ wyedytowany');
 @define('HIDE', 'Ukryj');
 @define('VIEW_EXTENDED_ENTRY', 'Ci±g dalszy "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Nie klikaj na ten link. Zawiera on URI ze ¦ladem (Trackback) dla tego wpisu. Mo¿esz u¿yæ tego URI by wys³aæ pinga lub stworzyæ ¦lad ze swojego bloga do tego wpisu. Aby skopiowaæ ten URI kliknij prawym przyciskiem myszy na linku i wybierz opcjê "Kopiuj skrót" (lub podobn±).');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'U¿yj https dla logowania');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Link ze Stron± logowania bêdzie obs³ugiwany przez https. Twój serwer musi to obs³ugiwaæ!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Zewnêtrzne linki maj± byæ klikalne?');

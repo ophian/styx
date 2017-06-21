@@ -476,7 +476,7 @@
 @define('COMMENT_EDITED', 'Comentariul selectat a fost editat');
 @define('HIDE', 'Ascunde');
 @define('VIEW_EXTENDED_ENTRY', 'Continuă să citeşti "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Această legătură nu e făcută pentru a fi folosită. Conţine un URI de referinţa pentru această însemnare. Poţi folosi acest URI pentru a trimite ping- & referinţe din blog-ul tău către această însemnare. Pentru a copia legătura, click dreapta pe ea şi alege "Copy Shortcut" în Internet Explorer sau "Copy Link Location" în Mozilla.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Foloseşte https pentru autentificare');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Permite ca legătura pentru autentificare să arate către o locaţie https. Serverul tău web trebuie să suporte acest mod!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Permite clickul pe legăturile către exterior?');

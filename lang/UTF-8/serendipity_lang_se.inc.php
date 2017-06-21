@@ -475,7 +475,7 @@
 @define('COMMENT_EDITED', 'Den valda kommentaren har redigerats');
 @define('HIDE', 'Dölj');
 @define('VIEW_EXTENDED_ENTRY', 'Fortsätt läsa "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Denna länk är inte avsedd att klickas på. Den innehåller en trackback-URI för denna artikel. Du kan använda denna URI för att skicka ping- & trackbacks från din egen blogg till denna artikel. För att kopiera länken, högerklicka och välj "Kopiera länk" i Internet Explorer eller "Kopiera länk ...." i Mozilla.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Använd https vid inloggning');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Gör att inloggningslänken pekar på en https-URI. Din webbserver behöver ha stöd för https!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Gör externa länkar klickbara?');

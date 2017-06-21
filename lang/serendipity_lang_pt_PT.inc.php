@@ -460,7 +460,7 @@
 @define('COMMENT_EDITED', 'O comentário selecionado foi editado');
 @define('HIDE', 'Ocultar');
 @define('VIEW_EXTENDED_ENTRY', 'Continuar lendo "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Este link não deve ser clicado. Contém a URL de trackback para este artigo. Use esse URL para enviar ping - & trackbacks do seu weblog para este artigo. Para copiar o link, clique com o botão direito e selecione "Copiar Atalho" no Internet Explorer ou "Copiar localização do link" no Mozilla.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('THIS_TRACKBACK_NEEDS_REVIEW', 'Atenção: Esse trackback precisa de aprovação antes que seja exibido');
 @define('DELETE_TRACKBACK', 'Excluir trackback');
 @define('APPROVE_TRACKBACK', 'Aprovar trackback');

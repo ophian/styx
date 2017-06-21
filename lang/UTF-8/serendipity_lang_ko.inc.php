@@ -477,7 +477,7 @@
 @define('COMMENT_EDITED', '선택된 덧글이 편집되었습니다.');
 @define('HIDE', '숨기기');
 @define('VIEW_EXTENDED_ENTRY', '"%s" 계속 읽기');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', '이 링크는 클릭하기 위한 것이 아닙니다. 본문의 트랙백 URI을 담고 있습니다. 이 URI을 통해서 여러분의 블로그에서 이 블로그로 핑 및 트랙백을 보낼 수 있습니다. 링크를 복사하려면 오른쪽 클릭을 한 뒤 인터넷 익스플로러에서는 "바로가기 복사"를, 모질라에서는 "링크 위치 복사"를 선택하십시오.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', '로그인에 https 사용');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', '로그인 링크가 https 위치로 향하도록 합니다. 웹서버가 이 기능을 지원해야 합니다.');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', '외부 링크를 클릭할 수 있게 하기');

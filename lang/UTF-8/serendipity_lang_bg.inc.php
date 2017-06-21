@@ -493,7 +493,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('COMMENT_ALREADY_APPROVED', 'Коментар №&#160;%s изглежда вече е одобрен');
 @define('COMMENT_EDITED', 'Избраният коментар е редактиран');
 @define('HIDE', 'Скриване');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Тази връзка не е за щракане. Тя съдържа URI за проследяване на тази статия. Можете да използвате това URI, за да изпращате на проверка (ping) или проследяване от вашия собствен блог до тази статия. За да копирате връзката, щракнете с десния бутон и изберете "Copy Shortcut" в Internet Explorer или "Copy Link Location" в Mozilla.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Използване на https за влизане');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Връзката към страницата за влизане ще е адрес с https. Трябва уеб сървърът да го поддържа!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Показване на външните връзки?');

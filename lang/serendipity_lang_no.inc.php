@@ -456,7 +456,7 @@
 @define('COMMENT_EDITED', 'Den valgte kommentar er redigert');
 @define('HIDE', 'Skjul');
 @define('VIEW_EXTENDED_ENTRY', 'Les resten av "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Det er ikke meningen at denne linken skal klikkes.  Den innholder trackback-URI-en for denne postingen.  Du kan bruke denne URI-en til å sende ping- og trackbacks fra din egen blog til denne posten.  For å kopiere linken, høyreklikk og velg "Kopier snarvei" i Internet Explorer eller "Copy Link Location" i Mozilla.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('THIS_TRACKBACK_NEEDS_REVIEW', 'Advarsel:  Denne trackbacken trenger godkjennelse før den blir vist.');
 @define('DELETE_TRACKBACK', 'Slett trackback');
 @define('APPROVE_TRACKBACK', 'Godkjenn trackback');

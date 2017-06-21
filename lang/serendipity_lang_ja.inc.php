@@ -475,7 +475,7 @@
 @define('COMMENT_EDITED', '選択されたコメントを編集しました。');
 @define('HIDE', '隠す');
 @define('VIEW_EXTENDED_ENTRY', '"%s" の続きを読む...');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'このリンクは、クリックされるのが目的ではありません。それは、このエントリー用のトラックバック URIを含んでいます。このエントリーにブログからトラックバックと ping を送信するにはこの URI を 使用することができます。このリンクをコピーするには、Internet Explorer の場合右クリックを、「ショートカットをコピー」を選択します。Mozilla の場合「リンクロケーションをコピー」を選択します。');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'ログインに https を使う');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'ログインの https ロケーションへのリンクポイントです。ウェブサーバーがこれをサポートしている必要があります!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', '外部リンクをクリック可能にしますか?');

@@ -487,7 +487,7 @@ $i18n_filename_to = array (
 @define('COMMENT_EDITED', 'Vybraný komentár bol upravený');
 @define('HIDE', 'Skry»');
 @define('VIEW_EXTENDED_ENTRY', 'Pokraèova» v èítaní "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Tento odkaz nie je urèený na klikanie. Obsahuje spätné URI pre tento èlánok. Mô¾ete pou¾i» toto URI na odoslanie pingov a sledovanie odoziev z Vá¹ho vlastného weblogu. Odkaz skopírujete kliknutím pravého tlaèítka my¹i a vybraním "Kopírova» odkaz" v Internet Exploreri alebo "Kopírova» adresu odkazu" v Mozille alebo Firefoxe.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Pou¾ít https pre prihlásenie');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Pre login sa pou¾ije https odkaz. Vá¹ webserver to musí podporova»!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Spravi» externé odkazy klikateµnými?');

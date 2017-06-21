@@ -475,7 +475,7 @@
 @define('COMMENT_EDITED', 'A kiválasztott hozzászólás módosítva lett');
 @define('HIDE', 'Elrejt');
 @define('VIEW_EXTENDED_ENTRY', '"%s" tovább olvasása');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Ez a link nem szolgál tartalom megjelenítésre. A visszahivatkozáshoz használható URL-t tartalmazza ehhez a bejegyzéshez. Ezt használd a saját blogodban az erre a bejegyzésre való visszahivatkozáskor. Az URL másolásához kattints rajta jobb egérgombbal, majd válaszd a "Hivatkozás címének másolása" funkciót.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Https használata bejelentkezéshez');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'A bejelentkezési hivatkozás https címre fog mutatni. A böngészőnek támogatnia kell ezt!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Legyenek a külső helyre való hivatkozások kattinthatóak?');

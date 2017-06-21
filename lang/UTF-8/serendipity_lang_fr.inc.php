@@ -461,7 +461,7 @@
 @define('COMMENT_EDITED', 'Le commentaire sélectionné a été modifié');
 @define('HIDE', 'Cacher');
 @define('VIEW_EXTENDED_ENTRY', 'Continuer à lire "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Ce lien n\\\'est pas fait pour être cliqué. Il contient le rétrolien de ce billet. Vous pouvez utiliser ce lien pour envoyer un ping ou créer un rétrolien vers ce billet à partir de votre blog. Pour copier le lien, faites un clic droit sur le lien, et sélectionnez \\\'Copier le lien\\\' dans Internet Explorer ou \\\'Copier le lien\\\' dans Mozilla.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('THIS_TRACKBACK_NEEDS_REVIEW', 'Attention : Ce rétrolien doit être approuvé avant qu\'il ne puisse être affiché.');
 @define('DELETE_TRACKBACK', 'Supprimer le rétrolien');
 @define('APPROVE_TRACKBACK', 'Approuver le rétrolien');

@@ -476,7 +476,7 @@
 @define('COMMENT_EDITED', 'نظر مشخص شده، ویرایش شد');
 @define('HIDE', 'مخفی');
 @define('VIEW_EXTENDED_ENTRY', 'ادامه مطلب "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'این لینک برای کلیک کردن نیست و فقط آدرس این مطلب را نگهداری می کند. شما باید از این لینک برای آدرس دادن یا ایجاد دنبالک استفاده کنید. برای کپی کردن این لینک، روی لینک راست-کلیک کنید و مقدار "Copy Shortcut" در Internet Explorer یا "Copy Link Location" در Mozilla انتخاب کنید.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'برای ورود از https استفاده شود');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'لینک ورود به آدرسی به شکل https را وارد کنید. سرور  و سایت شما باید SSL را پشتیبانی کنند');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'لینک های خارجی را قابل کلیک باشند');

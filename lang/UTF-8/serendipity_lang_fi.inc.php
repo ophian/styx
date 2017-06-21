@@ -474,7 +474,7 @@
 @define('COMMENT_EDITED', 'Valittua kommenttia on muokattu');
 @define('HIDE', 'Piilota');
 @define('VIEW_EXTENDED_ENTRY', 'Jatka "%s":n lukemista');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Tätä linkkiä ei ole tarkoitus napsauttaa. Voit käyttää tätä osoitetta paluuviitteisiin ja pingauksiin omasta blogistasi.Kopioi linkki ja käytä sitä omassa blogissasi.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Käytä https:ää kirjautuaksesi');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Login https:llä, web-palvelimesi tulee tukea tätä ominaisuutta!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Tehdäänkö ulosviittauksista linkkejä?');

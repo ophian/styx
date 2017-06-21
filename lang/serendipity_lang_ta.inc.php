@@ -475,7 +475,7 @@
 @define('COMMENT_EDITED', 'The selected comment has been edited');
 @define('HIDE', 'Hide');
 @define('VIEW_EXTENDED_ENTRY', 'தொடர்ந்து படியுங்கள் "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not meant to be clicked. It contains the trackback URI for this entry. You can use this URI to send ping- & trackbacks from your own blog to this entry. To copy the link, right click and select "Copy Shortcut" in Internet Explorer or "Copy Link Location" in Mozilla.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Use https for login');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Lets the login-link point to a https-location. Your webserver needs to support this!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Make external links clickable?');

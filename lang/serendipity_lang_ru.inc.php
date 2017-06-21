@@ -478,7 +478,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('COMMENT_EDITED', 'Выбранный комментарий был отредактирован');
 @define('HIDE', 'Спрятать');
 @define('VIEW_EXTENDED_ENTRY', 'Продолжить чтение "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Эта ссылка не предназначена для того, чтобы её кликали. Она содержит специальный URI для обратных ссылок. Вы можете использовать этот URI для проверки и создания обратных ссылок на эту запись. Чтобы скопировать ссылку, нажмите на ней правую кнопку мышки и выберите "Copy Shortcut" в Internet Explorer или "Copy Link Location" в Mozilla.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Использовать https для входа в систему');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Позволяет ссылке на страницу входа в систему указывать на https-ресурс. Ваш веб-сервер должен поддерживать https чтобы эта опция могла работать!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Показывать внешние сайты как гиперссылки?');

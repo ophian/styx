@@ -476,7 +476,7 @@
 @define('COMMENT_EDITED', '文章已被编辑');
 @define('HIDE', '隐藏');
 @define('VIEW_EXTENDED_ENTRY', '继续阅读 "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', '这个连接不是用来点的. 它包含了这个文章的引用 URI. 你可以从这个 URI 来传送 ping 和引用到这个文章. 如果要复制这个连接, 在连接上点右键然后选择 "复制连接" (IE) 或 "复制连接地址" (Mozilla).');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', '用 https 登入');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', '使用 https 网址。你的主机必须支持这项功能');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', '让外部连接显示');

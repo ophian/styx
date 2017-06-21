@@ -477,7 +477,7 @@
 @define('COMMENT_EDITED', 'De reactie is aangepast');
 @define('HIDE', 'Verbergen');
 @define('VIEW_EXTENDED_ENTRY', 'Ga door met lezen van "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'De link is niet bedoeld om aangeklikt te worden. Het bevat een trackback-URL voor dit artikel. U kunt deze URL gebruiken om ping- & trackbacks te versturen van uw weblog naar dit artikel. Om deze URL te kopiëren klikt u met de rechtermuisknop en kiest u voor "Koppelingslocatie kopiëren.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Gebruik https om aan te melden');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Laat de aanmelding via https verlopen. Uw webserver moet dit echter wel ondersteunen!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Externe links aanklikbaar maken?');

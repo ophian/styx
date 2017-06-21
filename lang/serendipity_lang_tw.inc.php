@@ -476,7 +476,7 @@ $i18n_unknown = 'tw';
 @define('COMMENT_EDITED', '文章已被編輯');
 @define('HIDE', '隱藏');
 @define('VIEW_EXTENDED_ENTRY', '繼續閱讀 "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', '這個連結不是用來點的. 它包含了這個文章的引用 URI. 您可以從您的網誌內用這個 URI 來傳送 ping 和引用到這個文章. 如果要複製這個連結, 在連結上點右鍵然後選擇 "複製連結" (IE) 或 "複製連結位址" (Mozilla).');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', '用 https 登入');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', '讓登入連結連到 https 網址. 您的主機必須支援這項功能!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', '讓外來連結以連結顯示?');

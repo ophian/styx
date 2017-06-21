@@ -475,7 +475,7 @@
 @define('COMMENT_EDITED', 'Athugasemdinni hefur verið breytt');
 @define('HIDE', 'Fela');
 @define('VIEW_EXTENDED_ENTRY', 'Halda áfram að lesa "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'Það er ekki ætlast til þess að smellt sé á þennan hlekk. Hann inniheldur tilvísunar URIs lóðina fyrir þessa færslu. Þú getur notað þetta URI til að senda ping- & tilvísanir frá eigin bloggi á þessa færslu. Til að afrita þennan hlekk, hægrismelltu þá á hlekkinn og veldu "Copy Shortcut" í Internet Explorer, og "Copy Link Location" í Mozilla.');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Nota https fyrir innskráningu');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Lætur innskráningarhlekkinn vísa á https slóð. Vefþjónninn þinn þarf að styðja þetta!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Láta vera hægt að smellta á utanaðkomandi hlekki?');
