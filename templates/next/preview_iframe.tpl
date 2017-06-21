@@ -45,17 +45,17 @@
         {rdelim}
     </script>
 
-    {if $mode == 'save'}{* overwrite Next style.css conflicts *}
+    {if $mode == 'save'}{* overwrite Next style.css conflicts or set *}
     <style>
         html { padding:0; background-color: #fcfcfc; }
         body { margin: 0px; padding: 0.5em 0px; border: 0px none; width: 100%; }
         #primary { padding:0; }
+        .save_updertH { margin-left: .5em; }
     </style>
     {/if}
     {if $mode == 'preview'}{* overwrite Next style.css conflicts *}
     <style>
         html { padding: 0; }
-        .preview_preview_body { width: 100%; max-width: 100%; }
         .serendipity_entry { max-width: 98%; margin: 0 1%; }
     </style>
     {/if}
@@ -69,7 +69,7 @@
             {$preview}
         {elseif $mode == 'save'}
                 <div class="{$mode}_preview_sizing"></div>
-                {$updertHooks}
+                {if !empty($updertHooks)}<div class="{$mode}_updertH">{$updertHooks}</div>{/if}
             {if $res}
                 <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
             {else}
