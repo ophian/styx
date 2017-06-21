@@ -65,7 +65,7 @@
     <section id="trackbacks">
         <h3>{$CONST.TRACKBACKS}</h3>
 
-        <a class="button trackback_url" rel="nofollow" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:'htmlall'}'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:'htmlall'}">{$CONST.TRACKBACK_SPECIFIC}</a>
+        <a class="button trackback_url" rel="nofollow" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:'htmlall' &raquo;{$entry.rdf_ident|escape:'htmlall'}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:'htmlall'} &raquo;<u>{$entry.rdf_ident}</u>&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
 
         {serendipity_printTrackbacks entry=$entry.id}
     </section>

@@ -63,9 +63,9 @@
     <section id="trackbacks" class="clearfix">
         <h3>{$CONST.TRACKBACKS}</h3>
 
-        <a class="trackback-url" rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape}">{$CONST.TRACKBACK_SPECIFIC}</a>
+        <a class="trackback-url" rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;<u>{$entry.rdf_ident}</u>&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
 
-        <p class="msg-notice trackback-hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:html}</p>
+        <p class="msg-notice trackback-hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:html} &raquo;<u>{$entry.rdf_ident}</u>&laquo;</p>
 
         {serendipity_printTrackbacks entry=$entry.id}
     </section>
