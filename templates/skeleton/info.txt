@@ -1,6 +1,6 @@
 Name: Skeleton
 Author: Matthias Mees, based on http://getskeleton.com
-Date: 2016-09-20
+Date: 2017-06-21
 Require Serendipity: 2.0
 Recommended: Yes
 Summary: CSS theme based on the CSS framework Skeleton.
