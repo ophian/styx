@@ -1437,11 +1437,11 @@ function serendipity_initLog() {
 }
 
 /**
- * Sanitize 'private use area' font symbols to unicode / html entities before saving to database
+ * Sanitize non-unicode characters supported by the Symbol font to unicode / html entities before saving to database
  * Thanks to http://stackoverflow.com/questions/8240030/how-to-convert-symbol-font-to-standard-utf8-html-entity
  * Conversion table used http://www.fileformat.info/info/unicode/font/symbol/nonunicode.htm
  *
- * @see     https://github.com/s9y/Serendipity/issues/394
+ * @see     https://github.com/s9y/Serendipity/issues/394 (unrelated, since this here does not touch 'private use area' symbols, and will possibly be removed when the issue is fixed!)
  * @see     symbol_map_utf8()
  * @see     symbol_utf8()
  * @param   string  $string $entry[body] | [extended] | $commentInfo['comment']
