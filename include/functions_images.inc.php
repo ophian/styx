@@ -2410,7 +2410,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
     if (!is_array($keywords)) {
         $keywords = explode(';', $serendipity['mediaKeywords']);
     }
-
+    // type 'media' only usage @see serendipity_admin_image_selector case $serendipity['GET']['step'] = 'showItem', eg /serendipity_admin_image_selector.php?serendipity[step]=showItem&serendipity[image]=42
     $media['references'] = serendipity_db_query("SELECT link, name
                             FROM {$serendipity['dbPrefix']}references
                            WHERE entry_id = " . $media['id'] . "
