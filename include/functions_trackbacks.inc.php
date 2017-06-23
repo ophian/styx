@@ -129,25 +129,8 @@ function _serendipity_send($loc, $data, $contenttype = null) {
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
     serendipity_plugin_api::hook_event('backend_http_request', $options, 'trackback_send');
 
-    serendipity_request_start();
-
-    $req = serendipity_request_object($uri, 'post', $options);
-
-    if (isset($contenttype)){
-       $req->setHeader('Content-Type', $contenttype);
-    }
-
-    $req->setBody($data);
-    try {
-        $res = $req->send();
-    } catch (HTTP_Request2_Exception $e) {
-        serendipity_request_end();
-        return false;
-    }
-
-    $fContent = $res->getBody();
-
-    serendipity_request_end();
+    $fContent = serendipity_request_url($uri, 'POST', $contenttype, $data, $options, 'trackback_send');
+    #echo '<pre>_serendipity_send() '.print_r($serendipity['last_http_request'], true).'</pre>';
 
     return $fContent;
 }
@@ -279,21 +262,13 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
     serendipity_plugin_api::hook_event('backend_http_request', $options, 'trackback_detect');
 
-    serendipity_request_start();
+    $fContent = serendipity_request_url($parsed_loc, 'GET', null, null, $options, 'trackback_detect');
+    #echo '<pre>serendipity_reference_autodiscover() '.print_r($serendipity['last_http_request'], true).'</pre>';
 
-    $req = serendipity_request_object($parsed_loc, 'get', $options);
-
-    try {
-        $res = $req->send();
-    } catch (HTTP_Request2_Exception $e) {
+    if (false === $fContent) {
         echo '<div>&#8226; ' . sprintf(TRACKBACK_COULD_NOT_CONNECT, $u['host'], $u['port']) .'</div>';
-        serendipity_request_end();
         return;
     }
-
-    $fContent = $res->getBody();
-
-    serendipity_request_end();
 
     if (strlen($fContent) != 0) {
         $trackback_result = serendipity_trackback_autodiscover($fContent, $parsed_loc, $url, $author, $title, $text, $loc);
@@ -546,53 +521,40 @@ function fetchPingbackData(&$comment) {
     }
     $url = $comment['url'];
 
-    serendipity_request_start();
-
     // Request the page
     $options = array('follow_redirects' => true, 'max_redirects' => 5, 'timeout' => 20);
 
-    $req = serendipity_request_object($url, 'get', $options);
+    $fContent = serendipity_request_url($url, 'GET', null, null, $options);
+    #echo '<pre>fetchPingbackData() '.print_r($serendipity['last_http_request'], true).'</pre>';
 
-    // code 200: OK, code 30x: REDIRECTION
-    $responses = "/(200)|(30[0-9])/"; // |(30[0-9] Moved)
+    // Get a title
+    if (preg_match('@<head[^>]*>.*?<title[^>]*>(.*?)</title>.*?</head>@is', $fContent, $matches)) {
+        $comment['title'] = serendipity_entity_decode(strip_tags($matches[1]), ENT_COMPAT, LANG_CHARSET);
+    }
 
-    try {
-        $response = $req->send();
-        if (preg_match($responses, $response->getStatus()) && $response->getStatus() != '200') {
-            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Request url: $url failed in: " . __FUNCTION__ . ' with response Code: ' . $response->getStatus());
-        }
-        $fContent = $response->getBody();
+    // Try to get content from first <p> tag on:
+    if (preg_match('@<p[^>]*>(.*?)</body>@is', $fContent, $matches)) {
+        $body = $matches[1];
+    }
+    if (empty($body) && preg_match('@<body[^>]*>(.*?)</body>@is', $fContent, $matches)){
+        $body = $matches[1];
+    }
+    // Get a part of the article
+    if (!empty($body)) {
+        $body = trackback_body_strip($body);
 
-        // Get a title
-        if (preg_match('@<head[^>]*>.*?<title[^>]*>(.*?)</title>.*?</head>@is',$fContent,$matches)) {
-            $comment['title'] = serendipity_entity_decode(strip_tags($matches[1]), ENT_COMPAT, LANG_CHARSET);
-        }
+        // truncate the text to 200 chars
+        $arr = str_split($body, $fetchPageMaxLength);
+        $body = $arr[0];
 
-        // Try to get content from first <p> tag on:
-        if (preg_match('@<p[^>]*>(.*?)</body>@is',$fContent,$matches)) {
-            $body = $matches[1];
-        }
-        if (empty($body) && preg_match('@<body[^>]*>(.*?)</body>@is',$fContent,$matches)){
-            $body = $matches[1];
-        }
-        // Get a part of the article
-        if (!empty($body)) {
-            $body = trackback_body_strip($body);
+        $comment['comment'] = $body . '[..]';
+    }
 
-            // truncate the text to 200 chars
-            $arr = str_split($body, $fetchPageMaxLength);
-            $body = $arr[0];
-
-            $comment['comment'] = $body . '[..]';
-        }
-    } catch (HTTP_Request2_Exception $e) {
-        serendipity_request_end();
+    if (false === $fContent) {
+        if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Request url: $url failed in: " . __FUNCTION__ . ' with response Code: ' . $serendipity['last_http_request']['responseCode']);
         // do what? Don't touch $comments
         return;
     }
-
-    serendipity_request_end();
-
 }
 
 /**
