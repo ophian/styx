@@ -97,9 +97,6 @@ if ($type == 'trackback') {
     $uri = $_SERVER['REQUEST_URI'];
     if (isset($_REQUEST['entry_id'])) {
         $id = (int)$_REQUEST['entry_id'];
-    } else if ($_REQUEST['amp;entry_id']) {
-        // For possible buggy variable transmission caused by an intermediate CVS-release of s9y
-        $id = (int)$_REQUEST['amp;entry_id'];
     } else if (preg_match('@/(\d+)_[^/]*$@', $uri, $matches)) {
         $id = (int)$matches[1];
     }
@@ -132,10 +129,10 @@ if ($type == 'trackback') {
         log_pingback('HTTP_RAW_POST_DATA: ' .$tmp);
     }
     if (add_pingback($_REQUEST['entry_id'], $HTTP_RAW_POST_DATA)) {
-        log_pingback('PINGBACK SUCCESS');;
+        log_pingback('PINGBACK SUCCESS');
         report_pingback_success();
     } else {
-        log_pingback('PINGBACK FAILURE');;
+        log_pingback('PINGBACK FAILURE');
         report_pingback_failure();
     }
 } else {
