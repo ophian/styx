@@ -868,8 +868,10 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
             $duplicate_check[$i_location . $i_link] = true;
         }
 
-        if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Current lookup for {$locations[$i]}{$names[$i]} is" . print_r($current_references[$locations[$i] . $names[$i]], true));
-        if (is_object($serendipity['logger'])) $serendipity['logger']->debug($query);
+        if (is_object($serendipity['logger'])) {
+            $serendipity['logger']->debug("Current lookup for {$locations[$i]} {$names[$i]} is " . print_r($current_references[$locations[$i] . $names[$i]], true)) . "\n";
+            $serendipity['logger']->debug($query);
+        }
     }
 
     if (is_object($serendipity['logger'])) $serendipity['logger']->debug(print_r($old_references, true));
