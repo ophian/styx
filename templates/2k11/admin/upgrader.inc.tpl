@@ -73,7 +73,7 @@
             <span class="msg_success upgrade_done"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.SERENDIPITY_UPGRADER_NOW_UPGRADED|sprintf:$s9y_version}</span>
         {/if}
         {if $return_here}
-            {$print_UPGRADER_RETURN_HERE}
+            {$print_UPGRADER_RETURN_HERE|replace:'?serendipity[action]=upgrade#':''}
             {* could also be used as:   {$CONST.SERENDIPITY_UPGRADER_RETURN_HERE|sprintf:"<a href='$serendipityHTTPPath'>":'</a>'} *}
         {/if}
     {else}
