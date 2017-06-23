@@ -666,7 +666,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     static $old_references = array();
     static $saved_references = array();
     static $saved_urls = array();
-    if (is_object($serendipity['logger'])) $serendipity['logger']->debug('serendipity_handle_references');
+    if (is_object($serendipity['logger'])) $serendipity['logger']->debug('serendipity_handle_references start');
 
     if ($dry_run) {
         // Store the current list of references. We might need to restore them for later usage.
@@ -765,17 +765,17 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
         }
 
         if ($row[0] > 0 && isset($saved_references[$locations[$i] . $names[$i]])) {
-            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Found references for $id, skipping rest");
+            if (is_object($serendipity['logger'])) $serendipity['logger']->debug("Found references for [$id], skipping rest");
             continue;
         }
 
         if (!isset($serendipity['noautodiscovery']) || !$serendipity['noautodiscovery']) {
             if (!$dry_run) {
                 if (!isset($saved_urls[$locations[$i]])){
-                    if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Enabling autodiscovery');
+                    if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Enabling autodiscovery - send params: (' . "'{$locations[$i]}', '$url', '$author', '$title', '".serendipity_trackback_excerpt($text)."')");
                     serendipity_reference_autodiscover($locations[$i], $url, $author, $title, serendipity_trackback_excerpt($text));
                 } else {
-                    if (is_object($serendipity['logger'])) $serendipity['logger']->debug("This reference was already used before in $id and therefore will not be trackbacked again");
+                    if (is_object($serendipity['logger'])) $serendipity['logger']->debug("This reference was already used before in [$id] and therefore will not be trackbacked again");
                 }
             } else {
                 if (is_object($serendipity['logger'])) $serendipity['logger']->debug('Dry run: Skipping autodiscovery');
