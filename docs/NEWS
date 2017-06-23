@@ -1,6 +1,11 @@
 Version 2.2 ()
  ------------------------------------------------------------------------
 
+  * Rewrite Trackback HTTP Requests and logging attempts
+    Possible logging may get enabled by hand in comments.php and by the
+    "Log Level": "Debug" option in the General Configuration.
+    This may change in future, to only support the latter.
+
   * Revisited the "TRACKBACK_SPECIFIC_ON_CLICK" constant to clarify
     trackback and trackback URI link usage.
     All depending themes in core where changed and set to a new
