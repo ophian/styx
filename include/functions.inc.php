@@ -775,7 +775,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
 function serendipity_fetchReferences($id) {
     global $serendipity;
 
-    $query = "SELECT name,link FROM {$serendipity['dbPrefix']}references WHERE entry_id = '" . (int)$id . "' AND type = ''";
+    $query = "SELECT name,link FROM {$serendipity['dbPrefix']}references WHERE entry_id = '" . (int)$id . "' AND (type = '' OR type IS NULL)";
 
     return serendipity_db_query($query);
 }

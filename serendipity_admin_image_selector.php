@@ -210,7 +210,7 @@ switch ($serendipity['GET']['step']) {
         } else {
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}references
                                      SET name = name + 1
-                                   WHERE id   = " . (int)$hit['id']);
+                                   WHERE   id = " . (int)$hit['id']);
         }
 
         $curl = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . ($_SERVER['HTTP_PORT'] != 80 ? ':' . $_SERVER['HTTP_PORT'] : '');
