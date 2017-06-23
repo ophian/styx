@@ -707,7 +707,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     if (is_object($serendipity['logger'])) $serendipity['logger']->debug('serendipity_handle_references');
 
     if ($dry_run) {
-        // Store the current list of references. We might need to restore them for later user.
+        // Store the current list of references. We might need to restore them for later usage.
         $old_references = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}references WHERE (type = '' OR type IS NULL) AND entry_id = " . (int)$id, false, 'assoc');
 
         if (is_string($old_references)) {
@@ -844,16 +844,16 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
         }
 
         if (isset($current_references[$locations[$i] . $names[$i]])) {
-            $query = "INSERT INTO {$serendipity['dbPrefix']}references (id, entry_id, name, link) VALUES(";
-            $query .= (int)$current_references[$locations[$i] . $names[$i]]['id'] . ", " . (int)$id . ", '" . $i_link . "', '" . $i_location . "')";
+            $query = "INSERT INTO {$serendipity['dbPrefix']}references (id, entry_id, link, name)
+                           VALUES(" . (int)$current_references[$locations[$i] . $names[$i]]['id'] . ', ' . (int)$id . ", '$i_location', '$i_link')";
             $ins = serendipity_db_query($query);
             if (is_string($ins)) {
                 if (is_object($serendipity['logger'])) $serendipity['logger']->debug($ins);
             }
             $duplicate_check[$locations[$i] . $names[$i]] = true;
         } else {
-            $query = "INSERT INTO {$serendipity['dbPrefix']}references (entry_id, name, link) VALUES(";
-            $query .= (int)$id . ", '" . $i_link . "', '" . $i_location . "')";
+            $query = "INSERT INTO {$serendipity['dbPrefix']}references (entry_id, link, name) VALUES(";
+            $query .= (int)$id . ", '" . $i_location . "', '" . $i_link . "')";
             $ins = serendipity_db_query($query);
             if (is_string($ins)) {
                 if (is_object($serendipity['logger'])) $serendipity['logger']->debug($ins);
@@ -861,9 +861,9 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 
             $old_references[] = array(
                 'id'       => serendipity_db_insert_id('references', 'id'),
-                'name'     => $i_link,
+                'entry_id' => (int)$id,
                 'link'     => $i_location,
-                'entry_id' => (int)$id
+                'name'     => $i_link
             );
             $duplicate_check[$i_location . $i_link] = true;
         }
