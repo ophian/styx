@@ -273,7 +273,7 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
         return;
     }
 
-    echo '<div>&#8226; '. sprintf(TRACKBACK_CHECKING, $loc) .'</div>';
+    echo '<div>&#8226; '. str_replace(array('Trackbacks', 'trackbacks'), array('Track-/Pingbacks', 'track-/pingbacks'), sprintf(TRACKBACK_CHECKING, $loc)) .'</div>'; // this current constant is trackback only - it should be both. Return better for all those, which are [de, en] and are not already translated to other languages.
     flush();
 
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
