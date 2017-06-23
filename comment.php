@@ -61,7 +61,7 @@ $pb_logging = false;
 
 if ($pb_logging) {
     log_pingback('CONTENT_TYPE: ' . $_SERVER['CONTENT_TYPE']);
-    log_pingback('HTTP_RAW_POST_DATA: ' .  $tmp);
+    log_pingback('HTTP_RAW_POST_DATA: ' .  print_r($HTTP_RAW_POST_DATA, true));
 }
 
 if (!($type = @$_REQUEST['type'])) {
@@ -90,9 +90,8 @@ if ($type == 'trackback') {
         $tmp = ob_get_contents();
         ob_end_clean();
 
-        $fp = fopen('trackback2.log', 'a');
-        fwrite($fp, '[' . date('d.m.Y H:i') . '] RECEIVED TRACKBACK' . "\n");
-        fwrite($fp, '[' . date('d.m.Y H:i') . '] ' . $tmp . "\n");
+        log_trackback('[' . date('d.m.Y H:i') . '] RECEIVED TRACKBACK' . "\n");
+        log_trackback('[' . date('d.m.Y H:i') . '] ' . $tmp . "\n");
     }
 
     $uri = $_SERVER['REQUEST_URI'];
@@ -106,28 +105,22 @@ if ($type == 'trackback') {
     }
 
     if ($tb_logging) {
-        fwrite($fp, '[' . date('d.m.Y H:i') . '] Match on ' . $uri . "\n");
-        fwrite($fp, '[' . date('d.m.Y H:i') . '] ID: ' . $id . "\n");
-        fclose($fp);
+        log_trackback('[' . date('d.m.Y H:i') . '] Match on ' . $uri . "\n");
+        log_trackback('[' . date('d.m.Y H:i') . '] ID: ' . $id . "\n");
     }
 
     if (add_trackback($id, $_REQUEST['title'], $_REQUEST['url'], $_REQUEST['blog_name'], $_REQUEST['excerpt'])) {
         if ($tb_logging) {
-            $fp = fopen('trackback2.log', 'a');
-            fwrite($fp, '[' . date('d.m.Y H:i') . '] TRACKBACK SUCCESS' . "\n");
+            log_trackback('[' . date('d.m.Y H:i') . '] TRACKBACK SUCCESS' . "\n");
         }
         report_trackback_success();
     } else {
         if ($tb_logging) {
-            $fp = fopen('trackback2.log', 'a');
-            fwrite($fp, '[' . date('d.m.Y H:i') . '] TRACKBACK FAILURE' . "\n");
+            log_trackback('[' . date('d.m.Y H:i') . '] TRACKBACK FAILURE' . "\n");
         }
         report_trackback_failure();
     }
 
-    if ($tb_logging) {
-        fclose($fp);
-    }
 } else if ($type == 'pingback') {
     if ($pb_logging) {
         log_pingback('RECEIVED PINGBACK');
@@ -231,6 +224,7 @@ if ($type == 'trackback') {
     $serendipity['smarty']->display(serendipity_getTemplateFile($serendipity['smarty_file'], 'serendipityPath'));
 }
 
+// See http://php.net/manual/en/function.fopen.php for possible fullpath issues
 // Debug logging for pingback receiving
 function log_pingback($message){
     global $pb_logging;
@@ -240,4 +234,14 @@ function log_pingback($message){
         fclose($fp);
     }
 }
+// Debug logging trackback receiving
+function log_trackback($message){
+    global $tb_logging;
+    if ($tb_logging) {
+        $fp = fopen('trackback.log', 'a');
+        fwrite($fp, '[' . date('d.m.Y H:i') . '] ' . $message . "\n");
+        fclose($fp);
+    }
+}
+
 /* vim: set sts=4 ts=4 expandtab : */
