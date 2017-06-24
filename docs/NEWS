@@ -1,6 +1,11 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Finalise 'stable' over 'beta' preference autoupdate check
+
+  * Hotfix the autoupdate "return to backend" link
+
+
 Version 2.2 (2017-06-23)
  ------------------------------------------------------------------------
 
