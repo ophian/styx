@@ -1,6 +1,12 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Optimise PINGBACK markup generation checkup in the "trackback.tpl"
+    template file, by checking a possible non-empty body variable
+    starting with an image.
+    This issue probably is added by the gravatar event plugin only.
+    The "2k11" and the "next" theme were changed to support this.
+
   * Finalise 'stable' over 'beta' preference autoupdate check
 
   * Fix the autoupdate "return to backend" link

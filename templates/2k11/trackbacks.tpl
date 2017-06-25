@@ -1,8 +1,9 @@
 {foreach $trackbacks AS $trackback}
 <article id="c{$trackback.id}" class="clearfix serendipity_comment {cycle values="odd,even"}">
     <h4><cite>{$trackback.author|default:$CONST.ANONYMOUS}</cite> {$CONST.ON} <time datetime="{$trackback.timestamp|serendipity_html5time}">{$trackback.timestamp|formatTime:$template_option.date_format}</time>: <a href="{$trackback.url|strip_tags}">{$trackback.title}</a></h4>
-{if $trackback.body == ''}
-	<span class="visuallyhidden">{$CONST.TWOK11_EMPTYTRACKBACK}</span>
+{* This regex removes a possible avatar image automatically added by the serendipity_event_gravatar plugin *}
+{if {$trackback.body|regex_replace:"/^<img.*>$/":''} == ''}
+    {if $trackback.type == 'TRACKBACK'}<p class="serendipity_center nocomments">{$CONST.NO_ENTRIES_TO_PRINT}</p>{/if}
 {else}
     <details>
         <summary>{$CONST.TWOK11_TRACKBACKPREVIEW}</summary>
