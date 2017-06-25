@@ -602,9 +602,9 @@ print <<<SUCCESS
    <params>
       <param>
          <value><string>success</string></value>
-         </param>
-      </params>
-   </methodResponse>
+      </param>
+   </params>
+</methodResponse>
 SUCCESS;
 }
 
