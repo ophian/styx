@@ -109,11 +109,13 @@ if ($type == 'trackback') {
     if (add_trackback($id, $_REQUEST['title'], $_REQUEST['url'], $_REQUEST['blog_name'], $_REQUEST['excerpt'])) {
         if ($tb_logging) {
             log_trackback('[' . date('d.m.Y H:i') . '] TRACKBACK SUCCESS' . "\n");
+            log_trackback('---------------------------------------');
         }
         report_trackback_success();
     } else {
         if ($tb_logging) {
             log_trackback('[' . date('d.m.Y H:i') . '] TRACKBACK FAILURE' . "\n");
+            log_trackback('---------------------------------------');
         }
         report_trackback_failure();
     }
@@ -130,9 +132,11 @@ if ($type == 'trackback') {
     }
     if (add_pingback($_REQUEST['entry_id'], $HTTP_RAW_POST_DATA)) {
         log_pingback('PINGBACK SUCCESS');
+        log_pingback('---------------------------------------');
         report_pingback_success();
     } else {
         log_pingback('PINGBACK FAILURE');
+        log_pingback('---------------------------------------');
         report_pingback_failure();
     }
 } else {
