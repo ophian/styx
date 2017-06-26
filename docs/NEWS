@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Remove category filter in backend entry form categories compact mode
+
   * Add some styled love to comments/trackbacks/pingbacks section in the
     "Next"-theme as an example. Thanks to Grischa Brockhaus! :)
 

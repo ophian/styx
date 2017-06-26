@@ -1713,6 +1713,9 @@ summary {
 #edit_entry_category label {
     vertical-align: top;
 }
+#category_filter.compact > .button_link {
+    float: right;
+}
 #edit_entry_category .compact label {
     top: 4px;
 }

@@ -130,11 +130,13 @@
                 <fieldset>
                     <span class="wrap_legend"><legend>{$CONST.CATEGORY}</legend></span>
 
-                    <div id="category_filter" class="form_field">
+                    <div id="category_filter" class="form_field{if $entry_vars.category_compact} compact{/if}">
+                        {if !isset($entry_vars.category_compact)}
                         <label for="categoryfilter" class="visuallyhidden">{$CONST.FILTERS}</label>
                         <input id="categoryfilter" type="text" placeholder="{$CONST.FILTERS}: {$CONST.CATEGORIES}">
                         <button class="reset_livefilter icon_link" type="button" data-target="categoryfilter" title="{$CONST.RESET_FILTERS}"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.RESET_FILTERS}</span></button>
                         <button id="toggle_cat_view" class="icon_link" type="button" title="{$CONST.TOGGLE_VIEW}"><span class="icon-th" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.TOGGLE_VIEW}</span></button>
+                        {/if}
                         {if $use_backendpopups || $force_backendpopups.categories}<a href="#top" class="button_link" title="{$CONST.UP}"><span class="ucc-up-pointing-triangle"></span></a>{/if}
                     </div>
 
