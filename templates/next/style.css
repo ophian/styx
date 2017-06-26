@@ -798,6 +798,10 @@ pre {
 .search-results li > span {
   display: block; }
 
+/* details summary::-webkit-details-marker workaround for Mozilla and Webkit - which makes Moz work */
+details summary {
+    display: list-item;
+}
 .no-details details > * {
   display: none; }
 .no-details details > summary:before {
