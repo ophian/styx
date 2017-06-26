@@ -10,7 +10,7 @@
         <?php endif; ?>
         </div>
         <div class="serendipity_comment_source">
-            <a class="comment_source_trace" href="<?= $comment['url'] ?>#c<?= $comment['id'] ?>">#<?= $comment['trace'] ?></a>
+            <a class="comment_source_trace" href="<?= serendipity_specialchars($comment['url']) ?>#c<?= $comment['id'] ?>">#<?= $comment['trace'] ?></a>
             <span class="comment_source_author">
             <?php if ($comment['email']): ?>
                 <a href="mailto:<?= $comment['email'] ?>"><?= $comment['author'] ? $comment['author'] : ANONYMOUS; ?></a>

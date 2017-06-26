@@ -9,7 +9,7 @@
         {/if}
         </div>
         <div class="serendipity_comment_source">
-            <a class="comment_source_trace" href="{$comment.url}#c{$comment.id}">#{$comment.trace}</a>
+            <a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id}">#{$comment.trace}</a>
             <span class="comment_source_author">
             {if $comment.email}
                 <a href="mailto:{$comment.email}">{$comment.author|default:$CONST.ANONYMOUS}</a>
