@@ -114,6 +114,12 @@
         {/foreach}
         {if $is_comment_added}
             <p class="serendipity_msg_notice">{$CONST.COMMENT_ADDED}</p>
+        {if $is_logged_in}
+        <section id="respond" class="serendipity_section_commentform">
+            <h3>{$CONST.ADD_COMMENT}</h3>
+            {$COMMENTFORM}
+        </section>
+        {/if}
         {elseif $is_comment_moderate}
             <p class="serendipity_msg_notice">{$CONST.COMMENT_ADDED} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
         {elseif NOT $entry.allow_comments}
