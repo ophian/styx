@@ -748,9 +748,10 @@ pre {
   float: right;
   text-align: right; }
 
+/*
 .trackback, .comment {
   margin-bottom: 32px;
-  margin-bottom: 2rem; }
+  margin-bottom: 2rem; }*/
 
 .comment header h4 {
   float: left; }
@@ -758,6 +759,104 @@ pre {
 .comment > footer, .trackback-url, .comment-view, .comments-enable {
   font-size: 13px;
   font-size: 0.8125rem; }
+
+/* comments styling add start */
+#trackbacks article, #comments article {
+    background-color: #FFF;
+    border: 2px solid #acacac;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0 0 16px;
+    margin: 0 0 1rem;
+    padding: 0.4375rem 0.625rem;
+    position: relative; }
+
+.comment.odd, .comment.even,
+.trackback.tb-odd, .trackback.tb-even {
+    box-sizing: border-box;
+    padding: 0 .4rem .4rem;
+    border: 1px solid #DDD; }
+
+.trackback.tb-odd,
+.comment.odd {
+    background: #EEE; }
+
+.pingback {
+    background-color: #EBFBFB; }
+
+#comments article.even:after {
+    border-top-color: #EEE; }
+
+#comments article.even:before,
+#comments article.even:after {
+    left: 80%; }
+
+#comments article:after {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #FFFFFF transparent transparent;
+    border-right: 13px solid transparent;
+    border-style: solid;
+    border-width: 18px;
+    bottom: -36px;
+    left: 10%;
+    margin-left: 2px; }
+
+#comments article:before {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-color: #acacac transparent transparent;
+    border-right: 20px solid transparent;
+    border-style: solid;
+    border-width: 20px;
+    bottom: -40px;
+    left: 10%; }
+
+#trackbacks article.teven,
+#comments article.even {
+	background-color: #EEE; }
+
+#trackbacks article,
+#comments article {
+    background-color: #FFF;
+    border: 2px solid #acacac;
+    border-radius: 5px 5px 5px 5px;
+    margin: 0 0 1em;
+    padding: 0.4375rem 0.625rem;
+    position: relative; }
+
+#trackbacks details > div {
+    margin-left: 1.2rem; }
+
+#comments .comment > footer {
+    text-align: center;
+    border: 1px solid #DFDFDF;
+    background: #F7F7F7;
+    border-radius: 4px 4px 4px 4px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 1rem; }
+
+#comments .comment > footer .meta {
+    margin: .25rem 0; }
+
+.comment_avatar {
+    background-color: #DDD;
+    border: 2px solid #acacac;
+    border-radius: 4px 4px 4px 4px;
+    color: #333;
+    float: right;
+    margin: 0 0 0 0.625rem; }
+
+.serendipity_plugin_comments_avatar {
+    height: 30px;
+    width: 30px; }
+/* comments styling add end */
 
 .js .trackback-hint {
   display: none; }
@@ -800,8 +899,8 @@ pre {
 
 /* details summary::-webkit-details-marker workaround for Mozilla and Webkit - which makes Moz work */
 details summary {
-    display: list-item;
-}
+    display: list-item; }
+
 .no-details details > * {
   display: none; }
 .no-details details > summary:before {
@@ -1017,6 +1116,24 @@ details summary {
 .gplus_like iframe {
   position: relative !important;
   top: 6px !important; }
+
+/* comments styling add start */
+@media only screen and (min-width: 481px) {
+    #comments article:before, #comments article:after {
+        content: "";
+        display: block;
+        height: 0;
+        position: absolute;
+        width: 0; }
+    #comments article.odd .comment_avatar {
+        float: left;
+        margin: 0 0.625rem 0 0; }
+    #comments article.comment.even {
+        margin: 0 0 2rem 3rem; }
+    #comments article.comment.odd {
+        margin: 0 3rem 2rem 0rem; }
+}
+/* comments styling add end */
 
 @media screen and (min-width: 768px) {
   html {

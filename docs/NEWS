@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Add some styled love to comments/trackbacks/pingbacks section in the
+    "Next"-theme as an example. Thanks to Grischa Brockhaus! :)
+
   * Fix old bug, missing the links "comment url" in the "comments.tpl"
     template file, when called by "/comments/" or "/comments/trackbacks/"
     or "/comments/comments_and_trackbacks/" etc. page shortcuts, via the
@@ -20,7 +23,7 @@ Version 2.3 ()
 
   * Finalise 'stable' over 'beta' preference autoupdate check
 
-  * Fix the autoupdate "return to backend" link
+  * Fix the autoupdate final "return to backend" link
 
 
 Version 2.2 (2017-06-23)
