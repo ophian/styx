@@ -1,11 +1,11 @@
 {if !empty($errormsg)}
-            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$errormsg}</span>
+            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$errormsg|nl2br}</span>
 {/if}
 {if !empty($msg)}
     {if $msgtype == 'notice'}
-            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$msg}</span>
+            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$msg|nl2br}</span>
     {else}
-            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$msg}</span>
+            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$msg|nl2br}</span>
     {/if}
 {/if}
 {if $commentReplied}
