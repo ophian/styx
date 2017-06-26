@@ -780,8 +780,12 @@ pre {
 .comment.odd {
     background: #EEE; }
 
-.pingback {
-    background-color: #EBFBFB; }
+#trackbacks article.pingback {
+    border: 2px solid #d1d1d1;
+    padding: 0 0.625rem; }
+    #trackbacks article.pingback.tb-odd,
+    #trackbacks article.pingback.tb-even {
+        background-color: #EBFBFB; }
 
 #comments article.even:after {
     border-top-color: #EEE; }
@@ -817,7 +821,7 @@ pre {
     bottom: -40px;
     left: 10%; }
 
-#trackbacks article.teven,
+#trackbacks article.tb-even,
 #comments article.even {
 	background-color: #EEE; }
 
