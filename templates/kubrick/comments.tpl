@@ -7,7 +7,7 @@
                 {$comment.author|default:$CONST.ANONYMOUS}
             {/if}</cite> {$CONST.SAYS}:<br />
         <div class="commentmetadata" id="serendipity_comment_{$comment.id}">
-            <a href="#c{$comment.id}" title="{$CONST.LINK_TO_COMMENT|sprintf:$comment.trace}">#{$comment.trace}</a>
+            <a href="{$comment.url}#c{$comment.id}" title="{$CONST.LINK_TO_COMMENT|sprintf:$comment.trace}">#{$comment.trace}</a>
             {$comment.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT}
             {if $entry.is_entry_owner}
                 (<a href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');">{$CONST.DELETE}</a>)
