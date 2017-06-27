@@ -1,3 +1,4 @@
+{* Use |cleanChars serendipity smarty modifier for info button click cases, since chars like dots, bangs, spaces, etc, which are not (A-Za-z0-9_-) break the expected behaviour *}
 {if ($ctype == 'separator' OR $ctype == 'seperator')}{* compat - due to misspelled word 'seper...' *}
 
     <hr class="config_separator">
@@ -7,8 +8,8 @@
 {elseif $ctype == 'select'}
 
     <div class="clearfix form_select{if $cdesc != ''} has_info{/if}">
-        <label for="serendipity_{$config_item}">{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
-        {if $cdesc != ''}<span id="{$config_item}_info" class="field_info additional_info">{$cdesc}</span>{/if}
+        <label for="serendipity_{$config_item}">{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item|cleanChars}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
+        {if $cdesc != ''}<span id="{$config_item|cleanChars}_info" class="field_info additional_info">{$cdesc}</span>{/if}
 
         <select id="serendipity_{$config_item}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]{($is_multi_select) ? '[]' : ''}"{($is_multi_select) ? ' multiple' : ''}{($is_multi_select AND ($select_size > 0)) ? " size='{$select_size}'" : ''}>
         {foreach $select AS $select_value => $select_desc}
@@ -19,8 +20,8 @@
 {elseif $ctype == 'radio'}
 
     <fieldset{if $cdesc != ''} class="has_info"{/if}>
-        <span class="wrap_legend"><legend>{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</legend></span>
-        {if $cdesc != ''}<span id="{$config_item}_info" class="field_info additional_info">{$cdesc}</span>{/if}
+        <span class="wrap_legend"><legend>{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item|cleanChars}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</legend></span>
+        {if $cdesc != ''}<span id="{$config_item|cleanChars}_info" class="field_info additional_info">{$cdesc}</span>{/if}
         <div class="clearfix grouped">
         {foreach $radio_button AS $r}
             <div class="form_radio">
@@ -34,8 +35,8 @@
 {elseif $ctype == 'string'}
 
     <div class="clearfix form_field{if $cdesc != ''} has_info{/if}">
-        <label for="serendipity_{$config_item}">{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
-        {if $cdesc != ''}<span id="{$config_item}_info" class="field_info additional_info">{$cdesc}</span>{/if}
+        <label for="serendipity_{$config_item}">{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item|cleanChars}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
+        {if $cdesc != ''}<span id="{$config_item|cleanChars}_info" class="field_info additional_info">{$cdesc}</span>{/if}
         <input id="serendipity_{$config_item}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" type="{$input_type}" value="{$hvalue}">
     </div>
 {elseif (($ctype == 'html') OR ($ctype == 'text'))}
@@ -59,8 +60,8 @@
 {elseif $ctype == 'color'}
 
     <div class="clearfix form_field{if $cdesc != ''} has_info{/if}">
-        <label for="serendipity_{$config_item}">{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
-        {if $cdesc != ''}<span id="{$config_item}_info" class="field_info additional_info">{$cdesc}</span>{/if}
+        <label for="serendipity_{$config_item}">{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item|cleanChars}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
+        {if $cdesc != ''}<span id="{$config_item|cleanChars}_info" class="field_info additional_info">{$cdesc}</span>{/if}
         <input id="serendipity_{$config_item}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" type="{$input_type}" value="{$hvalue}">
     </div>
 {elseif $ctype == 'hidden'}
@@ -71,7 +72,7 @@
 {elseif $ctype == 'media'}
 
     <div class="clearfix form_field media_choose{if $cdesc != ''} has_info{/if}">
-        <label for="serendipity[{$postKey}][{$config_item}]">{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$postKey}_{$config_item}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
+        <label for="serendipity[{$postKey}][{$config_item}]">{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$postKey}_{$config_item|cleanChars}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
 
         <div class="media_chooser clearfix">
             <input id="serendipity[{$postKey}][{$config_item}]" class="change_preview" name="serendipity[{$postKey}][{$config_item}]" type="text" data-configitem="{$config_item}" value="{$value}">
@@ -79,7 +80,7 @@
             <button class="choose_media" type="button" title="{$CONST.MEDIA_LIBRARY}"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.MEDIA_LIBRARY}</span></button>
         </div>
 
-        {if $cdesc != ''}<span id="{$postKey}_{$config_item}_info" class="field_info additional_info">{$cdesc}</span>{/if}
+        {if $cdesc != ''}<span id="{$postKey}_{$config_item|cleanChars}_info" class="field_info additional_info">{$cdesc}</span>{/if}
 
         <figure id="{$config_item}_preview">
             <figcaption>{$CONST.PREVIEW}</figcaption>
@@ -89,8 +90,8 @@
 {elseif $ctype == 'sequence'}
 
     <fieldset{if $cdesc != ''} class="has_info"{/if}>
-        <span class="wrap_legend"><legend>{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</legend></span>
-        {if $cdesc != ''}<span id="{$config_item}_info" class="field_info additional_info">{$cdesc}</span>{/if}
+        <span class="wrap_legend"><legend>{$cname}{if $cdesc != ''} <button class="toggle_info button_link" type="button" data-href="#{$config_item|cleanChars}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</legend></span>
+        {if $cdesc != ''}<span id="{$config_item|cleanChars}_info" class="field_info additional_info">{$cdesc}</span>{/if}
         <input id="{$config_item}_value" name="serendipity[{$postKey}][{$config_item}]" type="hidden" value="{$value}">
 
         <noscript>

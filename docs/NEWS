@@ -1,6 +1,11 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Add new Serendipity Smarty modifier "|cleanChars" for cases, where
+    chars like dots, bangs, spaces, ... which are not (A-Za-z0-9_-)
+    break the expected behaviour. Already used in the backend to fix
+    broken info button cases by certain plugins.
+
   * Remove category filter in backend entry form categories compact mode
 
   * Add some styled love to comments/trackbacks/pingbacks section in the

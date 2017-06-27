@@ -132,6 +132,20 @@ function serendipity_emptyPrefix($string, $prefix = ': ') {
 }
 
 /**
+ * Smarty Modifier: Replace unwanted chars and return just letters, numbers, underscore, hyphens for button info cases
+ *
+ * @access public
+ * @param   string  Template string content
+ * @param   object  Smarty template object
+ * @return
+ */
+function serendipity_cleanChars($string) {
+   $string = str_replace(array(' ', '/'), array('-', '_'), $string); // Replaces all spaces with hyphens.
+
+   return preg_replace('/[^A-Za-z0-9_\-]+/', '', $string); // Removes special chars, except the mentioned.
+}
+
+/**
  * Smarty Modifier: Return a remembered variable
  *
  * @access public
@@ -1027,6 +1041,7 @@ function serendipity_smarty_init($vars = array()) {
             $serendipity['smarty']->registerPlugin('modifier', 'serendipity_refhookPlugin', 'serendipity_smarty_refhookPlugin');
             $serendipity['smarty']->registerPlugin('modifier', 'serendipity_html5time', 'serendipity_smarty_html5time');
             $serendipity['smarty']->registerPlugin('modifier', 'rewriteURL', 'serendipity_rewriteURL');
+            $serendipity['smarty']->registerPlugin('modifier', 'cleanChars', 'serendipity_cleanChars');
 
             $serendipity['smarty']->registerPlugin('function', 'serendipity_printSidebar', 'serendipity_smarty_printSidebar');
             $serendipity['smarty']->registerPlugin('function', 'serendipity_hookPlugin', 'serendipity_smarty_hookPlugin');
