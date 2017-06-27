@@ -132,7 +132,7 @@ function serendipity_emptyPrefix($string, $prefix = ': ') {
 }
 
 /**
- * Smarty Modifier: Replace unwanted chars and return just letters, numbers, underscore, hyphens for button info cases
+ * Smarty Modifier: Replace unwanted chars and return just letters, numbers, underscores, hyphens - ie for broken button info "popup" cases
  *
  * @access public
  * @param   string  Template string content
