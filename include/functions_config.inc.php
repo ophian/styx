@@ -536,7 +536,13 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
                 ##$tag    = base64_decode($tag);
                 ##aesDebugFile($debugfile, '#DECRYPT: data = '.$data.' key = ' . $key . ' tag = '.$tag.' und iv = '. $iv);
                 ##$cipher = openssl_decrypt($data, $algo, $key, OPENSSL_RAW_DATA, $iv, $tag);// data comes by serendipity_checkAutologin() as base64_decode(d), ?~BINARY~RAW~?, and does NOT need to be unserialized at the end
-                $cipher = Cryptor::Decrypt($data, $key);
+                try {
+                    $cipher = Cryptor::Decrypt($data, $key);
+                } catch (Throwable $t) {
+                    // Executed only in PHP 7, will not match in PHP 5.x
+                    $cipher = false; // silent logout
+                    //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". Please manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
+                }
                 /*
                 if (false === $cipher) {
                     aesDebugFile($debugfile, '#DECRYPT: openssl_decrypt cookie returned false:(' . base64_decode($cipher) . ') '.printf("OpenSSL error: %s", openssl_error_string()));
