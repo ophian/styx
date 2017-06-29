@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix PHP7 Exception call in Cookie based login failures
+
   * Add new Serendipity Smarty modifier "|cleanChars" for cases, where
     chars like dots, bangs, spaces, ... which are not (A-Za-z0-9_-)
     break the expected behaviour. Already used in the backend to fix
