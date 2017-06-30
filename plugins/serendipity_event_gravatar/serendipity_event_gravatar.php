@@ -8,7 +8,7 @@ if (IN_serendipity !== true) {
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 // Actual version of this plugin - We should move it back to spartacus after next release though.
-@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.64'); // NOTE: This plugin is also in the central repository. Commit changes to the core, too :)
+@define('PLUGIN_EVENT_GRAVATAR_VERSION', '1.65'); // NOTE: This plugin is also in the central repository. Commit changes to the core, too :)
 
 // Defines the maximum available method  slots in the configuration.
 @define('PLUGIN_EVENT_GRAVATAR_METHOD_MAX', 6);
@@ -819,7 +819,11 @@ class serendipity_event_gravatar extends serendipity_event
             $this->log("hook_event: avatar_fetch_userinfos");
             $askforData = array("type" => "twitter");
             serendipity_plugin_api::hook_event('avatar_fetch_userinfos', $eventData, $askforData);
+        } catch (Throwable $t) {
+            // Executed only in PHP 7, will not match in PHP 5.x
+            $this->log($t);
         } catch (Exception $e) {
+            // Executed only in PHP 5.x, will not be reached in PHP 7
             $this->log($e);
         }
 

@@ -1319,7 +1319,12 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
     try {
         // if an image exist that can not be loaded (invalid gif for example), the page shall still be rendered
         $in = $func['load']($infilename);
+    } catch (Throwable $t) {
+        // Executed only in PHP 7, will not match in PHP 5.x
+        echo 'Could not create thumbnail: ',  $t->getMessage(), "\n";
+        return false;
     } catch (Exception $e) {
+        // Executed only in PHP 5.x, will not be reached in PHP 7
         echo 'Could not create thumbnail: ',  $e->getMessage(), "\n";
         return false;
     }
@@ -3615,7 +3620,15 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
                     serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // eg. for staticpage entries path regex replacements
 
                     // Move the origin file
-                    try { rename($oldfile, $newfile); } catch (Exception $e) { echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n"; }
+                    try {
+                        rename($oldfile, $newfile);
+                    } catch (Throwable $t) {
+                        // Executed only in PHP 7, will not match in PHP 5.x
+                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . "</span>\n";
+                    } catch (Exception $e) {
+                        // Executed only in PHP 5.x, will not be reached in PHP 7
+                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
+                    }
 
                     // do still need this? YES, it is definitely false, so we would not need the ternary
                     // Rename newDir + file name in case it is called by the Bulk Move and not by rename
@@ -3628,7 +3641,15 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
                         // Check for existent old thumb files first, to not need to disable rename by @rename(), then  move the thumb file and catch any wrong renaming
                         if (($thisNewThumb != $newfile) && file_exists($thisOldThumb)) {
                             // the thumb file and catch any wrong renaming
-                            try { rename($thisOldThumb, $thisNewThumb); } catch (Exception $e) { echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n"; }
+                            try {
+                                rename($thisOldThumb, $thisNewThumb);
+                            } catch (Throwable $t) {
+                                // Executed only in PHP 7, will not match in PHP 5.x
+                                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . "</span>\n";
+                            } catch (Exception $e) {
+                                // Executed only in PHP 5.x, will not be reached in PHP 7
+                                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
+                            }
                         }
                     }
 
@@ -3679,7 +3700,15 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
         serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
         // Move the origin file
-        try { rename($oldfile, $newfile); } catch (Exception $e) { echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n"; }
+        try {
+            rename($oldfile, $newfile);
+        } catch (Throwable $t) {
+            // Executed only in PHP 7, will not match in PHP 5.x
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . "</span>\n";
+        } catch (Exception $e) {
+            // Executed only in PHP 5.x, will not be reached in PHP 7
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
+        }
 
         foreach($renameValues AS $renameData) {
             $thisOldThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $pick['name'] . (!empty($renameData['fthumb']) ? '.' . $renameData['fthumb'] : '') . (empty($pick['extension']) ? '' : '.' . $pick['extension']);
@@ -3687,7 +3716,15 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
             // Check for existent old thumb files first, to not need to disable rename by @rename(),then  move the thumb file and catch any wrong renaming
             if (($thisNewThumb != $newfile) && file_exists($thisOldThumb)) {
                 // the thumb file and catch any wrong renaming
-                try { rename($thisOldThumb, $thisNewThumb); } catch (Exception $e) { echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n"; }
+                try {
+                    rename($thisOldThumb, $thisNewThumb);
+                } catch (Throwable $t) {
+                    // Executed only in PHP 7, will not match in PHP 5.x
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . "</span>\n";
+                } catch (Exception $e) {
+                    // Executed only in PHP 5.x, will not be reached in PHP 7
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
+                }
             }
         }
         // no need to use serendipity_updateImageInDatabase() here since already done in this case start

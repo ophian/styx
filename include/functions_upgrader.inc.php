@@ -460,7 +460,11 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
     try {
         $_dir = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
     // NOTE: UnexpectedValueException thrown for PHP >= 5.3
+    } catch (Throwable $t) {
+        // Executed only in PHP 7, will not match in PHP 5.x
+        return;
     } catch (Exception $e) {
+        // Executed only in PHP 5.x, will not be reached in PHP 7
         return;
     }
 
@@ -545,7 +549,11 @@ function serendipity_cleanUpDirectories_SPL( $path=null ) {
             }
         }
         return true;
+    } catch (Throwable $t) {
+        // Executed only in PHP 7, will not match in PHP 5.x
+        return;
     } catch (Exception $e) {
+        // Executed only in PHP 5.x, will not be reached in PHP 7
         return;
     }
 }

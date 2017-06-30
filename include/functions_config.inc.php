@@ -665,7 +665,13 @@ function serendipity_setAuthorToken() {
         // This is also unexpected because 32 is a reasonable integer.
         #trigger_error('Create author token failed: An unexpected error has occurred');
         $string = sha1(uniqid(mt_srand(), true));
+    } catch (Throwable $t) {
+        // Executed only in PHP 7, will not match in PHP 5.x
+        // If you get this message, the CSPRNG failed hard.
+        #trigger_error('Create author token failed: Could not generate a random string. Is our OS secure?');
+        $string = sha1(uniqid(mt_srand(), true));
     } catch (Exception $e) {
+        // Executed only in PHP 5.x, will not be reached in PHP 7
         // If you get this message, the CSPRNG failed hard.
         #trigger_error('Create author token failed: Could not generate a random string. Is our OS secure?');
         $string = sha1(uniqid(mt_srand(), true));
