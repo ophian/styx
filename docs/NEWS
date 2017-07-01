@@ -1,7 +1,7 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
-  * Fix path handler for the media-directory-form renaming extísting
+  * Fix path handler for the media-directory-form renaming existing
     directory names.
 
   * Fix PHP7 Exception call in Cookie based login failures
