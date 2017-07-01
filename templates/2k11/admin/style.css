@@ -949,14 +949,23 @@ textarea[disabled] {
     cursor: default;
 }
 
-/* Special cases rules */
+/* Special cases rules in media file properties and media directory edit */
+input#mediaPropertyTITLE,
+input#mediaPropertyCOPYRIGHT,
+input#mediaPropertyALT,
 input#diredit_new {
     resize: horizontal;
     width: 25em;
 }
+input#mediaPropertyTITLE:active,
+input#mediaPropertyCOPYRIGHT:active,
+input#mediaPropertyALT:active,
 input#diredit_new:active {
     width: auto;
 }
+input#mediaPropertyTITLE:focus,
+input#mediaPropertyCOPYRIGHT:focus,
+input#mediaPropertyALT:focus,
 input#diredit_new:focus {
     min-width: 25em;
 }
