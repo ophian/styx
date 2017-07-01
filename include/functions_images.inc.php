@@ -3553,7 +3553,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
                 $newparts = pathinfo($newfile);
                 if ($newparts['dirname'] == '.' || (!empty($file['extension']) && empty($newparts['extension'])) || empty($newparts['filename'])) {
                     // error new file build mismatch
-                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . $newfile . ' ' . ERROR_SOMETHING . "</span>\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . $newfile . ' ' . ERROR_SOMETHING . " (1)</span>\n";
                     return false;
                 }
 
@@ -3627,13 +3627,13 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
                         rename($oldfile, $newfile);
                     } catch (Throwable $t) {
                         // Executed only in PHP 7, will not match in PHP 5.x
-                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . "</span>\n";
+                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (2)</span>\n";
                     } catch (Exception $e) {
                         // Executed only in PHP 5.x, will not be reached in PHP 7
-                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
+                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . " (2)</span>\n";
                     }
 
-                    // do still need this? YES, it is definitely false, so we would not need the ternary
+                    // do we still need this? YES, it is definitely false, so we would not need the ternary
                     // Rename newDir + file name in case it is called by the Bulk Move and not by rename
                     $newDirFile = (false === strpos($newDir, $file['name'])) ? $newDir . $file['name'] : $newDir;
 
@@ -3648,10 +3648,10 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
                                 rename($thisOldThumb, $thisNewThumb);
                             } catch (Throwable $t) {
                                 // Executed only in PHP 7, will not match in PHP 5.x
-                                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . "</span>\n";
+                                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (3)</span>\n";
                             } catch (Exception $e) {
                                 // Executed only in PHP 5.x, will not be reached in PHP 7
-                                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
+                                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . " (3)</span>\n";
                             }
                         }
                     }
@@ -3667,7 +3667,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
                 } elseif (file_exists($newfile)) {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_EXISTS . "</span>\n";
                 } else {
-                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . "</span>\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . " (4)</span>\n";
                 }
 
                 return false;
@@ -3707,10 +3707,10 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
             rename($oldfile, $newfile);
         } catch (Throwable $t) {
             // Executed only in PHP 7, will not match in PHP 5.x
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . "</span>\n";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (5)</span>\n";
         } catch (Exception $e) {
             // Executed only in PHP 5.x, will not be reached in PHP 7
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . " (5)</span>\n";
         }
 
         foreach($renameValues AS $renameData) {
@@ -3723,10 +3723,10 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
                     rename($thisOldThumb, $thisNewThumb);
                 } catch (Throwable $t) {
                     // Executed only in PHP 7, will not match in PHP 5.x
-                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . "</span>\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (6)</span>\n";
                 } catch (Exception $e) {
                     // Executed only in PHP 5.x, will not be reached in PHP 7
-                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . "</span>\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . " (6)</span>\n";
                 }
             }
         }
