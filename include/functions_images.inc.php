@@ -3411,6 +3411,9 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     //   FILE    = File rename or File bulk move,
     //   FILEDIR = Media properties form edit
 
+    //   MEDIADIRFORM existing directory renames need a trailing slash
+    $newDir = (!empty($newDir) && $newDir != '/') ? rtrim($newDir, '/') . '/' : $newDir;
+
     // images.inc case 'directoryEdit', which is ML Directories form, via ML case 'directorySelect'
     if ($type == 'dir') {
 
@@ -3505,10 +3508,10 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
             $parts = pathinfo($newDir);
 
             // build new, thumb and old file names relative to Serendipity root path
-            if ($oldDir === null && $newDir != 'uploadRoot') {
+            if ($oldDir === null && $newDir != 'uploadRoot/') {
 
                 // case single file re-name event (newDir = newName is passed without path!)
-                $newName = $newDir; // for better readability
+                $newName = rtrim($newDir, '/'); // for better readability and removes the trailing slash in the filename
                 // do we really need this?
                 if ($parts['extension'] != $file['extension']) {
                     $file_new = $file['path'] . $newName . (empty($file['extension']) ? '' : '.' . $file['extension']);
@@ -3526,7 +3529,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
             } else {
 
                 // case bulkmove event (newDir is passed inclusive path! and normally w/o the filename, but we better check this though)
-                $newDir = ($newDir == 'uploadRoot') ? '' : $newDir; // Take care: remove temporary 'uploadRoot' string, in case of moving a subdir file into upload root by bulkmove
+                $newDir = ($newDir == 'uploadRoot/') ? '' : $newDir; // Take care: remove temporary 'uploadRoot/' string, in case of moving a subdir file into upload root by bulkmove
                 $_newDir = str_replace($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), '', $newDir);
                 // do we really need this?
                 if ($parts['extension'] != $file['extension']) {

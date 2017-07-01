@@ -134,11 +134,14 @@ switch ($serendipity['GET']['adminAction']) {
         // case bulk multimove (leave the fake oldDir being send as an empty dir)
         if (isset($serendipity['POST']['oldDir']) && !empty($serendipity['POST']['newDir'])) {
             $messages = array();
-            $multiMoveImages = $serendipity['POST']['multiDelete']; // The 'multiDelete' key name should better be renamed to 'multiCheck', but this would need to change 2k11/admin/serendipity_editor.js, images.inc.tpl, media_items.tpl, media_pane.tpl and this file
+            $multiMoveImages = $serendipity['POST']['multiDelete']; // The 'multiDelete' key name should IMHO better be renamed to 'multiCheck', but this would need to change 2k11/admin/serendipity_editor.js, images.inc.tpl, media_items.tpl, media_pane.tpl and this file
             unset($serendipity['POST']['multiDelete']);
 
             $oDir = ''; // oldDir is relative to Uploads/, since we can not specify a directory of a ML bulk move directly
-            $nDir = serendipity_specialchars((string)str_replace('//', '/', $serendipity['POST']['newDir'] . '/')); // relative to Uploads/
+            $nDir = serendipity_specialchars((string)str_replace('//', '/', $serendipity['POST']['newDir'])); // relative to Uploads/
+            // check for a set and given trailing slash! (see media directory renames)
+            $nDir = (!empty($nDir) && $nDir != '/') ? rtrim($nDir, '/') . '/' : $nDir;
+            // $nDir set empty check for the fake-named "uploadRoot" directory is done via images.inc
 
             if ($oDir != $nDir) {
                 foreach($multiMoveImages AS $mkey => $move_id) {
@@ -483,7 +486,7 @@ switch ($serendipity['GET']['adminAction']) {
                 serendipity_moveMediaDirectory($oldDir, $newDir);
                 $data['messages'] = ob_get_contents();
                 ob_end_clean();
-                $use_dir = $newDir;
+                $use_dir = (!empty($newDir) && $newDir != '/') ? rtrim($newDir, '/') . '/' : $newDir;
             }
 
             serendipity_ACLGrant(0, 'directory', 'read', $serendipity['POST']['read_authors'], $use_dir);
