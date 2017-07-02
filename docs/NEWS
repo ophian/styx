@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix SQL path REGEX matching media thumbs for the directory dir type
+    only, which fixes the matching entries and the counter.
+
   * Fix path handler for the media-directory-form renaming existing
     directory names.
 
