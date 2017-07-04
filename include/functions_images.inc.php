@@ -3507,7 +3507,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
         } else {
             $parts = pathinfo($newDir);
 
-            // build new, thumb and old file names relative to Serendipity root path
+            // build or rename new, thumb and old file names relative to Serendipity root path
             if ($oldDir === null && $newDir != 'uploadRoot/') {
 
                 // case single file re-name event (newDir = newName is passed without path!)
@@ -3746,8 +3746,8 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     } // case dir, file, filedir end
 
     // Entry REPLACEMENT AREA
-
-    // Only MySQL supported, since I don't know how to use REGEXPs differently. // Ian: we should improve this to all!
+    // Only MySQL supported, since I don't know how to use REGEXPs differently.
+    // Ian: Whoever wrote this; We should improve this to all!
     if ($serendipity['dbType'] != 'mysql' && $serendipity['dbType'] != 'mysqli') {
         echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVE_ENTRY . "</span>\n";
         return true;
@@ -3758,8 +3758,10 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
 
         // get the right $file, which is array or null, by type
         $_file  = ($type == 'filedir') ? $pick : $file;
-        // check oldDir in bulkmove case
+
+        // strictly replace FILE+EXT check the oldDir in bulkmove case only,
         $oldDir = ($type == 'file' && !is_null($oldDir)) ? str_replace($_file['name'].'.'.$_file['extension'], '', $oldDir) : $oldDir;
+        // since $oldDir is the path structure only, relative down below "uploads", eg "a/b/c/"
 
         // Path patterns to SELECT en detail to not pick path parts in a loop
         if ($oldDir === null) {// care for file renaming with oldpath
@@ -3773,7 +3775,11 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
             $newDirFile = (strpos($newDir, $_file['name']) === FALSE) ? $newDir . $_file['name'] : $newDir;
         }
         if ($type == 'file' && $oldDir === null) {
-            $newDirFile = (empty($newDirFile)) ? $newDir : $newDirFile; // for file renamings $newDirFile has to be $newDir ( which is subdir and new NAME w/o ext)
+            if (!isset($newName)) {
+                $newDirFile = (empty($newDirFile)) ? $newDir : $newDirFile; // for file renamings $newDirFile has to be $newDir ( which is subdir and new NAME w/o ext)
+            } else {
+                $newDirFile = $newName;
+            }
         }
         $ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile;
         $joinThumbs = "|" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirThumb) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirThumb);
@@ -3793,29 +3799,34 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
                WHERE body     REGEXP '(src=|href=|window.open.|<!--quickblog:)(\'|\"|\\\|?(plugin|none|js|_blank)?\\\|?)(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . "|" . serendipity_db_escape_String($ispOldFile) . ")'
                   OR extended REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . ")'
     ";
-    #echo serendipity_specialchars($q);
+    #echo serendipity_specialchars($q)."<br>";
     $entries = serendipity_db_query($q, false, 'assoc');
 
     if (is_array($entries) && !empty($entries)) {
-        // here we need to match thumbs too, so we do not want the extension, see detailled SELECT regex note
+        // here we need to match THUMBS too, so we do not want the extension, see detailled SELECT regex note
         if ($type == 'file' && $oldDir === null) {
             $_ispOldFile = $oldfile; // these vars are more exact in every case
             $_ispNewFile = $newfile; // dito
-            $oldDirFile = $_file['path'] . $oldDirFile; // oldDirFile is missing a possible subdir path for the preg_replace
-            $newDirFile = $_file['path'] . $newDirFile; // newDirFile - dito
+            $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
         } else {
             $_ispOldFile = $ispOldFile;
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . (($_file['extension']) ? '.'.$_file['extension'] : '');
         }
-        // last paranoidal check
-        $_oldDirFile = (strpos($oldDirFile, $_file['extension']) === FALSE) ? $oldDirFile : $oldDir . $_file['name'];
-
-        // what we actually need here, is oldDirFile w/o EXT to newDirFile w/o EXT and full ispOldFile path to full ispNewFile path !!!
+        // LAST paranoidal check
+        // Get to know the length of file EXT
+        $lex = strlen($_file['extension']);
+        //  to check the oldDirFile string backwards with a flexible substr offset ending with a "dot extension"
+        if ($type == 'file') {
+            $_oldDirFile = ('.'.substr($oldDirFile, -$lex) != '.'.$_file['extension']) ? $oldDirFile : $_file['path'] . $_file['name'];
+        } else { // cases 'filedir' and 'dir'
+            $_oldDirFile = (FALSE !== strrpos($oldDirFile, '.'.$_file['extension'], -($lex+1))) ? str_replace('.'.$_file['extension'], '', $oldDirFile) : $oldDirFile;
+        }
+        // What we really need here, is oldDirFile w/o EXT to newDirFile w/o EXT, while in need to match the media FILE and the media THUMB
+        // and the full ispOldFile path to the full ispNewFile path for imageselectorplus inserts.
         foreach($entries AS $entry) {
             $entry['body']     = preg_replace('@(src=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $entry['body']);
             $entry['body']     = preg_replace('@(<!--quickblog:)(\\|?(plugin|none|js|_blank)?\\|?)(' . preg_quote($_ispOldFile) . ')@', '\1\2' . $_ispNewFile, $entry['body']);
             $entry['extended'] = preg_replace('@(src=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $entry['extended']);
-
             $uq = "UPDATE {$serendipity['dbPrefix']}entries
                                      SET body     = '" . serendipity_db_escape_string($entry['body']) . "' ,
                                          extended = '" . serendipity_db_escape_string($entry['extended']) . "'
@@ -3823,9 +3834,12 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
             serendipity_db_query($uq);
         }
 
-        if ($oldDir !== null){
-            $imgmovedtodir = sprintf(MEDIA_DIRECTORY_MOVE_ENTRIES, count($entries));
-            echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . $imgmovedtodir . "</span>\n";
+        if ($oldDir !== null) {
+            echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVE_ENTRIES, count($entries)) . "</span>\n";
+        } else {
+            if (count($entries) > 0) {
+                echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_FILE_RENAME_ENTRY, count($entries)) . "</span>\n";
+            }
         }
 
     }
