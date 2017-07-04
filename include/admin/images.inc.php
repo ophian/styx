@@ -139,19 +139,22 @@ switch ($serendipity['GET']['adminAction']) {
 
             $oDir = ''; // oldDir is relative to Uploads/, since we can not specify a directory of a ML bulk move directly
             $nDir = serendipity_specialchars((string)str_replace('//', '/', $serendipity['POST']['newDir'])); // relative to Uploads/
-            // check for a set and given trailing slash! (see media directory renames)
+            // set and check for a given trailing slash! (see media directory renames)
             $nDir = (!empty($nDir) && $nDir != '/') ? rtrim($nDir, '/') . '/' : $nDir;
-            // $nDir set empty check for the fake-named "uploadRoot" directory is done via images.inc
+            // $nDir "set empty" check for the fake-named "uploadRoot" directory is done via images.inc
 
             if ($oDir != $nDir) {
+                $i = 0;
                 foreach($multiMoveImages AS $mkey => $move_id) {
                     $file = serendipity_fetchImageFromDatabase((int)$move_id);
                     $oDir = $file['path']; // this now is the exact oldDir path of this ID
-                    if (serendipity_moveMediaDirectory($oDir, $nDir, 'file', (int)$move_id, $file)) {
-                        $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVED . "</span>\n", $nDir);
-                    } else {
-                        $messages[] = sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVE_ERROR . "</span>\n", $nDir);
-                    }
+                    $mdmg = serendipity_moveMediaDirectory($oDir, $nDir, 'file', (int)$move_id, $file);
+                    ++$i;
+                }
+                if (false !== $mdmg && $mdmg) {
+                    $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . $i . ' ' . MEDIA_DIRECTORY_MOVED . "</span>\n", $nDir);
+                } else {
+                    $messages[] = sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVE_ERROR . "</span>\n", $nDir);
                 }
             }
             $data['messages'] = $messages;
