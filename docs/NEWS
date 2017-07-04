@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix mediaLibrary file rename entry replacements
+
   * Fix SQL path REGEX matching media thumbs for the directory dir type
     only, which fixes the matching entries and the counter.
 
