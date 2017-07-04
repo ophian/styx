@@ -893,10 +893,6 @@
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'アクティブ');
 @define('PLUGIN_INACTIVE', '非アクティブ');
-@define('PREFERENCE_USE_JS', '高度な JS の使用を有効にしますか?');
-@define('PREFERENCE_USE_JS_DESC', 'If enabled, advanced JavaScript sections will be enabled for better usability, like in the Plugin Configuration section you can use drag and drop for re-ordering plugins.');
-
-@define('PREFERENCE_USE_JS_WARNING', '(このページは高度な JavaScript を使用しています。もし機能に問題がある場合、個人プリファレンスの高度な JS の使用を無効にするか、ブラウザーの JavaScript を無効にしてください)');
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'パスへのコマンド');
 @define('PERM_SET_CHILD', 'すべての子ディレクトリーに同じパーミッションを設定する');

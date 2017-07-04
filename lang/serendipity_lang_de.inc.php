@@ -889,9 +889,7 @@
 @define('MEDIA_FILE_RENAME_ENTRY', 'Der Dateiname wurde in %s Einträgen angepasst.');
 @define('PLUGIN_ACTIVE', 'Aktiv');
 @define('PLUGIN_INACTIVE', 'Inaktiv');
-@define('PREFERENCE_USE_JS', 'Fortgeschrittene JavaScripts einsetzen?');
-@define('PREFERENCE_USE_JS_DESC', 'Falls aktiviert, werden erweiterte JavaScript Funktionalitäten in einigen Bereichen freigeschaltet. Z.B. in der Plugin-Konfiguration kann Drag+Drop benutzt werden, um leichter Änderungen vorzunehmen.');
-@define('PREFERENCE_USE_JS_WARNING', '(Diese Seite setzt fortgeschrittene JavaScripts ein. Falls dabei Probleme in der Benutzbarkeit auftreten, deaktivieren Sie bitte die Option zum Einsatz dieser JavaScripts im Menüpunkt "Eigene Einstellungen", oder deaktivieren Sie JavaScript in Ihrem Browser.)');
+
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Pfad zu Kommentaren');
 @define('PERM_SET_CHILD', 'Identische Rechte auch auf alle Unterverzeichnisse anwenden');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Verbotene Plugins');

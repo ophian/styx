@@ -908,9 +908,6 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Activa');
 @define('PLUGIN_INACTIVE', 'Inactiva');
-@define('PREFERENCE_USE_JS', '¿Activar el uso avanzado de JS?');
-@define('PREFERENCE_USE_JS_DESC', 'Si lo activas, las secciones de JavaScript avanzado serán activadas para una mejor usabilidad, como la extensión de configuración donde puedes utilizar el método de arrastrar y soltar para reordenar las extensiones.');
-@define('PREFERENCE_USE_JS_WARNING', '(Esta página hace uso de JavaScripting avanzado. Si estás teniendo problemas de funcionalidad, por favor desactiva el uso de JS avanzado en tus preferencias personales o desactiva el soporte para JavaScript de tu navegador)');
 /*rlazo [20060722] spell checked*/
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Ruta a los comentarios');

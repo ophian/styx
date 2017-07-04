@@ -891,10 +891,6 @@
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'فعال');
 @define('PLUGIN_INACTIVE', 'غیرفعال');
-@define('PREFERENCE_USE_JS', 'استفاده پیشرفته از جاوا اسکریپت؟');
-@define('PREFERENCE_USE_JS_DESC', 'در صورت فعال بودن قسمت هایی که از جاوا اسکریپت پیشرفته استفاده می کنند فعال می شود، مانند بخش مدیریت افزونه ها که می توانید از drag and drop برای مرتب سازی افزونه ها کمک بگیرید.');
-
-@define('PREFERENCE_USE_JS_WARNING', '(این صفحه از جاوا اسکریپت پیشرفته استفاده می کند. اگر با این صفحه مشکل پیدا کردید، از بخش تنظیمات شخصی، استفاده پیشرفته از جاوا اسکریپت را غیر فعال کنید یا اینکه فعالیت جاوا اسکریپت را داخل مرورگر خود غیر فعال کنید)');
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'مسیر نظرات');
 @define('PERM_SET_CHILD', 'این سطح دسترسی برای تمامی زیر شاخه ها هم تنظیم شود');

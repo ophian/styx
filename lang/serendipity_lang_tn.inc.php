@@ -893,10 +893,6 @@ $i18n_unknown = 'tw';
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', '開啟');
 @define('PLUGIN_INACTIVE', '關閉');
-@define('PREFERENCE_USE_JS', '開啟進階的 JS 用法？');
-@define('PREFERENCE_USE_JS_DESC', '如果開啟，進階的 JavaScript 將會提供更好的用途，例如類似外掛設定內的牽曳和移動功能。');
-
-@define('PREFERENCE_USE_JS_WARNING', '(這個頁面使用了進階的 JavaScript。如果您遇到問題，請將進階的 JS 用法或瀏覽器的 JavaScript 關閉。)');
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', '留言的路徑');
 @define('PERM_SET_CHILD', '將全部的子目錄設為相同權限');

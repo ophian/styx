@@ -890,10 +890,6 @@
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktív');
 @define('PLUGIN_INACTIVE', 'Inaktív');
-@define('PREFERENCE_USE_JS', 'Haladó JavaScript engedélyezése?');
-@define('PREFERENCE_USE_JS_DESC', 'Ha ezt engedélyezed, akkor haladó JavaScript-et használunk, például a modul beállításoknál áthelyezheted a modul dobozokat a fogd és vidd módszerrel.');
-
-@define('PREFERENCE_USE_JS_WARNING', '(Az oldal haladó JavaScript-et használ. Amennyiben funkcionális problémáid vannak, tiltsd le ezt a személyes beállításaidnál, vagy a böngészõd JavaScript használatát)');
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Útvonal a hozzászólásokhoz');
 @define('PERM_SET_CHILD', 'Jogosultság örököltetése az almappákra is');

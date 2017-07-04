@@ -901,9 +901,7 @@ $i18n_filename_to = array (
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktívny');
 @define('PLUGIN_INACTIVE', 'Neaktívny');
-@define('PREFERENCE_USE_JS', 'Zapnúť používanie advanced JS?');
-@define('PREFERENCE_USE_JS_DESC', 'Ak je zapnuté, budú pre zlepšenie použiteľnosti aktivované oblasti s advanced JavaScript. Napr. v oblasti pre konfiguráciu doplnkov môžete pre reorganizáciu doplnkov použiť drag and drop (tiahnuť myšou).');
-@define('PREFERENCE_USE_JS_WARNING', '(Táto stránka používa advanced JavaScripting. Ak máte problémy s funkčnosťou, zakážte prosím používanie advanced JS vo svojich osobných nastaveniach alebo zakážte javascript vo Vašom prehliadači.)');
+
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Cesta ku komentárom');
 @define('PERM_SET_CHILD', 'Nastaviť rovnaké práva pre všetky podpriečinky');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Zakázané doplnky');

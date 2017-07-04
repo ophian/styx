@@ -901,10 +901,6 @@
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Activo');
 @define('PLUGIN_INACTIVE', 'Inactivo');
-@define('PREFERENCE_USE_JS', 'Activar utilização de JavaScript Avançado?');
-@define('PREFERENCE_USE_JS_DESC', 'Se activado, as secções com JavaScript avançado irão ser activadas para melhor utilização, tal como a secção do plugin de configuração, "Plugin Configuration", poderá ser usada por si para arrastar e colar plugins reorganizados.');
-
-@define('PREFERENCE_USE_JS_WARNING', '(Esta página usa JavaScript avançado. Se está a deparar-se com problemas de funcionalidade, desactive por favor a utilização de JavaScript avançado nas suas preferências pessoais ou desactive a função de JavaScript do seu Navegador.)');
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Caminho para comentários');
 @define('PERM_SET_CHILD', 'Configure as mesmas permissões para todos os subdirectórios recursivamente');

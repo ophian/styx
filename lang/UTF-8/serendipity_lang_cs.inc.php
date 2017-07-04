@@ -919,9 +919,7 @@ $i18n_filename_to = array (
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktivn?');
 @define('PLUGIN_INACTIVE', 'Neaktivn?');
-@define('PREFERENCE_USE_JS', 'Povolit pou?it? advanced JS?');
-@define('PREFERENCE_USE_JS_DESC', 'Je-li toto povoleno, budou povoleny sekce s advanced JavaScript, aby se zlep?ila pou?itelnost. Nap? v sekci pro konfiguraci plugin? m??ete pro p?eskl?d?n? plugin? pou??t drag and drop (t?hnout my??).');
-@define('PREFERENCE_USE_JS_WARNING', '(Tato str?nka pou??v? advanced JavaScripting. Jestli?e m?te probl?my s fungov?n?m, zaka?te pros?m pou??v?n?  advanced JS ve sv?m osobn?m nastaven? nebo zaka?te javascript v prohl?e?i.)');
+
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Cesta ke koment???m');
 @define('PERM_SET_CHILD', 'Nastavte shodn? pr?va pro v?echny pod??zen? adres??e');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Zak?zan? pluginy');

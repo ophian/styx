@@ -889,10 +889,6 @@
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktiv');
 @define('PLUGIN_INACTIVE', 'Inaktiv');
-@define('PREFERENCE_USE_JS', 'Aktivera avancerad JS-användning?');
-@define('PREFERENCE_USE_JS_DESC', 'Om aktiv kommer avancerade JavaScript-sektioner att användas för större användbarhet, såsom att i sektionen för konfigurering av insticksmoduler kunna dra och släppa insticksmoduler för att ändra deras ordning.');
-
-@define('PREFERENCE_USE_JS_WARNING', '(Denna sida använder avancerad JavaScript. Om du upplever funktionsproblem stäng av användningen av avancerad JS-användning i dina personliga inställningar eller stäng av din webbläsares JavaScript)');
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Sökväg till kommentarer');
 @define('PERM_SET_CHILD', 'Ange samma behörigheter på alla undermappar');

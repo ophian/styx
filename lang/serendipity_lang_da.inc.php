@@ -891,10 +891,6 @@
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktiv');
 @define('PLUGIN_INACTIVE', 'Inaktiv');
-@define('PREFERENCE_USE_JS', 'Aktiver advanceret JS brug?');
-@define('PREFERENCE_USE_JS_DESC', 'Hvis aktiveret, vil der blive anvendt advancerede Javascript funktioner for at give en forbedret brugeroplevelse, f.eks. i plugin konfigurationen, hvor drag & drop omrokering af plugins bliver mulig.');
-
-@define('PREFERENCE_USE_JS_WARNING', '(Denne side anvender advanceret JavaScript. Får du funktionalitetsproblemer, så slå advanceret JS brug fra i dine personlige indstillinger, eller deaktiver Javascript i din browser)');
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Sti til kommentarer');
 @define('PERM_SET_CHILD', 'Sæt de samme rettigheder på alle underliggende biblioteker');

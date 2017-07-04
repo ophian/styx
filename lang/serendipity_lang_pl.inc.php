@@ -891,9 +891,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Wtyczki aktywne');
 @define('PLUGIN_INACTIVE', 'Wtyczki nieaktywne');
-@define('PREFERENCE_USE_JS', 'Zezwoliæ na u¿ywanie zaawansowanych skryptów JavaScript?');
-@define('PREFERENCE_USE_JS_DESC', 'Je¶li w³±czone, zaawansowane skrypty JavaScript bêd± uruchamiane dla zwiêkszenia komfortu u¿ywalno¶ci, np. w module Konfiguracji wtyczek mo¿esz administarowaæ wtyczkami za pomoc± myszy przez ich swobodne przesuwanie jak w technologii "drag and drop" (przeci±gnij i upu¶æ).');
-@define('PREFERENCE_USE_JS_WARNING', '(Ta strona u¿ywa zaawansowanych skryptów JavaScript. Je¶li masz problemy z funkcjonowaniem tej strony, wy³±cz u¿ywanie zaawansowanych skryptów JavaScript w swoich Ustawieniach osobistych lub wy³±cz wspracie dla JavaScript w swojej przegl±darce.)');
+
 @define('INSTALL_PERMALINK_COMMENTSPATH', '¦cie¿ka do komentarzy');
 @define('PERM_SET_CHILD', 'Ustaw te same uprawnienia na wszystkich podkatalogach');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Zabronione wtyczki');

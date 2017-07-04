@@ -891,10 +891,6 @@
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Actief');
 @define('PLUGIN_INACTIVE', 'Inactief');
-@define('PREFERENCE_USE_JS', 'Geavanceerde JavaScript-functie inschakelen?');
-@define('PREFERENCE_USE_JS_DESC', 'Hiermee kunt u geavanceerde JavaScript-functies inschakelen voor verbeterd gebruiksgemak, zoals het herschikken van plugins in de pluginconfiguratiesectie door ze te verslepen.');
-
-@define('PREFERENCE_USE_JS_WARNING', '(Deze pagina maakt gebruik van geavanceerde JavaScript-functies. Als u daardoor problemen ondervindt, schakelt u dit best uit in uw persoonlijke instellingen of schakelt u JavaScript uit in uw browser)');
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Pad naar reacties');
 @define('PERM_SET_CHILD', 'Geef dezelfde toegangsrechten aan alle onderliggende mappen');
