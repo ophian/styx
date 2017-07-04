@@ -886,6 +886,7 @@
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Verzeichnis und Dateien konnten nicht nach %s verschoben werden!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'Bei Nicht-MySQL Datenbanken ist es nicht möglich, jeden Blogeintrag durchzugehen und das alte Verzeichnis durch das neue zu ersetzen. Daher müssen Sie manuell bestehende Einträge überarbeiten und die neuen URLs eintragen. Sie können natürlich auch das Verzeichnis an seinen alten Platz zurückschieben, falls dies zu viel Aufwand bedeuten würde.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'Die URL der verschobenen Verzeichnisse wurde in %s Einträgen angepasst.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'Der Dateiname wurde in %s Einträgen angepasst.');
 @define('PLUGIN_ACTIVE', 'Aktiv');
 @define('PLUGIN_INACTIVE', 'Inaktiv');
 @define('PREFERENCE_USE_JS', 'Fortgeschrittene JavaScripts einsetzen?');

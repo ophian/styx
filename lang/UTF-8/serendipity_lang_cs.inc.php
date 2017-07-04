@@ -912,10 +912,11 @@ $i18n_filename_to = array (
 @define('MEDIA_DYN_RESIZE', 'Povolit dynamickou zm?nu velikosti obr?zk??');
 @define('MEDIA_DYN_RESIZE_DESC', 'Je-li povoleno, m??e  media selector vracet obr?zky v jak?koli po?adovan? velikosti p?es prom?nnou  GET. V?sledky jsou ke?ov?ny, a tak se m??e vytvo?it velk? soubor, jestli?e to intenzivn? pou??v?te.');
 
-@define('MEDIA_DIRECTORY_MOVED', 'Adres??e a soubory byly ?sp?n? p?esunuty do  %s');
+@define('MEDIA_DIRECTORY_MOVED', 'Adres??e a soubory byly ?sp?n? p?esunuty do %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Adres??e a soubory nemohly b?t p?esunuty do  %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'V Ne-MySQL datab?zi nen? iterace po p??sp?vc?ch a nahrazen? star? adresy p?vodn?ho adres??e novou URL mo?n?. Budete muset p??sp?vky ru?n? editovat a ty adresy upravit. Ale po??d je?t? m??ete adres?? p?esunout zp?tky tam kde byl, jestli je to pro v?s moc otravn?.');
-@define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL p?esunut?ho adres??e p?esunuto v   %s p??sp?vc?ch.');
+@define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL p?esunut?ho adres??e p?esunuto v %s p??sp?vc?ch.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktivn?');
 @define('PLUGIN_INACTIVE', 'Neaktivn?');
 @define('PREFERENCE_USE_JS', 'Povolit pou?it? advanced JS?');

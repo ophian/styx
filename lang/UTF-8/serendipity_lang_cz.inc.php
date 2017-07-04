@@ -912,10 +912,11 @@ $i18n_filename_to = array (
 @define('MEDIA_DYN_RESIZE', 'Povolit dynamickou změnu velikosti obrázků?');
 @define('MEDIA_DYN_RESIZE_DESC', 'Je-li povoleno, může  media selector vracet obrázky v jakékoli požadované velikosti přes proměnnou  GET. Výsledky jsou kešovány, a tak se může vytvořit velký soubor, jestliže to intenzivně používáte.');
 
-@define('MEDIA_DIRECTORY_MOVED', 'Adresáře a soubory byly úspěšně přesunuty do  %s');
+@define('MEDIA_DIRECTORY_MOVED', 'Adresáře a soubory byly úspěšně přesunuty do %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Adresáře a soubory nemohly být přesunuty do  %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'V Ne-MySQL databázi není iterace po příspěvcích a nahrazení staré adresy původního adresáře novou URL možné. Budete muset příspěvky ručně editovat a ty adresy upravit. Ale pořád ještě můžete adresář přesunout zpátky tam kde byl, jestli je to pro vás moc otravné.');
-@define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL přesunutého adresáře přesunuto v   %s příspěvcích.');
+@define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL přesunutého adresáře přesunuto v %s příspěvcích.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktivní');
 @define('PLUGIN_INACTIVE', 'Neaktivní');
 @define('PREFERENCE_USE_JS', 'Povolit použití advanced JS?');

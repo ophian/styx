@@ -886,13 +886,13 @@
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Mapp och filer kunde inte flyttas till %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'I andra databaser än MySQL är det inte möjligt att iterera genom varje artikel för att ersätta gammal mapps URL. Du kommer att behöva att redigera dina artiklar manuellt för att fixa ny URLer. Du kan fortfarande flytta din gamla mapp tillbaka till dess gamla plats om detta är för ansträngande.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'Flyttade URLen för den flyttade mappen för %s artiklar.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktiv');
 @define('PLUGIN_INACTIVE', 'Inaktiv');
 @define('PREFERENCE_USE_JS', 'Aktivera avancerad JS-användning?');
 @define('PREFERENCE_USE_JS_DESC', 'Om aktiv kommer avancerade JavaScript-sektioner att användas för större användbarhet, såsom att i sektionen för konfigurering av insticksmoduler kunna dra och släppa insticksmoduler för att ändra deras ordning.');
 
 @define('PREFERENCE_USE_JS_WARNING', '(Denna sida använder avancerad JavaScript. Om du upplever funktionsproblem stäng av användningen av avancerad JS-användning i dina personliga inställningar eller stäng av din webbläsares JavaScript)');
-
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Sökväg till kommentarer');
 @define('PERM_SET_CHILD', 'Ange samma behörigheter på alla undermappar');

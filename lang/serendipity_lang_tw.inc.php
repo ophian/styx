@@ -891,13 +891,13 @@ $i18n_unknown = 'tw';
 @define('MEDIA_DIRECTORY_MOVE_ERROR', '目錄和檔案無法移動到 %s！');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', '在非 MySQL 資料庫內，無法移動文章到新的目錄。您需要自己修改文章的網址。您還是可以將舊目錄回覆到原來的位址。');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', '移動 %s 篇文章的網誌到新的目錄。');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', '開啟');
 @define('PLUGIN_INACTIVE', '關閉');
 @define('PREFERENCE_USE_JS', '開啟進階的 JS 用法？');
 @define('PREFERENCE_USE_JS_DESC', '如果開啟，進階的 JavaScript 將會提供更好的用途，例如類似外掛設定內的牽曳和移動功能。');
 
 @define('PREFERENCE_USE_JS_WARNING', '(這個頁面使用了進階的 JavaScript。如果您遇到問題，請將進階的 JS 用法或瀏覽器的 JavaScript 關閉。)');
-
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', '留言的路徑');
 @define('PERM_SET_CHILD', '將全部的子目錄設為相同權限');

@@ -898,6 +898,7 @@ $i18n_filename_to = array (
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Prieèinky a súbory sa nepodarilo presunú» do %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'V iných databázach ako MySQL nie je mo¾ná iterácia po èlánkoch a nahradenie starej adresy pôvodného adresára novou URL. Budete musie» èlánky ruène editova» a adresy upravi». Prieèinok sa dá ale stále presnú» naspä» na pôvodné miesto, ak to pova¾ujete za nároèné.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL presunutého prieèinka zmenené v %s èlánkoch.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktívny');
 @define('PLUGIN_INACTIVE', 'Neaktívny');
 @define('PREFERENCE_USE_JS', 'Zapnú» pou¾ívanie advanced JS?');

@@ -887,13 +887,13 @@
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'A könyvtárt és a fájlokat nem sikerült átmozgatni ide: %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'Nem MySQL adatbázis esetében nem lehetséges az összes bejegyzésben szereplõ régi könyvtár URL-t lecserélni az újra. Ezt kézzel kell megtenned. Ha ezt nem szeretnéd, visszamozgathatod az eredeti könyvtárat oda ahol volt.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'Az új könyvtár URL-jét ennyi bejegyzésben módosítottuk: %s.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktív');
 @define('PLUGIN_INACTIVE', 'Inaktív');
 @define('PREFERENCE_USE_JS', 'Haladó JavaScript engedélyezése?');
 @define('PREFERENCE_USE_JS_DESC', 'Ha ezt engedélyezed, akkor haladó JavaScript-et használunk, például a modul beállításoknál áthelyezheted a modul dobozokat a fogd és vidd módszerrel.');
 
 @define('PREFERENCE_USE_JS_WARNING', '(Az oldal haladó JavaScript-et használ. Amennyiben funkcionális problémáid vannak, tiltsd le ezt a személyes beállításaidnál, vagy a böngészõd JavaScript használatát)');
-
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Útvonal a hozzászólásokhoz');
 @define('PERM_SET_CHILD', 'Jogosultság örököltetése az almappákra is');

@@ -888,13 +888,13 @@
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Map en bestanden konden niet verplaatst worden naar "%s"!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'Op niet-MySQL-databanken is het niet mogelijk om door elk artikel te lopen om de URL van de map te vervangen. U moet manueel in al uw artikelen de URL aanpassen. U kunt de map nog terugplaatsen naar zijn oude locatie als u dit te omslachtig vindt.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'De URL van de verplaatste map werd aangepast in %s artikelen.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Actief');
 @define('PLUGIN_INACTIVE', 'Inactief');
 @define('PREFERENCE_USE_JS', 'Geavanceerde JavaScript-functie inschakelen?');
 @define('PREFERENCE_USE_JS_DESC', 'Hiermee kunt u geavanceerde JavaScript-functies inschakelen voor verbeterd gebruiksgemak, zoals het herschikken van plugins in de pluginconfiguratiesectie door ze te verslepen.');
 
 @define('PREFERENCE_USE_JS_WARNING', '(Deze pagina maakt gebruik van geavanceerde JavaScript-functies. Als u daardoor problemen ondervindt, schakelt u dit best uit in uw persoonlijke instellingen of schakelt u JavaScript uit in uw browser)');
-
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Pad naar reacties');
 @define('PERM_SET_CHILD', 'Geef dezelfde toegangsrechten aan alle onderliggende mappen');

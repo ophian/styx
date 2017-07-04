@@ -891,13 +891,13 @@
 @define('MEDIA_DIRECTORY_MOVE_ERROR', '디렉토리와 파일을 %s(으)로 이동할 수 없었습니다!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'MySQL이 아닌 데이터베이스에서는 이전 디렉토리 주소를 새 디렉토리 주소로 바꾸기 위해 모든 글을 하나씩 살펴가는 작업을 할 수 없습니다. 수작업으로 각 글에 대해 주소 교체 작업을 해야 합니다. 이것이 너무 번거로울 경우 디렉토리를 원래 위치로 다시 되돌릴 수 있습니다.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', '%s개의 글에서 이동한 디렉토리로 주소를 변경했습니다.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', '사용 중');
 @define('PLUGIN_INACTIVE', '미사용');
 @define('PREFERENCE_USE_JS', '고급 자바스크립트 기능 사용');
 @define('PREFERENCE_USE_JS_DESC', '사용할 경우 고급 자바스크립트 기능 부분을 활용하게 되어 사용성이 향상됩니다. 대표적으로 플러그인 설정에서 플러그인을 끌어서 이동하여 순서를 바꿀 수 있게 됩니다.');
 
 @define('PREFERENCE_USE_JS_WARNING', '(이 페이지는 고급 자바스크립트 기능을 사용합니다. 기능 사용에 문제가 있을 경우 개인 설정에서 고급 자바스크립트 기능을 끄거나 브라우저의 자바스크립트 기능을 끄도록 합니다)');
-
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', '덧글로 가는 경로');
 @define('PERM_SET_CHILD', '하위 디렉토리에 모두 동일한 권한 설정을 합니다');

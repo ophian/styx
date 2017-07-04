@@ -891,6 +891,7 @@
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Directory and files could not be moved to %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old directory URLs with new directory URLs is not possible. You will need to manually edit your entries to fix new URLs. You can still move your old directory back to where it was, if that is too cumbersome for you.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'Moved the URL of the moved directory in %s entries.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Active');
 @define('PLUGIN_INACTIVE', 'Inactive');
 @define('PREFERENCE_USE_JS', 'Enable advanced JS usage?');

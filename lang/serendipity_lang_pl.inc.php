@@ -888,6 +888,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Katalog i pliki nie mog³y byæ przeniesione do %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'W bazach innych ni¿ MySQL przeprowadzenie zmiany URLI ze scie¿k± do starego katalogu na URLe ze ¶cie¿k± do nowego katalogu NIE jest mo¿liwe. Musisz przeprowadziæ te zmiany rêcznie. Zawsze mo¿esz przenie¶æ katalog w jego pierwotne miejsce je¶li uznasz, ¿e rêczna edycja by³aby zbyt nieporêcznym rozwi±zaniem.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'Zmieniono URL do przeniesionego katalogu w %s wpisach.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Wtyczki aktywne');
 @define('PLUGIN_INACTIVE', 'Wtyczki nieaktywne');
 @define('PREFERENCE_USE_JS', 'Zezwoliæ na u¿ywanie zaawansowanych skryptów JavaScript?');

@@ -916,6 +916,7 @@ $i18n_filename_to = array (
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Adresáøe a soubory nemohly být pøesunuty do  %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'V Ne-MySQL databázi není iterace po pøíspìvcích a nahrazení staré adresy pùvodního adresáøe novou URL možné. Budete muset pøíspìvky ruènì editovat a ty adresy upravit. Ale poøád ještì mùžete adresáø pøesunout zpátky tam kde byl, jestli je to pro vás moc otravné.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL pøesunutého adresáøe pøesunuto v   %s pøíspìvcích.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktivní');
 @define('PLUGIN_INACTIVE', 'Neaktivní');
 @define('PREFERENCE_USE_JS', 'Povolit použití advanced JS?');

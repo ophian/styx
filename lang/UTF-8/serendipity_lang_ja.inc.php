@@ -890,13 +890,13 @@
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'ディレクトリーとファイルを「%s」に移動できませんでした!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old directory URLs with new directory URLs is not possible. You will need to manually edit your entries to fix new URLs. You can still move your old directory back to where it was, if that is too cumbersome for you.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'Moved the URL of the moved directory in %s entries.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'アクティブ');
 @define('PLUGIN_INACTIVE', '非アクティブ');
 @define('PREFERENCE_USE_JS', '高度な JS の使用を有効にしますか?');
 @define('PREFERENCE_USE_JS_DESC', 'If enabled, advanced JavaScript sections will be enabled for better usability, like in the Plugin Configuration section you can use drag and drop for re-ordering plugins.');
 
 @define('PREFERENCE_USE_JS_WARNING', '(このページは高度な JavaScript を使用しています。もし機能に問題がある場合、個人プリファレンスの高度な JS の使用を無効にするか、ブラウザーの JavaScript を無効にしてください)');
-
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'パスへのコマンド');
 @define('PERM_SET_CHILD', 'すべての子ディレクトリーに同じパーミッションを設定する');

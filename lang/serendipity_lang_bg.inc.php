@@ -878,13 +878,13 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Директорията и файловете не бяха преместени в %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'При не-MySQL бази данни, преминаването през всяка статия за замяна на URL на старата директория с ново URL (на новата директория) не е възможно. Трябва да редактирате вашите статии ръчно, за да поставите новите URL. Все пак е възможно да преместите вашата стара директория обратно там, където е била, ако ръчната замяна е обременителна за вас.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL на преместената директория е обновен в %s статии.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Активна');
 @define('PLUGIN_INACTIVE', 'Неактивна');
 @define('PREFERENCE_USE_JS', 'Разрешаване на комплексно използване на JavaScript ?');
 @define('PREFERENCE_USE_JS_DESC', 'Ако е позволено комплексно използване на JavaScript, някои части от Serendipity ще бъдат с подобрена функционалност. Например при конфигурирането на приставките става възможно използването на drag-and-drop за пренареждане на приставките.');
 
 @define('PREFERENCE_USE_JS_WARNING', '(Тази страница използва JavaScript. Ако имате проблеми, моля забранете комплексното използване на JavaScript във вашата персонална конфигурация или забранете JavaScript в браузъра.)');
-
 
 @define('INSTALL_PERMALINK_COMMENTSPATH', 'Път до коментарите');
 @define('PERM_SET_CHILD', 'Установяване на същите разрешения за всички поддиректории');

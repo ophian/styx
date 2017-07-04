@@ -905,6 +905,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'En bases de datos distintas a MySQL, iterar sobre cada artículo para reemplazar el URL del directorio antiguo con la nueva dirección no es posible. Necesitarás que arreglar tus entradas de manera manual. También puedes regresar tu directorio a su ubicación original si hacer todo aquello te resulta muy incómodo.');
 /*translate*/
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'Moved the URL of the moved directory in %s entries.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Activa');
 @define('PLUGIN_INACTIVE', 'Inactiva');
 @define('PREFERENCE_USE_JS', '¿Activar el uso avanzado de JS?');

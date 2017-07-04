@@ -888,6 +888,7 @@
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Bibliotek og filer kunne ikke flyttes til %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'På IKKE-MySQL databaser, understøttes iteration gennem artikler for at opdatere stier til biblioteker ikke. Du bliver nødt til manuelt at redigere dine artikler og rette stierne, er dette for besværligt kan du flytte dit bibliotek tilbage til den gamle placering.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'Stien til det flyttede bibliotek er opdateret i %s artikler.');
+@define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktiv');
 @define('PLUGIN_INACTIVE', 'Inaktiv');
 @define('PREFERENCE_USE_JS', 'Aktiver advanceret JS brug?');
