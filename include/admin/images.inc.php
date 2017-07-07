@@ -137,24 +137,25 @@ switch ($serendipity['GET']['adminAction']) {
             $multiMoveImages = $serendipity['POST']['multiDelete']; // The 'multiDelete' key name should IMHO better be renamed to 'multiCheck', but this would need to change 2k11/admin/serendipity_editor.js, images.inc.tpl, media_items.tpl, media_pane.tpl and this file
             unset($serendipity['POST']['multiDelete']);
 
-            $oDir = ''; // oldDir is relative to Uploads/, since we can not specify a directory of a ML bulk move directly
+            // oldDir is relative to Uploads/, since we can not specify a directory of a ML bulk move directly
             $nDir = serendipity_specialchars((string)str_replace('//', '/', $serendipity['POST']['newDir'])); // relative to Uploads/
             // set and check for a given trailing slash! (see media directory renames)
             $nDir = (!empty($nDir) && $nDir != '/') ? rtrim($nDir, '/') . '/' : $nDir;
-            // $nDir "set empty" check for the fake-named "uploadRoot" directory is done via images.inc
+            // $nDir "set empty" check for the fake-named "uploadRoot" directory is done via functions_images.inc, since we need it for comparison checks before conversion
 
             if ($oDir != $nDir) {
                 $i = 0;
                 foreach($multiMoveImages AS $mkey => $move_id) {
                     $file = serendipity_fetchImageFromDatabase((int)$move_id);
                     $oDir = $file['path']; // this now is the exact oldDir path of this ID
-                    $mdmg = serendipity_moveMediaDirectory($oDir, $nDir, 'file', (int)$move_id, $file);
+                    $mMDr = serendipity_moveMediaDirectory($oDir, $nDir, 'file', (int)$move_id, $file);
                     ++$i;
                 }
-                if (false !== $mdmg && $mdmg) {
-                    $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . $i . ' ' . MEDIA_DIRECTORY_MOVED . "</span>\n", $nDir);
-                } else {
-                    $messages[] = sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVE_ERROR . "</span>\n", $nDir);
+                $rDir = '"'.(($nDir == 'uploadRoot/') ? $serendipity['uploadHTTPPath'].'"' : $serendipity['uploadHTTPPath'] . $nDir).'"';
+                if ($mMDr) {
+                    $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . $i . ' ' . MEDIA_DIRECTORY_MOVED . "</span>\n", $rDir);
+                } elseif (false === $mMDr) {
+                    $messages[] = sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVE_ERROR . "</span>\n", $rDir);
                 }
             }
             $data['messages'] = $messages;
