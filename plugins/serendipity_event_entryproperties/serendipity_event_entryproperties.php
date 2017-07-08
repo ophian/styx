@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.53');
+        $propbag->add('version',       '1.54');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -1042,7 +1042,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         $eventData['addkey'] .= $cond;
                     }
 
-                    if ($serendipity['dbType'] == 'postgres') {
+                    if ($serendipity['dbType'] == 'postgres' || $serendipity['dbType'] == 'pdo-postgres') {
                         // PostgreSQL is a bit weird here. Empty columns with NULL or "" content for
                         // orderkey would get sorted on top when using DESC, and only after those
                         // the "true" content would be inserted. Thus we order ASC in postgreSQL,

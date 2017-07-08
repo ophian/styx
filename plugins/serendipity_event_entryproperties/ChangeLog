@@ -1,3 +1,12 @@
+1.54:
+-----
+    * Add missing sql query dbType pdo-postgres check
+
+1.53:
+-----
+    * Update to support a custom property for multiple ownership
+      of an article.
+
 1.52:
 -----
     * Language constant fixes for < en> and < de >
