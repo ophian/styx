@@ -1,6 +1,14 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Refactor serendipity_moveMediaDirectory() to be a serendipity* API
+    wrapper for _renameDirAccess, _renameRealFileName, _renameRealFileDir
+    and _moveMediaInEntriesDB API functions, since grown too big, which
+    was error prone.
+    You have to use the wrapper for accessing these new split-up functions.
+    This also adds some debugging via DEBUG logger option and optimises
+    this and that.
+
   * Fix mediaLibrary file rename entry replacements
 
   * Fix SQL path REGEX matching media thumbs for the directory dir type

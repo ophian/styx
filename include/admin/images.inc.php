@@ -154,7 +154,7 @@ switch ($serendipity['GET']['adminAction']) {
                 $rDir = '"'.(($nDir == 'uploadRoot/') ? $serendipity['uploadHTTPPath'].'"' : $serendipity['uploadHTTPPath'] . $nDir).'"';
                 if ($mMDr) {
                     $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . $i . ' ' . MEDIA_DIRECTORY_MOVED . "</span>\n", $rDir);
-                } elseif (false === $mMDr) {
+                } else {
                     $messages[] = sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVE_ERROR . "</span>\n", $rDir);
                 }
             }
