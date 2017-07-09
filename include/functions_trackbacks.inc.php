@@ -643,7 +643,8 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     static $old_references = array();
     static $saved_references = array();
     static $saved_urls = array();
-    if (is_object($serendipity['logger'])) $serendipity['logger']->debug('serendipity_handle_references start');
+
+    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START serendipity_handle_references SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
 
     if ($dry_run) {
         // Store the current list of references. We might need to restore them for later usage.
