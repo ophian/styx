@@ -748,6 +748,10 @@ pre {
   float: right;
   text-align: right; }
 
+.serendipity_edit_nugget {
+    font-size: .8125rem;
+    line-height: 1.625rem; }
+
 /*
 .trackback, .comment {
   margin-bottom: 32px;
