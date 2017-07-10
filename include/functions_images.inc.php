@@ -76,7 +76,8 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
     }
 
     if ($hideSubdirFiles) {
-        $cond['parts']['directory'] = " AND i.path = '" . serendipity_db_escape_string($directory) . "'\n";
+        $hotlinked = ($directory == '') ? " OR i.path LIKE 'http://%' OR i.path LIKE 'https://%'" : '';
+        $cond['parts']['directory'] = " AND (i.path = '" . serendipity_db_escape_string($directory) . "'$hotlinked)\n";
     } elseif (!empty($directory)) {
         $cond['parts']['directory'] = " AND i.path LIKE '" . serendipity_db_escape_string($directory) . "%'\n";
     }
