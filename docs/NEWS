@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Sync - Adapt .htaccess default rules to exclude rewriting plugin
+    documentation files (Issue #521).
+
   * Fixed regression bug for HOTlinked media items and the hideSubdirFiles
     true option in MediaLibrary BASE_DIRECTORY cases.
 
