@@ -285,7 +285,7 @@ switch ($serendipity['GET']['adminAction']) {
                         throw new Exception();
                     } else {
                         if ($serendipity['POST']['imageimporttype'] == 'hotlink') {
-                            $tempfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . '/hotlink_' . time();
+                            $tempfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . 'hotlink_' . time();
                             $fp = fopen($tempfile, 'w');
                             fwrite($fp, $fContent);
                             fclose($fp);
