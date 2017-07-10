@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fixed regression bug for HOTlinked media items and the hideSubdirFiles
+    true option in MediaLibrary BASE_DIRECTORY cases.
+
   * Refactor serendipity_moveMediaDirectory() to be a serendipity* API
     wrapper for _renameDirAccess, _renameRealFileName, _renameRealFileDir
     and _moveMediaInEntriesDB API functions, since grown too big, which
