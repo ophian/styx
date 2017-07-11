@@ -3857,6 +3857,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 
     if (is_object($serendipity['logger'])) {
         $serendipity['logger']->debug($logtag . 'SQL QUERY:' . "\n" . $q);
+        $did = array(); // init for NULL cases
         if (is_array($entries)) foreach ($entries AS $d) { $did[] = $d['id']; }
         $serendipity['logger']->debug($logtag . "Found Entry ID: " . implode(', ', $did));
     }
