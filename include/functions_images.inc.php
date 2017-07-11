@@ -3388,7 +3388,7 @@ function serendipity_renameDirAccess($oldDir, $newDir) {
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
     if (is_object($serendipity['logger'])) {
         $serendipity['logger']->debug("IN serendipity_renameDirAccess");
-        $serendipity['logger']->debug(print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
         echo 'Please use the API workflow via serendipity_moveMediaDirectory()!';
@@ -3508,7 +3508,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     if (is_object($serendipity['logger'])) {
         $logtag = 'renameRealFileName:';
         $serendipity['logger']->debug("IN serendipity_renameRealFileName");
-        $serendipity['logger']->debug(print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
         echo 'Please use the API workflow via serendipity_moveMediaDirectory()!';
@@ -3703,7 +3703,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id) {
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
     if (is_object($serendipity['logger'])) {
         $serendipity['logger']->debug("IN serendipity_renameRealFileDir");
-        $serendipity['logger']->debug(print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
         echo 'Please use the API workflow via serendipity_moveMediaDirectory()!';
@@ -3805,7 +3805,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     if (is_object($serendipity['logger'])) {
         $logtag = 'moveMediaInEntriesDB:';
         $serendipity['logger']->debug("IN serendipity_moveMediaInEntriesDB");
-        $serendipity['logger']->debug(print_r($trace,1));
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
         echo 'Please use the API workflow via serendipity_moveMediaDirectory()!';
