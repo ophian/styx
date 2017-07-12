@@ -1515,8 +1515,8 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         if ($debug) echo '<p>Image Sync Right: ' . serendipity_checkPermission('adminImagesSync') . ' Onthefly Sync: ' . $serendipity['onTheFlySynch'] . ' Hash: ' . $serendipity['current_image_hash'] . '!=' . $serendipity['last_image_hash']. "</p>\n";
 
         if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync') && ($debug  || ($serendipity['current_image_hash'] != $serendipity['last_image_hash']))) {
-            $aResultSet = serendipity_db_query("SELECT path, name, extension, thumbnail_name, id
-                                                FROM {$serendipity['dbPrefix']}images", false, 'assoc');
+            $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
+                                                  FROM {$serendipity['dbPrefix']}images", false, 'assoc');
 
             if ($debug) echo '<p>Got images: <pre>' . print_r($aResultSet, true) . "</pre></p>\n";
 
@@ -1530,7 +1530,12 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                         $sThumbNailFile = $sFile['path'] . $sFile['name'] . '.' . $sFile['thumbnail_name'] . (empty($sFile['extension']) ? '' : '.' . $sFile['extension']);
                     }
 
-                    $sFileName = $sFile['path'] . $sFile['name'] . (empty($sFile['extension']) ? '' : '.' . $sFile['extension']);
+                    if ($sFile['hotlink']) {
+                        $sFileName = $sFile['path'];
+                        $sThumbNailFile = '';
+                    } else {
+                        $sFileName = $sFile['path'] . $sFile['name'] . (empty($sFile['extension']) ? '' : '.' . $sFile['extension']);
+                    }
 
                     if ($debug) echo "<p>File name is $sFileName, thumbnail is $sThumbNailFile</p>\n";
 
@@ -1539,10 +1544,12 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                     if (isset($aFilesOnDisk[$sFileName])) {
                         unset($aFilesOnDisk[$sFileName]);
                     } else {
-                        if ($debug) echo "<span class='block_level'>Deleting Image {$sFile['id']}</span>\n";
+                        if (!$sFile['hotlink']) {
+                            if ($debug) echo "<span class='block_level'>Deleting Image {$sFile['id']}</span>\n";
 
-                        serendipity_deleteImage($sFile['id']);
-                        ++$nCount;
+                            serendipity_deleteImage($sFile['id']);
+                            ++$nCount;
+                        }
                     }
                     unset($aFilesOnDisk[$sThumbNailFile]);
                 }
