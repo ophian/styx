@@ -1,6 +1,10 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Restrict public server access to $serendipity['logger'] log/* files
+    in the compile dir. This shall be allowed only via the authorised
+    access 'external_plugin' route. See maintenance changelog section.
+
   * update .gitignore to allow directory based .htaccess files
 
   * Sync - Adapt .htaccess default rules to exclude rewriting plugin
