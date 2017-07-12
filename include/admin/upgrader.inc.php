@@ -358,6 +358,11 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"entries.tpl"</em> was changed for the trackback URI constant.',
                     'desc'      => 'Keep your own / or copy theme files in touch. See all themes with date: 2017-06-21 for examples.<br>Serendipity also introduces a new trackback detection alternative to RDF, by adding a "rel=trackback" element to the "index.tpl" header. The standard theme 2k11 was already changed to use it. You may want to spread and test this any further.'),
 
+            array(  'version'   => '2.3-beta1',
+                    'function'  => 'serendipity_installFiles',
+                    'title'     => 'Update .htaccess file',
+                    'desc'      => 'Adds a new "documentation.*.html" rewrite rule exception to allow calling plugin documentation URLs.'),
+
 );
 
 /* Fetch SQL files which needs to be run */
