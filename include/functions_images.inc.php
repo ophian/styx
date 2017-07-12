@@ -317,10 +317,10 @@ function serendipity_updateImageInDatabase($updates, $id) {
  */
 function serendipity_deleteImage($id) {
     global $serendipity;
+
     $dThumb   = array();
     $messages = '';
-
-    $file   = serendipity_fetchImageFromDatabase($id);
+    $file = serendipity_fetchImageFromDatabase($id);
 
     if (!is_array($file)) {
         $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", $id);
@@ -1456,8 +1456,14 @@ function serendipity_calculate_aspect_size($width, $height, $size, $constraint =
  */
 function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = false, $url = NULL, $show_upload = false, $limit_path = NULL, $smarty_vars = array()) {
     global $serendipity;
-    static $debug = false;
+    $debug = is_object($serendipity['logger']) && false;
 
+    $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
+    if ($debug) {
+        $logtag = 'ML-LIST:';
+        $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_displayImageList SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+    }
     $extraParems     = serendipity_generateImageSelectorParems();
     $hideSubdirFiles = ($serendipity['GET']['hideSubdirFiles'] == 'yes') ? true : false; // default
     $userPerms       = array('delete' => serendipity_checkPermission('adminImagesDelete'));
@@ -1477,7 +1483,6 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
         $paths        = array();
         $aFilesOnDisk = array();
-
         $aResultSet   = serendipity_traversePath(
             $serendipity['serendipityPath'] . $serendipity['uploadPath']. $limit_path,
             '',
@@ -1490,10 +1495,10 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         );
         foreach ($aResultSet AS $sKey => $sFile) {
                 if ($sFile['directory']) {
-                    if ($debug) echo "<span class='block_level'>{$sFile['relpath']} is a directory.</span>\n";
+                    if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a directory."); }
                     array_push($paths, $sFile);
                 } else {
-                    if ($debug) echo "<span class='block_level'>{$sFile['relpath']} is a file.</span>\n";
+                    if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a file."); }
                     // Store the file in our array, remove any ending slashes
                     $aFilesOnDisk[$sFile['relpath']] = 1;
                 }
@@ -1502,7 +1507,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
         usort($paths, 'serendipity_sortPath');
 
-        if ($debug) echo "<p>Got files: <pre>" . print_r($aFilesOnDisk, true) . "</pre></p>\n";
+        if ($debug) { $serendipity['logger']->debug("$logtag Got real disc files: " . print_r($aFilesOnDisk, 1)); }
         $serendipity['current_image_hash'] = md5(serialize($aFilesOnDisk));
 
         $nTimeStart = microtime_float();
@@ -1512,13 +1517,13 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
         $nCount = 0;
 
-        if ($debug) echo '<p>Image Sync Right: ' . serendipity_checkPermission('adminImagesSync') . ' Onthefly Sync: ' . $serendipity['onTheFlySynch'] . ' Hash: ' . $serendipity['current_image_hash'] . '!=' . $serendipity['last_image_hash']. "</p>\n";
+        if ($debug) { $serendipity['logger']->debug("$logtag Image Sync Right: " . serendipity_checkPermission('adminImagesSync') . " Onthefly Sync: {$serendipity['onTheFlySynch']} Hash: {$serendipity['current_image_hash']}!={$serendipity['last_image_hash']}"); }
 
-        if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync') && ($debug  || ($serendipity['current_image_hash'] != $serendipity['last_image_hash']))) {
+        if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync') && ($debug || ($serendipity['current_image_hash'] != $serendipity['last_image_hash']))) {
             $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
                                                   FROM {$serendipity['dbPrefix']}images", false, 'assoc');
 
-            if ($debug) echo '<p>Got images: <pre>' . print_r($aResultSet, true) . "</pre></p>\n";
+            if ($debug) { $serendipity['logger']->debug("$logtag Got images: " . print_r($aResultSet, 1)); }
 
             if (is_array($aResultSet)) {
                 foreach ($aResultSet AS $sKey => $sFile) {
@@ -1537,7 +1542,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                         $sFileName = $sFile['path'] . $sFile['name'] . (empty($sFile['extension']) ? '' : '.' . $sFile['extension']);
                     }
 
-                    if ($debug) echo "<p>File name is $sFileName, thumbnail is $sThumbNailFile</p>\n";
+                    if ($debug) { $serendipity['logger']->debug("$logtag File name is $sFileName, thumbnail is $sThumbNailFile"); }
 
                     unset($aResultSet[$sKey]);
 
@@ -1545,7 +1550,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                         unset($aFilesOnDisk[$sFileName]);
                     } else {
                         if (!$sFile['hotlink']) {
-                            if ($debug) echo "<span class='block_level'>Deleting Image {$sFile['id']}</span>\n";
+                            if ($debug) { $serendipity['logger']->debug("$logtag Deleting Image {$sFile['id']}"); }
 
                             serendipity_deleteImage($sFile['id']);
                             ++$nCount;
@@ -1556,21 +1561,21 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             }
 
             if ($nCount > 0){
-                if ($debug) echo "<p>Cleaned up $nCount database entries</p>\n";
+                if ($debug) { $serendipity['logger']->debug("$logtag Cleaned up $nCount database entries"); }
             }
 
             serendipity_set_config_var('last_image_hash', $serendipity['current_image_hash'], 0);
             $aUnmatchedOnDisk = array_keys($aFilesOnDisk);
 
-            if ($debug) echo '<p>Got unmatched files: <pre>' . print_r($aUnmatchedOnDisk, true) . "</pre></p>\n";
+            if ($debug) { $serendipity['logger']->debug("$logtag Got unmatched files: " . print_r($aUnmatchedOnDisk, 1)); }
 
             $nCount = 0;
             foreach ($aUnmatchedOnDisk AS $sFile) {
                 if (preg_match('@\.' . $serendipity['thumbSuffix'] . '\.@', $sFile)) {
-                    if ($debug) echo "<p>Skipping thumbnailed file $sFile</p>\n";
+                    if ($debug) { $serendipity['logger']->debug("$logtag Skipping thumbnailed file $sFile"); }
                     continue;
                 } else {
-                    if ($debug) echo "<p>Checking $sFile</p>\n";
+                    if ($debug) { $serendipity['logger']->debug("$logtag Checking $sFile"); }
                 }
 
                 // MTG: 21/01/06: put files which have just 'turned up' into the database
@@ -1585,7 +1590,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                        $sFileName  = substr($sFile, $nPos);
                        $sDirectory = substr($sFile, 0, $nPos);
                     }
-                    if ($debug) echo "<p>Inserting image $sFileName from $sDirectory <pre>" . print_r($aImageData, true) . "</pre> into database</p>\n";
+                    if ($debug) { $serendipity['logger']->debug("$logtag Inserting image $sFileName from $sDirectory" . print_r($aImageData, 1) . "\ninto database"); }
                     # TODO: Check if the thumbnail generation goes fine with Marty's code
                     serendipity_makeThumbnail($sFileName, $sDirectory);
                     serendipity_insertImageInDatabase($sFileName, $sDirectory);
@@ -1594,10 +1599,10 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             }
 
             if ($nCount > 0) {
-                if ($debug) echo "<p>Inserted $nCount images into the database</p>\n";
+                if ($debug) { $serendipity['logger']->debug("$logtag Inserted $nCount images into the database"); }
             }
         } else {
-            if ($debug) echo "<p>Media Gallery database is up to date</p>\n";
+            if ($debug) { $serendipity['logger']->debug("$logtag Media Gallery database is up to date"); }
         }
 
          /*
