@@ -1,6 +1,19 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix old MediaLibrary synchroniser bug with "virtual" hotlink data,
+    to not auto-remove such items from the image database table, when
+    accessing the imageList generator to re-/build the MediaLibrary.
+    UPGRADERS PLEASE NOTE:
+        If you ever used this feature in the past, and added
+        MediaLibrary linked hotlink image data in your entries,
+        and then lost your MediaLibrary hotlink item by this syn-
+        chroniser bug, the entries added media ID,
+        ie. "<!-- s9ymdb:102 -->", is now wrong or misdirecting.
+        This is just bad in those cases, where some other task is
+        requesting it and might get into trouble with the false ID.
+        Check your entries for this issue.
+
   * Restrict public server access to $serendipity['logger'] log/* files
     in the compile dir. This shall be allowed only via the authorised
     access 'external_plugin' route. See maintenance changelog section.
@@ -21,7 +34,7 @@ Version 2.3 ()
     This also adds some debugging via DEBUG logger option and optimises
     this and that.
 
-  * Fix mediaLibrary file rename entry replacements
+  * Fix MediaLibrary file rename entry replacements
 
   * Fix SQL path REGEX matching media thumbs for the directory dir type
     only, which fixes the matching entries and the counter.
