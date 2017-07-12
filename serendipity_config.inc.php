@@ -186,7 +186,7 @@ $serendipity['charsets'] = array(
     ''        => CHARSET_NATIVE
 );
 
-@define('PATH_SMARTY_COMPILE', 'templates_c'); // will be placed inside the template directory
+@define('PATH_SMARTY_COMPILE', 'templates_c');
 @define('USERLEVEL_ADMIN', 255);
 @define('USERLEVEL_CHIEF', 1);
 @define('USERLEVEL_EDITOR', 0);
