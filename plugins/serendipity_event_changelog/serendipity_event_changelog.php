@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_plugin
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.26');
+        $propbag->add('version',       '1.27');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -62,7 +62,8 @@ class serendipity_event_changelog extends serendipity_plugin
                         }
                         header('Content-language: en');
                         header('Content-type: text/plain; charset=ISO-8859-1');
-                        $file = PLUGIN_CHANGELOG_LOGGER_BACKBLAH . "\n\n" . file_get_contents($serendipity['serendipityPath'] . 'docs/NEWS');
+                        $mb_blah = (LANG_CHARSET != 'ISO-8859-1') ? mb_convert_encoding(PLUGIN_CHANGELOG_LOGGER_BACKBLAH, 'ISO-8859-1', LANG_CHARSET) : PLUGIN_CHANGELOG_LOGGER_BACKBLAH;
+                        $file =  $mb_blah . "\n\n" . file_get_contents($serendipity['serendipityPath'] . 'docs/NEWS');
                         echo $file;
                     }
                     if ($part[0] == 'logs' && is_object($serendipity['logger'])) {
