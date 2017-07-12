@@ -1,8 +1,7 @@
 uploads/*
-templates_c/*
 serendipity_config_local.inc.php
 .cvsignore
-.htaccess*
+/.htaccess*
 *.db
 private/*
 archives/*
