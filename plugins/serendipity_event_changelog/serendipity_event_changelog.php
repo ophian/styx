@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_plugin
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.27');
+        $propbag->add('version',       '1.28');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -51,6 +51,7 @@ class serendipity_event_changelog extends serendipity_plugin
             switch($event) {
                 case 'external_plugin':
                     if (!serendipity_checkPermission('adminUsers')) {
+                        echo "Don't hack!";
                         return false;
                     }
                     $separator = "- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n";
