@@ -77,14 +77,14 @@ class serendipity_event_changelog extends serendipity_plugin
                         $files = array_combine($files, array_map("filemtime", $files));
                         $x = count($files);
                         // Whow, this took long to debug ...
-                        // Since Firefox & Chromium prepend the $file content with a DOM added <pre> tag,
-                        // either with an alternate header added plaintext.css resource file, or via inline styles to style this pre
+                        // Since Firefox & Chromium encase the $file content with a DOM added <pre> tag,
+                        // either styled by an alternate header added plaintext.css resource file, or via inline styles
                         // with "word-wrap: break-word; white-space: pre-wrap;", we do not have automatic line-breaks disabled on long debug text lines. Which looks ugly to Debuggers!
-                        // This only works with "white-space: pre";, which is not Browsers standard!
-                        // Thus we have to NOT send this as "Content-type: text/plain;" and use "text/html" instead, but then prepend our output with the <xmp> tag.
+                        // This only works with "white-space: pre;", which is not Browsers Standard!
+                        // Thus we have to NOT send this as "Content-type: text/plain;" and use "text/html" instead and enclose our output with the <xmp> tag.
                         // The HTML Example Element (<xmp>) renders text between the start and end tags without interpreting the HTML in between and is using a monospaced font, which is exactly what we want here.
                         // The recommendation is to use <code> or <pre> nowadays, but they both fail rendering properly for different debug text situations.
-                        // The <plaintext> and <listing> elements, are similar to <xmp> but also set obsolete. Tag <plaintext> works, but its </endtag> is displayed; <listing> badly fails like <pre> on non-escaped content.
+                        // The <plaintext> and <listing> elements, are similar to <xmp> but also set obsolete. Tag <plaintext> works, but its </endtag> is displayed; <listing> badly fails like <pre> on non-escaped content like regex patterns.
                         // Only <xmp> ist left working absolutely fine! And w/o being displayed itself! Proofed with both main browser even in DEV versions. So we will keep it for a while.
                         // TO MOZILLA/GOOGLE: PLEASE DO NOT REMOVE IT! As seen here, it is a valid and very useful tag! (Examples in: http://www.the-pope.com/listin.html)
                         echo '<xmp>';
