@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * update .gitignore to allow directory based .htaccess files
+
   * Sync - Adapt .htaccess default rules to exclude rewriting plugin
     documentation files (Issue #521).
 
