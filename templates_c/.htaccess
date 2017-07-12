@@ -1,0 +1,10 @@
+<Directory "./logs">
+    AllowOverride None
+    Options None
+    deny from all
+    Require all denied
+    <Files "*.txt">
+        deny from all
+        Require all denied
+    </Files>
+</Directory>
