@@ -1456,8 +1456,8 @@ function serendipity_calculate_aspect_size($width, $height, $size, $constraint =
  */
 function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = false, $url = NULL, $show_upload = false, $limit_path = NULL, $smarty_vars = array()) {
     global $serendipity;
-    $debug = is_object($serendipity['logger']) && false;
 
+    $debug = is_object($serendipity['logger']) && false; // ad hoc, case-by-case debugging
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
     if ($debug) {
         $logtag = 'ML-LIST:';
@@ -3393,12 +3393,13 @@ function serendipity_checkMediaSize($file) {
  * @access public
  * @param   string  Old directory name or empty
  * @param   string  New directory name with trailing slash or empty
+ * @param   boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
  */
-function serendipity_renameDirAccess($oldDir, $newDir) {
+function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
-    if (is_object($serendipity['logger'])) {
+    if ($debug) {
         $serendipity['logger']->debug("IN serendipity_renameDirAccess");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
@@ -3495,7 +3496,7 @@ function serendipity_renameDirAccess($oldDir, $newDir) {
     // Changing a ML directory via directoryEdit needs to run through staticpage entries too!
     serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
-    if (is_object($serendipity['logger'])) {
+    if ($debug) {
         $serendipity['logger']->debug(print_r($renameValues,1));
     }
     return true;
@@ -3511,13 +3512,14 @@ function serendipity_renameDirAccess($oldDir, $newDir) {
  * @param   string  The type of what to remove (file)
  * @param   string  An item id of a file
  * @param   array   Result of serendipity_fetchImageFromDatabase($id) for the previous file properties
+ * @param   boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
  * @return  boolean
  */
-function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file) {
+function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file, $debug=false) {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
-    if (is_object($serendipity['logger'])) {
+    if ($debug) {
         $logtag = 'renameRealFileName:';
         $serendipity['logger']->debug("IN serendipity_renameRealFileName");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
@@ -3548,12 +3550,12 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         $oldThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumb;
 
     } else {
-        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("$logtag 1 newDir=$newDir"); }
+        if ($debug) { $serendipity['logger']->debug("$logtag 1 newDir=$newDir"); }
         // case bulkmove event (newDir is passed inclusive the path! and normally w/o the filename, but we better check this though)
         $newDir = ($newDir == 'uploadRoot/') ? '' : $newDir; // Take care: remove temporary 'uploadRoot/' string, in case of moving a subdir file into "uploads/" root directory by bulkmove
-        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("$logtag 2 newDir=$newDir"); }
+        if ($debug) { $serendipity['logger']->debug("$logtag 2 newDir=$newDir"); }
         $_newDir = str_replace($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), '', $newDir);
-        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("$logtag 3_newDir=$_newDir"); }
+        if ($debug) { $serendipity['logger']->debug("$logtag 3_newDir=$_newDir"); }
 
         // We don't need to care about $parts['extension'], since you can't change the EXT via the bulkmove event
         $file_new = $_newDir . $file['name'];
@@ -3565,7 +3567,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_new . (empty($file['extension']) ? '' : '.' . $file['extension']);
     $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_old . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
-    if (is_object($serendipity['logger'])) {
+    if ($debug) {
         $serendipity['logger']->debug("$logtag oldfile=$oldfile");
         $serendipity['logger']->debug("$logtag newfile=$newfile");
     }
@@ -3707,13 +3709,14 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
  * @param   string  New directory name with a trailing slash or empty
  * @param   string  The type of what to remove (filedir)
  * @param   string  An item id of a file
+ * @param   boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
  * @return
  */
-function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id) {
+function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug=false) {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
-    if (is_object($serendipity['logger'])) {
+    if ($debug) {
         $serendipity['logger']->debug("IN serendipity_renameRealFileDir");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
@@ -3808,13 +3811,14 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id) {
  * @param   array   Properties result of new updated query,
  *                      @see serendipity_renameRealFileDir() and serendipity_moveMediaDirectory()
  * @param   array   Result of origin (old) serendipity_fetchImageFromDatabase($id)
+ * @param   boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
  * @return
  */
-function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $file) {
+function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $file, $debug=false) {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
-    if (is_object($serendipity['logger'])) {
+    if ($debug) {
         $logtag = 'moveMediaInEntriesDB:';
         $serendipity['logger']->debug("IN serendipity_moveMediaInEntriesDB");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
@@ -3867,7 +3871,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     ";
     $entries = serendipity_db_query($q, false, 'assoc');
 
-    if (is_object($serendipity['logger'])) {
+    if ($debug) {
         $serendipity['logger']->debug($logtag . 'SQL QUERY:' . "\n" . $q);
         $did = array(); // init for NULL cases
         if (is_array($entries)) foreach ($entries AS $d) { $did[] = $d['id']; }
@@ -3892,7 +3896,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             // paranoid fallback case
             $newDirFile = rtrim($newDir, '/');
         }
-        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("$logtag newDirFile=$newDirFile"); }
+        if ($debug) { $serendipity['logger']->debug("$logtag newDirFile=$newDirFile"); }
         // for thumbs - Rebuild full origin and new file path names by the new picked file array
         $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
         $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
@@ -3915,7 +3919,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         } else { // cases 'filedir' and 'dir'
             $_oldDirFile = (FALSE !== strrpos($oldDirFile, '.'.$_file['extension'], -($lex+1))) ? str_replace('.'.$_file['extension'], '', $oldDirFile) : $oldDirFile;
         }
-        if (is_object($serendipity['logger'])) {
+        if ($debug) {
             $serendipity['logger']->debug("$logtag REPLACE _oldDirFile=$_oldDirFile");
             $serendipity['logger']->debug("$logtag REPLACE  newDirFile=$newDirFile");
         }
@@ -3969,6 +3973,9 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_id = null, $file = null) {
     global $serendipity;
 
+    // Since being a wrapper function, this enables logging of all sub functions
+    $debug = is_object($serendipity['logger']) && false; // ad hoc, case-by-case debugging
+
     // paranoid case for updating an old image id entry - else we have a new entry incrementary
     if (is_null($item_id) && isset($file['id']) && $file['id'] > 0) $item_id = $file['id'];
 
@@ -3986,7 +3993,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     //   FILE    = File rename or File bulk move,
     //   FILEDIR = Media properties form edit
 
-    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START moveMediaDirectory SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
+    if ($debug) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START moveMediaDirectory SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
 
     // case 'dir' via images.inc case 'directoryEdit', which is ML Directories form, via ML case 'directorySelect'
     if ($type == 'dir') {
@@ -3995,7 +4002,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
         $newDir = (!empty($newDir) && $newDir != '/') ? rtrim($newDir, '/') . '/' : $newDir;
 
         // rename in database
-        if (false === serendipity_renameDirAccess($oldDir, $newDir)) {
+        if (false === serendipity_renameDirAccess($oldDir, $newDir, $debug)) {
             return false;
         }
 
@@ -4017,7 +4024,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
 
         } else {
             // check return!
-            if (false === serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file)) {
+            if (false === serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file, $debug)) {
                 return false;
             }
         }
@@ -4025,7 +4032,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     // Used solely by this API serendipity_parsePropertyForm() base_properties only, when changing the file selected path within mediaproperties form
     } elseif ($type == 'filedir') {
 
-        $pick = serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id);
+        $pick = serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug);
         if ($pick === false) {
             return false;
         }
@@ -4041,7 +4048,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
         return true;
     }
 
-    if (false === serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick, $file)) {
+    if (false === serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick, $file, $debug)) {
         return false;
     }
 
