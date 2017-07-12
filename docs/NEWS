@@ -5,7 +5,7 @@ Version 2.3 ()
     in the compile dir. This shall be allowed only via the authorised
     access 'external_plugin' route. See maintenance changelog section.
 
-  * update .gitignore to allow directory based .htaccess files
+  * GIT: Update .gitignore file to allow subdirectory based .htaccess files
 
   * Sync - Adapt .htaccess default rules to exclude rewriting plugin
     documentation files (Issue #521).
