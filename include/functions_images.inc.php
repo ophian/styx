@@ -1456,8 +1456,9 @@ function serendipity_calculate_aspect_size($width, $height, $size, $constraint =
  */
 function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = false, $url = NULL, $show_upload = false, $limit_path = NULL, $smarty_vars = array()) {
     global $serendipity;
+    static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object($serendipity['logger']) && false; // ad hoc, case-by-case debugging
+    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
     if ($debug) {
         $logtag = 'ML-LIST:';
@@ -3972,9 +3973,10 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
  */
 function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_id = null, $file = null) {
     global $serendipity;
+    static $debug = false; // ad hoc, case-by-case debugging
 
     // Since being a wrapper function, this enables logging of all sub functions
-    $debug = is_object($serendipity['logger']) && false; // ad hoc, case-by-case debugging
+    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
     // paranoid case for updating an old image id entry - else we have a new entry incrementary
     if (is_null($item_id) && isset($file['id']) && $file['id'] > 0) $item_id = $file['id'];
