@@ -2177,7 +2177,7 @@ function serendipity_directoryACL(&$paths, $type = 'read') {
 
     $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
     if ($debug) {
-        $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START serendipity_directoryACL SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
+        $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START serendipity_directoryACL SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
         $serendipity['logger']->debug("Applying ACL for mode '$type'.");
     }
 
