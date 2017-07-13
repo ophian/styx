@@ -2173,10 +2173,12 @@ function serendipity_dirSlash($type, $dir) {
  */
 function serendipity_directoryACL(&$paths, $type = 'read') {
     global $serendipity;
-    static $debug = false;
+    static $debug = false; // ad hoc, case-by-case debugging
 
+    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
     if ($debug) {
-        echo "<span class='block_level'>Applying ACL for mode '$type'.</span>";
+        $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START serendipity_directoryACL SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
+        $serendipity['logger']->debug("Applying ACL for mode '$type'.");
     }
 
     if (!is_array($paths)) {
@@ -2241,19 +2243,19 @@ function serendipity_directoryACL(&$paths, $type = 'read') {
             if ($granted === false) {
                 // We are not allowed to access this element
                 if ($debug) {
-                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ACL for ' . $info['relpath'] . " DENIED.</span>";
+                    $serendipity['logger']->debug("ACL for {$info['relpath']} DENIED.");
                 }
                 unset($paths[$idx]);
             } else {
                 if ($debug) {
-                    echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ACL for ' . $info['relpath'] . " granted.</span>";
+                    $serendipity['logger']->debug("ACL for {$info['relpath']} granted.");
                 }
             }
         }
 
         if (count($paths) < $startCount) {
             if ($debug) {
-                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ACL denied all.</span>';
+                $serendipity['logger']->debug("ACL denied all.");
             }
             return false;
         }
