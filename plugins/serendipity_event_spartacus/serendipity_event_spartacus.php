@@ -27,9 +27,9 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.52');
+        $propbag->add('version',       '2.53');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.0.99',
+            'serendipity' => '2.1.0',
             'php'         => '5.3.0'
         ));
         $propbag->add('event_hooks',    array(
@@ -402,6 +402,12 @@ class serendipity_event_spartacus extends serendipity_event
     {
         global $serendipity;
         static $error = false;
+        static $debug = false; // ad hoc, case-by-case debugging
+
+        $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+        if ($debug) {
+            $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START spartacus::fetchfile SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+        }
 
         // Fix double URL strings.
         $url = preg_replace('@http(s)?:/@i', 'http\1://', str_replace('//', '/', $url));
@@ -413,12 +419,12 @@ class serendipity_event_spartacus extends serendipity_event
             $url_hostname = $url_parts['host'];
         }
         $url_ip = gethostbyname($url_hostname);
-        if (is_object($serendipity['logger'])) {
+        if ($debug) {
             $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHING, 'UTF-8', LANG_CHARSET), '<a target="_blank" href="' . $url . '">' . basename($url) . '</a>'));
         }
         if (file_exists($target) && filesize($target) > 0 && filemtime($target) >= (time()-$cacheTimeout)) {
             $data = file_get_contents($target);
-            if (is_object($serendipity['logger'])) {
+            if ($debug) {
                 $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE, 'UTF-8', LANG_CHARSET), strlen($data), $target));
             }
         } else {
@@ -505,7 +511,7 @@ class serendipity_event_spartacus extends serendipity_event
                 if (!$data) {
                     $data = $response->getBody();
                 }
-                if (is_object($serendipity['logger'])) {
+                if ($debug) {
                     $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL, 'UTF-8', LANG_CHARSET), strlen($data), $target));
                 }
                 $tdir = dirname($target);
