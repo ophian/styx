@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Set and add remote ChangeLog / documentation links for
+    upgradable plugins.
+
   * Fix the plugin package xml for the remote raw changelog path
 
   * Fix the plugin package xml creation to better indent
