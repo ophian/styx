@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.53');
+        $propbag->add('version',       '2.54');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -616,6 +616,7 @@ class serendipity_event_spartacus extends serendipity_event
                 $url    = $server . '/package_' . $url_type .  $lang . '.xml';
                 $target = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_' . $url_type . $lang . '.xml';
                 $serendipity['spartacus_cachedXMLfile'] = $target; // keep the cache file target path to nuke the file within possible 'backend_plugins_update' to config redirects/breaks.
+                $serendipity['spartacus_rawPluginPath'] = $custom; // add a global var for plugin upgrade remote path documentaries usage
 
                 $xml = $this->fetchfile($url, $target, $cacheTimeout, true);
                 if (strlen($xml) > 0) {
@@ -629,6 +630,7 @@ class serendipity_event_spartacus extends serendipity_event
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
             $target = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_' . $url_type . $lang . '.xml';
             $serendipity['spartacus_cachedXMLfile'] = $target; // keep the cache file target path to nuke the file within possible 'backend_plugins_update' to config redirects/breaks.
+            $serendipity['spartacus_rawPluginPath'] = $mirror; // add a global var for plugin upgrade remote path documentaries usage
 
             $xml = $this->fetchfile($url, $target, $cacheTimeout, true);
         }
