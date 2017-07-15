@@ -113,13 +113,19 @@
                             <li class="plugin_version"><b>{$CONST.VERSION}:</b> {$plug.version}</li>
                         {/if}
                         {if !empty($plug.website)}
-                            <li class="plugin_web"><a href="{$plug.website|escape}">{$CONST.PLUGIN_DOCUMENTATION}</a></li>
+                            <li class="plugin_web"><a href="{$plug.website|escape}"><span title="{$plug.exdoc}" class="icon-globe" aria-hidden="true"></span> {$CONST.PLUGIN_DOCUMENTATION}</a></li>
                         {/if}
                         {if !empty($plug.local_documentation)}
                             <li class="plugin_localdoc"><a href="{$plug.local_documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a></li>
                         {/if}
                         {if !empty({$plug.upgrade_version}) AND $plug.upgrade_version != $plug.version}
                             <li class="plugin_toversion">{$CONST.UPGRADE_TO_VERSION|sprintf:"{$plug.upgrade_version}"}{if !empty($plug.pluginlocation) AND $plug.pluginlocation != 'local'} ({$plug.pluginlocation|escape}){/if}</li>
+                            {if !empty($plug.local_documentation)}{* we assume this is remotely still available and we want to stick to the language already chosen to show *}
+                            <li class="plugin_web"><a href="{$plug.remote_path}{$plug.plugin_class}/{$plug.local_documentation_name}">{$CONST.PLUGIN_DOCUMENTATION}</a></li>
+                            {/if}
+                            {if !empty($plug.changelog)}
+                            <li class="plugin_web"><a href="{$plug.changelog}">{$CONST.PLUGIN_DOCUMENTATION_CHANGELOG}</a></li>
+                            {/if}
                         {/if}
                         </ul>
                     </div>

@@ -211,6 +211,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         if (is_array($props)) {
             if (version_compare($props['version'], $props['upgrade_version'], '<')) {
                 $props['upgradable'] = true;
+                $props['remote_path'] = $serendipity['spartacus_rawPluginPath'];
                 // since we merged sidebar and event plugins before, we can no longer rely on spartacus' $foreignPlugins['baseURI']
                 // NOTE: This is not nice and it would be better to move it into the plugins array instead, but that collides with the cache
                 if (strpos($class_data['name'], 'serendipity_plugin') !== false) {
@@ -225,6 +226,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $props['stackable']    = ($props['stackable'] === true && $_installed);
             $props['installable']  = !($props['stackable'] === false && $_installed);
             $props['requirements'] = unserialize($props['requirements']);
+            $props['changelog']    = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
+            // cut and prep an existing constant, since we dont have this often...
+            if (!empty($props['website'])) {
+                $props['exdoc'] = trim(end(explode(':', PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES)));
+            }
 
             if (empty($props['changelog']) && @file_exists(dirname($plugin->pluginFile) . '/ChangeLog')) {
                 $props['changelog'] = 'plugins/' . $props['pluginPath'] . '/ChangeLog';
@@ -240,6 +246,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 } elseif (@file_exists(dirname($props['plugin_file']) . '/README')) {
                     $props['local_documentation'] = 'plugins/' . $props['pluginPath'] . '/README';
                 }
+                $props['local_documentation_name'] = basename($props['local_documentation']);
             }
 
             $pluginstack[$class_data['true_name']] = $props;
