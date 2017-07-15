@@ -738,9 +738,9 @@ function serendipity_installFiles($serendipity_core = '') {
     }
 
     if ($rewrite == 'rewrite2') {
-         $template = 'htaccess' . $htaccess_cgi . '_rewrite2.tpl';
+        $template = 'htaccess' . $htaccess_cgi . '_rewrite2.tpl';
     } elseif ($rewrite == 'rewrite') {
-         $template = 'htaccess' . $htaccess_cgi . '_rewrite.tpl';
+        $template = 'htaccess' . $htaccess_cgi . '_rewrite.tpl';
     } elseif ($rewrite == 'errordocs') {
         $template = 'htaccess' . $htaccess_cgi . '_errordocs.tpl';
     } else {
