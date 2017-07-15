@@ -3660,7 +3660,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . " (2)</span>\n";
             }
 
-            // do we still need this? YES, it is definitely false, so we would not need the ternary ///////////////// should already be done, maybe just paranoid :g
+            // do we still need this? YES, it is definitely false, so we would not need the ternary - should already be done, maybe just paranoid :g
             // Rename newDir + file name in case it is called by the Bulk Move and not by rename
             $newDirFile = (false === strpos($newDir, $file['name'])) ? $newDir . $file['name'] : $newDir;
 
