@@ -1,6 +1,10 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix the plugin package xml for the remote raw changelog path
+
+  * Fix the plugin package xml creation to better indent
+
   * Fix old MediaLibrary synchroniser bug with "virtual" hotlink data,
     to not auto-remove such items from the image database table, when
     accessing the imageList generator to re-/build the MediaLibrary.
