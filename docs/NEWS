@@ -1,6 +1,11 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Convert debugging to use the debug $serendipity['logger'] option
+    for the MediaLibrary and trackbacks APIs, and in Spartacus for
+    remote URL requests. They still have to get enabled via "local"
+    functions adhoc debug true settings to start their logging.
+
   * Set and add remote ChangeLog / documentation links for
     upgradable plugins.
 
