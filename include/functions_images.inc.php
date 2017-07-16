@@ -3943,6 +3943,10 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         if ($oldDir !== null) {
             echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVE_ENTRIES, count($entries)) . "</span>\n";
         } else {
+            // This first is renaming file event - pushes message to layer - (not really true, but better than nothing, or adding another constant just for this case)
+            if ($oldDir === null) {
+                echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DONE . '! ' . sprintf(FILE_UPLOADED, $file['name'], $_file['name']) . "</span>\n";
+            }
             if (count($entries) > 0) {
                 echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_FILE_RENAME_ENTRY, count($entries)) . "</span>\n";
             }
