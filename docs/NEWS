@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fixed default theme typo bug, added by trackback escapement commit
+
   * Convert debugging to use the debug $serendipity['logger'] option
     for the MediaLibrary and trackbacks APIs, and in Spartacus for
     remote URL requests. They still have to get enabled via "local"
