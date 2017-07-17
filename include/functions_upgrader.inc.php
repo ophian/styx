@@ -344,18 +344,14 @@ $dead_files_230hta = array(
     'plugins/serendipity_event_externalauth/.htaccess',
     'plugins/serendipity_event_facebook/.htaccess',
     'plugins/serendipity_event_faq/.htaccess',
-
-/*    'plugins/serendipity_event_faq/img/.htaccess',*/
-
+    'plugins/serendipity_event_faq/img/.htaccess',
     'plugins/serendipity_event_filter_entries/.htaccess',
     'plugins/serendipity_event_findmore/.htaccess',
     'plugins/serendipity_event_flattr/.htaccess',
     'plugins/serendipity_event_flickr/.htaccess',
     'plugins/serendipity_event_forgotpassword/.htaccess',
     'plugins/serendipity_event_forum/.htaccess',
-
-/*    'plugins/serendipity_event_forum/img/.htaccess',*/
-
+    'plugins/serendipity_event_forum/img/.htaccess',
     'plugins/serendipity_event_freetag/.htaccess',
     'plugins/serendipity_event_geotag/.htaccess',
     'plugins/serendipity_event_geourl/.htaccess',
