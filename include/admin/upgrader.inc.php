@@ -302,8 +302,8 @@ $tasks = array(
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
                     'function'  => '',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"comments.tpl"</em> and <em>"comments_by_authors.tpl"</em> now use some slightly changed variables,',
-                    'desc'      => 'to check and set the "serendipity_comment_author_self" class. Please make sure to check both your files, if have in your custom theme.'),
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"comments.tpl"</em> and <em>"comments_by_authors.tpl"</em>',
+                    'desc'      => 'now use some slightly changed variables, to check and set the "serendipity_comment_author_self" class. Please make sure to check both your files, if have in your custom theme.'),
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_upgrader_rename_plugins',
