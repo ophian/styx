@@ -337,8 +337,8 @@ $tasks = array(
             array(  'version'   => '2.2.0',
                     'type'      => 'TEMPLATE_NOTICE',
                     'function'  => '',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"plugin_staticpage.tpl"</em> and its siblings were changed regarding separator spaces in the breadcrumb navigation.',
-                    'desc'      => 'Keep your own / or copy theme files in touch.'),
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"plugin_staticpage.tpl"</em> and its siblings were changed',
+                    'desc'      => 'regarding separator spaces in the breadcrumb navigation. Keep your own / or copy theme files in touch.'),
 
             array(  'version'   => '2.2.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
