@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.54');
+        $propbag->add('version',       '2.55');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -420,7 +420,7 @@ class serendipity_event_spartacus extends serendipity_event
         }
         $url_ip = gethostbyname($url_hostname);
         if ($debug) {
-            $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHING, 'UTF-8', LANG_CHARSET), '<a target="_blank" href="' . $url . '">' . basename($url) . '</a>'));
+            $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHING, 'UTF-8', LANG_CHARSET), $url));
         }
         if (file_exists($target) && filesize($target) > 0 && filemtime($target) >= (time()-$cacheTimeout)) {
             $data = file_get_contents($target);
@@ -1070,9 +1070,8 @@ class serendipity_event_spartacus extends serendipity_event
             $gitloc = '';
         }
         foreach($files AS $file) {
-            $url    = $mirror . '/' . $sfloc . '/' . $gitloc . $file . $cvshack;
-            $target = $pdir . $file;
-            $target = $this->fixUrl($target);
+            $url    = $this->fixUrl($mirror . '/' . $sfloc . '/' . $gitloc . $file . $cvshack);
+            $target = $this->fixUrl($pdir . $file);
             $this->rmkdir($pdir . $plugin_to_install,$sub);
             $this->fileperm($pdir . $plugin_to_install, true);
             $this->fetchfile($url, $target);
