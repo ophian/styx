@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Restrict edit and reply actions to type comments only in the backend
+    comment list.
+
   * Fixed default theme typo bug, added by trackback escapement commit
 
   * Convert debugging to use the debug $serendipity['logger'] option
