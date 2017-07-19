@@ -1737,6 +1737,9 @@ summary {
 .plugin_info {
     margin: 0 0 1em;
 }
+.plugin_info.plainList li {
+    width: 100%;
+}
 
 fieldset p,
 .media_file_meta > ul {
