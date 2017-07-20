@@ -196,6 +196,8 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             // If a foreign plugin is upgradable, keep the new version number.
             if (isset($foreignPlugins['pluginstack'][$class_data['name']]) && $foreignPlugins['pluginstack'][$class_data['name']]['upgradable']) {
                 $class_data['upgrade_version'] = $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'];
+                // remember temporary, in case the update is not done immediately
+                $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
             }
 
             $props = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $foreignPlugins);
@@ -227,11 +229,16 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $props['installable']  = !($props['stackable'] === false && $_installed);
             $props['requirements'] = unserialize($props['requirements']);
             $props['changelog']    = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
+            // read temporary session stored data, in case the plugin update was not accessed immediately
+            if (empty($props['changelog'])) {
+                $props['changelog'] = $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'];
+            }
             // cut and prep an existing constant, since we dont have this often...
             if (!empty($props['website'])) {
                 $props['exdoc'] = trim(end(explode(':', PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES)));
             }
-
+            // Fill this property, since it is locally there - but this does not mean we have to use it (although in addNew and upgrade only).
+            // But what we definitely want for upgradable plugins are the new remote changelog paths! @see above.
             if (empty($props['changelog']) && $serendipity['GET']['only_group'] != 'UPGRADE' && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
                 $props['changelog'] = 'plugins/' . $props['pluginPath'] . '/ChangeLog';
             }
