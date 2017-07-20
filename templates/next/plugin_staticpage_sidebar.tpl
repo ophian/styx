@@ -5,9 +5,9 @@
 {/if}
 {if !$staticpage_jsStr OR empty($staticpage_jsStr)}
     <ul class="plainList">
-        {if $frontpage_path}
+    {if $frontpage_path}
         <li><a href="{$frontpage_path}">{$CONST.PLUGIN_STATICPAGELIST_FRONTPAGE_LINKNAME}</a></li>
-        {/if}
+    {/if}
     {if is_array($staticpage_listContent) AND !empty($staticpage_listContent)}
     {foreach $staticpage_listContent AS $pageList}
         {if !empty($pageList.permalink)}
