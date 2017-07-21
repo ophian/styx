@@ -169,6 +169,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         }
         $foreignPluginsTemp = array();
         serendipity_plugin_api::hook_event('backend_plugins_fetchlist', $foreignPluginsTemp);
+        // in case of event upgrade this now is the event plugins array and following pluginstack is merged both
         $pluginstack    = array_merge((array)$foreignPluginsTemp['pluginstack'], $pluginstack);
         $errorstack     = array_merge((array)$foreignPluginsTemp['errorstack'], $errorstack);
         $foreignPlugins = array_merge($foreignPlugins, $foreignPluginsTemp);
@@ -230,10 +231,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $props['requirements'] = unserialize($props['requirements']);
             $props['changelog']    = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
             // read temporary session stored data, in case the plugin update was not accessed immediately
-            if (empty($props['changelog'])) {
+            if (empty($props['changelog']) && isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'])) {
                 $props['changelog'] = $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'];
             }
-            // cut and prep an existing constant, since we dont have this often...
+            // cut and prep an existing constant, since we don't have this very often...
             if (!empty($props['website'])) {
                 $props['exdoc'] = trim(end(explode(':', PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES)));
             }
@@ -414,11 +415,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             /* Load the new plugin */
             $plugin = &serendipity_plugin_api::load_plugin($inst);
             if (!is_object($plugin)) {
-                echo 'DEBUG: Plugin ' . serendipity_specialchars($inst) . ' not an object: ' . serendipity_specialchars(print_r($plugin, true))
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>DEBUG:</strong> Plugin ' . serendipity_specialchars($inst) . ' not an object: ' . serendipity_specialchars(print_r($plugin, true))
                     . '.<br />Input: ' . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br /><br />\n\n
                     This error can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin
                     was downloaded) or the inclusion of a file failed (permissions?)<br />\n";
-                echo "Backtrace:<br />\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br />";
+                echo "Backtrace:<br />\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br /></span>";
             }
             $bag = new serendipity_property_bag;
             $plugin->introspect($bag);
