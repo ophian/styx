@@ -437,9 +437,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             }
         } else {
             // destroy eventually stored session changelog path data
-            if (isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$serendipity['GET']['install_plugin']]['changelog'])) {
-                unset($_SESSION['foreignPlugins_remoteChangeLogPath'][$serendipity['GET']['install_plugin']]['changelog']);
-            }
+            unset($_SESSION['foreignPlugins_remoteChangeLogPath'][$serendipity['GET']['install_plugin']]['changelog']);
             // please note, in this plugins event hook you have to use die() after the redirect, if in need to force the direct config fallback, eg. see CKEditor plugin
             serendipity_plugin_api::hook_event('backend_plugins_update', $serendipity['GET']['install_plugin'], $fetchplugin_data);
         }
