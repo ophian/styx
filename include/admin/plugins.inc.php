@@ -284,10 +284,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $data['count_pluginstack'] = count($pluginstack);
     $data['errorstack'] = $errorstack;
 
-    if ($serendipity['GET']['only_group'] == 'UPGRADE') {
-        serendipity_plugin_api::hook_event('backend_pluginlisting_header_upgrade', $pluggroups);
-    }
-
     $available_groups = array_keys($pluggroups);
     $data['available_groups'] = $available_groups;
     $groupnames = array();
