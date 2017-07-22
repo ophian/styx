@@ -1,9 +1,6 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
-  * Changed core PEAR XML/RPC.php file to support the $proxy_password var,
-    which is used by the PEAR HTTP/Request2 lib.
-
   * Prepared Styx additional_plugins to remove old HTTP/Request(1) PEAR
     lib in next Styx version.
 
