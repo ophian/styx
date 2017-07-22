@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Prepared Styx additional_plugins to remove old HTTP/Request(1) PEAR
+    lib in next Styx version.
+
   * Restrict edit and reply actions to type comments only in the backend
     comment list.
 
