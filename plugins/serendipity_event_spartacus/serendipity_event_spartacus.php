@@ -175,7 +175,7 @@ class serendipity_event_spartacus extends serendipity_event
             case 'remote_url':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL);
-                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC . sprintf(PLUGIN_EVENT_SPARTACUS_CSPRNG, 'spartacus_', str_replace(array('/', '+', '='), '', base64_encode(openssl_random_pseudo_bytes(16)))));
+                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC . sprintf(PLUGIN_EVENT_SPARTACUS_CSPRNG, 'spartacus_', str_replace(array('/', '+', '='), '', base64_encode((function_exists('random_bytes') ? random_bytes(16) : openssl_random_pseudo_bytes(16))))));
                 $propbag->add('default',     'spartacus_remote');
                 break;
 
