@@ -46,7 +46,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_PLUGINS', 'Spartacus verwenden, um Plugins zu laden?');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES', 'Spartacus verwenden, um Themes zu laden?');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE', 'Fernabfrage für Versions-Informationen der Plugins zulassen?');
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'Wenn aktiviert, können Besucher von %s Versions-Informationen über alle installierten Plugins abrufen. Es wird dringend empfohlen, diese URL mittels benutzerdefinierten .htaccess Regeln vor unauthorisiertem Zugriff zu schützen.');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'Wenn aktiviert, können Besucher von "%s" Versions-Informationen über alle installierten Plugins abrufen. Es wird dringend empfohlen, diese URL mittels benutzerdefinierten .htaccess Regeln vor unauthorisiertem Zugriff zu schützen.');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL', 'Pfad zum Fernabruf der Versions-Information');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC', 'Gibt den letzten ("geheimen") Teil der URI an, welche die Benutzer wissen müssen, um den Fernabruf der Versions-Informationen durchzuführen.');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CONNECT', 'FTP Fehler: Kann nicht per FTP verbinden.');
@@ -60,4 +60,6 @@
 @define('PLUGIN_EVENT_SPARTACUS_FTP_PASS', 'FTP Passwort');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR', 'FTP Serendipity Verzeichnis');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR_DESC', 'Beim Login über FTP ist das Startverzeichnis nicht notwendigerweise das Serendipity-Verzeichnis. In diesem Fall ist es hier möglch, den Pfad vom FTP-Verzeichnis zum Serendipity-Verzeichnis anzugeben.');
+
+@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Bei Aufruf dieser Seite erneuerter String: "%s%s". Kopieren Sie diese "gehashte" Zeichenkette (ohne ""), um sie zusammen mit dem serendipity_event_plugup Plugin für einen "Dashboard"-Check-Plugin-Update Hinweis zu nutzen. Erlauben Sie dafür obige Fernabfrage Option. Solch eine Seite enthält, im Gegensatz zu der der originalen "spartacus_remote" Zeichenkette, keine nennenswert zu schützenden Information, außer der, dass ganz allgemein Plugin Updates vorliegen.)');
 

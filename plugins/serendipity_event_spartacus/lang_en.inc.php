@@ -43,7 +43,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES', 'Enable the use of Spartacus for fetching themes?');
 
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE', 'Enable remote plugin version information');
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'If enabled, visitors to %s can see the version information of all installed plugins. You might want to protect this URL through custom .htaccess rules for unprivileged access.');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'If enabled, visitors to "%s" can see the version information of all installed plugins. You might want to protect this URL through custom .htaccess rules for unprivileged access.');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL', 'Secret key to Remote plugin version information');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC', 'Enter a special URI component that people need to know to access your remote management version information output.');
 
@@ -67,7 +67,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB', 'This plugin supports the Serendipity Cronjob plugin. Go and install it if you want scheduled execution.');
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB_WHEN', 'Execute regular cronjob to check for plugin updates, and mail those to the configured blog\'s mail address (%s)?');
 
-@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Random string example: "%s%s". Please take this "obfuscated" string to use it remotely with the serendipity_event_plugup Dashboard-Plugin Check-Update notification plugin and allow the remote option above. Such page does not provide any details like name or version, like the origin "spartacus_remote" string.)');
+@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Random string by loading this option page: "%s%s". Please take this "obfuscated" hash-string (w/o quotes) to use it remotely with the serendipity_event_plugup Dashboard-Plugin Check-Update notification plugin and allow the remote option above. Such page does not provide any details like name or version, like the origin "spartacus_remote" string and you don\'t need to care about further security.)');
 
 @define('PLUGIN_EVENT_SPARTACUS_CHECK', 'Update plugins');
 

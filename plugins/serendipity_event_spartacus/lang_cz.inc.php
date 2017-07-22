@@ -45,7 +45,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES', 'Povolit stahování ¹ablon pomocí modulu SPARTACUS?');
 
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE', 'Povolit vzdálené prohlí¾ení informací o verzích pluginù');
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'Pokud je povoleno, náv¹tìvníci %s si mohou zobrazit informace o verzích v¹ech nainstalovaných plugin. Není ¹patný nápad ochránit tuto URL adresu pomocí souboru .htaccess proti ne¾ádoucím pøístupùm.');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'Pokud je povoleno, náv¹tìvníci "%s" si mohou zobrazit informace o verzích v¹ech nainstalovaných plugin. Není ¹patný nápad ochránit tuto URL adresu pomocí souboru .htaccess proti ne¾ádoucím pøístupùm.');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL', 'Tajný kód ke vzdálenému pøístupu k informacím o verzích pluginù');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC', 'Zadejte speciální URI komponentu, kterou musí lidé znát a zadat, aby mohli zobrazit informace o verzích pluginù.');
 
