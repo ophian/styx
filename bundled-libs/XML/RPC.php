@@ -670,7 +670,7 @@ class XML_RPC_Client extends XML_RPC_Base {
      * A password for accessing the proxy server
      * @var string
      */
-    var $proxy_password = '';
+    var $proxy_pass = '';
 
     /**
      * The error number, if any
@@ -717,17 +717,17 @@ class XML_RPC_Client extends XML_RPC_Base {
      *                              Defaults to 8080 for http:// connections and
      *                              443 for https:// and ssl:// connections.
      * @param string  $proxy_user  a user name for accessing the proxy server
-     * @param string  $proxy_password  a password for accessing the proxy server
+     * @param string  $proxy_pass  a password for accessing the proxy server
      *
      * @return void
      */
     function __construct($path, $server, $port = 0,
                             $proxy = '', $proxy_port = 0,
-                            $proxy_user = '', $proxy_password = '')
+                            $proxy_user = '', $proxy_pass = '')
     {
         $this->path       = $path;
         $this->proxy_user = $proxy_user;
-        $this->proxy_password = $proxy_password;
+        $this->proxy_pass = $proxy_pass;
 
         preg_match('@^(http://|https://|ssl://)?(.*)$@', $server, $match);
         if ($match[1] == '') {
@@ -1012,7 +1012,7 @@ class XML_RPC_Client extends XML_RPC_Base {
 
         if ($this->proxy && $this->proxy_user) {
             $this->headers .= 'Proxy-Authorization: Basic '
-                     . base64_encode("$this->proxy_user:$this->proxy_password")
+                     . base64_encode("$this->proxy_user:$this->proxy_pass")
                      . "\r\n";
         }
 
