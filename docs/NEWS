@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Smarty Bugfix-Update to 3.1.32-dev-14 (including temporary Styx fix)
+
   * Prepared Styx additional_plugins to remove old HTTP/Request(1) PEAR
     lib in next Styx version.
 
