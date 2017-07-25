@@ -19,7 +19,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian');
-        $propbag->add('version',        '1.09');
+        $propbag->add('version',        '1.10');
         $propbag->add('requirements',   array(
             'serendipity' => '2.0.99',
             'smarty'      => '3.1.0',
@@ -161,7 +161,7 @@ class serendipity_event_plugup extends serendipity_plugin
                     // - try to unset them here in the 'backend_plugins_update' hook via the plugin api for Spartacus cases!
 ?>
 
-    <section id="dashboard_plugup" class="clearfix dashboard_widget">
+    <section id="dashboard_plugup" class="clearfix dashboard_widget<?php if ($num == 0) { echo ' blend'; } ?>">
         <h3><?php echo PLUGIN_DASHBOARD_PLUGUP_BOX_TITLE; ?></h3>
         <div id="dash_plup" class="plugups">
             <div id="plup_header" class="plup_header">
