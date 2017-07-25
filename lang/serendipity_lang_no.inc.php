@@ -1106,7 +1106,7 @@
 @define('MULTICHECK_NO_ITEM', 'No item selected, please check at least one. <a href="%s">Return to previous page</a>.');
 @define('MULTICHECK_NO_DIR', 'No directory selected, please choose one. <a href="%s">Return to previous page</a>.');
 @define('BULKMOVE_INFO', 'Bulk-move info');
-@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action cannot be undone, just like bulk-deletion of multiple files. All checked files will be physically moved, and referring blog entries are rewritten to point to the new location.');
+@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring blog entries are rewritten to point to the new location. The entrychange is supported by staticpage versions up from v.4.52.');
 @define('FIRST_PAGE', 'First Page');
 @define('LAST_PAGE', 'Last Page');
 @define('MEDIA_PROPERTIES_DONE', 'Properties of #%d changed.');
