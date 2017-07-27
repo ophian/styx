@@ -832,7 +832,7 @@ pre {
 #trackbacks article,
 #comments article {
     background-color: #FFF;
-    border: 2px solid #acacac;
+    border: 2px solid #ACACAC;
     border-radius: 5px 5px 5px 5px;
     margin: 0 0 1em;
     padding: 0.4375rem 0.625rem;
@@ -855,7 +855,7 @@ pre {
 
 .comment_avatar {
     background-color: #DDD;
-    border: 2px solid #acacac;
+    border: 2px solid #ACACAC;
     border-radius: 4px 4px 4px 4px;
     color: #333;
     float: right;
@@ -865,6 +865,22 @@ pre {
     height: 30px;
     width: 30px; }
 /* comments styling add end */
+
+/* comment_author styling start */
+#comments article.comment.serendipity_comment_author_self {
+    background-color: #CCE0FF;
+    border-color: #CC8C8C; }
+#comments article.comment.serendipity_comment_author_self.odd {
+    background-color: #DFEFFF; }
+#comments article.comment.serendipity_comment_author_self:before {
+    border-color: #CC8C8C transparent transparent; }
+#comments article.comment.serendipity_comment_author_self.odd:before {
+    border-color: #CC8C8C transparent transparent; }
+#comments article.comment.serendipity_comment_author_self:after {
+    border-color: #CCE0FF transparent transparent; }
+#comments article.comment.serendipity_comment_author_self.odd:after {
+    border-color: #DFEFFF transparent transparent; }
+/* comment_author styling end */
 
 .js .trackback-hint {
   display: none; }

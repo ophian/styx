@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Added serendipity_comment_author_self class to the "next" theme
+
   * Allow dashboard plugup widget to fade away when empty (alike the
     dashboard_ticker in non-standard widget mode).
 
