@@ -1,6 +1,14 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Added an easy and global available image preparing class, called
+    "serendipity_image_block", added to the style_fallback.css file
+    and the wysiwyg mode editor screen.
+    This new class allows to simply add what is called a "poor man's
+    gallery" using inner serendipity_image_left or serendipity_image_right
+    floated images in a row. Just enclose them with a generic container div
+    <div class="serendipity_image_block"> ... </div>.
+
   * Add missing escape of the "$staticpage_pagetitle" var for all related
     template files in "clean_blog" and "timeline", some in "default-php"
     and the "plugin_staticpage.tpl" file in the "next" theme.

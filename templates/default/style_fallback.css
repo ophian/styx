@@ -88,6 +88,15 @@
     text-align: center;
 }
 
+/* This is used to clasp "poor man's" galleries using serendipity_image_left or right floated images */
+.serendipity_image_block {
+    clear: both;
+    display: flex;
+}
+.serendipity_image_block .serendipity_image_link {
+    margin: 5px 5px 5px 0;
+}
+
 /* Disables spamblock and other user notifications for the adduser plugin forms, since more or less needed for comment or contact forms only */
 #adduserform .serendipity_comment_emoticate,
 #adduserform .serendipity_comment_s9ymarkup,

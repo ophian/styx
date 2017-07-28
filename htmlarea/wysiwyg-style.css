@@ -96,3 +96,12 @@ img, video { height: auto; }
     float: right;
     margin: 0 0 1em 2em;
 }
+
+/* This is used to clasp "poor man's" galleries using serendipity_image_left or right floated images */
+.serendipity_image_block {
+    clear: both;
+    display: flex;
+}
+.serendipity_image_block .serendipity_image_link {
+    margin: .5em .5em .5em 0;
+}
