@@ -1,10 +1,10 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
-  * Add missing escape of the "$staticpage_pagetitle" for all related
-    template files in "clean_blog" and "timeline" and the
-    "plugin_staticpage.tpl" file in the "next" theme.
-    Please keep your copy templates synced.
+  * Add missing escape of the "$staticpage_pagetitle" var for all related
+    template files in "clean_blog" and "timeline", some in "default-php"
+    and the "plugin_staticpage.tpl" file in the "next" theme.
+    Please keep your copy-templates synced.
 
   * Added serendipity_comment_author_self class to the "next" theme
 

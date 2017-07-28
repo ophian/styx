@@ -1,7 +1,7 @@
 <?php /* frontend plugin_staticpage_aboutpage.tpl (overview) file v. 1.05, 2015-01-20 */ ?>
 <article id="staticpage_<?= serendipity_makeFilename($GLOBALS['tpl']['staticpage_pagetitle']); ?>" class="clearfix serendipity_staticpage<?php if ($GLOBALS['tpl']['staticpage_articleformat']): ?> serendipity_entry<?php endif; ?>">
     <header>
-        <h2><?php if ($GLOBALS['tpl']['staticpage_articleformat']): ?><?php if ($GLOBALS['tpl']['staticpage_articleformattitle']): ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_articleformattitle']) ?><?php else: ?><?= $GLOBALS['tpl']['staticpage_pagetitle'] ?><?php endif; ?><?php else: ?><?php if ($GLOBALS['tpl']['staticpage_headline']): ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_headline']) ?><?php else: ?><?= $GLOBALS['tpl']['staticpage_pagetitle'] ?><?php endif; ?><?php endif; ?></h2>
+        <h2><?php if ($GLOBALS['tpl']['staticpage_articleformat']): ?><?php if ($GLOBALS['tpl']['staticpage_articleformattitle']): ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_articleformattitle']) ?><?php else: ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_pagetitle']) ?><?php endif; ?><?php else: ?><?php if ($GLOBALS['tpl']['staticpage_headline']): ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_headline']) ?><?php else: ?><?= serendipity_specialchars($GLOBALS['tpl']['staticpage_pagetitle']) ?><?php endif; ?><?php endif; ?></h2>
     <?php if (is_array($GLOBALS['tpl']['staticpage_navigation']) && ($GLOBALS['tpl']['staticpage_shownavi'] || $GLOBALS['tpl']['staticpage_show_breadcrumb'])): ?>
         <div id="staticpage_nav">
         <?php if ($GLOBALS['tpl']['staticpage_shownavi']): ?>
