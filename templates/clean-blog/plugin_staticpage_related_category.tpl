@@ -1,6 +1,6 @@
 <article id="staticpage_{$staticpage_pagetitle|makeFilename}" class="serendipity_staticpage{if $staticpage_articleformat} post serendipity_entry{/if}">
     <header>
-        <h2>{if $staticpage_articleformat}{if $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}{else}{$staticpage_pagetitle}{/if}{else}{if $staticpage_headline}{$staticpage_headline|escape}{else}{$staticpage_pagetitle}{/if}{/if}</h2>
+        <h2>{if $staticpage_articleformat}{if $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}{else}{$staticpage_pagetitle|escape}{/if}{else}{if $staticpage_headline}{$staticpage_headline|escape}{else}{$staticpage_pagetitle|escape}{/if}{/if}</h2>
         {if $staticpage_show_breadcrumb}
 
         <div class="staticpage_breadcrumbs">

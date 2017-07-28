@@ -1,6 +1,6 @@
 <article id="page-{$staticpage_pagetitle|makeFilename}" class="post clearfix">
     <header>
-        <h2 class="post-title"><a href="{$currpage}">{if $staticpage_articleformat}{if $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}{else}{$staticpage_pagetitle}{/if}{else}{if $staticpage_headline}{$staticpage_headline|escape}{else}{$staticpage_pagetitle}{/if}{/if}</a></h2>
+        <h2 class="post-title"><a href="{$currpage}">{if $staticpage_articleformat}{if $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}{else}{$staticpage_pagetitle|escape}{/if}{else}{if $staticpage_headline}{$staticpage_headline|escape}{else}{$staticpage_pagetitle|escape}{/if}{/if}</a></h2>
     {if is_array($staticpage_navigation) AND ($staticpage_shownavi OR $staticpage_show_breadcrumb)}
         <div id="staticpage_nav">
         {if $staticpage_shownavi}
@@ -12,7 +12,7 @@
         {/if}
         {if $staticpage_show_breadcrumb}
             <div class="staticpage_navigation_breadcrumb">
-                <a href="{$serendipityBaseURL}">{$CONST.HOMEPAGE}</a>{if !empty($staticpage_navigation.crumbs)} &#187; {/if} 
+                <a href="{$serendipityBaseURL}">{$CONST.HOMEPAGE}</a>{if !empty($staticpage_navigation.crumbs)} &#187; {/if}
             {foreach $staticpage_navigation.crumbs AS $crumb}
                 {if !$crumb@first}&#187; {/if}{if $crumb.id != $staticpage_pid}<a href="{$crumb.link}">{$crumb.name|escape}</a>{else}{$crumb.name|escape}{/if}
             {/foreach}
