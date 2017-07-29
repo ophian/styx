@@ -1,5 +1,5 @@
 /**
- * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.0 on 2014-08-28
+ * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.1 on 2017-07-29
  */
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
@@ -18,7 +18,7 @@ img, video { height: auto; }
 .serendipity_imageComment_right {
     background: transparent;
     border: 0 none;
-    padding: 0!important;
+    padding: 0 !important;
 }
 
 .serendipity_image_left,
@@ -35,33 +35,23 @@ img, video { height: auto; }
     margin: 0 auto 1em auto;
 }
 
-.plain-images .serendipity_image_left,
-.plain-images .serendipity_image_right,
-.plain-images .serendipity_image_center,
-.plain-images .serendipity_imageComment_center,
-.plain-images .serendipity_imageComment_left,
-.plain-images .serendipity_imageComment_right {
-    border: 1px solid #aaa;
+.serendipity_imageComment_center {
+    display: block;
+    margin: 0 auto 1em auto;
 }
 
-.plain-images .serendipity_imageComment_txt {
-    background: #ddd;
+.serendipity_imageComment_img img {
+    border: none !important;
+    margin: 0 !important;
 }
 
-.fancy-images .serendipity_image_left,
-.fancy-images .serendipity_image_right,
-.fancy-images .serendipity_image_center,
-.fancy-images .serendipity_imageComment_img {
-    -webkit-box-shadow: 0 0 2px 1px rgba(0,0,0,.5);
-    -moz-box-shadow: 0 0 2px 1px rgba(0,0,0,.5);
-    box-shadow: 0 0 2px 1px rgba(0,0,0,.5);
-}
-
-.no-boxshadow .fancy-images .serendipity_image_left,
-.no-boxshadow .fancy-images .serendipity_image_right,
-.no-boxshadow .fancy-images .serendipity_image_center,
-.no-boxshadow .fancy-images .serendipity_imageComment_img {
-    border: 1px solid #aaa;
+.serendipity_imageComment_txt {
+    border-top: 0 none;
+    color: #222;
+    font-size: .8125em;
+    line-height: 1.8462;
+    padding: .2301em;
+    text-align: center;
 }
 
 .serendipity_imageComment_center,

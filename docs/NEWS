@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix CKEditor WYSIWYG-Editor mode styles regarding image comments
+
   * Added an easy and global available image preparing class, called
     "serendipity_image_block", added to the style_fallback.css file
     and the wysiwyg mode editor screen.
