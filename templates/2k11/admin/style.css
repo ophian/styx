@@ -949,25 +949,29 @@ textarea[disabled] {
     cursor: default;
 }
 
-/* Special cases rules in media file properties and media directory edit */
-input#mediaPropertyTITLE,
-input#mediaPropertyCOPYRIGHT,
-input#mediaPropertyALT,
-input#diredit_new {
-    resize: horizontal;
-    width: 25em;
-}
-input#mediaPropertyTITLE:active,
-input#mediaPropertyCOPYRIGHT:active,
-input#mediaPropertyALT:active,
-input#diredit_new:active {
+/* Special cases rules in media file properties, media entry insert and media directory edit */
+#image_as_link .form_field input#media_file_path,
+#image_as_link .form_field input#media_file_path:focus,
+#image_directory_edit_form .form_field input#diredit_new,
+#image_directory_edit_form .form_field input#diredit_new:focus  {
     width: auto;
+    min-width: 21em;
 }
-input#mediaPropertyTITLE:focus,
-input#mediaPropertyCOPYRIGHT:focus,
-input#mediaPropertyALT:focus,
-input#diredit_new:focus {
-    min-width: 25em;
+#mediaPropertyForm .form_field input#mediaPropertyTITLE,
+#mediaPropertyForm .form_field input#mediaPropertyTITLE:focus,
+#mediaPropertyForm .form_field input#mediaPropertyCOPYRIGHT,
+#mediaPropertyForm .form_field input#mediaPropertyCOPYRIGHT:focus,
+#mediaPropertyForm .form_field input#mediaPropertyALT,
+#mediaPropertyForm .form_field input#mediaPropertyALT:focus {
+    width: 25em;
+    min-width: 20.75em;
+}
+#image_as_link .form_field input#media_file_path:active,
+#mediaPropertyForm .form_field input#mediaPropertyTITLE:active,
+#mediaPropertyForm .form_field input#mediaPropertyCOPYRIGHT:active,
+#mediaPropertyForm .form_field input#mediaPropertyALT:active,
+#image_directory_edit_form .form_field input#diredit_new:active {
+    width: auto;
 }
 
 /* Separate rule for FF + IE. Cannot stack with WebKit. */
