@@ -949,7 +949,9 @@ textarea[disabled] {
     cursor: default;
 }
 
-/* Special cases rules in media file properties, media entry insert and media directory edit */
+/* Special case rules in media file properties, media entry insert and media directory edit */
+#serendipity_alt,
+#serendipity_title,
 #image_as_link .form_field input#media_file_path,
 #image_as_link .form_field input#media_file_path:focus,
 #image_directory_edit_form .form_field input#diredit_new,
