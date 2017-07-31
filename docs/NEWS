@@ -22,7 +22,7 @@ Version 2.3 ()
   * Allow dashboard plugup widget to fade away when empty (alike the
     dashboard_ticker in non-standard widget mode).
 
-  * Smarty Bugfix-Update to 3.1.32-dev-14 (including temporary Styx fix)
+  * Smarty Bugfix-Update to 3.1.32-dev-15 (including temporary Styx fix)
 
   * Prepared Styx additional_plugins to remove old HTTP/Request(1) PEAR
     lib in next Styx version.
