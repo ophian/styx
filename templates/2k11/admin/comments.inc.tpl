@@ -129,7 +129,7 @@
                         {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
                             <span class="comment_status">{$CONST.COMMENTS_FILTER_NEED_APPROVAL}</span>
                         {/if}
-                            <div id="comment_data_{$comment.id}" class="additional_info">
+                            <div id="comment_data_{$comment.id}" class="clearfix additional_info">
                                 <dl class="comment_data clearfix">
                                     <dt>{$CONST.AUTHOR}:</dt>
                                     <dd>{$comment.author|escape|truncate:72:"&hellip;"} {$comment.action_author}</dd>
