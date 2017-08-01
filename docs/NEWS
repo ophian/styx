@@ -10,6 +10,7 @@ Version 2.3 ()
     gallery" using inner serendipity_image_left or serendipity_image_right
     floated images in a row. Just enclose them with a generic container div
     <div class="serendipity_image_block"> ... </div>.
+    The PLAIN-EDITOR core added buttons were changed to support this wrap.
     The "next" themes was updated to support this adding image margins.
 
   * Add missing escape of the "$staticpage_pagetitle" var for all related

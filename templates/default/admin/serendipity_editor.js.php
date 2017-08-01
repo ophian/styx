@@ -158,6 +158,16 @@
     }
 
     // Used by non-wysiwyg editor toolbar buttons to wrap selection
+    // in a poor mans's <div class="serendipity_image_block"> flex gallery element.
+    serendipity.wrapInsGallery = function(txtarea) {
+        if (serendipity.getSelection($(txtarea) ) != '') {
+            serendipity.wrapSelection(txtarea, '<div class="serendipity_image_block">', '</div>');
+        } else {
+            serendipity.insertText(txtarea,'<div class="serendipity_image_block"></div>');
+        }
+    }
+
+    // Used by non-wysiwyg editor toolbar buttons to wrap selection
     // in <img> element (only); does not really "wrap", merely inserts
     // an <img> element before selected text
     serendipity.wrapInsImage = function(txtarea) {
