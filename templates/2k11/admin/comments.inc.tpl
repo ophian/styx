@@ -146,7 +146,7 @@
 
                             <div id="c{$comment.id}_summary" class="comment_summary">{$comment.summary|strip_tags:false}</div>
 
-                            <div id="c{$comment.id}_full" class="comment_full additional_info">{$comment.fullBody}</div>
+                            <div id="c{$comment.id}_full" class="clearfix comment_full additional_info">{$comment.fullBody}</div>
 
                             <ul class="plainList clearfix actions">
                                 <li><a class="button_link" href="{$comment.entrylink}" title="{$CONST.VIEW}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>
