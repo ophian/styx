@@ -430,6 +430,14 @@ div.serendipitySideBarItem {
 .serendipity_image_center {
     padding: .25em;
 }
+/* overwrite fallback gallery comment container margins and some of this comment styles */
+.serendipity_image_block .serendipity_imageComment_left,
+.serendipity_image_block .serendipity_imageComment_right {
+    margin-top: auto;
+    margin-right: unset;
+    background-color: unset;
+    padding-top: 0;
+}
 
 .serendipity_center {
     margin-left: auto;
