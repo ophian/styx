@@ -994,17 +994,19 @@ details summary {
   color: #222;
   text-align: center; }
 
-.serendipity_image_block .serendipity_image_link {
-    margin: .5em .5em .5em 0; }
-
 .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
-  margin: .5em .5em .5em 0;
   border: 1px solid #aaa;
   box-sizing: border-box; }
 
 .serendipity_imageComment_center, .serendipity_imageComment_left, .serendipity_imageComment_right {
   height: auto;
   max-width: 100%; }
+
+/* overwrite fallback gallery comment container margins */
+.serendipity_image_block .serendipity_imageComment_left,
+.serendipity_image_block .serendipity_imageComment_right {
+    margin-top: 1rem;
+    margin-right: unset; }
 
 .fluid-width-video-wrapper, video, audio {
   margin: 16px 0;
@@ -1163,6 +1165,12 @@ details summary {
 }
 /* comments styling add end */
 
+@media only screen and (min-width: 544px) {
+    .serendipity_image_block .serendipity_imageComment_left,
+    .serendipity_image_block .serendipity_imageComment_right {
+        margin-top: auto; }
+}
+
 @media screen and (min-width: 768px) {
   html {
     padding: 16px 0;
@@ -1288,6 +1296,13 @@ details summary {
   #archives .odd {
     clear: left; }
 
+  .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
+    margin: 9px 0 0 0;
+    margin: .5rem 0 0 0; }
+    .serendipity_image_block .serendipity_image_link {
+        margin: 9px 0 0 0;
+        margin: .5rem 0 0 0; }
+
   .serendipity_image_left, .serendipity_imageComment_left {
     margin: 24px 16px 24px 0;
     margin: 1.5rem 1rem 1.5rem 0;
@@ -1306,6 +1321,12 @@ details summary {
 
   .serendipity_imageComment_left, .serendipity_imageComment_right {
     display: inline; }
+
+  .serendipity_image_block .serendipity_image_link .serendipity_image_left,
+  .serendipity_image_block .serendipity_image_link .serendipity_image_right,
+  .serendipity_image_block .serendipity_imageComment_left,
+  .serendipity_image_block .serendipity_imageComment_right {
+    margin: 0; }
 
   #secondary, #tertiary {
     padding: 0 16px;
