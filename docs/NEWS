@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Add gallery enhancement to WYSIWYG-Editor mode styles
+
   * Enhanced the new gallery, since in its simple form it was a single line
     gallery only, flexing the floated items in a single row.
     NOW all child containers, like comments, links or manually added generic
