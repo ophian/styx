@@ -1,6 +1,19 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Enhanced the new gallery, since in its simple form it was a single line
+    gallery only, flexing the floated items in a single row.
+    NOW all child containers, like comments, links or manually added generic
+    div or span elements, have a maximum size of 260px in width. Even direct
+    child image items have this maximum size set. This allows to put a bunch
+    of floated MediaLibrary elements into this gallery, which nicely flow
+    and break inside the entries space that is available in the theme itself.
+    All recommended themes - delivered by core releases - (and default) were
+    checked working fine with this or had to be slightly modified. (Next/default)
+    You can still change or finetune this in your themes stylesheets.
+
+  * Introduce a PLAIN-Editor "toolbar" button to support this gallery wrap.
+
   * Fix CKEditor WYSIWYG-Editor mode styles regarding image comments
 
   * Added an easy and global available image preparing class, called
@@ -10,8 +23,6 @@ Version 2.3 ()
     gallery" using inner serendipity_image_left or serendipity_image_right
     floated images in a row. Just enclose them with a generic container div
     <div class="serendipity_image_block"> ... </div>.
-    The PLAIN-Editor core added buttons were changed to support this wrap.
-    The "next" theme was updated to support this by adding some margins.
 
   * Add missing escape of the "$staticpage_pagetitle" var for all related
     template files in "clean_blog" and "timeline", some in "default-php"
