@@ -121,9 +121,9 @@
     max-width: 260px !important; /* Make sure nobody resizes an images in the editor - overwrite inline style width */
     width: auto !important;
 }
-/* Workaround styles for older Chrome. Direct images wrapped manually inside a container - generic div preferred */
-.serendipity_image_block > div,
-.serendipity_image_block > span {
+/* Workaround styles for older Chrome. Direct images manually wrapped inside a simple unstyled container - generic div preferred */
+.serendipity_image_block > div:not([id]):not([class]):not([style]),
+.serendipity_image_block > span:not([class]):not([style]) {
     min-width: 100px;
     max-width: 260px;
 }
