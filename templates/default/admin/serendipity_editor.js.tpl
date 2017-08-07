@@ -319,22 +319,22 @@
             var starget = f['serendipity[htmltarget]'] ? f['serendipity[htmltarget]'].value : 'serendipity[' + textarea + ']';
 
             switch(f['serendipity[filename_only]'].value) {
-            case 'true':
-                parent.self.opener.serendipity.serendipity_imageSelector_addToElement(img, f['serendipity[htmltarget]'].value);
-                parent.self.close();
-                return true;
-            case 'id':
-                parent.self.opener.serendipity.serendipity_imageSelector_addToElement(f['imgID'].value, starget);
-                parent.self.close();
-                return true;
-            case 'thumb':
-                parent.self.opener.serendipity.serendipity_imageSelector_addToElement(f['thumbName'].value, starget);
-                parent.self.close();
-                return true;
-            case 'big':
-                parent.self.opener.serendipity.serendipity_imageSelector_addToElement(f['imgName'].value, starget);
-                parent.self.close();
-                return true;
+                case 'true':
+                    parent.self.opener.serendipity.serendipity_imageSelector_addToElement(img, f['serendipity[htmltarget]'].value);
+                    parent.self.close();
+                    return true;
+                case 'id':
+                    parent.self.opener.serendipity.serendipity_imageSelector_addToElement(f['imgID'].value, starget);
+                    parent.self.close();
+                    return true;
+                case 'thumb':
+                    parent.self.opener.serendipity.serendipity_imageSelector_addToElement(f['thumbName'].value, starget);
+                    parent.self.close();
+                    return true;
+                case 'big':
+                    parent.self.opener.serendipity.serendipity_imageSelector_addToElement(f['imgName'].value, starget);
+                    parent.self.close();
+                    return true;
             }
         }
 
@@ -361,22 +361,22 @@
             var itarget = '';
 
             switch (targetval) {
-            case 'js':
-                var itarget = ' onclick="F1 = window.open(\'' + f['serendipity[url]'].value + '\',\'Zoom\',\''
-                        + 'height=' + (parseInt(f['imgHeight'].value) + 15) + ','
-                        + 'width='  + (parseInt(f['imgWidth'].value)  + 15) + ','
-                        + 'top='    + (screen.height - f['imgHeight'].value) /2 + ','
-                        + 'left='   + (screen.width  - f['imgWidth'].value)  /2 + ','
-                        + 'toolbar=no,menubar=no,location=no,resize=1,resizable=1,scrollbars=yes\'); return false;"';
-                break;
-            case '_blank':
-                var itarget = ' target="_blank"';
-                break;
-            case 'plugin':
-                var itarget = ' id="s9yisphref' + imgID + '" onclick="javascript:this.href = this.href + \'&amp;serendipity[from]=\' + self.location.href;"';
-                prepend = '<a title="' + ilink + '" id="s9yisp' + imgID + '"></a>';
-                ilink   = f['baseURL'].value + 'serendipity_admin_image_selector.php?serendipity[step]=showItem&amp;serendipity[image]=' + imgID;
-                break;
+                case 'js':
+                    var itarget = ' onclick="F1 = window.open(\'' + f['serendipity[url]'].value + '\',\'Zoom\',\''
+                            + 'height=' + (parseInt(f['imgHeight'].value) + 15) + ','
+                            + 'width='  + (parseInt(f['imgWidth'].value)  + 15) + ','
+                            + 'top='    + (screen.height - f['imgHeight'].value) /2 + ','
+                            + 'left='   + (screen.width  - f['imgWidth'].value)  /2 + ','
+                            + 'toolbar=no,menubar=no,location=no,resize=1,resizable=1,scrollbars=yes\'); return false;"';
+                    break;
+                case '_blank':
+                    var itarget = ' target="_blank"';
+                    break;
+                case 'plugin':
+                    var itarget = ' id="s9yisphref' + imgID + '" onclick="javascript:this.href = this.href + \'&amp;serendipity[from]=\' + self.location.href;"';
+                    prepend = '<a title="' + ilink + '" id="s9yisp' + imgID + '"></a>';
+                    ilink   = f['baseURL'].value + 'serendipity_admin_image_selector.php?serendipity[step]=showItem&amp;serendipity[image]=' + imgID;
+                    break;
             }
 
             var img = prepend + "<a class=\"serendipity_image_link\" " + (title != '' ? 'title="' + title + '"' : '') + " href='" + ilink + "'" + itarget + ">" + img + "</a>";
