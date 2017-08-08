@@ -728,7 +728,7 @@
 
     // Inverts a selection of checkboxes
     serendipity.invertSelection = function() {
-        $('#formMultiDelete .multidelete').each(function() {
+        $('#formMultiSelect .multicheck').each(function() {
             var $box = $(this);
             var boxId = $box.attr('id');
             if($box.is(':checked')) {
@@ -1356,10 +1356,10 @@ $(function() {
         serendipity.openPopup($(this).attr('href'));
     });
 
-    // Selection for multidelete
-    $('.multidelete').click(function() {
+    // Selection for multicheck
+    $('.multicheck').click(function() {
         var $el = $(this);
-        serendipity.highlightComment($el.attr('data-multidelid'), $el.attr('checked'));
+        serendipity.highlightComment($el.attr('data-multixid'), $el.attr('checked'));
     });
 
     // Invert checkboxes

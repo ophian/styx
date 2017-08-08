@@ -3959,7 +3959,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
  *
  * 1. case type 'dir' via 'directoryEdit':
  *              serendipity_renameDirAccess($oldDir, $newDir)
- * 2. case type 'file' as a single file id via (looped bulkmove) 'multidelete':
+ * 2. case type 'file' as a single file id via (looped bulkmove) 'multicheck':
  *                     as a single file id via 'rename':
  *              serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file)
  * 3. case type 'filedir' via this API serendipity_parsePropertyForm() as base_properties only, when changing the file selected path within mediaproperties form:
@@ -4014,7 +4014,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
             return false;
         }
 
-    // case 'rename' OR 'multidelete' (bulk multimove)
+    // case 'rename' OR 'multicheck' (bulk multimove)
     } else if ($type == 'file') {
 
         // active in mean of eval or executable

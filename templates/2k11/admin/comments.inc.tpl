@@ -107,7 +107,7 @@
 
             {if !empty($c_type) OR isset($smarty.get.submit)}<a class="block_level" href="serendipity_admin.php?serendipity[adminModule]=comments">{$CONST.BACK}</a>{/if}
     {else}
-            <form id="formMultiDelete" action="" method="POST" name="formMultiDelete">
+            <form id="formMultiSelect" name="formMultiSelect" action="" method="POST">
                 {$formtoken}
                 <input name="serendipity[formAction]" type="hidden" value="multiDelete">
 
@@ -117,7 +117,7 @@
                     {foreach $comments AS $comment}
                         <li id="comment_{$comment.id}" class="clearfix {cycle values="odd,even"} {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}pending{/if}{if $comment.is_owner} owner{/if}">
                             <div class="form_check">
-                                <input id="multidelete_comment{$comment.id}" class="multidelete" type="checkbox" name="serendipity[delete][{$comment.id}]" value="{$comment.entry_id}" data-multidelid="comment_{$comment.id}">
+                                <input id="multidelete_comment{$comment.id}" class="multicheck" type="checkbox" name="serendipity[delete][{$comment.id}]" value="{$comment.entry_id}" data-multixid="comment_{$comment.id}">
                                 <label for="serendipity_multidelete_comment_{$comment.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT}</label>
                             </div>
 

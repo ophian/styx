@@ -238,11 +238,11 @@
 {else}
     {if $media.manage AND $media.multiperm}
 
-    <form id="formMultiDelete" name="formMultiDelete" action="?" method="post">
+    <form id="formMultiSelect" name="formMultiSelect" action="?" method="post">
         {$media.token}
         <input name="serendipity[action]" type="hidden" value="admin">
         <input name="serendipity[adminModule]" type="hidden" value="media">
-        <input name="serendipity[adminAction]" type="hidden" value="multidelete">
+        <input name="serendipity[adminAction]" type="hidden" value="multicheck">
     {/if}
 
         <div class="media_pane" data-thumbmaxwidth="{$media.thumbSize}">

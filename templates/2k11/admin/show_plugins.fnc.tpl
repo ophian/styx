@@ -19,7 +19,7 @@
                         <input type="hidden" name="serendipity[plugin][{$plugin_data['name']}][position]" value="{$plugin_data@index}" />
                     {if $plugin_data['is_plugin_editable']}
                         <div class="form_check">
-                            <input id="remove_{$plugin_data['name']}" class="multidelete" name="serendipity[plugin_to_remove][]" type="checkbox" value="{$plugin_data['name']}" data-multidelid="{$plugin_data['css_key']}">
+                            <input id="remove_{$plugin_data['name']}" class="multicheck" name="serendipity[plugin_to_remove][]" type="checkbox" value="{$plugin_data['name']}" data-multixid="{$plugin_data['css_key']}">
                             <label for="remove_{$plugin_data['name']}" class="visuallyhidden">{$CONST.REMOVE_TICKED_PLUGINS}</label>
                         </div>
                     {/if}

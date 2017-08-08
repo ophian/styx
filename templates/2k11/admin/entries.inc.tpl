@@ -140,7 +140,7 @@
 </div>
     {if $is_entries}
     {if NOT $simpleFilters}
-        <form id="formMultiDelete" action="?" method="post" name="formMultiDelete">
+        <form id="formMultiSelect" name="formMultiSelect" action="?" method="post">
             {$formtoken}
             <input name="serendipity[action]" type="hidden" value="admin">
             <input name="serendipity[adminModule]" type="hidden" value="entries">
@@ -154,7 +154,7 @@
                 <li id="entry_{$entry.id}" class="clearfix {cycle values="odd,even"}">
                     {if NOT $simpleFilters}
                         <div class="form_check">
-                            <input id="multidelete_entry{$entry.id}" class="multidelete" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multidelid="entry_{$entry.id}"><label for="multidelete_entry{$entry.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT} (#{$entry_id})</label>
+                            <input id="multidelete_entry{$entry.id}" class="multicheck" name="serendipity[multiDelete][]" type="checkbox" value="{$entry.id}" data-multixid="entry_{$entry.id}"><label for="multidelete_entry{$entry.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT} (#{$entry_id})</label>
                         </div>
                     {/if}
 
