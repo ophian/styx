@@ -1446,7 +1446,7 @@ function serendipity_calculate_aspect_size($width, $height, $size, $constraint =
  *
  * @access public
  * @param   int     The current page number
- * @param   string  The HTML linebreak to use after a row of images
+ * @param   string  The HTML linebreak to use after a row of images (deprecated)
  * @param   boolean Is this the ML-Version for managing everything (true), or is it about selecting one image for the editor? (false)
  * @param   string  The URL to use for pagination
  * @param   boolean Show the "upload media item" feature?
@@ -2919,7 +2919,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
  * @param  array    Array of image metadata
  * @param  string   URL for maintenance tasks
  * @param  boolean  Whether to show maintenance task items
- * @param  int      how many media items to display per row
+ * @param  int      how many media items to display per row (deprecated)
  * @param  boolean  Enclose within a table cell?
  * @param  array    Additional Smarty variables
  * @return string   Generated HTML
@@ -2947,8 +2947,6 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
     $media = array(
         'manage'            => $manage,
         'multiperm'         => serendipity_checkPermission('adminImagesDirectories'),
-        'lineBreak'         => $lineBreak,
-        'lineBreakP'        => round(1/$lineBreak*100),
         'url'               => $url,
         'enclose'           => $enclose,
         'token'             => serendipity_setFormToken(),
