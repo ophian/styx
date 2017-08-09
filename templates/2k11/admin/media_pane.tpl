@@ -293,9 +293,10 @@
         <footer id="media_file_bulkmove" class="media_file_bulkmove additional_info">
             <span class="msg_notice">{$CONST.BULKMOVE_INFO_DESC}</span>
         </footer>
-    {/if}
 
     </form>
+
+    {/if}
 {/if}
 
 </div>{* media library pane end *}
