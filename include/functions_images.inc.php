@@ -2982,6 +2982,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
     $serendipity['smarty']->assignByRef('media', $media);
 
     if ($enclose) {
+        serendipity_smarty_fetch('MEDIA_TOOLBAR', 'admin/media_toolbar.tpl');
         serendipity_smarty_fetch('MEDIA_ITEMS', 'admin/media_items.tpl');
         return serendipity_smarty_showTemplate(serendipity_getTemplateFile('admin/media_pane.tpl', 'serendipityPath'));
     } else {
