@@ -21,11 +21,23 @@
                     command: 'openML',
                     icon: '{serendipity_getFile file="admin/img/thumbnail.png"}'
                 });
-
+                editor.addCommand( 'openMLG', {
+                    exec : function( editor ) {
+                        serendipity.openPopup('serendipity_admin.php?serendipity[adminModule]=media&serendipity[noBanner]=true&serendipity[noSidebar]=true&serendipity[noFooter]=true&serendipity[showMediaToolbar]=false&serendipity[showGallery]=true&serendipity[textarea]={$item}');
+                    }
+                });
+                editor.ui.addButton('styx_mediaGallery_{$item}', {
+                    label:    'StyxMediaGallery',
+                    title:    'Styx Media Gallery',
+                    icon: '{serendipity_getFile file="admin/img/mlgallery.png"}',
+                    iconName: 'styxMLG_{$item}_icon',
+                    command:  'openMLG'
+                });
             }
         });
 
         s9ymediabuttons.push('s9y_medialibrary_{$item}');
+        s9ymediabuttons.push('styx_mediaGallery_{$item}');
 
         {foreach $buttons AS $button}
 
