@@ -2,8 +2,7 @@
   CKEDITOR Toolbar tweak to hide the cke-image widget buttons.
   Continues to support the internal image widget functionality needed for S9y-MediaLibrary inserts,
   but disables these button to eyes, if USER is not using the CKE PRESET Toolbar!
-  Sadly firefox and chrome engines count node IDs differently in textareas,
-  which for the BASIC emptied image toolbar group is DOM ID 27/63 in FF/IE is 27/67 in Chrome.
+  Last change 2017.08.11
 */
 
 #cke_1_top .cke_toolgroup a.cke_button__image,
@@ -22,10 +21,4 @@
     margin: 0px;
     height: 0px;
     width: 0px;
-}
-/* hide empty image toolgroup in toolbar BASIC (do not remove the span tag!) */
-#cke_1_top span#cke_27, #cke_2_top span#cke_63, #cke_2_top span#cke_67 {
-    display: none;
-    visibility: hidden;
-    width: 0 !important;
 }

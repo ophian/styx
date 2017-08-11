@@ -2,6 +2,9 @@
 
 {if $wysiwygToolbar != 'CKE'}
 <link rel="stylesheet" href="{$serendipityHTTPPath}htmlarea/s9y_cketoolbar.css">
+{if $wysiwygToolbar == 'Basic' OR $wysiwygToolbar == 'NOCC-Basic'}
+<link rel="stylesheet" href="{$serendipityHTTPPath}htmlarea/s9y_ckebasicbar.css">
+{/if}
 {/if}
 <script src="{$serendipityHTTPPath}htmlarea/ckeditor/ckeditor.js"></script>
 <script src="{$wysiwyg_customPlugin}"></script>
