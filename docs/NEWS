@@ -5,7 +5,7 @@ Version 2.3 ()
     ly select image galleries to your entries, by PLAIN- or WYSIWYG-Editor
     entry toolbars. This approach uses a non-remembrance and hardcoded
     hideSubDirFiles option, to only show images by directory. Also this is
-    limited to 48 items per view out of memory performance reasons.
+    limited to 48 items per view out of memory and performance reasons.
     Take care to give your MediaLibrary directories a better structure to
     fully support this new feature.
     This also fixed a minor bug with the wysiwyg toolbar styling tweaks.
