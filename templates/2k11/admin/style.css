@@ -2771,6 +2771,40 @@ label .perm_name,
     height: 17.5em;
     overflow: hidden;
 }
+/* gallery pane start */
+.js .media_gallery  {
+    flex: auto;
+    -webkit-flex-direction: row;
+    -webkit-flex-wrap: wrap;
+    flex-flow: row wrap;
+    align-items: flex-start; /* the default is stretch, internally used by Chrome when flexing direct child images */
+    justify-content: space-around; /* IE10+ CSS fallback, since -evenly not supported */
+    justify-content: space-evenly;
+    margin-bottom: 1em;
+}
+.js .media_gallery .media_gal {
+    width: 16%;
+    height: 8em;
+}
+.js .media_gallery .media_gal.odd,
+.js .media_gallery .media_gal.even {
+    margin: 0 0 1em 0;
+}
+.media_gal .form_check {
+    margin: 0 0 .5em;
+    line-height: 1;
+}
+.js .media_gallery .media_gal header h3 {
+    font-size: .9125em;
+    line-height: 1;
+    margin: .5em 0 .5em;
+    width: unset;
+}
+.js .media_gallery .media_file_pregal {
+    min-height: 5.5em;
+    height: 5.5em;
+}
+/*gallery pane end*/
 
 .js .media_pane .media_file_meta,
 .js .template_info {
