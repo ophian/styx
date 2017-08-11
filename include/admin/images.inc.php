@@ -119,6 +119,45 @@ switch ($serendipity['GET']['adminAction']) {
         $data['newLoc']   = $newLoc;
         break;
 
+    case 'multiselect':
+        if (!serendipity_checkFormToken()) {
+            return; // blank content page, but default token check parameter is presenting a XSRF message when false
+        }
+        if (!is_array($serendipity['POST']['multiSelect']) && isset($_POST['gallery_insert'])) {
+            echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_ITEM, serendipity_specialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES | ENT_HTML401)) . '</div>'."\n";
+            return; // blank content page exit
+        }
+        $multiSelectImages = $serendipity['POST']['multiSelect'];
+        unset($serendipity['POST']['multiSelect']);
+        foreach($multiSelectImages AS $media_id) {
+            $file = serendipity_fetchImageFromDatabase((int)$media_id);
+            serendipity_prepareMedia($file);
+            $file['props'] =& serendipity_fetchMediaProperties((int)$media_id);
+            serendipity_plugin_api::hook_event('media_getproperties_cached', $file['props']['base_metadata'], $file['realfile']);
+            $file['prop_imagecomment'] = serendipity_specialchars($file['props']['base_property']['COMMENT1']);
+            $file['prop_alt'] = serendipity_specialchars($file['props']['base_property']['ALT']);
+            $file['prop_title'] = serendipity_specialchars($file['props']['base_property']['TITLE']);
+            unset($file['props']); // we don't need this bloat, except the three above
+            unset($file['thumb_header']); // img (encoded) header data will make json_encode() fail and return nothing
+            unset($file['header']);
+            $files[] = &$file;
+            unset($file); // keep this to preveil overwrite!!!!
+        }
+        $media['files'] = $files;
+        unset($files);
+
+        $media = array_merge($serendipity['POST'], $media);
+        $jsmedia = json_encode($media); // image header(s) let the encoder fail to return nothing (see above)
+
+        $media['fast_select'] = true;
+
+        $media = array_merge($serendipity['GET'], $media);
+        $serendipity['smarty']->assignByRef('media', $media);
+        $serendipity['smarty']->assignByRef('jsmedia', $jsmedia);
+        echo $serendipity['smarty']->display('admin/media_galleryinsert.tpl', $data);// no need for a compile file
+        #echo serendipity_smarty_showTemplate('admin/media_galleryinsert.tpl', $data);
+        break;
+
     case 'multicheck':
         if (!serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesDirectories')) {
             return; // blank content page, but default token check parameter is presenting a XSRF message when false
