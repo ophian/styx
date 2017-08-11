@@ -1469,6 +1469,13 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     $hideSubdirFiles = ($serendipity['GET']['hideSubdirFiles'] == 'yes') ? true : false; // default
     $userPerms       = array('delete' => serendipity_checkPermission('adminImagesDelete'));
 
+    $displayGallery  = (isset($serendipity['GET']['showGallery']) && !$show_upload && $serendipity['GET']['showGallery'] == 'true') ? true : false;
+    // displayGallery uses hideSubdirFiles directory items only list without cookie remembrance
+    if ($displayGallery) {
+        $serendipity['GET']['sortorder']['perpage'] = 48; // Set to 6 items per row x 8 rows as a hardcoded maximum per directory view
+        $serendipity['GET']['hideSubdirFiles'] = 'yes'; // Definitely YES! 'The site maintainer has get to know that it is better to split up media directories with more than 48 items
+    }
+
     $serendipity['GET']['only_path']        = serendipity_uploadSecure($limit_path . $serendipity['GET']['only_path'], true);
     $serendipity['GET']['filter']['i.name'] = serendipity_specialchars(str_replace(array('*', '?'), array('%', '_'), $serendipity['GET']['filter']['i.name']));
 
@@ -1623,6 +1630,11 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         serendipity_restoreVar($serendipity['COOKIE']['filter'], $serendipity['GET']['filter']);
     }
 
+    if ($displayGallery) {
+        // dont touch cookie and normal seetings but hardset in case of gallery usage
+        $serendipity['GET']['filter']['fileCategory']['Image'] = 'image';
+        $hideSubdirFiles = true; // Definitely YES!
+    }
     $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(
                                   $start,
                                   $perPage,
@@ -2939,12 +2951,15 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         }
     }
 
+    $displayGallery  = (isset($serendipity['GET']['showGallery']) && !$show_upload && $serendipity['GET']['showGallery'] == 'true') ? true : false;
+
     if (!is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
     $order_fields = serendipity_getImageFields();
 
     $media = array(
+        'standardpane'      => ($displayGallery) ? false : true,
         'manage'            => $manage,
         'multiperm'         => serendipity_checkPermission('adminImagesDirectories'),
         'lineBreak'         => $lineBreak,
@@ -2959,7 +2974,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'keywords_selected' => $serendipity['GET']['keywords'],
         'filter'            => $serendipity['GET']['filter'],
         'sort_order'        => $order_fields,
-        'simpleFilters'     => $serendipity['simpleFilters'],
+        'simpleFilters'     => ($displayGallery) ? false : $serendipity['simpleFilters'],
         'metaActionBar'     => ($serendipity['GET']['adminAction'] != 'properties' && empty($serendipity['GET']['fid'])),
         'hideSubdirFiles'   => empty($serendipity['GET']['hideSubdirFiles']) ? 'yes' : $serendipity['GET']['hideSubdirFiles'],
         'authors'           => serendipity_fetchUsers(),
@@ -2983,8 +2998,13 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
 
     if ($enclose) {
         serendipity_smarty_fetch('MEDIA_TOOLBAR', 'admin/media_toolbar.tpl');
-        serendipity_smarty_fetch('MEDIA_ITEMS', 'admin/media_items.tpl');
-        return serendipity_smarty_showTemplate(serendipity_getTemplateFile('admin/media_pane.tpl', 'serendipityPath'));
+        if ($displayGallery) {
+            serendipity_smarty_fetch('MEDIA_ITEMS', 'admin/media_galleryitems.tpl');
+            return serendipity_smarty_showTemplate(serendipity_getTemplateFile('admin/media_gallery.tpl', 'serendipityPath'));
+        } else {
+            serendipity_smarty_fetch('MEDIA_ITEMS', 'admin/media_items.tpl');
+            return serendipity_smarty_showTemplate(serendipity_getTemplateFile('admin/media_pane.tpl', 'serendipityPath'));
+        }
     } else {
         serendipity_smarty_fetch('MEDIA_ITEMS', 'admin/media_items.tpl');
         return serendipity_smarty_showTemplate(serendipity_getTemplateFile('admin/media_properties.tpl', 'serendipityPath'));
