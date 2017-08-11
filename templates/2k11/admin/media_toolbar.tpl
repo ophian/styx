@@ -1,6 +1,10 @@
 
 <div class="has_toolbar">
+{if $media.standardpane}
     <h2>{$CONST.MEDIA_LIBRARY}</h2>
+{else}{* GALLERY ITEM SELECTION *}
+    <h2>{$CONST.MEDIA_LIBRARY} [galleries]</h2>
+{/if}
 
     <form id="media_library_control" method="get" action="?">
         {$media.token}
@@ -13,8 +17,10 @@
         {else}{$media.form_hidden}{/if}
 
         <ul class="filters_toolbar clearfix plainList">
+            {if $media.standardpane}
             <li><a class="button_link" href="#media_pane_filter" title="Show filters"><span class="icon-filter" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
             <li><a class="button_link" href="#media_pane_sort" title="{$CONST.SORT_ORDER}"><span class="icon-sort" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SORT_ORDER}</span></a></li>
+            {/if}
             <li id="media_filter_path">
                 <div class="form_select">
                     <label for="serendipity_only_path" class="visuallyhidden">{$CONST.FILTER_DIRECTORY}</label>
@@ -27,8 +33,15 @@
 
                     </select>
                     <input name="go" type="submit" value="{$CONST.GO}">
+                    {if NOT $media.standardpane}
+                    <button class="toggle_info button_link" type="button" data-href="#media_gallery_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden">Gallery item selection</span></button>
+                    <div id="media_gallery_selection" class="clearfix additional_info media_gallery_selection">
+                        <span class="msg_notice">{$CONST.MEDIA_GALLERY_SELECTION}</span>
+                    </div>
+                    {/if}
                 </div>
             </li>
+            {if $media.standardpane}
             <li id="media_selector_bar">
                 <fieldset>
                     <input id="serendipity[filter][fileCategory][All]" type="radio" name="serendipity[filter][fileCategory]"{if $media.filter.fileCategory == ""} checked{/if} value="">
@@ -39,11 +52,13 @@
                     <label for="serendipity[filter][fileCategory][Video]" class="media_selector button_link">{$CONST.VIDEO}</label>
                 </fieldset>
             </li>
+            {/if}
         {if $smarty.get.serendipity.showUpload}
             <li class="popuplayer_showUpload"><a class="button_link" href="?serendipity[adminModule]=media&amp;serendipity[adminAction]=addSelect&amp;{$media.extraParems}">{$CONST.ADD_MEDIA}</a></li>
         {/if}
         </ul>
 
+    {if $media.standardpane}
         <fieldset id="media_pane_filter" class="additional_info filter_pane">
             <legend class="visuallyhidden">{$CONST.FILTERS}</legend>
 {* Keep in mind that $media.sort_order is different than $media.sortorder! The first is for building the key names; the second is the value that was set by POST! *}
@@ -228,5 +243,6 @@
                 });
             });
         </script>
+    {/if}
     </form>
 </div>{* has toolbar end *}
