@@ -158,16 +158,6 @@
     }
 
     // Used by non-wysiwyg editor toolbar buttons to wrap selection
-    // in a poor mans's <div class="serendipity_image_block"> flex gallery element.
-    serendipity.wrapInsGallery = function(txtarea) {
-        if (serendipity.getSelection($(txtarea) ) != '') {
-            serendipity.wrapSelection(txtarea, '<div class="serendipity_image_block">', '</div>');
-        } else {
-            serendipity.insertText(txtarea,'<div class="serendipity_image_block"></div>');
-        }
-    }
-
-    // Used by non-wysiwyg editor toolbar buttons to wrap selection
     // in <img> element (only); does not really "wrap", merely inserts
     // an <img> element before selected text
     serendipity.wrapInsImage = function(txtarea) {
@@ -1224,6 +1214,10 @@ $(function() {
 
     $('.wrap_insmedia').click(function() {
         serendipity.openPopup('serendipity_admin.php?serendipity[adminModule]=media&serendipity[noBanner]=true&serendipity[noSidebar]=true&serendipity[noFooter]=true&serendipity[showMediaToolbar]=false&serendipity[showUpload]=true&serendipity[textarea]=' + $(this).attr('data-tarea'));
+    });
+
+    $('.wrap_insgal').click(function() {
+        serendipity.openPopup('serendipity_admin.php?serendipity[adminModule]=media&serendipity[noBanner]=true&serendipity[noSidebar]=true&serendipity[noFooter]=true&serendipity[showMediaToolbar]=false&serendipity[showGallery]=true&serendipity[textarea]=' + $(this).attr('data-tarea'));
     });
 
     // Entry metadata
