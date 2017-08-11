@@ -293,6 +293,60 @@
         serendipity.wrapSelection($('#'+escapedElement), str, '');
     }
 
+    // Inserting media db gallery images including s9y-specific container markup
+    serendipity.serendipity_imageGallerySelector_done = function(textarea, g) {
+        var gallery = '';
+
+        if (g['files'][0]) {
+            var float   = g['align'];
+            var start = '<div class="serendipity_image_block">';
+            var end   = '</div>';
+            // open the gallery block element
+            gallery += start;
+
+            $.each(g['files'], function(k, v) {
+                imgID = v['id'];
+                imgWidth = v['thumbWidth'];
+                imgHeight = v['thumbHeight'];
+                imgName = v['full_thumbHTTP'];
+                ilink = v['full_file'];
+                title = v['prop_title'];
+                imgalt = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
+                hotlink = v['hotlink'];
+                if (hotlink) {
+                    imgName = v['nice_hotlink'];
+                }
+
+                var img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">';
+                if (g['isLink'] == 'yes') {
+                    img = '<a class="serendipity_image_link" '+ (title != '' ? 'title="'+ title +'"' : '') +' href="'+ ilink +'">'+ img +'</a>';
+                }
+
+                if (v['prop_imagecomment'] != '') {
+                    var comment = v['prop_imagecomment'];
+
+                    img = '<div class="serendipity_imageComment_'+ float +'" style="width:'+ imgWidth +'px">'
+                      +      '<div class="serendipity_imageComment_img">'+ img +'</div>'
+                      +      '<div class="serendipity_imageComment_txt">'+ comment +'</div>'
+                      +   '</div>';
+                }
+
+                gallery += img;
+            });
+            // close the gallery block element
+            gallery += end;
+        }
+
+        if (parent.self.opener == undefined) {
+            // in iframes, there is no opener, and the magnific popup is wrapped
+            parent.self = window.parent.parent.$.magnificPopup;
+            parent.self.opener = window.parent.parent;
+        }
+        // add to textarea and close
+        parent.self.opener.serendipity.serendipity_imageSelector_addToBody(gallery, textarea);
+        parent.self.close();
+    }
+
     // Inserting media db img markup including s9y-specific container markup
     serendipity.serendipity_imageSelector_done = function(textarea) {
         var insert = '';
