@@ -495,6 +495,14 @@ progress {
     content: "\1F4CC"; /* U+1F4CC \xF0\x9F\x93\x8C PUSHPIN */
     color: #222;
 }
+.icon-gallery:before  {
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    text-align: inherit;
+    vertical-align: bottom;
+    content: url('templates/default/admin/img/mlgallery.png');
+}
 
 /* BACKEND HELPER CLASSES */
 .icon_link,
@@ -1522,6 +1530,10 @@ summary {
 .comment_data dt,
 #serendipityScaleForm .form_field label {
     min-width: 4.25em;
+}
+.editor_toolbar button.wrap_insgal,
+.editor_toolbar button.wrap_insmedia {
+    min-width: 1em;
 }
 
 .category_data,
