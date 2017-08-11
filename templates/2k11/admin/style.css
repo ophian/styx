@@ -500,8 +500,11 @@ progress {
     font-style: inherit;
     font-weight: inherit;
     text-align: inherit;
-    vertical-align: bottom;
     content: url('templates/default/admin/img/mlgallery.png');
+    display: inline-flex;
+    vertical-align: middle;
+    width: 16px;
+    height: 16px;
 }
 
 /* BACKEND HELPER CLASSES */
