@@ -8,7 +8,7 @@ Version 2.3 ()
     limited to 48 items per view out of memory and performance reasons.
     Take care to give your MediaLibrary directories a better structure to
     fully support this new feature.
-    This also fixed a minor bug with the wysiwyg toolbar styling tweaks.
+    This also fixed a bug with the wysiwyg toolbar stylesheet tweaks.
 
   * Rewrite some multi clickable identifiers semantically
 
