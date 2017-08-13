@@ -687,7 +687,8 @@
 @define('EMPTY_SETTING', '¡No especificaste un valor válido para "%s"!');
 @define('USERCONF_REALNAME', 'Nombre real');
 @define('USERCONF_REALNAME_DESC', 'El nombre completo del autor. Este es el nombre que verán los lectores.');
-@define('HOTLINK_DONE', 'Fichero como recurso externo enlazado.<br>Hecho.');
+#@define('HOTLINK_DONE', 'Fichero como recurso externo enlazado.<br>Hecho.');
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Método de obtención:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Nota: Enlazar recursos externos te permite usar imágenes externas sin almacenarlas localmente. Si escoges esta opción, asegúrate de poseer los permisos para hacerlo en el servidor externo o bien el servidor es tuyo.');
 @define('MEDIA_HOTLINKED', 'enlazado externamente');

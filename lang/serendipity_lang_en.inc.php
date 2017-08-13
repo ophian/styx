@@ -673,7 +673,7 @@
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
 @define('USERCONF_REALNAME', 'Real name'); // Translate
 @define('USERCONF_REALNAME_DESC', 'The full name of the author. This is the name seen by readers'); // Translate
-@define('HOTLINK_DONE', 'File hotlinked.<br>Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Fetch method:'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.'); // Translate
 @define('MEDIA_HOTLINKED', 'hotlinked'); // Translate

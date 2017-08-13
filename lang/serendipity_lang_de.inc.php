@@ -673,7 +673,7 @@
 @define('EMPTY_SETTING', 'Sie haben für "%s" keinen gültigen Wert angegeben!');
 @define('USERCONF_REALNAME', 'Voller Name');
 @define('USERCONF_REALNAME_DESC', 'Der vollständige Name des Autors. Nur dieser Name wird Besuchern angezeigt.');
-@define('HOTLINK_DONE', 'Link zur Datei erstellt.<br>Fertig.');
+@define('HOTLINK_DONE', 'Link zur Datei "%s" erstellt.<br>Interner Name: '\'%s\'. Fertig.');
 @define('ENTER_MEDIA_URL_METHOD', 'Download-Methode:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Hinweis: Falls Sie auf eine Datei/Grafik nur verweisen wollen, stellen Sie bitte sicher, dass Sie die Erlaubnis haben, zu diesen Bildern zu linken bzw. dass die verlinkte Webseite Ihnen gehört. Dateiverweise/Links ermöglichen es, eine Datei/Grafik nicht lokal zu speichern, sondern sie direkt von der verlinkten Website einzubinden.');
 @define('MEDIA_HOTLINKED', 'Link');
@@ -1131,7 +1131,7 @@
 
 @define('CONFIG_ALLOW_LOCAL_URL', 'Erlaube, Daten über lokale URLs abzurufen');
 @define('CONFIG_ALLOW_LOCAL_URL_DESC', 'Standardmäßig ist es aus Sicherheitsgründen verboten, Daten über lokale URLs abzurufen, um Server Side Request Forgers (SSRF) zu vermeiden. Wenn Sie ein lokales Intranet verwenden, können sie die Datenabfrage über diese Option explizit erlauben.');
-@define('REMOTE_FILE_INVALID', 'Die angegebene URL scheint eine lokale zu sein und darf nicht abgerufen werden. Sie können dies explizit gestatten, in dem Sie in der Konfiguration die Option "Erlaube, Daten über lokale URLs abzurufen" setzen.');
+@define('REMOTE_FILE_INVALID', 'Die angegebene URL '\'%s\' scheint eine lokale zu sein und darf nicht abgerufen werden. Sie können dies explizit gestatten, in dem Sie in der Konfiguration die Option "Erlaube, Daten über lokale URLs abzurufen" setzen.');
 
 @define('INSTALLER_TOKEN_NOTE', 'Um eine abgesicherte Installation auszuführen, müssen Sie eine Datei namens "%s" mit dem String "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" in diesem Verzeichnis erstellen. Sobald diese Datei existiert, müssen Sie die Installation innerhalb der nächsten %s Minuten ausführen und dürfen ihren Browser nicht schließen. Sie müssen Cookies erlauben.');
 @define('INSTALLER_TOKEN_MISMATCH', 'Sie sind nicht autorisiert die Installation auszuführen, da Ihr Install-Token (%s) nicht demjenigen aus der Datei "%s" entspricht. Stellen Sie sicher, dass Sie die Datei mit dem korrekten Inhalt erstellt haben. Sie können einen neuen Token erstellen in dem Sie die Datei löschen.');

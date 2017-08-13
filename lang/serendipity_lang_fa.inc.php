@@ -673,7 +673,8 @@
 @define('EMPTY_SETTING', 'شما مقدار معتبری برای "%s" انتخاب نکرده اید!');
 @define('USERCONF_REALNAME', 'نام واقعی');
 @define('USERCONF_REALNAME_DESC', 'نام کامل نویسنده. این نام توسط خواننده دیده خواهد شد');
-@define('HOTLINK_DONE', 'به فایل مربوطه، لینک داده شد.');
+#@define('HOTLINK_DONE', 'به فایل مربوطه، لینک داده شد.');
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'روش دریافت:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'توجه: اگر شما گزینه "لینک دادن به سرور" را انتخاب کرده اید، توجه داشته باشید که باید به سرور دسترسی داشته باشید. لینک دادن به سایت های دیگر، به شما اجازه می دهد از فایل ها، بدون ذخیره در سایت خودتان، استفاده کنید.');
 @define('MEDIA_HOTLINKED', 'لینک داده شد');

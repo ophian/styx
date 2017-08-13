@@ -686,7 +686,8 @@ $i18n_filename_to = array (
 @define('EMPTY_SETTING', 'Nezadali ste platnú hodnotu pre "%s"!');
 @define('USERCONF_REALNAME', 'Skutočné Meno');
 @define('USERCONF_REALNAME_DESC', 'Plné meno autora. Toto meno je viditeľné pre návštevníkov');
-@define('HOTLINK_DONE', 'Súbor prepojený odkazom.<br>Dokončené.');
+#@define('HOTLINK_DONE', 'Súbor prepojený odkazom.<br>Dokončené.');
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Spôsob prepojenia:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Poznámka: Ak zvolíte odkaz na server, uistite sa, že máte potrebné práva, alebo že ide o Váš web. Odkazy Vám umožnia využívať obrázky z iných ako miestnych zdrojov.');
 @define('MEDIA_HOTLINKED', 'prepojené');

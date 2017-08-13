@@ -673,7 +673,8 @@
 @define('EMPTY_SETTING', 'Nu ai specificat o valoare validă pentru "%s"!');
 @define('USERCONF_REALNAME', 'Nume real'); // Translate
 @define('USERCONF_REALNAME_DESC', 'Numele complet al autorului. Acesta este numele vizibil cititorilor'); // Translate
-@define('HOTLINK_DONE', 'Fişier legat direct.<br>Gata.'); // Translate
+#@define('HOTLINK_DONE', 'Fişier legat direct.<br>Gata.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Metodă descărcare:'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Notă: Dacă alegi să faci o legătură către server, asigură-te că ai permisiunea să foloseşti conţinut de pe acel site, sau că situl e al tău. Această opţiune îţi permite să foloseşti imagini de pe alte situri fără a le stoca local.'); // Translate
 @define('MEDIA_HOTLINKED', 'legat direct'); // Translate

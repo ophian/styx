@@ -674,7 +674,8 @@
 @define('EMPTY_SETTING', 'áã ÊŞã ÈÃÚØÇÁ ãÚáæãÇÊ ÏŞíŞÉ Úä "%s"!');
 @define('USERCONF_REALNAME', 'ÇáÃÓã ÇáÍŞíŞí'); // Translate
 @define('USERCONF_REALNAME_DESC', 'ÇáÃÓã ÇáßÇãá ááãÍÑÑ Ãæ ÇáäÇÔÑ. æåĞÇ Óæİ íÙåÑ áŞÑÇÁ ÇáãæÖæÚ'); // Translate
-@define('HOTLINK_DONE', 'ÑÇÈØ İÚÇá<br>Êã'); // Translate
+#@define('HOTLINK_DONE', 'ÑÇÈØ İÚÇá<br>Êã'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'ØÑíŞÉ ÌáÈ ÇáÕæÑÉ'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'ãáÇÍÙÉ: İí ÍÇá ÌáÈ ÕæÑÉ ãä ÑÇÈØ ãÚíä ÊÃßÏ Ãä ÇáãæŞÚ ÇáĞí Óæİ ÊÍãá ÇáÕæÑÉ ãäå íÓãÍ ÈÚÑÖ ÇáÕæÑ İí ãæÇŞÚ ÃÎÑì. Ãæ ÊÃßÏ Ãä åĞÇ ÇáÑÇÈØ ãä ãæŞÚß. ÚÑÖ ÇáÕæÑ ÈæÇÓØÉ ÑÇÈØåÇ íÚäíß Úä ÊÍãíá ÇáÕæÑÉ İí ãÏæäÊß Ãæ ãæŞÚß (ãËÇá ÇÓÊÎÏÇã ãÑÇßÒ ÊÍãíá ÇáÕæÑ)'); // Translate
 @define('MEDIA_HOTLINKED', 'ãä ÑÇÈØ'); // Translate

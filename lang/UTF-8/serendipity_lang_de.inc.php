@@ -673,7 +673,7 @@
 @define('EMPTY_SETTING', 'Sie haben für "%s" keinen gültigen Wert angegeben!');
 @define('USERCONF_REALNAME', 'Voller Name');
 @define('USERCONF_REALNAME_DESC', 'Der vollständige Name des Autors. Nur dieser Name wird Besuchern angezeigt.');
-@define('HOTLINK_DONE', 'Link zur Datei erstellt.<br>Fertig.');
+@define('HOTLINK_DONE', 'Link zur Datei "%s" erstellt.<br>Interner Name: '\'%s\'. Fertig.');
 @define('ENTER_MEDIA_URL_METHOD', 'Download-Methode:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Hinweis: Falls Sie auf eine Datei/Grafik nur verweisen wollen, stellen Sie bitte sicher, dass Sie die Erlaubnis haben, zu diesen Bildern zu linken bzw. dass die verlinkte Webseite Ihnen gehört. Dateiverweise/Links ermöglichen es, eine Datei/Grafik nicht lokal zu speichern, sondern sie direkt von der verlinkten Website einzubinden.');
 @define('MEDIA_HOTLINKED', 'Link');
