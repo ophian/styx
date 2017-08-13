@@ -119,7 +119,8 @@ Version 2.3 ()
     break the expected behaviour. Already used in the backend to fix
     broken info button cases by certain plugins.
 
-  * Remove category filter in backend entry form categories compact mode
+  * Remove category filter in backend entry form for categories non-popup
+    compact mode.
 
   * Add some styled love to comments/trackbacks/pingbacks section in the
     "Next"-theme as an example. Thanks to Grischa Brockhaus! :)
