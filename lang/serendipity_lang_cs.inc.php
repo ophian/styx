@@ -242,7 +242,7 @@ $i18n_filename_to = array (
 @define('FILE_NOT_FOUND', 'Nelze nalézt soubor s názvem <b>%s</b>, možná je opravdu vymazán?');
 @define('ABORT_NOW', 'Zrušit');
 @define('REMOTE_FILE_NOT_FOUND', 'Soubor nebyl na vzdáleném serveru nalezen, jste si jist že URL: <b>%s</b> je správné?');
-@define('FILE_FETCHED', '%s nalezen');
+@define('FILE_FETCHED', '%s nalezen: %s');
 @define('FILE_UPLOADED', 'Soubor %s je úspìšnì nahrán.');
 @define('WORD_OR', 'nebo');
 @define('SCALING_IMAGE', 'Zmìna %s na %s x %s px');
