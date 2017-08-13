@@ -295,7 +295,7 @@ switch ($serendipity['GET']['adminAction']) {
             $tfile = serendipity_uploadSecure(serendipity_makeFilename($tfile));
 
             if (serendipity_isActiveFile($tfile)) {
-                $messages[] = sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_FORBIDDEN . "</span>\n", $tfile);
+                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_FORBIDDEN . " $tfile </span>\n";
                 break;
             }
 
@@ -321,7 +321,7 @@ switch ($serendipity['GET']['adminAction']) {
                     $fContent = serendipity_request_url($_imageurl, 'GET', null, null, null, 'image');
                     #echo '<pre>'.print_r($serendipity['last_http_request'], true).'</pre>';
                     if (!isset($serendipity['last_http_request']) || $serendipity['last_http_request']['responseCode'] != '200') {
-                        throw new Exception();
+                        throw new Exception("Something wrong with responseCode: {$serendipity['last_http_request']['responseCode']}?");
                     } else {
                         if ($serendipity['POST']['imageimporttype'] == 'hotlink') {
                             $tempfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . 'hotlink_' . time();
@@ -329,9 +329,13 @@ switch ($serendipity['GET']['adminAction']) {
                             fwrite($fp, $fContent);
                             fclose($fp);
 
-                            $image_id   = @serendipity_insertHotlinkedImageInDatabase($tfile, $_imageurl, $authorid, null, $tempfile);
-                            $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . HOTLINK_DONE . "</span>\n", $_imageurl , $tfile .'');
-                            serendipity_plugin_api::hook_event('backend_image_addHotlink', $_imageurl);
+                            $image_id = @serendipity_insertHotlinkedImageInDatabase($tfile, $_imageurl, $authorid, null, $tempfile);
+                            if ($image_id > 0) {
+                                $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . HOTLINK_DONE . "</span>\n", $_imageurl, $tfile);
+                                serendipity_plugin_api::hook_event('backend_image_addHotlink', $_imageurl);
+                            } else {
+                                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> HOTLINK '.$_imageurl . "($tfile) failed.</span>\n";
+                            }
                         } else {
                             $fp = fopen($target, 'w');
                             fwrite($fp, $fContent);
@@ -402,7 +406,7 @@ switch ($serendipity['GET']['adminAction']) {
                     $tfile = serendipity_uploadSecure(serendipity_makeFilename($tfile));
 
                     if (serendipity_isActiveFile($tfile)) {
-                        $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_FORBIDDEN .' '. $tfile . "</span>\n";
+                        $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_FORBIDDEN . " $tfile </span>\n";
                         continue;
                     }
 
