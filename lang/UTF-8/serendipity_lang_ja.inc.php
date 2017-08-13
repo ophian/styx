@@ -673,7 +673,7 @@
 @define('USERCONF_REALNAME', '本名');
 @define('USERCONF_REALNAME_DESC', '著作者のフルネームです。これは読者に見える名前です。');
 #@define('HOTLINK_DONE', 'ファイルをホットリンクしました。<br>完了です。');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', '取得方法:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '注: ホットリンクは、それらをローカルに格納せずに、リモートのイメージを使用することを可能にします。サーバーへのホットリンクを選択した場合、自分のウェブサイトか指定のウェブサイトへホットリンクする許可を持っていることを確認してください。');
 @define('MEDIA_HOTLINKED', 'ホットリンク済み');

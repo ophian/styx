@@ -673,7 +673,7 @@
 @define('EMPTY_SETTING', 'Du angav ikke en gyldig værdi for "%s"!');
 @define('USERCONF_REALNAME', 'Rigtigt navn');
 @define('USERCONF_REALNAME_DESC', 'Det fulde navn på forfatteren. Dette er navnet set af læserne');
-@define('HOTLINK_DONE', 'Fil "%s" blev hotlinked.<br>Internal name '\'%s\'. Færdig.'); // Translate
+@define('HOTLINK_DONE', 'Fil "%s" blev hotlinked.<br>Internal name: \'%s\'. Færdig.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Afhentningsmetode:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Bemærk: Hvis du vælger at hotlinke til en server, bør du sikre dig tilladelse til at gøre dette, eller være ejeren af serveren. Hotlink gør det muligt at bruge eksterne billeder, uden at gemme dem lokalt.');
 @define('MEDIA_HOTLINKED', 'hotlinked');

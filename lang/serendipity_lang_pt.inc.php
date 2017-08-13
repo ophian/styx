@@ -676,7 +676,7 @@
 @define('USERCONF_REALNAME', 'Nome real');
 @define('USERCONF_REALNAME_DESC', 'Todo o nome do autor. Este nome é o que os leitores enxergam');
 #@define('HOTLINK_DONE', 'Arquivo entrelaçado.<br>Feito.');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Método de obtenção:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Nota: se você quer fazer um "hotlink" para um servidor, tenha certeza de ter permissões suficientes. Os "hotlinks" permitem que você use ligações em imagem não armazenadas no servidor local.');
 @define('MEDIA_HOTLINKED', 'entrelaçado');

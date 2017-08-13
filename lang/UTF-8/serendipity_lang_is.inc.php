@@ -672,7 +672,7 @@
 @define('EMPTY_SETTING', 'Þú skilgreindir ekki löglegt gildi fyrir "%s"!');
 @define('USERCONF_REALNAME', 'Nafn');
 @define('USERCONF_REALNAME_DESC', 'Fullt nafn höfundar. Þetta er nafnið eins og lesendur sjá það');
-@define('HOTLINK_DONE', 'Skrá "%s" hotlinkuð.<br>Internal name '\'%s\'. Búin.'); // Translate
+@define('HOTLINK_DONE', 'Skrá "%s" hotlinkuð.<br>Internal name: \'%s\'. Búin.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Sóknaraðferð:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Athuga: Ef þú vilt hotlinka á þjón, gakktu úr skuggu um að þú hafir réttindi á viðkomandi vefsíðu, eða að þú eigir vefsíðuna. Hotlink leyfir þér að nota myndir sem eru ekki á þínum vefþjóni án þess að vista þær á þjóninum.');
 @define('MEDIA_HOTLINKED', 'hotlinkað');

@@ -704,7 +704,7 @@ $i18n_filename_to = array (
 @define('USERCONF_REALNAME', 'Skuteèné jméno');
 @define('USERCONF_REALNAME_DESC', 'Plné jméno autora. Toto jméno uvidí ètenáøi');
 #@define('HOTLINK_DONE', 'Soubor pøipojen odkazem.<br>Hotovo.');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Zpùsob pøipojení:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Poznámka: Pokud zvolíte odkaz na server, ujistìte se, že máte potøebná práva, nebo že jde o váš web. Odkazy vám umožní využívat obrázky z jiných než místních zdrojù.');
 @define('MEDIA_HOTLINKED', 'odkazován');

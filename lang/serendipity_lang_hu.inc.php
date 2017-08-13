@@ -673,7 +673,7 @@
 @define('USERCONF_REALNAME', 'Valódi név');
 @define('USERCONF_REALNAME_DESC', 'A szerzõ teljes neve. Ezt látják az olvasók.');
 #@define('HOTLINK_DONE', 'Fájl közvetlen hivatkozás létrehozva.<br>Kész.');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Letöltési mód:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Megjegyzés: ha a közvetlen hivatkozást választod, bizonyosodj meg arról, hogy van-e jogod ehhez, vagy a szerver ahova mutatsz a tiéd. Ezzel a módszerrel úgy jeleníthetsz meg képeket, hogy azok nem kerülnek hozzád lementésre.');
 @define('MEDIA_HOTLINKED', 'közvetlenül hivatkozva');

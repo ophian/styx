@@ -673,7 +673,7 @@
 @define('USERCONF_REALNAME', 'Riktigt namm');
 @define('USERCONF_REALNAME_DESC', 'Författarens hela namn. Detta namn ses av läsarna');
 #@define('HOTLINK_DONE', 'Filen länkad.<br>Klar.');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name '\'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Hämtningsmetod:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Kommentar: Om du väljer att länka till en server bör du försäkra dig om att du har tillstånd att länka till den aktuella webbplatsen, eller att webbplatsen är din egen. Länkning låter dig använda bilder på andra webbplatser utan att behöva förvara dem lolalt.');
 @define('MEDIA_HOTLINKED', 'länkad');
