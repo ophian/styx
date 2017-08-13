@@ -187,7 +187,7 @@
 @define('CANT_EXECUTE_BINARY', 'Get ekki keyrt %s skrána');
 @define('FILE_WRITE_ERROR', 'Gat ekki skrifað í skrá %s.');
 @define('FILE_CREATE_YOURSELF', 'Vinsamlegast búðu skrána til sjálfur eða athugaðu eiginleika');
-@define('COPY_CODE_BELOW', '<br />* Vistaðu bara kóðann fyrir neðan og settu hann í %s í %s möppunni:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Vistaðu bara kóðann fyrir neðan og settu hann í %s í %s möppunni:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Breyttu www í notandann sem að apache keyrir sem (t.d. nobody).');
 @define('BROWSER_RELOAD', 'Þegar þú ert búinn að því, uppfærðu þá síðunna með "reload/refresh" takkanum.');
 @define('DIAGNOSTIC_ERROR', 'Við urðum vör við einhverjar villur þegar við keyrðum greiningar á upplýsingunum sem þú gafst:');
@@ -265,7 +265,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Gat ekki opnað forsniðsskrá, vinsamlegast uppfærðu Serendipity!');
 @define('ADVANCED_OPTIONS', 'Þróaðir möguleikar');
 @define('EDIT_ENTRY', 'Breyta færslu');
-@define('HTACCESS_ERROR', 'Til að athuga uppsetninguna á staðbundna vefþjóninum þarf serendipity að geta skrifað í skrána ".htaccess". Þetta var ekki hægt vegna leyfisstillinga. Vinsamlegast breyttu leyfum skráarinnar svona:  <br />&nbsp;&nbsp;%s<br />og endurhladdu þessari síðu.');
+@define('HTACCESS_ERROR', 'Til að athuga uppsetninguna á staðbundna vefþjóninum þarf serendipity að geta skrifað í skrána ".htaccess". Þetta var ekki hægt vegna leyfisstillinga. Vinsamlegast breyttu leyfum skráarinnar svona:  <br>&nbsp;&nbsp;%s<br>og endurhladdu þessari síðu.');
 @define('SIDEBAR_PLUGINS', 'Viðbætur hliðarramma');
 @define('EVENT_PLUGINS', 'Viðbætur atburða');
 @define('SORT_ORDER', 'Röðunarregla');
@@ -518,7 +518,7 @@
 @define('DELETE_FILE_FAIL' , 'Gat ekki eytt skrá <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Eyddi sýnishorni myndar nefnt <b>%s</b>');
 @define('DELETE_FILE', 'Eyddi skrá nenfdri <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Þú ert að far aað eyða <b>%s</b><br />Ef þú ert að nota þessa skrá í einhverri af færslunum þínum, mun það valda dauðum hlekkjum eða óvirkum myndum<br />Ertu viss um að þú viljir halda áfram?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Þú ert að far aað eyða <b>%s</b><br>Ef þú ert að nota þessa skrá í einhverri af færslunum þínum, mun það valda dauðum hlekkjum eða óvirkum myndum<br>Ertu viss um að þú viljir halda áfram?<br><br>');
 @define('TRACKBACK_SENDING', 'Sendi tilvísun á URI slóð %s...');
 @define('TRACKBACK_SENT', 'Tilvísun tókst');
 @define('TRACKBACK_FAILED', 'Tilvísun tókst ekki: %s');
@@ -672,7 +672,7 @@
 @define('EMPTY_SETTING', 'Þú skilgreindir ekki löglegt gildi fyrir "%s"!');
 @define('USERCONF_REALNAME', 'Nafn');
 @define('USERCONF_REALNAME_DESC', 'Fullt nafn höfundar. Þetta er nafnið eins og lesendur sjá það');
-@define('HOTLINK_DONE', 'Skrá hotlinkuð.<br />Búin.');
+@define('HOTLINK_DONE', 'Skrá hotlinkuð.<br>Búin.');
 @define('ENTER_MEDIA_URL_METHOD', 'Sóknaraðferð:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Athuga: Ef þú vilt hotlinka á þjón, gakktu úr skuggu um að þú hafir réttindi á viðkomandi vefsíðu, eða að þú eigir vefsíðuna. Hotlink leyfir þér að nota myndir sem eru ekki á þínum vefþjóni án þess að vista þær á þjóninum.');
 @define('MEDIA_HOTLINKED', 'hotlinkað');
@@ -969,7 +969,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

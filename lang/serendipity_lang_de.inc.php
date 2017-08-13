@@ -82,7 +82,7 @@
 @define('ERROR_FILE_EXISTS', 'Fehler: Neuer Dateiname existiert schon, bitte einen anderen wählen.');
 @define('ERROR_SOMETHING', 'Fehler: Irgend etwas stimmt nicht.');
 @define('ADDING_IMAGE', 'Bild hinzufügen ...');
-@define('THUMB_CREATED_DONE', 'Vorschau erstellt.<br />Fertig.');
+@define('THUMB_CREATED_DONE', 'Vorschau erstellt.<br>Fertig.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fehler: Diese Datei existiert schon auf dem Server!');
 @define('GO', 'Los!');
 @define('NEWSIZE', 'Neue Größe ');
@@ -175,7 +175,7 @@
 @define('CANT_EXECUTE_BINARY', 'Kann die Datei \'%s\' nicht ausführen');
 @define('FILE_WRITE_ERROR', 'Datei \'%s\' kann nicht geschrieben werden.');
 @define('FILE_CREATE_YOURSELF', ' Bitte die Datei manuell anlegen oder Dateirechte korrigieren.');
-@define('COPY_CODE_BELOW', '<br />* Kopieren Sie den folgenden Code in die Datei \'%s\' des Verzeichnisses \'%s\':<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Kopieren Sie den folgenden Code in die Datei \'%s\' des Verzeichnisses \'%s\':<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Ersetzen Sie \'www\' durch den User, als der der Webserver läuft. (z.B. \'nobody\')');
 @define('BROWSER_RELOAD', 'Danach aktualisieren Sie bitte diese Seite in Ihrem Browser.');
 @define('DIAGNOSTIC_ERROR', 'Bei der Einrichtung der Installation traten einige Fehler auf:');
@@ -250,7 +250,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Die Template-Datei konnte nicht geöffnet werden. Bitte die Serendipity-Version aktualisieren!');
 @define('ADVANCED_OPTIONS', 'Erweiterte Optionen');
 @define('EDIT_ENTRY', 'Eintrag bearbeiten');
-@define('HTACCESS_ERROR', 'Um die Webserver-Konfiguration zu testen benötigt Serendipity die Möglichkeit, die Datei ".htaccess" zu erstellen. Dies war aufgrund von Rechteproblemen nicht möglich. Bitte passen Sie die Rechte wie folgt an: <br />&nbsp;&nbsp;%s<br />und laden Sie diese Seite neu.');
+@define('HTACCESS_ERROR', 'Um die Webserver-Konfiguration zu testen benötigt Serendipity die Möglichkeit, die Datei ".htaccess" zu erstellen. Dies war aufgrund von Rechteproblemen nicht möglich. Bitte passen Sie die Rechte wie folgt an: <br>&nbsp;&nbsp;%s<br>und laden Sie diese Seite neu.');
 @define('SIDEBAR_PLUGINS', 'Seitenleisten-Plugins');
 @define('EVENT_PLUGINS', 'Ereignis-Plugins');
 @define('SYNCING', 'Synchronisiere Datenbank mit Bilder-Ordner');
@@ -505,7 +505,7 @@
 @define('VIEW_COMMENT', 'Kommentar ansehen');
 @define('VIEW_ENTRY', 'Eintrag ansehen');
 @define('DELETE_FILE', 'Datei namens <b>%s</b> gelöscht');
-@define('ABOUT_TO_DELETE_FILE', 'Sie beabsichtigen, die Datei <b>%s</b> zu löschen.<br />Wenn Sie die Datei in einem Ihrer Einträge verwenden, wird das Löschen Lücken erzeugen.<br />Soll trotzdem fortgefahren werden?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Sie beabsichtigen, die Datei <b>%s</b> zu löschen.<br>Wenn Sie die Datei in einem Ihrer Einträge verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?<br><br>');
 @define('A_NEW_TRACKBACK_BLAHBLAH', 'Ein neues Trackback für den Blog-Eintrag namens "%s" wurde empfangen.');
 @define('TRACKBACK_SENDING', 'Sende Trackback zu URI %s ...');
 @define('TRACKBACK_SENT', 'Trackback erfolgreich!');
@@ -519,7 +519,7 @@
 @define('COMMENTS_VIEWMODE_THREADED', 'Verschachtelt');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Linear');
 @define('DISPLAY_COMMENTS_AS', 'Ansicht der Kommentare: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Bild/Datei zur Sammlung hinzufügen:</b><p>Hier können Sie eine Datei (z.B. ein Bild) hochladen, oder mitteilen, von wo es geladen werden soll! Wenn das passende Bild fehlt, einfach bei Google danach suchen. Probieren Sie mal <a href="http://images.google.de" target="_blank">Googles Bildsuche</a>, die Resultate sind oft brauchbar, aber auf jeden Fall witzig :). Aber vorsicht: Die meisten Bilder sind urheberrechtlich geschützt, also vorher fragen, um Ärger zu vermeiden.</p><p><b>Methode wählen:</b></p><br />');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Bild/Datei zur Sammlung hinzufügen:</b><p>Hier können Sie eine Datei (z.B. ein Bild) hochladen, oder mitteilen, von wo es geladen werden soll! Wenn das passende Bild fehlt, einfach bei Google danach suchen. Probieren Sie mal <a href="http://images.google.de" target="_blank">Googles Bildsuche</a>, die Resultate sind oft brauchbar, aber auf jeden Fall witzig :). Aber vorsicht: Die meisten Bilder sind urheberrechtlich geschützt, also vorher fragen, um Ärger zu vermeiden.</p><p><b>Methode wählen:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Zeige');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Nur bewilligte');
@@ -673,7 +673,7 @@
 @define('EMPTY_SETTING', 'Sie haben für "%s" keinen gültigen Wert angegeben!');
 @define('USERCONF_REALNAME', 'Voller Name');
 @define('USERCONF_REALNAME_DESC', 'Der vollständige Name des Autors. Nur dieser Name wird Besuchern angezeigt.');
-@define('HOTLINK_DONE', 'Link zur Datei erstellt.<br />Fertig.');
+@define('HOTLINK_DONE', 'Link zur Datei erstellt.<br>Fertig.');
 @define('ENTER_MEDIA_URL_METHOD', 'Download-Methode:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Hinweis: Falls Sie auf eine Datei/Grafik nur verweisen wollen, stellen Sie bitte sicher, dass Sie die Erlaubnis haben, zu diesen Bildern zu linken bzw. dass die verlinkte Webseite Ihnen gehört. Dateiverweise/Links ermöglichen es, eine Datei/Grafik nicht lokal zu speichern, sondern sie direkt von der verlinkten Website einzubinden.');
 @define('MEDIA_HOTLINKED', 'Link');
@@ -973,7 +973,7 @@
 @define('SUMMARY', 'Zusammenfassung');
 
 // Next lines were translated on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'Sie beabsichtigen mehrere Dateien auf einmal zu löschen.<br />Wenn Sie diese in ihren Einträgen verwenden, wird das Löschen Lücken erzeugen.<br />Soll trotzdem fortgefahren werden?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'Sie beabsichtigen mehrere Dateien auf einmal zu löschen.<br>Wenn Sie diese in ihren Einträgen verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stabile Archive');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sortiert die Archiv-Seiten absteigend, so dass sie auf einer festen Seite bleiben und Suchmaschinen sie nicht immer wieder neu indizieren müssen. Voreingestellt ist die fortlaufende Sortierung.');
 

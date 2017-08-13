@@ -187,7 +187,7 @@
 @define('CANT_EXECUTE_BINARY', 'Kunde inte köra %s binärfil');
 @define('FILE_WRITE_ERROR', 'Kan inte skriva till filen %s.');
 @define('FILE_CREATE_YOURSELF', 'Skapa filen själv eller kontrollera rättigheter');
-@define('COPY_CODE_BELOW', '<br />* Kopiera koden nedan och lägg den i %s i din %s mapp:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Kopiera koden nedan och lägg den i %s i din %s mapp:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Ändra www till den användare apache kör som (t.ex. nobody eller www).');
 @define('BROWSER_RELOAD', 'När du har gjort detta, välj "Uppdatera" eller motsvarande i din webbläsare.');
 @define('DIAGNOSTIC_ERROR', 'Vi hittade några fel när vi körde diagnostik på din inmatade information:');
@@ -265,7 +265,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Kunde inte öppna mallfil. Uppdatera Serendipity!');
 @define('ADVANCED_OPTIONS', 'Utökade inställningar');
 @define('EDIT_ENTRY', 'Redigera artikel');
-@define('HTACCESS_ERROR', 'För att kontrollera din lokala webbserver-installation måste Serendipity kunna skriva till filen ".htaccess". Detta gick inte pga fel rättigheter. Justera rättigheterna så här: <br />&nbsp;&nbsp;%s<br />ladda om sidan.');
+@define('HTACCESS_ERROR', 'För att kontrollera din lokala webbserver-installation måste Serendipity kunna skriva till filen ".htaccess". Detta gick inte pga fel rättigheter. Justera rättigheterna så här: <br>&nbsp;&nbsp;%s<br>ladda om sidan.');
 @define('SIDEBAR_PLUGINS', 'Sid-navigator Plugins');
 @define('EVENT_PLUGINS', 'Händelse-plugin');
 @define('SORT_ORDER', 'Sorteringordning');
@@ -518,7 +518,7 @@
 @define('DELETE_FILE_FAIL' , 'Kan inte ta bort filen <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Ta bort miniatyren <b>%s</b>');
 @define('DELETE_FILE', 'Ta bort filen <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Du håller p ta bort <b>%s</b><br />Om du använder den här filen i någon av dina artiklar får du länk-/bildfel<br />Vill du fortfarande ta bort den?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Du håller p ta bort <b>%s</b><br>Om du använder den här filen i någon av dina artiklar får du länk-/bildfel<br>Vill du fortfarande ta bort den?<br><br>');
 @define('TRACKBACK_SENDING', 'Skickar trackback till URI %s...');
 @define('TRACKBACK_SENT', 'Trackback fungerade');
 @define('TRACKBACK_FAILED', 'Trackback misslyckades: %s');
@@ -672,7 +672,7 @@
 @define('EMPTY_SETTING', 'Du angav ett ogiltigt värde för "%s"!');
 @define('USERCONF_REALNAME', 'Riktigt namm');
 @define('USERCONF_REALNAME_DESC', 'Författarens hela namn. Detta namn ses av läsarna');
-@define('HOTLINK_DONE', 'Filen länkad.<br />Klar.');
+@define('HOTLINK_DONE', 'Filen länkad.<br>Klar.');
 @define('ENTER_MEDIA_URL_METHOD', 'Hämtningsmetod:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Kommentar: Om du väljer att länka till en server bör du försäkra dig om att du har tillstånd att länka till den aktuella webbplatsen, eller att webbplatsen är din egen. Länkning låter dig använda bilder på andra webbplatser utan att behöva förvara dem lolalt.');
 @define('MEDIA_HOTLINKED', 'länkad');
@@ -968,7 +968,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

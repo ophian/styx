@@ -200,7 +200,7 @@ $i18n_filename_to = array (
 @define('CANT_EXECUTE_BINARY', 'Nepodarilo sa spusti» binárny súbor %s.');
 @define('FILE_WRITE_ERROR', 'Nepodarilo sa zapísa» do súboru %s.');
 @define('FILE_CREATE_YOURSELF', 'Prosím vytvorte súbor ruène alebo skontrolujte oprávnenia.');
-@define('COPY_CODE_BELOW', '<br />* Skopírujte kód uvedený ní¾¹ie a umiestnite ho do súboru "%s" vo va¹om prieèinku "%s":<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Skopírujte kód uvedený ní¾¹ie a umiestnite ho do súboru "%s" vo va¹om prieèinku "%s":<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Zmeòte "www" na pou¾ívateµa, pod ktorým be¾í webserver (napr. nobody).');
 @define('BROWSER_RELOAD', 'Po dokonèení stlaète tlaèidlo obnovenia stránky vo va¹om prehliadaèi.');
 @define('DIAGNOSTIC_ERROR', 'Diagnostika na¹la chyby vo vkladaných údajoch:');
@@ -280,7 +280,7 @@ $i18n_filename_to = array (
 @define('ERROR_TEMPLATE_FILE', 'Súbor so ¹ablónou sa nepodarilo otvori», prosím aktualizujte verziu Serendipity!');
 @define('ADVANCED_OPTIONS', 'Roz¹írené nastavenia');
 @define('EDIT_ENTRY', 'Editova» èlánok');
-@define('HTACCESS_ERROR', 'Na otestovanie konfigurácie Vá¹ho webservera potrebuje Serendipity práva na vytvorenie súbora ".htaccess". Tento súbor sa nepodarilo vytvori». Prosím upravte práva súboru následovne: <br />&nbsp;&nbsp;%s<br />a opätovne nahrajte túto stránku..');
+@define('HTACCESS_ERROR', 'Na otestovanie konfigurácie Vá¹ho webservera potrebuje Serendipity práva na vytvorenie súbora ".htaccess". Tento súbor sa nepodarilo vytvori». Prosím upravte práva súboru následovne: <br>&nbsp;&nbsp;%s<br>a opätovne nahrajte túto stránku..');
 @define('SIDEBAR_PLUGINS', 'Doplnky pre boèné li¹ty');
 @define('EVENT_PLUGINS', 'Doplnky udalostí');
 @define('SORT_ORDER', 'Zoraïi» podµa');
@@ -530,7 +530,7 @@ $i18n_filename_to = array (
 @define('DELETE_FILE_FAIL', 'Nepodarilo sa zmaza» súbor <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Zmazaný náhµad obrázku s názvom <b>%s</b>');
 @define('DELETE_FILE', 'Vymaza» súbor s názvom <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Chcete zmaza» <b>%s</b><br />Ak pou¾ívate tento súbor v èlánkoch, spôsobí to neprítomnos» odkazov alebo obrázkov.<br />Napriek tomu pokraèova»?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Chcete zmaza» <b>%s</b><br>Ak pou¾ívate tento súbor v èlánkoch, spôsobí to neprítomnos» odkazov alebo obrázkov.<br>Napriek tomu pokraèova»?<br><br>');
 @define('TRACKBACK_SENDING', 'Odoslanie odozvy na URI %s...');
 @define('TRACKBACK_SENT', 'Odozva úspe¹ná');
 @define('TRACKBACK_FAILED', 'Odozva neúspe¹ná: %s');
@@ -686,7 +686,7 @@ $i18n_filename_to = array (
 @define('EMPTY_SETTING', 'Nezadali ste platnú hodnotu pre "%s"!');
 @define('USERCONF_REALNAME', 'Skutoèné Meno');
 @define('USERCONF_REALNAME_DESC', 'Plné meno autora. Toto meno je viditeµné pre náv¹tevníkov');
-@define('HOTLINK_DONE', 'Súbor prepojený odkazom.<br />Dokonèené.');
+@define('HOTLINK_DONE', 'Súbor prepojený odkazom.<br>Dokonèené.');
 @define('ENTER_MEDIA_URL_METHOD', 'Spôsob prepojenia:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Poznámka: Ak zvolíte odkaz na server, uistite sa, ¾e máte potrebné práva, alebo ¾e ide o Vá¹ web. Odkazy Vám umo¾nia vyu¾íva» obrázky z iných ako miestnych zdrojov.');
 @define('MEDIA_HOTLINKED', 'prepojené');

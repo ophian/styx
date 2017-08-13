@@ -89,7 +89,7 @@
 @define('ERROR_FILE_EXISTS', 'Error: ¡Un fichero con ese nombre ya existe, selecciona otro!');
 @define('ERROR_SOMETHING', 'Error: Algo está mal.');
 @define('ADDING_IMAGE', 'Añadiendo imagen...');
-@define('THUMB_CREATED_DONE', 'Miniatura creada.<br />Hecho.');
+@define('THUMB_CREATED_DONE', 'Miniatura creada.<br>Hecho.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Error: ¡El fichero ya existe en el sistema!');
 @define('GO', '¡Ir!');
 @define('NEWSIZE', 'Nuevo tamaño: ');
@@ -178,7 +178,7 @@
 @define('CANT_EXECUTE_BINARY', 'No se puede ejecutar %s');
 @define('FILE_WRITE_ERROR', 'No se puede escribir el fichero %s.');
 @define('FILE_CREATE_YOURSELF', 'Crea el fichero tu mismo o verifica los permisos');
-@define('COPY_CODE_BELOW', '<br />* Tan solo copia el código situado debajo y ponlo %s dentro %s del directorio:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Tan solo copia el código situado debajo y ponlo %s dentro %s del directorio:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Cambia www por el usuario que está ejecutando el servidor web (p. ej. nobody).');
 @define('BROWSER_RELOAD', 'Una vez hecho esto, pulsa en tu navegador el botón "Recargar".');
 @define('DIAGNOSTIC_ERROR', 'Hemos detectado algunos errores mientras se ejecutaban varias comprobaciones en la información que has introducido:');
@@ -249,7 +249,7 @@
 
 /* TRANSLATE */
 @define('WRONG_USERNAME_OR_PASSWORD', 'Usuario o contraseña erróneo');
-@define('HTACCESS_ERROR', 'Para verificar tu instalación del servidor web, serendipity deber ser capaz de escribir en el fichero ".htaccess". Esto no fue posible debido a errores de permisos. Por favor, ajusta los permisos como: <br /> %s<br />y recarga esta página.');
+@define('HTACCESS_ERROR', 'Para verificar tu instalación del servidor web, serendipity deber ser capaz de escribir en el fichero ".htaccess". Esto no fue posible debido a errores de permisos. Por favor, ajusta los permisos como: <br> %s<br>y recarga esta página.');
 @define('SIDEBAR_PLUGINS', 'Extensiones de barra lateral');
 @define('EVENT_PLUGINS', 'Extensiones de eventos');
 @define('SYNCING', 'Sincronizando la base de datos con el directorio de imágenes.');
@@ -512,7 +512,7 @@
 @define('VIEW_COMMENT', 'Ver comentario');
 @define('VIEW_ENTRY', 'Ver entrada');
 @define('DELETE_FILE', 'Borrado el fichero llamado <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Estás a punto de borrar <b>%s</b><br />Si estás usando este fichero en alguna de tus entradas, esto causará enlaces o imágenes rotos<br />¿Estás seguro de que quieres seguir?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Estás a punto de borrar <b>%s</b><br>Si estás usando este fichero en alguna de tus entradas, esto causará enlaces o imágenes rotos<br>¿Estás seguro de que quieres seguir?<br><br>');
 @define('TRACKBACK_SENDING', 'Enviando referencia a la URI %s...');
 @define('TRACKBACK_SENT', 'Referencia exitosa');
 @define('TRACKBACK_FAILED', 'Referencia fallida: %s');
@@ -687,7 +687,7 @@
 @define('EMPTY_SETTING', '¡No especificaste un valor válido para "%s"!');
 @define('USERCONF_REALNAME', 'Nombre real');
 @define('USERCONF_REALNAME_DESC', 'El nombre completo del autor. Este es el nombre que verán los lectores.');
-@define('HOTLINK_DONE', 'Fichero como recurso externo enlazado.<br />Hecho.');
+@define('HOTLINK_DONE', 'Fichero como recurso externo enlazado.<br>Hecho.');
 @define('ENTER_MEDIA_URL_METHOD', 'Método de obtención:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Nota: Enlazar recursos externos te permite usar imágenes externas sin almacenarlas localmente. Si escoges esta opción, asegúrate de poseer los permisos para hacerlo en el servidor externo o bien el servidor es tuyo.');
 @define('MEDIA_HOTLINKED', 'enlazado externamente');
@@ -988,7 +988,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

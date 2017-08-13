@@ -187,7 +187,7 @@
 @define('CANT_EXECUTE_BINARY', '无法执行 %s 文件！');
 @define('FILE_WRITE_ERROR', '无法读写文件 %s！');
 @define('FILE_CREATE_YOURSELF', '请自己建立这个文件或检查权限');
-@define('COPY_CODE_BELOW', '<br />* 请复制下面的代码然后放入 %s 到你的 %s 文件夹:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* 请复制下面的代码然后放入 %s 到你的 %s 文件夹:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', '请改变 www 到使用者的 Apache (i.e. nobody)！');
 @define('BROWSER_RELOAD', '完成之后, 重新刷新你的浏览器.');
 @define('DIAGNOSTIC_ERROR', '系统检测到一些错误:');
@@ -267,7 +267,7 @@
 @define('ERROR_TEMPLATE_FILE', '无法开启主题文件, 请更新系统！');
 @define('ADVANCED_OPTIONS', '高级选项');
 @define('EDIT_ENTRY', '编辑文章');
-@define('HTACCESS_ERROR', '要检查你的安装设定, 系统需要读写 ".htaccess"，但是因为权限错误, 没有办法为你检查，请改变文件权限: <br />&nbsp;&nbsp;%s<br />然后刷新。');
+@define('HTACCESS_ERROR', '要检查你的安装设定, 系统需要读写 ".htaccess"，但是因为权限错误, 没有办法为你检查，请改变文件权限: <br>&nbsp;&nbsp;%s<br>然后刷新。');
 @define('SIDEBAR_PLUGINS', '侧列外挂');
 @define('EVENT_PLUGINS', '事件外挂');
 @define('SORT_ORDER', '排序');
@@ -519,7 +519,7 @@
 @define('DELETE_FILE_FAIL' , '无法删除文件 <b>%s</b>');
 @define('DELETE_THUMBNAIL', '删除图片缩图 <b>%s</b>');
 @define('DELETE_FILE', '删除文件 <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', '你将删除文件 <b>%s</b><br />如果你有在其它的文章内使用这个文件, 那个连接或图片将会无效<br />确定要继续吗？<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', '你将删除文件 <b>%s</b><br>如果你有在其它的文章内使用这个文件, 那个连接或图片将会无效<br>确定要继续吗？<br><br>');
 @define('TRACKBACK_SENDING', '传送引用到 URI %s...');
 @define('TRACKBACK_SENT', '引用完成');
 @define('TRACKBACK_FAILED', '引用错误: %s');
@@ -676,7 +676,7 @@
 @define('EMPTY_SETTING', '你没有提供 "%s" 的正确参数');
 @define('USERCONF_REALNAME', '全名');
 @define('USERCONF_REALNAME_DESC', '作者全名，将显示全部读者');
-@define('HOTLINK_DONE', '文件外部连接<br />结束。');
+@define('HOTLINK_DONE', '文件外部连接<br>结束。');
 @define('ENTER_MEDIA_URL_METHOD', '取得方法:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '注意:如果你选择外部连接，请先得到来源网站的允许。外部连接允许你用其它网站的图片而不需要将图片保存在你的主机内。');
 @define('MEDIA_HOTLINKED', '外部连接图片');
@@ -973,7 +973,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

@@ -189,7 +189,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('CANT_EXECUTE_BINARY', 'Nie mogę uruchomić %s');
 @define('FILE_WRITE_ERROR', 'Nie mogę zapisywać do pliku %s.');
 @define('FILE_CREATE_YOURSELF', 'Proszę, stwórz plik samodzielnie lub sprawdź prawa dostępu.');
-@define('COPY_CODE_BELOW', '<br />* Po prostu skopiuj poniższy kod i umieść go w %s w Twoim katalogu %s:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Po prostu skopiuj poniższy kod i umieść go w %s w Twoim katalogu %s:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Zmień właściciela katalogu ze stroną na użytkownika, z uprawnieniami którego działa apache (np. nobody).');
 @define('BROWSER_RELOAD', 'Kiedy wykonasz te czynności wciśnij przycisk "reload" (odśwież) w swojej przeglądarce.');
 @define('DIAGNOSTIC_ERROR', 'Stwierdzono istnienie pewnych problemów podczas przeprowadzania procedur diagnostycznych. Upewnij się, że podałeś prawidłowe dane:');
@@ -267,7 +267,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('ERROR_TEMPLATE_FILE', 'Nie mogę otworzyć pliku stylu (template). Proszę, sprawdź lub unowocześnij swoją instalację Serendipity!');
 @define('ADVANCED_OPTIONS', 'Zaawansowane ustawienia');
 @define('EDIT_ENTRY', 'Edycja wpisu');
-@define('HTACCESS_ERROR', 'Aby sprawdzić konfigurację serwera, na którym instalowane jest Serendipity, program musi mieć możliwość stworzenia pliku ".htaccess". Nie było to możliwe ze względu na problemy z uprawnieniami. Proszę, sprawdź uprawnienia w taki mniej więcej sposób: <br />&nbsp;&nbsp;%s<br />i przeładuj stronę.');
+@define('HTACCESS_ERROR', 'Aby sprawdzić konfigurację serwera, na którym instalowane jest Serendipity, program musi mieć możliwość stworzenia pliku ".htaccess". Nie było to możliwe ze względu na problemy z uprawnieniami. Proszę, sprawdź uprawnienia w taki mniej więcej sposób: <br>&nbsp;&nbsp;%s<br>i przeładuj stronę.');
 @define('SIDEBAR_PLUGINS', 'Wtyczki Paneli Bocznych');
 @define('EVENT_PLUGINS', 'Wtyczki Zdarzeń');
 @define('SORT_ORDER', 'Porządek sortowania');
@@ -497,7 +497,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('ENTER_MEDIA_UPLOAD', 'Wybierz plik do uploadu:');
 @define('SAVE_FILE_AS', 'Zapisz plik jako:');
 @define('STORE_IN_DIRECTORY', 'Zapisz w następującym katalogu: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Dodaj plik do zbioru mediów:</b><p>Tu możesz uploadować pliki z mediami lub wskazać jakieś pliki dostępne w sieci! Jeśli nie masz odpowiedniego obrazka, <a href="http://images.google.com" target="_blank">znajdź w serwisie Google</a> obrazki, które być może będą Ci odpowiadały. Rezultaty wyszukiwania są często przydatne i zabawne :) Ale uważaj! Większość obrazków ma zastrzeżone prawa autorskie i powinieneś (powinnaś) zapytać się o pozwolenie przed ich użyciem!</p><p><b>Wybierz metodę:</b></p><br />');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Dodaj plik do zbioru mediów:</b><p>Tu możesz uploadować pliki z mediami lub wskazać jakieś pliki dostępne w sieci! Jeśli nie masz odpowiedniego obrazka, <a href="http://images.google.com" target="_blank">znajdź w serwisie Google</a> obrazki, które być może będą Ci odpowiadały. Rezultaty wyszukiwania są często przydatne i zabawne :) Ale uważaj! Większość obrazków ma zastrzeżone prawa autorskie i powinieneś (powinnaś) zapytać się o pozwolenie przed ich użyciem!</p><p><b>Wybierz metodę:</b></p><br>');
 @define('MEDIA_RENAME', 'Zmien nazwę pliku');
 @define('IMAGE_RESIZE', 'Zmień rozmiar obrazka');
 @define('MEDIA_DELETE', 'Usuń ten plik');
@@ -520,7 +520,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('DELETE_FILE_FAIL' , 'Usuwanie pliku <b>%s</b> nie powiodło się');
 @define('DELETE_THUMBNAIL', 'Usunięto minturkę o nazwie <b>%s</b>');
 @define('DELETE_FILE', 'Usunięto plik o nazwie <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Masz zamiar usunąc plik <b>%s</b><br />Jeśli w którymś z wpisów zostało zdefiniowane odwołanie do pliku, plik ten nie będzie więcej dla tego odwałania dostępny (link nie będzie działał prawidłowo).<br />Czy chcesz kontynuować?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Masz zamiar usunąc plik <b>%s</b><br>Jeśli w którymś z wpisów zostało zdefiniowane odwołanie do pliku, plik ten nie będzie więcej dla tego odwałania dostępny (link nie będzie działał prawidłowo).<br>Czy chcesz kontynuować?<br><br>');
 @define('TRACKBACK_SENDING', 'Wysyłanie śladu do URI %s...');
 @define('TRACKBACK_SENT', 'Pozostawienie śladu zakończone sukcesem');
 @define('TRACKBACK_FAILED', 'Pozostawienie śladu nie powiodło się: %s');
@@ -674,7 +674,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('EMPTY_SETTING', 'Podano nieprawidłowe dane dla "%s"!');
 @define('USERCONF_REALNAME', 'Prawdziwe imię i nazwisko');
 @define('USERCONF_REALNAME_DESC', 'Pełne imię i nazwisko, jest widziane przez czytających');
-@define('HOTLINK_DONE', 'Plik podlinkowany.<br />Zrobione.');
+@define('HOTLINK_DONE', 'Plik podlinkowany.<br>Zrobione.');
 @define('ENTER_MEDIA_URL_METHOD', 'Sposób pobierania');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'UWAGA! Jeśli wybierasz opcję linkowania do pliku w sieci, upewnij się, że masz do tego prawo! Linkowanie pozwala na używanie obrazków z innych stron bez potrzeby ich zgrywania na serwer.');
 @define('MEDIA_HOTLINKED', 'podlinkowane');
@@ -970,7 +970,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

@@ -169,7 +169,7 @@
 @define('CANT_EXECUTE_BINARY', 'Não pôde executar o binário %s');
 @define('FILE_WRITE_ERROR', 'Não foi possível editar o arquivo %s.');
 @define('FILE_CREATE_YOURSELF', 'Por favor, crie você mesmo o arquivo ou verifique suas permissões');
-@define('COPY_CODE_BELOW', '<br />* Copie o código abaixo e o coloque em %s no seu %s diretório:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Copie o código abaixo e o coloque em %s no seu %s diretório:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Altere www para o usuário com o qual o apache é executado (ex.: nobody).');
 @define('BROWSER_RELOAD', 'Uma vez feito isso, pressione o botão "atualizar" ("reload") do seu navegador.');
 @define('DIAGNOSTIC_ERROR', 'Detectamos alguns erros quando verificamos as informações fornecidas por você:');
@@ -249,7 +249,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Não foi possível abrir o arquivo de template, por favor atualize o serendipity!');
 @define('ADVANCED_OPTIONS', 'Opções avançadas');
 @define('EDIT_ENTRY', 'Editar artigo');
-@define('HTACCESS_ERROR', 'Para checar a instalação do servidor web, serendipity precisa ter poder criar o arquivo ".htaccess". Isso não foi possível devido a erros de permissões. Por favor, ajuste as permissões para isso: <br />&nbsp;&nbsp;%s<br />e recarregue esta página.');
+@define('HTACCESS_ERROR', 'Para checar a instalação do servidor web, serendipity precisa ter poder criar o arquivo ".htaccess". Isso não foi possível devido a erros de permissões. Por favor, ajuste as permissões para isso: <br>&nbsp;&nbsp;%s<br>e recarregue esta página.');
 @define('SIDEBAR_PLUGINS', 'Plugins da barra lateral');
 @define('EVENT_PLUGINS', 'Plugins de eventos');
 @define('SORT_ORDER', 'Ordenação');
@@ -499,7 +499,7 @@
 @define('VIEW_COMMENT', 'Exibir comentário');
 @define('VIEW_ENTRY', 'Exibir artigo');
 @define('DELETE_FILE', 'Excluir o campo entitulado <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Você está prestes a excluir <b>%s</b><br />Se estiver utilizando esse arquivo em algum dos seus artigos, vai resultar em links ou imagens perdidas<br />Deseja realmente prosseguir com a exclusão?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Você está prestes a excluir <b>%s</b><br>Se estiver utilizando esse arquivo em algum dos seus artigos, vai resultar em links ou imagens perdidas<br>Deseja realmente prosseguir com a exclusão?<br><br>');
 @define('TRACKBACK_SENDING', 'Enviando trackback para a URI %s...');
 @define('TRACKBACK_SENT', 'Trackback enviada com sucesso');
 @define('TRACKBACK_FAILED', 'Trackback falhou: %s');
@@ -675,7 +675,7 @@
 @define('EMPTY_SETTING', 'Você não especificou um valor válido para "%s"!');
 @define('USERCONF_REALNAME', 'Nome real');
 @define('USERCONF_REALNAME_DESC', 'Todo o nome do autor. Este nome é o que os leitores enxergam');
-@define('HOTLINK_DONE', 'Arquivo entrelaçado.<br />Feito.');
+@define('HOTLINK_DONE', 'Arquivo entrelaçado.<br>Feito.');
 @define('ENTER_MEDIA_URL_METHOD', 'Método de obtenção:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Nota: se você quer fazer um "hotlink" para um servidor, tenha certeza de ter permissões suficientes. Os "hotlinks" permitem que você use ligações em imagem não armazenadas no servidor local.');
 @define('MEDIA_HOTLINKED', 'entrelaçado');
@@ -973,7 +973,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

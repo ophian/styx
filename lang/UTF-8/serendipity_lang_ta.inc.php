@@ -187,7 +187,7 @@
 @define('CANT_EXECUTE_BINARY', 'Cannot execute the %s binary');
 @define('FILE_WRITE_ERROR', 'Cannot write to file %s.');
 @define('FILE_CREATE_YOURSELF', 'Please create the file yourself or check permissions');
-@define('COPY_CODE_BELOW', '<br />* Just copy the code below and place it in %s in your %s folder:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Just copy the code below and place it in %s in your %s folder:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Change www to the user apache runs as (e.g. nobody).');
 @define('BROWSER_RELOAD', 'Once you have done this, hit your browser\'s "reload" button.');
 @define('DIAGNOSTIC_ERROR', 'We detected some errors while running some diagnostics on your entered information:');
@@ -265,7 +265,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Unable to open template file, please update serendipity!');
 @define('ADVANCED_OPTIONS', 'மேலான தேர்வுகள்');
 @define('EDIT_ENTRY', 'குறிப்பை மாற்றுக');
-@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br />&nbsp;&nbsp;%s<br />and reload this page.');
+@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
 @define('SIDEBAR_PLUGINS', 'வலைபக்க செயல்பொருள்கள் (வலைப்பக்கத்தில் தெரிபவை)');
 @define('EVENT_PLUGINS', 'உள்ளார்ந்த செயல்பொருள்கள் (வலைப்பக்க தோற்றத்தை மாற்றுபவை. பக்கத்தில் தெரியாது.)');
 @define('SORT_ORDER', 'வகைப்பாடு');
@@ -495,7 +495,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Select a file you wish to upload:');
 @define('SAVE_FILE_AS', 'Save the file as:');
 @define('STORE_IN_DIRECTORY', 'Store inside the following directory: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>ஒர் வலைபொருளை உங்கள் வலைபொருள் பெட்டகத்தில் சேர்க்க:</b><br /><b>சேர்ப்பு முறை:</b></p><br/>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>ஒர் வலைபொருளை உங்கள் வலைபொருள் பெட்டகத்தில் சேர்க்க:</b><br><b>சேர்ப்பு முறை:</b></p><br/>');
 @define('MEDIA_RENAME', 'Rename this file');
 @define('IMAGE_RESIZE', 'Resize this image');
 @define('MEDIA_DELETE', 'Delete this file');
@@ -518,7 +518,7 @@
 @define('DELETE_FILE_FAIL' , 'Unable to delete file <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Deleted the image thumbnail entitled <b>%s</b>');
 @define('DELETE_FILE', 'Deleted the file entitled <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'You are about to delete <b>%s</b><br />If you are using this file in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'You are about to delete <b>%s</b><br>If you are using this file in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('TRACKBACK_SENDING', 'Sending trackback to URI %s...');
 @define('TRACKBACK_SENT', 'Trackback successful');
 @define('TRACKBACK_FAILED', 'Trackback failed: %s');
@@ -672,7 +672,7 @@
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
 @define('USERCONF_REALNAME', 'முழுப்பெயர்'); // Translate
 @define('USERCONF_REALNAME_DESC', 'வலைக்குறிப்பு அன்பர்கள் இப்பெயரைக் காண்பார்கள்'); // Translate
-@define('HOTLINK_DONE', 'File hotlinked.<br />Done.'); // Translate
+@define('HOTLINK_DONE', 'File hotlinked.<br>Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Fetch method:'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.'); // Translate
 @define('MEDIA_HOTLINKED', 'hotlinked'); // Translate
@@ -968,7 +968,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

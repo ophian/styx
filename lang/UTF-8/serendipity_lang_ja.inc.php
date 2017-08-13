@@ -187,7 +187,7 @@
 @define('CANT_EXECUTE_BINARY', '%s バイナリを実行できませんでした。');
 @define('FILE_WRITE_ERROR', 'ファイル %s の書き込みができませんでした。');
 @define('FILE_CREATE_YOURSELF', '自分でファイルを作成するか、パーミッションを調べてください');
-@define('COPY_CODE_BELOW', '<br />* Just copy the code below and place it in %s in your %s folder:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Just copy the code below and place it in %s in your %s folder:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'apache を実行しているユーザーに www を変更します(例えば nobody)');
 @define('BROWSER_RELOAD', '一度これを実行してにはブラウザーの「再読み込み」ボタンをクリックします。');
 @define('DIAGNOSTIC_ERROR', 'あなたの入力した情報の診断を実行する間にいくつかのエラーを検知しました:');
@@ -265,7 +265,7 @@
 @define('ERROR_TEMPLATE_FILE', 'テンプレートファイルを開けません。serendipity をアップデートしてください!');
 @define('ADVANCED_OPTIONS', '高度なオプション');
 @define('EDIT_ENTRY', 'エントリー編集');
-@define('HTACCESS_ERROR', 'ローカルのウェブサーバでのインストールを確認するために、serendipity はファイル「.htaccess」を書き込みできる書くことができる必要があります。これは権限エラーのためにできませんでした。このように権限を調整してください: <br />&nbsp;&nbsp;%s<br /> そして、このページを再読み込みします。');
+@define('HTACCESS_ERROR', 'ローカルのウェブサーバでのインストールを確認するために、serendipity はファイル「.htaccess」を書き込みできる書くことができる必要があります。これは権限エラーのためにできませんでした。このように権限を調整してください: <br>&nbsp;&nbsp;%s<br> そして、このページを再読み込みします。');
 @define('SIDEBAR_PLUGINS', 'サイドバー プラグイン');
 @define('EVENT_PLUGINS', 'イベント プラグイン');
 @define('SORT_ORDER', 'ソート順');
@@ -518,7 +518,7 @@
 @define('DELETE_FILE_FAIL' , 'ファイル <b>%s</b> を削除できませんでした。');
 @define('DELETE_THUMBNAIL', '<b>%s</b> という名前の画像サムネイルを削除しました。');
 @define('DELETE_FILE', '<b>%s</b> という名前のファイルを削除しました。');
-@define('ABOUT_TO_DELETE_FILE', '<b>%s</b>を削除します。<br />もしこのファイルをエントリーで使用していた場合、リンク切れや表示できない画像の原因になるでしょう。<br />本当に進めますか?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', '<b>%s</b>を削除します。<br>もしこのファイルをエントリーで使用していた場合、リンク切れや表示できない画像の原因になるでしょう。<br>本当に進めますか?<br><br>');
 @define('TRACKBACK_SENDING', 'URI %s にトラックバックを送信中...');
 @define('TRACKBACK_SENT', 'トラックバック成功');
 @define('TRACKBACK_FAILED', 'トラックバック失敗: %s');
@@ -672,7 +672,7 @@
 @define('EMPTY_SETTING', '%s の値が正しく指定されていません!');
 @define('USERCONF_REALNAME', '本名');
 @define('USERCONF_REALNAME_DESC', '著作者のフルネームです。これは読者に見える名前です。');
-@define('HOTLINK_DONE', 'ファイルをホットリンクしました。<br />完了です。');
+@define('HOTLINK_DONE', 'ファイルをホットリンクしました。<br>完了です。');
 @define('ENTER_MEDIA_URL_METHOD', '取得方法:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '注: ホットリンクは、それらをローカルに格納せずに、リモートのイメージを使用することを可能にします。サーバーへのホットリンクを選択した場合、自分のウェブサイトか指定のウェブサイトへホットリンクする許可を持っていることを確認してください。');
 @define('MEDIA_HOTLINKED', 'ホットリンク済み');
@@ -972,7 +972,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

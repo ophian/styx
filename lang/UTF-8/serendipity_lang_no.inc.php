@@ -169,7 +169,7 @@
 @define('CANT_EXECUTE_BINARY', 'Kan ikke eksekvere %s');
 @define('FILE_WRITE_ERROR', 'Kan ikke skrive til filen %s.');
 @define('FILE_CREATE_YOURSELF', 'Venligst opprett filen selv og sjekk dens rettigheter');
-@define('COPY_CODE_BELOW', '<br />* Kopier koden nedenunder og plasser den i %s i din %s mappe:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Kopier koden nedenunder og plasser den i %s i din %s mappe:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Endre www til den bruker som apache kører som (fx. nobody).');
 @define('BROWSER_RELOAD', 'Når du har gjort dette, så tryk på browserens "oppdater"-knapp');
 @define('DIAGNOSTIC_ERROR', 'Vi har opdaget noen feil mens vi kørte noen diagnostikker på dine oppgitte informasjoner:');
@@ -250,7 +250,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Kunne ikke åpne malen, oppater Serendipity!');
 @define('ADVANCED_OPTIONS', 'Avanserte innstillinger');
 @define('EDIT_ENTRY', 'Rediger artikkel');
-@define('HTACCESS_ERROR', 'For å kunne sjekke din lokale webservers installasjon, må Serendipity være i stand til å skrive til filen ".htaccess". Dette var ikke mulig pga. feil rettigheter. Endre rettighetene slik: <br />&nbsp;&nbsp;%s<br />og oppdater denne siden.');
+@define('HTACCESS_ERROR', 'For å kunne sjekke din lokale webservers installasjon, må Serendipity være i stand til å skrive til filen ".htaccess". Dette var ikke mulig pga. feil rettigheter. Endre rettighetene slik: <br>&nbsp;&nbsp;%s<br>og oppdater denne siden.');
 @define('SORT_ORDER', 'Sorter etter');
 @define('SORT_ORDER_NAME', 'Filnavn');
 @define('SORT_ORDER_EXTENSION', 'Filtype');
@@ -503,7 +503,7 @@
 @define('VIEW_COMMENT', 'Se kommentar');
 @define('VIEW_ENTRY', 'Se posting');
 @define('DELETE_FILE', 'Slettet filen kalt <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Du er i ferd med å slette <b>%s</b><br />Hvis du bruker denne filen i noen av postene dine vil dette forårsake døde lenker eller bilder<br />Er du sikker på at du vil gå videre?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Du er i ferd med å slette <b>%s</b><br>Hvis du bruker denne filen i noen av postene dine vil dette forårsake døde lenker eller bilder<br>Er du sikker på at du vil gå videre?<br><br>');
 @define('TRACKBACK_SENDING', 'Sender trackback til URI %s...');
 @define('TRACKBACK_SENT', 'Trackback suksess');
 @define('TRACKBACK_FAILED', 'Trackback slo feil: %s');
@@ -674,7 +674,7 @@
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
 @define('USERCONF_REALNAME', 'Real name'); // Translate
 @define('USERCONF_REALNAME_DESC', 'The full name of the author. This is the name seen by readers'); // Translate
-@define('HOTLINK_DONE', 'File hotlinked.<br />Done.'); // Translate
+@define('HOTLINK_DONE', 'File hotlinked.<br>Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Fetch method:'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.'); // Translate
 @define('MEDIA_HOTLINKED', 'hotlinked'); // Translate
@@ -971,7 +971,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

@@ -219,7 +219,7 @@ $i18n_filename_to = array (
 @define('CANT_EXECUTE_BINARY', 'Nelze spustit binární soubor %s.');
 @define('FILE_WRITE_ERROR', 'Nelze zapisovat do souboru %s.');
 @define('FILE_CREATE_YOURSELF', 'Vytvoøte soubor pøímo nebo provìøte oprávnìní');
-@define('COPY_CODE_BELOW', '<br />* Zkopírujte kód uvedený níže a umístìte jej do %s ve vašem %s adresáøi:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Zkopírujte kód uvedený níže a umístìte jej do %s ve vašem %s adresáøi:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Zmìòte www na uživatele, který je urèen v Apache (na pø. nobody).');
 @define('BROWSER_RELOAD', 'Po dokonèení stisknìte tlaèítko obnovení stránky ve vašem prohlížeèi.');
 @define('DIAGNOSTIC_ERROR', 'Diagnostika detekovala nìjaké chyby ve vkládaných informacích:');
@@ -299,7 +299,7 @@ $i18n_filename_to = array (
 @define('ERROR_TEMPLATE_FILE', 'Nelze otevøít vzorový soubor, updatujte Serendipity!');
 @define('ADVANCED_OPTIONS', 'Rozšíøené volby');
 @define('EDIT_ENTRY', 'Editovat záznam');
-@define('HTACCESS_ERROR', 'Provìøte instalaci vašeho webserveru, Serendipity potøebuje uložit soubor ".htaccess". To nebylo možné kvùli chybì oprávnìní. Nastavte oprávnìní jako: <br />&nbsp;&nbsp;%s<br />a znovu uložte tuto stránku.');
+@define('HTACCESS_ERROR', 'Provìøte instalaci vašeho webserveru, Serendipity potøebuje uložit soubor ".htaccess". To nebylo možné kvùli chybì oprávnìní. Nastavte oprávnìní jako: <br>&nbsp;&nbsp;%s<br>a znovu uložte tuto stránku.');
 @define('SIDEBAR_PLUGINS', 'Pluginy pro postranní sloupce');
 @define('EVENT_PLUGINS', 'Pluginy událostí');
 @define('SORT_ORDER', 'Poøadí');
@@ -549,7 +549,7 @@ $i18n_filename_to = array (
 @define('DELETE_FILE_FAIL', 'Nezdaøilo se vymazat soubor <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Vymazán náhled obrázku s názvem <b>%s</b>');
 @define('DELETE_FILE', 'Vymazat soubor s názvem <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Chcete vymazat <b>%s</b><br />Jestliže používáte tento soubor v nìjakých záznamech, zpùsobí to nepøístupnost odkazù nebo obrázkù.<br />Chcete pøesto pokraèovat?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Chcete vymazat <b>%s</b><br>Jestliže používáte tento soubor v nìjakých záznamech, zpùsobí to nepøístupnost odkazù nebo obrázkù.<br>Chcete pøesto pokraèovat?<br><br>');
 @define('TRACKBACK_SENDING', 'Odeslání odezvy na URI %s...');
 @define('TRACKBACK_SENT', 'Odezva úspìšná');
 @define('TRACKBACK_FAILED', 'Odezva neúspìšná: %s');
@@ -703,7 +703,7 @@ $i18n_filename_to = array (
 @define('EMPTY_SETTING', 'Nespecifikoval jste platnou hodnotu pro "%s"!');
 @define('USERCONF_REALNAME', 'Skuteèné jméno');
 @define('USERCONF_REALNAME_DESC', 'Plné jméno autora. Toto jméno uvidí ètenáøi');
-@define('HOTLINK_DONE', 'Soubor pøipojen odkazem.<br />Hotovo.');
+@define('HOTLINK_DONE', 'Soubor pøipojen odkazem.<br>Hotovo.');
 @define('ENTER_MEDIA_URL_METHOD', 'Zpùsob pøipojení:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Poznámka: Pokud zvolíte odkaz na server, ujistìte se, že máte potøebná práva, nebo že jde o váš web. Odkazy vám umožní využívat obrázky z jiných než místních zdrojù.');
 @define('MEDIA_HOTLINKED', 'odkazován');
@@ -1003,7 +1003,7 @@ $i18n_filename_to = array (
 @define('SUMMARY', 'Souhrn');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

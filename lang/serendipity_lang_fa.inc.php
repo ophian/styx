@@ -188,7 +188,7 @@
 @define('CANT_EXECUTE_BINARY', 'توانایی اجرای %s نیست');
 @define('FILE_WRITE_ERROR', 'توانایی نوشتن در فایل %s نیست.');
 @define('FILE_CREATE_YOURSELF', 'لطفا یا خودتان فایل را ایجاد کنید، یا دسترسی ها را چک کنید');
-@define('COPY_CODE_BELOW', '<br />* کد زیر را کپی کرده و در %s در %s شاخه زیر بریزید:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* کد زیر را کپی کرده و در %s در %s شاخه زیر بریزید:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'www را به کاربری که از آپاچی استفاده می کند تغییر دهید (مثلا nobody(.');
 @define('BROWSER_RELOAD', 'پس از تکمیل، صفحه مرورگر را refresh کنید.');
 @define('DIAGNOSTIC_ERROR', 'تعدادی خطا در اطلاعات ورودی شما یافت شد:');
@@ -266,7 +266,7 @@
 @define('ERROR_TEMPLATE_FILE', 'توانایی باز کردن فایل پوسته وجود ندارد، لطفا سرندیپیتی را به روز کنید!');
 @define('ADVANCED_OPTIONS', 'گزینه های پیشرفته');
 @define('EDIT_ENTRY', 'تغییر ارسال');
-@define('HTACCESS_ERROR', 'برای چک کردن نصب وب سرور، سرندیپیتی احتیاج دارد که در فایل ".htaccess" مقادیری را بنویسد. این امر به دلیل محدودیت های دسترسی ممکن نمی باشد. لطفا سطح دسترسی را مشابه: <br />&nbsp;&nbsp;%s<br />تغییر داده و این صفحه را دوباره صدا بزنید.');
+@define('HTACCESS_ERROR', 'برای چک کردن نصب وب سرور، سرندیپیتی احتیاج دارد که در فایل ".htaccess" مقادیری را بنویسد. این امر به دلیل محدودیت های دسترسی ممکن نمی باشد. لطفا سطح دسترسی را مشابه: <br>&nbsp;&nbsp;%s<br>تغییر داده و این صفحه را دوباره صدا بزنید.');
 @define('SIDEBAR_PLUGINS', 'افزونه های نوار کناری');
 @define('EVENT_PLUGINS', 'افزونه های رویداد');
 @define('SORT_ORDER', 'ترتیب مرتب سازی');
@@ -519,7 +519,7 @@
 @define('DELETE_FILE_FAIL' , 'توانایی حذف فایل <b>%s</b> وجود ندارد');
 @define('DELETE_THUMBNAIL', 'عکس کوچک با نام <b>%s</b> حذف شد');
 @define('DELETE_FILE', 'فایل با تیتر <b>%s</b> حذف شد');
-@define('ABOUT_TO_DELETE_FILE', 'شما می خواهید <b>%s</b> را حذف کنید<br />اگر شما از این فایل در ارسال هایتان استفاده کردید، دیگر قابل مشاهده شدن یا لینک دادن نیست<br />آیا از انجام این عمل اطمینان دارید؟<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'شما می خواهید <b>%s</b> را حذف کنید<br>اگر شما از این فایل در ارسال هایتان استفاده کردید، دیگر قابل مشاهده شدن یا لینک دادن نیست<br>آیا از انجام این عمل اطمینان دارید؟<br><br>');
 @define('TRACKBACK_SENDING', 'ارسال دنبالک به آدرس %s...');
 @define('TRACKBACK_SENT', 'موفقیت در دنبالک');
 @define('TRACKBACK_FAILED', 'خطا در دنبالک: %s');
@@ -970,7 +970,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

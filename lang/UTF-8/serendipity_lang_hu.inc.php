@@ -187,7 +187,7 @@
 @define('CANT_EXECUTE_BINARY', 'Nem tudom futtatni a %s binárist');
 @define('FILE_WRITE_ERROR', 'Nem tudom írni a %s fájlt.');
 @define('FILE_CREATE_YOURSELF', 'Kérlek hozd létre a fájlt, vagy ellenőrizd a hozzáférési jogokat');
-@define('COPY_CODE_BELOW', '<br />* Másold a lenti kódot a %s fájlba (könyvtár: %s):<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Másold a lenti kódot a %s fájlba (könyvtár: %s):<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'A www-t cseréld ki arra a felhasználóra, aki az apache-ot futtatja (pl. nobody).');
 @define('BROWSER_RELOAD', 'Ha kész vagy, kattints a böngésző "Frissítés" gombjára.');
 @define('DIAGNOSTIC_ERROR', 'Találtam valami hibát az általad megadott adatokban:');
@@ -265,7 +265,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Nem tudom megnyitni a sablonfájlt, kérlek frissítsd a serendipity-t!');
 @define('ADVANCED_OPTIONS', 'Haladó Beállítások');
 @define('EDIT_ENTRY', 'Bejegyzés szerkesztése');
-@define('HTACCESS_ERROR', 'A helyi webszerver ellenőrzéséhez, írási jogot kell adni a serendipity-nek a ".htaccess" fájlra. Ez pillanatnyilag nincs így. Kérlek az alábbiak szerint módosítsd a hozzáférési jogosultságokat: <br />&nbsp;&nbsp;%s<br />majd töltsd újra az aktuális oldalt.');
+@define('HTACCESS_ERROR', 'A helyi webszerver ellenőrzéséhez, írási jogot kell adni a serendipity-nek a ".htaccess" fájlra. Ez pillanatnyilag nincs így. Kérlek az alábbiak szerint módosítsd a hozzáférési jogosultságokat: <br>&nbsp;&nbsp;%s<br>majd töltsd újra az aktuális oldalt.');
 @define('SIDEBAR_PLUGINS', 'Margó Modulok');
 @define('EVENT_PLUGINS', 'Eseményvezérlő Modulok');
 @define('SORT_ORDER', 'Sorrend');
@@ -518,7 +518,7 @@
 @define('DELETE_FILE_FAIL' , 'Nem sikerült a fájl törlése: <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'A következő előnézeti kép törlése: <b>%s</b>');
 @define('DELETE_FILE', 'A következő fájlt töröltem: <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'A következő fájl törlésére készülsz: <b>%s</b><br />Ha van olyan bejegyzés ahol ezt használod, akkor így törött hivatkozások vagy hiányzó képek lesznek<br />Biztosan folytatod?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'A következő fájl törlésére készülsz: <b>%s</b><br>Ha van olyan bejegyzés ahol ezt használod, akkor így törött hivatkozások vagy hiányzó képek lesznek<br>Biztosan folytatod?<br><br>');
 @define('TRACKBACK_SENDING', 'Visszahivatkozás küldése ide: %s...');
 @define('TRACKBACK_SENT', 'A visszahivatkozás sikeres');
 @define('TRACKBACK_FAILED', 'A visszahivatkozás nem sikerült: %s');
@@ -672,7 +672,7 @@
 @define('EMPTY_SETTING', 'Nem adtál meg értéket ehhez: "%s"!');
 @define('USERCONF_REALNAME', 'Valódi név');
 @define('USERCONF_REALNAME_DESC', 'A szerző teljes neve. Ezt látják az olvasók.');
-@define('HOTLINK_DONE', 'Fájl közvetlen hivatkozás létrehozva.<br />Kész.');
+@define('HOTLINK_DONE', 'Fájl közvetlen hivatkozás létrehozva.<br>Kész.');
 @define('ENTER_MEDIA_URL_METHOD', 'Letöltési mód:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Megjegyzés: ha a közvetlen hivatkozást választod, bizonyosodj meg arról, hogy van-e jogod ehhez, vagy a szerver ahova mutatsz a tiéd. Ezzel a módszerrel úgy jeleníthetsz meg képeket, hogy azok nem kerülnek hozzád lementésre.');
 @define('MEDIA_HOTLINKED', 'közvetlenül hivatkozva');
@@ -966,7 +966,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

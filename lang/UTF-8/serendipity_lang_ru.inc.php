@@ -190,7 +190,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CANT_EXECUTE_BINARY', 'Невозможно запустить файл %s');
 @define('FILE_WRITE_ERROR', 'Невозможна запись в файл %s.');
 @define('FILE_CREATE_YOURSELF', 'Пожалуйста создайте файл вручную или проверьте права доступа');
-@define('COPY_CODE_BELOW', '<br />* Просто скопируйте код ниже и поместите его в %s в вашей папке %s:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Просто скопируйте код ниже и поместите его в %s в вашей папке %s:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Изменить www на имя пользователя, под которым запущен apache (например, nobody).');
 @define('BROWSER_RELOAD', 'После того, как вы это сделаете, нажмите кнопку "reload" вашего браузера.');
 @define('DIAGNOSTIC_ERROR', 'Мы обнаружили несколько ошибок, пока проверяли введённую вами информацию:');
@@ -268,7 +268,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ERROR_TEMPLATE_FILE', 'Невозможно открыть файл шаблона, пожалуйста обновите serendipity!');
 @define('ADVANCED_OPTIONS', 'Дополнительные опции');
 @define('EDIT_ENTRY', 'Редактировать запись');
-@define('HTACCESS_ERROR', 'Чтобы проверить настройки вашего веб-сервера, serendipity необходимо иметь права записи в файл ".htaccess". Эта операция не удалась из-за недостаточных прав доступа к файлу. Пожалуйста, измените эти права командой типа: <br />&nbsp;&nbsp;%s<br />и перегрузите эту страницу.');
+@define('HTACCESS_ERROR', 'Чтобы проверить настройки вашего веб-сервера, serendipity необходимо иметь права записи в файл ".htaccess". Эта операция не удалась из-за недостаточных прав доступа к файлу. Пожалуйста, измените эти права командой типа: <br>&nbsp;&nbsp;%s<br>и перегрузите эту страницу.');
 @define('SIDEBAR_PLUGINS', 'Плагины боковых панелей');
 @define('EVENT_PLUGINS', 'Event-плагины');
 @define('SORT_ORDER', 'Порядок сортировки');
@@ -521,7 +521,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DELETE_FILE_FAIL', 'Не удалось удалить файл <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Удалён файл с тамбнэйлом <b>%s</b>');
 @define('DELETE_FILE', 'Удалён файл <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Вы собираетесь удалить <b>%s</b><br />Если вы используете этот файл в каких-то ваших записях, это действие сделает ссылки или изображения в них недоступными.<br />Вы уверены, что хотите продолжить?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Вы собираетесь удалить <b>%s</b><br>Если вы используете этот файл в каких-то ваших записях, это действие сделает ссылки или изображения в них недоступными.<br>Вы уверены, что хотите продолжить?<br><br>');
 @define('TRACKBACK_SENDING', 'Отправка обратной ссылки на URI %s...');
 @define('TRACKBACK_SENT', 'Отправка обратной ссылки прошла успешно');
 @define('TRACKBACK_FAILED', 'Отправка обратной ссылки не удалась: %s');
@@ -676,7 +676,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('EMPTY_SETTING', 'Вы не установили допустимое значение для "%s"!');
 @define('USERCONF_REALNAME', 'Отображаемое имя');
 @define('USERCONF_REALNAME_DESC', 'Полное имя автора. То имя которое отображается для читателей');
-@define('HOTLINK_DONE', 'Привязка файла.<br />завершена.');
+@define('HOTLINK_DONE', 'Привязка файла.<br>завершена.');
 @define('ENTER_MEDIA_URL_METHOD', 'Метод доставки:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Замечание: Если вы выбрали хотлинк к серверу, убедитесь, что у вас есть права на создание хотлинков к выбранному вебсайту, или вебсайт принадлежит вам. Хотлинк позволяет использовать изображения не с сайта, не сохраняя их локально.');
 @define('MEDIA_HOTLINKED', 'Привязанные изображение');
@@ -972,7 +972,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

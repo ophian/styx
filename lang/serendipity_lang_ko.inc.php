@@ -189,7 +189,7 @@
 @define('CANT_EXECUTE_BINARY', '바이너리 파일 %s(을)를 실행할 수 없습니다');
 @define('FILE_WRITE_ERROR', '파일 %s에 기록할 수 없습니다.');
 @define('FILE_CREATE_YOURSELF', '파일을 직접 생성하거나 권한 설정을 확인하십시오');
-@define('COPY_CODE_BELOW', '<br />* 아래의 코드를 복사하여 %s에 넣고 %s 폴더에 두십시오:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* 아래의 코드를 복사하여 %s에 넣고 %s 폴더에 두십시오:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'www를 아파치가 사용하는 사용자 이름(nobody 등)으로 변경하십시오.');
 @define('BROWSER_RELOAD', '작업이 끝난 후 브라우저의 "새로고침" 버튼을 누르십시오.');
 @define('DIAGNOSTIC_ERROR', '입력한 정보에 검사를 수행하는 도중 에러를 발견했습니다:');
@@ -267,7 +267,7 @@
 @define('ERROR_TEMPLATE_FILE', '템플릿 파일을 열지 못했습니다. 세렌디피티를 업데이트 하십시오.');
 @define('ADVANCED_OPTIONS', '고급 옵션');
 @define('EDIT_ENTRY', '글 편집');
-@define('HTACCESS_ERROR', '웹서버 설치 상태를 확인하십시오. 세렌디피티는 ".htaccess" 파일에 기록을 할 수 있어야 하지만 권한 설정 오류 때문에 기록을 할 수 없었습니다. 다음과 같이 권한 설정을 바꾸십시오: <br />&nbsp;&nbsp;%s<br /> 그리고 이 페이지를 다시 여십시오.');
+@define('HTACCESS_ERROR', '웹서버 설치 상태를 확인하십시오. 세렌디피티는 ".htaccess" 파일에 기록을 할 수 있어야 하지만 권한 설정 오류 때문에 기록을 할 수 없었습니다. 다음과 같이 권한 설정을 바꾸십시오: <br>&nbsp;&nbsp;%s<br> 그리고 이 페이지를 다시 여십시오.');
 @define('SIDEBAR_PLUGINS', '옆줄 플러그인');
 @define('EVENT_PLUGINS', '이벤트 플러그인');
 @define('SORT_ORDER', '정렬 순서');
@@ -520,7 +520,7 @@
 @define('DELETE_FILE_FAIL' , '파일 <b>%s</b> 삭제 실패');
 @define('DELETE_THUMBNAIL', '작은 그림 <b>%s</b> 삭제됨');
 @define('DELETE_FILE', '파일 <b>%s</b> 삭제됨');
-@define('ABOUT_TO_DELETE_FILE', '<b>%s</b> 삭제를 하려고 합니다.<br />작성한 글에서 이 파일을 사용하고 있을 경우 링크나 그림이 깨질 수 있습니다.<br />계속 하겠습니까?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', '<b>%s</b> 삭제를 하려고 합니다.<br>작성한 글에서 이 파일을 사용하고 있을 경우 링크나 그림이 깨질 수 있습니다.<br>계속 하겠습니까?<br><br>');
 @define('TRACKBACK_SENDING', '트랙백을 URI %s(으)로 보내는 중...');
 @define('TRACKBACK_SENT', '트랙백 성공');
 @define('TRACKBACK_FAILED', '트랙백 실패: %s');
@@ -676,7 +676,7 @@
 @define('EMPTY_SETTING', '"%s"에 대한 유효한 값을 지정하지 않았습니다.');
 @define('USERCONF_REALNAME', '실제 이름');
 @define('USERCONF_REALNAME_DESC', '작성자의 실제 이름으로서, 독자가 보게 되는 이름입니다.');
-@define('HOTLINK_DONE', '파일이 핫링크 되었습니다.<br />완료.');
+@define('HOTLINK_DONE', '파일이 핫링크 되었습니다.<br>완료.');
 @define('ENTER_MEDIA_URL_METHOD', '불러오기 방식:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '주의: 서버에서 핫링크 하기는 해당 사이트에서 핫링크 허락을 미리 받아놓거나 자신의 사이트인 경우에 대해 하기 바랍니다. 핫링크를 하게 되면 외부 그림을 따로 저장하지 않고 쓸 수 있게 됩니다.');
 @define('MEDIA_HOTLINKED', '핫링크 됨');
@@ -973,7 +973,7 @@
 @define('SUMMARY', '요약');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', '여러 개의 파일을 한꺼번에 지우려고 하고 있습니다.<br />만약 작성했던 글에 이들 중 일부를 사용하고 있다면 깨진 링크나 그림으로 나타날 것입니다.<br />그래도 계속 진행하겠습니까?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', '여러 개의 파일을 한꺼번에 지우려고 하고 있습니다.<br>만약 작성했던 글에 이들 중 일부를 사용하고 있다면 깨진 링크나 그림으로 나타날 것입니다.<br>그래도 계속 진행하겠습니까?<br><br>');
 @define('ARCHIVE_SORT_STABLE', '안정적인 글 목록');
 @define('ARCHIVE_SORT_STABLE_DESC', '글 목록 페이지를 내림차순으로 정렬하여 안정적인 상태를 유지함으로서 검색엔진 봇이 다시 색인하지 않아도 되도록 합니다.');
 @define('PLAIN_ASCII_NAMES', '(특수 문자나 변이부호 등을 쓰지 마십시오)');

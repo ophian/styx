@@ -188,7 +188,7 @@
 @define('CANT_EXECUTE_BINARY', 'Nu pot executa programul %s');
 @define('FILE_WRITE_ERROR', 'Nu pot scrie în fişierul %s.');
 @define('FILE_CREATE_YOURSELF', 'Te rog să creezi fişierul tu sau să verifici permisiunile');
-@define('COPY_CODE_BELOW', '<br />* Nu trebuie decât să copiezi codul de mai jos şi să-l pui în %s din directorul %s:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Nu trebuie decât să copiezi codul de mai jos şi să-l pui în %s din directorul %s:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Schimbă www cu numele utilizatorului sub care rulează apache (ex. nobody).');
 @define('BROWSER_RELOAD', 'După ce ai făcuta asta, reîmprospătează pagina cu butonul Reload sau Refresh.');
 @define('DIAGNOSTIC_ERROR', 'Am găsit nişte erori în timp ce rulam nişte teste cu informaţiile introduse de tine:');
@@ -266,7 +266,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Nu pot deschide fişierul cu tematică, verifică configuraţia serendipity!');
 @define('ADVANCED_OPTIONS', 'Opţiuni avansate');
 @define('EDIT_ENTRY', 'Modifică însemnare');
-@define('HTACCESS_ERROR', 'Pentru a verifica instalarea serverului tău web, serendipity trebuie să poată scrie în fişierul ".htaccess". Acest lucru nu a fost posibil din cauza lipsei de permisiuni asupra fişierului sau directorului care îl conţine. Trebuie să schimbi permisiunile asupra fişierului astfel: <br />&nbsp;&nbsp;%s<br />şi reîncarcă această pagină.');
+@define('HTACCESS_ERROR', 'Pentru a verifica instalarea serverului tău web, serendipity trebuie să poată scrie în fişierul ".htaccess". Acest lucru nu a fost posibil din cauza lipsei de permisiuni asupra fişierului sau directorului care îl conţine. Trebuie să schimbi permisiunile asupra fişierului astfel: <br>&nbsp;&nbsp;%s<br>şi reîncarcă această pagină.');
 @define('SIDEBAR_PLUGINS', 'Extensii Bară Laterală');
 @define('EVENT_PLUGINS', 'Extensii Evenimente');
 @define('SORT_ORDER', 'Ordinea sortării');
@@ -519,7 +519,7 @@
 @define('DELETE_FILE_FAIL' , 'Nu pot şterge fişierul <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Am şters miniatura cu numele <b>%s</b>');
 @define('DELETE_FILE', 'Am şters fişierul cu numele <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Eşti pe cale să ştergi <b>%s</b><br />Dacă foloseşti acest fişier în însemnările tale, legătura către ele nu va funcţiona iar imaginile nu vor fi afişate<br />Eşti sigur că vrei să continui?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Eşti pe cale să ştergi <b>%s</b><br>Dacă foloseşti acest fişier în însemnările tale, legătura către ele nu va funcţiona iar imaginile nu vor fi afişate<br>Eşti sigur că vrei să continui?<br><br>');
 @define('TRACKBACK_SENDING', 'Trimit URI de referinţa la %s...');
 @define('TRACKBACK_SENT', 'Referit cu succes');
 @define('TRACKBACK_FAILED', 'Eroare referire: %s');
@@ -673,7 +673,7 @@
 @define('EMPTY_SETTING', 'Nu ai specificat o valoare validă pentru "%s"!');
 @define('USERCONF_REALNAME', 'Nume real'); // Translate
 @define('USERCONF_REALNAME_DESC', 'Numele complet al autorului. Acesta este numele vizibil cititorilor'); // Translate
-@define('HOTLINK_DONE', 'Fişier legat direct.<br />Gata.'); // Translate
+@define('HOTLINK_DONE', 'Fişier legat direct.<br>Gata.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Metodă descărcare:'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Notă: Dacă alegi să faci o legătură către server, asigură-te că ai permisiunea să foloseşti conţinut de pe acel site, sau că situl e al tău. Această opţiune îţi permite să foloseşti imagini de pe alte situri fără a le stoca local.'); // Translate
 @define('MEDIA_HOTLINKED', 'legat direct'); // Translate
@@ -970,7 +970,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

@@ -175,7 +175,7 @@
 @define('CANT_EXECUTE_BINARY', 'Je ne peux pas exécuter le programme %s');
 @define('FILE_WRITE_ERROR', 'Je ne peux pas ouvrir le fichier %s pour écriture.');
 @define('FILE_CREATE_YOURSELF', 'Merci de créer le fichier vous-même ou de me donner les droits d\'accès nécessaires.');
-@define('COPY_CODE_BELOW', '<br />* Copiez le code ci-dessous et placez le %s dans votre %s répertoire :<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Copiez le code ci-dessous et placez le %s dans votre %s répertoire :<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Changez www dans le nom d\'utilisateur sous lequel fonctionne le serveur apache (nobody, par ex).');
 @define('BROWSER_RELOAD', 'Une fois ceci effectué, rechargez la page avec la touche "F5".');
 @define('DIAGNOSTIC_ERROR', 'J\'ai touvé quelques erreurs en vérifiant vos données :');
@@ -255,7 +255,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Impossible d\'ouvrir le fichier du thème, merci de mettre à jour Serendipity !');
 @define('ADVANCED_OPTIONS', 'Options avancées');
 @define('EDIT_ENTRY', 'Éditer le billet');
-@define('HTACCESS_ERROR', 'Pour vérifier l\'installation de Serendipity sur votre serveur, Serendipity doit pouvoir créer le fichier ".htaccess". Ceci n\'a pas été possible car Serendipity n\'a pas les droits d\'accès suffisants dans ce répertoire. Vous pouvez ajuster les droits d\'accès avec la commande suivante : <br />&nbsp;&nbsp;%s<br />. Après, rechargez cette page avec la touche "F5".');
+@define('HTACCESS_ERROR', 'Pour vérifier l\'installation de Serendipity sur votre serveur, Serendipity doit pouvoir créer le fichier ".htaccess". Ceci n\'a pas été possible car Serendipity n\'a pas les droits d\'accès suffisants dans ce répertoire. Vous pouvez ajuster les droits d\'accès avec la commande suivante : <br>&nbsp;&nbsp;%s<br>. Après, rechargez cette page avec la touche "F5".');
 @define('SIDEBAR_PLUGINS', 'Plugins pour la barre latérale');
 @define('EVENT_PLUGINS', 'Plugins d\'évènement');
 @define('SORT_ORDER', 'Trier par ordre');
@@ -507,7 +507,7 @@
 @define('VIEW_COMMENT', 'Afficher le commentaire');
 @define('VIEW_ENTRY', 'Afficher le billet');
 @define('DELETE_FILE', 'Suppression du fichier intitulé <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Vous êtes sur le point d\'effacer <b>%s</b>.<br />Si vous avez utilisé ce fichier dans un de vos billets, les liens vers celui-ci seront invalides<br />Êtes-vous sûr de vouloir continuer ?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Vous êtes sur le point d\'effacer <b>%s</b>.<br>Si vous avez utilisé ce fichier dans un de vos billets, les liens vers celui-ci seront invalides<br>Êtes-vous sûr de vouloir continuer ?<br><br>');
 @define('TRACKBACK_SENDING', 'Envoie le rétrolien à l\'adresse %s...');
 @define('TRACKBACK_SENT', 'Rétrolien effectué');
 @define('TRACKBACK_FAILED', 'Rétrolien échoué : %s');
@@ -677,7 +677,7 @@
 @define('EMPTY_SETTING', 'Vous n\'avez pas spécifié de valeur correcte pour "%s" !');
 @define('USERCONF_REALNAME', 'Nom réel');
 @define('USERCONF_REALNAME_DESC', 'Le nom complet de l\'auteur. C\'est le nom qui sera vu par les lecteurs');
-@define('HOTLINK_DONE', 'Lien du fichier.<br />Fait.');
+@define('HOTLINK_DONE', 'Lien du fichier.<br>Fait.');
 @define('ENTER_MEDIA_URL_METHOD', 'Mode de recherche :');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Remarque : si vous choisissez de faire un lien sur le serveur, assurez-vous d\'avoir la permission de le faire, ou que le site vous appartienne. Faire un lien vous permet d\'utiliser des images qui ne sont pas sur le site sans avoir à les stocker localement sur le serveur.');
 @define('MEDIA_HOTLINKED', 'Lié');
@@ -975,7 +975,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

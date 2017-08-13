@@ -189,7 +189,7 @@
 @define('CANT_EXECUTE_BINARY', 'Bu binari dosyası çalıştırılamıyor %s ');
 @define('FILE_WRITE_ERROR', 'Dosyaya yazılamıyor %s.');
 @define('FILE_CREATE_YOURSELF', 'Lütfen dosyayı kendiniz oluşturup izinleri kontrol edin');
-@define('COPY_CODE_BELOW', '<br />* Sadece bu kodu kopyalayıp %s dizinindeki %s dosyaya yerleştirin:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Sadece bu kodu kopyalayıp %s dizinindeki %s dosyaya yerleştirin:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Change www to the user apache runs as (e.g. nobody).');
 @define('BROWSER_RELOAD', 'Öncelikle şu işlemi yapın, Tarayıcınızın\'s "yenile" düğmesine tıklayın.');
 @define('DIAGNOSTIC_ERROR', 'Girdiğiniz bilgilerde bazı hatalar tespit ettik:');
@@ -267,7 +267,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Şablon dosyası açılamıyor, Lütfen yazılımınızı güncelleyin!');
 @define('ADVANCED_OPTIONS', 'Gelişmiş Seçenekler');
 @define('EDIT_ENTRY', 'Yazı düzenle');
-@define('HTACCESS_ERROR', 'Yerel websunucusu kurulumunu kontrol edin, serendipity  ".htaccess" dosyasına yazma yetkisine ihtiyaç duyar. Şu anda yazma yetkilerinin yetersizliği nedediyle  bu dosya üstüne yazılamıyor. Lütfen örnekteki gibi izinleri düzenleyin: <br />&nbsp;&nbsp;%s<br />ve sayfayı yeniden yükleyin.');
+@define('HTACCESS_ERROR', 'Yerel websunucusu kurulumunu kontrol edin, serendipity  ".htaccess" dosyasına yazma yetkisine ihtiyaç duyar. Şu anda yazma yetkilerinin yetersizliği nedediyle  bu dosya üstüne yazılamıyor. Lütfen örnekteki gibi izinleri düzenleyin: <br>&nbsp;&nbsp;%s<br>ve sayfayı yeniden yükleyin.');
 @define('SIDEBAR_PLUGINS', 'Site Yan Blok Eklentileri');
 @define('EVENT_PLUGINS', 'Olaylar Eklentileri');
 @define('SORT_ORDER', 'Sırala');
@@ -520,7 +520,7 @@
 @define('DELETE_FILE_FAIL' , 'Dosya silinemiyor: <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Şu başlıklı küçükresim silindi: <b>%s</b>');
 @define('DELETE_FILE', 'Şu başlıklı dosya silindi: <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Şu dosyayı silmekten bahsediyorsunuz <b>%s</b><br />Eğer bu dosyayı bazı yazılarınızda kullandıysanız, bu yazılarda bu dosyayla ilgili linkler ve resimler çalışmayacaktır.<br />İşlem devam etsin mi?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Şu dosyayı silmekten bahsediyorsunuz <b>%s</b><br>Eğer bu dosyayı bazı yazılarınızda kullandıysanız, bu yazılarda bu dosyayla ilgili linkler ve resimler çalışmayacaktır.<br>İşlem devam etsin mi?<br><br>');
 @define('TRACKBACK_SENDING', ' URI %s adresine iz bırakılıyor');
 @define('TRACKBACK_SENT', 'İz bırakıldı');
 @define('TRACKBACK_FAILED', 'Bırakılan iz kayıp: %s');
@@ -674,7 +674,7 @@
 @define('EMPTY_SETTING', 'Bunun için doğru bir değer belirlemediniz: "%s"!');
 @define('USERCONF_REALNAME', 'Gerçek Ad'); // Translate
 @define('USERCONF_REALNAME_DESC', 'Yazarın tam adı. Okuyucular için gerekli'); // Translate
-@define('HOTLINK_DONE', 'Dosya ilişkilendirmesi.<br />Tamamlandı.'); // Translate
+@define('HOTLINK_DONE', 'Dosya ilişkilendirmesi.<br>Tamamlandı.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Alma yöntemi:'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Not: Sunucuya sıcak bağlantı vermeyi seçerseniz, tüm izinlere sahip olduğunuza emin olun.Sıcak linkler size site dışından resim saklama imkanı verir.'); // Translate
 @define('MEDIA_HOTLINKED', 'Sıcak Medya Bağlantıları'); // Translate
@@ -972,7 +972,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

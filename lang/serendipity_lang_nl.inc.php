@@ -189,7 +189,7 @@
 @define('CANT_EXECUTE_BINARY', 'Kan opdracht %s niet uitvoeren');
 @define('FILE_WRITE_ERROR', 'Kan niet schrijven naar bestand %s.');
 @define('FILE_CREATE_YOURSELF', 'Maak zelf het bestand aan of controleer de toegangsrechten');
-@define('COPY_CODE_BELOW', '<br />* Kopieer de onderstaande code en voeg deze toe aan het bestand %s in de map %s:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Kopieer de onderstaande code en voeg deze toe aan het bestand %s in de map %s:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Verander gebruiker \'www\' in de gebruiker die de apache-server draait (bijvoorbeeld nobody).');
 @define('BROWSER_RELOAD', 'Herlaad daarna de pagina.');
 @define('DIAGNOSTIC_ERROR', 'Serendipity heeft fouten gevonden in de door u opgegeven informatie tijdens het uitvoeren van een diagnostisch programma:');
@@ -267,7 +267,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Kan de template niet openen, werk alstublieft Serendipity bij!');
 @define('ADVANCED_OPTIONS', 'Geavanceerde Opties');
 @define('EDIT_ENTRY', 'Bewerk artikel');
-@define('HTACCESS_ERROR', 'Om de installatie van uw webserver te controleren moet Serendipity kunnen schrijven naar het bestand ".htaccess". Dit was helaas niet mogelijk vanwege verkeerde toegangsrechten. Pas deze alstublieft als volgt aan: <br />&nbsp;&nbsp;%s<br />en laad deze pagina opnieuw.');
+@define('HTACCESS_ERROR', 'Om de installatie van uw webserver te controleren moet Serendipity kunnen schrijven naar het bestand ".htaccess". Dit was helaas niet mogelijk vanwege verkeerde toegangsrechten. Pas deze alstublieft als volgt aan: <br>&nbsp;&nbsp;%s<br>en laad deze pagina opnieuw.');
 @define('SIDEBAR_PLUGINS', 'Zijbalkplugins');
 @define('EVENT_PLUGINS', 'Evenementenplugins');
 @define('SORT_ORDER', 'Sorteervolgorde');
@@ -520,7 +520,7 @@
 @define('DELETE_FILE_FAIL' , 'Kan bestand <b>%s</b> niet verwijderen');
 @define('DELETE_THUMBNAIL', 'Verwijder miniatuur <b>%s</b>');
 @define('DELETE_FILE', 'Verwijder bestand genaamd <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'U staat op het punt om bestand <b>%s</b></p><br/> te verwijderen. Als u dit bestand in een van uw artikelen gebruikt, zal dit leiden tot niet werkende hyperlinks of vermiste afbeeldingen.<br />Weet u zeker dat u door wilt gaan?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'U staat op het punt om bestand <b>%s</b></p><br/> te verwijderen. Als u dit bestand in een van uw artikelen gebruikt, zal dit leiden tot niet werkende hyperlinks of vermiste afbeeldingen.<br>Weet u zeker dat u door wilt gaan?<br><br>');
 @define('TRACKBACK_SENDING', 'Trackback aan het versturen naar %s...');
 @define('TRACKBACK_SENT', 'Trackback succesvol');
 @define('TRACKBACK_FAILED', 'Trackback functioneert niet: %s');
@@ -673,7 +673,7 @@
 @define('EMPTY_SETTING', 'U heeft geen geldige waarde opgegeven voor "%s"!');
 @define('USERCONF_REALNAME', 'Echte naam');
 @define('USERCONF_REALNAME_DESC', 'Volledige naam van de auteur. Dit is de naam die wordt gezien door de lezers');
-@define('HOTLINK_DONE', 'Bestand is gehotlinkt.<br />Klaar.');
+@define('HOTLINK_DONE', 'Bestand is gehotlinkt.<br>Klaar.');
 @define('ENTER_MEDIA_URL_METHOD', 'Ophaalmethode:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Let op: Als u er voor kiest een hotlink te maken naar een andere website, zorg er voor dat u daarvoor toestemming heeft. Een hotlink maakt het mogelijk dat u illustraties buiten uw website kunt gebruiken, zonder deze lokaal op te slaan.');
 @define('MEDIA_HOTLINKED', 'gehotlinkt');
@@ -970,7 +970,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');

@@ -176,7 +176,7 @@
 @define('CANT_EXECUTE_BINARY', 'Impossibile eseguire il binario %s');
 @define('FILE_WRITE_ERROR', 'Impossibile scrivere sul file %s.');
 @define('FILE_CREATE_YOURSELF', 'Per favore creare il file manualmente o controllare i permessi');
-@define('COPY_CODE_BELOW', '<br />* Copiare il codice qui sotto e metterlo in %s nella vostra cartella %s :<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Copiare il codice qui sotto e metterlo in %s nella vostra cartella %s :<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Cambiare www con l\'utente con cui gira apache (es. nobody).');
 @define('BROWSER_RELOAD', 'Una volta eseguito, premete il bottone "Ricarica" del vostro browser.');
 @define('DIAGNOSTIC_ERROR', 'Sono stati rilevati degli errori durante il controllo dei dati inseriti:');
@@ -254,7 +254,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Impossibile aprire il file di modello, per favore aggiornare serendipity!');
 @define('ADVANCED_OPTIONS', 'Opzioni avanzate');
 @define('EDIT_ENTRY', 'Modifica notizia');
-@define('HTACCESS_ERROR', 'Per controllare l\'installazione del tuo webserver, serendipity ha bisogno di scrivere nel file ".htaccess". Questo non è stato possibile a causa di permessi errati. Per favore sistema i permessi in questo modo: <br />&nbsp;&nbsp;%s<br />e ricarica questa pagina.');
+@define('HTACCESS_ERROR', 'Per controllare l\'installazione del tuo webserver, serendipity ha bisogno di scrivere nel file ".htaccess". Questo non è stato possibile a causa di permessi errati. Per favore sistema i permessi in questo modo: <br>&nbsp;&nbsp;%s<br>e ricarica questa pagina.');
 @define('SIDEBAR_PLUGINS', 'Plugin per le barre laterali');
 @define('EVENT_PLUGINS', 'Plugin di Evento');
 @define('SORT_ORDER', 'Ordinamento');
@@ -507,7 +507,7 @@
 @define('DELETE_FILE_FAIL', 'Impossibile cancellare il file <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Cancellata miniatura dell\'immagine <b>%s</b>');
 @define('DELETE_FILE', 'Cancellato il file <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Stai per cancellare <b>%s</b><br />Se stai usando questo file in altre notizie, questo causerà link o immagini "morti"<br />Sei sicuro di voler procedere?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Stai per cancellare <b>%s</b><br>Se stai usando questo file in altre notizie, questo causerà link o immagini "morti"<br>Sei sicuro di voler procedere?<br><br>');
 @define('TRACKBACK_SENDING', 'Invio del trackback all\'URI %s...');
 @define('TRACKBACK_SENT', 'Trackback inviato con successo');
 @define('TRACKBACK_FAILED', 'Trackback fallito: %s');
@@ -674,7 +674,7 @@
 @define('EMPTY_SETTING', 'Non hai specificato un valore valido per "%s"!');
 @define('USERCONF_REALNAME', 'Nome reale');
 @define('USERCONF_REALNAME_DESC', 'Il nome completo dell\'autore. Questo è il nome visto dai lettori');
-@define('HOTLINK_DONE', 'File hot-linkato.<br />Fatto.');
+@define('HOTLINK_DONE', 'File hot-linkato.<br>Fatto.');
 @define('ENTER_MEDIA_URL_METHOD', 'Metodo di fetch:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Nota: Se scegli di hot-linkare al server, assicurati di avere l\'autorizzazione per hot-linkare al sito web prescelto, o che il sito web sia il tuo. L\'Hot-link\' ti consente di utilizzare immagini esterne al sito senza memorizzarle localmente.');
 @define('MEDIA_HOTLINKED', 'hot-linkato');
@@ -972,7 +972,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');

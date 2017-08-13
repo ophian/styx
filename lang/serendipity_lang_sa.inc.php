@@ -189,7 +189,7 @@
 @define('CANT_EXECUTE_BINARY', 'Cannot execute the %s binary');
 @define('FILE_WRITE_ERROR', 'Cannot write to file %s.');
 @define('FILE_CREATE_YOURSELF', '«·—Ã«¡ √‰  ‰‘∆ «·„·› »‰›”ﬂ «Ê ﬁ„ »›Õ’ «· ’«—ÌÕ ··„Ã·œ«  ');
-@define('COPY_CODE_BELOW', '<br />* ﬁ„ »‰”Œ «·ﬂÊœ «·„ÊÃÊœ »«·«”›· Ê ÷⁄Â  %s ›Ì %s «·„Ã·œ:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* ﬁ„ »‰”Œ «·ﬂÊœ «·„ÊÃÊœ »«·«”›· Ê ÷⁄Â  %s ›Ì %s «·„Ã·œ:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Change www to the user apache runs as (e.g. nobody).');
 @define('BROWSER_RELOAD', 'Once you have done this, hit your browser\'s "reload" button.');
 @define('DIAGNOSTIC_ERROR', ' „ √ﬂ ‘«› »⁄÷ «·«Œÿ«¡ Œ·«· ⁄„·Ì…  ›Õ’ «·»Ì«‰«  «·„œŒ·…:');
@@ -267,7 +267,7 @@
 @define('ERROR_TEMPLATE_FILE', '€Ì— ﬁ«œ— ⁄·Ï › Õ „·› «·ﬁ«·». «·—Ã«¡  ÕœÌÀ «·„Ã·…');
 @define('ADVANCED_OPTIONS', 'ŒÌ«—«  „ ﬁœ„…');
 @define('EDIT_ENTRY', ' Õ—Ì— «·„Ê÷Ê⁄');
-@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br />&nbsp;&nbsp;%s<br />and reload this page.');
+@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
 @define('SIDEBAR_PLUGINS', '‘—Ìÿ «·«œÊ«  «·Ã«‰»Ì ··»·ﬁ «‰');
 @define('EVENT_PLUGINS', '»·Êﬁ«  ·ÊŸ«∆› Ê«Õœ«À');
 @define('SORT_ORDER', 'ÿ—Ìﬁ… «· — Ì»');
@@ -520,7 +520,7 @@
 @define('DELETE_FILE_FAIL' , '·« Ì„ﬂ‰ Õ–› «·„·› <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Õ–› «·’Ê—… Ê«·’Ê—… «·„’€—Â »⁄‰Ê«‰Â« <b>%s</b>');
 @define('DELETE_FILE', 'Õ–› ⁄‰Ê«‰ «·„·› <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', '«‰  ⁄·Ï Ê‘ﬂ √‰  Õ–› <b>%s</b><br />≈–« ﬂ‰   ” Œœ„ Â–« «·„·› ›Ì »⁄÷ „Ê«÷Ì⁄ﬂ ° ”Ê› ·‰  ŸÂ— «·’Ê— √Ê «·—«»ÿ ·‰ ÌﬂÊ‰ ‘€«·<br /> Â· √‰  „ √ﬂœ „‰ √‰ﬂ  —Ìœ «·Õ–›ø<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', '«‰  ⁄·Ï Ê‘ﬂ √‰  Õ–› <b>%s</b><br>≈–« ﬂ‰   ” Œœ„ Â–« «·„·› ›Ì »⁄÷ „Ê«÷Ì⁄ﬂ ° ”Ê› ·‰  ŸÂ— «·’Ê— √Ê «·—«»ÿ ·‰ ÌﬂÊ‰ ‘€«·<br> Â· √‰  „ √ﬂœ „‰ √‰ﬂ  —Ìœ «·Õ–›ø<br><br>');
 @define('TRACKBACK_SENDING', '«—”«·  ﬁ’Ì ··—«»ÿ %s...');
 @define('TRACKBACK_SENT', '‰ÃÕ ›Ì  ⁄ﬁ» «·„Ê÷Ê⁄');
 @define('TRACKBACK_FAILED', '›‘· ›Ì  ⁄ﬁ» %s');
@@ -674,7 +674,7 @@
 @define('EMPTY_SETTING', '·„  ﬁ„ »√⁄ÿ«¡ „⁄·Ê„«  œﬁÌﬁ… ⁄‰ "%s"!');
 @define('USERCONF_REALNAME', '«·√”„ «·ÕﬁÌﬁÌ'); // Translate
 @define('USERCONF_REALNAME_DESC', '«·√”„ «·ﬂ«„· ··„Õ—— √Ê «·‰«‘—. ÊÂ–« ”Ê› ÌŸÂ— ·ﬁ—«¡ «·„Ê÷Ê⁄'); // Translate
-@define('HOTLINK_DONE', '—«»ÿ ›⁄«·<br /> „'); // Translate
+@define('HOTLINK_DONE', '—«»ÿ ›⁄«·<br> „'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'ÿ—Ìﬁ… Ã·» «·’Ê—…'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '„·«ÕŸ…: ›Ì Õ«· Ã·» ’Ê—… „‰ —«»ÿ „⁄Ì‰  √ﬂœ √‰ «·„Êﬁ⁄ «·–Ì ”Ê›  Õ„· «·’Ê—… „‰Â Ì”„Õ »⁄—÷ «·’Ê— ›Ì „Ê«ﬁ⁄ √Œ—Ï. √Ê  √ﬂœ √‰ Â–« «·—«»ÿ „‰ „Êﬁ⁄ﬂ. ⁄—÷ «·’Ê— »Ê«”ÿ… —«»ÿÂ« Ì⁄‰Ìﬂ ⁄‰  Õ„Ì· «·’Ê—… ›Ì „œÊ‰ ﬂ √Ê „Êﬁ⁄ﬂ („À«· «” Œœ«„ „—«ﬂ“  Õ„Ì· «·’Ê—)'); // Translate
 @define('MEDIA_HOTLINKED', '„‰ —«»ÿ'); // Translate
@@ -969,7 +969,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 

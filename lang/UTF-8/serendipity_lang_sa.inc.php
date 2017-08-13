@@ -189,7 +189,7 @@
 @define('CANT_EXECUTE_BINARY', 'Cannot execute the %s binary');
 @define('FILE_WRITE_ERROR', 'Cannot write to file %s.');
 @define('FILE_CREATE_YOURSELF', 'الرجاء أن تنشئ الملف بنفسك او قم بفحص التصاريح للمجلدات ');
-@define('COPY_CODE_BELOW', '<br />* قم بنسخ الكود الموجود بالاسفل و ضعه  %s في %s المجلد:<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* قم بنسخ الكود الموجود بالاسفل و ضعه  %s في %s المجلد:<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Change www to the user apache runs as (e.g. nobody).');
 @define('BROWSER_RELOAD', 'Once you have done this, hit your browser\'s "reload" button.');
 @define('DIAGNOSTIC_ERROR', 'تم أكتشاف بعض الاخطاء خلال عملية تفحص البيانات المدخلة:');
@@ -267,7 +267,7 @@
 @define('ERROR_TEMPLATE_FILE', 'غير قادر على فتح ملف القالب. الرجاء تحديث المجلة');
 @define('ADVANCED_OPTIONS', 'خيارات متقدمة');
 @define('EDIT_ENTRY', 'تحرير الموضوع');
-@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br />&nbsp;&nbsp;%s<br />and reload this page.');
+@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
 @define('SIDEBAR_PLUGINS', 'شريط الادوات الجانبي للبلق ان');
 @define('EVENT_PLUGINS', 'بلوقات لوظائف واحداث');
 @define('SORT_ORDER', 'طريقة الترتيب');
@@ -520,7 +520,7 @@
 @define('DELETE_FILE_FAIL' , 'لا يمكن حذف الملف <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'حذف الصورة والصورة المصغره بعنوانها <b>%s</b>');
 @define('DELETE_FILE', 'حذف عنوان الملف <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'انت على وشك أن تحذف <b>%s</b><br />إذا كنت تستخدم هذا الملف في بعض مواضيعك ، سوف لن تظهر الصور أو الرابط لن يكون شغال<br /> هل أنت متأكد من أنك تريد الحذف؟<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'انت على وشك أن تحذف <b>%s</b><br>إذا كنت تستخدم هذا الملف في بعض مواضيعك ، سوف لن تظهر الصور أو الرابط لن يكون شغال<br> هل أنت متأكد من أنك تريد الحذف؟<br><br>');
 @define('TRACKBACK_SENDING', 'ارسال تقصي للرابط %s...');
 @define('TRACKBACK_SENT', 'نجح في تعقب الموضوع');
 @define('TRACKBACK_FAILED', 'فشل في تعقب %s');
@@ -674,7 +674,7 @@
 @define('EMPTY_SETTING', 'لم تقم بأعطاء معلومات دقيقة عن "%s"!');
 @define('USERCONF_REALNAME', 'الأسم الحقيقي'); // Translate
 @define('USERCONF_REALNAME_DESC', 'الأسم الكامل للمحرر أو الناشر. وهذا سوف يظهر لقراء الموضوع'); // Translate
-@define('HOTLINK_DONE', 'رابط فعال<br />تم'); // Translate
+@define('HOTLINK_DONE', 'رابط فعال<br>تم'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'طريقة جلب الصورة'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'ملاحظة: في حال جلب صورة من رابط معين تأكد أن الموقع الذي سوف تحمل الصورة منه يسمح بعرض الصور في مواقع أخرى. أو تأكد أن هذا الرابط من موقعك. عرض الصور بواسطة رابطها يعنيك عن تحميل الصورة في مدونتك أو موقعك (مثال استخدام مراكز تحميل الصور)'); // Translate
 @define('MEDIA_HOTLINKED', 'من رابط'); // Translate
@@ -969,7 +969,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
 

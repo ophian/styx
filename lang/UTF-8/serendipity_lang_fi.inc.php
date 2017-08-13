@@ -187,7 +187,7 @@
 @define('CANT_EXECUTE_BINARY', 'Ohjelman %s suoritus ei onnistu');
 @define('FILE_WRITE_ERROR', 'Tiedostoon %s kirjoittaminen ei onnistu.');
 @define('FILE_CREATE_YOURSELF', 'Ole kiltti ja tee tiedosto itse tai höllennä oikeuksia');
-@define('COPY_CODE_BELOW', '<br />* Kopioi alla oleva ja laita se tiedostoon %s kansiossa %s :<b><pre>%s</pre></b>' . "\n");
+@define('COPY_CODE_BELOW', '<br>* Kopioi alla oleva ja laita se tiedostoon %s kansiossa %s :<b><pre>%s</pre></b>' . "\n");
 @define('WWW_USER', 'Vaihda "www" apachen-käyttäjätunnukseen (esim. nobody).');
 @define('BROWSER_RELOAD', 'Tehtyäsi tämän, lataa sivu uudestaan.');
 @define('DIAGNOSTIC_ERROR', 'Tarkistuksessa havaittiin virheet:');
@@ -265,7 +265,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Mallipohjan avaaminen epäonnistui, ole kiltti ja päivitä  Serendipity!');
 @define('ADVANCED_OPTIONS', 'Lisävalinnat');
 @define('EDIT_ENTRY', 'Muokkaa merkintää');
-@define('HTACCESS_ERROR', 'Serendipity tarvitsee oikeudet ".htaccess" tiedostoon tarkistaakseen asennuksen. Tarkistus epäonnistui, koska oikeudet ovat väärin. Ole kiltti ja korjaa: <br />&nbsp;&nbsp;%s<br />. Lataa tämä sivu uudestaan kun olet korjannut..');
+@define('HTACCESS_ERROR', 'Serendipity tarvitsee oikeudet ".htaccess" tiedostoon tarkistaakseen asennuksen. Tarkistus epäonnistui, koska oikeudet ovat väärin. Ole kiltti ja korjaa: <br>&nbsp;&nbsp;%s<br>. Lataa tämä sivu uudestaan kun olet korjannut..');
 @define('SIDEBAR_PLUGINS', 'Sivupalstan laajennokset');
 @define('EVENT_PLUGINS', 'Tapahtumalaajennokset');
 @define('SORT_ORDER', 'Järjestyskenttä');
@@ -517,7 +517,7 @@
 @define('DELETE_FILE_FAIL' , 'Tiedoston <b>%s</b> poisto epäonnistui');
 @define('DELETE_THUMBNAIL', 'Poistettu pienoiskuva: <b>%s</b>');
 @define('DELETE_FILE', 'Tuhottu tiedosto <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'Olet aikeissa poistaa <b>%s</b>:n<br />Jos se on käytössä merkinnöissä syntyy ongelmia<br />Oletko varma?<br /><br />');
+@define('ABOUT_TO_DELETE_FILE', 'Olet aikeissa poistaa <b>%s</b>:n<br>Jos se on käytössä merkinnöissä syntyy ongelmia<br>Oletko varma?<br><br>');
 @define('TRACKBACK_SENDING', 'Lähetetään paluuviite URI %s...');
 @define('TRACKBACK_SENT', 'Paluuviite lähetetty');
 @define('TRACKBACK_FAILED', 'Paluuviite epäonnistui: %s');
@@ -671,7 +671,7 @@
 @define('EMPTY_SETTING', 'Kentän "%s" syöte on epäkelpo!');
 @define('USERCONF_REALNAME', 'Nimi');
 @define('USERCONF_REALNAME_DESC', 'Kirjoittajan koko nimi. Tämä on se nimi, joka näytetään lukijoille');
-@define('HOTLINK_DONE', 'Tiedostoa linkitetään.<br />Tehty.');
+@define('HOTLINK_DONE', 'Tiedostoa linkitetään.<br>Tehty.');
 @define('ENTER_MEDIA_URL_METHOD', 'Hakutapa:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Huom: Jos linkität kuvan toiselta palvelimelta tarvitset siihen luvan, jollei palvelin ole omasi. Linkittämällä voit käyttää kuvia tallettamatta niitä paikallisesti.');
 @define('MEDIA_HOTLINKED', 'Linkitetty palvelimelta');
@@ -968,7 +968,7 @@
 @define('SUMMARY', 'Summary');
 
 // Next lines were added on 2012/05/29
-@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br />If you are using these in some of your entries, it will cause dead links or images<br />Are you sure you wish to proceed?<br /><br />');
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
