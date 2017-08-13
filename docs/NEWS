@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix hotfile linking with 'backend_image_addHotlink' to not use the
+    tempfile name.
+
   * Enhance the new image gallery functionality as popup. Enables to quick-
     ly select image galleries to your entries, by PLAIN- or WYSIWYG-Editor
     entry toolbars. This approach uses a non-remembrance and hardcoded

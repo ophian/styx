@@ -331,7 +331,7 @@ switch ($serendipity['GET']['adminAction']) {
 
                             $image_id   = @serendipity_insertHotlinkedImageInDatabase($tfile, $_imageurl, $authorid, null, $tempfile);
                             $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . HOTLINK_DONE . "</span>\n", $_imageurl , $tfile .'');
-                            serendipity_plugin_api::hook_event('backend_image_addHotlink', $tempfile);
+                            serendipity_plugin_api::hook_event('backend_image_addHotlink', $_imageurl);
                         } else {
                             $fp = fopen($target, 'w');
                             fwrite($fp, $fContent);
