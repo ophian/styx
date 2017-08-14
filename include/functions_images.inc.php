@@ -2889,7 +2889,9 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['mediatype'] = 'binary';
     }
 
-    $file['realfile']  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
+    $file['realfile'] = ($file['hotlink'])
+                        ? $file['path']
+                        : $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
     if ($full_perm || $serendipity['authorid'] == $file['authorid'] || $file['authorid'] == '0') {
         $file['is_editable'] = true;

@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix MediaLibrary file['realfile'] preparation for hotlinked data
+
   * Fix hotfile linking with 'backend_image_addHotlink' to not use the
     tempfile name.
 
