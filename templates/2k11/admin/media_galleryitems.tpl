@@ -17,11 +17,11 @@
                 <div class="clearfix media_file_wrap">
                     <div class="media_file_preview media_file_pregal">
                     {if $file.hotlink}
-                        <img src="{$file.nice_hotlink}" title="{$file.path}{$file.name}" alt="{$file.realname}">
+                        <img src="{$file.path}" title="{$file.name}" alt="{$file.realname}">
                     {elseif empty($file.full_thumbHTTP)}
-                        <img src="{$file.full_file}" title="{$file.path}{$file.name}" alt="{$file.realname}">
+                        <img src="{$file.full_file}" title="{$file.name}" alt="{$file.realname}">
                     {else}
-                        <img src="{$file.full_thumbHTTP}" title="{$file.path}{$file.name}" alt="{$file.realname}">
+                        <img src="{$file.full_thumbHTTP}" title="{$file.name}" alt="{$file.realname}">
                     {/if}
                     </div>
                 </div>
