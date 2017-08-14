@@ -1,4 +1,4 @@
-{* It is only possible to send the item selected IDs (simple like this, which is ok since we can do that later)<pre>{$media.files|print_r}</pre> *}
+{* It is only possible to send the item selected IDs (simple like this, which is ok since we can do that later) *}
 {foreach $media.files AS $file}
 
             <article id="media_{$file.id}" class="media_file media_gal {if $media.multiperm}manage {/if}{cycle values="odd,even"}">
