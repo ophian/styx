@@ -41,7 +41,7 @@
             <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity[body]">{$CONST.QUOTE}</button>
             <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity[body]">img</button>
             <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[body]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[body]"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[body]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity[body]">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry hookAll="true"}
         </div>
@@ -67,7 +67,7 @@
             <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity[extended]">{$CONST.QUOTE}</button>
             <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity[extended]">img</button>
             <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[extended]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
-            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[extended]"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
+            <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[extended]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity[extended]">URL</button>
             {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry hookAll="true"}
         </div>
