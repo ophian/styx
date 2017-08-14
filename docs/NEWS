@@ -1,4 +1,4 @@
-Version 2.3 ()
+Version 2.3-beta1 (2017-08-14)
  ------------------------------------------------------------------------
 
   * Fix MediaLibrary file['realfile'] preparation for hotlinked data
