@@ -409,7 +409,7 @@ $dead_files_230hta = array(
 function recursive_directory_iterator($dir = array()) {
     foreach ($dir AS $path) {
         serendipity_removeDeadFiles_SPL($path);
-        @rmdir($path);
+        if (is_dir($path)) @rmdir($path);
     }
 }
 
