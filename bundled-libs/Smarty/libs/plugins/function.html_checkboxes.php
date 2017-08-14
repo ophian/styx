@@ -8,9 +8,9 @@
 
 /**
  * Smarty {html_checkboxes} function plugin
- * File:       function.html_checkboxes.php<br>
- * Type:       function<br>
- * Name:       html_checkboxes<br>
+ * File:       function.html_checkboxes.php
+ * Type:       function
+ * Name:       html_checkboxes
  * Date:       24.Feb.2003<br>
  * Purpose:    Prints out a list of checkbox input types<br>
  * Examples:

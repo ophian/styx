@@ -8,8 +8,8 @@
 
 /**
  * Smarty {textformat}{/textformat} block plugin
- * Type:     block function<br>
- * Name:     textformat<br>
+ * Type:     block function
+ * Name:     textformat
  * Purpose:  format text a certain way with preset styles
  *           or custom wrap/indent settings<br>
  * Params:

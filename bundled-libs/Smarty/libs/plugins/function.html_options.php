@@ -8,10 +8,10 @@
 
 /**
  * Smarty {html_options} function plugin
- * Type:     function<br>
- * Name:     html_options<br>
+ * Type:     function
+ * Name:     html_options
  * Purpose:  Prints the list of <option> tags generated from
- *           the passed parameters<br>
+ *           the passed parameters
  * Params:
  * <pre>
  * - name       (optional) - string default "select"

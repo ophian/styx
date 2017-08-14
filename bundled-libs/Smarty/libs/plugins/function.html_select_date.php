@@ -8,8 +8,8 @@
 
 /**
  * Smarty {html_select_date} plugin
- * Type:     function<br>
- * Name:     html_select_date<br>
+ * Type:     function
+ * Name:     html_select_date
  * Purpose:  Prints the dropdowns for date selection.
  * ChangeLog:
  * <pre>

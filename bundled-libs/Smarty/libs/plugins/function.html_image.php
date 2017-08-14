@@ -8,12 +8,12 @@
 
 /**
  * Smarty {html_image} function plugin
- * Type:     function<br>
- * Name:     html_image<br>
- * Date:     Feb 24, 2003<br>
- * Purpose:  format HTML tags for the image<br>
- * Examples: {html_image file="/images/masthead.gif"}<br>
- * Output:   <img src="/images/masthead.gif" width=400 height=23><br>
+ * Type:     function
+ * Name:     html_image
+ * Date:     Feb 24, 2003
+ * Purpose:  format HTML tags for the image
+ * Examples: {html_image file="/images/masthead.gif"}
+ * Output:   <img src="/images/masthead.gif" width=400 height=23>
  * Params:
  * <pre>
  * - file        - (required) - file (and path) of image

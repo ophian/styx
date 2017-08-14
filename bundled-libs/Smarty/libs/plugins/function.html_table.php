@@ -8,10 +8,10 @@
 
 /**
  * Smarty {html_table} function plugin
- * Type:     function<br>
- * Name:     html_table<br>
- * Date:     Feb 17, 2003<br>
- * Purpose:  make an html table from an array of data<br>
+ * Type:     function
+ * Name:     html_table
+ * Date:     Feb 17, 2003
+ * Purpose:  make an html table from an array of data
  * Params:
  * <pre>
  * - loop       - array to loop through

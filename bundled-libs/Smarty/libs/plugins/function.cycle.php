@@ -8,8 +8,8 @@
 
 /**
  * Smarty {cycle} function plugin
- * Type:     function<br>
- * Name:     cycle<br>
+ * Type:     function
+ * Name:     cycle
  * Date:     May 3, 2002<br>
  * Purpose:  cycle through given values<br>
  * Params:
