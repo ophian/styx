@@ -1755,6 +1755,7 @@ summary {
 }
 #category_filter.compact > .button_link {
     float: right;
+    margin-top: -2em;
 }
 #edit_entry_category .compact label {
     top: 4px;

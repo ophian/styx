@@ -137,9 +137,11 @@
                         <label for="categoryfilter" class="visuallyhidden">{$CONST.FILTERS}</label>
                         <input id="categoryfilter" type="text" placeholder="{$CONST.FILTERS}: {$CONST.CATEGORIES}">
                         <button class="reset_livefilter icon_link" type="button" data-target="categoryfilter" title="{$CONST.RESET_FILTERS}"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.RESET_FILTERS}</span></button>
-                        <button id="toggle_cat_view" class="icon_link" type="button" title="{$CONST.TOGGLE_VIEW}"><span class="icon-th" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.TOGGLE_VIEW}</span></button>
-                        {/if}
                         {if $use_backendpopups || $force_backendpopups.categories}<a href="#top" class="button_link" title="{$CONST.UP}"><span class="ucc-up-pointing-triangle"></span></a>{/if}
+                        <button id="toggle_cat_view" class="icon_link" type="button" title="{$CONST.TOGGLE_VIEW}"><span class="icon-th" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.TOGGLE_VIEW}</span></button>
+                        {else}
+                        {if $use_backendpopups || $force_backendpopups.categories}<a href="#top" class="button_link" title="{$CONST.UP}"><span class="ucc-up-pointing-triangle"></span></a>{/if}
+                        {/if}
                     </div>
 
                 {foreach $entry_vars.category_options AS $entry_cat}
