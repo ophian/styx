@@ -276,8 +276,9 @@ switch ($serendipity['GET']['adminAction']) {
 
         $_imageurl = serendipity_specialchars($serendipity['POST']['imageurl']);
 
-        // First find out whether to fetch a hotlink file or accept an upload
+        // First find out whether to fetch a download hotlink or accept an upload file
         if ($_imageurl != '' && $_imageurl != 'http://') {
+            // case DOWNLOAD file
             if (!empty($serendipity['POST']['target_filename'][2])) {
                 // Faked hidden form 2 when submitting with JavaScript
                 $tfile   = $serendipity['POST']['target_filename'][2];
