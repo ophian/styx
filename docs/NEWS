@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Allow gallery selection page pagination, even if not recommended
+    to have.
+
   * upgrader: Fix directory removal iterator for some special cases
 
 
