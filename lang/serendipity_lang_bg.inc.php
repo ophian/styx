@@ -1133,3 +1133,5 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 
 @define('MEDIA_GALLERY_SELECTION', 'This particular selection for media galleries shows only directory images of the same level. It does not contain a statement to also display the images of the subfolders, as you might are being used to. The number of possible preview images that can be displayed at the same time is limited to 48 items. Restructure your media library accordingly.<br>This media gallery directory selection shows only thumbnails (optionally configurable linking to the big picture). If your preview images do not meet the standard of 400px, and are much smaller than the defined gallery format of 260px, it is possible that you get into display problems in this selection as well as afterwards in the frontend entry.');
 
+@define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
+

@@ -674,8 +674,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('EMPTY_SETTING', 'Podano nieprawidłowe dane dla "%s"!');
 @define('USERCONF_REALNAME', 'Prawdziwe imię i nazwisko');
 @define('USERCONF_REALNAME_DESC', 'Pełne imię i nazwisko, jest widziane przez czytających');
-#@define('HOTLINK_DONE', 'Plik podlinkowany.<br>Zrobione.');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'Plik "%s" podlinkowany.<br>Internal name: \'%s\'. Zrobione.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Sposób pobierania');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'UWAGA! Jeśli wybierasz opcję linkowania do pliku w sieci, upewnij się, że masz do tego prawo! Linkowanie pozwala na używanie obrazków z innych stron bez potrzeby ich zgrywania na serwer.');
 @define('MEDIA_HOTLINKED', 'podlinkowane');
@@ -1136,10 +1135,12 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 
 @define('DASHBOARD_INFO_HEADER', 'Overview');
 @define('DASHBOARD_INFO_CONTENT', 'Shortcuts');
-@define('DASHBOARD_INFO_EMPTY', 'We don´t have enough data to show anything useful. No pending comments, future or draft entries are available.');
+@define('DASHBOARD_INFO_EMPTY', 'We don\'t have enough data to show anything useful. No pending comments, future or draft entries are available.');
 @define('COMMENTS_PENDING', 'Pending comments');
 @define('FUTURES_AVAILABLE', 'Future entries');
 @define('DRAFTS_AVAILABLE', 'Draft entries');
 
 @define('MEDIA_GALLERY_SELECTION', 'This particular selection for media galleries shows only directory images of the same level. It does not contain a statement to also display the images of the subfolders, as you might are being used to. The number of possible preview images that can be displayed at the same time is limited to 48 items. Restructure your media library accordingly.<br>This media gallery directory selection shows only thumbnails (optionally configurable linking to the big picture). If your preview images do not meet the standard of 400px, and are much smaller than the defined gallery format of 260px, it is possible that you get into display problems in this selection as well as afterwards in the frontend entry.');
+
+@define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 

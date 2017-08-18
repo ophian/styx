@@ -674,7 +674,7 @@
 @define('EMPTY_SETTING', 'Non hai specificato un valore valido per "%s"!');
 @define('USERCONF_REALNAME', 'Nome reale');
 @define('USERCONF_REALNAME_DESC', 'Il nome completo dell\'autore. Questo è il nome visto dai lettori');
-@define('HOTLINK_DONE', 'File "%s" hot-linkato.<brInternal name: \'%s\'. >Fatto.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hot-linkato.<br>Internal name: \'%s\'. Fatto.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Metodo di fetch:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Nota: Se scegli di hot-linkare al server, assicurati di avere l\'autorizzazione per hot-linkare al sito web prescelto, o che il sito web sia il tuo. L\'Hot-link\' ti consente di utilizzare immagini esterne al sito senza memorizzarle localmente.');
 @define('MEDIA_HOTLINKED', 'hot-linkato');
@@ -1137,10 +1137,12 @@
 
 @define('DASHBOARD_INFO_HEADER', 'Overview');
 @define('DASHBOARD_INFO_CONTENT', 'Shortcuts');
-@define('DASHBOARD_INFO_EMPTY', 'We don´t have enough data to show anything useful. No pending comments, future or draft entries are available.');
+@define('DASHBOARD_INFO_EMPTY', 'We don\'t have enough data to show anything useful. No pending comments, future or draft entries are available.');
 @define('COMMENTS_PENDING', 'Pending comments');
 @define('FUTURES_AVAILABLE', 'Future entries');
 @define('DRAFTS_AVAILABLE', 'Draft entries');
 
 @define('MEDIA_GALLERY_SELECTION', 'This particular selection for media galleries shows only directory images of the same level. It does not contain a statement to also display the images of the subfolders, as you might are being used to. The number of possible preview images that can be displayed at the same time is limited to 48 items. Restructure your media library accordingly.<br>This media gallery directory selection shows only thumbnails (optionally configurable linking to the big picture). If your preview images do not meet the standard of 400px, and are much smaller than the defined gallery format of 260px, it is possible that you get into display problems in this selection as well as afterwards in the frontend entry.');
+
+@define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 

@@ -1037,7 +1037,7 @@
 @define('INSTALLER_CLI_TOOLSTATUS', 'Ausführbar?');
 @define('VIDEO', 'Video');
 @define('RESET_FILTERS', 'Filter entfernen');
-@define('UPDATE_FAILMSG', 'Update-Check für neue Serendipity-Version fehlgeschlagen. Das kann passieren wenn die URL https://raw.github.com/s9y/Serendipity/master/docs/RELEASE nicht erreichbar ist, der Server ausgehende Verbindungen verhindert oder es andere Verbindungsprobleme gibt.');
+@define('UPDATE_FAILMSG', 'Update-Check für neue Serendipity-Version fehlgeschlagen. Das kann passieren wenn die URL %s nicht erreichbar ist, der Server ausgehende Verbindungen verhindert oder es andere Verbindungsprobleme gibt.');
 @define('UPDATE_FAILACTION', 'Automatischen Update-Check deaktivieren');
 @define('UPDATE_NOTIFICATION_DESC', 'Sollen Update-Checks im Dashboard angezeigt werden, und wenn ja für welche Versionen?');
 @define('FRONTEND', 'Frontend');
@@ -1145,4 +1145,6 @@
 @define('DRAFTS_AVAILABLE', 'Entwurfs Einträge');
 
 @define('MEDIA_GALLERY_SELECTION', 'Diese spezielle Auswahl für Medien-Galerien zeigt nur Verzeichnisbilder derselben Ebene. Sie enthält keine Anweisung zur Darstellung der Bilder von Unterordnern, so wie Sie es möglicherweise gewohnt sind. Die Anzahl der möglichen, zugleich darstellbaren Vorschaubilder ist auf 48 limitiert. Restrukturieren Sie ihre Mediendatenbank entsprechend.<br>Diese Mediengalerie zeigt nur Vorschaubilder (optional mit einer Verlinkung zum großen Bild). Sollen ihre Vorschaubilder nicht dem Standard von 400px entsprechen, und viel kleiner als das definierte Galerie-Format von 260px sein, so kann es möglichwerweise zu Darstellungsproblemen hier in der Auswahl, wie nachher auch im Eintrag kommen.');
+
+@define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 

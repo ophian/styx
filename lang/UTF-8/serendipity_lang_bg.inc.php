@@ -1023,7 +1023,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALLER_CLI_TOOLSTATUS', 'Executable?');
 @define('VIDEO', 'Video');
 @define('RESET_FILTERS', 'Reset filters');
-@define('UPDATE_FAILMSG', 'Check for new Serendipity version failed. This can happen because either the URL https://raw.github.com/s9y/Serendipity/master/docs/RELEASE is down, your server blocks outgoing connections or there are other connection issues.');
+@define('UPDATE_FAILMSG', 'Check for new Serendipity version failed. This can happen because either the URL %s is down, your server blocks outgoing connections or there are other connection issues.');
 @define('UPDATE_FAILACTION', 'Disable automatic update check');
 @define('UPDATE_NOTIFICATION_DESC', 'Show the update notification in the Dashboard, and for which channel?');
 @define('FRONTEND', 'Frontend');
@@ -1126,10 +1126,12 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 
 @define('DASHBOARD_INFO_HEADER', 'Overview');
 @define('DASHBOARD_INFO_CONTENT', 'Shortcuts');
-@define('DASHBOARD_INFO_EMPTY', 'We don´t have enough data to show anything useful. No pending comments, future or draft entries are available.');
+@define('DASHBOARD_INFO_EMPTY', 'We don\'t have enough data to show anything useful. No pending comments, future or draft entries are available.');
 @define('COMMENTS_PENDING', 'Pending comments');
 @define('FUTURES_AVAILABLE', 'Future entries');
 @define('DRAFTS_AVAILABLE', 'Draft entries');
 
 @define('MEDIA_GALLERY_SELECTION', 'This particular selection for media galleries shows only directory images of the same level. It does not contain a statement to also display the images of the subfolders, as you might are being used to. The number of possible preview images that can be displayed at the same time is limited to 48 items. Restructure your media library accordingly.<br>This media gallery directory selection shows only thumbnails (optionally configurable linking to the big picture). If your preview images do not meet the standard of 400px, and are much smaller than the defined gallery format of 260px, it is possible that you get into display problems in this selection as well as afterwards in the frontend entry.');
+
+@define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 

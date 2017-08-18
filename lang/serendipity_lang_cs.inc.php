@@ -1,5 +1,4 @@
 <?php
-# lang_cs.inc.php 1.10 2012-01-08 18:34:17 VladaAjgl $
 
 /**
  *  @version 1.10
@@ -913,10 +912,10 @@ $i18n_filename_to = array (
 @define('MEDIA_DYN_RESIZE', 'Povolit dynamickou zmìnu velikosti obrázkù?');
 @define('MEDIA_DYN_RESIZE_DESC', 'Je-li povoleno, mùže  media selector vracet obrázky v jakékoli požadované velikosti pøes promìnnou  GET. Výsledky jsou kešovány, a tak se mùže vytvoøit velký soubor, jestliže to intenzivnì používáte.');
 
-@define('MEDIA_DIRECTORY_MOVED', 'Adresáøe a soubory byly úspìšnì pøesunuty do  %s');
+@define('MEDIA_DIRECTORY_MOVED', 'Adresáøe a soubory byly úspìšnì pøesunuty do %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Adresáøe a soubory nemohly být pøesunuty do  %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'V Ne-MySQL databázi není iterace po pøíspìvcích a nahrazení staré adresy pùvodního adresáøe novou URL možné. Budete muset pøíspìvky ruènì editovat a ty adresy upravit. Ale poøád ještì mùžete adresáø pøesunout zpátky tam kde byl, jestli je to pro vás moc otravné.');
-@define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL pøesunutého adresáøe pøesunuto v   %s pøíspìvcích.');
+@define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL pøesunutého adresáøe pøesunuto v %s pøíspìvcích.');
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', 'Aktivní');
 @define('PLUGIN_INACTIVE', 'Neaktivní');
@@ -1169,10 +1168,12 @@ $i18n_filename_to = array (
 
 @define('DASHBOARD_INFO_HEADER', 'Overview');
 @define('DASHBOARD_INFO_CONTENT', 'Shortcuts');
-@define('DASHBOARD_INFO_EMPTY', 'We don´t have enough data to show anything useful. No pending comments, future or draft entries are available.');
+@define('DASHBOARD_INFO_EMPTY', 'We don\'t have enough data to show anything useful. No pending comments, future or draft entries are available.');
 @define('COMMENTS_PENDING', 'Pending comments');
 @define('FUTURES_AVAILABLE', 'Future entries');
 @define('DRAFTS_AVAILABLE', 'Draft entries');
 
 @define('MEDIA_GALLERY_SELECTION', 'This particular selection for media galleries shows only directory images of the same level. It does not contain a statement to also display the images of the subfolders, as you might are being used to. The number of possible preview images that can be displayed at the same time is limited to 48 items. Restructure your media library accordingly.<br>This media gallery directory selection shows only thumbnails (optionally configurable linking to the big picture). If your preview images do not meet the standard of 400px, and are much smaller than the defined gallery format of 260px, it is possible that you get into display problems in this selection as well as afterwards in the frontend entry.');
+
+@define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 

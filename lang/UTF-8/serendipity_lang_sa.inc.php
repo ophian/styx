@@ -1,11 +1,11 @@
 <?php
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
-# Arabic issue was translated by Way http://www.flyingway.com  UTF-8
+# Arabic issue was translated by Way http://www.flyingway.com  cp1256
 /* vim: set sts=4 ts=4 expandtab : */
-
-@define('LANG_CHARSET', 'UTF-8');
-@define('SQL_CHARSET', 'utf8');
+°
+@define('LANG_CHARSET', 'cp1256');
+@define('SQL_CHARSET', 'latin1');
 @define('DATE_LOCALES', 'Arabic, ar, ar_SA.windows-1256');
 @define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
@@ -674,7 +674,7 @@
 @define('EMPTY_SETTING', 'لم تقم بأعطاء معلومات دقيقة عن "%s"!');
 @define('USERCONF_REALNAME', 'الأسم الحقيقي'); // Translate
 @define('USERCONF_REALNAME_DESC', 'الأسم الكامل للمحرر أو الناشر. وهذا سوف يظهر لقراء الموضوع'); // Translate
-#@define('HOTLINK_DONE', 'رابط فعال<br>تم');
+#@define('HOTLINK_DONE', 'رابط فعال<br>تم'); // Translate
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'طريقة جلب الصورة'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'ملاحظة: في حال جلب صورة من رابط معين تأكد أن الموقع الذي سوف تحمل الصورة منه يسمح بعرض الصور في مواقع أخرى. أو تأكد أن هذا الرابط من موقعك. عرض الصور بواسطة رابطها يعنيك عن تحميل الصورة في مدونتك أو موقعك (مثال استخدام مراكز تحميل الصور)'); // Translate
@@ -1138,10 +1138,12 @@
 
 @define('DASHBOARD_INFO_HEADER', 'Overview');
 @define('DASHBOARD_INFO_CONTENT', 'Shortcuts');
-@define('DASHBOARD_INFO_EMPTY', 'We don´t have enough data to show anything useful. No pending comments, future or draft entries are available.');
+@define('DASHBOARD_INFO_EMPTY', 'We don\'t have enough data to show anything useful. No pending comments, future or draft entries are available.');
 @define('COMMENTS_PENDING', 'Pending comments');
 @define('FUTURES_AVAILABLE', 'Future entries');
 @define('DRAFTS_AVAILABLE', 'Draft entries');
 
 @define('MEDIA_GALLERY_SELECTION', 'This particular selection for media galleries shows only directory images of the same level. It does not contain a statement to also display the images of the subfolders, as you might are being used to. The number of possible preview images that can be displayed at the same time is limited to 48 items. Restructure your media library accordingly.<br>This media gallery directory selection shows only thumbnails (optionally configurable linking to the big picture). If your preview images do not meet the standard of 400px, and are much smaller than the defined gallery format of 260px, it is possible that you get into display problems in this selection as well as afterwards in the frontend entry.');
+
+@define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 
