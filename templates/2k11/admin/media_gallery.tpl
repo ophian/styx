@@ -43,7 +43,7 @@
 
                 <div class="form_radio">
                     <input id="radio_islink_yes" name="serendipity[isLink]" type="radio" value="yes" checked="checked">
-                    <label for="radio_islink_yes">Link to the larger image</label>
+                    <label for="radio_islink_yes">{$CONST.IMAGE_LINK_TO_BIG}</label>
                 </div>
             </div>
 
