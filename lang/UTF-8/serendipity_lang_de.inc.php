@@ -1146,5 +1146,5 @@
 
 @define('MEDIA_GALLERY_SELECTION', 'Diese spezielle Auswahl für Medien-Galerien zeigt nur Verzeichnisbilder derselben Ebene. Sie enthält keine Anweisung zur Darstellung der Bilder von Unterordnern, so wie Sie es möglicherweise gewohnt sind. Die Anzahl der möglichen, zugleich darstellbaren Vorschaubilder ist auf 48 limitiert. Restrukturieren Sie ihre Mediendatenbank entsprechend.<br>Diese Mediengalerie zeigt nur Vorschaubilder (optional mit einer Verlinkung zum großen Bild). Sollen ihre Vorschaubilder nicht dem Standard von 400px entsprechen, und viel kleiner als das definierte Galerie-Format von 260px sein, so kann es möglichwerweise zu Darstellungsproblemen hier in der Auswahl, wie nachher auch im Eintrag kommen.');
 
-@define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
+@define('IMAGE_LINK_TO_BIG', 'Verweise auf das große Bild');
 
