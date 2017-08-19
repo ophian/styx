@@ -1769,6 +1769,12 @@ summary {
 .plugin_info {
     margin: 0 0 1em;
 }
+.plugin_info.plugup_from {
+    background-color: #fbfbfb;
+}
+.plugin_info.plugup_to {
+    background-color: #dcffdc;
+}
 .plugin_info.plainList li {
     width: 100%;
 }

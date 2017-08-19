@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Diversify plugin update from/to block list information by colour
+
   * Fix serendipity_imageGallerySelector_done() src file['realfile']
     preparation for hotlinked data. Extends [e7957d5].
 

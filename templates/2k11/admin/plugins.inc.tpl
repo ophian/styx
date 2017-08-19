@@ -108,7 +108,7 @@
                         {/if}
                         </div>
 
-                        <ul class="plugin_info plainList">
+                        <ul class="plugin_info plugup_from plainList">
                         {if !empty($plug.version)}
                             <li class="plugin_version"><b>{$CONST.VERSION}:</b> {$plug.version}</li>
                         {/if}
@@ -118,6 +118,8 @@
                         {if !empty($plug.local_documentation)}
                             <li class="plugin_localdoc"><a href="{$plug.local_documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a></li>
                         {/if}
+                        </ul>
+                        <ul class="plugin_info plugup_to plainList">
                         {if !empty({$plug.upgrade_version}) AND $plug.upgrade_version != $plug.version}
                             <li class="plugin_toversion">{$CONST.UPGRADE_TO_VERSION|sprintf:"{$plug.upgrade_version}"}{if !empty($plug.pluginlocation) AND $plug.pluginlocation != 'local'} ({$plug.pluginlocation|escape}){/if}</li>
                             {if !empty($plug.local_documentation)}{* we assume this is remotely still available and we want to stick to the language already chosen to show *}
