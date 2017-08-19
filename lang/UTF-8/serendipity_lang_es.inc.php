@@ -1154,7 +1154,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 
 @define('DASHBOARD_INFO_HEADER', 'Overview');
 @define('DASHBOARD_INFO_CONTENT', 'Shortcuts');
-@define('DASHBOARD_INFO_EMPTY', 'We donŽt have enough data to show anything useful. No pending comments, future or draft entries are available.');
+@define('DASHBOARD_INFO_EMPTY', 'We don\'t have enough data to show anything useful. No pending comments, future or draft entries are available.');
 @define('COMMENTS_PENDING', 'Pending comments');
 @define('FUTURES_AVAILABLE', 'Future entries');
 @define('DRAFTS_AVAILABLE', 'Draft entries');
