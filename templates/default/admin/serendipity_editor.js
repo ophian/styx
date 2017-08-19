@@ -304,7 +304,7 @@
                 imgalt = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
                 hotlink = v['hotlink'];
                 if (hotlink) {
-                    imgName = v['nice_hotlink'];
+                    imgName = v['realfile'];
                 }
 
                 var img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">';
