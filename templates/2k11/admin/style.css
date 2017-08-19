@@ -1769,11 +1769,24 @@ summary {
 .plugin_info {
     margin: 0 0 1em;
 }
+.plugin_info.plugup_from,
+.plugin_info.plugup_to {
+    border-radius: .5em;
+    padding: .05em .25em;
+}
 .plugin_info.plugup_from {
-    background-color: #fbfbfb;
+    background: #DDD;
+    border-top: 1px solid #EEE;
+    border-left: 1px solid #EEE;
+    border-right: 1px solid #AAA;
+    border-bottom: 1px solid #AAA;
 }
 .plugin_info.plugup_to {
-    background-color: #dcffdc;
+    background: #FFF;
+    border-top: 1px solid #EEE;
+    border-left: 1px solid #EEE;
+    border-right: 1px solid #CCC;
+    border-bottom: 1px solid #CCC;
 }
 .plugin_info.plainList li {
     width: 100%;
