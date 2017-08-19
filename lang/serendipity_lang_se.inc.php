@@ -574,7 +574,7 @@
 @define('ACTIVATE_AUTODISCOVERY', 'Skicka trackbacks till länkar funna i artikeln');
 @define('WELCOME_TO_ADMIN', 'Välkommen till Serendipitys administrationssidor.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Ange dina inloggningsuppgifter nedan.');
-@define('ADMIN_FOOTER_POWERED_BY', 'Driven av Serendipity %s och PHP %s');##
+@define('ADMIN_FOOTER_POWERED_BY', 'Driven av Serendipity %s och PHP %s');
 @define('INSTALL_USEGZIP', 'Använd gzip-komprimerade sidor');
 @define('INSTALL_USEGZIP_DESC', 'För att snabba upp sidvisning kan sidorna komprimeras innan de skickas till besökaren (om hans/hennes webbläsare stödjer detta). Rekommenderas!');
 @define('INSTALL_SHOWFUTURE', 'Visa framtida artiklar');
@@ -673,7 +673,7 @@
 @define('USERCONF_REALNAME', 'Riktigt namm');
 @define('USERCONF_REALNAME_DESC', 'Författarens hela namn. Detta namn ses av läsarna');
 #@define('HOTLINK_DONE', 'Filen länkad.<br>Klar.');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Hämtningsmetod:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Kommentar: Om du väljer att länka till en server bör du försäkra dig om att du har tillstånd att länka till den aktuella webbplatsen, eller att webbplatsen är din egen. Länkning låter dig använda bilder på andra webbplatser utan att behöva förvara dem lolalt.');
 @define('MEDIA_HOTLINKED', 'länkad');
@@ -733,7 +733,7 @@
 @define('INSTALL_DBPORT_DESC', 'Port som används för att ansluta till din databasserver');
 @define('PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES', 'Användargränssnitt: External Services');
 @define('PLUGIN_GROUP_FRONTEND_FEATURES', 'Användargränssnitt: Funktioner');
-@define('PLUGIN_GROUP_FRONTEND_FULL_MODS', 'Användargränssnitt: Fullprogram'); // AAAAAAAAAAHHH
+@define('PLUGIN_GROUP_FRONTEND_FULL_MODS', 'Användargränssnitt: Fullprogram');
 @define('PLUGIN_GROUP_FRONTEND_VIEWS', 'Användargränssnitt: Vyer');
 @define('PLUGIN_GROUP_FRONTEND_ENTRY_RELATED', 'Användargränssnitt: Artikelrelaterade');
 @define('PLUGIN_GROUP_BACKEND_EDITOR', 'Administrationsgränssnitt: Editor');

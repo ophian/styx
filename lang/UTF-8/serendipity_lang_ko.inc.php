@@ -677,7 +677,7 @@
 @define('USERCONF_REALNAME', '실제 이름');
 @define('USERCONF_REALNAME_DESC', '작성자의 실제 이름으로서, 독자가 보게 되는 이름입니다.');
 #@define('HOTLINK_DONE', '파일이 핫링크 되었습니다.<br>완료.');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', '불러오기 방식:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '주의: 서버에서 핫링크 하기는 해당 사이트에서 핫링크 허락을 미리 받아놓거나 자신의 사이트인 경우에 대해 하기 바랍니다. 핫링크를 하게 되면 외부 그림을 따로 저장하지 않고 쓸 수 있게 됩니다.');
 @define('MEDIA_HOTLINKED', '핫링크 됨');

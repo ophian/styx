@@ -674,7 +674,7 @@
 @define('USERCONF_REALNAME', 'Echte naam');
 @define('USERCONF_REALNAME_DESC', 'Volledige naam van de auteur. Dit is de naam die wordt gezien door de lezers');
 #@define('HOTLINK_DONE', 'Bestand is gehotlinkt.<br>Klaar.');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Ophaalmethode:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Let op: Als u er voor kiest een hotlink te maken naar een andere website, zorg er voor dat u daarvoor toestemming heeft. Een hotlink maakt het mogelijk dat u illustraties buiten uw website kunt gebruiken, zonder deze lokaal op te slaan.');
 @define('MEDIA_HOTLINKED', 'gehotlinkt');

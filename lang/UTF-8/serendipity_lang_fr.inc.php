@@ -678,7 +678,7 @@
 @define('USERCONF_REALNAME', 'Nom réel');
 @define('USERCONF_REALNAME_DESC', 'Le nom complet de l\'auteur. C\'est le nom qui sera vu par les lecteurs');
 #@define('HOTLINK_DONE', 'Lien du fichier.<br>Fait.');
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br />Internal name: \'%s\'. Done.'); // Translate
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Mode de recherche :');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Remarque : si vous choisissez de faire un lien sur le serveur, assurez-vous d\'avoir la permission de le faire, ou que le site vous appartienne. Faire un lien vous permet d\'utiliser des images qui ne sont pas sur le site sans avoir à les stocker localement sur le serveur.');
 @define('MEDIA_HOTLINKED', 'Lié');
