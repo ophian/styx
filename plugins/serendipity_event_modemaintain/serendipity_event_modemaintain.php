@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.15');
+        $propbag->add('version',       '1.16');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'
@@ -272,6 +272,12 @@ class serendipity_event_modemaintain extends serendipity_plugin
 }
 #maintenance_test .comment_status {
     margin: 0 0 .5em;
+}
+.fivezerothree {
+    color: #ff4136;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 1.5em;
 }
 ';
                     break;
