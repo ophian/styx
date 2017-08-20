@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Prevent to Log-Off when Modemaintain is set active, ... since you
+    might forget about it. :)
+
   * Diversify plugin update from/to block list information by colour
 
   * Fix serendipity_imageGallerySelector_done() src file['realfile']

@@ -19,8 +19,14 @@ if (IS_installed === false) {
 }
 
 if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'logout') {
-    serendipity_logout();
-    header("Location: ".$serendipity['baseURL']);
+    if (!serendipity_db_bool($serendipity['maintenance'])) {
+        serendipity_logout();
+        header("Location: ".$serendipity['baseURL']);
+    } else {
+        $offmesg = sprintf(PLUGIN_MODEMAINTAIN_WARNLOGOFF, 'serendipity_admin.php?serendipity[adminModule]=maintenance');
+        $logwarn = sprintf('<span class="msg_error"><span class="icon-attention-circled"></span> %s</span>', $offmesg);
+        $logoffdenied = true;
+    }
 } else {
     if (IS_installed === true) {
         /* Check author token to insure session not hijacked */
@@ -191,7 +197,7 @@ if (!$use_installer && $is_logged_in) {
             break;
 
         case 'logout':
-            echo LOGGEDOUT;
+            echo $logoffdenied ? $logwarn : LOGGEDOUT;
             break;
 
         case 'event_display':
