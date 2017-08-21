@@ -1,6 +1,9 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Prepare backend styles for bidirectional direction attributes and
+    the bidirectional override element.
+
   * Fix an "obvious" bug/issue with the set/get mb_language() method,
     not expecting this wide range of $serendipity['lang'] by parameter.
     Please keep an eye on this for strange language things to appear!
