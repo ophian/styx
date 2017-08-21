@@ -3,7 +3,7 @@
 # All rights reserved.  See LICENSE file for licensing details
 # Arabic issue was translated by Way http://www.flyingway.com  cp1256
 /* vim: set sts=4 ts=4 expandtab : */
-°
+
 @define('LANG_CHARSET', 'cp1256');
 @define('SQL_CHARSET', 'latin1');
 @define('DATE_LOCALES', 'Arabic, ar, ar_SA.windows-1256');

@@ -1,12 +1,12 @@
 <?php
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
-# Arabic issue was translated by Way http://www.flyingway.com  cp1256
+# Arabic issue was translated by Way http://www.flyingway.com  UTF-8
 /* vim: set sts=4 ts=4 expandtab : */
-°
-@define('LANG_CHARSET', 'cp1256');
-@define('SQL_CHARSET', 'latin1');
-@define('DATE_LOCALES', 'Arabic, ar, ar_SA.windows-1256');
+
+@define('LANG_CHARSET', 'UTF-8');
+@define('SQL_CHARSET', 'utf8');
+@define('DATE_LOCALES', 'ar_SA.UTF-8, Arabic, ar, ar_SA.windows-1256');
 @define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'ar_SA');
