@@ -1,6 +1,10 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix an "obvious" bug/issue with the set/get mb_language() method,
+    not expecting this wide range of $serendipity['lang'] by parameter.
+    Please keep an eye on this for strange language things to appear!
+
   * Prevent to Log-Off when Modemaintain is set active, ... since you
     might forget about it. :)
 

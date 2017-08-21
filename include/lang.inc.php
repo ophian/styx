@@ -54,23 +54,32 @@ if (!defined('serendipity_MB_LOADED') && defined('serendipity_LANG_LOADED')) {
     // Needs to be included here because we need access to constant LANG_CHARSET definied in languages (not available for compat.inc.php)
 
     if (function_exists('mb_language')) {
-        @mb_language($serendipity['lang']);
+        // Normally mb_language() is used for encoding e-mail messages.
+        // Valid languages are "Japanese", "ja", "English", "en" and "uni" (UTF-8). mb_send_mail() uses this setting to encode e-mail.
+        // Language and its setting is: ISO-2022-JP/Base64 for Japanese, UTF-8/Base64 for uni, ISO-8859-1/quoted printable for English.
+        if (defined('LANG_CHARSET') && LANG_CHARSET == 'UTF-8') {
+            @mb_language('uni');
+        } else if ($serendipity['lang'] == 'ja') {
+            @mb_language($serendipity['lang']);
+        } else {
+            @mb_language('en');
+        }
     }
 
     if (function_exists('mb_internal_encoding')) {
         @mb_internal_encoding(LANG_CHARSET);
     }
 
-/**
- * Wrapper for multibyte string operations
- *
- * Multibyte string functions wrapper:
- * strlen(), strpos(), strrpos(), strtolower(), strtoupper(), substr(), ucfirst()
- *
- * @access public
- * @param   mixed       Any input array, dynamically evaluated for best emulation
- * @return mixed
- */
+    /**
+     * Wrapper for multibyte string operations
+     *
+     * Multibyte string functions wrapper:
+     * strlen(), strpos(), strrpos(), strtolower(), strtoupper(), substr(), ucfirst()
+     *
+     * @access public
+     * @param   mixed       Any input array, dynamically evaluated for best emulation
+     * @return mixed
+     */
     function serendipity_mb() {
         static $mbstring = null;
 
