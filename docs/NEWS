@@ -1,6 +1,17 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Remove <html dir=""> attribute pointing to "rtl" languages in the
+    Styx (2Styx) backend themes index.tpl file, since that happens to
+    swage certain html elements very badly into another, breaking the
+    design, in special with floated elements. Serendipity is not well
+    formed to fully support right-to-left handed languages, since the
+    2.0 Series backend rebuild.
+    The 2k11 backend theme still has it set, with the same issues, but
+    is left alive, so you may switch backend themes around for testing.
+    Any competent help regarding element and browser handling is highly
+    welcome!
+
   * Prepare backend styles for bidirectional direction attributes and
     the bidirectional override element.
 

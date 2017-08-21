@@ -1,6 +1,6 @@
 <!doctype html>
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="{$lang}"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" dir="{$CONST.LANG_DIRECTION}" lang="{$lang}"> <!--<![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" dir="ltr" lang="{$lang}"> <!--<![endif]-->
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
 {if !$admin_vars.backendBlogtitleFirst}
