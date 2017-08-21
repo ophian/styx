@@ -1,6 +1,11 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Replace timestamp format by the lang defined DATE_FORMAT_SHORT
+    constant in the backend comment list, since the hardcoded approach
+    was not ready for all languages, in special for the strftime() month
+    abbreviation.
+
   * Remove <html dir=""> attribute pointing to "rtl" languages in the
     Styx (2Styx) backend themes index.tpl file, since that happens to
     swage certain html elements very badly into another, breaking the
