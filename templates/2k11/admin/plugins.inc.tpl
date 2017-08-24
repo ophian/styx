@@ -19,16 +19,17 @@
     {if !empty($license)}
         <p><b>{$CONST.MEDIA_PROPERTY_COPYRIGHT}:</b> {$license}</p>
     {/if}
+    {if isset($smarty.post.SAVECONF)}{assign var='point' value='new'}{/if}
     {if ! empty($documentation) OR $changelog OR $documentation_local}
         <ul class="plainList">
         {if !empty($documentation)}
-            <li><a href="{$documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION}</a></li>
+            <li class="plugin_docu"><a target="_{$point|default:'self'}" href="{$documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="visuallyhidden"> in new tab</span>{/if}</li>
         {/if}
         {if $changelog}
-            <li><a href="plugins/{$plugin->act_pluginPath}/ChangeLog">{$CONST.PLUGIN_DOCUMENTATION_CHANGELOG}</a></li>
+            <li class="plugin_docu"><a target="_{$point|default:'self'}" href="plugins/{$plugin->act_pluginPath}/ChangeLog">{$CONST.PLUGIN_DOCUMENTATION_CHANGELOG}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="visuallyhidden"> in new tab</span>{/if}</li>
         {/if}
         {if $documentation_local}
-            <li><a href="plugins/{$plugin->act_pluginPath}{$documentation_local}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a></li>
+            <li class="plugin_docu"><a target="_{$point|default:'self'}" href="plugins/{$plugin->act_pluginPath}{$documentation_local}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="visuallyhidden"> in new tab</span>{/if}</li>
         {/if}
         </ul>
     {/if}

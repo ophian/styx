@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Link plugin documentation to new tab, if in POST context.
+
   * Replace timestamp format by the lang defined DATE_FORMAT_SHORT
     constant in the backend comment list, since the hardcoded approach
     was not ready for all languages, in special for the strftime() month

@@ -2565,6 +2565,7 @@ h3 .media_file_actions {
     min-width: 11em;
 }
 
+.plugin_docu .icon-info-circled,
 .status_timestamp .icon-info-circled {
     color: #3e5f81;
     cursor: help;
