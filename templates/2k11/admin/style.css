@@ -1229,6 +1229,10 @@ input[type=checkbox],
     clear: both;
 }
 
+.comment_data.ping {
+    width: auto;
+    margin-bottom: 0;
+}
 .comment_summary {
     width: 100.3%; /* when truncation piped to the very end (rare cases) */
 }
