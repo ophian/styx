@@ -2568,6 +2568,10 @@ h3 .media_file_actions {
 }
 .comment_type.pingback {
     background-color: rgba(255, 232, 84, .8);/*downlighted rgba 255,220,0,.8 #FFDC00 Color Hex new Yellow */
+    margin-top: 5.3em;
+}
+.comment_type.pingback.pingup {
+    margin-top: 1em; /* when pingback comment_data info is opened */
 }
 .comment_type .stype {
     padding: .4em;
@@ -3546,6 +3550,9 @@ img.mfp-img {
         max-width: 75%;
     }
 
+    .comment_type.pingback {
+        margin-top: 3em;/* not 2.4em, since too small when h4 breaks */
+    }
     .comments_pane .pagination h3,
     .media_pane .pagination h3,
     .entries_pane .pagination h3,
@@ -4178,6 +4185,9 @@ img.mfp-img {
 @media only screen and (min-width: 1280px) {
     .js .configuration_group .media_choose input {
         max-width: 42.5%;
+    }
+    .comment_type.pingback {
+        margin-top: 2.4em;
     }
     #edit_entry_metadata #categoryfilter {
         max-width: 80%;

@@ -1512,8 +1512,10 @@ $(function() {
         var $el = $(this);
         if ($el.attr('href')) {
             $($el.attr('href')).toggleClass('additional_info');
+            if (e) $el.parent().siblings('div.comment_type.pingback').toggleClass('pingup');
         } else {
             $($el.data('href')).toggleClass('additional_info');
+            if (e) $el.parent().siblings('div.comment_type.pingback').toggleClass('pingup');
         }
         if (mq_small) {
             $el.closest('.has_info').toggleClass('info_expanded');
