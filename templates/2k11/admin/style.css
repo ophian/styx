@@ -1229,6 +1229,17 @@ input[type=checkbox],
     clear: both;
 }
 
+.comment_summary {
+    width: 100.3%; /* when truncation piped to the very end (rare cases) */
+}
+/* hides the box when empty, without breaking depending styles */
+.comment_summary.ping {
+    width: auto;
+    display: -moz-box;
+    display: -webkit-inline-box;
+    display: inline-block;
+}
+
 .comment_full h4 {
     display: contents;
 }

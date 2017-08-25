@@ -144,7 +144,7 @@
                                 </dl>
                             </div>
 
-                            <div id="c{$comment.id}_summary" class="comment_summary">{$comment.summary|strip_tags:false}</div>
+                            <div id="c{$comment.id}_summary" class="comment_summary{if $comment.stype == 'P'} ping{/if}">{$comment.summary|strip_tags:false}</div>
 
                             <div id="c{$comment.id}_full" class="clearfix comment_full additional_info">{$comment.fullBody}</div>
 
