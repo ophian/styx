@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Optimise PINGBACK comments list margins
+
   * Link plugin documentation to new tab, if in POST context.
 
   * Replace timestamp format by the lang defined DATE_FORMAT_SHORT
