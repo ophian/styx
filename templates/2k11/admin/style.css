@@ -2557,8 +2557,6 @@ h3 .media_file_actions {
     height: 1.5em;
     margin-top: 2.4em;
     margin-left: -0.4em;
-    text-align: center;
-    font-weight: 600;
     border-top: 1px solid #AAA;
     border-right: 1px solid #AAA;
 }
@@ -2570,6 +2568,10 @@ h3 .media_file_actions {
 }
 .comment_type.pingback {
     background-color: rgba(255, 232, 84, .8);/*downlighted rgba 255,220,0,.8 #FFDC00 Color Hex new Yellow */
+}
+.comment_type .stype {
+    padding: .4em;
+    font-weight: 600;
 }
 
 #entries_list .entry_info .entry_status {

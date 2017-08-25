@@ -166,7 +166,7 @@
                             {/if}
                             </ul>
                             {$comment.action_more}
-                            <div class="comment_type {$comment.type|lower}" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : 'Pingback' )}">{$comment.stype}</div>{if $comment.type != 'NORMAL'}{/if}
+                            <div class="comment_type {$comment.type|lower}" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : 'Pingback' )}"><span class="stype">{$comment.stype}</span></div>{if $comment.type != 'NORMAL'}{/if}
                         </li>
                     {/foreach}
                     </ul>
