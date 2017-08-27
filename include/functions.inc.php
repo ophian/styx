@@ -699,7 +699,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
     $subject = '['. $serendipity['blogTitle'] . '] '.  $subject;
 
     // Append signature to every mail
-    $message .= "\n" . sprintf(SIGNATURE, $serendipity['blogTitle']);
+    $message .= "\n" . sprintf(SIGNATURE, $serendipity['blogTitle'], 'Serendipity Styx', 'https://ophian.github.io/');
 
     $maildata = array(
         'to'       => &$to,
