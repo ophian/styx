@@ -223,7 +223,7 @@
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Uusi kommentti seurattuun merkintään "%s"');
 @define('SUBSCRIPTION_MAIL', "Moi %s,\n\nSeuraamaasi merkintään \"%s\" on uusi kommentti, otsikolla \"%s\"\nKommentoija on: %s\n\nMerkintä löytyy täältä: %s\n\nVoit peruuttaa seurannan tästä linkistä: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Moi %s,\n\nSeuraamaasi merkintään \"%s\", on uusi linkki \"%s\"\nViittaaja on: %s\n\nLöydät merkinnän linkistä: %s\n\nVoit peruuttaa seurantasi tästä linkistä: %s\n");
-@define('SIGNATURE', "\n-- \n%s ohjelmistovalinta on Serendipity.\nParas blogisofta mailla halmeilla..\nTsekkaa <http://s9y.org> saadaksesi lisätietoja.");
+@define('SIGNATURE', "\n-- \n%s ohjelmistovalinta on %s.\nParas blogisofta mailla halmeilla..\nTsekkaa <%s> saadaksesi lisätietoja.");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91 ');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 ');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 ');

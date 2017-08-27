@@ -223,7 +223,7 @@
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Új hozzászólás érkezett az alábbi (feliratkozott) bejegyzéshez "%s"');
 @define('SUBSCRIPTION_MAIL', "Szia %s!\n\nÚj hozzászólás érkezett a \"%s\" bejegyzéshez, az alábbi címmel: \"%s\"\nAz új hozzászólás szerzõje: %s\n\nA bejegyzést itt találod: %s\n\nA leiratkozáshoz kattints az alábbi linkre: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hello %s,\n\nÚj visszahivatkozás került az általad megfigyelt bejegyzéshez, a \"%s\" blog-ban, a következõ címû bejegyzéshez \"%s\"\nA felirat neve: %s\n\nEz itt található: %s\n\nA figyelést törölheted ide kattintva: %s\n");
-@define('SIGNATURE', "\n-- \n%s a Serendipity motort használja.\nEz a legjobb blog, te is használhatod.\nItt megtudod, hogyan: <http://s9y.org>.");
+@define('SIGNATURE', "\n-- \n%s a %s motort használja.\nEz a legjobb blog, te is használhatod.\nItt megtudod, hogyan: <%s>.");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91 infó');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 infó');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 info');

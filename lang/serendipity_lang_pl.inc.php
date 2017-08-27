@@ -225,7 +225,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nowy komentarz do subskrybowanej wiadomo¶ci "%s"');
 @define('SUBSCRIPTION_MAIL', "Witam %s,\n\nNowy komentarz zosta³ dodany do wpisu, który monitorujesz na \"%s\", zatytu³owany \"%s\"\nImiê komentuj±cego to: %s\n\nSkomentowany wpis znajdziesz tutaj: %s\n\nMo¿esz wy³±czyæ powiadomienia o odpowiedziach do tego wpisu klikaj±c na link: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Witam %s,\n\nNowy ¶lad zosta³ pozostawiony we wpisie, który monitorujesz na \"%s\", zatytu³owany \"%s\"\nImiê komentuj±cego to: %s\n\nSkomentowany wpis znajdziesz tutaj: %s\n\nMo¿esz wy³±czyæ powiadomienia o odpowiedziach do tego wpisu klikaj±c na link: %s\n");
-@define('SIGNATURE', "\n-- \n%s jest napêdzane przez Serendipity.\nNajlepszy engine blogowy pod tym s³oñcem. Ty tak¿e mo¿esz go u¿ywaæ.\nSprawd¼ <http://s9y.org> by siê dowiedzieæ jak!");
+@define('SIGNATURE', "\n-- \n%s jest napêdzane przez %s.\nNajlepszy engine blogowy pod tym s³oñcem. Ty tak¿e mo¿esz go u¿ywaæ.\nSprawd¼ <%s> by siê dowiedzieæ jak!");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');

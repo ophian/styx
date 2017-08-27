@@ -255,7 +255,7 @@ $i18n_filename_to = array (
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nový komentáø k pøihlá¹enému záznamu "%s"');
 @define('SUBSCRIPTION_MAIL', "Pozor %s,\n\nA právì byl pøidán nový komentáø k záznamu, který sledujete na \"%s\", s názvem \"%s\"\nJméno odesílatele: %s\n\nZáznam najdete zde: %s\n\nMù¾ete se odhlásit zde: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Pozor %s,\n\nA právì byla pøidána nová odezva k záznamu, který sledujete na \"%s\", s názvem \"%s\"\nJméno odesílatele: %s\n\nZáznam najdete zde: %s\n\nMù¾ete se odhlásit zde: %s\n");
-@define('SIGNATURE', "\n-- \n%s je vytvoøen pomocí Serendipity.\n Tento perfektní blogovací systém mù¾ete zdarma pou¾ívat také.\nNav¹tivte <http://s9y.org>, kde se dozvíte v¹e potøebné.");
+@define('SIGNATURE', "\n-- \n%s je vytvoøen pomocí %s\n. Tento perfektní blogovací systém mù¾ete zdarma pou¾ívat také.\nNav¹tivte <%s>, kde se dozvíte v¹e potøebné.");
 @define('SYNDICATION_PLUGIN_091', 'Kanál RSS 0.91');
 @define('SYNDICATION_PLUGIN_10', 'Kanál RSS 1.0');
 @define('SYNDICATION_PLUGIN_20', 'Kanál RSS 2.0');

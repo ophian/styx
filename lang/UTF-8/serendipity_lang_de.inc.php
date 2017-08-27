@@ -207,7 +207,7 @@
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Benachrichtigung zu neuem Kommentar des Eintrags "%s"');
 @define('SUBSCRIPTION_MAIL', "Hallo %s,\n\nEin neuer Kommentar wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtung mit folgender URL kündigen: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hallo %s,\n\nEin neues Trackback wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtung mit folgender URL kündigen: %s\n");
-@define('SIGNATURE', "\n-- \n%s wird betrieben mit Serendipity.\nDas allerbeste Blog, Sie können es auch nutzen.\nWie das geht, sehen Sie auf <http://s9y.org>.");
+@define('SIGNATURE', "\n-- \n%s wird betrieben mit %s.\nDas allerbeste Blog, Sie können es auch nutzen.\nWie das geht, sehen Sie auf <%s>.");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');

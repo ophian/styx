@@ -207,7 +207,7 @@
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Ny kommentar til abonnert artikkel "%s"');
 @define('SUBSCRIPTION_MAIL', "Hej %s,\n\nEn ny kommentar er blitt lagt til en artikkel du abonnerer på hos \"%s\", ved navn \"%s\"\nNavnet på skribenten er: %s\n\nDu kan finne artikkelen her: %s\n\nDu kan stoppe ditt abonnement ved å klikke på denne linken: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hei %s,\n\nEn ny trackback er laget til en artikkel du abonnerer på hos \"%s\", ved navn \"%s\"\nNavnet på skribenten er: %s\n\nDu kan finne artiklen her: %s\n\nDu kan stoppe ditt abonnement ved å klikke på denne linken: %s\n");
-@define('SIGNATURE', "\n-- \n%s bruker Serendipity.\nDen bedste blogg på dette, du kan også bruke det.\nKikk nærmere på <http://s9y.org> for å finne mere informasjon.");
+@define('SIGNATURE', "\n-- \n%s bruker %s.\nDen bedste blogg på dette, du kan også bruke det.\nKikk nærmere på <%s> for å finne mere informasjon.");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91-feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0-feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0-feed');

@@ -254,7 +254,7 @@ $i18n_filename_to = array (
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nov? koment?? k p?ihl?en?mu z?znamu "%s"');
 @define('SUBSCRIPTION_MAIL', "Pozor %s,\n\nA pr?v? byl p?id?n nov? koment?? k z?znamu, kter? sledujete na \"%s\", s n?zvem \"%s\"\nJm?no odes?latele: %s\n\nZ?znam najdete zde: %s\n\nM??ete se odhl?sit zde: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Pozor %s,\n\nA pr?v? byla p?id?na nov? odezva k z?znamu, kter? sledujete na \"%s\", s n?zvem \"%s\"\nJm?no odes?latele: %s\n\nZ?znam najdete zde: %s\n\nM??ete se odhl?sit zde: %s\n");
-@define('SIGNATURE', "\n-- \n%s je vytvo?en pomoc? Serendipity.\n Tento perfektn? blogovac? syst?m m??ete zdarma pou??vat tak?.\nNav?tivte <http://s9y.org>, kde se dozv?te v?e pot?ebn?.");
+@define('SIGNATURE', "\n-- \n%s je vytvo?en pomoc? %s.\nTento perfektn? blogovac? syst?m m??ete zdarma pou??vat tak?.\nNav?tivte <%s>, kde se dozv?te v?e pot?ebn?.");
 @define('SYNDICATION_PLUGIN_091', 'Kan?l RSS 0.91');
 @define('SYNDICATION_PLUGIN_10', 'Kan?l RSS 1.0');
 @define('SYNDICATION_PLUGIN_20', 'Kan?l RSS 2.0');

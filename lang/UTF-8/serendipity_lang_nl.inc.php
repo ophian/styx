@@ -225,7 +225,7 @@
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Nieuwe reactie op geabonneerd artikel "%s"');
 @define('SUBSCRIPTION_MAIL', "Geachte %s,\n\nEen nieuwe reactie is geplaatst op \"%s\", op artikel \"%s\"\nDe persoon die gereageerd heeft is: %s\n\nU kunt de reactie hier vinden: %s\n\nU kunt zich uitschrijven door op deze hyperlink te klikken: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Geachte %s,\n\nEen nieuwe trackback is toegevoegd op\"%s\", op artikel \"%s\"\nDe persoon die gereageerd heeft is: %s\n\nU kunt het artikel hier vinden: %s\n\nU kunt zich uitschrijven door op deze hyperlink te klikken: %s\n");
-@define('SIGNATURE', "\n-- \n%s wordt aangedreven door Serendipity, één van de beste weblogs.\nU kunt het ook gebruiken: ga naar <http://s9y.org> om te ontdekken hoe.");
+@define('SIGNATURE', "\n-- \n%s wordt aangedreven door %s, één van de beste weblogs.\nU kunt het ook gebruiken: ga naar <%s> om te ontdekken hoe.");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91-toevoer');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0-toevoer');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0-toevoer');

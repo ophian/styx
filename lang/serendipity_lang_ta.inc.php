@@ -223,7 +223,7 @@
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'புதிய கருத்து! குறிப்பு: "%s"');
 @define('SUBSCRIPTION_MAIL', "Hello %s,\n\nபுதிய கருத்து! \"%s\", தலைப்பு \"%s\"\n அன்பர்: %s\n\nஅன்பரின் கருத்து இங்கே: %s\n\nஇம்மின்னஞ்சலை நிறுத்த இம்முகவரிக்குச் செல்லுங்கள்: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hello %s,\n\nபுதிய மேற்குறிப்பு!  \"%s\", தலைப்பு \"%s\"\n அன்பர்: %s\n\nஅன்பரின் கருத்து இங்கே: %s\n\nஇம்மின்னஞ்சலை நிறுத்த இம்முகவரிக்குச் செல்லுங்கள்: %s\n");
-@define('SIGNATURE', "\n-- \n%s is powered by Serendipity.\nThe best blog around, you can use it too.\nCheck out <http://s9y.org> to find out how.");
+@define('SIGNATURE', "\n-- \n%s is powered by %s.\nThe best blog around, you can use it too.\nCheck out <%s> to find out how.");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
