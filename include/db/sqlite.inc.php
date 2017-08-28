@@ -3,8 +3,8 @@
 # All rights reserved.  See LICENSE file for licensing details
 
 if (!function_exists('sqlite_open')) {
-    @dl('sqlite.so');
-    @dl('sqlite.dll');
+    @dl('sqlite.so');  // DEPRECATED: This function was removed from most SAPIs in PHP 5.3.0,
+    @dl('sqlite.dll'); //             and was removed from PHP-FPM in PHP 7.0.0.
 }
 
 /**
