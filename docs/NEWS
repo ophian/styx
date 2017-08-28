@@ -1,6 +1,10 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix sqlite3.inc file to load the wrong lib if class does not exist.
+    Also mark the dl() method in all sqlite db files as deprecated.
+    This fallback will be removed in future releases.
+
   * Smarty Bugfix-Update to 3.1.32-dev-22 (including temporary Styx fix)
 
   * Optimise PINGBACK comments list margins
