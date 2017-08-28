@@ -8,8 +8,8 @@ define(SQLITE3_NUM, 1);
 define(SQLITE3_BOTH, 2);
 
 if (!function_exists('sqlite3_open')) {
-    @dl('sqlite.so');
-    @dl('sqlite.dll');
+    @dl('sqlite3.so');
+    @dl('sqlite3.dll');
 }
 
 /**
