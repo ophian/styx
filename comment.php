@@ -84,14 +84,8 @@ if (!($type = @$_REQUEST['type'])) {
 
 if ($type == 'trackback') {
     if ($tb_logging) {
-        # PHP 4.2.2 way of doing things
-        ob_start();
-        print_r($_REQUEST);
-        $tmp = ob_get_contents();
-        ob_end_clean();
-
         log_trackback('[' . date('d.m.Y H:i') . '] RECEIVED TRACKBACK' . "\n");
-        log_trackback('[' . date('d.m.Y H:i') . '] ' . $tmp . "\n");
+        log_trackback('[' . date('d.m.Y H:i') . '] ' . print_r($_REQUEST, true) . "\n");
     }
 
     $uri = $_SERVER['REQUEST_URI'];
@@ -123,12 +117,7 @@ if ($type == 'trackback') {
 } else if ($type == 'pingback') {
     if ($pb_logging) {
         log_pingback('RECEIVED PINGBACK');
-        # PHP 4.2.2 way of doing things
-        ob_start();
-        print_r($HTTP_RAW_POST_DATA);
-        $tmp = ob_get_contents();
-        ob_end_clean();
-        log_pingback('HTTP_RAW_POST_DATA: ' .$tmp);
+        log_pingback('HTTP_RAW_POST_DATA: ' . print_r($HTTP_RAW_POST_DATA, true));
     }
     if (add_pingback($_REQUEST['entry_id'], $HTTP_RAW_POST_DATA)) {
         log_pingback('PINGBACK SUCCESS');
