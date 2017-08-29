@@ -4,7 +4,7 @@
 
 include 'serendipity_config.inc.php';
 
-$url      = $serendipity['baseURL'];
+$url = $serendipity['baseURL'];
 
 if (isset($_GET['url_id']) && !empty($_GET['url_id']) && isset($_GET['entry_id']) && !empty($_GET['entry_id'])) {
 
@@ -31,5 +31,6 @@ if (serendipity_isResponseClean($url)) {
     header('Location: ' . $url);
 }
 exit;
+
 /* vim: set sts=4 ts=4 expandtab : */
 ?>
