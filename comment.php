@@ -66,10 +66,6 @@ if ($pb_logging) {
 
 if (!($type = @$_REQUEST['type'])) {
     if ($pb_logging) {
-        ob_start();
-        print_r($HTTP_RAW_POST_DATA);
-        $tmp = ob_get_contents();
-        ob_end_clean();
         log_pingback('NO TYPE HANDED!');
     }
 
