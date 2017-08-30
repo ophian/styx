@@ -1690,6 +1690,11 @@ $(function() {
                             progress.value = 100;
                             progressContainer.className = "msg_success";
                             $(progressContainer).find('.uploadIcon').replaceWith(successIcon.cloneNode(true));
+                            $('#mediaupload_tabs').hide();
+                            $('#imageselectorplus').hide();
+                            $('.form_buttons input.check_inputs').hide();
+                            var toMl = document.createElement('a');
+                            $('.form_buttons').prepend(toMl);
                         }).fail(function(data) {
                             progressContainer.className = "msg_error";
                             progress.disabled = true;
