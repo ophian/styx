@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Media: Enhance js finished done, when resized images before upload
+
   * Fix sqlite3.inc file to load the wrong lib if class does not exist.
     Also mark the dl() method in all sqlite db files as deprecated.
     This fallback will be removed in future releases.
