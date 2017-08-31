@@ -1,6 +1,8 @@
 Version 2.3 ()
  ------------------------------------------------------------------------
 
+  * Fix template and plugin requirement issues
+
   * Media: Enhance js finished done, when resized images before upload
 
   * Fix sqlite3.inc file to load the wrong lib if class does not exist.
