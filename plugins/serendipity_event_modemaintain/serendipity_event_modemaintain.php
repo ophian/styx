@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.16');
+        $propbag->add('version',       '1.17');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'
@@ -235,8 +235,8 @@ class serendipity_event_modemaintain extends serendipity_plugin
     <section id="maintenance_moma" class="quick_list">
         <h3><?=PLUGIN_MODEMAINTAIN_MAINTAIN?></h3>
 
-        <a id="moma" class="button_link state_submit" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/maintenance/" title=""><span><?=PLUGIN_MODEMAINTAIN_BUTTON?></span></a>
-        <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button> <span title="README">[ <b>!</b> ]</span>
+        <a id="moma" class="button_link state_submit" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/maintenance/" title="<?=PLUGIN_MODEMAINTAIN_INFOALERT?>"><span><?=PLUGIN_MODEMAINTAIN_BUTTON?></span></a>
+        <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button>
         <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC?>
         <p><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC?></p>
         <div><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC?></div></div>
@@ -249,8 +249,8 @@ class serendipity_event_modemaintain extends serendipity_plugin
     <section id="maintenance_moma" class="quick_list">
         <h3><?=PLUGIN_MODEMAINTAIN_MAINTAIN?></h3>
 
-        <a id="moma" class="button_link state_cancel" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/public/" title=""><span><?=PLUGIN_MODEMAINTAIN_FREEBUTTON?></span></a>
-        <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button> <span title="README">[ <b>!</b> ]</span>
+        <a id="moma" class="button_link state_cancel" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/public/" title="<?=PLUGIN_MODEMAINTAIN_INFOALERT?>"><span><?=PLUGIN_MODEMAINTAIN_FREEBUTTON?></span></a>
+        <button class="toggle_info button_link" type="button" data-href="#moma_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?=MORE?></span></button>
         <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC?>
         <p><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC?></p>
         <div><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC?></div></div>

@@ -5,6 +5,7 @@
 
 @define('PLUGIN_MODEMAINTAIN_MAINTAIN', 'Service Wartungs Modus');
 @define('PLUGIN_DASHBOARD_MAINTENANCE_MODE_ACTIVE', '...activer Wartungsmodus...');
+@define('PLUGIN_MODEMAINTAIN_INFOALERT', 'Achtung: Bitte Beschreibung lesen!');
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC', "ACHTUNG:<br>\n<b>Nicht</b> ausloggen, den Browser oder das Tab schließen, oder das generelle Konfigurations Formular absenden, ohne den Wartungsmodus zurückgesetzt zu haben!");
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC', "IM NOTFALL:<br>\nWenn Sie sich jemals ausloggen, ohne den 503 Maintenance Mode zurückgestellt zu haben, oder ihr Login Cookie beschädigt oder gelöscht wurde, müssen Sie die &dollar;serendipity['maintenance'] Variable in der serendipity_config_local.inc.php Datei manuell auf 'false' stellen, um sich und der Öffentlichkeit wieder Zugang zu ihrem Blog zu ermöglichen!");
 
