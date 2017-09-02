@@ -847,7 +847,6 @@
 @define('MEDIA_EXIF_DESC', 'Hvis aktiv, vil EXIF/JPEG metadata blive indlæst og gemt i databasen for senere at kunne vises i medie galleriet.');
 @define('MEDIA_PROP', 'Medie egenskaber');
 
-
 @define('GO_ADD_PROPERTIES', 'Go & enter properties');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');

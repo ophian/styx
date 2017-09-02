@@ -850,7 +850,6 @@ $i18n_unknown = 'tw';
 @define('MEDIA_EXIF_DESC', '如果開啟，EXIF/JPEG 圖檔裡的 metadata 會自動儲存到資料庫。');
 @define('MEDIA_PROP', '媒體內容');
 
-
 @define('GO_ADD_PROPERTIES', '輸入內容');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', '版權');

@@ -848,7 +848,6 @@
 @define('MEDIA_EXIF_DESC', 'در صورت فعال بودن، لیست اطلاعات موجود در EXIF/JPEG تصاویر، برای نمایش داده شدن در بخش گالری، در پایگاه داده ذخیره می شود.');
 @define('MEDIA_PROP', 'اطلاعات رسانه');
 
-
 @define('GO_ADD_PROPERTIES', 'اطلاعات را وارد کن');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'حق کپی');

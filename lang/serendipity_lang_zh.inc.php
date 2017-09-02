@@ -850,7 +850,6 @@
 @define('MEDIA_EXIF_DESC', '如果开启，EXIF/JPEG 图库里的 metadata 会自动保存到数据库。');
 @define('MEDIA_PROP', '媒体内容');
 
-
 @define('GO_ADD_PROPERTIES', '输入内容');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', '版权');

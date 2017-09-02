@@ -848,7 +848,6 @@
 @define('MEDIA_EXIF_DESC', 'Als dit aan staat, worden bestaande EXIF/JPEG-gegevens van afbeeldingen ingelezen en opgeslagen in de databank om weer te geven in de mediaverzameling.');
 @define('MEDIA_PROP', 'Media-eigenschappen');
 
-
 @define('GO_ADD_PROPERTIES', 'Wijzig afbeeldingseigenschappen');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Auteursrecht');

@@ -857,7 +857,6 @@
 @define('MEDIA_EXIF_DESC', 'Uma vez activado, as imagens EXIF/JPEG existentes serão separadas e arquivadas na base de dados para exposição na galeria de media.');
 @define('MEDIA_PROP', 'Propriedades da Media');
 
-
 @define('GO_ADD_PROPERTIES', 'Ir & introduzir propriedades');
 @define('MEDIA_PROPERTY_DPI', 'DPI (PPP)');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Direitos de Autor');

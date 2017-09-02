@@ -846,7 +846,6 @@
 @define('MEDIA_EXIF_DESC', 'Falls aktiviert, werden EXIF/JPEG Metadaten ausgelesen und in der Datenbank gespeichert.');
 @define('MEDIA_PROP', 'Medien-Eigenschaften');
 
-
 @define('GO_ADD_PROPERTIES', 'Los & Eigenschaften angeben');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');

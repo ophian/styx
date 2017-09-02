@@ -846,7 +846,6 @@
 @define('MEDIA_EXIF_DESC', 'Om aktiv kommer existerande EXIF/JPEG-metadata i bilder att läsas och lagras i databasen för visning i mediagalleriet.');
 @define('MEDIA_PROP', 'Mediaegenskaper');
 
-
 @define('GO_ADD_PROPERTIES', 'Mata in egenskaper');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Upphovsskydd');

@@ -847,7 +847,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MEDIA_EXIF_DESC', 'Jeśli opcja zostanie włączona, zapisane w plikach z obrazkami/zdjęciami dane EXIF/JPEG zostaną zachowane w bazie danych i wykorzystane przy wyświetlaniu w Bibliotece mediów.');
 @define('MEDIA_PROP', 'Właściwości');
 
-
 @define('GO_ADD_PROPERTIES', 'Dodaj i wprowadź właściwości');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Prawa autorskie (Copyright)');

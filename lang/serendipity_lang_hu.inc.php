@@ -847,7 +847,6 @@
 @define('MEDIA_EXIF_DESC', 'Ha ezt engedélyezed, akkor a képeknél már létezõ EXIF/JPEG metaadatok bekerülnek az adatbázisba, és megjelennek a médiagalériban.');
 @define('MEDIA_PROP', 'Média tulajdonságok');
 
-
 @define('GO_ADD_PROPERTIES', 'Mehet, majd utána a tulajdonságok szerkesztése');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
