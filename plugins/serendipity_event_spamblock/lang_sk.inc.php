@@ -88,7 +88,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_URL', 'Zru¹i» blokovánie tejto adresy URL');
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL', 'Zru¹i» blokovánie tejto e-mailovej adresy');
 
-
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Nadpis komentára je rovnaký ako jeho telo');
 @define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Odmietnuté budú komentáre, ktoré v tele obsahujú iba nadpis.');
 
