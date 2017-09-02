@@ -87,7 +87,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_URL', 'Desbloquear estea URL a través de la extensión Spamblock');
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL', 'Desbloquear este correo electrónico a través de la extensión Spamblock');
 
-
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Titulo de la entrada igual al comentario');
 @define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Rechaza comentarios que sólo contengan título');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Revisar Trackback URLs');

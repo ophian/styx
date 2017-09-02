@@ -92,7 +92,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_URL', 'この URL はスパムプロテクタープラグインでブロックしない');
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL', 'この電子メールはスパムプロテクタープラグインでブロックしない');
 
-
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'エントリの題名とコメントが同じ');
 @define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'エントリの題名のみを含むコメントを拒否する');
 

@@ -75,7 +75,6 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS', 'Filtragem por nome de autor');
 @define('PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS_DESC', 'Marca todos os comentários cujo nome de autor contém palavras chave consideradas como indicadoras de Spam. As expressões regulares são autorizadas, separe as palavras chave por ponto e vírgula (;).');
 
-
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_CHECKMAIL', 'Endereço de email inválido');
 @define('PLUGIN_EVENT_SPAMBLOCK_CHECKMAIL', 'Verificar endereços de email?');
 @define('PLUGIN_EVENT_SPAMBLOCK_REQUIRED_FIELDS', 'Campos de comentário obrigatórios');
