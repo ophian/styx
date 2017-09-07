@@ -1,4 +1,4 @@
-Version 2.3 ()
+Version 2.3.0 (2017-09-07)
  ------------------------------------------------------------------------
 
   * Fix template and plugin requirement issues
@@ -203,7 +203,7 @@ Version 2.3-beta1 (2017-08-14)
   * Fix the autoupdate final "return to backend" link
 
 
-Version 2.2 (2017-06-23)
+Version 2.2.0 (2017-06-23)
  ------------------------------------------------------------------------
 
   * Rewrite Trackback HTTP Requests and logging attempts
@@ -392,7 +392,7 @@ Version 2.2 (2017-06-23)
     check if the autoupdate plugin actually is installed.
 
 
-Version 2.1 (February, 24th 2017)
+Version 2.1.0 (February, 24th 2017)
  ------------------------------------------------------------------------
 
   * Fix the "SERENDIPITY_NEEDS_UPGRADE" page redirector to allow admins
