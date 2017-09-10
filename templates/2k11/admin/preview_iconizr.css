@@ -124,6 +124,7 @@
 /* preview iframe styles only */
 
 /* on save and preview actions */
+/* we don't even try to workaround IE scrolling issues */
 
 body {
     padding: 0;
@@ -132,21 +133,40 @@ body {
     max-width: 100%;
 }
 
+/* default */
+#mainpane {
+    border-top: inherit;
+    border-bottom: inherit;
+}
+
+/* clean-blog */
+#maincontent {
+    width: 100%;
+    padding: 0;
+}
+
+/* bulletproof */
+#wrapper {
+    min-width: 100%;
+    border: 0 none;
+    margin: 0; }
+    #content h3 {
+        line-height: inherit; }
+
 #page {
     border: 0 none;
     margin: inherit;
-    width: 100%;
     box-shadow: 0 none;
-}
-
-#content {
-    padding: 1em .5em;
-    margin: 0;
-}
-
-/* wide content for preview */
-#content,
-#primary {
     width: 100%;
-    max-width: 100%;
-}
+    max-width: inherit; }
+    #content {
+        padding: 1em .5em;
+        margin: 0;
+        border-right: inherit;/* default */
+    }
+    /* wide content for preview */
+    #content,
+    #primary {
+        width: auto;
+        max-width: inherit;
+    }
