@@ -11,14 +11,14 @@
         <link rel="stylesheet" href="<?= $GLOBALS['tpl']['serendipityHTTPPath'] ?><?= $GLOBALS['tpl']['serendipityRewritePrefix'] ?>serendipity.css">
     <?php endif; ?>
         <link rel="stylesheet" href="<?= $GLOBALS['tpl']['iconizr'] ?>">
-        <style> #content { width: 99%; background-color: #fcfcfc; } </style>
+        <style> #content { width: 99%; background-color: #fcfcfc; padding: 5px; } .save_preview_content .msg_success { margin: 0; } </style>
     <?php if ($GLOBALS['tpl']['mode'] == 'save'): /* we need this for modernizr.indexDB cleaning up autosave entry modifications */ ?>
         <script src="<?= $GLOBALS['tpl']['modernizr'] ?>"></script>
     <?php endif; ?>
 
         <script type="text/javascript">
         window.onload = function() {
-            var frameheight = document.querySelector('html').offsetHeight;
+            var frameheight = document.querySelector('html').offsetHeight<?php if ($GLOBALS['tpl']['mode'] == 'preview'): ?>-20<?php endif; ?>;
             parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
             parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
             parent.document.getElementById('serendipity_iframe').style.border = 0;

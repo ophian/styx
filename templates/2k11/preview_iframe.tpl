@@ -36,7 +36,7 @@
 
     <script type="text/javascript">
     window.onload = function() {ldelim}
-        var frameheight = document.querySelector('html').offsetHeight{if $mode == 'preview'}-14{/if};
+        var frameheight = document.querySelector('html').offsetHeight{if $mode == 'preview'}-24{/if};
         parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
         parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
         parent.document.getElementById('serendipity_iframe').style.border = 0;
