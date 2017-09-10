@@ -37,10 +37,12 @@
                                                                               + 'px';
             parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
             parent.document.getElementById('serendipity_iframe').style.border = 0;
+            parent.document.getElementById('serendipity_iframe').style.overflow = 'hidden';
         {rdelim}
     </script>
 </head>
 <body>
+
     <main id="maincontent" class="container" role="main" style="margin: 0 auto;">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
@@ -67,6 +69,7 @@
             </div>
         </div>
     </main>
+<!-- filed by theme "{$template}" -->
 
 {if $mode == 'preview'}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

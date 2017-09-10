@@ -22,6 +22,7 @@
             parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
             parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
             parent.document.getElementById('serendipity_iframe').style.border = 0;
+            parent.document.getElementById('serendipity_iframe').style.overflow = 'hidden';
         }
         </script>
     </head>
@@ -51,6 +52,6 @@
             <?= $GLOBALS['tpl']['preview'] ?>
             </main>
         </div>
-
+        <!-- filed by theme "<?= $GLOBALS['tpl']['template'] ?>" -->
     </body>
 </html>

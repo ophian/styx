@@ -40,6 +40,7 @@
         parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
         parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
         parent.document.getElementById('serendipity_iframe').style.border = 0;
+        parent.document.getElementById('serendipity_iframe').style.overflow = 'hidden';
     {rdelim}
     </script>
 </head>
@@ -75,6 +76,6 @@
             </main>
         </div>
     </div>
-<!-- filed by standard theme 2k11 -->
+<!-- filed by theme "{$template}" -->
 </body>
 </html>

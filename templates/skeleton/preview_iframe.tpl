@@ -17,6 +17,7 @@
         parent.document.getElementById('serendipity_iframe').style.height = document.querySelector('html').offsetHeight + 'px';
         parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
         parent.document.getElementById('serendipity_iframe').style.border = 0;
+        parent.document.getElementById('serendipity_iframe').style.overflow = 'hidden';
     {rdelim}
     </script>
     <style> .save_preview_content, .preview_preview_content { margin: .5em; } </style>
@@ -46,7 +47,9 @@
             <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
         {/if}
     {/if}
+
         </div>
+        <!-- filed by theme "{$template}" -->
     </main>
 </body>
 </html>
