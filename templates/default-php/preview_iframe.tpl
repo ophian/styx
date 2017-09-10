@@ -45,8 +45,8 @@
                     </script>
                 <?php endif; ?>
 
-                <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <?= ENTRY_SAVED ?></span>
-                <a href="<?= $GLOBALS['tpl']['entrylink'] ?>" target="_blank"><?= VIEW ?></a>
+                <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <?= ENTRY_SAVED ?>
+                <a href="<?= $GLOBALS['tpl']['entrylink'] ?>" target="_blank"><?= VIEW ?></a></span>
             <?php endif; ?>
         <?php endif; ?>
             <?= $GLOBALS['tpl']['preview'] ?>
