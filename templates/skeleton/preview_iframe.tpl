@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
 
-    <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
-    <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
 {/if}
