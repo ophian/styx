@@ -14,6 +14,7 @@
 {else}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$serendipityRewritePrefix}serendipity.css">
 {/if}
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
 {* CUSTOM FONTS *}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,400italic|Open+Sans:300,600,800" rel="stylesheet" type="text/css">
@@ -43,7 +44,7 @@
 </head>
 <body>
 
-    <main id="maincontent" class="container" role="main" style="margin: 0 auto;">
+    <main id="maincontent" class="container" role="main" style="margin: 0 auto;{if $mode == 'preview'} width: 100%; padding: .5em;{/if}">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 {if $mode == 'preview'}
