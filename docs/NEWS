@@ -1,6 +1,10 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fixed regression bug with Smarty variable parsing, which could
+    lead to completely unset permissions when changing Serendipity
+    groups configuration.
+
   * Optimized preview_iframe template files (default, 2k11, Next,
     Skeleton, clean-blog, timeline Bulletproof, and default-php).
 
