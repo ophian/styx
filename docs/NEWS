@@ -9,6 +9,8 @@ Version ()
 
   * Optimized preview_iframe template files (default, 2k11, Next,
     Skeleton, clean-blog, timeline Bulletproof, and default-php).
+    Please keep your copy-templates synced.
+
 
 Version 2.3.0 (2017-09-07)
  ------------------------------------------------------------------------
