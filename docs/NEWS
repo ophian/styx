@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Optimise PHP7 installer token
+
   * Fixed regression bug with Smarty variable parsing, which could
     lead to completely unset permissions when changing Serendipity
     groups configuration.
