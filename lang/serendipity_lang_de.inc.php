@@ -1147,18 +1147,18 @@
 
 @define('IMAGE_LINK_TO_BIG', 'Verweise auf das große Bild');
 
-@define('UTF8MB4_MIGRATION_TITLE', 'UTF-8-MB4 migration');
-@define('UTF8MB4_MIGRATION_ERROR', 'An error occured with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
-@define('UTF8MB4_MIGRATION_TASK_RETURN', 'The migration task returned:');
-@define('UTF8MB4_MIGRATION_TASK_HAVE', 'The following SQL commands have been executed:');
-@define('UTF8MB4_MIGRATION_TASK_CAN', 'The following SQL commands can be executed:');
-@define('UTF8MB4_MIGRATION_TASK_DONE', 'Your blog is using the UTF-8 with Multibyte-Extension charset.');
-@define('UTF8MB4_MIGRATION_INFO', 'When using Serendipity Styx 2.4+ with MySQLi and UTF-8 charsets (this is the default), the database tables and indexes can be migrated from UTF-8 to UTF-8 with Multibyte-Extension, to also support unicode characters outside the Basic Multilingual Plane (BMP), such as <b>Emojis</b>. Utf8mb4 is a superset of utf8.');
-@define('UTF8MB4_MIGRATION_BUTTON_CHECK', 'Simulate / Check');
-@define('UTF8MB4_MIGRATION_BUTTON_EXECUTE', 'Execute');
-@define('UTF8MB4_MIGRATION_INFO_DESC', 'This task will allow you to perform an upgrade from UTF-8 to UTF8MB4. This will also automatically try to adjust index sizes and issue converting MySQL server commands.
-<p>This is a task that can probably fail to properly convert your data, so be sure to make a full SQL backup before you perform the upgrade!</p>
-Please run the simulation first, to get a list of SQL statements, that will be issued on your installation, and make sure there are no (red) errors in the simulation or first execution before continuing.
-Run the <b>executor</b> [execute] task as long it appears, to fully convert the database tables and re-set the new dbCharset to "utf8mb4" in your configuration file. Do not reload your browser tab. You are finished with a <b>green</b> success message!');
-@define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
+@define('UTF8MB4_MIGRATION_TITLE', 'UTF-8-MB4 Migration');
+@define('UTF8MB4_MIGRATION_ERROR', 'Bei der UTF-8-Migration ist ein Fehler aufgetreten::<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Fahren Sie <b>nicht</b> fort, ohne den Fehler behoben zu haben!');
+@define('UTF8MB4_MIGRATION_TASK_RETURN', 'Die Migrationsaufgabe ergab:');
+@define('UTF8MB4_MIGRATION_TASK_HAVE', 'Folgende SQL-Kommandos wurden ausgeführt:');
+@define('UTF8MB4_MIGRATION_TASK_CAN', 'Folgende SQL-Kommandos können ausgeführt werden:');
+@define('UTF8MB4_MIGRATION_TASK_DONE', 'Ihr Blog verwendet den UTF-8 Zeichensatz mit der Multibyte-Erweiterung.');
+@define('UTF8MB4_MIGRATION_INFO', 'Wenn Sie Serendipity Styx 2.4+ mit MySQLi- und UTF-8-Zeichensätzen (Standard) verwenden, können die Datenbanktabellen und Indizes von UTF-8 nach UTF-8 mit Multibyte-Erweiterung migriert werden, um auch Unicode-Zeichen außerhalb des "Basic Multilingual Plane" (BMP) zu unterstützen, wie z. B. <b>Emojis</b>. Utf8mb4 ist eine Obermenge von utf8.');
+@define('UTF8MB4_MIGRATION_BUTTON_CHECK', 'Simuliere / Examiniere');
+@define('UTF8MB4_MIGRATION_BUTTON_EXECUTE', 'Ausführen');
+@define('UTF8MB4_MIGRATION_INFO_DESC', 'Mit dieser Aktion können Sie ein Upgrade von UTF-8 auf UTF8MB4 durchführen. Dies wird auch automatisch versuchen, Indexgrößen anzupassen und die Konvertierung von MySQL-Serverbefehlen vorzunehmen.
+<p>Dies ist ein Vorgang, der auch abbrechen kann, ohne Ihre Daten korrekt zu konvertieren. Stellen Sie daher sicher, dass Sie über eine vollständige SQL-Sicherung verfügen, bevor Sie das Upgrade durchführen!</p>
+Führen Sie bitte zuerst die Simulation durch, um eine Liste der SQL-Anweisungen zu erhalten, die auf Ihrer Installation ausgegeben werden, und stellen Sie sicher, dass es keine (roten) Fehler in der Simulation oder der ersten Ausführung gibt, bevor Sie fortfahren.
+Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die Datenbanktabellen vollständig zu konvertieren und das neue dbCharset in Ihrer Konfigurationsdatei auf "utf8mb4" zu setzen. Laden Sie Ihren Browser-Tab nicht neu. Sie sind fertig, wenn Sie eine <b>grüne</b> Erfolgsmeldung erhalten!');
+@define('UTF8MB4_MIGRATION_FAIL', 'Ihre aktuelle Installation nutzt entweder den UTF-8 Zeichensatz nicht, verwendet keinen MySQLi-Treiber oder die Server-Version ist kleiner als 5.5.3 und unterstützt kein UTF8MB4. Um UTF8MB4 verwenden zu können, stellen Sie sicher, dass Ihr Blog für den UTF-8 Zeichensatz konfiguriert ist, und bestehende Daten nach UTF-8 konvertiert wurden (indem Sie ein Tool wie mysqldump für Export, Konvertierung nach UTF-8 und den Import verwenden).');
 
