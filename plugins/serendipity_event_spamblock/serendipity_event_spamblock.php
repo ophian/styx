@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.91');
+        $propbag->add('version',       '1.92');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -686,7 +686,7 @@ class serendipity_event_spamblock extends serendipity_event
             $q   = "CREATE INDEX kspamidx ON {$serendipity['dbPrefix']}spamblocklog (timestamp);";
             $sql = serendipity_db_schema_import($q);
 
-            $q   = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}spamblocklog (type);";
+            $q   = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}spamblocklog (type(191));";
             $sql = serendipity_db_schema_import($q);
 
             $q   = "CREATE INDEX kspamentryidx ON {$serendipity['dbPrefix']}spamblocklog (entry_id);";
