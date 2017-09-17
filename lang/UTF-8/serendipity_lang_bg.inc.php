@@ -9,7 +9,7 @@
 
 @define('LANG_CHARSET', 'UTF-8');
 @define('SQL_CHARSET', 'utf8');
-@define('DATE_LOCALES', 'bg_BG-UTF-8, bulgarian, bg, bg_BG');
+@define('DATE_LOCALES', 'bg_BG.UTF-8, bulgarian, bg, bg_BG');
 @define('DATE_FORMAT_ENTRY', '%A, %e %B %Y');
 @define('WYSIWYG_LANG', 'bg_BG');
 @define('LANG_DIRECTION', 'ltr');
