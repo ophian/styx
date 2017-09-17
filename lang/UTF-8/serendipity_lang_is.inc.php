@@ -1142,3 +1142,18 @@
 
 @define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 
+@define('UTF8MB4_MIGRATION_TITLE', 'UTF-8-MB4 migration');
+@define('UTF8MB4_MIGRATION_ERROR', 'An error occured with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
+@define('UTF8MB4_MIGRATION_TASK_RETURN', 'The migration task returned:');
+@define('UTF8MB4_MIGRATION_TASK_HAVE', 'The following SQL commands have been executed:');
+@define('UTF8MB4_MIGRATION_TASK_CAN', 'The following SQL commands can be executed:');
+@define('UTF8MB4_MIGRATION_TASK_DONE', 'Your blog is using the UTF-8 with Multibyte-Extension charset.');
+@define('UTF8MB4_MIGRATION_INFO', 'When using Serendipity Styx 2.4+ with MySQLi and UTF-8 charsets (this is the default), the database tables and indexes can be migrated from UTF-8 to UTF-8 with Multibyte-Extension, to also support unicode characters outside the Basic Multilingual Plane (BMP), such as <b>Emojis</b>. Utf8mb4 is a superset of utf8.');
+@define('UTF8MB4_MIGRATION_BUTTON_CHECK', 'Simulate / Check');
+@define('UTF8MB4_MIGRATION_BUTTON_EXECUTE', 'Execute');
+@define('UTF8MB4_MIGRATION_INFO_DESC', 'This task will allow you to perform an upgrade from UTF-8 to UTF8MB4. This will also automatically try to adjust index sizes and issue converting MySQL server commands.
+<p>This is a task that can probably fail to properly convert your data, so be sure to make a full SQL backup before you perform the upgrade!</p>
+Please run the simulation first, to get a list of SQL statements, that will be issued on your installation, and make sure there are no (red) errors in the simulation or first execution before continuing.
+Run the <b>executor</b> [execute] task as long it appears, to fully convert the database tables and re-set the new dbCharset to "utf8mb4" in your configuration file. Do not reload your browser tab. You are finished with a <b>green</b> success message!');
+@define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
+
