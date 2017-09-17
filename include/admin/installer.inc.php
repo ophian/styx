@@ -381,6 +381,17 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         include_once S9Y_INCLUDE_PATH . 'include/plugin_api.inc.php';
         serendipity_plugin_api::register_default_plugins();
         $data['register_default_plugins'] = true;
+
+        // INSTALLERS utfmb4 migration logic goes here, right before serendipity_updateLocalConfig is called via serendipity_updateConfiguration()
+        if (defined('SQL_CHARSET') && SQL_CHARSET == 'utf8' && serendipity_db_bool($_POST['dbNames']) && $_POST['dbType'] == 'mysqli') {
+            /* Utilize utf8mb4 for the dbCharset variable, if the server supports that */
+            $mysql_version = mysqli_get_server_info($serendipity['dbConn']);
+            if (version_compare($mysql_version, '5.5.3', '>=')) {
+                serendipity_set_config_var('dbUtf8mb4_converted', 'true');
+                $serendipity['dbUtf8mb4_converted'] = true;
+                define('SQL_CHARSET_INIT', true);
+            }
+        }
     }
 
     $errors = serendipity_installFiles($basedir);

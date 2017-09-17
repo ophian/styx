@@ -106,7 +106,13 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
     fwrite($configfp, "\t\$serendipity['dbType']            = '" . addslashes($dbType) . "';\n");
     fwrite($configfp, "\t\$serendipity['dbPersistent']      = ". (serendipity_db_bool($dbPersistent) ? 'true' : 'false') .";\n");
     if ($serendipity['dbNames']) {
-        fwrite($configfp, "\t\$serendipity['dbCharset']         = '" . addslashes(SQL_CHARSET) . "';\n");
+        if (defined('SQL_CHARSET') && !defined('SQL_CHARSET_INIT')) {
+            fwrite($configfp, "\t\$serendipity['dbCharset']         = '" . addslashes(SQL_CHARSET) . "';\n");
+        } else {
+            if ($dbType == 'mysqli' || $dbType == 'mysql') {
+                fwrite($configfp, "\t\$serendipity['dbCharset']         = 'utf8mb4';\n");
+            }
+        }
     }
 
     if (is_array($privateVariables) && count($privateVariables) > 0) {
@@ -139,14 +145,22 @@ function serendipity_installDatabase() {
     $queries = str_replace('{PREFIX}', $serendipity['dbPrefix'], $queries);
 
     foreach ($queries AS $query) {
-        serendipity_db_schema_import($query);
+        $return = serendipity_db_schema_import($query);
+        if (is_string($return)) {
+            echo "SQL-ERROR: " . $return . "<br />\n";
+            echo "QUERY: <pre>" . $query . "</pre><br />\n";
+        }
     }
 
     if (file_exists(S9Y_INCLUDE_PATH . 'sql/preload.sql')) {
         $queries = serendipity_parse_sql_inserts(S9Y_INCLUDE_PATH . 'sql/preload.sql');
         $queries = str_replace('{PREFIX}', $serendipity['dbPrefix'], $queries);
         foreach ($queries AS $query) {
-            serendipity_db_schema_import($query);
+            $return = serendipity_db_schema_import($query);
+            if (is_string($return)) {
+                echo "SQL-ERROR: " . $return . "<br />\n";
+                echo "QUERY: <pre>" . $query . "</pre><br />\n";
+            }
         }
     }
 }
