@@ -1,7 +1,10 @@
 Version ()
  ------------------------------------------------------------------------
 
-  * Optimised placement of dashboards links and quicktip widgets
+  * Optimized placement of dashboards links and quicktip widgets
+
+  * Changed lang constant files to better match Serendipity Styx on
+    installations. This also fixed some other (~asian) lang issues.
 
   * Optimise PHP7 installer token
 
