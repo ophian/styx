@@ -28,7 +28,7 @@
                                           'title'       => INSTALL_DBUSER,
                                           'description' => INSTALL_DBUSER_DESC,
                                           'type'        => 'string',
-                                          'default'     => 'serendipity',
+                                          'default'     => 'better-not-as-root',
                                           'permission'  => 'siteConfiguration',
                                           'flags'       => array('nosave', 'simpleInstall')),
 
@@ -60,7 +60,7 @@
                                           'title'       => INSTALL_DBPREFIX,
                                           'description' => INSTALL_DBPREFIX_DESC,
                                           'type'        => 'string',
-                                          'default'     => 'serendipity_',
+                                          'default'     => 'styx_',
                                           'permission'  => 'siteConfiguration',
                                           'flags'       => array('nosave')),
 
@@ -671,7 +671,7 @@
                                           'description' => INSTALL_THUMBSUFFIX_DESC,
                                           'type'        => 'string',
                                           'permission'  => 'siteConfiguration',
-                                          'default'     => 'serendipityThumb'),
+                                          'default'     => 'styxThumb'),
 
                                     array('var'         => 'thumbSize',
                                           'title'       => INSTALL_THUMBWIDTH,
