@@ -247,12 +247,249 @@ function serendipity_db_connect() {
 function serendipity_db_reconnect() {
     global $serendipity;
 
-    if (isset($serendipity['dbCharset'])) {
-        mysqli_set_charset($serendipity['dbConn'], $serendipity['dbCharset']);
+    if (isset($serendipity['dbCharset']) && !empty($serendipity['dbCharset'])) {
+        $use_charset = $serendipity['dbCharset'];
         @define('SQL_CHARSET_INIT', true);
     } elseif (defined('SQL_CHARSET') && $serendipity['dbNames'] && !defined('SQL_CHARSET_INIT')) {
-        mysqli_set_charset($serendipity['dbConn'], SQL_CHARSET);
+        $use_charset = SQL_CHARSET;
+    } else {
+        $use_charset = 'utf8';
     }
+
+    $serendipity['dbUtf8mb4'] = $serendipity['dbUtf8mb4_ready'] = false;
+    if (strtolower($use_charset) == 'utf8') {
+        /* Utilize utf8mb4, if the server supports that */
+        $mysql_version = mysqli_get_server_info($serendipity['dbConn']);
+        if (version_compare($mysql_version, '5.5.3', '>=')) {
+            $serendipity['dbUtf8mb4_ready'] = true;
+            if (defined('IN_installer') || $serendipity['dbUtf8mb4_converted']) {
+                $use_charset = 'utf8mb4';
+                $serendipity['dbUtf8mb4'] = true;
+            }
+        }
+    }
+
+    mysqli_set_charset($serendipity['dbConn'], $use_charset);
+}
+
+/**
+ * Iterates all Serendipity related tables and check their indexes.
+ *
+ * @param bool      $check If enabled, no ALTER statements will be executed, only a list of changeable indexes will be built
+ * @param string    $prefix Can hold an optional table prefix other than $serendipity['dbPrefix']
+ * @return array    Holds the array with indexes (key "indexes") and possible upgrade SQL statements (key "sql") and affected indexes ("warnings").
+ */
+function serendipity_db_migrate_index($check = true, $prefix = null) {
+    global $serendipity;
+
+    if ($prefix === null) {
+        $prefix = $serendipity['dbPrefix'];
+    }
+
+    $return = array('indexes' => array(), 'sql' => array(), 'warnings' => array(), 'errors' => array());
+    $indexes = serendipity_db_query("SELECT S.INDEX_NAME, S.INDEX_TYPE, S.SEQ_IN_INDEX, S.COLUMN_NAME, S.SUB_PART, S.TABLE_NAME, C.DATA_TYPE, C.CHARACTER_MAXIMUM_LENGTH, C.NUMERIC_PRECISION, S.NON_UNIQUE
+                                       FROM INFORMATION_SCHEMA.STATISTICS AS S
+
+                            LEFT OUTER JOIN INFORMATION_SCHEMA.COLUMNS AS C
+                                         ON (C.TABLE_SCHEMA = S.TABLE_SCHEMA AND C.TABLE_NAME = S.TABLE_NAME AND C.COLUMN_NAME = S.COLUMN_NAME)
+
+                                      WHERE S.TABLE_SCHEMA =  '" . $serendipity['dbName'] . "'
+                                        AND S.TABLE_NAME LIKE '" . str_replace('_', '\_', serendipity_db_escape_string($prefix)) . "%'
+                                   ORDER BY S.TABLE_NAME, S.INDEX_NAME, S.INDEX_TYPE, S.SEQ_IN_INDEX
+                                    ");
+    if (!is_array($indexes)) {
+        $return['errors'][] = "Could not read MySQL INFORMATION_SCHEMA table, which is required for migration. Please adjust permissions: " . $indexes;
+        return $return;
+    }
+
+    $single_max = 191;
+    $sum_max    = 250;
+
+    $checkindexes = array();
+    $indextypes = array();
+    foreach($indexes AS $index) {
+        $return['indexes'][] = $index;
+        $length = $index['SUB_PART'];
+        if (empty($length)) {
+            // Deduce index byte length from colum type
+            if (!empty($index['CHARACTER_MAXIMUM_LENGTH'])) {
+                $length = $index['CHARACTER_MAXIMUM_LENGTH']; // Actual character limit according to UTF-8
+            } else if ($index['DATA_TYPE'] == 'date') {
+                $length = 1; // Divided by 4 to match with UTF-8 MB requirements (real: 3)
+            } else if ($index['DATA_TYPE'] == 'timestamp') {
+                $length = 1; // Divided by 4 to match with UTF-8 MB requirements (real: 4)
+            } else {
+                $length = ceil($index['NUMERIC_PRECISION'] / 4); // Divided by 4 to match with UTF-8 MB requirements
+            }
+
+            if (empty($length)) {
+                $length = 10;
+                $return['warnings'][] = 'Index length on unspecified column ' . $index['TABLE_NAME'] . '.' . $index['COLUMN_NAME'] . ' was set to 10 Bytes';
+            }
+        }
+
+        if ($index['INDEX_TYPE'] !== 'FULLTEXT') {
+            if ($index['INDEX_NAME'] == 'PRIMARY') {
+                $indextypes[$index['TABLE_NAME'] . '.' . $index['INDEX_NAME']] = 'PRIMARY';
+            } elseif ($index['NON_UNIQUE'] == 0) {
+                $indextypes[$index['TABLE_NAME'] . '.' . $index['INDEX_NAME']] = 'UNIQUE';
+            } else {
+                $indextypes[$index['TABLE_NAME'] . '.' . $index['INDEX_NAME']] = 'INDEX';
+            }
+            $checkindex[$index['TABLE_NAME']][$index['INDEX_NAME']][0][$index['COLUMN_NAME']] = $length;
+        }
+    }
+
+    foreach($checkindex AS $tablename => $tables) {
+        foreach($tables AS $indexname => $indexes) {
+            foreach($indexes AS $indexcount => $indexdata) {
+                $indexlength = 0;
+                $newindexlength = 0;
+                $newindex = array();
+                $force_reindex = false;
+
+                foreach($indexdata AS $indexcol => $collength) {
+                    $newcollength = $collength;
+                    if (count($indexdata) == 1 && $collength > $single_max) {
+                        $return['warnings'][] = $tablename . '.' . $indexname . ': Index on ' . $indexcol . ' is too large (' . $collength . ' &gt; ' . $single_max . ' Bytes)';
+                        $indextype = $indextypes[$tablename . '.' . $indexname];
+                        if ($indextype == 'PRIMARY') {
+                            $dropname = 'PRIMARY KEY';
+                            $addname = 'PRIMARY KEY';
+                        } else {
+                            $dropname = 'INDEX `' . $indexname . '`';
+                            $addname = $indextype . ' `' . $indexname . '`';
+                        }
+                        $return['sql'][] = 'ALTER TABLE `' . $tablename . '` DROP ' . $dropname . ', ADD ' . $addname . ' (`' . $indexcol . '` (' . $single_max . '))';
+                        $collength = $single_max;
+                    } else {
+                        // Hardcoded lists of known database tables for plugins and core tables that needs individual adjustments.
+                        switch($tablename . '.' . $indexcol) {
+                            case $prefix . 'options.name':
+                                $newcollength = 186;
+                                $newindex[] = '`' . $indexcol . '` (' . $newcollength . ')';
+                                break;
+
+                            case $prefix . 'options.okey':
+                            case $prefix . 'exits.host':
+                                $newcollength = 64;
+                                $newindex[] = '`' . $indexcol . '` (64)';
+                                break;
+
+                            case $prefix . 'exits.path':
+                                $newcollength = 180;
+                                $newindex[] ='`' . $indexcol . '` (' . $newcollength . ')';
+                                break;
+
+                            case $prefix . 'exits.day':
+                            case $prefix . 'exits.entry_id':
+                                $newindex[] = '`' . $indexcol . '`';
+                                break;
+
+                            case $prefix . 'wikireferences.refname':
+                                $newcollength = 150;
+                                $newindex[] = '`' . $indexcol . '` (' . $newcollength . ')';
+                                break;
+
+                            // Default length of 191*4 = less than maximum of 767
+                            case $prefix . 'refs.refs':
+                            case $prefix . 'tweetbackshorturls.longurl':
+                            case $prefix . 'facebook.base_url':
+                            case $prefix . 'cronjoblog.type':
+                            case $prefix . 'spamblocklog.type':
+                            case $prefix . 'links.title':
+                            case $prefix . 'percentagedone.title':
+                            case $prefix . 'comments.email':
+                            case $prefix . 'config.name':
+                            case $prefix . 'entryproperties.property':
+                                $newcollength = 191;
+                                $newindex[] = '`' . $indexcol . '` (' . $newcollength . ')';
+                                break;
+
+                            default:
+                                if ($collength == 3) {
+                                    // Catch integers, full index
+                                    $newindex[] = '`' . $indexcol . '`';
+                                } else {
+                                    if (count($indexdata) > 1 && $collength > $single_max) {
+                                        $newcollength = 191;
+                                        $newindex[] = '`' . $indexcol . '` (' . $newcollength . ')';
+                                    } else {
+                                        $newindex[] = '`' . $indexcol . '` (' . $collength . ')';
+                                    }
+                                }
+                                break;
+                        }
+                    }
+
+                    if ($newcollength != $collength && count($indexdata) > 1) {
+                        $force_reindex = true;
+                    }
+                }
+
+                $indexlength += $collength;
+                $newindexlength += $newcollength;
+
+                if ($indexlength > $sum_max || $force_reindex) {
+                    if ($force_reindex) {
+                        $return['warnings'][] = $tablename . '.' . $indexname . ': Multi-Column Index has at least one index too large (' . $indexlength . ' &gt; ' . $sum_max . '/' . $single_max . ' Bytes)';
+                    } else {
+                        $return['warnings'][] = $tablename . '.' . $indexname . ': Total Index is too large (' . $indexlength . ' &gt; ' . $sum_max . ' Bytes)';
+                    }
+
+                    if ($newindexlength > $sum_max) {
+                        $return['errors'][] = $tablename . '.' . $indexname . ': Even after automatic fixup, total Index would be too large (' . $indexlength . ' &gt; ' . $sum_max . ' Bytes, after fix: ' . $newindexlength . ') -- NOT FIXING!';
+                    } else {
+                        $indextype = $indextypes[$tablename . '.' . $indexname];
+                        if ($indextype == 'PRIMARY') {
+                            $dropname = 'PRIMARY KEY';
+                            $addname = 'PRIMARY KEY';
+                        } else {
+                            $dropname = 'INDEX `' . $indexname . '`';
+                            $addname = $indextype . ' `' . $indexname . '`';
+                        }
+                        $return['sql'][] = 'ALTER TABLE `' . $tablename . '` DROP ' . $dropname . ', ADD ' . $addname . ' (' . implode(', ', $newindex) . ')';
+                    }
+                }
+            }
+        }
+    }
+
+    $tables = serendipity_db_query("SHOW TABLES LIKE '" . str_replace('_', '\_', serendipity_db_escape_string($prefix)) . "%'");
+    if (!is_array($tables)) {
+        $return['errors'] = 'Could not analyze existing tables via SHOW TABLES, please check permissions.' . $tables;
+        return $return;
+    }
+
+    foreach($tables AS $table) {
+        $return['sql'][] = 'ALTER TABLE `' . $table[0] . '` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci';
+    }
+
+    if (!$check && count($return['errors']) == 0) {
+        // TODO: Execute SQL commands in $return['sql'].
+        foreach ($return['sql'] AS $convert) {
+            serendipity_db_query($convert);
+        }
+        if ($serendipity['dbUtf8mb4_converted']) {
+            $privateVariables = array();
+            // check if maintenance mode is set - remember that privateVariables and personalVariables are differently matched
+            if (isset($serendipity['maintenance'])) {
+                $privateVariables['maintenance'] = $serendipity['maintenance'];
+            }
+
+            $r = serendipity_updateLocalConfig(
+                $serendipity['dbName'],
+                $serendipity['dbPrefix'],
+                $serendipity['dbHost'],
+                $serendipity['dbUser'],
+                $serendipity['dbPass'],
+                $serendipity['dbType'],
+                $serendipity['dbPersistent'],
+                $privateVariables
+            );
+        }
+    }
+    return $return;
 }
 
 /**
@@ -266,17 +503,21 @@ function serendipity_db_schema_import($query) {
     static $search  = array('{AUTOINCREMENT}', '{PRIMARY}',
         '{UNSIGNED}', '{FULLTEXT}', '{FULLTEXT_MYSQL}', '{BOOLEAN}', '{TEXT}');
     static $replace = array('int(11) not null auto_increment', 'primary key',
-        'unsigned'  , 'FULLTEXT', 'FULLTEXT', 'enum (\'true\', \'false\') NOT NULL default \'true\'', 'LONGTEXT');
+        'unsigned', 'FULLTEXT', 'FULLTEXT', 'enum (\'true\', \'false\') NOT NULL default \'true\'', 'LONGTEXT');
     static $is_utf8 = null;
     global $serendipity;
 
     if ($is_utf8 === null) {
-        $search[] = '{UTF_8}';
+        $search[7] = '{UTF_8}'; //ITs Key ID 7 for both and this since being static, else it increments
         if (  $_POST['charset'] == 'UTF-8/' ||
               $serendipity['charset'] == 'UTF-8/' ||
               $serendipity['POST']['charset'] == 'UTF-8/' ||
               LANG_CHARSET == 'UTF-8' ) {
-            $replace[] = '/*!40100 CHARACTER SET utf8 COLLATE utf8_unicode_ci */';
+            if ($serendipity['dbUtf8mb4']) {
+                $replace[7] = '/*!50503 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */';
+            } else {
+                $replace[7] = '/*!40100 CHARACTER SET utf8 COLLATE utf8_unicode_ci */';
+            }
         } else {
             $replace[] = '';
         }
@@ -285,6 +526,7 @@ function serendipity_db_schema_import($query) {
     serendipity_db_query("SET storage_engine=MYISAM");
 
     $query = trim(str_replace($search, $replace, $query));
+
     if ($query[0] == '@') {
         // Errors are expected to happen (like duplicate index creation)
         return serendipity_db_query(substr($query, 1), false, 'both', false, false, false, true);
@@ -332,6 +574,8 @@ function serendipity_db_probe($hash, &$errs) {
         $errs[] = 'The mySQL error was: ' . serendipity_specialchars(mysqli_error($c));
         return false;
     }
+
+    serendipity_db_reconnect();
 
     return true;
 }
