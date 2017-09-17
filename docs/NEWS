@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * [EXPERIMENTAL] Prepare utf8mb4 migration
+
   * Optimized placement of dashboards links and quicktip widgets
 
   * Changed lang constant files to better match Serendipity Styx on
