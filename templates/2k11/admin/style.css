@@ -618,6 +618,15 @@ form > button,
     margin-top: 1em;
 }
 
+#maintenance > #maintenance_utf8mb4.mtask_long::before {
+    clear: both;
+}
+#maintenance > #maintenance_utf8mb4.mtask_long {
+    float: left;
+    margin: 0 2% 1em 0;
+    width: 98%;
+}
+
 .overviewListForm > button,
 .ping_services .form_check,
 .plugins_installable {

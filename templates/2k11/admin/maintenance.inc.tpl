@@ -97,4 +97,68 @@
 
 {serendipity_hookPlugin hook="backend_maintenance" hookAll="true"}
 
+{if 'siteConfiguration'|checkPermission}
+    <section id="maintenance_utf8mb4" class="quick_list{if NOT $dbUtf8mb4_converted AND $dbUtf8mb4_migrate AND $dbUtf8mb4_ready AND NOT empty($dbUtf8mb4_migrate.sql)} mtask_long{/if}">
+        <h3>{$CONST.UTF8MB4_MIGRATION_TITLE}</h3>
+
+        {if $dbUtf8mb4_error}
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_ERROR|sprintf:$dbUtf8mb4_error}</span></span>
+        {/if}
+
+        {if $dbUtf8mb4_migrate}
+            <p>{$CONST.UTF8MB4_MIGRATION_TASK_RETURN}</p>
+            <ul>
+            {foreach $dbUtf8mb4_migrate.errors AS $error}
+                <li><span class="msg_error_list">{$error}</span></li>
+            {/foreach}
+            </ul>
+
+            <ul>
+            {foreach $dbUtf8mb4_migrate.warnings AS $warning}
+                <li>{$warning}</li>
+            {/foreach}
+            </ul>
+
+            {if $dbUtf8mb4_executed}
+            <p>{$CONST.UTF8MB4_MIGRATION_TASK_HAVE}</p>
+            {else}
+            <p>{$CONST.UTF8MB4_MIGRATION_TASK_CAN}</p>
+            {/if}
+
+            <ul>
+            {foreach $dbUtf8mb4_migrate.sql AS $query}
+                <li>{$query};</li>
+            {/foreach}
+            </ul>
+
+        {/if}
+
+    {if $dbUtf8mb4_converted}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_TASK_DONE}</span>
+    {else}
+        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_INFO}</span>
+        {if $dbUtf8mb4_ready}
+        <form method="POST" action="serendipity_admin.php">
+            <input type="hidden" name="serendipity[adminModule]" value="maintenance">
+            <input type="hidden" name="serendipity[adminAction]" value="utf8mb4">
+            {$formtoken}
+
+            <div class="form_buttons">
+                <input name="serendipity[adminOption][check]" type="submit" value="{$CONST.UTF8MB4_MIGRATION_BUTTON_CHECK}">
+            {if $dbUtf8mb4_simulated}
+                <input name="serendipity[adminOption][execute]" type="submit" value="{$CONST.UTF8MB4_MIGRATION_BUTTON_EXECUTE}">
+            {/if}
+                <button class="toggle_info button_link" type="button" data-href="#utf8migrate_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+            </div>
+        </form>
+        <div id="utf8migrate_info" class="comment_status additional_info">
+        {$CONST.UTF8MB4_MIGRATION_INFO_DESC}
+        </div>
+        {else}
+        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_FAIL}</span>
+        {/if}
+    {/if}
+    </section>
+{/if}
+
 </div>
