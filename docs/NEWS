@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Optimised placement of dashboards links and quicktip widgets
+
   * Optimise PHP7 installer token
 
   * Fixed regression bug with Smarty variable parsing, which could
