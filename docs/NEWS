@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Optimise some default configuration values for Styx for install
+
   * [EXPERIMENTAL] Prepare utf8mb4 migration
 
   * Optimized placement of dashboards links and quicktip widgets
