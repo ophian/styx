@@ -3,7 +3,7 @@ create table {PREFIX}plugincategories (
   category varchar(250) default null
 );
 
-CREATE INDEX plugincat_idx ON {PREFIX}plugincategories(class_name, category);
+CREATE INDEX plugincat_idx ON {PREFIX}plugincategories(class_name(120), category(120));
 
 create table {PREFIX}pluginlist (
   plugin_file varchar(255) NOT NULL default '',
@@ -23,7 +23,7 @@ create table {PREFIX}pluginlist (
   last_modified int(11) NOT NULL default '0'
 );
 
-CREATE INDEX pluginlist_f_idx ON {PREFIX}pluginlist(plugin_file);
-CREATE INDEX pluginlist_cn_idx ON {PREFIX}pluginlist(class_name);
-CREATE INDEX pluginlist_pt_idx ON {PREFIX}pluginlist(plugintype);
-CREATE INDEX pluginlist_pl_idx ON {PREFIX}pluginlist(pluginlocation);
+CREATE INDEX pluginlist_f_idx ON {PREFIX}pluginlist(plugin_file(191));
+CREATE INDEX pluginlist_cn_idx ON {PREFIX}pluginlist(class_name(191));
+CREATE INDEX pluginlist_pt_idx ON {PREFIX}pluginlist(plugintype(191));
+CREATE INDEX pluginlist_pl_idx ON {PREFIX}pluginlist(pluginlocation(191));

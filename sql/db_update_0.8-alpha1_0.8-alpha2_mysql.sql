@@ -4,5 +4,5 @@ create table {PREFIX}entryproperties (
   value text
 );
 
-CREATE UNIQUE INDEX prop_idx ON {PREFIX}entryproperties (entryid, property);
+CREATE UNIQUE INDEX prop_idx ON {PREFIX}entryproperties (entryid, property(191));
 CREATE INDEX entrypropid_idx ON {PREFIX}entryproperties (entryid);

@@ -5,10 +5,10 @@ CREATE TABLE {PREFIX}permalinks (
     data text
 );
 
-CREATE INDEX pl_idx ON {PREFIX}permalinks (permalink);
+CREATE INDEX pl_idx ON {PREFIX}permalinks (permalink(191));
 CREATE INDEX ple_idx ON {PREFIX}permalinks (entry_id);
-CREATE INDEX plt_idx ON {PREFIX}permalinks (type);
-CREATE INDEX plcomb_idx ON {PREFIX}permalinks (permalink, type);
+CREATE INDEX plt_idx ON {PREFIX}permalinks (type(191));
+CREATE INDEX plcomb_idx ON {PREFIX}permalinks (permalink(191), type(50));
 
 CREATE INDEX commentry_idx ON {PREFIX}comments (entry_id);
 CREATE INDEX commpentry_idx ON {PREFIX}comments (parent_id);
@@ -20,7 +20,7 @@ CREATE INDEX eauthor_idx ON {PREFIX}entries (authorid);
 
 CREATE INDEX refentry_idx ON {PREFIX}references (entry_id);
 
-CREATE INDEX exits_idx ON {PREFIX}exits (entry_id,day);
+CREATE INDEX exits_idx ON {PREFIX}exits (entry_id,day(64));
 
 CREATE INDEX referrers_idx ON {PREFIX}referrers (entry_id,day);
 CREATE INDEX urllast_idx on {PREFIX}suppress (last);
