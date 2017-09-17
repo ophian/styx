@@ -366,7 +366,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         $data['install_DB'] = true;
 
         $authorid = serendipity_addAuthor($_POST['user'], $_POST['pass'], $_POST['realname'], $_POST['email'], USERLEVEL_ADMIN, 1);
-        $mail_comments = (serendipity_db_bool($_POST['want_mail']) ? 1 : 0);
+        $mail_comments = serendipity_db_bool($_POST['want_mail']) ? 1 : 0;
         serendipity_set_user_var('mail_comments', $mail_comments, $authorid);
         serendipity_set_user_var('mail_trackbacks', $mail_comments, $authorid);
         serendipity_set_user_var('right_publish', 1, $authorid);
