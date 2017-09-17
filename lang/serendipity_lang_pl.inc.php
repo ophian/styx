@@ -591,7 +591,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('NOT_WRITABLE', 'Niezapisywalny');
 @define('PROBLEM_DIAGNOSTIC', 'Z powodu problemów, które zosta³y rozpoznane podczas przeprowadzania procedur diagnostycznych, nie mo¿esz kontynuowaæ instalacji dopóki powy¿sze problemy nie zostan± usuniête.');
 @define('SELECT_INSTALLATION_TYPE', 'Wybierz metodê instalacji');
-@define('WELCOME_TO_INSTALLATION', 'Witaj w Instalacji Serendipity');
+@define('WELCOME_TO_INSTALLATION', 'Witaj w Instalacji Serendipity Styx');
 @define('FIRST_WE_TAKE_A_LOOK', 'Najpierw przyjrzê siê Twojej obecnej konfiguracji i spróbujê rozpoznaæ ewentualne problemy z kompatybilno¶ci±');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Kolory oznaczaj±: %s - b³êdy, %s - rekomendacje, %s - sukcesy');
 @define('RED', 'czerwony');
@@ -612,9 +612,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('CREATING_PRIMARY_AUTHOR', 'Tworzê g³ównego autora \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Ustawiam domy¶lny styl (template)');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Instalujê domyslne wtyczki');
-@define('SERENDIPITY_INSTALLED', 'Instalacja Serendipity zakoñczona sukcesem');
+@define('SERENDIPITY_INSTALLED', 'Instalacja Serendipity Styx zakoñczona sukcesem');
 @define('VISIT_BLOG_HERE', 'Tutaj odwied¼ swój nowy blog');
-@define('THANK_YOU_FOR_CHOOSING', 'Dziêkujemy za wybranie Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'Dziêkujemy za wybranie Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'Wykryto b³±d podczas instalacji');
 @define('OPERATING_SYSTEM', 'System operacyjny');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');

@@ -589,7 +589,7 @@
 @define('NOT_WRITABLE', '書き込み不可能');
 @define('PROBLEM_DIAGNOSTIC', '問題を含む診断のために、上記のエラーが修正される前に、インストールを再開することができません。');
 @define('SELECT_INSTALLATION_TYPE', 'どのインストールタイプの使用を希望するか選択してください。');
-@define('WELCOME_TO_INSTALLATION', 'ようこそ Serendipity のインストール画面へ');
+@define('WELCOME_TO_INSTALLATION', 'ようこそ Serendipity Styx のインストール画面へ');
 @define('FIRST_WE_TAKE_A_LOOK', 'まず初めに、現在の設定を見てどんな互換性の問題があるか分析を試みます。');
 @define('ERRORS_ARE_DISPLAYED_IN', 'エラーは %s で、推奨は %s で、成功は %s で表示されます。');
 @define('RED', '赤');
@@ -610,9 +610,9 @@
 @define('CREATING_PRIMARY_AUTHOR', '主要な執筆者 \'%s\' を作成中');
 @define('SETTING_DEFAULT_TEMPLATE', 'デフォルトテンプレート設定');
 @define('INSTALLING_DEFAULT_PLUGINS', 'デフォルトプラグインのインストール');
-@define('SERENDIPITY_INSTALLED', 'Serendipity のインストールに成功しました。');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx のインストールに成功しました。');
 @define('VISIT_BLOG_HERE', 'ここからあなたの新しいブログに訪問できます。');
-@define('THANK_YOU_FOR_CHOOSING', 'Serendipity を選んでくれてありがとうございます。');
+@define('THANK_YOU_FOR_CHOOSING', 'Serendipity Styx を選んでくれてありがとうございます。');
 @define('ERROR_DETECTED_IN_INSTALL', 'インストール作業でエラーを検知しました。');
 @define('OPERATING_SYSTEM', 'オペレーションシステム');
 @define('WEBSERVER_SAPI', 'ウェブサーバー SAPI');

@@ -196,7 +196,6 @@
 @define('CHECK_DATABASE_EXISTS', '检查数据库是否存在。 如果你看到数据库查询错误, 是否需要重装...');
 @define('CREATE_DATABASE', '建立预设数据库库设定...');
 @define('ATTEMPT_WRITE_FILE', '读写 %s 文件...');
-@define('SERENDIPITY_INSTALLED', 'Serendipity 简体中文版本 已安装完成！%s 请记得你的密码: "%s", 你的帐号是 "%s".%s你现在可以到新建立的 <a href="%s">网络日记</a>');
 @define('WRITTEN_N_SAVED', '保存完毕');
 @define('IMAGE_ALIGNMENT', '图片对齐');
 @define('ENTER_NEW_NAME', '输入新名称: ');
@@ -590,7 +589,7 @@
 @define('WRITABLE', '可读写');
 @define('PROBLEM_DIAGNOSTIC', '因为上面出现问题,你必须把问题解决了才能安装。');
 @define('SELECT_INSTALLATION_TYPE', '请选择安装类型');
-@define('WELCOME_TO_INSTALLATION', '欢迎使用 Serendipity 简单体中文版');
+@define('WELCOME_TO_INSTALLATION', '欢迎使用 Serendipity Styx 简单体中文版');
 @define('FIRST_WE_TAKE_A_LOOK', '首先系统会检查你的设置以避免安装出错');
 @define('ERRORS_ARE_DISPLAYED_IN', '错误显示 %s, 建议 %s 解决错误 %s');
 @define('RED', '红');
@@ -611,9 +610,9 @@
 @define('CREATING_PRIMARY_AUTHOR', '设定管理员 \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', '设定主题');
 @define('INSTALLING_DEFAULT_PLUGINS', '安装预设定外挂');
-@define('SERENDIPITY_INSTALLED', 'Serendipity简体中文版安装完成');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx 简体中文版安装完成');
 @define('VISIT_BLOG_HERE', '开始浏览你的博客');
-@define('THANK_YOU_FOR_CHOOSING', '非常感谢你选择 Serendipity简体中文版');
+@define('THANK_YOU_FOR_CHOOSING', '非常感谢你选择 Serendipity Styx 简体中文版');
 @define('ERROR_DETECTED_IN_INSTALL', '安装时发生错误');
 @define('OPERATING_SYSTEM', '系统管理');
 @define('WEBSERVER_SAPI', '主机 SAPI');

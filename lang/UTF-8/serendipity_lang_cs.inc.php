@@ -619,7 +619,7 @@ $i18n_filename_to = array (
 @define('NOT_WRITABLE', 'Nezapisovateln?');
 @define('PROBLEM_DIAGNOSTIC', 'Byly diagnostikov?ny probl?my, tak?e nelze pokra?ovat v instalaci, dokud nebudou odstran?ny');
 @define('SELECT_INSTALLATION_TYPE', 'Vyberte typ instalace');
-@define('WELCOME_TO_INSTALLATION', 'V?tejte v instalaci Serendipity');
+@define('WELCOME_TO_INSTALLATION', 'V?tejte v instalaci Serendipity Styx');
 @define('FIRST_WE_TAKE_A_LOOK', 'Nejd??ve se pod?v?me na va?e z?kladn? nastaven? a zkus?me diagnostikovat p??padn? probl?my');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Chyby budou zobrazeny %s, doporu?en? %s a ?sp?ch %s');
 @define('RED', '?erven?');
@@ -640,9 +640,9 @@ $i18n_filename_to = array (
 @define('CREATING_PRIMARY_AUTHOR', 'Vytvo?en? hlavn?ho autora \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Nastaven? defaultn?ho vzoru');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Instalace defaultn?ch plugin?');
-@define('SERENDIPITY_INSTALLED', 'Serendipity byl ?sp?n? nainstalov?n');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx byl ?sp?n? nainstalov?n');
 @define('VISIT_BLOG_HERE', 'Zde se p?epnete do sv?ho nov?ho weblogu');
-@define('THANK_YOU_FOR_CHOOSING', 'D?kujeme za volbu Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'D?kujeme za volbu Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'P?i instalaci byla detekov?na chyba');
 @define('OPERATING_SYSTEM', 'Opera?n? syst?m');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');

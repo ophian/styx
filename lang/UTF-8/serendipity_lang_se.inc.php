@@ -589,7 +589,7 @@
 @define('NOT_WRITABLE', 'Ej skrivbar');
 @define('PROBLEM_DIAGNOSTIC', 'Du inte fortsätta med installationen tills felen ovan har åtgärdats');
 @define('SELECT_INSTALLATION_TYPE', 'Välj vilken typ av installation du vill använda');
-@define('WELCOME_TO_INSTALLATION', 'Välkommen till Serendipitys installation');
+@define('WELCOME_TO_INSTALLATION', 'Välkommen till Serendipity Styx installation');
 @define('FIRST_WE_TAKE_A_LOOK', 'Undersöker din nuvarande installation och försöker diagnostisera kompatibilitetsproblem');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Fel visas i %s, rekommendationer i %s och framgång i %s');
 @define('RED', 'röd');
@@ -610,9 +610,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Skapar huvudförfattare \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Anger standardmall');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Installerar standardinsticksmoduler');
-@define('SERENDIPITY_INSTALLED', 'Serendipity har installerats');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx har installerats');
 @define('VISIT_BLOG_HERE', 'Besök din nya blogg här');
-@define('THANK_YOU_FOR_CHOOSING', 'Tack för att du valde Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'Tack för att du valde Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'Ett fel upptäcktes i installationen');
 @define('OPERATING_SYSTEM', 'Operativsystem');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');

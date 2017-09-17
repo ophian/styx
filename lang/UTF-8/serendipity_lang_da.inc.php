@@ -587,7 +587,7 @@
 @define('WRITABLE', 'Skrivbar');
 @define('PROBLEM_DIAGNOSTIC', 'Grundet en problematisk diagnose, kan du ikke fortsætte med installationen førend ovenstående fejl er rettet');
 @define('SELECT_INSTALLATION_TYPE', 'Vælg hvilken installationstype du vil benytte');
-@define('WELCOME_TO_INSTALLATION', 'Velkommen til Serendipity Installationen');
+@define('WELCOME_TO_INSTALLATION', 'Velkommen til Serendipity Styx Installationen');
 @define('FIRST_WE_TAKE_A_LOOK', 'Først kigger vi på dit nuværende setup og vil forsøge at diagnosere eventuelle kompatibilitetsproblemer');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Fejl er vist som %s, anbefalinger som %s og succes som %s');
 @define('RED', 'rød');
@@ -608,9 +608,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Opretter primær forfatter \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Sætter standard skabelon');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Installerer standard plugins');
-@define('SERENDIPITY_INSTALLED', 'Serendipity er nu installeret');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx er nu installeret');
 @define('VISIT_BLOG_HERE', 'Besøg din nye blog her');
-@define('THANK_YOU_FOR_CHOOSING', 'Tak fordi du valgte Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'Tak fordi du valgte Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'En fejl blev fundet under installationen');
 @define('OPERATING_SYSTEM', 'Operativsystem');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');

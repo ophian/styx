@@ -589,7 +589,7 @@
 @define('NOT_WRITABLE', 'Nem írható');
 @define('PROBLEM_DIAGNOSTIC', 'Az ellenõrzések hibája miatt nem folytathatod a telepítést, addig amíg ezeket nem javítod');
 @define('SELECT_INSTALLATION_TYPE', 'Válaszd ki a telepítés típusát');
-@define('WELCOME_TO_INSTALLATION', 'Üdvözöllek a Serendipity telepítõjében');
+@define('WELCOME_TO_INSTALLATION', 'Üdvözöllek a Serendipity Styx telepítõjében');
 @define('FIRST_WE_TAKE_A_LOOK', 'Elõször meg kell vizsgáljuk a jelenlegi beállításokat ahhoz hogy feltérképezzük az esetleges kompatibilitási problémákat');
 @define('ERRORS_ARE_DISPLAYED_IN', 'A hibákat így jelöljük: %s, a javaslatokat így: %s a sikert pedig így: %s');
 @define('RED', 'priros');
@@ -610,9 +610,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Elsõdleges szerzõ létrehozása \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Alapértelmezett sablonok beállítása');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Alapértelmezett modulok telepítése');
-@define('SERENDIPITY_INSTALLED', 'A Serendipity-t sikeresen telepítettük');
+@define('SERENDIPITY_INSTALLED', 'A Serendipity-t Styx sikeresen telepítettük');
 @define('VISIT_BLOG_HERE', 'Itt látogathatod meg a blog-odat');
-@define('THANK_YOU_FOR_CHOOSING', 'Köszönjük hogy a Serendipity-t választottad');
+@define('THANK_YOU_FOR_CHOOSING', 'Köszönjük hogy a Serendipity-t Styx választottad');
 @define('ERROR_DETECTED_IN_INSTALL', 'Hiba lépett fel a telepítés közben');
 @define('OPERATING_SYSTEM', 'Operációs rendszer');
 @define('WEBSERVER_SAPI', 'Web kiszolgáló SAPI');

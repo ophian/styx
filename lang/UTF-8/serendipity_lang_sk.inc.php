@@ -603,7 +603,7 @@ $i18n_filename_to = array (
 @define('NOT_WRITABLE', 'Nezapisovateľé');
 @define('PROBLEM_DIAGNOSTIC', 'Boli zistené problémy a v inštalácii, pokračovať môžete až po ich odstránení');
 @define('SELECT_INSTALLATION_TYPE', 'Vyberte typ inštalácie');
-@define('WELCOME_TO_INSTALLATION', 'Vitajte v inštalácii Serendipity');
+@define('WELCOME_TO_INSTALLATION', 'Vitajte v inštalácii Serendipity Styx');
 @define('FIRST_WE_TAKE_A_LOOK', 'Najprv skontrolujeme Vaše základné nastavenie a skúsime zistiť prípadné problémy');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Chyby budú zobrazené %s, odporúčania %s a úspešnosť %s');
 @define('RED', 'červeou');
@@ -624,9 +624,9 @@ $i18n_filename_to = array (
 @define('CREATING_PRIMARY_AUTHOR', 'Vytvorenie hlavného autora \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Nastavenie prednastavenej šablóny (template)');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Inštalácia prednastavených doplnkov');
-@define('SERENDIPITY_INSTALLED', 'Serendipity bolo úspešne nainštalované');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx bolo úspešne nainštalované');
 @define('VISIT_BLOG_HERE', 'Tu navštívite svoj nový weblog');
-@define('THANK_YOU_FOR_CHOOSING', 'Ďakujeme, že ste si vybrali Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'Ďakujeme, že ste si vybrali Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'Pri inštalácii bola zistená chyba');
 @define('OPERATING_SYSTEM', 'Operačný systém');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');

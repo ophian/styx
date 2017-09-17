@@ -591,7 +591,7 @@
 @define('NOT_WRITABLE', 'غير قابل للكتابة');
 @define('PROBLEM_DIAGNOSTIC', 'بسبب مشكل تفحص. لا يمكن لك الإستمرار في عمليت التثبيت حتى تتمكن من تعديل هذا الخطأ');
 @define('SELECT_INSTALLATION_TYPE', 'أختر أي طريقة تثبيت تفضل');
-@define('WELCOME_TO_INSTALLATION', 'مرحبا بك في صفحة تثبيت المجلة سيرندبيتي');
+@define('WELCOME_TO_INSTALLATION', 'مرحبا بك في صفحة تثبيت المجلة سيرندبيتي'); // Needs to match Serendipity Styx
 @define('FIRST_WE_TAKE_A_LOOK', 'أولا سوف يتم النظر في الاعدادات الحالية. ثم تفحص أي مشاكل يمكن أن تحدث');
 @define('ERRORS_ARE_DISPLAYED_IN', 'خطأ معروض في  %s. يوصى في %s و نجاح %s');
 @define('RED', 'red');
@@ -612,9 +612,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'إنشاء محرر رأيسي \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'إعدادات المجلة الإفتراضية');
 @define('INSTALLING_DEFAULT_PLUGINS', 'تثبيت البلوق ان الافتراضي');
-@define('SERENDIPITY_INSTALLED', 'تم تركيب مدونة سيندربيتي بنجاح');
+@define('SERENDIPITY_INSTALLED', 'تم تركيب مدونة سيندربيتي بنجاح'); // Needs to match Serendipity Styx
 @define('VISIT_BLOG_HERE', 'يمكنك زيارة مدونتك الجديدة من هنا');
-@define('THANK_YOU_FOR_CHOOSING', 'شكرا لأختيارك مدونة سيندربيتي');
+@define('THANK_YOU_FOR_CHOOSING', 'شكرا لأختيارك مدونة سيندربيتي'); // Needs to match Serendipity Styx
 @define('ERROR_DETECTED_IN_INSTALL', 'تم أكتشاف خطأ خلال مرحلة التقبيت');
 @define('OPERATING_SYSTEM', 'نظام التشغيل');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');

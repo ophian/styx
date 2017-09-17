@@ -590,7 +590,7 @@
 @define('NOT_WRITABLE', 'Not writable');
 @define('PROBLEM_DIAGNOSTIC', 'Due to a problematic diagnostic, you cannot continue with the installation until the above errors are fixed');
 @define('SELECT_INSTALLATION_TYPE', 'Select which installation type you wish to use');
-@define('WELCOME_TO_INSTALLATION', 'Welcome to the Serendipity Installation');
+@define('WELCOME_TO_INSTALLATION', 'Welcome to the Serendipity Styx Installation');
 @define('FIRST_WE_TAKE_A_LOOK', 'First we will take a look at your current setup and attempt to diagnose any compatibility problems');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Errors are displayed in %s, recommendations in %s and success in %s');
 @define('RED', 'red');
@@ -611,9 +611,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Creating primary author \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Setting default theme');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Installing default plugins');
-@define('SERENDIPITY_INSTALLED', 'Serendipity has been successfully installed');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx has been successfully installed');
 @define('VISIT_BLOG_HERE', 'Visit your new blog here');
-@define('THANK_YOU_FOR_CHOOSING', 'Thank you for choosing Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'Thank you for choosing Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'An error was detected in the installation');
 @define('OPERATING_SYSTEM', 'Operating system');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');

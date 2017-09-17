@@ -589,7 +589,7 @@
 @define('NOT_WRITABLE', 'Ekki skrifanlegt');
 @define('PROBLEM_DIAGNOSTIC', 'Vegna vandkvæða í greiningu geturðu ekki haldið áfram fyrr en ofangreindar villur eru lagfærðar');
 @define('SELECT_INSTALLATION_TYPE', 'Veldu hvaða tegund uppsetningar þú vilt nota');
-@define('WELCOME_TO_INSTALLATION', 'Velkomin(n) í uppsetningu Serendipity');
+@define('WELCOME_TO_INSTALLATION', 'Velkomin(n) í uppsetningu Serendipity Styx');
 @define('FIRST_WE_TAKE_A_LOOK', 'Fyrst munum við líta á núverandi uppsetningu og finna út úr hvort einhver samhæfingarvandamál séu til staðar');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Villur eru birtar í %s, meðmæli í %s og árangur í %s');
 @define('RED', 'rauðu');
@@ -610,9 +610,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Bý til aðalhöfund \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Set upp sjálfgefið forsnið');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Set upp sjálfgefnar viðbætur');
-@define('SERENDIPITY_INSTALLED', 'Uppsetning Serendipity tókst');
+@define('SERENDIPITY_INSTALLED', 'Uppsetning Serendipity Styx tókst');
 @define('VISIT_BLOG_HERE', 'Heimsæktu nýja bloggið þitt hér');
-@define('THANK_YOU_FOR_CHOOSING', 'Takk fyrir að velja Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'Takk fyrir að velja Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'Villa fannst í uppsetningunni');
 @define('OPERATING_SYSTEM', 'Stýrikerfi');
 @define('WEBSERVER_SAPI', 'SAPI vefþjóns');

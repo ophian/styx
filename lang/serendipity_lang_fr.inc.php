@@ -591,7 +591,7 @@
 @define('WRITABLE', 'Accessible en écriture');
 @define('PROBLEM_DIAGNOSTIC', 'À cause d\'erreurs survenues lors de l\'analyse préventive, vous ne pourrez continuer l\'installation qu\'après avoir corrigé les erreurs mentionnées ci-dessus.');
 @define('SELECT_INSTALLATION_TYPE', 'Choisissez le type d\'installation que vous voulez utiliser');
-@define('WELCOME_TO_INSTALLATION', 'Bienvenue dans l\'assistant d\'installation de Serendipity');
+@define('WELCOME_TO_INSTALLATION', 'Bienvenue dans l\'assistant d\'installation de Serendipity Styx');
 @define('FIRST_WE_TAKE_A_LOOK', 'Tout d\'abord, nous allons faire une analyse préventive de votre installation et essayer de diagnostiquer d\'éventuels problèmes de compatibilité.');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Les erreurs sont affichées en %s, les recommandations en %s et les succès en %s');
 @define('RED', 'rouge');
@@ -612,9 +612,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Création de l\'auteur principal \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Définition du thème par défaut');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Installation des plugins par défaut');
-@define('SERENDIPITY_INSTALLED', 'Serendipity a été installé avec succès');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx a été installé avec succès');
 @define('VISIT_BLOG_HERE', 'Accéder à votre nouveau blog');
-@define('THANK_YOU_FOR_CHOOSING', 'Merci d\'avoir choisi Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'Merci d\'avoir choisi Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'Une erreur a été détectée pendant l\'installation');
 @define('OPERATING_SYSTEM', 'Système d\'exploitation');
 @define('WEBSERVER_SAPI', 'SAPI Serveur');

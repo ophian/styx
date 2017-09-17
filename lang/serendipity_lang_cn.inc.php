@@ -197,7 +197,6 @@
 @define('CHECK_DATABASE_EXISTS', '检查数据库是否存在。 如果你看到数据库查询错误, 是否需要重装...');
 @define('CREATE_DATABASE', '建立预设数据库库设定...');
 @define('ATTEMPT_WRITE_FILE', '读写 %s 文件...');
-@define('SERENDIPITY_INSTALLED', 'Serendipity 简体中文版本 已安装完成！%s 请记得你的密码: "%s", 你的帐号是 "%s".%s你现在可以到新建立的 <a href="%s">网络日记</a>');
 @define('WRITTEN_N_SAVED', '保存完毕');
 @define('IMAGE_ALIGNMENT', '图片对齐');
 @define('ENTER_NEW_NAME', '输入新名称: ');
@@ -555,82 +554,82 @@
 @define('SELECT_A_PLUGIN_TO_ADD', '请选择要安装的外挂');
 @define('RSS_IMPORT_CATEGORY', '用这个类别给不相同的文章');
 
-@define('INSTALL_OFFSET', '主机时间'); // Translate
-@define('STICKY_POSTINGS', '置顶文章'); // Translate
-@define('INSTALL_FETCHLIMIT', '在主页显示的文章'); // Translate
-@define('INSTALL_FETCHLIMIT_DESC', '在主页显示文章的数量'); // Translate
-@define('IMPORT_ENTRIES', '导入数据'); // Translate
-@define('EXPORT_ENTRIES', '导出数据'); // Translate
-@define('IMPORT_WELCOME', '欢迎使用Serendipity的数据转换工具'); // Translate
-@define('IMPORT_WHAT_CAN', '你可以导入其它程序的文章'); // Translate
-@define('IMPORT_SELECT', '请选择你要导入的程序'); // Translate
-@define('IMPORT_PLEASE_ENTER', '请输入资料'); // Translate
-@define('IMPORT_NOW', '开始导入'); // Translate
-@define('IMPORT_STARTING', '正在导入...'); // Translate
-@define('IMPORT_FAILED', '导入失败'); // Translate
-@define('IMPORT_DONE', '导入成功'); // Translate
-@define('IMPORT_WEBLOG_APP', '程序'); // Translate
-@define('EXPORT_FEED', '输出 RSS feed'); // Translate
-@define('STATUS', '导出后的状态'); // Translate
-@define('IMPORT_GENERIC_RSS', '一般 RSS 导入'); // Translate
-@define('ACTIVATE_AUTODISCOVERY', '传送文章内引用的连接'); // Translate
+@define('INSTALL_OFFSET', '主机时间');
+@define('STICKY_POSTINGS', '置顶文章');
+@define('INSTALL_FETCHLIMIT', '在主页显示的文章');
+@define('INSTALL_FETCHLIMIT_DESC', '在主页显示文章的数量');
+@define('IMPORT_ENTRIES', '导入数据');
+@define('EXPORT_ENTRIES', '导出数据');
+@define('IMPORT_WELCOME', '欢迎使用Serendipity的数据转换工具');
+@define('IMPORT_WHAT_CAN', '你可以导入其它程序的文章');
+@define('IMPORT_SELECT', '请选择你要导入的程序');
+@define('IMPORT_PLEASE_ENTER', '请输入资料');
+@define('IMPORT_NOW', '开始导入');
+@define('IMPORT_STARTING', '正在导入...');
+@define('IMPORT_FAILED', '导入失败');
+@define('IMPORT_DONE', '导入成功');
+@define('IMPORT_WEBLOG_APP', '程序');
+@define('EXPORT_FEED', '输出 RSS feed');
+@define('STATUS', '导出后的状态');
+@define('IMPORT_GENERIC_RSS', '一般 RSS 导入');
+@define('ACTIVATE_AUTODISCOVERY', '传送文章内引用的连接');
 @define('WELCOME_TO_ADMIN', '欢迎登陆Serendipity智能博客系统');
-@define('PLEASE_ENTER_CREDENTIALS', '请输入正确的登陆帐号'); // Translate
+@define('PLEASE_ENTER_CREDENTIALS', '请输入正确的登陆帐号');
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s'); // Translate
-@define('INSTALL_USEGZIP', '使用 gzip 压缩网页'); // Translate
-@define('INSTALL_USEGZIP_DESC', '为了让网页运行得更快, 系统将会压缩后显示, 如果访客使用的浏览器支持压缩网页的话，建议使用。'); // Translate
-@define('INSTALL_SHOWFUTURE', '显示未来文章'); // Translate
-@define('INSTALL_SHOWFUTURE_DESC', '如果打开, 系统将会显示未来发表的文章，预设是设定未来文章隐藏，然后到发布日自动显示。'); // Translate
-@define('INSTALL_DBPERSISTENT', '使用持续连接'); // Translate
-@define('INSTALL_DBPERSISTENT_DESC', '对数据库使用持续连接, 详情参阅 <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">这里</a>，通常不建议使用。'); // Translate
-@define('NO_IMAGES_FOUND', '找不到文件'); // Translate
-@define('PERSONAL_SETTINGS', '个人设置'); // Translate
-@define('REFERER', '来源'); // Translate
-@define('NOT_FOUND', '找不到'); // Translate
-@define('NOT_WRITABLE', '不可读写'); // Translate
-@define('WRITABLE', '可读写'); // Translate
-@define('PROBLEM_DIAGNOSTIC', '因为上面出现问题,你必须把问题解决了才能安装。'); // Translate
-@define('SELECT_INSTALLATION_TYPE', '请选择安装类型'); // Translate
-@define('WELCOME_TO_INSTALLATION', '欢迎使用 Serendipity 简单体中文版'); // Translate
-@define('FIRST_WE_TAKE_A_LOOK', '首先系统会检查你的设置以避免安装出错'); // Translate
-@define('ERRORS_ARE_DISPLAYED_IN', '错误显示 %s, 建议 %s 解决错误 %s'); // Translate
-@define('RED', '红'); // Translate
-@define('YELLOW', '黄'); // Translate
-@define('GREEN', '绿'); // Translate
-@define('PRE_INSTALLATION_REPORT', 'Serendipity Blog v%s 安装前报告'); // Translate
-@define('RECOMMENDED', '建议'); // Translate
-@define('ACTUAL', '实际'); // Translate
-@define('PHPINI_CONFIGURATION', 'php.ini 设置'); // Translate
-@define('PHP_INSTALLATION', 'PHP 安装'); // Translate
-@define('THEY_DO', '通过'); // Translate
-@define('THEY_DONT', 'they don\'t'); // Translate
-@define('SIMPLE_INSTALLATION', '快速安装'); // Translate
-@define('EXPERT_INSTALLATION', '高级安装'); // Translate
-@define('COMPLETE_INSTALLATION', '完整安装'); // Translate
-@define('WONT_INSTALL_DB_AGAIN', '不会重复安装数据库'); // Translate
-@define('CHECK_DATABASE_EXISTS', '检查数据是否存在'); // Translate
-@define('CREATING_PRIMARY_AUTHOR', '设定管理员 \'%s\''); // Translate
-@define('SETTING_DEFAULT_TEMPLATE', '设定主题'); // Translate
-@define('INSTALLING_DEFAULT_PLUGINS', '安装预设定外挂'); // Translate
-@define('SERENDIPITY_INSTALLED', 'Serendipity简体中文版安装完成'); // Translate
-@define('VISIT_BLOG_HERE', '开始浏览你的博客'); // Translate
-@define('THANK_YOU_FOR_CHOOSING', '非常感谢你选择 Serendipity简体中文版'); // Translate
-@define('ERROR_DETECTED_IN_INSTALL', '安装时发生错误'); // Translate
-@define('OPERATING_SYSTEM', '系统管理'); // Translate
-@define('WEBSERVER_SAPI', '主机 SAPI'); // Translate
-@define('TEMPLATE_SET', '\'%s\' 已被设定为主题'); // Translate
-@define('SEARCH_ERROR', '搜索功能出现错误，报告管理员:发生这个错误可能数据库没有正确的index keys,如果使用MYSQL，你的帐号必须可以执行 <pre>CREATE FULLTEXT INDEX entry_idx on %sentries (title,body,extended)</pre> 的权限，数据库显示的错误是: <pre>%s</pre>'); // Translate
-@define('EDIT_THIS_CAT', '编辑 "%s"'); // Translate
-@define('CATEGORY_REMAINING', '删除这个分类然后将文章转到这个分类'); // Translate
-@define('CATEGORY_INDEX', '下面是可以转移的分类'); // Translate
-@define('NO_CATEGORIES', '没有分类'); // Translate
-@define('RESET_DATE', '重设日期'); // Translate
-@define('RESET_DATE_DESC', '点这里重设日期'); // Translate
-@define('PROBLEM_PERMISSIONS_HOWTO', '权限可以使用下面的 shell 来执行: `<em>%s</em>` 然后执行要更改的文件夹, 或使用 FTP 软件'); // Translate
-@define('WARNING_TEMPLATE_DEPRECATED', '警告:  你目前使用的主题是旧方法制作的，请尽快更新'); // Translate
-@define('ENTRY_PUBLISHED_FUTURE', '这篇文章未公开'); // Translate
-@define('ENTRIES_BY', '作者 %s'); // Translate
-@define('PREVIOUS', '上一页'); // Translate
+@define('INSTALL_USEGZIP', '使用 gzip 压缩网页');
+@define('INSTALL_USEGZIP_DESC', '为了让网页运行得更快, 系统将会压缩后显示, 如果访客使用的浏览器支持压缩网页的话，建议使用。');
+@define('INSTALL_SHOWFUTURE', '显示未来文章');
+@define('INSTALL_SHOWFUTURE_DESC', '如果打开, 系统将会显示未来发表的文章，预设是设定未来文章隐藏，然后到发布日自动显示。');
+@define('INSTALL_DBPERSISTENT', '使用持续连接');
+@define('INSTALL_DBPERSISTENT_DESC', '对数据库使用持续连接, 详情参阅 <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">这里</a>，通常不建议使用。');
+@define('NO_IMAGES_FOUND', '找不到文件');
+@define('PERSONAL_SETTINGS', '个人设置');
+@define('REFERER', '来源');
+@define('NOT_FOUND', '找不到');
+@define('NOT_WRITABLE', '不可读写');
+@define('WRITABLE', '可读写');
+@define('PROBLEM_DIAGNOSTIC', '因为上面出现问题,你必须把问题解决了才能安装。');
+@define('SELECT_INSTALLATION_TYPE', '请选择安装类型');
+@define('WELCOME_TO_INSTALLATION', '欢迎使用 Serendipity Styx 简单体中文版');
+@define('FIRST_WE_TAKE_A_LOOK', '首先系统会检查你的设置以避免安装出错');
+@define('ERRORS_ARE_DISPLAYED_IN', '错误显示 %s, 建议 %s 解决错误 %s');
+@define('RED', '红');
+@define('YELLOW', '黄');
+@define('GREEN', '绿');
+@define('PRE_INSTALLATION_REPORT', 'Serendipity Blog v%s 安装前报告');
+@define('RECOMMENDED', '建议');
+@define('ACTUAL', '实际');
+@define('PHPINI_CONFIGURATION', 'php.ini 设置');
+@define('PHP_INSTALLATION', 'PHP 安装');
+@define('THEY_DO', '通过');
+@define('THEY_DONT', 'they don\'t');
+@define('SIMPLE_INSTALLATION', '快速安装');
+@define('EXPERT_INSTALLATION', '高级安装');
+@define('COMPLETE_INSTALLATION', '完整安装');
+@define('WONT_INSTALL_DB_AGAIN', '不会重复安装数据库');
+@define('CHECK_DATABASE_EXISTS', '检查数据是否存在');
+@define('CREATING_PRIMARY_AUTHOR', '设定管理员 \'%s\'');
+@define('SETTING_DEFAULT_TEMPLATE', '设定主题');
+@define('INSTALLING_DEFAULT_PLUGINS', '安装预设定外挂');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx简体中文版安装完成');
+@define('VISIT_BLOG_HERE', '开始浏览你的博客');
+@define('THANK_YOU_FOR_CHOOSING', '非常感谢你选择 Serendipity Styx简体中文版');
+@define('ERROR_DETECTED_IN_INSTALL', '安装时发生错误');
+@define('OPERATING_SYSTEM', '系统管理');
+@define('WEBSERVER_SAPI', '主机 SAPI');
+@define('TEMPLATE_SET', '\'%s\' 已被设定为主题');
+@define('SEARCH_ERROR', '搜索功能出现错误，报告管理员:发生这个错误可能数据库没有正确的index keys,如果使用MYSQL，你的帐号必须可以执行 <pre>CREATE FULLTEXT INDEX entry_idx on %sentries (title,body,extended)</pre> 的权限，数据库显示的错误是: <pre>%s</pre>');
+@define('EDIT_THIS_CAT', '编辑 "%s"');
+@define('CATEGORY_REMAINING', '删除这个分类然后将文章转到这个分类');
+@define('CATEGORY_INDEX', '下面是可以转移的分类');
+@define('NO_CATEGORIES', '没有分类');
+@define('RESET_DATE', '重设日期');
+@define('RESET_DATE_DESC', '点这里重设日期');
+@define('PROBLEM_PERMISSIONS_HOWTO', '权限可以使用下面的 shell 来执行: `<em>%s</em>` 然后执行要更改的文件夹, 或使用 FTP 软件');
+@define('WARNING_TEMPLATE_DEPRECATED', '警告:  你目前使用的主题是旧方法制作的，请尽快更新');
+@define('ENTRY_PUBLISHED_FUTURE', '这篇文章未公开');
+@define('ENTRIES_BY', '作者 %s');
+@define('PREVIOUS', '上一页');
 @define('NEXT', '下一页');
 @define('APPROVE', '审核');
 

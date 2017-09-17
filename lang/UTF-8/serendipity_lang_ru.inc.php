@@ -591,7 +591,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NOT_WRITABLE', 'Нет доступа для записи');
 @define('PROBLEM_DIAGNOSTIC', 'Из-за проблем, найденных во время диагностики, вы не можете продолжать установку, пока указанные выше ошибки не будут исправлены');
 @define('SELECT_INSTALLATION_TYPE', 'Выберите, какой тип инсталляции вы хотите использовать');
-@define('WELCOME_TO_INSTALLATION', 'Добро пожаловать в установку Serendipity');
+@define('WELCOME_TO_INSTALLATION', 'Добро пожаловать в установку Serendipity Styx');
 @define('FIRST_WE_TAKE_A_LOOK', 'Сначала мы проведём анализ вашей текущей версии и попытаемся найти проблемы совместимости');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Ошибки обозначены как %s, рекомендации как %s, а успешно пройденные проверки - как %s');
 @define('RED', 'красный');
@@ -612,9 +612,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CREATING_PRIMARY_AUTHOR', 'Создание основного автора \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Установка шаблона по умолчанию');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Установка плагинов по умолчанию');
-@define('SERENDIPITY_INSTALLED', '%sSerendipity был успешно установлен на вашей системе.%s Пожалуйста запомните ваш пароль: "%s", ваше имя пользователя - "%s".%sВы можете найти ваш новый PHP блог <a href="%s">вот тут</a>');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx была успешно установлена');
 @define('VISIT_BLOG_HERE', 'Перейти на ваш новый блог');
-@define('THANK_YOU_FOR_CHOOSING', 'Спасибо за ваш выбор Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'Спасибо за ваш выбор Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'Во время установки была обнаружена ошибка');
 @define('OPERATING_SYSTEM', 'Операционная система');
 @define('WEBSERVER_SAPI', 'SAPI веб-сервера');

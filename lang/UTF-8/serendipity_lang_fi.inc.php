@@ -587,7 +587,7 @@
 @define('NOT_WRITABLE', 'Ei kirjoitettavissa');
 @define('PROBLEM_DIAGNOSTIC', 'Epäyhteensopivien asetusten takia et voi jatkaa asennusta, ennen kuin ylläolevat virheet on korjattu.');
 @define('SELECT_INSTALLATION_TYPE', 'Valitse asennustapa');
-@define('WELCOME_TO_INSTALLATION', 'Tervetuloa Serendipity asennukseen');
+@define('WELCOME_TO_INSTALLATION', 'Tervetuloa Serendipity Styx asennukseen');
 @define('FIRST_WE_TAKE_A_LOOK', 'Ensiksi tarkistamme olemassaolevan asennuksen ja mahdolliset epäyhteensopivuudet');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Epäyhteensopivat asetukset esitetään %s, suosituksista poikkeavat %s ja virheettömät %s');
 @define('RED', 'punaisella');
@@ -608,9 +608,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Luodaan päätoimittaja \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Asetetaan oletusmalli');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Asennetaan oletuslaajennokset');
-@define('SERENDIPITY_INSTALLED', 'Serendipity on asennettu');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx on asennettu');
 @define('VISIT_BLOG_HERE', 'Uuteen blogiisi');
-@define('THANK_YOU_FOR_CHOOSING', 'Kiitos kun valitsit Serendipityn');
+@define('THANK_YOU_FOR_CHOOSING', 'Kiitos kun valitsit Serendipityn Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'Asennuksessa tapahtui virhe');
 @define('OPERATING_SYSTEM', 'Käyttöjärjestelmä');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');

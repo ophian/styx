@@ -591,7 +591,7 @@
 @define('NOT_WRITABLE', '€Ì— ﬁ«»· ··ﬂ «»…');
 @define('PROBLEM_DIAGNOSTIC', '»”»» „‘ﬂ·  ›Õ’. ·« Ì„ﬂ‰ ·ﬂ «·≈” „—«— ›Ì ⁄„·Ì  «· À»Ì  Õ Ï   „ﬂ‰ „‰  ⁄œÌ· Â–« «·Œÿ√');
 @define('SELECT_INSTALLATION_TYPE', '√Œ — √Ì ÿ—Ìﬁ…  À»Ì   ›÷·');
-@define('WELCOME_TO_INSTALLATION', '„—Õ»« »ﬂ ›Ì ’›Õ…  À»Ì  «·„Ã·… ”Ì—‰œ»Ì Ì');
+@define('WELCOME_TO_INSTALLATION', '„—Õ»« »ﬂ ›Ì ’›Õ…  À»Ì  «·„Ã·… ”Ì—‰œ»Ì Ì'); // Needs to match Serendipity Styx
 @define('FIRST_WE_TAKE_A_LOOK', '√Ê·« ”Ê› Ì „ «·‰Ÿ— ›Ì «·«⁄œ«œ«  «·Õ«·Ì…. À„  ›Õ’ √Ì „‘«ﬂ· Ì„ﬂ‰ √‰  ÕœÀ');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Œÿ√ „⁄—Ê÷ ›Ì  %s. ÌÊ’Ï ›Ì %s Ê ‰Ã«Õ %s');
 @define('RED', 'red');
@@ -612,9 +612,9 @@
 @define('CREATING_PRIMARY_AUTHOR', '≈‰‘«¡ „Õ—— —√Ì”Ì \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', '≈⁄œ«œ«  «·„Ã·… «·≈› —«÷Ì…');
 @define('INSTALLING_DEFAULT_PLUGINS', ' À»Ì  «·»·Êﬁ «‰ «·«› —«÷Ì');
-@define('SERENDIPITY_INSTALLED', ' „  —ﬂÌ» „œÊ‰… ”Ì‰œ—»Ì Ì »‰Ã«Õ');
+@define('SERENDIPITY_INSTALLED', ' „  —ﬂÌ» „œÊ‰… ”Ì‰œ—»Ì Ì »‰Ã«Õ'); // Needs to match Serendipity Styx
 @define('VISIT_BLOG_HERE', 'Ì„ﬂ‰ﬂ “Ì«—… „œÊ‰ ﬂ «·ÃœÌœ… „‰ Â‰«');
-@define('THANK_YOU_FOR_CHOOSING', '‘ﬂ—« ·√Œ Ì«—ﬂ „œÊ‰… ”Ì‰œ—»Ì Ì');
+@define('THANK_YOU_FOR_CHOOSING', '‘ﬂ—« ·√Œ Ì«—ﬂ „œÊ‰… ”Ì‰œ—»Ì Ì'); // Needs to match Serendipity Styx
 @define('ERROR_DETECTED_IN_INSTALL', ' „ √ﬂ ‘«› Œÿ√ Œ·«· „—Õ·… «· ﬁ»Ì ');
 @define('OPERATING_SYSTEM', '‰Ÿ«„ «· ‘€Ì·');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');

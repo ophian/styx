@@ -588,7 +588,7 @@
 @define('WRITABLE', 'Writable'); // Translate
 @define('PROBLEM_DIAGNOSTIC', 'Due to a problematic diagnostic, you cannot continue with the installation before the above errors are fixed'); // Translate
 @define('SELECT_INSTALLATION_TYPE', 'Select which installation type you wish to use'); // Translate
-@define('WELCOME_TO_INSTALLATION', 'Welcome to the Serendipity Installation'); // Translate
+@define('WELCOME_TO_INSTALLATION', 'Welcome to the Serendipity Styx Installation'); // Translate
 @define('FIRST_WE_TAKE_A_LOOK', 'First we will take a look at your current setup and attempt to diagnose any compatibility problems'); // Translate
 @define('ERRORS_ARE_DISPLAYED_IN', 'Errors are displayed in %s, recommendations in %s and success in %s'); // Translate
 @define('RED', 'rød');
@@ -609,9 +609,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Creating primary author \'%s\''); // Translate
 @define('SETTING_DEFAULT_TEMPLATE', 'Setting default template'); // Translate
 @define('INSTALLING_DEFAULT_PLUGINS', 'Installing default plugins'); // Translate
-@define('SERENDIPITY_INSTALLED', 'Serendipity has been successfully installed'); // Translate
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx has been successfully installed'); // Translate
 @define('VISIT_BLOG_HERE', 'Visit your new blog here'); // Translate
-@define('THANK_YOU_FOR_CHOOSING', 'Thank you for choosing Serendipity'); // Translate
+@define('THANK_YOU_FOR_CHOOSING', 'Thank you for choosing Serendipity Styx'); // Translate
 @define('ERROR_DETECTED_IN_INSTALL', 'An error was detected in the installation'); // Translate
 @define('OPERATING_SYSTEM', 'Operating system'); // Translate
 @define('WEBSERVER_SAPI', 'Webserver SAPI'); // Translate

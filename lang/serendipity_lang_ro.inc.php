@@ -590,7 +590,7 @@
 @define('NOT_WRITABLE', 'Nu se poate scrie');
 @define('PROBLEM_DIAGNOSTIC', 'Datorită unei probleme care a survenit, nu poţi continua instalarea până următoarele probleme nu sunt rezolvate');
 @define('SELECT_INSTALLATION_TYPE', 'Alege tipul de instalare pe care îl preferi');
-@define('WELCOME_TO_INSTALLATION', 'Bun venit la instalarea Serendipity');
+@define('WELCOME_TO_INSTALLATION', 'Bun venit la instalarea Serendipity Styx');
 @define('FIRST_WE_TAKE_A_LOOK', 'Pentru început, ne vom uita la instalarea curentă şi vom încerca să diagnosticăm eventualele probleme care vor apărea');
 @define('ERRORS_ARE_DISPLAYED_IN', 'Erorile sunt afişate în %s, recomandările în %s iar succesul în %s');
 @define('RED', 'roşu');
@@ -611,9 +611,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'Creez autor principal \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'Aleg tematica implicită');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Instalez extensiile implicite');
-@define('SERENDIPITY_INSTALLED', 'Serendipity a fost instalat cu succes');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx a fost instalat cu succes');
 @define('VISIT_BLOG_HERE', 'Vizitează noul tău blog aici');
-@define('THANK_YOU_FOR_CHOOSING', 'Îţi mulţumim că ai ales Serendipity');
+@define('THANK_YOU_FOR_CHOOSING', 'Îţi mulţumim că ai ales Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'A apărut o eroare în timpul instalării');
 @define('OPERATING_SYSTEM', 'Sistem de operare');
 @define('WEBSERVER_SAPI', 'SAPI server web');

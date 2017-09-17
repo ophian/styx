@@ -593,7 +593,7 @@
 @define('NOT_WRITABLE', '쓰기 불가');
 @define('PROBLEM_DIAGNOSTIC', '점검 결과 문제가 발견되어 위에 지적된 오류를 수정하기 전까지 설치를 진행할 수 없습니다.');
 @define('SELECT_INSTALLATION_TYPE', '설치 방식을 고르십시오');
-@define('WELCOME_TO_INSTALLATION', '세렌디피티 설치과정에 오신 것을 환영합니다.');
+@define('WELCOME_TO_INSTALLATION', '세렌디피티 설치과정에 오신 것을 환영합니다.'); // Needs to match Serendipity Styx
 @define('FIRST_WE_TAKE_A_LOOK', '먼저 현재 설정 상태를 확인하고 호환성 문제가 있는지 점검하겠습니다.');
 @define('ERRORS_ARE_DISPLAYED_IN', '오류 사항은 %s으로, 추천 사항은 %s으로, 성공 사항은 %s으로 표시됩니다.');
 @define('RED', '빨강색');
@@ -614,9 +614,9 @@
 @define('CREATING_PRIMARY_AUTHOR', '기본 작성자 \'%s\' 생성중');
 @define('SETTING_DEFAULT_TEMPLATE', '기본 템플릿 설정중');
 @define('INSTALLING_DEFAULT_PLUGINS', '기본 플러그인 설치중');
-@define('SERENDIPITY_INSTALLED', '세렌디피티가 성공적으로 설치되었습니다');
+@define('SERENDIPITY_INSTALLED', '세렌디피티가 성공적으로 설치되었습니다'); // Needs to match Serendipity Styx
 @define('VISIT_BLOG_HERE', '새로 만들어진 블로그로 가기');
-@define('THANK_YOU_FOR_CHOOSING', '세렌디피티를 선택해주셔서 감사합니다');
+@define('THANK_YOU_FOR_CHOOSING', '세렌디피티를 선택해주셔서 감사합니다'); // Needs to match Serendipity Styx
 @define('ERROR_DETECTED_IN_INSTALL', '설치 도중 오류가 발생했습니다');
 @define('OPERATING_SYSTEM', '운영체제');
 @define('WEBSERVER_SAPI', '웹서버 SAPI');

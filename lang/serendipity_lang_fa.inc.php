@@ -590,7 +590,7 @@
 @define('NOT_WRITABLE', 'نوشتنی نیست');
 @define('PROBLEM_DIAGNOSTIC', 'به دلیل تشخیص مشکل، تا مشکلات فوق را برطرف نسازید نمی توانید به ادامه نصب بپردازید');
 @define('SELECT_INSTALLATION_TYPE', 'انتخاب کنید که چه نوع نصبی را می خواهید انجام دهید');
-@define('WELCOME_TO_INSTALLATION', 'به مراحل نصب سرندیپیتی خوش آمدید');
+@define('WELCOME_TO_INSTALLATION', 'به مراحل نصب سرندیپیتی خوش آمدید'); // Needs to match Serendipity Styx
 @define('FIRST_WE_TAKE_A_LOOK', 'در ابتدا ما گزینه های فعلی را بررسی می کنیم و سعی می کنیم نا همگونی ها را رفع کنیم');
 @define('ERRORS_ARE_DISPLAYED_IN', 'خطا ها در %s نمایش داده شده اند، توصیه ها در %s و موفقیت ها در %s');
 @define('RED', 'قرمز');
@@ -611,9 +611,9 @@
 @define('CREATING_PRIMARY_AUTHOR', 'ایجاد نویسنده اصلی \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', 'تنظیم پوسته پیش فرض');
 @define('INSTALLING_DEFAULT_PLUGINS', 'نصب افزونه های پیش فرض');
-@define('SERENDIPITY_INSTALLED', 'سرندیپیتی با موفقیت نصب شد');
+@define('SERENDIPITY_INSTALLED', 'سرندیپیتی با موفقیت نصب شد'); // Needs to match Serendipity Styx
 @define('VISIT_BLOG_HERE', 'وبلاگ جدید خود را از اینجا ببینید');
-@define('THANK_YOU_FOR_CHOOSING', 'به خاطر نصب سرندیپیتی سپاسگذاریم');
+@define('THANK_YOU_FOR_CHOOSING', 'به خاطر نصب سرندیپیتی سپاسگذاریم'); // Needs to match Serendipity Styx
 @define('ERROR_DETECTED_IN_INSTALL', 'خطایی در زمان نصب تشخیص داده شد');
 @define('OPERATING_SYSTEM', 'سیستم عامل');
 @define('WEBSERVER_SAPI', 'SAPI وب سرور');
