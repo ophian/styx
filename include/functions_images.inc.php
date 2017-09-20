@@ -1141,7 +1141,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         if (is_readable($fthumb)) {
             if ($deleteThumbs === true) {
                 if (@unlink($fthumb)) {
-                    printf(DELETE_THUMBNAIL . "<br />\n", $sThumb);
+                    printf(DELETE_THUMBNAIL . "<br>\n", $sThumb);
                     $i++;
                 }
             } else if ($deleteThumbs == 'checksize') {
@@ -1150,7 +1150,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                 if ($tdim['noimage']) {
                     // Delete it so it can be regenerated
                     if (@unlink($fthumb)) {
-                        printf(DELETE_THUMBNAIL . "<br />\n", $sThumb);
+                        printf(DELETE_THUMBNAIL . "<br>\n", $sThumb);
                         $i++;
                     }
                 } else {
@@ -1161,7 +1161,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                         // This thumbnail is incorrect; delete it so
                         // it can be regenerated
                         if (@unlink($fthumb)) {
-                            printf(DELETE_THUMBNAIL . "<br />\n", $sThumb);
+                            printf(DELETE_THUMBNAIL . "<br>\n", $sThumb);
                             $i++;
                         }
                     }
@@ -3364,7 +3364,7 @@ function serendipity_imageAppend(&$tfile, &$target, $dir, $echo = true) {
 
     if ($echo) {
         echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <strong>';
-        printf(FILENAME_REASSIGNED . '<br />', serendipity_specialchars($tfile));
+        printf(FILENAME_REASSIGNED . '<br>', serendipity_specialchars($tfile));
         echo "</strong></span>\n";
     }
     return $realname;
@@ -3383,7 +3383,7 @@ function serendipity_checkMediaSize($file) {
     if (!empty($serendipity['maxFileSize'])) {
         if (filesize($file) > $serendipity['maxFileSize']) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ';
-            printf(MEDIA_UPLOAD_SIZEERROR . '<br />', (int)$serendipity['maxFileSize']);
+            printf(MEDIA_UPLOAD_SIZEERROR . '<br>', (int)$serendipity['maxFileSize']);
             echo "</span>\n";
             return false;
         }
@@ -3398,7 +3398,7 @@ function serendipity_checkMediaSize($file) {
         if (!empty($serendipity['maxImgWidth'])) {
             if ($dim[0] > $serendipity['maxImgWidth']) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ';
-                printf(MEDIA_UPLOAD_DIMERROR . '<br />', (int)$serendipity['maxImgWidth'], (int)$serendipity['maxImgHeight']);
+                printf(MEDIA_UPLOAD_DIMERROR . '<br>', (int)$serendipity['maxImgWidth'], (int)$serendipity['maxImgHeight']);
                 echo "</span>\n";
                 return false;
             }
@@ -3407,7 +3407,7 @@ function serendipity_checkMediaSize($file) {
         if (!empty($serendipity['maxImgHeight'])) {
             if ($dim[1] > $serendipity['maxImgHeight']) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ';
-                printf(MEDIA_UPLOAD_DIMERROR . '<br />', (int)$serendipity['maxImgWidth'], (int)$serendipity['maxImgHeight']);
+                printf(MEDIA_UPLOAD_DIMERROR . '<br>', (int)$serendipity['maxImgWidth'], (int)$serendipity['maxImgHeight']);
                 echo "</span>\n";
                 return false;
             }
