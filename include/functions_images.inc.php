@@ -610,6 +610,9 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
  */
 function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumbname = false, $is_temporary = false, $force_resize = false) {
     global $serendipity;
+    static $debug = false; // ad hoc, case-by-case debugging
+
+    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
     if ($size === false) {
         $size = $serendipity['thumbSize'];
@@ -627,7 +630,11 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
     $suf     = $t[1];
 
     $infile  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $directory . $file;
-    #echo 'From: ' . $infile . '<br />';
+    if ($debug) {
+        $logtag = 'ML_MAKETHUMBNAIL:';
+        $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_makeThumbnail SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+        $serendipity['logger']->debug("$logtag From: $infile");
+    }
     if ($is_temporary) {
         $temppath = dirname($thumbname);
         if (!is_dir($temppath)) {
@@ -638,7 +645,9 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
         $outfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $directory . $f . '.' . $thumbname . '.' . $suf;
     }
     $serendipity['last_outfile'] = $outfile;
-    #echo 'To: ' . $outfile . '<br />';
+    if ($debug) {
+        $serendipity['logger']->debug("$logtag To: $outfile");
+    }
 
     $fdim = @serendipity_getimagesize($infile, '', $suf);
     if (isset($fdim['noimage'])) {
@@ -1201,12 +1210,12 @@ function serendipity_syncThumbs($deleteThumbs = false) {
 
             /* Do the database update, if needed */
             if (sizeof($update) != 0) {
-                printf(FOUND_FILE . ' (2)<br />', $files[$x]);
+                printf(FOUND_FILE . ' (2)<br>', $files[$x]);
                 serendipity_updateImageInDatabase($update, $rs['id']);
                 $i++;
             }
         } else {
-            printf(FOUND_FILE . ' (1)<br />', $files[$x]);
+            printf(FOUND_FILE . ' (1)<br>', $files[$x]);
             serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, filemtime($ffull));
             $i++;
         }
