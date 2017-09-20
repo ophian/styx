@@ -46,14 +46,13 @@ switch ($serendipity['GET']['adminAction']) {
 
         $deleteThumbs = false;
         if (isset($serendipity['POST']['deleteThumbs'])) {
-            switch ($serendipity['POST']['deleteThumbs'])
-            {
-            case 'yes':
-                $deleteThumbs = true;
-                break;
-            case 'check':
-                $deleteThumbs = 'checksize';
-                break;
+            switch ($serendipity['POST']['deleteThumbs']) {
+                case 'yes':
+                    $deleteThumbs = true;
+                    break;
+                case 'check':
+                    $deleteThumbs = 'checksize';
+                    break;
             }
         }
 
