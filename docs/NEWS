@@ -1,6 +1,12 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Do not allow special sized images, which are actually kind of
+    thumbnails outside the normal Medialibrary range, to live inside
+    the image list for auto thumbnail generation and for the auto
+    MediaLibrary Sync. This in special is done for imageselectorplus
+    Name.quickblog.ext files.
+
   * Add logger debug logging to serendipity_makeThumbnail()
 
   * Optimise some default configuration values for new installations.
