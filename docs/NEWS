@@ -1,7 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
-  * Optimise some default configuration values for Styx for install
+  * Optimise some default configuration values for new installations.
+    One of it is the slightly shorter "styxThumb" image notation,
+    another, the new database table default prefix is now "styx_".
 
   * [EXPERIMENTAL] Prepare utf8mb4 migration
 
