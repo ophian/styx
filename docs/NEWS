@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Add logger debug logging to serendipity_makeThumbnail()
+
   * Optimise some default configuration values for new installations.
     One of it is the slightly shorter "styxThumb" image notation,
     another, the new database table default prefix is now "styx_".
