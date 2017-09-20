@@ -382,7 +382,7 @@ function serendipity_deleteImage($id) {
  * @param   int         deprecated
  * @param   array       Array list of found items
  * @param   string      sub-directory to investigate [recursive use]
- * @return  array       List of media items
+ * @return  array       List of media items without Thumbs
  */
 function serendipity_fetchImages($group = false, $start = 0, $end = 20, $images = '', $odir = '') {
     global $serendipity;
@@ -394,15 +394,15 @@ function serendipity_fetchImages($group = false, $start = 0, $end = 20, $images 
         $aTempArray = array();
         while (($file = @readdir($dir)) !== false) {
             if ($file == '.svn' || $file == 'CVS' || $file == '.htaccess' || strtolower($file) == 'thumbs.db' || $file == '.' || $file == '..') {
-                continue; // 2013/06/05 added exclude .htaccess for ckeditor/kcfinder usage and 2013/12/25 added thumbs.db
+                continue;
             }
             array_push($aTempArray, $file);
         }
         @closedir($dir);
         sort($aTempArray);
         foreach($aTempArray AS $f) {
-            if (strpos($f, $serendipity['thumbSuffix']) !== false) {
-                // This is a s9y thumbnail, skip it.
+            if (false !== strpos($f, $serendipity['thumbSuffix']) || false !== strpos($f, '.quickblog.')) {
+                // This is a sized serendipity thumbnail or ranged "~outside" ML (see imageselectorplus event plugin), skip it!
                 continue;
             }
 
@@ -1511,15 +1511,19 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             $aExclude
         );
         foreach ($aResultSet AS $sKey => $sFile) {
-                if ($sFile['directory']) {
-                    if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a directory."); }
-                    array_push($paths, $sFile);
-                } else {
-                    if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a file."); }
-                    // Store the file in our array, remove any ending slashes
-                    $aFilesOnDisk[$sFile['relpath']] = 1;
+            if ($sFile['directory']) {
+                if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a directory."); }
+                array_push($paths, $sFile);
+            } else {
+                if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a file."); }
+                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.')) {
+                    // This is a sized serendipity thumbnail or ranged "~outside" ML (see imageselectorplus event plugin), skip it!
+                    continue;
                 }
-                unset($aResultSet[$sKey]);
+                // Store the file in our array, remove any ending slashes
+                $aFilesOnDisk[$sFile['relpath']] = 1;
+            }
+            unset($aResultSet[$sKey]);
         }
 
         usort($paths, 'serendipity_sortPath');
