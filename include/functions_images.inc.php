@@ -406,7 +406,7 @@ function serendipity_fetchImages($group = false, $start = 0, $end = 20, $images 
                 continue;
             }
 
-            $cdir = ($odir != '' ? $odir . '/' : '');
+            $cdir = ($odir != '') ? $odir . '/' : '';
             if (is_dir($basedir . $odir . '/' . $f)) {
                 $temp = serendipity_fetchImages($group, $start, $end, $images, $cdir . $f);
                 foreach($temp AS $tkey => $tval) {
