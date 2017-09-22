@@ -1041,7 +1041,8 @@
 @define('FRONTEND', '외부 페이지');
 @define('BACKEND', '관리 페이지');
 @define('MEDIA_UPLOAD_RESIZE', '올리기 전 크기 조절');
-@define('MEDIA_UPLOAD_RESIZE_DESC', '서버에 그림을 올리기 전에 자바스크립트로 크기를 조절합니다. 이 경우 올리는 기능이 Ajax를 쓰게 되므로 등록정보 버튼을 표시하지 않게 됩니다.');
+#@define('MEDIA_UPLOAD_RESIZE_DESC', '서버에 그림을 올리기 전에 자바스크립트로 크기를 조절합니다. 이 경우 올리는 기능이 Ajax를 쓰게 되므로 등록정보 버튼을 표시하지 않게 됩니다.');
+@define('MEDIA_UPLOAD_RESIZE_DESC', 'Resize images according to configured maximum/minimum dimensions before the upload using Javascript. This will also change the uploader to use Ajax and thus remove the Property-Button.<br>PLEASE NOTE: Setting this option true will prevent other options to behave like they should, in special, when the imageselectorplus event plugin is used!');
 @define('LOG_LEVEL', '로그 기록 수준');
 @define('LOG_LEVEL_DESC', '세렌디피티 코드 내의 특정 부분에 디버그 중단점을 배치해 두었습니다. 이 설정을 "디버그"로 둘 경우 이러한 위치에서 발생한 디버그 출력내역을 templates_c/logs/에 기록하게 됩니다. 특정 부분에서 버그가 발생하고 있거나 본인이 개발자인 경우에만 이 설정을 사용하기 바랍니다. 이 설정을 "오류"로 두면 PHP 에러를 기록하게 되며 PHP error_log 설정을 덮어씁니다.');
 @define('DEBUG', '디버그');
