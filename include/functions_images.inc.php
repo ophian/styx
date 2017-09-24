@@ -402,7 +402,7 @@ function serendipity_fetchImages($group = false, $start = 0, $end = 20, $images 
         sort($aTempArray);
         foreach($aTempArray AS $f) {
             if (false !== strpos($f, $serendipity['thumbSuffix']) || false !== strpos($f, '.quickblog.')) {
-                // This is a sized serendipity thumbnail or ranged "~outside" ML (see imageselectorplus event plugin), skip it!
+                // This is a sized serendipity thumbnail or something similar ranged "~outside" ML (see imageselectorplus event plugin), skip it!
                 continue;
             }
 
@@ -1520,7 +1520,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                     // This is a sized serendipity thumbnail or ranged "~outside" ML (see imageselectorplus event plugin), skip it!
                     continue;
                 }
-                // Store the file in our array, remove any ending slashes
+                // Store the file in our array, remove any ending slashes (??)
                 $aFilesOnDisk[$sFile['relpath']] = 1;
             }
             unset($aResultSet[$sKey]);
