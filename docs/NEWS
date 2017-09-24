@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * themes: Fix missing media_showitems.tpl markup in [2k11]
+
   * Do not allow special sized images, which are actually kind of
     thumbnails outside the normal Medialibrary range, to live inside
     the image list for auto thumbnail generation and for the auto
