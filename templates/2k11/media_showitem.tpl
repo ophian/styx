@@ -43,7 +43,7 @@
     </header>
 
     <div class="clearfix col2r">
-        <main id="content" {if $template_option.imgstyle != 'none'} class="{$template_option.imgstyle}"{/if}>
+        <main id="content"{if $template_option.imgstyle != 'none'} class="{$template_option.imgstyle}"{/if}>
             <article class="clearfix serendipity_entry">
                 <h2>{$media.file.props.base_property.TITLE|default:$media.file.realname}</h2>
             {if $perm_denied}
