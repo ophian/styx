@@ -3,20 +3,16 @@ Version ()
 
   * Change sequence order of the (no-default) dashboard_ticker widget
 
-  * Treat imageselectorplus quickblog sized images out of MediaLibrary
-    sync. They still live and survive in the MediaLibrary, which adds
-    a new property action button, if file exists.
+  * Treat imageselectorplus event plugin "quickblog" sized images
+    out of the MediaLibrary Sync and the auto-thumbnail generation.
+    Those files live a hidden life and survive parent removal actions
+    in the MediaLibrary, which adds a new property action "Image Of"
+    viewing button, if such file exists.
 
   * Remove empty logger *log files automatically within maintenance
     changelog task.
 
   * Fix missing media_showitems.tpl markup in [2k11]
-
-  * Do not allow special sized images, which are actually kind of
-    thumbnails outside the normal MediaLibrary range, to live inside
-    the image list for auto thumbnail generation and for the auto
-    MediaLibrary Sync. This in special is done for imageselectorplus
-    Name.quickblog.ext files.
 
   * Add logger debug logging to serendipity_makeThumbnail()
 
