@@ -1,6 +1,10 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Treat imageselectorplus quickblog sized images out of MediaLibrary
+    sync. They still live and survive in the MediaLibrary, which adds
+    a new property action button, if file exists.
+
   * Remove empty logger *log files automatically within maintenance
     changelog task.
 
