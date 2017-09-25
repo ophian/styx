@@ -117,6 +117,25 @@
         </section>
     {/if}
 
+    {if NOT $default_widgets}
+        <section id="dashboard_ticker" class="clearfix dashboard_widget expand{if NOT isset($shortcuts)} blend{/if}">
+            <h3>{$CONST.DASHBOARD_INFO_HEADER}</h3>
+
+            <span class="msg_notice">
+                <span class="icon-info-circled" aria-hidden="true"></span> {if isset($shortcuts)}{$CONST.DASHBOARD_INFO_CONTENT}:{else}<em>{$CONST.DASHBOARD_INFO_EMPTY}</em>{/if}
+            {if isset($shortcuts)}
+                {if $comments['pending']['count'] > 0}<a href="{$comments['pending']['link']}">{$CONST.COMMENTS_PENDING}</a> (<span class="hl">{$comments['pending']['count']}</span>){/if}
+                {if $entries['futures']['count'] > 0}<a href="{$entries['futures']['link']}">{$CONST.FUTURES_AVAILABLE}</a> (<span class="hl">{$entries['futures']['count']}</span>){/if}
+                {if $entries['drafts']['count'] > 0}<a href="{$entries['drafts']['link']}">{$CONST.DRAFTS_AVAILABLE}</a> (<span class="hl">{$entries['drafts']['count']}</span>){/if}
+            {/if}
+            </span>
+        </section>
+    {/if}
+
+        {serendipity_hookPlugin hook="backend_dashboard" hookAll="true"}
+
+{/if}{* no create end *}
+
         <section id="s9y_links" class="clearfix mfp-hide dashboard_widget">
             <h3>{$CONST.FURTHER_LINKS}</h3>
 
@@ -140,25 +159,6 @@
             {include "./doc/quicktip_$lang.tpl" caching}
             {/if}
         </section>
-
-        {serendipity_hookPlugin hook="backend_dashboard" hookAll="true"}
-
-    {if NOT $default_widgets}
-        <section id="dashboard_ticker" class="clearfix dashboard_widget expand{if NOT isset($shortcuts)} blend{/if}">
-            <h3>{$CONST.DASHBOARD_INFO_HEADER}</h3>
-
-            <span class="msg_notice">
-                <span class="icon-info-circled" aria-hidden="true"></span> {if isset($shortcuts)}{$CONST.DASHBOARD_INFO_CONTENT}:{else}<em>{$CONST.DASHBOARD_INFO_EMPTY}</em>{/if}
-            {if isset($shortcuts)}
-                {if $comments['pending']['count'] > 0}<a href="{$comments['pending']['link']}">{$CONST.COMMENTS_PENDING}</a> (<span class="hl">{$comments['pending']['count']}</span>){/if}
-                {if $entries['futures']['count'] > 0}<a href="{$entries['futures']['link']}">{$CONST.FUTURES_AVAILABLE}</a> (<span class="hl">{$entries['futures']['count']}</span>){/if}
-                {if $entries['drafts']['count'] > 0}<a href="{$entries['drafts']['link']}">{$CONST.DRAFTS_AVAILABLE}</a> (<span class="hl">{$entries['drafts']['count']}</span>){/if}
-            {/if}
-            </span>
-        </section>
-    {/if}
-{/if}{* no create end *}
-
     </div>
 
 <script type="text/javascript">
