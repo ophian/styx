@@ -5,7 +5,7 @@
     <meta charset="{$head_charset}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
-    <meta name="generator" content="Serendipity v.{$head_version}">
+    <meta name="generator" content="Serendipity v.{$serendipityVersion}">
 {if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
     <meta name="robots" content="index,follow">
 {else}
