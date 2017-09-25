@@ -1500,6 +1500,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
         $paths        = array();
         $aFilesOnDisk = array();
+        $aFilesNoSync = array();
         $aResultSet   = serendipity_traversePath(
             $serendipity['serendipityPath'] . $serendipity['uploadPath']. $limit_path,
             '',
@@ -1517,10 +1518,28 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             } else {
                 if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a file."); }
                 if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.')) {
+                    if ($sFile['relpath'] != '.empty' && !in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync'])) {
+                        if ($debug) { $serendipity['logger']->debug("$logtag Found aFilesNoSync = {$sFile['relpath']}."); }
+                        $path_parts = pathinfo($sFile['relpath']);
+                        $fdim = @serendipity_getimagesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sFile['relpath'], '', $path_parts['extension']);
+                        $aFilesNoSync[$sFile['relpath']] = array(
+                            'dirname'   => $path_parts['dirname'],
+                            'basename'  => $path_parts['basename'],
+                            'filename'  => $path_parts['filename'],
+                            'pfilename' => str_replace('.quickblog', '', $path_parts['filename']),
+                            'extension' => $path_parts['extension'],
+                            'filesize'  => @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sFile['relpath']),
+                            'url'       => $serendipity['baseURL'] . $serendipity['uploadPath'] . $sFile['relpath'],
+                            'fdim'      => $fdim,
+                            'width'     => $fdim[0],
+                            'height'    => $fdim[1],
+                            'mime'      => $fdim['mime'],
+                        ); // store this in a cache file to use later (we use $serendipity['aFilesNoSync'] for this currently)
+                    }
                     // This is a sized serendipity thumbnail or ranged "~outside" ML (see imageselectorplus event plugin), skip it!
                     continue;
                 }
-                // Store the file in our array, remove any ending slashes (??)
+                // Store the file in our array, remove any ending slashes
                 $aFilesOnDisk[$sFile['relpath']] = 1;
             }
             unset($aResultSet[$sKey]);
@@ -1633,6 +1652,11 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         */
         ## SYNCH FINISHED ##
     }
+
+    // Out of Sync Files
+    if ($debug) { $serendipity['logger']->debug("$logtag ".print_r($aFilesNoSync,1)); }
+    $serendipity['aFilesNoSync'] = $aFilesNoSync;
+    $serendipity['smarty']->assign('imagesNoSync', $aFilesNoSync);
 
     ## Apply ACL afterwards:
     serendipity_directoryACL($paths, 'read');
