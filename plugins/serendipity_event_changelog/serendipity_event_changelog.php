@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_plugin
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.29');
+        $propbag->add('version',       '1.30');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -120,6 +120,14 @@ class serendipity_event_changelog extends serendipity_plugin
         <span id="logview_info" class="comment_status additional_info"><?php echo sprintf(PLUGIN_CHANGELOG_TITLE_DESC, $serendipity['version']); ?></span>
 <?php
                     if (is_object($serendipity['logger'])) {
+                        $files = glob($serendipity['serendipityPath'] . 'templates_c/logs/*.txt');
+                        // cleanup empty files automatically
+                        foreach($files as $filename) {
+                            if (filesize($filename) < 1) {
+                                @unlink($filename);
+                            }
+                        }
+                        // do it again, Sam :)
                         $files = glob($serendipity['serendipityPath'] . 'templates_c/logs/*.txt');
                         $files = array_combine($files, array_map("filemtime", $files));
                         array_pop($files);
