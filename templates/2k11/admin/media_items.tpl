@@ -136,6 +136,12 @@
 
                     <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:javascript}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_DELETE}</span></a></li>
                     {/if}
+                    {foreach $imagesNoSync AS $special}
+                    {if $file.name == $special.pfilename}
+
+                    <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{$CONST.PUBLISHED}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
+                    {/if}
+                    {/foreach}
                 {/if}
 
                 </ul>

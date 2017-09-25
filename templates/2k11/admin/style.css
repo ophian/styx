@@ -1924,6 +1924,12 @@ fieldset p,
 .actions_extra {
     margin: 0 0 .5em;
 }
+.media_file_actions .special {
+    margin: 0 0 auto;
+}
+.special .media_prop {
+    display: inline;
+}
 
 .no-js .media_file .actions li {
     margin: 0 .4em 0 -.4em;
@@ -3754,6 +3760,10 @@ img.mfp-img {
         margin: 0 0 1em 2%;
     }
 
+    .actions li,
+    .actions_extra {
+        margin: 0 .3em .5em 0;
+    }
     .media_chooser {
         margin-bottom: 0;
     }
@@ -3958,6 +3968,10 @@ img.mfp-img {
     }
     .media_file h3 {
         width: 19em;
+    }
+    .actions li,
+    .actions_extra {
+        margin: 0 .4em .5em 0;
     }
 }
 
@@ -4189,6 +4203,11 @@ img.mfp-img {
         white-space: pre;
     }
 
+    .actions li,
+    .actions_extra {
+        margin: 0 .3em .5em 0;
+    }
+
     #login {
         margin: 4em auto 8em;
     }
@@ -4208,6 +4227,10 @@ img.mfp-img {
     }
     #adv_opts > fieldset > span > legend {
         width: 93%;
+    }
+    .actions li,
+    .actions_extra {
+        margin: 0 .4em .5em 0;
     }
 }
 
