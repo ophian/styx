@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Removed temporary added symbol_sanitize(), since the UTF8MB4
+    migration is a success.
+
   * Change sequence order of the (no-default) dashboard_ticker widget
 
   * Treat imageselectorplus event plugin "quickblog" sized images
