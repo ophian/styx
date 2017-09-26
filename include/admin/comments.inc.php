@@ -33,11 +33,6 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
     }
 }
 
-// sanitize utf8 'private use area' (emoji) symbols to unicode/HTML Entity via backend comments
-if (!empty($serendipity['POST']['comment'])) {
-    $serendipity['POST']['comment'] = symbol_sanitize($serendipity['POST']['comment']);
-}
-
 /* We are asked to save the edited comment, and we are not in preview mode */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'doEdit' && !isset($serendipity['POST']['preview']) && serendipity_checkFormToken()) {
     $sql = "UPDATE {$serendipity['dbPrefix']}comments

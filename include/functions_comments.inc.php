@@ -810,11 +810,6 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         $authorEmail = $serendipity['serendipityEmail'];
     }
 
-    // sanitize utf8 'private use area' (emoji) symbols to unicode/HTML Entity
-    if (!empty($commentInfo['comment'])) {
-        $commentInfo['comment'] = symbol_sanitize($commentInfo['comment']);
-    }
-
     $_setTo_moderation = serendipity_db_bool($ca['moderate_comments']);
 
     $title         = serendipity_db_escape_string(isset($commentInfo['title']) ? $commentInfo['title'] : '');
