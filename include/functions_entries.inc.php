@@ -1436,14 +1436,6 @@ function serendipity_updertEntry($entry) {
 
     include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
 
-    // sanitize utf8 'private use area' (emoji) symbols to unicode/HTML Entity
-    if (!empty($entry['body'])) {
-        $entry['body'] = symbol_sanitize($entry['body']);
-    }
-    if (!empty($entry['extended'])) {
-        $entry['extended'] = symbol_sanitize($entry['extended']);
-    }
-
     $errors = array();
     serendipity_plugin_api::hook_event('backend_entry_updertEntry', $errors, $entry);
     if (count($errors) > 0) {
