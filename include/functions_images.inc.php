@@ -390,6 +390,14 @@ function serendipity_fetchImages($group = false, $start = 0, $end = 20, $images 
     // Open directory
     $basedir = $serendipity['serendipityPath'] . $serendipity['uploadPath'];
     $images = array();
+    if (empty($serendipity['uniqueThumbSuffixes'])) {
+        $usedSuffixes = serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
+        $thumbSuffixes = call_user_func_array('array_merge', $usedSuffixes);
+        $thumbSuffixes[] = $serendipity['thumbSuffix']; // might be set to 'styxThumb' for new version
+        $thumbSuffixes[] = 'serendipityThumb'; // might be the old suffix name - which should usually be inside usedSuffixes, but if not, hardcode it here to make sure!
+        $thumbSuffixes[] = '.quickblog'; // out-of-range imageselectorplus created thumb
+        $serendipity['uniqueThumbSuffixes'] = array_values(array_unique($thumbSuffixes)); // only use unique strpos() search values
+    }
     if ($dir = @opendir($basedir . $odir)) {
         $aTempArray = array();
         while (($file = @readdir($dir)) !== false) {
@@ -401,7 +409,7 @@ function serendipity_fetchImages($group = false, $start = 0, $end = 20, $images 
         @closedir($dir);
         sort($aTempArray);
         foreach($aTempArray AS $f) {
-            if (false !== strpos($f, $serendipity['thumbSuffix']) || false !== strpos($f, '.quickblog.')) {
+            if (serendipity_contains($f, $serendipity['uniqueThumbSuffixes'])) {
                 // This is a sized serendipity thumbnail or something similar ranged "~outside" ML (see imageselectorplus event plugin), skip it!
                 continue;
             }
