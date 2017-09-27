@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Add new API function serendity_contains() for strpos iterations
+
   * Fix file and filedir renaming actions for the thumbnail suffix name,
     to keep a previous set suffix in case the global configs thumbSuffix
     name has changed.
