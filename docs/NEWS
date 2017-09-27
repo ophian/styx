@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix serendipity_fetchImages() list for changed/multi thumbSuffixes
+    removals.
+
   * Add new API function serendity_contains() for strpos iterations
 
   * Fix file and filedir renaming actions for the thumbnail suffix name,
