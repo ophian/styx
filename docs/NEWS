@@ -1,6 +1,10 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix file and filedir renaming actions for the thumbnail suffix name,
+    to keep a previous set suffix in case the global configs thumbSuffix
+    name has changed.
+
   * Removed temporary added symbol_sanitize(), since the UTF8MB4
     migration is a success.
 
