@@ -3544,7 +3544,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     printf(MEDIA_DIRECTORY_MOVED, $newDir);
     echo "</span>\n";
 
-    // hook into staticpage for the renaming regex replacements
+    // hook into staticpage for the renaming regex replacements (no need to special care about thumb name, since this is simple dir renaming!)
     $renameValues = array(array(
         'from'    => null,
         'to'      => null,
@@ -3646,6 +3646,9 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             return false;
         }
 
+        // we need to KEEP the old files thumbnail_name, for the case the global serendipity thumbSuffix has changed! A general conversion need to be done somewhere else.
+        $fileThumbSuffix = !empty($file['thumbnail_name']) ? $file['thumbnail_name'] : $serendipity['thumbSuffix'];
+
         // Case re-name event, keeping a possible moved directory name for a single file
         if ($oldDir === null) {
             // Move the origin file
@@ -3660,7 +3663,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             $renameValues = array(array(
                 'from'    => $oldfile,
                 'to'      => $newfile,
-                'thumb'   => $serendipity['thumbSuffix'],
+                'thumb'   => $fileThumbSuffix,
                 'fthumb'  => $file['thumbnail_name'],
                 'oldDir'  => $oldDir,
                 'newDir'  => $newDir,
@@ -3699,7 +3702,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             $renameValues = array(array(
                 'from'    => $oldfile,
                 'to'      => $newfile,
-                'thumb'   => $serendipity['thumbSuffix'],
+                'thumb'   => $fileThumbSuffix,
                 'fthumb'  => $file['thumbnail_name'],
                 'oldDir'  => $oldDir,
                 'newDir'  => $newDir,
@@ -3802,11 +3805,14 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
     $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
 
+    // we need to KEEP the old files thumbnail_name (for the staticpage hook only in this case), for the case the global serendipity thumbSuffix has changed! A general conversion need to be done somewhere else.
+    $fileThumbSuffix = !empty($_file['thumbnail_name']) ? $_file['thumbnail_name'] : $serendipity['thumbSuffix'];
+
     // hook into staticpage for the renaming regex replacements
     $renameValues = array(array(
         'from'    => $oldfile,
         'to'      => $newfile,
-        'thumb'   => $serendipity['thumbSuffix'],
+        'thumb'   => $fileThumbSuffix,
         'fthumb'  => $_file['thumbnail_name'],
         'oldDir'  => $oldDir,
         'newDir'  => $newDir,
