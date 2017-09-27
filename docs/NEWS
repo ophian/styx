@@ -1,4 +1,4 @@
-Version ()
+Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
   * Fix serendipity_fetchImages() list for changed/multi thumbSuffixes
