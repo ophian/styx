@@ -190,6 +190,21 @@ function serendipity_request_url($uri, $method = 'GET', $contenttype = null, $da
 }
 
 /**
+ * Serendipity strpos mapper to check flat arrays
+ *
+ * @access public
+ * @param   string   The haystack
+ * @param   array    The needle
+ * @return  boolean
+ */
+function serendipity_contains($str, array $arr) {
+    foreach($arr AS $a) {
+        if (false !== strpos($str, $a)) return true;
+    }
+    return false;
+}
+
+/**
  * Serendipity strpos iteration mapper to also check needled arrays
  *
  * @access public
