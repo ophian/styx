@@ -82,6 +82,16 @@
                         <label for="deletethumbs">{$CONST.SYNC_OPTION_DELETETHUMBS|sprintf:$thumbsuffix}</label>
                     </div>
 
+                    <div class="form_radio">
+                        <input id="convertthumbs" name="serendipity[convertThumbs]" type="radio" value="yes">
+                        <label for="convertthumbs">{$CONST.SYNC_OPTION_CONVERTTHUMBS}</label>
+                        <button class="toggle_info button_link" type="button" data-href="#iconvert_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                    </div>
+
+                    <div id="iconvert_info" class="comment_status additional_info">
+                        <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.SYNC_OPTION_CONVERTTHUMBS_INFO|sprintf:$thumbsuffix}
+                    </div>
+
                     <div id="isync_info" class="comment_status additional_info">
                         <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IMAGESYNC_WARNING|replace:'\\n':'<br>'}
                     </div>
