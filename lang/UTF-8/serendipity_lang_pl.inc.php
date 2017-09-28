@@ -883,7 +883,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MEDIA_TARGET_BLANK', 'Osobne okno (via target=_blank)');
 
 @define('MEDIA_DYN_RESIZE', 'Zezwalać na dynamiczną zmianę rozmiaru?');
-@define('MEDIA_DYN_RESIZE_DESC', 'Jeśli włączone, moduł obsługi mediów może zwracac obrazki w dowolnej żądanej wielkości podawanej przez GET. Rezultaty zmian są buforowane i mogą spowodować spory rozrost bazy plików jeśli będzie ta opcja wykorzystywana intensywnie.');
+@define('MEDIA_DYN_RESIZE_DESC', 'Jeśli włączone, moduł obsługi mediów może zwracac obrazki w dowolnej żądanej wielkości podawanej przez GET. Rezultaty zmian są buforowane i mogą spowodować spory rozrost bazy plików jeśli będzie ta opcja wykorzystywana intensywnie.'); //check translation
 
 @define('MEDIA_DIRECTORY_MOVED', 'Katalog i pliki zostały poprawnie przeniesione do %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Katalog i pliki nie mogły być przeniesione do %s!');

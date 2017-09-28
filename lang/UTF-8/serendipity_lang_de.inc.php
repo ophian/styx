@@ -882,7 +882,7 @@
 @define('MEDIA_TARGET_BLANK', 'Popup-Fenster (via target=_blank)');
 
 @define('MEDIA_DYN_RESIZE', 'Dynamische Bildgrößenanpassung erlauben?');
-@define('MEDIA_DYN_RESIZE_DESC', 'Falls aktiviert, kann die Medienauswahl ein Bild in beliebigen Größen zurückliefern, indem spezielle GET-Variablen übermittelt werden. Die Ergebnisse werden gecached und können daher möglicherweise viel Speicherplatz beanspruchen.');
+@define('MEDIA_DYN_RESIZE_DESC', 'Falls aktiviert, kann die Datei serendipity_admin_image_selector.php ein Bild in beliebigen Größen zurückliefern, indem spezielle GET-Variablen übermittelt werden. Die Ergebnisse werden gecached und können daher möglicherweise viel Speicherplatz beanspruchen.');
 @define('MEDIA_DIRECTORY_MOVED', 'Verzeichnis und Dateien wurden erfolgreich nach %s verschoben');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Verzeichnis und Dateien konnten nicht nach %s verschoben werden!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'Bei Nicht-MySQL Datenbanken ist es nicht möglich, jeden Blogeintrag durchzugehen und das alte Verzeichnis durch das neue zu ersetzen. Daher müssen Sie manuell bestehende Einträge überarbeiten und die neuen URLs eintragen. Sie können natürlich auch das Verzeichnis an seinen alten Platz zurückschieben, falls dies zu viel Aufwand bedeuten würde.');

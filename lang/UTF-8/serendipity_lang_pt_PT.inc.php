@@ -893,7 +893,7 @@
 @define('MEDIA_TARGET_BLANK', 'Janela de Popup (via target=_blank)');
 
 @define('MEDIA_DYN_RESIZE', 'Permitir redimencionamento dinãmico de imagens?');
-@define('MEDIA_DYN_RESIZE_DESC', 'Se activado, o seleccionador de media pode retornar as imagens em qualquer tamanho pretendido via a variante GET. Os resultados são colocados em cache, podendo criar um grande conjunto de ficheiros se fizer uso extensivo desta possibilidade.');
+@define('MEDIA_DYN_RESIZE_DESC', 'Se activado, o serendipity_admin_image_selector.php file pode retornar as imagens em qualquer tamanho pretendido via a variante GET. Os resultados são colocados em cache, podendo criar um grande conjunto de ficheiros se fizer uso extensivo desta possibilidade.');
 
 @define('MEDIA_DIRECTORY_MOVED', 'O Directório tal como os ficheiros foram movidos com sucesso para %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'O Directório tal como os ficheiros não puderam ser movidos para %s!');

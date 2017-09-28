@@ -886,7 +886,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MEDIA_TARGET_BLANK', 'Popup window (via target=_blank)');
 
 @define('MEDIA_DYN_RESIZE', 'Allow dynamic image resizing?');
-@define('MEDIA_DYN_RESIZE_DESC', 'If enabled, the media selector can return images in any requested size via a GET variable. The results are cached, and thus can create a large filebase if you make intensive use of it.');
+@define('MEDIA_DYN_RESIZE_DESC', 'If enabled, the serendipity_admin_image_selector.php file can return images in any requested size via a GET variable. The results are cached, and thus can create a large filebase if you make intensive use of it.');
 
 @define('MEDIA_DIRECTORY_MOVED', 'Directory and files were successfully moved to %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Directory and files could not be moved to %s!');

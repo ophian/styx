@@ -887,7 +887,7 @@
 @define('MEDIA_TARGET_BLANK', '팝업 창 (target=_blank 사용)');
 
 @define('MEDIA_DYN_RESIZE', '동적 그림 크기 변환을 사용하기');
-@define('MEDIA_DYN_RESIZE_DESC', '사용할 경우 미디어 선택 화면이 GET 변수를 통해 요청한 크기에 맞도록 그림을 불러올 수 있습니다. 생성된 파일은 캐시에 저장되므로 자주 사용할 경우 용량을 많이 차지할 수 있습니다.');
+@define('MEDIA_DYN_RESIZE_DESC', '사용할 경우 미디어 선택 화면이 GET 변수를 통해 요청한 크기에 맞도록 그림을 불러올 수 있습니다. 생성된 파일은 캐시에 저장되므로 자주 사용할 경우 용량을 많이 차지할 수 있습니다.'); //check translation
 
 @define('MEDIA_DIRECTORY_MOVED', '디렉토리와 파일이 %s(으)로 이동하는데 성공했습니다');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', '디렉토리와 파일을 %s(으)로 이동할 수 없었습니다!');

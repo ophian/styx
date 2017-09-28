@@ -885,7 +885,7 @@
 @define('MEDIA_TARGET_BLANK', '弹出窗口 (使用 target=_blank)');
 
 @define('MEDIA_DYN_RESIZE', '允许改变图片大小');
-@define('MEDIA_DYN_RESIZE_DESC', '如果开启，媒体的选择视窗里显示依照 GET 参数所设定的图片大小。图片会保存于缓存内，所以常使用会占用主机的空间。');
+@define('MEDIA_DYN_RESIZE_DESC', '如果开启，媒体的选择视窗里显示依照 GET 参数所设定的图片大小。图片会保存于缓存内，所以常使用会占用主机的空间。'); //check translation
 
 @define('MEDIA_DIRECTORY_MOVED', 'Directory and files were successfully moved to %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Directory and files could not be moved to %s!');

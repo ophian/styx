@@ -884,7 +884,7 @@
 @define('MEDIA_TARGET_BLANK', 'Pop-upvenster (met target=_blank)');
 
 @define('MEDIA_DYN_RESIZE', 'Dynamische verandering van afbeeldingsgrootte toelaten?');
-@define('MEDIA_DYN_RESIZE_DESC', 'Als deze optie aan staat, kan de mediaselector afbeeldingen van willekeurige grootte teruggeven met behulp van een GET-variabele. De resultaten worden bijgehouden, wat veel opslagruimte kan gebruiken als het veel gebruikt wordt.');
+@define('MEDIA_DYN_RESIZE_DESC', 'Als deze optie aan staat, kan de serendipity_admin_image_selector.php file afbeeldingen van willekeurige grootte teruggeven met behulp van een GET-variabele. De resultaten worden bijgehouden, wat veel opslagruimte kan gebruiken als het veel gebruikt wordt.');
 
 @define('MEDIA_DIRECTORY_MOVED', 'Map en bestanden werden succesvol verplaatst naar %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Map en bestanden konden niet verplaatst worden naar "%s"!');

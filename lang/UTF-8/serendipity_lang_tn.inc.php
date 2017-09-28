@@ -885,7 +885,7 @@ $i18n_unknown = 'tw';
 @define('MEDIA_TARGET_BLANK', '彈出視窗 (使用 target=_blank)');
 
 @define('MEDIA_DYN_RESIZE', '允許改變圖片大小？');
-@define('MEDIA_DYN_RESIZE_DESC', '如果開啟，媒體的選擇視窗裡會顯示依照 GET 變數所設定的圖片大小。圖片會儲存於快取的記憶體內，所以常使用會佔用主機的空間。');
+@define('MEDIA_DYN_RESIZE_DESC', '如果開啟，媒體的選擇視窗裡會顯示依照 GET 變數所設定的圖片大小。圖片會儲存於快取的記憶體內，所以常使用會佔用主機的空間。'); //check translation
 
 @define('MEDIA_DIRECTORY_MOVED', '目錄和檔案已成功移動到 %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', '目錄和檔案無法移動到 %s！');

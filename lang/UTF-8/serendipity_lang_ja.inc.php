@@ -886,7 +886,7 @@
 @define('MEDIA_TARGET_BLANK', 'ポップアップ ウィンドウ (「target=_blank」による)');
 
 @define('MEDIA_DYN_RESIZE', '動的な画像のサイズ変更を許可しますか?');
-@define('MEDIA_DYN_RESIZE_DESC', 'If enabled, the media selector can return images in any requested size via a GET variable. The results are cached, and thus can create a large filebase if you make intensive use of it.');
+@define('MEDIA_DYN_RESIZE_DESC', 'If enabled, the serendipity_admin_image_selector.php file can return images in any requested size via a GET variable. The results are cached, and thus can create a large filebase if you make intensive use of it.');
 
 @define('MEDIA_DIRECTORY_MOVED', 'ディレクトリーとファイルを「%s」に移動することに成功しました。');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'ディレクトリーとファイルを「%s」に移動できませんでした!');

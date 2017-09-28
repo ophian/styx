@@ -883,7 +883,7 @@
 @define('MEDIA_TARGET_BLANK', 'Popup window (via target=_blank)');
 
 @define('MEDIA_DYN_RESIZE', 'Tillad dynamiske billedstørrelser?');
-@define('MEDIA_DYN_RESIZE_DESC', 'Hvis aktiveret, kan medievælgeren returnere billeder i vilkårlige størrelser, styret af en GET variabel, billederne caches og kan derfor generere mange filer.');
+@define('MEDIA_DYN_RESIZE_DESC', 'Hvis aktiveret, kan serendipity_admin_image_selector.php file returnere billeder i vilkårlige størrelser, styret af en GET variabel, billederne caches og kan derfor generere mange filer.');
 
 @define('MEDIA_DIRECTORY_MOVED', 'Bibliotek og filer blev flyttet til %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Bibliotek og filer kunne ikke flyttes til %s!');

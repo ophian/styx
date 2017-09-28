@@ -883,7 +883,7 @@
 @define('MEDIA_TARGET_BLANK', 'Felbukkanó ablak (target=_blank -el)');
 
 @define('MEDIA_DYN_RESIZE', 'Engedélyezzük a képek automatikus átméretezését?');
-@define('MEDIA_DYN_RESIZE_DESC', 'Ha ezt engedélyezed, a médiaválasztó megadott méretûre konvertálj a hivatkozozz képeket. Az eredmények eltárolásra kerülnek. Így ha ezt sûrûn használod, sok fájlod összegyûlhet.');
+@define('MEDIA_DYN_RESIZE_DESC', 'Ha ezt engedélyezed, a serendipity_admin_image_selector.php file megadott méretûre konvertálj a hivatkozozz képeket. Az eredmények eltárolásra kerülnek. Így ha ezt sûrûn használod, sok fájlod összegyûlhet.');
 
 @define('MEDIA_DIRECTORY_MOVED', 'A könyvtár és a fájlok sikeresen átkerültek ide: %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'A könyvtárt és a fájlokat nem sikerült átmozgatni ide: %s!');

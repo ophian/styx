@@ -901,7 +901,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('MEDIA_ENTRY', 'Entrada aislada');
 @define('MEDIA_TARGET_BLANK', 'Ventana emergente (a través de target=_blank)');
 @define('MEDIA_DYN_RESIZE', '¿Permitir redimensionar dinámicamente las imágenes?');
-@define('MEDIA_DYN_RESIZE_DESC', 'Si lo activas, el selector de medios puede regresar imágenes en cualquier tamaño solicitado a través de una variable GET. Los resultados se colocan en la caché, de esta manera puedes crear una base de ficheros muy grande si es que haces un uso intensivo de esta característica.');
+@define('MEDIA_DYN_RESIZE_DESC', 'Si lo activas, el serendipity_admin_image_selector.php file puede regresar imágenes en cualquier tamaño solicitado a través de una variable GET. Los resultados se colocan en la caché, de esta manera puedes crear una base de ficheros muy grande si es que haces un uso intensivo de esta característica.');
 @define('MEDIA_DIRECTORY_MOVED', 'El directorio y los ficheros fueron exitosamente movidos a %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', '¡El directorio y los ficheros no pudieron ser movidos a %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'En bases de datos distintas a MySQL, iterar sobre cada artículo para reemplazar el URL del directorio antiguo con la nueva dirección no es posible. Necesitarás que arreglar tus entradas de manera manual. También puedes regresar tu directorio a su ubicación original si hacer todo aquello te resulta muy incómodo.');

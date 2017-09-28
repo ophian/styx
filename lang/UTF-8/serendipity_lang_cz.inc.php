@@ -913,7 +913,7 @@ $i18n_filename_to = array (
 @define('MEDIA_TARGET_BLANK', 'Popup okno (pomocí target=_blank)');
 
 @define('MEDIA_DYN_RESIZE', 'Povolit dynamickou změnu velikosti obrázků?');
-@define('MEDIA_DYN_RESIZE_DESC', 'Je-li povoleno, může  media selector vracet obrázky v jakékoli požadované velikosti přes proměnnou  GET. Výsledky jsou kešovány, a tak se může vytvořit velký soubor, jestliže to intenzivně používáte.');
+@define('MEDIA_DYN_RESIZE_DESC', 'Je-li povoleno, může serendipity_admin_image_selector.php file vracet obrázky v jakékoli požadované velikosti přes proměnnou  GET. Výsledky jsou kešovány, a tak se může vytvořit velký soubor, jestliže to intenzivně používáte.');
 
 @define('MEDIA_DIRECTORY_MOVED', 'Adresáře a soubory byly úspěšně přesunuty do %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', 'Adresáře a soubory nemohly být přesunuty do  %s!');
