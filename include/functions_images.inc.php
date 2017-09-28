@@ -3454,7 +3454,7 @@ function serendipity_checkMediaSize($file) {
 }
 
 /**
- * Rename a media directory, update the path and apply ACL restrictions in the database and forward to staticpages.
+ * RENAME a media directory, update the path and apply ACL restrictions in the database and forward to staticpages.
  * ACL are Access Control Lists. In this case they indicate which read/write permissions a directory has for a specific usergroup.
  *
  * Accessed for existing directory edits by 'directoryEdit'
@@ -3574,7 +3574,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
 }
 
 /**
- * Rename a real media file name [not a hotlinked, which is DB referenced only] and forward to staticpages.
+ * RENAME a real media file name [not a hotlinked, which is DB referenced only] and forward to staticpages.
  * @see SPLIT serendipity_moveMediaDirectory() part 2
  *
  * @access public
@@ -3773,7 +3773,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
 }
 
 /**
- * Rename a real media dirfilename [not a hotlinked, which is DB referenced only] and forward to staticpages.
+ * RENAME a real media dirfilename [not a hotlinked, which is DB referenced only] and forward to staticpages.
  * Used solely by serendipity_parsePropertyForm() base_properties, when changing the file selected path via mediaproperties form.
  *
  * @see SPLIT serendipity_moveMediaDirectory() part 3
@@ -3878,7 +3878,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
 }
 
 /**
- * Rename a MEDIA dir or filename in existing entries
+ * RENAME a MEDIA dir or filename in existing entries
  * @see SPLIT serendipity_moveMediaDirectory() part 4
  *
  * @access public
