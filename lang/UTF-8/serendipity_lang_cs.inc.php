@@ -236,7 +236,7 @@ $i18n_filename_to = array (
 @define('SYNC_OPTION_LEGEND', 'Volby synchronizace n?hled? obr?zk?');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Zachovat v?echny existuj?c? n?hledy');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Zachovat existuj?c? n?hledy pouze pokud maj? spr?vnou velikost');
-@define('SYNC_OPTION_DELETETHUMBS', 'Znovu vytvo?it v?echny n?hledy');
+@define('SYNC_OPTION_DELETETHUMBS', 'Znovu vytvo?it (<em>*.%s</em>) v?echny n?hledy');
 @define('SYNC_DONE', 'Hotovo (synchronizov?no %s obr?zk?).');
 @define('FILE_NOT_FOUND', 'Nelze nal?zt soubor s n?zvem <b>%s</b>, mo?n? je opravdu vymaz?n?');
 @define('ABORT_NOW', 'Zru?it');

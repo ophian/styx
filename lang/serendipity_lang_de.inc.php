@@ -257,7 +257,7 @@
 @define('SYNC_OPTION_LEGEND', 'Optionen für die Erzeugung der Vorschaubilder');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Behalte alle vorhandenen Vorschaubilder');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Behalte vorhandene Vorschaubilder nur, wenn diese die richtige Größe haben');
-@define('SYNC_OPTION_DELETETHUMBS', 'Erneuere alle Vorschaubilder');
+@define('SYNC_OPTION_DELETETHUMBS', 'Erneuere alle (<em>*.%s</em>) Vorschaubilder');
 @define('SYNC_DONE', 'Fertig (%s Bilder synchronisiert).');
 @define('SORT_ORDER', 'Sortierung');
 @define('SORT_ORDER_NAME', 'Dateiname');

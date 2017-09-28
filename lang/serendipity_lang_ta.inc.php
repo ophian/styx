@@ -205,7 +205,7 @@
 @define('SYNC_OPTION_LEGEND', 'Thumbnail Synchronization Options');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Keep all existing thumbnails');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
-@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all thumbnails');
+@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_DONE', '%s வலைபொருள் இருப்பிடங்கள் உறுதிப்படுத்தப்படுத்தப்பட்டுவிட்டன.');
 @define('FILE_NOT_FOUND', 'நீங்கள் தேடிய கணிபொறிக்ககோப்பு <b>%s</b> காணவில்லை. ஒருவேளை அது முன்பே நீக்கப்பட்டுவிட்டதோ?');
 @define('ABORT_NOW', 'இக்கணமே நிறுத்து!');

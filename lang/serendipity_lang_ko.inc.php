@@ -207,7 +207,7 @@
 @define('SYNC_OPTION_LEGEND', '작은 그림 동기화 선택사항');
 @define('SYNC_OPTION_KEEPTHUMBS', '기존의 작은 그림 모두 유지');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', '알맞은 크기일 경우일 때만 기존의 작은 그림 유지');
-@define('SYNC_OPTION_DELETETHUMBS', '작은 그림 모두 재생성');
+@define('SYNC_OPTION_DELETETHUMBS', '작은 그림 모두 (<em>*.%s</em>) 재생성');
 @define('SYNC_DONE', '완료 (%s개의 그림을 동기화함).');
 @define('FILE_NOT_FOUND', '<b>%s</b>(이)라는 이름의 파일을 찾지 못했습니다. 이미 삭제되었을 수 있습니다.');
 @define('ABORT_NOW', '지금 중지');

@@ -187,7 +187,7 @@
 @define('SYNC_OPTION_LEGEND', 'Thumbnail Synchronization Options');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Keep all existing thumbnails');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
-@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all thumbnails');
+@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_DONE', 'Pronto (%s imagens sincronizadas).');
 @define('DELETE_IMAGE_FAIL' , 'Não foi possível excluir a imagem <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Excluir a miniatura da imagem intitulada <b>%s</b>');

@@ -207,7 +207,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SYNC_OPTION_LEGEND', 'Thumbnail Synchronization Options');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Keep all existing thumbnails');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
-@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all thumbnails');
+@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_DONE', 'Zrobione (%s obrazków zsynchronizowanych).');
 @define('FILE_NOT_FOUND', 'Nie mo¿na odnalze¼æ pliku <b>%s</b>. Byæ mo¿e zosta³ ju¿ usuniêty?');
 @define('ABORT_NOW', 'Przerwij teraz');

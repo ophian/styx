@@ -205,7 +205,7 @@
 @define('SYNC_OPTION_LEGEND', 'Thumbnail Synchronization Options');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Keep all existing thumbnails');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
-@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all thumbnails');
+@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_DONE', 'Búin (Samhæfði %s myndir).');
 @define('FILE_NOT_FOUND', 'Fann ekki skrána <b>%s</b>, kannski er þegar búið að eyða henni?');
 @define('ABORT_NOW', 'Hætta við núna');

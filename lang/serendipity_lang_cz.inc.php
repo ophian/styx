@@ -237,7 +237,7 @@ $i18n_filename_to = array (
 @define('SYNC_OPTION_LEGEND', 'Volby synchronizace náhledù obrázkù');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Zachovat v¹echny existující náhledy');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Zachovat existující náhledy pouze pokud mají správnou velikost');
-@define('SYNC_OPTION_DELETETHUMBS', 'Znovu vytvoøit v¹echny náhledy');
+@define('SYNC_OPTION_DELETETHUMBS', 'Znovu vytvoøit (<em>*.%s</em>) v¹echny náhledy');
 @define('SYNC_DONE', 'Hotovo (synchronizováno %s obrázkù).');
 @define('FILE_NOT_FOUND', 'Nelze nalézt soubor s názvem <b>%s</b>, mo¾ná je opravdu vymazán?');
 @define('ABORT_NOW', 'Zru¹it');

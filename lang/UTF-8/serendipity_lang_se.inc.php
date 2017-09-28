@@ -205,7 +205,7 @@
 @define('SYNC_OPTION_LEGEND', 'Thumbnail Synchronization Options');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Keep all existing thumbnails');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
-@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all thumbnails');
+@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_DONE', 'Klar (synkroniserade %s bilder).');
 @define('FILE_NOT_FOUND', 'Kunde inte hitta filen <b>%s</b>, kanske är den redan borttagen?');
 @define('ABORT_NOW', 'Avbryt nu');

@@ -190,7 +190,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SYNC_OPTION_LEGEND', 'Опции за синхронизация на миниатюрите');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Запазване на всички съществуващи миниатюри');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Запазване на съществуващите миниатюри, ако са с коректни размери');
-@define('SYNC_OPTION_DELETETHUMBS', 'Регенериране на всички миниатюри');
+@define('SYNC_OPTION_DELETETHUMBS', 'Регенериране на (<em>*.%s</em>) всички миниатюри');
 @define('SYNC_DONE', 'Готово (синхронизирани са %s изображения).');
 @define('DELETE_FILE_FAIL' , 'Не може да бъде изтрит файла <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Изтрита е миниатюрата, озаглавена <b>%s</b>');

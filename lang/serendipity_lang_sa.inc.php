@@ -207,7 +207,7 @@
 @define('SYNC_OPTION_LEGEND', 'Thumbnail Synchronization Options');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Keep all existing thumbnails');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
-@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all thumbnails');
+@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_DONE', 'Done (÷»ÿ %s «·’Ê—).');
 @define('FILE_NOT_FOUND', '·„ Ì „ ≈ÌÃ«œ «·„·› <b>%s</b>, „‰ «·„„ﬂ‰ √‰ ÌﬂÊ‰ ﬁœ Õ–›ø');
 @define('ABORT_NOW', ' Êﬁ› «·¬‰');

@@ -206,7 +206,7 @@ $i18n_unknown = 'tw';
 @define('SYNC_OPTION_LEGEND', 'Thumbnail Synchronization Options');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Keep all existing thumbnails');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
-@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all thumbnails');
+@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_DONE', '完成 (同步了 %s 個圖片).');
 @define('FILE_NOT_FOUND', '找不到檔案名稱 <b>%s</b>, 也許已經被刪除了?');
 @define('ABORT_NOW', '放棄');

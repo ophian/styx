@@ -206,7 +206,7 @@
 @define('SYNC_OPTION_LEGEND', 'Thumbnail Synchronization Options');
 @define('SYNC_OPTION_KEEPTHUMBS', 'Keep all existing thumbnails');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
-@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all thumbnails');
+@define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_DONE', 'انجام شد (تعداد %s تصویر هماهنگ شد).');
 @define('FILE_NOT_FOUND', 'توانایی تشخیص محل تصویر <b>%s</b> نیست، احتمالا قبلا حذف شده است؟');
 @define('ABORT_NOW', 'بازگشت');
