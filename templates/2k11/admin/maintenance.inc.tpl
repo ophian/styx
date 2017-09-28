@@ -79,7 +79,7 @@
 
                     <div class="form_radio">
                         <input id="deletethumbs" name="serendipity[deleteThumbs]" type="radio" value="yes">
-                        <label for="deletethumbs">{$CONST.SYNC_OPTION_DELETETHUMBS}</label>
+                        <label for="deletethumbs">{$CONST.SYNC_OPTION_DELETETHUMBS|sprintf:$thumbsuffix}</label>
                     </div>
 
                     <div id="isync_info" class="comment_status additional_info">

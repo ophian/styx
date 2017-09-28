@@ -17,6 +17,7 @@ $data['dbUtf8mb4']           = $serendipity['dbUtf8mb4'];
 $data['dbUtf8mb4_converted'] = $serendipity['dbUtf8mb4_converted'];
 $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
+$data['thumbsuffix']         = $serendipity['thumbSuffix'];
 
 switch($serendipity['GET']['adminAction']) {
     case 'integrity':
