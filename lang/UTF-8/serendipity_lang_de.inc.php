@@ -258,6 +258,8 @@
 @define('SYNC_OPTION_KEEPTHUMBS', 'Behalte alle vorhandenen Vorschaubilder');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Behalte vorhandene Vorschaubilder nur, wenn diese die richtige Größe haben');
 @define('SYNC_OPTION_DELETETHUMBS', 'Erneuere alle (<em>*.%s</em>) Vorschaubilder');
+@define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
+@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'This converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. It does not matter keeping them as is, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Fertig (%s Bilder synchronisiert).');
 @define('SORT_ORDER', 'Sortierung');
 @define('SORT_ORDER_NAME', 'Dateiname');

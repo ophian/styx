@@ -237,6 +237,8 @@ $i18n_filename_to = array (
 @define('SYNC_OPTION_KEEPTHUMBS', 'Zachovat v?echny existuj?c? n?hledy');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Zachovat existuj?c? n?hledy pouze pokud maj? spr?vnou velikost');
 @define('SYNC_OPTION_DELETETHUMBS', 'Znovu vytvo?it (<em>*.%s</em>) v?echny n?hledy');
+@define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
+@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'This converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. It does not matter keeping them as is, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Hotovo (synchronizov?no %s obr?zk?).');
 @define('FILE_NOT_FOUND', 'Nelze nal?zt soubor s n?zvem <b>%s</b>, mo?n? je opravdu vymaz?n?');
 @define('ABORT_NOW', 'Zru?it');

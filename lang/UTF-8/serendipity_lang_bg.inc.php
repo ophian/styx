@@ -191,6 +191,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SYNC_OPTION_KEEPTHUMBS', 'Запазване на всички съществуващи миниатюри');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Запазване на съществуващите миниатюри, ако са с коректни размери');
 @define('SYNC_OPTION_DELETETHUMBS', 'Регенериране на (<em>*.%s</em>) всички миниатюри');
+@define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
+@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'This converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. It does not matter keeping them as is, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Готово (синхронизирани са %s изображения).');
 @define('DELETE_FILE_FAIL' , 'Не може да бъде изтрит файла <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Изтрита е миниатюрата, озаглавена <b>%s</b>');

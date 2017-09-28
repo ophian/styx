@@ -206,6 +206,8 @@
 @define('SYNC_OPTION_KEEPTHUMBS', 'すべての既存サムネイルを維持する');
 @define('SYNC_OPTION_SIZECHECKTHUMBS', '正しい大きさのときのみ既存サムネイルを維持する');
 @define('SYNC_OPTION_DELETETHUMBS', 'すべてのサムネイルを再生成する (<em>*.%s</em>)');
+@define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
+@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'This converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. It does not matter keeping them as is, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', '終了しました (%s 個の画像を同期しました)');
 @define('FILE_NOT_FOUND', '<b>%s</b> と言う名前のファイルは既に削除されたため、恐らく見つけることができません。');
 @define('ABORT_NOW', '今中断する');
