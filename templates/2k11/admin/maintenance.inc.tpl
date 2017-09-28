@@ -64,6 +64,7 @@
         <form method="POST" action="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=doSync">
             <fieldset>
                 <span class="wrap_legend"><legend>{$CONST.SYNC_OPTION_LEGEND}</legend></span>
+                <button class="toggle_info button_link" type="button" data-href="#isync_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
 
                 <div class="clearfix">
                     <div class="form_radio">
@@ -79,7 +80,6 @@
                     <div class="form_radio">
                         <input id="deletethumbs" name="serendipity[deleteThumbs]" type="radio" value="yes">
                         <label for="deletethumbs">{$CONST.SYNC_OPTION_DELETETHUMBS}</label>
-                        <button class="toggle_info button_link" type="button" data-href="#isync_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
                     </div>
 
                     <div id="isync_info" class="comment_status additional_info">

@@ -617,7 +617,9 @@ form > button,
 #maintenance_thumbs fieldset > span:first-of-type > legend {
     margin-top: 1em;
 }
-
+#maintenance_thumbs .wrap_legend {
+    display: inline-table;
+}
 #maintenance > #maintenance_utf8mb4.mtask_long::before {
     clear: both;
 }
