@@ -93,7 +93,7 @@
                     </div>
 
                     <div id="isync_info" class="comment_status additional_info">
-                        <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IMAGESYNC_WARNING|replace:'\\n':'<br>'}
+                        <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IMAGESYNC_WARNING}
                     </div>
                 </div>
             </fieldset>
