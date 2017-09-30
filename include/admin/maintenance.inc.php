@@ -18,6 +18,7 @@ $data['dbUtf8mb4_converted'] = $serendipity['dbUtf8mb4_converted'];
 $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
+$data['dbnotmysql']          = ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true;
 
 switch($serendipity['GET']['adminAction']) {
     case 'integrity':
