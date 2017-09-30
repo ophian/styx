@@ -55,7 +55,7 @@
 @define('NEW_ENTRY', 'Însemnare nouă');
 @define('EDIT_ENTRIES', 'Modifică însemnări');
 @define('CATEGORIES', 'Categorii');
-@define('IMAGESYNC_WARNING', "ATENŢIE:\\nPoate să dureze mult dacă sunt multe imagini fără miniaturi.");
+@define('IMAGESYNC_WARNING', 'ATENŢIE:<br>Poate să dureze mult dacă sunt multe imagini fără miniaturi.');
 @define('CREATE_THUMBS', 'Refacere Miniaturi');
 @define('MANAGE_IMAGES', 'Administrare Imagini');
 @define('NAME', 'Nume');

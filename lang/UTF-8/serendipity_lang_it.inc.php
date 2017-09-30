@@ -56,7 +56,7 @@
 @define('NEW_ENTRY', 'Nuova notizia');
 @define('EDIT_ENTRIES', 'Modifica notizie');
 @define('CATEGORIES', 'Categorie');
-@define('IMAGESYNC_WARNING', "ATTENZIONE:\\nPotrebbe essere necessario molto tempo se molte immagini non hanno le miniature.");
+@define('IMAGESYNC_WARNING', 'ATTENZIONE:<br>Potrebbe essere necessario molto tempo se molte immagini non hanno le miniature.');
 @define('CREATE_THUMBS', 'Ricostruisci miniature');
 @define('MANAGE_IMAGES', 'Gestione immagini');
 @define('NAME', 'Nome');

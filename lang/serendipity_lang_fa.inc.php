@@ -55,7 +55,7 @@
 @define('NEW_ENTRY', 'ارسال جدید');
 @define('EDIT_ENTRIES', 'تغییر ارسال ها');
 @define('CATEGORIES', 'موضوعات');
-@define('IMAGESYNC_WARNING', "توجه:\nدر صورتی که تعداد عکس هایی که نمونه عکس نداشته باشند زیاد باشد، این عمل طول خواهد کشید.");
+@define('IMAGESYNC_WARNING', 'توجه:<br>در صورتی که تعداد عکس هایی که نمونه عکس نداشته باشند زیاد باشد، این عمل طول خواهد کشید.');
 @define('CREATE_THUMBS', 'دوباره سازی عکس های کوچک');
 @define('MANAGE_IMAGES', 'مدیریت عکس ها');
 @define('NAME', 'نام');

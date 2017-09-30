@@ -53,7 +53,7 @@
 @define('NEW_ENTRY', 'New Entry');
 @define('EDIT_ENTRIES', 'Edit Entries');
 @define('CATEGORIES', 'Categories');
-@define('IMAGESYNC_WARNING', "WARNING:\\nThis may take a long time if there are many images without thumbnails.");
+@define('IMAGESYNC_WARNING', 'WARNING:<br>This may take a long time if there are many images without thumbnails.');
 @define('CREATE_THUMBS', 'Rebuild Thumbs');
 @define('MANAGE_IMAGES', 'Manage Images');
 @define('NAME', 'Name');

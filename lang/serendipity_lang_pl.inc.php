@@ -55,7 +55,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('NEW_ENTRY', 'Nowy wpis');
 @define('EDIT_ENTRIES', 'Edycja wpisów');
 @define('CATEGORIES', 'Kategorie');
-@define('IMAGESYNC_WARNING', "UWAGA:\\nTo mo¿e nieco potrwaæ je¶li jest wiele obrazków bez miniaturek.");
+@define('IMAGESYNC_WARNING', 'UWAGA:<br>To mo¿e nieco potrwaæ je¶li jest wiele obrazków bez miniaturek.');
 @define('CREATE_THUMBS', 'Przebuduj miniatury');
 @define('MANAGE_IMAGES', 'Zarz±dzanie obrazkami');
 @define('NAME', 'Imiê');

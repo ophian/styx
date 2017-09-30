@@ -50,7 +50,7 @@
 @define('NEW_ENTRY', 'Ny artikkel');
 @define('EDIT_ENTRIES', 'Rediger artikler');
 @define('CATEGORIES', 'Kategorier');
-@define('IMAGESYNC_WARNING', "ADVARSEL:\\nDette kan ta lang tid hvis det er mange bilder uten minibilder.");
+@define('IMAGESYNC_WARNING', 'ADVARSEL:<br>Dette kan ta lang tid hvis det er mange bilder uten minibilder.');
 @define('CREATE_THUMBS', 'Lag minibilder på nytt');
 @define('MANAGE_IMAGES', 'Administrer bilder');
 @define('NAME', 'Navn');

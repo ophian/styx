@@ -84,7 +84,7 @@ $i18n_filename_to = array (
 @define('NEW_ENTRY', 'Nov? z?znam');
 @define('EDIT_ENTRIES', 'Editovat z?znamy');
 @define('CATEGORIES', 'Kategorie');
-@define('IMAGESYNC_WARNING', "POZOR:\\nTato akce m??e trvat d?le, pokud m?te mnoho obr?zk? bez n?hled?.");
+@define('IMAGESYNC_WARNING', 'POZOR:<br>Tato akce m??e trvat d?le, pokud m?te mnoho obr?zk? bez n?hled?.');
 @define('CREATE_THUMBS', 'Vytvo?it n?hledy');
 @define('MANAGE_IMAGES', 'Spr?va obr?zk?');
 @define('NAME', 'Jm?no');

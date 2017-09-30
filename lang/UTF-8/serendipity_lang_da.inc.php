@@ -52,7 +52,7 @@
 @define('NEW_ENTRY', 'Ny artikel');
 @define('EDIT_ENTRIES', 'Rediger artikler');
 @define('CATEGORIES', 'Kategorier');
-@define('IMAGESYNC_WARNING', "ADVARSEL:\\nDette kan tage lang tid hvis der er mange billeder uden minibilleder.");
+@define('IMAGESYNC_WARNING', 'ADVARSEL:<br>Dette kan tage lang tid hvis der er mange billeder uden minibilleder.');
 @define('CREATE_THUMBS', 'Genopbyg minibilleder');
 @define('MANAGE_IMAGES', 'Administrer billeder');
 @define('NAME', 'Navn');

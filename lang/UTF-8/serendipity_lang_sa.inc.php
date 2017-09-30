@@ -54,7 +54,7 @@
 @define('NEW_ENTRY', 'أنشاء موضوع جديد');
 @define('EDIT_ENTRIES', 'تحرير المواضيع');
 @define('CATEGORIES', 'أقسام');
-@define('IMAGESYNC_WARNING', "تحذير:\\nيمكن ان تستغرق وقت طويل جداً ان كان هناك صور بدون الصور المصغرة لها");
+@define('IMAGESYNC_WARNING', 'تحذير:<br>يمكن ان تستغرق وقت طويل جداً ان كان هناك صور بدون الصور المصغرة لها');
 @define('CREATE_THUMBS', 'أعد بناء الصور المصغرة');
 @define('MANAGE_IMAGES', 'ادارة الصور');
 @define('NAME', 'الأسم');

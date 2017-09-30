@@ -54,7 +54,7 @@
 @define('NEW_ENTRY', 'Ny artikel');
 @define('EDIT_ENTRIES', 'Redigera artiklar');
 @define('CATEGORIES', 'Kategorier');
-@define('IMAGESYNC_WARNING', "VARNING:\\nDetta kan ta lång tid om det är många bilder utan miniatyrer.");
+@define('IMAGESYNC_WARNING', 'VARNING:<br>Detta kan ta lång tid om det är många bilder utan miniatyrer.');
 @define('CREATE_THUMBS', 'Bygg om miniatyrer');
 @define('MANAGE_IMAGES', 'Hantera bilder');
 @define('NAME', 'Namn');

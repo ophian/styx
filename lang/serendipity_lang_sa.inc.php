@@ -54,7 +54,7 @@
 @define('NEW_ENTRY', 'УфдЧС уцжцк ЬЯэЯ');
 @define('EDIT_ENTRIES', 'ЪЭбэб ЧсуцЧжэк');
 @define('CATEGORIES', 'УогЧу');
-@define('IMAGESYNC_WARNING', "ЪЭаэб:\\nэупф Чф ЪгЪлбо цоЪ ицэс ЬЯЧ№ Чф пЧф хфЧп ецб ШЯцф Чсецб ЧсуелбЩ схЧ");
+@define('IMAGESYNC_WARNING', 'ЪЭаэб:<br>эупф Чф ЪгЪлбо цоЪ ицэс ЬЯЧ№ Чф пЧф хфЧп ецб ШЯцф Чсецб ЧсуелбЩ схЧ');
 @define('CREATE_THUMBS', 'УкЯ ШфЧС Чсецб ЧсуелбЩ');
 @define('MANAGE_IMAGES', 'ЧЯЧбЩ Чсецб');
 @define('NAME', 'ЧсУгу');

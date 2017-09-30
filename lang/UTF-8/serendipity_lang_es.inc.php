@@ -60,7 +60,7 @@
 @define('NEW_ENTRY', 'Nueva entrada');
 @define('EDIT_ENTRIES', 'Editar entradas');
 @define('CATEGORIES', 'Categorías');
-@define('IMAGESYNC_WARNING', "ATENCIóN:\\nPuede tardar si hay muchas imágenes que no tienen miniatura.");
+@define('IMAGESYNC_WARNING', 'ATENCIóN:<br>Puede tardar si hay muchas imágenes que no tienen miniatura.');
 @define('CREATE_THUMBS', 'Crear las miniaturas');
 @define('MANAGE_IMAGES', 'Gestión de imágenes');
 @define('NAME', 'Nombre');

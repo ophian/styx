@@ -57,7 +57,7 @@
 @define('NEW_ENTRY', 'Poster un billet');
 @define('EDIT_ENTRIES', 'Éditer les billets');
 @define('CATEGORIES', 'Catégories');
-@define('IMAGESYNC_WARNING', "ATTENTION:\\nCeci peut prendre du temps s\'il y beaucoup d\'images sans miniatures.");
+@define('IMAGESYNC_WARNING', 'ATTENTION:<br>Ceci peut prendre du temps s\'il y beaucoup d\'images sans miniatures.');
 @define('CREATE_THUMBS', 'Recréer les miniatures');
 @define('MANAGE_IMAGES', 'Configurer les images');
 @define('NAME', 'Nom');
