@@ -377,27 +377,30 @@ function serendipity_deleteImage($id) {
  * Open a directory and fetch all existing media items
  *
  * @access public
- * @param   boolean     deprecated
- * @param   int         deprecated
- * @param   int         deprecated
+ * @param   boolean     Reverse the exclude type listing
  * @param   array       Array list of found items
  * @param   string      sub-directory to investigate [recursive use]
  * @return  array       List of media items without Thumbs
  */
-function serendipity_fetchImages($group = false, $start = 0, $end = 20, $images = '', $odir = '') {
+function serendipity_fetchImages($reverse = false, $images = '', $odir = '') {
     global $serendipity;
 
     // Open directory
     $basedir = $serendipity['serendipityPath'] . $serendipity['uploadPath'];
     $images = array();
+
     if (empty($serendipity['uniqueThumbSuffixes'])) {
         $usedSuffixes = serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
         $thumbSuffixes = call_user_func_array('array_merge', (array) $usedSuffixes);
         $thumbSuffixes[] = $serendipity['thumbSuffix']; // might be set to 'styxThumb' for new version
         $thumbSuffixes[] = 'serendipityThumb'; // might be the old suffix name - which should usually be inside usedSuffixes, but if not, hardcode it here to make sure!
-        $thumbSuffixes[] = '.quickblog'; // out-of-range imageselectorplus created thumb
+        $thumbSuffixes[] = '.quickblog'; // an out-of-range imageselectorplus created thumb
         $serendipity['uniqueThumbSuffixes'] = array_values(array_unique($thumbSuffixes)); // only use unique strpos() search values
+        if ($reverse) {
+            $serendipity['uniqueThumbSuffixes'] = array_diff($serendipity['uniqueThumbSuffixes'], array($serendipity['thumbSuffix'], '.quickblog'));
+        }
     }
+
     if ($dir = @opendir($basedir . $odir)) {
         $aTempArray = array();
         while (($file = @readdir($dir)) !== false) {
@@ -409,23 +412,39 @@ function serendipity_fetchImages($group = false, $start = 0, $end = 20, $images 
         @closedir($dir);
         sort($aTempArray);
         foreach($aTempArray AS $f) {
-            if (serendipity_contains($f, $serendipity['uniqueThumbSuffixes'])) {
-                // This is a sized serendipity thumbnail or something similar ranged "~outside" ML (see imageselectorplus event plugin), skip it!
-                continue;
+            if (!$reverse) {
+                if (serendipity_contains($f, $serendipity['uniqueThumbSuffixes'])) {
+                    // This is a sized serendipity thumbnail or something similar ranged "~outside" ML (see imageselectorplus event plugin), skip it!
+                    continue;
+                }
             }
 
             $cdir = ($odir != '') ? $odir . '/' : '';
             if (is_dir($basedir . $odir . '/' . $f)) {
-                $temp = serendipity_fetchImages($group, $start, $end, $images, $cdir . $f);
+                $temp = serendipity_fetchImages($reverse, $images, $cdir . $f);
                 foreach($temp AS $tkey => $tval) {
-                    array_push($images, $tval);
+                    if ($reverse) {
+                        if (serendipity_contains($tval, $serendipity['uniqueThumbSuffixes'])) {
+                            array_push($images, $tval);
+                        }
+                    } else {
+                        array_push($images, $tval);
+                    }
                 }
             } else {
-                array_push($images, $cdir . $f);
+                if ($reverse) {
+                    if (serendipity_contains($f, $serendipity['uniqueThumbSuffixes'])) {
+                        array_push($images, $cdir . $f);
+                    }
+                } else {
+                    array_push($images, $cdir . $f);
+                }
             }
         }
     }
-    natsort($images);
+    if (!$reverse) {
+        natsort($images);
+    }
 
     /* BC */
     $serendipity['imageList'] = $images;
