@@ -196,7 +196,7 @@
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Keep existing thumbnails only if they are the correct size');
 @define('SYNC_OPTION_DELETETHUMBS', 'Regenerate all (<em>*.%s</em>) thumbnails');
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
-@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'This converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. It does not matter keeping them as is, but to include them for the "Regenerate all" option, you need to do this first.');
+@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This can take long!<br>This option converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Fatto (Sincronizzate %s immagini).');
 @define('FILE_NOT_FOUND', 'Impossibile trovare il file <b>%s</b>, forse è già stato cancellato?');
 @define('ABORT_NOW', 'Interrompi subito');

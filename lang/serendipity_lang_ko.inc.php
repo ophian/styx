@@ -209,7 +209,7 @@
 @define('SYNC_OPTION_SIZECHECKTHUMBS', '알맞은 크기일 경우일 때만 기존의 작은 그림 유지');
 @define('SYNC_OPTION_DELETETHUMBS', '작은 그림 모두 (<em>*.%s</em>) 재생성');
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
-@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'This converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. It does not matter keeping them as is, but to include them for the "Regenerate all" option, you need to do this first.');
+@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This can take long!<br>This option converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', '완료 (%s개의 그림을 동기화함).');
 @define('FILE_NOT_FOUND', '<b>%s</b>(이)라는 이름의 파일을 찾지 못했습니다. 이미 삭제되었을 수 있습니다.');
 @define('ABORT_NOW', '지금 중지');
