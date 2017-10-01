@@ -1150,7 +1150,7 @@ function serendipity_convertThumbs() {
     // fetch all excluded files from list in $files relative to /uploads directory (make sure it is synced before)
     $ofiles = serendipity_fetchImages(true);
     $nfiles = array();
-    $i = 0;
+    $i = $e = $s = 0;
 
     if ($debug) { $serendipity['logger']->debug("$logtag UniqueThumbSuffixes: ".print_r($serendipity['uniqueThumbSuffixes'],1)); }
     if ($debug) { $serendipity['logger']->debug("$logtag REVERSE THUMB FILES: ".print_r($ofiles,1)); }
@@ -1193,7 +1193,11 @@ function serendipity_convertThumbs() {
                                 WHERE id =  " . serendipity_db_escape_string($entry['id']);
                         if ($debug) { $serendipity['logger']->debug("$logtag UPDATE entries db::entries:\nID:{$entry['id']} {$serendipity['dbPrefix']}entries::[body|extended] update " .DONE); }
                         serendipity_db_query($uq);
-                        // same for entryproperties cache for ep_cache_body
+                        // count the entries changed
+                        if ($tmpEntryID != $entry['id']) $e++;
+                        $tmpEntryID = $entry['id'];
+
+                        // SAME FOR ENTRYPROPERTIES CACHE for ep_cache_body
                         $epq1 = "SELECT entry_id, ep_cache_body
                                    FROM {$serendipity['dbPrefix']}entryproperties
                                   WHERE entry_id = {$entry['id']}";
@@ -1207,7 +1211,7 @@ function serendipity_convertThumbs() {
                             if ($debug) { $serendipity['logger']->debug("$logtag SUB-UPDATE entryproperties db-ep:\nENTRY_ID:{$eps1['entry_id']} {$serendipity['dbPrefix']}entryproperties::content update " .DONE); }
                             serendipity_db_query($uepq1);
                         }
-                        // same for entryproperties cache for ep_cache_body
+                        // SAME FOR ENTRYPROPERTIES CACHE for ep_cache_body
                         $epq2 = "SELECT entry_id, ep_cache_extended
                                    FROM {$serendipity['dbPrefix']}entryproperties
                                   WHERE entry_id = {$entry['id']}";
@@ -1223,7 +1227,8 @@ function serendipity_convertThumbs() {
                         }
                     }
                 }
-                // same for staticpages
+
+                // SAME FOR STATICPAGES
                 $sq = "SELECT id, content, pre_content
                          FROM {$serendipity['dbPrefix']}staticpages
                         WHERE content     REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ")'
@@ -1240,6 +1245,9 @@ function serendipity_convertThumbs() {
                                 WHERE id =  " . serendipity_db_escape_string($spage['id']);
                         if ($debug) { $serendipity['logger']->debug("$logtag SUB-UPDATE staticpages db-sp:\nID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] update " .DONE); }
                         serendipity_db_query($pq);
+                        // count the staticpage entries changed
+                        if ($tmpStaticpID != $spage['id']) $s++;
+                        $tmpStaticpID = $spage['id'];
                     }
                 }
             }
@@ -1249,6 +1257,15 @@ function serendipity_convertThumbs() {
         flush();
     }
     echo "</ul>\n</span>\n";
+
+    if ($e > 0) {
+        $msg = sprintf(MEDIA_FILE_RENAME_ENTRY, $e);
+        echo "<span class=\"msg_success\"><span class=\"icon-ok-circled\"></span> $msg</span>\n";
+    }
+    if ($s > 0) {
+        $msg = str_replace('.', '', sprintf(MEDIA_FILE_RENAME_ENTRY, $s));
+        echo "<span class=\"msg_success\"><span class=\"icon-ok-circled\"></span> $msg (staticpages).</span>\n";
+    }
     return $i;
 }
 
