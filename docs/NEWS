@@ -17,13 +17,13 @@ Version 2.4-alpha1 ()
     current image list. This removes some deprecated properties and
     adds a reverse property to get all old thumbSuffix named URLs only.
 
-  * Fix serendipity_fetchImages() list for changed/multi thumbSuffixes
+  * Fixed serendipity_fetchImages() list for changed/multi thumbSuffixes
     removals.
 
   * Add new API function serendity_contains() for strpos iterations
 
-  * Fix file and filedir renaming actions for the thumbnail suffix name,
-    to keep a previous set suffix in case the global configs thumbSuffix
+  * Fix file and filedir renaming actions for the thumbnail SUFFIX name,
+    to keep a previous set SUFFIX in case the global configs thumbSuffix
     name has changed.
 
   * Removed temporary added symbol_sanitize(), since the UTF8MB4
