@@ -53,16 +53,26 @@ switch ($serendipity['GET']['adminAction']) {
                 case 'check':
                     $deleteThumbs = 'checksize';
                     break;
-            }
+                case 'convert':
+                    $deleteThumbs = 'convert';
+                    break;
+           }
         }
 
-        $i = serendipity_syncThumbs($deleteThumbs);
-        $data['print_SYNC_DONE'] = sprintf(SYNC_DONE, $i);
-        flush();
+        if ($deleteThumbs == 'convert') {
+            $i = serendipity_convertThumbs();
+            $data['print_SYNC_DONE'] = sprintf(SYNC_DONE, $i);
+            $data['convertThumbs'] = true;
+            flush();
+        } else {
+            $i = serendipity_syncThumbs($deleteThumbs);
+            $data['print_SYNC_DONE'] = sprintf(SYNC_DONE, $i);
+            flush();
 
-        $i = serendipity_generateThumbs();
-        $data['print_RESIZE_DONE'] = sprintf(RESIZE_DONE, $i);
-        flush();
+            $i = serendipity_generateThumbs();
+            $data['print_RESIZE_DONE'] = sprintf(RESIZE_DONE, $i);
+            flush();
+        }
         break;
 
     case 'doDelete':
