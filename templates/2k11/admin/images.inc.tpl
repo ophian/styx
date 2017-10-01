@@ -9,10 +9,11 @@
         <h2>{$CONST.SYNCING}</h2>
 
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_SYNC_DONE}</span>
-
+        {if !$convertThumbs}
         <h2>{$CONST.RESIZING}</h2>
 
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_RESIZE_DONE}</span>
+        {/if}
     {/if}
 {/if}
 {if $case_delete}
