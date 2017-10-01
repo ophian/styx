@@ -1,6 +1,13 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Added new maintenance "Rebuild Thumbs" option task, to convert old
+    named thumbSuffix images in the database for the images, entries,
+    entryproperties cache and staticpages tables and the real files in
+    the /uploads file system.
+    This actually is only a particular need, if you are forced to
+    rebuild every existing thumb.
+
   * Disabled header and footer plugin hooks in media_showitem.tpl
     [default, 2k11, default-php] templates, since they often use jQuery,
     which isn't set here. This template is used for image output cases
