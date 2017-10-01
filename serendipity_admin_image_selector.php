@@ -15,18 +15,21 @@ if ($_SESSION['serendipityAuthedUser'] !== true && $serendipity['GET']['step'] !
 }
 
 if (!isset($serendipity['GET']['adminModule'])) {
-    $serendipity['GET']['adminModule'] = (isset($serendipity['POST']['adminModule']) ? $serendipity['POST']['adminModule'] : '');
+    $serendipity['GET']['adminModule'] = isset($serendipity['POST']['adminModule']) ? $serendipity['POST']['adminModule'] : '';
 }
 
 if (!isset($serendipity['GET']['step'])) {
-    $serendipity['GET']['step']        = (isset($serendipity['POST']['step'])        ? $serendipity['POST']['step']        : '');
+    $serendipity['GET']['step'] = isset($serendipity['POST']['step']) ? $serendipity['POST']['step'] : '';
 }
 
 if (empty($serendipity['GET']['step']) && isset($serendipity['GET']['adminAction'])) {
     $serendipity['GET']['step'] = $serendipity['GET']['adminAction'];
 }
 
-serendipity_smarty_init();
+if (!is_object($serendipity['smarty'])) {
+    serendipity_smarty_init();
+}
+
 if (empty($serendipity['GET']['step']) && $serendipity['GET']['page'] < 1) {
     $media = array(
         'GET_STRING' => serendipity_build_query($_GET),
@@ -265,7 +268,7 @@ switch ($serendipity['GET']['step']) {
     default:
         if (!empty($serendipity['GET']['adminAction']) && $serendipity['GET']['adminModule'] == 'images' && $serendipity['GET']['adminAction'] != 'default') {
             // Might need to set $serendipity['adminFile_redirect'] here.
-            $serendipity['adminFile']          = 'serendipity_admin_image_selector.php';
+            $serendipity['adminFile'] = 'serendipity_admin_image_selector.php';
             ob_start();
             include S9Y_INCLUDE_PATH . 'include/admin/images.inc.php';
             $media['external'] = ob_get_contents();
@@ -290,12 +293,12 @@ switch ($serendipity['GET']['step']) {
 
 
         $media['external'] = serendipity_displayImageList(
-          isset($serendipity['GET']['page'])   ? $serendipity['GET']['page']   : 1,
-          $serendipity['thumbPerPage2'],
-          ($serendipity['showMediaToolbar'] ? true : false),
-          '?serendipity[step]=1' . $add_url . '&amp;serendipity[textarea]='. serendipity_specialchars($serendipity['GET']['textarea']),
-          true,
-          null
+            (isset($serendipity['GET']['page']) ? $serendipity['GET']['page'] : 1),
+            $serendipity['thumbPerPage2'],
+            ($serendipity['showMediaToolbar'] ? true : false),
+            '?serendipity[step]=1' . $add_url . '&amp;serendipity[textarea]='. serendipity_specialchars($serendipity['GET']['textarea']),
+            true,
+            null
         );
 }
 
