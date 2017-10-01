@@ -1,6 +1,11 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Disabled header and footer plugin hooks in media_showitem.tpl
+    [default, 2k11, default-php] templates, since they often use jQuery,
+    which isn't set here. This template is used for image output cases
+    of the serendipity_admin_image_selector.php file only.
+
   * Changed serendipity_fetchImages() API method for selecting the
     current image list. This removes some deprecated properties and
     adds a reverse property to get all old thumbSuffix named URLs only.
