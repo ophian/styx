@@ -22,3 +22,5 @@
 
 @define('PLUGIN_MODEMAINTAIN_WARNLOGOFF', 'Hey, you are in <span class="fivezerothree">503</span>-Maintenance-Mode! - <b>Free</b> this Mode <a href="%s">here</a>, <b>before</b> Log-Off!');
 
+@define('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE', 'Since long, or having possible frontend effects, this could be a valid task to use the Maintenance-Mode!');
+
