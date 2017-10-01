@@ -14,12 +14,12 @@
     <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}" />
 {/if}
 
-{serendipity_hookPlugin hook="frontend_header"}
+{* serendipity_hookPlugin hook="frontend_header" *}{* ENABLE TO USE any plugin hooked assets - see footer *}
 </head>
 
 <body>
 {else}
-{serendipity_hookPlugin hook="frontend_header"}
+{* serendipity_hookPlugin hook="frontend_header" *}{* ENABLE TO USE any plugin hooked assets - see footer *}
 {/if}
 
 {if $is_raw_mode != true}
@@ -128,7 +128,7 @@
 {/if}
 
 {$raw_data}
-{serendipity_hookPlugin hook="frontend_footer"}
+{* serendipity_hookPlugin hook="frontend_footer" *}{* ENABLE TO USE any plugin hooked assets which often need an active jquery lib *}
 {if $is_embedded != true}
 </body>
 </html>

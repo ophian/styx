@@ -24,12 +24,12 @@
 {/if}
     <link rel="stylesheet" href="{$head_link_stylesheet}">
     <script src="{serendipity_getFile file="js/modernizr-2.7.1.min.js"}"></script>
-{serendipity_hookPlugin hook="frontend_header"}
+{* serendipity_hookPlugin hook="frontend_header" *}{* ENABLE TO USE any plugin hooked assets - see footer *}
     <script src="{$head_link_script}"></script>
 </head>
 <body{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
 {else}
-{serendipity_hookPlugin hook="frontend_header"}
+{* serendipity_hookPlugin hook="frontend_header" *}{* ENABLE TO USE any plugin hooked assets - see footer *}
 {/if}
 {if $is_raw_mode != true}
 <div id="page" class="clearfix">
@@ -134,7 +134,7 @@
 <script src="{serendipity_getFile file="js/2k11.min.js"}"></script>
 {/if}
 {$raw_data}
-{serendipity_hookPlugin hook="frontend_footer"}
+{* serendipity_hookPlugin hook="frontend_footer" *}{* ENABLE TO USE any plugin hooked assets which often need an active jquery lib *}
 {if $is_embedded != true}
 </body>
 </html>
