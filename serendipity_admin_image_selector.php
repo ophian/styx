@@ -58,7 +58,7 @@ $media = array(
     'css_front'  => serendipity_rewriteURL('serendipity.css'),
     'token_url'  => serendipity_setFormToken('url'),
     'imgID'      => (int)$serendipity['GET']['image'],
-    'from'       => $serendipity['GET']['from'],
+    'from'       => empty($serendipity['GET']['from']) ? $serendipity['baseURL'] : $serendipity['GET']['from'],/* see media_showitems.tpl back to blog anchors */
     'GET_STRING' => serendipity_build_query($import_vars, 'serendipity', '&'),
     'paths'      => serendipity_getMediaPaths()
 );
@@ -109,10 +109,10 @@ switch ($serendipity['GET']['step']) {
                     }
             }
         }
-        $media['case'] = 'choose';
 
-        $file           = serendipity_fetchImageFromDatabase($serendipity['GET']['image']);
+        $file          = serendipity_fetchImageFromDatabase($serendipity['GET']['image']);
         $media['file'] = &$file;
+        $media['case'] = 'choose';
         if (!is_array($file)) {
             $media['perm_denied'] = true;
             break;
