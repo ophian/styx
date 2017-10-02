@@ -18,7 +18,7 @@ class serendipity_event_responsiveimages extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_RESPONSIVE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '0.3.0');
+        $propbag->add('version',       '0.3.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.3.1',
         ));
@@ -77,8 +77,8 @@ class serendipity_event_responsiveimages extends serendipity_event
         global $serendipity;
 
         $hooks = &$bag->get('event_hooks');
-        $this->breakpoints = [1600, 1200, 600]; # This can later on be overwritten by the theme
-        $this->thumbWidths = [1200, 800, 400]; # This can later on be overwritten by the theme
+        $this->breakpoints = $serendipity['responsiveImageBreakpoints'] ?: [1600, 1200, 600]; # This can later on be overwritten by the theme
+        $this->thumbWidths = $serendipity['responsiveImageThumbnails'] ?: [1200, 800, 400]; # This can later on be overwritten by the theme
 
         if (isset($hooks[$event])) {
 
