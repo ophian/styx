@@ -3,7 +3,7 @@ Version 2.4-alpha1 ()
 
   * Secure image hotlink check by pattern
 
-  * Fix Smarty from assignment in serendipity_admin_image_selector file
+  * Fix Smarty 'from' assignment in serendipity_admin_image_selector file
 
   * Added new maintenance "Rebuild Thumbs" option task, to convert old
     named thumbSuffix images in the database for the images, entries,
