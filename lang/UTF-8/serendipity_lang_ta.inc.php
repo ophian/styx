@@ -497,7 +497,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Select a file you wish to upload:');
 @define('SAVE_FILE_AS', 'Save the file as:');
 @define('STORE_IN_DIRECTORY', 'Store inside the following directory: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>ஒர் வலைபொருளை உங்கள் வலைபொருள் பெட்டகத்தில் சேர்க்க:</b><br><b>சேர்ப்பு முறை:</b></p><br/>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>ஒர் வலைபொருளை உங்கள் வலைபொருள் பெட்டகத்தில் சேர்க்க:</b><br><b>சேர்ப்பு முறை:</b></p><br>');
 @define('MEDIA_RENAME', 'Rename this file');
 @define('IMAGE_RESIZE', 'Resize this image');
 @define('MEDIA_DELETE', 'Delete this file');

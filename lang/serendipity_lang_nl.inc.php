@@ -499,7 +499,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Selecteer een bestand dat u wilt uploaden:');
 @define('SAVE_FILE_AS', 'Sla bestand op als:');
 @define('STORE_IN_DIRECTORY', 'Sla op in de volgende map: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Voeg een bestand toe aan uw mediaverzameling:</b><p>Hier kunt u mediabestanden uploaden, of aangeven waar ze zich op het Internet bevinden. Als u geen goede afbeelding kunt vinden, kunt u <a href="http://images.google.com" target="_blank">zoeken naar afbeeldingen met Google</a>. Bedenk wel dat de meeste afbeeldingen auteursrechtelijk beschermd zijn en u dus toestemming moet vragen om ze te mogen gebruiken.</p><p><b>Selectiemethode:</b></p><br/>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Voeg een bestand toe aan uw mediaverzameling:</b><p>Hier kunt u mediabestanden uploaden, of aangeven waar ze zich op het Internet bevinden. Als u geen goede afbeelding kunt vinden, kunt u <a href="http://images.google.com" target="_blank">zoeken naar afbeeldingen met Google</a>. Bedenk wel dat de meeste afbeeldingen auteursrechtelijk beschermd zijn en u dus toestemming moet vragen om ze te mogen gebruiken.</p><p><b>Selectiemethode:</b></p><br>');
 @define('MEDIA_RENAME', 'Hernoem dit bestand');
 @define('IMAGE_RESIZE', 'Wijzig formaat van de afbeelding');
 @define('MEDIA_DELETE', 'Verwijder dit bestand');
@@ -522,7 +522,7 @@
 @define('DELETE_FILE_FAIL' , 'Kan bestand <b>%s</b> niet verwijderen');
 @define('DELETE_THUMBNAIL', 'Verwijder miniatuur <b>%s</b>');
 @define('DELETE_FILE', 'Verwijder bestand genaamd <b>%s</b>');
-@define('ABOUT_TO_DELETE_FILE', 'U staat op het punt om bestand <b>%s</b></p><br/> te verwijderen. Als u dit bestand in een van uw artikelen gebruikt, zal dit leiden tot niet werkende hyperlinks of vermiste afbeeldingen.<br>Weet u zeker dat u door wilt gaan?<br><br>');
+@define('ABOUT_TO_DELETE_FILE', 'U staat op het punt om bestand <b>%s</b></p><br> te verwijderen. Als u dit bestand in een van uw artikelen gebruikt, zal dit leiden tot niet werkende hyperlinks of vermiste afbeeldingen.<br>Weet u zeker dat u door wilt gaan?<br><br>');
 @define('TRACKBACK_SENDING', 'Trackback aan het versturen naar %s...');
 @define('TRACKBACK_SENT', 'Trackback succesvol');
 @define('TRACKBACK_FAILED', 'Trackback functioneert niet: %s');
