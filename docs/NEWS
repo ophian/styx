@@ -1,6 +1,24 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Add addData $target link to the 'images backend_media_makethumb'
+    hook, to support the responsiveimage event plugin.
+
+  * Add (non-activated) responsiveimages event plugin, which creates
+    an easy way for authors to pick a single image and make Serendipity
+    automagically create specific thumnail sizes for the browser to
+    choose.
+    A templates config could then preset valid thumbnail sizes, like:
+        $serendipity['responsiveImageThumbnails'] = [1440, 960, 480];
+    and
+        $serendipity['responsiveImageBreakpoints'] = [1920, 1360, 720];
+    or just use the default sizes, which are [1200, 800, 400] for the
+    first, and [1600, 1200, 600] for the second, by now.
+
+    This plugin then parses every entry to display via the
+    'frontend_display' hook, to convert an img src path to the
+    effordable srcset path sets.
+
   * Secure image hotlink check by pattern
 
   * Fix Smarty 'from' assignment in serendipity_admin_image_selector file
