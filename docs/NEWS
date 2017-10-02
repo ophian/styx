@@ -16,8 +16,8 @@ Version 2.4-alpha1 ()
     first, and [1600, 1200, 600] for the second, by now.
 
     This plugin then parses every entry to display via the
-    'frontend_display' hook, to convert an img src path to the
-    effordable srcset path sets.
+    'frontend_display' hook, to convert an img src path to the preset
+    srcset-path sets.
 
   * Secure image hotlink check by pattern
 
