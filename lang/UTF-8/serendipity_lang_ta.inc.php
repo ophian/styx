@@ -264,10 +264,10 @@
 @define('DO_MARKUP', 'Perform Markup Transformations');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Dateformatting');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'The format of the entry\'s actual date, using PHPs strftime() variables. (Default: "%s")');
-@define('ERROR_TEMPLATE_FILE', 'Unable to open template file, please update serendipity!');
+@define('ERROR_TEMPLATE_FILE', 'Unable to open template file, please update Serendipity!');
 @define('ADVANCED_OPTIONS', 'மேலான தேர்வுகள்');
 @define('EDIT_ENTRY', 'குறிப்பை மாற்றுக');
-@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
+@define('HTACCESS_ERROR', 'To check your local webserver installation, Serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
 @define('SIDEBAR_PLUGINS', 'வலைபக்க செயல்பொருள்கள் (வலைப்பக்கத்தில் தெரிபவை)');
 @define('EVENT_PLUGINS', 'உள்ளார்ந்த செயல்பொருள்கள் (வலைப்பக்க தோற்றத்தை மாற்றுபவை. பக்கத்தில் தெரியாது.)');
 @define('SORT_ORDER', 'வகைப்பாடு');

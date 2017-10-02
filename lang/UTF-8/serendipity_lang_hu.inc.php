@@ -360,11 +360,11 @@
 @define('INSTALL_CAT_PATHS', 'Útvonalak');
 @define('INSTALL_CAT_PATHS_DESC', 'Különféle útvonalak a fontos könyvtárakhoz és fájlokhoz. A könyvtárak végéről ne felejtsd el a per ("\") jelet!');
 @define('INSTALL_FULLPATH', 'Teljes útvonal');
-@define('INSTALL_FULLPATH_DESC', 'A teljes abszolút elérési útvonal a saját serendipity telepítésedhez');
+@define('INSTALL_FULLPATH_DESC', 'A teljes abszolút elérési útvonal a saját Serendipity telepítésedhez');
 @define('INSTALL_UPLOADPATH', 'Feltöltési útvonal');
 @define('INSTALL_UPLOADPATH_DESC', 'Minden feltöltött fájl ide kerül, relatív a  \'Full path\' bejegyzéshez - általában \'uploads/\'');
 @define('INSTALL_RELPATH', 'Relatív útvonal');
-@define('INSTALL_RELPATH_DESC', 'A serendipity-hez vezető útvonal a böngészőben, általában \'/serendipity/\'');
+@define('INSTALL_RELPATH_DESC', 'A Serendipity-hez vezető útvonal a böngészőben, általában \'/serendipity/\'');
 @define('INSTALL_RELTEMPLPATH', 'Relatív "template" útvonal');
 @define('INSTALL_RELTEMPLPATH_DESC', 'Útvonal a "template"-eket tartalmazó könyvtárhoz - relatív a \'relative path\' bejegyzéshez');
 @define('INSTALL_RELUPLOADPATH', 'Relatív feltöltési útvonal');
@@ -372,7 +372,7 @@
 @define('INSTALL_URL', 'URL a blog-hoz');
 @define('INSTALL_URL_DESC', 'A blog-od URL-je');
 @define('INSTALL_INDEXFILE', 'Index fájl');
-@define('INSTALL_INDEXFILE_DESC', 'A serendipity-d index fájlja');
+@define('INSTALL_INDEXFILE_DESC', 'A Serendipity-d index fájlja');
 
 /* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', 'Általános Beállítások');
@@ -396,25 +396,25 @@
 
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Megjelenítési beállítások');
-@define('INSTALL_CAT_DISPLAY_DESC', 'A serendipity kinézetének beállításai');
+@define('INSTALL_CAT_DISPLAY_DESC', 'A Serendipity kinézetének beállításai');
 @define('INSTALL_WYSIWYG', 'A WYSIWYG szerkesztő használata');
 @define('INSTALL_WYSIWYG_DESC', 'Szeretnéd használni a WYSIWYG szerkesztőt? (IE5+ alatt működik, valamint részben a Mozilla 1.3+ alkalmazásban)');
 @define('INSTALL_XHTML11', 'Kényszerített XHTML 1.1 megfelelőség');
 @define('INSTALL_XHTML11_DESC', 'Az oldalak mindenképp megfeleljenek XHTML 1.1 szabványnak (problémát okozhat a régebbi 4-edik generációs böngészők esetében)');
 @define('INSTALL_POPUP', 'Engedélyezed a felbukkanó (popup) ablakok használatát');
 @define('INSTALL_POPUP_DESC', 'Szeretnéd, hogy a hozzászólások, visszahivatkozások esetében legyenek felbukkanó ablakok?');
-@define('INSTALL_EMBED', 'A serendipity beágyazott alkalmazásként fut?');
-@define('INSTALL_EMBED_DESC', 'Amennyiben szeretnéd a serendipity-t egy szokványos oldalba ágyazni, válaszd ezt az opciót, s így csak a tartalom jelenik meg fejléc nélkül. Hasznát veheted az "indexFile" opciónak, hogy használni tudj egy "wrapper class"-t, ahová a honlapod eredeti fejlécét. További információért lásd a README fájlt!');
+@define('INSTALL_EMBED', 'A Serendipity beágyazott alkalmazásként fut?');
+@define('INSTALL_EMBED_DESC', 'Amennyiben szeretnéd a Serendipity-t egy szokványos oldalba ágyazni, válaszd ezt az opciót, s így csak a tartalom jelenik meg fejléc nélkül. Hasznát veheted az "indexFile" opciónak, hogy használni tudj egy "wrapper class"-t, ahová a honlapod eredeti fejlécét. További információért lásd a README fájlt!');
 @define('INSTALL_TOP_AS_LINKS', 'A "Top Exits/Ide hivatkozók"-eket linkként jelenítsem meg?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"nem": Az "Kilépők" és a "Hivatkozók" sima szövegként jelennek meg elkerülve a "google spam"-et. "igen": Az "kilépők" és a "Hivatkozók" linkként jelennek meg. "alapértelmezett": A globális beállítást használja (javasolt).');
 @define('INSTALL_BLOCKREF', 'Tiltott ide hivatkozók');
 @define('INSTALL_BLOCKREF_DESC', 'Van olyan gép, amelyet nem szeretne megjeleníteni az ide hivatkozók listájában? Válassza el ezeket a címeket \';\'-vel. A címek akkor is blokkolódnak, ha a szöveg közepén van egyezés!');
 @define('INSTALL_REWRITE', 'URL Átírás');
-@define('INSTALL_REWRITE_DESC', 'Válaszd ki a szabályokat, amelyeket az URL generálás során használni szeretnél. Az átíró szabályok használata szebb URL-t ad a blog-odnak, és a web-es robotok (pl: google)is könnyebben indexelik. A webszervernek támogatnia kell a "mod_rewrite" vagy a "AllowOverride All" beállítást a serendipity könyvtáradhoz. Az alapértelmezett beállítás az automatikus érzékelés (autodetect))');
+@define('INSTALL_REWRITE_DESC', 'Válaszd ki a szabályokat, amelyeket az URL generálás során használni szeretnél. Az átíró szabályok használata szebb URL-t ad a blog-odnak, és a web-es robotok (pl: google)is könnyebben indexelik. A webszervernek támogatnia kell a "mod_rewrite" vagy a "AllowOverride All" beállítást a Serendipity könyvtáradhoz. Az alapértelmezett beállítás az automatikus érzékelés (autodetect))');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Kép konvertáló beállítások');
-@define('INSTALL_CAT_IMAGECONV_DESC', 'Globális beállítások arról, hogy a serendipity hogyan kezelje a képeket');
+@define('INSTALL_CAT_IMAGECONV_DESC', 'Globális beállítások arról, hogy a Serendipity hogyan kezelje a képeket');
 @define('INSTALL_IMAGEMAGICK', 'ImageMagick használata');
 @define('INSTALL_IMAGEMAGICK_DESC', 'Van-e a szerveren ImageMagick telepítve, és szeretné-e ezt használni a képek átméretezéséhez?');
 @define('INSTALL_IMAGEMAGICKPATH', 'A futtatható fájl elérési útvonala');

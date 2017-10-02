@@ -403,13 +403,13 @@
 @define('INSTALL_POPUP', 'Käytä ponnahdusikkunoita');
 @define('INSTALL_POPUP_DESC', 'Esitetäänkö paluuviitteet ja kommentit ponnahdusikkunoissa?');
 @define('INSTALL_EMBED', 'Käytätkö serendipityä osasena?');
-@define('INSTALL_EMBED_DESC', 'Serendipity osana olemassaolevaa sivua. Voit hyödyntää aloitussivu-valintaa sisällyttääksesi serendipity osaksi sivua. Katso README tiedostosta ohjeita!');
+@define('INSTALL_EMBED_DESC', 'Serendipity osana olemassaolevaa sivua. Voit hyödyntää aloitussivu-valintaa sisällyttääksesi Serendipity osaksi sivua. Katso README tiedostosta ohjeita!');
 @define('INSTALL_TOP_AS_LINKS', 'Näytä huippupoistumisosoitteet/viittausosoitteet linkkeinä?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"Ei", tekstinä google spämmin estämiseksi. "Kyllä", linkkeinä. "Oletus", käytä oletusasetusten valintaa (suositeltu vaihtoehto).');
 @define('INSTALL_BLOCKREF', 'Estä viittaukset');
 @define('INSTALL_BLOCKREF_DESC', 'Onko viittaajia, joiden osoitteita et halua nähdä? Erota palvelinosoitteet \';\':llä. Esto tehdään osamerkkijonoilla!');
 @define('INSTALL_REWRITE', 'URL-uudelleenkirjoitus');
-@define('INSTALL_REWRITE_DESC', 'Valitse mitä sääntöjä käytetään blogisi sivuosoitteiden uudelleenkirjoitukseen. Siistityt osoitteet helpottava hakukoneiden indeksointia. Toimintaan tarvitaan webpalvelimella joko mod_rewrite tai "AllowOverride All" serendipity hakemistolle. Oletus on tutki automaattisesti');
+@define('INSTALL_REWRITE_DESC', 'Valitse mitä sääntöjä käytetään blogisi sivuosoitteiden uudelleenkirjoitukseen. Siistityt osoitteet helpottava hakukoneiden indeksointia. Toimintaan tarvitaan webpalvelimella joko mod_rewrite tai "AllowOverride All" Serendipity hakemistolle. Oletus on tutki automaattisesti');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Kuvamuunnosten asetukset');

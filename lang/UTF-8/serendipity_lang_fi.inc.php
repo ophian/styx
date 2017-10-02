@@ -403,7 +403,7 @@
 @define('INSTALL_POPUP', 'Käytä ponnahdusikkunoita');
 @define('INSTALL_POPUP_DESC', 'Esitetäänkö paluuviitteet ja kommentit ponnahdusikkunoissa?');
 @define('INSTALL_EMBED', 'Käytätkö serendipityä osasena?');
-@define('INSTALL_EMBED_DESC', 'Serendipity osana olemassaolevaa sivua. Voit hyödyntää aloitussivu-valintaa sisällyttääksesi serendipity osaksi sivua. Katso README tiedostosta ohjeita!');
+@define('INSTALL_EMBED_DESC', 'Serendipity osana olemassaolevaa sivua. Voit hyödyntää aloitussivu-valintaa sisällyttääksesi Serendipity osaksi sivua. Katso README tiedostosta ohjeita!');
 @define('INSTALL_TOP_AS_LINKS', 'Näytä huippupoistumisosoitteet/viittausosoitteet linkkeinä?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"Ei", tekstinä google spämmin estämiseksi. "Kyllä", linkkeinä. "Oletus", käytä oletusasetusten valintaa (suositeltu vaihtoehto).');
 @define('INSTALL_BLOCKREF', 'Estä viittaukset');

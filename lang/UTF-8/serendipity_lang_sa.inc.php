@@ -269,7 +269,7 @@
 @define('ERROR_TEMPLATE_FILE', 'غير قادر على فتح ملف القالب. الرجاء تحديث المجلة');
 @define('ADVANCED_OPTIONS', 'خيارات متقدمة');
 @define('EDIT_ENTRY', 'تحرير الموضوع');
-@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
+@define('HTACCESS_ERROR', 'To check your local webserver installation, Serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
 @define('SIDEBAR_PLUGINS', 'شريط الادوات الجانبي للبلق ان');
 @define('EVENT_PLUGINS', 'بلوقات لوظائف واحداث');
 @define('SORT_ORDER', 'طريقة الترتيب');

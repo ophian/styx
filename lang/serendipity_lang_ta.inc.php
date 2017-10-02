@@ -264,10 +264,10 @@
 @define('DO_MARKUP', 'Perform Markup Transformations');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Dateformatting');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'The format of the entry\'s actual date, using PHPs strftime() variables. (Default: "%s")');
-@define('ERROR_TEMPLATE_FILE', 'Unable to open template file, please update serendipity!');
+@define('ERROR_TEMPLATE_FILE', 'Unable to open template file, please update Serendipity!');
 @define('ADVANCED_OPTIONS', 'மேலான தேர்வுகள்');
 @define('EDIT_ENTRY', 'குறிப்பை மாற்றுக');
-@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
+@define('HTACCESS_ERROR', 'To check your local webserver installation, Serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
 @define('SIDEBAR_PLUGINS', 'வலைபக்க செயல்பொருள்கள் (வலைப்பக்கத்தில் தெரிபவை)');
 @define('EVENT_PLUGINS', 'உள்ளார்ந்த செயல்பொருள்கள் (வலைப்பக்க தோற்றத்தை மாற்றுபவை. பக்கத்தில் தெரியாது.)');
 @define('SORT_ORDER', 'வகைப்பாடு');
@@ -403,18 +403,18 @@
 @define('INSTALL_XHTML11_DESC', 'Do you want to force XHTML 1.1 compliance (may cause problems for back-/frontend on older 4th generation browsers)');
 @define('INSTALL_POPUP', 'Enable use of popup windows');
 @define('INSTALL_POPUP_DESC', 'Do you want to use popup windows for comments, trackbacks et al?');
-@define('INSTALL_EMBED', 'Is serendipity embedded?');
-@define('INSTALL_EMBED_DESC', 'If you want to embed serendipity within a regular page, set to true to discard any headers and just print the contents. You can make use of the indexFile option to use a wrapper class where you put your normal webpage headers. See the README file for more information!');
+@define('INSTALL_EMBED', 'Is Serendipity embedded?');
+@define('INSTALL_EMBED_DESC', 'If you want to embed Serendipity within a regular page, set to true to discard any headers and just print the contents. You can make use of the indexFile option to use a wrapper class where you put your normal webpage headers. See the README file for more information!');
 @define('INSTALL_TOP_AS_LINKS', 'Show Top Exits/Referrers as links?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent google spam. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
 @define('INSTALL_BLOCKREF', 'Blocked Referers');
 @define('INSTALL_BLOCKREF_DESC', 'Are there any special hosts you want not to show up in the referers list? Separate the list of hostnames with \';\' and note that the host is blocked by substring matches!');
 @define('INSTALL_REWRITE', 'URL Rewriting');
-@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your serendipity dir. The default setting is auto-detected');
+@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your Serendipity dir. The default setting is auto-detected');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Image Conversion Settings');
-@define('INSTALL_CAT_IMAGECONV_DESC', 'Enter general information about how serendipity should handle Images');
+@define('INSTALL_CAT_IMAGECONV_DESC', 'Enter general information about how Serendipity should handle Images');
 @define('INSTALL_IMAGEMAGICK', 'Use ImageMagick');
 @define('INSTALL_IMAGEMAGICK_DESC', 'Do you have ImageMagick installed and want to use it to resize images?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Path to convert binary');

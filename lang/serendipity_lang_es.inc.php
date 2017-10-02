@@ -249,7 +249,7 @@
 
 /* TRANSLATE */
 @define('WRONG_USERNAME_OR_PASSWORD', 'Usuario o contraseña erróneo');
-@define('HTACCESS_ERROR', 'Para verificar tu instalación del servidor web, serendipity deber ser capaz de escribir en el fichero ".htaccess". Esto no fue posible debido a errores de permisos. Por favor, ajusta los permisos como: <br> %s<br>y recarga esta página.');
+@define('HTACCESS_ERROR', 'Para verificar tu instalación del servidor web, Serendipity deber ser capaz de escribir en el fichero ".htaccess". Esto no fue posible debido a errores de permisos. Por favor, ajusta los permisos como: <br> %s<br>y recarga esta página.');
 @define('SIDEBAR_PLUGINS', 'Extensiones de barra lateral');
 @define('EVENT_PLUGINS', 'Extensiones de eventos');
 @define('SYNCING', 'Sincronizando la base de datos con el directorio de imágenes.');
@@ -350,15 +350,15 @@
 @define('INSTALL_UPLOADPATH', 'Ruta para los ficheros transferidos');
 @define('INSTALL_UPLOADPATH_DESC', 'Todos los ficheros transferidos irán aquí, relativo a  \'Ruta completa\' - normalmente \'uploads/\'');
 @define('INSTALL_RELPATH', 'Ruta relativa');
-@define('INSTALL_RELPATH_DESC', 'Ruta de serendipity para tu navegador, normalmente \'/serendipity/\'');
+@define('INSTALL_RELPATH_DESC', 'Ruta de Serendipity para tu navegador, normalmente \'/serendipity/\'');
 @define('INSTALL_RELTEMPLPATH', 'Ruta relativa para las plantillas');
 @define('INSTALL_RELTEMPLPATH_DESC', 'Ruta al directorio que contiene tus plantillas - Relativa a la \'ruta relativa\'');
 @define('INSTALL_RELUPLOADPATH', 'Ruta relativa para los ficheros transferidos');
 @define('INSTALL_RELUPLOADPATH_DESC', 'Ruta de los ficheros transferidos - Relativa a la \'ruta relativa\'');
 @define('INSTALL_URL', 'URL para el blog');
-@define('INSTALL_URL_DESC', 'URL base de tu instalación de serendipity');
+@define('INSTALL_URL_DESC', 'URL base de tu instalación de Serendipity');
 @define('INSTALL_INDEXFILE', 'Fichero índice');
-@define('INSTALL_INDEXFILE_DESC', 'El nombre del fichero índice de serendipity');
+@define('INSTALL_INDEXFILE_DESC', 'El nombre del fichero índice de Serendipity');
 
 /* Generel settings */
 @define('INSTALL_CAT_SETTINGS', 'Opciones generales');
@@ -396,11 +396,11 @@
 @define('INSTALL_BLOCKREF', 'Sitios asociados bloqueados');
 @define('INSTALL_BLOCKREF_DESC', '¿Hay algún servidor que no quieras que se muestre en la lista de Sitios asociados? Separa la lista de nombres de dominio con \';\' y advierte que se ¡bloquea por coincidencias en subcadenas!');
 @define('INSTALL_REWRITE', 'Reescritura de URL');
-@define('INSTALL_REWRITE_DESC', 'Selecciona la regla que quieres usar para generar URL. Activando estas reglas hará URL bonitas para tu blog y lo hará más indexable para los robots como google. El servidor web necesita tener o mod_rewrite o "AllowOverride All" para el directorio de serendipity. El valor predeterminado es autodetectado');
+@define('INSTALL_REWRITE_DESC', 'Selecciona la regla que quieres usar para generar URL. Activando estas reglas hará URL bonitas para tu blog y lo hará más indexable para los robots como google. El servidor web necesita tener o mod_rewrite o "AllowOverride All" para el directorio de Serendipity. El valor predeterminado es autodetectado');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Opciones para la conversión de imágenes');
-@define('INSTALL_CAT_IMAGECONV_DESC', 'Información sobre cómo debería serendipity manejar imágenes');
+@define('INSTALL_CAT_IMAGECONV_DESC', 'Información sobre cómo debería Serendipity manejar imágenes');
 @define('INSTALL_IMAGEMAGICK', 'Usar ImageMagick');
 @define('INSTALL_IMAGEMAGICK_DESC', '¿Tienes ImageMagick instalado y quieres usarlo para redimensionar imágenes?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Ruta hasta el programa convert');
@@ -532,7 +532,7 @@
 @define('DO_MARKUP', 'Realizar transformaciones marcas');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formato de fecha');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'El formato de fecha de la entrada actual, usa las variables strftime() de PHP. (Predeterminado: "%s")');
-@define('ERROR_TEMPLATE_FILE', 'Incapaz de abrir el fichero plantilla, ¡por favor actualiza serendipity!');
+@define('ERROR_TEMPLATE_FILE', 'Incapaz de abrir el fichero plantilla, ¡por favor actualiza Serendipity!');
 @define('ADVANCED_OPTIONS', 'Opciones avanzadas');
 @define('EDIT_ENTRY', 'Editar entrada');
 @define('ADD_MEDIA_BLAHBLAH', '<b>Añade un fichero a tu colección de medios:</b><p>Desde aquí puedes transferir un fichero de medios o puedes decirme que los coja de algún ¡lugar de la web! Si no tienes una imagen apropiada, <a href="http://images.google.com" target="_blank">busca imágenes en google</a> que vaya con tu forma de pensar, los resultados son útiles y divertidos a veces :)</p><p><b>Selecciona el método:</b></p><br>');

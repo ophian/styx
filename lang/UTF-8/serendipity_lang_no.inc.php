@@ -321,7 +321,7 @@
 @define('INSTALL_CAT_PATHS', 'Baner');
 @define('INSTALL_CAT_PATHS_DESC', 'Forskjellige baner til forskjellige essensielle mapper og filer. Glem ikke etterfølgende slasher på biblioteker!');
 @define('INSTALL_FULLPATH', 'Full bane');
-@define('INSTALL_FULLPATH_DESC', 'Den fulle og absolutte bane til din serendipity-installasjon');
+@define('INSTALL_FULLPATH_DESC', 'Den fulle og absolutte bane til din Serendipity-installasjon');
 @define('INSTALL_UPLOADPATH', 'Upload-bane');
 @define('INSTALL_UPLOADPATH_DESC', 'Alle uploads blir plassert her, relativ til \'Full bane\' - typisk \'uploads/\'');
 @define('INSTALL_RELPATH', 'Relativ bane');

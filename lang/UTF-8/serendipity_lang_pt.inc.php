@@ -248,10 +248,10 @@
 @define('DO_MARKUP', 'Executar trasnformações de marcação');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formatação de data');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formato da data atual do artigo, usando a mesma formatação da função strftime() do PHP. (Padrão: "%s")');
-@define('ERROR_TEMPLATE_FILE', 'Não foi possível abrir o arquivo de template, por favor atualize o serendipity!');
+@define('ERROR_TEMPLATE_FILE', 'Não foi possível abrir o arquivo de template, por favor atualize o Serendipity!');
 @define('ADVANCED_OPTIONS', 'Opções avançadas');
 @define('EDIT_ENTRY', 'Editar artigo');
-@define('HTACCESS_ERROR', 'Para checar a instalação do servidor web, serendipity precisa ter poder criar o arquivo ".htaccess". Isso não foi possível devido a erros de permissões. Por favor, ajuste as permissões para isso: <br>&nbsp;&nbsp;%s<br>e recarregue esta página.');
+@define('HTACCESS_ERROR', 'Para checar a instalação do servidor web, Serendipity precisa ter poder criar o arquivo ".htaccess". Isso não foi possível devido a erros de permissões. Por favor, ajuste as permissões para isso: <br>&nbsp;&nbsp;%s<br>e recarregue esta página.');
 @define('SIDEBAR_PLUGINS', 'Plugins da barra lateral');
 @define('EVENT_PLUGINS', 'Plugins de eventos');
 @define('SORT_ORDER', 'Ordenação');
@@ -344,19 +344,19 @@
 @define('INSTALL_CAT_PATHS', 'Caminhos');
 @define('INSTALL_CAT_PATHS_DESC', 'Os vários caminhos para pastas e arquivos essênciais. Não se esqueça de terminar com barras para os diretórios');
 @define('INSTALL_FULLPATH', 'Caminho completo');
-@define('INSTALL_FULLPATH_DESC', 'O caminho completo e absoluto para a sua instalação do serendipity');
+@define('INSTALL_FULLPATH_DESC', 'O caminho completo e absoluto para a sua instalação do Serendipity');
 @define('INSTALL_UPLOADPATH', 'Caminho para o Upload');
 @define('INSTALL_UPLOADPATH_DESC', 'Todos os arquivos transferidos irão parar aí, relativo ao \'Caminho completo\' - geralmente \'uploads/\'');
 @define('INSTALL_RELPATH', 'Caminho relativo');
-@define('INSTALL_RELPATH_DESC', 'Caminho para o serendipity em seu navegador, geralmente \'/serendipity/\'');
+@define('INSTALL_RELPATH_DESC', 'Caminho para o Serendipity em seu navegador, geralmente \'/serendipity/\'');
 @define('INSTALL_RELTEMPLPATH', 'Caminho relativo do template');
 @define('INSTALL_RELTEMPLPATH_DESC', 'Caminho para o diretório onde estão os seus templates - Relativo ao \'caminho relativo\'');
 @define('INSTALL_RELUPLOADPATH', 'Caminho relativo do Upload');
 @define('INSTALL_RELUPLOADPATH_DESC', 'Caminho para o \'uploads\' em seu navegador - Relativo ao \'caminho relativo\'');
 @define('INSTALL_URL', 'URL do blog');
-@define('INSTALL_URL_DESC', 'URL base para a instalação do serendipity');
+@define('INSTALL_URL_DESC', 'URL base para a instalação do Serendipity');
 @define('INSTALL_INDEXFILE', 'Arquivo inicial');
-@define('INSTALL_INDEXFILE_DESC', 'Nome do arquivo inicial do serendipity');
+@define('INSTALL_INDEXFILE_DESC', 'Nome do arquivo inicial do Serendipity');
 
 /* Generel settings */
 @define('INSTALL_CAT_SETTINGS', 'Configurações gerais');
@@ -387,16 +387,16 @@
 @define('INSTALL_XHTML11_DESC', 'Quer forçar uma adequação ao padrão XHTML 1.1 (pode causar problemas de exibição nos navegadores de 4ª geração (4.x))');
 @define('INSTALL_POPUP', 'Habilitar o uso de janelas popups');
 @define('INSTALL_POPUP_DESC', 'Você quer que o weblog utilize janelas popups para comentários, trackbacks e etc?');
-@define('INSTALL_EMBED', 'O serendipity está integrado?');
-@define('INSTALL_EMBED_DESC', 'Se você quer empacotar o serendipity em um website, mude para verdadeiro para descartar quaisquer cabeçalhos e apenas imprimir o conteúdo. Você pode fazer uso da opção \'Arquivo inicial\' para usar uma classe mais abrangente onde você colocaria os cabeçalhos normais de sua página. Veja o arquivo README para mais informações!');
+@define('INSTALL_EMBED', 'O Serendipity está integrado?');
+@define('INSTALL_EMBED_DESC', 'Se você quer empacotar o Serendipity em um website, mude para verdadeiro para descartar quaisquer cabeçalhos e apenas imprimir o conteúdo. Você pode fazer uso da opção \'Arquivo inicial\' para usar uma classe mais abrangente onde você colocaria os cabeçalhos normais de sua página. Veja o arquivo README para mais informações!');
 @define('INSTALL_BLOCKREF', 'Referências bloqueadas');
 @define('INSTALL_BLOCKREF_DESC', 'Existem servidores especiais que você não gostaria de listar na sua lista de referências? Separe a lista dos servidores com \';\' e note que o servidor será bloqueado por uma busca parcial em sua string!');
 @define('INSTALL_REWRITE', 'Rescrita de URL');
-@define('INSTALL_REWRITE_DESC', 'Selecione as regras que você gostaria de usar na geração de URLs. A habilitação da reescrita de URL criará URLS bem formatadas para o seu blog e o deixará melhor indexável para bots como o do google. O servidor web precisa dar suporte ou ao mod_rewrite ou ao "AllowOverride All" para o diretório do seu serendipity. A configuração padrão é auto detectada');
+@define('INSTALL_REWRITE_DESC', 'Selecione as regras que você gostaria de usar na geração de URLs. A habilitação da reescrita de URL criará URLS bem formatadas para o seu blog e o deixará melhor indexável para bots como o do google. O servidor web precisa dar suporte ou ao mod_rewrite ou ao "AllowOverride All" para o diretório do seu Serendipity. A configuração padrão é auto detectada');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Configurações da conversão de imagens');
-@define('INSTALL_CAT_IMAGECONV_DESC', 'Informações gerais sobre como o serendipity deve lidar com imagens');
+@define('INSTALL_CAT_IMAGECONV_DESC', 'Informações gerais sobre como o Serendipity deve lidar com imagens');
 @define('INSTALL_IMAGEMAGICK', 'Usar Imagemagick');
 @define('INSTALL_IMAGEMAGICK_DESC', 'Você tem o \'image magick\' instalado e quer utilizá-lo para redimensionar imagens?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Caminho para o executável do conversor');

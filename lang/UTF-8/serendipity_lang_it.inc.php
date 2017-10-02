@@ -253,10 +253,10 @@
 @define('DO_MARKUP', 'Effettua trasformazioni del Markup');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formato data');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Il formato della data della notizia, usando variabili di strftime() del PHP. (Default: "%s")');
-@define('ERROR_TEMPLATE_FILE', 'Impossibile aprire il file di modello, per favore aggiornare serendipity!');
+@define('ERROR_TEMPLATE_FILE', 'Impossibile aprire il file di modello, per favore aggiornare Serendipity!');
 @define('ADVANCED_OPTIONS', 'Opzioni avanzate');
 @define('EDIT_ENTRY', 'Modifica notizia');
-@define('HTACCESS_ERROR', 'Per controllare l\'installazione del tuo webserver, serendipity ha bisogno di scrivere nel file ".htaccess". Questo non è stato possibile a causa di permessi errati. Per favore sistema i permessi in questo modo: <br>&nbsp;&nbsp;%s<br>e ricarica questa pagina.');
+@define('HTACCESS_ERROR', 'Per controllare l\'installazione del tuo webserver, Serendipity ha bisogno di scrivere nel file ".htaccess". Questo non è stato possibile a causa di permessi errati. Per favore sistema i permessi in questo modo: <br>&nbsp;&nbsp;%s<br>e ricarica questa pagina.');
 @define('SIDEBAR_PLUGINS', 'Plugin per le barre laterali');
 @define('EVENT_PLUGINS', 'Plugin di Evento');
 @define('SORT_ORDER', 'Ordinamento');
@@ -272,7 +272,7 @@
 @define('ORIGINAL_SHORT', 'Orig.');
 @define('APPLY_MARKUP_TO', 'Applica markup a %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Inizio settimana');
-@define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity ha rilevato che la configurazione si riferisce alla versione %s, mentre serendipity è installato nella versione %s, è necessario fare l\'upgrade! <a href="%s">Clicka qui</a>');
+@define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity ha rilevato che la configurazione si riferisce alla versione %s, mentre Serendipity è installato nella versione %s, è necessario fare l\'upgrade! <a href="%s">Clicka qui</a>');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Salve, e benvenuti alla procedura di upgrade di Serendipity.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Sono qui per aiutarti a fare l\'upgrade della tua installazione di Serendipity %s .');
 @define('SERENDIPITY_UPGRADER_WHY', 'Vedi questo messaggio perché hai appena installato Serendipity %s, ma non hai ancora aggiornato l\'installazione del database per questa versione');
@@ -349,19 +349,19 @@
 @define('INSTALL_CAT_PATHS', 'Percorsi');
 @define('INSTALL_CAT_PATHS_DESC', 'Percorsi a cartelle e file essenziali. Non dimenticare la barra alla fine del nome delle directory!');
 @define('INSTALL_FULLPATH', 'Percorso completo');
-@define('INSTALL_FULLPATH_DESC', 'Il percorso completo e assoluto all\'installazione di serendipity');
+@define('INSTALL_FULLPATH_DESC', 'Il percorso completo e assoluto all\'installazione di Serendipity');
 @define('INSTALL_UPLOADPATH', 'Percorso Upload');
 @define('INSTALL_UPLOADPATH_DESC', 'Tutti gli upload andranno qui, relativo al \'Percorso completo\' - tipicamente \'uploads/\'');
 @define('INSTALL_RELPATH', 'Percorso relativo');
-@define('INSTALL_RELPATH_DESC', 'Percorso a serendipity nel browser, tipicamente \'/serendipity/\'');
+@define('INSTALL_RELPATH_DESC', 'Percorso a Serendipity nel browser, tipicamente \'/serendipity/\'');
 @define('INSTALL_RELTEMPLPATH', 'Percorso relativo dei modelli');
 @define('INSTALL_RELTEMPLPATH_DESC', 'Il percorso alla cartella contenente i modelli - relativa a \'percorso relativo\'');
 @define('INSTALL_RELUPLOADPATH', 'Percorso relativo degli upload');
 @define('INSTALL_RELUPLOADPATH_DESC', 'Percorso agli upload per il browser - relativo a \'percorso relativo\'');
 @define('INSTALL_URL', 'URL del blog');
-@define('INSTALL_URL_DESC', 'URL di base all\'installazione di serendipity');
+@define('INSTALL_URL_DESC', 'URL di base all\'installazione di Serendipity');
 @define('INSTALL_INDEXFILE', 'File indice');
-@define('INSTALL_INDEXFILE_DESC', 'Il nome del file indice di serendipity');
+@define('INSTALL_INDEXFILE_DESC', 'Il nome del file indice di Serendipity');
 
 /* Generel settings */
 @define('INSTALL_CAT_SETTINGS', 'Impostazioni generali');
@@ -392,14 +392,14 @@
 @define('INSTALL_XHTML11_DESC', 'Vuoi forzare l\'aderenza allo standard XHTML 1.1 (potrebbe causare problemi nel backend e nel frontend con i browser di vecchia generazione)');
 @define('INSTALL_POPUP', 'Abilita l\'uso di finestre popup');
 @define('INSTALL_POPUP_DESC', 'Vuoi usare dei popup per i commenti, i trackback, ecc.?');
-@define('INSTALL_EMBED', 'Hai inglobato serendipity?');
-@define('INSTALL_EMBED_DESC', 'Se vuoi inglobare serendipity in una normale pagina, imposta questa opzione a vero, in modo da scartare gli header e scrivere solo i contenuti. Puoi usare i normali header della tua pagina web. Leggi il file README per avere più informazioni!');
+@define('INSTALL_EMBED', 'Hai inglobato Serendipity?');
+@define('INSTALL_EMBED_DESC', 'Se vuoi inglobare Serendipity in una normale pagina, imposta questa opzione a vero, in modo da scartare gli header e scrivere solo i contenuti. Puoi usare i normali header della tua pagina web. Leggi il file README per avere più informazioni!');
 @define('INSTALL_TOP_AS_LINKS', 'Mostra i Top Exit/Referrer come link?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exit e Referrer sono mostrati come puro testo per evitare spam su google. "sì": Exit e Referrer vengono mostrati come link. "default": Usa le impostazioni globali (raccomandato).');
 @define('INSTALL_BLOCKREF', 'Referers bloccati');
 @define('INSTALL_BLOCKREF_DESC', 'Ci sono particolari host che non vuoi mostrare nella lista dei referer? Separa la lista dei nomi di host con un \';\' e, nota bene, gli host vengono bloccati anche come sotto-stringhe!');
 @define('INSTALL_REWRITE', 'Riscrittura URL');
-@define('INSTALL_REWRITE_DESC', 'Seleziona quale regola vuoi per la generazione degli URL. Abilitare la riscrittura degli URL genera URL più belli e rende il blog meglio indicizzabile dai motori di ricerca come google. Il webserver deve supportare almeno mod_rewrite o "AllowOverride All" per la tua directory di serendipity. L\'impostazione di default è l\'auto-riconoscimento');
+@define('INSTALL_REWRITE_DESC', 'Seleziona quale regola vuoi per la generazione degli URL. Abilitare la riscrittura degli URL genera URL più belli e rende il blog meglio indicizzabile dai motori di ricerca come google. Il webserver deve supportare almeno mod_rewrite o "AllowOverride All" per la tua directory di Serendipity. L\'impostazione di default è l\'auto-riconoscimento');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Impostazione per la conversione di immagini');

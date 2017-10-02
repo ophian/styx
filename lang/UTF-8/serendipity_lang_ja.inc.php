@@ -264,10 +264,10 @@
 @define('DO_MARKUP', 'マークアップ変換を行う');
 @define('GENERAL_PLUGIN_DATEFORMAT', '日付書式');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'エントリーの実際の日付の書式です。PHP の strftime() 値を使用します (デフォルト: "%s")');
-@define('ERROR_TEMPLATE_FILE', 'テンプレートファイルを開けません。serendipity をアップデートしてください!');
+@define('ERROR_TEMPLATE_FILE', 'テンプレートファイルを開けません。Serendipity をアップデートしてください!');
 @define('ADVANCED_OPTIONS', '高度なオプション');
 @define('EDIT_ENTRY', 'エントリー編集');
-@define('HTACCESS_ERROR', 'ローカルのウェブサーバでのインストールを確認するために、serendipity はファイル「.htaccess」を書き込みできる書くことができる必要があります。これは権限エラーのためにできませんでした。このように権限を調整してください: <br>&nbsp;&nbsp;%s<br> そして、このページを再読み込みします。');
+@define('HTACCESS_ERROR', 'ローカルのウェブサーバでのインストールを確認するために、Serendipity はファイル「.htaccess」を書き込みできる書くことができる必要があります。これは権限エラーのためにできませんでした。このように権限を調整してください: <br>&nbsp;&nbsp;%s<br> そして、このページを再読み込みします。');
 @define('SIDEBAR_PLUGINS', 'サイドバー プラグイン');
 @define('EVENT_PLUGINS', 'イベント プラグイン');
 @define('SORT_ORDER', 'ソート順');
@@ -360,7 +360,7 @@
 @define('INSTALL_CAT_PATHS', 'パス');
 @define('INSTALL_CAT_PATHS_DESC', '各種パスに必要なフォルダーとファイルを指定します。ディレクトリーには末尾にスラッシュを忘れないでください!');
 @define('INSTALL_FULLPATH', 'フルパス');
-@define('INSTALL_FULLPATH_DESC', 'serendipity をインストールした絶対フルパスです。');
+@define('INSTALL_FULLPATH_DESC', 'Serendipity をインストールした絶対フルパスです。');
 @define('INSTALL_UPLOADPATH', 'アップロードパス');
 @define('INSTALL_UPLOADPATH_DESC', 'すべてのアップロードはここに来ます。「フルパス」への相対パス - 通常「uploads/」です。');
 @define('INSTALL_RELPATH', '相対パス');
@@ -370,9 +370,9 @@
 @define('INSTALL_RELUPLOADPATH', '相対アップロードパス');
 @define('INSTALL_RELUPLOADPATH_DESC', 'ブラウザからのアップロードのパスです - 「相対パス」への相対です。');
 @define('INSTALL_URL', 'ブログの URL');
-@define('INSTALL_URL_DESC', 'serendipity をインストールしたベース URL');
+@define('INSTALL_URL_DESC', 'Serendipity をインストールしたベース URL');
 @define('INSTALL_INDEXFILE', 'インデックスファイル');
-@define('INSTALL_INDEXFILE_DESC', 'serendipity インデックスファイルの名前');
+@define('INSTALL_INDEXFILE_DESC', 'Serendipity インデックスファイルの名前');
 
 /* Generel settings */
 @define('INSTALL_CAT_SETTINGS', '一般設定');
@@ -403,8 +403,8 @@
 @define('INSTALL_XHTML11_DESC', '強制で XHTML 1.1 準拠にします (第 4 世代より古いブラウザーのフロントエンド・バックエンドの問題を起こすかもしれません。)');
 @define('INSTALL_POPUP', 'ポップアップ ウィンドウを有効にする');
 @define('INSTALL_POPUP_DESC', 'コメントやトラックバックにポップアップ ウィンドウを使用しますか?');
-@define('INSTALL_EMBED', 'serendipity を組み込みで使用しますか?');
-@define('INSTALL_EMBED_DESC', 'If you want to embed serendipity within a regular page, set to true to discard any headers and just print the contents. You can make use of the indexFile option to use a wrapper class where you put your normal webpage headers. より詳しい情報はファイル README を参照してください!');
+@define('INSTALL_EMBED', 'Serendipity を組み込みで使用しますか?');
+@define('INSTALL_EMBED_DESC', 'If you want to embed Serendipity within a regular page, set to true to discard any headers and just print the contents. You can make use of the indexFile option to use a wrapper class where you put your normal webpage headers. より詳しい情報はファイル README を参照してください!');
 @define('INSTALL_TOP_AS_LINKS', 'トップの退出/リファラーをリンクとして表示しますか?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"いいえ": google スパムを防ぐために退出とリファラーをただのテキストとして表示します。"はい": 退出とリファラーをハイパーリンクとして表示します。"デフォルト": 一般設定をの設定を使用します(推奨)');
 @define('INSTALL_BLOCKREF', 'リファラーブロック');
@@ -414,7 +414,7 @@
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', '画像変換設定');
-@define('INSTALL_CAT_IMAGECONV_DESC', 'serendipity がどのようにイメージを扱わなければならないかに関する一般的な情報を入力します。');
+@define('INSTALL_CAT_IMAGECONV_DESC', 'Serendipity がどのようにイメージを扱わなければならないかに関する一般的な情報を入力します。');
 @define('INSTALL_IMAGEMAGICK', 'Imagemagick を使う');
 @define('INSTALL_IMAGEMAGICK_DESC', 'image magick がインストール済みで、それを使って画像のリサイズをしますか?');
 @define('INSTALL_IMAGEMAGICKPATH', 'convert バイナリへのパス');

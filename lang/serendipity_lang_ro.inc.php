@@ -265,10 +265,10 @@
 @define('DO_MARKUP', 'Execută transformările pentru selecţii');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Format dată');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Forma datei pentru însemnare, folosind variabilele funcţiei PHP strftime(). (Implicit: "%s")');
-@define('ERROR_TEMPLATE_FILE', 'Nu pot deschide fişierul cu tematică, verifică configuraţia serendipity!');
+@define('ERROR_TEMPLATE_FILE', 'Nu pot deschide fişierul cu tematică, verifică configuraţia Serendipity!');
 @define('ADVANCED_OPTIONS', 'Opţiuni avansate');
 @define('EDIT_ENTRY', 'Modifică însemnare');
-@define('HTACCESS_ERROR', 'Pentru a verifica instalarea serverului tău web, serendipity trebuie să poată scrie în fişierul ".htaccess". Acest lucru nu a fost posibil din cauza lipsei de permisiuni asupra fişierului sau directorului care îl conţine. Trebuie să schimbi permisiunile asupra fişierului astfel: <br>&nbsp;&nbsp;%s<br>şi reîncarcă această pagină.');
+@define('HTACCESS_ERROR', 'Pentru a verifica instalarea serverului tău web, Serendipity trebuie să poată scrie în fişierul ".htaccess". Acest lucru nu a fost posibil din cauza lipsei de permisiuni asupra fişierului sau directorului care îl conţine. Trebuie să schimbi permisiunile asupra fişierului astfel: <br>&nbsp;&nbsp;%s<br>şi reîncarcă această pagină.');
 @define('SIDEBAR_PLUGINS', 'Extensii Bară Laterală');
 @define('EVENT_PLUGINS', 'Extensii Evenimente');
 @define('SORT_ORDER', 'Ordinea sortării');
@@ -365,15 +365,15 @@
 @define('INSTALL_UPLOADPATH', 'Cale Upload');
 @define('INSTALL_UPLOADPATH_DESC', 'Toate fişierele încărcate vor fi puse aici, relativ la \'Cale completă\' - tipic: \'uploads/\'');
 @define('INSTALL_RELPATH', 'Cale relativă');
-@define('INSTALL_RELPATH_DESC', 'Calea către serendipity pentru web, tipic \'/serendipity/\'');
+@define('INSTALL_RELPATH_DESC', 'Calea către Serendipity pentru web, tipic \'/serendipity/\'');
 @define('INSTALL_RELTEMPLPATH', 'Cale relativă către tematici');
 @define('INSTALL_RELTEMPLPATH_DESC', 'Calea către directorul care conţine tematicile tale - Relativă la \'Cale relativă\'');
 @define('INSTALL_RELUPLOADPATH', 'Cale relativă upload');
 @define('INSTALL_RELUPLOADPATH_DESC', 'Calea către fişierele încărcate pentru web - Relativă la \'Cale relativă\'');
 @define('INSTALL_URL', 'URL către blog');
-@define('INSTALL_URL_DESC', 'URL de bază către instalarea serendipity');
+@define('INSTALL_URL_DESC', 'URL de bază către instalarea Serendipity');
 @define('INSTALL_INDEXFILE', 'Fişier index');
-@define('INSTALL_INDEXFILE_DESC', 'Numele fişierului index pentru serendipity');
+@define('INSTALL_INDEXFILE_DESC', 'Numele fişierului index pentru Serendipity');
 
 /* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', 'Setări generale');
@@ -404,18 +404,18 @@
 @define('INSTALL_XHTML11_DESC', 'Vrei să forţezi compatibilitatea cu XHTML 1.1 (poate cauza probleme pentru interfaţă/funcţionalitate în browserele mai vechi)');
 @define('INSTALL_POPUP', 'Permite folosirea ferestrelor popup');
 @define('INSTALL_POPUP_DESC', 'Vrei să foloseşti ferestre popup pentru comentarii, referinţe, etc ...?');
-@define('INSTALL_EMBED', 'serendipity este integrat?');
-@define('INSTALL_EMBED_DESC', 'Dacă vrei să incluzi serendipity într-o pagină normală, bifează aici pentru a ignora antetele şi a afişa doar conţinutul. Poţi folosi opţiunea indexFile pentru a folosi o clasă unde poţi pune antetele paginii în care e integrat serendipity. Vezi fişierul README pentru mai multe informaţii!');
+@define('INSTALL_EMBED', 'Serendipity este integrat?');
+@define('INSTALL_EMBED_DESC', 'Dacă vrei să incluzi Serendipity într-o pagină normală, bifează aici pentru a ignora antetele şi a afişa doar conţinutul. Poţi folosi opţiunea indexFile pentru a folosi o clasă unde poţi pune antetele paginii în care e integrat Serendipity. Vezi fişierul README pentru mai multe informaţii!');
 @define('INSTALL_TOP_AS_LINKS', 'Arată intrările din Top Ieşiri/Referenţi ca legături?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"nu": Ieşirile şi Referinţele sunt afişate doar ca text pentru a evita spam-ul de pe google. "da": Ieşirile şi Referenţii sunt afişaţi ca legături. "implicit": Foloseşte setările globale (recomandat).');
 @define('INSTALL_BLOCKREF', 'Referenţi blocaţi');
 @define('INSTALL_BLOCKREF_DESC', 'Există nişte adrese care nu vrei să apară în listă? Separă lista de adrese cu \';\' şi ai în vedere faptul că adresele sunt blocate după comparaţii cu subşiruri!');
 @define('INSTALL_REWRITE', 'Rescriere URL');
-@define('INSTALL_REWRITE_DESC', 'Alege ce reguli vrei să foloseşti când generezi un URL. Activând această opţiune va face un URL să arate mai frumos şi va fi indexat preferenţial de motoare de căutare ca google. Serverul web trebuie să aiba instalat mod_rewrite sau "AllowOverride All" pentru directorul serendipity. Opţiunea implicită este auto-detecţie');
+@define('INSTALL_REWRITE_DESC', 'Alege ce reguli vrei să foloseşti când generezi un URL. Activând această opţiune va face un URL să arate mai frumos şi va fi indexat preferenţial de motoare de căutare ca google. Serverul web trebuie să aiba instalat mod_rewrite sau "AllowOverride All" pentru directorul Serendipity. Opţiunea implicită este auto-detecţie');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Setări Conversie Imagini');
-@define('INSTALL_CAT_IMAGECONV_DESC', 'Aici sunt stocate informaţii despre cum tratează serendipity imaginile');
+@define('INSTALL_CAT_IMAGECONV_DESC', 'Aici sunt stocate informaţii despre cum tratează Serendipity imaginile');
 @define('INSTALL_IMAGEMAGICK', 'Foloseşte ImageMagick');
 @define('INSTALL_IMAGEMAGICK_DESC', 'Ai ImageMagick instalat pe server şi vrei să-l foloseşti pentru redimensionarea imaginilor?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Calea către executabilul convert');

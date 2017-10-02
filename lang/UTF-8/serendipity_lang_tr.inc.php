@@ -269,7 +269,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Şablon dosyası açılamıyor, Lütfen yazılımınızı güncelleyin!');
 @define('ADVANCED_OPTIONS', 'Gelişmiş Seçenekler');
 @define('EDIT_ENTRY', 'Yazı düzenle');
-@define('HTACCESS_ERROR', 'Yerel websunucusu kurulumunu kontrol edin, serendipity  ".htaccess" dosyasına yazma yetkisine ihtiyaç duyar. Şu anda yazma yetkilerinin yetersizliği nedediyle  bu dosya üstüne yazılamıyor. Lütfen örnekteki gibi izinleri düzenleyin: <br>&nbsp;&nbsp;%s<br>ve sayfayı yeniden yükleyin.');
+@define('HTACCESS_ERROR', 'Yerel websunucusu kurulumunu kontrol edin, Serendipity  ".htaccess" dosyasına yazma yetkisine ihtiyaç duyar. Şu anda yazma yetkilerinin yetersizliği nedediyle  bu dosya üstüne yazılamıyor. Lütfen örnekteki gibi izinleri düzenleyin: <br>&nbsp;&nbsp;%s<br>ve sayfayı yeniden yükleyin.');
 @define('SIDEBAR_PLUGINS', 'Site Yan Blok Eklentileri');
 @define('EVENT_PLUGINS', 'Olaylar Eklentileri');
 @define('SORT_ORDER', 'Sırala');

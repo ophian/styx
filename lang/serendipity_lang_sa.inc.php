@@ -269,7 +269,7 @@
 @define('ERROR_TEMPLATE_FILE', '€Ì— ﬁ«œ— ⁄·Ï › Õ „·› «·ﬁ«·». «·—Ã«¡  ÕœÌÀ «·„Ã·…');
 @define('ADVANCED_OPTIONS', 'ŒÌ«—«  „ ﬁœ„…');
 @define('EDIT_ENTRY', ' Õ—Ì— «·„Ê÷Ê⁄');
-@define('HTACCESS_ERROR', 'To check your local webserver installation, serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
+@define('HTACCESS_ERROR', 'To check your local webserver installation, Serendipity needs to be able to write the file ".htaccess". This was not possible because of permission errors. Please adjust the permissions like this: <br>&nbsp;&nbsp;%s<br>and reload this page.');
 @define('SIDEBAR_PLUGINS', '‘—Ìÿ «·«œÊ«  «·Ã«‰»Ì ··»·ﬁ «‰');
 @define('EVENT_PLUGINS', '»·Êﬁ«  ·ÊŸ«∆› Ê«Õœ«À');
 @define('SORT_ORDER', 'ÿ—Ìﬁ… «· — Ì»');

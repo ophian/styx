@@ -267,7 +267,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Gat ekki opnað forsniðsskrá, vinsamlegast uppfærðu Serendipity!');
 @define('ADVANCED_OPTIONS', 'Þróaðir möguleikar');
 @define('EDIT_ENTRY', 'Breyta færslu');
-@define('HTACCESS_ERROR', 'Til að athuga uppsetninguna á staðbundna vefþjóninum þarf serendipity að geta skrifað í skrána ".htaccess". Þetta var ekki hægt vegna leyfisstillinga. Vinsamlegast breyttu leyfum skráarinnar svona:  <br>&nbsp;&nbsp;%s<br>og endurhladdu þessari síðu.');
+@define('HTACCESS_ERROR', 'Til að athuga uppsetninguna á staðbundna vefþjóninum þarf Serendipity að geta skrifað í skrána ".htaccess". Þetta var ekki hægt vegna leyfisstillinga. Vinsamlegast breyttu leyfum skráarinnar svona:  <br>&nbsp;&nbsp;%s<br>og endurhladdu þessari síðu.');
 @define('SIDEBAR_PLUGINS', 'Viðbætur hliðarramma');
 @define('EVENT_PLUGINS', 'Viðbætur atburða');
 @define('SORT_ORDER', 'Röðunarregla');
@@ -360,19 +360,19 @@
 @define('INSTALL_CAT_PATHS', 'Slóðir');
 @define('INSTALL_CAT_PATHS_DESC', 'Nokkrar slóðir á mikilvægar möppur og skrár. Ekki gleyma skástrikinu á eftir möppunöfnum (mappa/)!');
 @define('INSTALL_FULLPATH', 'Full slóð');
-@define('INSTALL_FULLPATH_DESC', 'Full og algjör slóð á serendipity uppsetninguna þína');
+@define('INSTALL_FULLPATH_DESC', 'Full og algjör slóð á Serendipity uppsetninguna þína');
 @define('INSTALL_UPLOADPATH', 'Vistunarslóð');
 @define('INSTALL_UPLOADPATH_DESC', 'All sem er vistað mun fara hingað, m.t.t. fulla slóð - vanalega \'uploads\'');
 @define('INSTALL_RELPATH', 'Hlutfallsleg slóð');
-@define('INSTALL_RELPATH_DESC', 'Slóðin á serendipity fyrir vafrann þinn, vanalega \'/serendipity/\'');
+@define('INSTALL_RELPATH_DESC', 'Slóðin á Serendipity fyrir vafrann þinn, vanalega \'/serendipity/\'');
 @define('INSTALL_RELTEMPLPATH', 'Hlutfallsleg slóð á forsnið');
 @define('INSTALL_RELTEMPLPATH_DESC', 'Slóðin á möppuna sem inniheldur forsniðin þín - m.t.t. til \'hlutfallslega slóð\'');
 @define('INSTALL_RELUPLOADPATH', 'Hlutfallsleg vistunarslóð');
 @define('INSTALL_RELUPLOADPATH_DESC', 'Slóðin á vistaðar skrár fyrir vafra - m.t.t. \'hlutfallslegar slóðar\'');
 @define('INSTALL_URL', 'Slóð (URL) á bloggið þitt');
-@define('INSTALL_URL_DESC', 'Grunnslóðin (Base URL) á serendipity uppsetninguna þína');
+@define('INSTALL_URL_DESC', 'Grunnslóðin (Base URL) á Serendipity uppsetninguna þína');
 @define('INSTALL_INDEXFILE', 'Index skrá');
-@define('INSTALL_INDEXFILE_DESC', 'Nafnið á serendipity index skránni þinni');
+@define('INSTALL_INDEXFILE_DESC', 'Nafnið á Serendipity index skránni þinni');
 
 /* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', 'Almennar stillingar');
@@ -404,17 +404,17 @@
 @define('INSTALL_POPUP', 'Virkja notkun innskotsglugga');
 @define('INSTALL_POPUP_DESC', 'Viltu nota innskotsglugga (popup) fyrir athugasemdir, tilvísanir, o.fl.?');
 @define('INSTALL_EMBED', 'Er Serendipity innifalið?');
-@define('INSTALL_EMBED_DESC', 'Ef þú vilt innifela serendipity á annarri síðu, stilltu þá á "true" að henda öllum hausum, og prenta bara innihaldið. Þú getur nýtt indexFile valmöguleikann til að nota "wrapper class" þar sem þú setur venjulega vefsíðuhausa. Sjá README skrá fyrir meiri upplýsingar.');
+@define('INSTALL_EMBED_DESC', 'Ef þú vilt innifela Serendipity á annarri síðu, stilltu þá á "true" að henda öllum hausum, og prenta bara innihaldið. Þú getur nýtt indexFile valmöguleikann til að nota "wrapper class" þar sem þú setur venjulega vefsíðuhausa. Sjá README skrá fyrir meiri upplýsingar.');
 @define('INSTALL_TOP_AS_LINKS', 'Sýna topp útgönguleiðir/ávísara sem tengla?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"nei": Útgönguleiðir og ávísarar eru sýnd sem venjulegur texti til að verjast google rusli. "já": Útgönguleiðir og ávísarar eru sýndir sem tenglar. "sjálfgefið": Nota stillingu úr almennum stillingum (ráðlagt).');
 @define('INSTALL_BLOCKREF', 'Óleyfðir ávísarar');
 @define('INSTALL_BLOCKREF_DESC', 'Eru einhverjar sérstakar vélar sem þú vilt ekki láta sjást í ávísaralistanum? Aðskildu lista vélanafna með \';\' og hafðu í huga að vélarnafninu er sleppt með "substring matches"!');
 @define('INSTALL_REWRITE', 'Endurskrifun slóða (URL)');
-@define('INSTALL_REWRITE_DESC', 'Veldu hvaða reglur þú vilt nota til að endurskrifa slóðir (URL). Að hafa þetta virkt mun gera slóðir á bloggið þitt fallegar og einfaldar, og gera auðveldara fyrir vefköngulær (s.s. google) að gera efnisyfirlit á síðuna). Vefþjónninn þarf að styðja annaðhvort mod_rewrite eða "AllowOverride All" fyrir serendipity möppuna þína. Sjjálfgefna stillingin er að skynja það sjálfkrafa.');
+@define('INSTALL_REWRITE_DESC', 'Veldu hvaða reglur þú vilt nota til að endurskrifa slóðir (URL). Að hafa þetta virkt mun gera slóðir á bloggið þitt fallegar og einfaldar, og gera auðveldara fyrir vefköngulær (s.s. google) að gera efnisyfirlit á síðuna). Vefþjónninn þarf að styðja annaðhvort mod_rewrite eða "AllowOverride All" fyrir Serendipity möppuna þína. Sjjálfgefna stillingin er að skynja það sjálfkrafa.');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Myndbreytingastillingar:');
-@define('INSTALL_CAT_IMAGECONV_DESC', 'Skráðu inn almennar upplýsingar um hvernig serendipity ætti að sjá um myndir');
+@define('INSTALL_CAT_IMAGECONV_DESC', 'Skráðu inn almennar upplýsingar um hvernig Serendipity ætti að sjá um myndir');
 @define('INSTALL_IMAGEMAGICK', 'Nota Imagemagick');
 @define('INSTALL_IMAGEMAGICK_DESC', 'Ertu með imagemagick uppsett og vilt nota það til að breyta stærð mynda?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Slóð á forritið');
@@ -667,7 +667,7 @@
 @define('UNMET_REQUIREMENTS', 'Óuppfylltar þarfir: %s');
 @define('CHARSET', 'Stafasett (charset)');
 @define('AUTOLANG', 'Nota tungumálastillingar vafra gestsins sem sjálfgefið tungumál');
-@define('AUTOLANG_DESC', 'Ef þetta er virkt mun serendipity nota tungumálið sem stillt er á í vafra viðkomandi gests fyrir viðmótið (og færslur ef við á).');
+@define('AUTOLANG_DESC', 'Ef þetta er virkt mun Serendipity nota tungumálið sem stillt er á í vafra viðkomandi gests fyrir viðmótið (og færslur ef við á).');
 @define('INSTALL_AUTODETECT_URL', 'Skynja sjálfvirkt HTTP-Host');
 @define('INSTALL_AUTODETECT_URL_DESC', 'Ef þetta er stillt á "true" mun Serendipity sjá til þess að HTTP Host nafnið sem var notað sé notað sem BaseURL stilling. Að virkja þetta mun gera þér kleift að nota mörg mismunandi vélarnöfn fyrir Serendipity bloggið þitt, og nota það vélarnafn fyrir alla tengla fyrir alla tengla eftir það sem eru notaðir til að vafra um bloggið þitt.');
 @define('CONVERT_HTMLENTITIES', 'Reyna að Try to breyta HTML færslum sjálfkrafa?');
