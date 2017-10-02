@@ -52,7 +52,39 @@ Version 2.4-alpha1 ()
     One of it is the slightly shorter "styxThumb" image notation,
     another, the new database table default prefix is now "styx_".
 
-  * [EXPERIMENTAL] Prepare utf8mb4 migration
+  * [..marked for the upcoming beta: EXPERIMENTAL]
+    Prepared utf8mb4 migration for MySQL database servers to allow
+    an extended unicode usage, like for Emojis.
+    (See http://getemoji.com/)
+
+    The basic issue is that in UTF-8 we have about 1000 bytes in length
+    for indexes. Due to UTF-8 this means we can use a character length
+    of 333 characters (1000 / 3). With UTF-8 MB4 this is reduced to 250
+    characters (1000 / 4). A single index is allowed to reach 767 bytes
+    (191 characters). This means, wherever we recently used an index
+    length of 200 or 250 or 255 we can now only use 191 bytes. This
+    means, all indexes need adjustment before the charset of a table
+    can be successfully changed. While this can be automated, the
+    problem is that it is not easy to deduce the new proper key length,
+    because in some tables, reducing an index could lead to failing
+    unique key constraints.
+
+    The migration has therefore been developed in two ways:
+
+    1.) New Installations shall use utf8mb4 as charset on installation,
+        if their mysql version matches. If not, UTF-8 will be used.
+        The internal SQL key statements have been adapted to work with
+        utf8mb4, also in the additional_plugins repository all created
+        indexes were already adjusted.
+
+    2.) Existing installations now get a maintenance task, with which
+        they can convert to UTF-8 MB4. There are two steps; First the
+        "simulation" which yields all SQL statements that would get
+        executed, and second the "execution" of those statements.
+
+    They both has been checked on some installations. Please read the
+    info button instructions for the second, the maintenance migration!
+    A full SQL backup is recommended.
 
   * Optimized placement of dashboards links and quicktip widgets
 
