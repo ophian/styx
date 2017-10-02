@@ -83,7 +83,7 @@
 @define('ERROR_FILE_EXISTS', 'Error: New filename already used, pick another!');
 @define('ERROR_SOMETHING', 'Error: Something is wrong.');
 @define('ADDING_IMAGE', 'Adding image...');
-@define('THUMB_CREATED_DONE', 'Thumbnail created.<br/>Done.');
+@define('THUMB_CREATED_DONE', 'Thumbnail %s created.<br>Done.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Error: File already exists on your machine!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Unknown error occurred, file not uploaded. Maybe your filesize is larger than the maximum size allowed by your server installation. Check with your ISP or edit your php.ini file to allow larger file size uploads.');
 @define('GO', 'Go!');

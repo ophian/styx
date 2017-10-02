@@ -83,7 +83,7 @@
 @define('ERROR_FILE_EXISTS', 'Villa: Nýja skráarnafnið er þegar í notkun, veldu annað!');
 @define('ERROR_SOMETHING', 'Villa: Eitthvað er að.');
 @define('ADDING_IMAGE', 'Bæti við mynd...');
-@define('THUMB_CREATED_DONE', 'Sýnishorn búið til.<br>Lokið.');
+@define('THUMB_CREATED_DONE', 'Sýnishorn %s búið til.<br>Lokið.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Villa: Skráin er þegar til á vélinni!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Óþekkt villa hefur komið upp, skrá ekki vistuð. Kannski var stærð skráarinnar meiri heldur en hámarksstærðin sem netjónninn skilgreinir. Hafðu samband við þjónustuaðilann þinn eða breytti php.ini skránni til að leyfa stærri skráarflutninga.');
 @define('GO', 'Go!');

@@ -85,7 +85,7 @@
 @define('ERROR_FILE_EXISTS', 'Errore: Nuovo nome file già usato, scegline un altro!');
 @define('ERROR_SOMETHING', 'Errore: Qualcosa non va.');
 @define('ADDING_IMAGE', 'Aggiunta image...');
-@define('THUMB_CREATED_DONE', 'Miniatura creata.<br>Fatto.');
+@define('THUMB_CREATED_DONE', 'Miniatura %s creata.<br>Fatto.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Errore: Il file esiste già sulla tua macchina!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Errore sconosciuto, file non inviato. Forse le dimensioni sono superiori al massimo consentito dall\'installazione del server. Chiedi al tuo provider o modifica php.ini per consentire upload più corposi.');
 @define('GO', 'Vai!');

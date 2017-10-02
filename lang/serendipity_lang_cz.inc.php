@@ -115,7 +115,7 @@ $i18n_filename_to = array (
 @define('ERROR_FILE_EXISTS', 'Chyba: Toto jméno souboru je u¾ pou¾ito, zvolte jiné!');
 @define('ERROR_SOMETHING', 'Chyba: Nìco je ¹patnì.');
 @define('ADDING_IMAGE', 'Pøidání obrázku...');
-@define('THUMB_CREATED_DONE', 'Náhled je vytvoøen.<br>Hotovo.');
+@define('THUMB_CREATED_DONE', 'Náhled %s je vytvoøen.<br>Hotovo.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Chyba: Soubor u¾ ve va¹em poèítaèi existuje!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Neznámá chyba, soubor nebyl nahrán. Je mo¾né, ¾e délka souboru pøekraèuje maximum, povolené serverem. Spojte se s va¹ím ISP nebo editujte soubor php.ini a povolte vìt¹í velikost.');
 @define('GO', 'Provést!');

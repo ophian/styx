@@ -83,7 +83,7 @@
 @define('ERROR_FILE_EXISTS', 'Virhe: Tiedostonimi on jo käytössä, valitse uusi!');
 @define('ERROR_SOMETHING', 'Virhe: Jokin meni pieleen.');
 @define('ADDING_IMAGE', 'Lisätään kuvaa...');
-@define('THUMB_CREATED_DONE', 'Pienoiskuvaa luodaan.<br>Valmis.');
+@define('THUMB_CREATED_DONE', 'Pienoiskuvaa %s luodaan.<br>Valmis.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Virhe: Tiedosto on jo olemassa!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Pieleen meni, tiedostoa ei tuotu. Kenties tiedoston koko oli liian suuri. Kysy palveluntarjoajaltasi apua tai muokkaa php.ini tiedostoasi salliaksesi isompien tiedostojen tuonnin..');
 @define('GO', 'Tee!');

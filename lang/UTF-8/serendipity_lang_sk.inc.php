@@ -96,7 +96,7 @@ $i18n_filename_to = array (
 @define('ERROR_FILE_EXISTS', 'Chyba: Nový názov súboru už je použitý, zvoľte iný názov!');
 @define('ERROR_SOMETHING', 'Chyba: Niečo nie je v poriadku.');
 @define('ADDING_IMAGE', 'Pridať obrázok...');
-@define('THUMB_CREATED_DONE', 'Náhľad vytvorený.<br>Hotové.');
+@define('THUMB_CREATED_DONE', 'Náhľad %s vytvorený.<br>Hotové.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Chyba: Súbor už na serveri existuje!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Neznáma chyba, súbor sa nenahral. Možným dôvodom je, že veľkosť súboru prekračuje maximálnu veľkosť povolenú serverom. Spojte sa s vaším providerom alebo upravte súbor php.ini a povolte väčšiu veľkosť.');
 @define('GO', 'Vykonať!');

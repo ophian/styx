@@ -83,7 +83,7 @@
 @define('ERROR_FILE_EXISTS', 'Fel: Filnamnet finns redan, välj ett annat!');
 @define('ERROR_SOMETHING', 'Fel: Någonting är fel.');
 @define('ADDING_IMAGE', 'Lägger till bild...');
-@define('THUMB_CREATED_DONE', 'Miniatyr skapad.<br/>Klar.');
+@define('THUMB_CREATED_DONE', 'Miniatyr %s skapad.<br>Klar.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fel: Filen finns redan i din dator!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ett okänt fel inträffade och filen laddades inte upp. Filstorleken är kanske större än vad som tillåts av din serverinstallation. Kolla med din tjänsteleverantör eller ändra i filen php.ini för att tillåta uppladdning av större filer.');
 @define('GO', 'Kör!');

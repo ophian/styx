@@ -96,7 +96,7 @@ $i18n_filename_to = array (
 @define('ERROR_FILE_EXISTS', 'Chyba: Nový názov súboru u¾ je pou¾itý, zvoµte iný názov!');
 @define('ERROR_SOMETHING', 'Chyba: Nieèo nie je v poriadku.');
 @define('ADDING_IMAGE', 'Prida» obrázok...');
-@define('THUMB_CREATED_DONE', 'Náhµad vytvorený.<br>Hotové.');
+@define('THUMB_CREATED_DONE', 'Náhµad %s vytvorený.<br>Hotové.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Chyba: Súbor u¾ na serveri existuje!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Neznáma chyba, súbor sa nenahral. Mo¾ným dôvodom je, ¾e veµkos» súboru prekraèuje maximálnu veµkos» povolenú serverom. Spojte sa s va¹ím providerom alebo upravte súbor php.ini a povolte väè¹iu veµkos».');
 @define('GO', 'Vykona»!');

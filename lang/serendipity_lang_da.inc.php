@@ -81,7 +81,7 @@
 @define('ERROR_FILE_EXISTS', 'Fejl: Det nye filnavn eksisterer allerede, vælg et andet!');
 @define('ERROR_SOMETHING', 'Fejl: Der gik noget galt');
 @define('ADDING_IMAGE', 'Tilføjet billede...');
-@define('THUMB_CREATED_DONE', 'Minibillede er oprettet.<br>Done.');
+@define('THUMB_CREATED_DONE', 'Minibillede %s er oprettet.<br>Done.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fejl: Filen findes allerede på din maskine!');
 @define('GO', 'Begynd!');
 @define('NEWSIZE', 'Ny størrelse: ');

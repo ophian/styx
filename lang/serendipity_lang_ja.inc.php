@@ -83,7 +83,7 @@
 @define('ERROR_FILE_EXISTS', 'エラー: 既に新しいファイル名が使用されています。別の名前を指定してください!');
 @define('ERROR_SOMETHING', 'エラー: 何かが間違っています。');
 @define('ADDING_IMAGE', '画像を追加しています...');
-@define('THUMB_CREATED_DONE', 'サムネイルを作成しました。<br>終了します。');
+@define('THUMB_CREATED_DONE', 'サムネイルを作成しました。<br>%s 終了します。');
 @define('ERROR_FILE_EXISTS_ALREADY', 'エラー: ファイルはマシン上に既に存在します!');
 @define('ERROR_UNKNOWN_NOUPLOAD', '未知のエラーが生じました。ファイルはアップロードしませんでした。おそらくファイルサイズがサーバーのインストールで許可された最大サイズを超えたと思われます。ISP に確認するか、php.ini ファイルで許可されたアップロード可能な最大ファイルサイズを編集してください。');
 @define('GO', 'Go!');

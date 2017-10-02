@@ -82,7 +82,7 @@
 @define('ERROR_FILE_EXISTS', 'Fehler: Neuer Dateiname existiert schon, bitte einen anderen wählen.');
 @define('ERROR_SOMETHING', 'Fehler: Irgend etwas stimmt nicht.');
 @define('ADDING_IMAGE', 'Bild hinzufügen ...');
-@define('THUMB_CREATED_DONE', 'Vorschau erstellt.<br>Fertig.');
+@define('THUMB_CREATED_DONE', 'Vorschau %s erstellt.<br>Fertig.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fehler: Diese Datei existiert schon auf dem Server!');
 @define('GO', 'Los!');
 @define('NEWSIZE', 'Neue Größe ');

@@ -84,7 +84,7 @@
 @define('ERROR_FILE_EXISTS', 'ОШГ : ГУг ЗбгбЭ нжМП гд ЮИб ГОКС ГУгЗр ГОС');
 @define('ERROR_SOMETHING', 'ОШГ: Эн ОШГ гЗ');
 @define('ADDING_IMAGE', 'ЗЦЗЭЙ ХжСЙ...');
-@define('THUMB_CREATED_DONE', 'ЗбХжСЙ ЗбгХЫСЙ<br/>МЗеТЙ');
+@define('THUMB_CREATED_DONE', 'ЗбХжСЙ %s ЗбгХЫСЙ<br>МЗеТЙ');
 @define('ERROR_FILE_EXISTS_ALREADY', 'ОШГ! ЗбгбЭ гжМжП гУИЮЗр');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'НХб ОШГ ЫнС гЪСжЭ! ! ! бг нКгб СЭЪ ЗбгбЭ – гд ЗбггЯд Гд нЯжд ЗбгбЭ ГЯИС гд НМг ЗбгбЭ бгХСН ИСЭЪе ! ! ! ГЭНХ ISP Гж Юг ИКНСнС гбЭ php.ini Ян КУгН ИСЭЪ ЗбгбЭЗК ЗбЯИнСЙ');
 @define('GO', 'ГЯгб!');

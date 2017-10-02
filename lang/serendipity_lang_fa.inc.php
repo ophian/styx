@@ -84,7 +84,7 @@
 @define('ERROR_FILE_EXISTS', 'خطا: فایلی با این نام وجود دارد، نام دیگری انتخاب کنید!');
 @define('ERROR_SOMETHING', 'خطا: مشکلی وجود دارد.');
 @define('ADDING_IMAGE', 'افزودن عکس...');
-@define('THUMB_CREATED_DONE', 'عکس های کوچک ساخته شدند.<br>انجام شد.');
+@define('THUMB_CREATED_DONE', 'عکس های کوچک ساخته شدند.<br>%s انجام شد.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'خطا: این فایل قبلا در سیستم وجود داشته است!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'خطای ناشناخته، فایلی بالاگذاری نشد. ممکن است که حجم فایل شما بیشتر از ماکزیمم حجم اجازه داده شده باشد. لطفا ISP یا فایل php.ini خود را چک کنید.');
 @define('GO', 'برو!');

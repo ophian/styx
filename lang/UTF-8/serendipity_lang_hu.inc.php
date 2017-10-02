@@ -83,7 +83,7 @@
 @define('ERROR_FILE_EXISTS', 'Hiba: az új fájlnév már létezik, válassz másikat!');
 @define('ERROR_SOMETHING', 'Hiba: valami nem stimmel.');
 @define('ADDING_IMAGE', 'Kép hozzáadása...');
-@define('THUMB_CREATED_DONE', 'Előnézeti kép létrehozva.<br/>Kész.');
+@define('THUMB_CREATED_DONE', 'Előnézeti %s kép létrehozva.<br>Kész.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Hiba: A fájl már létezik a gépeden!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ismeretlen hiba történt, a fájl nincs feltöltve. Talán a fájl mérete nagyobb mint a szerveren beállított megengedett maximum érték. Ezt a beállítást a szerver üzemeltetője tudja megváltoztatni.');
 @define('GO', 'OK');

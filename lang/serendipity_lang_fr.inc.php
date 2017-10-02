@@ -86,7 +86,7 @@
 @define('ERROR_FILE_EXISTS', 'Erreur : il existe déjà un fichier portant ce nom. Choisissez un nouveau nom.');
 @define('ERROR_SOMETHING', 'Erreur : quelque chose ne va pas.');
 @define('ADDING_IMAGE', 'Ajout d\'une image...');
-@define('THUMB_CREATED_DONE', 'Miniature créee.<br>Terminé.');
+@define('THUMB_CREATED_DONE', 'Miniature %s créee.<br>Terminé.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Erreur : le fichier existe déjà sur votre machine.');
 @define('GO', 'Go!');
 @define('NEWSIZE', 'Nouvelle taille : ');
