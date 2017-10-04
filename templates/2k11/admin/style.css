@@ -3691,7 +3691,7 @@ img.mfp-img {
     #directory_permissions .form_multiselect,
     .media_chooser {
         float: left;
-        margin: 0 2% 1em 0;
+        margin: 0 2% 1.0625em 0;
         width: 48%;
     }
 
