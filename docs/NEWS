@@ -5,7 +5,7 @@ Version 2.4-alpha1 ()
     hook, to support the responsiveimage event plugin.
 
   * Add (non-activated) responsiveimages event plugin, which creates
-    an easy way for authors to pick a single image and make Serendipity
+    an easy way for authors to upload images and make Serendipity
     automagically create specific thumnail sizes for the browser to
     choose.
     A templates config could then preset valid thumbnail sizes, like:
