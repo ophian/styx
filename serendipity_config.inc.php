@@ -194,7 +194,7 @@ $serendipity['charsets'] = array(
 @define('VIEWMODE_THREADED', 'threaded');
 @define('VIEWMODE_LINEAR', 'linear');
 
-if (!version_compare(PHP_VERSION, '5.3', '>=')) {
+if (!version_compare(PHP_VERSION, '5.4', '>=')) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
     serendipity_die(sprintf(SERENDIPITY_PHPVERSION_FAIL, PHP_VERSION, '5.3'));
