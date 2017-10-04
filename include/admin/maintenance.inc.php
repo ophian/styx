@@ -12,6 +12,8 @@ include S9Y_INCLUDE_PATH . 'include/admin/import.inc.php';
 $data['importMenu'] = ob_get_contents();
 ob_end_clean();
 
+$usedSuffixes = serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
+
 $data['dbUtf8mb4_ready']     = $serendipity['dbUtf8mb4_ready'];
 $data['dbUtf8mb4']           = $serendipity['dbUtf8mb4'];
 $data['dbUtf8mb4_converted'] = $serendipity['dbUtf8mb4_converted'];
@@ -19,6 +21,7 @@ $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
 $data['dbnotmysql']          = ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true;
+$data['suffixTask']          = (count($usedSuffixes) > 1) ? true : false;
 
 switch($serendipity['GET']['adminAction']) {
     case 'integrity':

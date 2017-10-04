@@ -83,7 +83,7 @@
                     </div>
 
                     <div class="form_radio">
-                        <input id="convertthumbs" name="serendipity[deleteThumbs]" type="radio" value="convert">
+                        <input id="convertthumbs" name="serendipity[deleteThumbs]" type="radio" value="convert"{if !$suffixTask} disabled="disabled"{/if}>
                         <label for="convertthumbs">{$CONST.SYNC_OPTION_CONVERTTHUMBS}</label>
                         <button class="toggle_info button_link" type="button" data-href="#iconvert_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
                     </div>
