@@ -1,6 +1,8 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Set minimum required PHP version to 5.4+
+
   * Add addData $target link to the 'images backend_media_makethumb'
     hook, to support the responsiveimage event plugin.
 
