@@ -1,6 +1,8 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Disable maintenance 4th rebuildThumb radio option if not required
+
   * Set minimum required PHP version to 5.4+
 
   * Add addData $target link to the 'images backend_media_makethumb'
