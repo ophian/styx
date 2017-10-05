@@ -1264,6 +1264,13 @@ input[type=checkbox],
     visibility: hidden;
     display: none;
 }
+.serendipity_comment {
+    border: 1px solid #BBB;
+    width: 98%;
+    padding: 0 .5em .5em;
+    background: #FFF;
+    margin-bottom: 1em;
+}
 
 
 /* COMMON STYLES  */
