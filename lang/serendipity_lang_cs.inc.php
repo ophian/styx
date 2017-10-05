@@ -238,7 +238,7 @@ $i18n_filename_to = array (
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Zachovat existující náhledy pouze pokud mají správnou velikost');
 @define('SYNC_OPTION_DELETETHUMBS', 'Znovu vytvoøit (<em>*.%s</em>) všechny náhledy');
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
-@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This can take long!<br>This option converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
+@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Hotovo (synchronizováno %s obrázkù).');
 @define('FILE_NOT_FOUND', 'Nelze nalézt soubor s názvem <b>%s</b>, možná je opravdu vymazán?');
 @define('ABORT_NOW', 'Zrušit');
