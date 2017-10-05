@@ -1,6 +1,9 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Added simplified standard comment templates to backend, for future
+    independent backend purposes.
+
   * Lots of smaller optimizations for the lang constants
 
   * Disable maintenance 4th rebuildThumb radio option if not required
