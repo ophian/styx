@@ -1,6 +1,8 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Lots of smaller optimizations for the lang constants
+
   * Disable maintenance 4th rebuildThumb radio option if not required
 
   * Set minimum required PHP version to 5.4+
