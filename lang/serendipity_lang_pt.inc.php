@@ -174,8 +174,8 @@
 @define('BROWSER_RELOAD', 'Uma vez feito isso, pressione o botão "atualizar" ("reload") do seu navegador.');
 @define('DIAGNOSTIC_ERROR', 'Detectamos alguns erros quando verificamos as informações fornecidas por você:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity ainda não está instalado. Por favor <a href="%s">instale-o</a> agora.');
-@define('INCLUDE_ERROR', 'erro do serendipity: não foi possível incluir %s - abortando.');
-@define('DATABASE_ERROR', 'erro do serendipity: não foi possível conectar ao banco de dados - abortando.');
+@define('INCLUDE_ERROR', 'Erro do Serendipity: não foi possível incluir %s - abortando.');
+@define('DATABASE_ERROR', 'Erro do Serendipity: não foi possível conectar ao banco de dados - abortando.');
 @define('CREATE_DATABASE', 'Criando a instalação padrão do banco de dados...');
 @define('ATTEMPT_WRITE_FILE', 'Tentando editar o arquivo %s...');
 @define('WRITTEN_N_SAVED', 'Configuração escrita &amp; salva');

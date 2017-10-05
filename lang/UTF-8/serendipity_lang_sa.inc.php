@@ -194,8 +194,8 @@
 @define('BROWSER_RELOAD', 'Once you have done this, hit your browser\'s "reload" button.');
 @define('DIAGNOSTIC_ERROR', 'تم أكتشاف بعض الاخطاء خلال عملية تفحص البيانات المدخلة:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity is not yet installed. Please <a href="%s">install</a> it now.');
-@define('INCLUDE_ERROR', 'serendipity error: could not include %s - exiting.');
-@define('DATABASE_ERROR', 'serendipity error: unable to connect to database - exiting.');
+@define('INCLUDE_ERROR', 'Serendipity error: could not include %s - exiting.');
+@define('DATABASE_ERROR', 'Serendipity error: unable to connect to database - exiting.');
 @define('CREATE_DATABASE', 'Creating default database setup...');
 @define('ATTEMPT_WRITE_FILE', 'Attempting to write %s file...');
 @define('WRITTEN_N_SAVED', 'تم تعديل و حفظ الإعدادات');

@@ -193,8 +193,8 @@
 @define('BROWSER_RELOAD', 'După ce ai făcuta asta, reîmprospătează pagina cu butonul Reload sau Refresh.');
 @define('DIAGNOSTIC_ERROR', 'Am găsit nişte erori în timp ce rulam nişte teste cu informaţiile introduse de tine:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity nu e instalat încă. Îl poţi <a href="%s">instala</a> acum.');
-@define('INCLUDE_ERROR', 'eroare serendipity: nu am putut include %s - ies.');
-@define('DATABASE_ERROR', 'eroare serendipity: nu m-am putut conecta la baza de date - ies.');
+@define('INCLUDE_ERROR', 'Eroare Serendipity: nu am putut include %s - ies.');
+@define('DATABASE_ERROR', 'Eroare Serendipity: nu m-am putut conecta la baza de date - ies.');
 @define('CREATE_DATABASE', 'Creez baza de date implicită...');
 @define('ATTEMPT_WRITE_FILE', 'Încerc să scriu fişierul %s...');
 @define('WRITTEN_N_SAVED', 'Configuraţia a fost scrisă şi salvată');

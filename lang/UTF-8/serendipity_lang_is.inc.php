@@ -192,8 +192,8 @@
 @define('BROWSER_RELOAD', 'Þegar þú ert búinn að því, uppfærðu þá síðunna með "reload/refresh" takkanum.');
 @define('DIAGNOSTIC_ERROR', 'Við urðum vör við einhverjar villur þegar við keyrðum greiningar á upplýsingunum sem þú gafst:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity er ekki uppsett. Vinsamlegast <a href="%s">settu það upp</a> núna.');
-@define('INCLUDE_ERROR', 'serendipity villa: gat ekki innlimað %s - hætti.');
-@define('DATABASE_ERROR', 'serendipity villa: gat ekki tengst gagnagrunni - hætti.');
+@define('INCLUDE_ERROR', 'Serendipity villa: gat ekki innlimað %s - hætti.');
+@define('DATABASE_ERROR', 'Serendipity villa: gat ekki tengst gagnagrunni - hætti.');
 @define('CREATE_DATABASE', 'Geri sjálfgefnu uppsetninguna á gagnagrunninum...');
 @define('ATTEMPT_WRITE_FILE', 'Reyni að skrifa %s skrána...');
 @define('WRITTEN_N_SAVED', 'Stillingar skrifaðar &amp; vistaðar');

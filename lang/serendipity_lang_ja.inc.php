@@ -192,8 +192,8 @@
 @define('BROWSER_RELOAD', '一度これを実行してにはブラウザーの「再読み込み」ボタンをクリックします。');
 @define('DIAGNOSTIC_ERROR', 'あなたの入力した情報の診断を実行する間にいくつかのエラーを検知しました:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity はまだインストールされていません。今から<a href="%s">インストール</a> してください。');
-@define('INCLUDE_ERROR', 'serendipity エラー: %s を含むことをできません - 終了します。');
-@define('DATABASE_ERROR', 'serendipity エラー: データベースに接続できませんでした - 終了します。');
+@define('INCLUDE_ERROR', 'Serendipity エラー: %s を含むことをできません - 終了します。');
+@define('DATABASE_ERROR', 'Serendipity エラー: データベースに接続できませんでした - 終了します。');
 @define('CREATE_DATABASE', '初期データベースセットアップを作成しています...');
 @define('ATTEMPT_WRITE_FILE', 'ファイル %s の書き込みを試みます...');
 @define('WRITTEN_N_SAVED', '設定の書き込みと保存を行いました。');

@@ -194,8 +194,8 @@
 @define('BROWSER_RELOAD', 'Herlaad daarna de pagina.');
 @define('DIAGNOSTIC_ERROR', 'Serendipity heeft fouten gevonden in de door u opgegeven informatie tijdens het uitvoeren van een diagnostisch programma:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity is nog niet geïnstalleerd. <a href="%s">Installeer</a> het nu alstublieft.');
-@define('INCLUDE_ERROR', 'Fout: Kan %s niet invoegen - wordt afgesloten.');
-@define('DATABASE_ERROR', 'Fout: Kan geen verbinding maken met de databank - wordt afgesloten.');
+@define('INCLUDE_ERROR', 'Serendipity Fout: Kan %s niet invoegen - wordt afgesloten.');
+@define('DATABASE_ERROR', 'Serendipity Fout: Kan geen verbinding maken met de databank - wordt afgesloten.');
 @define('CREATE_DATABASE', 'Standaarddatabank aanmaken...');
 @define('ATTEMPT_WRITE_FILE', 'Bestand %s proberen aan te maken...');
 @define('WRITTEN_N_SAVED', 'Configuratie geschreven &amp; opgeslagen');

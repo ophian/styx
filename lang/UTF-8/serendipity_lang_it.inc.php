@@ -181,8 +181,8 @@
 @define('BROWSER_RELOAD', 'Una volta eseguito, premete il bottone "Ricarica" del vostro browser.');
 @define('DIAGNOSTIC_ERROR', 'Sono stati rilevati degli errori durante il controllo dei dati inseriti:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity non è ancora installato. per favore <a href="%s">installatelo</a> ora.');
-@define('INCLUDE_ERROR', 'errore di serendipity: impossibile includere %s - terminato.');
-@define('DATABASE_ERROR', 'errore di serendipity: impossibile connettersi al database - terminato.');
+@define('INCLUDE_ERROR', 'Errore di Serendipity: impossibile includere %s - terminato.');
+@define('DATABASE_ERROR', 'Errore di Serendipity: impossibile connettersi al database - terminato.');
 @define('CREATE_DATABASE', 'Creazione del database di default...');
 @define('ATTEMPT_WRITE_FILE', 'Tentativo di scrittura sul file %s...');
 @define('WRITTEN_N_SAVED', 'Configuratione scritta e salvata');

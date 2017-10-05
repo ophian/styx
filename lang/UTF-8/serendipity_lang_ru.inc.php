@@ -195,8 +195,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('BROWSER_RELOAD', 'После того, как вы это сделаете, нажмите кнопку "reload" вашего браузера.');
 @define('DIAGNOSTIC_ERROR', 'Мы обнаружили несколько ошибок, пока проверяли введённую вами информацию:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity ещё не установлен. Пожалуйста <a href="%s">проведите установку</a> прямо сейчас.');
-@define('INCLUDE_ERROR', 'Ошибка serendipity: невозможно включить файл  %s - прекращение работы.');
-@define('DATABASE_ERROR', 'Ошибка serendipity: невозможно подключиться к базе данных - прекращение работы.');
+@define('INCLUDE_ERROR', 'Ошибка Serendipity: невозможно включить файл  %s - прекращение работы.');
+@define('DATABASE_ERROR', 'Ошибка Serendipity: невозможно подключиться к базе данных - прекращение работы.');
 @define('CREATE_DATABASE', 'Создание настроек базы данных по умолчанию...');
 @define('ATTEMPT_WRITE_FILE', 'Попытка записать файл %s...');
 @define('WRITTEN_N_SAVED', 'Конфигурация записана &amp; сохранена');

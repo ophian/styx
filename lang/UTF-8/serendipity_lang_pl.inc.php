@@ -195,7 +195,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('DIAGNOSTIC_ERROR', 'Stwierdzono istnienie pewnych problemów podczas przeprowadzania procedur diagnostycznych. Upewnij się, że podałeś prawidłowe dane:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity nie zostało jeszcze zainstalowane. Proszę, <a href="%s">zainstaluj</a> je teraz.');
 @define('INCLUDE_ERROR', 'błąd Serendipity: nie można było załączyć %s - wyjście.');
-@define('DATABASE_ERROR', 'błąd Serendipity: nie mogę połączyć się z bazą danych - wyjście.');
+@define('DATABASE_ERROR', 'Błąd Serendipity: nie mogę połączyć się z bazą danych - wyjście.');
 @define('CREATE_DATABASE', 'Tworzenie domyślnych ustawień bazy danych...');
 @define('ATTEMPT_WRITE_FILE', 'Próba zapisania pliku %s ...');
 @define('WRITTEN_N_SAVED', 'Konfiguracja zapisana');

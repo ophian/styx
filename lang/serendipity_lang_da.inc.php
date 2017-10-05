@@ -176,8 +176,8 @@
 @define('BROWSER_RELOAD', 'Når du har gjort dette, så tryk på browserens "opdater" knap');
 @define('DIAGNOSTIC_ERROR', 'Vi har opdaget nogle fejl mens vi kørte nogle diagnostiker på dine indtastede informationer:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity er endnu ikke installeret. Klik <a href="%s">her for at installere</a> nu.');
-@define('INCLUDE_ERROR', 'serendipityfejl: Kunne ikke inkludere %s - Afbryder.');
-@define('DATABASE_ERROR', 'serendipityfejl: Kunne ikke oprette forbindelse til databasen - Afbryder.');
+@define('INCLUDE_ERROR', 'Serendipity fejl: Kunne ikke inkludere %s - Afbryder.');
+@define('DATABASE_ERROR', 'Serendipity fejl: Kunne ikke oprette forbindelse til databasen - Afbryder.');
 @define('CREATE_DATABASE', 'Opretter standarddatabase setup...');
 @define('ATTEMPT_WRITE_FILE', 'Forsøger at skrive til %s ...');
 @define('WRITTEN_N_SAVED', 'Konfiguration skrevet &amp; gemt');

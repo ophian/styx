@@ -192,8 +192,8 @@
 @define('BROWSER_RELOAD', 'Ha kész vagy, kattints a böngészõ "Frissítés" gombjára.');
 @define('DIAGNOSTIC_ERROR', 'Találtam valami hibát az általad megadott adatokban:');
 @define('SERENDIPITY_NOT_INSTALLED', 'A Serendipity még nincs telepítve. Kattints <a href="%s">ide</a> a telepítéshez.');
-@define('INCLUDE_ERROR', 'serendipity hiba: nem megy az "include %s" - kilépek.');
-@define('DATABASE_ERROR', 'serendipity hiba: nem tudok kapcsolódni az adatbázishoz - kilépek.');
+@define('INCLUDE_ERROR', 'Serendipity hiba: nem megy az "include %s" - kilépek.');
+@define('DATABASE_ERROR', 'Serendipity hiba: nem tudok kapcsolódni az adatbázishoz - kilépek.');
 @define('CREATE_DATABASE', 'Létrehozom az alapértelmezett adatbázis táblákat...');
 @define('ATTEMPT_WRITE_FILE', 'Megkísérlek írni a %s fájlba...');
 @define('WRITTEN_N_SAVED', 'A beállítások mentése sikeres');

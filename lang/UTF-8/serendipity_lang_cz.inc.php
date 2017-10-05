@@ -224,8 +224,8 @@ $i18n_filename_to = array (
 @define('BROWSER_RELOAD', 'Po dokončení stiskněte tlačítko obnovení stránky ve vašem prohlížeči.');
 @define('DIAGNOSTIC_ERROR', 'Diagnostika detekovala nějaké chyby ve vkládaných informacích:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity ještě není nainstalován. <a href="%s">Instalujte</a> jej nyní.');
-@define('INCLUDE_ERROR', 'chyba serendipity: nelze vložit %s - ukončeno.');
-@define('DATABASE_ERROR', 'chyba serendipity: nelze se spojit s databází - ukončeno.');
+@define('INCLUDE_ERROR', 'Chyba Serendipity: nelze vložit %s - ukončeno.');
+@define('DATABASE_ERROR', 'Chyba Serendipity: nelze se spojit s databází - ukončeno.');
 @define('CREATE_DATABASE', 'Vytvoření základní databáze...');
 @define('ATTEMPT_WRITE_FILE', 'Pokus uložit soubor %s...');
 @define('WRITTEN_N_SAVED', 'Konfigurace byla zapsána a uložena');

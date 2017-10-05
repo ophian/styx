@@ -205,8 +205,8 @@ $i18n_filename_to = array (
 @define('BROWSER_RELOAD', 'Po dokonèení stlaète tlaèidlo obnovenia stránky vo va¹om prehliadaèi.');
 @define('DIAGNOSTIC_ERROR', 'Diagnostika na¹la chyby vo vkladaných údajoch:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity e¹te nie je nain¹talované. Prosím <a href="%s">nain¹talujte</a> ho teraz.');
-@define('INCLUDE_ERROR', 'chyba serendipity: súbor "%s" sa nepodarilo vlo¾i» - ukonèené.');
-@define('DATABASE_ERROR', 'chyba serendipity: nepodarilo sa spoji» s databázou - ukonèené.');
+@define('INCLUDE_ERROR', 'Chyba Serendipity: súbor "%s" sa nepodarilo vlo¾i» - ukonèené.');
+@define('DATABASE_ERROR', 'Chyba Serendipity: nepodarilo sa spoji» s databázou - ukonèené.');
 @define('CREATE_DATABASE', 'Vytvorenie základnej databázy...');
 @define('ATTEMPT_WRITE_FILE', 'Pokus o zápis do súboru %s...');
 @define('WRITTEN_N_SAVED', 'Konfigurácia bola zapísaná a ulo¾ená');

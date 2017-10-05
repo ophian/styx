@@ -194,8 +194,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('BROWSER_RELOAD', 'Kiedy wykonasz te czynno¶ci wci¶nij przycisk "reload" (od¶wie¿) w swojej przegl±darce.');
 @define('DIAGNOSTIC_ERROR', 'Stwierdzono istnienie pewnych problemów podczas przeprowadzania procedur diagnostycznych. Upewnij siê, ¿e poda³e¶ prawid³owe dane:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity nie zosta³o jeszcze zainstalowane. Proszê, <a href="%s">zainstaluj</a> je teraz.');
-@define('INCLUDE_ERROR', 'b³±d Serendipity: nie mo¿na by³o za³±czyæ %s - wyj¶cie.');
-@define('DATABASE_ERROR', 'b³±d Serendipity: nie mogê po³±czyæ siê z baz± danych - wyj¶cie.');
+@define('INCLUDE_ERROR', 'B³±d Serendipity: nie mo¿na by³o za³±czyæ %s - wyj¶cie.');
+@define('DATABASE_ERROR', 'B³±d Serendipity: nie mogê po³±czyæ siê z baz± danych - wyj¶cie.');
 @define('CREATE_DATABASE', 'Tworzenie domy¶lnych ustawieñ bazy danych...');
 @define('ATTEMPT_WRITE_FILE', 'Próba zapisania pliku %s ...');
 @define('WRITTEN_N_SAVED', 'Konfiguracja zapisana');

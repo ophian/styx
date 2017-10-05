@@ -194,8 +194,8 @@
 @define('BROWSER_RELOAD', 'Öncelikle şu işlemi yapın, Tarayıcınızın\'s "yenile" düğmesine tıklayın.');
 @define('DIAGNOSTIC_ERROR', 'Girdiğiniz bilgilerde bazı hatalar tespit ettik:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity henüz kurulmadı. Lütfen <a href="%s">buradan kurun</a> .');
-@define('INCLUDE_ERROR', 'serendipity hata: dosya eklenemedi %s - bu dosya.');
-@define('DATABASE_ERROR', 'serendipity hata: veritabanına bağlanılamıyor - bu veritabanı.');
+@define('INCLUDE_ERROR', 'Serendipity hata: dosya eklenemedi %s - bu dosya.');
+@define('DATABASE_ERROR', 'Serendipity hata: veritabanına bağlanılamıyor - bu veritabanı.');
 @define('CREATE_DATABASE', 'Öntanımlı veritabanının kurulumu yapılıyor...');
 @define('ATTEMPT_WRITE_FILE', 'Bu dosyaya yazarken dikkat edin %s ...');
 @define('WRITTEN_N_SAVED', 'Yapılandırma yazıldı &amp; kaydedildi');

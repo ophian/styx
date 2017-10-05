@@ -192,8 +192,8 @@
 @define('BROWSER_RELOAD', '完成之后, 重新刷新你的浏览器.');
 @define('DIAGNOSTIC_ERROR', '系统检测到一些错误:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity 还没安装完成. 请按 <a href="%s">安装</a>.');
-@define('INCLUDE_ERROR', 'serendipity 错误: 无法包括 %s - 退出！');
-@define('DATABASE_ERROR', 'serendipity 错误: 无法连接到库 - 退出！');
+@define('INCLUDE_ERROR', 'Serendipity 错误: 无法包括 %s - 退出！');
+@define('DATABASE_ERROR', 'Serendipity 错误: 无法连接到库 - 退出！');
 @define('CHECK_DATABASE_EXISTS', '检查数据库是否存在。 如果你看到数据库查询错误, 是否需要重装...');
 @define('CREATE_DATABASE', '建立预设数据库库设定...');
 @define('ATTEMPT_WRITE_FILE', '读写 %s 文件...');

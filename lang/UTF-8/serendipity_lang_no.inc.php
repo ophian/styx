@@ -174,8 +174,8 @@
 @define('BROWSER_RELOAD', 'Når du har gjort dette, så tryk på browserens "oppdater"-knapp');
 @define('DIAGNOSTIC_ERROR', 'Vi har opdaget noen feil mens vi kørte noen diagnostikker på dine oppgitte informasjoner:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity er ennå ikke installert. Klikk <a href="%s">her for å installere</a> nå.');
-@define('INCLUDE_ERROR', 'serendipityfeil: Kunne ikke inkludere %s - Avbryter.');
-@define('DATABASE_ERROR', 'serendipityfeil: Kunne ikke oprette forbindelse til databasen - Avbryter.');
+@define('INCLUDE_ERROR', 'Serendipity feil: Kunne ikke inkludere %s - Avbryter.');
+@define('DATABASE_ERROR', 'Serendipity feil: Kunne ikke oprette forbindelse til databasen - Avbryter.');
 @define('CREATE_DATABASE', 'Oppretter standarddatabase-setup...');
 @define('ATTEMPT_WRITE_FILE', 'Forsøker å skrive til %s ...');
 @define('WRITTEN_N_SAVED', 'Konfigurasjon skrevet &amp; lagret');
