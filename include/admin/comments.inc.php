@@ -180,7 +180,8 @@ if (isset($serendipity['GET']['adminAction'])
             );
 
             serendipity_printComments($pc_data);
-            $serendipity['smarty']->display(serendipity_getTemplateFile('comments.tpl', 'serendipityPath'));
+            // displays the PREVIEW of your edited backend comment via edit. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
+            $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comments.tpl', 'serendipityPath'));
         }
     }
 
@@ -190,7 +191,8 @@ if (isset($serendipity['GET']['adminAction'])
 
     serendipity_displayCommentForm($serendipity['GET']['entry_id'], $target_url, NULL, $codata, false, false);
 
-    $serendipity['smarty']->display(serendipity_getTemplateFile('commentform.tpl', 'serendipityPath'));
+    // displays the backend comment form. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
+    $serendipity['smarty']->display(serendipity_getTemplateFile('admin/commentform.tpl', 'serendipityPath'));
 
     return true;
 }
