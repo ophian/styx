@@ -1266,7 +1266,7 @@ input[type=checkbox],
 }
 .serendipity_comment {
     border: 1px solid #BBB;
-    width: 98%;
+    width: auto;
     padding: 0 .5em .5em;
     background: #FFF;
     margin-bottom: 1em;
