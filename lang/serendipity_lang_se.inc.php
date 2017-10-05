@@ -335,7 +335,7 @@
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', '%s matning');
 @define('PERMISSIONS', 'Rättigheter');
 @define('INTEGRITY', 'Verifiera installationens integritet');
-@define('CHECKSUMS_NOT_FOUND', 'Kunde inte jämföra kontrollsummor! (Ingen checksums.inc.php i huvudmappen)');
+@define('CHECKSUMS_NOT_FOUND', 'Kunde inte jämföra kontrollsummor! (Ingen checksums.inc.php i huvudmappen, or dev version)');
 @define('CHECKSUMS_PASS', 'Alla nödvändiga filer verifierade..');
 @define('CHECKSUM_FAILED', '%s korrupt eller ändrad: verifiering misslyckades');
 @define('SETTINGS_SAVED_AT', 'De nya inställningarna har sparats på %s');

@@ -350,7 +350,7 @@ $i18n_filename_to = array (
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', 'Kanál %s');
 @define('PERMISSIONS', 'Oprávnenia');
 @define('INTEGRITY', 'Kontrola integrity in¹talácie');
-@define('CHECKSUMS_NOT_FOUND', 'Nie je mo¾né porovna» kontrolné súèty! (v základnom prieèinku chýba súbor checksums.ini.php)');
+@define('CHECKSUMS_NOT_FOUND', 'Nie je mo¾né porovna» kontrolné súèty! (v základnom prieèinku chýba súbor checksums.inc.php, or dev version)');
 @define('CHECKSUMS_PASS', 'V¹etky súbory skontrolované.');
 @define('CHECKSUM_FAILED', 'Kontrola zlyhala: %s je po¹kodený nebo zmenený');
 @define('SETTINGS_SAVED_AT', 'Nové nastavenia boli ulo¾ené v %s');

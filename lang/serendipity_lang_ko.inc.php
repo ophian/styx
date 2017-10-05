@@ -337,7 +337,7 @@
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', '%s 피드');
 @define('PERMISSIONS', '권한 설정');
 @define('INTEGRITY', '설치상태 무결성 검증');
-@define('CHECKSUMS_NOT_FOUND', '체크섬을 비교하지 못했습니다! (메인 디렉토리에 checksums.inc.php 파일이 없음)');
+@define('CHECKSUMS_NOT_FOUND', '체크섬을 비교하지 못했습니다! (메인 디렉토리에 checksums.inc.php 파일이 없음, or dev version)');
 @define('CHECKSUMS_PASS', '필수 파일이 모두 검증되었습니다.');
 @define('CHECKSUM_FAILED', '%s 파일이 손상되거나 수정되었습니다: 검증 실패');
 @define('SETTINGS_SAVED_AT', '새로운 설정이 %s에 저장되었습니다');

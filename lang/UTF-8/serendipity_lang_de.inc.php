@@ -323,7 +323,7 @@
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', '%s Feed');
 @define('PERMISSIONS', 'Rechte');
 @define('INTEGRITY', 'Installation prüfen');
-@define('CHECKSUMS_NOT_FOUND', 'Fehler beim Vergleich der Prüfsummen! (Keine Prüfsummendatei checksums.inc.php im Hauptverzeichnis gefunden)');
+@define('CHECKSUMS_NOT_FOUND', 'Fehler beim Vergleich der Prüfsummen! (Keine Prüfsummendatei checksums.inc.php im Hauptverzeichnis gefunden, oder Developer Version)');
 @define('CHECKSUMS_PASS', 'Alle erforderlichen Dateien wurden überprüft.');
 @define('CHECKSUM_FAILED', '%s beschädigt oder verändert: Überprüfung fehlgeschlagen');
 @define('XML_IMAGE_TO_DISPLAY', 'XML-Button');

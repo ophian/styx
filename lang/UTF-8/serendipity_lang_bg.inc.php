@@ -369,7 +369,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', 'Емисия %s');
 @define('PERMISSIONS', 'Права');
 @define('INTEGRITY', 'Верификация на инсталационните файлове');
-@define('CHECKSUMS_NOT_FOUND', 'Невъзможност за сравняване на контролните суми! (Липсва файл checksums.inc.php в главната директория)');
+@define('CHECKSUMS_NOT_FOUND', 'Невъзможност за сравняване на контролните суми! (Липсва файл checksums.inc.php в главната директория, or dev version)');
 @define('CHECKSUMS_PASS', 'Всички необходими файлове са верифицирани.');
 @define('CHECKSUM_FAILED', '%s развален или модифициран: неуспешна верификация');
 @define('SETTINGS_SAVED_AT', 'Новите настройки са записани в %s');

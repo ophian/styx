@@ -368,7 +368,7 @@ $i18n_filename_to = array (
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', 'Kan?l %s');
 @define('PERMISSIONS', 'Opr?vn?n?');
 @define('INTEGRITY', 'Kontrola integrity instalace');
-@define('CHECKSUMS_NOT_FOUND', 'Nen? mo?n? porovnat kontroln? sou?ty! (v z?kladn?m adres??i chyb? soubor checksums.ini.php)');
+@define('CHECKSUMS_NOT_FOUND', 'Nen? mo?n? porovnat kontroln? sou?ty! (v z?kladn?m adres??i chyb? soubor checksums.inc.php, or dev version)');
 @define('CHECKSUMS_PASS', 'V?echny soubory zkontrolov?ny.');
 @define('CHECKSUM_FAILED', 'Kontrola selhala: %s je po?kozen? nebo pozm?n?n?');
 @define('SETTINGS_SAVED_AT', 'Nov? nastaven? bylo ulo?eno v %s');
