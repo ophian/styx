@@ -673,21 +673,21 @@
 @define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.');
 @define('CONVERT_HTMLENTITIES', 'Try to auto-convert HTML entities?');
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
-@define('USERCONF_REALNAME', 'Real name'); // Translate
-@define('USERCONF_REALNAME_DESC', 'The full name of the author. This is the name seen by readers'); // Translate
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
-@define('ENTER_MEDIA_URL_METHOD', 'Fetch method:'); // Translate
-@define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.'); // Translate
-@define('MEDIA_HOTLINKED', 'hotlinked'); // Translate
-@define('FETCH_METHOD_IMAGE', 'Download image to your server'); // Translate
-@define('FETCH_METHOD_HOTLINK', 'Hotlink to server'); // Translate
-@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled <b>%s</b>'); // Translate
+@define('USERCONF_REALNAME', 'Real name');
+@define('USERCONF_REALNAME_DESC', 'The full name of the author. This is the name seen by readers');
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
+@define('ENTER_MEDIA_URL_METHOD', 'Fetch method:');
+@define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.');
+@define('MEDIA_HOTLINKED', 'hotlinked');
+@define('FETCH_METHOD_IMAGE', 'Download image to your server');
+@define('FETCH_METHOD_HOTLINK', 'Hotlink to server');
+@define('DELETE_HOTLINK_FILE', 'Deleted the hotlinked file entitled <b>%s</b>');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Show E-Mail addresses?');
 @define('IMAGE_MORE_INPUT', 'Add more images');
-@define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen'); // Translate
-@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a custom string which is displayed in the Plugin Configuration screen together with the description of the HTML Nugget plugin. If you have multiple HTML nuggets with an empty title, this helps to distinct the plugins from another.'); // Translate
-@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?'); // Translate
-@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.'); // Translate
+@define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a custom string which is displayed in the Plugin Configuration screen together with the description of the HTML Nugget plugin. If you have multiple HTML nuggets with an empty title, this helps to distinct the plugins from another.');
+@define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?');
+@define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.');
 @define('PAGE_BROWSE_PLUGINS', 'Page %s of %s, totaling %s plugins.');
 @define('INSTALL_CAT_PERMALINKS', 'Permalinks');
 @define('INSTALL_CAT_PERMALINKS_DESC', 'Defines various URL patterns to define permanent links in your blog. It is suggested that you use the defaults; if not, you should try to use the %id% value where possible to prevent Serendipity from querying the database to lookup the target URL.');
