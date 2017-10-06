@@ -207,7 +207,7 @@ class serendipity_plugin_api
 
         $rs = serendipity_db_query("SELECT MAX(sort_order) AS sort_order_max FROM {$serendipity['dbPrefix']}plugins WHERE placement = '$default_placement'", true, 'num');
 
-        if (is_array($rs)) {
+        if (is_array($rs) && is_numeric($rs[0])) {
             $nextidx = intval($rs[0] + 1);
         } else {
             $nextidx = 0;
