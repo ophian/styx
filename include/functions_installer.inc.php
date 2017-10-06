@@ -135,13 +135,18 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
  * Creates the needed tables - beware, they will be empty and need to be stuffed with
  * default templates and such...
  *
+ * @param  dbtype POST install data
  * @access public
  * @return null
  */
-function serendipity_installDatabase() {
+function serendipity_installDatabase($type='') {
     global $serendipity;
 
-    $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql');
+    if ($type == 'mysqli') {
+        $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql');
+    } else {
+        $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/dbpre.sql');
+    }
     $queries = str_replace('{PREFIX}', $serendipity['dbPrefix'], $queries);
 
     foreach ($queries AS $query) {

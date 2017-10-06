@@ -362,7 +362,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
     if ( is_array($t) ) {
         // void
     } else {
-        serendipity_installDatabase();
+        serendipity_installDatabase($_POST['dbType']);
         $data['install_DB'] = true;
 
         $authorid = serendipity_addAuthor($_POST['user'], $_POST['pass'], $_POST['realname'], $_POST['email'], USERLEVEL_ADMIN, 1);
