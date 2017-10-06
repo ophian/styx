@@ -1,6 +1,8 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Revert utf8mb4 sql-indexes for non-mysqli installs due to errors
+
   * Fix plugin_api non-production install empty value check error
     for plugin sort order incrementations.
 
