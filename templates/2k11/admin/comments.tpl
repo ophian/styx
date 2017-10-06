@@ -10,7 +10,7 @@
     </div>
 
     <footer>
-        <time>{$comment.timestamp|formatTime:'%H:%M'}</time>
+        <time>{$comment.timestamp|formatTime:'%Y-%m-%d %H:%M'}</time>
     </footer>
 </article>
 {foreachelse}

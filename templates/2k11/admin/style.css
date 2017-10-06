@@ -1272,6 +1272,13 @@ input[type=checkbox],
     margin-top: 1em;
     margin-bottom: 1em;
 }
+.serendipity_commentBody {
+    margin-bottom: 1em;
+}
+.serendipity_comment footer {
+    background-color: #EEE;
+    border: 1px solid #DDD;
+}
 
 
 /* COMMON STYLES  */
