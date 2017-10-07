@@ -4,5 +4,5 @@ Date: 2017-06-26
 Require Serendipity: 2.0
 Recommended: Yes
 
-Summary: The Serendipity default template. Previously named Serendipity v2.3.
-Description: New revisited for Styx 2.1 to make it fully responsive (3-2-1), without changing much of the "old school" html. Works as a full styled fallback for the PHP and XML Engine and as a file fallback pool for several other themes. This theme previously wasn't meant to be a theme out of hundrets. Since "bulletproof" and later on "2k11" became the Serendipity <b>standard</b> template(s), this theme was used as a backup and error fallback theme, when something was searched for compile and not in your usual theme or the fallback theme cascade. It also is chosen if no engine and no style is set, like for the default-php and/or default-xml themes.
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
+Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
