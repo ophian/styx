@@ -3,5 +3,6 @@ Author: Matthias Mees, based on http&colon;//getskeleton.com
 Date: 2017-06-21
 Require Serendipity: 2.0
 Recommended: Yes
-Summary: CSS theme based on the CSS framework Skeleton.
-Description: Skeleton is plain & simple, kind of typography-focussed. The theme is HTML5 and responsive, it has a single sidebar (on the right) on screens large enough and uses the core nav.
+
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
+Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
