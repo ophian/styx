@@ -1,5 +1,6 @@
 Name: Idea
 Author: Evan Nemerson
 Date: 2004-07-01
-Summary: CSS complete theme only.
-Description: Simple example theme from 2004 using all the template files from the old default fallback (Serendipity 2.3) theme. Styled by CSS only.
+
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
+Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
