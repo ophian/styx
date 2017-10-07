@@ -1,6 +1,12 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Prepare for translatable [summary, description, backenddesc] strings
+    for the themes info.txt file info layer.
+    Translates language strings are stored as arrified lang_info_xx.inc.php
+    pattern files, depending the used language and either in the themes
+    root or /UTF-8 directory.
+
   * Fix skeleton theme author value, since a colon is a reserved
     delimiter in the info.txt file. Always use the entity "&colon;"
     for it!
