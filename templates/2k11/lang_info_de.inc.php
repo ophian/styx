@@ -8,8 +8,8 @@
 $info['theme_info_summary'] = 'Das Styx Backend/Frontend Standard Theme';
 
 $info['theme_info_desc'] = 'Dieses Theme definiert den augenblicklichen Standard, der im Serendipity Styx Kern definiert und benutzt wird.
-In Bezug auf die unendlichen Möglichkeiten von Serendipity, ist es das augenblicklich am besten verknüpfte und verzahnte Theme,
-welches die meisten dieser Möglichkeiten so einfach wie möglich innerhalb des eigenen Rahmens abdeckt, so dass man es leicht durchschauen kann.
+In Bezug auf die schier unendlichen Möglichkeiten von Serendipity, ist es das augenblicklich am besten verknüpfte und verzahnte Theme,
+welches die meisten dieser Möglichkeiten in einfacher Weise innerhalb des eigenen Rahmens abdeckt, so dass man es leicht durchschauen kann.
 <br><br>
 <u><b>Eigenes Theme erstellen</b></u><br>
 Kopieren Sie ein vorhandenes Theme oder fügen Sie einen neuen und eindeutigen Verzeichnisnamen in das Verzeichnis "templates/" ein, zB. "example".
