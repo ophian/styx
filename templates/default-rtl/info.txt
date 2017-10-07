@@ -2,5 +2,6 @@ Name: RTL-Languages v0.4
 Author: Tom Sommer, Omid Mottaghi
 Date: 2016-09-01
 Require Serendipity: 1.7
-Summary: Language dependent Right-To-Left written RTL-Theme [still needs some love!]
-Description: Simple example theme from 2006 in right-to-left oriented manner, depending on the old styled default (Serendipity 2.3) theme.
+
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
+Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
