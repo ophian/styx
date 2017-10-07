@@ -5,6 +5,5 @@ Require Serendipity: 2.0
 Backend: No
 Recommended: Yes
 
-Summary: The mobile first successor of the 2k11 frontend
-
-Description: Regarding the more or less extended possibilities of the current "standard" theme "2k11", "Next" is a more simplifying successor. It is <em>modernized</em> and <em>successing</em> in terms of styling and selector settings only.
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
+Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
