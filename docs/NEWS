@@ -1,6 +1,10 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix skeleton theme author value, since a colon is a reserved
+    delimiter in the info.txt file. Always use the entity "&colon;"
+    for it!
+
   * Revert utf8mb4 sql-indexes for non-mysqli installs due to errors.
     SQLITE3 is able to use this extended Multibyte support already
     without any changes, if compiled with unicode and intl support.
