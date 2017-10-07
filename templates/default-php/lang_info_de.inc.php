@@ -10,9 +10,9 @@ $info['theme_info_summary'] = 'Default PHP-Template und responsives HTML5 Theme 
 $info['theme_info_desc'] = 'Einfaches Theme aus 2006 basierend auf dem alten Default (Serendipity 2.3) Theme,
 neu aufgearbeitet und stark erweitert für die Serendipity Styx Edition.
 (Trotzdem kann es immer noch einige wenige PHP Template Dateien vermissen lassen.)
-Lesen Sie die Theme-Eigene IMPORTANT-TODO Datei für mehr.<br>
+Lesen Sie die Theme-eigene IMPORTANT-TODO Datei für mehr.<br>
 
 <u><b>ACHTUNG&colon;</b></u><br>
-Je weniger (Smarty erweiternde) Plugins verwendet werden, desto mehr funktioniert dies fehlerfrei.<br>
+Je weniger (Smarty erweiternde) Plugins verwendet werden, desto mehr funktioniert dies auch fehlerfrei.<br>
 
 Derzeit ist keine nennenswerte Einschränkung bekannt!';
