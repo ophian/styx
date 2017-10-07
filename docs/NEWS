@@ -4,7 +4,7 @@ Version 2.4-alpha1 ()
   * Prepare for translatable ['summary', 'description', 'backenddesc']
     strings for the themes info.txt file info layer.
     Translated language strings are stored as arrays in lang_info_xx.inc.php
-    pattern files, depending the used language in $serendipity['languages'].
+    pattern files, depending the used language on $serendipity['lang'].
     They either live in the themes root or the themes /UTF-8 directory.
     Convert or save as ANSI (ISO-8859-1), your native charset, or for the
     latter as UTF-8 w/o BOM.
