@@ -476,6 +476,25 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         $data[$k] = @trim(implode("\n", $v));
     }
 
+    $charsetpath  = (LANG_CHARSET == 'UTF-8') ? '/UTF-8' : '';
+    $info_default = S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_en.inc.php';
+    if ((isset($data['summary']) || isset($data['description']) || isset($data['backenddesc'])) && @is_file($info_default)) {
+        @include(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . $charsetpath. '/lang_info_'.$serendipity['lang'].'.inc.php');
+        if (!empty($info)) {
+            $data['summary'] = $info['theme_info_summary'] ?: $data['summary'];
+            $data['description'] = $info['theme_info_desc'] ?: $data['description'];
+            $data['backenddesc'] = $info['theme_info_backend'] ?: $data['backenddesc'];
+        } else {
+            @include(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_'.$serendipity['lang'].'.inc.php');
+            if (empty($info)) {
+                include($info_default);
+            }
+            $data['summary'] = $info['theme_info_summary'] ?: $data['summary'];
+            $data['description'] = $info['theme_info_desc'] ?: $data['description'];
+            $data['backenddesc'] = $info['theme_info_backend'] ?: $data['backenddesc'];
+        }
+    }
+
     if (@is_file($serendipity['templatePath'] . $theme . '/config.inc.php')) {
         $data['custom_config'] = YES;
         $data['custom_config_engine'] = $theme;
