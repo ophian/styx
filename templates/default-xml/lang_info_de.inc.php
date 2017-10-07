@@ -12,4 +12,4 @@ Dieses Theme gibt XML-Rohdaten auf der Frontseite aus, um den Inhalt für XML-Rea
 Es wirkt sich immer noch auf einige unwesentliche Plugin-Integrationen auf der Backend-Seite aus,
 wie z. B. Linktrimmer oder Amazonchooser, und ist mehr oder weniger dazu gedacht,
 in einem nicht-zu viel erweiterten Core Release Blog verwendet zu werden,
-obwohl es mit einigen bekannten Plugin-Apps funktioniert, wie Statische Seiten, Freetags etc.';
+obwohl es durchaus mit einigen bekannten Plugin-Apps funktioniert, wie Statische Seiten, Freetags etc.';
