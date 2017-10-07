@@ -3,12 +3,5 @@ Author: Garvin Hicking, Ian
 Date: 2017-06-26
 Require Serendipity Styx: 2.1
 
-Summary: Default PHP-Template Responsive HTML5 Theme for the Serendipity Styx Blog system
-
-Description: Simple theme based on the old default theme from 2006, newly refurbished to work with Serendipity Styx Edition. May still miss some template files converted to PHP.
-Read the themes IMPORTANT-TODO file for more.<br>
-
-<u><b>Please note&colon;</b></u><br>
-The less (Smarty extending) plugins used - the more will this work without errors.<br>
-
-Currently there is no known notable restriction!
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
+Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
