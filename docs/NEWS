@@ -1,6 +1,10 @@
 Version 2.4-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Add new maintenance widget plugin, serendipity_event_cleanspam.
+    This cleans up upblown database spambloglog or visitor tables by items.
+    Activate in your plugin-list and force cleanup on demand.
+
   * Prepare for translatable ['summary', 'description', 'backenddesc']
     strings for the themes info.txt file info layer.
     Translated language strings are stored as arrays in lang_info_xx.inc.php
