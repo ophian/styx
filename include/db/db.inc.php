@@ -28,8 +28,7 @@ if (@include(S9Y_INCLUDE_PATH . "include/db/{$serendipity['dbType']}.inc.php")) 
  * @param  string   What do do with the SQL query (execute, display)
  * @return array    Returns the result of the SQL query
  */
-function serendipity_db_update($table, $keys, $values, $action = 'execute')
-{
+function serendipity_db_update($table, $keys, $values, $action = 'execute') {
     global $serendipity;
 
     $set = '';
@@ -70,8 +69,7 @@ function serendipity_db_update($table, $keys, $values, $action = 'execute')
  * @param  string   What do do with the SQL query (execute, display)
  * @return array    Returns the result of the SQL query
  */
-function serendipity_db_insert($table, $values, $action = 'execute')
-{
+function serendipity_db_insert($table, $values, $action = 'execute') {
     global $serendipity;
 
     $names = implode(',', array_keys($values));
@@ -105,8 +103,7 @@ function serendipity_db_insert($table, $values, $action = 'execute')
  * @param  string   input value to compare
  * @return boolean  boolean conversion of the input value
  */
-function serendipity_db_bool($val)
-{
+function serendipity_db_bool($val) {
     if(($val === true) || ($val == 'true') || ($val == 't') || ($val == '1'))
         return true;
     #elseif (($val === false || $val == 'false' || $val == 'f'))

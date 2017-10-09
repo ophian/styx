@@ -221,11 +221,11 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 {
     global $serendipity;
     $type_map = array(
-                         'assoc' => SQLITE3_ASSOC,
-                         'num'   => SQLITE3_NUM,
-                         'both'  => SQLITE3_BOTH,
-                         'true'  => true,
-                         'false' => false
+                        'assoc' => SQLITE3_ASSOC,
+                        'num'   => SQLITE3_NUM,
+                        'both'  => SQLITE3_BOTH,
+                        'true'  => true,
+                        'false' => false
     );
 
     static $debug = false;

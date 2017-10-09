@@ -115,7 +115,8 @@ function generate_resultset($cursor, $result_type = 'sqlr_BOTH') {
 
 function &serendipity_db_query($sql, $single = false, $result_type = "both", $reportErr = false, $assocKey = false, $assocVal = false, $expectError = false) {
     global $serendipity;
-    $type_map = array(  'assoc' => sqlr_ASSOC,
+    $type_map = array(
+                        'assoc' => sqlr_ASSOC,
                         'num'   => sqlr_NUM,
                         'both'  => sqlr_BOTH,
                         'true'  => true,
