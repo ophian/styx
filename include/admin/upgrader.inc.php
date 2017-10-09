@@ -363,7 +363,7 @@ $tasks = array(
                     'title'     => 'Update .htaccess file',
                     'desc'      => 'Adds a new "documentation.*.html" rewrite rule exception to allow calling plugin documentation URLs.'),
 
-            array(  'version'   => '2.3.0',
+            array(  'version'   => '2.4-beta1',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'title'     => 'Removal of special plugin .htaccess files in v.2.3-beta1 (see previous task).',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_230hta, array('internals'), true),
