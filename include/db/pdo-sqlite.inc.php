@@ -10,7 +10,7 @@ function serendipity_db_logmsg($msgstr) {
  * Parse result arrays into expected format for further operations
  *
  * SQLite does not support to return "e.entryid" within a $row['entryid'] return.
- * So this function manually iteratse through all result rows and rewrites 'X.yyyy' to 'yyyy'.
+ * So this function manually iterates through all result rows and rewrites 'X.yyyy' to 'yyyy'.
  * Yeah. This sucks. Don't tell me!
  *
  * @access private
@@ -164,7 +164,7 @@ function serendipity_db_affected_rows() {
  */
 function serendipity_db_updated_rows() {
     global $serendipity;
-    // it is unknown whether pg_affected_rows returns number of rows
+    // it is unknown whether sqlite_affected_rows returns number of rows
     //  UPDATED or MATCHED on an UPDATE statement.
     return $serendipity['dbSth']->rowCount();
 }
@@ -177,7 +177,7 @@ function serendipity_db_updated_rows() {
  */
 function serendipity_db_matched_rows() {
     global $serendipity;
-    // it is unknown whether pg_affected_rows returns number of rows
+    // it is unknown whether sqlite_affected_rows returns number of rows
     //  UPDATED or MATCHED on an UPDATE statement.
     return $serendipity['dbSth']->rowCount();
 }
@@ -198,7 +198,7 @@ function serendipity_db_insert_id($table = '', $id = '') {
 /**
  * Perform a DB Layer SQL query.
  *
- * This function returns values dependin on the input parameters and the result of the query.
+ * This function returns values depending on the input parameters and the result of the query.
  * It can return:
  *   false or a string if there was an error (depends on $expectError),
  *   true if the query succeeded but did not generate any rows
@@ -212,7 +212,7 @@ function serendipity_db_insert_id($table = '', $id = '') {
  * @param   boolean     If true, errors will be reported. If false, errors will be ignored.
  * @param   string      A possible array key name, so that you can control the multi-dimensional mapping of an array by the key column
  * @param   string      A possible array field name, so that you can control the multi-dimensional mapping of an array by the key column and the field value.
- * @param   boolean     If true, the executed SQL error is known to fail, and should be disregarded (errors can be ignroed on DUPLICATE INDEX queries and the likes)
+ * @param   boolean     If true, the executed SQL error is known to fail, and should be disregarded (errors can be ignored on DUPLICATE INDEX queries and the likes)
  * @return  mixed       Returns the result of the SQL query, depending on the input parameters
  */
 function &serendipity_db_query($sql, $single = false, $result_type = "both", $reportErr = false, $assocKey = false, $assocVal = false, $expectError = false) {

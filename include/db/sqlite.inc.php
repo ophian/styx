@@ -100,7 +100,7 @@ function serendipity_db_affected_rows()
 function serendipity_db_updated_rows()
 {
     global $serendipity;
-    // It is unknown whether sqllite returns rows MATCHED or rows UPDATED
+    // It is unknown whether sqlite returns rows MATCHED or rows UPDATED
     return sqlite_changes($serendipity['dbConn']);
 }
 
@@ -113,7 +113,7 @@ function serendipity_db_updated_rows()
 function serendipity_db_matched_rows()
 {
     global $serendipity;
-    // It is unknown whether sqllite returns rows MATCHED or rows UPDATED
+    // It is unknown whether sqlite returns rows MATCHED or rows UPDATED
     return sqlite_changes($serendipity['dbConn']);
 }
 
@@ -134,7 +134,7 @@ function serendipity_db_insert_id()
  * Parse result arrays into expected format for further operations
  *
  * SQLite does not support to return "e.entryid" within a $row['entryid'] return.
- * So this function manually iteratse through all result rows and rewrites 'X.yyyy' to 'yyyy'.
+ * So this function manually iterates through all result rows and rewrites 'X.yyyy' to 'yyyy'.
  * Yeah. This sucks. Don't tell me!
  *
  * @access private
@@ -192,7 +192,7 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
 /**
  * Perform a DB Layer SQL query.
  *
- * This function returns values dependin on the input parameters and the result of the query.
+ * This function returns values depending on the input parameters and the result of the query.
  * It can return:
  *   false or a string if there was an error (depends on $expectError),
  *   true if the query succeeded but did not generate any rows

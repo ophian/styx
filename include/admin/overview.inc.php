@@ -4,7 +4,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-$data   = array(); // init Smarty assignement data array
+$data   = array(); // init Smarty assignment data array
 $output = array(); // init backend_frontpage_display hook array
 $output['probe'] = '';
 

@@ -41,7 +41,7 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
 /**
  * Perform a DB Layer SQL query.
  *
- * This function returns values dependin on the input parameters and the result of the query.
+ * This function returns values depending on the input parameters and the result of the query.
  * It can return:
  *   false or a string if there was an error (depends on $expectError),
  *   true if the query succeeded but did not generate any rows
