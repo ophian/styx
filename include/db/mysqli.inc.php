@@ -268,7 +268,7 @@ function serendipity_db_reconnect() {
         $mysql_version = mysqli_get_server_info($serendipity['dbConn']);
         if (version_compare($mysql_version, '5.5.3', '>=')) {
             $serendipity['dbUtf8mb4_ready'] = true;
-            if ((defined('IN_installer') && empty($serendipity['dbCharset'])) || $serendipity['dbUtf8mb4_converted']) {
+            if (defined('IN_installer') || $serendipity['dbUtf8mb4_converted']) {
                 $use_charset = 'utf8mb4';
                 $serendipity['dbUtf8mb4'] = true;
             }
