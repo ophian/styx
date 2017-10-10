@@ -382,7 +382,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         serendipity_plugin_api::register_default_plugins();
         $data['register_default_plugins'] = true;
 
-        // INSTALLERS utfmb4 migration logic goes here, right before serendipity_updateLocalConfig is called via serendipity_updateConfiguration()
+        // INSTALLERS utf8mb4 migration logic goes here, right before serendipity_updateLocalConfig is called via serendipity_updateConfiguration()
         if (defined('SQL_CHARSET') && SQL_CHARSET == 'utf8' && serendipity_db_bool($_POST['dbNames']) && $_POST['dbType'] == 'mysqli') {
             /* Utilize utf8mb4 for the dbCharset variable, if the server supports that */
             $mysql_version = mysqli_get_server_info($serendipity['dbConn']);
