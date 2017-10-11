@@ -993,7 +993,7 @@ class serendipity_event_spamblock extends serendipity_event
                             }
                             if (!$found_exclude_url) {
                                 $parts = @parse_url($addData['url']);
-                                $tipval_method = ($trackback_ipvalidation_option == 'reject'?'REJECTED':'MODERATE');
+                                $tipval_method = $trackback_ipvalidation_option == 'reject' ? 'REJECTED' : 'MODERATE';
                                 // Getting host from url successfully?
                                 if (!is_array($parts)) { // not a valid URL
                                     $this->log($logfile, $eventData['id'], $tipval_method, sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $addData['url'], '', ''), $addData);
