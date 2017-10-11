@@ -18,7 +18,7 @@ class serendipity_event_cleanspam extends serendipity_event
         $propbag->add('description',   PLUGIN_CLEANSPAM_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.0');
+        $propbag->add('version',       '1.1');
         $propbag->add('requirements',  array(
             'serendipity' => '2.3.0',
         ));
@@ -66,35 +66,41 @@ class serendipity_event_cleanspam extends serendipity_event
                             unset($cleanspamlog);
                         }
 
-                        // we can cleanup all field-"type" 'REJECTED' which are probably all the spammer logs at once
+                        // we can cleanup all field-"type" ('REJECTED' or 'MODERATE') which are probably all the spammer logs at once
                         if ($part[1] == 'all') {
-                            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED'");
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' OR type LIKE 'reject'");
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'moderate' AND body=''");
                             $sbldone = true;
                         }
 
-                        // or do it by field-"type" 'REJECTED' and field-"reason" 'No API-created comments allowed', 'BEE Honeypot%', 'BEE HiddenCaptcha%', 'Caught by the Bayes-Plugin%', 'IP validation%', 'IP Validierung%', 'Kontrola IP adresy%'
+                        // or do it by field-"type" ('REJECTED' or 'MODERATE') and field-"reason" 'No API-created comments allowed', 'BEE Honeypot%', 'BEE HiddenCaptcha%', 'Caught by the Bayes-Plugin%', 'IP validation%', 'IP Validierung%', 'Kontrola IP adresy%'
                         if ($part[1] == 'multi') {
                             $multir = $serendipity['POST']['cleanspam']['multi_reasons'];
                             if (is_array($multir) & !empty($multir)) {
                                 foreach($multir AS $p) {
                                     if ($p == 'api') {
-                                        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason='".PLUGIN_EVENT_SPAMBLOCK_REASON_API."'"); // (since already translated variously.., we have to use the constant
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason='".PLUGIN_EVENT_SPAMBLOCK_REASON_API."'"); // (since already translated variously.., we have to use the constant
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND reason='".PLUGIN_EVENT_SPAMBLOCK_REASON_API."'"); // (since already translated variously.., we have to use the constant
                                         $sbldone = true;
                                     }
                                     if ($p == 'hpot') {
-                                        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'BEE Honeypot%'"); // (approximately big data)
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'BEE Honeypot%'"); // (approximately big data)
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND reason LIKE 'BEE Honeypot%'"); // (approximately big data)
                                         $sbldone = true;
                                     }
                                     if ($p == 'hcap') {
-                                        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'BEE HiddenCaptcha%'"); // (approximately small data)
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'BEE HiddenCaptcha%'"); // (approximately small data)
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND reason LIKE 'BEE HiddenCaptcha%'"); // (approximately small data)
                                         $sbldone = true;
                                     }
                                     if ($p == 'ipv') {
-                                        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'IP validation%' AND reason LIKE 'IP Validierung%' AND reason LIKE 'Kontrola IP adresy%'"); // (en) (approximately mid-big data)
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%'"); // (en, de, cs, cz, sk) (approximately mid-big data)
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%'"); // (en, de, cs, cz, sk) (approximately mid-big data)
                                         $sbldone = true;
                                     }
                                     if ($p == 'cbay') {
-                                        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'Caught by the Bayes-Plugin%'"); // (approximately mid-big data)
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'Caught by the Bayes-Plugin%'"); // (approximately mid-big data)
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND reason LIKE 'Caught by the Bayes-Plugin%'"); // (approximately mid-big data)
                                         $sbldone = true;
                                     }
                                 }
@@ -112,7 +118,7 @@ class serendipity_event_cleanspam extends serendipity_event
                                 if ($x = serendipity_db_query($ct, true, null, false, false, false, true) !== false ) {
                                     foreach($multiyears AS $my) {
                                         $s = "$my-%";
-                                        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}visitors WHERE day LIKE '$s'", true, null, false, false, false, true);
+                                        @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}visitors WHERE day LIKE '$s'", true, null, false, false, false, true);
                                     }
                                     if ($x) $vdone = true;
                                 }
@@ -151,15 +157,19 @@ class serendipity_event_cleanspam extends serendipity_event
                     if (!serendipity_checkPermission('adminUsers')) {
                         return false;
                     }
-                    $allnum = @serendipity_db_query("SELECT count(1) FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED'", false, 'num');
-                    $allnum = is_numeric($allnum) ? $allnum : 0;
+                    $allnum = @serendipity_db_query("SELECT count(1) FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND type LIKE 'reject' AND type LIKE 'MODERATE'", true);
+                    $allnum = is_numeric($allnum[0]) ? $allnum[0] : 0;
 
 ?>
 
     <section id="maintenance_cleanspam" class="quick_list">
         <h3><?php echo PLUGIN_CLEANSPAM_MAINTAIN; ?></h3>
-        <span class="msg_notice" style="margin-bottom: -1em"><span class="icon-info-circled" aria-hidden="true"></span> <?php echo PLUGIN_CLEANSPAM_DESC; ?></span>
-        <button class="toggle_info button_link" type="button" data-href="#cleanspam_action_access"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
+        <h4>
+            <?php echo PLUGIN_CLEANSPAM_INFO; ?>
+            <button class="toggle_info button_link cleanspam_info" type="button" data-href="#cleanspam_info_desc"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button>
+            <button class="toggle_info button_link cleanspam_info cleanspam_toggle" type="button" data-href="#cleanspam_action_access"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
+        </h4>
+        <span id="cleanspam_info_desc" class="comment_status additional_info"><?php echo PLUGIN_CLEANSPAM_INFO_DESC; ?></span>
 <?php
 switch ($serendipity['GET']['cleanspamsg']) {
     case 'true':
@@ -179,11 +189,13 @@ switch ($serendipity['GET']['cleanspamsg']) {
 
         <div id="cleanspam_action_access" class="additional_info">
             <a id="cpmall" class="button_link state_submit" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/cleanspam/all" title=""><span><?php echo PLUGIN_CLEANSPAM_ALL_BUTTON; ?></span></a>
-            <button class="toggle_info button_link" style="margin: .5em 0" type="button" data-href="#cpmall_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button>
+            <button class="toggle_info button_link" style="margin: 1em 0" type="button" data-href="#cpmall_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button>
             <span id="cpmall_info" class="comment_status additional_info"><?php echo sprintf(PLUGIN_CLEANSPAM_ALL_DESC, $allnum); ?></span>
             <div class="serendipity_cpmdiff" style="margin-top: .5em;">
-                <?php echo PLUGIN_CLEANSPAM_SELECT; ?>
-                <button class="toggle_info button_link" type="button" data-href="#cleanspam_access_multi_reasons"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
+                <h4>
+                    <?php echo PLUGIN_CLEANSPAM_SELECT; ?>
+                    <button class="toggle_info button_link" type="button" data-href="#cleanspam_access_multi_reasons"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
+                </h4>
                 <form id="maintenance_cleanspam_multi" enctype="multipart/form-data" action="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/cleanspam/multi" method="post">
                     <select id="cleanspam_access_multi_reasons" class="additional_info" name="serendipity[cleanspam][multi_reasons][]" multiple="multiple">
                         <option value="">- - -</option>
@@ -241,6 +253,21 @@ switch ($serendipity['GET']['cleanspamsg']) {
 }
 .form_cpm, #cleanspam_action_access hr {
     margin: .5em auto;
+}
+#maintenance_cleanspam h4, #cleanspam_action_access h4 {
+    margin: 0 auto .25em;
+}
+#maintenance_cleanspam h4 {
+    font-weight: normal;
+}
+.cleanspam_info {
+    margin: .5em 0;
+}
+.toggle_info.cleanspam_info:visited, .toggle_info.cleanspam_info:hover, .toggle_info.cleanspam_info:focus, .toggle_info.cleanspam_info:active {
+    margin: .5em 0;
+}
+.cleanspam_toggle {
+    float: right;
 }
 
 ';
