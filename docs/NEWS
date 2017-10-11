@@ -1,3 +1,12 @@
+Version 2.4.0 ()
+ ------------------------------------------------------------------------
+
+  * Bugfix and enhancements for the cleanspam event plugin
+
+  * Fix UTF8MB4 migration logic dbCharset issue
+    (already backported to beta1 zip)
+
+
 Version 2.4-beta1 (2017-10-09)
  ------------------------------------------------------------------------
 
