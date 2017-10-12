@@ -69,7 +69,7 @@ class serendipity_event_cleanspam extends serendipity_event
                         // we can cleanup all field-"type" ('REJECTED' or 'MODERATE') which are probably all the spammer logs at once
                         if ($part[1] == 'all') {
                             @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' OR type LIKE 'reject'");
-                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'moderate' AND body=''");
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'moderate' AND body=''"); // To make this case insensive, use WHERE BINARY type LIKE, but we don't care since we search for empty bodies
                             $sbldone = true;
                         }
 
