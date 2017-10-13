@@ -144,7 +144,7 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
 function serendipity_installDatabase($type='') {
     global $serendipity;
 
-    if ($type == 'mysqli') {
+    if ($type == 'mysqli' || $type == 'mysql') {
         $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql');
     } else {
         $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql');
