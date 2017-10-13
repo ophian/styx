@@ -400,6 +400,11 @@ $dead_files_230hta = array(
     'plugins/serendipity_plugin_twitter/.htaccess'
 );
 
+/* A list of Styx files, which were removed or renamed by 2.4.0 */
+$dead_files_240 = array(
+    'sql/dbpre.sql'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
