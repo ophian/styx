@@ -89,7 +89,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL', 'Deblokkeer deze E-mail via deSpamblock plugin');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Titel is dezelfde als het commentaar');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Weiger commentaar waarbij de titel dezelfde is als de inhoud.');
+#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Weiger commentaar waarbij de titel dezelfde is als de inhoud.'); // translate again
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Controleer Trackback URLs');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'Laat enkel trackbacks toe die een link naar je blog bevatten.');

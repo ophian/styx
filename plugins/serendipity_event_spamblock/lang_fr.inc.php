@@ -86,7 +86,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_AUTHOR', 'Débloquer cet auteur dans le plugin Spamblock');
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_URL', 'Débloquer cette adresse dans le plugin Spamblock');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Titre du billet égal commentaire');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Rejeter les commentaires qui ne contiennent que le titre du billet');
+#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Rejeter les commentaires qui ne contiennent que le titre du billet'); // translate again
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Vérifier les adresses des rétroliens');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'N\'autoriser les rétroliens que si l\'adresse contient un lien vers votre blog');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TRACKBACKURL', 'Adresse de rétrolien invalide.');

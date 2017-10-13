@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '2.6.7',
             'php'         => '4.1.0'
         ));
-        $propbag->add('version',       '1.93');
+        $propbag->add('version',       '1.94');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -168,8 +168,8 @@ class serendipity_event_spamblock extends serendipity_event
             case 'entrytitle':
                 $propbag->add('type', 'boolean');
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE);
-                $propbag->add('description', '');
-                $propbag->add('default', 'false');
+                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE_DESC);
+                $propbag->add('default', 'true');
                 break;
 
             case 'checkmail':
@@ -945,12 +945,22 @@ class serendipity_event_spamblock extends serendipity_event
                             }
                         }
 
-                        // Check if entry title is the same as comment body
-                        if (serendipity_db_bool($this->get_config('entrytitle', 'false')) && trim($eventData['title']) == trim($addData['comment'])) {
-                            $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE, $addData);
-                            $eventData = array('allow_comments' => false);
-                            $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY;
-                            return false;
+                        // Check if entry title is the same as comment body or a combination of blog title and entry title (bot spam)
+                        if (serendipity_db_bool($this->get_config('entrytitle', 'true'))) {
+                            // Remove the blog name from the comment which might be in <title>
+                            $comment = str_replace($serendipity['blogTitle'], '', $addData['comment']);
+                            $comment = str_replace($eventData['title'], '', $comment);
+                            // Now blog- and entry title was stripped from comment.
+                            // Remove special letters, that might have been between them:
+                            $comment = trim(preg_replace('@[\s\-_:\(\)\|/]*@', '', $comment));
+
+                            // Now that we stripped blog and entry title: Do we have an empty comment?
+                            if (empty($comment)) {
+                                $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE, $addData);
+                                $eventData = array('allow_comments' => false);
+                                $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY;
+                                return false;
+                            }
                         }
 
                         // Check for global emergency moderation

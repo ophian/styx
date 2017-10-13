@@ -87,7 +87,8 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_URL', 'Unblock this URL via Spamblock plugin');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Entry title equals comment');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Reject comments which only contain the entry title');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Reject comments which only contain known text');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE_DESC', 'Comments, which only hold the entries title, or a combination of the blogs- and the entry title, often used by Bots.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'بررسی آدرس دنبالک ها');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'فقط دنبالک هایی را قبول کن که در آدرس آنها، لینک وبلاگ باشد');

@@ -93,7 +93,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL', '使用Spamblock插件解除对该电子邮件地址的屏蔽');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', '回复内容和文章标题相同');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', '自动拒绝那些回复内容和文章标题完全相同的回复');
+#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', '自动拒绝那些回复内容和文章标题完全相同的回复'); // translate again
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', '检查引用网址');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', '只允许那些所在网址含有指向你的博客的链接的引用。');

@@ -88,7 +88,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL', 'Desbloquear este correo electrónico a través de la extensión Spamblock');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Titulo de la entrada igual al comentario');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Rechaza comentarios que sólo contengan título');
+#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Rechaza comentarios que sólo contengan título'); // translate again
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Revisar Trackback URLs');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'Sólo permitir trackbacks, cuando el URL contiene un enlace a tu blog');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TRACKBACKURL', 'Trackback URL inválida.');

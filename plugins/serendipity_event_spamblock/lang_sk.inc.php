@@ -89,7 +89,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL', 'Zru¹i» blokovánie tejto e-mailovej adresy');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Nadpis komentára je rovnaký ako jeho telo');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Odmietnuté budú komentáre, ktoré v tele obsahujú iba nadpis.');
+#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Odmietnuté budú komentáre, ktoré v tele obsahujú iba nadpis.'); // translate again
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Kontrolova» URL odoziev');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'Povoli» iba odozvy, kde stránka odozvy naozaj obsahuje odkaz na Vá¹ weblog - kontroluje stránku odozvy.');

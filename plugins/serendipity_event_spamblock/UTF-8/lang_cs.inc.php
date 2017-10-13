@@ -96,7 +96,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL', 'Zrušit blokování této e-mailové adresy');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Nadpis komentáře je stejný jako jeho tělo');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Odmítne komentáře, které v těle obsahují pouze nadpis.');
+#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Odmítne komentáře, které v těle obsahují pouze nadpis.'); // translate again
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Kontrolovat URL odezev');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'Povolit pouze odezvy, kde stránka odezvy opravdu obsahuje odkaz na Váš blog - kontroluje stránku odezvy.');

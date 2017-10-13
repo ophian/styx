@@ -87,7 +87,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_URL', 'Odblokuj ten URL we wtyczce Obrona przed spamem');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Tytuł wpisu jest taki sam jak treść komentarza');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Odrzucaj komentarze, które zawierają tylko tytuł');
+#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Odrzucaj komentarze, które zawierają tylko tytuł'); // translate again
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Sprawdzaj URLe Śladów (Trackbacków)');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'Zezwól na pozostawienie Śladu (Trackback) tylko gdy zawiera on link do Twojego bloga');

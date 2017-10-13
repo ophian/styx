@@ -91,7 +91,8 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_EMAIL', 'Unblock this E-mail via Spamblock plugin');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Entry title equals comment');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Reject comments which only contain the entry title');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Reject comments which only contain known text');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE_DESC', 'Comments, which only hold the entries title, or a combination of the blogs- and the entry title, often used by Bots.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Check trackback/pingback URLs');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'Only allow trackbacks/pingbacks, when its URL contains a link to your blog');

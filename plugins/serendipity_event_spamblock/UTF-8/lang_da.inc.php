@@ -88,7 +88,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REMOVE_URL', 'Fjern blokering af denne URL vha Spamblock plugin');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Indhold = titel kommentar');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Afvis kommentarer hvor indholdet er det samme som titel');
+#@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Afvis kommentarer hvor indholdet er det samme som titel'); // translate again
 
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL', 'Check trackback URL\'er');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'Tillad kun trackbacks hvis URL indeholder et link til din blog');
