@@ -145,9 +145,9 @@ function serendipity_installDatabase($type='') {
     global $serendipity;
 
     if ($type == 'mysqli') {
-        $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql');
+        $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql');
     } else {
-        $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/dbpre.sql');
+        $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql');
     }
     $queries = str_replace('{PREFIX}', $serendipity['dbPrefix'], $queries);
 
