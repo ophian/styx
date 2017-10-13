@@ -1,6 +1,10 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Changed the option named like "Check entrytitle" in the spamblog event
+    plugin to be SET default true for new installs, and to check the Blog
+    title in combinations with entry title, often used by BOTs.
+
   * Bugfix and enhancements for the cleanspam event plugin
 
   * Fix UTF8MB4 migration logic dbCharset issue
