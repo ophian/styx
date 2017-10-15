@@ -65,12 +65,12 @@ switch($serendipity['GET']['adminAction']) {
         break;
 
     case 'runcleanup':
-        // The smarty method clearCompiledTemplate() clears all compiled smarty template files in templates_c
+        // The Smarty method clearCompiledTemplate() clears all compiled Smarty template files in templates_c and IS loaded dynamically by the extension handler when called.
         // Since there may be other compiled template files in templates_c too, we have to restrict this call() to clear the blogs template only,
         // to not have the following automated recompile, force the servers memory to get exhausted,
         // when using plugins like serendipity_event_gravatar plugin, which can eat up some MB...
         // Restriction to template means: leave the page we are on: ../admin/index.tpl and all others, which are set, included and compiled by runtime. (plugins, etc. this can be quite some..!)
-        if (method_exists($serendipity['smarty'], 'clearCompiledTemplate')) {
+        if (is_object($serendipity['smarty'])) {
             $data['cleanup_finish']   = $serendipity['smarty']->clearCompiledTemplate($serendipity['template'], $serendipity['template']);
             $data['cleanup_template'] = $serendipity['template'];
         }
