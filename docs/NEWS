@@ -1,6 +1,9 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Regression bugfix for the maintenance task call to clear the Smarty
+    compiles.
+
   * Changed the option named like "Check entrytitle" in the spamblog event
     plugin to be SET default true for new installs, and to check the Blog
     title in combinations with entry title, often used by BOTs.
