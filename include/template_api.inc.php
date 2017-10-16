@@ -278,7 +278,7 @@ class serendipity_smarty_emulator
             $dir = &$this->template_dir;
         }
         if ($isConfig ? !$this->_configDirNormalized : !$this->_templateDirNormalized) {
-            $this->_nomalizeTemplateConfig($isConfig);
+            $this->_normalizeTemplateConfig($isConfig);
         }
         if ($index !== null) {
             return isset($dir[ $index ]) ? $dir[ $index ] : null;
@@ -340,7 +340,7 @@ class serendipity_smarty_emulator
      * @param bool $isConfig true for config_dir
      *
      */
-    private function _nomalizeTemplateConfig($isConfig)
+    private function _normalizeTemplateConfig($isConfig)
     {
         if ($isConfig) {
             $processed = &$this->_processedConfigDir;
