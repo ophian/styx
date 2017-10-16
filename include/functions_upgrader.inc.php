@@ -402,6 +402,7 @@ $dead_files_230hta = array(
 
 /* A list of Styx files, which were removed or renamed by 2.4.0 */
 $dead_files_240 = array(
+    'bundled-libs/Smarty/libs/plugins/shared.mb_wordwrap.php',
     'sql/dbpre.sql'
 );
 
