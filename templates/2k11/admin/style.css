@@ -640,7 +640,6 @@ form > button,
 }
 .plugin_status.installed {
     background-color: #fffff0;
-    padding-right: .5em;
 }
 .block_level.stackable {
     display: initial;
