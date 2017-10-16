@@ -1,8 +1,9 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
-  * Sync Smarty Update to 3.1.32-dev-25 (inluding the Styx patch)
-    which has influence to some special cases in doubled quoted strings,
+  * Sync Smarty Update to 3.1.32-dev-25 (including the Styx patch)
+    which new "unclosed block tag in double quoted string must throw compiler
+    exception" has influence to some special cases in doubled quoted strings,
     that were solved in templates/2k11/admin/media_items.tpl and
     templates/2k11/admin/plugins.inc.tpl.
 
