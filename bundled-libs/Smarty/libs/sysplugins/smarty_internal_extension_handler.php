@@ -49,7 +49,7 @@ class Smarty_Internal_Extension_Handler
      */
     private $_property_info     = array('AutoloadFilters' => 0, 'DefaultModifiers' => 0, 'ConfigVars' => 0,
                                         'DebugTemplate'   => 0, 'RegisteredObject' => 0, 'StreamVariable' => 0,
-                                        'TemplateVars'    => 0, 'Literals' => 'Literals',);
+                                        'TemplateVars'    => 0, 'Literals' => 'Literals');
 
     private $resolvedProperties = array();
 
