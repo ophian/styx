@@ -3,7 +3,7 @@ Version 2.4.0 ()
 
   * Sync Smarty Update to 3.1.32-dev-26 (including the Styx patch)
     which had influences to some special nesting cases used in the backend,
-    that were resolved in the templates/2k11/admin/media_items.tpl and
+    that were optimised in the templates/2k11/admin/media_items.tpl and
     templates/2k11/admin/plugins.inc.tpl files.
 
   * Regression bugfix for the maintenance task call to clear the Smarty
