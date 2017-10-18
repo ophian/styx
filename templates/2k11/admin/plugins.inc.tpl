@@ -135,7 +135,7 @@
 
                     <div class="plugin_status{if (!$plug.installable && !$plug['upgradable']) OR (!$plug['upgradable'] AND $plug.installable AND $plug.stackable)} installed{/if}">
                     {if isset($requirements_failures.{$plug.class_name})}
-                        <span class="unmet_requirements msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.UNMET_REQUIREMENTS|sprintf:"({if ($requirements_failures.{$plug.class_name}.s9y)}s9y {$plug.requirements.serendipity},{/if}{if ($requirements_failures.{$plug.class_name}.php)} PHP {$plug.requirements.php},{/if}{if ($requirements_failures.{$plug.class_name}.smarty)} Smarty {$plug.requirements.smarty}{/if})"}</span>
+                        <span class="unmet_requirements msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.UNMET_REQUIREMENTS|sprintf:"{if ($requirements_failures.{$plug.class_name}.s9y)}S9y {$plug.requirements.serendipity},{/if}{if ($requirements_failures.{$plug.class_name}.php)} PHP {$plug.requirements.php},{/if}{if ($requirements_failures.{$plug.class_name}.smarty)} Smarty {$plug.requirements.smarty}{/if}"|replace:' ,':','}</span>
                     {elseif $plug['upgradable']}
                         <a class="button_link state_update" href="?serendipity[adminModule]=plugins&amp;serendipity[pluginPath]={$plug.pluginPath}&amp;serendipity[install_plugin]={$plug.plugin_class}&amp;{$urltoken}{if isset($plug['customURI'])}{$plug.customURI}{/if}" title="{$CONST.PLUGIN_EVENT_SPARTACUS_CHECK_HINT}">{$CONST.UPGRADE}</a>
                     {elseif $plug.installable}
