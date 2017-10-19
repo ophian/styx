@@ -3,7 +3,7 @@ Version 2.4.0 ()
 
   * Sync Smarty Update to 3.1.32-dev-26 (including the Styx patch)
 
-  * Regression bugfix for the maintenance task call to clear Smarty compiles
+  * Regression fix for the maintenance task call to clear Smarty compiles
 
   * Changed the option named like "Check entrytitle" in the spamblog event
     plugin to be SET default true for new installs, and to check the Blog
