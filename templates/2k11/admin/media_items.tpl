@@ -39,17 +39,17 @@
             {/if}
     {else}
         {if $file.is_image AND $file.full_thumb}
-            {$link="({if $file.hotlink}{$file.path}{else}{$file.full_file}{/if})"}
+            {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
             {$img_src="{$file.show_thumb}"}
             {$img_title="{$file.path}{$file.name}"}
             {$img_alt="{$file.realname}"}
         {elseif $file.is_image AND $file.hotlink}
-            {$link="({if $file.hotlink}{$file.path}{else}{$file.full_file}{/if})"}
+            {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
             {$img_src="{$file.path}"}
             {$img_title="{$file.path}"}
             {$img_alt="{$file.realname}"}
         {else}
-            {$link="({if $file.hotlink}{$file.path}{else}{$file.full_file}{/if})"}
+            {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
             {$img_src="{$file.mimeicon}"}
             {$img_title="{$file.path}{$file.name}({$file.mime})"}
             {$img_alt="{$file.mime}"}
