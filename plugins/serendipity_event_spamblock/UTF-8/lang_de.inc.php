@@ -88,7 +88,7 @@
 
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TITLE', 'Artikeltitel ist derselbe wie der Kommentar!');
 @define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE', 'Kommentare abweisen, die Bekanntes enthalten');
-@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE_DESC', 'Kommentare, die nur aus dem Artikeltitel oder aus einer Kombination von Artikel- und Blogtitel bestehen. Oft von Bots benutzt.');
+@define('PLUGIN_EVENT_SPAMBLOCK_FILTER_TITLE_DESC', 'Kommentare abweisen, die nur aus dem Artikeltitel oder aus einer Kombination von Artikel- und Blogtitel bestehen. Wird oft von automatischen Bots benutzt.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_SCRAMBLE', 'Stärkere Captchas');
 @define('PLUGIN_EVENT_SPAMBLOCK_HIDE', 'Spamblock für Autoren deaktivieren');
