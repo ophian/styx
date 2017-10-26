@@ -1,6 +1,9 @@
 ﻿===== 3.1.32 - dev ===
+26.10.2017
+  - bugfix Smarty version was not filled in header comment of compiled and cached files
+
 21.10.2017
-  - bugfix custom delimiters could fail since modification of  version 3.1.32-dev-23
+  - bugfix custom delimiters could fail since modification of version 3.1.32-dev-23
     https://github.com/smarty-php/smarty/issues/394
 
 18.10.2017
