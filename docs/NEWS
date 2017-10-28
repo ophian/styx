@@ -1,7 +1,13 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Added cleanup and log maintenance task for database added logs to
+    the spamblock event plugin. The action is still taken in the
+    maintenance section. (Please note, a continuously visitors table
+    cleanup will take effect with the next statistics plugin update.)
+
   * Removed maintenance widget plugin, serendipity_event_cleanspam.
+    (see follow-up)
 
   * Sync Smarty Update to 3.1.32-dev-28 (including the Styx patch)
 
@@ -22,7 +28,7 @@ Version 2.4-beta1 (2017-10-09)
 
   * [-strike- Add new maintenance widget plugin, serendipity_event_cleanspam.
     This cleans up upblown database spamblocklog or visitor tables by items.
-    Activate in your plugin-list and force cleanup on demand.]
+    Activate in your plugin-list and force cleanup on demand.] (see follow-ups)
 
   * Prepare for translatable ['summary', 'description', 'backenddesc']
     strings for the themes info.txt file info layer.
