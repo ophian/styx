@@ -1,6 +1,8 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Removed maintenance widget plugin, serendipity_event_cleanspam.
+
   * Sync Smarty Update to 3.1.32-dev-28 (including the Styx patch)
 
   * Regression fix for the maintenance task call to clear Smarty compiles
@@ -18,9 +20,9 @@ Version 2.4.0 ()
 Version 2.4-beta1 (2017-10-09)
  ------------------------------------------------------------------------
 
-  * Add new maintenance widget plugin, serendipity_event_cleanspam.
+  * [-strike- Add new maintenance widget plugin, serendipity_event_cleanspam.
     This cleans up upblown database spambloglog or visitor tables by items.
-    Activate in your plugin-list and force cleanup on demand.
+    Activate in your plugin-list and force cleanup on demand.]
 
   * Prepare for translatable ['summary', 'description', 'backenddesc']
     strings for the themes info.txt file info layer.
