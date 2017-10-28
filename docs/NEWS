@@ -7,7 +7,7 @@ Version 2.4.0 ()
 
   * Regression fix for the maintenance task call to clear Smarty compiles
 
-  * Changed the option named like "Check entrytitle" in the spamblog event
+  * Changed the option named like "Check entrytitle" in the spamblock event
     plugin to be SET default true for new installs, and to check the Blog
     title in combinations with entry title, often used by BOTs.
 
@@ -21,7 +21,7 @@ Version 2.4-beta1 (2017-10-09)
  ------------------------------------------------------------------------
 
   * [-strike- Add new maintenance widget plugin, serendipity_event_cleanspam.
-    This cleans up upblown database spambloglog or visitor tables by items.
+    This cleans up upblown database spamblocklog or visitor tables by items.
     Activate in your plugin-list and force cleanup on demand.]
 
   * Prepare for translatable ['summary', 'description', 'backenddesc']
