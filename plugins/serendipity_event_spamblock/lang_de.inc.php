@@ -135,8 +135,20 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_SERVER_TPAS_ANON', 'TypePad Antispam (anonymisiert)');
 @define('PLUGIN_EVENT_SPAMBLOCK_SERVER_AKISMET_ANON', 'Akismet (anonymisiert)');
 
-// Next lines were translated on 2009/06/03
-
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKIPVALIDATION_URL_EXCLUDE', 'URLs von IP Validatierung ausnehmen');
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKIPVALIDATION_URL_EXCLUDE_DESC', 'URLs, die von der IP Validatierung ausgeschlossen werden sollen. ' . PLUGIN_EVENT_SPAMBLOCK_FILTER_URLS_DESC);
+
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_TITLE', 'Spamblock Wartung');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MAINTAIN', 'Aufräumen der Datenbank Spam-Logs');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MAINTAIN_DESC', 'Räumt Datenbank-Logeinträge auf, die bestimmten Kriterien unterliegen. Dies sollte periodisch angestoßen werden, da Spammer die Spamblog Logs kontinuierlich aufblähen und das Blog immer weiter verlangsamen. Erfahrungsgemäß sind, je nach Einstellung der vorhandenen Spamblog Plugins, die beiden Typen (moderate, rejected) hauptsächlich mit Spam bestückt.');
+
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_BUTTON', 'Lösche: Alle');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_DESC', 'Lösche <b>alle</b> Log-Einträge des Typs: \'REJECTED\' und \'MODERATE\' in der Datenbank.Tabelle "spamblocklog". Augenblicklich sind %d Einträge enthalten.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MULTI_BUTTON', 'Lösche: Selektiv');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MULTI_DESC', 'Lösche <b>Einzeln</b> oder per <b>Mehrfachauswahl</b> vom Tabellenfeld "reason" LIKE "items". Gilt für die Typen: \'REJECTED\' und \'MODERATE\'!');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MSG_DONE', 'Löschung erfolgt!');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SELECT', 'Einzelselektion nach Kriterien');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SAVE_BUTTON', 'Debug Log-Sicherung');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SAVE_DESC', 'Schreibe die zu löschenden spamblocklog Einträge in die heutige Debug Log Datei. (Siehe Wartung ... Serendipity Logfiles.) Da dies sehr groß werden kann, sollte dies nur für echte Debugging Zwecke erfolgen!');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_LOGMSG_DONE', 'Geschrieben in Debug Logger!');
 
