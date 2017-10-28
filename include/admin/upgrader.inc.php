@@ -375,6 +375,12 @@ $tasks = array(
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_240, array('internals'), true),
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_240) . '</pre>'),
 
+            array(  'version'   => '2.4.0',
+                    'function'  => 'recursive_directory_iterator',
+                    'title'     => 'Removal of obsolete and dead directories',
+                    'arguments' => array($dead_dirs_240),
+                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_240) . '</pre>'),
+
 );
 
 /* Fetch SQL files which needs to be run */

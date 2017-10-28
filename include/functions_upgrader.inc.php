@@ -408,6 +408,11 @@ $dead_files_240 = array(
     'sql/dbpre.sql'
 );
 
+/* A list of old or removed directories for 2.4.0 */
+$dead_dirs_240 = array(
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_cleanspam'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
