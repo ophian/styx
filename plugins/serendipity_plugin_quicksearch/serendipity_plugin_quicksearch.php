@@ -65,7 +65,7 @@ class serendipity_plugin_quicksearch extends serendipity_plugin
         <input type="hidden" name="serendipity[action]" value="search" />
         <input type="hidden" name="serendipity[fullentry]" value="<?php echo $fullentry ?>" />
         <input type="text" id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" size="13" />
-        <input class="quicksearch_submit" type="submit" value="&gt;" name="serendipity[searchButton]" title="<?PHP echo GO; ?>" style="width: 2em;" />
+        <input class="quicksearch_submit" type="submit" value="&gt;" name="serendipity[searchButton]" title="<?php echo GO; ?>" style="width: 2em;" />
     </div>
     <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
 </form>
