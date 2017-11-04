@@ -1,6 +1,15 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Removed core plugins to (additional_plugins) Spartacus repository:
+    - serendipity_plugin_creativecommons
+    - serendipity_plugin_templatedropdown
+    - serendipity_event_creativecommons
+    - serendipity_event_gravatar
+    - serendipity_event_responsiveimages
+    - serendipity_event_templatechooser
+    - serendipity_event_textile
+
   * Added cleanup and log maintenance task for database added logs to
     the spamblock event plugin. The action is still taken in the
     maintenance section. (Please note, a continuously visitors table
