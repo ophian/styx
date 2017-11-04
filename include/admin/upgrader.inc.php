@@ -381,6 +381,12 @@ $tasks = array(
                     'arguments' => array($dead_dirs_240),
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_240) . '</pre>'),
 
+            array(  'version'   => '2.4.0',
+                    'function'  => 'serendipity_fixPlugins',
+                    'arguments' => array('moved_to_spartacus'),
+                    'title'     => 'Fix Update version of certain plugins',
+                    'desc'      => 'This fixes some upgrade_version values for core to Spartacus (additional_plugins) moved plugins, which were not correctly synced in the pluginlist for plugin update tasks.'),
+
 );
 
 /* Fetch SQL files which needs to be run */

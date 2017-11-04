@@ -427,10 +427,9 @@ function recursive_directory_iterator($dir = array()) {
 }
 
 /**
- * Fix inpropper plugin constant names
+ * Fix pluginlist upgrade cases
  *
- * Before Serendipity 0.8, some plugins contained localized strings for indiciating some
- * configuration values. That got deprecated, and replaced by a language-independent constant.
+ * Formerly known as  "Fix inpropper plugin constant names"
  *
  * @access private
  * @param  string   (reserved for future use)
@@ -440,6 +439,30 @@ function serendipity_fixPlugins($case) {
     global $serendipity;
 
     switch($case) {
+        // Styx 2.4 moved some core plugins to the additional_plugins Spartacus repository. This checks for a proper upgrade version. It will also fix some older issues with moved plugins.
+        // To catch em all, a plugin list sync should already have run before !!
+        case 'moved_to_spartacus':
+            $rows = serendipity_db_query("SELECT a.class_name, a.version, a.upgrade_version, b.version AS new_version, a.plugintype, a.pluginlocation
+                                            FROM {$serendipity['dbPrefix']}pluginlist a
+                                       LEFT JOIN {$serendipity['dbPrefix']}pluginlist b
+                                              ON (a.pluginlocation = 'local' AND a.upgrade_version != '' AND b.pluginlocation = 'Spartacus' AND b.upgrade_version = '')
+                                           WHERE a.class_name = b.class_name AND a.upgrade_version < b.version");
+            if (!is_array($rows)) {
+                return false;
+            }
+
+            foreach($rows AS $row) {
+                serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
+                                         SET upgrade_version = '" . serendipity_db_escape_string($row['new_version']) . "'
+                                       WHERE class_name = '". serendipity_db_escape_string($row['class_name']) . "'
+                                         AND pluginlocation = 'local'");
+            }
+            unset($rows);
+            return true;
+            break
+
+        // Before Serendipity 0.8, some plugins contained localized strings for indiciating some
+        // configuration values. That got deprecated, and replaced by a language-independent constant.
         case 'markup_column_names':
             $affected_plugins = array(
                 'serendipity_event_bbcode',
