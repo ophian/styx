@@ -13,8 +13,8 @@ class serendipity_plugin_archives extends serendipity_plugin
         $propbag->add('name',          ARCHIVES);
         $propbag->add('description',   BROWSE_ARCHIVES);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.1');
+        $propbag->add('author',        'Serendipity Team, Ian');
+        $propbag->add('version',       '1.2');
         $propbag->add('configuration', array('title', 'frequency', 'count', 'show_count', 'hide_zero_count'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -24,39 +24,39 @@ class serendipity_plugin_archives extends serendipity_plugin
         switch($name) {
 
             case 'title':
-                $propbag->add('type',        'string');
-                $propbag->add('name',        TITLE);
+                $propbag->add('type',       'string');
+                $propbag->add('name',       TITLE);
                 $propbag->add('description', TITLE_FOR_NUGGET);
-                $propbag->add('default',     ARCHIVES);
+                $propbag->add('default',    ARCHIVES);
                 break;
 
             case 'count' :
-                $propbag->add('type', 'string');
-                $propbag->add('name', ARCHIVE_COUNT);
+                $propbag->add('type',       'string');
+                $propbag->add('name',        ARCHIVE_COUNT);
                 $propbag->add('description', ARCHIVE_COUNT_DESC);
-                $propbag->add('default', 3);
+                $propbag->add('default',     3);
                 break;
 
             case 'frequency' :
-                $propbag->add('type', 'select');
-                $propbag->add('name', ARCHIVE_FREQUENCY);
+                $propbag->add('type',       'select');
+                $propbag->add('name',       ARCHIVE_FREQUENCY);
                 $propbag->add('select_values', array('months' => MONTHS, 'weeks' => WEEKS, 'days' => DAYS));
                 $propbag->add('description', ARCHIVE_FREQUENCY_DESC);
-                $propbag->add('default', 'months');
+                $propbag->add('default',    'months');
                 break;
 
             case 'show_count':
-                $propbag->add('type',        'boolean');
-                $propbag->add('name',        CATEGORY_PLUGIN_SHOWCOUNT);
+                $propbag->add('type',       'boolean');
+                $propbag->add('name',       CATEGORY_PLUGIN_SHOWCOUNT);
                 $propbag->add('description', '');
-                $propbag->add('default',     false);
+                $propbag->add('default',    'false');
                 break;
 
             case 'hide_zero_count':
-                $propbag->add('type',        'boolean');
+                $propbag->add('type',       'boolean');
                 $propbag->add('name',        CATEGORY_PLUGIN_HIDEZEROCOUNT);
                 $propbag->add('description', '');
-                $propbag->add('default',     false);
+                $propbag->add('default',    'false');
                 break;
 
             default:
@@ -70,15 +70,13 @@ class serendipity_plugin_archives extends serendipity_plugin
         global $serendipity;
 
         $title = $this->get_config('title', $this->title);
-
         $ts = mktime(0, 0, 0, date('m'), 1);
-
         $add_query = '';
 
         $category_set = isset($serendipity['GET']['category']);
         if ($category_set) {
-            $base_query   = 'C' . (int)$serendipity['GET']['category'];
-            $add_query    = '/' . $base_query;
+            $base_query = 'C' . (int)$serendipity['GET']['category'];
+            $add_query = '/' . $base_query;
         }
 
         $max_x = $this->get_config('count', 3);
@@ -88,7 +86,7 @@ class serendipity_plugin_archives extends serendipity_plugin
 
         echo '<ul class="plainList">' . "\n";
 
-        if ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'sqlite3oo') {
+        if ($serendipity['dbType'] == 'sqlite' || $serendipity['dbType'] == 'sqlite3' || $serendipity['dbType'] == 'sqlite3oo' || $serendipity['dbType'] == 'pdo-sqlite') {
             $dist_sql = 'count(e.id) AS orderkey';
         } else {
             $dist_sql = 'count(DISTINCT e.id) AS orderkey';
