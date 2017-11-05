@@ -1,6 +1,8 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Add missing pdo-sqlite query check to serendipity_plugin_archives
+
   * Removed core plugins to (additional_plugins) Spartacus repository:
     - serendipity_plugin_creativecommons
     - serendipity_plugin_templatedropdown
