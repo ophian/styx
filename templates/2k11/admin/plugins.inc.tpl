@@ -124,7 +124,7 @@
                         {if !empty({$plug.upgrade_version}) AND $plug.upgrade_version != $plug.version}
                             <li class="plugin_toversion">{$CONST.UPGRADE_TO_VERSION|sprintf:"{$plug.upgrade_version}"}{if !empty($plug.pluginlocation) AND $plug.pluginlocation != 'local'} ({$plug.pluginlocation|escape}){/if}</li>
                             {if !empty($plug.local_documentation)}{* we assume this is remotely still available and we want to stick to the language already chosen to show *}
-                            <li class="plugin_web"><a href="{$plug.remote_path}{$plug.plugin_class}/{$plug.local_documentation_name}">{$CONST.PLUGIN_DOCUMENTATION}</a></li>
+                            <li class="plugin_web"><a href="{$plug.remote_path}{$plug.plugin_class}/{$plug.local_documentation_name}">{$CONST.PLUGIN_DOCUMENTATION}</a> <em>(raw)</em></li>
                             {/if}
                             {if !empty($plug.changelog)}
                             <li class="plugin_web"><a href="{$plug.changelog}">{$CONST.PLUGIN_DOCUMENTATION_CHANGELOG}</a></li>
