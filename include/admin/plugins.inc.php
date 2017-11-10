@@ -243,6 +243,14 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if (empty($props['changelog']) && $serendipity['GET']['only_group'] != 'UPGRADE' && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
                 $props['changelog'] = 'plugins/' . $props['pluginPath'] . '/ChangeLog';
             }
+            // assume session has timed out (since not upgraded at session runtime) and pluginstack is array and fetched from pluginlist table 
+            if (empty($props['changelog']) && $serendipity['GET']['only_group'] == 'UPGRADE' && !isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog']) && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
+                if (serendipity_request_url($serendipity['spartacus_rawPluginPath'] . $class_data['name'] . '/ChangeLog', 'get')) {
+                    // remember temporary, in case the update is not done immediately
+                    $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'] = $serendipity['spartacus_rawPluginPath'] . $class_data['name'] . '/ChangeLog';
+                    $props['changelog'] = $serendipity['spartacus_rawPluginPath'] . $class_data['name'] . '/ChangeLog';
+                }
+            }
 
             if (empty($props['local_documentation'])) {
                 if (@file_exists(dirname($props['plugin_file']) . '/documentation_' . $serendipity['lang'] . '.html')) {
