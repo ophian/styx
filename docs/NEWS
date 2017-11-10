@@ -1,6 +1,9 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Check for remote ChangeLog file in plugin upgrade cases, where
+    temporary session stored data has timed out.
+
   * Add missing pdo-sqlite query check to serendipity_plugin_archives
 
   * Removed core plugins to (additional_plugins) Spartacus repository:
