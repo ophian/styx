@@ -33,6 +33,8 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
      * @param  string                               $tag       name of function
      *
      * @return string compiled code
+     * @throws \SmartyCompilerException
+     * @throws \SmartyException
      */
     public function compile($args, Smarty_Internal_TemplateCompilerBase $compiler, $parameter, $tag)
     {
@@ -54,13 +56,13 @@ class Smarty_Internal_Compile_Private_Registered_Function extends Smarty_Interna
             if (is_int($_key)) {
                 $_paramsArray[] = "$_key=>$_value";
             } elseif ($compiler->template->caching && in_array($_key, $tag_info[ 2 ])) {
-                $_value = str_replace("'", "^#^", $_value);
+                $_value = str_replace('\'', "^#^", $_value);
                 $_paramsArray[] = "'$_key'=>^#^.var_export($_value,true).^#^";
             } else {
                 $_paramsArray[] = "'$_key'=>$_value";
             }
         }
-        $_params = 'array(' . implode(",", $_paramsArray) . ')';
+        $_params = 'array(' . implode(',', $_paramsArray) . ')';
         // compile code
         if ($is_registered) {
             $output =

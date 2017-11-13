@@ -67,9 +67,16 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     /**
      * caching enabled
      *
-     * @var boolean
+     * @var int
      */
-    public $caching = false;
+    public $caching = Smarty::CACHING_OFF;
+
+    /**
+     * check template for modifications?
+     *
+     * @var int
+     */
+    public $compile_check = Smarty::COMPILECHECK_ON;
 
     /**
      * cache lifetime in seconds
@@ -117,6 +124,9 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
      * @param mixed  $cache_id   cache id to be used with this template
      * @param mixed  $compile_id compile id to be used with this template
      * @param object $parent     next higher level of Smarty variables
+     *
+     * @throws \Exception
+     * @throws \SmartyException
      */
     public function display($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
@@ -135,7 +145,9 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
      * @param  mixed                                 $compile_id compile id to be used with this template
      * @param  object                                $parent     next higher level of Smarty variables
      *
-     * @return boolean       cache status
+     * @return bool cache status
+     * @throws \Exception
+     * @throws \SmartyException
      */
     public function isCached($template = null, $cache_id = null, $compile_id = null, $parent = null)
     {
@@ -175,26 +187,28 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
             $saveVars = false;
 
             $template = $smarty->createTemplate($template, $cache_id, $compile_id, $parent ? $parent : $this, false);
-            if ($this->_objType == 1) {
+            if ($this->_objType === 1) {
                 // set caching in template object
                 $template->caching = $this->caching;
             }
         }
+        // make sure we have integer values
+        $template->caching = (int)$template->caching;
         // fetch template content
         $level = ob_get_level();
         try {
             $_smarty_old_error_level =
                 isset($smarty->error_reporting) ? error_reporting($smarty->error_reporting) : null;
-            if ($this->_objType == 2) {
+            if ($this->_objType === 2) {
                 /* @var Smarty_Internal_Template $this */
                 $template->tplFunctions = $this->tplFunctions;
                 $template->inheritance = $this->inheritance;
             }
             /* @var Smarty_Internal_Template $parent */
-            if (isset($parent->_objType) && ($parent->_objType == 2) && !empty($parent->tplFunctions)) {
+            if (isset($parent->_objType) && ($parent->_objType === 2) && !empty($parent->tplFunctions)) {
                 $template->tplFunctions = array_merge($parent->tplFunctions, $template->tplFunctions);
             }
-            if ($function == 2) {
+            if ($function === 2) {
                 if ($template->caching) {
                     // return cache status of template
                     if (!isset($template->cached)) {
@@ -322,11 +336,19 @@ abstract class Smarty_Internal_TemplateBase extends Smarty_Internal_Data
     }
 
     /**
-     * @param boolean $caching
+     * @param int $compile_check
+     */
+    public function setCompileCheck($compile_check)
+    {
+        $this->compile_check = (int)$compile_check;
+    }
+
+    /**
+     * @param int $caching
      */
     public function setCaching($caching)
     {
-        $this->caching = $caching;
+        $this->caching = (int)$caching;
     }
 
     /**
