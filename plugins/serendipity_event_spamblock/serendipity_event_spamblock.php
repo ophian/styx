@@ -92,7 +92,6 @@ class serendipity_event_spamblock extends serendipity_event
                     'trackback_check_url',
                 )
         ));
-
         $this->filter_defaults = array(
                                 'authors' => 'casino;phentermine;credit;loans;poker',
                                 'emails'  => '',
