@@ -161,6 +161,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $errorstack  = array_merge((array)$foreignPlugins['errorstack'], $errorstack);
 
     if ($serendipity['GET']['only_group'] == 'UPGRADE') {
+        // since sqlite being too slow for a full xml check and pluginlist rewrite - exceed the time limit
+        if (stristr($serendipity['dbType'], 'sqlite')) {
+            set_time_limit(0);
+        }
         // for upgrades, the distinction in sidebar and event-plugins is not useful. We will fetch both and mix the lists
         if ($serendipity['GET']['type'] == 'event') {
             $serendipity['GET']['type'] = 'sidebar';
