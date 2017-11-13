@@ -1,6 +1,8 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Exceed the time limit when performing plugin upgrade tasks with sqlite
+
   * Check for remote ChangeLog file in plugin upgrade cases, where
     temporary session stored data has timed out.
 
