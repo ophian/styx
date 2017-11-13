@@ -23,7 +23,7 @@ Version 2.4.0 ()
   * Removed maintenance widget plugin, serendipity_event_cleanspam.
     (see follow-up)
 
-  * Sync Smarty Update to 3.1.32-dev-28 (including the Styx patch)
+  * Sync Smarty Update to 3.1.32-dev-35 (including the Styx patch)
 
   * Regression fix for the maintenance task call to clear Smarty compiles
 
