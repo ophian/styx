@@ -62,6 +62,6 @@
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR', 'FTP cesta k adresáøi Serendipity');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR_DESC', 'Pokud se k serveru pøipojujete pøes FTP, nemusíte se nutnì pøipojit do adresáøe Serendipity. Zde tedy musíte specifikovat cestu k adresáøi Srendipity od adresáøe, do kterého se FTP pøihla¹uje.');
 
-@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'Umístìní zrcadel (mirrors)');
-@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'Tuto volbu pou¾ívejte jen pokud opravdu víte, co dìláte, jste-li zku¹ený u¾ivatel. Pokud jsou pøednastavené mirror servery vypnuté nebo nepracují správnì, Serendipity se pokusí pøipojit k Vámi zadaným mirror serverùm (tøeba mù¾ete zadat http://mirror.org/serendipity/). Tyto servery musí umìt zpracovávat XML soubory na úrovni URL adresy a musí obsahovat podadresáøe "additional_plugins" a "additional_themes". Zadávejte pouze mirror servery, kterým vìøíte a které plnì zrcadlí v¹echny soubory CVS úlo¾i¹tì Serendipity. Lze zadat více zrcadel, oddìlených "|".');
+#@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'Umístìní zrcadel (mirrors)');
+#@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'Tuto volbu pou¾ívejte jen pokud opravdu víte, co dìláte, jste-li zku¹ený u¾ivatel. Pokud jsou pøednastavené mirror servery vypnuté nebo nepracují správnì, Serendipity se pokusí pøipojit k Vámi zadaným mirror serverùm (tøeba mù¾ete zadat http://mirror.org/serendipity/). Tyto servery musí umìt zpracovávat XML soubory na úrovni URL adresy a musí obsahovat podadresáøe "additional_plugins" a "additional_themes". Zadávejte pouze mirror servery, kterým vìøíte a které plnì zrcadlí v¹echny soubory CVS úlo¾i¹tì Serendipity. Lze zadat více zrcadel, oddìlených "|".');
 

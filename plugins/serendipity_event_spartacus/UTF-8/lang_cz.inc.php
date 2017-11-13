@@ -64,6 +64,6 @@
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR', 'FTP cesta k adresáři Serendipity');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR_DESC', 'Pokud se k serveru připojujete přes FTP, nemusíte se nutně připojit do adresáře Serendipity. Zde tedy musíte specifikovat cestu k adresáři Srendipity od adresáře, do kterého se FTP přihlašuje.');
 
-@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'Umístění zrcadel (mirrors)');
-@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'Tuto volbu používejte jen pokud opravdu víte, co děláte, jste-li zkušený uživatel. Pokud jsou přednastavené mirror servery vypnuté nebo nepracují správně, Serendipity se pokusí připojit k Vámi zadaným mirror serverům (třeba můžete zadat http://mirror.org/serendipity/). Tyto servery musí umět zpracovávat XML soubory na úrovni URL adresy a musí obsahovat podadresáře "additional_plugins" a "additional_themes". Zadávejte pouze mirror servery, kterým věříte a které plně zrcadlí všechny soubory CVS úložiště Serendipity. Lze zadat více zrcadel, oddělených "|".');
+#@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'Umístění zrcadel (mirrors)');
+#@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'Tuto volbu používejte jen pokud opravdu víte, co děláte, jste-li zkušený uživatel. Pokud jsou přednastavené mirror servery vypnuté nebo nepracují správně, Serendipity se pokusí připojit k Vámi zadaným mirror serverům (třeba můžete zadat http://mirror.org/serendipity/). Tyto servery musí umět zpracovávat XML soubory na úrovni URL adresy a musí obsahovat podadresáře "additional_plugins" a "additional_themes". Zadávejte pouze mirror servery, kterým věříte a které plně zrcadlí všechny soubory CVS úložiště Serendipity. Lze zadat více zrcadel, oddělených "|".');
 
