@@ -53,16 +53,16 @@
 @define('PLUGIN_EVENT_SPARTACUS_FTP_SUCCESS', 'FTP: Directory (%s) successfully created.');
 
 @define('PLUGIN_EVENT_SPARTACUS_FTP_USE', 'Use directory creating using ftp in safe_mode?');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_USE_DESC', 'If you are running PHP in safe_mode, some restrictions are applied. And these restrictions have the result that if you create a directory using an ordinary way, you cannot upload in this directory. But if you create directory using ftp, you can. So if you have safe_mode = on, this is only way how to use SPARTACUS and Media uploads successfully.');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_USE_DESC', 'If you are running PHP in safe_mode, some restrictions are applied. And these restrictions have the result that if you create a directory using an ordinary way, you cannot upload in this directory. But if you create a directory using ftp, you can. So if you have safe_mode = on, this is the only way how to use SPARTACUS and Media uploads successfully.');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_SERVER', 'FTP server address');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_USERNAME', 'FTP username');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_PASS', 'FTP password');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR', 'FTP serendipity directory');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR_DESC', 'When you connect to the FTP,you do not necessarilly enter into the serendipity directory. So here it is necessary to write the path from the FTP login place to the serendipity directory.');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR_DESC', 'When you connect to the FTP, you do not necessarilly enter into the serendipity directory. So here it is necessary to write the path from the FTP login place to the serendipity directory.');
 
-@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'Styx repository or custom location for mirror');
+@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'STYX repository or custom location for mirror');
 @define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'This option normally is for advanced users only. When the preconfigurable mirrors are down or malfunctioning, you can enter your own server name (like http://mirror.org/serendipity/). The server needs to maintain the XML files at URL level, and have subdirectories like "additional_plugins" and "additional_themes". Only enter mirrors that you fully trust to be safe and which are a full duplicate of the files hosted in the Serendipity repository. You can enter multiple mirrors, separated by "|".');
-@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD', 'PLEASE NOTE: This above warning does NOT apply to Styx. The here presented default Styx URL is currently limited to "additional_plugins" for custom mirrors only! Additional THEMES are still fetched by their origin set mirrors above. This may change in future. It is NOT recommended to fetch the origin Serendipity additional_plugin (plugin) repository mirrors within Styx! Too many changes and fixes have been applied and the Styx plugin repository is very well maintained! If you ever need to only use the selectable mirrors, you have to remove this URL on each submit of this configs page.');
+@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD', 'PLEASE NOTE: This above warning does NOT apply to Styx. The here presented Styx default URL is currently limited to "additional_plugins" for custom mirrors only! Additional THEMES are still fetched by their origin set mirrors above. This may change in future. It is NOT recommended to fetch the origin Serendipity additional_plugin (plugin) repository mirrors within Styx! Too many changes and fixes have been applied and the Styx plugin repository is very well maintained! If you ever need to only use the selectable mirrors, you have to remove this URL on each submit of this configs page.');
 
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB', 'This plugin supports the Serendipity Cronjob plugin. Go and install it if you want scheduled execution.');
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB_WHEN', 'Execute regular cronjob to check for plugin updates, and mail those to the configured blog\'s mail address (%s)?');
