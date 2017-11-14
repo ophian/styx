@@ -363,11 +363,11 @@ $tasks = array(
                     'title'     => 'Update .htaccess file',
                     'desc'      => 'Adds a new "documentation.*.html" rewrite rule exception to allow calling plugin documentation URLs.'),
 
-            array(  'version'   => '2.4-beta1',
+            array(  'version'   => '2.4.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of special plugin .htaccess files in v.2.3-beta1 (see previous task).',
+                    'title'     => 'Removal of special plugin .htaccess files since Styx v.2.3-beta1.',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_230hta, array('internals'), true),
-                    'desc'      => 'As long as documentary .htaccess rewrite files are available via Spartacus, this upgrade task has to run on every system upgrade.<br>The following files will be removed from your system if available.<br><pre>' . implode(', ', $dead_files_230hta) . '</pre>'),
+                    'desc'      => 'As long as documentary .htaccess rewrite files are available via Spartacus, this upgrade task had to run on every system upgrade.<div class="hidden"><br>The following files will be removed from your system if available.<br><pre>' . implode(', ', $dead_files_230hta) . '</pre></div>'),
 
             array(  'version'   => '2.4.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
