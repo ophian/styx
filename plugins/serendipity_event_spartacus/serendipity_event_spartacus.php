@@ -203,7 +203,7 @@ class serendipity_event_spartacus extends serendipity_event
             case 'custommirror':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR);
-                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC . ' -------- -------- -------- ------- ------- ------- ------- ------- ------- ' . PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD);
+                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC . ' --------------------------------------------------------------------- ' . PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD);
                 $propbag->add('default',     'https://raw.githubusercontent.com/ophian/additional_plugins/master/');
                 break;
 
