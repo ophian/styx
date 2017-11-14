@@ -30,7 +30,7 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_TRYCURL', '尝试使用cURL库再试一次……');
 @define('PLUGIN_EVENT_SPARTACUS_CURLFAIL', '使用cURL库也同样得到失败信息。');
-@define('PLUGIN_EVENT_SPARTACUS_HEALTFIREWALLED', '无法从Spartacus插件库下载所需文件，但是该插件库的运行状态显示该插件库运行正常。这意味着你的网站空间服务商使用了基于访问内容的防火墙，通过mod_security或其他反向代理(reverse proxy)来禁止从网络上下载或获取PHP代码。你需要请你的空间服务商关闭它；否则的话，你无法使用Spartacus插件，从而不得不手动下载相关文件。');
+@define('PLUGIN_EVENT_SPARTACUS_HEALTHFIREWALLED', '无法从Spartacus插件库下载所需文件，但是该插件库的运行状态显示该插件库运行正常。这意味着你的网站空间服务商使用了基于访问内容的防火墙，通过mod_security或其他反向代理(reverse proxy)来禁止从网络上下载或获取PHP代码。你需要请你的空间服务商关闭它；否则的话，你无法使用Spartacus插件，从而不得不手动下载相关文件。');
 
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_PLUGINS', '使用Spartacus来下载插件？');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES', '使用Spartacus来下载主题？');

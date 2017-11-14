@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.58');
+        $propbag->add('version',       '2.59');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -489,7 +489,7 @@ class serendipity_event_spartacus extends serendipity_event
                         $this->outputMSG('error', sprintf(PLUGIN_EVENT_SPARTACUS_HEALTHERROR, $health_req->getResponseCode()));
                         $this->outputMSG('notice', sprintf(PLUGIN_EVENT_SPARTACUS_HEALTHLINK, $health_url));
                     } else {
-                        $this->outputMSG('error', PLUGIN_EVENT_SPARTACUS_HEALTFIREWALLED);
+                        $this->outputMSG('error', PLUGIN_EVENT_SPARTACUS_HEALTHFIREWALLED);
                     }
                 } catch (HTTP_Request2_Exception $e) {
                     $fp = @fsockopen('www.google.com', 80, $errno, $errstr);

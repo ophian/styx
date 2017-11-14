@@ -39,7 +39,7 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_TRYCURL', 'Pokus o pou¾ití knihovny cURL jako zálo¾ního øe¹ení...');
 @define('PLUGIN_EVENT_SPARTACUS_CURLFAIL', 'Knihovna cURL taky nefunguje :-/ ...');
-@define('PLUGIN_EVENT_SPARTACUS_HEALTFIREWALLED', 'Nebylo mo¾né stáhnout soubory z on-line úlo¾i¹tì modulu SPARTACUS, nicménì se povedlo spojit se s úlo¾i¹tìm. To znamená, ¾e Vá¹ poskytovatel nejspí¹e pou¾ívá obsahový filtr a neumo¾òuje stáhovat pøes web *.php soubory. Buï musíte Va¹eho poskytovatele po¾ádat o vypnutí pøísu¹ných omezení (jako mod_security nebo jiné "reverse proxy"), nebo stahujte pluginy ruènì.');
+@define('PLUGIN_EVENT_SPARTACUS_HEALTHFIREWALLED', 'Nebylo mo¾né stáhnout soubory z on-line úlo¾i¹tì modulu SPARTACUS, nicménì se povedlo spojit se s úlo¾i¹tìm. To znamená, ¾e Vá¹ poskytovatel nejspí¹e pou¾ívá obsahový filtr a neumo¾òuje stáhovat pøes web *.php soubory. Buï musíte Va¹eho poskytovatele po¾ádat o vypnutí pøísu¹ných omezení (jako mod_security nebo jiné "reverse proxy"), nebo stahujte pluginy ruènì.');
 
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_PLUGINS', 'Povolit stahování roz¹iøujících modulù pomocí modulu SPARTACUS?');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES', 'Povolit stahování ¹ablon pomocí modulu SPARTACUS?');
