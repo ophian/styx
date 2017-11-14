@@ -385,7 +385,7 @@ $tasks = array(
                     'function'  => 'serendipity_fixPlugins',
                     'arguments' => array('moved_to_spartacus'),
                     'title'     => 'Fix Update version of certain plugins',
-                    'desc'      => 'This fixes some upgrade_version values for core to Spartacus (additional_plugins) moved plugins, which were not correctly synced in the pluginlist for plugin update tasks.'),
+                    'desc'      => 'This fixes some upgrade_version values for core to Spartacus (additional_plugins) moved plugins, which were not correctly synced in the pluginlist for plugin update tasks.<p>For clarification.<br>This database conversion task pulls all plugins into the update cycle which occur as REAL dir/file occurrences in the plugin path ("/plugins"), regardless of whether they are installed for the system set active or hidden!!<br>This is necessary to effectively use the database plugin list as a real Spartacus image.<br>So don\'t be surprised if the next time you install a plugin update, you will have plugins available that you haven\'t installed yourself.<br>They are only updated, not installed!</p>'),
 
 );
 
