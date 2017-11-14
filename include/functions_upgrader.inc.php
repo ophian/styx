@@ -460,7 +460,7 @@ function serendipity_fixPlugins($case) {
             }
             unset($rows);
             return true;
-            break
+            break;
 
         // Before Serendipity 0.8, some plugins contained localized strings for indiciating some
         // configuration values. That got deprecated, and replaced by a language-independent constant.
