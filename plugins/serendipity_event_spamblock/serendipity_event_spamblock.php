@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.00');
+        $propbag->add('version',       '2.01');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1262,11 +1262,11 @@ class serendipity_event_spamblock extends serendipity_event
 
     <section id="maintenance_cleanspam" class="quick_list">
         <h3><?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_TITLE; ?></h3>
-        <h4>
+        <div>
             <?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MAINTAIN; ?>
             <button class="toggle_info button_link cleanspam_info" type="button" data-href="#cleanspam_info_desc"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button>
             <button class="toggle_info button_link cleanspam_info cleanspam_toggle" type="button" data-href="#cleanspam_action_access"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
-        </h4>
+        </div>
         <span id="cleanspam_info_desc" class="comment_status additional_info"><?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MAINTAIN_DESC; ?></span>
 <?php
 switch ($serendipity['GET']['cleanspamsg']) {
@@ -1290,10 +1290,10 @@ switch ($serendipity['GET']['cleanspamsg']) {
             <button class="toggle_info button_link" style="margin: 1em 0" type="button" data-href="#cpmall_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button>
             <span id="cpmall_info" class="comment_status additional_info"><?php echo sprintf(PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_DESC, $allnum); ?></span>
             <div class="serendipity_cpmdiff" style="margin-top: .5em;">
-                <h4>
+                <div>
                     <?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SELECT; ?>
                     <button class="toggle_info button_link" type="button" data-href="#cleanspam_access_multi_reasons"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
-                </h4>
+                </div>
                 <form id="maintenance_cleanspam_multi" enctype="multipart/form-data" action="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/cleanspam/multi" method="post">
                     <select id="cleanspam_access_multi_reasons" class="additional_info" name="serendipity[cleanspam][multi_reasons][]" multiple="multiple">
                         <option value="">- - -</option>
