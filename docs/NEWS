@@ -1,6 +1,8 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Make nl2br implication note translatable per plugin constant
+
   * Spartacus optimizations, like removing netmirror and some review
     and clarification to option descriptions.
 
