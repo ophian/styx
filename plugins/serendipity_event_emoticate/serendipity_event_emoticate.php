@@ -18,18 +18,18 @@ class serendipity_event_emoticate extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_EMOTICATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.11');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
+            'serendipity' => '2.0',
+            'smarty'      => '3.1.0',
             'php'         => '5.2.0'
         ));
         $propbag->add('groups', array('MARKUP'));
-        $propbag->add('cachable_events', array( 'frontend_display' => true) );
-        $propbag->add('event_hooks',     array( 'frontend_display' => true,
-                                                'frontend_comment' => true,
-                                                'css_backend' => true,
-                                                'css' => true));
+        $propbag->add('cachable_events', array('frontend_display' => true));
+        $propbag->add('event_hooks',     array('frontend_display' => true,
+                                               'frontend_comment' => true,
+                                               'css_backend' => true,
+                                               'css' => true));
 
         $this->markup_elements = array(
             array(
@@ -137,16 +137,16 @@ class serendipity_event_emoticate extends serendipity_event
 
     function example()
     {
-        $s  = sprintf(PLUGIN_EVENT_EMOTICATE_EXAMPLE_EXTEND_DESC, $serendipity['serendiptyHTTPPath'].'plugins/serendipity_event_emoticate/emoticons.inc.php.txt');
-        $s .= '<table cellspacing="5" class="example_emos">';
-        $s .= '<tr>';
+        $s  = "\n" . sprintf('<span class="msg_notice"><span class="icon-info-circled"></span> ' . PLUGIN_EVENT_EMOTICATE_EXAMPLE_EXTEND_DESC . '</span>', $serendipity['serendiptyHTTPPath'].'plugins/serendipity_event_emoticate/emoticons.inc.php.txt');
+        $s .= "\n" . '<table cellspacing="5" class="example_emos">'."\n";
+        $s .= "  <tr>\n";
         $i = 1;
         foreach($this->getEmoticons() as $key => $value) {
-            $s .= '<td>' . $this->humanReadableEmoticon($key) . '</td><td><img src="'. $value .'"></td>' . "\n";
-            if ($i++ % 7 == 0) $s .= '</tr><tr>';
+            $s .= '    <td>' . $this->humanReadableEmoticon($key) . '</td><td><img src="'. $value .'"></td>' . "\n";
+            if ($i++ % 7 == 0) $s .= "\n</tr>\n<tr>\n";
         }
-        $s .= '</tr>';
-        $s .= '</table>';
+        $s .= "  </tr>\n";
+        $s .= "</table>\n";
 
         return $s;
     }
@@ -155,17 +155,17 @@ class serendipity_event_emoticate extends serendipity_event
     {
         switch($name) {
             case 'extension':
-                $propbag->add('type', 'string');
+                $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_EMOTICATE_EXTENSION);
                 $propbag->add('description', PLUGIN_EVENT_EMOTICATE_EXTENSION_BLAHBLAH);
-                $propbag->add('default', 'png');
+                $propbag->add('default',     'png');
                 break;
 
             default:
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        constant($name));
                 $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)));
-                $propbag->add('default', 'true');
+                $propbag->add('default',     'true');
                 break;
         }
         return true;
@@ -174,6 +174,7 @@ class serendipity_event_emoticate extends serendipity_event
     function event_hook($event, &$bag, &$eventData, $addData = null)
     {
         global $serendipity;
+
         $hooks = &$bag->get('event_hooks');
 
         if (isset($hooks[$event])) {
@@ -181,13 +182,13 @@ class serendipity_event_emoticate extends serendipity_event
             switch($event) {
 
                 case 'frontend_display':
-                    foreach ($this->markup_elements as $temp) {
-                        if (serendipity_db_bool($this->get_config($temp['name'], true)) && isset($eventData[$temp['element']]) &&
+                    foreach ($this->markup_elements AS $temp) {
+                        if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && isset($eventData[$temp['element']]) &&
                             !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = &$eventData[$temp['element']];
 
-                            foreach ($this->getEmoticons() as $key => $value) {
+                            foreach ($this->getEmoticons() AS $key => $value) {
                                 $path_parts = pathinfo($value); // part of serendipity_event_textile (lib3) workaround, which caused to throw weird list-place and preg_* errors
                                 $element = preg_replace("/([\t\s\.\!>]+|^)" . $key . "([\t\s\!\.\)<]+|\$)/U",
                                     "$1<img src=\"$value\" alt=\"" . (class_exists('serendipity_event_textile') ? str_replace('.'.$this->get_config('extension', 'png'), '', $path_parts['filename']) : $this->humanReadableEmoticon($key)) . "\" class=\"emoticon\" />$2",
@@ -207,12 +208,19 @@ class serendipity_event_emoticate extends serendipity_event
     margin-right: auto;
 }
 .example_emos td {
+    background-color: gainsboro;
+    font-size: xx-large;
+    padding: 0 .2em;
     text-align: center;
 }
-
+.example_emos td:nth-child(2n) {
+    background-color: #FFF;
+}
 /* event emoticate plugin end */
 
 ';
+                    break;
+
                 case 'css':
                     $eventData .= '
 
@@ -231,7 +239,7 @@ class serendipity_event_emoticate extends serendipity_event
 
                 case 'frontend_comment':
                     if (serendipity_db_bool($this->get_config('COMMENT', true))) {
-                        echo '<div class="serendipity_commentDirection serendipity_comment_emoticate">' . PLUGIN_EVENT_EMOTICATE_TRANSFORM . '</div>';
+                        echo '<div class="serendipity_commentDirection serendipity_comment_emoticate">' . PLUGIN_EVENT_EMOTICATE_TRANSFORM . "</div>\n";
                     }
                     break;
 
