@@ -1,6 +1,8 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Regression fix for the plugin-multi-updater activity spinner
+
   * Optimise entryproperties custom field option textarea row size
 
   * Make nl2br implication note translatable per plugin constant
