@@ -3079,7 +3079,7 @@ input[name="serendipity[filter][fileCategory]"] {
 #updateIndicator {
     width: 100px;
     height: 100px;
-    background-image: url('{TEMPLATE_PATH}img/activity.png');
+    background-image: url('templates/default/admin/img/activity.png');
     -webkit-animation: loaderSprite 1s steps(25, end) infinite;
     animation: loaderSprite 1s steps(25, end) infinite;
 }
