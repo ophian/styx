@@ -52,8 +52,7 @@ function serendipity_pluginListSort($x, $y) {
  * @param  boolean  Indicates if event plugins (TRUE) or sidebar plugins (FALSE) shall be shown
  * @return null
  */
-function show_plugins($event_only = false, $sidebars = null)
-{
+function show_plugins($event_only = false, $sidebars = null) {
     global $serendipity;
 
     $sql_filter = '';
