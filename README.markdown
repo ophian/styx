@@ -18,7 +18,7 @@ It was built in my origin intent primarily for myself to keep track on my vision
 
 As long as I find the time and the commitment to make this even better, Styx will develop and will include all good parts of the origin Serendipity development. You may replace your origin Serendipity installation without any fear with this extended Edition and you will find everything work as intendet. Go and read the **Styx** [release notes][2] to see how this can be easily done without too much effort. Even more you may want to read the [commit history][3] and/or the **Styx** [ChangeLog][4].
 
-Since **plugins** are an essential part of Serendipity, this repository holds a strongly maintained additional_plugins repository. The Styx Spartacus is able to work with it - Serendipity is not. An update history "Log Page" will probably need an own html webpage to start with or be able to provide a web Spartacus downloader. This is done laterly, if ever.
+Since **plugins** are an essential part of Serendipity, this repository holds a strongly maintained additional_plugins repository. The Styx Spartacus is able to work with it - Serendipity is not. An update history "Log Page" will probably need an own html webpage to start with or be able to provide a web Spartacus downloader. This is done laterly, if ever. For now the official Styx information and blog site is presented here: [Styx home site](https://ophian.github.io/).
 
 Regards Ian,
 
