@@ -367,7 +367,7 @@ $tasks = array(
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'title'     => 'Removal of special plugin .htaccess files since Styx v.2.3-beta1.',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_230hta, array('internals'), true),
-                    'desc'      => 'As long as documentary .htaccess rewrite files were available via Spartacus, this upgrade task had to run on every system upgrade.<details id="details_htaccesstask240" class="plugin_data"><summary role="button" aria-expanded="false">open details</summary><div class="xhidden"><br>The following files will be removed from your system if available.<br><pre>' . implode(', ', $dead_files_230hta) . '</pre></div></details>'),
+                    'desc'      => 'As long as documentary .htaccess rewrite files were available via Spartacus, this upgrade task had to run on every system upgrade.<details id="details_htaccesstask240" class="plugin_data"><summary role="button" aria-expanded="false">open details</summary><div><br>The following files will be removed from your system if available.<br><pre>' . implode(', ', $dead_files_230hta) . '</pre></div></details>'),
 
             array(  'version'   => '2.4.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
