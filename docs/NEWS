@@ -1,6 +1,9 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Spartacus optimizations, like removing netmirror and some review
+    and clarification to option descriptions.
+
   * Exceed the time limit when performing plugin upgrade tasks with sqlite
 
   * Check for remote ChangeLog file in plugin upgrade cases, where
