@@ -54,7 +54,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CHMOD', 'FTP Fehler: Kann die Verzeichnisrechte von (%s) nicht ändern.');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_SUCCESS', 'FTP: Verzeichnis (%s) erfolgreich angelegt.');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_USE', 'Lege Verzeichnis unter Verwendung von FTP an?');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_USE_DESC', 'Wenn PHP im safe_mode läuft, gelten einige Einschränkungen. Das Ergebnis dieser Einschränkungen ist, das in ein Verzeichnis, welches auf normale Weise erstellt wurde, nicht hochgeladen werden kann. Wird das Verzeichnis aber per FTP angelegt wurde, funktioniert es. Wenn also am Webserver safe_mode = on eingestellt ist, ist dies der einzige Weg um SPARTACUS zu nutzen bzw. Mediendateien (Bilder usw.) hochzuladen. Die folgenden Zugangsdaten für Ihren Server müssen dazu ausgefüllt werden');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_USE_DESC', 'Wenn PHP im safe_mode läuft, gelten einige Einschränkungen. Das Ergebnis dieser Einschränkungen ist, das in ein Verzeichnis, welches auf normale Weise erstellt wurde, nicht hochgeladen werden kann. Wird das Verzeichnis aber per FTP angelegt, funktioniert es. Wenn also am Webserver safe_mode = on eingestellt ist, ist dies der einzige Weg um SPARTACUS zu nutzen bzw. Mediendateien (Bilder usw.) hochzuladen. Die folgenden Zugangsdaten für Ihren Server müssen dazu ausgefüllt werden');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_SERVER', 'FTP Serveradresse');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_USERNAME', 'FTP Benutzername');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_PASS', 'FTP Passwort');
