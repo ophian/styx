@@ -45,7 +45,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_HEALTHFIREWALLED', 'Es war nicht möglich, die benötigten Daten vom Spartacus Verzeichnis zu laden, aber der Status des Verzeichnisses war abrufbar. Das bedeutet, dass Ihr Provider eine Inhaltsbasierte Firewall verwendet und den Abruf von PHP code über das Netz mittels mod_security oder anderen Reverse-Proxies verhindert. Sie müssen entweder ihren Provider bitten, diesen Schutz abzuschalten oder Sie können das Spartacus Plugin nicht verwenden und müssen die Dateien manuell herunterladen.');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_PLUGINS', 'Spartacus verwenden, um Plugins zu laden?');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES', 'Spartacus verwenden, um Themes zu laden?');
-@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE', 'Fernabfrage für Versions-Informationen der Plugins zulassen?');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE', 'Plugin-Versions Fernabfrage zulassen?');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'Wenn aktiviert, können Besucher von "%s" Versions-Informationen über alle installierten Plugins abrufen. Es wird dringend empfohlen, diese URL mittels benutzerdefinierten .htaccess Regeln vor unauthorisiertem Zugriff zu schützen.');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL', 'Pfad zum Fernabruf der Versions-Information');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC', 'Gibt den letzten ("geheimen") Teil der URI an, welche die Benutzer wissen müssen, um den Fernabruf der Versions-Informationen durchzuführen.');
