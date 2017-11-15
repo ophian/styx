@@ -18,16 +18,17 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.23');
+        $propbag->add('version',       '2.24');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
-            'smarty'      => '3.0.0',
-            'php'         => '5.1.0'
+            'smarty'      => '3.1.0',
+            'php'         => '5.2.0'
         ));
         $propbag->add('cachable_events', array('frontend_display' => true));
 
         $propbag->add('event_hooks',     array('frontend_display'  => true,
                                                'backend_configure' => true,
+                                               'css_backend'       => true,
                                                'css'               => true
                      ));
         $propbag->add('groups', array('MARKUP'));
@@ -63,21 +64,21 @@ class serendipity_event_nl2br extends serendipity_event
         global $serendipity;
 
         /* check possible config mismatch setting in combination with ISOBR */
-        if ( serendipity_db_bool($this->get_config('isobr')) === true ) {
-            if ( serendipity_db_bool($this->get_config('clean_tags')) === true ) {
-                $this->set_config('clean_tags', false);
+        if ( serendipity_db_bool($this->get_config('isobr', 'true')) === true ) {
+            if ( serendipity_db_bool($this->get_config('clean_tags', 'false')) === true ) {
+                $this->set_config('clean_tags', 'false');
                 echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(PLUGIN_EVENT_NL2BR_CONFIG_ERROR, 'clean_tags', 'ISOBR') . "</span>\n";
                 return false;
             }
-            if ( serendipity_db_bool($this->get_config('p_tags')) === true ) {
-                $this->set_config('p_tags', false);
+            if ( serendipity_db_bool($this->get_config('p_tags', 'false')) === true ) {
+                $this->set_config('p_tags', 'false');
                 echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(PLUGIN_EVENT_NL2BR_CONFIG_ERROR, 'p_tags', 'ISOBR') . "</span>\n";
                 return false;
             }
         }
         /* check possible config mismatch setting in combination with P_TAGS */
-        if ( serendipity_db_bool($this->get_config('p_tags')) === true && serendipity_db_bool($this->get_config('clean_tags')) === true ) {
-            $this->set_config('clean_tags', false);
+        if ( serendipity_db_bool($this->get_config('p_tags', 'false')) === true && serendipity_db_bool($this->get_config('clean_tags', 'false')) === true ) {
+            $this->set_config('clean_tags', 'false');
                 echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(PLUGIN_EVENT_NL2BR_CONFIG_ERROR, 'clean_tags', 'P_TAGS') . "</span>\n";
             return false;
         }
@@ -86,20 +87,8 @@ class serendipity_event_nl2br extends serendipity_event
 
     function example()
     {
-        return '<h3>PLEASE NOTE the implications of this markup plugin:</h3>
-        <p>This plugin transfers linebreaks to HTML-linebreaks, so that they show up in your blog entry.</p>
-        <p>In two cases this can raise problematic issues for you:</p>
-        <ul>
-            <li>previously, if you used a <strong>WYSIWYG editor</strong> to write your entries. In that case, the WYSIWYG editor already placed proper HTML linebreaks, so the nl2br plugin would have actually doubled those linebreaks. Since <strong>Serendipity 2.0</strong> you don\'t need to take care about this any more, in blog entries and static pages, since nl2br parsing is automatically disabled.</li>
-            <li>if you use any other markup plugins in conjunction with this plugin that already translate linebreaks. The <strong>TEXTILE and MARKDOWN plugins</strong> are examples for plugins like these.</li>
-        </ul>
-        <p>To prevent problems, you should disable the nl2br plugin on entries globally or per entry within the "Extended properties" section of an entry, if you have the entryproperties plugin installed.</p>
-        <p>Generally advice: The nl2br plugin only makes sense if you</p>
-        <ul>
-            <li>A) do not use other markup plugins or</li>
-            <li>B) you do not use the WYSIWYG editor or</li>
-            <li>C) you only want to apply linebreak transformations on comments to your blog entries, and do not allow any possible markup of other plugins that you only use for blog entries.</li>
-        </ul>'."\n";
+        return '<h3>' . PLUGIN_EVENT_NL2BR_ABOUT_TITLE . '</h3>' .
+        '<span class="msg_notice">' . PLUGIN_EVENT_NL2BR_ABOUT_DESC ."</span>\n";
     }
 
     function install()
@@ -168,7 +157,9 @@ class serendipity_event_nl2br extends serendipity_event
 
     function isolate($src, $regexp = NULL)
     {
-        if ($regexp) return preg_replace_callback($regexp, array($this, 'isolate'), $src);
+        if ($regexp) {
+            return preg_replace_callback($regexp, array($this, 'isolate'), $src);
+        }
         global $_buf;
         $_buf[] = $src[0];
         return "\001" . (count($_buf) - 1);
@@ -232,7 +223,9 @@ class serendipity_event_nl2br extends serendipity_event
                     }
 
 /* PLEASE NOTE:
-    $serendipity['POST']['properties']['disable_markups'] = array(false); is the only workable solution for (sidebar?) plugins (see sidebar plugins: guestbook, multilingual), to explicitly allow to apply nl2br to markup (if we want to)
+    $serendipity['POST']['properties']['disable_markups'] = array(false);
+    is the only workable solution for (sidebar?) plugins (see sidebar plugins: guestbook, multilingual),
+    to explicitly allow to apply nl2br to markup (if we want to)
 */
                     // don't run, if the textile, or markdown plugin already took care about markup
                     if ($markup && $serendipity['nl2br']['entry_disabled_markup'] === false && (class_exists('serendipity_event_textile') || class_exists('serendipity_event_markdown'))) {
@@ -257,7 +250,7 @@ class serendipity_event_nl2br extends serendipity_event
                     }
 
                     foreach ($this->markup_elements AS $temp) {
-                        if (serendipity_db_bool($this->get_config($temp['name'], true)) && isset($eventData[$temp['element']]) &&
+                        if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && isset($eventData[$temp['element']]) &&
                                 !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                                 @!in_array($this->instance, $serendipity['POST']['properties']['disable_markups']) &&
                                 !$eventData['properties']['ep_no_nl2br'] &&
@@ -305,6 +298,22 @@ class serendipity_event_nl2br extends serendipity_event
                         // hook into default/admin/entries.tpl somehow via the Heart Of Gold = serendipity_printEntryForm() before! it is loaded
                         $serendipity['smarty']->assign('iso2br', true);
                     }
+                    break;
+
+                case 'css_backend':
+                    $eventData .= '
+
+/* nl2br plugin start */
+
+#clean_tags_info {
+    width: 100%;
+    margin-bottom: 2.25em;
+    word-break: break-all; /*since using a non breakable too long word*/
+}
+
+/* nl2br plugin end */
+
+';
                     break;
 
                 case 'css':
