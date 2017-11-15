@@ -1,6 +1,8 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Optimise entryproperties custom field option textarea row size
+
   * Make nl2br implication note translatable per plugin constant
 
   * Spartacus optimizations, like removing netmirror and some review
