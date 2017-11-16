@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.01');
+        $propbag->add('version',       '2.02');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1265,7 +1265,7 @@ class serendipity_event_spamblock extends serendipity_event
         <div>
             <?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MAINTAIN; ?>
             <button class="toggle_info button_link cleanspam_info" type="button" data-href="#cleanspam_info_desc"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button>
-            <button class="toggle_info button_link cleanspam_info cleanspam_toggle" type="button" data-href="#cleanspam_action_access"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
+            <button class="toggle_info button_link cleanspam_info cleanspam_toggle" type="button" data-href="#cleanspam_action_access"><span class="icon-sort" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
         </div>
         <span id="cleanspam_info_desc" class="comment_status additional_info"><?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MAINTAIN_DESC; ?></span>
 <?php
@@ -1292,7 +1292,7 @@ switch ($serendipity['GET']['cleanspamsg']) {
             <div class="serendipity_cpmdiff" style="margin-top: .5em;">
                 <div>
                     <?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SELECT; ?>
-                    <button class="toggle_info button_link" type="button" data-href="#cleanspam_access_multi_reasons"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
+                    <button class="toggle_info button_link" type="button" data-href="#cleanspam_access_multi_reasons"><span class="icon-sort" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo TOGGLE_OPTION; ?></span></button>
                 </div>
                 <form id="maintenance_cleanspam_multi" enctype="multipart/form-data" action="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/cleanspam/multi" method="post">
                     <select id="cleanspam_access_multi_reasons" class="additional_info" name="serendipity[cleanspam][multi_reasons][]" multiple="multiple">
@@ -1326,6 +1326,8 @@ switch ($serendipity['GET']['cleanspamsg']) {
                     if ($logmethod == 'db' || empty($logmethod)) {
                         $eventData .= '
 
+/* serendipity_event_spamblock_start */
+
 #maintenance_cleanspam .comment_status {
     float: none;
     margin: 0 0 .5em;
@@ -1333,25 +1335,19 @@ switch ($serendipity['GET']['cleanspamsg']) {
 .no-flexbox #maintenance_cleanspam.quick_list {
     margin: 0 0 1em 2%;
 }
-.form_cpm, #cleanspam_action_access hr {
-    margin: .5em auto;
-}
-#maintenance_cleanspam h4, #cleanspam_action_access h4 {
-    margin: 0 auto .25em;
-}
-#maintenance_cleanspam h4 {
-    font-weight: normal;
-    display: flow-root;
-}
-.cleanspam_info {
+#maintenance_cleanspam .form_cpm,
+#maintenance_cleanspam .toggle_info,
+#maintenance_cleanspam .toggle_info:visited,
+#maintenance_cleanspam .toggle_info:hover,
+#maintenance_cleanspam .toggle_info:focus,
+#maintenance_cleanspam .toggle_info:active {
     margin: .5em 0;
 }
-.toggle_info.cleanspam_info:visited, .toggle_info.cleanspam_info:hover, .toggle_info.cleanspam_info:focus, .toggle_info.cleanspam_info:active {
-    margin: .5em 0;
-}
-.cleanspam_toggle {
+#maintenance_cleanspam .cleanspam_toggle {
     float: right;
 }
+
+/* serendipity_event_spamblock_end */
 
 ';
                     }
