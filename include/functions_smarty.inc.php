@@ -1238,7 +1238,9 @@ function serendipity_smarty_init($vars = array()) {
 function serendipity_smarty_purge() {
     global $serendipity;
 
-    serendipity_smarty_init();  # need initiated smarty to get the compile/cache dir
+    if (!is_object($serendipity['smarty'])) {
+        serendipity_smarty_init();
+    }
     $_cdir = new RecursiveDirectoryIterator($serendipity['smarty']->getCompileDir());
     $_dirs = new RecursiveIteratorIterator($_cdir);
     $files = new RegexIterator($_dirs, '@.*\.tpl\.php$@', RegexIterator::GET_MATCH);
