@@ -226,11 +226,11 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
         $importer = new $class($serendipity['POST']['import']);
 
         /* Yes sir, we are importing if we have valid data */
-        if ( $importer->validateData() ) {
+        if ($importer->validateData()) {
             $data['validateData'] = true;
 
             /* import() MUST return (bool)true, otherwise we assume it failed */
-            if ( ($result = $importer->import()) !== true ) {
+            if (($result = $importer->import()) !== true) {
                 $data['result'] = $result;
             }
         /* Apprently we do not have valid data, ask for some */
@@ -254,7 +254,7 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
         }
 
         $class = include_once($importpath . $file);
-        if ( class_exists($class) ) {
+        if (class_exists($class)) {
             $tmpClass = new $class(array());
             $list[substr($file, 0, strpos($file, '.'))] = $tmpClass->info['software'];
             unset($tmpClass);

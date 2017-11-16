@@ -120,7 +120,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
                           'email'         => $users[$x]['user_email'],
                           'password'      => md5('txp')); // blame TXP for using PASSWORD().
 
-            if ( $users[$x]['user_level'] == 1 ) {
+            if ($users[$x]['user_level'] == 1) {
                 $data['userlevel'] = USERLEVEL_EDITOR;
             } elseif ($users[$x]['user_level'] == 2) {
                 $data['userlevel'] = USERLEVEL_CHIEF;

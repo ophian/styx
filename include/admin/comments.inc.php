@@ -257,7 +257,7 @@ $sql = serendipity_db_query("SELECT COUNT(*) AS total FROM {$serendipity['dbPref
 $totalComments = $sql['total'];
 $pages = ($commentsPerPage == COMMENTS_FILTER_ALL ? 1 : ceil($totalComments/(int)$commentsPerPage));
 $page = (int)$serendipity['GET']['page'];
-if ( $page == 0 || $page > $pages ) {
+if ($page == 0 || $page > $pages) {
     $page = 1;
 }
 

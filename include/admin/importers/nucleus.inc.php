@@ -110,7 +110,7 @@ class Serendipity_Import_Nucleus extends Serendipity_Import
                           'email'         => $users[$x]['user_email'],
                           'password'      => $users[$x]['user_pass']); // Nucleus uses md5, too.
 
-            if ( $users[$x]['user_level'] < 1 ) {
+            if ($users[$x]['user_level'] < 1) {
                 $data['userlevel'] = USERLEVEL_EDITOR;
             } else {
                 $data['userlevel'] = USERLEVEL_ADMIN;

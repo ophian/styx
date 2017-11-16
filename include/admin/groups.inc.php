@@ -36,7 +36,7 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
     $data['name'] = $serendipity['POST']['name'];
 }
 
-if ( $serendipity['GET']['adminAction'] != 'delete' ) {
+if ($serendipity['GET']['adminAction'] != 'delete') {
     $data['delete'] = false;
 
     if (serendipity_checkPermission('adminUsersMaintainOthers')) {

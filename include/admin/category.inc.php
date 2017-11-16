@@ -112,7 +112,7 @@ if ($serendipity['GET']['adminAction'] == 'doDelete' && serendipity_checkFormTok
     }
 }
 
-if ( $serendipity['GET']['adminAction'] == 'delete' ) {
+if ($serendipity['GET']['adminAction'] == 'delete') {
     $data['delete'] = true;
     $this_cat = serendipity_fetchCategoryInfo($serendipity['GET']['cid']);
     if (   (serendipity_checkPermission('adminCategoriesDelete') && serendipity_checkPermission('adminCategoriesMaintainOthers'))
@@ -133,8 +133,8 @@ if ( $serendipity['GET']['adminAction'] == 'delete' ) {
     }
 }
 
-if ( $serendipity['GET']['adminAction'] == 'edit' || $serendipity['GET']['adminAction'] == 'new' || $serendipity['GET']['adminAction'] == 'newSub') {
-    if ( $serendipity['GET']['adminAction'] == 'edit' ) {
+if ($serendipity['GET']['adminAction'] == 'edit' || $serendipity['GET']['adminAction'] == 'new' || $serendipity['GET']['adminAction'] == 'newSub') {
+    if ($serendipity['GET']['adminAction'] == 'edit') {
         $data['edit'] = true;
         $cid = (int)$serendipity['GET']['cid'];
         $this_cat = serendipity_fetchCategoryInfo($cid);
@@ -185,7 +185,7 @@ if ( $serendipity['GET']['adminAction'] == 'edit' || $serendipity['GET']['adminA
     ob_end_clean();
 }
 
-if ( $serendipity['GET']['adminAction'] == 'view' ) {
+if ($serendipity['GET']['adminAction'] == 'view') {
     if (empty($admin_category)) {
         $cats = serendipity_fetchCategories('all');
     } else {
@@ -194,7 +194,7 @@ if ( $serendipity['GET']['adminAction'] == 'view' ) {
     $data['view'] = true;
     $data['viewCats'] = $cats;
 
-    if ( is_array($cats) ) {
+    if (is_array($cats)) {
         $categories = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
         $data['viewCategories'] = $categories;
     }

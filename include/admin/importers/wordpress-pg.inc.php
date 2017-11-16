@@ -108,9 +108,9 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
                           'username'      => $users[$x]['user_login'],
                           'password'      => $users[$x]['user_pass']); // WP uses md5, too.
 
-            if ( $users[$x]['user_level'] <= 1 ) {
+            if ($users[$x]['user_level'] <= 1) {
                 $data['userlevel'] = USERLEVEL_EDITOR;
-            } elseif ( $users[$x]['user_level'] < 5 ) {
+            } elseif ($users[$x]['user_level'] < 5) {
                 $data['userlevel'] = USERLEVEL_CHIEF;
             } else {
                 $data['userlevel'] = USERLEVEL_ADMIN;

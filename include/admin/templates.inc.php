@@ -96,7 +96,7 @@ if (($serendipity['GET']['adminAction'] == 'install' || $serendipity['GET']['adm
     $data['install_template'] = serendipity_specialchars($serendipity['GET']['theme']);
 }
 
-if ( @file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'] .'/layout.php') ) {
+if (@file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'] .'/layout.php')) {
     $data['deprecated'] = true;
 }
 
@@ -183,7 +183,7 @@ ksort($stack);
 
 foreach($stack AS $theme => $info) {
     /* Sorry, but we don't display engines */
-    if ( strtolower($info['engine']) == 'yes') {
+    if (strtolower($info['engine']) == 'yes') {
         continue;
     }
     $data['templates'][$theme]['info'] = $info;
@@ -217,7 +217,7 @@ foreach($stack AS $theme => $info) {
     }
 
     $unmetRequirements = array();
-    if ( isset($info['require serendipity']) && version_compare($info['require serendipity'], serendipity_getCoreVersion($serendipity['version']), '>') ) {
+    if (isset($info['require serendipity']) && version_compare($info['require serendipity'], serendipity_getCoreVersion($serendipity['version']), '>')) {
         $unmetRequirements[] = 'Serendipity '. $info['require serendipity'];
         $data['templates'][$theme]['unmetRequirements'] = sprintf(UNMET_REQUIREMENTS, implode(', ', $unmetRequirements));
     }

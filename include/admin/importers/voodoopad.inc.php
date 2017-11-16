@@ -164,7 +164,7 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import
                     $thispage['content'] = $elements[$key_a]->data;
 
                     // If its a content link list it for referencing with the page permalink
-                    if ( $name == 'content' ){
+                    if ($name == 'content') {
                         $aliases[$thispage['headline']] = $thispage['permalink'];
 
                         // Either replace or insert depending on previous existence

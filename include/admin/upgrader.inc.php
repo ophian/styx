@@ -514,7 +514,7 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
         $data['checksums'] = true;
         $badsums = serendipity_verifyFTPChecksums();
 
-        if ( empty($badsums) ) {
+        if (empty($badsums)) {
             $data['upgraderResultDiagnose1'][] = serendipity_upgraderResultDiagnose(S9Y_U_SUCCESS, CHECKSUMS_PASS);
         } else {
             foreach($badsums AS $rfile => $sum) {
@@ -524,7 +524,7 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
     } // End if checksums
 
     $data['upgraderResultDiagnose2'] = array();
-    if ( is_writable($basedir) ) {
+    if (is_writable($basedir)) {
         $data['upgraderResultDiagnose2'][] = serendipity_upgraderResultDiagnose(S9Y_U_SUCCESS, WRITABLE);
     } else {
         $showWritableNote = false;
@@ -550,7 +550,7 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
     }
 
     $data['upgraderResultDiagnose3'] = array();
-    if ( is_writable($basedir . PATH_SMARTY_COMPILE) ) {
+    if (is_writable($basedir . PATH_SMARTY_COMPILE)) {
          $data['upgraderResultDiagnose3'][] = serendipity_upgraderResultDiagnose(S9Y_U_SUCCESS, WRITABLE);
     } else {
          $data['upgraderResultDiagnose3'][] = serendipity_upgraderResultDiagnose(S9Y_U_ERROR, NOT_WRITABLE);

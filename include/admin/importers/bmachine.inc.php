@@ -115,7 +115,7 @@ class Serendipity_Import_bmachine extends Serendipity_Import
                           'email'         => $users[$x]['user_email'],
                           'password'      => $users[$x]['user_pass']); // MD5 compatible
 
-            if ( $users[$x]['user_level'] <= 2 ) {
+            if ($users[$x]['user_level'] <= 2) {
                 $data['userlevel'] = USERLEVEL_EDITOR;
             } elseif ($users[$x]['user_level'] == 3) {
                 $data['userlevel'] = USERLEVEL_CHIEF;

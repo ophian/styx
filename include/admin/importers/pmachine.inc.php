@@ -116,7 +116,7 @@ class Serendipity_Import_pMachine extends Serendipity_Import
                           'email'         => $users[$x]['user_email'],
                           'password'      => $users[$x]['user_pass']); // pMachine uses md5, too.
 
-            if ( $users[$x]['user_level'] < 12 ) {
+            if ($users[$x]['user_level'] < 12) {
                 $data['userlevel'] = USERLEVEL_EDITOR;
             } else {
                 $data['userlevel'] = USERLEVEL_ADMIN;
