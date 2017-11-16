@@ -7,7 +7,7 @@
  *
  * @access public
  */
-function serendipity_db_begin_transaction(){
+function serendipity_db_begin_transaction() {
     global $serendipity;
     $serendipity['dbConn']->beginTransaction();
 }
@@ -18,11 +18,11 @@ function serendipity_db_begin_transaction(){
  * @access public
  * @param  boolean  If true, perform the query. If false, rollback.
  */
-function serendipity_db_end_transaction($commit){
+function serendipity_db_end_transaction($commit) {
     global $serendipity;
-    if ($commit){
+    if ($commit) {
         $serendipity['dbConn']->commit();
-    }else{
+    } else {
         $serendipity['dbConn']->rollback();
     }
 }
@@ -249,13 +249,13 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
             $rows[] = $row;
         }
     }
-    if(count($rows) == 0) {
+    if (count($rows) == 0) {
         if ($single) {
             return $type_map['false'];
         }
         return $type_map['true'];
     }
-    if(count($rows) == 1 && $single) {
+    if (count($rows) == 1 && $single) {
         return $rows[0];
     }
     return $rows;
@@ -298,7 +298,7 @@ function serendipity_db_schema_import($query) {
 function serendipity_db_probe($hash, &$errs) {
     global $serendipity;
 
-    if(!in_array('pgsql', PDO::getAvailableDrivers())) {
+    if (!in_array('pgsql', PDO::getAvailableDrivers())) {
         $errs[] = 'PDO_PGSQL driver not avialable';
         return false;
     }

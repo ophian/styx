@@ -77,13 +77,13 @@ class Serendipity_Import_MovableType extends Serendipity_Import
     function getImportNotes()
     {
         $notes = array();
-        if (!class_exists('serendipity_event_nl2br')){
+        if (!class_exists('serendipity_event_nl2br')) {
             $notes[] = sprintf(IMPORTER_MT_WARN_PLUGIN, 'serendipity_event_nl2br');
         }
-        if (!class_exists('serendipity_event_entryproperties')){
+        if (!class_exists('serendipity_event_entryproperties')) {
             $notes[] = sprintf(IMPORTER_MT_WARN_PLUGIN, 'serendipity_event_entryproperties');
         }
-        if (count($notes) > 0){
+        if (count($notes) > 0) {
             return '<ul><li>'.implode('</li><li>', $notes).'</li></ul>'.IMPORTER_MT_NOTE;
         }
     }
@@ -144,9 +144,9 @@ class Serendipity_Import_MovableType extends Serendipity_Import
                     $entry['s9y_comments'] = $data;
                     break;
                 case 'AUTHOR':
-                    if ( !isset($authors[$data]) ) {
+                    if (!isset($authors[$data])) {
                         $au_inf = serendipity_fetchAuthor($data);
-                        if ( !is_array($au_inf) ) {
+                        if (!is_array($au_inf)) {
                             $tasks[] = sprintf(CREATE_AUTHOR, serendipity_specialchars($data));
                             $tasks[] = '<ul class="plainList"><li>Input array is: ' . print_r($data, true) . '</li><<li>Return is: ' . print_r($au_inf, true) . '</li></ul>';
                             $au_inf = serendipity_fetchAuthor($serendipity['authorid']);
@@ -195,7 +195,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
                                 echo '<span class="block_level">';
                                 echo '"' . $this->categories[$y]['category_name'] . '" == "' . $data;
                                 echo '</span>';
-                                if ( $this->categories[$y]['category_name'] == $data ) {
+                                if ($this->categories[$y]['category_name'] == $data) {
                                     $cat_found = true;
                                     break;
                                 }
@@ -238,7 +238,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
             }
         }
 
-        foreach($parsed_entry AS $name => $data){
+        foreach($parsed_entry AS $name => $data) {
             $data = trim($data);
             $name = trim($name);
 
@@ -435,9 +435,9 @@ class Serendipity_Import_MovableType extends Serendipity_Import
         }
         fclose($fh);
 
-        if ( !sizeof($tasks) || $force == true ) {
+        if (!sizeof($tasks) || $force == true) {
             serendipity_db_begin_transaction();
-            foreach ($entries AS $entry) {
+            foreach($entries AS $entry) {
                 #echo '<pre>' . printR_($entry, true) . '</pre>';
                 #continue;
                 if (empty($entry['authorid'])) {
@@ -458,7 +458,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
                 unset($entry['props']);
                 unset($entry['s9y_comments']);
 
-                if ( !is_int($r = serendipity_updertEntry($entry)) ) {
+                if (!is_int($r = serendipity_updertEntry($entry))) {
                     echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . $r . "</span>\n";
                 } else {
                     $this->debug('Saved entry ' . $r . ' (' . $entry['title'] . ')');

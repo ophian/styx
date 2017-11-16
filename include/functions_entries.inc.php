@@ -777,12 +777,12 @@ function serendipity_rebuildCategoryTree($parent = 0, $left = 0) {
     $right = $left + 1;
 
     $result = serendipity_db_query("SELECT categoryid FROM {$serendipity['dbPrefix']}category WHERE parentid = '" . (int)$parent . "'");
-    if ( is_array($result) ) {
-        foreach ( $result AS $category ) {
+    if (is_array($result)) {
+        foreach($result AS $category) {
             $right = serendipity_rebuildCategoryTree($category['categoryid'], $right);
         }
     }
-    if ( $parent > 0 ) {
+    if ($parent > 0 ) {
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}category SET category_left='{$left}', category_right='{$right}' WHERE categoryid='{$parent}'");
     }
 
@@ -944,7 +944,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
     //if * wasn't already appended and if there are none or not enough
     //results, search again for entries containing the searchterm as a part
     if (strpos($term, '*') === false && $serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite' && $serendipity['dbType'] != 'sqlite3oo') {
-        if (! is_array($search)) {
+        if (!is_array($search)) {
             return serendipity_searchEntries($term.'*', $orig_limit);
         } else {
             $ec = count($search);
@@ -958,7 +958,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
         }
     }
 
-    if (is_array($search)){
+    if (is_array($search)) {
         serendipity_fetchEntryData($search);
     }
 
@@ -1237,7 +1237,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             $entry['link_author']            = serendipity_authorURL($authorData);
 
             if (is_array($entry['categories'])) {
-                foreach ($entry['categories'] AS $k => $v) {
+                foreach($entry['categories'] AS $k => $v) {
                     if (!isset($entry['categories'][$k]['category_link'])) {
                         $entry['categories'][$k]['category_link'] =  serendipity_categoryURL($entry['categories'][$k]);
                     }
@@ -1403,7 +1403,7 @@ function serendipity_purgeEntry($id, $timestamp = null) {
 
     // If pregenerate is not set, short circuit all this logic
     // and remove nothing.
-    if(!isset($serendipity['pregenerate'])) {
+    if (!isset($serendipity['pregenerate'])) {
         return;
     }
 
@@ -1505,7 +1505,7 @@ function serendipity_updertEntry($entry) {
         if ($res) {
             $entry['id'] = $serendipity['lastSavedEntry'] = serendipity_db_insert_id('entries', 'id');
             if (is_array($categories)) {
-                foreach ($categories AS $cat) {
+                foreach($categories AS $cat) {
                     if (is_numeric($cat)) {
                         serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, " . (int)$cat . ")");
                     } elseif (is_array($cat) && !empty($cat['categoryid'])) {
@@ -1539,7 +1539,7 @@ function serendipity_updertEntry($entry) {
 
         if (is_array($categories)) {
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}entrycat WHERE entryid={$entry['id']}");
-            foreach ($categories AS $cat) {
+            foreach($categories AS $cat) {
                 serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}entrycat (entryid, categoryid) VALUES ({$entry['id']}, " . (int)$cat . ")");
             }
         } elseif ($had_categories) {
@@ -1554,7 +1554,7 @@ function serendipity_updertEntry($entry) {
         if ($entry['isdraft'] === 0) {
             $entry['isdraft'] = 'false'; // this needs to be set as string, which might be missing when being published from the dashboard
 
-            foreach (array('title', 'body', 'extended', 'author') AS $required_field) {
+            foreach(array('title', 'body', 'extended', 'author') AS $required_field) {
                 // dashboard publishing a draft does not pass title, body, extended, and author, so we need to set it here
                 if (!isset($entry[$required_field])) {
                     $entry[$required_field] = $_entry[$required_field];
@@ -1664,11 +1664,11 @@ function serendipity_deleteEntry($id) {
 function serendipity_generateCategoryList($cats, $select = array(0), $type = 0, $id = 0, $level = 0, $xmlImg = '', $blank_char = ' ') {
     global $serendipity;
 
-    if ( !is_array($cats) || !count($cats) )
+    if (!is_array($cats) || !count($cats)) {
         return;
-
+    }
     $ret = '';
-    foreach ($cats AS $cat) {
+    foreach($cats AS $cat) {
         if ($cat['parentid'] == $id) {
             switch ($type) {
                 case 0:

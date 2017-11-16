@@ -21,7 +21,7 @@ if (defined('S9Y_FRAMEWORK_CALENDARS')) {
  * @param   int day
  * @return  array   converted time
  */
-function g2p($g_y, $g_m, $g_d){
+function g2p($g_y, $g_m, $g_d) {
     $g_days_in_month = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
     $j_days_in_month = array(31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
 
@@ -31,11 +31,11 @@ function g2p($g_y, $g_m, $g_d){
 
     $g_day_no = 365*$gy+floor(($gy+3)/4)-floor(($gy+99)/100)+floor(($gy+399)/400);
 
-    for ($i=0; $i < $gm; ++$i){
+    for ($i=0; $i < $gm; ++$i) {
         $g_day_no += $g_days_in_month[$i];
     }
 
-    if ($gm>1 && (($gy%4==0 && $gy%100!=0) || ($gy%400==0))){
+    if ($gm>1 && (($gy%4==0 && $gy%100!=0) || ($gy%400==0))) {
         /* leap and after Feb */
         ++$g_day_no;
     }
@@ -73,14 +73,14 @@ function g2p($g_y, $g_m, $g_d){
  * @param   int day
  * @return  array   converted time
  */
-function p2g($j_y, $j_m, $j_d){
+function p2g($j_y, $j_m, $j_d) {
     $g_days_in_month = array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
     $j_days_in_month = array(31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
     $jy = $j_y-979;
     $jm = $j_m-1;
     $jd = $j_d-1;
     $j_day_no = 365*$jy + floor($jy/33)*8 + floor(($jy%33+3)/4);
-    for ($i=0; $i < $jm; ++$i){
+    for ($i=0; $i < $jm; ++$i) {
         $j_day_no += $j_days_in_month[$i];
     }
     $j_day_no += $jd;
@@ -88,25 +88,25 @@ function p2g($j_y, $j_m, $j_d){
     $gy = 1600 + 400*floor($g_day_no/146097);
     $g_day_no = $g_day_no % 146097;
     $leap = true;
-    if ($g_day_no >= 36525){
+    if ($g_day_no >= 36525) {
         $g_day_no--;
         $gy += 100*floor($g_day_no/36524);
         $g_day_no = $g_day_no % 36524;
-        if ($g_day_no >= 365){
+        if ($g_day_no >= 365) {
             $g_day_no++;
-        }else{
+        } else {
             $leap = false;
         }
     }
     $gy += 4*floor($g_day_no/1461);
     $g_day_no %= 1461;
-    if ($g_day_no >= 366){
+    if ($g_day_no >= 366) {
         $leap = false;
         $g_day_no--;
         $gy += floor($g_day_no/365);
         $g_day_no = $g_day_no % 365;
     }
-    for ($i = 0; $g_day_no >= $g_days_in_month[$i] + ($i == 1 && $leap); $i++){
+    for ($i = 0; $g_day_no >= $g_days_in_month[$i] + ($i == 1 && $leap); $i++) {
         $g_day_no -= $g_days_in_month[$i] + ($i == 1 && $leap);
     }
     $gm = $i+1;
@@ -126,7 +126,7 @@ function p2g($j_y, $j_m, $j_d){
  */
 function persian_strftime_utf($format, $timestamp='') {
 
-    if($timestamp==''){
+    if ($timestamp == '') {
         $timestamp = mktime();
     }
 
@@ -163,101 +163,101 @@ function persian_strftime_utf($format, $timestamp='') {
     // calculate string
     $output_str='';
 
-    for ($i=0; $i<strlen($format); $i++){
+    for ($i=0; $i<strlen($format); $i++) {
 
-        if($format[$i]=='%'){
+        if ($format[$i] == '%') {
             $i++;
-            switch($format[$i]){
+            switch($format[$i]) {
                 case 'a':
-                    $output_str.=$j_week_name[date('D', $timestamp)];
+                    $output_str .= $j_week_name[date('D', $timestamp)];
                     break;
                 case 'A':
-                    $output_str.=$j_week_name[date('l', $timestamp)];
+                    $output_str .= $j_week_name[date('l', $timestamp)];
                     break;
                 case 'b':
                 case 'B':
                 case 'h':
-                    $output_str.=$j_month_name[$jm];
+                    $output_str .= $j_month_name[$jm];
                     break;
                 case 'c':
-                    $output_str.=persian_strftime_utf('%y/%m/%d %I:%M:%S', $timestamp);
+                    $output_str .= persian_strftime_utf('%y/%m/%d %I:%M:%S', $timestamp);
                     break;
                 case 'C':
-                    $output_str.=floor($jy/100);
+                    $output_str .= floor($jy/100);
                     break;
                 case 'd':
-                    if($jd<10) $output_str.='0'.$jd; else $output_str.=$jd;
+                    if ($jd<10) $output_str .= '0'.$jd; else $output_str .= $jd;
                     break;
                 case 'D':
-                    $output_str.=$jy.'/'.$jm.'/'.$jd;
+                    $output_str .= $jy.'/'.$jm.'/'.$jd;
                     break;
                 case 'e':
-                    if($jd<10) $output_str.=' '.$jd; else $output_str.=$jd;
+                    if ($jd<10) $output_str .= ' '.$jd; else $output_str .= $jd;
                     break;
                 case 'H':
-                    $output_str.=date('H', $timestamp);
+                    $output_str .= date('H', $timestamp);
                     break;
                 case 'I':
-                    $output_str.=date('h', $timestamp);
+                    $output_str .= date('h', $timestamp);
                     break;
                 case 'j':
-                    $output_str.=sprintf('%03d', $j_all_days);
+                    $output_str .= sprintf('%03d', $j_all_days);
                     break;
                 case 'm':
-                    if($jm<10) $output_str.='0'.$jm; else $output_str.=$jm;
+                    if ($jm<10) $output_str .= '0'.$jm; else $output_str .= $jm;
                     break;
                 case 'M':
-                    $output_str.=date('i', $timestamp);
+                    $output_str .= date('i', $timestamp);
                     break;
                 case 'n':
-                    $output_str.="\n";
+                    $output_str .= "\n";
                     break;
                 case 'r':
                 case 'p':
-                    if(date('a',$timestamp)=='pm') $output_str.='بعد از ظهر'; else $output_str.='قبل از ظهر';
+                    if (date('a',$timestamp) == 'pm') $output_str .= 'بعد از ظهر'; else $output_str .= 'قبل از ظهر';
                     break;
                 case 'R':
-                    $output_str.=strftime('%R', $timestamp);
+                    $output_str .= strftime('%R', $timestamp);
                     break;
                 case 'S':
-                    $output_str.=date('s', $timestamp);
+                    $output_str .= date('s', $timestamp);
                     break;
                 case 't':
-                    $output_str.="\t";
+                    $output_str .= "\t";
                     break;
                 case 'U':
                 case 'V':
                 case 'W':
-                    $output_str.=sprintf('%02d', floor(($j_all_days+1)/7));
+                    $output_str .= sprintf('%02d', floor(($j_all_days+1)/7));
                     break;
                 case 'u':
                 case 'w':
-                    $output_str.=$j_week_number[date('D', $timestamp)];
+                    $output_str .= $j_week_number[date('D', $timestamp)];
                     break;
                 case 'x':
-                    $output_str.=persian_strftime_utf('%y/%m/%d', $timestamp);
+                    $output_str .= persian_strftime_utf('%y/%m/%d', $timestamp);
                     break;
                 case 'X':
-                    $output_str.=persian_strftime_utf('%I:%M:%S', $timestamp);
+                    $output_str .= persian_strftime_utf('%I:%M:%S', $timestamp);
                     break;
                 case 'g':
                 case 'y':
-                    $output_str.=$jy-(floor($jy/100)*100);
+                    $output_str .= $jy-(floor($jy/100)*100);
                     break;
                 case 'G':
                 case 'Y':
-                    $output_str.=$jy;
+                    $output_str .= $jy;
                     break;
                 case 'z':
                 case 'Z':
-                    $output_str.=strftime('%z', $timestamp);
+                    $output_str .= strftime('%z', $timestamp);
                     break;
                 case '%':
-                    $output_str.='%';
+                    $output_str .= '%';
                     break;
             }
-        }else{
-            $output_str.=$format[$i];
+        } else {
+            $output_str .= $format[$i];
         }
     }
 
@@ -275,19 +275,19 @@ function persian_strftime_utf($format, $timestamp='') {
  */
 function persian_date_utf($format, $timestamp='') {
 
-    if($timestamp==''){
+    if ($timestamp=='') {
         $timestamp = mktime();
     }
 
-    $g_d=date('j', $timestamp);
-    $g_m=date('n', $timestamp);
-    $g_y=date('Y', $timestamp);
+    $g_d = date('j', $timestamp);
+    $g_m = date('n', $timestamp);
+    $g_y = date('Y', $timestamp);
 
     list($jy, $jm, $jd, $j_all_days) = g2p($g_y, $g_m, $g_d);
 
     $j_days_in_month = array(0, 31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
     $leap = 0;
-    if ($g_m>1 && (($g_y%4==0 && $g_y%100!=0) || ($g_y%400==0))){
+    if ($g_m>1 && (($g_y%4==0 && $g_y%100!=0) || ($g_y%400==0))) {
         $j_days_in_month[12]++;
         $leap = 1;
     }
@@ -317,111 +317,111 @@ function persian_date_utf($format, $timestamp='') {
                            'Fri' => '7');
 
     // calculate string
-    $output_str='';
+    $output_str = '';
 
-    for ($i=0; $i<strlen($format); $i++){
+    for ($i=0; $i<strlen($format); $i++) {
 
-        if($format[$i]!='\\'){
-            switch($format[$i]){
+        if ($format[$i] != '\\') {
+            switch($format[$i]) {
                 case 'd':
-                    if($jd<10) $output_str.='0'.$jd; else $output_str.=$jd;
+                    if ($jd<10) $output_str .= '0'.$jd; else $output_str .= $jd;
                     break;
                 case 'j':
-                    $output_str.=$jd;
+                    $output_str .= $jd;
                     break;
                 case 'D':
                 case 'S':
-                    $output_str.=$j_week_name[date('D', $timestamp)];
+                    $output_str .= $j_week_name[date('D', $timestamp)];
                     break;
                 case 'l':
-                    $output_str.=$j_week_name[date('l', $timestamp)];
+                    $output_str .= $j_week_name[date('l', $timestamp)];
                     break;
                 case 'w':
                 case 'N':
-                    $output_str.=$j_week_number[date('D', $timestamp)];
+                    $output_str .= $j_week_number[date('D', $timestamp)];
                     break;
                 case 'z':
-                    $output_str.=sprintf('%03d', $j_all_days);
+                    $output_str .= sprintf('%03d', $j_all_days);
                     break;
                 case 'W':
-                    $output_str.=floor(($j_all_days+1)/7);
+                    $output_str .= floor(($j_all_days+1)/7);
                     break;
                 case 'F':
                 case 'M':
-                    $output_str.=$j_month_name[$jm];
+                    $output_str .= $j_month_name[$jm];
                     break;
                 case 'm':
-                    if($jm<10) $output_str.='0'.$jm; else $output_str.=$jm;
+                    if ($jm < 10) $output_str .= '0'.$jm; else $output_str .= $jm;
                     break;
                 case 'n':
-                    $output_str.=$jm;
+                    $output_str .= $jm;
                     break;
                 case 't':
-                    $output_str.=$j_days_in_month[$jm];
+                    $output_str .= $j_days_in_month[$jm];
                     break;
                 case 'L':
-                    $output_str.=$leap;
+                    $output_str .= $leap;
                     break;
                 case 'o':
                 case 'Y':
-                    $output_str.=$jy;
+                    $output_str .= $jy;
                     break;
                 case 'y':
-                    $output_str.=$jy-(floor($jy/100)*100);
+                    $output_str .= $jy-(floor($jy/100)*100);
                     break;
                 case 'a':
                 case 'A':
-                    if(date('a', $timestamp)=='pm') $output_str.='بعد از ظهر'; else $output_str.='قبل از ظهر';
+                    if (date('a', $timestamp) == 'pm') $output_str .= 'بعد از ظهر'; else $output_str .= 'قبل از ظهر';
                     break;
                 case 'B':
-                    $output_str.=date('B', $timestamp);
+                    $output_str .= date('B', $timestamp);
                     break;
                 case 'g':
-                    $output_str.=date('g', $timestamp);
+                    $output_str .= date('g', $timestamp);
                     break;
                 case 'G':
-                    $output_str.=date('G', $timestamp);
+                    $output_str .= date('G', $timestamp);
                     break;
                 case 'h':
-                    $output_str.=date('h', $timestamp);
+                    $output_str .= date('h', $timestamp);
                     break;
                 case 'H':
-                    $output_str.=date('H', $timestamp);
+                    $output_str .= date('H', $timestamp);
                     break;
                 case 'i':
-                    $output_str.=date('i', $timestamp);
+                    $output_str .= date('i', $timestamp);
                     break;
                 case 's':
-                    $output_str.=date('s', $timestamp);
+                    $output_str .= date('s', $timestamp);
                     break;
                 case 'e':
-                    $output_str.=date('e', $timestamp);
+                    $output_str .= date('e', $timestamp);
                     break;
                 case 'I':
-                    $output_str.=date('I', $timestamp);
+                    $output_str .= date('I', $timestamp);
                     break;
                 case 'O':
-                    $output_str.=date('O', $timestamp);
+                    $output_str .= date('O', $timestamp);
                     break;
                 case 'Z':
-                    $output_str.=date('Z', $timestamp);
+                    $output_str .= date('Z', $timestamp);
                     break;
                 case 'c':
-                    $output_str.=persian_date_utf('d-m-Y\TH:i:sO', $timestamp);
+                    $output_str .= persian_date_utf('d-m-Y\TH:i:sO', $timestamp);
                     break;
                 case 'r':
-                    $output_str.=persian_date_utf('D، j F Y H:i:s O', $timestamp);
+                    $output_str .= persian_date_utf('D، j F Y H:i:s O', $timestamp);
                     break;
                 case 'U':
-                    $output_str.=date('U', $timestamp);
+                    $output_str .= date('U', $timestamp);
                     break;
                 default:
-                    $output_str.=$format[$i];
+                    $output_str .= $format[$i];
                     break;
             }
         } else {
             $i++;
-            $output_str.=$format[$i];
+            $output_str .= $format[$i];
         }
     }
 
@@ -443,15 +443,15 @@ function persian_date_utf($format, $timestamp='') {
  * @param   int is daylight savings time set?
  * @return  int returned timestamp
  */
-function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='', $is_dst=-1){
+function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='', $is_dst=-1) {
     $j_days_in_month = array(31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
 
-    if ( (string) $hour == '') { $hour = persian_date_utf('H'); }
-    if ( (string) $min  == '') { $min  = persian_date_utf('i'); }
-    if ( (string) $sec  == '') { $sec  = persian_date_utf('s'); }
-    if ( (string) $day  == '') { $day  = persian_date_utf('j'); }
-    if ( (string) $mon  == '') { $mon  = persian_date_utf('n'); }
-    if ( (string) $year == '') { $year = persian_date_utf('Y'); }
+    if ((string) $hour == '') { $hour = persian_date_utf('H'); }
+    if ((string) $min  == '') { $min  = persian_date_utf('i'); }
+    if ((string) $sec  == '') { $sec  = persian_date_utf('s'); }
+    if ((string) $day  == '') { $day  = persian_date_utf('j'); }
+    if ((string) $mon  == '') { $mon  = persian_date_utf('n'); }
+    if ((string) $year == '') { $year = persian_date_utf('Y'); }
 
     /*
        an ugly, beta code snippet to support days <= zero!
@@ -459,17 +459,17 @@ function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='', 
     */
 
     /*
-    if($day <= 0){
+    if ($day <= 0) {
         // change sign
         $day = abs($day);
 
         // calculate months and days that shall decrease
         // this do-while has a lot of errors!!!
-        do{
+        do {
             // $month_days = $j_days_in_month[$mon]
             $months  = floor($day/30);
             $days = $day % 30;
-        }while();
+        } while();
 
         $mon -= $months;
         $day -= $days;
@@ -479,7 +479,7 @@ function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='', 
     }
     */
 
-    if ($mon <= 0){
+    if ($mon <= 0) {
         // change sign
         $mon = abs($mon);
 
@@ -498,13 +498,13 @@ function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='', 
     if ($day < 1) {
         $temp_month = $mon-1;
         $temp_year  = $year;
-        if($temp_month <= 0){
+        if ($temp_month <= 0) {
             $temp_month = 12;
             $temp_year--;
         }
-        if ($temp_month>1 && (($temp_year%4==0 && $temp_year%100!=0) || ($temp_year%400==0))){
+        if ($temp_month>1 && (($temp_year%4==0 && $temp_year%100!=0) || ($temp_year%400==0))) {
             $j_days_in_month[12] = 30;
-        }else{
+        } else {
             $j_days_in_month[12] = 29;
         }
         $day += $j_days_in_month[$temp_month];

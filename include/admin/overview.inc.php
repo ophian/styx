@@ -38,7 +38,7 @@ switch($serendipity['POST']['adminAction']) {
         break;
 
     case 'updateCheckDisable':
-        if ( !serendipity_checkFormToken() || !serendipity_checkPermission('blogConfiguration') ) {
+        if (!serendipity_checkFormToken() || !serendipity_checkPermission('blogConfiguration')) {
             break;
         }
         serendipity_set_config_var('updateCheck', false);
@@ -96,7 +96,7 @@ if ($serendipity['default_widgets']) {
     $comments = serendipity_db_query($cquery);
 
     if (is_array($comments) && count($comments) > 0) {
-        foreach ($comments AS &$comment) {
+        foreach($comments AS &$comment) {
             $comment['entrylink'] = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true) . '#c' . $comment['id'];
             $comment['fullBody']  = $comment['body'];
             $comment['summary']   = serendipity_mb('substr', $comment['body'], 0, 100);

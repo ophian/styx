@@ -15,7 +15,7 @@ $msgtype = 'notice';
 
 if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['POST']['delete']) != 0 && serendipity_checkFormToken()) {
     if ($serendipity['POST']['togglemoderate'] != '') {
-        foreach ( $serendipity['POST']['delete'] AS $k => $v ) {
+        foreach($serendipity['POST']['delete'] AS $k => $v) {
             $ac = serendipity_approveComment((int)$k, (int)$v, false, 'flip');
             if ($ac > 0) {
                 $msg .= DONE . ': '. sprintf(COMMENT_APPROVED, (int)$k)."\n";
@@ -25,7 +25,7 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
             }
         }
     } else {
-        foreach ( $serendipity['POST']['delete'] AS $k => $v ) {
+        foreach($serendipity['POST']['delete'] AS $k => $v) {
             serendipity_deleteComment($k, $v);
             $msg .= DONE . ': '. sprintf(COMMENT_DELETED, (int)$k)."\n";
             $msgtype = 'success';
@@ -201,7 +201,7 @@ if (isset($serendipity['GET']['adminAction'])
 $filters = array('author', 'email', 'ip', 'url', 'body', 'referer');
 
 /* Compress the filters into an "AND" SQL query, and a querystring */
-foreach ($filters AS $filter) {
+foreach($filters AS $filter) {
     $and          .= (!empty($serendipity['GET']['filter'][$filter]) ? "AND c.". $filter ." LIKE '%". serendipity_db_escape_string($serendipity['GET']['filter'][$filter]) ."%'" : "");
     $searchString .= (!empty($serendipity['GET']['filter'][$filter]) ? "&amp;serendipity[filter][". $filter ."]=". serendipity_specialchars($serendipity['GET']['filter'][$filter]) : "");
 }
@@ -305,7 +305,7 @@ $i = 0;
 $comments = array();
 
 if (is_array($sql)) {
-    foreach ($sql AS $rs) {
+    foreach($sql AS $rs) {
         $i++;
         $comment = array(
             'fullBody'  => $rs['body'],

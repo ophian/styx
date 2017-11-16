@@ -667,7 +667,7 @@ function serendipity_smarty_refhookPlugin(&$eventData, $hook, $addData = null) {
  * @return string       The HTML code of a plugin's output
  */
 function serendipity_smarty_printSidebar($params, $template) {
-    if ( empty($params['side']) ) {
+    if (empty($params['side'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'side' parameter", E_USER_WARNING);
         return;
     }
@@ -689,7 +689,7 @@ function serendipity_smarty_printSidebar($params, $template) {
  * @return  string      The requested filename with full path
  */
 function serendipity_smarty_getFile($params, $template) {
-    if ( empty($params['file']) ) {
+    if (empty($params['file'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'file' parameter", E_USER_WARNING);
         return;
     }
@@ -706,7 +706,7 @@ function serendipity_smarty_getFile($params, $template) {
  * @return  string      The requested configutation value
  */
 function serendipity_smarty_getConfigVar($params, $template) {
-    if ( empty($params['key']) ) {
+    if (empty($params['key'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'key' parameter", E_USER_WARNING);
         return;
     }
@@ -723,7 +723,7 @@ function serendipity_smarty_getConfigVar($params, $template) {
  * @return  string      The requested valid form token
  */
 function serendipity_smarty_setFormToken($params, $template) {
-    if ( !empty($params['type']) ) {
+    if (!empty($params['type'])) {
         return serendipity_setFormToken($params['type']);
     }
     return serendipity_setFormToken();
@@ -742,12 +742,12 @@ function serendipity_smarty_setFormToken($params, $template) {
  * @return  string      The requested filename with full path
  */
 function serendipity_smarty_pickKey($params, $template) {
-    if ( empty($params['array']) ) {
+    if (empty($params['array'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'array' parameter", E_USER_WARNING);
         return;
     }
 
-    if ( empty($params['key']) ) {
+    if (empty($params['key'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'key' parameter", E_USER_WARNING);
         return;
     }
@@ -767,11 +767,11 @@ function serendipity_smarty_pickKey($params, $template) {
  * @return string       The permalink
  */
 function serendipity_smarty_rss_getguid($params, $template) {
-    if ( empty($params['entry']) ) {
+    if (empty($params['entry'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'entry' parameter", E_USER_WARNING);
         return;
     }
-    if ( empty($params['is_comments']) ) {
+    if (empty($params['is_comments'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'is_comments' parameter", E_USER_WARNING);
         return;
     }
@@ -872,7 +872,7 @@ function &serendipity_smarty_printComments($params, $template) {
  * @return
  */
 function &serendipity_smarty_printTrackbacks($params, $template) {
-    if ( empty($params['entry']) ) {
+    if (empty($params['entry'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'entry' parameter", E_USER_WARNING);
         return;
     }

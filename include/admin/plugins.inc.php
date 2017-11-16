@@ -89,7 +89,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         /* enum properties and set their values */
 
         $save_errors = array();
-        foreach ($config_names AS $config_item) {
+        foreach($config_names AS $config_item) {
             $cbag = new serendipity_property_bag;
             if ($plugin->introspect_config_item($config_item, $cbag)) {
                 $value    = $_POST['serendipity']['plugin'][$config_item];
@@ -118,9 +118,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $plugin->cleanup();
     }
 
-    if ( isset($save_errors) && is_array($save_errors) && count($save_errors) > 0 ) {
+    if (isset($save_errors) && is_array($save_errors) && count($save_errors) > 0) {
         $data['save_errors'] = $save_errors;
-    } elseif ( isset($_POST['SAVECONF'])) {
+    } elseif (isset($_POST['SAVECONF'])) {
         $data['saveconf'] = true;
         $data['timestamp'] = serendipity_strftime('%H:%M:%S');
     }
@@ -148,7 +148,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $data['license'] = $license;
     $data['config'] = serendipity_plugin_config($plugin, $bag, $name, $desc, $config_names, true, true, true, true, 'plugin', $config_groups);
 
-} elseif ( $serendipity['GET']['adminAction'] == 'addnew' ) {
+} elseif ($serendipity['GET']['adminAction'] == 'addnew') {
 
     $serendipity['GET']['type'] = $serendipity['GET']['type'] ?: 'sidebar';
     $data['adminAction'] = 'addnew';
@@ -189,7 +189,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     usort($classes, 'serendipity_pluginListSort');
 
     $counter = 0;
-    foreach ($classes AS $class_data) {
+    foreach($classes AS $class_data) {
         $pluginFile =  serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
         $plugin     =& serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $serendipity['GET']['type']);
 
@@ -311,12 +311,12 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $requirement_failures = array();
 
     foreach($pluggroups AS $pluggroup => $groupstack) {
-        foreach ($groupstack AS $plug) {
-            if ( !empty($plug['requirements']['serendipity']) && version_compare($plug['requirements']['serendipity'], serendipity_getCoreVersion($serendipity['version']), '>') ) {
+        foreach($groupstack AS $plug) {
+            if (!empty($plug['requirements']['serendipity']) && version_compare($plug['requirements']['serendipity'], serendipity_getCoreVersion($serendipity['version']), '>')) {
                 $requirement_failures[$plug['class_name']] = array('s9y' => true);
             }
 
-            if ( !empty($plug['requirements']['php']) && version_compare($plug['requirements']['php'], PHP_VERSION, '>') ) {
+            if (!empty($plug['requirements']['php']) && version_compare($plug['requirements']['php'], PHP_VERSION, '>')) {
                 if (isset($requirement_failures[$plug['class_name']])) {
                     $requirement_failures[$plug['class_name']] = array_merge($requirement_failures[$plug['class_name']] , array('php' => true));
                 } else {
@@ -324,7 +324,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 }
             }
 
-            if ( !empty($plug['requirements']['smarty']) && version_compare($plug['requirements']['smarty'], str_replace('Smarty-', '', Smarty::SMARTY_VERSION), '>') ) {
+            if (!empty($plug['requirements']['smarty']) && version_compare($plug['requirements']['smarty'], str_replace('Smarty-', '', Smarty::SMARTY_VERSION), '>')) {
                 if (isset($requirement_failures[$plug['class_name']])) {
                      $requirement_failures[$plug['class_name']] = array_merge($requirement_failures[$plug['class_name']] , array('smarty' => true));
                 } else {
@@ -335,7 +335,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     }
     $data['requirements_failues'] = $requirement_failures;
 
-} elseif ( $serendipity['GET']['adminAction'] == 'renderOverlay' ) {
+} elseif ($serendipity['GET']['adminAction'] == 'renderOverlay') {
     $data['adminAction'] = 'overlay';
 } else {
     /* show general plugin list */
@@ -403,7 +403,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $new_plugin = true;
         if ($fetchplugin_data['install']) {
             // spartacus will set this to false on upgrade, and we want to check this only on install
-            foreach (serendipity_plugin_api::get_installed_plugins() AS $pluginName) {
+            foreach(serendipity_plugin_api::get_installed_plugins() AS $pluginName) {
                 if ($serendipity['GET']['install_plugin'] === $pluginName) {
                     $existingPlugin =& serendipity_plugin_api::load_plugin($serendipity['GET']['install_plugin']);
                     if (is_object($existingPlugin)) {
@@ -464,7 +464,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         if (is_array($_POST['serendipity']['plugin_to_remove'])) {
             $msg = '<ul class="msg_success plainList plugins_removed">
             <span><span class="icon-ok-circled" aria-hidden="true"></span> ' . REMOVE_TICKED_PLUGINS . ": </span>\n";
-            foreach ($_POST['serendipity']['plugin_to_remove'] AS $key) {
+            foreach($_POST['serendipity']['plugin_to_remove'] AS $key) {
                 $plugin =& serendipity_plugin_api::load_plugin($key);
 
                 if ($plugin->serendipity_owner == '0' || $plugin->serendipity_owner == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers')) {

@@ -161,7 +161,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
 
             $entry['authorid'] = '';
             $entry['author']   = '';
-            foreach ($users AS $user) {
+            foreach($users AS $user) {
                 if ($user['user_login'] == $entries[$x]['AuthorID']) {
                     $entry['authorid'] = $user['authorid'];
                     $entry['author']   = $user['user_login'];
@@ -174,7 +174,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
             }
 
             /* Entry/category */
-            foreach ($this->categories AS $category) {
+            foreach($this->categories AS $category) {
                 if ($category['name'] == $entries[$x]['Category1'] || $category['name'] == $entries[$x]['Category2']) {
                     $data = array('entryid'    => $entries[$x]['entryid'],
                                   'categoryid' => $category['categoryid']);
@@ -191,7 +191,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         }
 
         while ($a = mysqli_fetch_assoc($res)) {
-            foreach ($entries AS $entry) {
+            foreach($entries AS $entry) {
                 if ($entry['ID'] == $a['parentid'] ) {
                     $author   = $a['name'];
                     $mail     = $a['email'];

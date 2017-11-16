@@ -115,7 +115,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
                           'email'         => $users[$x]['user_email'],
                           'password'      => $users[$x]['user_pass']); // MD5 compatible
 
-            if ( $users[$x]['user_level'] <= 2 ) {
+            if ($users[$x]['user_level'] <= 2) {
                 $data['userlevel'] = USERLEVEL_EDITOR;
             } elseif ($users[$x]['user_level'] <= 9) {
                 $data['userlevel'] = USERLEVEL_CHIEF;
@@ -154,7 +154,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
 
             $entry['authorid'] = '';
             $entry['author']   = '';
-            foreach ($users AS $user) {
+            foreach($users AS $user) {
                 if ($user['ID'] == $entries[$x]['post_author']) {
                     $entry['authorid'] = $user['authorid'];
                     $entry['author']   = $user['user_login'];
@@ -167,7 +167,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
             }
 
             /* Entry/category */
-            foreach ($this->categories AS $category) {
+            foreach($this->categories AS $category) {
                 if ($category['cat_ID'] == $entries[$x]['post_category'] ) {
                     $data = array('entryid'    => $entries[$x]['entryid'],
                                   'categoryid' => $category['categoryid']);
@@ -215,7 +215,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
         }
 
         while ($a = mysqli_fetch_assoc($res)) {
-            foreach ($entries AS $entry) {
+            foreach($entries AS $entry) {
                 if ($entry['ID'] == $a['comment_post_ID'] ) {
                     $author = '';
                     $mail     = '';

@@ -100,11 +100,11 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
 function generate_resultset($cursor, $result_type = 'sqlr_BOTH') {
    $return_row = array();
 
-    for ($r_row = 0, $max_r = sqlrcur_rowCount($cursor) ; $r_row < $max_r ; $r_row++) {
+    for ($r_row = 0, $max_r = sqlrcur_rowCount($cursor); $r_row < $max_r; $r_row++) {
        for ($r_col=0, $max_rc = sqlrcur_colCount($cursor); $r_col < $max_rc ; $r_col++) {
             if ($result_type == 'sqlr_ASSOC') {
                 $return_row[sqlrcur_getColumnName($cursor, $r_col)] = sqlrcur_getField($cursor, $r_row, $r_col);
-            }else{
+            } else {
                 $return_row[$r_row][$r_col] = sqlrcur_getField($cursor, $r_row,$r_col);
                 $return_row[$r_row][sqlrcur_getColumnName($cursor, $r_col)] = $return_row[$r_row][$r_col];
             }
@@ -384,18 +384,18 @@ function serendipity_db_limit_sql($limitstring) {
 
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
-    case "mysql":
-        return ' LIMIT ' . $limitstring;
-    case "postgresql":
-        $limit_split = explode(',', $limitstring);
-        if (count($limit_split) > 1) {
-            $limit = ' LIMIT ' . $limit_split[0] . ' OFFSET ' . $limit_split[1];
-        } else {
-            $limit = ' LIMIT ' . $limit_split[0];
-        }
-        return $limit;
-    default:
-        return ' LIMIT ' . $limitstring;
+        case 'mysql':
+            return ' LIMIT ' . $limitstring;
+        case "postgresql":
+            $limit_split = explode(',', $limitstring);
+            if (count($limit_split) > 1) {
+                $limit = ' LIMIT ' . $limit_split[0] . ' OFFSET ' . $limit_split[1];
+            } else {
+                $limit = ' LIMIT ' . $limit_split[0];
+            }
+            return $limit;
+        default:
+            return ' LIMIT ' . $limitstring;
     }
 }
 
@@ -423,7 +423,7 @@ function serendipity_db_connect() {
     $serendipity['dbConn'] = $function($dbHostPort[0], $dbHostPort[1], "", $serendipity['dbUser'], $serendipity['dbPass'], 0, 1);
     sqlrcon_debugOff($serendipity['dbConn']);
 
-    if( sqlrcon_identify($serendipity['dbConn']) == "mysql") {
+    if (sqlrcon_identify($serendipity['dbConn']) == 'mysql') {
        serendipity_db_reconnect();
     }
 
@@ -453,7 +453,7 @@ function serendipity_db_schema_import($query) {
 
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
-        case "mysql":
+        case 'mysql':
             static $search  = array('{AUTOINCREMENT}', '{PRIMARY}',
                 '{UNSIGNED}', '{FULLTEXT}', '{FULLTEXT_MYSQL}', '{BOOLEAN}', '{TEXT}');
             static $replace = array('int(11) not null auto_increment', 'primary key',

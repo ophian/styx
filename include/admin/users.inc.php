@@ -47,7 +47,7 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
         /* Save all the properties */
         $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
         foreach($config AS $category) {
-            foreach ($category['items'] AS $item) {
+            foreach($category['items'] AS $item) {
                 if (in_array('groups', $item['flags'])) {
                     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
 
@@ -111,7 +111,7 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
         $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
         $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
         foreach($config AS $category) {
-            foreach ($category['items'] AS $item) {
+            foreach($category['items'] AS $item) {
                 if (in_array('groups', $item['flags'])) {
                     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
 
@@ -183,7 +183,7 @@ if ($serendipity['GET']['adminAction'] != 'delete') {
     $data['urlFormToken'] = serendipity_setFormToken('url');
     if (is_array($users)) {
         foreach($users AS $user => $userdata) {
-            if ($userdata['userlevel'] < $serendipity['serendipityUserlevel'] || $userdata['authorid'] == $serendipity['authorid'] || $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN ) {
+            if ($userdata['userlevel'] < $serendipity['serendipityUserlevel'] || $userdata['authorid'] == $serendipity['authorid'] || $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
                     $data['users'][$user]['isEditable'] = true;
                     $data['users'][$user]['authorUrl'] = serendipity_authorURL($userdata);
             }
@@ -191,13 +191,14 @@ if ($serendipity['GET']['adminAction'] != 'delete') {
         }
     }
 
-    if ( ! (isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new') && serendipity_checkPermission('adminUsersCreateNew')) {
+    if (!(isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new') && serendipity_checkPermission('adminUsersCreateNew')) {
         $data['new'] = true;
     }
 }
 
 
-if ( ($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission('adminUsersDelete')) || ((isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new')  && serendipity_checkPermission('adminUsersCreateNew')) ) {
+if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission('adminUsersDelete')) ||
+    ((isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new')  && serendipity_checkPermission('adminUsersCreateNew'))) {
     $data['adminAction'] = $serendipity['GET']['adminAction'];
     $data['show_form'] = true;
     $data['formToken'] = serendipity_setFormToken();

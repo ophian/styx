@@ -108,11 +108,11 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import
             die(sprintf(DOCUMENT_NOT_FOUND, serendipity_specialchars($file)));
         }
 
-        if(!($handle = fopen($file, "r"))) {
+        if (!($handle = fopen($file, "r"))) {
             die(sprintf(SKIPPING_FILE_UNREADABLE, serendipity_specialchars($file)));
         }
 
-        while($contents = fread($handle, 4096)) {
+        while ($contents = fread($handle, 4096)) {
             xml_parse($xml_parser, $contents, feof($handle));
         }
 
@@ -124,7 +124,7 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import
 
         // Now have a list of elements referenceable by id
         // so loop through building and/or updating page objects
-        while(list($key_a) = each($elements)) {
+        while (list($key_a) = each($elements)) {
             $name = $elements[$key_a]->name;
 
             switch ($name) {
@@ -205,9 +205,9 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import
 
         $pages= &serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}staticpages  ORDER BY pagetitle DESC");
 
-        foreach ($pages AS $thispage) {
+        foreach($pages AS $thispage) {
             // Parse the content string
-            foreach ($aliases AS $alias => $permalink) {
+            foreach($aliases AS $alias => $permalink) {
                 $thispage['content'] = Serendipity_Import_VoodooPad::wikify($alias, $permalink, $thispage['content']);
             }
 
@@ -250,7 +250,7 @@ function start_element_handler($parser, $name, $attribs) {
     $elements[$id] = $element;
     $elements[$id]->name = $name;
 
-    while(list($key, $value) = each($attribs)) {
+    while (list($key, $value) = each($attribs)) {
         $elements[$id]->attributes[$key] = $value;
     }
 

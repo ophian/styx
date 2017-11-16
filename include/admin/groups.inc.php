@@ -47,7 +47,7 @@ if ( $serendipity['GET']['adminAction'] != 'delete' ) {
         $groups = array();
     }
     $data['groups'] = $groups;
-    if ( ! (isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new') ) {
+    if (!(isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new')) {
         $data['start'] = true;
     }
     $data['deleteFormToken'] = serendipity_setFormToken('url');

@@ -139,7 +139,7 @@ function serendipity_rememberComment() {
 function serendipity_rememberCommentDetails($details) {
     global $serendipity;
 
-    foreach ($details AS $n => $v) {
+    foreach($details AS $n => $v) {
         serendipity_setCookie($n, $v);
     }
 }
@@ -159,7 +159,7 @@ function serendipity_forgetCommentDetails($keys) {
         return;
     }
 
-    foreach ($keys AS $n) {
+    foreach($keys AS $n) {
         serendipity_deleteCookie($n);
     }
 }
@@ -317,7 +317,7 @@ function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $
     $retval = $parent ? '' : '<select id="serendipity_replyTo" onchange="' . (!empty($serendipity['plugindata']['onchange']) ? $serendipity['plugindata']['onchange'] : '') . '" name="serendipity[replyTo]"><option value="0">[ ' . TOP_LEVEL . ' ]</option>';
 
     $i = 0;
-    foreach ($comments AS $comment) {
+    foreach($comments AS $comment) {
         if ($comment['parent_id'] == $parent) {
             $i++;
             $retval .= '<option value="' . $comment['id'] . '"'. ($selected == $comment['id'] || (isset($serendipity['POST']['replyTo']) && $comment['id'] == $serendipity['POST']['replyTo']) ? ' selected="selected"' : '') .'>' . str_repeat('&#160;', $level * 2) . '#' . $indent . $i . ': ' . (empty($comment['author']) ? ANONYMOUS : serendipity_specialchars($comment['author'])) . ' ' . ON . ' ' . serendipity_mb('ucfirst', serendipity_strftime(DATE_FORMAT_SHORT, $comment['timestamp'])) . "</option>\n";
@@ -353,12 +353,12 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
 
     /* Wait a second, we just got attacked by a call with level 0,
        this must mean we've started over */
-    if ( $depth == 0 ) {
+    if ($depth == 0) {
         $_smartyComments = array();
     }
 
     $i = 0;
-    foreach ($comments AS $comment) {
+    foreach($comments AS $comment) {
         if ($parentid === VIEWMODE_LINEAR || !isset($comment['parent_id']) || $comment['parent_id'] == $parentid) {
             $i++;
 
@@ -476,7 +476,7 @@ function serendipity_printCommentsByAuthor() {
     // Since not passing via entries.tpl template file, $entries -> $entry (scoped) array are not available
     // in /comments/ to check for comments "_self", thus we quickly push the missing vars to $comments AS $comment.
     // This certainly does work only, if spamblock (or others) not have set serendipity[plugin][hide_email] to true!
-    foreach ($c AS &$co) {
+    foreach($c AS &$co) {
         $e = serendipity_db_query("SELECT email, realname FROM {$serendipity['dbPrefix']}authors WHERE username='{$co['entryauthor']}'", false, 'assoc');
         $co['entry_author_email']    = $e[0]['email'];
         $co['entry_author_realname'] = $e[0]['realname'];
@@ -723,7 +723,7 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
     serendipity_db_query($query);
 
     /* It's already approved, don't spam people */
-    if ( $rs === false ) {
+    if ($rs === false) {
         return false;
     }
 
@@ -1104,7 +1104,7 @@ function serendipity_mailSubscribers($entry_id, $poster, $posterMail, $title, $f
         return;
     }
 
-    foreach ($subscribers AS $subscriber) {
+    foreach($subscribers AS $subscriber) {
         if ($subscriber['type'] == 'TRACKBACK') {
             $text = sprintf(
                       SUBSCRIPTION_TRACKBACK_MAIL,

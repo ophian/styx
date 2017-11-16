@@ -25,17 +25,17 @@ define('S9Y_U_SUCCESS', 1);
 function serendipity_upgraderResultDiagnose($result, $s) {
     global $errorCount, $data;
 
-    if ( $result === S9Y_U_SUCCESS ) {
+    if ($result === S9Y_U_SUCCESS) {
         $data['u_success'] = true; // we do not need data here explicitly, but we keep it for possible future purposes
         return '<span class="msg_success">'. $s .'</span>';
     }
 
-    if ( $result === S9Y_U_WARNING ) {
+    if ($result === S9Y_U_WARNING) {
         $data['u_warning'] = true;
         return '<span class="msg_notice">'. $s .'</span>';
     }
 
-    if ( $result === S9Y_U_ERROR ) {
+    if ($result === S9Y_U_ERROR) {
         $errorCount++;
         $data['u_error'] = true;
         return '<span class="msg_error">'. $s .'</span>';

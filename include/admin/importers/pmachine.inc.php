@@ -176,7 +176,7 @@ class Serendipity_Import_pMachine extends Serendipity_Import
 
             $entry['authorid'] = '';
             $entry['author']   = '';
-            foreach ($users AS $user) {
+            foreach($users AS $user) {
                 if ($user['ID'] == $entries[$x]['member_id']) {
                     $entry['authorid'] = $user['authorid'];
                     $entry['author']   = $user['username'];
@@ -189,7 +189,7 @@ class Serendipity_Import_pMachine extends Serendipity_Import
             }
 
             /* Entry/category */
-            foreach ($categories AS $category) {
+            foreach($categories AS $category) {
                 if ($category['cat_ID'] == $entries[$x]['category'] ) {
                     $data = array('entryid'    => $entries[$x]['entryid'],
                                   'categoryid' => $category['categoryid']);
@@ -206,7 +206,7 @@ class Serendipity_Import_pMachine extends Serendipity_Import
         }
 
         while ($a = mysqli_fetch_assoc($res)) {
-            foreach ($entries AS $entry) {
+            foreach($entries AS $entry) {
                 if ($entry['post_id'] == $a['post_id'] ) {
                     $author   = '';
                     $mail     = '';

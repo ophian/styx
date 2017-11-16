@@ -25,7 +25,7 @@ function serendipity_ini_bool($var) {
  * @return  string  bytesize
  */
 function serendipity_ini_bytesize($val) {
-    if ( $val == '' )
+    if ($val == '')
         return 0;
 
     switch(substr($val, -1)) {
@@ -151,7 +151,7 @@ function serendipity_installDatabase($type='') {
     }
     $queries = str_replace('{PREFIX}', $serendipity['dbPrefix'], $queries);
 
-    foreach ($queries AS $query) {
+    foreach($queries AS $query) {
         $return = serendipity_db_schema_import($query);
         if (is_string($return)) {
             echo "SQL-ERROR: " . $return . "<br />\n";
@@ -162,7 +162,7 @@ function serendipity_installDatabase($type='') {
     if (file_exists(S9Y_INCLUDE_PATH . 'sql/preload.sql')) {
         $queries = serendipity_parse_sql_inserts(S9Y_INCLUDE_PATH . 'sql/preload.sql');
         $queries = str_replace('{PREFIX}', $serendipity['dbPrefix'], $queries);
-        foreach ($queries AS $query) {
+        foreach($queries AS $query) {
             $return = serendipity_db_schema_import($query);
             if (is_string($return)) {
                 echo "SQL-ERROR: " . $return . "<br />\n";
@@ -255,7 +255,7 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
             if (isset($_SERVER['PATH'])) {
                 $path = array_merge($path, explode(PATH_SEPARATOR, $_SERVER['PATH']));
                 // remove unwanted empty or system32 path parts, so that wrong system32/convert.exe is prevented.
-                foreach ($path AS $pk => $pv) {
+                foreach($path AS $pk => $pv) {
                     if (stripos($pv, 'system32') !== false || empty($pv)) {
                         unset($path[$pk]);
                     }
@@ -269,7 +269,7 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
             $path[] = '/usr/bin';
             $path[] = '/usr/local/bin';
 
-            foreach ($path AS $dir) {
+            foreach($path AS $dir) {
                 if (!empty($dir) && (function_exists('is_executable') && @is_readable($dir) && @is_executable($dir . '/convert')) || @is_file($dir . '/convert')) {
                     return $dir . '/convert';
                 }
@@ -306,7 +306,7 @@ function serendipity_parseTemplate($filename, $areas = null, $onlyFlags=null) {
 
     $userlevel = $serendipity['serendipityUserlevel'];
 
-    if ( !IS_installed ) {
+    if (!IS_installed) {
         $userlevel = USERLEVEL_ADMIN;
     }
 
@@ -315,14 +315,14 @@ function serendipity_parseTemplate($filename, $areas = null, $onlyFlags=null) {
         printf(INCLUDE_ERROR,$filename);
     }
 
-    foreach ( $config AS $n => $category ) {
+    foreach($config AS $n => $category) {
         /* If $areas is an array, we filter out those categories, not within the array */
-        if ( is_array($areas) && !in_array($n, $areas) ) {
+        if (is_array($areas) && !in_array($n, $areas)) {
             unset($config[$n]);
             continue;
         }
 
-        foreach ( $category['items'] AS $i => $item ) {
+        foreach($category['items'] AS $i => $item) {
             $items = &$config[$n]['items'][$i];
 
             if (!isset($items['userlevel']) || !is_numeric($items['userlevel'])) {
@@ -363,9 +363,9 @@ function serendipity_parseTemplate($filename, $areas = null, $onlyFlags=null) {
                 $items['flags'] = array();
             }
 
-            if ( is_array($onlyFlags) ) {
-                foreach ( $onlyFlags AS $onlyFlag ) {
-                    if ( !in_array($onlyFlag, $items['flags']) ) {
+            if (is_array($onlyFlags)) {
+                foreach($onlyFlags AS $onlyFlag) {
+                    if (!in_array($onlyFlag, $items['flags'])) {
                         unset($config[$n]['items'][$i]);
                         continue;
                     }
@@ -426,7 +426,7 @@ function serendipity_guessInput($type, $name, $value='', $default='') {
         case 'multilist':
             $default = (array)$default;
             $value = (array)$value;
-            foreach ($default AS $k => $v) {
+            foreach($default AS $k => $v) {
                 $selected = false;
                 foreach($value AS $vk => $vv) {
                     if ($vv['confkey'] == $v['confkey']) {
@@ -440,7 +440,7 @@ function serendipity_guessInput($type, $name, $value='', $default='') {
         case 'list':
             $cval = (string)$value;
             $default = (array)$default;
-            foreach ($default AS $k => $v) {
+            foreach($default AS $k => $v) {
                 $selected = ((string)$k == (string)$value);
                 if (empty($cval) && ((string)$k === 'false' || (string)$k === null)) {
                     $selected = true;
@@ -479,8 +479,8 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
 
     $data['allowToggle'] = $allowToggle;
 
-    foreach ($config AS &$category) {
-        foreach ($category['items'] AS &$item) {
+    foreach($config AS &$category) {
+        foreach($category['items'] AS &$item) {
 
             $value = $from[$item['var']];
 
@@ -857,15 +857,15 @@ function serendipity_installFiles($serendipity_core = '') {
  */
 function serendipity_checkConfigItemFlags(&$item, $area) {
 
-    if ( in_array('nosave', $item['flags']) ) {
+    if (in_array('nosave', $item['flags'])) {
         return false;
     }
 
-    if ( in_array('local', $item['flags']) && $area == 'configuration' ) {
+    if (in_array('local', $item['flags']) && $area == 'configuration') {
         return false;
     }
 
-    if ( in_array('config', $item['flags']) && $area == 'local' ) {
+    if (in_array('config', $item['flags']) && $area == 'local') {
         return false;
     }
 
@@ -894,10 +894,10 @@ function serendipity_updateConfiguration() {
     }
 
     foreach($config AS $category) {
-        foreach ( $category['items'] AS $item ) {
+        foreach($category['items'] AS $item) {
 
             /* Don't save trash */
-            if ( !serendipity_checkConfigItemFlags($item, 'configuration') ) {
+            if (!serendipity_checkConfigItemFlags($item, 'configuration')) {
                 continue;
             }
 
@@ -907,7 +907,7 @@ function serendipity_updateConfiguration() {
 
             // Check permission set. Changes to blogConfiguration or siteConfiguration items
             // always required authorid = 0, so that it be not specific to a userlogin
-            if ( $serendipity['serendipityUserlevel'] >= $item['userlevel'] || IS_installed === false ) {
+            if ($serendipity['serendipityUserlevel'] >= $item['userlevel'] || IS_installed === false) {
                 $authorid = 0;
             } elseif ($item['permission'] == 'blogConfiguration' && serendipity_checkPermission('blogConfiguration')) {
                 $authorid = 0;
@@ -1209,7 +1209,7 @@ function serendipity_verifyFTPChecksums() {
         return $badsums;
     }
 
-    foreach ($serendipity['checksums_' . $serendipity['version']] AS $prel => $sum) {
+    foreach($serendipity['checksums_' . $serendipity['version']] AS $prel => $sum) {
         $path = $basedir . '/' . $prel;
         // Don't take checksums of directories
         if (is_dir($path)) {

@@ -36,7 +36,7 @@ class Serendipity_Import_Pivot extends Serendipity_Import
         $res = serendipity_fetchCategories('all');
         $ret = array(0 => NO_CATEGORY);
         if (is_array($res)) {
-            foreach ($res AS $v) {
+            foreach($res AS $v) {
                 $ret[$v['categoryid']] = $v['category_name'];
             }
         }

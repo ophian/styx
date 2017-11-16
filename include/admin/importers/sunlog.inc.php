@@ -155,7 +155,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import
 
             $entry['authorid'] = '';
             $entry['author']   = '';
-            foreach ($users AS $user) {
+            foreach($users AS $user) {
                 if ($user['ID'] == $entries[$x]['author']) {
                     $entry['authorid'] = $user['authorid'];
                     $entry['author']   = $user['user_login'];
@@ -206,17 +206,17 @@ class Serendipity_Import_sunlog extends Serendipity_Import
         }
 
         while ($a = mysqli_fetch_assoc($res)) {
-            foreach ($entries AS $entry) {
+            foreach($entries AS $entry) {
                 if ($entry['id'] == $a['for_entry'] ) {
-                    $author   = '';
-                    $mail     = '';
-                    $url      = '';
+                    $author = '';
+                    $mail   = '';
+                    $url    = '';
 
                     foreach($users AS $user) {
                         if ($user['ID'] == $a['user']) {
                             $author = $user['user_login'];
-                            $mail = $user['user_email'];
-                            $url  = $user['user_url'];
+                            $mail   = $user['user_email'];
+                            $url    = $user['user_url'];
                             break;
                         }
                     }

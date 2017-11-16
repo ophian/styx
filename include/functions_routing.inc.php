@@ -32,7 +32,7 @@ function serve404() {
 function locateHiddenVariables($_args) {
     global $serendipity;
 
-    foreach ($_args AS $k => $v){
+    foreach($_args AS $k => $v) {
         if ($v == PATH_COMMENTS || $v == PATH_CATEGORIES || $v == PATH_ARCHIVE || $v == PATH_ARCHIVES) {
             continue;
         }
@@ -74,7 +74,7 @@ function serveComments() {
 
     /* Attempt to locate hidden variables within the URI */
     $_args = locateHiddenVariables($args);
-    foreach ($_args AS $k => $v){
+    foreach($_args AS $k => $v) {
         if ($v == PATH_COMMENTS) {
             continue;
         }
@@ -167,7 +167,7 @@ function serveSearch() {
 
     /* Attempt to locate hidden variables within the URI */
     $search = array();
-    foreach ($_args AS $k => $v){
+    foreach($_args AS $k => $v) {
         if ($v == PATH_SEARCH) {
             continue;
         }
@@ -403,7 +403,7 @@ function serveArchives() {
     $serendipity['view'] = 'archives';
 
     $_args = locateHiddenVariables($serendipity['uriArguments']);
-    foreach ($_args AS $k => $v) {
+    foreach($_args AS $k => $v) {
         if ($v[0] == 'W') { /* Week */
             $week = substr($v, 1);
             if (is_numeric($week)) {
@@ -478,12 +478,12 @@ function serveArchives() {
 
                 // convert day number of year to day number of month AND month number of year
                 $j_days_in_month = array(0, 31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
-                if(($g_y % 4) == 3) $j_days_in_month[12]++;
+                if (($g_y % 4) == 3) $j_days_in_month[12]++;
 
-                for($i=1; isset($j_days_in_month[$i]); ++$i){
-                    if(($day-$j_days_in_month[$i])>0){
+                for($i=1; isset($j_days_in_month[$i]); ++$i) {
+                    if (($day-$j_days_in_month[$i])>0) {
                         $day -= $j_days_in_month[$i];
-                    }else{
+                    } else {
                         break;
                     }
                 }

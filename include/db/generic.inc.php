@@ -40,7 +40,7 @@ function serendipity_db_end_transaction($commit) {
  */
 function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
     global $serendipity;
-    if(! is_array($search_ids) || count($search_ids) == 0) {
+    if (!is_array($search_ids) || count($search_ids) == 0) {
         return "";
     }
     $sql = new Sql($serendipity['dbConn']);
@@ -79,7 +79,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
         $resultArray = $resultArray[0];
         if (is_array($resultArray) && $result_type != "assoc") {
             $i=0;       # the underlying code expects additional numerical indices
-            foreach ($resultArray AS $key=>$value) {
+            foreach($resultArray AS $key=>$value) {
                 $resultArray[$i] = $value;
                 $i+=1;
             }

@@ -373,7 +373,7 @@ function add_pingback($id, $postdata) {
     log_pingback("Reached add_pingback. ID:[$id]");
 
     // XML-RPC Method call without named parameter. This seems to be the default way using XML-RPC
-    if(preg_match('@<methodCall>\s*<methodName>\s*pingback.ping\s*</methodName>\s*<params>\s*<param>\s*<value>\s*<string>([^<]*)</string>\s*</value>\s*</param>\s*<param>\s*<value>\s*<string>([^<]*)</string>\s*</value>\s*</param>\s*</params>\s*</methodCall>@is', $postdata, $matches)) {
+    if (preg_match('@<methodCall>\s*<methodName>\s*pingback.ping\s*</methodName>\s*<params>\s*<param>\s*<value>\s*<string>([^<]*)</string>\s*</value>\s*</param>\s*<param>\s*<value>\s*<string>([^<]*)</string>\s*</value>\s*</param>\s*</params>\s*</methodCall>@is', $postdata, $matches)) {
         log_pingback('Pingback wp structure.');
         $remote             = $matches[1];
         $local              = $matches[2];
@@ -493,7 +493,7 @@ function fetchPingbackData(&$comment) {
 
     // Max amount of characters fetched from the page doing a pingback:
     $fetchPageMaxLength = 200;
-    if (isset($serendipity['pingbackFetchPageMaxLength'])){
+    if (isset($serendipity['pingbackFetchPageMaxLength'])) {
         $fetchPageMaxLength = $serendipity['pingbackFetchPageMaxLength'];
     }
     $url = $comment['url'];
@@ -513,7 +513,7 @@ function fetchPingbackData(&$comment) {
     if (preg_match('@<p[^>]*>(.*?)</body>@is', $fContent, $matches)) {
         $body = $matches[1];
     }
-    if (empty($body) && preg_match('@<body[^>]*>(.*?)</body>@is', $fContent, $matches)){
+    if (empty($body) && preg_match('@<body[^>]*>(.*?)</body>@is', $fContent, $matches)) {
         $body = $matches[1];
     }
     // Get a part of the article
@@ -537,7 +537,7 @@ function fetchPingbackData(&$comment) {
 /**
  * Strips any unneeded code from trackback / pingback bodies returning pure (UTF8) text.
  */
-function trackback_body_strip($body){
+function trackback_body_strip($body) {
     // replace non breakable space with normal space:
     $body = str_replace('&nbsp;', ' ', $body);
 
@@ -752,7 +752,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 
         if (!isset($serendipity['noautodiscovery']) || !$serendipity['noautodiscovery']) {
             if (!$dry_run) {
-                if (!isset($saved_urls[$locations[$i]])){
+                if (!isset($saved_urls[$locations[$i]])) {
                     if ($debug) $serendipity['logger']->debug('Enabling autodiscovery - send params: (' . "'{$locations[$i]}', '$url', '$author', '$title', '".serendipity_trackback_excerpt($text)."')");
                     serendipity_reference_autodiscover($locations[$i], $url, $author, $title, serendipity_trackback_excerpt($text));
                 } else {
@@ -822,8 +822,8 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     // Add citations
     preg_match_all('@<cite[^>]*>([^<]+)</cite>@i', $text, $matches);
 
-    foreach ($matches[1] AS $citation) {
-        $query = "INSERT INTO {$serendipity['dbPrefix']}references (entry_id, name) VALUES(";
+    foreach($matches[1] AS $citation) {
+        $query  = "INSERT INTO {$serendipity['dbPrefix']}references (entry_id, name) VALUES(";
         $query .= (int)$id . ", '" . serendipity_db_escape_string($citation) . "')";
 
         $cite = serendipity_db_query($query);

@@ -112,7 +112,7 @@ if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] .
     // in case of theme switch, check to unset config_group array
     if ($serendipity['GET']['adminAction'] == 'install' && $serendipity['GET']['adminModule'] == 'templates') {
         // array diff - but do not do this for bulletproof, as this is the only one which needs them in case of reloads (temporary)
-        if($old_template_config_groups === $template_config_groups && $serendipity['GET']['theme'] != 'bulletproof') {
+        if ($old_template_config_groups === $template_config_groups && $serendipity['GET']['theme'] != 'bulletproof') {
             $template_config_groups = NULL; // force destroy previouses config_group array!
         }
     }
@@ -181,7 +181,7 @@ foreach($themes AS $theme) {
 }
 ksort($stack);
 
-foreach ($stack AS $theme => $info) {
+foreach($stack AS $theme => $info) {
     /* Sorry, but we don't display engines */
     if ( strtolower($info['engine']) == 'yes') {
         continue;

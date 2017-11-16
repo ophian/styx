@@ -33,14 +33,14 @@ function serendipity_db_update($table, $keys, $values, $action = 'execute') {
 
     $set = '';
 
-    foreach ($values AS $k => $v) {
+    foreach($values AS $k => $v) {
         if (strlen($set))
             $set .= ', ';
         $set .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
     }
 
     $where = '';
-    foreach ($keys AS $k => $v) {
+    foreach($keys AS $k => $v) {
         if (strlen($where))
             $where .= ' AND ';
         $where .= $k . '=\'' . serendipity_db_escape_string($v) . '\'';
@@ -75,7 +75,7 @@ function serendipity_db_insert($table, $values, $action = 'execute') {
     $names = implode(',', array_keys($values));
 
     $vals = '';
-    foreach ($values AS $k => $v) {
+    foreach($values AS $k => $v) {
         if (strlen($vals))
             $vals .= ', ';
         $vals .= '\'' . serendipity_db_escape_string($v) . '\'';
@@ -104,7 +104,7 @@ function serendipity_db_insert($table, $values, $action = 'execute') {
  * @return boolean  boolean conversion of the input value
  */
 function serendipity_db_bool($val) {
-    if(($val === true) || ($val == 'true') || ($val == 't') || ($val == '1'))
+    if (($val === true) || ($val == 'true') || ($val == 't') || ($val == '1'))
         return true;
     #elseif (($val === false || $val == 'false' || $val == 'f'))
     else

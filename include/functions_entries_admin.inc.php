@@ -69,7 +69,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     if (is_array($entry['categories']) && !is_array($entry['categories'][0])) {
         $categories = (array)$entry['categories'];
         $entry['categories'] = array();
-        foreach ($categories AS $catid) {
+        foreach($categories AS $catid) {
             $entry['categories'][] = serendipity_fetchCategoryInfo($catid);
         }
     }
@@ -80,7 +80,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
             $categoryselector_expanded = true;
         }
 
-        foreach ($entry['categories'] AS $cat) {
+        foreach($entry['categories'] AS $cat) {
             $selected[] = $cat['categoryid'];
         }
     } elseif ($serendipity['categoryDefault'] > 0) {
@@ -94,7 +94,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
 
     if (is_array($cats = serendipity_fetchCategories())) {
         $cats = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
-        foreach ($cats AS $cat) {
+        foreach($cats AS $cat) {
 
             if (in_array($cat['categoryid'], $selected)) {
                 $cat['is_selected'] = true;

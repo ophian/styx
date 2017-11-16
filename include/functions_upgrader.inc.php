@@ -421,7 +421,7 @@ $dead_dirs_240 = array(
  * @return void
  */
 function recursive_directory_iterator($dir = array()) {
-    foreach ($dir AS $path) {
+    foreach($dir AS $path) {
         serendipity_removeDeadFiles_SPL($path);
         if (is_dir($path)) @rmdir($path);
     }
@@ -596,11 +596,11 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
     $search   = array("\\", '//');
     $replace  = array('/');
 
-    foreach ($iterator AS $file) {
+    foreach($iterator AS $file) {
         $thisfile = str_replace($search, $replace, $file->__toString());
         if ($file->isFile()) {
             if (is_array($deadfiles) && !empty($deadfiles)) {
-                foreach ($deadfiles AS $deadfile) {
+                foreach($deadfiles AS $deadfile) {
                     if ($debugSPL) {
                         if (basename($deadfile) == basename($thisfile)) echo 'LIST FILE: ' . $dir . '/' . $deadfile . ' == ' . $thisfile . ' && basename(file) == ' . basename($thisfile) . "<br>\n";
                     }
@@ -621,7 +621,7 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
             }
         } else {
             if (is_array($purgedir) && !empty($purgedir) ) {
-                foreach ($purgedir AS $pdir) {
+                foreach($purgedir AS $pdir) {
                     if (basename($thisfile) == $pdir) {
                         if ($debugSPL) {
                             echo '<b><u>LIST & REMOVE EMPTY DIRECTORY</u></b>: ' . $thisfile . "<br><br>\n";
@@ -662,7 +662,7 @@ function serendipity_cleanUpDirectories_SPL( $path=null ) {
             new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
             RecursiveIteratorIterator::CHILD_FIRST
         );
-        foreach ($files AS $fileinfo) {
+        foreach($files AS $fileinfo) {
             if ($fileinfo->isDir()) {
                 // Count the number of "children" from the main directory iterator
                 if (iterator_count($files->getChildren()) === 0) {
@@ -695,7 +695,7 @@ function serendipity_cleanUpOldCompilerFiles_SPL( $path=null ) {
     if (!is_dir($path)) {
         return;
     }
-    foreach (new DirectoryIterator($path) AS $iterator) {
+    foreach(new DirectoryIterator($path) AS $iterator) {
         if ($iterator->isDot() || $iterator->isDir() || $iterator->getFilename()[0] === '.' ||
                 (false === stripos($iterator->getFilename(), '.tpl.php') &&
                     (strlen($iterator->getFilename()) !== 9 && !empty($iterator->getExtension()) || false !== stripos($iterator->getFilename(), 'cache_'))
@@ -784,7 +784,7 @@ function serendipity_upgrader_move_syndication_config() {
                             'field_ttl'             => 'feedTtl',
                             'field_pubDate'         => 'feedPubDate'
                     );
-    foreach ($optionsToPort AS $oldPluginOption => $newGeneralOption) {
+    foreach($optionsToPort AS $oldPluginOption => $newGeneralOption) {
         $value = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE NAME LIKE 'serendipity_plugin_syndication%{$oldPluginOption}'", true);
         if (is_array($value)) {
             $value = $value[0];

@@ -7,7 +7,7 @@
  *
  * @access public
  */
-function serendipity_db_begin_transaction(){
+function serendipity_db_begin_transaction() {
     serendipity_db_query('start transaction');
 }
 
@@ -17,10 +17,10 @@ function serendipity_db_begin_transaction(){
  * @access public
  * @param  boolean  If true, perform the query. If false, rollback.
  */
-function serendipity_db_end_transaction($commit){
-    if ($commit){
+function serendipity_db_end_transaction($commit) {
+    if ($commit) {
         serendipity_db_query('commit');
-    }else{
+    } else {
         serendipity_db_query('rollback');
     }
 }
@@ -473,7 +473,7 @@ function serendipity_db_migrate_index($check = true, $prefix = null) {
 
     if (!$check && count($return['errors']) == 0) {
         // TODO: Execute SQL commands in $return['sql'].
-        foreach ($return['sql'] AS $convert) {
+        foreach($return['sql'] AS $convert) {
             serendipity_db_query($convert);
         }
         if ($serendipity['dbUtf8mb4_converted']) {
@@ -515,10 +515,7 @@ function serendipity_db_schema_import($query) {
 
     if ($is_utf8 === null) {
         $search[7] = '{UTF_8}'; //ITs Key ID 7 for both and this since being static, else it increments
-        if (  $_POST['charset'] == 'UTF-8/' ||
-              $serendipity['charset'] == 'UTF-8/' ||
-              $serendipity['POST']['charset'] == 'UTF-8/' ||
-              LANG_CHARSET == 'UTF-8' ) {
+        if ($_POST['charset'] == 'UTF-8/' || $serendipity['charset'] == 'UTF-8/' || $serendipity['POST']['charset'] == 'UTF-8/' || LANG_CHARSET == 'UTF-8') {
             if ($serendipity['dbUtf8mb4']) {
                 $replace[7] = '/*!50503 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */';
             } else {
@@ -575,7 +572,7 @@ function serendipity_db_probe($hash, &$errs) {
 
     $serendipity['dbConn'] = $c;
 
-    if ( !@mysqli_select_db($c, $hash['dbName']) ) {
+    if (!@mysqli_select_db($c, $hash['dbName'])) {
         $errs[] = 'The database you specified does not exist.';
         $errs[] = 'The mySQL error was: ' . serendipity_specialchars(mysqli_error($c));
         return false;

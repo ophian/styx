@@ -49,15 +49,15 @@ $data['installerHTTPPath'] = str_replace('//', '/', dirname($_SERVER['PHP_SELF']
  */
 function serendipity_installerResultDiagnose($result, $s) {
     global $errorCount, $data;
-    if ( $result === S9Y_I_SUCCESS ) {
+    if ($result === S9Y_I_SUCCESS) {
         $data['i_success'] = true; // we do not need data here explicitly, but we keep it for possible future purposes
         return '<span class="msg_success">'. $s .'</span>';
     }
-    if ( $result === S9Y_I_WARNING ) {
+    if ($result === S9Y_I_WARNING) {
         $data['i_warning'] = true;
         return '<span class="msg_notice">'. $s .' [?]</span>';
     }
-    if ( $result === S9Y_I_ERROR ) {
+    if ($result === S9Y_I_ERROR) {
         $errorCount++;
         $data['i_error'] = true;
         return '<span class="msg_error">'. $s .' [!]</span>';
@@ -72,20 +72,20 @@ if (!empty($serendipity['POST']['getstep']) && is_numeric($serendipity['POST']['
 }
 
 /* From configuration to install */
-if ( sizeof($_POST) > 1 && $serendipity['GET']['step'] == '3' ) {
+if (sizeof($_POST) > 1 && $serendipity['GET']['step'] == '3') {
     /* One problem, if the user chose to do an easy install, not all config vars has been transferred
        Therefore we fetch all config vars with their default values, and merge them with our POST data */
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);
-    foreach ( $config AS $category ) {
-        foreach ( $category['items'] AS $item ) {
-            if ( !isset($_POST[$item['var']]) ) {
+    foreach($config AS $category) {
+        foreach($category['items'] AS $item) {
+            if (!isset($_POST[$item['var']])) {
                 $_POST[$item['var']] = serendipity_query_default($item['var'], $item['default']);
             }
         }
     }
 
-    if ( is_array($errors = serendipity_checkInstallation()) ) {
+    if (is_array($errors = serendipity_checkInstallation())) {
         $data['is_errors'] = true;
         $data['errors'] = $errors;
         $from = $_POST;
@@ -128,7 +128,7 @@ if ((int)$serendipity['GET']['step'] !== 0 && !$data['install_token_pass']) {
     unset($serendipity['GET']['step']);
 }
 
-if ( (int)$serendipity['GET']['step'] == 0 ) {
+if ((int)$serendipity['GET']['step'] == 0) {
     if (!empty($install_token) && !$data['install_token_pass']) {
         $data['install_token_fail'] = true;
     }
@@ -143,7 +143,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         if (empty($badsums)) {
             $data['installerResultDiagnose_CHECKSUMS'][] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, CHECKSUMS_PASS);
         } else {
-            foreach ($badsums AS $file => $sum) {
+            foreach($badsums AS $file => $sum) {
                 $data['installerResultDiagnose_CHECKSUMS'][] = serendipity_installerResultDiagnose(S9Y_I_WARNING, sprintf(CHECKSUM_FAILED, $file));
             }
         }
@@ -154,55 +154,55 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
     $data['php_uname']     = php_uname('s') .' '. php_uname('r') .', '. php_uname('m');
     $data['php_sapi_name'] = php_sapi_name();
 
-    if ( version_compare(PHP_VERSION, '5.3', '>=') ) {
+    if (version_compare(PHP_VERSION, '5.3', '>=')) {
         $data['installerResultDiagnose_VERSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES .', '. PHP_VERSION);
     } else {
         $data['installerResultDiagnose_VERSION'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NO);
     }
 
-    if ( sizeof(($_res = serendipity_probeInstallation('dbType'))) == 0 ) {
+    if (sizeof(($_res = serendipity_probeInstallation('dbType'))) == 0) {
         $data['installerResultDiagnose_DBTYPE'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, NONE);
     } else {
         $data['installerResultDiagnose_DBTYPE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, implode(', ', $_res));
     }
 
-    if ( extension_loaded('session') ) {
+    if (extension_loaded('session')) {
         $data['installerResultDiagnose_SESSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
         $data['installerResultDiagnose_SESSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, NO);
     }
 
-    if ( extension_loaded('pcre') ) {
+    if (extension_loaded('pcre')) {
         $data['installerResultDiagnose_PCRE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
         $data['installerResultDiagnose_PCRE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, NO);
     }
 
-    if ( extension_loaded('gd') ) {
+    if (extension_loaded('gd')) {
         $data['installerResultDiagnose_GD'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
         $data['installerResultDiagnose_GD'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
-    if ( extension_loaded('openssl') ) {
+    if (extension_loaded('openssl')) {
         $data['installerResultDiagnose_OPENSSL'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
         $data['installerResultDiagnose_OPENSSL'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
-    if ( extension_loaded('mbstring') ) {
+    if (extension_loaded('mbstring')) {
         $data['installerResultDiagnose_MBSTR'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
         $data['installerResultDiagnose_MBSTR'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
-    if ( extension_loaded('iconv') ) {
+    if (extension_loaded('iconv')) {
         $data['installerResultDiagnose_ICONV'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
         $data['installerResultDiagnose_ICONV'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
-    if ( extension_loaded('zlib') ) {
+    if (extension_loaded('zlib')) {
         $data['installerResultDiagnose_ZLIB'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
         $data['installerResultDiagnose_ZLIB'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
@@ -214,73 +214,73 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         $data['installerResultDiagnose_IM'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_FOUND);
     }
 
-    if ( !serendipity_ini_bool(ini_get('safe_mode')) ) {
+    if (!serendipity_ini_bool(ini_get('safe_mode'))) {
         $data['installerResultDiagnose_SSM'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     } else {
         $data['installerResultDiagnose_SSM'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
     }
 
-    if ( serendipity_ini_bool(ini_get('register_globals')) ) {
+    if (serendipity_ini_bool(ini_get('register_globals'))) {
         $data['installerResultDiagnose_SRG'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
     } else {
         $data['installerResultDiagnose_SRG'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     }
 
-    if ( !serendipity_ini_bool(ini_get('magic_quotes_gpc')) ) {
+    if (!serendipity_ini_bool(ini_get('magic_quotes_gpc'))) {
         $data['installerResultDiagnose_SMQG'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     } else {
         $data['installerResultDiagnose_SMQG'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
     }
 
-    if ( !serendipity_ini_bool(ini_get('magic_quotes_runtime')) ) {
+    if (!serendipity_ini_bool(ini_get('magic_quotes_runtime'))) {
         $data['installerResultDiagnose_SMQR'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     } else {
         $data['installerResultDiagnose_SMQR'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, 'ON');
     }
 
-    if ( !serendipity_ini_bool(ini_get('session.use_trans_sid')) ) {
+    if (!serendipity_ini_bool(ini_get('session.use_trans_sid'))) {
         $data['installerResultDiagnose_SSUTS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     } else {
         $data['installerResultDiagnose_SSUTS'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
     }
 
-    if ( serendipity_ini_bool(ini_get('allow_url_fopen')) ) {
+    if (serendipity_ini_bool(ini_get('allow_url_fopen'))) {
         $data['installerResultDiagnose_SAUF'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'ON');
     } else {
         $data['installerResultDiagnose_SAUF'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'OFF');
     }
 
-    if ( serendipity_ini_bool(ini_get('file_uploads')) ) {
+    if (serendipity_ini_bool(ini_get('file_uploads'))) {
         $data['installerResultDiagnose_SFU'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'ON');
     } else {
         $data['installerResultDiagnose_SFU'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, 'OFF');
     }
 
-    if ( serendipity_ini_bytesize(ini_get('post_max_size')) >= (10*1024*1024) ) {
+    if (serendipity_ini_bytesize(ini_get('post_max_size')) >= (10*1024*1024)) {
         $data['installerResultDiagnose_SPMS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, ini_get('post_max_size'));
     } else {
         $data['installerResultDiagnose_SPMS'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, ini_get('post_max_size'));
     }
 
-    if ( serendipity_ini_bytesize(ini_get('upload_max_filesize')) >= (10*1024*1024) ) {
+    if (serendipity_ini_bytesize(ini_get('upload_max_filesize')) >= (10*1024*1024)) {
         $data['installerResultDiagnose_SUMF'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, ini_get('upload_max_filesize'));
     } else {
         $data['installerResultDiagnose_SUMF'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, ini_get('upload_max_filesize'));
     }
 
-    if ( serendipity_ini_bytesize(ini_get('memory_limit')) >= ((PHP_INT_SIZE == 4 ? 8 : 16)*1024*1024) ) {
+    if (serendipity_ini_bytesize(ini_get('memory_limit')) >= ((PHP_INT_SIZE == 4 ? 8 : 16)*1024*1024)) {
         $data['installerResultDiagnose_SML'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, ini_get('memory_limit'));
     } else {
         $data['installerResultDiagnose_SML'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, ini_get('memory_limit'));
     }
 
     $basewritable = False;
-    if ( is_writable($basedir) ) {
+    if (is_writable($basedir)) {
         $data['installerResultDiagnose_BASE_WRITABLE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
         $basewritable = True;
     }
 
-    if ( is_writable($basedir . PATH_SMARTY_COMPILE) ) {
+    if (is_writable($basedir . PATH_SMARTY_COMPILE)) {
         $data['installerResultDiagnose_COMPILE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
     } else {
         if ($basewritable && !is_dir($basedir . PATH_SMARTY_COMPILE)) {
@@ -292,7 +292,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         }
     }
 
-    if ( is_writable($basedir . 'archives/') ) {
+    if (is_writable($basedir . 'archives/')) {
         $data['installerResultDiagnose_ARCHIVES'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
     } else {
         if ($basewritable && !is_dir($basedir . 'archives/')) {
@@ -304,15 +304,15 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
         }
     }
 
-    if ( is_writable($basedir . 'plugins/') ) {
+    if (is_writable($basedir . 'plugins/')) {
         $data['installerResultDiagnose_PLUGINS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
     } else {
         $data['installerResultDiagnose_PLUGINS'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NOT_WRITABLE . NOT_WRITABLE_SPARTACUS);
     }
 
-    if ( is_dir($basedir .'uploads/') ) {
+    if (is_dir($basedir .'uploads/')) {
         $data['is_dir_uploads'] = true;
-        if ( is_writable($basedir . 'uploads/') ) {
+        if (is_writable($basedir . 'uploads/')) {
             $data['installerResultDiagnose_UPLOADS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, WRITABLE);
         } else {
             if ($basewritable && !is_dir($basedir . 'uploads/')) {
@@ -341,15 +341,15 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
     $data['showWritableNote'] = $showWritableNote;
     $data['errorCount'] = $errorCount;
 
-} elseif ( $serendipity['GET']['step'] == '2a' ) {
+} elseif ($serendipity['GET']['step'] == '2a') {
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE, null, array('simpleInstall'));
     $data['ob_serendipity_printConfigTemplate'] = serendipity_printConfigTemplate($config, $from, true, false, false);
 
-} elseif ( $serendipity['GET']['step'] == '2b' ) {
+} elseif ($serendipity['GET']['step'] == '2b') {
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);
     $data['ob_serendipity_printConfigTemplate'] = serendipity_printConfigTemplate($config, $from, true, false, false);
 
-} elseif ( $serendipity['GET']['step'] == '3' ) {
+} elseif ($serendipity['GET']['step'] == '3') {
     $serendipity['dbPrefix'] = $_POST['dbPrefix'];
 
     // do not allow cheating installer steps
@@ -359,7 +359,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
     $t = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}authors", false, 'both', false, false, false, true);
     $data['authors_query'] = $t;
 
-    if ( is_array($t) ) {
+    if (is_array($t)) {
         // void
     } else {
         serendipity_installDatabase($_POST['dbType']);
@@ -397,7 +397,7 @@ if ( (int)$serendipity['GET']['step'] == 0 ) {
     $errors = serendipity_installFiles($basedir);
     $data['errors_sif'] = $errors;
 
-    if ( serendipity_updateConfiguration() ) {
+    if (serendipity_updateConfiguration()) {
         $data['s9y_installed'] = true;
     }
     echo serendipity_smarty_showTemplate('admin/installer.inc.tpl', $data);

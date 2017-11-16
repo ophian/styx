@@ -85,22 +85,22 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
         $categories = array();
         $entries = array();
 
-        if ( !extension_loaded('pgsql') ) {
+        if (!extension_loaded('pgsql')) {
             return PGSQL_REQUIRED;;
         }
 
         $wpdb = pg_connect("$this->data['host'], $this->data['port'], $this->data['user'], $this->data['pass'], $this->data['name']");
-        if ( !$wpdb ) {
+        if (!$wpdb) {
             return sprintf(PGSQL_COULDNT_CONNECT, serendipity_specialchars($this->data['pass']));
         }
 
         /* Users */
         $res = pg_query($wpdb, "SELECT ID, user_login, user_pass, user_email, user_level FROM {$this->data['prefix']}users;");
-        if ( !$res ) {
+        if (!$res) {
             return sprintf(COULDNT_SELECT_USER_INFO, pg_last_error($wpdb));
         }
 
-        for ( $x=0 ; $x<pg_num_rows($res) ; $x++ ) {
+        for ($x=0; $x<pg_num_rows($res); $x++) {
             $users[$x] = pg_fetch_assoc($res);
 
             $data = array('right_publish' => ($users[$x]['user_level'] >= 1) ? 1 : 0,
@@ -126,16 +126,16 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
 
         /* Categories */
         $res = @pg_query($wpdb, "SELECT cat_ID, cat_name, category_description, category_parent FROM {$this->data['prefix']}categories ORDER BY category_parent, cat_ID;");
-        if ( !$res ) {
+        if (!$res) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, pg_last_error($wpdb));
         }
 
         // Get all the info we need
-        for ( $x=0 ; $x<pg_num_rows($res) ; $x++ )
+        for ($x=0; $x<pg_num_rows($res); $x++)
             $categories[] = pg_fetch_assoc($res);
 
         // Insert all categories as top level (we need to know everyone's ID before we can represent the hierarchy).
-        for ( $x=0 ; $x<sizeof($categories) ; $x++ ) {
+        for ($x=0; $x<sizeof($categories); $x++) {
             $cat = array('category_name'        => $categories[$x]['cat_name'],
                          'category_description' => $categories[$x]['category_description'],
                          'parentid'             => 0, // <---
@@ -147,18 +147,18 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
         }
 
         // There has to be a more efficient way of doing this...
-        foreach ( $categories AS $cat ) {
-            if ( $cat['category_parent'] != 0 ) {
+        foreach($categories AS $cat) {
+            if ($cat['category_parent'] != 0) {
                 // Find the parent
                 $par_id = 0;
-                foreach ( $categories AS $possible_par ) {
-                    if ( $possible_par['cat_ID'] == $cat['category_parent'] ) {
+                foreach($categories AS $possible_par) {
+                    if ($possible_par['cat_ID'] == $cat['category_parent']) {
                         $par_id = $possible_par['categoryid'];
                         break;
                     }
                 }
 
-                if ( $par_id != 0 ) {
+                if ($par_id != 0) {
                   serendipity_db_query("UPDATE {$serendipity['dbPrefix']}category SET parentid={$par_id} WHERE categoryid={$cat['categoryid']};");
                 } // else { echo "D'oh! " . random_string_of_profanity(); }
             }
@@ -168,11 +168,11 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
 
         /* Entries */
         $res = @pg_query($wpdb, "SELECT * FROM {$this->data['prefix']}posts ORDER BY post_date;");
-        if ( !$res ) {
+        if (!$res) {
             return sprintf(COULDNT_SELECT_ENTRY_INFO, pg_last_error($wpdb));
         }
 
-        for ( $x=0 ; $x<pg_num_rows($res) ; $x++ ) {
+        for ($x=0; $x<pg_num_rows($res); $x++) {
             $entries[$x] = pg_fetch_assoc($res);
 
             $entry = array('title'          => $this->decode($entries[$x]['post_title']), // htmlentities() is called later, so we can leave this.
@@ -181,29 +181,29 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
                            'timestamp'      => strtotime($entries[$x]['post_date']),
                            'body'           => $this->strtr($entries[$x]['post_content']));
 
-            foreach ( $users AS $user ) {
-                if ( $user['ID'] == $entries[$x]['post_author'] ) {
+            foreach($users AS $user) {
+                if ($user['ID'] == $entries[$x]['post_author']) {
                     $entry['authorid'] = $user['authorid'];
                     break;
                 }
             }
 
-            if ( !is_int($entries[$x]['entryid'] = serendipity_updertEntry($entry)) ) {
+            if (!is_int($entries[$x]['entryid'] = serendipity_updertEntry($entry))) {
                 return $entries[$x]['entryid'];
             }
         }
 
         /* Entry/category */
         $res = @pg_query($wpdb, "SELECT * FROM {$this->data['prefix']}post2cat;");
-        if ( !$res ) {
+        if (!$res) {
             return sprintf(COULDNT_SELECT_ENTRY_INFO, pg_last_error($wpdb));
         }
 
-        while ( $a = pg_fetch_assoc($res) ) {
-            foreach ( $categories AS $category ) {
-                if ( $category['cat_ID'] == $a['category_id'] ) {
-                    foreach ( $entries AS $entry ) {
-                        if ( $a['post_id'] == $entry['ID'] ) {
+        while ($a = pg_fetch_assoc($res)) {
+            foreach($categories AS $category) {
+                if ($category['cat_ID'] == $a['category_id']) {
+                    foreach( $entries AS $entry) {
+                        if ($a['post_id'] == $entry['ID']) {
                             $data = array('entryid' => $entry['entryid'],
                                           'categoryid' => $category['categoryid']);
                             serendipity_db_insert('entrycat', $this->strtrRecursive($data));
@@ -217,13 +217,13 @@ class Serendipity_Import_WordPress_PG extends Serendipity_Import
 
         /* Comments */
         $res = @pg_query($wpdb, "SELECT * FROM {$this->data['prefix']}comments;");
-        if ( !$res ) {
+        if (!$res) {
             return sprintf(COULDNT_SELECT_COMMENT_INFO, pg_last_error($wpdb));
         }
 
-        while ( $a = pg_fetch_assoc($res) ) {
-            foreach ( $entries AS $entry ) {
-                if ( $entry['ID'] == $a['comment_post_ID'] ) {
+        while ($a = pg_fetch_assoc($res)) {
+            foreach($entries AS $entry) {
+                if ($entry['ID'] == $a['comment_post_ID']) {
                     $comment = array('entry_id ' => $entry['entryid'],
                                      'parent_id' => 0,
                                      'timestamp' => strtotime($a['comment_date']),

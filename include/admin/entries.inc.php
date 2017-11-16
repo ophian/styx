@@ -134,7 +134,7 @@ switch($serendipity['GET']['adminAction']) {
 
                 $categories = (array)$entry['categories'];
                 $entry['categories'] = array();
-                foreach ($categories AS $catid) {
+                foreach($categories AS $catid) {
                     if ($catid == 0) {
                         continue;
                     }
@@ -338,10 +338,10 @@ switch($serendipity['GET']['adminAction']) {
             $data['count'] = count($entries);
 
             $qString = '?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect';
-            foreach ((array)$serendipity['GET']['sort'] AS $k => $v) {
+            foreach((array)$serendipity['GET']['sort'] AS $k => $v) {
                 $qString .= '&amp;serendipity[sort]['. $k .']='. $v;
             }
-            foreach ((array)$serendipity['GET']['filter'] AS $k => $v) {
+            foreach((array)$serendipity['GET']['filter'] AS $k => $v) {
                 $qString .= '&amp;serendipity[filter]['. $k .']='. $v;
             }
             $data['linkFirst']    = $qString . '&amp;serendipity[page]=' . 0;
@@ -350,10 +350,10 @@ switch($serendipity['GET']['adminAction']) {
             $data['linkLast']     = $qString . '&amp;serendipity[page]='; // is done in tpl per $totalPages
 
             $smartentries = array();
-            foreach ($entries AS $ey) {
+            foreach($entries AS $ey) {
                 $entry_cats = array();
                 if (count($ey['categories'])) {
-                    foreach ($ey['categories'] AS $cat) {
+                    foreach($ey['categories'] AS $cat) {
                         $cat['link'] = serendipity_categoryURL($cat);
                         $entry_cats[] = $cat;
                     }

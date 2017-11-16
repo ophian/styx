@@ -214,7 +214,7 @@ function serendipity_contains($str, array $arr) {
  */
 function serendipity_strpos($haystack, $needles) {
     if (is_array($needles)) {
-        foreach ($needles AS $str) {
+        foreach($needles AS $str) {
             // keep in mind if needle is not a string, it is converted to an integer and applied as the ordinal value of a character
             if (is_string($str)) {
                 return strpos($haystack, $str);
@@ -233,7 +233,7 @@ function serendipity_strpos($haystack, $needles) {
  * @access public
  * @return string parent level function name
  */
-function serendipity_debugCallerId(){
+function serendipity_debugCallerId() {
     $trace = debug_backtrace();
     $level = count($trace)-1;
     return $trace[$level]['function'];
@@ -248,7 +248,7 @@ function serendipity_debugCallerId(){
  * @return  string  Truncated string
  */
 function serendipity_truncateString($s, $len) {
-    if ( strlen($s) > ($len+3) ) {
+    if (strlen($s) > ($len+3)) {
         $s = serendipity_mb('substr', $s, 0, $len) . '...';
     }
     return $s;
@@ -458,7 +458,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
     }
 
     $lines = @file($abspath . $theme . '/info.txt');
-    if ( !$lines ) {
+    if (!$lines) {
         return array();
     }
 
@@ -472,7 +472,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         }
     }
 
-    foreach ($data AS $k => $v) {
+    foreach($data AS $k => $v) {
         $data[$k] = @trim(implode("\n", $v));
     }
 
@@ -515,9 +515,9 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         }
     }
 
-    if ( $theme != 'default' && $theme != 'default-rtl'
+    if ($theme != 'default' && $theme != 'default-rtl'
                 && @is_dir($serendipity['templatePath'] . $theme . '/admin')
-                && strtolower($data['backend']) == 'yes' ) {
+                && strtolower($data['backend']) == 'yes') {
         $data['custom_admin_interface'] = YES;
     } else {
         $data['custom_admin_interface'] = NO;
@@ -931,7 +931,7 @@ function serendipity_fetchAuthor($author) {
  */
 function serendipity_parseFileName($file) {
     $x = explode('.', $file);
-    if (count($x)>1){
+    if (count($x)>1) {
         $suf = array_pop($x);
         $f   = @implode('.', $x);
         return array($f, $suf);
@@ -1153,7 +1153,7 @@ function serendipity_displayTopExits($limit = 10, $use_links = true, $interval =
 function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interval = 7) {
     global $serendipity;
 
-    if ($limit){
+    if ($limit) {
         $limit = serendipity_db_limit_sql($limit);
     }
 
@@ -1181,7 +1181,7 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
     $rows = serendipity_db_query($query);
     $output = '<span class="serendipityReferer">';
     if (is_array($rows)) {
-        foreach ($rows AS $row) {
+        foreach($rows AS $row) {
             if ($use_links) {
                 $output .= sprintf(
                     '<span class="block_level"><a href="%1$s://%2$s" title="%2$s" >%2$s</a> (%3$s) </span>',
@@ -1391,7 +1391,7 @@ function serendipity_build_query(&$array, $array_prefix = null, $comb_char = '&a
         return '';
     }
 
-    foreach ($array AS $k => $v) {
+    foreach($array AS $k => $v) {
         $newkey = urlencode($k);
         if ($array_prefix) {
             $newkey = $array_prefix . '[' . $newkey . ']';
@@ -1498,9 +1498,9 @@ function serendipity_url_allowed($url) {
 
     if ($ip) {
         $ipparts = array_map('intval', explode('.', $ip));
-        if ( 127 === $ipparts[0] || 10 === $ipparts[0] || 0 === $ipparts[0]
-            || ( 172 === $ipparts[0] && 16 <= $ipparts[1] && 31 >= $ipparts[1] )
-            || ( 192 === $ipparts[0] && 168 === $ipparts[1])
+        if (127 === $ipparts[0] || 10 === $ipparts[0] || 0 === $ipparts[0] ||
+           (172 === $ipparts[0] && 16 <= $ipparts[1] && 31 >= $ipparts[1]) ||
+           (192 === $ipparts[0] && 168 === $ipparts[1])
         ) {
             return false;
         }

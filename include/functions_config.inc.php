@@ -302,7 +302,7 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
         }
     }
 
-    foreach ($directories AS $directory) {
+    foreach($directories AS $directory) {
         $templateFile = $serendipity['templatePath'] . $directory . $file;
         if (file_exists($serendipity['serendipityPath'] . $templateFile)) {
             return $serendipity[$key] . $templateFile;
@@ -352,7 +352,7 @@ function serendipity_load_configuration($author = null) {
     }
 
     if (is_array($rows)) {
-        foreach ($rows AS $row) {
+        foreach($rows AS $row) {
             // Convert 'true' and 'false' into booleans
             $serendipity[$row['name']] = serendipity_get_bool($row['value']);
         }
@@ -1527,7 +1527,7 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
                                       ORDER BY  g.name", false, 'assoc');
     }
     if (is_array($groups)) {
-        foreach ($groups AS $k => $v) {
+        foreach($groups AS $k => $v) {
             if ('USERLEVEL_' == substr($v['confvalue'], 0, 10)) {
                 $groups[$k]['confvalue'] = $groups[$k]['name'] = constant($v['confvalue']);
             }
@@ -1794,7 +1794,7 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
     $storage =& serendipity_fetchGroup($groupid);
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groupconfig WHERE id = " . (int)$groupid);
-    foreach ($perms AS $perm => $userlevels) {
+    foreach($perms AS $perm => $userlevels) {
         if (substr($perm, 0, 2) == 'f_') {
             continue;
         }
@@ -2315,7 +2315,7 @@ function &serendipity_loadThemeOptions(&$template_config, $okey = '', $bc_bool =
             $template_vars[$item['var']] = $item['default'];
         }
     }
-    if($bc_bool) {
+    if ($bc_bool) {
         foreach($template_vars AS $k => $i) {
             if ($i == 'true' || $i == 'false') {
                 $template_vars[$k] = serendipity_db_bool($i);

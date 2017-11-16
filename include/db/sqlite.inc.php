@@ -12,7 +12,7 @@ if (!function_exists('sqlite_open')) {
  *
  * @access public
  */
-function serendipity_db_begin_transaction(){
+function serendipity_db_begin_transaction() {
     serendipity_db_query('begin transaction');
 }
 
@@ -22,10 +22,10 @@ function serendipity_db_begin_transaction(){
  * @access public
  * @param  boolean  If true, perform the query. If false, rollback.
  */
-function serendipity_db_end_transaction($commit){
-    if ($commit){
+function serendipity_db_end_transaction($commit) {
+    if ($commit) {
         serendipity_db_query('commit transaction');
-    }else{
+    } else {
         serendipity_db_query('rollback transaction');
     }
 }
@@ -153,7 +153,7 @@ function serendipity_db_sqlite_fetch_array($res, $type = SQLITE_BOTH)
     }
 
     /* strip any slashes, correct fieldname */
-    foreach ($row AS $i => $v) {
+    foreach($row AS $i => $v) {
         // TODO: If a query of the format 'SELECT a.id, b.text FROM table' is used,
         //       the sqlite extension will give us key indizes 'a.id' and 'b.text'
         //       instead of just 'id' and 'text' like in mysql/postgresql extension.

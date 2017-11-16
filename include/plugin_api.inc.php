@@ -68,7 +68,7 @@ function serendipity_plugin_api_core_event_hook($event, &$bag, &$eventData, &$ad
         case 'js':
             // Add a global available (index.tpl; admin/index.tpl; preview_iframe.tpl) redirect error string function used by errorToExceptionHandler()
             // hardened by admin only - better have that here, to be reachable everywhere
-            if( $serendipity['production'] === true && $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN ) {
+            if ($serendipity['production'] === true && $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN ) {
                 echo "
 function errorHandlerCreateDOM(htmlStr) {
     var frag = document.createDocumentFragment(),
@@ -305,7 +305,7 @@ class serendipity_plugin_api
 
         /* built-in classes first */
         $cls = get_declared_classes();
-        foreach ($cls AS $class_name) {
+        foreach($cls AS $class_name) {
             if (strncmp($class_name, 'serendipity_', 6)) {
                 continue;
             }
@@ -425,7 +425,7 @@ class serendipity_plugin_api
     {
         $plugins = serendipity_plugin_api::enum_plugins($filter);
         $res = array();
-        foreach ( (array)$plugins AS $plugin ) {
+        foreach((array)$plugins AS $plugin) {
             list($class_name) = explode(':', $plugin['name']);
             $class_name = ltrim($class_name, '@');
             $res[] = $class_name;
@@ -922,7 +922,7 @@ class serendipity_plugin_api
             $loggedin = true;
         }
 
-        foreach ($plugins AS $plugin_data) {
+        foreach($plugins AS $plugin_data) {
             $plugin =& serendipity_plugin_api::load_plugin($plugin_data['name'], $plugin_data['authorid'], $plugin_data['path']);
             if (is_object($plugin)) {
                 $class  = get_class($plugin);
@@ -1121,7 +1121,7 @@ class serendipity_plugin_api
         if (is_array($plugins)) {
             // foreach() operates on copies of values, but we want to operate on references, so we use while()
             @reset($plugins);
-            while(list($plugin, $plugin_data) = each($plugins)) {
+            while (list($plugin, $plugin_data) = each($plugins)) {
                 $bag    = &$plugin_data['b'];
                 $phooks = &$bag->get('event_hooks');
                 if (isset($phooks[$event_name])) {

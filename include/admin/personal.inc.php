@@ -17,7 +17,7 @@ $from = array();
 if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()) {
     $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
     $data['adminAction'] = 'save';
-    if ( (!serendipity_checkPermission('adminUsersEditUserlevel') || !serendipity_checkPermission('adminUsersMaintainOthers') )
+    if ((!serendipity_checkPermission('adminUsersEditUserlevel') || !serendipity_checkPermission('adminUsersMaintainOthers'))
           && (int)$_POST['userlevel'] > $serendipity['serendipityUserlevel']) {
         $data['not_authorized'] = true;
     } elseif (empty($_POST['username'])) {
@@ -43,7 +43,7 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
         $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
         $data['realname'] = $_POST['realname'];
         foreach($config AS $category) {
-            foreach ($category['items'] AS $item) {
+            foreach($category['items'] AS $item) {
                 if (in_array('groups', $item['flags'])) {
                     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
 

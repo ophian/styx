@@ -125,7 +125,7 @@ if ( $serendipity['GET']['adminAction'] == 'delete' ) {
         $cats = serendipity_fetchCategories('all');
         $data['cats'] = array();
         /* TODO, show dropdown as nested categories */
-        foreach ($cats AS $cat_data) {
+        foreach($cats AS $cat_data) {
             if ($cat_data['categoryid'] != $serendipity['GET']['cid'] && (serendipity_checkPermission('adminCategoriesMaintainOthers') || $cat_data['authorid'] == '0' || $cat_data['authorid'] == $serendipity['authorid'])) {
                 $data['cats'][] = $cat_data;
             }

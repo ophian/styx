@@ -7,7 +7,7 @@
  *
  * @access public
  */
-function serendipity_db_begin_transaction(){
+function serendipity_db_begin_transaction() {
     serendipity_db_query('start transaction');
 }
 
@@ -17,10 +17,10 @@ function serendipity_db_begin_transaction(){
  * @access public
  * @param  boolean  If true, perform the query. If false, rollback.
  */
-function serendipity_db_end_transaction($commit){
-    if ($commit){
+function serendipity_db_end_transaction($commit) {
+    if ($commit) {
         serendipity_db_query('commit');
-    }else{
+    } else {
         serendipity_db_query('rollback');
     }
 }
@@ -302,10 +302,7 @@ function serendipity_db_schema_import($query) {
 
     if ($is_utf8 === null) {
         $search[] = '{UTF_8}';
-        if (  (isset($_POST['charset']) && $_POST['charset'] == 'UTF-8/') ||
-              $serendipity['charset'] == 'UTF-8/' ||
-              $serendipity['POST']['charset'] == 'UTF-8/' ||
-              LANG_CHARSET == 'UTF-8' ) {
+        if ((isset($_POST['charset']) && $_POST['charset'] == 'UTF-8/') || $serendipity['charset'] == 'UTF-8/' || $serendipity['POST']['charset'] == 'UTF-8/' || LANG_CHARSET == 'UTF-8' ) {
             $replace[] = '/*!40100 CHARACTER SET utf8 COLLATE utf8_unicode_ci */';
         } else {
             $replace[] = '';

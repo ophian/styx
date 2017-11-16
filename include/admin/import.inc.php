@@ -134,7 +134,7 @@ class Serendipity_Import
      */
     function strtrRecursive($data)
     {
-        foreach ($data AS $key => $val) {
+        foreach($data AS $key => $val) {
             if (is_array($val)) {
                 $data[$key] = $this->strtrRecursive($val);
             } else {
@@ -163,7 +163,7 @@ class Serendipity_Import
 
         // We need to convert interesting characters to HTML entities, except for those with special relevance to HTML.
         $this->trans_table = get_html_translation_table(HTML_ENTITIES);
-        foreach (get_html_translation_table(HTML_SPECIALCHARS) AS $char => $encoded) {
+        foreach(get_html_translation_table(HTML_SPECIALCHARS) AS $char => $encoded) {
             if (isset($this->trans_table[$char])) {
                 unset($this->trans_table[$char]);
             }
@@ -218,7 +218,7 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
     $data['importForm'] = true;
     /* Include the importer */
     $class = @require_once(S9Y_INCLUDE_PATH . 'include/admin/importers/'. basename($serendipity['GET']['importFrom']) .'.inc.php');
-    if ( !class_exists($class) ) {
+    if (!class_exists($class)) {
         $data['die'] = true;
     } else {
 
@@ -237,7 +237,7 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
         } else {
             $data['formToken'] = serendipity_setFormToken();
             $fields = $importer->getInputFields();
-            foreach ($fields AS &$field ) {
+            foreach($fields AS &$field) {
                 $field['guessedInput'] = serendipity_guessInput($field['type'], 'serendipity[import]['. $field['name'] .']', (isset($serendipity['POST']['import'][$field['name']]) ? $serendipity['POST']['import'][$field['name']] : $field['default']), $field['default']);
             }
             $data['fields'] = $fields;
@@ -248,7 +248,7 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
     $importpath = S9Y_INCLUDE_PATH . 'include/admin/importers/';
     $dir        = opendir($importpath);
     $list       = array();
-    while (($file = readdir($dir)) !== false ) {
+    while (($file = readdir($dir)) !== false) {
         if (!is_file($importpath . $file) || !preg_match('@.php$@', $file)) {
             continue;
         }
