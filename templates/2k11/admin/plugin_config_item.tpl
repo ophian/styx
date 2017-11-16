@@ -39,7 +39,7 @@
         {if $cdesc != ''}<span id="{$config_item|cleanChars}_info" class="field_info additional_info">{$cdesc}</span>{/if}
         <input id="serendipity_{$config_item}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" type="{$input_type}" value="{$hvalue}">
     </div>
-{elseif (($ctype == 'html') OR ($ctype == 'text'))}
+{elseif ($ctype == 'html' OR $ctype == 'text')}
 
     <div class="clearfix form_area{if $cdesc != ''} has_info{/if}">
         <label for="nuggets{$elcount}">{$cname}{if $cdesc != '' AND !$backend_wysiwyg} <button class="toggle_info button_link" type="button" data-href="#nuggets{$elcount}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
@@ -117,12 +117,12 @@
             {/if}
                 <noscript>
                     <div>
-                {if ($orid['sort_idx'] == 0)}
+                {if $orid['sort_idx'] == 0}
                     &nbsp;
                 {else}
                     <button id="{$postKey}_{$config_item}_{$orid['sort_idx']}_up" class="icon_link" name="serendipity[{$postKey}][override][{$config_item}]" type="submit" value="{$orid['oneup']}"><span class="icon-up-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MOVE_UP}</span></button>
                 {/if}
-                {if ($orid['sort_idx'] == $last)}
+                {if $orid['sort_idx'] == $last}
                     &nbsp;
                 {else}
                     <button id="{$postKey}_{$config_item}_{$orid['sort_idx']}_down" class="icon_link" name="serendipity[{$postKey}][override][{$config_item}]" type="submit" value="{$orid['onedown']}"><span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MOVE_DOWN}</span></button>
