@@ -740,7 +740,9 @@ input[type="submit"] {
 button,
 button[type="submit"].publish_now,
 input[type="button"],
-input[type="color"] {
+input[type="color"],
+noscript button[type="submit"],
+noscript button[type="submit"]:hover {
     background: #ddd;
     background-image: -webkit-linear-gradient(#fff, #ddd);
     background-image: linear-gradient(#fff, #ddd);
@@ -748,7 +750,10 @@ input[type="color"] {
     color: #222;
     text-shadow: #fff 0 1px 1px;
 }
-
+noscript button[type="submit"],
+noscript button[type="submit"]:hover {
+    padding: .1em;
+}
 button[type="submit"].publish_now {
     text-shadow: none !important;
 }
