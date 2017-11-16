@@ -154,9 +154,10 @@
 
                 <a class="button_link state_submit" href="{$upgradeLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_DOIT}</a>{if $showAbort} <a class="button_link state_cancel" href="{$abortLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_ABORT}</a>{/if}
             {else}
-                <h3>{$CONST.SERENDIPITY_UPGRADER_NO_UPGRADES}</h3>
+                <p>{$CONST.SERENDIPITY_UPGRADER_NO_UPGRADES}</p>
 
-                <a class="button_link state_submit" href="{$upgradeLoc}">{$CONST.SERENDIPITY_UPGRADER_CONSIDER_DONE}</a>
+                <div class="msg_success"><span class="icon-ok-circled"></span> {$CONST.SERENDIPITY_UPGRADER_CONSIDER_DONE}</div>
+                <div><a class="button_link state_submit" href="{$upgradeLoc}">{$CONST.SERENDIPITY_UPGRADER_RETURN_HERE|sprintf:'':''}</a></div>
             {/if}
         {/if}
     {/if}
