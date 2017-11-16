@@ -481,7 +481,7 @@ function serveArchives() {
                 if (($g_y % 4) == 3) $j_days_in_month[12]++;
 
                 for($i=1; isset($j_days_in_month[$i]); ++$i) {
-                    if (($day-$j_days_in_month[$i])>0) {
+                    if (($day-$j_days_in_month[$i]) > 0) {
                         $day -= $j_days_in_month[$i];
                     } else {
                         break;

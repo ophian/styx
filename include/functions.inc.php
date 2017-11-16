@@ -931,13 +931,13 @@ function serendipity_fetchAuthor($author) {
  */
 function serendipity_parseFileName($file) {
     $x = explode('.', $file);
-    if (count($x)>1) {
+    if (count($x) > 1) {
         $suf = array_pop($x);
         $f   = @implode('.', $x);
         return array($f, $suf);
     }
     else {
-        return array($file,'');
+        return array($file, '');
     }
 }
 
