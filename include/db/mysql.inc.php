@@ -302,7 +302,8 @@ function serendipity_db_schema_import($query) {
 
     if ($is_utf8 === null) {
         $search[] = '{UTF_8}';
-        if ((isset($_POST['charset']) && $_POST['charset'] == 'UTF-8/') || $serendipity['charset'] == 'UTF-8/' || $serendipity['POST']['charset'] == 'UTF-8/' || LANG_CHARSET == 'UTF-8' ) {
+        if ((isset($_POST['charset']) && $_POST['charset'] == 'UTF-8/') ||
+            $serendipity['charset'] == 'UTF-8/' || $serendipity['POST']['charset'] == 'UTF-8/' || LANG_CHARSET == 'UTF-8' ) {
             $replace[] = '/*!40100 CHARACTER SET utf8 COLLATE utf8_unicode_ci */';
         } else {
             $replace[] = '';
