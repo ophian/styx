@@ -3479,6 +3479,9 @@ img.mfp-img {
     #media_pane_filter div fieldset input {/*mediafilter*/
         width: 6em;
     }
+    #media_pane_filter div fieldset input[type="date"] {/*mediafilter for role date HTML5 date picker interface */
+        width: auto;
+    }
     #media_filter .range-label {/*mediafilter*/
         display: inline-block;
         width: auto;
