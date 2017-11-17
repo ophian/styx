@@ -405,7 +405,6 @@ $dead_files_240 = array(
     'bundled-libs/Smarty/libs/plugins/shared.mb_wordwrap.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_compile_block_child.php',
     'bundled-libs/Smarty/libs/sysplugins/smarty_internal_compile_block_parent.php',
-    'bundled-libs/Smarty/libs/sysplugins/smarty_internal_errorhandler.php',
     'sql/dbpre.sql'
 );
 
