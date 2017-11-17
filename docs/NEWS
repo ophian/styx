@@ -1,6 +1,8 @@
 Version 2.4.0 ()
  ------------------------------------------------------------------------
 
+  * Fix mediafilter input width for HTML5 browser date picker interface
+
   * Regression fix for the plugin-multi-updater activity spinner
 
   * Optimise entryproperties custom field option textarea row size
