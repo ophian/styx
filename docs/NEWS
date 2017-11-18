@@ -1,6 +1,9 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix maintenance task clearCompiledTemplate() first parameter not
+    being used (as of cache) and return 0 or Smarty regression bugfix.
+
 
 Version 2.4.0 (2017-11-17)
  ------------------------------------------------------------------------
