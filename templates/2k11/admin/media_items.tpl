@@ -55,8 +55,8 @@
             {$img_alt="{$file.mime}"}
         {/if}
     {/if}
-    {* builds a ML objects link for step 1, to pass to media_choose.tpl file section: passthrough media.filename_only scripts - do not use "empty($link) AND" here, since that would require a reset before! *}
-    {if (!$file.is_image OR $file.is_image == 0) AND $file.mediatype != 'image' AND $file.realfile}
+    {* builds a ML objects link for step 1, to pass to media_choose.tpl file section: passthrough media.filename_only scripts - do not use "empty($link) AND" here, since that would require a reset before! Strictly build this link for media to textarea cases only. *}
+    {if (!$file.is_image OR $file.is_image == 0) AND $file.mediatype != 'image' AND $file.realfile AND !empty($media.textarea) AND !empty($media.htmltarget)}
         {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[fid]={$file.id}&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[htmltarget]={$media.htmltarget}"}
     {/if}
 
