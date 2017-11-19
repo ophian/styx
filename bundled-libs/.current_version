@@ -1,14 +1,10 @@
 All libs have more or less being touched for PHP5 constructors
 
 Cache_Lite              1.7.16 (CVS 1.7.16)
-HTTP_Request            1.2.4  (CVS 1.43)
 HTTP_Request2           2.3.0  (latest, 2016-06-22)
-Net_CheckIP             1.1    (CVS 1.5)
 Net_CheckIP2            1.1    (latest, 2016-06-22)
 Net_DNSBL               1.0.0  (CVS 1.4)
-Net_Socket              1.0.6  (CVS 1.24)
 Net_Socket2             ???    (latest, 2016-06-22)
-Net_URL                 1.0.4  (CVS 1.36)
 Net_URL2                2.2.1  (latest, 2016-06-22)
 Net_SURBL               1.4    (latest, 2016-06-22)
 Onyx (customized)       1.0
