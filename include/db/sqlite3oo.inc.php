@@ -7,11 +7,6 @@ define(SQLITE3_ASSOC, 0);
 define(SQLITE3_NUM, 1);
 define(SQLITE3_BOTH, 2);
 
-if (!class_exists('SQLite3')) {
-    @dl('sqlite3.so');  // DEPRECATED: This function was removed from most SAPIs in PHP 5.3.0,
-    @dl('sqlite3.dll'); //             and was removed from PHP-FPM in PHP 7.0.0.
-}
-
 /**
  * Tells the DB Layer to start a DB transaction.
  *
