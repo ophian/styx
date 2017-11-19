@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * db: Remove deprecated dl() method in sqlite DB layers
+
   * bundled-libs: Remove deprecated old HTTP/Request library
 
   * Optimise MediaLibrary filter date ranges label for length
