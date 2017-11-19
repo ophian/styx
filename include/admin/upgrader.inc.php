@@ -387,6 +387,18 @@ $tasks = array(
                     'title'     => 'Fix Update version of certain plugins',
                     'desc'      => 'This fixes some upgrade_version values for core to Spartacus (additional_plugins) moved plugins, which were not correctly synced in the pluginlist for plugin update tasks.<pre><strong>For clarification</strong><br>This database conversion task pulls all plugins into the update cycle which take place as REAL dir/file occurrences in the plugin path ("/plugins"), regardless of whether they are installed for the system set active or hidden!<br>This is necessary to effectively use the database plugin list as a real Spartacus image.<br>So don\'t be surprised if the next time you perform a plugin update search, you will have plugins available that you haven\'t installed yourself.<br>They are only updated, not installed!</pre>'),
 
+            array(  'version'   => '2.5.0',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'title'     => 'Removal of old dead files in v.2.5.0',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_250, array('internals'), true),
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_250) . '</pre>'),
+
+            array(  'version'   => '2.5.0',
+                    'function'  => 'recursive_directory_iterator',
+                    'title'     => 'Removal of obsolete and dead directories',
+                    'arguments' => array($dead_dirs_250),
+                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_250) . '</pre>'),
+
 );
 
 /* Fetch SQL files which needs to be run */
