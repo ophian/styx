@@ -6,5 +6,8 @@ require_once dirname(__FILE__) . '/../../Cache/Lite.php';
 require_once 'HTTP/Request2.php';
 require_once dirname(__FILE__) . '/../../HTTP/Request2.php';
 
+require_once 'Net/CheckIP2.php';
+require_once dirname(__FILE__) . '/../CheckIP2.php';
+
 require_once 'Net/DNSBL.php';
 require_once dirname(__FILE__) . '/../DNSBL.php';
