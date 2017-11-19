@@ -77,7 +77,7 @@ class Cryptor
         //$iv = mcrypt_create_iv($this->iv_num_bytes, MCRYPT_DEV_URANDOM);
         $iv = openssl_random_pseudo_bytes($this->iv_num_bytes, $isStrongCrypto);
         if (!$isStrongCrypto) {
-            throw new \Exception("Not a strong key");
+            throw new \Exception("Cryptor::encryptString() - Not a strong key");
         }
 
         // Hash the key
