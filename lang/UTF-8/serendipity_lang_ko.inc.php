@@ -1025,7 +1025,7 @@
 @define('CLEANCOMPILE_PASS', '컴파일된 템플릿 비우기-[smarty clearCompiledTemplate(%s)]');
 @define('CLEANCOMPILE_FAIL', '삭제할 파일이 없습니다.');
 @define('CLEANCOMPILE_TITLE', '템플릿 캐시 비우기');
-@define('CLEANCOMPILE_INFO', '현재 사용 중인 템플릿에 대해 컴파일된 템플릿 파일을 모두 삭제하는 기능입니다. 컴파일된 템플릿은 스마티 프레임워크에 의해 필요에 따라 자동으로 재생성됩니다.');//rephrase
+@define('CLEANCOMPILE_INFO', '현재 사용 중인 템플릿에 대해 컴파일된 템플릿 파일을 모두 삭제하는 기능입니다. 컴파일된 템플릿은 스마티 프레임워크에 의해 필요에 따라 자동으로 재생성됩니다.');
 @define('INSTALLER_KEY', '키');
 @define('INSTALLER_VALUE', '값');
 @define('CURRENT_TAB', '현재 탭: ');
