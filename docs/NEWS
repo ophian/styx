@@ -1,6 +1,9 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Bugfix MediaLibrary error "Image (link) could not be loaded" for
+    non-type-images.
+
   * Fix maintenance task clearCompiledTemplate() first parameter not
     being used (as of cache) and return 0 or Smarty regression bugfix.
 
