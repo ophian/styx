@@ -415,7 +415,10 @@ $dead_dirs_240 = array(
 
 /* A list of Styx files, which were removed or renamed by 2.5.0 */
 $dead_files_250 = array(
-    'bundled-libs/HTTP/Request.php'
+    'bundled-libs/HTTP/Request.php',
+    'bundled-libs/NET/CheckIP.php',
+    'bundled-libs/NET/Socket.php',
+    'bundled-libs/NET/URL.php'
 );
 
 /* A list of old or removed directories for 2.5.0 */
