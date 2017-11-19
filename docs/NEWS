@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * bundled-libs: Remove deprecated old NET/ lib files
+
   * db: Remove deprecated dl() method in sqlite DB layers
 
   * bundled-libs: Remove deprecated old HTTP/Request library
