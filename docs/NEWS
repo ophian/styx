@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * bundled-libs: Remove deprecated old HTTP/Request library
+
   * Optimise MediaLibrary filter date ranges label for length
 
   * Bugfix MediaLibrary error "Image (link) could not be loaded" for
