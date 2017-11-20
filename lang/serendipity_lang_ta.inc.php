@@ -283,7 +283,7 @@
 @define('ORIGINAL_SHORT', 'Orig.');
 @define('APPLY_MARKUP_TO', 'Apply markup to %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'வாரத் துவக்கம்');
-@define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity has detected that your currently installed Serendipity version is %s. It seems you are attempting to upgrade to version %s, so you need to <a href="%s">click here</a> to continue the upgrade process.');
+@define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity has detected that your currently installed version is %s. It seems you are attempting to upgrade to version %s, so you need to <a href="%s">click here</a> to continue the upgrade process.');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Hi, and welcome to the Serendipity upgrade agent.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'I am here to help you upgrade your Serendipity %s installation.');
 @define('SERENDIPITY_UPGRADER_WHY', 'You are seeing this message because you have just installed Serendipity %s, but have not yet upgraded your database installation to fit this version');
