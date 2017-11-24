@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.02');
+        $propbag->add('version',       '2.03');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1298,10 +1298,12 @@ switch ($serendipity['GET']['cleanspamsg']) {
                     <select id="cleanspam_access_multi_reasons" class="additional_info" name="serendipity[cleanspam][multi_reasons][]" multiple="multiple">
                         <option value="">- - -</option>
                         <option value="api">LIKE "<?php echo PLUGIN_EVENT_SPAMBLOCK_REASON_API; ?>"</option>
+                        <option value="amx">LIKE "<?php echo PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION; ?>"</option>
+                        <option value="filter">LIKE "Wordfilter for urls, authors, words, emails"</option>
                         <option value="hpot">LIKE "BEE Honeypot%"</option>
                         <option value="hcap">LIKE "BEE HiddenCaptcha%"</option>
-                        <option value="ipv">LIKE "Caught by the Bayes-Plugin%"</option>
-                        <option value="cbay">LIKE "IP validation%" in (de, en, cs, cz, sk) languages</option>
+                        <option value="cbay">LIKE "Caught by the Bayes-Plugin%"</option>
+                        <option value="ipv">LIKE "IP validation%" in (de, en, cs, cz, sk) languages</option>
                     </select>
                     <div class="form_buttons form_cpm">
                         <input class="state_submit" name="spamclean_multi" type="submit" value="<?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MULTI_BUTTON; ?>">
@@ -1826,6 +1828,17 @@ switch ($serendipity['GET']['cleanspamsg']) {
                             @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND reason='".PLUGIN_EVENT_SPAMBLOCK_REASON_API."'"); // (since already translated variously.., we have to use the constant
                             $sbldone = true;
                         }
+                        if ($p == 'amx') {
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'moderate' AND (reason='".PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION."' OR reason='Auto-moderation after X days')"); // (Auto-moderation after X days, we use the constant and <en> lang
+                            $sbldone = true;
+                        }
+                        if ($p == 'filter') {
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND (reason LIKE '".PLUGIN_EVENT_SPAMBLOCK_FILTER_URLS."%' OR reason LIKE 'Wordfilter for URLs%')"); // wordfilter for ... lang constant and <en>
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND (reason LIKE '".PLUGIN_EVENT_SPAMBLOCK_FILTER_AUTHORS."%' OR reason LIKE 'Wordfilter for author names%')");
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND (reason LIKE '".PLUGIN_EVENT_SPAMBLOCK_FILTER_WORDS."%' OR reason LIKE 'Wordfilter for comment body%')");
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND (reason LIKE '".PLUGIN_EVENT_SPAMBLOCK_FILTER_EMAILS."%' OR reason LIKE 'Wordfilter for comment E-mail%')");
+                            $sbldone = true;
+                        }
                         if ($p == 'hpot') {
                             @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'BEE Honeypot%'"); // (approximately big data)
                             @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND reason LIKE 'BEE Honeypot%'"); // (approximately big data)
@@ -1837,8 +1850,8 @@ switch ($serendipity['GET']['cleanspamsg']) {
                             $sbldone = true;
                         }
                         if ($p == 'ipv') {
-                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%'"); // (en, de, cs, cz, sk) (approximately mid-big data)
-                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%'"); // (en, de, cs, cz, sk) (approximately mid-big data)
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' AND (reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%')"); // (en, de, cs, cz, sk) (approximately mid-big data)
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND (reason LIKE 'IP validation%' OR reason LIKE 'IP Validierung%' OR reason LIKE 'Kontrola IP adresy%')"); // (en, de, cs, cz, sk) (approximately mid-big data)
                             $sbldone = true;
                         }
                         if ($p == 'cbay') {
