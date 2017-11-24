@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix and extend spamblock maintenance multiselectable selection
+
   * bundled-libs: Remove deprecated old NET/ lib files
 
   * db: Remove deprecated dl() method in sqlite DB layers
