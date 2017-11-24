@@ -150,7 +150,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MAINTAIN_DESC', 'Cleanups database logentries, which apply to certain criteria. This should be done perodically (once or twice a year), since spammers continuously blow up your spamblock logs and reduce the speed of your blog. According to experience, depending on the settings of the current Spamblog plugins, these two types (moderate, rejected) are mainly equipped with Spam.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_BUTTON', 'Cleanup all');
-@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_DESC', 'Cleanup <b>all</b> log-entries of type: \'REJECTED\' and \'MODERATE\' in database.table "spamblocklog". Currently %d items are available.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_DESC', 'Cleanup <b>all</b> log-entries of type: \'REJECTED\' and \'MODERATE\' in database.table "spamblocklog" which have an empty comment field. Currently %d global items are available.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MULTI_BUTTON', 'Cleanup items');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MULTI_DESC', 'Cleanup individually by <b>multi</b> selected or <b>single</b> from table field "reason" LIKE "items". Applies for the types: \'REJECTED\' und \'MODERATE\'!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MSG_DONE', 'Cleanup successfuly done!');
