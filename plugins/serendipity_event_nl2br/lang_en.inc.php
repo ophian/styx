@@ -34,5 +34,6 @@
     <li>do not use other markup plugins - or</li>
     <li>you do not use the WYSIWYG editor - or</li>
     <li>you only want to apply linebreak transformations on comments to your blog entries, and do not allow any possible markup of other plugins that you only use for blog entries.</li>
-</ul>');
+</ul>
+<p>NL2BR is a short form word. Read as: Funktion NL to BR, <b>not</b> NL two BR!</p>');
 
