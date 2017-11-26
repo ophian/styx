@@ -69,11 +69,13 @@
     </div>
     {/if}
     <div id="navbar">
+    {if $template_option.use_corenav}
         <a id="open-nav" class="nav-toggle" href="#site-nav"><span class="icon-menu" aria-hidden="true"></span><span class="fallback-text">{$CONST.NEXT_NAVTEXT}</span></a>
 
         <nav id="site-nav" class="nav-collapse">
             <ul>{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}<li>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}</ul>
         </nav>
+    {/if}
     </div>
 
     <main id="primary">
