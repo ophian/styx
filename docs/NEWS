@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Sync Smarty Update to 3.1.32-dev-38 (including the Styx patch)
+
   * Add nav $template_option.use_corenav check to the next theme
 
   * Fix and extend spamblock maintenance multiselectable selection
