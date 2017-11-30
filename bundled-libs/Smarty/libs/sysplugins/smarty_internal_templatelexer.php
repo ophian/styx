@@ -368,7 +368,11 @@ class Smarty_Internal_Templatelexer
 
     function yy_r1_2()
     {
-        preg_match("/[*]{$this->compiler->getRdelPreg()}/", $this->data, $match, PREG_OFFSET_CAPTURE, $this->counter);
+        preg_match("/[*]{$this->compiler->getRdelPreg()}[\n]?/",
+                   $this->data,
+                   $match,
+                   PREG_OFFSET_CAPTURE,
+                   $this->counter);
         if (isset($match[ 0 ][ 1 ])) {
             $to = $match[ 0 ][ 1 ] + strlen($match[ 0 ][ 0 ]);
         } else {
@@ -757,7 +761,7 @@ class Smarty_Internal_Templatelexer
         // resolve conflicts with shorttag and right_delimiter starting with '='
         if (substr($this->data, $this->counter + strlen($this->value) - 1, $this->compiler->getRdelLength()) ===
             $this->smarty->getRightDelimiter()) {
-            preg_match("/\s+/", $this->value, $match);
+            preg_match('/\s+/', $this->value, $match);
             $this->value = $match[ 0 ];
             $this->token = Smarty_Internal_Templateparser::TP_SPACE;
         } else {

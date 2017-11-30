@@ -11,30 +11,31 @@
  * @author     Uwe Tews
  *
  * Runtime extensions
- * @property Smarty_Internal_Runtime_CacheModify       $_cacheModify
- * @property Smarty_Internal_Runtime_CacheResourceFile $_cacheResourceFile
- * @property Smarty_Internal_Runtime_Capture           $_capture
- * @property Smarty_Internal_Runtime_CodeFrame         $_codeFrame
- * @property Smarty_Internal_Runtime_FilterHandler     $_filterHandler
- * @property Smarty_Internal_Runtime_Foreach           $_foreach
- * @property Smarty_Internal_Runtime_GetIncludePath    $_getIncludePath
- * @property Smarty_Internal_Runtime_Make_Nocache      $_make_nocache
- * @property Smarty_Internal_Runtime_UpdateCache       $_updateCache
- * @property Smarty_Internal_Runtime_UpdateScope       $_updateScope
- * @property Smarty_Internal_Runtime_TplFunction       $_tplFunction
- * @property Smarty_Internal_Runtime_WriteFile         $_writeFile
+ * @property Smarty_Internal_Runtime_CacheModify        $_cacheModify
+ * @property Smarty_Internal_Runtime_CacheResourceFile  $_cacheResourceFile
+ * @property Smarty_Internal_Runtime_Capture            $_capture
+ * @property Smarty_Internal_Runtime_CodeFrame          $_codeFrame
+ * @property Smarty_Internal_Runtime_FilterHandler      $_filterHandler
+ * @property Smarty_Internal_Runtime_Foreach            $_foreach
+ * @property Smarty_Internal_Runtime_GetIncludePath     $_getIncludePath
+ * @property Smarty_Internal_Runtime_Make_Nocache       $_make_nocache
+ * @property Smarty_Internal_Runtime_UpdateCache        $_updateCache
+ * @property Smarty_Internal_Runtime_UpdateScope        $_updateScope
+ * @property Smarty_Internal_Runtime_TplFunction        $_tplFunction
+ * @property Smarty_Internal_Runtime_WriteFile          $_writeFile
  *
  * Method extensions
- * @property Smarty_Internal_Method_GetTemplateVars    $getTemplateVars
- * @property Smarty_Internal_Method_Append             $append
- * @property Smarty_Internal_Method_AppendByRef        $appendByRef
- * @property Smarty_Internal_Method_AssignGlobal       $assignGlobal
- * @property Smarty_Internal_Method_AssignByRef        $assignByRef
- * @property Smarty_Internal_Method_LoadFilter         $loadFilter
- * @property Smarty_Internal_Method_LoadPlugin         $loadPlugin
- * @property Smarty_Internal_Method_RegisterFilter     $registerFilter
- * @property Smarty_Internal_Method_RegisterObject     $registerObject
- * @property Smarty_Internal_Method_RegisterPlugin     $registerPlugin
+ * @property Smarty_Internal_Method_GetTemplateVars     $getTemplateVars
+ * @property Smarty_Internal_Method_Append              $append
+ * @property Smarty_Internal_Method_AppendByRef         $appendByRef
+ * @property Smarty_Internal_Method_AssignGlobal        $assignGlobal
+ * @property Smarty_Internal_Method_AssignByRef         $assignByRef
+ * @property Smarty_Internal_Method_LoadFilter          $loadFilter
+ * @property Smarty_Internal_Method_LoadPlugin          $loadPlugin
+ * @property Smarty_Internal_Method_RegisterFilter      $registerFilter
+ * @property Smarty_Internal_Method_RegisterObject      $registerObject
+ * @property Smarty_Internal_Method_RegisterPlugin      $registerPlugin
+ * @property mixed|\Smarty_Template_Cached              configLoad
  */
 class Smarty_Internal_Extension_Handler
 {
