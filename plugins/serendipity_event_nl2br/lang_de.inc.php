@@ -15,7 +15,7 @@
 @define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'Eine Liste von HTML-Tags, innerhalb derer keine Umbrüche bei Benutzung von P-Tags konvertiert werden. Konfigurationsvorschlag: "code,pre,geshi,textarea". Trennen Sie mehrere HTML-Tags mit Komma. Hinweis: Die eingegebenen Tags sind reguläre Ausdrücke!');
 @define('PLUGIN_EVENT_NL2BR_PTAGS', 'Nutze P-Tags');
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'Setze statt br-Tags p-Tags ein.');
-@define('PLUGIN_EVENT_NL2BR_PTAGS_DESC2', 'Dies kann bei verschachtelten Markup-Fällen zu Fehlinterpretationen führen!');
+@define('PLUGIN_EVENT_NL2BR_PTAGS_DESC2', 'Dies kann bei verschachtelten Markup-Fällen aber zu Fehlinterpretationen führen!');
 @define('PLUGIN_EVENT_NL2BR_ISOBR_TAG', 'ISOBR Isolations-Default BR Einstellung');
 @define('PLUGIN_EVENT_NL2BR_ISOBR_TAG_DESC', 'Mit dem neu eingefügten NON-HTML-Tag <nl> </nl> als NL2BR Isolations-Default Einstellung, kann die NL2BR Funktion nun so genutzt werden, dass alles innerhalb dieses Tags nicht von NL2BR geparst wird. Auch nicht verschachtelte mehrfach Vorkommen im Text werden unterstützt! Beispiel: <nl>do not parse newline to br inside</nl>');
 @define('PLUGIN_EVENT_NL2BR_CLEANTAGS', 'Nutze BR-Clean-Tags fallback, wenn ISOBR false');
