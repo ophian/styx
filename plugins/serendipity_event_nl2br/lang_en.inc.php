@@ -9,7 +9,7 @@
 @define('PLUGIN_EVENT_NL2BR_NAME', 'Markup: NL2BR');
 @define('PLUGIN_EVENT_NL2BR_DESC', 'Convert newlines to BR tags');
 @define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP', 'Check other markup plugins?');
-@define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP_DESC', 'Automaticly check existing markup plugins to disable the use of NL2BR plugin. This is true, when WYSIWYG or specific markup plugins are detected.');
+@define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP_DESC', 'Automatically check existing markup plugins to disable the use of NL2BR plugin. This is true, when WYSIWYG or specific markup plugins are detected.');
 @define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Exceptions to this rule');
 @define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'A list of HTML-tags where no breaks shall be converted, if using p-tags. Suggestion: "code,pre,geshi,textarea". Seperate multiple tags with a comma. Hint: The entered tags are evaluated as regular expressions.');
 @define('PLUGIN_EVENT_NL2BR_PTAGS', 'Use p-tags');
