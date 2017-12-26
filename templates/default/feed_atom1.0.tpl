@@ -17,7 +17,7 @@
     {$metadata.additional_fields.image_atom10}
     <id>{$metadata.link}</id>
     <updated>{$last_modified}</updated>
-    <generator uri="https://www.s9y.org/" version="{$serendipityVersion}">Serendipity {$serendipityVersion} - https://www.s9y.org/</generator>
+    <generator uri="https://ophian.github.io/" version="">Serendipity Styx - https://ophian.github.io/</generator>
     <dc:language>{$metadata.language}</dc:language>
 {if $metadata.showMail}
     <admin:errorReportsTo rdf:resource="mailto:{$metadata.email}" />

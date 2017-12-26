@@ -17,7 +17,7 @@
 {if $metadata.showMail}
     <admin:errorReportsTo rdf:resource="mailto:{$metadata.email}" />
 {/if}
-    <generator>Serendipity {$serendipityVersion} - https://www.s9y.org/</generator>
+    <generator>Serendipity Styx - https://ophian.github.io/</generator>
     {$metadata.additional_fields.channel}
     {$metadata.additional_fields.image}
 

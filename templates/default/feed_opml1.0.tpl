@@ -4,7 +4,7 @@
 <head>
     <title>{$metadata.title}</title>
     <dateModified>{$last_modified}</dateModified>
-    <ownerName>Serendipity {$serendipityVersion} - https://www.s9y.org/</ownerName>
+    <ownerName>Serendipity Styx - https://ophian.github.io/</ownerName>
 </head>
 <body>
 
