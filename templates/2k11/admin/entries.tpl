@@ -38,6 +38,7 @@
         {/if}
             <button class="hilite_i wrap_selection lang-html" type="button" name="insI" data-tag-open="em" data-tag-close="em" data-tarea="serendipity[body]">i</button>
             <button class="hilite_b wrap_selection lang-html" type="button" name="insB" data-tag-open="strong" data-tag-close="strong" data-tarea="serendipity[body]">b</button>
+            <button class="hilite_u wrap_selection lang-html" type="button" name="insU" data-tag-open="u" data-tag-close="u" data-tarea="serendipity[body]">u</button>
             <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity[body]">{$CONST.QUOTE}</button>
             <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity[body]">img</button>
             <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[body]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
@@ -64,6 +65,7 @@
         {/if}
             <button class="hilite_i wrap_selection lang-html" type="button" name="insI" data-tag-open="em" data-tag-close="em" data-tarea="serendipity[extended]">i</button>
             <button class="hilite_b wrap_selection lang-html" type="button" name="insB" data-tag-open="strong" data-tag-close="strong" data-tarea="serendipity[extended]">b</button>
+            <button class="hilite_u wrap_selection lang-html" type="button" name="insU" data-tag-open="u" data-tag-close="u" data-tarea="serendipity[extended]">u</button>
             <button class="wrap_selection lang-html" type="button" name="insQ" data-tag-open="blockquote" data-tag-close="blockquote" data-tarea="serendipity[extended]">{$CONST.QUOTE}</button>
             <button class="wrap_insimg" type="button" name="insJ" data-tarea="serendipity[extended]">img</button>
             <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[extended]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
