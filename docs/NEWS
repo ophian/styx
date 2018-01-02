@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Re-add underline button to PLAIN TEXT Editor toolbar in backend entries
+
   * Update backend additional links
 
   * Fix rdf feed Styx generator identifier
