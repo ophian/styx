@@ -683,6 +683,10 @@ form > button,
     font-style: italic;
 }
 
+.hilite_u {
+    text-decoration: underline;
+}
+
 .text-normal {
     font-weight: initial;
 }
