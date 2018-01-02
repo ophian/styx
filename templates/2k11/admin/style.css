@@ -1603,14 +1603,9 @@ summary {
     max-width: 75%;
 }
 
-.editor_toolbar button,
 .comment_data dt,
 #serendipityScaleForm .form_field label {
     min-width: 4.25em;
-}
-.editor_toolbar button.wrap_insgal,
-.editor_toolbar button.wrap_insmedia {
-    min-width: 1em;
 }
 
 .category_data,
