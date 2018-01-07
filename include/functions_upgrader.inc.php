@@ -413,12 +413,13 @@ $dead_dirs_240 = array(
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_cleanspam'
 );
 
-/* A list of Styx files, which were removed or renamed by 2.5.0 */
+/* A list of Styx files, to be removed or renamed by 2.5.0 */
 $dead_files_250 = array(
     'bundled-libs/HTTP/Request.php',
     'bundled-libs/NET/CheckIP.php',
     'bundled-libs/NET/Socket.php',
-    'bundled-libs/NET/URL.php'
+    'bundled-libs/NET/URL.php',
+    'templates/default/admin/img/readonly.png'
 );
 
 /* A list of old or removed directories for 2.5.0 */
