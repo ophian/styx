@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.03');
+        $propbag->add('version',       '2.04');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -88,7 +88,6 @@ class serendipity_event_spamblock extends serendipity_event
                     'trackback_ipvalidation_url_exclude' ,
                     'forcemoderationt',
                     'forcemoderationt_treat',
-                    'disable_api_comments',
                     'trackback_check_url',
                 )
         ));
