@@ -1080,7 +1080,7 @@ function serendipity_smarty_init($vars = array()) {
         if (empty($serendipity['smarty_vars']['head_link_stylesheet'])) {
             $serendipity['smarty_vars']['head_link_stylesheet_frontend'] = serendipity_rewriteURL('serendipity.css');
 
-            if (IN_serendipity_admin === true) {
+            if (defined('IN_serendipity_admin') && IN_serendipity_admin === true) {
                 $serendipity['smarty_vars']['head_link_stylesheet'] = serendipity_rewriteURL('serendipity_admin.css');
             } else {
                 $serendipity['smarty_vars']['head_link_stylesheet'] = serendipity_rewriteURL('serendipity.css');
@@ -1097,7 +1097,7 @@ function serendipity_smarty_init($vars = array()) {
         }
 
         if (empty($serendipity['smarty_vars']['head_link_script'])) {
-            if (IN_serendipity_admin === true) {
+            if (defined('IN_serendipity_admin') && IN_serendipity_admin === true) {
                 $serendipity['smarty_vars']['head_link_script'] = serendipity_rewriteURL('serendipity_admin.js');
             } else {
                 $serendipity['smarty_vars']['head_link_script'] = serendipity_rewriteURL('serendipity.js');
