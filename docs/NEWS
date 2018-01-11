@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Re-integrate category ID-Number to backend category edit button tooltip
+
   * Fix to autosize PLAIN EDITOR toolbar buttons for backend entries
 
   * Re-add underline button to PLAIN TEXT Editor toolbar for backend entries
