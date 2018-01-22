@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Update external lib: random_compat to 2.0.11
+
   * Set default Standard Backend 'template_backend' to Styx (2styx)
 
   * Re-integrate category ID-Number to backend category edit button tooltip
