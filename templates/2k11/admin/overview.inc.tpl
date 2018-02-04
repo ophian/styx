@@ -141,10 +141,10 @@
 
             <ul class="plainList">
                 <li><a href="https://www.s9y.org/">{$CONST.FURTHER_LINKS_S9Y}</a></li>
-                <li><a href="https://docs.s9y.org/docs/">{$CONST.FURTHER_LINKS_S9Y_DOCS}</a></li>
+                <li><a href="https://ophian.github.io/hc/en/">{$CONST.FURTHER_LINKS_S9Y_DOCS}</a></li>
                 <li><a href="https://ophian.github.io/">{$CONST.FURTHER_LINKS_S9Y_BLOG} (Styx)</a></li>
                 <li><a href="https://board.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_FORUMS}</a></li>
-{*                <li><a href="http://spartacus.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS} Web</a></li> *}
+                <li><a href="https://ophian.github.io/plugins/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS} Web</a></li>
                 <li><a href="https://github.com/s9y/Serendipity">GitHub Serendipity</a></li>
                 <li><a href="https://github.com/ophian/styx">GitHub Styx</a></li>
                 <li><a href="https://github.com/ophian/styx/wiki">GitHub Styx Wiki</a></li>
