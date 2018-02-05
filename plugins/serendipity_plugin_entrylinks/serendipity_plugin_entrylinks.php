@@ -20,7 +20,7 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
         $propbag->add('description',   PLUGIN_ENTRYLINKS_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.03');
+        $propbag->add('version',       '1.04');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
