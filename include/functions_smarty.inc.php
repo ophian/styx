@@ -504,7 +504,7 @@ function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $t
  * @param   array       Smarty parameter input array:
  *                          class: The classname of the plugin to show
  *                          id: An ID of a plugin to show
- *                          side: The side of a plugin to show (left|right|hidden|and|other|user-defined|sidebars)
+ *                          side: The side of a plugin to show (left|right|hide|and|other|user-defined|sidebars)
  *                          negate: Revert previous filters
  * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
@@ -662,7 +662,7 @@ function serendipity_smarty_refhookPlugin(&$eventData, $hook, $addData = null) {
  *
  * @access public
  * @param   array       Smarty parameter input array:
- *                          side: The plugin side to show (left|right|hidden)
+ *                          side: The plugin side to show (left|right|hide)
  * @param   object      Smarty template object
  * @return string       The HTML code of a plugin's output
  */
