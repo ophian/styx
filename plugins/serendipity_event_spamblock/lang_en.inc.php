@@ -79,7 +79,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_CHECKMAIL', 'Invalid e-mail address');
 @define('PLUGIN_EVENT_SPAMBLOCK_CHECKMAIL', 'Check e-mail addresses?');
 @define('PLUGIN_EVENT_SPAMBLOCK_REQUIRED_FIELDS', 'Required comment fields');
-@define('PLUGIN_EVENT_SPAMBLOCK_REQUIRED_FIELDS_DESC', 'Enter a list of required fields that need to be filled when a user comments. Seperate multiple fields with a ",". Available keys are: name, email, url, replyTo, comment');
+@define('PLUGIN_EVENT_SPAMBLOCK_REQUIRED_FIELDS_DESC', 'Enter a list of required fields that need to be filled when a user comments. Separate multiple fields with a ",". Available keys are: name, email, url, replyTo, comment');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_REQUIRED_FIELD', 'You did not specify the %s field!');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_CONFIG', 'Configure Anti-Spam methods');
