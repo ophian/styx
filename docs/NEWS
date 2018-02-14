@@ -5,13 +5,13 @@ Version 2.5-alpha1 ()
 
   * Set default Standard Backend 'template_backend' to Styx (2styx)
 
-  * Re-integrate category ID-Number to backend category edit button tooltip
+  * Re-integrate category ID-Number to Backend category edit button tooltip
 
-  * Fix to autosize PLAIN EDITOR toolbar buttons for backend entries
+  * Fix to autosize PLAIN EDITOR toolbar buttons for Backend entries
 
-  * Re-add underline button to PLAIN TEXT Editor toolbar for backend entries
+  * Re-add underline button to PLAIN TEXT Editor toolbar for Backend entries
 
-  * Update backend additional links
+  * Update Backend additional links
 
   * Fix rdf feed Styx generator identifier
 
@@ -116,8 +116,8 @@ Version 2.4-beta1 (2017-10-09)
   * Fix plugin_api non-production install empty value check error
     for plugin sort order incrementations.
 
-  * Added simplified standard comment templates to backend, for future
-    independent backend purposes.
+  * Added simplified standard comment templates to Backend, for future
+    independent Backend purposes.
 
   * Lots of smaller optimizations for the lang constants
 
@@ -262,22 +262,22 @@ Version 2.3.0 (2017-09-07)
   * Link plugin documentation to new tab, if in POST context.
 
   * Replace timestamp format by the lang defined DATE_FORMAT_SHORT
-    constant in the backend comment list, since the hardcoded approach
+    constant in the Backend comment list, since the hardcoded approach
     was not ready for all languages, in special for the strftime() month
     abbreviation.
 
   * Remove <html dir=""> attribute pointing to "rtl" languages in the
-    Styx (2Styx) backend themes index.tpl file, since that happens to
+    Styx (2Styx) Backend themes index.tpl file, since that happens to
     swage certain html elements very badly into another, breaking the
     design, in special with floated elements. Serendipity is not well
     formed to fully support right-to-left handed languages, since the
-    2.0 Series backend rebuild.
-    The 2k11 backend theme still has it set, with the same issues, but
-    is left alive, so you may switch backend themes around for testing.
+    2.0 Series Backend rebuild.
+    The 2k11 Backend theme still has it set, with the same issues, but
+    is left alive, so you may switch Backend themes around for testing.
     Any competent help regarding element and browser handling is highly
     welcome!
 
-  * Prepare backend styles for bidirectional direction attributes and
+  * Prepare Backend styles for bidirectional direction attributes and
     the bidirectional override element.
 
   * Fix an "obvious" bug/issue with the set/get mb_language() method,
@@ -343,7 +343,7 @@ Version 2.3-beta1 (2017-08-14)
     <div class="serendipity_image_block"> ... </div>.
 
   * Add missing escape of the "$staticpage_pagetitle" var for all related
-    template files in "clean_blog" and "timeline", some in "default-php"
+    template files in "clean-blog" and "timeline", some in "default-php"
     and the "plugin_staticpage.tpl" file in the "next" theme.
     Please keep your copy-templates synced.
 
@@ -357,7 +357,7 @@ Version 2.3-beta1 (2017-08-14)
   * Prepared Styx additional_plugins to remove old HTTP/Request(1) PEAR
     lib in next Styx version.
 
-  * Restrict edit and reply actions to type comments only in the backend
+  * Restrict edit and reply actions to type comments only in the Backend
     comment list.
 
   * Fixed default theme typo bug, added by trackback escapement commit
@@ -418,10 +418,10 @@ Version 2.3-beta1 (2017-08-14)
 
   * Add new Serendipity Smarty modifier "|cleanChars" for cases, where
     chars like dots, bangs, spaces, ... which are not (A-Za-z0-9_-)
-    break the expected behaviour. Already used in the backend to fix
+    break the expected behaviour. Already used in the Backend to fix
     broken info button cases by certain plugins.
 
-  * Remove category filter in backend entry form for categories non-popup
+  * Remove category filter in Backend entry form for categories non-popup
     compact mode.
 
   * Add some styled love to comments/trackbacks/pingbacks section in the
@@ -468,7 +468,7 @@ Version 2.2.0 (2017-06-23)
     for Comments and Track/Pingbacks. NO set "Send [..] announcements"
     in Personal Preferences really means NO EMAIL.
 
-  * Spend some love to backend comments list for a better distinction
+  * Spend some love to Backend comments list for a better distinction
     of Comments/Trackbacks/Pingbacks.
 
   * Extend Modemaintain Plugin for security
@@ -480,8 +480,8 @@ Version 2.2.0 (2017-06-23)
   * Update this NEWS file documentary for the MySQL full unicode
     implementation "bug" down below by a marked "JUNE 2017" part.
 
-  * Sync and enhance: Add backend_view_entry hook, that is executed for
-    every entry in the backend entry list.
+  * Sync and enhance: Add "backend_view_entry" hook, that is executed for
+    every entry in the Backend entry list.
 
   * Sync: Emit and detect rel=trackback element to find trackback
     url, to have a reliable alternative to RDF used so far.
@@ -507,9 +507,9 @@ Version 2.2.0 (2017-06-23)
 
   * Fix some more PHP 7 errors and fix some default-php theme templates
 
-  * Added a new "view" type 'entries', in case the blog entries list is
+  * Added a new "view" type 'entries', in case the Blog entries list is
     not the actual startpage. This is with a staticpage set to be the
-    new 'start' page of your blog. The Smarty {$view} variable would
+    new 'start' page of your Blog. The Smarty {$view} variable would
     then be the same for the entries list and the new staticpage
     "startpage" and you would have had to check this by eg.
         {if $view == 'start' AND $staticpage_pagetitle != 'startpage'}
@@ -572,7 +572,7 @@ Version 2.2.0 (2017-06-23)
   * Sync: Fix comment preview for logged-in user overwriting user data
 
   * INFO:
-        - No sync for adding a "delete" button to the backend entry form.
+        - No sync for adding a "delete" button to the Backend entry form.
           Styx does not want to overload the entry form with tasks that
           can better be done in the entry list.
         - No sync for including the PEAR Net/DNS2 lib. Currently it seems
@@ -582,14 +582,14 @@ Version 2.2.0 (2017-06-23)
   * Sync: "Suppress empty groups in plugin list" issue, which only
     matters with the Serendipity origin additional_plugin repository.
 
-  * Make backend page tab title order configurable.
-    The default (tab) title of backend pages in Styx is in this order:
+  * Make Backend page tab title order configurable.
+    The default (tab) title of Backend pages in Styx is in this order:
         "section | $admin | blog title"
     You are now able to change the order to "blog title | section | $admin"
     by adding "$serendipity['backendBlogtitleFirst'] = true;" to your
     serendipity_config_local.inc.php file.
-    [Post Scriptum: Or use the backend template approach. See the Styx
-     backend theme info layer.]
+    [Post Scriptum: Or use the Backend template approach. See the Styx
+     Backend theme info layer.]
 
   * Minor changes to staticpage breadcrumb regarding separator spaces
     in all themes and staticpage templates files which use "$crumb".
@@ -623,7 +623,7 @@ Version 2.2.0 (2017-06-23)
   * Silence deprecated mcrypt_* login warnings with PHP 7.1.x ++
     versions until this will be replaced.
 
-  * Add backend theme admin/doc directory for backend based lang
+  * Add Backend theme admin/doc directory for Backend based lang
     documentary per template files, cached(!) by Smarty.
     The Dashboard Quicktip section uses it already.
 
@@ -662,7 +662,7 @@ Version 2.1.0 (February, 24th 2017)
     Please read about this carefully in the 2.1-beta1 changelog entry
     down below.
 
-  * Add new backend plugin grouper constants for group bag consistency.
+  * Add new Backend plugin grouper constants for group bag consistency.
     Changed:    'BACKEND', -> 'BACKEND_ADMIN',
     Added:      'MAINTAIN' -> 'BACKEND_MAINTAIN',
                 'DASHBOARD' -> 'BACKEND_DASHBOARD'
@@ -721,7 +721,7 @@ Version 2.1-rc1 (January, 30th 2017)
 
   * Disabled Selenium test files unless enabled
 
-  * Various more Styx backend GUI improvements
+  * Various more Styx Backend GUI improvements
 
   * Fix issue #437 - Remove the hardcoded media filter only_filename
     input field and re-allow the $order_fields['i.name'], which (now)
@@ -735,7 +735,7 @@ Version 2.1-rc1 (January, 30th 2017)
     if is_entry_owner via comment.php
 
   * [Security] Redirection of comment.php now checks the referrer
-    and only allows the blog's host (thanks to Lee Sheldon Victor)
+    and only allows the Blog's host (thanks to Lee Sheldon Victor)
 
   * [Security] [#435] Secure HTTP_REFERER message, to prevent possible
     XSS in trusted area, thanks to Shinkurt
@@ -813,11 +813,11 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
 
   * Fix installer iconfont issue
 
-  * Add Styx backend template example index,  which enables to suppress
+  * Add Styx Backend template example index,  which enables to suppress
     the Serendipty and PHP version information and assets for unlogged
     users.
 
-  * Partial Sync - flexbox backend solution
+  * Partial Sync - flexbox Backend solution
 
   * Sync core iconfont acessibility fixes
 
@@ -896,7 +896,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Restrict comments author names a little more
 
-  * Fix backend commentreply by adding an admin template (d2b1dd9c)
+  * Fix Backend commentreply by adding an admin template (d2b1dd9c)
 
   * Fixed routing refactoring for uri argument checks on comments page
     pagings, and multiple others before, like multiauth and multicat,
@@ -916,7 +916,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     the default-theme stylesheet style.css file. In case of the PHP-theme,
     you may just want to create your own. The PHP-theme may also still
     miss some plugin template files and the XML-theme may still have some
-    minor isues in the backend.
+    minor issues in the Backend.
     You are very welcome to help making this more bulletproof!
 
   * Fixed an old issue with the default fallback template not reading the
@@ -928,7 +928,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     maintaining. This moved the whole library path one directory up.
 
   * While developing Serendipity Styx Edition, some minor UI styling
-    enhancements in the backend all over have been added or changed.
+    enhancements in the Backend all over have been added or changed.
 
   * Update Smarty lib to Smarty 3.1.31-dev/4 since the release version
     had a compiling issue that could hit Styx on upgrade
@@ -937,7 +937,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Upgrade core CKEDITOR lib to ckeditor_4.5.10_full
 
-  * Add backend comments list first / last pagination buttons
+  * Add Backend comments list first / last pagination buttons
 
   * DEV-NOTE: enabling Zend-Db in include/db/db.inc.php is still marked
     EXPERIMENTAL, since having known issues.
@@ -977,7 +977,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
   * Update psr/log and katzgrau/klogger libs to current masters
     (without touching composer)
 
-  * Moved backend comments action-bar to the right
+  * Moved Backend comments action-bar to the right
 
   * Update Smarty lib to Smarty 3.1.30 release.
     See change notes in Smarty 3.1.30-dev commit note down below.
@@ -985,9 +985,9 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
   * Changed Personal Preferences popup-window/force-popup option
     constants to better reflect the embedded mode for some elements
 
-  * Changed weight and iconize backend comments shortened title line
+  * Changed weight and iconize Backend comments shortened title line
 
-  * Fix backend comment bodies. Summary-truncation is now stricly set to
+  * Fix Backend comment bodies. Summary-truncation is now stricly set to
     120 chars and always showed stripped. Else, if comment.summary was
     stripped, allow excerpt button switch to comment.fullBody.
 
@@ -1013,7 +1013,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     and extend the following issues:
 
     - If a theme has its own preview_iframe.tpl file, it needs to
-      distinguish between the backend theme with {serendipity_getFile ...},
+      distinguish between the Backend theme with {serendipity_getFile ...},
         eg. {serendipity_getFile file="admin/js/modernizr.min.js"}
       and its very own files without using the fallback template cascade.
       These files can now be loaded locally by
@@ -1027,13 +1027,13 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
       "special", since being the standard $serendipity['defaultTemplate']
       template, which does not need this care.
 
-    - If a frontend theme needs to link, or includes assets which might
+    - If a Frontend theme needs to link, or includes assets which might
       be problematic using the template fallback cascade, it may now
-      use these fully assigned path variables, eg for the favicon:
+      use these fully assigned path variables, eg. for the favicon:
         {$serendipityBaseURL}{$templatePath}{$template}/favicon.ico
 
   * Fixed <bulletproof>, <default> and <next> themes iframe_preview.tpl
-    files not showing up correctly on mode: 'save' in the backend.
+    files not showing up correctly on mode: 'save' in the Backend.
 
   * Fix a possible <bulletproof> config loading error on theme change,
     regarding serendipity_plugin_api_event_hook already used.
@@ -1073,7 +1073,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     serendipity_fetchEntries(), if a themes entries_summary.tpl file
     wants to use a body teaser.
 
-  * Allow "title quoting" in backend entries overview title link,
+  * Allow "title quoting" in Backend entries overview title link,
     but keep escaping for security, using double_encode false.
 
   * Fix issue (#340) - missing newly created entry id re-added back
@@ -1091,7 +1091,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 +
     and remove the starting + signs.
     This issue is already fixed within the following pre-delivered
-    themes: "2k11, default, bulletproof, clean_blog, next".
+    themes: "2k11, default, bulletproof, clean-blog, next".
     Please make sure to update your themes "preview_iframe.tpl" file!
     This adds a native javascript delayed (lazy) load execution versus
     the previous used $(document.ready) and/or missing jquery loading.
@@ -1194,7 +1194,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Update entryproperties grouping grid option boxes. Please configure
     the sort placed options in the "Entry editing screen" to fit nicely
-    into the backend entries entry form.
+    into the Backend entries entry form.
 
   * Update the spartacus_remote url option to support a hidden
     (obfuscated) URI for the serendipity_event_plugup plugin, which adds
@@ -1226,7 +1226,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     those feeds.
 
   * Introduce a section with modern recommended themes in the
-    themes backend menu. Themes can be included there by setting
+    themes Backend menu. Themes can be included there by setting
     Recommended: Yes in their info.txt
 
   * Merge sidebar and event upgrade pages in one single page button
@@ -1234,7 +1234,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
   * Add colorpicker as possible plugin option item type, set
     type to 'color' to use it
 
-  * Comments made via the backend on own articles don't trigger
+  * Comments made via the Backend on own articles don't trigger
     the comment notification (thanks to xoxys)
 
   * Fix missing perm checks for "standard user" in MediaLibrary
@@ -1258,7 +1258,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
   * Rewrote Routing code for index.php to be outsourced into
     include/functions_routing
 
-  * Removed broken feature for viewing blog entries by multiple
+  * Removed broken feature for viewing Blog entries by multiple
     authors, dropped code from core and plugin_authors.
 
   * Optimize scaleImage returns
@@ -1287,7 +1287,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Added <IfModule mod_rewrite.c> checks to .htaccess for URL rewriting
 
-  * Add support for cronjob plugin to spartacus, to notify blog owner
+  * Add support for cronjob plugin to spartacus, to notify Blog owner
     about possible updates (via e-mail)
 
   * Added link to preview spartacus themes on blog.s9y.org
@@ -1315,7 +1315,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Add "update all"-button to plugin update page
 
-  * Issue #234: Granular options to force backend popups for certain
+  * Issue #234: Granular options to force Backend popups for certain
     areas
 
   * Introduce serendipity['ajax'] to detect incoming ajax requests
@@ -1361,7 +1361,7 @@ Version 2.0.4 (September 26th, 2016)
     [Security] Possible SQL injection for entry category assignment
     [Security] Possible SQL injection for removing&adding a plugin
 
-    All issues require a valid backend login.
+    All issues require a valid Backend login.
     Thanks to Hendrik Buchwald for finding this via their
     RIPS source code analyzer (www.ripstech.com)
 
@@ -1374,10 +1374,10 @@ Version 2.0.4 (September 26th, 2016)
 Version 2.0.3 (January 4th, 2016)
 ------------------------------------------------------------------------
 
-  * Fix XSS in backend comment editing form for logged-in authors,
+  * Fix XSS in Backend comment editing form for logged-in authors,
     thanks to Onur Yilmaz and Robert Abela from Netsparker.com
 
-  * Fix some backend entry form related event messages
+  * Fix some Backend entry form related event messages
 
 
 Version 2.0.2 (July 24th, 2015)
@@ -1409,7 +1409,7 @@ Version 2.0.2 (July 24th, 2015)
     New Features in NEW_FEATURES.txt.
 
   * It is now possible to switch to a theme's admin theme if it has
-    been selected as a frontend theme first
+    been selected as a Frontend theme first
 
   * Syndication Plugin Issue #285:
       - Add "none" as possible value for the xml-icon in the
@@ -1418,7 +1418,7 @@ Version 2.0.2 (July 24th, 2015)
         serendipity_getTemplateFile()
       - Link creation fixes for Bulletproof coloured style (eg blue)
 
-  * Fix auto include of a User theme /admin/user.css backend file.
+  * Fix auto include of a User theme /admin/user.css Backend file.
 
       PLEASE NOTE:
 
@@ -1452,12 +1452,12 @@ Version 2.0.2 (July 24th, 2015)
   * Fix Issue #321, negative offset for LIMIT SQL statements when
     using stable archive sorting and plugins like history.
 
-  * Templatechooser will not apply theme in backend admin.
+  * Templatechooser will not apply theme in Backend admin.
 
   * Use "secure" flag for (session) cookies sent over SSL, thanks to
     dayton967
 
-  * Make preview_iframe.tpl template files load the proper frontend
+  * Make preview_iframe.tpl template files load the proper Frontend
     CSS file, including cache-busting version string when changing
     themes
 
@@ -1474,7 +1474,7 @@ Version 2.0.2 (July 24th, 2015)
     servers" to not include the "Options -MultiViews" option, since
     this is often blocked
 
-  * Fix initializing smarty framework in the preview/saving iframe,
+  * Fix initializing Smarty framework in the preview/saving iframe,
     so that a template's config.inc.php is always loaded.
 
   * Show debugging .tpl file information with relative directory only
@@ -1487,8 +1487,8 @@ Version 2.0.1 (March 12th, 2015)
 
   * Fix missing escaping (possible XSS) of category names in the
     Backend Entry Admin, which would allow editors that create a
-    forged category name to attack other editors in the backend
-    (privileged access to the backend required). Thanks a lot to Edric
+    forged category name to attack other editors in the Backend
+    (privileged access to the Backend required). Thanks a lot to Edric
     Teo for reporting this issue.
 
   * Improved detection for possible upgrade/plugin/PHP errors. A
@@ -1499,24 +1499,24 @@ Version 2.0.1 (March 12th, 2015)
 
   * Issue 306: localStorage may be deactivated by setting a config
     option or using security-related extensions at least in some
-    browsers, which might (at least in FF) break backend JS
-    functionality. Added extra tests to 2k11 backend JS.
+    browsers, which might (at least in FF) break Backend JS
+    functionality. Added extra tests to 2k11 Backend JS.
 
     If you use localStorage, please test if it is actually available
     by testing if localStorage !== null in JS.
 
   * Issue 280: Allow every theme to utilize a "user.css" file that
-    gets loaded on top of the frontend (or backend, if in admin/
+    gets loaded on top of the Frontend (or Backend, if in admin/
     subdirectory) theme. This file can be used for customized CSS of
-    a blog-admin which carries over to future Serendipity updates
+    a Blog-admin which carries over to future Serendipity updates
 
   * Issue 299: Do not display Dashboard for users with no permission
-    to perform actions in the backend (frontend-users)
+    to perform actions in the Backend (frontend-users)
 
-  * Make "rewriteURL" smarty modifier available to do a
-    {$CONST.PATH_ARCHIVE|rewriteURL} within a smarty template file.
+  * Make "rewriteURL" Smarty modifier available to do a
+    {$CONST.PATH_ARCHIVE|rewriteURL} within a Smarty template file.
 
-  * Add a generic odd/even for backend Dashboard widgets to align
+  * Add a generic odd/even for Backend Dashboard widgets to align
     properly. Future Dashboard widgets need to get the new extra
     class Dashboard widget on the section element they create.
 
@@ -1526,8 +1526,8 @@ Version 2.0.1 (March 12th, 2015)
     file in plugin dir.
 
   * Change 2k11 config.inc.php to reflect proper
-    serendipity_getTemplateFile() when frontend files shall be
-    referenced within the backend.
+    serendipity_getTemplateFile() when Frontend files shall be
+    referenced within the Backend.
 
   * Fixed missing file message for deleted media items
 
@@ -1535,7 +1535,7 @@ Version 2.0.1 (March 12th, 2015)
     quick view. Improved serendipity.tagsList exit if freetag plugin
     is not installed.
 
-  * Minor backend UI fixes (taxonomy quick view in entry editor,
+  * Minor Backend UI fixes (taxonomy quick view in entry editor,
      'Done' msg emitted by Bayes plugin)
 
   * Clearer language constants for entries in Dashboard, labelled
@@ -1584,7 +1584,7 @@ Version 2.0 (January 23rd, 2015)
 Version 2.0-rc2 (December 23rd, 2014)
 ------------------------------------------------------------------------
 
-  * Fixes escaping of comments in the new backend pane to prevent
+  * Fixes escaping of comments in the new Backend pane to prevent
     XSS. Thanks to Steffen Röemann for reporting!
 
   * Fix wrong parameter count in serendipity_entity_decode
@@ -1602,7 +1602,7 @@ Version 2.0-rc1 (includes beta4/5/6) (December 19th, 2014)
 
   * Fix problematic preview stylesheet reference
 
-  * Optimized clearing smarty template files on upgrading
+  * Optimized clearing Smarty template files on upgrading
 
   * Properly reset the "disable markup" feature of entryproperties
     plugin when none selected
@@ -1659,7 +1659,7 @@ Version 2.0-beta3 (July 25th, 2014)
 
   * Move admin/media_showitem.tpl to theme's directory in 2k11. With
     an adaptation in serendipity_admin_image_selector.php, this now is
-    a "true" frontend template which uses the styles of the frontend
+    a "true" Frontend template which uses the styles of the Frontend
     theme. Theme authors might want to adapt it to their themes.
 
   * Moved general syndication plugin option into the core
@@ -1669,7 +1669,7 @@ Version 2.0-beta3 (July 25th, 2014)
   * Fixed thumbnail recreation, Issue #134
 
   * Merged external JS libraries into a central "plugins.js" of the 2k11
-    backend template, can be updated through
+    Backend template, can be updated through
     templates/2k11/admin/js/gruntipity.php helper script.
 
   * Adapted database table structure change for statistics, shoutbox,
@@ -1677,7 +1677,7 @@ Version 2.0-beta3 (July 25th, 2014)
     Thanks to rohdef!
 
   * Added new option "enabledBackendPopups" that allow to specify
-    if inline modal dialogs or popups are used in the backend for
+    if inline modal dialogs or popups are used in the Backend for
     e.g. the category selectory and media library
 
   * added experimental support for PHP/SMARTY IN MEMORY caching
@@ -1721,14 +1721,14 @@ Version 2.0-beta3 (July 25th, 2014)
   * Fix preview entry exception (issue #119)
 
   * Add serendipity.toggle_collapsible as a reusable JS function
-    for the core backend and backend sections emitted by plugins as
+    for the core Backend and Backend sections emitted by plugins as
     an easy way to provide show/hide functionality. (yellowled)
 
   * Fixed media insert target bug (issued by #143, #145, #121)
 
   * Fixed publish drafted-entries via Dashboard (issue #160)
 
-  * All frontend themes that rely on the bundled Core jQuery library
+  * All Frontend themes that rely on the bundled Core jQuery library
     are currently using the jquery.noConflict-mode for compatibility
     to older plugins.
     This mode is now considered deprecated and will be removed in
@@ -1737,14 +1737,14 @@ Version 2.0-beta3 (July 25th, 2014)
     in your theme's config.inc.php file can now turn of that
     noConflict-mode.
 
-  * Due to distinction of backend and frontend themes, each theme
+  * Due to distinction of Backend and Frontend themes, each theme
     that provides a custom jquery.js now only does so for the
-    frontend. The backend now listens to a:
+    Frontend. The Backend now listens to a:
 
       $serendipity['capabilities']['jquery_backend'] = false;
 
     variable, and the file needs to be jquery_backend.js that
-    a backend theme would reference to.
+    a Backend theme would reference to.
 
   * Changed 2k11's config.inc.php file to provide a more stable
     call of event hooks so that other themes can also hook
@@ -1760,16 +1760,16 @@ Version 2.0-beta3 (July 25th, 2014)
     within Dashboard.
 
   * Backend and Frontend themes can now be set independently from
-    each other. New backend themes now need to set:
+    each other. New Backend themes now need to set:
 
       Backend: Yes
 
     in their info.txt file. If you adapt a custom admin theme,
-    ensure that it is compatible to the new "2k11" backend to
+    ensure that it is compatible to the new "2k11" Backend to
     ensure proper future usage within Serendipity. The bulletproof
-    backend will now no longer be recognized as a backend theme
-    option, but can be selected as a new frontend theme, while
-    using 2k11 (=default) in the backend.
+    Backend will now no longer be recognized as a Backend theme
+    option, but can be selected as a new Frontend theme, while
+    using 2k11 (=default) in the Backend.
 
   * Include klogger, call it as $serendipity['logger']->debug/error.
     The log-level can be set in the general configuration and is
@@ -1786,10 +1786,10 @@ Version 2.0-beta3 (July 25th, 2014)
   * Improved file/directory removal code to (hopefully) fail more
     gracefully
 
-  * Change "default" admin backend template fallback chain so that
+  * Change "default" admin Backend template fallback chain so that
     old admin themes can theoretically be shown with the "old"
     admin interface. This however in many themes breaks the
-    Serendipity workflow. In other words, currently old custom backend
+    Serendipity workflow. In other words, currently old custom Backend
     themes are deprecated. We are still working on how to deal
     with this and if we can add some sort of compatibility or port.
 
@@ -1832,7 +1832,7 @@ Version 2.0-beta3 (July 25th, 2014)
 
   * Improve less DOM firing on certain javascript tasks
 
-  * Introduce js_backend event hook
+  * Introduce "js_backend" event hook
 
 
 Version 2.0-beta1 and followup -beta2 (April 14th, 2014)
@@ -1845,7 +1845,7 @@ Version 2.0-beta1 and followup -beta2 (April 14th, 2014)
 
   * Implemented patch https://github.com/s9y/Serendipity/pull/15
 
-  * When switching Themes, both the backend and the frontend
+  * When switching Themes, both the Backend and the Frontend
     will remember the timestamp of the last theme change,
     to make sure that the browser will not cache a mismatching CSS.
 
@@ -1853,7 +1853,7 @@ Version 2.0-beta1 and followup -beta2 (April 14th, 2014)
     (1559472ca3) see 'temporary added empty $template_config_groups'
     in 1.7-rc2 (eb77dc369a)
 
-  * Use Smarty for backend display output
+  * Use Smarty for Backend display output
 
   * "Themes" are now what has previously been mixed as "Design",
     "Theme", "Template" or "Layouts".
@@ -1878,7 +1878,7 @@ Version 2.0-beta1 and followup -beta2 (April 14th, 2014)
   * Constants like S9Y_FRAMEWORK_COMPAT are no longer set
     (include_once is used instead)
 
-  * New additional option to render smarty-functions:
+  * New additional option to render Smarty-functions:
     serendipity_smarty_show($template, $data)
 
   * A number of functions now returns their result instead of echoing
@@ -1913,12 +1913,12 @@ Version 2.0-beta1 and followup -beta2 (April 14th, 2014)
       serendipity_categories_plugin  became serendipity_plugin_categories
       serendipity_syndication_plugin became serendipity_plugin_syndication
       serendipity_superuser_plugin   became serendipity_plugin_superuser
-      serendipity_plug_plugin      became serendipity_plugin_plug
+      serendipity_plug_plugin        became serendipity_plugin_plug
 
   * Add plugin hook "js", generating a virtual serendipity.js
 
   * Admin JS is now bundled in serendipity_editor.js.tpl and
-    rendered using smarty in the theme config
+    rendered using Smarty in the theme config
 
   * Admin JS got rewritten using jQuery where applicable
 
@@ -1927,12 +1927,12 @@ Version 2.0-beta1 and followup -beta2 (April 14th, 2014)
   * Removed support for layout.php
 
   * The whole PHP-Code now almost never echoes integrated HTML, but
-    uses smarty template (TODO: Remove the almost)
-    The necessary smarty-templates reside in 2k11/admin/
-    Every theme can generate its own backend if it integrates those
+    uses Smarty template (TODO: Remove the almost)
+    The necessary Smarty-templates reside in 2k11/admin/
+    Every theme can generate its own Backend if it integrates those
     templates under admin/ itself
 
-  * 2k11 is set as the new default backend, replacing bulletproof.
+  * 2k11 is set as the new default Backend, replacing bulletproof.
     default remains the fallback so far.
 
   * A number of functions had some arguments removed:
@@ -1958,7 +1958,7 @@ Version 2.0-beta1 and followup -beta2 (April 14th, 2014)
   * Themes now have their own configuration page,
     ?serendipity[adminModule]=templates&serendipity[adminAction]=editConfiguration
 
-  * jQuery in the backend no longer runs in noConflict-mode. Use
+  * jQuery in the Backend no longer runs in noConflict-mode. Use
     $(...) instead of jQuery(...)
 
   * The entryproperty-plugin will now always delete its cache on
@@ -1996,7 +1996,7 @@ Version 1.7.7 (February 6th, 2014)
 Version 1.7.6 (February 6th, 2014)
 ------------------------------------------------------------------------
 
-  * Fixed backend security issues, thanks to Stefan Schurtz:
+  * Fixed Backend security issues, thanks to Stefan Schurtz:
 
       - XSS of users realname in "Manage users" section
         (Backend, requires login)
@@ -2114,7 +2114,7 @@ Version 1.7 (May 11th, 2013)
     too many datarows, thanks to DLange from the forums. (The .htaccess
     feature is still considered experimental, use at your own risk ;))
 
-  * rc4: Fixed entryproperties backend 'cache now' link
+  * rc4: Fixed entryproperties Backend 'cache now' link
 
   * rc3 + rc4: Media database: Escape more Cookie values to prevent storing
     possible XSS (http://board.s9y.org/viewtopic.php?f=3&t=19142).
@@ -2127,7 +2127,7 @@ Version 1.7 (May 11th, 2013)
     for proper propagation of $entry to sub-templates.
 
   * rc2: Alter error reporting to only fail when 'debug' mode is enabled,
-    so that "normal" blog installations will not fail on specific
+    so that "normal" Blog installations will not fail on specific
     E_STRICT warnings that are not important.
 
   * rc2: temporary added empty $template_config_groups into templates with config,
@@ -2156,7 +2156,7 @@ Version 1.7 (May 11th, 2013)
   * fixed defaultBaseURL did not show up installer. Thanks to onli.
     Follow up from c292bad
 
-  * fixed draft & future entries preview link in backend
+  * fixed draft & future entries preview link in Backend
 
   * Improved karmarating plugin to be able to use AJAX calls
     (gregman)
@@ -2179,7 +2179,7 @@ Version 1.7 (May 11th, 2013)
   * Add "Summary" output to title of summary archive pages, patch by
     hboeck
 
-  * Set the smarty object by instance (ophian)
+  * Set the Smarty object by instance (ophian)
     It is often needed to access the Smarty object from anywhere in your code, e.g. in plugins
     We now ensure that there is only one instance of the object available.
     To obtain an instance of this class: $serendipity['smarty'] = Serendipity_Smarty::getInstance();
@@ -2187,19 +2187,19 @@ Version 1.7 (May 11th, 2013)
     To overwrite use $serendipity['smarty'] = new Serendipity_Smarty; to create a new instance.
 
   * Set a global Serendipity errorToExceptionHandler (ophian)
-    changed some old smarty trigger_errors to PHPs native function
+    changed some old Smarty trigger_errors to PHPs native function
 
   * Updated spamblock plugin (ophian)
     changed wordfilter to function and Commenters moderation check verify_once
     to get checked via wordfilter to reject known spam comments before
 
-  * Changed backend comment (error) messages  (ophian)
+  * Changed Backend comment (error) messages  (ophian)
     as now captured and styleable messages
     (newly added .serendipity_backend_msg_notice css class)
 
   * Updated nl2br plugin (ophian)
     added isolation tag using nl to br
-    this also adds some NoBR buttons to backend entry forms
+    this also adds some NoBR buttons to Backend entry forms
 
   * Smarty3 support (ophian)
     with this upgrade Serendipity / Smarty will at least need a webserver running the PHP 5.2 series.
