@@ -59,7 +59,7 @@ function memSnap($tshow = '') {
 
     $current = memory_get_usage();
     $memUsage = $current;
-    return '[' . date('d.m.Y H:i') . '] ' . number_format($current - $memUsage, 2, ',', '.') . ' label "' . $tshow . '", totalling ' . number_format($current, 2, ',', '.') . '<br />' . "\n";
+    return '[' . date('d.m.Y H:i') . '] ' . number_format($current - $memUsage, 2, ',', '.') . ' label "' . $tshow . '", totaling ' . number_format($current, 2, ',', '.') . '<br />' . "\n";
 }
 
 
