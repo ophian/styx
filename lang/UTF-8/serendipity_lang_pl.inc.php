@@ -409,8 +409,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_EMBED_DESC', 'Jeśli chcesz osadzić Serendipity na normalnej stronie, ustaw "Tak" aby pozbyć się wszelkich informacji nagłówkowych i pokazywac samą treść wpisów. Możesz dodatkowo skorzystać z opcji "Plik index" aby stworzyć osobną klasę, w której będą trzymane nagłówki Twojej normalnej strony. Więcej informacji zawiera plik README.');
 @define('INSTALL_TOP_AS_LINKS', 'Pokazywać Top Exits/Referrers jako linki?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"Nie": Exits i Referrers są pokazywane czystym tekstem. "Tak": Exits i Referrers są pokazywane jako linki do danych adresów sieciowych. "Standardowo": używa ustawień z Ustawień głównych - rekomendowane.');
-@define('INSTALL_BLOCKREF', 'Zablokowani Referers');
-@define('INSTALL_BLOCKREF_DESC', 'Jeśli istnieje jakiś host, którego nie chcesz pokazywać na liście Referers, wpisz go na tę listę. Wpisy rozdzielaj średnikami ";".');
+@define('INSTALL_BLOCKREF', 'Zablokowani Referrers');
+@define('INSTALL_BLOCKREF_DESC', 'Jeśli istnieje jakiś host, którego nie chcesz pokazywać na liście Referrers, wpisz go na tę listę. Wpisy rozdzielaj średnikami ";".');
 @define('INSTALL_REWRITE', 'Nadpisywanie URLi');
 @define('INSTALL_REWRITE_DESC', 'Wybierz zasady, według których będą generowane URLe. Włączenie opcji nadpisywania URLi będzie tworzyło ładne URLe dla wpisów Twojego bloga, dodatkowo lepiej indeksowalne przez wyszukiwarki typu Google. Serwer musi obsługiwać mod_rewrite lub "AllowOverride All" dla katalogu z Serendipity. Standardowym ustawieniem jest ustawienie wykryte przy próba autodetekcji ustawień serwera.');
 
@@ -499,7 +499,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('ENTER_MEDIA_UPLOAD', 'Wybierz plik do uploadu:');
 @define('SAVE_FILE_AS', 'Zapisz plik jako:');
 @define('STORE_IN_DIRECTORY', 'Zapisz w następującym katalogu: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Dodaj plik do zbioru mediów:</b><p>Tu możesz uploadować pliki z mediami lub wskazać jakieś pliki dostępne w sieci! Jeśli nie masz odpowiedniego obrazka, <a href="http://images.google.com" target="_blank">znajdź w serwisie Google</a> obrazki, które być może będą Ci odpowiadały. Rezultaty wyszukiwania są często przydatne i zabawne :) Ale uważaj! Większość obrazków ma zastrzeżone prawa autorskie i powinieneś (powinnaś) zapytać się o pozwolenie przed ich użyciem!</p><p><b>Wybierz metodę:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Dodaj plik do zbioru mediów:</b><p>Tu możesz uploadować pliki z mediami lub wskazać jakieś pliki dostępne w sieci! Jeśli nie masz odpowiedniego obrazka, <a href="http://images.Google.com" target="_blank">znajdź w serwisie Google</a> obrazki, które być może będą Ci odpowiadały. Rezultaty wyszukiwania są często przydatne i zabawne :) Ale uważaj! Większość obrazków ma zastrzeżone prawa autorskie i powinieneś (powinnaś) zapytać się o pozwolenie przed ich użyciem!</p><p><b>Wybierz metodę:</b></p><br>');
 @define('MEDIA_RENAME', 'Zmien nazwę pliku');
 @define('IMAGE_RESIZE', 'Zmień rozmiar obrazka');
 @define('MEDIA_DELETE', 'Usuń ten plik');
@@ -587,7 +587,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_DBPERSISTENT_DESC', 'Zezwól na używanie stałych połączeń z bazą danych, więcej <a href="http://pl.php.net/manual/pl/features.persistent-connections.php" target="_blank">tutaj</a>. Włączenie tej opcji nie jest zalecane.');
 @define('NO_IMAGES_FOUND', 'Nie znaleziono obrazków');
 @define('PERSONAL_SETTINGS', 'Ustawienie osobiste');
-@define('REFERER', 'Referer');
+@define('REFERER', 'Referrer');
 @define('NOT_FOUND', 'Nie znaleziono');
 @define('WRITABLE', 'Zapisywalny');
 @define('NOT_WRITABLE', 'Niezapisywalny');
@@ -1097,7 +1097,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

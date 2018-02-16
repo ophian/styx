@@ -507,7 +507,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('FIND_MEDIA', 'Търсене на медиа');
 @define('FILTER_DIRECTORY', 'Директория');
 @define('SORT_BY', 'Подреждане по');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Добавяне на файл към хранилището на медиа:</b><p>Тук можете да качвате файлове с медиа или да укажете място в мрежата, откъдето да се изтеглят! Ако нямате подходящо изображение, <a href="http://images.google.com" target="_blank">търсете изображения с Google</a>, които отговарят на целите ви. Резултатите често са полезни и забавни :)</p><p><b>Изберете начин:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Добавяне на файл към хранилището на медиа:</b><p>Тук можете да качвате файлове с медиа или да укажете място в мрежата, откъдето да се изтеглят! Ако нямате подходящо изображение, <a href="http://images.Google.com" target="_blank">търсете изображения с Google</a>, които отговарят на целите ви. Резултатите често са полезни и забавни :)</p><p><b>Изберете начин:</b></p><br>');
 @define('XML_IMAGE_TO_DISPLAY_DESC', 'Връзките към емисии на XML ще бъдат показвани чрез това изображение. Оставете празно за стандартно изображение, въведете "none" за изключване.');
 @define('COMMENTS_FILTER_SHOW', 'Показване');
 @define('COMMENTS_FILTER_ALL', 'Всички');
@@ -1089,7 +1089,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

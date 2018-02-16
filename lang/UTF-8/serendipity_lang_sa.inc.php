@@ -408,11 +408,11 @@
 @define('INSTALL_EMBED', 'هل تريد المجلة تكون جزء واحد؟');
 @define('INSTALL_EMBED_DESC', 'إذا أردت أن تجعل مدونتك مجموعة على هيئة صفحات عادية أختر الخيار (صحيح) كي يتجاهل الهدر و يتم طباعة محتوى الموضوع فقط. كذلك يمكن لك ذلك باستخدام خيارات صفحة الاندكس  وأستخدم الغلاف في أي مكان تضع فيه يكون هدر المجلة عادي. اطلع على ملف أقرئني لمعرفة معلومات تفصيلية عن ذلك');
 @define('INSTALL_TOP_AS_LINKS', 'Show Top Exits/Referrers as links?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent google spam. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
-@define('INSTALL_BLOCKREF', 'Blocked Referers');
-@define('INSTALL_BLOCKREF_DESC', 'Are there any special hosts you want not to show up in the referers list? Separate the list of hostnames with \';\' and note that the host is blocked by substring matches!');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent Google spam. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
+@define('INSTALL_BLOCKREF', 'Blocked Referrers');
+@define('INSTALL_BLOCKREF_DESC', 'Are there any special hosts you want not to show up in the referrers list? Separate the list of hostnames with \';\' and note that the host is blocked by substring matches!');
 @define('INSTALL_REWRITE', 'URL Rewriting');
-@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your serendipity dir. The default setting is auto-detected');
+@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like Google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your serendipity dir. The default setting is auto-detected');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'أعدادات تحويل الصور');
@@ -499,7 +499,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'اختر الملف الذي تريد رفعة:');
 @define('SAVE_FILE_AS', 'حفظ الملف بأسم:');
 @define('STORE_IN_DIRECTORY', 'تخزينه في داخل هذا المجلد: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>أضافة ملف الى الميديا تحت مسئوليتك:</b><p> هنا يمكن لك رفع ملفات الميديا ، أو اخبرنا عنها كي يتم جلبها من أي مكان في الانترنت! أن لم يكن لديك الصورة المناسبة <a href="http://images.google.com" target="_blank"> ابحث عن الصورة المطلوبة في قوقل للصور </a> التي تناسب فكرة موضوعك ، والنتيجة أحيانا تكون مضحكة أو عادية ، ولكن عليك مراعاة حقوق النشر ، لذلك يتوجب عليك السؤال عنها قبل أن تأخذها من مصدرها<p><b> أختر الطريقة التي تناسبك:</b><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>أضافة ملف الى الميديا تحت مسئوليتك:</b><p> هنا يمكن لك رفع ملفات الميديا ، أو اخبرنا عنها كي يتم جلبها من أي مكان في الانترنت! أن لم يكن لديك الصورة المناسبة <a href="http://images.Google.com" target="_blank"> ابحث عن الصورة المطلوبة في قوقل للصور </a> التي تناسب فكرة موضوعك ، والنتيجة أحيانا تكون مضحكة أو عادية ، ولكن عليك مراعاة حقوق النشر ، لذلك يتوجب عليك السؤال عنها قبل أن تأخذها من مصدرها<p><b> أختر الطريقة التي تناسبك:</b><br>');
 @define('MEDIA_RENAME', 'أعادة تسمية الملف');
 @define('IMAGE_RESIZE', 'تغيير قياسات هذه الصورة');
 @define('MEDIA_DELETE', 'حذف الملف');
@@ -1102,7 +1102,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');

@@ -499,7 +499,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Yüklemek istediğiniz dosyayı seçin:');
 @define('SAVE_FILE_AS', 'Bu dosyayı farklı kaydet:');
 @define('STORE_IN_DIRECTORY', 'Şu dizinin içine kaydedildi: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Medya deponuza bir dosya ekleyin:</b><p>Burada medya dosyalarınızı yükleyebilir, ya da webde herhangibir konumdan aktarabilirsiniz! İhtiyacınıza uygun resimlere sahip değilseniz, <a href="http://images.google.com" target="_blank">Google</a>da resim arayabilirsiniz, genelde sonuçlar eğlenceli ve kullanılabilirdir. :) Ama iyice emin olmalısınız, çoğu resim kopya korumalıdır,kullanmak için izin istemelisiniz.</p><p><b>Yöntem seçin:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Medya deponuza bir dosya ekleyin:</b><p>Burada medya dosyalarınızı yükleyebilir, ya da webde herhangibir konumdan aktarabilirsiniz! İhtiyacınıza uygun resimlere sahip değilseniz, <a href="http://images.Google.com" target="_blank">Google</a>da resim arayabilirsiniz, genelde sonuçlar eğlenceli ve kullanılabilirdir. :) Ama iyice emin olmalısınız, çoğu resim kopya korumalıdır,kullanmak için izin istemelisiniz.</p><p><b>Yöntem seçin:</b></p><br>');
 @define('MEDIA_RENAME', 'Dosyayı yeniden adlandır');
 @define('IMAGE_RESIZE', 'Resmi yeniden boyutlandır');
 @define('MEDIA_DELETE', 'Dosyayı sil');
@@ -1101,7 +1101,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

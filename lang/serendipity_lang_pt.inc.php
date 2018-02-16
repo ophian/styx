@@ -392,7 +392,7 @@
 @define('INSTALL_BLOCKREF', 'Referências bloqueadas');
 @define('INSTALL_BLOCKREF_DESC', 'Existem servidores especiais que você não gostaria de listar na sua lista de referências? Separe a lista dos servidores com \';\' e note que o servidor será bloqueado por uma busca parcial em sua string!');
 @define('INSTALL_REWRITE', 'Rescrita de URL');
-@define('INSTALL_REWRITE_DESC', 'Selecione as regras que você gostaria de usar na geração de URLs. A habilitação da reescrita de URL criará URLS bem formatadas para o seu blog e o deixará melhor indexável para bots como o do google. O servidor web precisa dar suporte ou ao mod_rewrite ou ao "AllowOverride All" para o diretório do seu Serendipity. A configuração padrão é auto detectada');
+@define('INSTALL_REWRITE_DESC', 'Selecione as regras que você gostaria de usar na geração de URLs. A habilitação da reescrita de URL criará URLS bem formatadas para o seu blog e o deixará melhor indexável para bots como o do Google. O servidor web precisa dar suporte ou ao mod_rewrite ou ao "AllowOverride All" para o diretório do seu Serendipity. A configuração padrão é auto detectada');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Configurações da conversão de imagens');
@@ -465,7 +465,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'Usar https para login');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Permitir o link de login aponte para uma link https. seu servidor web precisa ter suporte a isso!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Tornar clicáveis os links externos?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"não": Links externos não marcados (Maiores saídas, Maiores referências, Comentários de usuários) não são exibidos como puro texto para evitar spam do google (recomendado). "sim": Links externos não marcados são exibidos como links. Podem ser sobrescritos pela configuração da barra lateral!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"não": Links externos não marcados (Maiores saídas, Maiores referências, Comentários de usuários) não são exibidos como puro texto para evitar spam do Google (recomendado). "sim": Links externos não marcados são exibidos como links. Podem ser sobrescritos pela configuração da barra lateral!');
 @define('PAGE_BROWSE_COMMENTS', 'Página %s de %s, totalizando %s comentários');
 @define('FILTERS', 'Filtros');
 @define('FIND_ENTRIES', 'Encontrar artigos');
@@ -520,8 +520,8 @@
 @define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('CATEGORY_DELETED_ARTICLES_MOVED', 'Categoria #%s excluída. Os artigos antigos foram movidos para a categoria #%s');
 @define('INSTALL_TOP_AS_LINKS', 'Exibir maiores saídas/referências como links?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"não": Saídas e Referências são exibidas como puro texto para prevenir spam do google. "sim": Saídas e Referências são exibidas como links. "padrão": Usa o valor definido na configuração global (recomendado).');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Adiciona um arquivo para o seu repositório de mídia:</b><p>Aqui você pode transferir arquivos de mídia, ou oriente-me para pegá-lo em algum lugar na web! Se não possuir uma imagem apropriada, <a href="http://images.google.com" target="_blank">procure no google</a> alguma imagem que tenha relação com o assunto, os resultados são geralmente úteis e divertidos :)</p><p><b>Selecione o método:</b></p><br>');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"não": Saídas e Referências são exibidas como puro texto para prevenir spam do Google. "sim": Saídas e Referências são exibidas como links. "padrão": Usa o valor definido na configuração global (recomendado).');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Adiciona um arquivo para o seu repositório de mídia:</b><p>Aqui você pode transferir arquivos de mídia, ou oriente-me para pegá-lo em algum lugar na web! Se não possuir uma imagem apropriada, <a href="http://images.Google.com" target="_blank">procure no Google</a> alguma imagem que tenha relação com o assunto, os resultados são geralmente úteis e divertidos :)</p><p><b>Selecione o método:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Mostrat');
 @define('COMMENTS_FILTER_ALL', 'Todos');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Apenas os aprovados');
@@ -1101,7 +1101,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

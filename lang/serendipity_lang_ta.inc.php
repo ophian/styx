@@ -406,11 +406,11 @@
 @define('INSTALL_EMBED', 'Is Serendipity embedded?');
 @define('INSTALL_EMBED_DESC', 'If you want to embed Serendipity within a regular page, set to true to discard any headers and just print the contents. You can make use of the indexFile option to use a wrapper class where you put your normal webpage headers. See the README file for more information!');
 @define('INSTALL_TOP_AS_LINKS', 'Show Top Exits/Referrers as links?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent google spam. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
-@define('INSTALL_BLOCKREF', 'Blocked Referers');
-@define('INSTALL_BLOCKREF_DESC', 'Are there any special hosts you want not to show up in the referers list? Separate the list of hostnames with \';\' and note that the host is blocked by substring matches!');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent Google spam. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
+@define('INSTALL_BLOCKREF', 'Blocked Referrers');
+@define('INSTALL_BLOCKREF_DESC', 'Are there any special hosts you want not to show up in the referrers list? Separate the list of hostnames with \';\' and note that the host is blocked by substring matches!');
 @define('INSTALL_REWRITE', 'URL Rewriting');
-@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your Serendipity dir. The default setting is auto-detected');
+@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like Google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your Serendipity dir. The default setting is auto-detected');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Image Conversion Settings');
@@ -481,7 +481,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'Use https for login');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Lets the login-link point to a https-location. Your webserver needs to support this!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Make external links clickable?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": Unchecked external links (Top Exits, Top Referrers, User comments) are not shown/shown as plain text where applicable to prevent google spam (recommended). "yes": Unchecked external links are shown as hyperlinks. Can be overridden within sidebar plugin configuration!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": Unchecked external links (Top Exits, Top Referrers, User comments) are not shown/shown as plain text where applicable to prevent Google spam (recommended). "yes": Unchecked external links are shown as hyperlinks. Can be overridden within sidebar plugin configuration!');
 @define('PAGE_BROWSE_COMMENTS', 'பக்கம் %s. மொத்த பக்கங்கள் %s. அன்பர் கருத்துக்கள் %s');
 @define('FILTERS', 'தேர்வுகள்');
 @define('FIND_ENTRIES', 'குறிப்புகளை தேர்வு செய்க');
@@ -1097,7 +1097,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');

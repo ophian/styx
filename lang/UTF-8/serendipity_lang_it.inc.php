@@ -395,11 +395,11 @@
 @define('INSTALL_EMBED', 'Hai inglobato Serendipity?');
 @define('INSTALL_EMBED_DESC', 'Se vuoi inglobare Serendipity in una normale pagina, imposta questa opzione a vero, in modo da scartare gli header e scrivere solo i contenuti. Puoi usare i normali header della tua pagina web. Leggi il file README per avere più informazioni!');
 @define('INSTALL_TOP_AS_LINKS', 'Mostra i Top Exit/Referrer come link?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exit e Referrer sono mostrati come puro testo per evitare spam su google. "sì": Exit e Referrer vengono mostrati come link. "default": Usa le impostazioni globali (raccomandato).');
-@define('INSTALL_BLOCKREF', 'Referers bloccati');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exit e Referrer sono mostrati come puro testo per evitare spam su Google. "sì": Exit e Referrer vengono mostrati come link. "default": Usa le impostazioni globali (raccomandato).');
+@define('INSTALL_BLOCKREF', 'Referrers bloccati');
 @define('INSTALL_BLOCKREF_DESC', 'Ci sono particolari host che non vuoi mostrare nella lista dei referer? Separa la lista dei nomi di host con un \';\' e, nota bene, gli host vengono bloccati anche come sotto-stringhe!');
 @define('INSTALL_REWRITE', 'Riscrittura URL');
-@define('INSTALL_REWRITE_DESC', 'Seleziona quale regola vuoi per la generazione degli URL. Abilitare la riscrittura degli URL genera URL più belli e rende il blog meglio indicizzabile dai motori di ricerca come google. Il webserver deve supportare almeno mod_rewrite o "AllowOverride All" per la tua directory di Serendipity. L\'impostazione di default è l\'auto-riconoscimento');
+@define('INSTALL_REWRITE_DESC', 'Seleziona quale regola vuoi per la generazione degli URL. Abilitare la riscrittura degli URL genera URL più belli e rende il blog meglio indicizzabile dai motori di ricerca come Google. Il webserver deve supportare almeno mod_rewrite o "AllowOverride All" per la tua directory di Serendipity. L\'impostazione di default è l\'auto-riconoscimento');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Impostazione per la conversione di immagini');
@@ -470,7 +470,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'Usa https per il  login');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Imposta il link di login a una locazione https. Il webserver deve supportare questa configurazione!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Rendi clickabili i link esterni?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": i link esterni non verificati (Top Exit, Top Referrer, Commenti degli utenti) non vengono mostrati/vengono mostrati come puro testo dove possibile, per evitare spam di google. (raccomandato). "Sì": I link esterni non verificati appaiono come link. Può essere reimpostato dalla configurazione dei plugin delle barre laterali!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": i link esterni non verificati (Top Exit, Top Referrer, Commenti degli utenti) non vengono mostrati/vengono mostrati come puro testo dove possibile, per evitare spam di Google. (raccomandato). "Sì": I link esterni non verificati appaiono come link. Può essere reimpostato dalla configurazione dei plugin delle barre laterali!');
 @define('PAGE_BROWSE_COMMENTS', 'Pagina %s di %s, in totale %s commenti');
 @define('FILTERS', 'Filtri');
 @define('FIND_ENTRIES', 'Trova notizie');
@@ -486,7 +486,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Seleziona un file da inviare:');
 @define('SAVE_FILE_AS', 'Salva il file come:');
 @define('STORE_IN_DIRECTORY', 'Salva il file nella directory: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Aggiungi un file al deposito di media:</b><p>Qui puoi inviare file media, o dirmi da dove prenderli in qualche parte del web! Se non hai l\'immagine giusta, <a href="http://images.google.com" target="_blank">cerca su google</a> quella che preferisci, i risultati spesso sono utili e divertenti :)</p><p><b>Seleziona il metodo:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Aggiungi un file al deposito di media:</b><p>Qui puoi inviare file media, o dirmi da dove prenderli in qualche parte del web! Se non hai l\'immagine giusta, <a href="http://images.Google.com" target="_blank">cerca su Google</a> quella che preferisci, i risultati spesso sono utili e divertenti :)</p><p><b>Seleziona il metodo:</b></p><br>');
 @define('MEDIA_RENAME', 'Rinomina questo file');
 @define('IMAGE_RESIZE', 'Ridimensiona questa immagine');
 @define('MEDIA_DELETE', 'Cancella questo file');
@@ -1099,7 +1099,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

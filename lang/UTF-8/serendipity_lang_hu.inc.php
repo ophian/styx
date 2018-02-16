@@ -406,11 +406,11 @@
 @define('INSTALL_EMBED', 'A Serendipity beágyazott alkalmazásként fut?');
 @define('INSTALL_EMBED_DESC', 'Amennyiben szeretnéd a Serendipity-t egy szokványos oldalba ágyazni, válaszd ezt az opciót, s így csak a tartalom jelenik meg fejléc nélkül. Hasznát veheted az "indexFile" opciónak, hogy használni tudj egy "wrapper class"-t, ahová a honlapod eredeti fejlécét. További információért lásd a README fájlt!');
 @define('INSTALL_TOP_AS_LINKS', 'A "Top Exits/Ide hivatkozók"-eket linkként jelenítsem meg?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"nem": Az "Kilépők" és a "Hivatkozók" sima szövegként jelennek meg elkerülve a "google spam"-et. "igen": Az "kilépők" és a "Hivatkozók" linkként jelennek meg. "alapértelmezett": A globális beállítást használja (javasolt).');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"nem": Az "Kilépők" és a "Hivatkozók" sima szövegként jelennek meg elkerülve a "Google spam"-et. "igen": Az "kilépők" és a "Hivatkozók" linkként jelennek meg. "alapértelmezett": A globális beállítást használja (javasolt).');
 @define('INSTALL_BLOCKREF', 'Tiltott ide hivatkozók');
 @define('INSTALL_BLOCKREF_DESC', 'Van olyan gép, amelyet nem szeretne megjeleníteni az ide hivatkozók listájában? Válassza el ezeket a címeket \';\'-vel. A címek akkor is blokkolódnak, ha a szöveg közepén van egyezés!');
 @define('INSTALL_REWRITE', 'URL Átírás');
-@define('INSTALL_REWRITE_DESC', 'Válaszd ki a szabályokat, amelyeket az URL generálás során használni szeretnél. Az átíró szabályok használata szebb URL-t ad a blog-odnak, és a web-es robotok (pl: google)is könnyebben indexelik. A webszervernek támogatnia kell a "mod_rewrite" vagy a "AllowOverride All" beállítást a Serendipity könyvtáradhoz. Az alapértelmezett beállítás az automatikus érzékelés (autodetect))');
+@define('INSTALL_REWRITE_DESC', 'Válaszd ki a szabályokat, amelyeket az URL generálás során használni szeretnél. Az átíró szabályok használata szebb URL-t ad a blog-odnak, és a web-es robotok (pl: Google)is könnyebben indexelik. A webszervernek támogatnia kell a "mod_rewrite" vagy a "AllowOverride All" beállítást a Serendipity könyvtáradhoz. Az alapértelmezett beállítás az automatikus érzékelés (autodetect))');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Kép konvertáló beállítások');
@@ -481,7 +481,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'Https használata bejelentkezéshez');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'A bejelentkezési hivatkozás https címre fog mutatni. A böngészőnek támogatnia kell ezt!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Legyenek a külső helyre való hivatkozások kattinthatóak?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"nem": a nem ellenőrzött külső hivatkozások (leggyakoribb kilépők, leggyakoribb visszahivatkozók, hozzászólások) sima szövegként jelennek meg, azaz nem kattinthatóak, megelőzve ezzel pl. a google spam-et (ajánlott). "igen": a nem ellenőrzött külső hivatkozások kattintható hivatkozásként való megjelenítése. Felüldefiniálható a margó modul beállításainál!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"nem": a nem ellenőrzött külső hivatkozások (leggyakoribb kilépők, leggyakoribb visszahivatkozók, hozzászólások) sima szövegként jelennek meg, azaz nem kattinthatóak, megelőzve ezzel pl. a Google spam-et (ajánlott). "igen": a nem ellenőrzött külső hivatkozások kattintható hivatkozásként való megjelenítése. Felüldefiniálható a margó modul beállításainál!');
 @define('PAGE_BROWSE_COMMENTS', '%s oldal ennyiből: %s, összesen ennyi bejegyzés: %s');
 @define('FILTERS', 'Szűrők');
 @define('FIND_ENTRIES', 'Bejegyzés keresése');
@@ -497,7 +497,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Válassza ki a feltöltendő fájlt:');
 @define('SAVE_FILE_AS', 'Fájl mentése a következő néven:');
 @define('STORE_IN_DIRECTORY', 'Tárolás a következő könyvtárban: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Fájl hozzáadása a média tárolóhoz:</b><p>Itt tölthetsz fel médiafájlokat, vagy megmondhatod hogy honnan töltsem le őket! Ha nincs meg egy bizonyos kép, <a href="http://images.google.com" target="_blank">keress rá a google-t használva</a> az elképzelésednek megfelelően. Az eredmények gyakran hasznosak és viccesek :) De vigyázz, a legtöbb kép szerzői jogvédelem alatt áll, így mielőtt használnád kérdezz rá.</p><p><b>Válassz a lehetőségek közül:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Fájl hozzáadása a média tárolóhoz:</b><p>Itt tölthetsz fel médiafájlokat, vagy megmondhatod hogy honnan töltsem le őket! Ha nincs meg egy bizonyos kép, <a href="http://images.Google.com" target="_blank">keress rá a Google-t használva</a> az elképzelésednek megfelelően. Az eredmények gyakran hasznosak és viccesek :) De vigyázz, a legtöbb kép szerzői jogvédelem alatt áll, így mielőtt használnád kérdezz rá.</p><p><b>Válassz a lehetőségek közül:</b></p><br>');
 @define('MEDIA_RENAME', 'Fájl átnevezése');
 @define('IMAGE_RESIZE', 'Kép átméretezése');
 @define('MEDIA_DELETE', 'Fájl törlése');
@@ -1095,7 +1095,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

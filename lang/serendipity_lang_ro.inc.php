@@ -407,11 +407,11 @@
 @define('INSTALL_EMBED', 'Serendipity este integrat?');
 @define('INSTALL_EMBED_DESC', 'Dacă vrei să incluzi Serendipity într-o pagină normală, bifează aici pentru a ignora antetele şi a afişa doar conţinutul. Poţi folosi opţiunea indexFile pentru a folosi o clasă unde poţi pune antetele paginii în care e integrat Serendipity. Vezi fişierul README pentru mai multe informaţii!');
 @define('INSTALL_TOP_AS_LINKS', 'Arată intrările din Top Ieşiri/Referenţi ca legături?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"nu": Ieşirile şi Referinţele sunt afişate doar ca text pentru a evita spam-ul de pe google. "da": Ieşirile şi Referenţii sunt afişaţi ca legături. "implicit": Foloseşte setările globale (recomandat).');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"nu": Ieşirile şi Referinţele sunt afişate doar ca text pentru a evita spam-ul de pe Google. "da": Ieşirile şi Referenţii sunt afişaţi ca legături. "implicit": Foloseşte setările globale (recomandat).');
 @define('INSTALL_BLOCKREF', 'Referenţi blocaţi');
 @define('INSTALL_BLOCKREF_DESC', 'Există nişte adrese care nu vrei să apară în listă? Separă lista de adrese cu \';\' şi ai în vedere faptul că adresele sunt blocate după comparaţii cu subşiruri!');
 @define('INSTALL_REWRITE', 'Rescriere URL');
-@define('INSTALL_REWRITE_DESC', 'Alege ce reguli vrei să foloseşti când generezi un URL. Activând această opţiune va face un URL să arate mai frumos şi va fi indexat preferenţial de motoare de căutare ca google. Serverul web trebuie să aiba instalat mod_rewrite sau "AllowOverride All" pentru directorul Serendipity. Opţiunea implicită este auto-detecţie');
+@define('INSTALL_REWRITE_DESC', 'Alege ce reguli vrei să foloseşti când generezi un URL. Activând această opţiune va face un URL să arate mai frumos şi va fi indexat preferenţial de motoare de căutare ca Google. Serverul web trebuie să aiba instalat mod_rewrite sau "AllowOverride All" pentru directorul Serendipity. Opţiunea implicită este auto-detecţie');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Setări Conversie Imagini');
@@ -482,7 +482,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'Foloseşte https pentru autentificare');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Permite ca legătura pentru autentificare să arate către o locaţie https. Serverul tău web trebuie să suporte acest mod!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Permite clickul pe legăturile către exterior?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"nu": Legăturile către exterior neverificate (Top Ieşiri, Top Referenţi, Comentarii) sunt afişate doar ca text pentru a preveni spam de google (recomandat). "da": Legăturile către exterior neverificate sunt afişate ca legături şi pot fi urmate cu un click pe ele. Această setare poate fi suprascrisă de setările extensiei Bară Laterală!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"nu": Legăturile către exterior neverificate (Top Ieşiri, Top Referenţi, Comentarii) sunt afişate doar ca text pentru a preveni spam de Google (recomandat). "da": Legăturile către exterior neverificate sunt afişate ca legături şi pot fi urmate cu un click pe ele. Această setare poate fi suprascrisă de setările extensiei Bară Laterală!');
 @define('PAGE_BROWSE_COMMENTS', 'Pagina %s din %s, în total %s comentarii');
 @define('FILTERS', 'Filtre');
 @define('FIND_ENTRIES', 'Caută însemnări');
@@ -498,7 +498,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Alege fişierul pe care vrei să-l încarci:');
 @define('SAVE_FILE_AS', 'Salvează fişierul ca:');
 @define('STORE_IN_DIRECTORY', 'Stochează în următorul director: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Adaugă un fişier librăriei tale multimedia:</b><p>Aici poţi încărca fişiere media de pe calculatorul tău, sau îmi poţi spune de unde să le iau de pe web! Dacă nu ai o imagine potrivită, <a href="http://images.google.com" target="_blank">caută imagini pe google</a> care corespund gândurilor tale, rezultatele sunt în majoritatea cazurilor folositoare şi amuzante :) Dar atenţie, multe imagini sunt protejate de drepturile de autor, deci ar trebui să întrebi înainte să le foloseşti.</p><p><b>Alege metoda:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Adaugă un fişier librăriei tale multimedia:</b><p>Aici poţi încărca fişiere media de pe calculatorul tău, sau îmi poţi spune de unde să le iau de pe web! Dacă nu ai o imagine potrivită, <a href="http://images.Google.com" target="_blank">caută imagini pe Google</a> care corespund gândurilor tale, rezultatele sunt în majoritatea cazurilor folositoare şi amuzante :) Dar atenţie, multe imagini sunt protejate de drepturile de autor, deci ar trebui să întrebi înainte să le foloseşti.</p><p><b>Alege metoda:</b></p><br>');
 @define('MEDIA_RENAME', 'Redenumeşte acest fişier');
 @define('IMAGE_RESIZE', 'Redimenzionează această imagine');
 @define('MEDIA_DELETE', 'Şterge acest fişier');
@@ -1099,7 +1099,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

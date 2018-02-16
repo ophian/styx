@@ -406,11 +406,11 @@
 @define('INSTALL_EMBED', 'Er Serendipity innifalið?');
 @define('INSTALL_EMBED_DESC', 'Ef þú vilt innifela Serendipity á annarri síðu, stilltu þá á "true" að henda öllum hausum, og prenta bara innihaldið. Þú getur nýtt indexFile valmöguleikann til að nota "wrapper class" þar sem þú setur venjulega vefsíðuhausa. Sjá README skrá fyrir meiri upplýsingar.');
 @define('INSTALL_TOP_AS_LINKS', 'Sýna topp útgönguleiðir/ávísara sem tengla?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"nei": Útgönguleiðir og ávísarar eru sýnd sem venjulegur texti til að verjast google rusli. "já": Útgönguleiðir og ávísarar eru sýndir sem tenglar. "sjálfgefið": Nota stillingu úr almennum stillingum (ráðlagt).');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"nei": Útgönguleiðir og ávísarar eru sýnd sem venjulegur texti til að verjast Google rusli. "já": Útgönguleiðir og ávísarar eru sýndir sem tenglar. "sjálfgefið": Nota stillingu úr almennum stillingum (ráðlagt).');
 @define('INSTALL_BLOCKREF', 'Óleyfðir ávísarar');
 @define('INSTALL_BLOCKREF_DESC', 'Eru einhverjar sérstakar vélar sem þú vilt ekki láta sjást í ávísaralistanum? Aðskildu lista vélanafna með \';\' og hafðu í huga að vélarnafninu er sleppt með "substring matches"!');
 @define('INSTALL_REWRITE', 'Endurskrifun slóða (URL)');
-@define('INSTALL_REWRITE_DESC', 'Veldu hvaða reglur þú vilt nota til að endurskrifa slóðir (URL). Að hafa þetta virkt mun gera slóðir á bloggið þitt fallegar og einfaldar, og gera auðveldara fyrir vefköngulær (s.s. google) að gera efnisyfirlit á síðuna). Vefþjónninn þarf að styðja annaðhvort mod_rewrite eða "AllowOverride All" fyrir Serendipity möppuna þína. Sjjálfgefna stillingin er að skynja það sjálfkrafa.');
+@define('INSTALL_REWRITE_DESC', 'Veldu hvaða reglur þú vilt nota til að endurskrifa slóðir (URL). Að hafa þetta virkt mun gera slóðir á bloggið þitt fallegar og einfaldar, og gera auðveldara fyrir vefköngulær (s.s. Google) að gera efnisyfirlit á síðuna). Vefþjónninn þarf að styðja annaðhvort mod_rewrite eða "AllowOverride All" fyrir Serendipity möppuna þína. Sjjálfgefna stillingin er að skynja það sjálfkrafa.');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Myndbreytingastillingar:');
@@ -481,7 +481,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'Nota https fyrir innskráningu');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Lætur innskráningarhlekkinn vísa á https slóð. Vefþjónninn þinn þarf að styðja þetta!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Láta vera hægt að smellta á utanaðkomandi hlekki?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"nei": Óskoðaðir hlekkir út á við (Topp útgönguleiðir, ávísarar, athugasemdir notenda) eru sýndar/ekki sýndar sem venjulegur texti þegar á við til að koma í veg fyrir google ruslsendingar (ráðlagt). "já": Óskoðaðir hlekkir út á við eru sýndir sem hlekkir. Getur verið breytt með æðra valdi innan hliðarramma stillingum!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"nei": Óskoðaðir hlekkir út á við (Topp útgönguleiðir, ávísarar, athugasemdir notenda) eru sýndar/ekki sýndar sem venjulegur texti þegar á við til að koma í veg fyrir Google ruslsendingar (ráðlagt). "já": Óskoðaðir hlekkir út á við eru sýndir sem hlekkir. Getur verið breytt með æðra valdi innan hliðarramma stillingum!');
 @define('PAGE_BROWSE_COMMENTS', 'Blaðsíða %s af %s, með %s athugasemdir');
 @define('FILTERS', 'Síur');
 @define('FIND_ENTRIES', 'Finna færslur');
@@ -497,7 +497,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Veldu skrána sem þú vilt vista:');
 @define('SAVE_FILE_AS', 'Vista skrá sem:');
 @define('STORE_IN_DIRECTORY', 'Vista innan eftirfarandi möppu: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Bæta við skrá í gagnageymsluna þína:</b><p>Hér geturðu vistað gagnaskrár, eða sagt mér að sækja þær einhversstaðar annarsstaðar frá af vefnum! Ef þú ert ekki með mynd við hæfi, <a href="http://images.google.com" target="_blank">leitaðu að myndum á google</a> sem á við það sem þú ert að hugsa. Niðurstöðurnar eru oft nytsamlegar og fyndnar :)</p><p><b>Veldu leið:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Bæta við skrá í gagnageymsluna þína:</b><p>Hér geturðu vistað gagnaskrár, eða sagt mér að sækja þær einhversstaðar annarsstaðar frá af vefnum! Ef þú ert ekki með mynd við hæfi, <a href="http://images.Google.com" target="_blank">leitaðu að myndum á Google</a> sem á við það sem þú ert að hugsa. Niðurstöðurnar eru oft nytsamlegar og fyndnar :)</p><p><b>Veldu leið:</b></p><br>');
 @define('MEDIA_RENAME', 'Endurnefna skrána');
 @define('IMAGE_RESIZE', 'Breyta stærð myndarinnar');
 @define('MEDIA_DELETE', 'Eyða þessari skrá');
@@ -1098,7 +1098,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');

@@ -392,11 +392,11 @@
 @define('INSTALL_EMBED', '¿Está Serendipity insertado en otra web?');
 @define('INSTALL_EMBED_DESC', 'Si quieres insertar Serendipity dentro de otra página, ajusta a "sí" para eliminar cualquier cabecera y sólo mostrar los contenidos. Puedes hacer uso de la opción indexFile y usar una clase donde pongas las cabeceras normales de tu página web. ¡Lee el fichero README para más información!');
 @define('INSTALL_TOP_AS_LINKS', '¿Mostrar Salidas/Sitios asociados como enlaces?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Las Salidas y los Sitios asociados se muestran como texto sin formato para prevenir spam en google. "yes": Las Salidas y Sitios asociando se muestran como enlaces. "default": Usar el valor de la configuración global (recomendado).');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Las Salidas y los Sitios asociados se muestran como texto sin formato para prevenir spam en Google. "yes": Las Salidas y Sitios asociando se muestran como enlaces. "default": Usar el valor de la configuración global (recomendado).');
 @define('INSTALL_BLOCKREF', 'Sitios asociados bloqueados');
 @define('INSTALL_BLOCKREF_DESC', '¿Hay algún servidor que no quieras que se muestre en la lista de Sitios asociados? Separa la lista de nombres de dominio con \';\' y advierte que se ¡bloquea por coincidencias en subcadenas!');
 @define('INSTALL_REWRITE', 'Reescritura de URL');
-@define('INSTALL_REWRITE_DESC', 'Selecciona la regla que quieres usar para generar URL. Activando estas reglas hará URL bonitas para tu blog y lo hará más indexable para los robots como google. El servidor web necesita tener o mod_rewrite o "AllowOverride All" para el directorio de Serendipity. El valor predeterminado es autodetectado');
+@define('INSTALL_REWRITE_DESC', 'Selecciona la regla que quieres usar para generar URL. Activando estas reglas hará URL bonitas para tu blog y lo hará más indexable para los robots como Google. El servidor web necesita tener o mod_rewrite o "AllowOverride All" para el directorio de Serendipity. El valor predeterminado es autodetectado');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Opciones para la conversión de imágenes');
@@ -478,7 +478,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'Usar https para conectar');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Hacer que el enlace para conectar apunte a una conexión https. ¡Tu servidor web necesita soporte para esto!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', '¿Poder hacer click en los enlaces externos?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": Enlaces externos no verificados (Top Salidas, Top Sitios asociados, Comentarios de usuarios) no se muestran/se muestran como texto sin formato donde se pueda para prevenir spam de google (recomendado). "sí": Enlaces externos no verificados se muestran como enlaces. ¡Puede ser modificado en la configuración de la extensión de la barra lateral!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": Enlaces externos no verificados (Top Salidas, Top Sitios asociados, Comentarios de usuarios) no se muestran/se muestran como texto sin formato donde se pueda para prevenir spam de Google (recomendado). "sí": Enlaces externos no verificados se muestran como enlaces. ¡Puede ser modificado en la configuración de la extensión de la barra lateral!');
 @define('PAGE_BROWSE_COMMENTS', 'Página %s de %s, total %s comentarios');
 @define('FILTERS', 'Filtros');
 @define('FIND_ENTRIES', 'Encontrar entradas');
@@ -535,7 +535,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Incapaz de abrir el fichero plantilla, ¡por favor actualiza Serendipity!');
 @define('ADVANCED_OPTIONS', 'Opciones avanzadas');
 @define('EDIT_ENTRY', 'Editar entrada');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Añade un fichero a tu colección de medios:</b><p>Desde aquí puedes transferir un fichero de medios o puedes decirme que los coja de algún ¡lugar de la web! Si no tienes una imagen apropiada, <a href="http://images.google.com" target="_blank">busca imágenes en google</a> que vaya con tu forma de pensar, los resultados son útiles y divertidos a veces :)</p><p><b>Selecciona el método:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Añade un fichero a tu colección de medios:</b><p>Desde aquí puedes transferir un fichero de medios o puedes decirme que los coja de algún ¡lugar de la web! Si no tienes una imagen apropiada, <a href="http://images.Google.com" target="_blank">busca imágenes en Google</a> que vaya con tu forma de pensar, los resultados son útiles y divertidos a veces :)</p><p><b>Selecciona el método:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Mostrar');
 @define('COMMENTS_FILTER_ALL', 'Todo');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Sólo lo aprobado');
@@ -599,7 +599,7 @@
 @define('INSTALL_DBPERSISTENT_DESC', 'Activar el uso de conexiones persistentes a la base de datos, lee más en <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">here</a>. Normalmente no se recomienda');
 @define('NO_IMAGES_FOUND', 'No se encontraron imágenes');
 @define('PERSONAL_SETTINGS', 'Configuración personal');
-@define('REFERER', 'Referer');
+@define('REFERER', 'Referrer');
 @define('NOT_FOUND', 'No encontrado');
 @define('NOT_WRITABLE', 'No se puede escribir');
 @define('WRITABLE', 'Se puede escribir');
@@ -1119,7 +1119,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');

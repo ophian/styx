@@ -405,7 +405,7 @@
 @define('INSTALL_EMBED', 'Käytätkö serendipityä osasena?');
 @define('INSTALL_EMBED_DESC', 'Serendipity osana olemassaolevaa sivua. Voit hyödyntää aloitussivu-valintaa sisällyttääksesi Serendipity osaksi sivua. Katso README tiedostosta ohjeita!');
 @define('INSTALL_TOP_AS_LINKS', 'Näytä huippupoistumisosoitteet/viittausosoitteet linkkeinä?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"Ei", tekstinä google spämmin estämiseksi. "Kyllä", linkkeinä. "Oletus", käytä oletusasetusten valintaa (suositeltu vaihtoehto).');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"Ei", tekstinä Google spämmin estämiseksi. "Kyllä", linkkeinä. "Oletus", käytä oletusasetusten valintaa (suositeltu vaihtoehto).');
 @define('INSTALL_BLOCKREF', 'Estä viittaukset');
 @define('INSTALL_BLOCKREF_DESC', 'Onko viittaajia, joiden osoitteita et halua nähdä? Erota palvelinosoitteet \';\':llä. Esto tehdään osamerkkijonoilla!');
 @define('INSTALL_REWRITE', 'URL-uudelleenkirjoitus');
@@ -496,7 +496,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Valitse tiedosto, jonka haluat tuoda:');
 @define('SAVE_FILE_AS', 'Talleta nimellä:');
 @define('STORE_IN_DIRECTORY', 'Talleta hakemistoon: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Lisää tiedoston media kirjastoosi:</b><p>Voit tuoda tiedostoja tai käskeä minua hakemaan ne webistä. Jos et keksi sopivaa kuvaa, kokeile, <a href="http://images.google.com" target="_blank">googlea</a> mielikuvillasi, tulokset ovat yleensä käyttökelpoisia ja hauskoja :)</p><p><b>Valitse tapa:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Lisää tiedoston media kirjastoosi:</b><p>Voit tuoda tiedostoja tai käskeä minua hakemaan ne webistä. Jos et keksi sopivaa kuvaa, kokeile, <a href="http://images.Google.com" target="_blank">Googlea</a> mielikuvillasi, tulokset ovat yleensä käyttökelpoisia ja hauskoja :)</p><p><b>Valitse tapa:</b></p><br>');
 @define('MEDIA_RENAME', 'Uudelleennimeä tiedosto');
 @define('IMAGE_RESIZE', 'Muokkaa kuvan kokoa');
 @define('MEDIA_DELETE', 'Poista tiedosto');
@@ -819,7 +819,7 @@
 
 @define('COMMENT_NOT_ADDED', 'Kommenttia ei lisätty, koska joko merkinnän kommentointi on kielletty, jokin antamasi tieto oli kelvoton tai kommenttisi katsottiin roskapostiksi. ');
 @define('INSTALL_TRACKREF', 'Otetaanko viittajaseuranta käyttöön?');
-@define('INSTALL_TRACKREF_DESC', 'Viittajaseurannalla pidetään kirjaa merkintöihisi viittaavista linkeistä. Tätä usein väärinkäytetään "referrer-spam"-mäykseen. Hae googlesta selitys hakusanoilla: referrer spam.');
+@define('INSTALL_TRACKREF_DESC', 'Viittajaseurannalla pidetään kirjaa merkintöihisi viittaavista linkeistä. Tätä usein väärinkäytetään "referrer-spam"-mäykseen. Hae Googlesta selitys hakusanoilla: referrer spam.');
 @define('CATEGORIES_HIDE_PARENT', 'Piilota valittu kategoriavanhempi?');
 @define('CATEGORIES_HIDE_PARENT_DESC', 'Jos rajaat valinnan kategoriavanhempaan vain tämän vanhemman lapset näytetään, jos et, näytetään vain kategoriavanhemmat.');
 @define('WARNING_NO_GROUPS_SELECTED', 'Varoitus: Et valinnut yhtään ryhmää. Tämä poistaisi sinulta kaikki oikeudet, joten valintaasi ei toteutettu.');
@@ -1097,7 +1097,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

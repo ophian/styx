@@ -523,7 +523,7 @@
 @define('COMMENTS_VIEWMODE_LINEAR', 'Vue non groupée');
 @define('DISPLAY_COMMENTS_AS', 'Afficher les commentaires en');
 @define('PAGE_BROWSE_ENTRIES', 'Page %s de %s sur %s billets au total');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Ajouter un fichier à votre médiathèquei :</b><p>Vous permet d\'uploader des fichiers, ou de me dire une adresse internet de laquelle je peux les télécharger. Si vous n\'avez pas d\'image appropriée, vous pouvez faire une <a href="http://images.google.com" target="_blank">recherche d\'images avec Google</a>, les résultats sont souvent intéressants et toujours très comiques :)</p><p><b>Choisissez une méthode :</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Ajouter un fichier à votre médiathèquei :</b><p>Vous permet d\'uploader des fichiers, ou de me dire une adresse internet de laquelle je peux les télécharger. Si vous n\'avez pas d\'image appropriée, vous pouvez faire une <a href="http://images.Google.com" target="_blank">recherche d\'images avec Google</a>, les résultats sont souvent intéressants et toujours très comiques :)</p><p><b>Choisissez une méthode :</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Afficher');
 @define('COMMENTS_FILTER_ALL', 'Tous');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Approuvés');
@@ -809,7 +809,7 @@
 @define('USERCONF_CHECK_PASSWORD', 'Ancien mot de passe');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Si vous changez le mot de passe dans le champ ci-dessus, vous devez entrer le mot de passe actuel dans ce champ.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Vous n\'avez pas entré l\'ancien mot de passe correct, et vous n\'êtes pas autorisé à définir un nouveau mot de passe. Les données n\'ont pas été sauvegardées.');
-@define('ERROR_XSRF', 'Votre navigateur n\'a pas envoyé un HTTP-Referer (adresse référante) valide. Cela peut avoir été causé par un navigateur/proxy mal configuré ou une intervention malveillante externe. L\'action que vous vouliez exécuter a été annulée.');
+@define('ERROR_XSRF', 'Votre navigateur n\'a pas envoyé un HTTP-Referrer (adresse référante) valide. Cela peut avoir été causé par un navigateur/proxy mal configuré ou une intervention malveillante externe. L\'action que vous vouliez exécuter a été annulée.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Ici vous pouvez définir la structure relative de l\'adresse par laquelle on peut accéder aux fils RSS d\'utilisateurs spécifiques. Vous pouvez utiliser les variables %id% (identifiant), %realname% (nom réel), %username% (pseudo), %email% (email) et les caractères de votre choix dans l\'adresse cible.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Structure des rétroliens aux fils RSS d\'auteurs');
 @define('INSTALL_PERMALINK_AUTHORSPATH', 'Chemin des auteurs');
@@ -1104,7 +1104,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

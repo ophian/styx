@@ -68,8 +68,8 @@
 @define('NO_COMMENTS', 'No comments');
 @define('POSTED_BY', 'Posted by');
 @define('ON', 'on');
-@define('A_NEW_COMMENT_BLAHBLAH', 'A new comment has been posted on your blog "%s", to the entry entitled "%s".');
-@define('A_NEW_TRACKBACK_BLAHBLAH', 'A new trackback has been made to your blog-entry entitled "%s".');
+@define('A_NEW_COMMENT_BLAHBLAH', 'A new comment has been posted on your Blog "%s", to the entry entitled "%s".');
+@define('A_NEW_TRACKBACK_BLAHBLAH', 'A new trackback has been made to your Blog-entry entitled "%s".');
 @define('NO_CATEGORY', 'No Category');
 @define('ENTRY_BODY', 'Entry Body');
 @define('EXTENDED_BODY', 'Extended Body');
@@ -97,12 +97,12 @@
 @define('ARCHIVES', 'Archives');
 @define('BROWSE_ARCHIVES', 'Browse archives by month');
 @define('TOP_REFERRER', 'Top Referrers');
-@define('SHOWS_TOP_SITES', 'Shows top sites that linked to your blogs');
+@define('SHOWS_TOP_SITES', 'Shows top sites that linked to your Blogs');
 @define('TOP_EXITS', 'Top Exits');
-@define('SHOWS_TOP_EXIT', 'Shows top exit links from your blogs');
+@define('SHOWS_TOP_EXIT', 'Shows top exit links from your Blogs');
 @define('SYNDICATION', 'Syndication');
 @define('SHOWS_RSS_BLAHBLAH', 'Shows RSS syndication links');
-@define('ADVERTISES_BLAHBLAH', 'Advertises the origins of your blog');
+@define('ADVERTISES_BLAHBLAH', 'Advertises the origins of your Blog');
 @define('HTML_NUGGET', 'HTML Nugget');
 @define('HOLDS_A_BLAHBLAH', 'Holds a nugget of HTML in your sidebar');
 @define('TITLE_FOR_NUGGET', 'Title for the nugget');
@@ -163,7 +163,7 @@
 @define('CATEGORY_DELETED', 'Category #%s deleted.');
 @define('INVALID_CATEGORY', 'No category was provided for deletion');
 @define('CATEGORY_SAVED', 'Category saved');
-@define('SELECT_TEMPLATE', 'Select the theme you wish to use for your blog');
+@define('SELECT_TEMPLATE', 'Select the theme you wish to use for your Blog');
 @define('ENTRIES_NOT_SUCCESSFULLY_INSERTED', 'Entries were not successfully inserted!');
 @define('MT_DATA_FILE', 'Movable Type data file');
 @define('FORCE', 'Force');
@@ -224,7 +224,7 @@
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'New comment to subscribed entry "%s"');
 @define('SUBSCRIPTION_MAIL', "Hello %s,\n\nA new comment was made to the entry you are monitoring on \"%s\", entitled \"%s\"\nThe name of the poster is: %s\n\nYou can find the entry here: %s\n\nYou can unsubscribe by clicking on this link: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hello %s,\n\nA new trackback was added to the entry you are monitoring on \"%s\", entitled \"%s\"\nThe name of the poster is: %s\n\nYou can find the entry here: %s\n\nYou can unsubscribe by clicking on this link: %s\n");
-@define('SIGNATURE', "\n-- \n%s is powered by %s.\nThe best blog around, you can use it too.\nCheck out <%s> to find out how.");
+@define('SIGNATURE', "\n-- \n%s is powered by %s.\nThe best Blog around, you can use it too.\nCheck out <%s> to find out how.");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
@@ -241,7 +241,7 @@
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'in pixels, max. 144');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT_DESC', 'in pixels, max. 400');
 @define('SYNDICATION_PLUGIN_TTL', 'Field "ttl" (time-to-live)');
-@define('SYNDICATION_PLUGIN_TTL_DESC', 'Amount of minutes after which your blog should not be cached any more by foreign sites/applications (empty: hidden) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_TTL_DESC', 'Amount of minutes after which your Blog should not be cached any more by foreign sites/applications (empty: hidden) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_PUBDATE', 'Field "pubDate"');
 @define('SYNDICATION_PLUGIN_PUBDATE_DESC', 'Should the "pubDate"-field be embedded for a RSS-channel, to show the date of the latest entry?');
 @define('CONTENT', 'Content');
@@ -297,7 +297,7 @@
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Consider Serendipity upgraded');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'You have ignored the upgrade stage of Serendipity, please make sure your database is correctly installed, and scheduled functions are run');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Your Serendipity installation is now upgraded to version %s');
-@define('SERENDIPITY_UPGRADER_RETURN_HERE', 'You can return to your blog by clicking %shere%s');
+@define('SERENDIPITY_UPGRADER_RETURN_HERE', 'You can return to your Blog by clicking %shere%s');
 @define('MANAGE_USERS', 'Manage users');
 @define('CREATE_NEW_USER', 'Create new user');
 @define('CREATE_NOT_AUTHORIZED', 'You cannot modify users with the same userlevel as yourself');
@@ -368,7 +368,7 @@
 @define('INSTALL_RELTEMPLPATH_DESC', 'The path to the folder containing your templates - Relative to the \'relative path\'');
 @define('INSTALL_RELUPLOADPATH', 'Relative upload path');
 @define('INSTALL_RELUPLOADPATH_DESC', 'Path to your uploads for browsers - Relative to the \'relative path\'');
-@define('INSTALL_URL', 'URL to blog');
+@define('INSTALL_URL', 'URL to Blog');
 @define('INSTALL_URL_DESC', 'Base URL to your Serendipity installation');
 @define('INSTALL_INDEXFILE', 'Index file');
 @define('INSTALL_INDEXFILE_DESC', 'The name of your Serendipity index file');
@@ -381,17 +381,17 @@
 @define('INSTALL_PASSWORD', 'Admin password');
 @define('INSTALL_PASSWORD_DESC', 'Password for admin login');
 @define('INSTALL_EMAIL', 'Admin email');
-@define('INSTALL_EMAIL_DESC', 'Email for the blog administrator');
+@define('INSTALL_EMAIL_DESC', 'Email for the Blog administrator');
 @define('INSTALL_SENDMAIL', 'Send mails to admin?');
 @define('INSTALL_SENDMAIL_DESC', 'Do you want to receive emails when comments are posted to your entries?');
 @define('INSTALL_SUBSCRIBE', 'Allow users to subscribe to entries?');
 @define('INSTALL_SUBSCRIBE_DESC', 'Allow users to subscribe to an entry and thereby receive a mail when new comments are made to that entry');
 @define('INSTALL_BLOGNAME', 'Blog name');
-@define('INSTALL_BLOGNAME_DESC', 'The title of your blog');
+@define('INSTALL_BLOGNAME_DESC', 'The title of your Blog');
 @define('INSTALL_BLOGDESC', 'Blog description');
-@define('INSTALL_BLOGDESC_DESC', 'Description of your blog');
+@define('INSTALL_BLOGDESC_DESC', 'Description of your Blog');
 @define('INSTALL_LANG', 'Language');
-@define('INSTALL_LANG_DESC', 'Select the language for your blog');
+@define('INSTALL_LANG_DESC', 'Select the language for your Blog');
 
 /* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Appearance and Options');
@@ -405,11 +405,11 @@
 @define('INSTALL_EMBED', 'Is Serendipity embedded?');
 @define('INSTALL_EMBED_DESC', 'If you want to embed Serendipity within a regular page, set to true to discard any headers and just print the contents. You can make use of the indexFile option to use a wrapper class where you put your normal webpage headers. See the README file for more information!');
 @define('INSTALL_TOP_AS_LINKS', 'Show Top Exits/Referrers as links?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent google spam. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
-@define('INSTALL_BLOCKREF', 'Blocked Referers');
-@define('INSTALL_BLOCKREF_DESC', 'Are there any special hosts you want not to show up in the referers list? Separate the list of hostnames with \';\' and note that the host is blocked by substring matches!');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent Google SPAM. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
+@define('INSTALL_BLOCKREF', 'Blocked Referrers');
+@define('INSTALL_BLOCKREF_DESC', 'Are there any special hosts you want not to show up in the referrers list? Separate the list of hostnames with \';\' and note that the host is blocked by substring matches!');
 @define('INSTALL_REWRITE', 'URL Rewriting');
-@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your Serendipity dir. The default setting is auto-detected');
+@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your Blog and make it better indexable for spiders like Google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your Serendipity dir. The default setting is auto-detected');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Image Conversion Settings');
@@ -435,9 +435,9 @@
 @define('USERCONF_CAT_PERSONAL', 'Your personal details');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Change your personal details');
 @define('USERCONF_USERNAME', 'Your username');
-@define('USERCONF_USERNAME_DESC', 'The username you use to log in to the blog');
+@define('USERCONF_USERNAME_DESC', 'The username you use to log in to the Blog');
 @define('USERCONF_PASSWORD', 'Your password');
-@define('USERCONF_PASSWORD_DESC', 'The password you wish to use to log in to the blog');
+@define('USERCONF_PASSWORD_DESC', 'The password you wish to use to log in to the Blog');
 @define('USERCONF_EMAIL', 'Your e-mail address');
 @define('USERCONF_EMAIL_DESC', 'Your personal e-mail address');
 @define('USERCONF_SENDCOMMENTS', 'Send comment announcements?');
@@ -476,11 +476,11 @@
 @define('COMMENT_EDITED', 'The selected comment has been edited');
 @define('HIDE', 'Hide');
 @define('VIEW_EXTENDED_ENTRY', 'Continue reading "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older Blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other Blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', 'Use https for login');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Lets the login-link point to a https-location. Your webserver needs to support this!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Make external links clickable?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": Unchecked external links (Top Exits, Top Referrers, User comments) are not shown/shown as plain text where applicable to prevent google spam (recommended). "yes": Unchecked external links are shown as hyperlinks. Can be overridden within sidebar plugin configuration!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": Unchecked external links (Top Exits, Top Referrers, User comments) are not shown/shown as plain text where applicable to prevent Google SPAM (recommended). "yes": Unchecked external links are shown as hyperlinks. Can be overridden within sidebar plugin configuration!');
 @define('PAGE_BROWSE_COMMENTS', 'Page %s of %s, totaling %s comments');
 @define('FILTERS', 'Filters');
 @define('FIND_ENTRIES', 'Find entries');
@@ -496,7 +496,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Select a file you wish to upload:');
 @define('SAVE_FILE_AS', 'Save the file as:');
 @define('STORE_IN_DIRECTORY', 'Store inside the following directory: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Add a file to your media repository:</b><p>Here you can upload media files, or tell me to fetch them from somewhere in the web! If you do not have an appropriate image, <a href="http://images.google.com" target="_blank">search for images on google</a> matching your thoughts, the results are often useful and funny :) But be careful, most images are copyrighted, so you should ask before using them.</p><p><b>Select method:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Add a file to your media repository:</b><p>Here you can upload media files, or tell me to fetch them from somewhere in the web! If you do not have an appropriate image, <a href="http://images.Google.com" target="_blank">search for images on Google</a> matching your thoughts, the results are often useful and funny :) But be careful, most images are copyrighted, so you should ask before using them.</p><p><b>Select method:</b></p><br>');
 @define('MEDIA_RENAME', 'Rename this file');
 @define('IMAGE_RESIZE', 'Resize this image');
 @define('MEDIA_DELETE', 'Delete this file');
@@ -506,7 +506,7 @@
 @define('MEDIA_FULLSIZE', 'Fullsize');
 @define('CALENDAR_BOW_DESC', 'The day of the week that should be considered the beginning of the week. Default is Monday');
 @define('SUPERUSER', 'Blog Administration');
-@define('ALLOWS_YOU_BLAHBLAH', 'Provides a link in the sidebar to your blog administration');
+@define('ALLOWS_YOU_BLAHBLAH', 'Provides a link in the sidebar to your Blog administration');
 @define('CALENDAR', 'Calendar');
 @define('SUPERUSER_OPEN_ADMIN', 'Open administration');
 @define('SUPERUSER_OPEN_LOGIN', 'Open login screen');
@@ -581,12 +581,12 @@
 @define('INSTALL_USEGZIP', 'Use gzip compressed pages');
 @define('INSTALL_USEGZIP_DESC', 'To speed up delivery of pages, we can compress the pages we send to the visitor, given that his browser supports this. This is recommended');
 @define('INSTALL_SHOWFUTURE', 'Show future entries');
-@define('INSTALL_SHOWFUTURE_DESC', 'If enabled, this will show all entries in the future on your blog. Default is to hide those entries and only show them if the publish date has arrived.');
+@define('INSTALL_SHOWFUTURE_DESC', 'If enabled, this will show all entries in the future on your Blog. Default is to hide those entries and only show them if the publish date has arrived.');
 @define('INSTALL_DBPERSISTENT', 'Use persistent connections');
 @define('INSTALL_DBPERSISTENT_DESC', 'Enable the usage of persistent database connections, read more <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">here</a>. This is normally not recommended');
 @define('NO_IMAGES_FOUND', 'No images found');
 @define('PERSONAL_SETTINGS', 'Personal Settings');
-@define('REFERER', 'Referer');
+@define('REFERER', 'Referrer');
 @define('NOT_FOUND', 'Not found');
 @define('WRITABLE', 'Writable');
 @define('NOT_WRITABLE', 'Not writable');
@@ -614,13 +614,13 @@
 @define('SETTING_DEFAULT_TEMPLATE', 'Setting default theme');
 @define('INSTALLING_DEFAULT_PLUGINS', 'Installing default plugins');
 @define('SERENDIPITY_INSTALLED', 'Serendipity Styx has been successfully installed');
-@define('VISIT_BLOG_HERE', 'Visit your new blog here');
+@define('VISIT_BLOG_HERE', 'Visit your new Blog here');
 @define('THANK_YOU_FOR_CHOOSING', 'Thank you for choosing Serendipity Styx');
 @define('ERROR_DETECTED_IN_INSTALL', 'An error was detected in the installation');
 @define('OPERATING_SYSTEM', 'Operating system');
 @define('WEBSERVER_SAPI', 'Webserver SAPI');
 @define('TEMPLATE_SET', '\'%s\' has been set as your active theme');
-@define('SEARCH_ERROR', 'The search function did not work as expected. Notice for the administrator of this blog: This may happen because of missing index keys in your database. On MySQL systems your database user account needs to be privileged to execute this query: <pre>CREATE FULLTEXT INDEX entry_idx on %sentries (title,body,extended)</pre> The specific error returned by the database was: <pre>%s</pre>');
+@define('SEARCH_ERROR', 'The search function did not work as expected. Notice for the administrator of this Blog: This may happen because of missing index keys in your database. On MySQL systems your database user account needs to be privileged to execute this query: <pre>CREATE FULLTEXT INDEX entry_idx on %sentries (title,body,extended)</pre> The specific error returned by the database was: <pre>%s</pre>');
 @define('EDIT_THIS_CAT', 'Editing "%s"');
 @define('CATEGORY_REMAINING', 'Delete this category and move its entries to this category');
 @define('CATEGORY_INDEX', 'Below is a list of categories available to your entries');
@@ -659,7 +659,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Chief editor');
 @define('USERLEVEL_ADMIN_DESC', 'Administrator');
 @define('USERCONF_USERLEVEL', 'Access level');
-@define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the blog');
+@define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog');
 @define('USER_SELF_INFO', 'Logged in as %s (%s)');
 @define('ADMIN_ENTRIES', 'Entries');
 @define('RECHECK_INSTALLATION', 'Recheck installation');
@@ -670,7 +670,7 @@
 @define('AUTOLANG', 'Use visitor\'s browser language as default');
 @define('AUTOLANG_DESC', 'If enabled, this will use the visitor\'s browser language setting to determine the default language of your entry and interface language.');
 @define('INSTALL_AUTODETECT_URL', 'Autodetect used HTTP-Host');
-@define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.');
+@define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your Blog.');
 @define('CONVERT_HTMLENTITIES', 'Try to auto-convert HTML entities?');
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
 @define('USERCONF_REALNAME', 'Real name');
@@ -690,7 +690,7 @@
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.');
 @define('PAGE_BROWSE_PLUGINS', 'Page %s of %s, totaling %s plugins.');
 @define('INSTALL_CAT_PERMALINKS', 'Permalinks');
-@define('INSTALL_CAT_PERMALINKS_DESC', 'Defines various URL patterns to define permanent links in your blog. It is suggested that you use the defaults; if not, you should try to use the %id% value where possible to prevent Serendipity from querying the database to lookup the target URL.');
+@define('INSTALL_CAT_PERMALINKS_DESC', 'Defines various URL patterns to define permanent links in your Blog. It is suggested that you use the defaults; if not, you should try to use the %id% value where possible to prevent Serendipity from querying the database to lookup the target URL.');
 @define('INSTALL_PERMALINK', 'Permalink Entry URL structure');
 @define('INSTALL_PERMALINK_DESC', 'Here you can define the relative URL structure beginning from your base URL to where entries may become available. You can use the variables %id%, %title%, %day%, %month%, %year% and any other characters.');
 @define('INSTALL_PERMALINK_AUTHOR', 'Permalink Author URL structure');
@@ -757,7 +757,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Change "forbid creating entries"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Change right to publish entries');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Access system configuration');
-@define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Access blog-centric configuration');
+@define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Access Blog-specific configuration');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Administrate entries');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Administrate other user\'s entries');
 @define('PERMISSION_ADMINIMPORT', 'adminImport: Import entries');
@@ -800,7 +800,7 @@
 
 @define('PERM_DENIED', 'Permission denied.');
 @define('INSTALL_ACL', 'Apply read-permissions for categories');
-@define('INSTALL_ACL_DESC', 'If enabled, the usergroup permission settings you setup for categories will be applied when logged-in users view your blog. If disabled, the read-permissions of the categories are NOT applied, but the positive effect is a little speedup on your blog. So if you don\'t need multi-user read permissions for your blog, disable this setting.');
+@define('INSTALL_ACL_DESC', 'If enabled, the usergroup permission settings you setup for categories will be applied when logged-in users view your Blog. If disabled, the read-permissions of the categories are NOT applied, but the positive effect is a little speedup on your Blog. So if you don\'t need multi-user read permissions for your Blog, disable this setting.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Configuration syntax wrong for option "%s". Needs content of type "%s".');
 @define('USERCONF_CHECK_PASSWORD', 'Old Password');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'If you change the password in the field above, you need to enter the current user password into this field.');
@@ -826,7 +826,7 @@
 @define('INSTALL_RSSFETCHLIMIT', 'Entries to display in Feeds');
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Number of entries to display for each page on the RSS Feed.');
 @define('INSTALL_DB_UTF8', 'Enable DB-charset conversion');
-@define('INSTALL_DB_UTF8_DESC', 'Issues a MySQL "SET NAMES" query to indicate the required charset for the database. Turn this on or off, if you see weird or missing characters in your blog.');
+@define('INSTALL_DB_UTF8_DESC', 'Issues a MySQL "SET NAMES" query to indicate the required charset for the database. Turn this on or off, if you see weird or missing characters in your Blog.');
 @define('ONTHEFLYSYNCH', 'Enable on-the-fly media synchronization');
 @define('ONTHEFLYSYNCH_DESC', 'If enabled, Serendipity will compare the media database with the files stored on your server and synchronize the database and directory contents.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'The username cannot be left blank.');
@@ -863,7 +863,7 @@
 @define('PLUGIN_AVAILABLE_COUNT', 'Total: %d plugins.');
 
 @define('SYNDICATION_RFC2616', 'Activate strict RFC2616 RSS-Feed compliance');
-@define('SYNDICATION_RFC2616_DESC', 'NOT Enforcing RFC2616 means that all Conditional GETs to Serendipity will return entries last modified since the time of the last request. With that setting to "false", your visitors will get all articles since their last request, which is considered a good thing. However, some Agents like Planet act weird, if that happens, at it also violates RFC2616. So if you set this option to "TRUE" you will comply with that RFC, but readers of your RSS feed might miss items in their holidays. So either way, either it hearts Aggregators like Planet, or it hurts actual readers of your blog. If you are facing complaints from either side, you can toggle this option. Reference: <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=1461728&amp;group_id=75065&amp;atid=542822" target="_blank" rel="nofollow">SourceForge</a>');
+@define('SYNDICATION_RFC2616_DESC', 'NOT Enforcing RFC2616 means that all Conditional GETs to Serendipity will return entries last modified since the time of the last request. With that setting to "false", your visitors will get all articles since their last request, which is considered a good thing. However, some Agents like Planet act weird, if that happens, at it also violates RFC2616. So if you set this option to "TRUE" you will comply with that RFC, but readers of your RSS feed might miss items in their holidays. So either way, either it hearts Aggregators like Planet, or it hurts actual readers of your Blog. If you are facing complaints from either side, you can toggle this option. Reference: <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=1461728&amp;group_id=75065&amp;atid=542822" target="_blank" rel="nofollow">SourceForge</a>');
 @define('MEDIA_PROPERTY_DATE', 'Associated Date');
 @define('MEDIA_PROPERTY_RUN_LENGTH', 'Run-Length');
 @define('FILENAME_REASSIGNED', 'Automagically assigned new file name: %s');
@@ -902,10 +902,10 @@
 @define('DELETE_SELECTED_ENTRIES', 'Delete selected entries');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Show only authors with at least X articles');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Bookmark this link and then use it on any page you want to blog about to quickly access your Serendipity Blog.');
-@define('IMPORT_WP_PAGES', 'Also fetch attachments and staticpages as normal blog entries?');
+@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Bookmark this link and then use it on any page you want to Blog about to quickly access your Serendipity Blog.');
+@define('IMPORT_WP_PAGES', 'Also fetch attachments and staticpages as normal Blog entries?');
 @define('USERCONF_CREATE', 'Disable user / forbid activity?');
-@define('USERCONF_CREATE_DESC', 'If selected, the user will not have any editing or creation possibilities on the blog anymore. When logging in to the backend, he cannot do anything else apart from logging out and viewing his personal configuration.');
+@define('USERCONF_CREATE_DESC', 'If selected, the user will not have any editing or creation possibilities on the Blog anymore. When logging in to the backend, he cannot do anything else apart from logging out and viewing his personal configuration.');
 @define('CATEGORY_HIDE_SUB', 'Hide postings made to sub-categories?');
 @define('CATEGORY_HIDE_SUB_DESC', 'By default, when you browse a category also entries of any subcategory are displayed. If this option is turned on, only postings of the currently selected category are displayed.');
 @define('PINGBACK_SENDING', 'Sending pingback to URI %s...');
@@ -920,13 +920,13 @@
 @define('FULL_COMMENT_TEXT', 'Yes, with full comment text');
 
 @define('COMMENT_TOKENS', 'Use Tokens for Comment Moderation?');
-@define('COMMENT_TOKENS_DESC', 'If tokens are used, comments can be approved and deleted by clicking the email links without requiring login access to the blog. Note that this is a convenience feature, and if your mails get hijacked, those people can approve/delete the referenced comment without further authentication.');
+@define('COMMENT_TOKENS_DESC', 'If tokens are used, comments can be approved and deleted by clicking the email links without requiring login access to the Blog. Note that this is a convenience feature, and if your mails get hijacked, those people can approve/delete the referenced comment without further authentication.');
 @define('COMMENT_NOTOKENMATCH', 'Moderation link has expired or comment #%s has already been approved or deleted');
 @define('TRACKBACK_NOTOKENMATCH', 'Moderation link has expired or trackback #%s has already been approved or deleted');
 @define('BADTOKEN', 'Invalid Moderation Link');
 
-@define('CONFIRMATION_MAIL_ALWAYS', "Hello %s,\n\nYou have sent a new comment to \"%s\". Your comment was:\n\n%s\n\nThe owner of the blog has enabled mail verification, so you need to click on the following link to authenticate your comment:\n<%s>\n");
-@define('CONFIRMATION_MAIL_ONCE', "Hello %s,\n\nYou have sent a new comment to \"%s\". Your comment was:\n\n%s\n\nThe owner of the blog has enabled one-time mail verification, so you need to click on the following link to authenticate your comment:\n<%s>\n\nAfter you have done that, you can always post comments on that blog with your username and e-mail address without receiving such notifications.");
+@define('CONFIRMATION_MAIL_ALWAYS', "Hello %s,\n\nYou have sent a new comment to \"%s\". Your comment was:\n\n%s\n\nThe owner of the Blog has enabled mail verification, so you need to click on the following link to authenticate your comment:\n<%s>\n");
+@define('CONFIRMATION_MAIL_ONCE', "Hello %s,\n\nYou have sent a new comment to \"%s\". Your comment was:\n\n%s\n\nThe owner of the Blog has enabled one-time mail verification, so you need to click on the following link to authenticate your comment:\n<%s>\n\nAfter you have done that, you can always post comments on that Blog with your username and e-mail address without receiving such notifications.");
 @define('INSTALL_SUBSCRIBE_OPTIN', 'Use Double-Opt In for comment subscriptions?');
 @define('INSTALL_SUBSCRIBE_OPTIN_DESC', 'If enabled, when a comment is made where the person wants to be notified via e-mail about new comments to the same entry, he must confirm his subscription to the entry. This Double-Opt In is required by german law, for example.');
 @define('CONFIRMATION_MAIL_SUBSCRIPTION', "Hello %s,\n\nYou have requested to be notified for comments to \"%s\" (<%s>). To approve this subscription (\"Double Opt In\") please click this link:\n<%s>\n.");
@@ -973,7 +973,7 @@
 // Next lines were added on 2012/05/29
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
-@define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
+@define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to re-index them.');
 
 // added 2012-11-29
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');
@@ -1061,9 +1061,9 @@
 @define('SYNDICATION_PLUGIN_COMMENTFEED', 'Comment feed');
 @define('SYNDICATION_PLUGIN_COMMENTFEED_DESC', 'Show an additional link to a comment feed. This should be interesting only to the blogauthor itself');
 @define('SYNDICATION_PLUGIN_FEEDICON', 'Feed icon');
-@define('SYNDICATION_PLUGIN_FEEDICON_DESC', 'Show a (big) icon insteaf of a textlink to the feed. Set to "none" to deactivate, or to "feedburner" to show a feedburner counter if an id is given below');
+@define('SYNDICATION_PLUGIN_FEEDICON_DESC', 'Show a (big) icon instead of a textlink to the feed. Set to "none" to deactivate, or to "feedburner" to show a feedburner counter if an id is given below');
 @define('SYNDICATION_PLUGIN_CUSTOMURL', 'Custom URL');
-@define('SYNDICATION_PLUGIN_CUSTOMURL_DESC', 'If you want to link to the custom feed specified in the blog configuration, enable this option.');
+@define('SYNDICATION_PLUGIN_CUSTOMURL_DESC', 'If you want to link to the custom feed specified in the Blog configuration, enable this option.');
 @define('FEED_CUSTOM', 'Custom feed URL');
 @define('FEED_CUSTOM_DESC', 'If set, a custom feed URL can be set to forward Feedreaders to a specific URL. Useful for statistical analyzers like Feedburner, in which case you would enter your Feedburner-URL here.');
 @define('FEED_FORCE', 'Force custom feed URL?');
@@ -1072,7 +1072,7 @@
 @define('PLUGIN_GROUP_ALL', 'All categories');
 
 @define('CONF_USE_AUTOSAVE', 'Enable autosave-feature');
-@define('CONF_USE_AUTOSAVE_DESC', 'When enabled, the text you enter into blog entries will be periodically saved in your browser\'s session storage. If your browser crashes during writing, the next time you create a new entry, the text will be restored from this autosave.');
+@define('CONF_USE_AUTOSAVE_DESC', 'When enabled, the text you enter into Blog entries will be periodically saved in your browser\'s session storage. If your browser crashes during writing, the next time you create a new entry, the text will be restored from this autosave.');
 @define('INSTALL_CAT_FEEDS', 'Feed Settings');
 @define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR', 'Toolbar for WYSIWYG editor');
 @define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR_DESC', 'Sets the list of available toolbar buttons for the WYSIWYG-Editor. If you need to further change those presets, you can create a file templates/XXX/admin/ckeditor_custom_config.js. For further details please check out the files htmlarea/ckeditor_s9y_config.js and htmlarea/ckeditor_s9y_plugin.js.');
@@ -1088,7 +1088,7 @@
 @define('USERCONF_WYSIWYG_PRESET_NOCC_CKE', 'Force: CKEditor Full');
 
 @define('CATEGORY_PLUGIN_SHOWALL', 'Show a link to "All categories"?');
-@define('CATEGORY_PLUGIN_SHOWALL', 'If enabled, a link for the visitor to display the blog with no category restriction will be added.');
+@define('CATEGORY_PLUGIN_SHOWALL', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
 @define('SERENDIPITY_PHPVERSION_FAIL', 'Serendipity requires a PHP version >= %2$s - you are running a lower version (%1$s) and need to upgrade your PHP version. Most providers offer you to switch to newer PHP versions through their admin panels or .htaccess directives.');
 @define('TOGGLE_VIEW', 'Switch category view mode');
 @define('PUBLISH_NOW', 'Publish this entry now (sets current time and date)');
@@ -1101,7 +1101,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');
@@ -1109,12 +1109,12 @@
 @define('MULTICHECK_NO_ITEM', 'No item selected, please check at least one. <a href="%s">Return to previous page</a>.');
 @define('MULTICHECK_NO_DIR', 'No directory selected, please choose one. <a href="%s">Return to previous page</a>.');
 @define('BULKMOVE_INFO', 'Bulk-move info');
-@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring blog entries are rewritten to point to the new location. The entrychange is also supported by staticpage versions up from v.4.52.');
+@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring Blog entries are rewritten to point to the new location. The entrychange is also supported by staticpage versions up from v.4.52.');
 @define('FIRST_PAGE', 'First Page');
 @define('LAST_PAGE', 'Last Page');
 @define('MEDIA_PROPERTIES_DONE', 'Properties of #%d changed.');
 @define('DIRECTORY_INFO', 'Directory info');
-@define('DIRECTORY_INFO_DESC', 'Directories reflect their physical folder directory name. If you want to change or move directories which contain items, you have two choices. Either create the directory or subdirectory you want, then move the items to the new directory via the media library and afterwards, delete the empty old directory there. Or completely change the whole old directory via the edit directory button below and rename it to whatever you like (existing subdir/ + newname). This will move all directories and items and change referring blog entries.');
+@define('DIRECTORY_INFO_DESC', 'Directories reflect their physical folder directory name. If you want to change or move directories which contain items, you have two choices. Either create the directory or subdirectory you want, then move the items to the new directory via the media library and afterwards, delete the empty old directory there. Or completely change the whole old directory via the edit directory button below and rename it to whatever you like (existing subdir/ + newname). This will move all directories and items and change referring Blog entries.');
 @define('MEDIA_RESIZE_EXISTS', 'File dimensions already exist!');
 @define('USE_CACHE', 'Enable caching');
 @define('USE_CACHE_DESC', 'Enables an internal cache to not repeat specific database queries. This reduces the load on servers with medium to high traffic and improves page load time.');
@@ -1131,7 +1131,7 @@
 
 @define('CONFIG_ALLOW_LOCAL_URL', 'Allow to fetch data from local URLs');
 @define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server Side Request Forgers (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
-@define('REMOTE_FILE_INVALID', 'The given URL "%s" appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your blog configuration.');
+@define('REMOTE_FILE_INVALID', 'The given URL "%s" appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your Blog configuration.');
 
 @define('INSTALLER_TOKEN_NOTE', 'To continue a secure installation, you need to create a file called "%s" with the string "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" within this directory. Once that file exists, you must continue the installation within the next %s minutes and do not close your browser window, and you need to have Cookies enabled.');
 @define('INSTALLER_TOKEN_MISMATCH', 'You are not authorized to continue installation, since your install token is not identical (%s) to the one contained in the file "%s". Please make sure you created the file with the right content. You can get a new token by deleting the file.');
@@ -1149,11 +1149,11 @@
 @define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 
 @define('UTF8MB4_MIGRATION_TITLE', 'UTF-8-MB4 migration');
-@define('UTF8MB4_MIGRATION_ERROR', 'An error occured with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
+@define('UTF8MB4_MIGRATION_ERROR', 'An error occurred with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
 @define('UTF8MB4_MIGRATION_TASK_RETURN', 'The migration task returned:');
 @define('UTF8MB4_MIGRATION_TASK_HAVE', 'The following SQL commands have been executed:');
 @define('UTF8MB4_MIGRATION_TASK_CAN', 'The following SQL commands can be executed:');
-@define('UTF8MB4_MIGRATION_TASK_DONE', 'Your blog is using the UTF-8 with Multibyte-Extension charset.');
+@define('UTF8MB4_MIGRATION_TASK_DONE', 'Your Blog is using the UTF-8 with Multibyte-Extension charset.');
 @define('UTF8MB4_MIGRATION_INFO', 'When using Serendipity Styx 2.4+ with MySQLi and UTF-8 charsets (this is the default), the database tables and indexes can be migrated from UTF-8 to UTF-8 with Multibyte-Extension, to also support unicode characters outside the Basic Multilingual Plane (BMP), such as <b>Emojis</b>. Utf8mb4 is a superset of utf8.');
 @define('UTF8MB4_MIGRATION_BUTTON_CHECK', 'Simulate / Check');
 @define('UTF8MB4_MIGRATION_BUTTON_EXECUTE', 'Execute');
@@ -1161,7 +1161,7 @@
 <p>This is a task that can probably fail to properly convert your data, so be sure to make a full SQL backup before you perform the upgrade!</p>
 Please run the simulation first, to get a list of SQL statements, that will be issued on your installation, and make sure there are no (red) errors in the simulation or first execution before continuing.
 Run the <b>executor</b> [execute] task as long it appears, to fully convert the database tables and re-set the new dbCharset to "utf8mb4" in your configuration file. Do not reload your browser tab. You are finished with a <b>green</b> success message!');
-@define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
+@define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your Blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
 

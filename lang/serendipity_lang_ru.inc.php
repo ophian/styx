@@ -409,11 +409,11 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_EMBED', 'Встроен ли ваш Serendipity?');
 @define('INSTALL_EMBED_DESC', 'Если вы хотите встроить ваш блог Serendipity в обычную страницу, установите этот параметр в true чтобы не выводить никаких заголовков, и лишь печатать содержимое блога. Вы можете использовать опцию индексного файла (indexFile) чтобы использовать другую страницу как главную и содержащую заголовки. Пожалуйста, прочитайте файл README чтобы узнать больше!');
 @define('INSTALL_TOP_AS_LINKS', 'Показывать адреса как ссылки?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"нет": Все адреса веб-сайтов показаны как обычный текст чтобы избежать google спама. "да": Все адреса веб-сайтов показаны как гипер-ссылки. "По умолчанию": Использовать настройки глобальной конфигурации (рекомендуется).');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"нет": Все адреса веб-сайтов показаны как обычный текст чтобы избежать Google спама. "да": Все адреса веб-сайтов показаны как гипер-ссылки. "По умолчанию": Использовать настройки глобальной конфигурации (рекомендуется).');
 @define('INSTALL_BLOCKREF', 'Блокированные сайты');
 @define('INSTALL_BLOCKREF_DESC', 'Есть ли какие-то сайты, которые вы не хотите отображать в списке тех, откуда к вам пришли? Разделяйте элементы списка знаком \';\' и имейте в виду, что сайты блокируются по совпадению строк!');
 @define('INSTALL_REWRITE', 'Генерация URLов');
-@define('INSTALL_REWRITE_DESC', 'Выберите, какими правилами вы хотите пользоваться при генерации URLов. Включение этой опции позволит вам иметь красивые ссылки на вашем блоге и также сделает ваш блог более доступным для индексации поисковыми машинами вроде google. Ваш веб-сервер должен либо поддерживать mod_rewrite, либо содержать "AllowOverride All" для вашего каталога Serendipity dir. Значение по умолчанию определяется автоматически');
+@define('INSTALL_REWRITE_DESC', 'Выберите, какими правилами вы хотите пользоваться при генерации URLов. Включение этой опции позволит вам иметь красивые ссылки на вашем блоге и также сделает ваш блог более доступным для индексации поисковыми машинами вроде Google. Ваш веб-сервер должен либо поддерживать mod_rewrite, либо содержать "AllowOverride All" для вашего каталога Serendipity dir. Значение по умолчанию определяется автоматически');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Настройки конвертации изображений');
@@ -484,7 +484,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLUGIN_SUPERUSER_HTTPS', 'Использовать https для входа в систему');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Позволяет ссылке на страницу входа в систему указывать на https-ресурс. Ваш веб-сервер должен поддерживать https чтобы эта опция могла работать!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Показывать внешние сайты как гиперссылки?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": Внешние сайты (Куда Ушли, Откуда Пришли, комментарии пользователей) не показываются, или показываются как обычный текст, где это возможно, чтобы предотвратить google-спам (рекомендуется). "yes": Внешние сайты показаны как гиперссылки. Эта опция может быть отменена конфигурацией плагина для боковых панелей!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"no": Внешние сайты (Куда Ушли, Откуда Пришли, комментарии пользователей) не показываются, или показываются как обычный текст, где это возможно, чтобы предотвратить Google-спам (рекомендуется). "yes": Внешние сайты показаны как гиперссылки. Эта опция может быть отменена конфигурацией плагина для боковых панелей!');
 @define('PAGE_BROWSE_COMMENTS', 'Страница %s из %s, всего комментариев:  %s');
 @define('FILTERS', 'Фильтры');
 @define('FIND_ENTRIES', 'Найти записи');
@@ -500,7 +500,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ENTER_MEDIA_UPLOAD', 'Выберите файл, который<br>вы хотите загрузить на сервер:');
 @define('SAVE_FILE_AS', 'Сохранить этот файл как:');
 @define('STORE_IN_DIRECTORY', 'Сохранить в следующем каталоге: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Добавление файла в вашу медиа-коллекцию:</b><p>Здесь вы можете загрузить на сервер ваши медиа-файлы, или указать, откуда их можно скачать в сети! Если у вас нет подходящих изображений, <a href="http://images.google.com" target="_blank">поищите с помощью google</a>, что-нибудь да найдётся,очень часто результаты полезны и забавны :)</p><p><b>Выберите способ:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Добавление файла в вашу медиа-коллекцию:</b><p>Здесь вы можете загрузить на сервер ваши медиа-файлы, или указать, откуда их можно скачать в сети! Если у вас нет подходящих изображений, <a href="http://images.Google.com" target="_blank">поищите с помощью Google</a>, что-нибудь да найдётся,очень часто результаты полезны и забавны :)</p><p><b>Выберите способ:</b></p><br>');
 @define('MEDIA_RENAME', 'Переименовать этот файл');
 @define('IMAGE_RESIZE', 'Изменить размер этого изображения');
 @define('MEDIA_DELETE', 'Удалить этот файл');
@@ -587,7 +587,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_DBPERSISTENT_DESC', 'Разрешить использование persistent-соединений к базе данных, больше информации об этом можно получить <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">здесь</a>. Обычно, эта опция не рекомендуется');
 @define('NO_IMAGES_FOUND', 'Не было найдено изображений');
 @define('PERSONAL_SETTINGS', 'Личные настройки');
-@define('REFERER', 'Referer');
+@define('REFERER', 'Referrer');
 @define('NOT_FOUND', 'Не найден');
 @define('WRITABLE', 'Есть доступ для записи');
 @define('NOT_WRITABLE', 'Нет доступа для записи');
@@ -1102,7 +1102,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');

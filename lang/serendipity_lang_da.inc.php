@@ -367,11 +367,11 @@
 @define('INSTALL_EMBED', 'Er Serendipity embedded?');
 @define('INSTALL_EMBED_DESC', 'Hvis du ønsker at indkapsle Serendipity inde i en normal side, aktiver da dette direktiv for at ignorere headers og kun udskrive indholdet. Du kan benytte indexFile direktivet til at lave en wrapper fil hvor du placere din normale hjemmeside headers. Konsulter README filen for mere information!');
 @define('INSTALL_TOP_AS_LINKS', 'Vis top udgangssider/referencer som links?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"Nej": Udgangs- og henvisende sider er vist som ren tekst for at undgå google spam. "Ja": Udgangs- og henvisende sider er vist som hyperlinks. "standard": Brug indstillinger fra global konfiguration (anbefalet).');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"Nej": Udgangs- og henvisende sider er vist som ren tekst for at undgå Google spam. "Ja": Udgangs- og henvisende sider er vist som hyperlinks. "standard": Brug indstillinger fra global konfiguration (anbefalet).');
 @define('INSTALL_BLOCKREF', 'Bloker referencer');
 @define('INSTALL_BLOCKREF_DESC', 'Er der nogle specielle hosts du ikke ønsker skal vises i reference listen? Separer listen af hostnavne med \';\' og bemærk at disse er blokere med substring masker!');
 @define('INSTALL_REWRITE', 'URL Omskrivning');
-@define('INSTALL_REWRITE_DESC', 'Vælg hvilken regel du ønsker at bruge når du generere URL\'er. Aktivering af omskrivningsregler vil gøre dine URL\'er flotte og gøre din side bedre at indeksere for robotter som google. Webserveren skal enten understøtte mod_rewrite eller "AllowOverride All" for dit Serendipity bibliotek. Standardindstillingen er automatisk beregnet');
+@define('INSTALL_REWRITE_DESC', 'Vælg hvilken regel du ønsker at bruge når du generere URL\'er. Aktivering af omskrivningsregler vil gøre dine URL\'er flotte og gøre din side bedre at indeksere for robotter som Google. Webserveren skal enten understøtte mod_rewrite eller "AllowOverride All" for dit Serendipity bibliotek. Standardindstillingen er automatisk beregnet');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Billedekonverterings indstillinger');
@@ -468,7 +468,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'Brug https til login');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Lader loginlinket pege på en https-destination. Din webserver skal understøtte dette!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Gør eksterne links klikbare?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"nej": Eksterne links (Top udgangsider, Top henvisninger, bruger kommentarer) er ikke vist/vist som ren tekst hvor brugbart, for at forhindre google spam (anbefales). "ja": Eksterne links er vist som hyperlinks. Kan overskrives inde i hver enkel sidebar plugin konfigurationen!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"nej": Eksterne links (Top udgangsider, Top henvisninger, bruger kommentarer) er ikke vist/vist som ren tekst hvor brugbart, for at forhindre Google spam (anbefales). "ja": Eksterne links er vist som hyperlinks. Kan overskrives inde i hver enkel sidebar plugin konfigurationen!');
 @define('PAGE_BROWSE_COMMENTS', 'Side %s af %s, i alt %s kommentarer');
 @define('FILTERS', 'Filtrer');
 @define('FIND_ENTRIES', 'Find artikler');
@@ -519,7 +519,7 @@
 @define('DISPLAY_COMMENTS_AS', 'Vis kommentarer som');
 @define('SIDEBAR_PLUGINS', 'Sidebarplugins');
 @define('EVENT_PLUGINS', 'Hændelseplugins');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Tilføj en fil til dit mediearkiv:</b><p>Her kan du uploade mediafiler, eller få dem hentet fra et sted på nettet. Hvis du ikke har et passende billeder, <a href="http://images.google.com" target="_blank">prøv at søg efter billeder på google</a> der passer til dine tanker, resultatet er ofte brugbart og sjovt :)</p><p><b>Vælg metode:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Tilføj en fil til dit mediearkiv:</b><p>Her kan du uploade mediafiler, eller få dem hentet fra et sted på nettet. Hvis du ikke har et passende billeder, <a href="http://images.Google.com" target="_blank">prøv at søg efter billeder på Google</a> der passer til dine tanker, resultatet er ofte brugbart og sjovt :)</p><p><b>Vælg metode:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Vis');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Kun godkendte');
@@ -1096,7 +1096,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

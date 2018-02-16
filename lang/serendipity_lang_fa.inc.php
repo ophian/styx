@@ -498,7 +498,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'فایلی را برای بالاگذاری مشخص کنید:');
 @define('SAVE_FILE_AS', 'ذخیره فایل با نام:');
 @define('STORE_IN_DIRECTORY', 'ذخیره در شاخه: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>افزودن یک فایل به انبار:</b><p>در اینجا شما می توانید فایل های خود را بالاگذاری کنید، یا آدرس آنها را برای دریافت از اینترنت وارد کنید! اگر عکسی برای بالاگذاری ندارید جستجویی در <a href="http://images.google.com" target="_blank">اینجا</a> برای یافتن عکس مورد علاقه خود داشته باشید، نتیجه معمولا مفید و جالب خواهد بود :)</p><p><b>انتخاب روش:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>افزودن یک فایل به انبار:</b><p>در اینجا شما می توانید فایل های خود را بالاگذاری کنید، یا آدرس آنها را برای دریافت از اینترنت وارد کنید! اگر عکسی برای بالاگذاری ندارید جستجویی در <a href="http://images.Google.com" target="_blank">اینجا</a> برای یافتن عکس مورد علاقه خود داشته باشید، نتیجه معمولا مفید و جالب خواهد بود :)</p><p><b>انتخاب روش:</b></p><br>');
 @define('MEDIA_RENAME', 'تغییر نام فایل');
 @define('IMAGE_RESIZE', 'تغییر اندازه تصویر');
 @define('MEDIA_DELETE', 'حذف فایل');
@@ -1099,7 +1099,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

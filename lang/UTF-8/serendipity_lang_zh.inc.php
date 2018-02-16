@@ -406,7 +406,7 @@
 @define('INSTALL_EMBED', '使用内嵌功能?');
 @define('INSTALL_EMBED_DESC', '如果你要将 Serendipity 以内嵌的方式放到网页内, 选择 是 会让你放弃任何标题然后只显示网站内容。 你可以用 indexFile 来设定这个功能。详情请查询 README 文件!');
 @define('INSTALL_TOP_AS_LINKS', '以连接方式显示 主要出源/主要来源');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"否": 出源和来源将用文字显示，避免 google 的广告。 "是": 出源和来源将用连接显示. "预设": 用全区里面的设定 (建议)');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"否": 出源和来源将用文字显示，避免 Google 的广告。 "是": 出源和来源将用连接显示. "预设": 用全区里面的设定 (建议)');
 @define('INSTALL_BLOCKREF', '阻挡来源');
 @define('INSTALL_BLOCKREF_DESC', '有特殊的网站不在来源里显示吗? 用 \';\' 来分开网站名称, 注意程序是以字符方式阻挡的！');
 @define('INSTALL_REWRITE', 'URL Rewriting');
@@ -480,7 +480,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', '用 https 登入');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', '使用 https 网址。你的主机必须支持这项功能');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', '让外部连接显示');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"否": 外部连接 (主要出源, 主要来源, 回复) 都不会以文字显示，避免 google 广告 (建议使用)； "是": 外来连接将以超连接的方式显示， 可以在侧列外挂覆盖此设定。');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"否": 外部连接 (主要出源, 主要来源, 回复) 都不会以文字显示，避免 Google 广告 (建议使用)； "是": 外来连接将以超连接的方式显示， 可以在侧列外挂覆盖此设定。');
 @define('PAGE_BROWSE_COMMENTS', '页数 %s 共 %s, 总共 %s 个回复');
 @define('FILTERS', '过滤');
 @define('FIND_ENTRIES', '搜索文章');
@@ -496,7 +496,7 @@
 @define('ENTER_MEDIA_UPLOAD', '请选择要上传的文件:');
 @define('SAVE_FILE_AS', '保存文件:');
 @define('STORE_IN_DIRECTORY', '保存到以下目录: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>新增文件到媒体目录:</b><p>你可以上传媒体文件, 或告诉系统到哪寻找。如果你没有想要的图片, 你可以到 <a href="http://images.google.com" target="_blank">google搜索图片</a>.<p><b>选择方式:</b><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>新增文件到媒体目录:</b><p>你可以上传媒体文件, 或告诉系统到哪寻找。如果你没有想要的图片, 你可以到 <a href="http://images.Google.com" target="_blank">Google搜索图片</a>.<p><b>选择方式:</b><br>');
 @define('MEDIA_RENAME', '更改文件名称');
 @define('IMAGE_RESIZE', '更改图片尺寸');
 @define('MEDIA_DELETE', '删除这个文件');
@@ -1101,7 +1101,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');

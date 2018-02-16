@@ -527,7 +527,7 @@ $i18n_filename_to = array (
 @define('ENTER_MEDIA_UPLOAD', 'Vyberte soubor pro nahr?n?:');
 @define('SAVE_FILE_AS', 'Ulo?it soubor jako:');
 @define('STORE_IN_DIRECTORY', 'Ulo?it do n?sleduj?ho adres??e: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>P?idat soubor do schr?nky m?di?:</b><p>Zde m??ete ukl?dat medi?ln? soubory, nebo ur?it, kde je z?skat z WEBu! Pokud nem?te odpov?daj?c? obr?zek, <a href="http://images.google.com" target="_blank">hledejte na Google</a> odpov?? na va?i pot?ebu, obvykle se zada?? :).<p><b>Vyberte metodu:</b><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>P?idat soubor do schr?nky m?di?:</b><p>Zde m??ete ukl?dat medi?ln? soubory, nebo ur?it, kde je z?skat z WEBu! Pokud nem?te odpov?daj?c? obr?zek, <a href="http://images.Google.com" target="_blank">hledejte na Google</a> odpov?? na va?i pot?ebu, obvykle se zada?? :).<p><b>Vyberte metodu:</b><br>');
 @define('MEDIA_RENAME', 'P?ejmenovat soubor');
 @define('IMAGE_RESIZE', 'Zm?nit rozm?r obr?zku');
 @define('MEDIA_DELETE', 'Vymazat soubor');
@@ -1131,7 +1131,7 @@ $i18n_filename_to = array (
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

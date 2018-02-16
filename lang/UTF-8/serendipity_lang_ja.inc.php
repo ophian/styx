@@ -406,11 +406,11 @@
 @define('INSTALL_EMBED', 'Serendipity を組み込みで使用しますか?');
 @define('INSTALL_EMBED_DESC', 'If you want to embed Serendipity within a regular page, set to true to discard any headers and just print the contents. You can make use of the indexFile option to use a wrapper class where you put your normal webpage headers. より詳しい情報はファイル README を参照してください!');
 @define('INSTALL_TOP_AS_LINKS', 'トップの退出/リファラーをリンクとして表示しますか?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"いいえ": google スパムを防ぐために退出とリファラーをただのテキストとして表示します。"はい": 退出とリファラーをハイパーリンクとして表示します。"デフォルト": 一般設定をの設定を使用します(推奨)');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"いいえ": Google スパムを防ぐために退出とリファラーをただのテキストとして表示します。"はい": 退出とリファラーをハイパーリンクとして表示します。"デフォルト": 一般設定をの設定を使用します(推奨)');
 @define('INSTALL_BLOCKREF', 'リファラーブロック');
 @define('INSTALL_BLOCKREF_DESC', 'リファラー一覧で表示しないことを希望する特殊なホストがありますか? ホスト名の一覧を「;」で列挙し、そのホスト名が部分一致でブロックされることに注意してください!');
 @define('INSTALL_REWRITE', 'URL 書き換え');
-@define('INSTALL_REWRITE_DESC', 'URL を生成するときに使用するルールを選択します。書き換えルールを有効にさせることで、ウェブログに対してきれいな URL を作成し、google のようなスパイダーはよりよいインデックスを作成します。ウェブサーバーは、serendipity ディレクトリーに対して、mod_rewrite あるいは「AllowOverride All」のいずれかをサポートする必要があります。デフォルト設定は自動車検知されます。');
+@define('INSTALL_REWRITE_DESC', 'URL を生成するときに使用するルールを選択します。書き換えルールを有効にさせることで、ウェブログに対してきれいな URL を作成し、Google のようなスパイダーはよりよいインデックスを作成します。ウェブサーバーは、serendipity ディレクトリーに対して、mod_rewrite あるいは「AllowOverride All」のいずれかをサポートする必要があります。デフォルト設定は自動車検知されます。');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', '画像変換設定');
@@ -481,7 +481,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'ログインに https を使う');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'ログインの https ロケーションへのリンクポイントです。ウェブサーバーがこれをサポートしている必要があります!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', '外部リンクをクリック可能にしますか?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"いいえ": google スパムを防ぐために適用可能な未確認外部リンク (トップ退出、トップ入口、ユーザーコメント) はただのテキストとして表示する/しないを指定します (推奨). "はい": 未確認外部リンクはハイパーリンクとして表示します。サイドバープラグインの設定で上書きすることができます!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"いいえ": Google スパムを防ぐために適用可能な未確認外部リンク (トップ退出、トップ入口、ユーザーコメント) はただのテキストとして表示する/しないを指定します (推奨). "はい": 未確認外部リンクはハイパーリンクとして表示します。サイドバープラグインの設定で上書きすることができます!');
 @define('PAGE_BROWSE_COMMENTS', 'ページ %s/%s, 合計 %s コメント');
 @define('FILTERS', 'フィルター');
 @define('FIND_ENTRIES', 'エントリー検索');
@@ -497,7 +497,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'アップロードしたいファイルの選択:');
 @define('SAVE_FILE_AS', '保存するファイル名:');
 @define('STORE_IN_DIRECTORY', '次のディレクトリーの中に保存: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>メディアリポジトリにファイルを追加します:</b><p>ここでメディア ファイルをアップロードするか、ウェブ中のどこかからそれらを取得するように指示することができます! If you don\'t have an appropriate image, <a href="http://images.google.com" target="_blank">search for images on google</a> matching your thoughts, the results are often useful and funny :)</p><p><b>選択方法:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>メディアリポジトリにファイルを追加します:</b><p>ここでメディア ファイルをアップロードするか、ウェブ中のどこかからそれらを取得するように指示することができます! If you don\'t have an appropriate image, <a href="http://images.Google.com" target="_blank">search for images on Google</a> matching your thoughts, the results are often useful and funny :)</p><p><b>選択方法:</b></p><br>');
 @define('MEDIA_RENAME', 'このファイルの名称を変更する');
 @define('IMAGE_RESIZE', 'この画像の大きさを変更する');
 @define('MEDIA_DELETE', 'このファイルを削除する');
@@ -1101,7 +1101,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

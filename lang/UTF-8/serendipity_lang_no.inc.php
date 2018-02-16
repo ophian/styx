@@ -371,7 +371,7 @@
 @define('INSTALL_BLOCKREF', 'Blokkér referanser');
 @define('INSTALL_BLOCKREF_DESC', 'Er det noen spesielle hosts du ikke ønsker skal vises i referanselisten?  Seprarer listen av hostnavn med \';\' og merk deg at disse er blokkert med substring-masker!');
 @define('INSTALL_REWRITE', 'URL-omskrivning');
-@define('INSTALL_REWRITE_DESC', 'Velg hvilken regel du ønsker å bruke når du genererer URL-er. Aktivering av omskrivningsregler vil gjøre URL-ene dine flotte og gjøre din side mer egnet for indeksering av roboter som google. Webserveren må enten støtte mod_rewrite eller "AllowOverride All" for ditt Serendipity-bibliotek. Standardindstillingen er automatisk beregnet');
+@define('INSTALL_REWRITE_DESC', 'Velg hvilken regel du ønsker å bruke når du genererer URL-er. Aktivering av omskrivningsregler vil gjøre URL-ene dine flotte og gjøre din side mer egnet for indeksering av roboter som Google. Webserveren må enten støtte mod_rewrite eller "AllowOverride All" for ditt Serendipity-bibliotek. Standardindstillingen er automatisk beregnet');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Bildekonverterings-innstillinger');
@@ -520,7 +520,7 @@
 @define('DISPLAY_COMMENTS_AS', 'Vis kommentarer som');
 @define('SIDEBAR_PLUGINS', 'Sidebar-plugins');
 @define('EVENT_PLUGINS', 'Hendelses-lugins');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Legg til en fil til ditt mediabibliotek:</b><p>Her kan du laste opp mediafiler, eller be meg om å hente dem fra en adresse på nettet!  Hvis du ikke har et passende bilde, <a href="http://images.google.com" target="_blank">søk etter bilder på Google</a> som passer til tankene dine.  Resultatene er ofte nyttige og morsomme :)</p><p><b>Velg metode:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Legg til en fil til ditt mediabibliotek:</b><p>Her kan du laste opp mediafiler, eller be meg om å hente dem fra en adresse på nettet!  Hvis du ikke har et passende bilde, <a href="http://images.Google.com" target="_blank">søk etter bilder på Google</a> som passer til tankene dine.  Resultatene er ofte nyttige og morsomme :)</p><p><b>Velg metode:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Vis');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Only approved'); // Translate
@@ -584,7 +584,7 @@
 @define('INSTALL_DBPERSISTENT_DESC', 'Enable the usage of persistent database connections, read more <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">here</a>. This is normally not recommended'); // Translate
 @define('NO_IMAGES_FOUND', 'Ingen bilder funnet');
 @define('PERSONAL_SETTINGS', 'Personal Settings'); // Translate
-@define('REFERER', 'Referer'); // Translate
+@define('REFERER', 'Referrer'); // Translate
 @define('NOT_FOUND', 'Not found'); // Translate
 @define('NOT_WRITABLE', 'Not writable'); // Translate
 @define('WRITABLE', 'Writable'); // Translate
@@ -1098,7 +1098,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', 'Starting Update ...');
 @define('UPDATE_ALL', 'Update All');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');

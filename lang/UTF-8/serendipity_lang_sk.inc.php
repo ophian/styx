@@ -509,7 +509,7 @@ $i18n_filename_to = array (
 @define('ENTER_MEDIA_UPLOAD', 'Vyberte súbor pre nahranie:');
 @define('SAVE_FILE_AS', 'Uložiť súbor ako:');
 @define('STORE_IN_DIRECTORY', 'Uložiť do tohto priečinka: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Pridať súbor do schránky médií:</b><p>Tu môžete ukladať mediálne súbory, alebo určiť, kde ich stiahnuť z WEBu! Ak nemáte odpovedajúci obrázok, <a href="http://images.google.com" target="_blank">hľadajte obrázok na Google</a>, toto hľadanie je dosť často úspešné a zábavné :). Ale pozor, väčšina obrázkov je chránených autorskými právami, takže potrebujete na ich použitie súhlas autora.<p><b>Vyberte metódu:</b><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Pridať súbor do schránky médií:</b><p>Tu môžete ukladať mediálne súbory, alebo určiť, kde ich stiahnuť z WEBu! Ak nemáte odpovedajúci obrázok, <a href="http://images.Google.com" target="_blank">hľadajte obrázok na Google</a>, toto hľadanie je dosť často úspešné a zábavné :). Ale pozor, väčšina obrázkov je chránených autorskými právami, takže potrebujete na ich použitie súhlas autora.<p><b>Vyberte metódu:</b><br>');
 @define('MEDIA_RENAME', 'Premenovať súbor');
 @define('IMAGE_RESIZE', 'Zmeniť rozmer obrázka');
 @define('MEDIA_DELETE', 'Vymazať súbor');
@@ -1093,7 +1093,7 @@ $i18n_filename_to = array (
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');

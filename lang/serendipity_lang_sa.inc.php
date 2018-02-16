@@ -408,11 +408,11 @@
 @define('INSTALL_EMBED', 'åá ÊÑíÏ ÇáãÌáÉ Êßæä ÌÒÁ æÇÍÏ¿');
 @define('INSTALL_EMBED_DESC', 'ÅĞÇ ÃÑÏÊ Ãä ÊÌÚá ãÏæäÊß ãÌãæÚÉ Úáì åíÆÉ ÕİÍÇÊ ÚÇÏíÉ ÃÎÊÑ ÇáÎíÇÑ (ÕÍíÍ) ßí íÊÌÇåá ÇáåÏÑ æ íÊã ØÈÇÚÉ ãÍÊæì ÇáãæÖæÚ İŞØ. ßĞáß íãßä áß Ğáß ÈÇÓÊÎÏÇã ÎíÇÑÇÊ ÕİÍÉ ÇáÇäÏßÓ  æÃÓÊÎÏã ÇáÛáÇİ İí Ãí ãßÇä ÊÖÚ İíå íßæä åÏÑ ÇáãÌáÉ ÚÇÏí. ÇØáÚ Úáì ãáİ ÃŞÑÆäí áãÚÑİÉ ãÚáæãÇÊ ÊİÕíáíÉ Úä Ğáß');
 @define('INSTALL_TOP_AS_LINKS', 'Show Top Exits/Referrers as links?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent google spam. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
-@define('INSTALL_BLOCKREF', 'Blocked Referers');
-@define('INSTALL_BLOCKREF_DESC', 'Are there any special hosts you want not to show up in the referers list? Separate the list of hostnames with \';\' and note that the host is blocked by substring matches!');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"no": Exits and Referrers are shown as plain text to prevent Google spam. "yes": Exits and Referrers are shown as hyperlinks. "default": Use setting from global configuration (recommended).');
+@define('INSTALL_BLOCKREF', 'Blocked Referrers');
+@define('INSTALL_BLOCKREF_DESC', 'Are there any special hosts you want not to show up in the referrers list? Separate the list of hostnames with \';\' and note that the host is blocked by substring matches!');
 @define('INSTALL_REWRITE', 'URL Rewriting');
-@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your serendipity dir. The default setting is auto-detected');
+@define('INSTALL_REWRITE_DESC', 'Select which rules you wish to use when generating URLs. Enabling rewrite rules will make pretty URLs for your blog and make it better indexable for spiders like Google. The webserver needs to support either mod_rewrite or "AllowOverride All" for your serendipity dir. The default setting is auto-detected');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'ÃÚÏÇÏÇÊ ÊÍæíá ÇáÕæÑ');
@@ -499,7 +499,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'ÇÎÊÑ Çáãáİ ÇáĞí ÊÑíÏ ÑİÚÉ:');
 @define('SAVE_FILE_AS', 'ÍİÙ Çáãáİ ÈÃÓã:');
 @define('STORE_IN_DIRECTORY', 'ÊÎÒíäå İí ÏÇÎá åĞÇ ÇáãÌáÏ: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>ÃÖÇİÉ ãáİ Çáì ÇáãíÏíÇ ÊÍÊ ãÓÆæáíÊß:</b><p> åäÇ íãßä áß ÑİÚ ãáİÇÊ ÇáãíÏíÇ ¡ Ãæ ÇÎÈÑäÇ ÚäåÇ ßí íÊã ÌáÈåÇ ãä Ãí ãßÇä İí ÇáÇäÊÑäÊ! Ãä áã íßä áÏíß ÇáÕæÑÉ ÇáãäÇÓÈÉ <a href="http://images.google.com" target="_blank"> ÇÈÍË Úä ÇáÕæÑÉ ÇáãØáæÈÉ İí ŞæŞá ááÕæÑ </a> ÇáÊí ÊäÇÓÈ İßÑÉ ãæÖæÚß ¡ æÇáäÊíÌÉ ÃÍíÇäÇ Êßæä ãÖÍßÉ Ãæ ÚÇÏíÉ ¡ æáßä Úáíß ãÑÇÚÇÉ ÍŞæŞ ÇáäÔÑ ¡ áĞáß íÊæÌÈ Úáíß ÇáÓÄÇá ÚäåÇ ŞÈá Ãä ÊÃÎĞåÇ ãä ãÕÏÑåÇ<p><b> ÃÎÊÑ ÇáØÑíŞÉ ÇáÊí ÊäÇÓÈß:</b><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>ÃÖÇİÉ ãáİ Çáì ÇáãíÏíÇ ÊÍÊ ãÓÆæáíÊß:</b><p> åäÇ íãßä áß ÑİÚ ãáİÇÊ ÇáãíÏíÇ ¡ Ãæ ÇÎÈÑäÇ ÚäåÇ ßí íÊã ÌáÈåÇ ãä Ãí ãßÇä İí ÇáÇäÊÑäÊ! Ãä áã íßä áÏíß ÇáÕæÑÉ ÇáãäÇÓÈÉ <a href="http://images.Google.com" target="_blank"> ÇÈÍË Úä ÇáÕæÑÉ ÇáãØáæÈÉ İí ŞæŞá ááÕæÑ </a> ÇáÊí ÊäÇÓÈ İßÑÉ ãæÖæÚß ¡ æÇáäÊíÌÉ ÃÍíÇäÇ Êßæä ãÖÍßÉ Ãæ ÚÇÏíÉ ¡ æáßä Úáíß ãÑÇÚÇÉ ÍŞæŞ ÇáäÔÑ ¡ áĞáß íÊæÌÈ Úáíß ÇáÓÄÇá ÚäåÇ ŞÈá Ãä ÊÃÎĞåÇ ãä ãÕÏÑåÇ<p><b> ÃÎÊÑ ÇáØÑíŞÉ ÇáÊí ÊäÇÓÈß:</b><br>');
 @define('MEDIA_RENAME', 'ÃÚÇÏÉ ÊÓãíÉ Çáãáİ');
 @define('IMAGE_RESIZE', 'ÊÛííÑ ŞíÇÓÇÊ åĞå ÇáÕæÑÉ');
 @define('MEDIA_DELETE', 'ÍĞİ Çáãáİ');
@@ -1102,7 +1102,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');

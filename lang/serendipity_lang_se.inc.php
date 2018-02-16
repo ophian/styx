@@ -406,11 +406,11 @@
 @define('INSTALL_EMBED', 'Är Serendipity inbäddad?');
 @define('INSTALL_EMBED_DESC', 'Om du vill bädda in Serendipity i en vanlig webbsida ska du välja detta för att enbart generera sidinnehållet. Du kan använda indexFile-alternativet för att använda en wrapper-klass där du skulle ha placerat det vanliga webbsidehuvudet. Läs README-filen för mer information!');
 @define('INSTALL_TOP_AS_LINKS', 'Visa vanligaste utgångar/hänvisare som länkar?');
-@define('INSTALL_TOP_AS_LINKS_DESC', '"Nej": Utgångar och hänvisare visas som vanlig text för att förhindra google-spam. "Ja": Utgångar och hänvisare visas som länkar. "Förvalt": Använd globala konfigureringsinställningar (rekommenderas).');
+@define('INSTALL_TOP_AS_LINKS_DESC', '"Nej": Utgångar och hänvisare visas som vanlig text för att förhindra Google-spam. "Ja": Utgångar och hänvisare visas som länkar. "Förvalt": Använd globala konfigureringsinställningar (rekommenderas).');
 @define('INSTALL_BLOCKREF', 'Blockerade hänvisare');
 @define('INSTALL_BLOCKREF_DESC', 'Finns det några speciella värdnamn som du inte vill ska visas i hänvisningslistan? En separat lista med värdnamn med \';\' och notera att värdnamnet blockeras med delsträngsmatchning!');
 @define('INSTALL_REWRITE', 'URL Rewriting');
-@define('INSTALL_REWRITE_DESC', 'Välj vilka regler du vill använda för att generera URLer. Genom att använda rewrite-regler kan du göra snygga URLer till din blogg och göra den lättare att indexera för spiders som google. Webbservern måste stödja antingen mod_rewrite eller "AllowOverride All" för din Serendipity-katalog. Den förvalda inställningen är auto-detected');
+@define('INSTALL_REWRITE_DESC', 'Välj vilka regler du vill använda för att generera URLer. Genom att använda rewrite-regler kan du göra snygga URLer till din blogg och göra den lättare att indexera för spiders som Google. Webbservern måste stödja antingen mod_rewrite eller "AllowOverride All" för din Serendipity-katalog. Den förvalda inställningen är auto-detected');
 
 /* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Inställningar för bildkonvertering');
@@ -481,7 +481,7 @@
 @define('PLUGIN_SUPERUSER_HTTPS', 'Använd https vid inloggning');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Gör att inloggningslänken pekar på en https-URI. Din webbserver behöver ha stöd för https!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Gör externa länkar klickbara?');
-@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"Nej": Okontrollerade externa länkar (Topputgångar, topphänvisare, användarkommentarer) visas inte eller visas som vanlig text där så är lämpligt, för att förhindra google spam (rekommenderas). "Ja": Okontrollerade externa länkar visas som hyperlänkar. Detta kan åsidosättas inom sidomenykonfigrationen!');
+@define('INSTALL_SHOW_EXTERNAL_LINKS_DESC', '"Nej": Okontrollerade externa länkar (Topputgångar, topphänvisare, användarkommentarer) visas inte eller visas som vanlig text där så är lämpligt, för att förhindra Google spam (rekommenderas). "Ja": Okontrollerade externa länkar visas som hyperlänkar. Detta kan åsidosättas inom sidomenykonfigrationen!');
 @define('PAGE_BROWSE_COMMENTS', 'Sida %s av %s, sammanlagt %s kommentarer');
 @define('FILTERS', 'Filter');
 @define('FIND_ENTRIES', 'Sök artiklar');
@@ -497,7 +497,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Välj en fil du vill ladda upp:');
 @define('SAVE_FILE_AS', 'Spara filen som:');
 @define('STORE_IN_DIRECTORY', 'Lagra i följande katalog: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Lägg till en fil till ditt mediebibliotek:</b><p>Här kan du ladda upp mediefiler, eller be mig att hämta dem från en plats på webben! Om du inte har någon lämplig bild, <a href="http://images.google.com" target="_blank">leta efter bilder på google</a> som passar dina tankar, resultaten är ofta användbara och roliga :) Men var försiktig, de flesta bilder är skyddade av upphovsrätten, så du måste fråga innan du använder dem.</p><p><b>Välj metod:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Lägg till en fil till ditt mediebibliotek:</b><p>Här kan du ladda upp mediefiler, eller be mig att hämta dem från en plats på webben! Om du inte har någon lämplig bild, <a href="http://images.Google.com" target="_blank">leta efter bilder på Google</a> som passar dina tankar, resultaten är ofta användbara och roliga :) Men var försiktig, de flesta bilder är skyddade av upphovsrätten, så du måste fråga innan du använder dem.</p><p><b>Välj metod:</b></p><br>');
 @define('MEDIA_RENAME', 'Döp om denna fil');
 @define('IMAGE_RESIZE', 'Ändra storlek denna bild');
 @define('MEDIA_DELETE', 'Ta bort denna fil');
@@ -1099,7 +1099,7 @@
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');
 @define('SYNDICATION_PLUGIN_XML_DESC', 'Set to "none" if you only want to show a text link.');

@@ -499,7 +499,7 @@
 @define('ENTER_MEDIA_UPLOAD', '업로드할 파일 선택:');
 @define('SAVE_FILE_AS', '저장할 파일 이름 지정:');
 @define('STORE_IN_DIRECTORY', '저장할 디렉토리 지정: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>미디어 보관함에 파일 추가:</b><p>여기서 미디어 파일을 업로드하거나 인터넷에서 파일을 불러올 수 있습니다. 적당한 그림을 가지고 있지 않으면 생각이 떠오른 대로 <a href="http://images.google.com" target="_blank">구글에서 그림을 검색</a>해보면 유용하고 재미있습니다. 단, 대부분의 그림은 저작권이 설정되어 있으므로 사용하기 전에 허락을 받는 것에 유의하십시오.</p><p><b>방법 선택:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>미디어 보관함에 파일 추가:</b><p>여기서 미디어 파일을 업로드하거나 인터넷에서 파일을 불러올 수 있습니다. 적당한 그림을 가지고 있지 않으면 생각이 떠오른 대로 <a href="http://images.Google.com" target="_blank">구글에서 그림을 검색</a>해보면 유용하고 재미있습니다. 단, 대부분의 그림은 저작권이 설정되어 있으므로 사용하기 전에 허락을 받는 것에 유의하십시오.</p><p><b>방법 선택:</b></p><br>');
 @define('MEDIA_RENAME', '파일 이름 변경');
 @define('IMAGE_RESIZE', '그림 크기 조절');
 @define('MEDIA_DELETE', '파일 삭제');
@@ -1105,7 +1105,7 @@
 #@define('INSTALL_BACKENDPOPUP_GRANULAR', '특정 관리자 화면 팝업 창을 강제로 표시');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
 #@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', '일반적으로 관리자 화면의 팝업 창을 사용하고 있지 않을 경우라도 팝업 창을 강제로 사용하고자 하는 곳이 있으면 여기에 해당 장소들을 각각 쉼표로 분리하여 입력해둘 수 있습니다. 사용 가능한 장소는: ');
-@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded mode for specific places by entering a comma separated list of places here. Available places are: ');
+@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', '업데이트 시작...');
 @define('UPDATE_ALL', '모두 업데이트');
 @define('JS_FAILURE', '세렌디피티의 자바스크립트 라이브러리를 불러들일 수 없습니다. 이는 PHP나 플러그인 오류 때문에 발생할 수도 있고 브라우저 캐시가 비정상적일 경우에도 경험할 수 있습니다. 정확한 상황을 파악하고자 한다면 <a href="%1$s">%1$s</a> 주소를 브라우저에서 수동으로 열고 오류 내용을 확인하기 바랍니다.');
