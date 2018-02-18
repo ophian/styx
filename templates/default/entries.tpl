@@ -165,9 +165,9 @@
 
                 <br />
                 <div class="serendipity_section_commentform">
-	                <div class="serendipity_commentsTitle">{$CONST.ADD_COMMENT}</div>
-	                {$COMMENTFORM}
-				</div>
+                    <div class="serendipity_commentsTitle">{$CONST.ADD_COMMENT}</div>
+                    {$COMMENTFORM}
+                </div>
 
                 {/if}
             </div>
