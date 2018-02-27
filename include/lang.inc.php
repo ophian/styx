@@ -51,7 +51,7 @@ if (!defined('serendipity_LANG_LOADED') || serendipity_LANG_LOADED !== true) {
 }
 
 if (!defined('serendipity_MB_LOADED') && defined('serendipity_LANG_LOADED')) {
-    // Needs to be included here because we need access to constant LANG_CHARSET definied in languages (not available for compat.inc.php)
+    // Needs to be included here because we need access to constant LANG_CHARSET defined in languages (not available for compat.inc.php)
 
     if (function_exists('mb_language')) {
         // Normally mb_language() is used for encoding e-mail messages.
