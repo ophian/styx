@@ -76,6 +76,7 @@ function serveComments() {
     $_args = locateHiddenVariables($args);
     foreach($_args AS $k => $v) {
         if ($v == PATH_COMMENTS) {
+            $serendipity['GET']['commentMode'] = $v;
             continue;
         }
 
