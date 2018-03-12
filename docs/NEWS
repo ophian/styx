@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Remove old PHP4 and API Smarty2 methods in template_api.inc
+
   * Fix PHP 7.2 assume uninitialized charset constant warning
 
   * Add missing set $serendipity['GET']['commentMode'] via GET routing
