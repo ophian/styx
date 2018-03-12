@@ -164,21 +164,6 @@ class serendipity_smarty_emulator
     }
 
     /**
-     * Assign one or multiple template variable by reference (old Smarty API)
-     *
-     * @param   string      Variable name
-     * @param   mixed       Referenced variable
-     * @access public
-     * @return null
-     */
-    function assign_by_ref($tpl_var, &$value)
-    {
-        $GLOBALS['tpl'][$tpl_var] =& $value;
-
-        return true;
-    }
-
-    /**
      * Helper function to call a 'serendipity_smarty_xx' function with less parameters.
      *   All serendipity smarty functions called with ($params, Smarty_Internal_Template $template)
      *   need a clone in here without instance of Smarty_Internal_Template,
@@ -577,14 +562,6 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     }
 
     /**
-     * PHP4 constructor
-     */
-    function serendipity_smarty_emulator_xml()
-    {
-        $this->__construct();
-    }
-
-    /**
      * Assign one or multiple template variable
      * @TODO: Why can't this function accept references. This sucks.
      *
@@ -616,28 +593,6 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
      * @return null
      */
     function assignByRef($tpl_var, &$value)
-    {
-        if (!$this->match()) { return false; }
-        if (is_array($value)) {
-            foreach($value AS $key => $val) {
-                $this->createXML($level, $key, $val);
-            }
-        } else {
-            $this->createXML($level, $tpl_var, $value);
-        }
-
-        return true;
-    }
-
-    /**
-     * Assign one or multiple template variable by reference - old Smarty API
-     *
-     * @param   string      Variable name
-     * @param   mixed       Referenced variable
-     * @access public
-     * @return null
-     */
-    function assign_by_ref($tpl_var, &$value)
     {
         if (!$this->match()) { return false; }
         if (is_array($value)) {
