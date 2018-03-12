@@ -183,7 +183,7 @@ include($serendipity['serendipityPath'] . 'include/lang.inc.php');
 
 $serendipity['charsets'] = array(
     'UTF-8/' => 'UTF-8',
-    ''        => CHARSET_NATIVE
+    ''        => (defined('CHARSET_NATIVE') ? CHARSET_NATIVE : 'CHARSET_NATIVE')
 );
 
 @define('PATH_SMARTY_COMPILE', 'templates_c');
