@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix PHP 7.2 assume uninitialized charset constant warning
+
   * Add missing set $serendipity['GET']['commentMode'] via GET routing
 
   * Update external lib: random_compat to 2.0.11
