@@ -194,10 +194,10 @@ $serendipity['charsets'] = array(
 @define('VIEWMODE_THREADED', 'threaded');
 @define('VIEWMODE_LINEAR', 'linear');
 
-if (!version_compare(PHP_VERSION, '5.4', '>=')) {
+if (!version_compare(PHP_VERSION, '5.5', '>=')) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
-    serendipity_die(sprintf(SERENDIPITY_PHPVERSION_FAIL, PHP_VERSION, '5.3'));
+    serendipity_die(sprintf(SERENDIPITY_PHPVERSION_FAIL, PHP_VERSION, '5.5'));
 }
 
 // Kill the script if we are not installed, and not inside the installer
