@@ -51,8 +51,8 @@ function serendipity_addAuthor($username, $password, $realname, $email, $userlev
  * (Note, this function does not delete entries by an author)
  *
  * @access public
- * @param   int     The author ID to delete
- * @return  boolean     True on success, false on error or unsufficient privileges
+ * @param   int         The author ID to delete
+ * @return  boolean     True on success, false on error or insufficient privileges
  */
 function serendipity_deleteAuthor($authorid) {
     global $serendipity;
@@ -123,7 +123,8 @@ function serendipity_set_config_var($name, $val, $authorid = 0) {
  * @access public
  * @param   string      The name of the configuration value
  * @param   string      The default value of a configuration item, if not found in the Database
- * @param   boolean     If set to true, the default value of a configuration item will be returned if the item is set, but empty. If false, an empty configuration value will be returned empty. This is required for getting default values if you do not want to store/allow empty config values.
+ * @param   boolean     If set to true, the default value of a configuration item will be returned if the item is set, but empty.
+ *                      If false, an empty configuration value will be returned empty. This is required for getting default values if you do not want to store/allow empty config values.
  * @return  string      The configuration value content
  */
 function serendipity_get_config_var($name, $defval = false, $empty = false) {
@@ -201,7 +202,8 @@ function serendipity_get_user_var($name, $authorid, $default) {
  * @param   string      The name of the configuration value
  * @param   string      The content of the configuration value
  * @param   int         The ID of the author to set the configuration for
- * @param   boolean     If set to true, the stored config value will be imported to the Session/current config of the user. This is applied for example when you change your own user's preferences and want it to be immediately reflected in the interface.
+ * @param   boolean     If set to true, the stored config value will be imported to the Session/current config of the user.
+ *                      This is applied for example when you change your own user's preferences and want it to be immediately reflected in the interface.
  * @return null
  */
 function serendipity_set_user_var($name, $val, $authorid, $copy_to_s9y = true) {
@@ -342,12 +344,12 @@ function serendipity_load_configuration($author = null) {
     if (!empty($author)) {
         // Replace default configuration directives with user-relevant data
         $rows =& serendipity_db_query("SELECT name,value
-                                        FROM {$serendipity['dbPrefix']}config
+                                         FROM {$serendipity['dbPrefix']}config
                                         WHERE authorid = '". (int)$author ."'");
     } else {
         // Only get default variables, user-independent (frontend)
         $rows =& serendipity_db_query("SELECT name, value
-                                        FROM {$serendipity['dbPrefix']}config
+                                         FROM {$serendipity['dbPrefix']}config
                                         WHERE authorid = 0");
     }
 
@@ -966,7 +968,7 @@ function serendipity_is_iframe() {
  * @see serendipity_is_iframe()
  * @param   mixed   The entry array (comes from session variable)
  * @param   string  Indicates whether an entry is previewed or saved. Save performs XML-RPC calls.
- * @param   boolean Use smarty templating?
+ * @param   boolean Use Smarty templating?
  * @return  boolean Indicates whether iframe data was printed
  */
 function serendipity_iframe(&$entry, $mode = null) {
@@ -1274,8 +1276,8 @@ function serendipity_getPostAuthSessionLanguage() {
 /**
  * Retrieves an array of applying permissions to an author
  *
- * The privileges of each group an author is a member of are aggreated
- * and stored in a larger array. So both memberships and all aplying
+ * The privileges of each group an author is a member of are aggregated
+ * and stored in a larger array. So both memberships and all applying
  * privileges are returned.
  *
  * @access public
@@ -1306,7 +1308,7 @@ function &serendipity_getPermissions($authorid) {
 /**
  * Returns the list of available internal Serendipity permission field names
  *
- * This function also mapps which function was available to which userleves in older
+ * This function also maps which function was available to which userlevel in older
  * Serendipity versions. Thus if an author does not have a certain privilege he should
  * have because of his userlevel, this can be reverse-mapped.
  *
@@ -1404,7 +1406,8 @@ function serendipity_getPermissionNames() {
  * @see serendipity_getPermissionNames()
  * @param   string      The name of the permission to check
  * @param   int         The authorid for which the permission check should be performed
- * @param   boolean     If set to true, all groups that the requested author is a user of will be returned. This bypasses the permission check and mainly acts as a mean to return cached permissions, since those variables are only available within this function.
+ * @param   boolean     If set to true, all groups that the requested author is a user of will be returned.
+ *                      This bypasses the permission check and mainly acts as a mean to return cached permissions, since those variables are only available within this function.
  * @return  mixed       Either returns true if a permission check is performed, or return an array of group memberships. Depends on the $returnMyGroups variable.
  */
 function serendipity_checkPermission($permName, $authorid = null, $returnMyGroups = false) {
@@ -1683,7 +1686,7 @@ function serendipity_addGroup($name) {
  * Additional plugins might insert specific properties into the groupconfig database to
  * handle their own privileges. This call returns an array of all available permission names
  * so that it can be intersected with the list of internal permission names (serendipity_getPermissionNames())
- * and the be distincted.
+ * and then be distincted.
  *
  * @access public
  * @see serendipity_getPermissionNames()
@@ -1731,7 +1734,7 @@ function &serendipity_getAllPermissionNames() {
 /**
  * Checks if two users are members of the same group
  *
- * This function will retrieve all group memeberships of a
+ * This function will retrieve all group memberships of a
  * foreign user ($checkuser) and yourself ($myself). Then it
  * will check if there is any group membership that those
  * two users have in common.
@@ -1742,7 +1745,7 @@ function &serendipity_getAllPermissionNames() {
  * @access public
  * @param   int     ID of the first author to check group memberships
  * @param   int     ID of the second author to check group memberships
- * @return  boolea  True if a membership intersects, false if not
+ * @return  boolean True if a membership intersects, false if not
  */
 function serendipity_intersectGroup($checkuser = null, $myself = null) {
     global $serendipity;
@@ -2321,7 +2324,7 @@ function &serendipity_loadThemeOptions(&$template_config, $okey = '', $bc_bool =
                 $template_vars[$k] = serendipity_db_bool($i);
             }
         }
-        //reset smarty compiled template ?
+        //reset Smarty compiled template ?
     }
     return $template_vars;
 }
@@ -2449,7 +2452,7 @@ function serendipity_hash($string) {
 }
 
 /**
- * Backwards-compatibility to recognize old-style md5 passwords to allow migration
+ * Backwards-compatibility to recognize old-style MD5 passwords to allow migration
  *
  * @param string The string to hash
  * @param string  Either SHA1 or MD5 hash, depending on value
