@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Raise requirement of PHP version to 5.5.0 plus.
+
   * Move from SHA1 to BCRYPT for login password salted hash storage.
 
   * Remove old PHP4 and API Smarty2 methods in template_api.inc
