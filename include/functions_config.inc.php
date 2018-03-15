@@ -20,7 +20,7 @@ require_once S9Y_PEAR_PATH . 'paragonie/random_compat/lib/random.php'; // skips 
  * @param   int     The userlevel of a user
  * @return  int     The new user ID of the added author
  */
-function serendipity_addAuthor($username, $password, $realname, $email, $userlevel=0, $hashtype=1) {
+function serendipity_addAuthor($username, $password, $realname, $email, $userlevel=0, $hashtype=2) {
     global $serendipity;
     $password = serendipity_hash($password);
     $query = "INSERT INTO {$serendipity['dbPrefix']}authors (username, password, realname, email, userlevel, hashtype)
@@ -694,7 +694,7 @@ function serendipity_setAuthorToken() {
  *
  * @access public
  * @param   string      The username to check
- * @param   string      The password to check (may contain plaintext or MD5 hash)
+ * @param   string      The password to check (may contain plaintext or MD5 / SHA1 hashes)
  * @param   boolean     Indicates whether the input password is already in MD5 format (TRUE) or not (FALSE).
  * @param   boolean     Indicates whether to query external plugins for authentication
  * @return  boolean     True on success, False on error
@@ -746,14 +746,13 @@ function serendipity_authenticate_author($username = '', $password = '', $is_has
                 if ($is_valid_user) continue;
                 $is_valid_user = false;
 
-                // Old MD5 hashing routine. Will convert user.
                 if (empty($row['hashtype']) || $row['hashtype'] == 0) {
-
                     if (isset($serendipity['hashkey']) && (time() - $serendipity['hashkey']) >= 15768000) {
                         die('You can no longer login with an old-style MD5 hash to prevent MD5-Hostage abuse.
                              Please ask the Administrator to set you a new password.');
                     }
 
+                    // Old MD5 hashing routine. Will convert user.
                     if ( ($is_hashed === false && (string)$row['password'] === (string)md5($password)) ||
                          ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
 
@@ -763,11 +762,27 @@ function serendipity_authenticate_author($username = '', $password = '', $is_has
                                                WHERE authorid = '" . $row['authorid'] . "'");
                         if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Migrated user:' . $row['username'] . "\n");
                         $is_valid_user = true;
+                        $row['hashtype'] = 1;
+                    } else {
+                        continue;
+                    }
+                } elseif ($row['hashtype'] == 1) {
+                    // Old SHA1 hashing routine. Will convert user.
+                    if ( ($is_hashed === false && (string)$row['password'] === (string)serendipity_sha1_hash($password)) ||
+                         ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
+
+                        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}authors
+                                                 SET password = '" . ($is_hashed === false ? serendipity_hash($password) : $password) . "',
+                                                     hashtype = 2
+                                               WHERE authorid = '" . $row['authorid'] . "'");
+                        if ($debug) fwrite($fp, date('Y-m-d H:i') . ' - Migrated user:' . $row['username'] . "\n");
+                        $is_valid_user = true;
+                        $row['hashtype'] = 2;
                     } else {
                         continue;
                     }
                 } else {
-                    if ( ($is_hashed === false && (string)$row['password'] === (string)serendipity_hash($password)) ||
+                    if ( ($is_hashed === false && password_verify((string)$password, $row['password'])) ||
                          ($is_hashed !== false && (string)$row['password'] === (string)$password) ) {
 
                         $is_valid_user = true;
@@ -2426,12 +2441,22 @@ function serendipity_hasPluginPermissions($plugin, $groupid = null) {
 }
 
 /**
- * Return the SHA1 (with pre-hash) of a value
+ * Return the BCRYPT of a value
  *
  * @param string    The string to hash
  * @return string   The hashed string
  */
 function serendipity_hash($string) {
+    return password_hash($string, PASSWORD_BCRYPT); // we have a varchar(64) field here, thus we cannot use PASSWORD_DEFAULT
+}
+
+/**
+ * Return the SHA1 (with pre-hash) of a value
+ *
+ * @param string    The string to hash
+ * @return string   The hashed string
+ */
+function serendipity_sha1_hash($string) {
     global $serendipity;
 
     if (empty($serendipity['hashkey'])) {
