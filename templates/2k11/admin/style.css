@@ -1816,8 +1816,8 @@ summary {
     float: right;
     margin-top: -2em;
 }
-#edit_entry_submit .button_link,
-#category_filter .button_link {
+#edit_entry_submit .button_up,
+#category_filter .button_up {
     padding: .15em .25em;
 }
 #edit_entry_category .compact label {
