@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.55');
+        $propbag->add('version',       '1.56');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -662,7 +662,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     <fieldset id="edit_entry_entryproperties" class="entryproperties_entryproperties">
                         <span class="wrap_legend"><legend><?php echo PLUGIN_EVENT_ENTRYPROPERTIES_TITLE; ?></legend></span>
                         <div id="edit_entry_submit" class="ep_entry_submit">
-                            <a href="#top" class="button_link" title="<?php echo UP; ?>"><span class="ucc-up-pointing-triangle"></span></a>
+                            <a href="#top" class="button_link button_up" title="<?php echo UP; ?>"><span class="ucc-up-pointing-triangle"></span></a>
                         </div>
 <?php
 

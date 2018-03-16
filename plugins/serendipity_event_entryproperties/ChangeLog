@@ -1,3 +1,7 @@
+1.56:
+-----
+    * Add and fix for button_up selector
+
 1.55:
 -----
     * Size custom field option textarea rows (downsized default 20 -> 6)
