@@ -459,7 +459,7 @@ function serendipity_login($use_external = true) {
  * Temporary helper function to debug output to the logger file if the $serendipity['logger'] object is not available (in case of log-off actions)
  * @param string The file and path
  * @param string The message string
- */
+ *//*
 function aesDebugFile($file, $str = '') {
     $fp = fopen($file, 'a');
     flock($fp, LOCK_EX);
@@ -468,7 +468,7 @@ function aesDebugFile($file, $str = '') {
     fwrite($fp, '[' . date('Y-m-d H:i:s.'.$micro, $nowMT) . '] [debug] ' . $str ."\n");
     fclose($fp);
 }
-
+*/
 /**
  * Login encrypt/decrypt and set autologin cookie by version and lib
  * @param array The input data - already serialize(d)
@@ -479,7 +479,7 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
     global $serendipity;
 
     // DEBUG NOTE: Use locally only OR set the blog into maintenance mode, since decryption logs may contain valid credential data or data that is easy decryptable!
-    ##$debugfile = __DIR__ . '/../templates_c/logs/log_'.date('Y-m-d').'.txt'; // also see function serendipity_checkAutologin() below
+    #$debugfile = __DIR__ . '/../templates_c/logs/log_'.date('Y-m-d').'.txt'; // also see function serendipity_checkAutologin() below
 
     // use mcrypt lib
     if (PHP_MAJOR_VERSION < 7) {
@@ -525,21 +525,10 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
         // CRYPTOR NOTES:
         //      Uses 'aes-256-ctr' to avoid the need for padding and related issues. Unfortunately GCM cannot be used as the PHP openssl module does not provide
         //      a way to retrieve the GCM tag. This is remedied in PHP 7.1 when associated data can be retrieved.
-        // Ian:
-        //      WELL, I DEFINITELY tried long with GCM and setting of IV length for AEAD mode with OpenSSL/1.0.2j PHP/7.1.3 on WIN,
-        //      but it does not do and ciphertext is always false with an "OpenSSL error: error:0607A082:digital envelope routines:EVP_CIPHER_CTX_set_key_length:invalid key length" error or empty.
-        //      Which I think is a matter of storing (maybe SQL or Cookie related), since it does well without. Even using bin2hex/hex2bin with the Cookie data did not do, so far.
-        //      Leaving my latest tries here for further testing. Remove double ## and disable cryptor class calls for testing. Allow the debugging with care!
-        ##$algo = ( PHP_VERSION_ID >= 70103 ) ? 'aes-256-gcm' : 'aes-256-ctr';
 
         if ($decrypt) {
             if (function_exists('openssl_decrypt')) {
-                $key    = $iv;
-                $iv     = base64_decode($iv);
-                ##$tag    = $serendipity['COOKIE']['author_information_ivtag'];
-                ##$tag    = base64_decode($tag);
-                ##aesDebugFile($debugfile, '#DECRYPT: data = '.$data.' key = ' . $key . ' tag = '.$tag.' und iv = '. $iv);
-                ##$cipher = openssl_decrypt($data, $algo, $key, OPENSSL_RAW_DATA, $iv, $tag);// data comes by serendipity_checkAutologin() as base64_decode(d), ?~BINARY~RAW~?, and does NOT need to be unserialized at the end
+                $key = $iv;
                 try {
                     $cipher = Cryptor::Decrypt($data, $key);
                 } catch (Throwable $t) {
@@ -549,7 +538,7 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
                 }
                 /*
                 if (false === $cipher) {
-                    aesDebugFile($debugfile, '#DECRYPT: openssl_decrypt cookie returned false:(' . base64_decode($cipher) . ') '.printf("OpenSSL error: %s", openssl_error_string()));
+                    aesDebugFile($debugfile, '#DECRYPT: openssl_decrypt cookie returned false:(' . base64_decode($cipher) . ') '.sprintf("OpenSSL error: %s", openssl_error_string()));
                 } else {
                     aesDebugFile($debugfile, '#DECRYPT: openssl_decrypt cookie returned ('.print_r(unserialize(base64_decode($cipher)), true) . base64_decode($cipher) . ')');
                 }
@@ -559,22 +548,18 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
             return false;
         } else {
             if (function_exists('random_bytes') && function_exists('openssl_encrypt')) {
-                ##$iv     = random_bytes(openssl_cipher_iv_length($algo));
-                $key    = random_bytes(12); // 256 bit - (Setting of IV length for AEAD mode failed, the expected length is 12 bytes)
-                ##$cipher = openssl_encrypt($data, $algo, $key, OPENSSL_RAW_DATA, $iv, $tag); // data comes as serialized RAW, since base64_decoded, while being a login credential array ...
-                $key    = base64_encode($key); // for the cookie and the cryptor class (it does not change the GCM error when moved up for openssl_encrypt())
+                $key    = random_bytes(12);    // 256 bit - (Setting of IV length for AEAD mode failed, the expected length is 12 bytes)
+                $key    = base64_encode($key); // for the cookie and the cryptor class
                 $cipher = Cryptor::Encrypt($data, $key);
-                ##$tag    = base64_encode($tag); // encode GCM tag to store in cookie
-                ##serendipity_setCookie('author_information_ivtag', $tag);
                 serendipity_setCookie('author_information_iv', $key);
 
                 if (false === $cipher) {
                     if (is_object($serendipity['logger'])) {
-                        $serendipity['logger']->critical('ENCRYPT: openssl_encrypt package returned false and '.printf("OpenSSL error: %s", openssl_error_string()));
+                        $serendipity['logger']->critical('ENCRYPT: openssl_encrypt package returned false and '.sprintf("OpenSSL error: %s", openssl_error_string()));
                     }
                 } else {
                     /*if (is_object($serendipity['logger'])) {
-                        $serendipity['logger']->warning('ENCRYPT: $cipher: '.print_r($cipher, true).' key = ' . $key . ' und iv = '. $iv);
+                        $serendipity['logger']->warning('ENCRYPT: $cipher: '.print_r($cipher, true).' key = ' . $key . ' and iv = '. $iv);
                     }*/
                     $cipher = base64_encode($cipher); // base64_encode($cipher) since it is stored as value in the DB option table
                 }
@@ -629,11 +614,11 @@ function serendipity_checkAutologin($ident, $iv) {
     global $serendipity;
 
     // DEBUG NOTE: Use locally only OR set the blog into maintenance mode, since decryption logs may contain valid credential data or data that is easy decryptable!
-    ##$debugfile = __DIR__ . '/../templates_c/logs/log_'.date('Y-m-d').'.txt'; // also see serendipity_cryptor() above
+    #$debugfile = __DIR__ . '/../templates_c/logs/log_'.date('Y-m-d').'.txt'; // also see serendipity_cryptor() above
 
     // Fetch login data from DB
     $autologin =& serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_" . serendipity_db_escape_string($ident) . "' LIMIT 1", true, 'assoc');
-    ##aesDebugFile($debugfile, '#checkAutologin: '." SELECT * FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_" . serendipity_db_escape_string($ident) . "' LIMIT 1 ".print_r($autologin, true));
+    #aesDebugFile($debugfile, '#checkAutologin: '." SELECT * FROM {$serendipity['dbPrefix']}options WHERE okey = 'l_" . serendipity_db_escape_string($ident) . "' LIMIT 1 ".print_r($autologin, true));
     if (!is_array($autologin)) {
         return false;
     }
@@ -645,7 +630,7 @@ function serendipity_checkAutologin($ident, $iv) {
     } else {
         $cookie = !is_array($cookie) ? unserialize($cookie) : $cookie;
     }
-    ##aesDebugFile($debugfile, '#checkAutologin: (' . print_r($cookie, true) . ')'); // ATTENTION!!
+    #aesDebugFile($debugfile, '#checkAutologin: (' . print_r($cookie, true) . ')'); // ATTENTION!!
     if ($autologin['name'] < (time()-86400)) {
         // Issued autologin cookie has been issued more than 1 day ago. Re-Issue new cookie, invalidate old one to prevent abuse
         if ($serendipity['expose_s9y']) serendipity_header('X-ReIssue-Cookie: +' . (time() - $autologin['name']) . 's');
