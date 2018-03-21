@@ -15,7 +15,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
         $propbag->add('configuration', array('beginningOfWeek', 'enableExtEvents', 'category'));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.2');
+        $propbag->add('version',       '1.3');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
 
@@ -120,37 +120,37 @@ class serendipity_plugin_calendar extends serendipity_plugin
 
                 require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
 
-                list(,$jy, $jm, $jd) = $serendipity['uriArguments'];
+                list($jy, $jm, $jd) = $serendipity['uriArguments'];
 
-                if( isset($jd) && $jd ){
-                    list ( $gy, $gm, $gd ) = p2g ($jy, $jm, $jd);
-                }elseif( isset($jm) && $jm ){
-                    list ( $gy, $gm, $gd ) = p2g ( $jy, $jm, 1);
-                }else{
+                if (isset($jd) && $jd ) {
+                    list( $gy, $gm, $gd ) = p2g($jy, $jm, $jd);
+                } elseif (isset($jm) && $jm ) {
+                    list($gy, $gm, $gd) = p2g($jy, $jm, 1);
+                } else {
                     $gy = $year;
                     $gm = $month;
                     $gd = (int) date('d');
                 }
 
-                list ( $year, $month, $day ) = g2p ($gy, $gm, $gd);
+                list($year, $month, $day) = g2p($gy, $gm, $gd);
 
                 // How many days does the month have?
-                $ts              = strtotime($gy . '-' . sprintf('%02d', $gm) . '-' . sprintf('%02d', $gd));
-                $now             = serendipity_serverOffsetHour(time());
+                $ts = strtotime($gy . '-' . sprintf('%02d', $gm) . '-' . sprintf('%02d', $gd));
+                $now = serendipity_serverOffsetHour(time());
                 $nrOfDays = persian_strftime_utf('%m', $ts);
                 $j_days_in_month = array(0, 31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
-                if ($year%4 == 3 && $nrOfDays == 12) $nrOfDays = $j_days_in_month[(int)$nrOfDays]+1;
+                if (($year % 4) == 3 && $nrOfDays == 12) $nrOfDays = $j_days_in_month[(int)$nrOfDays]+1;
                 else $nrOfDays = $j_days_in_month[(int)$nrOfDays];
 
                 // Calculate first timestamp of the month
-                list ($firstgy, $firstgm, $firstgd ) = p2g ( $year, $month, 1);
+                list($firstgy, $firstgm, $firstgd) = p2g( $year, $month, 1);
                 $firstts = mktime(0, 0, 0, $firstgm, $firstgd, $firstgy);
 
                 // Calculate first persian day, week day name
                 $firstDayWeekDay = date('w', $firstts);
 
                 // Calculate end timestamp of the month
-                list ( $end_year, $end_month, $end_day ) = p2g ($year, $month+1, 1);
+                list($end_year, $end_month, $end_day) = p2g($year, $month+1, 1);
                 $endts = mktime(0, 0, 0, $end_month, $end_day, $end_year);
                 break;
         } // end switch
@@ -158,7 +158,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
         // Calculate the first day of the week, based on the beginning of the week ($bow)
         if ($bow > $firstDayWeekDay) {
             $firstDayWeekDay = $firstDayWeekDay + 7 - $bow;
-        } elseif ( $bow < $firstDayWeekDay ) {
+        } elseif ($bow < $firstDayWeekDay) {
             $firstDayWeekDay = $firstDayWeekDay - $bow;
         } else {
             $firstDayWeekDay = 0;
@@ -197,10 +197,10 @@ class serendipity_plugin_calendar extends serendipity_plugin
         $add_query   = '';
         $base_query  = '';
         $cond = array();
-        $cond['and']     = "WHERE e.timestamp  >= " . serendipity_serverOffsetHour($firstts, true) . "
-                              AND e.timestamp  <= " . serendipity_serverOffsetHour($endts, true) . "
-                                  " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e.timestamp  <= " . serendipity_db_time() : '') . "
-                              AND e.isdraft     = 'false'";
+        $cond['and'] = "WHERE e.timestamp  >= " . serendipity_serverOffsetHour($firstts, true) . "
+                          AND e.timestamp  <= " . serendipity_serverOffsetHour($endts, true) . "
+                              " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND e.timestamp  <= " . serendipity_db_time() : '') . "
+                          AND e.isdraft     = 'false'";
 
         serendipity_plugin_api::hook_event('frontend_fetchentries', $cond, array('noCache' => false, 'noSticky' => false, 'source' => 'calendar'));
 
@@ -215,8 +215,8 @@ class serendipity_plugin_calendar extends serendipity_plugin
         }
 
         if ($catid) {
-            $base_query   = 'C' . $catid;
-            $add_query    = '/' . $base_query;
+            $base_query  = 'C' . $catid;
+            $add_query   = '/' . $base_query;
             $querystring = "SELECT timestamp
                               FROM {$serendipity['dbPrefix']}category c,
                                    {$serendipity['dbPrefix']}entrycat ec,
@@ -274,8 +274,8 @@ class serendipity_plugin_calendar extends serendipity_plugin
         }
 
         // Print the calendar
-        $currDay     = 1;
-        $nrOfRows    = ceil(($nrOfDays+$firstDayWeekDay)/7);
+        $currDay  = 1;
+        $nrOfRows = ceil(($nrOfDays+$firstDayWeekDay)/7);
         for ($x = 0; $x < 6; $x++) {
             // Break out if we are out of days
             if ($currDay > $nrOfDays) {
@@ -338,19 +338,19 @@ class serendipity_plugin_calendar extends serendipity_plugin
 
         $dow = array();
         for ($i = 1; $i <= 7; $i++) {
-            $dow[] = array('date' => mktime(0, 0, 0, 3, $bow + $i - 1, 2004));
+            $dow[] = array('date' => mktime(0, 0, 0, 3, (($bow + $i) - 1), 2004));
         }
         $serendipity['smarty']->assignByRef('plugin_calendar_dow', $dow);
 
         $plugin_calendar_data = array('month_date'   => $ts,
             'uri_previous' => serendipity_archiveDateUrl(sprintf('%04d/%02d', $previousYear, $previousMonth). $add_query),
             'uri_month'    => serendipity_archiveDateUrl(sprintf('%04d/%02d', $year, $month) . $add_query),
-            'uri_next'     => serendipity_archiveDateUrl(sprintf('%04d/%02d',$nextYear, $nextMonth) . $add_query),
+            'uri_next'     => serendipity_archiveDateUrl(sprintf('%04d/%02d', $nextYear, $nextMonth) . $add_query),
             'minScroll'    => $minmax[0]['min'],
             'maxScroll'    => $minmax[0]['max']);
+
         $serendipity['smarty']->assignByRef('plugin_calendar_head', $plugin_calendar_data);
         echo serendipity_smarty_fetch('CALENDAR', 'plugin_calendar.tpl');
-
     }
 
 }
