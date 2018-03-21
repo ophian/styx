@@ -281,6 +281,90 @@
       "css": "medkit",
       "code": 59427,
       "src": "fontawesome"
+    },
+    {
+      "uid": "c5fd349cbd3d23e4ade333789c29c729",
+      "css": "eye",
+      "code": 59438,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "7fd683b2c518ceb9e5fa6757f2276faa",
+      "css": "eye-off",
+      "code": 59439,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "02cca871bb69da75e8ee286b7055832c",
+      "css": "bold",
+      "code": 59440,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "61c242c9e2134d5864d7fdd57b3c9289",
+      "css": "strike",
+      "code": 61644,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d4a4a38a40b728f46dad1de4ac950231",
+      "css": "underline",
+      "code": 61645,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "8b9e6a8dd8f67f7c003ed8e7e5ee0857",
+      "css": "off",
+      "code": 59441,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "5bb103cd29de77e0e06a52638527b575",
+      "css": "wrench",
+      "code": 59442,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "26613a2e6bc41593c54bead46f8c8ee3",
+      "css": "file-code",
+      "code": 61897,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "5278ef7773e948d56c4d442c8c8c98cf",
+      "css": "lightbulb",
+      "code": 61675,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "ccddff8e8670dcd130e3cb55fdfc2fd0",
+      "css": "down-open",
+      "code": 59443,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "d870630ff8f81e6de3958ecaeac532f2",
+      "css": "left-open",
+      "code": 59444,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "399ef63b1e23ab1b761dfbb5591fa4da",
+      "css": "right-open",
+      "code": 59445,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "fe6697b391355dec12f3d86d6d490397",
+      "css": "up-open",
+      "code": 59446,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "a73c5deb486c8d66249811642e5d719a",
+      "css": "arrows-cw",
+      "code": 59447,
+      "src": "fontawesome"
     }
   ]
 }
