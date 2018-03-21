@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Change commentlist moderate on/off buttons
+
   * Fix next theme calendar group & styles
 
   * Fix Persian mktime issues with PHP 7.0.0, since the "is_dst" parameter
