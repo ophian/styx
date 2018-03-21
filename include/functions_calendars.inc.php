@@ -35,7 +35,7 @@ function g2p($g_y, $g_m, $g_d) {
         $g_day_no += $g_days_in_month[$i];
     }
 
-    if ($gm>1 && (($gy%4==0 && $gy%100!=0) || ($gy%400==0))) {
+    if ($gm > 1 && (($gy % 4 == 0 && $gy % 100 != 0) || ($gy % 400 == 0))) {
         /* leap and after Feb */
         ++$g_day_no;
     }
@@ -275,7 +275,7 @@ function persian_strftime_utf($format, $timestamp='') {
  */
 function persian_date_utf($format, $timestamp='') {
 
-    if ($timestamp=='') {
+    if ($timestamp == '') {
         $timestamp = mktime();
     }
 
@@ -287,7 +287,7 @@ function persian_date_utf($format, $timestamp='') {
 
     $j_days_in_month = array(0, 31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
     $leap = 0;
-    if ($g_m>1 && (($g_y%4==0 && $g_y%100!=0) || ($g_y%400==0))) {
+    if ($g_m > 1 && (($g_y % 4 == 0 && $g_y % 100 != 0) || ($g_y % 400 == 0))) {
         $j_days_in_month[12]++;
         $leap = 1;
     }
@@ -440,10 +440,9 @@ function persian_date_utf($format, $timestamp='') {
  * @param   int month
  * @param   int day
  * @param   int year
- * @param   int is daylight savings time set?
  * @return  int returned timestamp
  */
-function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='', $is_dst=-1) {
+function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='') {
     $j_days_in_month = array(31, 31, 31, 31, 31, 31, 30, 30, 30, 30, 30, 29);
 
     if ((string) $hour == '') { $hour = persian_date_utf('H'); }
@@ -502,14 +501,13 @@ function persian_mktime($hour='', $min='', $sec='', $mon='', $day='', $year='', 
             $temp_month = 12;
             $temp_year--;
         }
-        if ($temp_month>1 && (($temp_year%4==0 && $temp_year%100!=0) || ($temp_year%400==0))) {
+        if ($temp_month > 1 && ((($temp_year % 4) == 0 && ($temp_year % 100) != 0) || (($temp_year % 400) == 0))) {
             $j_days_in_month[12] = 30;
         } else {
             $j_days_in_month[12] = 29;
         }
         $day += $j_days_in_month[$temp_month];
     }
-
     list($year, $mon, $day) = p2g($year, $mon, $day);
-    return mktime($hour, $min, $sec, $mon, $day, $year, $is_dst);
+    return mktime($hour, $min, $sec, $mon, $day, $year);
 }
