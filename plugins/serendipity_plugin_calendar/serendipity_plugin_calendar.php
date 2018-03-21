@@ -120,10 +120,10 @@ class serendipity_plugin_calendar extends serendipity_plugin
 
                 require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
 
-                list($jy, $jm, $jd) = $serendipity['uriArguments'];
+                list(, $jy, $jm, $jd) = $serendipity['uriArguments'];//keep empty param is archives
 
                 if (isset($jd) && $jd ) {
-                    list( $gy, $gm, $gd ) = p2g($jy, $jm, $jd);
+                    list($gy, $gm, $gd) = p2g($jy, $jm, $jd);
                 } elseif (isset($jm) && $jm ) {
                     list($gy, $gm, $gd) = p2g($jy, $jm, 1);
                 } else {
