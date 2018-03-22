@@ -508,7 +508,7 @@ function serveArchives() {
                 }
             }
 
-            list($year, $month, $day) = p2g ($year, $month, $day);
+            list($year, $month, $day) = p2g($year, $month, $day);
             break;
     }
 

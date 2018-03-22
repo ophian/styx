@@ -130,9 +130,9 @@ function persian_strftime_utf($format, $timestamp='') {
         $timestamp = mktime();
     }
 
-    $g_d=date('j', $timestamp);
-    $g_m=date('n', $timestamp);
-    $g_y=date('Y', $timestamp);
+    $g_d = date('j', $timestamp);
+    $g_m = date('n', $timestamp);
+    $g_y = date('Y', $timestamp);
 
     list($jy, $jm, $jd, $j_all_days) = g2p($g_y, $g_m, $g_d);
 
