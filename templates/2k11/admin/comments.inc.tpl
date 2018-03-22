@@ -129,6 +129,9 @@
                         {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
                             <span class="comment_status">{$CONST.COMMENTS_FILTER_NEED_APPROVAL}</span>
                         {/if}
+                        {if $comment.status == 'hidden'}
+                            <span class="comment_status">{$CONST.COMMENTS_FILTER_NEED_APPROVAL} <span class="icon-right-open" aria-hidden="true"></span> {$CONST.HIDDEN}</span>
+                        {/if}
                             <div id="comment_data_{$comment.id}" class="clearfix additional_info">
                                 <dl class="comment_data{if $comment.stype == 'P'} ping{/if} clearfix">
                                     <dt>{$CONST.AUTHOR}:</dt>
@@ -155,7 +158,11 @@
                                 <li><a class="button_link comments_reply" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=reply&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;{$urltoken}" title="{$CONST.REPLY}"><span class="icon-chat" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.REPLY}</span></a></li>
                             {/if}
                             {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
+                                <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=hide&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.PLUGIN_INACTIVE}"><span class="icon-eye-off" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.PLUGIN_INACTIVEHIDE}</span></a></li>
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=approve&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.APPROVE}"><span class="icon-toggle-on" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.APPROVE}</span></a></li>
+                            {/if}
+                            {if $comment.status == 'hidden'}
+                                <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=public&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.PLUGIN_ACTIVE}"><span class="icon-eye" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.PLUGIN_ACTIVE}</span></a></li>
                             {/if}
                             {if ($comment.status == 'approved')}
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=pending&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.SET_TO_MODERATED}"><span class="icon-toggle-off" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SET_TO_MODERATED}</span></a></li>

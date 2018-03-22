@@ -657,8 +657,8 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
 
     $goodtoken = serendipity_checkCommentToken($token, $cid);
 
-    /* Get data about the comment, we need this query because this function can be called from anywhere */
-    /* This also makes sure we are either the author of the comment, or a USERLEVEL_ADMIN */
+    // Get data about the comment, we need this query because this function can be called from anywhere
+    // This also makes sure we are either the author of the comment, or a USERLEVEL_ADMIN
     $sql = "SELECT c.*, e.title, a.email AS authoremail, a.mail_comments, e.timestamp AS entry_timestamp, e.last_modified AS entry_last_modified, e.authorid AS entry_authorid
                 FROM {$serendipity['dbPrefix']}comments c
                 LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
@@ -897,14 +897,14 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     $_send_mod_tpback  = (($type == 'TRACKBACK' || $type == 'PINGBACK') && $_mail_trackbacks && $_setTo_moderation) ? true : false;
 
     // Send mail to the author if he chose to receive these mails, or if the comment is awaiting moderation
-    # 1. Don't do this on STATUS confirm
+    # 1. Don't do this on STATUS confirm and hidden pendings
     # 2. Check by OR - first come, first serve:
     #   a.1) Comment - moderation and PP set mail_comments are true OR
     #   a.2) Track/Pingback - moderation and PP set mail_trackbacks are true
     #   b) Type Comment and PP set mail_comments are true
     #   c) Type Track/Pingback and PP set mail_trackbacks are true
     # 3. NOT isset serendipityAuthedUser and authorEmail vs systemEmail are different
-    if ($status != 'confirm' && (
+    if ($status != 'confirm' && $status != 'hidden' && (
         ($_send_mod_comment || $_send_mod_tpback)
         || ($type == 'NORMAL' && $_mail_comments)
         || (($type == 'TRACKBACK' || $type == 'PINGBACK') && $_mail_trackbacks))) {
@@ -1143,9 +1143,9 @@ function serendipity_mailSubscribers($entry_id, $poster, $posterMail, $title, $f
 function serendipity_cancelSubscription($email, $entry_id) {
     global $serendipity;
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
-                SET subscribed = 'false'
-            WHERE entry_id = '". (int)$entry_id ."'
-                AND email = '" . serendipity_db_escape_string($email) . "'";
+               SET subscribed = 'false'
+             WHERE entry_id = '". (int)$entry_id ."'
+               AND email = '" . serendipity_db_escape_string($email) . "'";
     serendipity_db_query($sql);
 
     return serendipity_db_affected_rows();

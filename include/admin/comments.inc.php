@@ -74,6 +74,26 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     }
 }
 
+// Sets a pending comment into a hidden state, since the editor does not want to approve nor delete - Gets out of pending notes
+if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'hide' && serendipity_checkFormToken()) {
+    $sql = "UPDATE {$serendipity['dbPrefix']}comments
+               SET status = 'hidden'
+             WHERE id     = " . (int)$serendipity['GET']['id'] . "
+               AND status = 'pending'";
+    serendipity_db_query($sql);
+    $msg .= COMMENT_EDITED."\n";
+}
+
+// Sets a hidden comment back into a pending public state, since the editor does now want to approve and publish it
+if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'public' && serendipity_checkFormToken()) {
+    $sql = "UPDATE {$serendipity['dbPrefix']}comments
+               SET status = 'pending'
+             WHERE id     = " . (int)$serendipity['GET']['id'] . "
+               AND status = 'hidden'";
+    serendipity_db_query($sql);
+    $msg .= COMMENT_EDITED."\n";
+}
+
 /* We approve a comment */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'approve' && serendipity_checkFormToken()) {
     $sql = "SELECT c.*, e.title, a.email AS authoremail, a.mail_comments
@@ -210,10 +230,10 @@ if ($serendipity['GET']['filter']['show'] == 'approved') {
     $and          .= "AND status = 'approved'";
     $searchString .= '&amp;serendipity[filter][show]=approved';
 } elseif ($serendipity['GET']['filter']['show'] == 'pending') {
-    $and           .= "AND status = 'pending'";
+    $and           .= "AND status = 'hidden' OR status = 'pending'";
     $searchString .= '&amp;serendipity[filter][show]=pending';
 } elseif ($serendipity['GET']['filter']['show'] == 'confirm') {
-    $and           .= "AND status LIKE 'confirm%'";
+    $and           .= "AND status = 'hidden' OR status LIKE 'confirm%'";
     $searchString .= '&amp;serendipity[filter][show]=confirm';
 } else {
     $serendipity['GET']['filter']['show'] = 'all';
