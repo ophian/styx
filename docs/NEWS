@@ -1,10 +1,14 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Allow to ~hide~ (in-/active) pending comments, if you do not want
+    to approve nor delete a comment, but do not want to get a pending notice
+    about it every time you enter your Backend.
+
   * For quick MD5 unique hashes we seed the Mersenne Twister Random
     Number Generator overall.
 
-  * 2k11: New backend icon font build
+  * 2k11: New Backend icon font build
 
   * Change commentlist moderate on/off buttons
 
