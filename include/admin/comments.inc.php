@@ -74,7 +74,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     }
 }
 
-// Sets a pending comment into a hidden state, since the editor does not want to approve nor delete - Gets out of pending notes
+// Sets a pending comment into a hidden state, since the editor does not want to approve nor delete - Gets out of pending notices
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'hide' && serendipity_checkFormToken()) {
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
                SET status = 'hidden'
