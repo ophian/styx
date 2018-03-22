@@ -1,6 +1,9 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * For quick MD5 unique hashes we seed the Mersenne Twister Random
+    Number Generator overall.
+
   * 2k11: New backend icon font build
 
   * Change commentlist moderate on/off buttons
