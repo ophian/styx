@@ -201,7 +201,7 @@ if (!function_exists('errorToExceptionHandler')) {
             echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br />\n";
             echo " == (When you copy this debug output to a forum or other places, make sure to remove your username/passwords, as they may be contained within function calls) == \n";
             echo "<pre>\n";
-            // trying to be as detailled as possible - but avoid using args containing sensibel data like passwords
+            // trying to be as detailed as possible - but avoid using args containing sensible data like passwords
             if (function_exists('debug_backtrace')) {
                 $debugbacktrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 8);
                 print_r($debugbacktrace);
