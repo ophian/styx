@@ -525,7 +525,7 @@
 @define('COMMENTS_FILTER_SHOW', 'Zeige');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Nur bewilligte');
-@define('COMMENTS_FILTER_NEED_APPROVAL', 'Zu bewilligende');
+@define('COMMENTS_FILTER_NEED_APPROVAL', 'Zu bewilligen');
 @define('RSS_IMPORT_BODYONLY', 'Füge den gesamten importierten Text in das einzelne "Text"-Feld ein. Verhindert die Aufteilung in den "Erweiterten Eintrag"-Bereich.');
 @define('SYNDICATION_PLUGIN_FULLFEED', 'Einträge mit erweitertem Text im RSS-Feed einbinden');
 @define('MT_DATA_FILE', 'Movable-Type-Datensätze');
