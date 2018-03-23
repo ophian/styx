@@ -88,7 +88,7 @@
 
     <a id="feedback"></a>
     {foreach $comments_messagestack AS $message}
-    <p class="msg-notice"><span class="icon-info-circled" aria-hidden="true"></span> {$message}</p>
+    <p class="msg-warning"><span class="icon-info-circled" aria-hidden="true"></span> {$message}</p>
     {/foreach}
     {if $is_comment_added}
     <p class="msg-success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED}</p>
