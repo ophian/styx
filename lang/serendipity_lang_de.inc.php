@@ -458,7 +458,7 @@
 @define('COMMENT_DELETED', 'Kommentar #%s wurde erfolgreich gelöscht.');
 @define('VIEW', 'Anzeigen');
 @define('COMMENT_ALREADY_APPROVED', 'Kommentar #%s wurde bereits bewilligt.');
-@define('COMMENT_EDITED', 'Der gewählte Kommentare wurde bearbeitet.');
+@define('COMMENT_EDITED', 'Der gewählte Kommentar wurde bearbeitet.');
 @define('HIDE', 'Ausblenden');
 @define('VIEW_EXTENDED_ENTRY', 'Weiter lesen: "%s"');
 @define('TRACKBACK_SPECIFIC_ON_CLICK', 'Dieser Link ist nicht aktiv. Er enthält eine kopierbare Trackback-URI, um manuell ein Ping- und Trackback zu diesem Eintrag für ältere Blogsysteme zu generieren; zB (immer noch valide) über das zur Verfügung gestellte Eintragsfeld des serendipity_event_trackback Plugins. Serendipity und andere Blogsysteme erkennen die Trackback-URL heutzutage aber automatisch anhand der Artikel-URL. Die Trackback-URI für ihren Link des Sender-Eintrages lautet daher wie folgt:');
