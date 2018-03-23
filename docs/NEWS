@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Bugfix (local() plugins without propbag groups not showing up
+
   * Allow to ~hide~ (in-/active) pending comments, if you do not want
     to approve nor delete a comment, but do not want to get a pending notice
     about it every time you enter your Backend.
