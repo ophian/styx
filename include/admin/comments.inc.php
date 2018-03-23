@@ -81,7 +81,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
              WHERE id     = " . (int)$serendipity['GET']['id'] . "
                AND status = 'pending'";
     serendipity_db_query($sql);
-    $msg .= COMMENT_EDITED."\n";
+    $msg .= COMMENT_EDITED." (".PLUGIN_INACTIVE.")\n";
 }
 
 // Sets a hidden comment back into a pending public state, since the editor does now want to approve and publish it
@@ -91,7 +91,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
              WHERE id     = " . (int)$serendipity['GET']['id'] . "
                AND status = 'hidden'";
     serendipity_db_query($sql);
-    $msg .= COMMENT_EDITED."\n";
+    $msg .= COMMENT_EDITED." (".PLUGIN_ACTIVE.")\n";
 }
 
 /* We approve a comment */
