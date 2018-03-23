@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fixed message error CSS class in next theme
+
   * Bugfix (local) plugins without propbag groups not showing up
 
   * Allow to ~hide~ (in-/active) pending comments, if you do not want
