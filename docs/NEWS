@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix path variable name in hook backend_sendcomment
+
   * Sync and fix new NL2P OPERATION mode with the nl2br plugin
 
   * Themes: Convert old serendipity message styles - notice green to blue
