@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Sync and fix new NL2P OPERATION mode with the nl2br plugin
+
   * Themes: Convert old serendipity message styles - notice green to blue
             At now all success frontend messages selector where changed
             from .serendipity_msg_notice to .serendipity_msg_success for
