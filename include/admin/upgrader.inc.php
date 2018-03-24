@@ -399,6 +399,12 @@ $tasks = array(
                     'arguments' => array($dead_dirs_250),
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_250) . '</pre>'),
 
+            array(  'version'   => '2.5.0',
+                    'function'  => 'TEMPLATE_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
+                    'desc'      => 'regarding Serendipity message colorizing for consistency. Please adapt this to your copy or Spartacus themes. Read the ChangeLog for more.'),
+
 );
 
 /* Fetch SQL files which needs to be run */
