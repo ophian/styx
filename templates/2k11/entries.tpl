@@ -63,19 +63,19 @@
 
     {if $is_single_entry AND NOT $is_preview}
         {if $CONST.DATA_UNSUBSCRIBED}
-        <p class="serendipity_msg_notice">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
+        <p class="serendipity_msg_success">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
         {/if}
         {if $CONST.DATA_TRACKBACK_DELETED}
-        <p class="serendipity_msg_notice">{$CONST.DATA_TRACKBACK_DELETED|sprintf:$CONST.TRACKBACK_DELETED}</p>
+        <p class="serendipity_msg_success">{$CONST.DATA_TRACKBACK_DELETED|sprintf:$CONST.TRACKBACK_DELETED}</p>
         {/if}
         {if $CONST.DATA_TRACKBACK_APPROVED}
-        <p class="serendipity_msg_notice">{$CONST.DATA_TRACKBACK_APPROVED|sprintf:$CONST.TRACKBACK_APPROVED}</p>
+        <p class="serendipity_msg_success">{$CONST.DATA_TRACKBACK_APPROVED|sprintf:$CONST.TRACKBACK_APPROVED}</p>
         {/if}
         {if $CONST.DATA_COMMENT_DELETED}
-        <p class="serendipity_msg_notice">{$CONST.DATA_COMMENT_DELETED|sprintf:$CONST.COMMENT_DELETED}</p>
+        <p class="serendipity_msg_success">{$CONST.DATA_COMMENT_DELETED|sprintf:$CONST.COMMENT_DELETED}</p>
         {/if}
         {if $CONST.DATA_COMMENT_APPROVED}
-        <p class="serendipity_msg_notice">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</p>
+        <p class="serendipity_msg_success">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</p>
         {/if}
 
         <section id="trackbacks" class="serendipity_comments serendipity_section_trackbacks">
@@ -113,7 +113,7 @@
             <p class="serendipity_msg_important">{$message}</p>
         {/foreach}
         {if $is_comment_added}
-            <p class="serendipity_msg_notice">{$CONST.COMMENT_ADDED}</p>
+            <p class="serendipity_msg_success">{$CONST.COMMENT_ADDED}</p>
         {if $is_logged_in}
         <section id="respond" class="serendipity_section_commentform">
             <h3>{$CONST.ADD_COMMENT}</h3>
@@ -121,7 +121,7 @@
         </section>
         {/if}
         {elseif $is_comment_moderate}
-            <p class="serendipity_msg_notice">{$CONST.COMMENT_ADDED} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
+            <p class="serendipity_msg_success">{$CONST.COMMENT_ADDED} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
         {elseif NOT $entry.allow_comments}
             <p class="serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</p>
         {/if}

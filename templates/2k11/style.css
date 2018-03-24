@@ -637,6 +637,7 @@ pre .geshi {
 }
 
 .serendipity_msg_important,
+.serendipity_msg_success,
 .serendipity_msg_notice {
     font-size: .8125em;
     line-height: 1.8462;
@@ -653,10 +654,16 @@ pre .geshi {
     color: #b94a48;
 }
 
-.serendipity_msg_notice {
+.serendipity_msg_success {
     background: #dff0d8;
     border: 1px solid #d6e9c6;
     color: #468847;
+}
+
+.serendipity_msg_notice {
+    background: #d9edf7;
+    border: 1px solid #bce8f1;
+    color: #3a87ad;
 }
 
 /* If the basic styles for aligning images are changed, the changes

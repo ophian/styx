@@ -86,23 +86,23 @@
 
         <?php if ($GLOBALS['tpl']['is_single_entry'] && !$GLOBALS['tpl']['use_popups'] && !$GLOBALS['tpl']['is_preview']): ?>
             <?php if (defined(DATA_UNSUBSCRIBED)): ?>
-                <br><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br>
             <?php endif; ?>
 
             <?php if (defined(DATA_TRACKBACK_DELETED)): ?>
-                <br><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_TRACKBACK_DELETED, TRACKBACK_DELETED) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_TRACKBACK_DELETED, TRACKBACK_DELETED) ?></div><br>
             <?php endif; ?>
 
             <?php if (defined(DATA_TRACKBACK_APPROVED)): ?>
-                <br><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_TRACKBACK_APPROVED, TRACKBACK_APPROVED) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_TRACKBACK_APPROVED, TRACKBACK_APPROVED) ?></div><br>
             <?php endif; ?>
 
             <?php if (defined(DATA_COMMENT_DELETED)): ?>
-                <br><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_COMMENT_DELETED, COMMENT_DELETED) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_COMMENT_DELETED, COMMENT_DELETED) ?></div><br>
             <?php endif; ?>
 
             <?php if (defined(DATA_COMMENT_APPROVED)): ?>
-                <br><div class="serendipity_center serendipity_msg_notice"><?= printf(DATA_COMMENT_APPROVED, COMMENT_APPROVED) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_COMMENT_APPROVED, COMMENT_APPROVED) ?></div><br>
             <?php endif; ?>
 
             <div class="serendipity_comments serendipity_section_trackbacks">
@@ -150,12 +150,12 @@
                 <?php if ($GLOBALS['tpl']['is_comment_added']): ?>
 
                 <br>
-                <div class="serendipity_center serendipity_msg_notice"><?= COMMENT_ADDED; ?></div>
+                <div class="serendipity_center serendipity_msg_success"><?= COMMENT_ADDED; ?></div>
 
                 <?php elseif ($GLOBALS['tpl']['is_comment_moderate']): ?>
 
                 <br>
-                <div class="serendipity_center serendipity_msg_notice"><?= COMMENT_ADDED; ?><br><?= THIS_COMMENT_NEEDS_REVIEW ?></div>
+                <div class="serendipity_center serendipity_msg_success"><?= COMMENT_ADDED; ?><br><?= THIS_COMMENT_NEEDS_REVIEW ?></div>
 
                 <?php elseif (!$entry['allow_comments']): ?>
 

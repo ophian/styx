@@ -402,7 +402,7 @@ form button[disabled], select[disabled], select[disabled] option, select[disable
   -ms-user-select: none;
   user-select: none; }
 
-.msg-warning, .msg-success, .msg-notice, .msg-question, .serendipity_commentDirection {
+.serendipity_msg_important, .serendipity_msg_success, .serendipity_msg_notice, .msg-warning, .msg-success, .msg-notice, .msg-question, .serendipity_commentDirection {
   font-size: 13px;
   font-size: 0.8125rem;
   margin: 16px 0;
@@ -411,18 +411,21 @@ form button[disabled], select[disabled], select[disabled] option, select[disable
   padding: 0.5rem;
   border: 1px solid;
   border-radius: 4px; }
-  .msg-warning p, .msg-success p, .msg-notice p, .msg-question p, .serendipity_commentDirection p {
+  .serendipity_msg_important, .serendipity_msg_success, .serendipity_msg_notice, .msg-warning p, .msg-success p, .msg-notice p, .msg-question p, .serendipity_commentDirection p {
     margin: 0; }
 
+.serendipity_msg_important,/*red*/
 .msg-warning {
   background: #f2dede;
   border-color: #eed3d7;
   color: #b94a2b; }
+.serendipity_msg_success,/*green*/
 .msg-success {
   background: #dff0d8;
   border-color: #d6e9c6;
   color: #468847; }
 
+.serendipity_msg_notice,/*blue*/
 .msg-notice {
   background: #d9edf7;
   border-color: #bce8f1;

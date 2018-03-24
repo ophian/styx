@@ -16,7 +16,7 @@
 
           <div class="entry-body">
             <?php if ($GLOBALS['tpl']['is_contactform_sent']): ?>
-            <a name="feedback"></a><p class="serendipity_center serendipity_msg_notice"><?= $GLOBALS['tpl']['plugin_contactform_sent'] ?></p>
+            <a name="feedback"></a><p class="serendipity_center serendipity_msg_success"><?= $GLOBALS['tpl']['plugin_contactform_sent'] ?></p>
             <?php else: ?>
             <?php if ($GLOBALS['tpl']['is_contactform_error']): ?>
             <p class="serendipity_center serendipity_msg_important"><?= $GLOBALS['tpl']['plugin_contactform_error'] ?></p>

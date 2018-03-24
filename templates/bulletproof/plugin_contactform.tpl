@@ -18,7 +18,7 @@
 {/if}
 
 {if $is_contactform_sent}
-   <div class="serendipity_center serendipity_msg_notice">{$plugin_contactform_sent}</div>
+   <div class="serendipity_center serendipity_msg_success">{$plugin_contactform_sent}</div>
 {else}
 
 <!-- This whole commentform style, including field names is needed -->

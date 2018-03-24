@@ -27,7 +27,7 @@
 {elseif $subscribe_confirm_success}
     <div class="serendipity_Entry_Date">
         <h3 class="serendipity_date">{$CONST.SUCCESS}</h3>
-        <div class="serendipity_msg_notice comment_subscribe_success">{$content_message}</div>
+        <div class="serendipity_msg_success comment_subscribe_success">{$content_message}</div>
     </div>
 {else}
    <div class="serendipity_content_message">{$content_message}</div>

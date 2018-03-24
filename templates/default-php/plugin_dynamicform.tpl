@@ -18,7 +18,7 @@
 <?php endif; ?>
 
 <?php if ($GLOBALS['tpl']['is_contactform_sent']): ?>
-    <div class="serendipity_center serendipity_msg_notice"><?= $GLOBALS['tpl']['plugin_contactform_sent'] ?></div>
+    <div class="serendipity_center serendipity_msg_success"><?= $GLOBALS['tpl']['plugin_contactform_sent'] ?></div>
 <?php else: ?>
 
 <!-- This whole commentform style, including field names is needed -->

@@ -223,6 +223,7 @@ video,
 
 /* Messages */
 .serendipity_msg_important,
+.serendipity_msg_success,
 .serendipity_msg_notice {
     border: 1px solid;
     border-radius: 4px;
@@ -237,7 +238,7 @@ video,
     color: #ff4136;
 }
 
-.serendipity_msg_notice {
+.serendipity_msg_success {
     border-color: #2ecc40;
     color: #2ecc40;
 }

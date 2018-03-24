@@ -5,7 +5,7 @@
     {$plugin_contactform_preface}
     </div>
 {if $is_contactform_sent}
-    <p class="serendipity_msg_notice">{$plugin_contactform_sent}</p>
+    <p class="serendipity_msg_success">{$plugin_contactform_sent}</p>
 {else}
     {if $is_contactform_error}
     <p class="serendipity_msg_important">{$plugin_contactform_error}</p>

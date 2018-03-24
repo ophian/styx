@@ -279,6 +279,9 @@ img.serendipity_entryIcon {
     width: 100%;
     max-width: 42em;
 }
+input[type="button"], input[type="checkbox"] {
+    width: auto;
+}
 
 .serendipity_edit_nugget {
     font-size: .75em;
@@ -447,13 +450,6 @@ div.serendipitySideBarItem {
 }
 .serendipity_section_commentform {
     font-size: 0.9em;
-}
-.serendipity_msg_important {
-    color: #ff4136; /* new red */
-}
-
-.serendipity_msg_notice {
-    color: #2ecc40; /* new green */
 }
 
 .serendipity_entry_author_self {

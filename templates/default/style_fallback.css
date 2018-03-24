@@ -6,6 +6,11 @@
    style.css template.
    IT IS NOT ADVISED TO CREATE YOUR OWN style_fallback.css FILE! */
 
+/* default sizing for specific form element */
+input[type="button"], input[type="checkbox"] {
+    width: auto;
+}
+
 /* Default image classes for left/right/usual layout */
 .serendipity_image_center {
     border: 0px;
@@ -34,7 +39,7 @@
     padding-left: 0;
 }
 
-/* Messages: Centered, important, notice */
+/* Messages: centered, important, success, notice */
 .serendipity_center {
     margin-left: auto;
     margin-right: auto;
@@ -42,11 +47,15 @@
 }
 
 .serendipity_msg_important {
-    color: red;
+    color: #ff4136; /* new red */
+}
+
+.serendipity_msg_success {
+    color: #2ecc40; /* new green */
 }
 
 .serendipity_msg_notice {
-    color: green;
+    color: #6495ed; /* new cornflowerblue */
 }
 
 /* Embedded images with comments inside the s9y image manager */
