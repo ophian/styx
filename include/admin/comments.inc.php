@@ -112,6 +112,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     }
 }
 
+/* We set an already approved comment back to moderate */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'pending' && serendipity_checkFormToken()) {
     $sql = "SELECT c.*, e.title, a.email AS authoremail, a.mail_comments
               FROM {$serendipity['dbPrefix']}comments c
@@ -200,7 +201,7 @@ if (isset($serendipity['GET']['adminAction'])
             );
 
             serendipity_printComments($pc_data);
-            // displays the PREVIEW of your edited backend comment via edit. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
+            // Displays the PREVIEW of your edited backend comment via edit. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
             $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comments.tpl', 'serendipityPath'));
         }
     }
@@ -211,7 +212,7 @@ if (isset($serendipity['GET']['adminAction'])
 
     serendipity_displayCommentForm($serendipity['GET']['entry_id'], $target_url, NULL, $codata, false, false);
 
-    // displays the backend comment form. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
+    // Displays the backend comment form. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
     $serendipity['smarty']->display(serendipity_getTemplateFile('admin/commentform.tpl', 'serendipityPath'));
 
     return true;
