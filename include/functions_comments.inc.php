@@ -1196,7 +1196,7 @@ function serendipity_sendComment($comment_id, $to, $fromName, $fromEmail, $fromU
     $eventData = array( 'comment_id'       => $comment_id,
                         'entry_id'         => $id,
                         'entryURI'         => $entryURI,
-                        '$path'            => $path,
+                        'path'             => $path,
                         'deleteURI'        => $deleteURI,
                         'approveURI'       => $approveURI,
                         'moderate_comment' => $moderate_comment,
