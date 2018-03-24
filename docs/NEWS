@@ -1,6 +1,13 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Themes: Convert old serendipity message styles - notice green to blue
+            At now all success frontend messages selector where changed
+            from .serendipity_msg_notice to .serendipity_msg_success for
+            consistency.
+    PLEASE NOTE:
+            Adapt this to your copy or Spartacus themes !
+
   * Fixed message error CSS class in next theme
 
   * Bugfix (local) plugins without propbag groups not showing up
