@@ -698,7 +698,8 @@ class Cache_Lite
         $this->_touchCacheFile();
         $this->_memoryCachingArray[$this->_file] = $data;
         if ($this->_memoryCachingCounter >= $this->_memoryCachingLimit) {
-            list($key, ) = each($this->_memoryCachingArray);
+            $key = key($this->_memoryCachingArray);
+            next($this->_memoryCachingArray);
             unset($this->_memoryCachingArray[$key]);
         } else {
             $this->_memoryCachingCounter = $this->_memoryCachingCounter + 1;

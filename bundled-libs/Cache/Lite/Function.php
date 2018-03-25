@@ -84,7 +84,7 @@ class Cache_Lite_Function extends Cache_Lite
     public function __construct($options = array(NULL))
     {
         $availableOptions = array('debugCacheLiteFunction', 'defaultGroup', 'dontCacheWhenTheOutputContainsNOCACHE', 'dontCacheWhenTheResultIsFalse', 'dontCacheWhenTheResultIsNull');
-        while (list($name, $value) = each($options)) {
+        foreach ($options AS $name => $value) {
             if (in_array($name, $availableOptions)) {
                 $property = '_'.$name;
                 $this->$property = $value;

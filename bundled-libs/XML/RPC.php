@@ -1756,7 +1756,7 @@ class XML_RPC_Value extends XML_RPC_Base
         }
         $ar = $o->me;
         reset($ar);
-        list($typ, $val) = each($ar);
+        list($typ, $val) = current($ar);
         return '<value>' .  $this->serializedata($typ, $val) .  "</value>\n";
     }
 
@@ -1781,7 +1781,7 @@ class XML_RPC_Value extends XML_RPC_Base
      */
     function structeach()
     {
-        return each($this->me['struct']);
+        return current($this->me['struct']);
     }
 
     /**
@@ -1861,7 +1861,7 @@ class XML_RPC_Value extends XML_RPC_Base
     function arraysize()
     {
         reset($this->me);
-        list($a, $b) = each($this->me);
+        list($a, $b) = current($this->me);
         return sizeof($b);
     }
 
