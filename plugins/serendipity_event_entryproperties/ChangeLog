@@ -1,3 +1,7 @@
+1.57:
+-----
+    * Replace PHP 7.2 set deprecated each() usage
+
 1.56:
 -----
     * Add and fix for button_up selector

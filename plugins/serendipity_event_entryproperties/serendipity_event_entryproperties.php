@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.56');
+        $propbag->add('version',       '1.57');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -486,9 +486,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 $plugins = serendipity_plugin_api::get_event_plugins();
 
                 if (is_array($plugins)) {
-                    // foreach() operates on copies of values, but we want to operate on references, so we use while()
-                    @reset($plugins);
-                    while(list($plugin, $plugin_data) = each($plugins)) {
+                    foreach($plugins AS $plugin => &$plugin_data) {
                         if (!is_array($plugin_data['p']->markup_elements)) {
                             continue;
                         }
