@@ -47,8 +47,8 @@
 {if $staticpage_author OR $staticpage_lastchange OR $staticpage_adminlink}
     <footer class="page_info">
         <ul class="plainList">
-            <li class="d-inline-block">{if $staticpage_author}<svg class="icon-user" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.POSTED_BY}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#user"></use></svg>{$staticpage_author|escape}{/if}</li>
-            <li class="d-inline-block">{if $staticpage_lastchange}<svg class="icon-calendar" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.ON}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#calendar"></use></svg><time datetime="{$staticpage_lastchange|serendipity_html5time}">{$staticpage_lastchange|date_format:$template_option.date_format}</time>{/if}</li>
+            <li class="d-inline-block">{if $staticpage_author}<svg class="icon-user" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.POSTED_BY}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#user"></use></svg>{$staticpage_author|escape}{/if}</li>
+            <li class="d-inline-block">{if $staticpage_lastchange}<svg class="icon-calendar" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.ON}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#calendar"></use></svg><time datetime="{$staticpage_lastchange|serendipity_html5time}">{$staticpage_lastchange|date_format:$template_option.date_format}</time>{/if}</li>
         {if $staticpage_adminlink AND $staticpage_adminlink.page_user}
             <li class="d-inline-block"><a href="{$staticpage_adminlink.link_edit}">{$staticpage_adminlink.link_name|escape}</a></li>
         {/if}

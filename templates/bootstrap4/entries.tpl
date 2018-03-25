@@ -7,8 +7,8 @@
             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
 
             <ul class="post_byline plainList">
-                <li class="post_author d-inline-block"><svg class="icon-user" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.POSTED_BY}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#user"></use></svg><a href="{$entry.link_author}">{$entry.author}</a></li>
-                <li class="post_date d-inline-block"><svg class="icon-calendar" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.ON}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#calendar"></use></svg><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time></li>
+                <li class="post_author d-inline-block"><svg class="icon-user" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.POSTED_BY}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#user"></use></svg><a href="{$entry.link_author}">{$entry.author}</a></li>
+                <li class="post_date d-inline-block"><svg class="icon-calendar" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.ON}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#calendar"></use></svg><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time></li>
             </ul>
         </header>
 
@@ -29,13 +29,13 @@
         {if $entry.categories OR $entry.has_comments}
             <ul class="post_meta plainList">
             {if $entry.categories}
-                <li class="post_category d-inline-block"><svg class="icon-folder" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.CATEGORIES}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#folder"></use></svg>{foreach $entry.categories AS $entry_category}<a class="post_category" href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</li>
+                <li class="post_category d-inline-block"><svg class="icon-folder" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.CATEGORIES}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#folder"></use></svg>{foreach $entry.categories AS $entry_category}<a class="post_category" href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</li>
             {/if}
             {if $entry.has_comments}
-                <li class="post_comments d-inline-block"><svg class="icon-comments" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$entry.label_comments}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#comments"></use></svg><a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments}</a></li>
+                <li class="post_comments d-inline-block"><svg class="icon-comments" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$entry.label_comments}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#comments"></use></svg><a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments}</a></li>
             {/if}
             {if $entry.freetag.tags.tags}
-                <li class="post_tags d-inline-block"><svg class="icon-tag" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">Tags</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#tag"></use></svg>{foreach $entry.freetag.tags.tags AS $tag}{$tag} {/foreach}</li>
+                <li class="post_tags d-inline-block"><svg class="icon-tag" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">Tags</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#tag"></use></svg>{foreach $entry.freetag.tags.tags AS $tag}{$tag} {/foreach}</li>
             {/if}
             </ul>
         {/if}
@@ -72,7 +72,7 @@
     <section id="trackbacks">
         <h3>{$CONST.TRACKBACKS}</h3>
 
-        <span class="d-block mb-2"><svg class="icon-link" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.TRACKBACK_SPECIFIC}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#link"></use></svg><a id="trackback_url" rel="nofollow" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:'htmlall'}'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:'htmlall'}">{$CONST.TRACKBACK} URL</a></span>
+        <span class="d-block mb-2"><svg class="icon-link" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.TRACKBACK_SPECIFIC}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#link"></use></svg><a id="trackback_url" rel="nofollow" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:'htmlall'}'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape:'htmlall'}">{$CONST.TRACKBACK} URL</a></span>
 
         {serendipity_printTrackbacks entry=$entry.id}
     </section>

@@ -100,8 +100,8 @@
                     <h3>{$CONST.SYNDICATE_THIS_BLOG}</h3>
 
                     <ul class="plainList">
-                        <li><svg class="icon-rss" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">XML</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#rss"></use></svg><a href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">{$CONST.ENTRIES} RSS</a></li>
-                        <li><svg class="icon-rss" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">XML</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#rss"></use></svg><a href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/comments.rss2">{$CONST.COMMENTS} RSS</a></li>
+                        <li><svg class="icon-rss" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">XML</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#rss"></use></svg><a href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">{$CONST.ENTRIES} RSS</a></li>
+                        <li><svg class="icon-rss" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">XML</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#rss"></use></svg><a href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/comments.rss2">{$CONST.COMMENTS} RSS</a></li>
                     </ul>
                 </section>
             {/if}
