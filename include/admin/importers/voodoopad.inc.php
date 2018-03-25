@@ -124,7 +124,7 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import
 
         // Now have a list of elements referenceable by id
         // so loop through building and/or updating page objects
-        while (list($key_a) = each($elements)) {
+        while (list($key_a) = current($elements)) {
             $name = $elements[$key_a]->name;
 
             switch ($name) {
@@ -185,6 +185,7 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import
                     }
                     break;
             }
+            next($elements);
         }
 
         // Now rewrite the permalinks
@@ -250,7 +251,7 @@ function start_element_handler($parser, $name, $attribs) {
     $elements[$id] = $element;
     $elements[$id]->name = $name;
 
-    while (list($key, $value) = each($attribs)) {
+    foreach(attribs AS $key => $value) {
         $elements[$id]->attributes[$key] = $value;
     }
 

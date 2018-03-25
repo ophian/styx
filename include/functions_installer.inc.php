@@ -919,8 +919,7 @@ function serendipity_updateConfiguration() {
 
             if (is_array($_POST[$item['var']])) {
                 // Arrays not allowed. Use first index value.
-                list($a_key, $a_val) = each($_POST[$item['var']]);
-                $_POST[$item['var']] = $a_key;
+                $_POST[$item['var']] = $_POST[$item['var']][0];
 
                 // If it still is an array, munge it all together.
                 if (is_array($_POST[$item['var']])) {
