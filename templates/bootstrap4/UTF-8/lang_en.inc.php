@@ -21,3 +21,4 @@
 @define('BS_NAVBAR_STYLE', 'Navbar style');
 @define('BS_JUMBOTRON_TYPE', 'Jumbotron type');
 @define('BS_JUMBOTRON_STYLE', 'Jumbotron style');
+

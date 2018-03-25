@@ -1,4 +1,4 @@
-<article class="page">
+<article class="page staticpage_plugin_contactform">
     <h2>{if $plugin_contactform_articleformat}{$plugin_contactform_name}{else}{$plugin_contactform_pagetitle}{/if}</h2>
 
     <div class="page_content page_preface">
@@ -9,7 +9,7 @@
 {else}
     {if $is_contactform_error}
     <p class="alert alert-warning" role="alert">{$plugin_contactform_error}</p>
-    {foreach from=$comments_messagestack item="message"}
+    {foreach $comments_messagestack AS $message}
     <p class="alert alert-warning" role="alert">{$message}</p>
     {/foreach}
     {/if}

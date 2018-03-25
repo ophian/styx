@@ -5,8 +5,8 @@
     <meta charset="{$head_charset}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
-    <meta name="generator" content="Serendipity v.{$head_version}">
-{if ($view == "entry" || $view == "start" || $view == "feed" || $view == "plugin" || $staticpage_pagetitle != "" || $robots_index == 'index')}
+    <meta name="generator" content="Serendipity v.{$serendipityVersion}">
+{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
     <meta name="robots" content="index,follow">
 {else}
     <meta name="robots" content="noindex,follow">
@@ -14,7 +14,7 @@
 {if ($view == "entry")}
     <link rel="canonical" href="{$entry.rdf_ident}">
 {/if}
-{if ($view == "start")}
+{if in_array($view, ['start', 'entries'])}
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
     <link rel="stylesheet" href="{$head_link_stylesheet}">
@@ -35,15 +35,15 @@
     {if !$template_option.bs_fluid}
         <div class="container">
     {/if}
-        <a class="navbar-brand{if not $template_option.use_corenav} mr-auto{/if}" href="{$serendipityBaseURL}">{$blogTitle}</a>
+        <a class="navbar-brand{if NOT $template_option.use_corenav} mr-auto{/if}" href="{$serendipityBaseURL}">{$blogTitle}</a>
     {if $template_option.use_corenav}
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#corenav" aria-controls="corenav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
 
         <div class="collapse navbar-collapse" id="corenav">
             <ul class="navbar-nav mr-auto">
-            {foreach from=$navlinks item="navlink" name="sbnav"}
+            {foreach $navlinks AS $navlink}
                 {if $navlink.title != "" && $navlink.href != ""}
-                <li class="nav-item{if $currpage == $navlink.href or $currpage2 == $navlink.href} active{/if}">
+                <li class="nav-item{if $currpage == $navlink.href OR $currpage2 == $navlink.href} active{/if}">
                     <a class="nav-link" href="{$navlink.href}">{$navlink.title}{if $currpage == $navlink.href || $currpage2 == $navlink.href} <span class="sr-only">(current)</span>{/if}</a>
                 </li>
                 {/if}
@@ -114,12 +114,12 @@
     <footer class="container{if $template_option.bs_fluid}-fluid{/if}">
         <div class="row">
             <div class="col">
-                <p class="text-center">Powered by <a href="http://s9y.org">Serendipity</a></p>
+                <p class="text-center">Powered by <a href="https://ophian.github.io/">Serendipity Styx</a> ({$template})</p>
             </div>
         </div>
     </footer>
 
-    <script src="{serendipity_getFile file="theme.js"}"></script>
+    <script src="{serendipity_getFile file="scripts/theme.js"}"></script>
 {/if}
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}

@@ -1,4 +1,4 @@
-{if $searchresult_tooShort or $searchresult_error or $searchresult_noEntries or $searchresult_results}
+{if $searchresult_tooShort OR $searchresult_error OR $searchresult_noEntries OR $searchresult_results}
     <p class="alert alert-primary" role="alert"><b>{$CONST.QUICKSEARCH}:</b> {$content_message}</p>
 {elseif $content_message}
     <p>{$content_message}</p>

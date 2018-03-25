@@ -4,3 +4,5 @@ Date: 2018-03-25
 Require Serendipity: 2.1
 Backend: No
 Recommended: Yes
+
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)

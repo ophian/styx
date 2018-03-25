@@ -1,7 +1,7 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
-{foreach from=$entries item="dategroup"}
-    {foreach from=$dategroup.entries item="entry"}
-    {assign var="entry" value=$entry scope=parent}
+{foreach $entries AS $dategroup}
+    {foreach $dategroup.entries AS $entry}
+    {assign var="entry" value=$entry scope=root}
     <article class="post{if $dategroup.is_sticky} post_sticky{/if} mb-4">
         <header>
             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
@@ -13,9 +13,9 @@
         </header>
 
         <div class="post_content clearfix">
-        {if $entry.categories}{foreach from=$entry.categories item="entry_category"}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+        {if $entry.categories}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
         {$entry.body}
-        {if $entry.has_extended and not $is_single_entry and not $entry.is_extended}
+        {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
         <a class="post_more btn btn-outline-primary btn-sm d-inline-block mb-3" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
         {/if}
         </div>
@@ -26,16 +26,16 @@
         {/if}
 
         <footer class="post_info">
-        {if $entry.categories or $entry.has_comments}
+        {if $entry.categories OR $entry.has_comments}
             <ul class="post_meta plainList">
             {if $entry.categories}
-                <li class="post_category d-inline-block"><svg class="icon-folder" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.CATEGORIES}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#folder"></use></svg>{foreach from=$entry.categories item="entry_category" name="categories"}<a class="post_category" href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if not $smarty.foreach.categories.last}, {/if}{/foreach}</li>
+                <li class="post_category d-inline-block"><svg class="icon-folder" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.CATEGORIES}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#folder"></use></svg>{foreach $entry.categories AS $entry_category}<a class="post_category" href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</li>
             {/if}
             {if $entry.has_comments}
                 <li class="post_comments d-inline-block"><svg class="icon-comments" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$entry.label_comments}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#comments"></use></svg><a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments}</a></li>
             {/if}
             {if $entry.freetag.tags.tags}
-                <li class="post_tags d-inline-block"><svg class="icon-tag" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">Tags</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#tag"></use></svg>{foreach from=$entry.freetag.tags.tags item="tag"}{$tag} {/foreach}</li>
+                <li class="post_tags d-inline-block"><svg class="icon-tag" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">Tags</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#tag"></use></svg>{foreach $entry.freetag.tags.tags AS $tag}{$tag} {/foreach}</li>
             {/if}
             </ul>
         {/if}
@@ -53,7 +53,7 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
-{if $is_single_entry and not $use_popups and not $is_preview}
+{if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
     {if $CONST.DATA_UNSUBSCRIBED}
         <p class="alert alert-success" role="alert">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
     {/if}
@@ -77,7 +77,7 @@
         {serendipity_printTrackbacks entry=$entry.id}
     </section>
 {/if}
-{if $is_single_entry and not $is_preview}
+{if $is_single_entry AND NOT $is_preview}
     <section id="comments">
         <h3>{$CONST.COMMENTS}</h3>
 
@@ -85,14 +85,14 @@
     </section>
 
     <a id="feedback"></a>
-    {foreach from=$comments_messagestack item="message"}
+    {foreach $comments_messagestack AS $message}
     <p class="alert alert-danger" role="alert">{$message}</p>
     {/foreach}
     {if $is_comment_added}
     <p class="alert alert-success" role="alert">{$CONST.COMMENT_ADDED}</p>
     {elseif $is_comment_moderate}
     <p class="alert alert-info" role="alert">{$CONST.COMMENT_ADDED}{$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
-    {elseif not $entry.allow_comments}
+    {elseif NOT $entry.allow_comments}
     <p class="alert alert-info" role="alert">{$CONST.COMMENTS_CLOSED}</p>
     {else}
     <section id="reply">
@@ -105,11 +105,11 @@
     </article>
     {/foreach}
 {foreachelse}
-    {if not $plugin_clean_page}
+    {if NOT $plugin_clean_page AND $view != '404'}
     <p class="alert alert-info" role="alert">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
-{if not $is_preview}
+{if NOT $is_preview}
     {if $staticpage_pagetitle == ''}
     <nav aria-label="{$footer_info}" title="{$footer_info}">
         <ul class="pagination justify-content-between">

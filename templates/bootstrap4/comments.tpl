@@ -1,5 +1,5 @@
 <ol class="plainList">
-{foreach from=$comments item=comment name="comments"}
+{foreach $comments AS $comment}
     <li id="c{$comment.id}" class="comment mb-4 commentlevel_{if $comment.depth > 8}9{else}{$comment.depth}{/if}">
         <ul class="comment_info plainList">
             <li class="d-inline-block"><svg class="icon-user" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.POSTED_BY}</title><use xlink:href="{$serendipityHTTPPath}templates/{$template}/img/icons.svg#user"></use></svg>{if $comment.url}<a href="{$comment.url}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if $comment.url}</a>{/if}</li>
