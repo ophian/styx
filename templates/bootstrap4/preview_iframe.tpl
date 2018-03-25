@@ -11,8 +11,10 @@
 {/if}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
+    <style>.container { max-width: 100%; } main { width: 100%; } .msg_error { margin: 0; }</style>
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
 {else}
+    <style>.container { max-width: 100%; } .mb-4, .my-4 { margin-bottom: 0 !important; }</style>
     <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
     <script src="{$serendipityHTTPPath}{$templatePath}{$template}/scripts/modernizr/modernizr.js"></script>
 {/if}
@@ -39,11 +41,11 @@
         {if $mode == 'preview'}
             <main class="col-xs-12 col-lg-8">
         {elseif $mode == 'save'}
-            <main class="col-xs-12 col-lg-8">
-                <div style="float: left; height: 75px"></div>
-                {$updertHooks}
+            <main class="xcol-xs-12 xcol-lg-8">
+                <div class="{$mode}_preview_sizing"></div>
+                {if !empty($updertHooks)}<div class="{$mode}_updertH">{$updertHooks}</div>{/if}
             {if $res}
-                <div class="serendipity_msg_important">{$CONST.ERROR}: <b>{$res}</b></div>
+                <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
             {else}
                 {* PLEASE NOTE: This is for case new entry first save only! *}
                 {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
@@ -54,7 +56,7 @@
                     {rdelim};
                 </script>
                 {/if}
-                <span class="msg_success"><span class="icon-ok-circled"></span> {$CONST.ENTRY_SAVED}</span>
+                <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ENTRY_SAVED}</span>
                 <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
             {/if}
         {/if}
@@ -63,6 +65,8 @@
         </div>
     </div>
 
+{if $mode == 'preview'}
     <script src="{serendipity_getFile file="scripts/theme.js"}"></script>
+{/if}
 </body>
 </html>
