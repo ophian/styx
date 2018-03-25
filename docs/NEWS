@@ -32,7 +32,7 @@ Version 2.5-alpha1 ()
   * Fix Persian mktime issues with PHP 7.0.0, since the "is_dst" parameter
     was removed, which was already set deprecated since PHP 5.3.0.
 
-  * Sync Smarty Update to 3.1.32-dev-42 (including the Styx patch)
+  * Sync Smarty Update to 3.1.32-dev-43 (including the Styx patch)
 
   * Raise requirement of PHP version to 5.5.0 plus.
 
