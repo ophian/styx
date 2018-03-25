@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Replace PHP 7.2 set deprecated each() usage where possible
+
   * Fix path variable name in hook backend_sendcomment
 
   * Sync and fix new NL2P OPERATION mode with the nl2br plugin
