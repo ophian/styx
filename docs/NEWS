@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Sync and fix new bootstrap 4 theme
+
   * Replace PHP 7.2 set deprecated each() usage where possible
 
   * Cherry-pick Update PEAR.php
