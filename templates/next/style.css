@@ -1168,8 +1168,7 @@ details summary {
     #comments article.comment.odd {
         margin: 0 3rem 2rem 0rem; }
     table.calendar {
-        width: 15.4rem;
-        margin-left: 1rem }
+        width: 15.4rem; }
         .calendar th, .calendar td {
             text-align:right }
     table.calendar-nav {
@@ -1434,9 +1433,6 @@ details summary {
     .widget:nth-child(odd), .widget:nth-child(even) {
       padding-left: 0;
       padding-right: 0; }
-
-  table.calendar {
-    margin-left: 2rem }
 
   #colophon {
     padding: 0 32px;
