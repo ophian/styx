@@ -1,6 +1,8 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Upgrade bundled SimplePie Library to 1.5.1 (dev-1.5.2)
+
   * Remove old Smarty2 BC mode wrapper methods
 
   * Sync and fix new bootstrap 4 theme
