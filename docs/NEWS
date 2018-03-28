@@ -1,7 +1,8 @@
 Version 2.5-alpha2 ()
  ------------------------------------------------------------------------
 
-  * Extend PHP 7.1.3+ login crypt using STRONG Galois/Counter Mode
+  * Extend PHP 7.1.3+ login crypt using STRONG Galois/Counter Mode.
+    Added important upgrade note and set version up to 2.5-alpha2.
 
   * Fix SQL compatibility for creating of table "serendipity_groupconfig"
     MySQL 5.7 - Strict mode - All parts of a PRIMARY KEY must be NOT NULL; ...
