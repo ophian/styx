@@ -18,16 +18,16 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
         foreach($serendipity['POST']['delete'] AS $k => $v) {
             $ac = serendipity_approveComment((int)$k, (int)$v, false, 'flip');
             if ($ac > 0) {
-                $msg .= DONE . ': '. sprintf(COMMENT_APPROVED, (int)$k)."\n";
+                $msg .= DONE . ":<br>\n". sprintf(COMMENT_APPROVED, (int)$k)."\n";
                 $msgtype = 'success';
             } else {
-                $msg .= DONE . ': '. sprintf(COMMENT_MODERATED, (int)$k)."\n";
+                $msg .= DONE . ":<br>\n". sprintf(COMMENT_MODERATED, (int)$k)."\n";
             }
         }
     } else {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
             serendipity_deleteComment($k, $v);
-            $msg .= DONE . ': '. sprintf(COMMENT_DELETED, (int)$k)."\n";
+            $msg .= DONE . ":<br>\n". sprintf(COMMENT_DELETED, (int)$k)."\n";
             $msgtype = 'success';
         }
     }
