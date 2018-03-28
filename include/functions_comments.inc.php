@@ -60,19 +60,19 @@ function serendipity_checkCommentTokenModeration($uri) {
             if (strlen($tokenparse[2]) == 32) {
                 if ($tokenparse[0] == 'comment') {
                     if (serendipity_deleteComment($res[2], $res[3], 'comments', $tokenparse[2])) {
-                        $return_msg = sprintf (COMMENT_DELETED, $res[2])."\n";
+                        $return_msg = sprintf(COMMENT_DELETED, $res[2])."\n";
                     } else {
-                        $return_msg = sprintf (COMMENT_NOTOKENMATCH, $res[2])."\n";
+                        $return_msg = sprintf(COMMENT_NOTOKENMATCH, $res[2])."\n";
                     }
                 } elseif ($tokenparse[0] == 'trackback') {
                     if (serendipity_deleteComment($res[2], $res[3], 'trackbacks', $tokenparse[2])) {
-                        $return_msg = sprintf (TRACKBACK_DELETED, $res[2])."\n";
+                        $return_msg = sprintf(TRACKBACK_DELETED, $res[2])."\n";
                     } else {
-                        $return_msg = sprintf (TRACKBACK_NOTOKENMATCH, $res[2])."\n";
+                        $return_msg = sprintf(TRACKBACK_NOTOKENMATCH, $res[2])."\n";
                     }
                 }
             } else {
-                $return_msg = sprintf (BADTOKEN)."\n";
+                $return_msg = sprintf(BADTOKEN)."\n";
             }
             header('Content-Type: text/plain; charset='. LANG_CHARSET);
             die($return_msg);
@@ -86,19 +86,19 @@ function serendipity_checkCommentTokenModeration($uri) {
             if (strlen($tokenparse[2]) == 32) {
                 if ($tokenparse[0] == 'comment') {
                     if (serendipity_approveComment($res[2], $res[3], false, false, $tokenparse[2])) {
-                        $return_msg = sprintf (COMMENT_APPROVED, $res[2])."\n";
+                        $return_msg = sprintf(COMMENT_APPROVED, $res[2])."\n";
                     } else {
-                        $return_msg = sprintf (COMMENT_NOTOKENMATCH, $res[2])."\n";
+                        $return_msg = sprintf(COMMENT_NOTOKENMATCH, $res[2])."\n";
                     }
                 } elseif ($tokenparse[0] == 'trackback') {
                     if (serendipity_approveComment($res[2], $res[3], false, false, $tokenparse[2])) {
-                        $return_msg = sprintf (TRACKBACK_APPROVED, $res[2])."\n";
+                        $return_msg = sprintf(TRACKBACK_APPROVED, $res[2])."\n";
                     } else {
-                        $return_msg = sprintf (TRACKBACK_NOTOKENMATCH, $res[2])."\n";
+                        $return_msg = sprintf(TRACKBACK_NOTOKENMATCH, $res[2])."\n";
                     }
                 }
             } else {
-                $return_msg = sprintf (BADTOKEN)."\n";
+                $return_msg = sprintf(BADTOKEN)."\n";
             }
             header('Content-Type: text/plain; charset='. LANG_CHARSET);
             die($return_msg);
