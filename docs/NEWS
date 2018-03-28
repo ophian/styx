@@ -1,6 +1,9 @@
 Version 2.5-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix SQL compatibility for creating of table "serendipity_groupconfig"
+    MySQL 5.7 - Strict mode - All parts of a PRIMARY KEY must be NOT NULL; ...
+
   * Upgrade bundled SimplePie Library to 1.5.1 (dev-1.5.2)
 
   * Remove old Smarty2 BC mode wrapper methods
