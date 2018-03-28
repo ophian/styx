@@ -471,9 +471,12 @@ function aesDebugFile($file, $str = '') {
 */
 /**
  * Login encrypt/decrypt and set autologin cookie by version and lib
- * @param array The input data - already serialize(d)
- * @param boolean Sets the encrypt or decrypt
- * @return array The output data
+ *
+ * @param   array    The input data - already serialize(d)
+ * @param   boolean  Sets the encrypt or decrypt
+ * @param   string   A non-NULL 12 bytes Initialization Vector
+ *
+ * @return  array    The output data
  */
 function serendipity_cryptor($data, $decrypt = false, $iv = null) {
     global $serendipity;
@@ -511,7 +514,7 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
                     }
                 } else {
                     /*if (is_object($serendipity['logger'])) {
-                        $serendipity['logger']->warning('ENCRYPT: mcrypt_encrypt: $cipher: '.print_r($cipher, true).' key = ' . $key . ' und iv = '. $iv);
+                        $serendipity['logger']->warning('ENCRYPT: mcrypt_encrypt: $cipher: '.print_r($cipher, true).' key = ' . $key . ' and iv = '. $iv);
                     }*/
                     $cipher = base64_encode($cipher);
                 }
@@ -521,47 +524,94 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
         }
     } else {
 
-        require_once S9Y_PEAR_PATH . 'cryptor/cryptor.php';
         // CRYPTOR NOTES:
         //      Uses 'aes-256-ctr' to avoid the need for padding and related issues. Unfortunately GCM cannot be used as the PHP openssl module does not provide
         //      a way to retrieve the GCM tag. This is remedied in PHP 7.1 when associated data can be retrieved.
+        if (PHP_VERSION_ID < 70103) {
+            require_once S9Y_PEAR_PATH . 'cryptor/cryptor.php';
+            $algo = 'aes-256-ctr'; // default, but keep set for debugging
+        } else {
+            // https://crypto.stackexchange.com/questions/30901/how-can-there-be-aes-256-gcm-when-gcm-is-defined-for-128-sized-blocks
+            // AES has a block-size of 128 bits in all its variants. The number in AES-128/192/256 is the key-size.
+            // Rijndael, the block-cipher that became AES, also supports 256 bit blocks, but that part was not standardized as AES.
+            // Since the block-size is 128 bits, GCM works exactly the same way for AES-256 as it does for AES-128.
+            $algo = 'aes-256-gcm'; // STRONG Galois/Counter Mode, default for current PHP versions above 70103
+        }
 
         if ($decrypt) {
+             // DECRYT
+             // $data returns as serialized RAW array
+             // @see notes in ENCRYPT
             if (function_exists('openssl_decrypt')) {
-                $key = $iv;
-                try {
-                    $cipher = Cryptor::Decrypt($data, $key);
-                } catch (Throwable $t) {
-                    // Executed only in PHP 7, will not match in PHP 5.x
-                    $cipher = false; // silent logout
-                    //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". Please manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
-                }
-                /*
-                if (false === $cipher) {
-                    aesDebugFile($debugfile, '#DECRYPT: openssl_decrypt cookie returned false:(' . base64_decode($cipher) . ') '.sprintf("OpenSSL error: %s", openssl_error_string()));
+                if (PHP_VERSION_ID < 70103) {
+                    $key = $iv;
+                    try {
+                        $cipher = Cryptor::Decrypt($data, $key);
+                        #aesDebugFile($debugfile, '#DECRYPT: data = '.$cipher.' key = ' . $key); // ATTENTION!!
+                    } catch (Throwable $t) {
+                        // Executed in PHP 7 only, will not match in PHP 5.x
+                        $cipher = false; // silent logout
+                        //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". Please manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
+                    }
                 } else {
-                    aesDebugFile($debugfile, '#DECRYPT: openssl_decrypt cookie returned ('.print_r(unserialize(base64_decode($cipher)), true) . base64_decode($cipher) . ')');
+                    $key = hex2bin($iv);
+                    list($bt_ct, $bt_iv, $bt_tg) = explode(".", $data);
+                    $cda = hex2bin($bt_ct);
+                    $iv  = hex2bin($bt_iv);
+                    $tag = hex2bin($bt_tg);
+                    try {
+                        $cipher = openssl_decrypt($cda, $algo, $key, \OPENSSL_RAW_DATA, $iv, $tag);
+                        #aesDebugFile($debugfile, '#DECRYPT: data = '.$cipher.' key = ' . $key . ' tag = '.$tag.' and iv = '. $iv); // ATTENTION!!
+                    } catch (Throwable $t) {
+                        // Executed in PHP 7 only, will not match in PHP 5.x
+                        $cipher = false; // silent logout
+                        //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". Please manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
+                    }
                 }
-                */
+                /* // ATTENTION!!
+                if (false === $cipher) {
+                    aesDebugFile($debugfile, '#DECRYPT: openssl_decrypt returned false:(' . ((PHP_VERSION_ID < 70103) ? base64_decode($cipher) : $cipher) . ') '.sprintf("OpenSSL error: %s", openssl_error_string()));
+                } else {
+                    aesDebugFile($debugfile, '#DECRYPT: openssl_decrypt returned (' . ((PHP_VERSION_ID < 70103) ? print_r(unserialize(base64_decode($cipher)), true) . base64_decode($cipher) : $cipher) . ')');
+                }*/
                 return $cipher;
             }
             return false;
         } else {
-            if (function_exists('random_bytes') && function_exists('openssl_encrypt')) {
-                $key    = random_bytes(12);    // 256 bit - (Setting of IV length for AEAD mode failed, the expected length is 12 bytes)
-                $key    = base64_encode($key); // for the cookie and the cryptor class
-                $cipher = Cryptor::Encrypt($data, $key);
-                serendipity_setCookie('author_information_iv', $key);
+             // ENCRYT
+             // $data comes as serialized RAW, while being a login credential array ...
+             // openssl_en/decrypt uses (date(BINARY), method(string from openssl_get_cipher_methods()), key(BINARY), options(INT by constants), iv(BINARY), tag(NULL returns BINARY), aad(BINARY), tag_length(INT=16))
+             // GCM runs CTR internally which requires a 16-byte counter. The IV provides 12 of those, the other 4 are an actual block-wise counter. Changing this can therefore only be detrimental to security, never better.
+             // CTR/GCM simply performs these calculations to re-generate a 12 byte IV from the given bytes
+             // The 16-byte counter is 128 bits - see block-size used, is 128 bits
+             if (function_exists('random_bytes') && function_exists('openssl_encrypt')) {
+                if (PHP_VERSION_ID < 70103) {
+                    $key    = random_bytes(12);    // 96 bits - (Setting of IV length for AEAD mode, the expected length is 12 bytes)
+                    $key    = base64_encode($key); // B64 encode key to hand over
+                    $ckey   = $key;                // copy to store in iv cookie
+                    $cipher = Cryptor::Encrypt($data, $key);
+                } else {
+                    $tag  = null;
+                    $iv   = random_bytes(12); // 96 bits - (Setting of IV length for AEAD mode, the expected length is 12 bytes! No matter if GCM 128 or 256 - see upper AES and IV notes!)
+                    $key  = random_bytes(31); // varchar(64) field -2 = 62
+                    $ckey = bin2hex($key);    // hex encode key binary hash for iv cookie storage
+                    $cipher = openssl_encrypt($data, $algo, $key, \OPENSSL_RAW_DATA, $iv, $tag);
+                }
 
                 if (false === $cipher) {
                     if (is_object($serendipity['logger'])) {
                         $serendipity['logger']->critical('ENCRYPT: openssl_encrypt package returned false and '.sprintf("OpenSSL error: %s", openssl_error_string()));
                     }
                 } else {
+                    serendipity_setCookie('author_information_iv', $ckey); // store the key
                     /*if (is_object($serendipity['logger'])) {
-                        $serendipity['logger']->warning('ENCRYPT: $cipher: '.print_r($cipher, true).' key = ' . $key . ' and iv = '. $iv);
+                        $serendipity['logger']->warning('ENCRYPT: $cipher: '.print_r($cipher, true).' key = ' . $key . ' and iv = '. $iv .' and ivlen='.openssl_cipher_iv_length($algo).' and keyBinLen='.strlen($key).' and keyHexLen='.strlen($ckey));
                     }*/
-                    $cipher = base64_encode($cipher); // base64_encode($cipher) since it is stored as value in the DB option table
+                    if (PHP_VERSION_ID < 70103) {
+                        $cipher = base64_encode($cipher); // base64_encode($cipher) since it is stored as value in the DB option table
+                    } else {
+                        $cipher = bin2hex($cipher).'.'.bin2hex($iv).'.'.bin2hex($tag); // binary to hex for DB storage of cipher, iv, tag
+                    }
                 }
                 return $cipher;
             }
@@ -623,8 +673,8 @@ function serendipity_checkAutologin($ident, $iv) {
         return false;
     }
 
-    $cdata  = base64_decode($autologin['value']);
-    $cookie = serendipity_cryptor($cdata, true, $iv); // decrypt OK with mcrypt! and the cryptor class using aes-256-crt
+    $cdata  = (PHP_VERSION_ID < 70103) ? base64_decode($autologin['value']) : $autologin['value'];
+    $cookie = serendipity_cryptor($cdata, true, $iv); // decrypt OK with old mcrypt! and the intermediate cryptor class using aes-256-crt or class-less with PHP 70301 plus using strong aes-256-gcm algo
     if ($cookie === false) {
         $cookie = unserialize(base64_decode($autologin['value']));
     } else {
