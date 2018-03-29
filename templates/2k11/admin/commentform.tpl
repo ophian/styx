@@ -1,7 +1,5 @@
-{* DEV backend commentform file - anything more to change or to simplify here, since used in backend only? *}
 <div id="serendipityCommentFormC" class="serendipityCommentForm">
     <div id="serendipity_replyform_0"></div>
-    <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
         <div><input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}"></div>
         <div class="form_field">
@@ -24,7 +22,6 @@
             <label id="reply-to-hint" for="serendipity_replyTo">{$CONST.IN_REPLY_TO}</label>
             {$commentform_replyTo}
         </div>
-        {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
         <div class="clearfix empty">&nbsp;</div>
 
         <div class="form_button">
