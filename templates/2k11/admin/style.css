@@ -1307,14 +1307,21 @@ input[type=checkbox],
     margin-top: 1.5em;
     margin-bottom: 1em;
 }
-.serendipity_commentBody {
-    margin-bottom: 1em;
+.serendipity_comment header h4,
+.serendipity_commentBody,
+.serendipity_comment footer {
+    padding: 0 .5em;
 }
+.serendipity_comment header h4,
 .serendipity_comment footer {
     background-color: #EEE;
     border: 1px solid #DDD;
 }
-
+.serendipity_commentBody {
+    margin-bottom: 1em;
+    background-color: #F9F9F9;
+    border: 1px solid #DDD;
+}
 
 /* COMMON STYLES  */
 a,
