@@ -1,4 +1,3 @@
-{* DEV backend comments preview file - anything more to change or to simplify here, since used in backend only? *}
 {foreach $comments AS $comment}
 <article id="c{$smarty.post.serendipity.entry_id}" class="serendipity_comment">
     <header class="clearfix">
@@ -6,13 +5,13 @@
     </header>
 
     <div class="serendipity_commentBody clearfix content">
+    {if $comment.avatar}{$comment.avatar}{/if}
         {$comment.body}
     </div>
 
     <footer>
         <time>{$comment.timestamp|formatTime:'%Y-%m-%d %H:%M'}</time>
+        <div id="serendipity_replyform_{$smarty.post.serendipity.entry_id}"></div>
     </footer>
 </article>
-{foreachelse}
-<p class="nocomments">{$CONST.NO_COMMENTS}</p>
 {/foreach}
