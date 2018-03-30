@@ -106,73 +106,73 @@ CKEDITOR.plugins.add( 'cheatsheet', {
                               '<p>The list below contains available keyboard shortcuts grouped by problem areas.</p>' +
                               '<h2> Working with a Document </h2>' +
                               '<ul>' +
-                                '<li> <em>Esc</em> – closes a CKEditor dialog window, drop-down list, or context menu. Also moves from the context menu submenu to the parent option.</li>' +
-                                '<li> <em>Enter</em> – selects a CKEditor function from the toolbar, drop-down list, or context menu. Equivalent to the <b>OK</b> button in a dialog window.</li>' +
-                                '<li> <em>Shift+F10</em>, <em>Menu/Application</em> key – opens the element\'s context menu.</li>' +
+                                '<li> <em>Esc</em> &ndash; closes a CKEditor dialog window, drop-down list, or context menu. Also moves from the context menu submenu to the parent option.</li>' +
+                                '<li> <em>Enter</em> &ndash; selects a CKEditor function from the toolbar, drop-down list, or context menu. Equivalent to the <b>OK</b> button in a dialog window.</li>' +
+                                '<li> <em>Shift+F10</em>, <em>Menu/Application</em> key &ndash; opens the element\'s context menu.</li>' +
                               '</ul>' +
                               '<h3> Navigation </h3>' +
                               '<ul>' +
-                                '<li> <em>Home</em> – jumps to the beginning of the line.</li>' +
-                                '<li> <em>Ctrl+Home</em> – jumps to the beginning of the document.</li>' +
-                                '<li> <em>End</em> – jumps to the end of the line.</li>' +
-                                '<li> <em>Ctrl+End</em> – jumps to the end of the document.</li>' +
-                                '<li> <em>PgDn</em> – scrolls down the document, approximately by the length of the editing area. </li>' +
-                                '<li> <em>PgUp</em> – scrolls up the document, approximately by the length of the editing area.</li>' +
+                                '<li> <em>Home</em> &ndash; jumps to the beginning of the line.</li>' +
+                                '<li> <em>Ctrl+Home</em> &ndash; jumps to the beginning of the document.</li>' +
+                                '<li> <em>End</em> &ndash; jumps to the end of the line.</li>' +
+                                '<li> <em>Ctrl+End</em> &ndash; jumps to the end of the document.</li>' +
+                                '<li> <em>PgDn</em> &ndash; scrolls down the document, approximately by the length of the editing area. </li>' +
+                                '<li> <em>PgUp</em> &ndash; scrolls up the document, approximately by the length of the editing area.</li>' +
                               '</ul>' +
                               '<h3> Writing </h3>' +
                               '<ul>' +
-                                '<li> <em>Enter</em> (<em>Return</em>) – ends a paragraph and starts a new one.</li>' +
-                                '<li> <em>Shift+Enter</em> – adds a line break.</li>' +
-                                '<li> <em>Backspace</em>, <em>Del</em> – deletes a character.</li>' +
-                                '<li> <em>Ctrl+Backspace</em>, <em>Ctrl+Del</em> – deletes a word.</li>' +
+                                '<li> <em>Enter</em> (<em>Return</em>) &ndash; ends a paragraph and starts a new one.</li>' +
+                                '<li> <em>Shift+Enter</em> &ndash; adds a line break.</li>' +
+                                '<li> <em>Backspace</em>, <em>Del</em> &ndash; deletes a character.</li>' +
+                                '<li> <em>Ctrl+Backspace</em>, <em>Ctrl+Del</em> &ndash; deletes a word.</li>' +
                               '</ul>' +
                               '<h3> Undo and Redo </h3>' +
                               '<ul>' +
-                                '<li> <em>Ctrl+Z</em> – performs the undo operation.</li>' +
-                                '<li> <em>Ctrl+Y</em> – performs the redo operation.</li>' +
+                                '<li> <em>Ctrl+Z</em> &ndash; performs the undo operation.</li>' +
+                                '<li> <em>Ctrl+Y</em> &ndash; performs the redo operation.</li>' +
                                 '</ul>' +
                                 '<h3> Cut, Copy and Paste </h3>' +
                               '<ul>' +
-                                '<li> <em>Ctrl+X</em>, <em>Shift+Del</em> – cuts a text fragment to clipboard.</li>' +
-                                '<li> <em>Ctrl+C</em> – copies a text fragment to clipboard.</li>' +
-                                '<li> <em>Ctrl+V</em>, <em>Shift+Insert</em> – pastes a text fragment from clipboard.</li>' +
+                                '<li> <em>Ctrl+X</em>, <em>Shift+Del</em> &ndash; cuts a text fragment to clipboard.</li>' +
+                                '<li> <em>Ctrl+C</em> &ndash; copies a text fragment to clipboard.</li>' +
+                                '<li> <em>Ctrl+V</em>, <em>Shift+Insert</em> &ndash; pastes a text fragment from clipboard.</li>' +
                               '</ul>' +
                               '<h3> Text Selection </h3>' +
                               '<ul>' +
-                                '<li> <em>Ctrl+A</em> – selects all document contents.</li>' +
-                                '<li> <em>Shift+Arrow</em> – selects a text fragment by letters.</li>' +
-                                '<li> <em>Ctrl+Shift+Arrow</em> – selects a text fragment by words.</li>' +
-                                '<li> <em>Shift+Home</em> – selects a text fragment from the cursor to the beginning of the line.</li>' +
-                                '<li> <em>Shift+End</em> – selects a text fragment from the cursor to the end of the line.</li>' +
-                                '<li> <em>Ctrl+Shift+Home</em> – selects a text fragment from the cursor to the beginning of the document.</li>' +
-                                '<li> <em>Ctrl+Shift+End</em> – selects a text fragment from the cursor to the end of the document.</li>' +
-                                '<li> <em>Shift+PgDn</em> – selects a text fragment of approximately the length of the editing area starting from the cursor and going down.</li>' +
-                                '<li> <em>Shift+PgUp</em> – selects a text fragment of approximately the length of the editing area starting from the cursor and going up.</li>' +
+                                '<li> <em>Ctrl+A</em> &ndash; selects all document contents.</li>' +
+                                '<li> <em>Shift+Arrow</em> &ndash; selects a text fragment by letters.</li>' +
+                                '<li> <em>Ctrl+Shift+Arrow</em> &ndash; selects a text fragment by words.</li>' +
+                                '<li> <em>Shift+Home</em> &ndash; selects a text fragment from the cursor to the beginning of the line.</li>' +
+                                '<li> <em>Shift+End</em> &ndash; selects a text fragment from the cursor to the end of the line.</li>' +
+                                '<li> <em>Ctrl+Shift+Home</em> &ndash; selects a text fragment from the cursor to the beginning of the document.</li>' +
+                                '<li> <em>Ctrl+Shift+End</em> &ndash; selects a text fragment from the cursor to the end of the document.</li>' +
+                                '<li> <em>Shift+PgDn</em> &ndash; selects a text fragment of approximately the length of the editing area starting from the cursor and going down.</li>' +
+                                '<li> <em>Shift+PgUp</em> &ndash; selects a text fragment of approximately the length of the editing area starting from the cursor and going up.</li>' +
                               '</ul>' +
                               '<h2> Text Styling </h2>' +
                               '<ul>' +
-                                '<li> <em>Ctrl+B</em> – applies <b>bold</b> formatting to a text fragment.</li>' +
-                                '<li> <em>Ctrl+I</em> – applies <em>italics</em> formatting to a text fragment.</li>' +
-                                '<li> <em>Ctrl+U</em> – applies <ins>underline</ins> formatting to a text fragment.</li>' +
+                                '<li> <em>Ctrl+B</em> &ndash; applies <b>bold</b> formatting to a text fragment.</li>' +
+                                '<li> <em>Ctrl+I</em> &ndash; applies <em>italics</em> formatting to a text fragment.</li>' +
+                                '<li> <em>Ctrl+U</em> &ndash; applies <ins>underline</ins> formatting to a text fragment.</li>' +
                               '</ul>' +
                               '<h2> Rich Text </h2>' +
                               '<ul>' +
-                                '<li> <em>Ctrl+L</em> – opens the <b>Link</b> dialog window.</li>' +
+                                '<li> <em>Ctrl+L</em> &ndash; opens the <b>Link</b> dialog window.</li>' +
                               '</ul>' +
                               '<h2> Accessibility </h2>' +
                               '<p>On entering the toolbar you can use the <em>Tab</em> and <em>Shift+Tab</em> shortcuts to navigate between button groups and the <em>Arrow</em> keys to navigate between the buttons <em>within a group</em>.<p>' +
                               '<ul>' +
-                                '<li> <em>Alt+0</em> – opens <b>Help</b>.</li>' +
-                                '<li> <em>Alt+-</em> (<em>minus</em>) – collapses and restores the toolbar.</li>' +
-                                '<li> <em>Alt+F10</em> – enters the toolbar or the tab list of the currently open dialog window.</li>' +
-                                '<li> <em>Alt+F11</em> – enters the elements path.</li>' +
-                                '<li> <em>Tab</em> – moves to the next toolbar button group, context menu suboption, elements path element, dialog window element, or dialog window tab while in the tab list.</li>' +
-                                '<li> <em>Right Arrow</em> – moves to the next toolbar button within the group, context menu suboption, elements path element, dialog window element, or dialog window tab while in the tab list.</li>' +
-                                '<li> <em>Tab</em> or <em>Down Arrow</em> – moves to the next drop-down list or context menu option.</li>' +
-                                '<li> <em>Shift+Tab</em> – moves to the previous toolbar button group, context menu parent option, elements path element, dialog window element, or dialog window tab while in the tab list.</li>' +
-                                '<li> <em>Left Arrow</em> – moves to the previous toolbar button within the group, context menu parent option, elements path element, dialog window element, or dialog window tab while in the tab list.</li>' +
-                                '<li> <em>Shift+Tab</em> or <em>Up Arrow</em> – moves to the previous drop-down list or context menu option.</li>' +
-                                '<li> <em>Space</em> or <em>Enter</em> – activates a toolbar button, a context menu option, a drop-down list option, an elements path element, or a dialog window tab once selected. Also enters a context menu submenu, if it is available.</li>' +
+                                '<li> <em>Alt+0</em> &ndash; opens <b>Help</b>.</li>' +
+                                '<li> <em>Alt+-</em> (<em>minus</em>) &ndash; collapses and restores the toolbar.</li>' +
+                                '<li> <em>Alt+F10</em> &ndash; enters the toolbar or the tab list of the currently open dialog window.</li>' +
+                                '<li> <em>Alt+F11</em> &ndash; enters the elements path.</li>' +
+                                '<li> <em>Tab</em> &ndash; moves to the next toolbar button group, context menu suboption, elements path element, dialog window element, or dialog window tab while in the tab list.</li>' +
+                                '<li> <em>Right Arrow</em> &ndash; moves to the next toolbar button within the group, context menu suboption, elements path element, dialog window element, or dialog window tab while in the tab list.</li>' +
+                                '<li> <em>Tab</em> or <em>Down Arrow</em> &ndash; moves to the next drop-down list or context menu option.</li>' +
+                                '<li> <em>Shift+Tab</em> &ndash; moves to the previous toolbar button group, context menu parent option, elements path element, dialog window element, or dialog window tab while in the tab list.</li>' +
+                                '<li> <em>Left Arrow</em> &ndash; moves to the previous toolbar button within the group, context menu parent option, elements path element, dialog window element, or dialog window tab while in the tab list.</li>' +
+                                '<li> <em>Shift+Tab</em> or <em>Up Arrow</em> &ndash; moves to the previous drop-down list or context menu option.</li>' +
+                                '<li> <em>Space</em> or <em>Enter</em> &ndash; activates a toolbar button, a context menu option, a drop-down list option, an elements path element, or a dialog window tab once selected. Also enters a context menu submenu, if it is available.</li>' +
                               '</ul>' +
                               '<div id="contentfooter">This pages content was last modified on 11 May 2011, at 14:28.</div>' +
                             '</div>'
