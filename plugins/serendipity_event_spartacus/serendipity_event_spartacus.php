@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.60');
+        $propbag->add('version',       '2.61');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -475,6 +475,9 @@ class serendipity_event_spartacus extends serendipity_event
 
                 $mirrors = $this->getMirrors('files_health', true);
                 $health_url = $mirrors[$health_url];
+                if ($health_url == null) {
+                    $health_url = $mirrors[0];
+                }
                 $this->outputMSG('notice', sprintf(PLUGIN_EVENT_SPARTACUS_HEALTHCHECK, $health_url));
 
                 $health_options = $options;
@@ -623,6 +626,9 @@ class serendipity_event_spartacus extends serendipity_event
 
         } else {
             $mirror = $mirrors[$this->get_config('mirror_xml', 0)];
+            if ($mirror == null) {
+                $mirror = $mirrors[0];
+            }
             $url    = $mirror . '/package_' . $url_type .  $lang . '.xml';
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
             $target = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_' . $url_type . $lang . '.xml';
@@ -863,6 +869,9 @@ class serendipity_event_spartacus extends serendipity_event
 
         $mirrors = $this->getMirrors('files', true);
         $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
+        if ($mirror == null) {
+            $mirror = $mirrors[0];
+        }
 
         // currently disabled, since Styx GitHub repo does not host additional_themes
         /*
@@ -1048,6 +1057,9 @@ class serendipity_event_spartacus extends serendipity_event
 
         $mirrors = $this->getMirrors('files', true);
         $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
+        if ($mirror == null) {
+            $mirror = $mirrors[0];
+        }
 
         $custom  = $this->get_config('custommirror');
         // currently allowed for non-templates only
