@@ -1,4 +1,11 @@
 ﻿===== 3.1.32 - dev ===
+26.03.2018
+ - bugfix plugins may not be loaded if {function} or {block} tags are executed in nocache mode
+   https://github.com/smarty-php/smarty/issues/371
+
+26.03.2018
+ - new feature {parent} =  {$smarty.block.parent} {child} =  {$smarty.block.child}
+
 23.03.2018
  - bugfix preg_replace could fail on large content resulting in a blank page https://github.com/smarty-php/smarty/issues/417
 

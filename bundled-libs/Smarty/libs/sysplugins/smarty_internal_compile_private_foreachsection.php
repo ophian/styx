@@ -114,7 +114,7 @@ class Smarty_Internal_Compile_Private_ForeachSection extends Smarty_Internal_Com
         if ($named) {
             $this->resultOffsets[ 'named' ] = $this->startOffset + 4;
             $this->propertyPreg .= "(([\$]smarty[.]{$this->tagName}[.]" . ($this->tagName === 'section' ? "|[\[]\s*" : '')
-                                . "){$attributes['name']}[.](";
+                                   . "){$attributes['name']}[.](";
             $properties = $this->nameProperties;
         } else {
             $this->resultOffsets[ 'item' ] = $this->startOffset + 3;

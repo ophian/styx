@@ -51,10 +51,8 @@ class Smarty_Internal_Compile_Private_Modifier extends Smarty_Internal_CompileBa
                         // registered modifier
                         if (isset($compiler->smarty->registered_plugins[ Smarty::PLUGIN_MODIFIER ][ $modifier ])) {
                             if (is_callable($compiler->smarty->registered_plugins[ Smarty::PLUGIN_MODIFIER ][ $modifier ][ 0 ])) {
-                                $output = ($modifier != 'serendipity_refhookPlugin')
-                                    ? sprintf('call_user_func_array($_smarty_tpl->registered_plugins[ \'%s\' ][ %s ][ 0 ], array( %s ))',
-                                            Smarty::PLUGIN_MODIFIER, var_export($modifier, true), $params)
-                                    : sprintf('call_user_func_array($_smarty_tpl->registered_plugins[ \'%s\' ][ %s ][ 0 ], array( & %s ))',
+                                $output =
+                                    sprintf('call_user_func_array($_smarty_tpl->registered_plugins[ \'%s\' ][ %s ][ 0 ], array( %s ))',
                                             Smarty::PLUGIN_MODIFIER, var_export($modifier, true), $params);
                                 $compiler->known_modifier_type[ $modifier ] = $type;
                                 break 2;
@@ -132,8 +130,8 @@ class Smarty_Internal_Compile_Private_Modifier extends Smarty_Internal_CompileBa
                                     }
                                 }
                             }
-                            if (isset($compiler->parent_compiler->template->compiled->required_plugins[ 'nocache' ][ $modifier ][ Smarty::PLUGIN_MODIFIER ][ 'file' ]) ||
-                                isset($compiler->parent_compiler->template->compiled->required_plugins[ 'compiled' ][ $modifier ][ Smarty::PLUGIN_MODIFIER ][ 'file' ])
+                            if (isset($compiler->required_plugins[ 'nocache' ][ $modifier ][ Smarty::PLUGIN_MODIFIER ][ 'file' ]) ||
+                                isset($compiler->required_plugins[ 'compiled' ][ $modifier ][ Smarty::PLUGIN_MODIFIER ][ 'file' ])
                             ) {
                                 // was a plugin
                                 $compiler->known_modifier_type[ $modifier ] = 4;
