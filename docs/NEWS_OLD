@@ -1237,7 +1237,7 @@ Version 1.1-beta1 (August 14th, 2006)
     * Fix not fetching allow_comments/moderate_comments value when
       inside search function. Thanks to stm! (garvinhicking)
 
-    * Add new links to check for upgradable SPARTACUS plugins
+    * Add new links to check for upgradeable SPARTACUS plugins
       (garvinhicking)
 
     * Add new frontend view "Archive by Authors": /archive/Axx.html to

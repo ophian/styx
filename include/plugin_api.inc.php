@@ -803,7 +803,7 @@ class serendipity_plugin_api
             $insertdata[$field] = $data[$field];
         }
 
-        if ($data['upgradable']) {
+        if ($data['upgradeable']) {
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
                                      SET upgrade_version = '" . serendipity_db_escape_string($data['upgrade_version']) . "'
                                    WHERE plugin_class    = '" . serendipity_db_escape_string($data['plugin_class']) . "'");

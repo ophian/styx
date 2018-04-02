@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.61');
+        $propbag->add('version',       '2.62');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -749,7 +749,7 @@ class serendipity_event_spartacus extends serendipity_event
                 if ($bag->get('version') == $data['version']) {
                     $installable = false;
                 } elseif (version_compare($bag->get('version'), $data['version'], '<')) {
-                    $data['upgradable']      = true;
+                    $data['upgradeable']     = true;
                     $data['upgrade_version'] = $data['version'];
                     $data['version']         = $bag->get('version');
                     $upgradeLink             = '&amp;serendipity[spartacus_upgrade]=true';
@@ -1190,7 +1190,7 @@ class serendipity_event_spartacus extends serendipity_event
                                     $bag = new serendipity_property_bag;
                                     $plugin->introspect($bag);
 
-                                    // If a foreign plugin is upgradable, keep the new version number.
+                                    // If a foreign plugin is upgradeable, keep the new version number.
                                     if (isset($avail[$method][$class_data['name']])) {
                                         $class_data['upgrade_version'] = $avail[$method][$class_data['name']]['upgrade_version'];
                                     }
@@ -1253,7 +1253,7 @@ class serendipity_event_spartacus extends serendipity_event
                                     $bag = new serendipity_property_bag;
                                     $plugin->introspect($bag);
 
-                                    // If a foreign plugin is upgradable, keep the new version number.
+                                    // If a foreign plugin is upgradeable, keep the new version number.
                                     if (isset($avail[$method][$class_data['name']])) {
                                         $class_data['upgrade_version'] = $avail[$method][$class_data['name']]['upgrade_version'];
                                     }

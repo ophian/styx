@@ -429,7 +429,7 @@ Version 2.3-beta1 (2017-08-14)
     functions adhoc debug true settings to start their logging.
 
   * Set and add remote ChangeLog / documentation links for
-    upgradable plugins.
+    upgradeable plugins.
 
   * Fix the plugin package xml for the remote raw changelog path
     and enhance the xml creation to better indent directory/files.

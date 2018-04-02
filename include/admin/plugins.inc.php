@@ -198,8 +198,8 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $bag = new serendipity_property_bag;
             $plugin->introspect($bag);
 
-            // If a foreign plugin is upgradable, keep the new version number.
-            if (isset($foreignPlugins['pluginstack'][$class_data['name']]) && $foreignPlugins['pluginstack'][$class_data['name']]['upgradable']) {
+            // If a foreign plugin is upgradeable, keep the new version number.
+            if (isset($foreignPlugins['pluginstack'][$class_data['name']]) && $foreignPlugins['pluginstack'][$class_data['name']]['upgradeable']) {
                 $class_data['upgrade_version'] = $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'];
                 // remember temporary, in case the update is not done immediately
                 $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
@@ -217,7 +217,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
         if (is_array($props)) {
             if (version_compare($props['version'], $props['upgrade_version'], '<')) {
-                $props['upgradable'] = true;
+                $props['upgradeable'] = true;
                 $props['remote_path'] = $serendipity['spartacus_rawPluginPath'];
                 // since we merged sidebar and event plugins before, we can no longer rely on spartacus' $foreignPlugins['baseURI']
                 // NOTE: This is not nice and it would be better to move it into the plugins array instead, but that collides with the cache
@@ -243,7 +243,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 $props['exdoc'] = trim(end(explode(':', PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES)));
             }
             // Fill this property, since it is locally there - but this does not mean we have to use it (although in addNew and upgrade only).
-            // But what we definitely want for upgradable plugins are the new remote changelog paths! @see above.
+            // But what we definitely want for upgradeable plugins are the new remote changelog paths! @see above.
             if (empty($props['changelog']) && $serendipity['GET']['only_group'] != 'UPGRADE' && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
                 $props['changelog'] = 'plugins/' . $props['pluginPath'] . '/ChangeLog';
             }
@@ -282,7 +282,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     foreach($pluginstack AS $plugname => $plugdata) {
         if ($serendipity['GET']['only_group'] == 'ALL') {
             $pluggroups['ALL'][] = $plugdata;
-        } elseif ($serendipity['GET']['only_group'] == 'UPGRADE' && $plugdata['upgradable']) {
+        } elseif ($serendipity['GET']['only_group'] == 'UPGRADE' && $plugdata['upgradeable']) {
             $pluggroups['UPGRADE'][] = $plugdata;
         } elseif (is_array($plugdata['groups'])) {
             foreach($plugdata['groups'] AS $group) {
@@ -428,10 +428,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $plugin = &serendipity_plugin_api::load_plugin($inst);
             if (!is_object($plugin)) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>DEBUG:</strong> Plugin ' . serendipity_specialchars($inst) . ' not an object: ' . serendipity_specialchars(print_r($plugin, true))
-                    . '.<br />Input: ' . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br /><br />\n\n
+                    . '.<br />Input: ' . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br><br>\n\n
                     This error can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin
-                    was downloaded) or the inclusion of a file failed (permissions?)<br />\n";
-                echo "Backtrace:<br />\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br /></span>";
+                    was downloaded) or the inclusion of a file failed (permissions?)<br>\n";
+                echo "Backtrace:<br>\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br></span>";
             }
             $bag = new serendipity_property_bag;
             $plugin->introspect($bag);
