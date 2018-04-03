@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.57');
+        $propbag->add('version',       '1.58');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -48,6 +48,19 @@ class serendipity_event_entryproperties extends serendipity_event
         ));
         $propbag->add('groups', array('BACKEND_EDITOR'));
         $propbag->add('configuration', array('cache', 'sequence', 'use_groups', 'use_users', 'use_ext_joins', 'default_read', 'customfields'));
+        $propbag->add('legal',    array(
+            'services' => array(),
+            'frontend' => array(
+                'If password protected entries are used, the password can be sent by the visitor and if access is granted, this is stored in a session variable.',
+            ),
+            'cookies' => array(
+                'Uses PHP session cookie for potential session storage whether access to a password-protected entry is granted'
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => false,
+            'transmits_user_input'  => true
+        ));
     }
 
     function introspect_config_item($name, &$propbag)
