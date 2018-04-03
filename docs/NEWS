@@ -5,6 +5,9 @@ Version 2.5-alpha2 ()
     impact for the General Data Protection Regulation (GDPR / DSGVO),
     associated with the serendipity_event_dsgvo_gdpr plugin.
 
+  * Syndication: Set subToMe service default option OFF to prevent
+    issues with GDPR / DSGVO.
+
   * Add Spartacus fallback mirror if no matches (not Styx related)
 
   * Extend PHP 7.1.3+ login crypt using STRONG Galois/Counter Mode.
