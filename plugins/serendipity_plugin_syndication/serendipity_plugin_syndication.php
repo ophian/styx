@@ -13,7 +13,7 @@ class serendipity_plugin_syndication extends serendipity_plugin {
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.2.3');
+        $propbag->add('version',       '2.3');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -30,6 +30,29 @@ class serendipity_plugin_syndication extends serendipity_plugin {
                                        )
         );
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
+        $propbag->add('legal',         array(
+            'services' => array(
+                'subtome' => array(
+                    'url'  => 'https://www.subtome.com',
+                    'desc' => 'Enables visitors to easily subscribe to RSS feeds. The visitor loads a JavaScript from their servers, thus the IP address will be known to the service.'
+                ),
+                'feedburner.com' => array(
+                    'url'  => 'https://www.feedburner.com',
+                    'desc' => 'Feedburner can be used to track your feed subscription statistics. If used, a tracking pixel is loaded from FeedBurner.com servers and the IP address of the visitor will be known to the service.'
+                ),
+            ),
+            'frontend' => array(
+                'To allow easy subscription to feeds and optional tracking statistics, the subtome or feedburner services can be used.',
+            ),
+            'backend' => array(
+            ),
+            'cookies' => array(
+            ),
+            'stores_user_input'     => false,
+            'stores_ip'             => false,
+            'uses_ip'               => true,
+            'transmits_user_input'  => true
+        ));
     }
 
     function introspect_config_item($name, &$propbag)
@@ -107,7 +130,7 @@ class serendipity_plugin_syndication extends serendipity_plugin {
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        SYNDICATION_PLUGIN_SUBTOME);
                 $propbag->add('description', SYNDICATION_PLUGIN_SUBTOME_DESC);
-                $propbag->add('default',     true);
+                $propbag->add('default',     'false');
                 break;
 
             case 'custom_url':
@@ -138,9 +161,9 @@ class serendipity_plugin_syndication extends serendipity_plugin {
         if ($custom_img != 'none' && $custom_img != "feedburner") {
             $custom_img = serendipity_getTemplateFile($custom_img);
         }
-        $subtome     = serendipity_db_bool($this->get_config('subToMe', true));
+        $subtome     = serendipity_db_bool($this->get_config('subToMe', 'true'));
         $fbid        = $this->get_config('fb_id');
-        $custom_url  = serendipity_db_bool($this->get_config('custom_url', false));
+        $custom_url  = serendipity_db_bool($this->get_config('custom_url', 'false'));
         $feed_format = $this->get_config('feed_format', 'rss');
 
         $useRss = true;
@@ -202,7 +225,7 @@ class serendipity_plugin_syndication extends serendipity_plugin {
                                             ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml')) : ""), $small_icon);
         }
 
-        if (serendipity_db_bool($this->get_config('show_2.0c', false)) || serendipity_db_bool($this->get_config('show_comment_feed', false))) {
+        if (serendipity_db_bool($this->get_config('show_2.0c', 'false')) || serendipity_db_bool($this->get_config('show_comment_feed', 'false'))) {
             if ($useRss) {
                 echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments.rss2'),
                                                 $COMMENTS . ($useAtom ? " (RSS)": ""),
