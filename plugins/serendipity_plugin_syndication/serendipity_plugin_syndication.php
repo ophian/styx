@@ -4,7 +4,8 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-class serendipity_plugin_syndication extends serendipity_plugin {
+class serendipity_plugin_syndication extends serendipity_plugin
+{
     var $title = SYNDICATION;
 
     function introspect(&$propbag)
