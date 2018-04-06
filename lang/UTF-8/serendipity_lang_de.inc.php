@@ -841,7 +841,7 @@
 @define('CURRENT_AUTHOR', 'Derzeitiger Autor');
 
 @define('WORD_NEW', 'Neu');
-@define('SHOW_MEDIA_TOOLBAR', 'Symbolleiste für das Mediendatenbank-Popup anzeigen?');
+@define('SHOW_MEDIA_TOOLBAR', 'Bearbeitungs-Symbolleiste im Medien-Popup anzeigen?');
 @define('MEDIA_KEYWORDS', 'Medien-Schlüsselwörter');
 @define('MEDIA_KEYWORDS_DESC', 'Tragen Sie eine Liste von ";" separierten Schlüsselwörtern ein, die für Mediendatenbankeinträge vergeben werden können.');
 @define('MEDIA_EXIF', 'EXIF/JPEG Metadaten übernehmen?');
