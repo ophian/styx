@@ -1122,7 +1122,7 @@
 @define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein Präfix verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden einzigartigen Ascii-Namen ändern, aber nicht komplett entfernen. Dies gilt für alle Pfad-Präfix Definitionen.');
 
 @define('HIDE_SUBDIR_FILES', 'Ohne Dateien von Unterverzeichnissen');
-@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Standard Dashboard widgets anzeigen?');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Dashboard Standard-Widgets anzeigen?');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Zeige voreingestellte und fest eingebaute Dashboard widgets, wie gepeicherte Entwurfs-Einträge und letzte Kommentare.');
 
 @define('UPDATE_NOTIFICATION_URL', 'Update-RELEASE-Datei URL');
