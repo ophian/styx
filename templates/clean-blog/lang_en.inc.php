@@ -23,7 +23,6 @@
 @define('THEME_ENTRY_HEADER_IMAGE','Entry Header Image');
 @define('THEME_DEMO_AVAILABLE', 'A complete English explanation of <a href="http://www.optional-necessity.com/demo/cleanblog/archives/8-Using-the-Clean-Blog-theme.html">configuring and using Clean Blog</a> can be found on the <a href="http://www.optional-necessity.com/demo/cleanblog/">Clean Blog demo</a>.');
 
-
 // Header Images
 @define('DEFAULT_HEADER_IMAGE', 'Default header image');
 @define('DEFAULT_HEADER_IMAGE_DESC', 'This image will be used on pages which do not define their own header image');
@@ -36,6 +35,7 @@
 @define('ARCHIVE_HEADER_IMAGE', 'Header image for archive page');
 
 //Page Options
+@define('USE_GOOGLEFONTS', 'Use Google webfonts?');
 @define('HOME_LINK_TEXT', 'Home link text');
 @define('ENTRY_DATE_FORMAT','Entry Date Format');
 @define('COMMENT_TIME_FORMAT','Comment and trackback time format');

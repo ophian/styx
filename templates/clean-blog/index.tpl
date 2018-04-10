@@ -8,17 +8,17 @@
     <meta name="generator" content="Serendipity v.{$serendipityVersion}">
     <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
 {* CANONICAL *}
-    {if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
-       <meta name="robots" content="index,follow">
-    {else}
-       <meta name="robots" content="noindex,follow">
-    {/if}
-    {if $view == 'entry'}
-        <link rel="canonical" href="{$entry.rdf_ident}">
-    {/if}
-    {if in_array($view, ['start', 'entries'])}
-        <link rel="canonical" href="{$serendipityBaseURL}">
-    {/if}
+{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
+    <meta name="robots" content="index,follow">
+{else}
+    <meta name="robots" content="noindex,follow">
+{/if}
+{if $view == 'entry'}
+    <link rel="canonical" href="{$entry.rdf_ident}">
+{/if}
+{if in_array($view, ['start', 'entries'])}
+    <link rel="canonical" href="{$serendipityBaseURL}">
+{/if}
 {* BOOTSTRAP CORE CSS *}
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 {* S9Y CSS *}
@@ -30,7 +30,9 @@
     {/if}
 {* CUSTOM FONTS *}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+{if $template_option.use_googlefonts}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,800|Lora:400,400italic" rel="stylesheet" type="text/css">
+{/if}
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

@@ -17,7 +17,9 @@
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
 {* CUSTOM FONTS *}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,400italic|Open+Sans:300,600,800" rel="stylesheet" type="text/css">
+{if $template_option.use_googlefonts}
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,800|Lora:400,400italic" rel="stylesheet" type="text/css">
+{/if}
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
