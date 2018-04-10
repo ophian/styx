@@ -1,6 +1,6 @@
 Name: Skeleton
 Author: Matthias Mees, based on http&colon;//getskeleton.com
-Date: 2017-06-21
+Date: 2018-04-09
 Require Serendipity: 2.0
 Recommended: Yes
 
