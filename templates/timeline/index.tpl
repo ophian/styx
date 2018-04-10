@@ -7,29 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity v.{$serendipityVersion}">
-    {if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
-        <meta name="robots" content="index,follow">
-    {else}
-        <meta name="robots" content="noindex,follow">
-    {/if}
-    {if $view == 'entry'}
-        <link rel="canonical" href="{$entry.rdf_ident}">
-    {/if}
-    {if in_array($view, ['start', 'entries'])}
-        <link rel="canonical" href="{$serendipityBaseURL}">
-    {/if}
+{if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR $staticpage_pagetitle != '' OR $robots_index == 'index'}
+     <meta name="robots" content="index,follow">
+{else}
+     <meta name="robots" content="noindex,follow">
+{/if}
+{if $view == 'entry'}
+    <link rel="canonical" href="{$entry.rdf_ident}">
+{/if}
+{if in_array($view, ['start', 'entries'])}
+    <link rel="canonical" href="{$serendipityBaseURL}">
+{/if}
 {* BOOTSTRAP CORE CSS *}
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 {* S9Y CSS *}
     <link rel="stylesheet" href="{$head_link_stylesheet}">
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
     <link rel="alternate" type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
-    {if $entry_id}
-        <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
-    {/if}
+{if $entry_id}
+    <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
+{/if}
 {* CUSTOM FONTS *}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+{if $template_option.use_googlefonts}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400" rel="stylesheet" type="text/css">
+{/if}
     {serendipity_hookPlugin hook="frontend_header"}
     <script src="{$head_link_script}"></script>
 {* SUBHEADER IMAGE *}
