@@ -1,6 +1,8 @@
 Version 2.5-alpha2 ()
  ------------------------------------------------------------------------
 
+  * Make themes webfont use optional (clean-blog, skeleton, timeline)
+
   * Added new "legal" plugin property bag attribute to indicate
     impact for the General Data Protection Regulation (GDPR / DSGVO),
     associated with the serendipity_event_dsgvo_gdpr plugin.
