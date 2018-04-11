@@ -428,7 +428,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $plugin = &serendipity_plugin_api::load_plugin($inst);
             if (!is_object($plugin)) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>DEBUG:</strong> Plugin ' . serendipity_specialchars($inst) . ' not an object: ' . serendipity_specialchars(print_r($plugin, true))
-                    . '.<br />Input: ' . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br><br>\n\n
+                    . '.<br>Input: ' . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br><br>\n\n
                     This error can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin
                     was downloaded) or the inclusion of a file failed (permissions?)<br>\n";
                 echo "Backtrace:<br>\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br></span>";
