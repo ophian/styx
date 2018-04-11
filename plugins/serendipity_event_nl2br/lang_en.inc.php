@@ -13,13 +13,13 @@
 @define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Exceptions to this rule');
 @define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'A list of HTML-tags where no breaks shall be converted, if using p-tags. Suggestion: "code,pre,geshi,textarea". Separate multiple tags with a comma. Hint: The entered tags are evaluated as regular expressions.');
 @define('PLUGIN_EVENT_NL2BR_PTAGS', 'Use p-tags');
-@define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'Insert p-tags instead of br.');
+@define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'Insert p-tags instead of <br>.');
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC2', 'This may break with some non-simple markup cases!');
 @define('PLUGIN_EVENT_NL2BR_ISOBR_TAG', 'ISOBR isolations-default BR setting');
-@define('PLUGIN_EVENT_NL2BR_ISOBR_TAG_DESC', 'With this unoperational NON-HTML-Tag <nl> </nl>, as a NL2BR Isolations-Default setting, you can use the NL2BR function now by shutting down the text parsing inside this tag. You can use it multiple times inside your entry, but not nested! Example: <nl>do not parse newline to br inside inside this textblock</nl>');
+@define('PLUGIN_EVENT_NL2BR_ISOBR_TAG_DESC', 'With this NONE-HTML-Tag <nl> </nl>, as the NL2BR Isolations-Default setting, you can use the NL2BR function now by shutting down the text parsing inside this tag. You can use it multiple times inside your entry, but not nested! Example: <nl>do not parse newline to br inside this multiline-textblock</nl>');
 @define('PLUGIN_EVENT_NL2BR_CLEANTAGS', 'Use BR-Clean-Tags as fallback, when ISOBR false');
 @define('PLUGIN_EVENT_NL2BR_CLEANTAGS_DESC', 'If using <HTML-Tags> in you entries, which can\'t be solved satisfiable with the ISOBR Config-Option, remove nl2br after <tag>. This applies to all <tags> ending with > or >\n! Default (table|thead|tbody|tfoot|th|tr|td|caption|colgroup|col|ol|ul|li|dl|dt|dd)');
-@define('PLUGIN_EVENT_NL2BR_CONFIG_ERROR', 'Config missmatch alert! The Option: "%s" is set back to false, while  \'%s\' is active! Just use one of them, please.');
+@define('PLUGIN_EVENT_NL2BR_CONFIG_ERROR', 'Config mismatch alert! The Option: "%s" is set back to false, while  \'%s\' is active! Just use one of them, please.');
 
 @define('PLUGIN_EVENT_NL2BR_ABOUT_TITLE', 'PLEASE NOTE the implications of this markup plugin:');
 @define('PLUGIN_EVENT_NL2BR_ABOUT_DESC', '<p>This plugin transfers linebreaks to HTML-linebreaks, so that they show up in your blog entry.</p>
@@ -35,5 +35,5 @@
     <li>you do not use the WYSIWYG editor - or</li>
     <li>you only want to apply linebreak transformations on comments to your blog entries, and do not allow any possible markup of other plugins that you only use for blog entries.</li>
 </ul>
-<p>NL2BR is a short form word. Read as: Funktion NL to BR, <b>not</b> NL two BR!</p>');
+<p>NL2BR is a short form word. Read as: Function NL to BR, <b>not</b> NL two BR!</p>');
 

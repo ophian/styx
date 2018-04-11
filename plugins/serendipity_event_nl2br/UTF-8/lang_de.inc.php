@@ -1,9 +1,9 @@
 <?php
 
 /**
- *  @version  
- *  @file 
- *  @author 
+ *  @version
+ *  @file
+ *  @author
  *  DE-Revision: Revision of UTF-8/lang_de.inc.php
  */
 
@@ -17,7 +17,7 @@
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'Setze statt br-Tags p-Tags ein.');
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC2', 'Dies kann bei verschachtelten Markup-Fällen aber zu Fehlinterpretationen führen!');
 @define('PLUGIN_EVENT_NL2BR_ISOBR_TAG', 'ISOBR Isolations-Default BR Einstellung');
-@define('PLUGIN_EVENT_NL2BR_ISOBR_TAG_DESC', 'Mit dem funktionslosen NON-HTML-Tag <nl> </nl> als NL2BR Isolations-Default Einstellung, kann die NL2BR Funktion nun so genutzt werden, dass alles innerhalb dieses Tags nicht von NL2BR geparst wird. Auch nicht verschachtelte mehrfach Vorkommen im Text werden unterstützt! Beispiel: <nl>do not parse newline to br inside this textblock</nl>');
+@define('PLUGIN_EVENT_NL2BR_ISOBR_TAG_DESC', 'Mit dem funktionslosen NONE-HTML-Tag <nl> </nl> als NL2BR Isolations-Default Einstellung, kann die NL2BR Funktion nun so genutzt werden, dass alles innerhalb dieses Tags nicht von NL2BR geparst wird. Auch nicht verschachtelte mehrfach Vorkommen im Text werden unterstützt! Beispiel: <nl>do not parse newline to br inside this multiline-textblock</nl>');
 @define('PLUGIN_EVENT_NL2BR_CLEANTAGS', 'Nutze BR-Clean-Tags fallback, wenn ISOBR false');
 @define('PLUGIN_EVENT_NL2BR_CLEANTAGS_DESC', 'Bei Benutzung von <HTML-Tags> in den Einträgen, die nicht zufriedenstellend mit der ISOBR Config-Option gelöst werden können, lösche nl2br Umbruch nach <tag>. Dies gilt für alle <tags>, die mit > oder >\n enden! Default (table|thead|tbody|tfoot|th|tr|td|caption|colgroup|col|ol|ul|li|dl|dt|dd)');
 @define('PLUGIN_EVENT_NL2BR_CONFIG_ERROR', 'Konfigurations Fehler! Die Option: "%s" wurde zurückgesetzt, weil die Option \'%s\' aktiv geschaltet war! Benutzen sie bitte nur eine dieser Optionen.');
