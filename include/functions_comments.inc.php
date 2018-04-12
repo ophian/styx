@@ -336,7 +336,7 @@ function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $
  * @param   array       The list of comments to display
  * @param   int         The parentID of a comment to show. Can contain the constant for VIEWMODE_THREADED/LINEAR. [recursive usage]
  * @param   int         The current nesting depth of a comment [recursive usage]
- * @param   string      A string repesenting the actual comment (1.1.2.1)
+ * @param   string      A string representing the actual comment (1.1.2.1)
  * @return  string      The HTML construct of all comments
  */
 function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace = null, $smarty_block = 'COMMENTS', $smarty_file = 'comments.tpl') {
@@ -1070,7 +1070,7 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
  * @access public
  * @param   int     The ID of the entry where a new comment has been made
  * @param   string  The name of the latest poster to an entry
- * @param   string  The email addre ssof the latest poster to an entry
+ * @param   string  The email address of the latest poster to an entry
  * @param   string  The title of the entry
  * @param   string  The mail address used to send emails from
  * @param   int     The ID of the comment that has been made

@@ -1225,7 +1225,7 @@ class serendipity_plugin_api
 }
 
 /**
- * holds a bunch of properties; since serendipity 0.8 only one value per key is
+ * Holds a bunch of properties; since Serendipity 0.8 only one value per key is
  * allowed [was never really useful]
  */
 class serendipity_property_bag
