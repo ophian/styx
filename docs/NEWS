@@ -1,6 +1,8 @@
 Version 2.5-alpha2 ()
  ------------------------------------------------------------------------
 
+  * Fixed backends previewed reply view for multidepth comments
+
   * Make themes webfont use optional (clean-blog, skeleton, timeline)
 
   * Added new "legal" plugin property bag attribute to indicate
