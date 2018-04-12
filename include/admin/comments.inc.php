@@ -145,6 +145,7 @@ if (isset($serendipity['GET']['adminAction'])
 
     if ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply') {
         $c = serendipity_fetchComments($serendipity['GET']['entry_id'], 1, 'co.id', false, 'NORMAL', ' AND co.id=' . (int)$serendipity['GET']['id']);
+        $p = $c[0]['parent_id'] = 0; // copy comments parent_id, since we also want to get a previewed reply view for multidepth comments
 
         if (isset($serendipity['POST']['preview'])) {
             $c[] = array(
@@ -158,7 +159,7 @@ if (isset($serendipity['GET']['adminAction'])
         }
 
         $target_url = '?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=doReply&amp;serendipity[id]=' . (int)$serendipity['GET']['id'] . '&amp;serendipity[entry_id]=' . (int)$serendipity['GET']['entry_id'] . '&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;' . serendipity_setFormToken('url');
-        $out        = serendipity_printComments($c);
+        $out        = serendipity_printComments($c, $p);
         $codata     = $serendipity['POST'];
 
         $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comment_reply.tpl', 'serendipityPath'));
