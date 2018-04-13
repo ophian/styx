@@ -1,6 +1,9 @@
 Version 2.5-alpha2 ()
  ------------------------------------------------------------------------
 
+  * Fix bad interpretation of the isolation tag option of the nl2br plugin.
+    Please review your settings on upgrade!
+
   * Fixed preview of backends comment replies for multi depth comments
 
   * Make themes webfont use optional (clean-blog, skeleton, timeline)
