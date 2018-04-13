@@ -7,7 +7,7 @@ if (IN_serendipity !== true) {
 }
 
 /**
- * Check if a comment token (ie from comment notification email) is valid for a given comment id.
+ * Check if a comment token (ie. from comment notification email) is valid for a given comment id.
  *
  * @param string    The Token
  * @param int       The comment id
@@ -424,7 +424,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
         }
     }
 
-    /* We are inside a recusive child, and we need to break out */
+    /* We are inside a recursive child, and we need to break out */
     if ($depth !== 0) {
         return true;
     }
@@ -555,7 +555,7 @@ function serendipity_deleteComment($id, $entry_id, $type='comments', $token=fals
 
             // Load articles author id and check it
             $sql = serendipity_db_query("SELECT authorid FROM {$serendipity['dbPrefix']}entries
-                                                WHERE id = ". $entry_id, true);
+                                          WHERE id = ". $entry_id, true);
             if ($sql['authorid'] != $serendipity['authorid']) {
                 return false; // wrong user having no adminEntriesMaintainOthers right
             }
@@ -565,9 +565,8 @@ function serendipity_deleteComment($id, $entry_id, $type='comments', $token=fals
         /* We have to figure out if the comment we are about to delete, is awaiting approval,
            if so - we should *not* subtract it from the entries table */
         $sql = serendipity_db_query("SELECT type, status, parent_id, body FROM {$serendipity['dbPrefix']}comments
-                                            WHERE entry_id = ". $entry_id ."
-                                                    AND id = ". $id, true);
-
+                                      WHERE entry_id = ". $entry_id ."
+                                        AND id = ". $id, true);
 
         /* Check to see if the comment has children
          * if it does, don't delete, but replace with "*(COMMENT DELETED)*"
@@ -583,7 +582,7 @@ function serendipity_deleteComment($id, $entry_id, $type='comments', $token=fals
                                      SET body = 'COMMENT_DELETED'
                                    WHERE id = " . $id);
         } else {
-            // Comment has no childs or had already been deleted., it can be safely removed.
+            // Comment has no childs or has already been deleted; it can be safely removed.
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}comments
                                         WHERE entry_id = ". $entry_id ."
                                                 AND id = ". $id);
