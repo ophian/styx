@@ -11,8 +11,8 @@
 @define('PLUGIN_EVENT_NL2BR_DESC', 'Konvertiert Zeilenumbrüche zu HTML');
 @define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP', 'Überprüfe Markup-Plugins?');
 @define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP_DESC', 'Überprüft automatisch auf existierende Markup-Plugins, um die weitere Ausführung des NL2BR-Plugins zu untersagen. Dies gilt dann, wenn WYSIWYG oder spezifische Markup-Plugins entdeckt werden.');
-@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Ausnahmen von dieser Regel');
-@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'Eine Liste von HTML-Tags, innerhalb derer keine Umbrüche bei Benutzung von P-Tags konvertiert werden. Konfigurationsvorschlag: "code,pre,geshi,textarea". Trennen Sie mehrere HTML-Tags mit Komma. Hinweis: Die eingegebenen Tags sind reguläre Ausdrücke!');
+@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Ausnahmen für alle folgenden Regeln');
+@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'Eine Liste von HTML-Tags, innerhalb derer keine Umbrüche konvertiert werden sollen. Konfigurationsvorschlag: "pre,geshi,textarea". Trennen Sie mehrere HTML-Tags mit Komma. Hinweis: Die eingegebenen Tags sind reguläre Ausdrücke!');
 @define('PLUGIN_EVENT_NL2BR_PTAGS', 'Nutze P-Tags');
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'Setze statt br-Tags p-Tags ein.');
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC2', 'Dies kann bei verschachtelten Markup-Fällen aber zu Fehlinterpretationen führen!');

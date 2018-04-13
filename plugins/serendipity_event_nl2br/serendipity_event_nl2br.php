@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.28');
+        $propbag->add('version',       '2.30');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -56,7 +56,9 @@ class serendipity_event_nl2br extends serendipity_event
         foreach($this->markup_elements AS $element) {
             $conf_array[] = $element['name'];
         }
-        $conf_array = array_merge($conf_array, array('separator', 'isobr', 'clean_tags', 'separator1', 'p_tags', 'isolate'));
+        $conf_array[] = 'separator';
+        $conf_array[] = 'isolate';
+        $conf_array = array_merge($conf_array, array('separator1', 'isobr', 'clean_tags', 'separator2', 'p_tags'));
         $propbag->add('configuration', $conf_array);
     }
 
@@ -118,6 +120,7 @@ class serendipity_event_nl2br extends serendipity_event
                 $propbag->add('default',     'true');
                 break;
 
+            case 'separator2':
             case 'separator1':
             case 'separator':
                 $propbag->add('type',        'separator');
@@ -127,7 +130,7 @@ class serendipity_event_nl2br extends serendipity_event
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_NL2BR_ISOLATE_TAGS);
                 $propbag->add('description', PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC);
-                $propbag->add('default',     '');
+                $propbag->add('default',     'pre');
                 break;
 
             case 'p_tags':

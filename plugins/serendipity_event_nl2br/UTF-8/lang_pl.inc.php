@@ -8,6 +8,6 @@
 
 @define('PLUGIN_EVENT_NL2BR_NAME', 'Znacznik: NL2BR');
 @define('PLUGIN_EVENT_NL2BR_DESC', 'Zmieniaj znaki nowych linii na tagi BR');
-@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Lista tagów HTML, w których znacznik nie powinien być stosowany');
-@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'Sugestia: "code,pre,geshi,textarea". Rozdzielaj tagi przecinkiem. Podpowiedź: wpisane tagi są traktowane jako zwykłe wyrażenia.');
+@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Exceptions for all following rules');
+@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'A list of HTML-tags where no breaks shall be converted. Sugestia: "pre,geshi,textarea". Rozdzielaj tagi przecinkiem. Podpowiedź: wpisane tagi są traktowane jako zwykłe wyrażenia.');
 

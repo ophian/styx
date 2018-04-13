@@ -15,8 +15,8 @@
 
 @define('PLUGIN_EVENT_NL2BR_NAME', 'Markup: NL2BR');
 @define('PLUGIN_EVENT_NL2BR_DESC', 'Mění znaky konce řádku na tagy <br />');
-@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Seznam html tagů, uvnitř kterých nemají být konce řádků nahrazovány.');
-@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'Návrhy: "code,pre,geshi,textarea". Názvy tagů oddělujte čárkou. Tip: Zadávané tagy jsou vyhodnocovány jako regulární výraz.');
+@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Exceptions for all following rules');
+@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'A list of HTML-tags where no breaks shall be converted. Návrhy: "pre,geshi,textarea". Názvy tagů oddělujte čárkou. Tip: Zadávané tagy jsou vyhodnocovány jako regulární výraz.');
 @define('PLUGIN_EVENT_NL2BR_PTAGS', 'Použít tagy <p>');
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'Vkládat tagy <p> místo tagů <br />');
 
