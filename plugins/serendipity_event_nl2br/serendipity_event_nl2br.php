@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.30');
+        $propbag->add('version',       '2.31');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -231,20 +231,25 @@ class serendipity_event_nl2br extends serendipity_event
                         $serendipity['nl2br']['entry_disabled_markup'] = true;
                     }
 
-/* PLEASE NOTE:
-    $serendipity['POST']['properties']['disable_markups'] = array(false);
-    is the only workable solution for (sidebar?) plugins (see sidebar plugins: guestbook, multilingual),
-    to explicitly allow to apply nl2br to markup (if we want to)
-*/
+                    /* PLEASE NOTE:
+                        $serendipity['POST']['properties']['disable_markups'] = array(false);
+                        is the only workable solution for (sidebar?) plugins (see sidebar plugins: guestbook, multilingual),
+                        to explicitly allow to apply nl2br to markup (if we want to).
+                        Although, since using the Serendipity GLOBAL we can actually set this true everywhere per item.
+                    */
+                    $_disabled = (!isset($serendipity['POST']['properties']['disable_markups']) && !is_array($serendipity['POST']['properties']['disable_markups']))
+                                        ? array(false)
+                                        : $serendipity['POST']['properties']['disable_markups'];
+
                     // don't run, if the textile, or markdown plugin already took care about markup
                     if ($markup && $serendipity['nl2br']['entry_disabled_markup'] === false && (class_exists('serendipity_event_textile') || class_exists('serendipity_event_markdown'))) {
                         break;
                     }
-                    // NOTE: the wysiwyg-editor needs to send its own ['properties']['ep_no_nl2br'] to disable the nl2br() parser!
+                    // NOTE: the WYSIWYG-editor needs to send its own ['properties']['ep_no_nl2br'] to disable the nl2br() parser!
 
                     // check for users isolation tags
                     if ($isolate === null) {
-                        $isolate = $this->get_config('isolate');
+                        $isolate = $this->get_config('isolate', 'pre');
                         $tags    = (array)explode(',', $isolate);
                         $isolate = array();
                         foreach($tags AS $tag) {
@@ -261,7 +266,7 @@ class serendipity_event_nl2br extends serendipity_event
                     foreach ($this->markup_elements AS $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && isset($eventData[$temp['element']]) &&
                                 !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
-                                @!in_array($this->instance, $serendipity['POST']['properties']['disable_markups']) &&
+                                !in_array($this->instance, $_disabled) &&
                                 !$eventData['properties']['ep_no_nl2br'] &&
                                 !isset($serendipity['POST']['properties']['ep_no_nl2br'])) {
 
@@ -297,7 +302,7 @@ class serendipity_event_nl2br extends serendipity_event
                                     $eventData[$element] = nl2br($eventData[$element]);
                                 }
                             }
-                            /* this is an option if not using new isobr default config setting */
+                            /* this is an option if not using new ISOBR default config setting */
                             if (!$p_tags && $isobr === false && $clean_tags === true) {
                                 // convert line endings to Unix style, if not already done
                                 $eventData[$element] = str_replace(array("\r\n", "\r"), "\n", $eventData[$element]);
