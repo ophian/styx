@@ -1,6 +1,9 @@
 Version 2.5-alpha2 ()
  ------------------------------------------------------------------------
 
+  * Use better toggle closing icon for listed open/close fulltext buttons.
+    And enhances the hovered title (see backend comment list).
+
   * Fix bad interpretation of the isolation tag option of the nl2br plugin.
     Please review your settings on upgrade!
 
