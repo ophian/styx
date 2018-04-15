@@ -956,7 +956,11 @@
         // argument defaults
         stateClass = stateClass || 'additional_info';
         stateIcon = stateIcon || '> span';
-        stateOpen = stateOpen || 'icon-down-dir';
+        if (toggler.context.className == 'button_link toggle_comment_full') {
+            stateOpen = stateOpen || 'icon-up-dir';
+        } else {
+            stateOpen = stateOpen || 'icon-down-dir';
+        }
         stateClosed = stateClosed || 'icon-right-dir';
 
         var $toggleIcon = $(toggler).find(stateIcon);
