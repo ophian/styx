@@ -1,6 +1,10 @@
 Version 2.5-alpha2 ()
  ------------------------------------------------------------------------
 
+  * Changed styling for the standard theme "2k11" post comment owner
+    without the "self" box being border-boxed and colored.
+    Check your copy themes for changes in style.css and comments.tpl files.
+
   * Use better toggle closing icon for listed open/close fulltext buttons.
     And enhances the hovered tooltip (see backend comment list).
 
