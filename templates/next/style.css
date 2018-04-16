@@ -768,6 +768,17 @@ pre {
   font-size: 0.8125rem; }
 
 /* comments styling add start */
+/* /comment/ shortcuts */
+article.post article.commentlevel-0 {
+    margin-bottom: .25em; }
+article.post article .pc-owner {
+    display: inline;
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    text-shadow: 1px 1px 2px #222; }
+
 #trackbacks article, #comments article {
     background-color: #FFF;
     border: 2px solid #acacac;
@@ -843,6 +854,9 @@ pre {
 
 #trackbacks details > div {
     margin-left: 1.2rem; }
+
+#comments .pc-owner {
+    display: none; }
 
 #comments .comment > footer {
     text-align: center;
