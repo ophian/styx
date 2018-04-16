@@ -550,9 +550,19 @@ pre .geshi {
 .serendipity_comment cite { font-style: normal; }
 
 .serendipity_comment { margin: 0 0 2em; }
+/*
 .serendipity_comment_author_self {
-    background: #FFFFCC;
+    background: #FFFFF7;
     border: 1px solid #CCC;
+    padding: .25em;
+}
+*/
+.serendipity_comment_author_self header .pc-owner {
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    text-shadow: 1px 1px 2px #222;
 }
 .serendipity_comment h4 { margin: 0 0 .25em; }
 
