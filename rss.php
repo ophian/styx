@@ -228,20 +228,18 @@ if ($metadata['fullFeed'] === 'client') {
     }
 }
 
-if ($_GET['type'] == 'content' &&
-    !isset($_GET['category']) &&
-    !isset($serendipity['GET']['tag']) &&
+if ($_GET['type'] == 'content' && !isset($_GET['category']) && !isset($serendipity['GET']['tag']) &&
     serendipity_db_bool(serendipity_get_config_var('feedForceCustom', false)) &&
-    !preg_match('@FeedBurn@i', $_SERVER['HTTP_USER_AGENT']) &&  // the hardcoded pass for feedburner is for BC. New services should just use the forceLocal-param
-    !isset($_GET['forceLocal'])
-   ) {
+    !preg_match('@FeedBurn@i', $_SERVER['HTTP_USER_AGENT']) && // the hardcoded pass for feedburner (it is officially shut down since end of 2012, but still alive in 2018) is for BC. New services should just use the forceLocal-param
+    !isset($_GET['forceLocal']))
+{
     header('Status: 302 Found');
     header('Location: ' . serendipity_get_config_var('feedCustom'));
     exit;
 }
 $metadata['showMail'] = serendipity_db_bool(serendipity_get_config_var('feedShowMail', $metadata['showMail']));
 
-$file_version  = preg_replace('@[^0-9a-z\.-_]@i', '', $version);
+$file_version = preg_replace('@[^0-9a-z\.-_]@i', '', $version);
 $metadata['template_file'] = serendipity_getTemplateFile('feed_' . $file_version . '.tpl', 'serendipityPath');
 
 serendipity_smarty_init();
@@ -298,10 +296,13 @@ switch($version) {
 }
 
 serendipity_plugin_api::hook_event($namespace_hook, $entries);
+
 $namespace_display_dat = $entries['display_dat'];
-$channel_display_dat = $entries['channel_dat'];
+$channel_display_dat   = $entries['channel_dat'];
+
 unset($entries['display_dat']);
 unset($entries['channel_dat']);
+
 $serendipity['smarty']->assignByRef('metadata', $metadata);
 $serendipity['smarty']->assignByRef('entries', $entries);
 $serendipity['smarty']->assignByRef('namespace_display_dat', $namespace_display_dat);
