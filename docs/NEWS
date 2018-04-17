@@ -1,18 +1,20 @@
 Version 2.5-alpha2 ()
  ------------------------------------------------------------------------
 
+  * Be a little more friendly to middle screen sizings in the Backend
+
   * Changed styling for the standard theme "2k11" post comment owner
     without the "self" box being border-boxed and colored.
     Added a slightly different approach in "next" theme too (#58422a8).
     Check your copy themes for changes in style.css and comments.tpl files.
 
   * Use better toggle closing icon for listed open/close fulltext buttons.
-    And enhances the hovered tooltip (see backend comment list).
+    And enhances the hovered tooltip (see Backend comment list).
 
   * Fix bad interpretation of the isolation tag option of the nl2br plugin.
     Please review your settings on upgrade!
 
-  * Fixed preview of backends comment replies for multi depth comments
+  * Fixed preview of Backend comment replies for multi depth comments
 
   * Make themes webfont use optional (clean-blog, skeleton, timeline)
 
@@ -1070,7 +1072,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
 
   * Changed weight and iconize Backend comments shortened title line
 
-  * Fix Backend comment bodies. Summary-truncation is now stricly set to
+  * Fix Backend comment bodies. Summary-truncation is now strictly set to
     120 chars and always showed stripped. Else, if comment.summary was
     stripped, allow excerpt button switch to comment.fullBody.
 
