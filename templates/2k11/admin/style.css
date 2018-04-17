@@ -4232,7 +4232,7 @@ img.mfp-img {
 
     #content {
         float: right;
-        margin: 0 0 0 2%;
+        margin: 0 0 0 0.5%;
     }
 
     #preview {
@@ -4246,7 +4246,7 @@ img.mfp-img {
     }
 
     #content {
-        width: 73%;
+        width: 74.5%;
     }
 
     .compact_categories #edit_entry_category .form_check {
@@ -4276,6 +4276,10 @@ img.mfp-img {
 
 /* LARGER SCREENS */
 @media only screen and (min-width: 1280px) {
+    #content {
+        width: 74%;
+        margin: 0 0 0 1%;
+    }
     .js .configuration_group .media_choose input {
         max-width: 42.5%;
     }
@@ -4292,6 +4296,13 @@ img.mfp-img {
     .actions li,
     .actions_extra {
         margin: 0 .4em .5em 0;
+    }
+}
+
+@media only screen and (min-width: 1320px) {
+    #content {
+        width: 73%;
+        margin: 0 0 0 2%;
     }
 }
 
