@@ -113,9 +113,11 @@
 
                 <div class="clearfix comments_pane">
                 {if is_array($comments)}
+
                     <ul id="serendipity_comments_list" class="clearfix plainList zebra_list">
                     {foreach $comments AS $comment}
-                        <li id="comment_{$comment.id}" class="clearfix {cycle values="odd,even"} {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}pending{/if}{if $comment.is_owner} owner{/if}">
+
+                        <li id="comment_{$comment.id}" class="clearfix {cycle values="odd,even"}{if ($comment.status == 'pending') OR ($comment.status == 'confirm')} pending{/if}{if $comment.is_owner} owner{/if}">
                             <div class="form_check">
                                 <input id="multidelete_comment{$comment.id}" class="multicheck" type="checkbox" name="serendipity[delete][{$comment.id}]" value="{$comment.entry_id}" data-multixid="comment_{$comment.id}">
                                 <label for="serendipity_multidelete_comment_{$comment.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT}</label>
@@ -173,7 +175,8 @@
                             {/if}
                             </ul>
                             {$comment.action_more}
-                            <div class="comment_type {$comment.type|lower}" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : 'Pingback' )}"><span class="stype">{$comment.stype}</span></div>{if $comment.type != 'NORMAL'}{/if}
+                            <div class="comment_type {$comment.type|lower}" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : 'Pingback' )}"><span class="stype">{$comment.stype}</span></div>
+
                         </li>
                     {/foreach}
                     </ul>
