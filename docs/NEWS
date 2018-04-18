@@ -1,7 +1,7 @@
 Version 2.5-alpha3 ()
  ------------------------------------------------------------------------
 
-  * Minor fixes for the upgrade task list
+  * Minor fixes for the upgrade task list (and bump version to 2.5-alpha3)
 
   * Added a new personal configuration option to allow HTML comments.
     This supports:
