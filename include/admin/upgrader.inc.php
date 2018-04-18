@@ -390,8 +390,14 @@ $tasks = array(
             array(  'version'   => '2.5-alpha3',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'function'  => '',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Due to changes to the Cookie LOGIN kept password crypt generation with Styx 2.5.0-alpha2 under PHP 7.1.3+,',
-                    'desc'      => 'you shall <b>NOT</b> close your browser after the update, your current checkup and/or maintenance session, without fully terminating your current LOGIN session per LOGOUT. Else you\'ll get an error with the automated login on LOGIN. This only is a need when on PHP 7.1.3+ and only ONCE! In the case of updating your system anyhow to PHP 7 later on, please remember to terminate your Cookie kept login data for the switch once too, per LOGOUT."'),
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> LOGIN Cookie changed for PHP 7.1.3+',
+                    'desc'      => 'Due to changes to the Cookie LOGIN kept password crypt generation with Styx 2.5.0-alpha2 under PHP 7.1.3+, you shall <b>NOT</b> close your browser after the update, your current checkup and/or maintenance session, <b>without</b> fully terminating your current LOGIN session per <b>LOGOUT</b>. Else you\'ll get an error with the automated login on LOGIN. This only is a need when on PHP 7.1.3+ and only ONCE! In the case of updating your system anyhow to PHP 7.1.3+ versions later on, please remember to terminate your Cookie kept login data for the switch once too, per LOGOUT.'),
+
+            array(  'version'   => '2.5-alpha3',
+                    'function'  => 'TEMPLATE_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
+                    'desc'      => 'regarding Serendipity message colorizing for consistency. Please adapt this to your copy or Spartacus themes. Read the ChangeLog for more.'),
 
             array(  'version'   => '2.5.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
@@ -404,12 +410,6 @@ $tasks = array(
                     'title'     => 'Removal of obsolete and dead directories',
                     'arguments' => array($dead_dirs_250),
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_250) . '</pre>'),
-
-            array(  'version'   => '2.5.0',
-                    'function'  => 'TEMPLATE_NOTICE',
-                    'function'  => '',
-                    'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
-                    'desc'      => 'regarding Serendipity message colorizing for consistency. Please adapt this to your copy or Spartacus themes. Read the ChangeLog for more.'),
 
 );
 
