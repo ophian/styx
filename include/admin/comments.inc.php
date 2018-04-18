@@ -142,11 +142,11 @@ if (isset($serendipity['GET']['adminAction'])
 
     $serendipity['smarty_raw_mode'] = true; // Force output of Smarty stuff in the backend
     serendipity_smarty_init();
+    $serendipity['smarty']->assign('comment_wysiwyg', ($serendipity['allow_html_comment'] && $serendipity['wysiwyg']));
 
     if ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply') {
         $c = serendipity_fetchComments($serendipity['GET']['entry_id'], 1, 'co.id', false, 'NORMAL', ' AND co.id=' . (int)$serendipity['GET']['id']);
         $p = $c[0]['parent_id'] = 0; // copy comments parent_id, since we also want to get a previewed reply view for multidepth comments
-
         if (isset($serendipity['POST']['preview'])) {
             $c[] = array(
                     'email'     => $serendipity['POST']['email'],
@@ -365,7 +365,7 @@ if (is_array($sql)) {
             $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false));
         }
 
-        // do for both
+        // do for both - else add ($serendipity['allow_html_comment'] && )
         if ($comment['type'] == 'NORMAL' && serendipity_isCommentStripped($comment['summary'], $comment['excerpt'])) {
             $comment['summary'] .= '<span class="summary_stripped" title="Content was stripped! Review content in EDIT or VIEW mode">&hellip;<span class="icon-filter"></span></span>';
         }

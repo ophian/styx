@@ -406,7 +406,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['clear_email'] = $comment['email'];
                 $comment['email']       = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
             }
-            // frontend entry comments - do for both
+            // frontend entry comments - do for both else add ($serendipity['allow_html_comment'] && )
             if ($comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
                 $comment['comment'] = '<span class="serendipity_msg_important msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
             }

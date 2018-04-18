@@ -468,6 +468,8 @@ if (defined('IN_serendipity_admin') && !isset($serendipity['use_autosave'])) {
 if (!isset($serendipity['useInternalCache'])) {
     $serendipity['useInternalCache'] = false;
 }
+// Check PP is html comment option
+$serendipity['allow_html_comment'] = serendipity_get_config_var('html_comments', false, true);
 
 // You can set parameters which ImageMagick should use to generate the thumbnails
 // by default, thumbs will get a little more brightness and saturation (modulate)
