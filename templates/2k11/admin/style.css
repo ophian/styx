@@ -1978,6 +1978,10 @@ fieldset p,
     margin-bottom: 1em;
 }
 
+.upgrader_tasks dt b {
+    font-weight: bolder;
+}
+
 .upgrader_perms dd,
 .upgrader_tasks dd {
     margin-bottom: 1em;
