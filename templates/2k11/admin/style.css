@@ -1322,6 +1322,13 @@ input[type=checkbox],
     background-color: #F9F9F9;
     border: 1px solid #DDD;
 }
+.comment_preview_editstatus { float: right; }
+.comment_preview_editstatus .msg_notice {
+    margin: inherit;
+    padding: .1em .5em;
+    display: unset;
+}
+.comment_preview_editstatus::after { clear: right}
 
 /* COMMON STYLES  */
 a,

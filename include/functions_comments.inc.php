@@ -402,18 +402,19 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             $comment['depth']   = $depth;
             $comment['author']  = serendipity_specialchars($comment['author']);
             if (isset($comment['title'])) {
-                $comment['title']   = serendipity_specialchars($comment['title']);
+                $comment['title'] = serendipity_specialchars($comment['title']);
             }
-
             if (serendipity_userLoggedIn()) {
+                // these pop-up in the edit preview of backend comments for logged-in users
                 if ($comment['subscribed'] == 'true') {
                     if ($comment['status'] == 'approved') {
-                        $comment['body'] .= '<div class="serendipity_subscription_on"><em>' . ACTIVE_COMMENT_SUBSCRIPTION . '</em></div>';
+                        $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_on"><em>' . ACTIVE_COMMENT_SUBSCRIPTION . "</em></div>\n";
                     } else {
-                        $comment['body'] .= '<div class="serendipity_subscription_pending"><em>' . PENDING_COMMENT_SUBSCRIPTION . '</em></div>';
+                        $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_pending"><em>' . PENDING_COMMENT_SUBSCRIPTION . "</em></div>\n";
                     }
                 } else {
-                    #$comment['body'] .= '<div class="serendipity_subscription_off"><em>' . NO_COMMENT_SUBSCRIPTION . '</em></div>';
+                    // why not ... :)
+                    $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_off"><em>' . NO_COMMENT_SUBSCRIPTION . "</em></div>\n";
                 }
             }
 
@@ -470,6 +471,7 @@ function serendipity_printCommentsByAuthor() {
     if (empty($serendipity['GET']['page'])) {
         $serendipity['GET']['page'] = 1;
     }
+
     $sql_limit = $serendipity['fetchLimit'] * ($serendipity['GET']['page']-1) . ',' . $serendipity['fetchLimit'];
     $c = serendipity_fetchComments(null, $sql_limit, 'co.entry_id DESC, co.id ASC', false, $type, $sql_where);
 
@@ -559,7 +561,6 @@ function serendipity_deleteComment($id, $entry_id, $type='comments', $token=fals
             if ($sql['authorid'] != $serendipity['authorid']) {
                 return false; // wrong user having no adminEntriesMaintainOthers right
             }
-
         }
 
         /* We have to figure out if the comment we are about to delete, is awaiting approval,
@@ -570,7 +571,7 @@ function serendipity_deleteComment($id, $entry_id, $type='comments', $token=fals
 
         /* Check to see if the comment has children
          * if it does, don't delete, but replace with "*(COMMENT DELETED)*"
-            to delete a tree, delete children first */
+           to delete a tree, delete children first */
         $has_parent = serendipity_db_query("SELECT count(id) AS count
                                               FROM {$serendipity['dbPrefix']}comments
                                              WHERE parent_id = ". $id . "
@@ -582,7 +583,7 @@ function serendipity_deleteComment($id, $entry_id, $type='comments', $token=fals
                                      SET body = 'COMMENT_DELETED'
                                    WHERE id = " . $id);
         } else {
-            // Comment has no childs or has already been deleted; it can be safely removed.
+            // Comment has no childs or has already been deleted; It can be safely removed.
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}comments
                                         WHERE entry_id = ". $entry_id ."
                                                 AND id = ". $id);
