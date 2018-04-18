@@ -1289,10 +1289,25 @@ input[type=checkbox],
     display: -webkit-inline-box;
     display: inline-block;
 }
-
+/* additional comment html support start */
 .comment_full h4 {
     display: contents;
 }
+.comment_full pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    width: 99%;
+    width: -moz-fit-content;
+}
+.comment_full pre code {
+    display: block;
+    padding: 0.5em;
+    color: #333;
+    background: #f8f8f8;
+}
+/* comment html support end */
 
 /* Disables spamblock msg per default for the backend comment form */
 #serendipityCommentFormC .serendipity_comment_spamblock {
