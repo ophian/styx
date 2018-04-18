@@ -1166,3 +1166,6 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'Bei Nicht-MySQL Datenbanken ist es nicht möglich, jeden Blogeintrag bzw statische Seite durchzugehen und alte thumbSuffix URLs durch die neuen thumbSuffix URLs zu ersetzen. Daher müssen Sie manuell bestehende Einträge überarbeiten und die neuen URLs eintragen. Sie können natürlich auch wieder den alten Vorschaubild-Namen verwenden, oder mit allen benutzten Namen weiterleben und diese Konvertierung nicht durchführen (siehe oben), falls dies zu viel Aufwand bedeuten würde.');
 
+@define('HTML_COMMENTS', 'Allow HTML comments');
+@define('HTML_COMMENTS_DESC', 'If the WYSIWYG option is set true, you may additionally allow restricted HTML comments and pre/code tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
+

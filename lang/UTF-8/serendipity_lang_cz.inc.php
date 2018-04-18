@@ -916,7 +916,7 @@ $i18n_filename_to = array (
 @define('MEDIA_DYN_RESIZE_DESC', 'Je-li povoleno, může serendipity_admin_image_selector.php file vracet obrázky v jakékoli požadované velikosti přes proměnnou  GET. Výsledky jsou kešovány, a tak se může vytvořit velký soubor, jestliže to intenzivně používáte.');
 
 @define('MEDIA_DIRECTORY_MOVED', 'Adresáře a soubory byly úspěšně přesunuty do %s');
-@define('MEDIA_DIRECTORY_MOVE_ERROR', 'Adresáře a soubory nemohly být přesunuty do  %s!');
+@define('MEDIA_DIRECTORY_MOVE_ERROR', 'Adresáře a soubory nemohly být přesunuty do %s!');
 @define('MEDIA_DIRECTORY_MOVE_ENTRY', 'V Ne-MySQL databázi není iterace po příspěvcích a nahrazení staré adresy původního adresáře novou URL možné. Budete muset příspěvky ručně editovat a ty adresy upravit. Ale pořád ještě můžete adresář přesunout zpátky tam kde byl, jestli je to pro vás moc otravné.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', 'URL přesunutého adresáře přesunuto v %s příspěvcích.');
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
@@ -1197,4 +1197,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
+
+@define('HTML_COMMENTS', 'Allow HTML comments');
+@define('HTML_COMMENTS_DESC', 'If the WYSIWYG option is set true, you may additionally allow restricted HTML comments and pre/code tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
 

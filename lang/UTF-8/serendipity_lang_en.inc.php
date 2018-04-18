@@ -787,7 +787,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Only show categories below...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'You can choose a parent category so that only the child categories are shown.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Hide categories that are not part of the category tree');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature makes most sense if used in conjunction with a multi-blog using the "Properties/Templates of categories" plugin.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature makes most sense if used in conjunction with a multi-Blog using the "Properties/Templates of categories" plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: View other user\'s media files');
 @define('CHARSET_NATIVE', 'Native');
 @define('INSTALL_CHARSET', 'Charset selection');
@@ -857,7 +857,7 @@
 @define('MEDIA_PROP_DESC', 'Enter a list of ";" separated property fields you want to define for each media file');
 @define('MEDIA_PROP_MULTIDESC', '(You can append ":MULTI" after any item to indicate that this item will contain long text instead of just some characters)');
 
-@define('STYLE_OPTIONS_NONE', 'This theme has no specific options. To see how your theme can specify options, read the Technical Documentation on www.s9y.org about "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'This theme has no specific options. To see how your theme can specify options, read the Technical Documentation on https://ophian.github.io/hc/en/ about "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Theme options');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Total: %d plugins.');
@@ -1164,4 +1164,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your Blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
+
+@define('HTML_COMMENTS', 'Allow HTML comments');
+@define('HTML_COMMENTS_DESC', 'If the WYSIWYG option is set true, you may additionally allow restricted HTML comments and pre/code tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
 

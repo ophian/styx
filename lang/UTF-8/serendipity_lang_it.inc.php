@@ -287,7 +287,7 @@
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Considera Serendipity uggiornato');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'Hai ignorato la procedura di upgrade di  Serendipity, per favore controlla che il tuo database sia correttamente installato e che le funzioni periodiche vengano lanciate');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'La tua installazione di Serendipity è ora aggiornata alla versione %s');
-@define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Puoi tornare al tuo blog clickando  %squi%s');
+@define('SERENDIPITY_UPGRADER_RETURN_HERE', 'Puoi tornare al tuo blog clickando %squi%s');
 @define('MANAGE_USERS', 'Gestione Utenti');
 @define('CREATE_NEW_USER', 'Crea nuovo utente');
 @define('CREATE_NOT_AUTHORIZED', 'Non puoi modificare utenti con lo stesso tuo livello');
@@ -403,7 +403,7 @@
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Impostazione per la conversione di immagini');
-@define('INSTALL_CAT_IMAGECONV_DESC', 'Inserisci informazioni generali su come serendipity deve trattare con le immagini');
+@define('INSTALL_CAT_IMAGECONV_DESC', 'Inserisci informazioni generali su come Serendipity deve trattare con le immagini');
 @define('INSTALL_IMAGEMAGICK', 'Usa Imagemagick');
 @define('INSTALL_IMAGEMAGICK_DESC', 'Hai image magick installato e vuoi usarlo per ridimensionare le immagini?');
 @define('INSTALL_IMAGEMAGICKPATH', 'Percorso al binario \'convert\'');
@@ -1163,4 +1163,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
+
+@define('HTML_COMMENTS', 'Allow HTML comments');
+@define('HTML_COMMENTS_DESC', 'If the WYSIWYG option is set true, you may additionally allow restricted HTML comments and pre/code tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
 

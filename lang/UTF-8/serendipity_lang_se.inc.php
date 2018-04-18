@@ -576,7 +576,7 @@
 @define('ACTIVATE_AUTODISCOVERY', 'Skicka trackbacks till länkar funna i artikeln');
 @define('WELCOME_TO_ADMIN', 'Välkommen till Serendipitys administrationssidor.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Ange dina inloggningsuppgifter nedan.');
-@define('ADMIN_FOOTER_POWERED_BY', 'Driven av Serendipity %s och PHP %s');##
+@define('ADMIN_FOOTER_POWERED_BY', 'Driven av Serendipity %s och PHP %s');
 @define('INSTALL_USEGZIP', 'Använd gzip-komprimerade sidor');
 @define('INSTALL_USEGZIP_DESC', 'För att snabba upp sidvisning kan sidorna komprimeras innan de skickas till besökaren (om hans/hennes webbläsare stödjer detta). Rekommenderas!');
 @define('INSTALL_SHOWFUTURE', 'Visa framtida artiklar');
@@ -735,7 +735,7 @@
 @define('INSTALL_DBPORT_DESC', 'Port som används för att ansluta till din databasserver');
 @define('PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES', 'Användargränssnitt: External Services');
 @define('PLUGIN_GROUP_FRONTEND_FEATURES', 'Användargränssnitt: Funktioner');
-@define('PLUGIN_GROUP_FRONTEND_FULL_MODS', 'Användargränssnitt: Fullprogram'); // AAAAAAAAAAHHH
+@define('PLUGIN_GROUP_FRONTEND_FULL_MODS', 'Användargränssnitt: Fullprogram');
 @define('PLUGIN_GROUP_FRONTEND_VIEWS', 'Användargränssnitt: Vyer');
 @define('PLUGIN_GROUP_FRONTEND_ENTRY_RELATED', 'Användargränssnitt: Artikelrelaterade');
 @define('PLUGIN_GROUP_BACKEND_EDITOR', 'Administrationsgränssnitt: Editor');
@@ -1161,4 +1161,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
+
+@define('HTML_COMMENTS', 'Allow HTML comments');
+@define('HTML_COMMENTS_DESC', 'If the WYSIWYG option is set true, you may additionally allow restricted HTML comments and pre/code tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
 

@@ -286,7 +286,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ORIGINAL_SHORT', 'Оригинал');
 @define('APPLY_MARKUP_TO', 'Apply markup to %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Начало недели');
-@define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity обнаружил, что ваша конфигурация установлена для версии %s, в то время как сами файлы движка serendipity соответствуют версии %s, вам нужен апгрейд! <a href="%s">Нажмите здесь чтобы продолжить</a>');
+@define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity обнаружил, что ваша конфигурация установлена для версии %s, в то время как сами файлы движка Serendipity соответствуют версии %s, вам нужен апгрейд! <a href="%s">Нажмите здесь чтобы продолжить</a>');
 @define('SERENDIPITY_UPGRADER_WELCOME', 'Привет, и добро пожаловать в агента обновления Serendipity.');
 @define('SERENDIPITY_UPGRADER_PURPOSE', 'Я был создан чтобы помочь вам обновить ваш веблог Serendipity %s.');
 @define('SERENDIPITY_UPGRADER_WHY', 'Вы видите это сообщение потому что вы только что установили Serendipity %s, но не обновили вашу базу данных чтобы соответствовать этой версии');
@@ -413,7 +413,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_BLOCKREF', 'Блокированные сайты');
 @define('INSTALL_BLOCKREF_DESC', 'Есть ли какие-то сайты, которые вы не хотите отображать в списке тех, откуда к вам пришли? Разделяйте элементы списка знаком \';\' и имейте в виду, что сайты блокируются по совпадению строк!');
 @define('INSTALL_REWRITE', 'Генерация URLов');
-@define('INSTALL_REWRITE_DESC', 'Выберите, какими правилами вы хотите пользоваться при генерации URLов. Включение этой опции позволит вам иметь красивые ссылки на вашем блоге и также сделает ваш блог более доступным для индексации поисковыми машинами вроде Google. Ваш веб-сервер должен либо поддерживать mod_rewrite, либо содержать "AllowOverride All" для вашего каталога serendipity dir. Значение по умолчанию определяется автоматически');
+@define('INSTALL_REWRITE_DESC', 'Выберите, какими правилами вы хотите пользоваться при генерации URLов. Включение этой опции позволит вам иметь красивые ссылки на вашем блоге и также сделает ваш блог более доступным для индексации поисковыми машинами вроде Google. Ваш веб-сервер должен либо поддерживать mod_rewrite, либо содержать "AllowOverride All" для вашего каталога Serendipity dir. Значение по умолчанию определяется автоматически');
 
 /* Imageconversion Settings */
 @define('INSTALL_CAT_IMAGECONV', 'Настройки конвертации изображений');
@@ -1164,4 +1164,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
+
+@define('HTML_COMMENTS', 'Allow HTML comments');
+@define('HTML_COMMENTS_DESC', 'If the WYSIWYG option is set true, you may additionally allow restricted HTML comments and pre/code tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
 

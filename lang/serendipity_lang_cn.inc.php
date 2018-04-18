@@ -226,7 +226,7 @@
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', '新回复到订阅的文章 "%s"');
 @define('SUBSCRIPTION_MAIL', "你好 %s,\n\n你订阅的文章有了新的回复在 \"%s\", 标题是 \"%s\"\n回复的发表者是: %s\n\n你可以在这找到此文章: %s\n\n你可以点这个连接取消订阅: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "你好 %s,\n\n你订阅的文章有了新的引用在 \"%s\", 标题是 \"%s\"\n引用的作者是: %s\n\n你可以在这找到此文章: %s\n\n你可以点这个连接取消订阅: %s\n");
-@define('SIGNATURE', "\n-- \n%s is powered by %s\n. <%s>");
+@define('SIGNATURE', "\n-- \n%s is powered by %s.\n<%s>");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
@@ -613,9 +613,9 @@
 @define('CREATING_PRIMARY_AUTHOR', '设定管理员 \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', '设定主题');
 @define('INSTALLING_DEFAULT_PLUGINS', '安装预设定外挂');
-@define('SERENDIPITY_INSTALLED', 'Serendipity Styx简体中文版安装完成');
+@define('SERENDIPITY_INSTALLED', 'Serendipity Styx 简体中文版安装完成');
 @define('VISIT_BLOG_HERE', '开始浏览你的博客');
-@define('THANK_YOU_FOR_CHOOSING', '非常感谢你选择 Serendipity Styx简体中文版');
+@define('THANK_YOU_FOR_CHOOSING', '非常感谢你选择 Serendipity Styx 简体中文版');
 @define('ERROR_DETECTED_IN_INSTALL', '安装时发生错误');
 @define('OPERATING_SYSTEM', '系统管理');
 @define('WEBSERVER_SAPI', '主机 SAPI');
@@ -1165,4 +1165,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
+
+@define('HTML_COMMENTS', 'Allow HTML comments');
+@define('HTML_COMMENTS_DESC', 'If the WYSIWYG option is set true, you may additionally allow restricted HTML comments and pre/code tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
 

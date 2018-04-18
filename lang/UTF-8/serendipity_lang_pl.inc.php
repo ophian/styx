@@ -194,7 +194,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('BROWSER_RELOAD', 'Kiedy wykonasz te czynności wciśnij przycisk "reload" (odśwież) w swojej przeglądarce.');
 @define('DIAGNOSTIC_ERROR', 'Stwierdzono istnienie pewnych problemów podczas przeprowadzania procedur diagnostycznych. Upewnij się, że podałeś prawidłowe dane:');
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity nie zostało jeszcze zainstalowane. Proszę, <a href="%s">zainstaluj</a> je teraz.');
-@define('INCLUDE_ERROR', 'błąd Serendipity: nie można było załączyć %s - wyjście.');
+@define('INCLUDE_ERROR', 'Błąd Serendipity: nie można było załączyć %s - wyjście.');
 @define('DATABASE_ERROR', 'Błąd Serendipity: nie mogę połączyć się z bazą danych - wyjście.');
 @define('CREATE_DATABASE', 'Tworzenie domyślnych ustawień bazy danych...');
 @define('ATTEMPT_WRITE_FILE', 'Próba zapisania pliku %s ...');
@@ -1161,4 +1161,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
+
+@define('HTML_COMMENTS', 'Allow HTML comments');
+@define('HTML_COMMENTS_DESC', 'If the WYSIWYG option is set true, you may additionally allow restricted HTML comments and pre/code tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
 
