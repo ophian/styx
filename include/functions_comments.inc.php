@@ -165,6 +165,74 @@ function serendipity_forgetCommentDetails($keys) {
 }
 
 /**
+ * Sanitize the comments body to use entities inside <code>|<pre> tags for PLAIN EDITORs
+ *
+ * @param   string
+ * @return  string  The sanitized string
+ */
+function serendipity_entityCommentCodeTagBlocks($str) {
+    $code_callback = function($matches) {
+        return '<code' . $matches[1] . '>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code>';
+    };
+    $code_callback_pre = function($matches) {
+        return '<pre><code' . $matches[1] . '>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code><pre>';
+    };
+    $pre_callback = function($matches) {
+        return '<pre' . $matches[1] . '><code>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code></pre>';
+    };
+    if (false === stripos($str, '<code')) {
+        return preg_replace_callback('#<pre(.*?)>(.*?)</pre>#', $pre_callback, $str);
+    }
+    if (false === stripos($str, '<pre')) {
+        return preg_replace_callback("~<code(.*?)>(.*?)</code>~is", $code_callback_pre, $str);
+    }
+    if (false !== stripos($str, '<code')) {
+        return preg_replace_callback("~<code(.*?)>(.*?)</code>~is", $code_callback, $str);
+    }
+    return $str;
+}
+
+/**
+ * Sanitize (strips) the comments body for non-allowed HTML only
+ * @param   string  The comments body string
+ * @return  string  The sanitized string
+ */
+function serendipity_sanitizeHtmlComments($str) {
+    global $serendipity;
+    // sanitize and break code blocks which is done per CKEplus plugin independently or by manual inserts for PLAIN EDITORs. (Disable nl2br::comment parsing!)
+    // Do not switch the Editor and save a comment using code examples again, since that my lead to hidden code parts due to the nature of processing the codesnippet CKE plugin
+    if (!$serendipity['wysiwyg'] && (strpos($str, '<code') !== false || strpos($str, '<pre') !== false)) {
+        $str = serendipity_entityCommentCodeTagBlocks($str);
+    }
+    // this is still unparsed by nl2br yet
+    // don't ever allow executable attributes, see HTML Injection Quick Reference (HIQR) https://mutantzombie.github.io/HIQR/hiqr.html
+    $str = str_ireplace(array('javascript:', '<![CDATA[]]>', ']]>', '<--', '-->', 'onchange=', 'onmouseover=', 'onclick=', 'onerror=', 'onevent=', 'onfocus=', 'autofocus='), '', $str);
+    // strip against allowed tags
+    return strip_tags($str, '<div><p><span><b><strong><center><br><br/><h1><h2><h3><h4><h5><h6><hr><blockquote><em><sup><ul><ol><li><pre><code>');
+}
+
+/**
+ * Prepare a comment for output under different conditions using plain text nl2nr or nl2p option
+ * and handle code parts in string (in case again). This does not care about using WYSIWYG or not,
+ * since it is used for comment archives views.
+ */
+function serendipity_prepCommentNewline($string, $parsed=false) {
+
+    // check for simple p-tag first - do not if true. This is/was a comment by ISOBR default.
+    if (false === strpos($string, '</p>')) {
+        $string = nl2br($string);
+        $parsed = true;
+    }
+    // then check code parts within pre tags for nl2br plugin comment(true) option
+    if ($parsed && preg_match_all('/<pre>(.*?)<\/pre>/s', $string, $matches)) {
+        foreach($matches[1] AS $a) {
+            $string = str_replace($a, str_replace("<br />", '', $a), $string);
+        }
+    }
+    return $string;
+}
+
+/**
  * Check a comment being stripped for output under different conditions
  */
 function serendipity_isCommentStripped($string, $stripped=false) {
@@ -373,7 +441,11 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
         if ($parentid === VIEWMODE_LINEAR || !isset($comment['parent_id']) || $comment['parent_id'] == $parentid) {
             $i++;
 
-            $comment['comment']     = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings (for preview mode only)
+            if ($serendipity['allow_html_comment']) {
+                $comment['comment'] = serendipity_sanitizeHtmlComments((string)$comment['body']); // cast as string (for preview modes only)
+            } else {
+                $comment['comment'] = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings (for preview mode only)
+            }
             $comment['url']         = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
             $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
 
@@ -394,6 +466,11 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['url'] = serendipity_specialchars($comment['url'], ENT_QUOTES);
             }
 
+            // check the origin field entry to HTML display each comment using NL2P in backend and/or frontend
+            if ($serendipity['allow_html_comment'] && false !== strpos($comment['body'], '</p>')) {
+                // disable NL2BR plugin parsing, for the NL2BR newline to p-tag option
+                $serendipity['POST']['properties']['disable_markups'] = array(true);
+            }
             $addData = array('from' => 'functions_entries:printComments');
             serendipity_plugin_api::hook_event('frontend_display', $comment, $addData);
 
@@ -503,6 +580,9 @@ function serendipity_printCommentsByAuthor() {
         if (!isset($entry_comments[$comment['entry_id']])) {
             $comment['link'] = serendipity_archiveURL($comment['entry_id'], $comment['title'], 'serendipityHTTPPath', true, array('timestamp' => $comment['entrytimestamp']));
             $entry_comments[$comment['entry_id']] = $comment;
+        }
+        if ($serendipity['allow_html_comment']) {
+            $comment['body'] =& serendipity_prepCommentNewline($comment['body']);
         }
         $entry_comments[$comment['entry_id']]['comments'][] = $comment;
     }
