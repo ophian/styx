@@ -358,11 +358,12 @@ if (is_array($sql)) {
             $comment['excerpt'] = true;
 
             // When summary is not the full body, strip HTML tags from summary, as it might break and leave unclosed HTML.
-            $comment['fullBody'] = nl2br(serendipity_specialchars($comment['fullBody']));
-            $comment['summary']  = nl2br(strip_tags($comment['summary']));
+            $comment['summary']  = str_replace(array('\r\n','\n\r','\n','\r'), '', strip_tags($comment['summary']));
+            $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false));
         } else {
             $comment['excerpt']  = (strlen($comment['summary']) < strlen(nl2br(strip_tags($comment['summary'])))) ? true : false; // allows to open up a non stripped fullBody box, if summary was stripped before!
-            $comment['fullBody'] = $comment['summary'] = nl2br(serendipity_specialchars($comment['fullBody']));
+            $comment['summary']  = htmlspecialchars(strip_tags($comment['summary']), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false);
+            $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false));
         }
 
         serendipity_plugin_api::hook_event('backend_view_comment', $comment, '&amp;serendipity[page]='. $page . $searchString);
