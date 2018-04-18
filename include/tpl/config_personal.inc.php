@@ -99,6 +99,14 @@
                                               ),
                                           'flags'       => array('config')),
 
+                                    array('var'         => 'html_comments',
+                                          'title'       => HTML_COMMENTS,
+                                          'description' => HTML_COMMENTS_DESC,
+                                          'type'        => 'bool',
+                                          'default'     => false,
+                                          'permission'  => 'personalConfiguration',
+                                          'flags'       => array('config')),
+
                                     array('var'         => 'mail_comments',
                                           'title'       => USERCONF_SENDCOMMENTS,
                                           'description' => USERCONF_SENDCOMMENTS_DESC,
