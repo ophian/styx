@@ -349,7 +349,7 @@
 @define('INSTALL_CAT_PATHS', 'Percorsi');
 @define('INSTALL_CAT_PATHS_DESC', 'Percorsi a cartelle e file essenziali. Non dimenticare la barra alla fine del nome delle directory!');
 @define('INSTALL_FULLPATH', 'Percorso completo');
-@define('INSTALL_FULLPATH_DESC', 'Il percorso completo e assoluto all\'installazione di serendipity');
+@define('INSTALL_FULLPATH_DESC', 'Il percorso completo e assoluto all\'installazione di Serendipity');
 @define('INSTALL_UPLOADPATH', 'Percorso Upload');
 @define('INSTALL_UPLOADPATH_DESC', 'Tutti gli upload andranno qui, relativo al \'Percorso completo\' - tipicamente \'uploads/\'');
 @define('INSTALL_RELPATH', 'Percorso relativo');

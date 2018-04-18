@@ -360,19 +360,19 @@
 @define('INSTALL_CAT_PATHS', 'パス');
 @define('INSTALL_CAT_PATHS_DESC', '各種パスに必要なフォルダーとファイルを指定します。ディレクトリーには末尾にスラッシュを忘れないでください!');
 @define('INSTALL_FULLPATH', 'フルパス');
-@define('INSTALL_FULLPATH_DESC', 'serendipity をインストールした絶対フルパスです。');
+@define('INSTALL_FULLPATH_DESC', 'Serendipity をインストールした絶対フルパスです。');
 @define('INSTALL_UPLOADPATH', 'アップロードパス');
 @define('INSTALL_UPLOADPATH_DESC', 'すべてのアップロードはここに来ます。「フルパス」への相対パス - 通常「uploads/」です。');
 @define('INSTALL_RELPATH', '相対パス');
-@define('INSTALL_RELPATH_DESC', 'ブラウザーで使用する serendipity のパスです。通常「/serendipity/」 です。');
+@define('INSTALL_RELPATH_DESC', 'ブラウザーで使用する Serendipity のパスです。通常「/serendipity/」 です。');
 @define('INSTALL_RELTEMPLPATH', '相対テンプレートパス');
 @define('INSTALL_RELTEMPLPATH_DESC', 'テンプレートが含まれるフォルダーへのパスです - 「相対パス」への相対です。');
 @define('INSTALL_RELUPLOADPATH', '相対アップロードパス');
 @define('INSTALL_RELUPLOADPATH_DESC', 'ブラウザからのアップロードのパスです - 「相対パス」への相対です。');
 @define('INSTALL_URL', 'ブログの URL');
-@define('INSTALL_URL_DESC', 'serendipity をインストールしたベース URL');
+@define('INSTALL_URL_DESC', 'Serendipity をインストールしたベース URL');
 @define('INSTALL_INDEXFILE', 'インデックスファイル');
-@define('INSTALL_INDEXFILE_DESC', 'serendipity インデックスファイルの名前');
+@define('INSTALL_INDEXFILE_DESC', 'Serendipity インデックスファイルの名前');
 
 /* Generel settings */
 @define('INSTALL_CAT_SETTINGS', '一般設定');

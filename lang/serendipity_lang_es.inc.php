@@ -346,7 +346,7 @@
 @define('INSTALL_CAT_PATHS', 'Rutas');
 @define('INSTALL_CAT_PATHS_DESC', 'Varias rutas a ficheros y directorios esenciales. ¡No olvides la barra final en los directorios!');
 @define('INSTALL_FULLPATH', 'Ruta completa');
-@define('INSTALL_FULLPATH_DESC', 'La ruta completa y absoluta a tu instalación de serendipity');
+@define('INSTALL_FULLPATH_DESC', 'La ruta completa y absoluta a tu instalación de Serendipity');
 @define('INSTALL_UPLOADPATH', 'Ruta para los ficheros transferidos');
 @define('INSTALL_UPLOADPATH_DESC', 'Todos los ficheros transferidos irán aquí, relativo a  \'Ruta completa\' - normalmente \'uploads/\'');
 @define('INSTALL_RELPATH', 'Ruta relativa');

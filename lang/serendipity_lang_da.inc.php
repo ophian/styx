@@ -321,7 +321,7 @@
 @define('INSTALL_CAT_PATHS', 'Stier');
 @define('INSTALL_CAT_PATHS_DESC', 'Forskellige stier til forskellige essentielle mapper og filer. Glem ikke efterfølgende slashes på biblioteker!');
 @define('INSTALL_FULLPATH', 'Fuld sti');
-@define('INSTALL_FULLPATH_DESC', 'Den absolutte sti til din serendipity installation');
+@define('INSTALL_FULLPATH_DESC', 'Den absolutte sti til din Serendipity installation');
 @define('INSTALL_UPLOADPATH', 'Upload sti');
 @define('INSTALL_UPLOADPATH_DESC', 'Alle uploads bliver placeret her, relativ til \'Fuld sti\' - typisk \'uploads/\'');
 @define('INSTALL_RELPATH', 'Relativ sti');

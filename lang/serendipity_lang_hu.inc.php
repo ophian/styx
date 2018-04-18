@@ -360,7 +360,7 @@
 @define('INSTALL_CAT_PATHS', 'Útvonalak');
 @define('INSTALL_CAT_PATHS_DESC', 'Különféle útvonalak a fontos könyvtárakhoz és fájlokhoz. A könyvtárak végérõl ne felejtsd el a per ("\") jelet!');
 @define('INSTALL_FULLPATH', 'Teljes útvonal');
-@define('INSTALL_FULLPATH_DESC', 'A teljes abszolút elérési útvonal a saját serendipity telepítésedhez');
+@define('INSTALL_FULLPATH_DESC', 'A teljes abszolút elérési útvonal a saját Serendipity telepítésedhez');
 @define('INSTALL_UPLOADPATH', 'Feltöltési útvonal');
 @define('INSTALL_UPLOADPATH_DESC', 'Minden feltöltött fájl ide kerül, relatív a  \'Full path\' bejegyzéshez - általában \'uploads/\'');
 @define('INSTALL_RELPATH', 'Relatív útvonal');

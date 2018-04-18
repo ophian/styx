@@ -363,11 +363,11 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_CAT_PATHS', 'Пути');
 @define('INSTALL_CAT_PATHS_DESC', 'Различные пути к необходимым каталогам и файлам. Не забывайте слэши в конце путей к каталогам!');
 @define('INSTALL_FULLPATH', 'Полный путь');
-@define('INSTALL_FULLPATH_DESC', 'Полный и абсолютный путь к каталогу serendipity');
+@define('INSTALL_FULLPATH_DESC', 'Полный и абсолютный путь к каталогу Serendipity');
 @define('INSTALL_UPLOADPATH', 'Путь для аплоадов');
 @define('INSTALL_UPLOADPATH_DESC', 'Все загруженные на сервер файлы будут помещены в этто каталог, обычно он указывается относительно полного пути - чаще всего, \'uploads/\'');
 @define('INSTALL_RELPATH', 'Относительный путь');
-@define('INSTALL_RELPATH_DESC', 'Путь к serendipity для вашего браузера, обычно \'/serendipity/\'');
+@define('INSTALL_RELPATH_DESC', 'Путь к Serendipity для вашего браузера, обычно \'/serendipity/\'');
 @define('INSTALL_RELTEMPLPATH', 'Относительный путь к шаблонам');
 @define('INSTALL_RELTEMPLPATH_DESC', 'Пусть к каталогу с шаблонами - с учётом \'относительному пути\'');
 @define('INSTALL_RELUPLOADPATH', 'Относительный путь аплоадов');

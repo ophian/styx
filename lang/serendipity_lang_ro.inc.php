@@ -361,7 +361,7 @@
 @define('INSTALL_CAT_PATHS', 'Căi');
 @define('INSTALL_CAT_PATHS_DESC', 'Diferite căi către directoare şi fişiere esenţiale. Nu uita slash-ul de la capăt pentru directoare!');
 @define('INSTALL_FULLPATH', 'Cale completă');
-@define('INSTALL_FULLPATH_DESC', 'Calea completă absolută către instalarea serendipity');
+@define('INSTALL_FULLPATH_DESC', 'Calea completă absolută către instalarea Serendipity');
 @define('INSTALL_UPLOADPATH', 'Cale Upload');
 @define('INSTALL_UPLOADPATH_DESC', 'Toate fişierele încărcate vor fi puse aici, relativ la \'Cale completă\' - tipic: \'uploads/\'');
 @define('INSTALL_RELPATH', 'Cale relativă');
