@@ -373,14 +373,14 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
         if ($parentid === VIEWMODE_LINEAR || !isset($comment['parent_id']) || $comment['parent_id'] == $parentid) {
             $i++;
 
-            $comment['comment']     = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings for preview mode (only)
+            $comment['comment']     = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings (for preview mode only)
             $comment['url']         = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
             $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
 
             /* Fix invalid cases in protocol part */
             if (!empty($comment['url'])) {
-                $comment['url'] = preg_replace('@^http://@i','http://', $comment['url']);
-                $comment['url'] = preg_replace('@^https://@i','https://', $comment['url']);
+                $comment['url'] = preg_replace('@^http://@i', 'http://', $comment['url']);
+                $comment['url'] = preg_replace('@^https://@i', 'https://', $comment['url']);
             }
             /* Fix fucked links */
             if (!empty($comment['url']) && substr($comment['url'], 0, 7) != 'http://' && substr($comment['url'], 0, 8) != 'https://') {
