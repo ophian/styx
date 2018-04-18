@@ -9,12 +9,12 @@ Version 2.5-alpha2 ()
       - but does not touch comment feeds.
     Since not as strict as permanently converting all comment data to display
     plain text only, this needs CHECKED comments!
-    This is in your personal and bloggers interest anyway!
-    The main logic behind this HTML option does restrict markup allowance
+    THIS IS IN YOUR PERSONAL AND BLOGGERS INTEREST ANYWAY!
+    The main logic behind this HTML option does restrict markup admission
     and tries to sanitize any injection as much as possible. But since you
-    never know about hackers cleverness, this needs yourself keeping an eye
+    never know about hackers cleverness, this needs yourself KEEPING AN EYE
     on it.
-    Beside that, this option now allows coding example parts in comments, and
+    BESIDE THAT, this option now allows coding example parts in comments, and
     comments generally displayed more nicely. This is why it has a dependency
     to the WYSIYWG Editor option enabled, so that you can use the CKEplus
     plugin with (highlighted) code snippets.
