@@ -354,7 +354,6 @@ if (is_array($sql)) {
         $comment['entrylink'] = $entrylink;
 
         if (strlen($comment['fullBody']) > strlen($comment['summary']) ) {
-            $comment['summary'] .= '&hellip;';
             $comment['excerpt'] = true;
 
             // When summary is not the full body, strip HTML tags from summary, as it might break and leave unclosed HTML.
@@ -366,6 +365,10 @@ if (is_array($sql)) {
             $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false));
         }
 
+        // do for both
+        if ($comment['type'] == 'NORMAL' && serendipity_isCommentStripped($comment['summary'], $comment['excerpt'])) {
+            $comment['summary'] .= '<span class="summary_stripped" title="Content was stripped! Review content in EDIT or VIEW mode">&hellip;<span class="icon-filter"></span></span>';
+        }
         serendipity_plugin_api::hook_event('backend_view_comment', $comment, '&amp;serendipity[page]='. $page . $searchString);
 
         $class = 'serendipity_admin_list_item_' . (($i % 2 == 0 ) ? 'even' : 'uneven');

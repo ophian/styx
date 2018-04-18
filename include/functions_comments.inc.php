@@ -165,6 +165,17 @@ function serendipity_forgetCommentDetails($keys) {
 }
 
 /**
+ * Check a comment being stripped for output under different conditions
+ */
+function serendipity_isCommentStripped($string, $stripped=false) {
+    if (empty(trim($string))) {
+        return true;
+    } else {
+        return $stripped;
+    }
+}
+
+/**
  * Display the Comment form for entries
  *
  * @access public
@@ -395,7 +406,10 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['clear_email'] = $comment['email'];
                 $comment['email']       = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
             }
-
+            // frontend entry comments - do for both
+            if ($comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
+                $comment['comment'] = '<span class="serendipity_msg_important msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
+            }
             $comment['body']    = $comment['comment'];
             $comment['pos']     = $i;
             $comment['trace']   = $trace . $i;
