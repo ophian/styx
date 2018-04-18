@@ -387,7 +387,7 @@ $tasks = array(
                     'title'     => 'Fix Update version of certain plugins',
                     'desc'      => 'This fixes some upgrade_version values for core to Spartacus (additional_plugins) moved plugins, which were not correctly synced in the pluginlist for plugin update tasks.<pre><strong>For clarification</strong><br>This database conversion task pulls all plugins into the update cycle which take place as REAL dir/file occurrences in the plugin path ("/plugins"), regardless of whether they are installed for the system set active or hidden!<br>This is necessary to effectively use the database plugin list as a real Spartacus image.<br>So don\'t be surprised if the next time you perform a plugin update search, you will have plugins available that you haven\'t installed yourself.<br>They are only updated, not installed!</pre>'),
 
-            array(  'version'   => '2.5.0-alpha2',
+            array(  'version'   => '2.5-alpha3',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'function'  => '',
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Due to changes to the Cookie LOGIN kept password crypt generation with Styx 2.5.0-alpha2 under PHP 7.1.3+,',
