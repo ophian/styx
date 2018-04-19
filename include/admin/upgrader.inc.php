@@ -397,7 +397,7 @@ $tasks = array(
                     'function'  => 'TEMPLATE_NOTICE',
                     'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
-                    'desc'      => 'regarding Serendipity message colorizing for consistency. Please adapt this to your copy or Spartacus themes. Read the ChangeLog for more.'),
+                    'desc'      => 'regarding Serendipity message colorizing for consistency. Please adapt this selector change to your copy or Spartacus pulled themes. Read the ChangeLog for more.'),
 
             array(  'version'   => '2.5.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
