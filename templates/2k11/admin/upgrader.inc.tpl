@@ -150,7 +150,7 @@
                 <p>{$CONST.SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC}</p>
             {/if}
             {if (($taskCount > 0) OR (sizeof($sqlfiles) > 0))}
-                <h3>{$CONST.SERENDIPITY_UPGRADER_PROCEED_QUESTION}</h3>
+                <h3>{$CONST.SERENDIPITY_UPGRADER_PROCEED_QUESTION} ({$CONST.RECOMMENDED})</h3>
 
                 <a class="button_link state_submit" href="{$upgradeLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_DOIT}</a>{if $showAbort} <a class="button_link state_cancel" href="{$abortLoc}">{$CONST.SERENDIPITY_UPGRADER_PROCEED_ABORT}</a>{/if}
             {else}
