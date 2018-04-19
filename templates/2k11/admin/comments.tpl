@@ -11,7 +11,7 @@
 
     <footer>
         <time>{$comment.timestamp|formatTime:'%Y-%m-%d %H:%M'}</time>
-        <div id="serendipity_replyform_{$smarty.post.serendipity.entry_id}"></div>
+        <div id="serendipity_replyform_{$smarty.post.serendipity.entry_id}" class="comment_preview_editstatus">{$comment.preview_editstatus}</div>
     </footer>
 </article>
 {/foreach}
