@@ -411,6 +411,12 @@ $tasks = array(
                     'arguments' => array($dead_dirs_250),
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_250) . '</pre>'),
 
+            array(  'version'   => '2.5-beta1',
+                    'function'  => 'serendipity_fixPlugins',
+                    'arguments' => array('moved_to_spartacus'),
+                    'title'     => 'Spartacus Plugin Synchronizer',
+                    'desc'      => '...an "On-Release" version-check synchronizer task.'),
+
 );
 
 /* Fetch SQL files which needs to be run */
