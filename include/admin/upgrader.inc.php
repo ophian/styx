@@ -399,13 +399,13 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
                     'desc'      => 'regarding Serendipity message colorizing for consistency. Please adapt this selector change to your copy or Spartacus pulled themes. Read the ChangeLog for more.'),
 
-            array(  'version'   => '2.5.0',
+            array(  'version'   => '2.5-beta1',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'title'     => 'Removal of old dead files in v.2.5.0',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_250, array('internals'), true),
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_250) . '</pre>'),
 
-            array(  'version'   => '2.5.0',
+            array(  'version'   => '2.5-beta1',
                     'function'  => 'recursive_directory_iterator',
                     'title'     => 'Removal of obsolete and dead directories',
                     'arguments' => array($dead_dirs_250),
