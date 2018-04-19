@@ -65,7 +65,7 @@ if ($serendipity['production'] !== true) {
     @ini_set('display_errors', 'on');
 }
 
-// The serendipity errorhandler string
+// The serendipity error handler string
 $serendipity['errorhandler'] = 'errorToExceptionHandler';
 
 // Default rewrite method
@@ -77,7 +77,7 @@ $serendipity['messagestack'] = array();
 // Can the user change the date of publishing for an entry?
 $serendipity['allowDateManipulation'] = true;
 
-// How much time is allowed to pass since the publising of an entry, so that a comment to that entry
+// How much time is allowed to pass since the publishing of an entry, so that a comment to that entry
 // will update it's LastModified stamp? If the time is passed, a comment to an old entry will no longer
 // push an article as being updated.
 $serendipity['max_last_modified'] = 60 * 60 * 24 * 7;

@@ -475,7 +475,7 @@ function serendipity_fixPlugins($case) {
             return true;
             break;
 
-        // Before Serendipity 0.8, some plugins contained localized strings for indiciating some
+        // Before Serendipity 0.8, some plugins contained localized strings for indicating some
         // configuration values. That got deprecated, and replaced by a language-independent constant.
         case 'markup_column_names':
             $affected_plugins = array(
@@ -583,9 +583,9 @@ function serendipity_killPlugin($name) {
  *
  * @access private
  *
- * @param   string $dir directory
- * @param   array $deadfiles dead files list
- * @param   array $purgedir dead directories list
+ * @param   string  $dir directory
+ * @param   array   $deadfiles dead files list
+ * @param   array   $purgedir dead directories list
  * @param   boolean $list_only run list only else recursive default
  *
  * @return void
