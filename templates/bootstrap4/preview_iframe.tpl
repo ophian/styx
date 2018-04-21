@@ -66,7 +66,7 @@
     </div>
 
 {if $mode == 'preview'}
-    <script src="{serendipity_getFile file="scripts/theme.js"}"></script>
+    <script src="{serendipity_getFile file="theme.js"}"></script>
 {/if}
 </body>
 </html>
