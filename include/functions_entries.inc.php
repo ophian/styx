@@ -1285,16 +1285,15 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                     'is_comment_moderate'   => (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'moderate' ? true: false)
                 );
 
+                $userData = $serendipity['POST'];
+
                 if ($serendipity['serendipityAuthedUser'] === true && !isset($serendipity['POST']['preview'])) {
-                    $userData = $serendipity['POST'];
                     if (empty($userData['name'])) {
                         $userData['name'] = $serendipity['serendipityRealname'];
                     }
                     if (empty($userData['email'])) {
                         $userData['email'] = $serendipity['email'];
                     }
-                } else {
-                    $userData = $serendipity['POST'];
                 }
 
                 $serendipity['smarty']->assign($comment_add_data);
