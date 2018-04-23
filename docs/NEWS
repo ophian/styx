@@ -1,6 +1,10 @@
 Version 2.5.0 ()
  ------------------------------------------------------------------------
 
+  * Fixed bug in pull request #392 which overwrote user specified
+    input for logged in authors with an empty realname (wrong array
+    key name) and deleted all existing text input
+
   * Sync bootstrap4 theme to Bootstrap 4.1.0 update
 
 
