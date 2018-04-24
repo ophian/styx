@@ -389,7 +389,11 @@ if (is_array($sql)) {
 
         // do for both - else add ($serendipity['allow_html_comment'] && )
         if ($comment['type'] == 'NORMAL' && serendipity_isCommentStripped($comment['summary'], $comment['excerpt'])) {
-            $comment['summary'] .= '<span class="summary_stripped" title="Content was stripped! Review content in EDIT or VIEW mode">&hellip;<span class="icon-filter"></span></span>';
+            if (empty($comment['summary'])) {
+                $comment['summary'] .= '<span class="msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
+            } else {
+                $comment['summary'] .= '<span class="summary_stripped" title="Content was stripped! Review content in EDIT or VIEW mode">&hellip;<span class="icon-filter"></span></span>';
+            }
         }
         serendipity_plugin_api::hook_event('backend_view_comment', $comment, '&amp;serendipity[page]='. $page . $searchString);
 
