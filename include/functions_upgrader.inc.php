@@ -424,7 +424,8 @@ $dead_files_250 = array(
 
 /* A list of old or removed directories for 2.5.0 */
 $dead_dirs_250 = array(
-    $serendipity['serendipityPath'] . 'bundled-libs/HTTP/Request'
+    $serendipity['serendipityPath'] . 'bundled-libs/HTTP/Request',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_browsercompatibility'
 );
 
 /**
