@@ -1,7 +1,8 @@
 Version 2.5.0 ()
  ------------------------------------------------------------------------
 
-  * Sync Smarty Security Update to 3.1.32-dev-46
+  * Sync Smarty Security Update to 3.1.32-dev-46 and
+    sync Smarty 3.1.32 Release ===== (24.04.2018).
 
   * Fixed bug in pull request #392 which overwrote user specified
     input for logged in authors with an empty realname (wrong array
