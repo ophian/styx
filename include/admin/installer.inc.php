@@ -55,12 +55,12 @@ function serendipity_installerResultDiagnose($result, $s) {
     }
     if ($result === S9Y_I_WARNING) {
         $data['i_warning'] = true;
-        return '<span class="msg_notice">'. $s .' [?]</span>';
+        return '<span class="msg_notice">'. $s .'<span class="visuallyhidden"> installerResultDiagnoseNoticeNoDefault [?]</span></span>';
     }
     if ($result === S9Y_I_ERROR) {
         $errorCount++;
         $data['i_error'] = true;
-        return '<span class="msg_error">'. $s .' [!]</span>';
+        return '<span class="msg_error">'. $s .'<span class="visuallyhidden"> installerResultDiagnoseError [!]</span></span>';
     }
 }
 
