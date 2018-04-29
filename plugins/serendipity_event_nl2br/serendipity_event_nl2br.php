@@ -619,7 +619,7 @@ p.break {
                 $start = $i+1;
             }
             // isolation tag
-            elseif($tag && !$isolation_flag && $this->is_starttag($textarray[$i]) && in_array($tag, $this->isolation_block_elements)) {
+            elseif ($tag && !$isolation_flag && $this->is_starttag($textarray[$i]) && in_array($tag, $this->isolation_block_elements)) {
                 // merge previous content, apply nl2p if needed and concatenate
                 if (empty($tagstack)) {
                     $content .= $this->nl2pblock(implode(array_slice($textarray, $start, $i-$start)));
@@ -630,18 +630,18 @@ p.break {
                 } else {
                     $content .= implode(array_slice($textarray, $start, $i-$start));
                 }
-                $isolation_flag = $tag;    // isolation has to be started and ended with the same tag
+                $isolation_flag = $tag; // isolation has to be started and ended with the same tag
                 $start = $i+1;
             }
             // closing isolation tag
-            elseif($tag && !$this->is_starttag($textarray[$i]) && $tag == $isolation_flag) {
+            elseif ($tag && !$this->is_starttag($textarray[$i]) && $tag == $isolation_flag) {
                 //content, no nl2p
                 $content .= implode(array_slice($textarray,$start,$i-$start));
                 $isolation_flag = false;
                 $start = $i+1;
             }
             // closing blocktag or p parent - e.g. </table> or </td>
-            elseif($tag && !$this->is_starttag($textarray[$i]) && !empty($tagstack) && $tag == $tagstack[0]) {
+            elseif ($tag && !$this->is_starttag($textarray[$i]) && !empty($tagstack) && $tag == $tagstack[0]) {
                 // content, apply nl2p if needed
                 if ($i != $start) {
                     if (!$isolation_flag && in_array($tagstack[0], $this->allowed_p_parents)) {
@@ -658,9 +658,9 @@ p.break {
         }
         // merge remainder
         if (!$isolation_flag && ( empty($tagstack) || in_array($tagstack[0], $this->allowed_p_parents))) {
-            $content .= $this->nl2pblock(implode(array_slice($textarray,$start,$i-$start)));
+            $content .= $this->nl2pblock(implode(array_slice($textarray, $start, $i-$start)));
         } else {
-            $content .= implode(array_slice($textarray,$start,$i-$start));
+            $content .= implode(array_slice($textarray, $start, $i-$start));
         }
         return $content;
     }
