@@ -1,6 +1,9 @@
 Version 2.5.0 ()
  ------------------------------------------------------------------------
 
+  * Fix a PHP update 7.0.x to 7.1.3+ and login COOKIE decryption failure
+    to completely log-off behind the scenes to give access again.
+
   * Sync Smarty Security Update to 3.1.32-dev-46 and
     sync Smarty 3.1.32 Release ===== (24.04.2018).
     Sync Smarty - bugfix last Security Vulnerability bugfix
