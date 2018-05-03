@@ -1885,8 +1885,8 @@ summary {
 #category_filter .button_up {
     padding: .15em .25em;
 }
-#edit_entry_category .compact label {
-    top: 4px;
+.form_check.compact input[type="checkbox"] {
+    top: inherit;
 }
 @-moz-document url-prefix() {
     #edit_entry_category .compact label {
