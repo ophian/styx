@@ -550,8 +550,9 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
                         #aesDebugFile($debugfile, '#DECRYPT: data = '.$cipher.' key = ' . $key); // ATTENTION!!
                     } catch (Throwable $t) {
                         // Executed in PHP 7 only, will not match in PHP 5.x
+                        serendipity_logout();
                         $cipher = false; // silent logout
-                        //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". Please manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
+                        //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". You may need to manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
                     }
                 } else {
                     $key = hex2bin($iv);
@@ -564,8 +565,9 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
                         #aesDebugFile($debugfile, '#DECRYPT: data = '.$cipher.' key = ' . $key . ' tag = '.$tag.' and iv = '. $iv); // ATTENTION!!
                     } catch (Throwable $t) {
                         // Executed in PHP 7 only, will not match in PHP 5.x
+                        serendipity_logout();
                         $cipher = false; // silent logout
-                        //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". Please manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
+                        //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". You may need to manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
                     }
                 }
                 /* // ATTENTION!!
