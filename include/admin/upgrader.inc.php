@@ -390,8 +390,8 @@ $tasks = array(
             array(  'version'   => '2.5-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'function'  => '',
-                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> LOGIN Cookie changed for PHP 7.1.3+',
-                    'desc'      => 'Due to changes to the Cookie LOGIN kept password crypt generation with Styx 2.5.0-alpha2 under PHP 7.1.3+, you shall <b>NOT</b> close your browser after the update, your current checkup and/or maintenance session, <b>without</b> fully terminating your current LOGIN session per <b>LOGOUT</b>. Else you\'ll get an error with the automated login on LOGIN. This only is a need when upgrading PHP 7.0.x to 7.1.3+ versions and only ONCE! In the case of updating your system anyhow to PHP 7.1.3+ versions later on, please remember to terminate your Cookie kept login data for the switch once too, per LOGOUT.'),
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> login COOKIE data encryption changed for PHP 7.1.3+',
+                    'desc'      => 'Due to changes to the (optional) keep password login COOKIE crypt generation with Styx 2.5.0-alpha2 with PHP 7.1.3+, you shall <b>NOT</b> close your browser after the update, your current checkup and/or maintenance session, <b>without</b> fully terminating your current LOGIN session per <b>LOGOUT</b>. Else you\'ll get an error with the automated login on LOGIN and are stuck. This only is a need when upgrading PHP 7.1.3+ versions and only ONCE for this current beta upgrade! If you upgrade to a later Styx version (like the 2.5.0 release), you don\'t need to care.'),
 
             array(  'version'   => '2.5-beta1',
                     'function'  => 'TEMPLATE_NOTICE',
