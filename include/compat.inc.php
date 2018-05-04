@@ -195,6 +195,7 @@ if (!function_exists('errorToExceptionHandler')) {
         $debug_note = ($serendipity['production'] !== 'debug')
             ? "<br />\n".'For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a full stack-trace.'
             : '';
+        $head = '';
 
         // Debug environments shall be verbose...
         if ($serendipity['production'] === 'debug') {
@@ -212,15 +213,15 @@ if (!function_exists('errorToExceptionHandler')) {
             $debug_note = '';
         }
         elseif ($serendipity['production'] === false) {
-            echo " == ERROR-REPORT (BETA/ALPHA-BUILDS) == \n";
+            $head = " == ERROR-REPORT (BETA/ALPHA-BUILDS) == \n";
         }
 
         if ($serendipity['production'] !== true) {
-            // Display error (production: FALSE and production: 'debug')
+            // Display error (production: FALSE and production: 'debug') and trigger_errors with E_USER_ERROR
             if (!$serendipity['dbConn'] || $exit) {
-                echo '<p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . '</p>';
+                echo '<p>'.$head.'</p><p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . "</p>\n";
             } else {
-                echo $debug_note."\n\n";
+                if (false !== strpos($errStr, $debug_note)) echo $head . $debug_note."\n\n";
                 echo '<pre style="white-space: pre-line;">'."\n\n";
                 throw new \ErrorException($type . ': ' . $errStr, 0, $errNo, $errFile, $errLine); // tracepath = all, if not ini_set('display_errors', 0);
                 echo "</pre>\n";
