@@ -550,13 +550,17 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
                         #aesDebugFile($debugfile, '#DECRYPT: data = '.$cipher.' key = ' . $key); // ATTENTION!!
                     } catch (Throwable $t) {
                         // Executed in PHP 7 only, will not match in PHP 5.x
-                        serendipity_logout();
+                        if (!serendipity_db_bool($serendipity['maintenance'])) {
+                            trigger_error('Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". You have been logged out automatically for security reasons.', E_USER_ERROR);
+                            serendipity_logout();
+                        } else {
+                            trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". For security the encrypted login cookie data was purged. This Warning error message does only show up once for you! Since you are still in maintenance mode, you need to manually delete the $serendipity[\'maintenance\'] variable in your serendipity_config_local.inc.php file to get LOGIN access again.', E_USER_ERROR);
+                        }
                         $cipher = false; // silent logout
-                        //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". You may need to manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
                     }
                 } else {
                     $key = hex2bin($iv);
-                    list($bt_ct, $bt_iv, $bt_tg) = explode(".", $data);
+                    list($bt_ct, $bt_iv, $bt_tg) = explode(".", $data); // ciphertext cookie data, iv, tag
                     $cda = hex2bin($bt_ct);
                     $iv  = hex2bin($bt_iv);
                     $tag = hex2bin($bt_tg);
@@ -565,9 +569,13 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
                         #aesDebugFile($debugfile, '#DECRYPT: data = '.$cipher.' key = ' . $key . ' tag = '.$tag.' and iv = '. $iv); // ATTENTION!!
                     } catch (Throwable $t) {
                         // Executed in PHP 7 only, will not match in PHP 5.x
-                        serendipity_logout();
+                        if (!serendipity_db_bool($serendipity['maintenance'])) {
+                            trigger_error('Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". You have been logged out automatically for security reasons.', E_USER_ERROR);
+                            serendipity_logout();
+                        } else {
+                            trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". For security the encrypted login cookie data was purged. This Warning error message does only show up once for you! Since you are still in maintenance mode, you need to manually delete the $serendipity[\'maintenance\'] variable in your serendipity_config_local.inc.php file to get LOGIN access again.', E_USER_ERROR);
+                        }
                         $cipher = false; // silent logout
-                        //trigger_error( 'Whoops! Your Cookie stored LOGIN key did not match, since: "' . $t->getMessage() . '". You may need to manually delete the Browser stored Cookie for this site called serendipity[author_information_iv] to get LOGIN access again.' );
                     }
                 }
                 /* // ATTENTION!!
