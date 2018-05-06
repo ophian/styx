@@ -9,7 +9,7 @@ Version 2.5.0 ()
     Sync Smarty - bugfix last Security Vulnerability bugfix
     (sets version to 3.1.33-dev-1)
 
-  * Fixed bug in pull request #392 which overwrote user specified
+  * Fixed bug in merged pull request #392 which overwrote user specified
     input for logged in authors with an empty realname (wrong array
     key name) and deleted all existing text input
 
