@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.62');
+        $propbag->add('version',       '2.63');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -495,7 +495,7 @@ class serendipity_event_spartacus extends serendipity_event
                 // Garvin: Temporary health. Better than nothing, eh?
                 $health_url = $url;
                 $matches = array();
-                preg_match('#http://[^/]*/#', $url, $matches);
+                preg_match('#http(s)?://[^/]*/#', $url, $matches);
                 if ($matches[0]) {
                     $health_url = $matches[0];
                 }
