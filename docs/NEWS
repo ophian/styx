@@ -1,6 +1,8 @@
 Version 2.5.0 ()
  ------------------------------------------------------------------------
 
+  * Fix health check for Spartacus mirror https secured URLs
+
   * Fix a PHP update 7.0.x to 7.1.3+ and login COOKIE decryption failure
     to completely log-off behind the scenes to give access again.
 
