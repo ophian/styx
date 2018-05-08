@@ -7,7 +7,7 @@
         {if $comment.body == 'COMMENT_DELETED'}
             <p class="serendipity_msg_important">{$CONST.COMMENT_IS_DELETED}</p>
         {else}
-            {$comment.body}
+            {$comment.body}{if $comment.type == 'TRACKBACK'} [&hellip;]{/if}
         {/if}
         </div>
     {if $entry.allow_comments AND $comment.body != 'COMMENT_DELETED'}

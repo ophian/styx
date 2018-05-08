@@ -6,7 +6,7 @@
         <?php if ($comment['body'] == 'COMMENT_DELETED'): ?>
             <?= COMMENT_IS_DELETED ?>
         <?php else: ?>
-            <?= $comment['body'] ?>
+            <?= $comment['body'] ?><?php if ($comment['type'] == 'TRACKBACK'): ?> [&hellip;]<?php endif; ?>
         <?php endif; ?>
         </div>
         <div class="serendipity_comment_source">

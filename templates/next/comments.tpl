@@ -14,7 +14,7 @@
         {if $comment.body == 'COMMENT_DELETED'}
             <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COMMENT_IS_DELETED}</p>
         {else}
-            {$comment.body}
+            {$comment.body}{if $comment.type == 'TRACKBACK'} [&hellip;]{/if}
         {/if}
         </div>
 

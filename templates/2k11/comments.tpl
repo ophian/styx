@@ -14,7 +14,7 @@
     {if $comment.body == 'COMMENT_DELETED'}
         {$CONST.COMMENT_IS_DELETED}
     {else}
-        {$comment.body}
+        {$comment.body}{if $comment.type == 'TRACKBACK'} [&hellip;]{/if}
     {/if}
     </div>
 
