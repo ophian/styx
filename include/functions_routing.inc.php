@@ -116,7 +116,7 @@ function serveComments() {
         $serendipity['head_title'] .= ' (&lt; ' . $timedesc['end'] . ')';
     }
     $serendipity['head_subtitle'] = $serendipity['blogTitle'];
-    $serendipity['GET']['action']     = 'comments';
+    $serendipity['GET']['action'] = 'comments';
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
