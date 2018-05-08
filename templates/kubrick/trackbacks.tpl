@@ -2,7 +2,7 @@
     <li class="{if $trackback@iteration is odd}graybox{/if}">
         <a id="c{$trackback.id}"></a>
         <cite><a href="{$trackback.url|strip_tags}" {'blank'|xhtml_target}>{$trackback.title}</a></cite>
-        <p>{$trackback.body|strip_tags|escape:all}</p>
+        <p>{$trackback.body|strip_tags|escape:all} [&hellip;]</p>
         <div class="commentmetadata">
             <b>{$CONST.WEBLOG}:</b> {$trackback.author|default:$CONST.ANONYMOUS}<br />
             <b>{$CONST.TRACKED}:</b> {$trackback.timestamp|formatTime:'%b %d, %H:%M'}

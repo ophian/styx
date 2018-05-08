@@ -13,7 +13,7 @@
                 </h5>
                 <div class="comment-content">
                         <a href="{$trackback.url|strip_tags}" {'blank'|xhtml_target}>{$trackback.title}</a><br />
-                        {$trackback.body|strip_tags|escape:all} ...
+                        {$trackback.body|strip_tags|escape:all} [&hellip;]
                 </div>
                 <div class="comment-meta">
                     {if $entry.is_entry_owner}

@@ -7,7 +7,7 @@
 {else}
     <details>
         <summary>{$CONST.TWOK11_TRACKBACKPREVIEW}</summary>
-        <div class="content serendipity_commentBody">{$trackback.body|strip_tags|escape:'htmlall'}</div>
+        <div class="content serendipity_commentBody">{$trackback.body|strip_tags|escape:'htmlall'} [&hellip;]</div>
     </details>
 {/if}
 {if $entry.is_entry_owner}
