@@ -345,9 +345,9 @@ function add_trackback($id, $title, $url, $name, $excerpt) {
     log_trackback('[' . date('d.m.Y H:i') . '] TRACKBACK DATA: ' . print_r($comment, true) . '...');
     log_trackback('[' . date('d.m.Y H:i') . '] TRACKBACK STORING...');
 
-    if ($id>0) {
+    if ($id > 0) {
         // first check, if we already have this pingback
-        $comments = serendipity_fetchComments($id,1, 'co.id', true, 'TRACKBACK', " AND co.url='" . serendipity_db_escape_string($url) . "'");
+        $comments = serendipity_fetchComments($id, 1, 'co.id', true, 'TRACKBACK', " AND co.url='" . serendipity_db_escape_string($url) . "'");
         if (is_array($comments) && sizeof($comments) == 1) {
             log_trackback('We already have that TRACKBACK!');
             return 0; // We already have it!
@@ -392,9 +392,9 @@ function add_pingback($id, $postdata) {
             log_pingback("ID set to $id");
         }
 
-        if ($id>0) {
+        if ($id > 0) {
             // first check, if we already have this pingback
-            $comments = serendipity_fetchComments($id,1, 'co.id', true, 'PINGBACK', " AND co.url='" . serendipity_db_escape_string($remote) . "'");
+            $comments = serendipity_fetchComments($id, 1, 'co.id', true, 'PINGBACK', " AND co.url='" . serendipity_db_escape_string($remote) . "'");
             if (is_array($comments) && sizeof($comments) == 1) {
                 log_pingback('We already have that PINGBACK!');
                 return 0; // We already have it!
