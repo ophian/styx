@@ -10,9 +10,9 @@
         </div>
         <div class="serendipity_comment_source">
         {if $comment.type == 'TRACKBACK'}
-            <strong>[TRACKBACK]</strong>
+            <strong>[TRACKBACK]</strong> {$CONST.TRACKED}:
         {/if}
-            {$CONST.TRACKED}: <a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id}">#{$comment.trace}</a>
+            <a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id}">#{$comment.trace}</a>
             <span class="comment_source_author">
         {if $comment.type == 'TRACKBACK'}
             <strong>{$CONST.WEBLOG}:</strong>
