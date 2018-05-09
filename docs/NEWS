@@ -1,6 +1,13 @@
 Version 2.5.0 ()
  ------------------------------------------------------------------------
 
+  * Improve various themes: Distinguish trackbacks output in comment
+    shortcut pages like "blog/comments/trackbacks/" in comments.tpl
+    for the [default, default-php, bulletproof, 2k11, next] themes.
+    - Adding trackback truncation-cut dots all over.
+    - Add a new comments_by_author.tpl file for [skeleton, bootstrap4,
+      clean-blog, timeline] themes.
+
   * Fix 2.5-beta1 BCRYPT SYNC login password change for new users
     and new installation user.
 
