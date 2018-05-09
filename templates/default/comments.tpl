@@ -9,13 +9,23 @@
         {/if}
         </div>
         <div class="serendipity_comment_source">
+        {if $comment.type == 'TRACKBACK'}
+            <strong>[TRACKBACK]</strong> {$CONST.TRACKED}:
+        {/if}
             <a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id}">#{$comment.trace}</a>
             <span class="comment_source_author">
+        {if $comment.type == 'TRACKBACK'}
+            <strong>{$CONST.WEBLOG}:</strong>
+        {/if}
             {if $comment.email}
                 <a href="mailto:{$comment.email}">{$comment.author|default:$CONST.ANONYMOUS}</a>
             {else}
                 {$comment.author|default:$CONST.ANONYMOUS}
             {/if}
+        {if $comment.type == 'TRACKBACK'}
+            <br />
+            {$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle}</span>
+        {/if}
             </span>
             {if $comment.url}
                 (<a class="comment_source_url" href="{$comment.url}" title="{$comment.url|escape}">{$CONST.HOMEPAGE}</a>)

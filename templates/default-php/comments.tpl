@@ -10,13 +10,23 @@
         <?php endif; ?>
         </div>
         <div class="serendipity_comment_source">
+         <?php if ($comment['type'] == 'TRACKBACK'): ?>
+            <strong>[TRACKBACK]</strong> <?= TRACKED ?>:
+        <?php endif; ?>
             <a class="comment_source_trace" href="<?= serendipity_specialchars($comment['url']) ?>#c<?= $comment['id'] ?>">#<?= $comment['trace'] ?></a>
             <span class="comment_source_author">
+         <?php if ($comment['type'] == 'TRACKBACK'): ?>
+            <strong><?= WEBLOG ?>:</strong>
+        <?php endif; ?>
             <?php if ($comment['email']): ?>
                 <a href="mailto:<?= $comment['email'] ?>"><?= $comment['author'] ? $comment['author'] : ANONYMOUS; ?></a>
             <?php else: ?>
                 <?= $comment['author'] ? $comment['author'] : ANONYMOUS; ?>
             <?php endif; ?>
+         <?php if ($comment['type'] == 'TRACKBACK'): ?>
+            <br />
+            <?= IN ?> <?= TITLE ?>: <span class="comment_source_ctitle"><?= $comment['ctitle'] ?></span>
+        <?php endif; ?>
             </span>
             <?php if ($comment['url']): ?>
                 (<a class="comment_source_url" href="<?= $comment['url'] ?>" title="<?= serendipity_specialchars($comment['url']); ?>"><?= HOMEPAGE ?></a>)
