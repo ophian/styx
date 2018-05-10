@@ -155,26 +155,26 @@
 
                             <ul class="plainList clearfix actions">
                                 <li><a class="button_link" href="{$comment.entrylink}" title="{$CONST.VIEW}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>
-                            {if $comment.type == 'NORMAL'}
+{if $comment.type == 'NORMAL'}
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;{$urltoken}" title="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                                {if $comment.status != 'hidden'}
+{if $comment.status != 'hidden'}
                                 <li><a class="button_link comments_reply" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=reply&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;{$urltoken}" title="{$CONST.REPLY}"><span class="icon-chat" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.REPLY}</span></a></li>
-                                {/if}
-                            {/if}
-                            {if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
+{/if}
+{/if}
+{if ($comment.status == 'pending') OR ($comment.status == 'confirm')}
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=hide&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.PLUGIN_INACTIVE}"><span class="icon-eye-off" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.PLUGIN_INACTIVE}</span></a></li>
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=approve&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.APPROVE}"><span class="icon-toggle-on" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.APPROVE}</span></a></li>
-                            {/if}
-                            {if $comment.status == 'hidden'}
+{/if}
+{if $comment.status == 'hidden'}
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=public&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.PLUGIN_ACTIVE}"><span class="icon-eye" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.PLUGIN_ACTIVE}</span></a></li>
-                            {/if}
-                            {if ($comment.status == 'approved')}
+{/if}
+{if ($comment.status == 'approved')}
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=pending&amp;serendipity[id]={$comment.id}&amp;{$urltoken}" title="{$CONST.SET_TO_MODERATED}"><span class="icon-toggle-off" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SET_TO_MODERATED}</span></a></li>
-                            {/if}
+{/if}
                                 <li><a class="button_link comments_delete" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;{$urltoken}" data-delmsg='{($CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author)|escape}' title="{$CONST.DELETE}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-                            {if $comment.excerpt}
+{if $comment.excerpt}
                                 <li><button class="button_link toggle_comment_full" type="button" data-href="#c{$comment.id}_full" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_OPTION}</span></button></li>
-                            {/if}
+{/if}
                             </ul>
                             {$comment.action_more}
                             <div class="comment_type {$comment.type|lower}" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : 'Pingback' )}"><span class="stype">{$comment.stype}</span></div>
