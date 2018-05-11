@@ -7,6 +7,9 @@ Version 2.5.0 ()
     - Adding trackback truncation-cut dots all over.
     - Add a new comments_by_author.tpl file for [skeleton, bootstrap4,
       clean-blog, timeline] themes.
+    - Changed the next-theme default content/sidebar ratio width from
+      62%/38% to the #primary of 70% and the #secondary of 30% width,
+      since a blog lives off its content.
 
   * Fix 2.5-beta1 BCRYPT SYNC login password change for new users
     and new installation user.
