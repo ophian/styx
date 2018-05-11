@@ -18,8 +18,8 @@ create table {PREFIX}authors (
   authorid {AUTOINCREMENT} {PRIMARY},
   mail_comments int(1) default '1',
   mail_trackbacks int(1) default '1',
-  email varchar(128) not null default '',
-  userlevel int(4) {UNSIGNED} not null default '0',
+  email varchar(128) NOT NULL default '',
+  userlevel int(4) {UNSIGNED} NOT NULL default '0',
   right_publish int(1) default '1',
   hashtype int(1) default '0'
 ) {UTF_8};
@@ -30,7 +30,7 @@ create table {PREFIX}groups (
 ) {UTF_8};
 
 create table {PREFIX}groupconfig (
-  id int(10) {UNSIGNED} not null default '0',
+  id int(10) {UNSIGNED} NOT NULL default '0',
   property varchar(128) default '',
   value varchar(32) default null,
   {PRIMARY} (id, property)
@@ -40,16 +40,16 @@ CREATE INDEX groupid_idx ON {PREFIX}groupconfig (id);
 CREATE INDEX groupprop_idx ON {PREFIX}groupconfig (id, property);
 
 create table {PREFIX}authorgroups (
-  groupid int(10) {UNSIGNED} not null default '0',
-  authorid int(10) {UNSIGNED} not null default '0'
+  groupid int(10) {UNSIGNED} NOT NULL default '0',
+  authorid int(10) {UNSIGNED} NOT NULL default '0'
 ) {UTF_8};
 
 CREATE INDEX authorgroup_idxA ON {PREFIX}authorgroups (groupid);
 CREATE INDEX authorgroup_idxB ON {PREFIX}authorgroups (authorid);
 
 create table {PREFIX}access (
-  groupid int(10) {UNSIGNED} not null default '0',
-  artifact_id int(10) {UNSIGNED} not null default '0',
+  groupid int(10) {UNSIGNED} NOT NULL default '0',
+  artifact_id int(10) {UNSIGNED} NOT NULL default '0',
   artifact_type varchar(64) NOT NULL default '',
   artifact_mode varchar(64) NOT NULL default '',
   artifact_index varchar(64) NOT NULL default ''
@@ -66,8 +66,8 @@ CREATE INDEX accessforeign_idx ON {PREFIX}access(artifact_id);
 
 create table {PREFIX}comments (
   id {AUTOINCREMENT} {PRIMARY},
-  entry_id int(10) {UNSIGNED} not null default '0',
-  parent_id int(10) {UNSIGNED} not null default '0',
+  entry_id int(10) {UNSIGNED} NOT NULL default '0',
+  parent_id int(10) {UNSIGNED} NOT NULL default '0',
   timestamp int(10) {UNSIGNED} default null,
   title varchar(150) default null,
   author varchar(80) default null,
@@ -77,7 +77,7 @@ create table {PREFIX}comments (
   body {TEXT},
   type varchar(100) default 'regular',
   subscribed {BOOLEAN},
-  status varchar(50) not null,
+  status varchar(50) NOT NULL,
   referer varchar(200) default null
 ) {UTF_8};
 
@@ -120,10 +120,10 @@ CREATE INDEX eauthor_idx ON {PREFIX}entries (authorid);
 
 create table {PREFIX}references (
   id {AUTOINCREMENT} {PRIMARY},
-  entry_id int(10) {UNSIGNED} not null default '0',
+  entry_id int(10) {UNSIGNED} NOT NULL default '0',
   link text,
   name text,
-  type varchar(128) not null default ''
+  type varchar(128) NOT NULL default ''
 ) {UTF_8};
 
 CREATE INDEX refentry_idx ON {PREFIX}references (entry_id);
@@ -170,8 +170,8 @@ CREATE INDEX referrers_idx ON {PREFIX}referrers (entry_id,day);
 #
 
 create table {PREFIX}config (
-  name varchar(255) not null,
-  value text not null,
+  name varchar(255) NOT NULL,
+  value text NOT NULL,
   authorid int(11) default '0',
   {PRIMARY} (name(191), authorid)
 ) {UTF_8};
@@ -179,9 +179,9 @@ create table {PREFIX}config (
 CREATE INDEX configauthorid_idx ON {PREFIX}config (authorid);
 
 create table {PREFIX}options (
-  name varchar(255) not null,
-  value text not null,
-  okey varchar(64) not null default '',
+  name varchar(255) NOT NULL,
+  value text NOT NULL,
+  okey varchar(64) NOT NULL default '',
   {PRIMARY} (name(186), okey(64))
 ) {UTF_8};
 
@@ -201,9 +201,9 @@ CREATE INDEX url_idx on {PREFIX}suppress (host, ip);
 CREATE INDEX urllast_idx on {PREFIX}suppress (last);
 
 CREATE TABLE {PREFIX}plugins (
-  name varchar(128) not null,
-  placement varchar(6) not null default 'right',
-  sort_order int(4) not null default '0',
+  name varchar(128) NOT NULL,
+  placement varchar(6) NOT NULL default 'right',
+  sort_order int(4) NOT NULL default '0',
   authorid int(11) default '0',
   path varchar(255) default null,
   PRIMARY KEY(name)
@@ -233,33 +233,33 @@ CREATE INDEX categoryso_idx ON {PREFIX}category (sort_order);
 
 CREATE TABLE {PREFIX}images (
   id {AUTOINCREMENT} {PRIMARY},
-  name varchar(255) not null default '',
-  extension varchar(5) not null default '',
-  mime varchar(255) not null default '',
-  size int(11) not null default '0',
-  dimensions_width int(11) not null default '0',
-  dimensions_height int(11) not null default '0',
-  date int(11) not null default '0',
-  thumbnail_name varchar(255) not null default '',
+  name varchar(255) NOT NULL default '',
+  extension varchar(5) NOT NULL default '',
+  mime varchar(255) NOT NULL default '',
+  size int(11) NOT NULL default '0',
+  dimensions_width int(11) NOT NULL default '0',
+  dimensions_height int(11) NOT NULL default '0',
+  date int(11) NOT NULL default '0',
+  thumbnail_name varchar(255) NOT NULL default '',
   authorid int(11) default '0',
   path text,
   hotlink int(1),
-  realname varchar(255) not null default ''
+  realname varchar(255) NOT NULL default ''
 ) {UTF_8};
 
 CREATE INDEX imagesauthorid_idx ON {PREFIX}images (authorid);
 CREATE {FULLTEXT} INDEX pathkey_idx on {PREFIX}images (path);
 
 CREATE TABLE {PREFIX}entrycat (
-  entryid int(11) not null,
-  categoryid int(11) not null
+  entryid int(11) NOT NULL,
+  categoryid int(11) NOT NULL
 ) {UTF_8};
 
 CREATE UNIQUE INDEX entryid_idx ON {PREFIX}entrycat (entryid, categoryid);
 
 create table {PREFIX}entryproperties (
-  entryid int(11) not null,
-  property varchar(255) not null,
+  entryid int(11) NOT NULL,
+  property varchar(255) NOT NULL,
   value {TEXT}
 ) {UTF_8};
 
@@ -267,10 +267,10 @@ CREATE INDEX entrypropid_idx ON {PREFIX}entryproperties (entryid);
 CREATE UNIQUE INDEX prop_idx ON {PREFIX}entryproperties (entryid, property(191));
 
 create table {PREFIX}mediaproperties (
-  mediaid int(11) not null,
-  property varchar(128) not null,
-  property_group varchar(50) not null default '',
-  property_subgroup varchar(50) not null default '',
+  mediaid int(11) NOT NULL,
+  property varchar(128) NOT NULL,
+  property_group varchar(50) NOT NULL default '',
+  property_subgroup varchar(50) NOT NULL default '',
   value text
 ) {UTF_8};
 
@@ -278,9 +278,9 @@ CREATE INDEX mediapropid_idx ON {PREFIX}mediaproperties (mediaid);
 CREATE UNIQUE INDEX media_idx ON {PREFIX}mediaproperties (mediaid, property, property_group, property_subgroup);
 
 CREATE TABLE {PREFIX}permalinks (
-    permalink varchar(255) not null default '',
-    entry_id int(10) {UNSIGNED} not null default '0',
-    type varchar(200) not null default '',
+    permalink varchar(255) NOT NULL default '',
+    entry_id int(10) {UNSIGNED} NOT NULL default '0',
+    type varchar(200) NOT NULL default '',
     data text
 ) {UTF_8};
 
