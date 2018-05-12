@@ -22,7 +22,7 @@
     <admin:errorReportsTo rdf:resource="mailto:{$metadata.email}" />
 {/if}
     <info mode="xml" type="text/html">
-        <div xmlns="http://www.w3.org/1999/xhtml">You are viewing an ATOM formatted XML site feed. Usually this file is inteded to be viewed in an aggregator or syndication software. If you want to know more about ATOM, please visist <a href="http://atomenabled.org/">Atomenabled.org</a></div>
+        <div xmlns="http://www.w3.org/1999/xhtml">You are viewing an ATOM formatted XML site feed. Usually this file is intended to be viewed in an aggregator or syndication software. If you want to know more about ATOM, please visit <a href="http://atomenabled.org/">Atomenabled.org</a></div>
     </info>
 
 {foreach $entries AS $entry}
