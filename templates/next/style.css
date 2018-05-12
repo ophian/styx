@@ -1415,7 +1415,7 @@ details summary {
     padding: 0 16px 0 32px;
     padding: 0 1rem 0 2rem;
     float: left;
-    width: 70%; }
+    width: 68%; }
     .columns-3 #primary {
       padding: 0;
       left: 25%;
@@ -1430,7 +1430,7 @@ details summary {
     padding: 0 32px 0;
     padding: 0 2rem 0;
     float: right;
-    width: 30%; }
+    width: 32%; }
     .columns-3 #secondary, .columns-3 #tertiary {
       margin-top: 8px;
       margin-top: 0.5rem;
