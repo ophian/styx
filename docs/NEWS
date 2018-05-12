@@ -8,8 +8,10 @@ Version 2.5.0 ()
     - Add a new comments_by_author.tpl file for [skeleton, bootstrap4,
       clean-blog, timeline] themes.
     - Changed the next-theme default content/sidebar ratio width from
-      62%/38% to the #primary of 68% and the #secondary of 32% width,
+      62/38 percent to the #primary of 68% and the #secondary of 32% width,
       since a blog lives off its content.
+      Also fixed in there the optional used Smarty plugin_category.tpl
+      template files missed feed icon.
 
   * Fix 2.5-beta1 BCRYPT SYNC login password change for new users
     and new installation user.
