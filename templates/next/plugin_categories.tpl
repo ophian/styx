@@ -1,7 +1,7 @@
 {if $is_form}
 <form id="serendipity_category_form" action="{$form_url}" method="post">
 {/if}
-    <ul>
+    <ul class="plainList">
     {foreach $categories AS $plugin_category}
         <li id="category_{$plugin_category.categoryid}" class="category_depth{$plugin_category.catdepth}">
         {if $is_form}
