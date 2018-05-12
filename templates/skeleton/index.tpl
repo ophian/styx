@@ -75,7 +75,7 @@
     <footer class="page-footer" role="contentinfo">
         <div class="container">
             <div class="row">
-                <p class="twelve columns credit">Powered by <a href="https://s9y.org">Serendipity</a></p>
+                <p class="twelve columns credit">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a></p>
             </div>
         </div>
     </footer>

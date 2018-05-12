@@ -128,7 +128,7 @@
     </div>
 
     <footer id="colophon">
-        <p><span lang="en">Powered by <a href="https://s9y.org">Serendipity</a> &amp; the <i>2k11</i> theme.</span></p>
+        <p><span lang="en">Powered by <a href="https://ophian.github.io/">Serendipity Styx Edition</a> &amp; the <i>2k11</i> theme.</span></p>
     </footer>
 </div>
 <script src="{serendipity_getFile file="js/2k11.min.js"}"></script>

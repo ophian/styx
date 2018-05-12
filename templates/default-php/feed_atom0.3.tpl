@@ -15,7 +15,7 @@
     <tagline mode="escaped" type="text/html"><?= $GLOBALS['tpl']['metadata']['description'] ?></tagline>
     <id><?= $GLOBALS['tpl']['metadata']['link'] ?></id>
     <modified><?= $GLOBALS['tpl']['last_modified'] ?></modified>
-    <generator url="https://www.s9y.org/" version="<?= $GLOBALS['tpl']['serendipityVersion'] ?>">Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - https://www.s9y.org/</generator>
+    <generator url="https://ophian.github.io/" version="<?= $GLOBALS['tpl']['serendipityVersion'] ?>">Serendipity Sty Edition  <?= $GLOBALS['tpl']['serendipityVersion'] ?> - https://ophian.github.io/</generator>
     <dc:language><?= $GLOBALS['tpl']['metadata']['language'] ?></dc:language>
 <?php if ($GLOBALS['tpl']['metadata']['showMail']): ?>
     <admin:errorReportsTo rdf:resource="mailto:<?= $GLOBALS['tpl']['metadata']['email'] ?>" />

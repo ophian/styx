@@ -196,7 +196,7 @@
     {serendipity_hookPlugin hook="entries_footer"}
     <p>
     Competition entry by <a href="http://themes.daves.me.uk">David Cummins</a>
-     powered by <a href="http://www.s9y.org">Serendipity</a> v1.0
+    {$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a>
     </p>
     </div>
 <!-- ENTRIES END -->

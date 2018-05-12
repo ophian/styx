@@ -60,7 +60,7 @@
 <hr />
 <div id="footer">
     <p>
-    {$CONST.PROUDLY_POWERED_BY} <a href="https://www.s9y.org">Serendipity {$serendipityVersion}</a>.<br />
+    {$CONST.PROUDLY_POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a>.<br />
     Design is <a href="http://binarybonsai.com/kubrick/">Kubrick</a>, by Michael Heilemann, ported by <a href="http://blog.dreamcoder.dk">Tom Sommer</a>.
     </p>
 </div>

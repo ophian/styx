@@ -16,7 +16,7 @@
 <?php if ($GLOBALS['tpl']['metadata']['showMail']): ?>
     <admin:errorReportsTo rdf:resource="mailto:<?= $GLOBALS['tpl']['metadata']['email'] ?>" />
 <?php endif; ?>
-    <generator>Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - https://www.s9y.org/</generator>
+    <generator>Serendipity Sty Edition <?= $GLOBALS['tpl']['serendipityVersion'] ?> - https://ophian.github.io/</generator>
     <?= $GLOBALS['tpl']['metadata']['additional_fields']['channel'] ?>
     <?= $GLOBALS['tpl']['metadata']['additional_fields']['image'] ?>
 

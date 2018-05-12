@@ -4,7 +4,7 @@
 <head>
     <title><?= $GLOBALS['tpl']['metadata']['title'] ?></title>
     <dateModified><?= $GLOBALS['tpl']['last_modified'] ?></dateModified>
-    <ownerName>Serendipity <?= $GLOBALS['tpl']['serendipityVersion'] ?> - https://www.s9y.org/</ownerName>
+    <ownerName>Serendipity Sty Edition <?= $GLOBALS['tpl']['serendipityVersion'] ?> - https://ophian.github.io/</ownerName>
 </head>
 <body>
 
