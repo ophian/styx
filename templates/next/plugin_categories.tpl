@@ -8,7 +8,7 @@
             <input type="checkbox" name="serendipity[multiCat][]" value="{$plugin_category.categoryid}">
         {/if}
         {if !empty($category_image)}
-            <a class="serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}"><span class="icon-rss" aria-hidden="true"></span><span class="fallback-text">XML</span></a>
+            <a class="serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}"><img src="{$category_image}" alt="XML" style="border: 0px"/></a>
         {/if}
             <a href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
         </li>
