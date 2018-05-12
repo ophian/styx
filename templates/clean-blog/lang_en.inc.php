@@ -14,11 +14,11 @@
 @define('THEME_NAVIGATION', 'Navigation Options');
 @define('THEME_README','Read me');
 @define('THEME_EP_YES','<p>Extended Property for Entries plugin (serendipity_event_entryproperties) is required for this theme, and is installed.</p>');
-@define('THEME_EP_NO','<p class="serendipity_msg_important">Extended Property for Entries plugin (serendipity_event_entryproperties) is required for this theme, which is not installed or is inactive.  Please install the plugin to fully utlize this theme.</p>');
-@define('THEME_INSTRUCTIONS','<p>This theme uses wide header images for different page types.  Default images are included with the theme.  The default images are 1900px wide.  These default images can be changed in the configurations settings below.  In addition to default images, each entry and static page can define their own unique header image.</p>  <p>This theme was designed to use a secondary subtitle, or byline, directly below the entry title.  The entry subtitle, and entry image, is available under the section "Advanced Options" when creating or editing an entry.  Alternatively, the theme can be configured to display the first 70 characters of an entry as the subtitle if no subtitle is defined for an entry.</p>  <p>This theme does not use sidebars.  This theme can, however, be configured to display categories and entry tags from the respective sidebar plugins on the archive page.  See "' . THEME_PAGE_OPTIONS . '" below.</p>  <p>If using the avatar plugin (serendipity_event_gravatar), configure option "Produce smarty tag = yes" for best display of comment avatars.</p>  <p>Configure serendipity_event_freetag option "Extended Smarty = yes" for a nicer display of tags in the entry footer.</p>');
+@define('THEME_EP_NO','<p class="serendipity_msg_important">Extended Property for Entries plugin (serendipity_event_entryproperties) is required for this theme, which is not installed or is inactive. Please install the plugin to fully utlize this theme.</p>');
+@define('THEME_INSTRUCTIONS','<p>This theme uses wide header images for different page types. Default images are included with the theme. The default images are 1900px wide. These default images can be changed in the configurations settings below. In addition to default images, each entry and static page can define their own unique header image.</p> <p>This theme was designed to use a secondary subtitle, or byline, directly below the entry title. The entry subtitle, and entry image, is available under the section "Advanced Options" when creating or editing an entry. Alternatively, the theme can be configured to display the first 70 characters of an entry as the subtitle if no subtitle is defined for an entry.</p> <p>This theme does not use sidebars. This theme can, however, be configured to display categories and entry tags from the respective sidebar plugins on the archive page. See "' . THEME_PAGE_OPTIONS . '" below.</p> <p>If using the avatar plugin (serendipity_event_gravatar), configure option "Produce smarty tag = yes" for best display of comment avatars.</p> <p>Configure serendipity_event_freetag option "Extended Smarty = yes" for a nicer display of tags in the entry footer.</p>');
 @define('THEME_ENTRY_PROPERTIES_HEADING','Theme Clean Blog entry properties');
 @define('THEME_CUSTOM_FIELD_HEADING', 'Custom Entry Fields');
-@define('THEME_CUSTOM_FIELD_DEFINITION','These optional fields are only available when using this theme (clean blog).  The event plugin serendipity_event_entryproperties (extended properties for entries) must also be installed to use these fields.  The Entry Subtitle field is displayed below the entry title and should be a brief post summary.  The entry header image field will overide the default entry header image for this specific entry.');
+@define('THEME_CUSTOM_FIELD_DEFINITION','These optional fields are only available when using this theme (clean blog). The event plugin serendipity_event_entryproperties (extended properties for entries) must also be installed to use these fields. The Entry Subtitle field is displayed below the entry title and should be a brief post summary. The entry header image field will override the default entry header image for this specific entry.');
 @define('THEME_ENTRY_SUBTITLE','Entry Subtitle');
 @define('THEME_ENTRY_HEADER_IMAGE','Entry Header Image');
 @define('THEME_DEMO_AVAILABLE', 'A complete English explanation of <a href="http://www.optional-necessity.com/demo/cleanblog/archives/8-Using-the-Clean-Blog-theme.html">configuring and using Clean Blog</a> can be found on the <a href="http://www.optional-necessity.com/demo/cleanblog/">Clean Blog demo</a>.');
@@ -57,12 +57,12 @@
 @define('USE_CORENAV', 'Use global navigation?');
 
 //Social media
-@define('TWITTER_URL','Twitter URL path.  Icon not displayed if blank.');
-@define('FACEBOOK_URL','Facebook URL path.  Icon not displayed if blank.');
-@define('RSS_URL','RSS feed URL path.  Icon not displayed if blank.');
-@define('GITHUB_URL','GitHub URL path.  Icon not displayed if blank.');
-@define('INSTAGRAM_URL','Instagram URL path.  Icon not displayed if blank.');
-@define('PINTEREST_URL','Pinterest URL path.  Icon not displayed if blank.');
+@define('TWITTER_URL','Twitter URL path. Icon not displayed if blank.');
+@define('FACEBOOK_URL','Facebook URL path. Icon not displayed if blank.');
+@define('RSS_URL','RSS feed URL path. Icon not displayed if blank.');
+@define('GITHUB_URL','GitHub URL path. Icon not displayed if blank.');
+@define('INSTAGRAM_URL','Instagram URL path. Icon not displayed if blank.');
+@define('PINTEREST_URL','Pinterest URL path. Icon not displayed if blank.');
 @define('COPYRIGHT', 'Copyright');
 
 //time ago in words function

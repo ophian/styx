@@ -14,10 +14,10 @@
 @define('THEME_README','Read me');
 @define('THEME_IDENTITY','Site Identity');
 @define('THEME_EP_YES','<p class="msg_success">Extended Property for Entries plugin (serendipity_event_entryproperties) is required for this theme, and is installed.</p>');
-@define('THEME_EP_NO','<p class="msg_error">Extended Property for Entries plugin (serendipity_event_entryproperties) is required for this theme, which is not installed or is inactive.  Please install the plugin to fully utlize this theme.</p>');
-@define('THEME_INSTRUCTIONS','<p>This theme displays blog posts on a linear timeline.  Each group of month titles can also be displayed or hidden on the timeline.</p><p>This theme uses a right and bottom sidebar.  Either, or both sidebars can be disabled by deleting sidebar plugins or relocating sidebar plugins to the sidebar colum labeled "hidden" in plugin configuration.</p><p>This theme can be configured to display categories and entry tags from the respective sidebar plugins on the archive page.  See "' . THEME_PAGE_OPTIONS . '" below.</p><p>If using the avatar plugin (serendipity_event_gravatar), configure option "Produce smarty tag = yes" for best display of comment avatars.</p><p>Configure serendipity_event_freetag option "Extended Smarty = yes" for a nicer display of tags in the entry footer.</p>');
+@define('THEME_EP_NO','<p class="msg_error">Extended Property for Entries plugin (serendipity_event_entryproperties) is required for this theme, which is not installed or is inactive. Please install the plugin to fully utilize this theme.</p>');
+@define('THEME_INSTRUCTIONS','<p>This theme displays blog posts on a linear timeline. Each group of month titles can also be displayed or hidden on the timeline.</p><p>This theme uses a right and bottom sidebar. Either, or both sidebars can be disabled by deleting sidebar plugins or relocating sidebar plugins to the sidebar column labeled "hidden" in plugin configuration.</p><p>This theme can be configured to display categories and entry tags from the respective sidebar plugins on the archive page. See "' . THEME_PAGE_OPTIONS . '" below.</p><p>If using the avatar plugin (serendipity_event_gravatar), configure option "Produce smarty tag = yes" for best display of comment avatars.</p><p>Configure serendipity_event_freetag option "Extended Smarty = yes" for a nicer display of tags in the entry footer.</p>');
 @define('THEME_CUSTOM_FIELD_HEADING', 'Custom Entry Fields');
-@define('THEME_CUSTOM_FIELD_DEFINITION','These optional field(s) are only available when using this theme (timeline).  The event plugin serendipity_event_entryproperties (extended properties for entries) must also be installed to use these field(s).  The entry image will appear on both the timeline, and at the top of each detailed entry.');
+@define('THEME_CUSTOM_FIELD_DEFINITION','These optional field(s) are only available when using this theme (timeline). The event plugin serendipity_event_entryproperties (extended properties for entries) must also be installed to use these field(s). The entry image will appear on both the timeline, and at the top of each detailed entry.');
 @define('THEME_ENTRY_IMAGE','Entry Image.');
 @define('THEME_DEMO_AVAILABLE', 'A complete English explanation of <a href="http://www.optional-necessity.com/demo/timeline/archives/13-Using-the-Timeline-theme.html">configuring and using Timeline</a> can be found on the <a href="http://www.optional-necessity.com/demo/timeline/">Timeline theme demo</a>.');
 
@@ -25,7 +25,7 @@
 @define('USE_GOOGLEFONTS', 'Use Google webfonts?');
 @define('THEME_COLORSET', 'Colorset');
 @define('THEME_SKINSET', 'Theme skin');
-@define('HEADER_IMG','Optional Header Image.   Leave blank to use Blog Name.');
+@define('HEADER_IMG','Optional Header Image. Leave blank to use Blog Name.');
 @define('HEADER_IMG_DESC', 'Header image recommended size: 150px x 40px.');
 @define('SUBHEADER_IMG','Optional Subheader Image.');
 @define('SUBHEADER_IMG_DESC', 'This full width background image appears below the header logo and site navigation.');
@@ -34,7 +34,7 @@
 @define('WORDS','Words');
 @define('TIMESTAMP','Timestamp');
 @define('DISPLAY_AS_TIMELINE','Use timeline format');
-@define('DISPLAY_AS_TIMELINE_DESC','Use timeline format for blog posts.  If false, blog posts will be shown in a more typical blog format.');
+@define('DISPLAY_AS_TIMELINE_DESC','Use timeline format for blog posts. If false, blog posts will be shown in a more typical blog format.');
 @define('MONTHS_ON_TIMELINE','Show month names on timeline');
 @define('MONTHS_ON_TIMELINE_DESC','Month name will appear as a heading on the timeline for each month of entries.');
 @define('MONTHS_ON_TIMELINE_FORMAT','Timeline month format');

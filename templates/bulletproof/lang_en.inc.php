@@ -3,9 +3,9 @@
 @define('THEME_COLORSET', 'Colorset');
 @define('THEME_HEADER', 'Header');
 
-@define('USER_STYLESHEET','To extend Bulletproof with your own styles in an update-safe way, you can add a file <code>/templates/bulletproof/user.css</code>; it will be included automagically by s9y.');
+@define('USER_STYLESHEET','To extend Bulletproof with your own styles in an update-safe way, you can add a file <code>/templates/bulletproof/user.css</code>; it will be included automagically by Serendipity.');
 // Layout
-@define('LAYOUT_TYPE','Blog layout (B = Blog entriee, S = Sidebar, CF = Content first)');
+@define('LAYOUT_TYPE','Blog layout (B = Blog entries, S = Sidebar, CF = Content first)');
 @define('LAYOUT_SBS','Three columns S-B-S');
 @define('LAYOUT_BSS','Three columns, B-S-S, CF');
 @define('LAYOUT_SSB','Three columns, S-S-B');
