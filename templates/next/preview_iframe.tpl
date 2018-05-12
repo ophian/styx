@@ -72,7 +72,7 @@
         <main id="primary" class="{$mode}_preview_content">
             <div class="clearfix">
         {if $mode == 'preview'}
-            {$preview}
+                {$preview}
         {elseif $mode == 'save'}
                 <div class="{$mode}_preview_sizing"></div>
                 {if !empty($updertHooks)}<div class="{$mode}_updertH">{$updertHooks}</div>{/if}

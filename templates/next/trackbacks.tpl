@@ -8,7 +8,7 @@
         <details>
             <summary>{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$trackback.title}</summary>
             <div class="clearfix">
-            {$trackback.body|strip_tags|escape:'htmlall'} [&hellip;]
+                {$trackback.body|strip_tags|escape:'htmlall'} [&hellip;]
             </div>
         </details>
     {/if}
