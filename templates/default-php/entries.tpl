@@ -166,9 +166,9 @@
 
                 <br>
                 <div class="serendipity_section_commentform">
-	                <div class="serendipity_commentsTitle"><?= ADD_COMMENT; ?></div>
-	                <?= $GLOBALS['tpl']['COMMENTFORM']; ?>
-				</div>
+                    <div class="serendipity_commentsTitle"><?= ADD_COMMENT; ?></div>
+                    <?= $GLOBALS['tpl']['COMMENTFORM']; ?>
+                </div>
 
                 <?php endif; ?>
             </div>

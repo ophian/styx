@@ -54,7 +54,7 @@
 {serendipity_hookPlugin hook="frontend_footer"}
 {if $is_embedded != true}
 <div id="footer">
-	<p>{$CONST.POWERED_BY} <a href="http://www.s9y.org">s9y</a> - Design by <a href="http://www.carlgalloway.com">Carl</a></p>
+    <p>{$CONST.POWERED_BY} <a href="http://www.s9y.org">s9y</a> - Design by <a href="http://www.carlgalloway.com">Carl</a></p>
 </div>
 </div>
 </body>

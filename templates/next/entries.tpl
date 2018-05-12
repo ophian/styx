@@ -96,7 +96,7 @@
     <section id="reply" class="clearfix">
         <h3>{$CONST.ADD_COMMENT}</h3>
         {$COMMENTFORM}
-	</section>
+    </section>
     {/if}
     {elseif $is_comment_moderate}
     <p class="msg-notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED} {$CONST.THIS_COMMENT_NEEDS_REVIEW}</p>
@@ -106,7 +106,7 @@
     <section id="reply" class="clearfix">
         <h3>{$CONST.ADD_COMMENT}</h3>
         {$COMMENTFORM}
-	</section>
+    </section>
     {/if}
 {/if}
     {$entry.backend_preview}

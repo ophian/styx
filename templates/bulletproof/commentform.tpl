@@ -15,7 +15,7 @@
   <dd class="serendipity_commentsValue">{$commentform_replyTo}</dd>
   <dt class="serendipity_commentsLabel"><label for="serendipity_commentform_comment">{$CONST.COMMENT}</label></dt>
   <dd class="serendipity_commentsValue"><textarea class="frm" rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]">{$commentform_data}</textarea>{serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}</dd>
-    		
+
   {if $is_commentform_showToolbar}
     <dt>&#160;</dt>
     <dd class="serendipity_commentsLabel">
@@ -25,7 +25,7 @@
     {/if}
   </dd>
   {/if}
-    	
+
   {if $is_moderate_comments}
     <dt class="serendipity_commentsValue serendipity_msg_important">{$CONST.COMMENTS_WILL_BE_MODERATED}</dt>
     <dd>&#160;</dd>

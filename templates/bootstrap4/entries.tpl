@@ -98,7 +98,7 @@
     <section id="reply">
         <h3>{$CONST.ADD_COMMENT}</h3>
         {$COMMENTFORM}
-	</section>
+    </section>
     {/if}
 {/if}
     {$entry.backend_preview}

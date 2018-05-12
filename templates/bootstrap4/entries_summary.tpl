@@ -1,9 +1,9 @@
 {serendipity_hookPlugin hook="entries_header"}
 <article class="archive archive_summary">
-	<h2>{$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B %Y"}</h2>
+    <h2>{$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B %Y"}</h2>
 
-	<dl class="row">
-	{foreach $entries AS $sentries}
+    <dl class="row">
+    {foreach $entries AS $sentries}
         {foreach $sentries.entries AS $entry}
         <dt class="col-xs-12 col-lg-7"><a href="{$entry.link}">{$entry.title}</a></dt>
         <dd class="col-xs-6 col-lg-3"><a href="{$entry.link_author}">{$entry.author}</a></dd>
