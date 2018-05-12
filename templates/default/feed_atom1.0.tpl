@@ -9,8 +9,8 @@
    xmlns:wfw="http://wellformedweb.org/CommentAPI/">
     {$channel_display_dat}
     <link href="{$self_url}" rel="self" title="{$metadata.title}" type="application/atom+xml" />
-    <link href="{$serendipityBaseURL}"                        rel="alternate"    title="{$metadata.title}" type="text/html" />
-    <link href="{$serendipityBaseURL}rss.php?version=2.0"     rel="alternate"    title="{$metadata.title}" type="application/rss+xml" />
+    <link href="{$serendipityBaseURL}" rel="alternate" title="{$metadata.title}" type="text/html" />
+    <link href="{$serendipityBaseURL}rss.php?version=2.0" rel="alternate" title="{$metadata.title}" type="application/rss+xml" />
     <link rel="stylesheet" href="{serendipity_getFile file='atom.css'}" type="text/css" />
     <title type="html">{$metadata.title}</title>
     <subtitle type="html">{$metadata.description}</subtitle>
