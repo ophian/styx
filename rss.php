@@ -292,6 +292,11 @@ switch($version) {
         // For people wanting extra RFC compliance
         // header('Content-Type: application/atom+xml; charset=utf-8');
         $namespace_hook = 'frontend_display:atom-1.0:namespace';
+        // here convert commonly used HTML5 tags back to XHTML for atom 1.0 feeds
+        foreach ($entries AS &$entry) {
+            $entry['feed_body'] = serendipity_atomFeedCompliance($entry['feed_body']);
+            $entry['feed_ext']  = serendipity_atomFeedCompliance($entry['feed_ext']);
+        }
         break;
 }
 

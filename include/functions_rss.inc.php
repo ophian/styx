@@ -12,6 +12,26 @@ if (defined('S9Y_FRAMEWORK_RSS')) {
 @define('S9Y_FRAMEWORK_RSS', true);
 
 /**
+ * Convert HTML5 unclosed single tags back to XHTML for Atom1.0 feeds
+ *
+ * @param   feedContent      The body/extended content text part
+ * @return  feedContent
+ */
+function serendipity_atomFeedCompliance($feedContent) {
+    if (false !== strpos($feedContent, '<br>')) {
+        $feedContent = str_replace('<br>', '<br/>', $feedContent);
+    }
+    if (false !== strpos($feedContent, '<hr>')) {
+        $feedContent = str_replace('<hr>', '<hr/>', $feedContent);
+    }
+    // see new gallery usage for example
+    if (false !== strpos($feedContent, '<img')) {
+        $feedContent = str_replace('"  ', '" ', preg_replace('/<img(.*?)\/?>/i', '<img$1/>', $feedContent));
+    }
+    return $feedContent;
+}
+
+/**
  * Parses entries to display them for RSS/Atom feeds to be passed on to generic Smarty templates
  *
  * This function searches for existing RSS feed template customizations. As long as a template
