@@ -168,12 +168,12 @@ $metadata['additional_fields']['image'] = <<<IMAGE
 </image>
 IMAGE;
 
-$metadata['additional_fields']['image_atom1.0'] = <<<IMAGE
+$metadata['additional_fields']['image_atom10'] = <<<IMAGE
 <icon>$img</icon>
 IMAGE;
 
-$metadata['additional_fields']['image_rss1.0_channel'] = '<image rdf:resource="' . $img . '" />';
-$metadata['additional_fields']['image_rss1.0_rdf'] = <<<IMAGE
+$metadata['additional_fields']['image_rss10_channel'] = '<image rdf:resource="' . $img . '" />';
+$metadata['additional_fields']['image_rss10_rdf'] = <<<IMAGE
 <image rdf:about="$img">
     <url>$img</url>
     <title>RSS: $title - $description</title>
