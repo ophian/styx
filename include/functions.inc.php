@@ -880,12 +880,7 @@ function serendipity_rss_getguid($entry, $comments = false) {
 /**
  * Perform some replacement calls to make valid XHTML content
  *
- * jbalcorn: starter function to clean up xhtml for atom feed.  Add things to this as we find common
- * mistakes, unless someone finds a better way to do this.
- *      DONE:
- *          since someone encoded all the urls, we can now assume any amp followed by
- *              whitespace or a HTML tag (i.e. &<br /> )should be
- *              encoded and most not with a space are intentional
+ * Starter function to clean up XHTML for ATOM feeds.
  *
  * @access public
  * @param   string  Input HTML code
@@ -895,14 +890,14 @@ function xhtml_cleanup($html) {
     static $p = array(
         '/\&([\s\<])/',                 // ampersand followed by whitespace or tag
         '/\&$/',                        // ampersand at end of body
-        '/<(br|hr|img)([^\/>]*)>/i',    // unclosed br tag - attributes included
+        '/<(br|hr|img)(.*?)\/?>/i',     // commonly used unclosed single tags - attributes included
         '/\&nbsp;/'                     // Protect whitespace
     );
 
     static $r = array(
         '&amp;\1',
         '&amp;',
-        '<\1\2 />',
+        '<\1\2/>',
         '&#160;'
     );
 
