@@ -1,6 +1,8 @@
 Version 2.5.0 ()
  ------------------------------------------------------------------------
 
+  * Bugfix feed array keys to not include dots for Smarty template loops
+
   * Bugfix atom feed XHTML compliance for common unclosed HTML tags
 
   * Improve various themes: Distinguish trackbacks output in comment
