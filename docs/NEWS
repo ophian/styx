@@ -1,6 +1,8 @@
 Version 2.5.0 ()
  ------------------------------------------------------------------------
 
+  * Bugfix non-working s9ymarkup asterix-bold conversion
+
   * Bugfix feed array keys to not include dots for Smarty template loops
 
   * Bugfix atom feed XHTML compliance for common unclosed HTML tags
