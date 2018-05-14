@@ -1,7 +1,7 @@
 Version 2.5.0 ()
  ------------------------------------------------------------------------
 
-  * Fix atom (1.0) feed XHTML compliance for common unclosed HTML tags
+  * Bugfix atom feed XHTML compliance for common unclosed HTML tags
 
   * Improve various themes: Distinguish trackbacks output in comment
     shortcut pages like "blog/comments/trackbacks/" in comments.tpl
