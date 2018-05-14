@@ -88,8 +88,8 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             }
             $entry['body'] = preg_replace($pattern, '\1=\2' . $serendipity['baseURL'] . '\3', $entry['body']);
             //$entry['body'] = preg_replace('@(href|src)=("|\')(' . preg_quote($serendipity['serendipityHTTPPath']) . ')(.*)("|\')(.*)>@imsU', '\1=\2' . $serendipity['baseURL'] . '\4\2\6>', $entry['body']);
-            // jbalcorn: clean up body for XML compliance as best we can.
-            $entry['body'] = xhtml_cleanup($entry['body']);
+            // clean up body for XML compliance and doubled whitespace between (img) attributes as best we can.
+            $entry['body'] = str_replace('"  ', '" ', xhtml_cleanup($entry['body']));
 
             // extract author information
             if ((isset($entry['no_email']) && $entry['no_email']) || $options['showMail'] === FALSE) {
