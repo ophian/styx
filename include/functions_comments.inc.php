@@ -175,7 +175,7 @@ function serendipity_entityCommentCodeTagBlocks($str) {
         return '<code' . $matches[1] . '>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code>';
     };
     $code_callback_pre = function($matches) {
-        return '<pre><code' . $matches[1] . '>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code><pre>';
+        return '<pre><code' . $matches[1] . '>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code></pre>';
     };
     $pre_callback = function($matches) {
         return '<pre' . $matches[1] . '><code>' . serendipity_entities($matches[2], null, LANG_CHARSET, false) . '</code></pre>';
