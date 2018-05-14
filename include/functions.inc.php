@@ -795,7 +795,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
     }
 
     if (!isset($maildata['skip_native']) && !empty($maildata['to'])) {
-        return mail($maildata['to'], $maildata['subject'], $maildata['message'], implode("\n", $maildata['headers']));
+        return @mail($maildata['to'], $maildata['subject'], $maildata['message'], implode("\n", $maildata['headers']));
     }
 }
 
