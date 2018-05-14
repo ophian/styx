@@ -18,7 +18,7 @@ class serendipity_event_s9ymarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_S9YMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.5');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -124,12 +124,13 @@ class serendipity_event_s9ymarkup extends serendipity_event
         $text = str_replace(chr(1), '\_', $text);
 
         // bold
-        $text = str_replace('\*',chr(1), $text);
-        $text = str_replace('**',chr(2), $text);
+        /*$text = str_replace('\*', chr(1), $text);
+        $text = str_replace('**', chr(2), $text);
         $text = preg_replace('/(\S)\*(\S)/','\1' . chr(1) . '\2', $text);
         $text = preg_replace('/\B\*([^*]+)\*\B/','<strong>\1</strong>', $text);
-        $text = str_replace(chr(2),'**', $text);
-        $text = str_replace(chr(1),'\*', $text);
+        $text = str_replace(chr(2), '**', $text);
+        $text = str_replace(chr(1), '\*', $text);*/
+        $text = preg_replace('/\*{1,2}(.*?)\*{1,2}/', '<strong>\1</strong>',  $text);
 
         // $text = preg_replace('/\|([0-9a-fA-F]+?)\|([\S ]+?)\|/', '<font color="\1">\2</font>',$text);
         $text = preg_replace('/\^([[:alnum:]]+?)\^/','<sup>\1</sup>', $text);
