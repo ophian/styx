@@ -131,6 +131,7 @@ class serendipity_event_s9ymarkup extends serendipity_event
         $text = str_replace(chr(2), '**', $text);
         $text = str_replace(chr(1), '\*', $text);*/
         $text = preg_replace('/\*{1,2}(.*?)\*{1,2}/', '<strong>\1</strong>',  $text);
+        $text = str_replace('<strong></strong>', '**', $text);
 
         // $text = preg_replace('/\|([0-9a-fA-F]+?)\|([\S ]+?)\|/', '<font color="\1">\2</font>',$text);
         $text = preg_replace('/\^([[:alnum:]]+?)\^/','<sup>\1</sup>', $text);
