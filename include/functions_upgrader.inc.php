@@ -419,6 +419,12 @@ $dead_files_250 = array(
     'bundled-libs/NET/CheckIP.php',
     'bundled-libs/NET/Socket.php',
     'bundled-libs/NET/URL.php',
+    'templates/2k11/feed_0.91.tpl',
+    'templates/2k11/feed_1.0.tpl',
+    'templates/2k11/feed_2.0.tpl',
+    'templates/2k11/feed_atom0.3.tpl',
+    'templates/2k11/feed_atom1.0.tpl',
+    'templates/2k11/feed_opml1.0.tpl',
     'templates/default/admin/img/readonly.png'
 );
 
