@@ -1,7 +1,10 @@
 Version 2.5.0 ()
  ------------------------------------------------------------------------
 
-  * Bugfix non-working s9ymarkup asterix-bold conversion
+  * Bugfix non-working s9ymarkup (plugin) asterix-bold-tag conversion.
+    If you now encounter any issues in your blog text or feeds, this most
+    probably are words starting with an asterix not meant to be a bold-marked
+    word. These occurrences need to start with a slash, eg. \*.
 
   * Bugfix feed array keys to not include dots for Smarty template loops
 
