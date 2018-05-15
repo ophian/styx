@@ -14,7 +14,7 @@
         {if $comment.body == 'COMMENT_DELETED'}
             <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COMMENT_IS_DELETED}</p>
         {else}
-            {$comment.body}{if $comment.type == 'TRACKBACK'} [&hellip;]{/if}
+            {if $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
         {/if}
         </div>
 
@@ -32,7 +32,7 @@
                 <li><a class="comment_source_ownerlink" href="{$comment.link_delete}" title="{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}">{$CONST.DELETE}</a></li>
             {/if}
             {if $comment.type == 'TRACKBACK'}
-                <li>{$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle}</span></li>
+                <li>{$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle|truncate:42|wordwrap:15:"\n":true|escape}</span></li>
             {else}
         {if $template_option.refcomments == true}
             {if $comment.parent_id != '0'}

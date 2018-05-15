@@ -20,7 +20,7 @@
         {if $comment.body == 'COMMENT_DELETED'}
         <p>{$CONST.COMMENT_IS_DELETED}</p>
         {else}
-        <p>{$comment.body}{if $comment.type == 'TRACKBACK'} [&hellip;]{/if}</p>
+        <p>{if $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}</p>
         {/if}
     </li>
 {foreachelse}

@@ -32,7 +32,7 @@
                         {if $comment.body == 'COMMENT_DELETED'}
                             {$CONST.COMMENT_IS_DELETED}
                         {else}
-                            {$comment.body}{if $comment.type == 'TRACKBACK'} [&hellip;]{/if}
+                            {if $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
                         {/if}
                 </div>
                 <div class="comment-meta">

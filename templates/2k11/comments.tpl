@@ -14,7 +14,7 @@
     {if $comment.body == 'COMMENT_DELETED'}
         {$CONST.COMMENT_IS_DELETED}
     {else}
-        {$comment.body}{if $comment.type == 'TRACKBACK'} [&hellip;]{/if}
+        {if $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
     {/if}
     </div>
 
@@ -28,7 +28,7 @@
         | <a class="comment_source_ownerlink" href="{$comment.link_delete}" title="{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}">{$CONST.DELETE}</a>
     {/if}
     {if $comment.type == 'TRACKBACK'}
-        {$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle}</span>
+        {$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle|truncate:42|wordwrap:15:"\n":true|escape}</span>
     {else}
 {if $template_option.refcomments == true}
     {if $comment.parent_id != '0'}

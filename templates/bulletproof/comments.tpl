@@ -5,7 +5,7 @@
         {if $comment.body == 'COMMENT_DELETED'}
             {$CONST.COMMENT_IS_DELETED}
         {else}
-            {$comment.body}{if $comment.type == 'TRACKBACK'} [&hellip;]{/if}
+            {if $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
         {/if}
         </div>
         <div class="serendipity_comment_source">
@@ -24,7 +24,7 @@
             {/if}
         {if $comment.type == 'TRACKBACK'}
             <br />
-            {$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle}</span>
+            {$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle|truncate:42|wordwrap:15:"\n":true|escape}</span>
         {/if}
             </span>
             {if $comment.url}
