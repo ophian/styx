@@ -425,7 +425,11 @@ $dead_files_250 = array(
     'templates/2k11/feed_atom0.3.tpl',
     'templates/2k11/feed_atom1.0.tpl',
     'templates/2k11/feed_opml1.0.tpl',
-    'templates/default/admin/img/readonly.png'
+    'templates/2k11/UTF-8/lang_en.inc.php',
+    'templates/bootstrap4/UTF-8/lang_en.inc.php',
+    'templates/bulletproof/UTF-8/lang_en.inc.php',
+    'templates/default/admin/img/readonly.png',
+    'templates/next/UTF-8/lang_en.inc.php'
 );
 
 /* A list of old or removed directories for 2.5.0 */
