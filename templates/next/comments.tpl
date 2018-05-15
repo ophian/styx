@@ -22,7 +22,7 @@
         {if $comment.spice_article_name}
             <p>{$comment.spice_article_prefix}: <a{if $comment.spice_article_nofollow} rel="nofollow"{/if} href="{$comment.spice_article_url}">{$comment.spice_article_name}</a></p>
         {/if}
-            <ul class="meta">
+            <ul class="meta{if $comment.type == 'TRACKBACK'} tb-meta{/if}">
             {if $comment.type == 'TRACKBACK'}
                 <li><strong>TRACKBACK</strong></li>
             {/if}

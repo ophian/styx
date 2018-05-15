@@ -869,6 +869,14 @@ article.post article .pc-owner {
 
 #comments .comment > footer .meta {
     margin: .25rem 0; }
+.comments_for_entry .comment.odd > footer .meta {
+    border: 1px solid #DDD;
+    background-color: #FDFDFD;
+    box-shadow: 1px 1px 2px #EDEDED; }
+.comments_for_entry .comment.even > footer .meta {
+    border: 1px solid #DDD;
+    background-color: #FEFEFE;
+    box-shadow: 1px 1px 2px #EEE; }
 
 .comment_avatar {
     background-color: #DDD;
