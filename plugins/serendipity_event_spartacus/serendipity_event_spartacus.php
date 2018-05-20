@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.63');
+        $propbag->add('version',       '2.64');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -458,7 +458,7 @@ class serendipity_event_spartacus extends serendipity_event
             $options = array('follow_redirects' => true, 'max_redirects' => 5);
             serendipity_plugin_api::hook_event('backend_http_request', $options, 'spartacus');
             // ping for main xml check
-            $fContent = serendipity_request_url($url, 'GET', $options);
+            $fContent = serendipity_request_url($url, 'GET', null, null, $options);
 
             try {
                 if ($serendipity['last_http_request']['responseCode'] != '200') {
@@ -510,7 +510,7 @@ class serendipity_event_spartacus extends serendipity_event
                 $health_options = $options;
                 serendipity_plugin_api::hook_event('backend_http_request', $health_options, 'spartacus_health');
                 // ping for health
-                $fContent = serendipity_request_url($health_url, 'GET', $health_options);
+                $fContent = serendipity_request_url($health_url, 'GET', null, null, $health_options);
 
                 try {
                     if ($serendipity['last_http_request']['responseCode'] != '200') {
