@@ -31,7 +31,7 @@ class Serendipity_Import
     /**
      * Return textual notes of an importer plugin
      *
-     * If an importer plugin needs to show any notes on the userinterface, those can be returned in this method.
+     * If an importer plugin needs to show any notes on the user interface, those can be returned in this method.
      *
      * @access public
      * @return string  HTML-code of a interface/user hint
@@ -228,12 +228,10 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
         /* Yes sir, we are importing if we have valid data */
         if ($importer->validateData()) {
             $data['validateData'] = true;
+            /* generic import() MUST return (bool) */
+            $data['result'] = $importer->import();
 
-            /* import() MUST return (bool)true, otherwise we assume it failed */
-            if (($result = $importer->import()) !== true) {
-                $data['result'] = $result;
-            }
-        /* Apprently we do not have valid data, ask for some */
+        /* Apparently we do not have valid data, ask for some */
         } else {
             $data['formToken'] = serendipity_setFormToken();
             $fields = $importer->getInputFields();

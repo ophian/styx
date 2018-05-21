@@ -90,7 +90,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
             // See if the 'description' element is a substring of the 'content:encoded' part. If it is,
             // we will only fetch the full 'content:encoded' part. If it's not a substring, we append
             // the 'content:encoded' part to either body or extended entry (respecting the 'bodyonly'
-            // switch). We substract 4 letters because of possible '...' additions to an entry.
+            // switch). We subtract 4 letters because of possible '...' additions to an entry.
             $testbody = substr(trim(strip_tags($entry['body'])), 0, -4);
             if ($testbody != substr(trim(strip_tags($item['content:encoded'])), 0, strlen($testbody))) {
                 $data .= $this->decode($item['content:encoded']);
@@ -141,34 +141,27 @@ class Serendipity_Import_Generic extends Serendipity_Import
 
     function import_wpxrss()
     {
+        global $serendipity;
+
         // TODO: Backtranscoding to NATIVE charset. Currently only works with UTF-8.
         $dry_run = false;
 
         $serendipity['noautodiscovery'] = 1;
         $uri = $this->data['url'];
-
-        serendipity_request_start();
-
         $options = array('follow_redirects' => true, 'max_redirects' => 5);
 
-        $req = serendipity_request_object($uri, 'get', $options);
+        $fContent = serendipity_request_url($uri, 'GET', null, null, $options);
 
         try {
-            $res = $req->send();
-            if ($res->getStatus() != '200') {
-                throw new HTTP_Request2_Exception('could not fetch url: status != 200');
+            if ($serendipity['last_http_request']['responseCode'] != '200') {
+                throw new HTTP_Request2_Exception('Could not fetch URL: Status != 200');
             }
         } catch (HTTP_Request2_Exception $e) {
-            serendipity_request_end();
-            echo '<span class="block_level">' . IMPORT_FAILED . ': ' . serendipity_specialchars($this->data['url']) . '</span>';
+            echo '<span class="block_level">' . IMPORT_FAILED . ': ' . serendipity_specialchars($uri) . "</span>\n";
             return false;
         }
 
-        $fContent = $res->getBody();
-
-        serendipity_request_end();
-
-        echo '<span class="block_level">' . strlen($fContent) . " Bytes</span>";
+        echo '<span class="block_level">' . strlen($fContent) . " Bytes</span>\n";
 
         $xml = simplexml_load_string($fContent);
         unset($fContent);
@@ -176,7 +169,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
         /* ************* USERS **********************/
         $_s9y_users = serendipity_fetchUsers();
         $s9y_users = array();
-        if (is_array($s9y_users)) {
+        if (is_array($_s9y_users)) {
             foreach($_s9y_users AS $v) {
                 $s9y_users[$v['realname']] = $v;
             }
@@ -320,7 +313,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
                 $s9y_cid[$c_id] = $cid;
             }
 
-            echo "<span class='msg_notice'>Entry '" . serendipity_specialchars($entry['title']) . "' ($c_i comments) imported.</span>";
+            echo '<span class="msg_notice">Entry \'' . serendipity_specialchars($entry['title']) . "' ($c_i comments) imported.</span>\n";
         }
         return true;
     }
@@ -328,6 +321,8 @@ class Serendipity_Import_Generic extends Serendipity_Import
     function import()
     {
         global $serendipity;
+
+        $import = false;
 
         if (serendipity_db_bool($this->data['wpxrss'])) {
             return $this->import_wpxrss();
@@ -339,13 +334,14 @@ class Serendipity_Import_Generic extends Serendipity_Import
 
         $serendipity['noautodiscovery'] = 1;
         while ($item = $c->getNextItem()) {
-            $entry    = array();
+            $entry = array();
             if ($this->buildEntry($item, $entry)) {
                 serendipity_updertEntry($entry);
             }
+            $import = true;
         }
 
-        return true;
+        return $import;
     }
 
 }
