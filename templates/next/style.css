@@ -925,6 +925,10 @@ article.post article .pc-owner {
   border-color: #bce8f1;
   color: #3a87ad; }
 
+#serendipity_categories_list input[type="checkbox"] {
+    vertical-align: middle;
+    margin-right: 0.25em; }
+
 #archives h3 {
   margin-top: 0; }
 #archives .date {
