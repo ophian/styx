@@ -543,6 +543,12 @@ function serendipity_printCommentsByAuthor() {
         $type = '%';
     }
 
+    /* See /comments/pingbacks/ shortcut page */
+    if ($serendipity['GET']['viewCommentAuthor'] == 'pingbacks') {
+        $type = serendipity_db_escape_string($serendipity['GET']['viewCommentAuthor']);
+        unset($serendipity['GET']['viewCommentAuthor']);
+    }
+
     if (!empty($serendipity['GET']['viewCommentAuthor'])) {
         $sql_where = " AND co.author = '" . serendipity_db_escape_string($serendipity['GET']['viewCommentAuthor']) . "'";
         $group_by  = "GROUP BY co.author";

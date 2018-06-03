@@ -346,7 +346,7 @@ function add_trackback($id, $title, $url, $name, $excerpt) {
     log_trackback('[' . date('d.m.Y H:i') . '] TRACKBACK STORING...');
 
     if ($id > 0) {
-        // first check, if we already have this pingback
+        // first check, if we already have this trackback
         $comments = serendipity_fetchComments($id, 1, 'co.id', true, 'TRACKBACK', " AND co.url='" . serendipity_db_escape_string($url) . "'");
         if (is_array($comments) && sizeof($comments) == 1) {
             log_trackback('We already have that TRACKBACK!');
