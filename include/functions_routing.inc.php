@@ -100,7 +100,7 @@ function serveComments() {
                 $serendipity['GET']['commentEndTime'] = $date;
                 $timedesc['end'] = serendipity_strftime(DATE_FORMAT_SHORT, $date);
             }
-        } elseif ($v == 'trackbacks' || $v == 'comments_and_trackbacks' || $v == 'comments') {
+        } elseif (in_array($v, ['trackbacks', 'pingbacks', 'comments_and_trackbacks', 'comments'])) {
             $serendipity['GET']['commentMode'] = $v;
         } elseif (!empty($v)) {
             $serendipity['GET']['viewCommentAuthor'] .= urldecode($v);
