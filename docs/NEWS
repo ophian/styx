@@ -1,7 +1,7 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
-  * Fix SQL query generation for /comments/pingbacks/ shortcut pages
+  * Fix GET routing for /comments/pingbacks/ shortcut pages
 
   * Sync Smarty 3.1.33-dev-5 bugfix updates
 
