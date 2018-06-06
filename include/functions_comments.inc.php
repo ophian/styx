@@ -605,7 +605,7 @@ function serendipity_printCommentsByAuthor() {
     } elseif ($type == 'comments_and_trackbacks') {
         $_type = '%';
     } else {
-        $type = '';
+        $_type = '';
     }
 
     $fc = "SELECT count(co.id) AS counter
