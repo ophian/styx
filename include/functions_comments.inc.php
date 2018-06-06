@@ -21,7 +21,7 @@ function serendipity_checkCommentToken($token, $cid) {
     if ($serendipity['useCommentTokens']) {
         // Delete any comment tokens older than 1 week.
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                              WHERE okey LIKE 'comment_%' AND name < " . (time() - 604800) );
+                               WHERE okey LIKE 'comment_%' AND name < " . (time() - 604800) );
         // Get the token for this comment id
         $tokencheck = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}options
                                              WHERE okey = 'comment_" . (int)$cid . "' LIMIT 1", true, 'assoc');
@@ -31,8 +31,7 @@ function serendipity_checkCommentToken($token, $cid) {
                 $goodtoken = true;  // use this to bypass security checks later
                 // if using tokens, delete this comment from that list no matter how we got here
                 serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                                            WHERE okey = 'comment_" . (int)$cid . "'");
-
+                                       WHERE okey = 'comment_" . (int)$cid . "'");
             }
         }
     }
@@ -270,10 +269,10 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
     $commentform_data = array(
         'commentform_action'         => $url,
         'commentform_id'             => (int)$id,
-        'commentform_name'           => isset($data['name'])      ? serendipity_specialchars($data['name'])       : (isset($serendipity['COOKIE']['name'])     ? serendipity_specialchars($serendipity['COOKIE']['name'])     : ''),
-        'commentform_email'          => isset($data['email'])     ? serendipity_specialchars($data['email'])      : (isset($serendipity['COOKIE']['email'])    ? serendipity_specialchars($serendipity['COOKIE']['email'])    : ''),
-        'commentform_url'            => isset($data['url'])       ? serendipity_specialchars($data['url'])        : (isset($serendipity['COOKIE']['url'])      ? serendipity_specialchars($serendipity['COOKIE']['url'])      : ''),
-        'commentform_remember'       => isset($data['remember'])  ? 'checked="checked"'                   : (isset($serendipity['COOKIE']['remember']) ? 'checked="checked"' : ''),
+        'commentform_name'           => isset($data['name'])      ? serendipity_specialchars($data['name'])    : (isset($serendipity['COOKIE']['name'])     ? serendipity_specialchars($serendipity['COOKIE']['name']) : ''),
+        'commentform_email'          => isset($data['email'])     ? serendipity_specialchars($data['email'])   : (isset($serendipity['COOKIE']['email'])    ? serendipity_specialchars($serendipity['COOKIE']['email']) : ''),
+        'commentform_url'            => isset($data['url'])       ? serendipity_specialchars($data['url'])     : (isset($serendipity['COOKIE']['url'])      ? serendipity_specialchars($serendipity['COOKIE']['url']) : ''),
+        'commentform_remember'       => isset($data['remember'])  ? 'checked="checked"'                        : (isset($serendipity['COOKIE']['remember']) ? 'checked="checked"' : ''),
         'commentform_replyTo'        => serendipity_generateCommentList($id, $comments, ((isset($data['replyTo']) && ($data['replyTo'])) ? $data['replyTo'] : 0)),
         'commentform_subscribe'      => isset($data['subscribe']) ? 'checked="checked"' : '',
         'commentform_data'           => isset($data['comment'])   ? serendipity_specialchars($data['comment']) : '',
@@ -317,6 +316,8 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
         $type = 'PINGBACK';
     } elseif ($type == 'comments_and_trackbacks') {
         $type = '%';
+    } else {
+        $type = '';
     }
 
     if (!empty($id)) {
@@ -603,6 +604,8 @@ function serendipity_printCommentsByAuthor() {
         $_type = 'PINGBACK';
     } elseif ($type == 'comments_and_trackbacks') {
         $_type = '%';
+    } else {
+        $type = '';
     }
 
     $fc = "SELECT count(co.id) AS counter
@@ -1085,7 +1088,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
 function serendipity_commentSubscriptionConfirm($hash) {
     global $serendipity;
 
-    // Delete possible current cookie. Also delete any confirmation hashs that smell like 3-week-old, dead fish.
+    // Delete possible current cookie. Also delete any confirmation hash that smell like 3-week-old, dead fish.
     if (stristr($serendipity['dbType'], 'sqlite')) {
         $cast = "name";
     } elseif (stristr($serendipity['dbType'], 'postgres')) {
@@ -1109,7 +1112,7 @@ function serendipity_commentSubscriptionConfirm($hash) {
                                WHERE id = $cid");
 
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                                    WHERE okey = 'commentsub_" . serendipity_db_escape_string($hash) . "'");
+                               WHERE okey = 'commentsub_" . serendipity_db_escape_string($hash) . "'");
 
         return $cid;
     }
@@ -1191,11 +1194,11 @@ function serendipity_mailSubscribers($entry_id, $poster, $posterMail, $title, $f
     }
 
     $sql = "SELECT $pgsql_insert author, email, type
-            FROM {$serendipity['dbPrefix']}comments
-            WHERE entry_id = '". (int)$entry_id ."'
-              AND email <> '" . serendipity_db_escape_string($posterMail) . "'
-              AND email <> ''
-              AND subscribed = 'true' $mysql_insert";
+              FROM {$serendipity['dbPrefix']}comments
+             WHERE entry_id = '". (int)$entry_id ."'
+               AND email <> '" . serendipity_db_escape_string($posterMail) . "'
+               AND email <> ''
+               AND subscribed = 'true' $mysql_insert";
     $subscribers = serendipity_db_query($sql);
 
     if (!is_array($subscribers)) {
@@ -1271,17 +1274,17 @@ function serendipity_sendComment($comment_id, $to, $fromName, $fromEmail, $fromU
         $fromName = ANONYMOUS;
     }
 
-    $entryURI   = serendipity_archiveURL($id, $title, 'baseURL');
-    $path       = ($type == 'TRACKBACK' || $type == 'PINGBACK') ? 'trackback' : 'comment';
+    $entryURI = serendipity_archiveURL($id, $title, 'baseURL');
+    $path     = ($type == 'TRACKBACK' || $type == 'PINGBACK') ? 'trackback' : 'comment';
 
     // Check for using Tokens
     if ($serendipity['useCommentTokens']) {
         $token = md5(uniqid(mt_srand(), true));
-        $path = $path . "_token_" . $token;
+        $path  = $path . "_token_" . $token;
 
         // Delete any comment tokens older than 1 week.
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                              WHERE okey LIKE 'comment_%' AND name < " . (time() - 604800) );
+                               WHERE okey LIKE 'comment_%' AND name < " . (time() - 604800) );
 
         // Issue new comment moderation hash
         serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
