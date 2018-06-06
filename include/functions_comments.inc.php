@@ -535,14 +535,6 @@ function serendipity_printCommentsByAuthor() {
 
     $type = serendipity_db_escape_string($serendipity['GET']['commentMode']);
 
-    if ($type == 'comments' || empty($type)) {
-        $type = 'NORMAL';
-    } elseif ($type == 'trackbacks') {
-        $type = 'TRACKBACK';
-    } elseif ($type == 'comments_and_trackbacks') {
-        $type = '%';
-    }
-
     if (!empty($serendipity['GET']['viewCommentAuthor'])) {
         $sql_where = " AND co.author = '" . serendipity_db_escape_string($serendipity['GET']['viewCommentAuthor']) . "'";
         $group_by  = "GROUP BY co.author";
@@ -601,10 +593,21 @@ function serendipity_printCommentsByAuthor() {
         $and .= ' AND co.status = \'approved\'';
     }
 
+    // we need this here for the counter paging sql query - elsewise $type is top-checked in serendipity_fetchComments()
+    if ($type == 'comments' || empty($type)) {
+        $_type = 'NORMAL';
+    } elseif ($type == 'trackbacks') {
+        $_type = 'TRACKBACK';
+    } elseif ($type == 'pingbacks') {
+        $_type = 'PINGBACK';
+    } elseif ($type == 'comments_and_trackbacks') {
+        $_type = '%';
+    }
+
     $fc = "SELECT count(co.id) AS counter
              FROM {$serendipity['dbPrefix']}comments AS co
             WHERE co.entry_id > 0
-              AND co.type LIKE '" . $type . "'
+              AND co.type LIKE '" . $_type . "'
               AND co.status = 'approved' " . $sql_where . " "
             .  $group_by;
 
