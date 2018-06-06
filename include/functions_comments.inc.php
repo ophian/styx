@@ -521,7 +521,8 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
         return true;
     }
 
-    $serendipity['smarty']->assignByRef($smarty_block == 'COMMENTS' ? 'comments' : 'trackbacks', $_smartyComments);
+    $_blocktype = ($smarty_block == 'COMMENTS') ? 'comments' : 'trackbacks';
+    $serendipity['smarty']->assignByRef($_blocktype, $_smartyComments);
     unset($_smartyComments);
 
     return serendipity_smarty_fetch($smarty_block, $smarty_file);
