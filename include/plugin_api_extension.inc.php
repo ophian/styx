@@ -17,7 +17,6 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
      * @param  string the key of the parent id
      * @return array  the final array with two new keys: 'up' and 'down'
      */
-
     function prepareReorder($array, $parent_id = 'parent_id')
     {
         if (is_array($array)) {
@@ -31,8 +30,10 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
                     }
                 }
             }
+
             return $array;
         }
+
         return $array;
     }
 
@@ -59,9 +60,9 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
                }
             }
         }
+
         return $array;
     }
-
 
     /**
      * Update table for re-ordering
@@ -74,7 +75,6 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
      * @param  array   The array containing the where clause
      * @return boolean
      */
-
     function doReorder($table, $moveto, $update_array, $where_array)
     {
         global $serendipity;
@@ -123,14 +123,15 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
                 }
                 serendipity_db_update($table, $where, $update);
                 serendipity_db_update($table, $where_array, $update_1);
+
                 return true;
             }
         }
+
         return false;
     }
 
     /**
-     *
      * Check if a string is a valid email
      *
      * @access public
@@ -139,7 +140,6 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
      * @return bool     is valid email true, else false
      *
      */
-
     function isEmail($email)
     {
         $preg = '/^[a-zA-Z0-9](([_\.-][a-zA-Z0-9]+)*)@([a-zA-Z0-9]+)(([\.-]?[a-zA-Z0-9]+)*)\.([a-zA-Z]{2,6})|localhost$/';
