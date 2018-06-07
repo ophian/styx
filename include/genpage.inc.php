@@ -10,7 +10,7 @@ include_once('serendipity_config.inc.php');
 
 include_once(S9Y_INCLUDE_PATH . 'include/plugin_api.inc.php');
 
-$uri = $_SERVER['REQUEST_URI'];  // need to define this again here, as index.php (v2.1+) no longer includes this file
+$uri = $_SERVER['REQUEST_URI']; // need to define this again here, as index.php (v2.1+) no longer includes this file
 $uri_addData = array(
     'startpage' => false,
     'uriargs'   => implode('/', serendipity_getUriArguments($uri, true)),
@@ -22,7 +22,7 @@ if ((empty($uri_addData['uriargs']) || trim($uri_addData['uriargs']) == $serendi
     $uri_addData['startpage'] = true;
 }
 
-$serendipity['plugindata']['smartyvars'] = $uri_addData; // Plugins can change this global variable
+$serendipity['plugindata']['smartyvars'] = $uri_addData; // Plugins can change this global variable, so we cache previously set $vars, which is $view etc. and re-add per init afterwards
 serendipity_plugin_api::hook_event('genpage', $uri, $uri_addData);
 serendipity_smarty_init($serendipity['plugindata']['smartyvars']);
 
@@ -88,8 +88,8 @@ switch ($serendipity['GET']['action']) {
 
         $serendipity['smarty']->assign(
             array(
-                'content_message'      => sprintf(YOUR_SEARCH_RETURNED_BLAHBLAH, '<span class="searchterm">' . $serendipity['GET']['searchTerm'] . '</span>', '<span class="searchresults">' . serendipity_getTotalEntries() . '</span>'),
-                'searchresult_results' => true,
+                'content_message'        => sprintf(YOUR_SEARCH_RETURNED_BLAHBLAH, '<span class="searchterm">' . $serendipity['GET']['searchTerm'] . '</span>', '<span class="searchresults">' . serendipity_getTotalEntries() . '</span>'),
+                'searchresult_results'   => true,
                 'searchresult_fullentry' => $serendipity['GET']['fullentry']
             )
         );
@@ -100,8 +100,7 @@ switch ($serendipity['GET']['action']) {
     // Show the comments
     case 'comments':
         serendipity_printCommentsByAuthor();
-        // use 'content_message' for pagination?
-
+        # use 'content_message' for pagination?
         break;
 
     // Show the archive
