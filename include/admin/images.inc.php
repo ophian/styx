@@ -27,6 +27,10 @@ if (empty($serendipity['GET']['hideSubdirFiles']) && empty($serendipity['COOKIE'
 if (!empty($serendipity['COOKIE']['hideSubdirFiles'])) {
     serendipity_restoreVar($serendipity['COOKIE']['hideSubdirFiles'], $serendipity['GET']['hideSubdirFiles']);
 }
+// don't do on null
+if (isset($serendipity['GET']['fid'])) {
+    $serendipity['GET']['fid'] = (int)$serendipity['GET']['fid'];
+}
 
 switch ($serendipity['GET']['adminAction']) {
 
@@ -236,7 +240,6 @@ switch ($serendipity['GET']['adminAction']) {
         break;
 
     case 'rename':
-        $serendipity['GET']['fid'] = (int)$serendipity['GET']['fid'];
         $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
 
         if (LANG_CHARSET == 'UTF-8') {
