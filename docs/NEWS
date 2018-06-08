@@ -1,6 +1,13 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Media Library list item title names were changed from realname
+    to diskname, which actually is the the real existing stored file
+    name. The (origin) realname, if independently exists, is shown in
+    the info layer as: "Origin: name".
+    This was necessary to not have somehow irritating same titled
+    item names in case of doublets.
+
   * Fix GET routing for /comments/pingbacks/ shortcut pages
 
   * Sync Smarty 3.1.33-dev-5 bugfix updates
