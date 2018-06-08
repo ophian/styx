@@ -477,8 +477,8 @@ $serendipity['allow_html_comment'] = serendipity_get_config_var('html_comments',
 // and quality-compression of 75% (default would be to use quality of original image)
 if (!isset($serendipity['imagemagick_thumb_parameters'])) {
     $serendipity['imagemagick_thumb_parameters'] = '';
-    // Set a variable like below in your serendpity_config_local.inc.php
-    //$serendipity['imagemagick_thumb_parameters'] = '-modulate 105,140 -unsharp 0.5x0.5+1.0 -quality 75';
+    // Set a variable like below in your serendpity_config_local.inc.php // Be strict! -settings go before -operators, see http://magick.imagemagick.org/script/command-line-processing.php#setting
+    #$serendipity['imagemagick_thumb_parameters'] = '-quality 75 -modulate 105,140 -unsharp 0.5x0.5+1.0';
 }
 
 serendipity_plugin_api::hook_event('frontend_configure', $serendipity);
