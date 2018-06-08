@@ -70,14 +70,14 @@
                     </div>
                     {/if}
 
-                    <h3 title="{$file.realname}">{$file.realname|truncate:38:"&hellip;":true}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}</h3>
+                    <h3 title="{$file.diskname}">{$file.diskname|truncate:38:"&hellip;":true}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}</h3>
                     {if $file.authorid != 0}<span class="author block_level">{$file.authorname}</span>{/if}
 
                 </header>
 
                 <div class="clearfix equal_heights media_file_wrap">
                     <div class="media_file_preview">
-                        <a {if $media.manage AND $media.multiperm}class="media_fullsize"{/if} href="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.realname}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
+                        <a {if $media.manage AND $media.multiperm}class="media_fullsize"{/if} href="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                             <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}">
                         </a>
                         <footer id="media_file_meta_{$file.id}" class="media_file_meta additional_info">
@@ -88,7 +88,7 @@
                             {else}
                                 {if $file.realname != $file.diskname}
 
-                                <li title="{$file.diskname}">{$file.diskname|truncate:38:"&hellip;"}</li>
+                                <li title="{$file.realname}"><b>Origin:</b> {$file.realname|truncate:38:"&hellip;"}</li>
                                 {/if}
                                 {if $file.mime}
 

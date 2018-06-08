@@ -9,7 +9,7 @@
                         <label for="multicheck_image{$file.id}" class="visuallyhidden">{$CONST.TOGGLE_SELECT}</label>
                     </div>
 
-                    <h3 title="{$file.realname}">{$file.realname|truncate:38:"&hellip;":true}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}</h3>
+                    <h3 title="{$file.diskname}">{$file.diskname|truncate:38:"&hellip;":true}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}</h3>
                     {if $file.authorid != 0}<span class="author block_level">{$file.authorname}</span>{/if}
 
                 </header>
@@ -19,9 +19,9 @@
                     {if $file.hotlink}
                         <img src="{$file.path}" title="{$file.name}" alt="{$file.realname}">
                     {elseif empty($file.full_thumbHTTP)}
-                        <img src="{$file.full_file}" title="{$file.name}" alt="{$file.realname}">
+                        <img src="{$file.full_file}" title="{$file.name}" alt="{$file.diskname}">
                     {else}
-                        <img src="{$file.full_thumbHTTP}" title="{$file.name}" alt="{$file.realname}">
+                        <img src="{$file.full_thumbHTTP}" title="{$file.name}" alt="{$file.diskname}">
                     {/if}
                     </div>
                 </div>
