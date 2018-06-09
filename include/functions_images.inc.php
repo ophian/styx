@@ -711,9 +711,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
             // The here used -flatten and -scale are Sequence Operators, while -antialias is a Setting and -resize is an Operator.
             if ($fdim['mime'] == 'application/pdf') {
                 $cmd = escapeshellcmd($serendipity['convert']) . ' '. serendipity_escapeshellarg($infile . '[0]') . ' -antialias -flatten -scale ' . serendipity_escapeshellarg($newSize) .' '. serendipity_escapeshellarg($outfile . '.png');
-                if ($debug) {
-                    $serendipity['logger']->debug("PDF thumbnail creation: $cmd");
-                }
+                if ($debug) { $serendipity['logger']->debug("PDF thumbnail creation: $cmd"); }
             } else {
                 if (!$force_resize && serendipity_ini_bool(ini_get('safe_mode')) === false) {
                     $newSize .= '>'; // tell ImageMagick to not enlarge small images. This only works if safe_mode is off (safe_mode turns > in to \>)
@@ -735,11 +733,9 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
                     $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . $_itp . ' -antialias -resize ' . str_replace('\ "', '!"', serendipity_escapeshellarg($newSize)) . ' ' . serendipity_escapeshellarg($outfile);
                 } else {
-                    $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile)  . $_itp . ' -antialias -resize ' . serendipity_escapeshellarg($newSize) . ' ' . serendipity_escapeshellarg($outfile);
+                    $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . $_itp . ' -antialias -resize ' . serendipity_escapeshellarg($newSize) . ' ' . serendipity_escapeshellarg($outfile);
                 }
-                if ($debug) {
-                    $serendipity['logger']->debug("Image thumbnail creation: $cmd");
-                }
+                if ($debug) { $serendipity['logger']->debug("Image thumbnail creation: $cmd"); }
             }
             exec($cmd, $output, $result);
             if ($result != 0) {
