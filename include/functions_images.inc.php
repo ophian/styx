@@ -84,7 +84,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
 
     if (!empty($filename)) {
         $cond['parts']['filename'] = " AND (i.name LIKE '%" . serendipity_db_escape_string($filename) . "%' OR
-                  i.realname LIKE '%" . serendipity_db_escape_string($filename) . "%')\n";
+                i.realname LIKE '%" . serendipity_db_escape_string($filename) . "%')\n";
     }
 
     if (!is_array($keywords)) {
@@ -655,13 +655,14 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
     $t       = serendipity_parseFileName($file);
     $f       = $t[0];
     $suf     = $t[1];
-
     $infile  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $directory . $file;
+
     if ($debug) {
         $logtag = 'ML_MAKETHUMBNAIL:';
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_makeThumbnail SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
         $serendipity['logger']->debug("$logtag From: $infile");
     }
+
     if ($is_temporary) {
         $temppath = dirname($thumbname);
         if (!is_dir($temppath)) {
@@ -671,7 +672,9 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
     } else {
         $outfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $directory . $f . '.' . $thumbname . '.' . $suf;
     }
+
     $serendipity['last_outfile'] = $outfile;
+
     if ($debug) {
         $serendipity['logger']->debug("$logtag To: $outfile");
     }
@@ -700,22 +703,50 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 $calc = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $size, $serendipity['thumbConstraint']);
                 $r    = array('width' => $calc[0], 'height' => $calc[1]);
             }
+
             $newSize = $r['width'] . 'x' . $r['height'];
+            // CMD - Be strict on order: (Normally a setting should come before bulk images and an image operator after the image filename [the later in special for IM 7 versions !!])
+            // Since we have 1:1 file relations this can be set to: INFILE -setting(s) -operator(s) OUTFILE, @see
+            //          http://magick.imagemagick.org/script/command-line-processing.php#setting
+            // The here used -flatten and -scale are Sequence Operators, while -antialias is a Setting and -resize is an Operator.
             if ($fdim['mime'] == 'application/pdf') {
-                $cmd = escapeshellcmd($serendipity['convert']) . ' -antialias -flatten -scale '. serendipity_escapeshellarg($newSize) .' '. serendipity_escapeshellarg($infile . '[0]') . ' ' . serendipity_escapeshellarg($outfile . '.png');
+                $cmd = escapeshellcmd($serendipity['convert']) . ' '. serendipity_escapeshellarg($infile . '[0]') . ' -antialias -flatten -scale ' . serendipity_escapeshellarg($newSize) .' '. serendipity_escapeshellarg($outfile . '.png');
+                if ($debug) {
+                    $serendipity['logger']->debug("PDF thumbnail creation: $cmd");
+                }
             } else {
                 if (!$force_resize && serendipity_ini_bool(ini_get('safe_mode')) === false) {
-                    $newSize .= '>'; // tell imagemagick to not enlarge small images, only works if safe_mode is off (safe_mode turns > in to \>)
+                    $newSize .= '>'; // tell ImageMagick to not enlarge small images. This only works if safe_mode is off (safe_mode turns > in to \>)
                 }
-                if (!$serendipity['imagemagick_nobang']) $newSize .= '!'; // force the first run image geometry exactly to given sizes, if there were rounding differences (see https://github.com/s9y/Serendipity/commit/94881ba4c0e3bdd4b5fac510e93977e239171c1c and comments)
-                $cmd = escapeshellcmd($serendipity['convert'] . ' ' . $serendipity['imagemagick_thumb_parameters']) . ' -antialias -resize ' . serendipity_escapeshellarg($newSize) . ' ' . serendipity_escapeshellarg($infile) .' '. serendipity_escapeshellarg($outfile);
+
+                $bang = '';
+                if (!$serendipity['imagemagick_nobang']) {
+                    // force the first run image geometry exactly to given sizes, if there were rounding differences (@see https://github.com/s9y/Serendipity/commit/94881ba and comments)
+                    $bang = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? '\!' : '!'; // escape by OS
+                    // escapeshellarg() adds single quotes around a string and quotes/escapes any existing single quotes
+                    // allowing you to pass a string directly to a shell function and having it be treated as a single safe argument.
+                    // On Windows, escapeshellarg() instead replaces percent signs, exclamation marks (delayed variable substitution) and double quotes with spaces and adds double quotes around the string.
+                    // see follow-on workaround for the bang on WIN OS.
+                }
+                $newSize .= $bang;
+
+                $_itp = !empty($serendipity['imagemagick_thumb_parameters']) ? ' '. $serendipity['imagemagick_thumb_parameters'] : '';
+
+                if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+                    $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . $_itp . ' -antialias -resize ' . str_replace('\ "', '!"', serendipity_escapeshellarg($newSize)) . ' ' . serendipity_escapeshellarg($outfile);
+                } else {
+                    $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile)  . $_itp . ' -antialias -resize ' . serendipity_escapeshellarg($newSize) . ' ' . serendipity_escapeshellarg($outfile);
+                }
+                if ($debug) {
+                    $serendipity['logger']->debug("Image thumbnail creation: $cmd");
+                }
             }
             exec($cmd, $output, $result);
             if ($result != 0) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, $output[0], $result) ."</span>\n";
                 $r = false; // return failure
             } else {
-               touch($outfile);
+                touch($outfile);
             }
             unset($output, $result);
         }
@@ -736,6 +767,9 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
  */
 function serendipity_scaleImg($id, $width, $height) {
     global $serendipity;
+    static $debug = false; // ad hoc, case-by-case debugging
+
+    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
     $file = serendipity_fetchImageFromDatabase($id);
     if (!is_array($file)) {
@@ -752,7 +786,8 @@ function serendipity_scaleImg($id, $width, $height) {
     if ($serendipity['magick'] !== true) {
         serendipity_resize_image_gd($infile, $outfile, $width, $height);
     } else {
-        $cmd = escapeshellcmd($serendipity['convert']) . ' -scale ' .  serendipity_escapeshellarg($width . 'x' . $height) . ' ' . serendipity_escapeshellarg($infile) . ' ' . serendipity_escapeshellarg($outfile);
+        $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . ' -scale ' . serendipity_escapeshellarg($width . 'x' . $height) . ' ' . serendipity_escapeshellarg($outfile);
+        if ($debug) { $serendipity['logger']->debug("Scale File command: $cmd"); }
         exec($cmd, $output, $result);
         if ($result != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, $output[0], $result) ."</span>\n";
@@ -780,6 +815,9 @@ function serendipity_scaleImg($id, $width, $height) {
  */
 function serendipity_rotateImg($id, $degrees) {
     global $serendipity;
+    static $debug = false; // ad hoc, case-by-case debugging
+
+    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
     $file = serendipity_fetchImageFromDatabase($id);
     if (!is_array($file)) {
@@ -799,11 +837,13 @@ function serendipity_rotateImg($id, $degrees) {
         serendipity_rotate_image_gd($infile, $outfile, $degrees);
         serendipity_rotate_image_gd($infileThumb, $outfileThumb, $degrees);
     } else {
-        /* Why can't we just all agree on the rotation direction? */
-        $degrees = (360 - $degrees);
+        /* Why can't we just all agree on the rotation direction?
+        -> disabled, since that seems to be a workaround for a very very old bug
+        $degrees = (360 - $degrees); */
 
         /* Resize main image */
-        $cmd = escapeshellcmd($serendipity['convert']) . ' -rotate ' . serendipity_escapeshellarg($degrees) . ' ' . serendipity_escapeshellarg($infile) . ' ' . serendipity_escapeshellarg($outfile);
+        $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . ' -rotate ' . serendipity_escapeshellarg($degrees) . ' ' . serendipity_escapeshellarg($outfile);
+        if ($debug) { $serendipity['logger']->debug("Resize main file command: $cmd"); }
         exec($cmd, $output, $result);
         if ($result != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, $output[0], $result) ."</span>\n";
@@ -811,7 +851,8 @@ function serendipity_rotateImg($id, $degrees) {
         unset($output, $result);
 
         /* Resize thumbnail */
-        $cmd = escapeshellcmd($serendipity['convert']) . ' -rotate ' . serendipity_escapeshellarg($degrees) . ' ' . serendipity_escapeshellarg($infileThumb) . ' ' . serendipity_escapeshellarg($outfileThumb);
+        $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infileThumb) . ' -rotate ' . serendipity_escapeshellarg($degrees) . ' ' . serendipity_escapeshellarg($outfileThumb);
+        if ($debug) { $serendipity['logger']->debug("Resize thumb file command: $cmd"); }
         exec($cmd, $output, $result);
         if ($result != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, $output[0], $result) ."</span>\n";
@@ -1152,8 +1193,10 @@ function serendipity_convertThumbs() {
     $nfiles = array();
     $i = $e = $s = 0;
 
-    if ($debug) { $serendipity['logger']->debug("$logtag UniqueThumbSuffixes: ".print_r($serendipity['uniqueThumbSuffixes'],1)); }
-    if ($debug) { $serendipity['logger']->debug("$logtag REVERSE THUMB FILES: ".print_r($ofiles,1)); }
+    if ($debug) {
+        $serendipity['logger']->debug("$logtag UniqueThumbSuffixes: ".print_r($serendipity['uniqueThumbSuffixes'],1));
+        $serendipity['logger']->debug("$logtag REVERSE THUMB FILES: ".print_r($ofiles,1));
+    }
 
     if (empty($ofiles)) return $i;
 
