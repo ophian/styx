@@ -1,6 +1,14 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix (IM) command order compatibility with ImageMagick-7 versions.
+    This also changed the $serendipity['imagemagick_thumb_parameters']
+    example found in the serendipity_config.inc.php file.
+    IF YOU already use it, check your settings!
+    Additionally the bang (!) usage - for forced exact image sizes as
+    defined, without minding calculating and rounding differences after
+    comma, in escapeshellarg() - for WIN OS servers was fixed.
+
   * Media Library list item title names were changed from realname
     to diskname, which actually is the the real existing stored file
     name. The (origin) realname, if independently exists, is shown in
