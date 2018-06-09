@@ -5,7 +5,7 @@ Version 2.6-alpha1 ()
     to diskname, which actually is the the real existing stored file
     name. The (origin) realname, if independently exists, is shown in
     the info layer as: "Origin: name".
-    This was necessary to not have somehow irritating same titled
+    This was necessary to not have somehow confusing same titled
     item names in case of doublets.
 
   * Fix GET routing for /comments/pingbacks/ shortcut pages
