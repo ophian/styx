@@ -1287,8 +1287,8 @@ function serendipity_smarty_shutdown($serendipity_directory = '') {
  * @access public
  * @param  string  $tplfile: path to the template-file
  * @param  array   $data: map with the variables to assign
- * @param  string  $debugtype: If set, debug string is prepended. Can be set to HTML or JS.
- * @param  string  $debug: Possible debug string that is prepended to output
+ * @param  string  $debugtype: If set, debug string is preceded. Can be set to HTML or JS.
+ * @param  string  $debug: Possible debug string that is preceded to output
  *
  * @return string  compiled file
  */

@@ -380,7 +380,7 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
  * @param   int     The ID of the comment that is being referred to (last selection)
  * @param   int     The parent ID of the last comment [for recursive usage]
  * @param   int     The current nesting/hierarchy level [for recursive usage]
- * @param   string  The HTML indention string that gets prepended to a comment [for recursive usage]
+ * @param   string  The HTML indention string that gets preceded to a comment [for recursive usage]
  * @return  string  The HTML SELECT code
  */
 function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $parent = 0, $level = 0, $indent = '') {
