@@ -34,6 +34,10 @@ if (!isset($_GET['type'])) {
     $_GET['type'] = 'content';
 }
 
+if ($_GET['type'] == 'comments' && !isset($_GET['cid'])) {
+    $_GET['cid'] = null;
+}
+
 if (!empty($_SERVER['HTTP_USER_AGENT']) && stristr($_SERVER['HTTP_USER_AGENT'], 'feedburner')) {
     $_GET['nocache'] = true;
 }
@@ -44,7 +48,7 @@ switch ($_GET['type']) {
     case 'comments_and_trackbacks':
     case 'trackbacks':
     case 'comments':
-        $latest_entry = serendipity_fetchComments(isset($_GET['cid']) ? $_GET['cid'] : null, 1, 'co.id desc', false, $_GET['type']);
+        $latest_entry = serendipity_fetchComments($_GET['cid'], 1, 'co.id desc', false, $_GET['type']);
         break;
     case 'content':
     default:
@@ -94,7 +98,7 @@ switch ($_GET['type']) {
     case 'comments_and_trackbacks':
     case 'trackbacks':
     case 'comments':
-        $entries     = serendipity_fetchComments(isset($_GET['cid']) ? $_GET['cid'] : null, $serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
+        $entries     = serendipity_fetchComments($_GET['cid'], $serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
         $description = $title . ' - ' . $description;
         if (isset($_GET['cid'])) {
             $title   = $title . ' - ' . COMMENTS_FROM . ' "' . $latest_entry[0]['title'] . '"';
