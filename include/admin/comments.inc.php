@@ -13,6 +13,10 @@ $errormsg = '';
 $msg = '';
 $msgtype = 'notice';
 
+$_id       = (int)$serendipity['GET']['id'];
+$_replyTo  = (int)$serendipity['POST']['replyTo'];
+$_entry_id = (int)$serendipity['GET']['entry_id'];
+
 if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['POST']['delete']) != 0 && serendipity_checkFormToken()) {
     if ($serendipity['POST']['togglemoderate'] != '') {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
@@ -40,12 +44,12 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
                     author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
                     email  = '" . serendipity_db_escape_string($serendipity['POST']['email'])   . "',
                     url    = '" . serendipity_db_escape_string($serendipity['POST']['url'])     . "',
-                    " . ((int)$serendipity['POST']['replyTo'] != (int)$serendipity['GET']['id'] ? "parent_id = '" . (int)serendipity_db_escape_string($serendipity['POST']['replyTo']) . "'," : '') . "
+                    " . ($_replyTo != $_id ? "parent_id = '" . (int)serendipity_db_escape_string($_replyTo) . "'," : '') . "
                     body   = '" . serendipity_db_escape_string($serendipity['POST']['comment']) . "'
-             WHERE id      = " . (int)$serendipity['GET']['id'] . "
+             WHERE id      = " . $_id . "
                AND entry_id= " . (int)$serendipity['POST']['entry_id'];
     serendipity_db_query($sql);
-    serendipity_plugin_api::hook_event('backend_updatecomment', $serendipity['POST'], (int)$serendipity['GET']['id']);
+    serendipity_plugin_api::hook_event('backend_updatecomment', $serendipity['POST'], $_id);
     $msg .= COMMENT_EDITED."\n";
 }
 
@@ -57,10 +61,10 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     $comment['name']      = $serendipity['POST']['name'];
     $comment['email']     = $serendipity['POST']['email'];
     $comment['subscribe'] = $serendipity['POST']['subscribe'];
-    $comment['parent_id'] = $serendipity['POST']['replyTo'];
+    $comment['parent_id'] = $_replyTo;
 
     if (!empty($comment['comment'])) {
-        if (serendipity_saveComment($serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
+        if (serendipity_saveComment((int)$serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
             $data['commentReplied'] = true;
             echo serendipity_smarty_showTemplate('admin/comments.inc.tpl', $data);
             return true;
@@ -78,7 +82,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'hide' && serendipity_checkFormToken()) {
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
                SET status = 'hidden'
-             WHERE id     = " . (int)$serendipity['GET']['id'] . "
+             WHERE id     = " . $_id . "
                AND status = 'pending'";
     serendipity_db_query($sql);
     $msg .= COMMENT_EDITED." (".PLUGIN_INACTIVE.")\n";
@@ -88,7 +92,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'public' && serendipity_checkFormToken()) {
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
                SET status = 'pending'
-             WHERE id     = " . (int)$serendipity['GET']['id'] . "
+             WHERE id     = " . $_id . "
                AND status = 'hidden'";
     serendipity_db_query($sql);
     $msg .= COMMENT_EDITED." (".PLUGIN_ACTIVE.")\n";
@@ -100,14 +104,14 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
               FROM {$serendipity['dbPrefix']}comments c
          LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
          LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
-             WHERE c.id = " . (int)$serendipity['GET']['id']  ." AND (status = 'pending' OR status LIKE 'confirm%')";
+             WHERE c.id = " . $_id  ." AND (status = 'pending' OR status LIKE 'confirm%')";
     $rs = serendipity_db_query($sql, true);
 
     if ($rs === false) {
-        $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, (int)$serendipity['GET']['id'])."\n";
+        $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, $_id)."\n";
     } else {
-        serendipity_approveComment((int)$serendipity['GET']['id'], (int)$rs['entry_id']);
-        $msg .= DONE . ': '. sprintf(COMMENT_APPROVED, (int)$serendipity['GET']['id'])."\n";
+        serendipity_approveComment($_id, (int)$rs['entry_id']);
+        $msg .= DONE . ': '. sprintf(COMMENT_APPROVED, $_id)."\n";
         $msgtype = 'success';
     }
 }
@@ -118,21 +122,21 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
               FROM {$serendipity['dbPrefix']}comments c
          LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
          LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
-             WHERE c.id = " . (int)$serendipity['GET']['id']  ." AND status = 'approved'";
+             WHERE c.id = " . $_id  ." AND status = 'approved'";
     $rs = serendipity_db_query($sql, true);
 
     if ($rs === false) {
-        $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, (int)$serendipity['GET']['id'])."\n";
+        $errormsg .= ERROR .': '. sprintf(COMMENT_ALREADY_APPROVED, $_id)."\n";
     } else {
-        serendipity_approveComment((int)$serendipity['GET']['id'], (int)$rs['entry_id'], true, true);
-        $msg .= DONE . ': '. sprintf(COMMENT_MODERATED, (int)$serendipity['GET']['id'])."\n";
+        serendipity_approveComment($_id, (int)$rs['entry_id'], true, true);
+        $msg .= DONE . ': '. sprintf(COMMENT_MODERATED, $_id)."\n";
     }
 }
 
 /* We are asked to delete a comment */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'delete' && serendipity_checkFormToken()) {
-    serendipity_deleteComment((int)$serendipity['GET']['id'], (int)$serendipity['GET']['entry_id']);
-    $msg .= DONE . ': '. sprintf(COMMENT_DELETED, (int)$serendipity['GET']['id'])."\n";
+    serendipity_deleteComment($_id, $_entry_id);
+    $msg .= DONE . ': '. sprintf(COMMENT_DELETED, $_id)."\n";
     $msgtype = 'success';
 }
 
@@ -145,7 +149,7 @@ if (isset($serendipity['GET']['adminAction'])
     $serendipity['smarty']->assign('comment_wysiwyg', ($serendipity['allow_html_comment'] && $serendipity['wysiwyg']));
 
     if ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply') {
-        $c = serendipity_fetchComments((int)$serendipity['GET']['entry_id'], 1, 'co.id', false, 'NORMAL', ' AND co.id=' . (int)$serendipity['GET']['id']);
+        $c = serendipity_fetchComments($_entry_id, 1, 'co.id', false, 'NORMAL', ' AND co.id=' . $_id);
         $p = $c[0]['parent_id'] = 0; // copy comments parent_id, since we also want to get a previewed reply view for multidepth comments
         if (isset($serendipity['POST']['preview'])) {
             $c[] = array(
@@ -154,17 +158,17 @@ if (isset($serendipity['GET']['adminAction'])
                     'body'      => $serendipity['POST']['comment'],
                     'url'       => $serendipity['POST']['url'],
                     'timestamp' => time(),
-                    'parent_id' => (int)$serendipity['GET']['id']
+                    'parent_id' => $_id
             );
         }
 
-        $target_url = '?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=doReply&amp;serendipity[id]=' . (int)$serendipity['GET']['id'] . '&amp;serendipity[entry_id]=' . (int)$serendipity['GET']['entry_id'] . '&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;' . serendipity_setFormToken('url');
+        $target_url = '?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=doReply&amp;serendipity[id]=' . $_id . '&amp;serendipity[entry_id]=' . $_entry_id . '&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;' . serendipity_setFormToken('url');
         $out        = serendipity_printComments($c, $p);
         $codata     = $serendipity['POST'];
 
         $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comment_reply.tpl', 'serendipityPath'));
 
-        $codata['replyTo'] = (int)$serendipity['GET']['id'];
+        $codata['replyTo'] = $_id;
         if (!isset($codata['name'])) {
             $codata['name'] = $serendipity['serendipityRealname'];
         }
@@ -173,11 +177,11 @@ if (isset($serendipity['GET']['adminAction'])
             $codata['email'] = $serendipity['serendipityEmail'];
         }
     } else {
-        $target_url = '?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=doEdit&amp;serendipity[id]=' . (int)$serendipity['GET']['id'] . '&amp;serendipity[entry_id]=' . (int)$serendipity['GET']['entry_id'] . '&amp;' . serendipity_setFormToken('url');
+        $target_url = '?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=doEdit&amp;serendipity[id]=' . $_id . '&amp;serendipity[entry_id]=' . $_entry_id . '&amp;' . serendipity_setFormToken('url');
 
         /* If we are not in preview, we need comment data from our database */
         if (!isset($serendipity['POST']['preview'])) {
-            $comment = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}comments WHERE id = ". (int)$serendipity['GET']['id']);
+            $comment = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}comments WHERE id = ". $_id);
             $codata['name']       = $comment[0]['author'];
             $codata['email']      = $comment[0]['email'];
             $codata['url']        = $comment[0]['url'];
@@ -189,7 +193,7 @@ if (isset($serendipity['GET']['adminAction'])
             $codata['name']       = $serendipity['POST']['name'];
             $codata['email']      = $serendipity['POST']['email'];
             $codata['url']        = $serendipity['POST']['url'];
-            $codata['replyTo']    = $serendipity['POST']['replyTo'];
+            $codata['replyTo']    = $_replyTo;
             $codata['comment']    = $serendipity['POST']['comment'];
             $pc_data = array(
                 array(
@@ -211,7 +215,7 @@ if (isset($serendipity['GET']['adminAction'])
         $codata['url'] = 'http://' . $codata['url'];
     }
 
-    serendipity_displayCommentForm((int)$serendipity['GET']['entry_id'], $target_url, NULL, $codata, false, false);
+    serendipity_displayCommentForm($_entry_id, $target_url, NULL, $codata, false, false);
 
     // Displays the backend comment form. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
     $serendipity['smarty']->display(serendipity_getTemplateFile('admin/commentform.tpl', 'serendipityPath'));
