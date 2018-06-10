@@ -93,6 +93,9 @@ if (isset($modified_since) &&
     // People shall get a usual HTTP response according to RFC2616. See serendipity_config.inc.php for details
     $modified_since = FALSE;
 }
+if (!isset($modified_since)) {
+    $modified_since = false;
+}
 
 switch ($_GET['type']) {
     case 'comments_and_trackbacks':
@@ -114,7 +117,7 @@ switch ($_GET['type']) {
             // Fetch all entries in reverse order for later importing. Fetch sticky entries as normal entries.
             $entries = serendipity_fetchEntries(null, true, '', false, false, 'id ASC', '', false, true);
         } else {
-            $entries = serendipity_fetchEntries(null, true, $serendipity['RSSfetchLimit'], false, (isset($modified_since) ? $modified_since : false), 'timestamp DESC', '', false, true);
+            $entries = serendipity_fetchEntries(null, true, $serendipity['RSSfetchLimit'], false, $modified_since, 'timestamp DESC', '', false, true);
         }
         break;
 }
