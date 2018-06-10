@@ -308,7 +308,7 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
         $limit = '';
     }
 
-    if ($type == 'comments' || empty($type)) {
+    if ($type == 'comments' || $type == 'NORMAL' || empty($type)) {
         $type = 'NORMAL';
     } elseif ($type == 'trackbacks') {
         $type = 'TRACKBACK';
@@ -318,6 +318,10 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
         $type = '%';
     } else {
         $type = '';
+    }
+
+    if (empty($type)) {
+        return false;
     }
 
     if (!empty($id)) {
@@ -596,7 +600,7 @@ function serendipity_printCommentsByAuthor() {
     }
 
     // we need this here for the counter paging sql query - elsewise $type is top-checked in serendipity_fetchComments()
-    if ($type == 'comments' || empty($type)) {
+    if ($type == 'comments' || $type == 'NORMAL' || empty($type)) {
         $_type = 'NORMAL';
     } elseif ($type == 'trackbacks') {
         $_type = 'TRACKBACK';
@@ -606,6 +610,10 @@ function serendipity_printCommentsByAuthor() {
         $_type = '%';
     } else {
         $_type = '';
+    }
+
+    if (empty($_type)) {
+        return false;
     }
 
     $fc = "SELECT count(co.id) AS counter
