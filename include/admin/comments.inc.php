@@ -145,7 +145,9 @@ if (isset($serendipity['GET']['adminAction'])
     && ($serendipity['GET']['adminAction'] == 'edit' || $serendipity['GET']['adminAction'] == 'reply') || isset($serendipity['POST']['preview'])) {
 
     $serendipity['smarty_raw_mode'] = true; // Force output of Smarty stuff in the backend
-    serendipity_smarty_init();
+    if (!is_object($serendipity['smarty'])) {
+        serendipity_smarty_init();
+    }
     $serendipity['smarty']->assign('comment_wysiwyg', ($serendipity['allow_html_comment'] && $serendipity['wysiwyg']));
 
     if ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply') {
