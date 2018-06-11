@@ -1,6 +1,8 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Do not allow backend template comment reply to non-approved comments
+
   * Fix (IM) command order compatibility with ImageMagick-7 versions.
     This also changed the $serendipity['imagemagick_thumb_parameters']
     example found in the serendipity_config.inc.php file.
