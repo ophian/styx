@@ -231,7 +231,7 @@ switch($serendipity['GET']['adminAction']) {
             $data["get_sort_$s_import"] = $serendipity['GET']['sort'][$s_import];
         }
 
-        $perPage = (!empty($serendipity['GET']['sort']['perPage']) ? $serendipity['GET']['sort']['perPage'] : $per_page[0]);
+        $perPage = !empty($serendipity['GET']['sort']['perPage']) ? $serendipity['GET']['sort']['perPage'] : $per_page[0];
         $page    = (int)$serendipity['GET']['page'];
         $offSet  = $perPage*$page;
 
