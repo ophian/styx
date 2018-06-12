@@ -1,6 +1,8 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix gallery filter mime image selection to only allow images
+
   * Do not allow backend template comment reply to non-approved comments
 
   * Fix (IM) command order compatibility with ImageMagick-7 versions.
