@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Optimise MediaLibrary filter extension SQL-query performance for
+    serendipity_fetchImagesFromDatabase() requests.
+
   * Fix gallery filter mime image selection to only allow images
 
   * Do not allow backend template comment reply to non-approved comments
