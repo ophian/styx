@@ -1882,8 +1882,8 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     }
 
     if ($displayGallery) {
-        // dont touch cookie and normal seetings but hardset in case of gallery usage
-        $serendipity['GET']['filter']['fileCategory']['Image'] = 'image';
+        // don't touch cookie and normal settings, but hardset in case of gallery usage
+        $serendipity['GET']['filter']['fileCategory'] = 'image'; // filter restrict to mime part 'image/%' only!
         $hideSubdirFiles = true; // Definitely YES!
     }
     $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(
