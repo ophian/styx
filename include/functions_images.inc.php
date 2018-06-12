@@ -1708,7 +1708,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     $start = ($page-1) * $perPage;
 
     if ($manage && $limit_path == NULL) {
-        ## SYNCH START ##
+        ## SYNC START ##
         $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true); // _vti_cnf to exclude possible added servers frontpage extensions
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
         $paths        = array();
@@ -1763,11 +1763,12 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         if ($debug) { $serendipity['logger']->debug("$logtag Got real disc files: " . print_r($aFilesOnDisk, 1)); }
         $serendipity['current_image_hash'] = md5(serialize($aFilesOnDisk));
 
-        $nTimeStart = microtime_float();
+        // ML Cleanup START - is part of SYNC
         // MTG 21/01/06: request all images from the database, delete any which don't exist
         // on the filesystem, and mark off files from the file list which are already
         // in the database
 
+        $nTimeStart = microtime_float();
         $nCount = 0;
 
         if ($debug) { $serendipity['logger']->debug("$logtag Image Sync Right: " . serendipity_checkPermission('adminImagesSync') . " Onthefly Sync: {$serendipity['onTheFlySynch']} Hash: {$serendipity['current_image_hash']}!={$serendipity['last_image_hash']}"); }
@@ -1863,7 +1864,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
          $nDifference = $nTimeEnd - $nTimeStart;
          echo "<p> total time taken was $nDifference </p>\n";
         */
-        ## SYNCH FINISHED ##
+        ## SYNC FINISHED ##
     }
 
     // Out of Sync Files
