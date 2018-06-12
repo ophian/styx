@@ -1881,6 +1881,13 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         serendipity_restoreVar($serendipity['COOKIE']['filter'], $serendipity['GET']['filter']);
     }
 
+    // If NO filters are required, we still have an empty filter 'i.name' set, ("probably ported by one of these lazy remember requests,"?)
+    // which forces serendipity_fetchImagesFromDatabase() to run some extra SQL query parts that are not in need!
+    // [ NOTE: KEEP after the Cookie restoring! ]
+    if ($serendipity['GET']['filter'] == array('i.name' => '')) {
+        unset($serendipity['GET']['filter']); // sets NIL to any filters, which is the default and ML startover, before done any user filtering or ML All/IMAGE/VIDEO structure requests.
+    }
+
     if ($displayGallery) {
         // don't touch cookie and normal settings, but hardset in case of gallery usage
         $serendipity['GET']['filter']['fileCategory'] = 'image'; // filter restrict to mime part 'image/%' only!
