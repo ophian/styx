@@ -1,7 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
-  * Optimise MediaLibrary filter extension SQL-query performance for
+  * No Sync for INSTALL_SUBSCRIBE default false value change
+
+  * Optimize MediaLibrary filter extension SQL-query performance for
     serendipity_fetchImagesFromDatabase() requests.
 
   * Fix gallery filter mime image selection to only allow images
