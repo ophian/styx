@@ -913,6 +913,10 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     if (!empty($ca['status'])) {
         $commentInfo['status'] = $ca['status'];
     }
+    // Hey - We just trust CHIEF and ADMIN USERLEVELs and reset Spamblock checks
+    if ($serendipity['serendipityAuthedUser'] && $serendipity['serendipityUserlevel'] >= USERLEVEL_CHIEF) {
+        unset($commentInfo['status']);
+    }
 
     if ($serendipity['serendipityAuthedUser']) {
         $authorReply = true;
@@ -920,7 +924,10 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     }
 
     $_setTo_moderation = serendipity_db_bool($ca['moderate_comments']);
-
+    // Hey - We just trust CHIEF and ADMIN USERLEVELs and set comments approved by default
+    if ($serendipity['serendipityAuthedUser'] && $serendipity['serendipityUserlevel'] >= USERLEVEL_CHIEF) {
+        $_setTo_moderation = false;
+    }
     $title         = serendipity_db_escape_string(isset($commentInfo['title']) ? $commentInfo['title'] : '');
     $comments      = $commentInfo['comment'];
     $ip            = serendipity_db_escape_string(isset($commentInfo['ip']) ? $commentInfo['ip'] : $_SERVER['REMOTE_ADDR']);
