@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Trust logged-in CHIEF and ADMIN USERLEVELs to set already approved
+    comments.
+
   * No Sync for INSTALL_SUBSCRIBE default false value change
 
   * Optimize MediaLibrary filter extension SQL-query performance for
