@@ -1692,7 +1692,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     $userPerms       = array('delete' => serendipity_checkPermission('adminImagesDelete'));
 
     $displayGallery  = (isset($serendipity['GET']['showGallery']) && !$show_upload && $serendipity['GET']['showGallery'] == 'true') ? true : false;
-    // displayGallery uses hideSubdirFiles directory items only list without cookie remembrance
+    // displayGallery uses hideSubdirFiles (a directory items only list), without cookie remembrance!
     if ($displayGallery) {
         $serendipity['GET']['sortorder']['perpage'] = 48; // Set to 6 items per row x 8 rows as a hardcoded maximum per directory view
         $serendipity['GET']['hideSubdirFiles'] = 'yes'; // Definitely YES! 'The site maintainer has get to know that it is better to split up media directories with more than 48 items
@@ -1881,15 +1881,22 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         serendipity_restoreVar($serendipity['COOKIE']['filter'], $serendipity['GET']['filter']);
     }
 
-    // If NO filters are required, we still have an empty filter 'i.name' set, ("probably ported by one of these lazy remember requests,"?)
+    // If NO filters are required, we still have an empty filter 'i.name' set, (*)
     // which forces serendipity_fetchImagesFromDatabase() to run some extra SQL query parts that are not in need!
+    // Since that helps a lot, we just additionally check "simple" (white field) i.filters (image media files, which is 'date', 'size', 'dimensions' and 'name')
+    // and the default complex array of file category + full i.filters + simple default bp.filter (media base-properties metadata fields)
+    // that both can appear during ML paging.
     // [ NOTE: KEEP after the Cookie restoring! ]
-    if ($serendipity['GET']['filter'] == array('i.name' => '')) {
+    //  [*] This and other filled array behaviour is probably ported by one of these lazy GET/COOKIE/GET remember requests, which, potentially doubled, is a mix of old and current session filter data.
+    if ($serendipity['GET']['filter'] == array('i.name' => '')
+        || $serendipity['GET']['filter'] == array('i.date' => array('from' => '', 'to' => '',), 'i.size' => array('from' => '', 'to' => '',), 'i.dimensions_width' => array('from' => '', 'to' => '',), 'i.dimensions_height' => array('from' => '', 'to' => '',), 'i.name' => '',)
+        || $serendipity['GET']['filter'] == array('fileCategory' => '', 'i.date' => array('from' => '', 'to' => '',), 'i.name' => '', 'i.authorid' => '', 'i.extension' => '', 'i.size' => array('from' => '', 'to' => '',), 'i.dimensions_width' => array('from' => '', 'to' => '',), 'i.dimensions_height' => array('from' => '', 'to' => '',), 'bp.DPI' => '', 'bp.COPYRIGHT' => '', 'bp.TITLE' => '', 'bp.COMMENT1' => '', 'bp.COMMENT2' => '',)
+    ) {
         unset($serendipity['GET']['filter']); // sets NIL to any filters, which is the default and ML startover, before done any user filtering or ML All/IMAGE/VIDEO structure requests.
     }
 
     if ($displayGallery) {
-        // don't touch cookie and normal settings, but hardset in case of gallery usage
+        // don't touch cookie and normal settings, but hard set in case of gallery usage
         $serendipity['GET']['filter']['fileCategory'] = 'image'; // filter restrict to mime part 'image/%' only!
         $hideSubdirFiles = true; // Definitely YES!
     }
