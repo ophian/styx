@@ -914,7 +914,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         $commentInfo['status'] = $ca['status'];
     }
     // Hey - We just trust CHIEF and ADMIN USERLEVELs and reset Spamblock checks
-    if ($serendipity['serendipityAuthedUser'] && $serendipity['serendipityUserlevel'] >= USERLEVEL_CHIEF) {
+    if (isset($commentInfo['status']) && $serendipity['serendipityAuthedUser'] && $serendipity['serendipityUserlevel'] >= USERLEVEL_CHIEF) {
         unset($commentInfo['status']);
     }
 
