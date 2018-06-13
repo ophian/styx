@@ -36,7 +36,7 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
                 $msgtype = 'success';
                 $multi = true;
             } else {
-                $msg .= ERROR . ":\n" . DELETE_COMMENT . ": $k\n";
+                $msg .= ERROR . ': ' . DELETE_COMMENT . ": $k\n";
                 $msgtype = 'error';
             }
         }
@@ -145,7 +145,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
         $msg .= DONE . ":\n" . sprintf(COMMENT_DELETED, $_id)."\n";
         $msgtype = 'success';
     } else {
-        $msg .= ERROR . ":\n" . DELETE_COMMENT . ": $_id\n";
+        $msg .= ERROR . ': ' . DELETE_COMMENT . ": $_id\n";
         $msgtype = 'error';
     }
 }
