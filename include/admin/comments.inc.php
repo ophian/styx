@@ -22,17 +22,23 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
         foreach($serendipity['POST']['delete'] AS $k => $v) {
             $ac = serendipity_approveComment((int)$k, (int)$v, false, 'flip');
             if ($ac > 0) {
-                $msg .= DONE . ":<br>\n". sprintf(COMMENT_APPROVED, (int)$k)."\n";
+                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_APPROVED, (int)$k)."\n";
                 $msgtype = 'success';
+                $multi = true;
             } else {
-                $msg .= DONE . ":<br>\n". sprintf(COMMENT_MODERATED, (int)$k)."\n";
+                $msg .= DONE . ":\n" . sprintf(COMMENT_MODERATED, (int)$k)."\n";
             }
         }
     } else {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
-            serendipity_deleteComment($k, $v);
-            $msg .= DONE . ":<br>\n". sprintf(COMMENT_DELETED, (int)$k)."\n";
-            $msgtype = 'success';
+            if (serendipity_deleteComment($k, $v)) {
+                $msg .= ($multi ? '' : DONE . ":\n") . sprintf(COMMENT_DELETED, (int)$k) . "\n";
+                $msgtype = 'success';
+                $multi = true;
+            } else {
+                $msg .= ERROR . ":\n" . DELETE_COMMENT . ": $k\n";
+                $msgtype = 'error';
+            }
         }
     }
 }
@@ -135,9 +141,13 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
 
 /* We are asked to delete a comment */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'delete' && serendipity_checkFormToken()) {
-    serendipity_deleteComment($_id, $_entry_id);
-    $msg .= DONE . ': '. sprintf(COMMENT_DELETED, $_id)."\n";
-    $msgtype = 'success';
+    if (serendipity_deleteComment($_id, $_entry_id)) {
+        $msg .= DONE . ":\n" . sprintf(COMMENT_DELETED, $_id)."\n";
+        $msgtype = 'success';
+    } else {
+        $msg .= ERROR . ":\n" . DELETE_COMMENT . ": $_id\n";
+        $msgtype = 'error';
+    }
 }
 
 /* We are either in edit mode, or preview mode */
