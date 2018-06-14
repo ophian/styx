@@ -1,6 +1,13 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Add contactform hooked plugin message hiding selectors to the default/
+    style_fallback.css file. These (new) selectors were introduced in
+    Styx 2.1 ~ February 2017- see 3f5bdba.
+    You might need to change YOUR themes "plugin_contactform.tpl" and
+    "plugin_dynamicform.tpl" templates files to support this.
+    Mentioned ["timeline", "default-php", "bulletproof"] templates were fixed.
+
   * Trust logged-in CHIEF and ADMIN USERLEVELs to set already approved
     comments.
 
