@@ -913,10 +913,6 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     if (!empty($ca['status'])) {
         $commentInfo['status'] = $ca['status'];
     }
-    // Hey - We just trust CHIEF and ADMIN USERLEVELs and reset Spamblock checks
-    if (isset($commentInfo['status']) && $serendipity['serendipityAuthedUser'] && $serendipity['serendipityUserlevel'] >= USERLEVEL_CHIEF) {
-        unset($commentInfo['status']);
-    }
 
     if ($serendipity['serendipityAuthedUser']) {
         $authorReply = true;
@@ -924,8 +920,8 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     }
 
     $_setTo_moderation = serendipity_db_bool($ca['moderate_comments']);
-    // Hey - We just trust CHIEF and ADMIN USERLEVELs and set comments approved by default
-    if ($serendipity['serendipityAuthedUser'] && $serendipity['serendipityUserlevel'] >= USERLEVEL_CHIEF) {
+    // Hey - We just trust CHIEF and ADMIN USERLEVELs and set comments approved by default - spamblock already allowed registered authors
+    if ($_setTo_moderation && $serendipity['serendipityAuthedUser'] && in_array($serendipity['serendipityUserlevel'], [USERLEVEL_CHIEF, USERLEVEL_ADMIN])) {
         $_setTo_moderation = false;
     }
     $title         = serendipity_db_escape_string(isset($commentInfo['title']) ? $commentInfo['title'] : '');
