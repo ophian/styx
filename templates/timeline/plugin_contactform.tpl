@@ -1,4 +1,4 @@
-<article{if $plugin_contactform_articleformat} class="post serendipity_staticpage staticpage_plugin_contactform serendipity_entry{/if}">
+<article class="serendipity_staticpage staticpage_plugin_contactform{if $plugin_contactform_articleformat} post serendipity_entry{/if}">
     <h3>{if $plugin_contactform_articleformat}{$plugin_contactform_name}{else}{$plugin_contactform_pagetitle}{/if}</h3>
     <section id="entry">
         <div class="content serendipity_entry_body">
