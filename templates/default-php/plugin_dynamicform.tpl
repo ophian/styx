@@ -1,3 +1,4 @@
+<div id="plugin_contact" class="clearfix serendipity_staticpage staticpage_plugin_contactform">
 <?php if ($GLOBALS['tpl']['plugin_contactform_articleformat']): ?>
    <div class="serendipity_Entry_Date">
        <h3 class="serendipity_date"><?= $GLOBALS['tpl']['plugin_contactform_name'] ?></h3>
@@ -89,3 +90,5 @@
         </div>
     </div>
 <?php endif; ?>
+
+</div>
