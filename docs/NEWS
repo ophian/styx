@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * No-Sync for "allow SVG files in Media Library", since that opens XSS
+    vulnerabilities.
+
   * Introduce new $serendipity['CBAfetchLimit'] variable (default: 12),
     to have an independent limit rule for comments by author shortcut pages.
     The normal $serendipity['fetchLimit'] is historically a kind of "subset"
