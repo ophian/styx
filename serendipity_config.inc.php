@@ -97,7 +97,7 @@ if (!isset($serendipity['fetchLimit'])) {
 }
 
 if (!isset($serendipity['CBAfetchLimit'])) {
-    $serendipity['CBAfetchLimit'] = 12;
+    $serendipity['CBAfetchLimit'] = 10;
 }
 
 if (!isset($serendipity['RSSfetchLimit'])) {

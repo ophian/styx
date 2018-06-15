@@ -4,13 +4,13 @@ Version 2.6-alpha1 ()
   * No-Sync for "allow SVG files in Media Library", since that opens XSS
     vulnerabilities.
 
-  * Introduce new $serendipity['CBAfetchLimit'] variable (default: 12),
+  * Introduce new $serendipity['CBAfetchLimit'] variable (default: 10),
     to have an independent limit rule for comments by author shortcut pages.
-    The normal $serendipity['fetchLimit'] is historically a kind of "subset"
+    The entries $serendipity['fetchLimit'] is historically a kind of "subset"
     of the $serendipity['RSSfetchLimit'] limit (default: 15), which is the
     "default" value in the RSS world. In Blog entries, page limits by 15 can
-    get quite long, so users might tweak this value down in their configuration
-    settings. You now are able to set your own in your local.inc file.
+    get quite long, so users might set this value down in their configuration
+    settings. You are now able to set your own CBA limit in your local.inc file.
 
   * Add contactform hooked plugin message hiding selectors to the default/
     style_fallback.css file. These (new) selectors were introduced in
