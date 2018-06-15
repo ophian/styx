@@ -561,7 +561,7 @@ function serendipity_printCommentsByAuthor() {
         $serendipity['GET']['page'] = 1;
     }
 
-    $sql_limit = $serendipity['fetchLimit'] * ($serendipity['GET']['page']-1) . ',' . $serendipity['fetchLimit'];
+    $sql_limit = $serendipity['CBAfetchLimit'] * ($serendipity['GET']['page']-1) . ',' . $serendipity['CBAfetchLimit'];
     $c = serendipity_fetchComments(null, $sql_limit, 'co.entry_id DESC, co.id ASC', false, $type, $sql_where);
 
     // Since not passing via entries.tpl template file, $entries -> $entry (scoped) array are not available
