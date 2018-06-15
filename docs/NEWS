@@ -1,6 +1,14 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Introduce new $serendipity['CBAfetchLimit'] variable (default: 12),
+    to have an independent limit rule for comments by author shortcut pages.
+    The normal $serendipity['fetchLimit'] is historically a kind of "subset"
+    of the $serendipity['RSSfetchLimit'] limit (default: 15), which is the
+    "default" value in the RSS world. In Blog entries, page limits by 15 can
+    get quite long, so users might tweak this value down in their configuration
+    settings. You now are able to set your own in your local.inc file.
+
   * Add contactform hooked plugin message hiding selectors to the default/
     style_fallback.css file. These (new) selectors were introduced in
     Styx 2.1 ~ February 2017- see 3f5bdba.
