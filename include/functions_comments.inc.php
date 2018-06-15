@@ -563,30 +563,32 @@ function serendipity_printCommentsByAuthor() {
 
     $sql_limit = $serendipity['CBAfetchLimit'] * ($serendipity['GET']['page']-1) . ',' . $serendipity['CBAfetchLimit'];
     $c = serendipity_fetchComments(null, $sql_limit, 'co.entry_id DESC, co.id ASC', false, $type, $sql_where);
-
-    // Since not passing via entries.tpl template file, $entries -> $entry (scoped) array are not available
-    // in /comments/ to check for comments "_self", thus we quickly push the missing vars to $comments AS $comment.
-    // This certainly does work only, if spamblock (or others) not have set serendipity[plugin][hide_email] to true!
-    foreach($c AS &$co) {
-        $e = serendipity_db_query("SELECT email, realname FROM {$serendipity['dbPrefix']}authors WHERE username='{$co['entryauthor']}'", false, 'assoc');
-        $co['entry_author_email']    = $e[0]['email'];
-        $co['entry_author_realname'] = $e[0]['realname'];
-    }
-
     $entry_comments = array();
-    foreach($c AS $i => $comment) {
-        if (!isset($entry_comments[$comment['entry_id']])) {
-            $comment['link'] = serendipity_archiveURL($comment['entry_id'], $comment['title'], 'serendipityHTTPPath', true, array('timestamp' => $comment['entrytimestamp']));
-            $entry_comments[$comment['entry_id']] = $comment;
-        }
-        if ($serendipity['allow_html_comment']) {
-            $comment['body'] =& serendipity_prepCommentNewline($comment['body']);
-        }
-        $entry_comments[$comment['entry_id']]['comments'][] = $comment;
-    }
 
-    foreach($entry_comments AS $entry_id => $_data) {
-        $entry_comments[$entry_id]['tpl_comments'] = serendipity_printComments($_data['comments'], VIEWMODE_LINEAR, 0, null, 'COMMENTS', 'comments.tpl');
+    if (is_array($c) && !empty($c)) {
+        // Since not passing via entries.tpl template file, $entries -> $entry (scoped) array are not available
+        // in /comments/ to check for comments "_self", thus we quickly push the missing vars to $comments AS $comment.
+        // This certainly does work only, if spamblock (or others) not have set serendipity[plugin][hide_email] to true!
+        foreach($c AS &$co) {
+            $e = serendipity_db_query("SELECT email, realname FROM {$serendipity['dbPrefix']}authors WHERE username='{$co['entryauthor']}'", false, 'assoc');
+            $co['entry_author_email']    = $e[0]['email'];
+            $co['entry_author_realname'] = $e[0]['realname'];
+        }
+
+        foreach($c AS $i => $comment) {
+            if (!isset($entry_comments[$comment['entry_id']])) {
+                $comment['link'] = serendipity_archiveURL($comment['entry_id'], $comment['title'], 'serendipityHTTPPath', true, array('timestamp' => $comment['entrytimestamp']));
+                $entry_comments[$comment['entry_id']] = $comment;
+            }
+            if ($serendipity['allow_html_comment']) {
+                $comment['body'] =& serendipity_prepCommentNewline($comment['body']);
+            }
+            $entry_comments[$comment['entry_id']]['comments'][] = $comment;
+        }
+
+        foreach($entry_comments AS $entry_id => $_data) {
+            $entry_comments[$entry_id]['tpl_comments'] = serendipity_printComments($_data['comments'], VIEWMODE_LINEAR, 0, null, 'COMMENTS', 'comments.tpl');
+        }
     }
 
     $serendipity['smarty']->assignByRef('comments_by_authors', $entry_comments);
@@ -630,7 +632,7 @@ function serendipity_printCommentsByAuthor() {
     } else {
         $totalComments = $cc['counter'];
     }
-    serendipity_printEntryFooter('', $totalComments);
+    serendipity_printEntryFooter('', $totalComments, $serendipity['CBAfetchLimit']);
 
     serendipity_smarty_fetch('ENTRIES', 'comments_by_author.tpl');
 
