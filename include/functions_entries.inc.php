@@ -982,6 +982,9 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
     if ($totalEntries === null) {
         $totalEntries = serendipity_getTotalEntries();
     }
+    if ($getLimit === null) {
+        $getLimit = $serendipity['fetchLimit'];
+    }
 
     $limit = (int)$getLimit;
     $totalPages = ceil($totalEntries / $limit);
