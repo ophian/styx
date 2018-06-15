@@ -1,11 +1,14 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Add a third parameter to serendipity_printEntryFooter() entries API
+    for new comments_by_author limits.
+
   * No-Sync for "allow SVG files in Media Library", since that opens XSS
     vulnerabilities.
 
   * Introduce new $serendipity['CBAfetchLimit'] variable (default: 10),
-    to have an independent limit rule for comments by author shortcut pages.
+    to have an independent limit rule for comments_by_author shortcut pages.
     The entries $serendipity['fetchLimit'] is historically a kind of "subset"
     of the $serendipity['RSSfetchLimit'] limit (default: 15), which is the
     "default" value in the RSS world. In Blog entries, page limits by 15 can
