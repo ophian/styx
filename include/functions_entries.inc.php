@@ -1461,8 +1461,8 @@ function serendipity_updertEntry($entry) {
         $entry['timestamp'] = time();
     }
 
-    /* WYSIWYG-editor inserts empty ' ' for extended body; this is reversed here - NOTE: We should get rid of this! It is a very old workaround for XINHA or even before. */
-    if (isset($entry['extended']) && (trim($entry['extended']) == '' || trim($entry['extended']) == '<br />' || trim($entry['extended']) == '<p></p>' || str_replace(array("\r", "\n", "\t", "\0", "<br />", "<p>", "</p>", "<br>"), array('', '', '', '', '', '', '', ''), trim($entry['extended'])) == '')) {
+    /* Check empty ' ' for extended body; this is reversed here -*/
+    if (isset($entry['extended']) && trim($entry['extended']) == '') {
         $entry['extended'] = '';
     }
 
