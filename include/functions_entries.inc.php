@@ -976,17 +976,17 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
  * @see serendipity_getTotalEntries()
  * @return null
  */
-function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $getLimit = null) {
+function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $fetchLimit = null) {
     global $serendipity;
 
     if ($totalEntries === null) {
         $totalEntries = serendipity_getTotalEntries();
     }
-    if ($getLimit === null) {
-        $getLimit = $serendipity['fetchLimit'];
+    if ($fetchLimit === null) {
+        $fetchLimit = $serendipity['fetchLimit'];
     }
 
-    $limit = (int)$getLimit;
+    $limit = (int)$fetchLimit;
     $totalPages = ceil($totalEntries / $limit);
 
     if ($totalPages <= 0 ) {
