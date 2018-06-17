@@ -227,6 +227,22 @@ class Serendipity_Smarty extends Smarty
         // $this->muteExpectedErrors();
     }
 
+    /*
+        Note: Ian
+        This BC method has to be kept as long as not converted to new syntax in additional_themes (config.inc files)
+    */
+
+    /**
+     * Wrapper for old Smarty 2 assign_by_ref BC mode
+     *
+     * @param string $tpl_var the template variable name
+     * @param mixed  &$value  the referenced value to assign
+     */
+    public function assign_by_ref($tpl_var, &$value)
+    {
+        $this->assignByRef($tpl_var, $value);
+    }
+
     public static function test()
     {
         var_dump(get_called_class());
