@@ -11,7 +11,7 @@
 @define('PLUGIN_CHANGELOG_LOGGER_BUTTON', 'Öffne Logdatei');
 @define('PLUGIN_CHANGELOG_LOGGER_DESC', 'Öffnet die letzte Logdatei für die Debugging-Session, welches in der Konfiguration: "Generelle Einstellung" gesetzt wurde. Löschen löscht alle alten Log-Dateien.');
 @define('PLUGIN_CHANGELOG_LOGGER_HAS_LOGS', 'Das VERZEICHNIS "templates_c/logs/" enthält %d text logger Log-Dateien.');
-@define('PLUGIN_CHANGELOG_LOGGER_NUKE_WARNING', "BEACHTEN SIE:\nZur Erinnerung: Diese Log-Dateien sind letztlich immer nur einfache Textdateien.\nSie sollten diese nach Verwendung besser löschen, zB. über den Serendipity Logfiles Button auf der Wartungsseite,\num sicherzugehen, dass trotz der aktiven Restriktionen gegen einen nicht authorisierten Zugang,\ndurch Serendipity im Allgemeinen und für diese URL durch das Changelog-Plugin im Speziellen,\ndie nötigen Berechtigungen des \"templates_c\" Verzeichnisses nicht doch ausgenutzt werden können!");
+@define('PLUGIN_CHANGELOG_LOGGER_NUKE_WARNING', "BEACHTEN SIE:\nZur Erinnerung: Diese Log-Dateien sind letztlich immer nur einfache Textdateien.\nSie sollten diese nach Verwendung besser löschen, zB. über den Serendipity Logfiles Button auf der Wartungsseite,\num sicherzugehen, dass trotz der aktiven Restriktionen gegen einen nicht authorisierten Zugang,\ndurch Serendipity im Allgemeinen und für diese URL durch das Changelog-Plugin im Speziellen,\ndie nötigen Berechtigungen des \"templates_c\" Verzeichnisses nicht doch ausgenutzt werden können!\n(Insbesondere wenn Sie keinen NCSA-Server kompatiblen Webserver wie APACHE verwenden!)");
 
 @define('PLUGIN_CHANGELOG_LOGGER_BACKBLAH', 'BITTE DEN BACK BUTTON DES BROWSERS NUTZEN, UM ZUR WARTUNGSSEITE ZURÜCKZUKEHREN.');
 
