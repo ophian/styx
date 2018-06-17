@@ -432,6 +432,11 @@ $dead_files_250 = array(
     'templates/next/UTF-8/lang_en.inc.php'
 );
 
+/* A list of Styx files, to be removed or renamed by 2.6.0 */
+$dead_files_260 = array(
+    'templates_c/.htaccess'
+);
+
 /* A list of old or removed directories for 2.5.0 */
 $dead_dirs_250 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/HTTP/Request',

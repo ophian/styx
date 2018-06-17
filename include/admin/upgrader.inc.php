@@ -423,6 +423,12 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> More themes were changed',
                     'desc'      => 'for webfonts, calendar, typos, display of post comment owner and trackbacks. Please adapt these changes to your template copy. Read the ChangeLog for more.'),
 
+            array(  'version'   => '2.6-alpha1',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'title'     => 'Removal of old dead files in v.2.6.0',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_260, array('internals'), true),
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_260) . '</pre>'),
+
 );
 
 /* Fetch SQL files which needs to be run */
