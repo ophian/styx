@@ -1,10 +1,4 @@
-<Directory "./">
-    AllowOverride None
-    Options None
+<Files "*.txt">
     deny from all
     Require all denied
-    <Files "*.txt">
-        deny from all
-        Require all denied
-    </Files>
-</Directory>
+</Files>
