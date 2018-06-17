@@ -58,7 +58,7 @@
                             <li class="pluginmanager_place nojs-controls">
                                 <select name="serendipity[plugin][{$plugin_data['name']}][placement]">
                                     {foreach $plugin_data.gopts AS $k => $v}
-                                        <option value="{$k}" {if $k == $plugin_data['placement']}selected="selected"{/if}>{$v}</option>
+                                        <option value="{$k}"{if $k == $plugin_data['placement']} selected="selected"{/if}>{$v}</option>
                                     {/foreach}
                                 </select>
                             </li>

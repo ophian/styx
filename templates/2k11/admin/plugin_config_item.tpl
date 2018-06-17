@@ -1,4 +1,4 @@
-{* Use |cleanChars serendipity smarty modifier for info button click cases, since chars like dots, bangs, spaces, etc, which are not (A-Za-z0-9_-) break the expected behaviour *}
+{* Use |cleanChars Serendipity Smarty modifier for info button click cases, since chars like dots, bangs, spaces, etc, which are not (A-Za-z0-9_-) break the expected behaviour! *}
 {if ($ctype == 'separator' OR $ctype == 'seperator')}{* compat - due to misspelled word 'seper...' *}
 
     <hr class="config_separator">
@@ -13,7 +13,7 @@
 
         <select id="serendipity_{$config_item}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]{($is_multi_select) ? '[]' : ''}"{($is_multi_select) ? ' multiple' : ''}{($is_multi_select AND ($select_size > 0)) ? " size='{$select_size}'" : ''}>
         {foreach $select AS $select_value => $select_desc}
-            <option value="{$select_value}" {(in_array($select_value, $selected_options) OR in_array($select_value, $pre_selected)) ? 'selected' : ''} title="{$select_desc|escape}">{$select_desc|escape}</option>
+            <option value="{$select_value}"{(in_array($select_value, $selected_options) OR in_array($select_value, $pre_selected)) ? ' selected' : ''} title="{$select_desc|escape}">{$select_desc|escape}</option>
         {/foreach}
         </select>
     </div>
@@ -25,7 +25,7 @@
         <div class="clearfix grouped">
         {foreach $radio_button AS $r}
             <div class="form_radio">
-                <input id="serendipity_plugin_{$r['id']}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" type="radio" value="{$r['value']}" {(!empty($r['checked'])) ? 'checked="checked"' : ''} title="{$r['index']|escape}">
+                <input id="serendipity_plugin_{$r['id']}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" type="radio" value="{$r['value']}"{(!empty($r['checked'])) ? ' checked="checked"' : ''} title="{$r['index']|escape}">
                 <label for="serendipity_plugin_{$r['id']}">{$r['index']}{* escapement is already done *}</label>
                 {assign var="r" value="counter[0]"}
             </div>
@@ -107,7 +107,7 @@
                 </div>
             {if $checkable}
                 <div class="form_check">
-                    <input id="activate_{$orid['id']}" name="serendipity[{$postKey}][activate][{$config_item}][{$orid['id']}]" {(in_array($orid['id'], $store_order)) ? ' checked="checked" ' : ''} type="checkbox" value="{$orid['id']}">
+                    <input id="activate_{$orid['id']}" name="serendipity[{$postKey}][activate][{$config_item}][{$orid['id']}]"{(in_array($orid['id'], $store_order)) ? ' checked="checked" ' : ''} type="checkbox" value="{$orid['id']}">
                     <label for="activate_{$orid['id']}" class="visuallyhidden">{$CONST.PLUGIN_ACTIVE} / {$CONST.PLUGIN_INACTIVE}</label>
                 </div>
             {/if}

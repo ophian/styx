@@ -1461,7 +1461,7 @@ function serendipity_updertEntry($entry) {
         $entry['timestamp'] = time();
     }
 
-    /* Check empty ' ' for extended body; this is reversed here -*/
+    /* Check empty ' ' for extended body; this is reversed here */
     if (isset($entry['extended']) && trim($entry['extended']) == '') {
         $entry['extended'] = '';
     }

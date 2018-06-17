@@ -182,12 +182,12 @@
                 <div class="form_field">
                     <div class="clearfix">
                         <div class="form_radio">
-                            <input id="radio_link_no" name="serendipity[hideSubdirFiles]" type="radio" value="no" {if $media.hideSubdirFiles == 'no'}checked="checked"{/if}>
+                            <input id="radio_link_no" name="serendipity[hideSubdirFiles]" type="radio" value="no"{if $media.hideSubdirFiles == 'no'} checked="checked"{/if}>
                             <label for="radio_link_no">{$CONST.NO}</label>
                         </div>
 
                         <div class="form_radio">
-                            <input id="radio_link_yes" name="serendipity[hideSubdirFiles]" type="radio" value="yes" {if $media.hideSubdirFiles == 'yes'}checked="checked"{/if}>
+                            <input id="radio_link_yes" name="serendipity[hideSubdirFiles]" type="radio" value="yes"{if $media.hideSubdirFiles == 'yes'} checked="checked"{/if}>
                             <label for="radio_link_yes">{$CONST.YES}</label>
                         </div>
                         <div class="hideSubDirLabel">{$CONST.HIDE_SUBDIR_FILES}</div>

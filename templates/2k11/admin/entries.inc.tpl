@@ -26,7 +26,7 @@
                 {if is_array($users)}
                     {foreach $users AS $user}
                         {if isset($user.artcount) AND $user.artcount < 1}{continue}{/if}
-                        <option value="{$user.authorid}" {(isset($get.filter.author) AND ($get.filter.author == $user.authorid)) ? 'selected' : ''}>{$user.realname|escape}</option>
+                        <option value="{$user.authorid}"{(isset($get.filter.author) AND ($get.filter.author == $user.authorid)) ? ' selected' : ''}>{$user.realname|escape}</option>
                     {/foreach}
                 {/if}
                     </select>
@@ -36,8 +36,8 @@
                     <label for="filter_draft">{$CONST.ENTRY_STATUS}</label>
                     <select id="filter_draft" name="serendipity[filter][isdraft]">
                         <option value="all">{$CONST.COMMENTS_FILTER_ALL}</option>
-                        <option value="draft" {(isset($get.filter.isdraft) AND ($get.filter.isdraft == 'draft') ? 'selected' : '')}>{$CONST.DRAFT}</option>
-                        <option value="publish" {(isset($get.filter.isdraft) AND ($get.filter.isdraft == 'publish') ? 'selected' : '')}>{$CONST.PUBLISH}</option>
+                        <option value="draft"{(isset($get.filter.isdraft) AND ($get.filter.isdraft == 'draft') ? ' selected' : '')}>{$CONST.DRAFT}</option>
+                        <option value="publish"{(isset($get.filter.isdraft) AND ($get.filter.isdraft == 'publish') ? ' selected' : '')}>{$CONST.PUBLISH}</option>
                     </select>
                 </div>
 
@@ -66,7 +66,7 @@
                     <label for="sort_order">{$CONST.SORT_BY}</label>
                     <select id="sort_order" name="serendipity[sort][order]">
                     {foreach $sort_order AS $so_key => $so_val}
-                        <option value="{$so_key}" {(isset($get.sort.order) AND ($get.sort.order == $so_key) ? 'selected': '')}>{$so_val}</option>
+                        <option value="{$so_key}"{(isset($get.sort.order) AND ($get.sort.order == $so_key) ? ' selected': '')}>{$so_val}</option>
                     {/foreach}
                     </select>
                 </div>
@@ -74,8 +74,8 @@
                 <div class="form_select">
                     <label for="sort_ordermode">{$CONST.SORT_ORDER}</label>
                     <select id="sort_ordermode" name="serendipity[sort][ordermode]">
-                        <option value="DESC" {(isset($get.sort.ordermode) AND ($get.sort.ordermode == 'DESC') ? 'selected' : '')}>{$CONST.SORT_ORDER_DESC}</option>
-                        <option value="ASC" {(isset($get.sort.ordermode) AND ($get.sort.ordermode == 'ASC') ? 'selected' : '')}>{$CONST.SORT_ORDER_ASC}</option>
+                        <option value="DESC"{(isset($get.sort.ordermode) AND ($get.sort.ordermode == 'DESC') ? ' selected' : '')}>{$CONST.SORT_ORDER_DESC}</option>
+                        <option value="ASC"{(isset($get.sort.ordermode) AND ($get.sort.ordermode == 'ASC') ? ' selected' : '')}>{$CONST.SORT_ORDER_ASC}</option>
                     </select>
                 </div>
 
@@ -83,7 +83,7 @@
                     <label for="sort_perpage">{$CONST.ENTRIES_PER_PAGE}</label>
                     <select id="sort_perpage" name="serendipity[sort][perPage]">
                     {foreach $per_page AS $per_page_nr}
-                        <option value="{$per_page_nr}" {((isset($get.sort.perPage) AND ($get.sort.perPage == $per_page_nr)) ? 'selected' : '')}> {$per_page_nr}</option>
+                        <option value="{$per_page_nr}"{((isset($get.sort.perPage) AND ($get.sort.perPage == $per_page_nr)) ? ' selected' : '')}> {$per_page_nr}</option>
                     {/foreach}
                     </select>
                 </div>
@@ -239,7 +239,7 @@
         {/if}
         {if $is_iframe}
         {if $iframe === true AND isset($smarty.post.serendipity.properties.lang_selected)}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.PLUGIN_EVENT_MULTILINGUAL_ENTRY_RELOADED|sprintf:{(''==$smarty.post.serendipity.properties.lang_selected)?$lang:$smarty.post.serendipity.properties.lang_selected}}</span>
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.PLUGIN_EVENT_MULTILINGUAL_ENTRY_RELOADED|sprintf:{('' == $smarty.post.serendipity.properties.lang_selected) ? $lang : $smarty.post.serendipity.properties.lang_selected}}</span>
         {else}
         <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IFRAME_SAVE}</span>
         {/if}
