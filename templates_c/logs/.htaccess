@@ -1,4 +1,4 @@
-<Directory "./logs">
+<Directory "./">
     AllowOverride None
     Options None
     deny from all
