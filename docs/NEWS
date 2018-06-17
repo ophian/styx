@@ -3,6 +3,9 @@ Version 2.6-alpha1 ()
 
   * Fix misplaced .htaccess file for debug logs, which prevented the additional
     themes preview cache files to correctly load into the backend theme list.
+    DO NOT use this DEBUG OPTION on non-NCSA compatible web servers, like NGINX,
+    which are NOT able to run .htaccess file(s) rules/restrictions!
+    Don't forget: This WARNING effects also Serendipity in total.
 
   * Add a third parameter to serendipity_printEntryFooter() entries API
     for new comments_by_author limits.
