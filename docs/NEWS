@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Re-add last remaining backward compatible mode wrapper for some
+    (s9y-origin) additional_themes still using this old Smarty2 method.
+
   * Fix misplaced .htaccess file for debug logs, which prevented the additional
     themes preview cache files to correctly load into the backend theme list.
     DO NOT use this DEBUG OPTION on non-NCSA compatible web servers, like NGINX,
