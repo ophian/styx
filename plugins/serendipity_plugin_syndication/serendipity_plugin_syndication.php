@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.3');
+        $propbag->add('version',       '2.4');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -162,7 +162,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         if ($custom_img != 'none' && $custom_img != "feedburner") {
             $custom_img = serendipity_getTemplateFile($custom_img);
         }
-        $subtome     = serendipity_db_bool($this->get_config('subToMe', 'true'));
+        $subtome     = serendipity_db_bool($this->get_config('subToMe', 'false'));
         $fbid        = $this->get_config('fb_id');
         $custom_url  = serendipity_db_bool($this->get_config('custom_url', 'false'));
         $feed_format = $this->get_config('feed_format', 'rss');
