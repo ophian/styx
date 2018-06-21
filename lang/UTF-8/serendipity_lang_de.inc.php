@@ -1052,7 +1052,7 @@
 @define('PLUGIN_ALREADY_INSTALLED', 'Plugin ist bereits installiert und unterstützt die Mehrfachinstallation ("stackable") nicht.');
 @define('INSTALL_DBPREFIX_INVALID', 'Der Datenbank-Tabellenpräfix darf nicht leer sein und darf nur Zahlen, Nummern und den Unterstrich enthalten.');
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
-@define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Zeigt den subToMe Button, mit dem Feed-Abonnements einfacher für Besucher verwaltet werden können.');
+@define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Lade das externe subToMe Javascript und nutze das interne subToMe Icon, mit dem Feed-Abonnements einfacher für Besucher verwaltet werden können.');
 @define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Zeigt ein (großes) Bild oberhalb der Seitenleiste. Hier kann eine volle (oder absolut referenzierte) URL eingetragen werden oder "none" für einen Textlink (bisheriger Standard)');
 @define('INSTALL_BACKENDPOPUP', 'Popups für das Backend verwenden?');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Sollen im Backend Popup-Fenster eingesetzt werden? Wenn deaktiviert (Standard), werden eingebettete modale Dialoge z.b. für die Mediendatenbank und die Kategorieauswahl verwendet. Andererseits gilt diese Popup-Option nur für bestimmte Elemente, wie die Mediendatenbank oder auch einige Plugins. Anderes, wie die Kategorien, wird eingebettet angezeigt.');

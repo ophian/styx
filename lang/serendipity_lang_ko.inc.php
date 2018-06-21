@@ -1052,7 +1052,8 @@
 @define('PLUGIN_ALREADY_INSTALLED', '플러그인이 이미 설치되었으며, 다중 설치 ("겹침") 지원을 하지 않습니다.');
 @define('INSTALL_DBPREFIX_INVALID', '데이터베이스 테이블 이름의 접두사는 비워둘 수 없으며 영문자, 숫자, 그리고 밑줄 문자("_")만 허용됩니다.');
 @define('SYNDICATION_PLUGIN_SUBTOME', '서브투미(subToMe)');
-@define('SYNDICATION_PLUGIN_SUBTOME_DESC', '서브투미(subToMe) 버튼을 보여줍니다. 이는 피드 구독을 더 쉽게 하도록 도와주는 계층입니다.');
+#@define('SYNDICATION_PLUGIN_SUBTOME_DESC', '서브투미(subToMe) 버튼을 보여줍니다. 이는 피드 구독을 더 쉽게 하도록 도와주는 계층입니다.');
+@define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
 @define('SYNDICATE_THIS_BLOG', '구독하기');
 @define('SYNDICATION_PLUGIN_BIGIMG_DESC', '옆줄에 나타나는 피드 맨 위에 (대형) 그림을 표시합니다. 그림 파일에 대한 전체 또는 절대 경로를 입력합니다. "없음"으로 설정하면 문자 링크를 표시합니다(예전 기본 설정).');
 @define('INSTALL_BACKENDPOPUP', '관리 페이지에서 팝업 창을 사용할 수 있게 함');
