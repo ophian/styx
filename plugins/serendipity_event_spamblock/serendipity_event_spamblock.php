@@ -771,7 +771,7 @@ class serendipity_event_spamblock extends serendipity_event
         }
     }
 
-    // Checks whether the current author is contained in one of the gorups that need no spam checking
+    // Checks whether the current author is contained in one of the groups that need no spam checking
     function inGroup()
     {
         global $serendipity;

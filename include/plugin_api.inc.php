@@ -1064,7 +1064,7 @@ class serendipity_plugin_api
     }
 
     /**
-     * Executes a specific Eventhook
+     * Executes a specific event hook
      *
      * If you want to temporarily block any event plugins, you can set $serendipity['no_events'] before
      * this method call.

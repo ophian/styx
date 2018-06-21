@@ -717,10 +717,10 @@ function serendipity_smarty_getConfigVar($params, $template) {
  * Smarty Function: Set the valid form token by type or default
  *
  * @access public
- * @param   array       Smarty parameter input array:
+ * @param  array       Smarty parameter input array:
  *                          type: The form token by a given type
- * @param   object      Smarty template object
- * @return  string      The requested valid form token
+ * @param  object      Smarty template object
+ * @return string      The requested valid form token
  */
 function serendipity_smarty_setFormToken($params, $template) {
     if (!empty($params['type'])) {
@@ -729,17 +729,16 @@ function serendipity_smarty_setFormToken($params, $template) {
     return serendipity_setFormToken();
 }
 
-
 /**
  * Smarty Function: Picks a specified key from an array and returns it
  *
  * @access public
- * @param   array       Smarty parameter input array:
+ * @param  array       Smarty parameter input array:
  *                          array: The array you want to check
  *                          key: The keyname
  *                          default: What (string) to return when array does not contain the key.
- * @param   object      Smarty template object
- * @return  string      The requested filename with full path
+ * @param  object      Smarty template object
+ * @return string      The requested filename with full path
  */
 function serendipity_smarty_pickKey($params, $template) {
     if (empty($params['array'])) {
@@ -1215,7 +1214,6 @@ function serendipity_smarty_init($vars = array()) {
         if (file_exists($config)) {
             include_once $config;
         }
-
 
         if (is_array($template_loaded_config)) {
             $template_vars =& $template_loaded_config;
