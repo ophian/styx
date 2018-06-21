@@ -667,7 +667,7 @@ function serendipity_checkInstallation() {
     // For shared installations, probe the file on include path
     //include_once(S9Y_INCLUDE_PATH . 'include/db/db.inc.php');
 
-    if (S9Y_DB_INCLUDED) {
+    if (defined('S9Y_DB_INCLUDED') && S9Y_DB_INCLUDED === true) {
         serendipity_db_probe($_POST, $errs);
     }
 

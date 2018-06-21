@@ -9,7 +9,7 @@ $output = array(); // init backend_frontpage_display hook array
 $output['probe'] = '';
 
 // Alert non accessible SQLite database on login
-if (isset($serendipity['POST']['admin']['user']) && stristr($serendipity['dbType'], 'sqlite') && S9Y_DB_INCLUDED) {
+if (isset($serendipity['POST']['admin']['user']) && stristr($serendipity['dbType'], 'sqlite') && (defined('S9Y_DB_INCLUDED') && S9Y_DB_INCLUDED === true)) {
     $errs  = array();
     $probe = array('dbName' => $serendipity['dbName']);
     serendipity_db_probe($probe, $errs);
