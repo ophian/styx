@@ -561,7 +561,7 @@ function serendipity_printCommentsByAuthor() {
         $serendipity['GET']['page'] = 1;
     }
 
-    $sql_limit = $serendipity['CBAfetchLimit'] * ($serendipity['GET']['page']-1) . ',' . $serendipity['CBAfetchLimit'];
+    $sql_limit = $serendipity['CBAfetchLimit'] * ((int)$serendipity['GET']['page']-1) . ',' . $serendipity['CBAfetchLimit'];
     $c = serendipity_fetchComments(null, $sql_limit, 'co.entry_id DESC, co.id ASC', false, $type, $sql_where);
     $entry_comments = array();
 
@@ -1101,14 +1101,14 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
 function serendipity_commentSubscriptionConfirm($hash) {
     global $serendipity;
 
-    // Delete possible current cookie. Also delete any confirmation hash that smell like 3-week-old, dead fish.
+    // Delete possible current cookie. Also delete any confirmation hashes that smell like 3-week-old, dead fish.
     if (stristr($serendipity['dbType'], 'sqlite')) {
         $cast = "name";
     } elseif (stristr($serendipity['dbType'], 'postgres')) {
         // Adds explicits casting for postgresql.
         $cast = "cast(name AS integer)";
     } else {
-        // and all others eg mysql(i), zend-db, ...
+        // and all others eg. mysql(i), zend-db, ...
         $cast = "cast(name AS UNSIGNED)";
     }
 
