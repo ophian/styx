@@ -1,6 +1,8 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix PHP 7.2 assume uninitialized 'S9Y_DB_INCLUDED' constant warning
+
   * Re-add last remaining backward compatible mode wrapper for some
     (s9y-origin) additional_themes still using this old Smarty2 method.
 
