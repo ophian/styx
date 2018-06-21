@@ -69,12 +69,12 @@ switch($serendipity['GET']['adminAction']) {
             if ($entry['timestamp'] == -1) {
                 $data['switched_output'] = true;
                 $data['dateval'] = false;
-                // The date given by the user is not convertable. Reset the timestamp.
+                // The date given by the user is not convertible. Reset the timestamp.
                 $entry['timestamp'] = $serendipity['POST']['timestamp'];
             }
         }
 
-        // Save server timezone in database always, so substract the offset we added for display; otherwise it would be added time and again
+        // Save server timezone in database always, so subtract the offset we added for display; otherwise it would be added time and again
         if (!empty($entry['timestamp'])) {
             $entry['timestamp'] = serendipity_serverOffsetHour($entry['timestamp'], true);
         }
