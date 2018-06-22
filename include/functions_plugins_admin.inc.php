@@ -581,9 +581,9 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                     $sort_idx++;
                 } // foreach end
 
-                if (!is_array($items) or empty($order)) {
+                if (!is_array($items) || empty($order)) {
                     // Print the empty message
-                    $data['no_sequence'] = sprint(NONE);
+                    $data['no_sequence'] = NONE;
                 }
                 // Print the Javascript to drag-n-drop the list
                 // Finish the row
