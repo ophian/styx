@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.06');
+        $propbag->add('version',       '2.07');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1257,14 +1257,14 @@ class serendipity_event_spamblock extends serendipity_event
                     if ($_show_captcha) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_captcha">';
                         if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha'] != strtolower($_SESSION['spamblock']['captcha']))) {
-                            echo '<br />' . PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . '<br />';
+                            echo PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . "<br />\n";
                             echo $this->show_captcha($use_gd);
-                            echo '<br />';
-                            echo '<label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . '</label><br /><input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" />';
+                            echo '<br /><label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . '</label>';
+                            echo '<input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" />';
                         } elseif (isset($serendipity['POST']['captcha'])) {
                             echo '<input type="hidden" name="serendipity[captcha]" value="' . serendipity_specialchars($serendipity['POST']['captcha']) . '" />';
                         }
-                        echo '</div>';
+                        echo "\n</div>\n";
                     }
                     break;
 
