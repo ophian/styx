@@ -70,7 +70,7 @@
                                     </a>
                                 {/if}
 
-                                {if $sort_idx == ($total - 1)}
+                                {if $plugin_data.sort_idx == ($total - 1)}
                                 {else}
                                     <a href="?{$serendipity_setFormTokenUrl}&amp;serendipity[adminModule]=plugins&amp;submit=move+down&amp;serendipity[plugin_to_move]={$plugin_data.key}{if $event_only}&amp;serendipity[event_plugin]=true{/if}">
                                         <span class="icon-down-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MOVE_DOWN}</span>
