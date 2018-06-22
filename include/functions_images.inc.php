@@ -2719,7 +2719,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
         $media['references'] = false;
     }
 
-    foreach($dprops AS $prop) {
+    foreach($dprops AS $idx => $prop) {
         $type = 'input';
         $parts = explode(':', trim($prop));
 
