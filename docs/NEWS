@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Bugfix missing key used for $media['base_property'][$propkey] indexes
+    in serendipity_parseMediaProperties().
+
   * Fix PHP 7.2 assume uninitialized 'S9Y_DB_INCLUDED' constant warning
 
   * Re-add last remaining backward compatible mode wrapper for some
