@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Allow SPAMBLOCK_KILLSWITCH to disable Frontend templates commentforms
+    for non-permissive users.
+
   * Bugfix missing key used for $media['base_property'][$propkey] indexes
     in serendipity_parseMediaProperties().
 
@@ -1037,7 +1040,7 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
   * Fix installer iconfont issue
 
   * Add Styx Backend template example index,  which enables to suppress
-    the Serendipty and PHP version information and assets for unlogged
+    the Serendipity and PHP version information and assets for unlogged
     users.
 
   * Partial Sync - flexbox Backend solution
