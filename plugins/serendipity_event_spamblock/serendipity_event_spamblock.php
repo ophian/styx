@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.07');
+        $propbag->add('version',       '2.08');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -880,6 +880,11 @@ class serendipity_event_spamblock extends serendipity_event
             switch($event) {
 
                 case 'fetchcomments':
+                    // Check for global emergency moderation
+                    if (!serendipity_checkPermission('adminTemplates') && serendipity_db_bool($this->get_config('killswitch', 'false')) === true) {
+                        $serendipity['commentaire']['killswitch'] = true;
+                        return false;
+                    }
                     if (is_array($eventData) && !$_SESSION['serendipityAuthedUser'] && serendipity_db_bool($this->get_config('hide_email', 'true'))) {
                         // Will force emails to be not displayed in comments and RSS feed for comments. Will not apply to logged in admins (so not in the backend as well)
                         foreach($eventData AS $idx => $comment) {

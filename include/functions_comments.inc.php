@@ -284,7 +284,11 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
 
     $serendipity['smarty']->assign($commentform_data);
 
-    serendipity_smarty_fetch('COMMENTFORM', 'commentform.tpl');
+    if (!isset($serendipity['commentaire']['killswitch'])) {
+        serendipity_smarty_fetch('COMMENTFORM', 'commentform.tpl');
+    } else {
+        $serendipity['smarty']->assign('COMMENTFORM', '<div class="serendipity_msg_important">' . PLUGIN_EVENT_SPAMBLOCK_ERROR_KILLSWITCH . '</div>');
+    }
 }
 
 /**
