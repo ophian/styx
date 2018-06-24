@@ -274,7 +274,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 }
 
 /**
- * Prepares a Serendipty query input to fully valid SQL. Replaces certain "template" variables.
+ * Prepares a Serendipity query input to fully valid SQL. Replaces certain "template" variables.
  *
  * @access public
  * @param  string   SQL query with template variables to convert

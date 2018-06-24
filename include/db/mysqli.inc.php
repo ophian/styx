@@ -499,7 +499,7 @@ function serendipity_db_migrate_index($check = true, $prefix = null) {
 }
 
 /**
- * Prepares a Serendipty query input to fully valid SQL. Replaces certain "template" variables.
+ * Prepares a Serendipity query input to fully valid SQL. Replaces certain "template" variables.
  *
  * @access public
  * @param  string   SQL query with template variables to convert
