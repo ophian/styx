@@ -1,6 +1,8 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix plugin ownership issue not changing to selected author
+
   * Allow SPAMBLOCK_KILLSWITCH to disable Frontend templates commentforms
     for non-permissive users.
 
