@@ -38,7 +38,7 @@
                         <ul class="pluginmanager_plugininfo plainList">
                             <li class="pluginmanager_ownership">
                                 {if $plugin_data.is_plugin_owner}
-                                    <select name="serendipity[ownership][{$plugin_data.name}]">
+                                    <select name="serendipity[plugin][{$plugin_data.name}][authorid]">
                                         <option value="0">{$CONST.ALL_AUTHORS}</option>
                                 {/if}
                                 {foreach $users AS $user}
