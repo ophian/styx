@@ -136,8 +136,8 @@ function show_plugins($event_only = false, $sidebars = null) {
             $i++;
             $plugin  =& serendipity_plugin_api::load_plugin($plugin_data['name'], $plugin_data['authorid']);
             $key     = urlencode($plugin_data['name']);
-            $css_key = 's9ycid' . str_replace('%', '-', $key);
-            $crc32   = hash('crc32b', $css_key);
+            #$css_key = 's9ypid' . str_replace('%', '-', $key);
+            $crc32   = hash('crc32b', $plugin_data['name']);
             $is_plugin_owner    = ($plugin_data['authorid'] == $serendipity['authorid'] || serendipity_checkPermission('adminPluginsMaintainOthers'));
             $is_plugin_editable = ($is_plugin_owner || $plugin_data['authorid'] == '0');
             $cname = explode(':', $plugin_data['name']);
@@ -189,14 +189,14 @@ function show_plugins($event_only = false, $sidebars = null) {
             }
 
             $data['placement'][$plugin_placement]['plugin_data'][$i]['sort_idx'] = $sort_idx;
-            $data['placement'][$plugin_placement]['plugin_data'][$i]['css_key'] = $css_key;
+            #$data['placement'][$plugin_placement]['plugin_data'][$i]['css_key'] = $css_key; // previously used very long key for unique items
             $data['placement'][$plugin_placement]['plugin_data'][$i]['is_plugin_editable'] = $is_plugin_editable;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['is_plugin_owner'] = $is_plugin_owner;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['name'] = $plugin_data['name'];
             $data['placement'][$plugin_placement]['plugin_data'][$i]['authorid'] = $plugin_data['authorid'];
             $data['placement'][$plugin_placement]['plugin_data'][$i]['can_configure'] = $can_configure;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['key'] = $key;
-            #$data['placement'][$plugin_placement]['plugin_data'][$i]['crc32'] = $crc32; // may be good for exchanging the ID key hash(es) in template
+            $data['placement'][$plugin_placement]['plugin_data'][$i]['css_key'] = $crc32;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['title'] = $title;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['desc'] = $desc;
             $data['placement'][$plugin_placement]['plugin_data'][$i]['placement'] = $plugin_data['placement'];
