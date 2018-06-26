@@ -12,43 +12,50 @@
                 <h4>{$plugin_placement['ptitle']}</h4>
 
                 <ol id="{$plugin_placement['pid']}_col" data-placement="{$plugin_placement['pid']}" class="pluginmanager_container plainList equal_heights">
+                {if isset($plugin_placement['plugin_data'])}{* Check this independently from following continue! Else it will not close the ol container! *}
                 {if !is_array($plugin_placement)}{continue}{/if}
                 {foreach $plugin_placement['plugin_data'] AS $plugin_data}
-                    <li id="{$plugin_data['css_key']}" class="pluginmanager_plugin pluginmanager_item_{cycle values="odd,even"}">
-                        <input type="hidden" name="serendipity[plugin][{$plugin_data['name']}][id]" value="{$plugin_data['name']}" />
-                        <input type="hidden" name="serendipity[plugin][{$plugin_data['name']}][position]" value="{$plugin_data@index}" />
-                    {if $plugin_data['is_plugin_editable']}
+
+                    <li id="p{$plugin_placement['pid']}-{$plugin_data.css_key}" class="pluginmanager_plugin pluginmanager_item_{cycle values="odd,even"}">
+                        <input type="hidden" name="serendipity[plugin][{$plugin_data.name}][id]" value="{$plugin_data.name}" />
+                        <input type="hidden" name="serendipity[plugin][{$plugin_data.name}][position]" value="{$plugin_data@index}" />
+                    {if $plugin_data.is_plugin_editable}
+
                         <div class="form_check">
-                            <input id="remove_{$plugin_data['name']}" class="multicheck" name="serendipity[plugin_to_remove][]" type="checkbox" value="{$plugin_data['name']}" data-multixid="{$plugin_data['css_key']}">
-                            <label for="remove_{$plugin_data['name']}" class="visuallyhidden">{$CONST.REMOVE_TICKED_PLUGINS}</label>
+                            <input id="remove_{$plugin_data.name}" class="multicheck" name="serendipity[plugin_to_remove][]" type="checkbox" value="{$plugin_data.name}" data-multixid="{$plugin_data.css_key}">
+                            <label for="remove_{$plugin_data.name}" class="visuallyhidden">{$CONST.REMOVE_TICKED_PLUGINS}</label>
                         </div>
                     {/if}
-                        <h5>{$plugin_data['title']}</h5>
 
-                        <div id="g{$plugin_data['css_key']}" class="pluginmanager_grablet">
-                            <button id="grab{$plugin_data['css_key']}" class="icon_link button_link" type="button" title="{$CONST.MOVE}"><span class="icon-move" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MOVE}</span></button>
+                        <h5>{$plugin_data.title}</h5>
+
+                        <div id="g{$plugin_data.css_key}" class="pluginmanager_grablet">
+                            <button id="grab{$plugin_data.css_key}" class="icon_link button_link" type="button" title="{$CONST.MOVE}"><span class="icon-move" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MOVE}</span></button>
                         </div>
+                    {if $plugin_data.can_configure}
 
-                    {if $plugin_data['can_configure']}
                         <a class="pluginmanager_configure button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]={$plugin_data['key']}" title="{$CONST.CONFIGURATION}"><span class="icon-cog-alt" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CONFIGURATION}</span></a>
                     {/if}
 
-                        {$plugin_data['desc']}
+                        {$plugin_data.desc}
 
                         <ul class="pluginmanager_plugininfo plainList">
                             <li class="pluginmanager_ownership">
                                 {if $plugin_data.is_plugin_owner}
+
                                     <select name="serendipity[plugin][{$plugin_data.name}][authorid]">
                                         <option value="0">{$CONST.ALL_AUTHORS}</option>
                                 {/if}
                                 {foreach $users AS $user}
-                                    {if (! $plugin_data.is_plugin_owner AND ($user['authorid'] == $plugin_data.authorid))}
-                                        {assign var="realname" value="{$user['realname']|escape}"}
+                                    {if (! $plugin_data.is_plugin_owner AND ($user.authorid == $plugin_data.authorid))}
+                                        {assign var="realname" value="{$user.realname|escape}"}
                                     {elseif $plugin_data.is_plugin_owner}
-                                        <option value="{$user['authorid']}"{($user['authorid'] == $plugin_data.authorid) ? ' selected' : ''}>{$user['realname']|escape}</option>
+
+                                        <option value="{$user.authorid}"{($user.authorid == $plugin_data.authorid) ? ' selected' : ''}>{$user.realname|escape}</option>
                                     {/if}
                                 {/foreach}
                                 {if $plugin_data.is_plugin_owner}
+
                                     </select>
                                 {else}
                                     {(empty($realname)) ? $CONST.ALL_AUTHORS : $realname}
@@ -56,9 +63,10 @@
 
                             </li>
                             <li class="pluginmanager_place nojs-controls">
-                                <select name="serendipity[plugin][{$plugin_data['name']}][placement]">
+                                <select name="serendipity[plugin][{$plugin_data.name}][placement]">
                                     {foreach $plugin_data.gopts AS $k => $v}
-                                        <option value="{$k}"{if $k == $plugin_data['placement']} selected="selected"{/if}>{$v}</option>
+
+                                        <option value="{$k}"{if $k == $plugin_data.placement} selected="selected"{/if}>{$v}</option>
                                     {/foreach}
                                 </select>
                             </li>
@@ -80,6 +88,7 @@
                         </ul>
                     </li>
                 {/foreach}
+                {/if}
                 </ol>
             </div>
         {/foreach}
