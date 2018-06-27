@@ -19,11 +19,11 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
     function getImportNotes()
     {
         // TODO: I18n!
-        return '<p>This importer is still work in progress. It can currently import most things of the database. HOWEVER it can NOT import previously installed plugins (including their configuration) or any database tables of installed plugins. Those must be migrated manually. Also, you must use FTP to transfer your uploaded images to the new location.</p>
-        <p>Please do a test-run first if you are SQL-savvy. If you encounter any errors, save the message output you get - it will definitely help debugging!</p>
+        return 'Please set the correct settings for host, user, password, name, prefix and charset from your <b>import database</b>.<p>This importer is still a work-in-progress. It can currently import most things of the database. HOWEVER it can NOT import previously installed plugins (including their configuration) or any database tables of installed plugins. Those must be migrated manually. Also, you must use FTP (or any other useful modern transferring protocol) to transfer your uploaded images to the new location.</p>
+        <p>Please do a test-run first if you are SQL-savvy. If you encounter any errors, save the message output you get - it will definitely help debugging! This test-run will "Dupe-Check"/show you two short example tables ("groups" and "authors"), check for an existing current "import_" table and skip the rest, lopping through the selected tables/groups. If you don\'t get any other errors, all should be well for the final run.</p>
         <p>This is <strong>NOT</strong> an importer meant for upgrading Serendipity. This importer assumes that both Serendipity installations use the same version.</p>
-        <p>It is strongly advised that you test this importer in an isolated environment first, do not use it on a production blog unless you made sure it works in a cloned installation. Always make a backup of both the source and the target blog.<p/>
-        <p>After these precautions: The importer code generally works very well for me and my purposes. Your mileage may vary.</p>';
+        <p>It is strongly advised that you test this importer in an isolated environment first. Do not use it on a production blog unless you made sure it works in a cloned installation. Always make a backup of both the source and the target blog.<p/>
+        <p>After these precautions: The importer code generally worked very well for me and my purposes (Garvin Hicking). Your mileage may vary.</p>';
     }
 
     function __construct($data)
@@ -66,7 +66,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
                                          'name'    => 'use_strtr',
                                          'default' => 'false'),
 
-                                   array('text'    => 'Import Targets',
+                                   array('text'    => 'Import Grouped Targets (selectable, due to max_execution_time limits)',
                                          'type'    => 'multilist',
                                          'name'    => 'targets',
                                          'select_size' => 6,
@@ -100,7 +100,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
     {
         global $serendipity;
 
-        echo "<span class='block_level'>Starting with table <strong>{$table}</strong>...</span>";
+        echo "<span class=\"block_level\">Starting with table <strong>{$table}</strong>...</span>";
 
         if ($dupe_check) {
             $dupes = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}" . $table . " " . $where, false, 'both', false, $dupe_check);
@@ -196,7 +196,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
                     }
                 }
 
-                if (is_array($this->storage[$table]) && !empty($this->storage[$table])) {
+                if (!empty($this->storage[$table]) && is_array($this->storage[$table])) {
                     foreach($this->storage[$table] AS $primary_key => $primary_data) {
                         foreach($primary_data AS $primary_val => $replace_val) {
                             serendipity_set_config_var('import_s9y_' . $table . '_' . $primary_key . '_' . $primary_val, $replace_val, 99);
@@ -219,7 +219,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
 
     function import_groups(&$s9ydb)
     {
-        global $serendipity;
+        #global $serendipity;
 
         $this->import_table(
             $s9ydb,
@@ -243,7 +243,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
 
     function import_authors(&$s9ydb)
     {
-        global $serendipity;
+        #global $serendipity;
 
         $this->import_table(
             $s9ydb,
@@ -285,7 +285,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
 
     function import_entries(&$s9ydb)
     {
-        global $serendipity;
+        #global $serendipity;
 
         $this->import_table(
             $s9ydb,
@@ -354,7 +354,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
 
     function import_media(&$s9ydb)
     {
-        global $serendipity;
+        #global $serendipity;
 
         $this->import_table(
             $s9ydb,
@@ -386,7 +386,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
 
     function import_cat(&$s9ydb)
     {
-        global $serendipity;
+        #global $serendipity;
 
         $this->import_table(
             $s9ydb,
@@ -432,14 +432,15 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
 
     function import()
     {
-        global $serendipity;
+        #global $serendipity;
 
         // Save this so we can return it to its original value at the end of this method.
-        $noautodiscovery = isset($serendipity['noautodiscovery']) ? $serendipity['noautodiscovery'] : false;
+        #$noautodiscovery = isset($serendipity['noautodiscovery']) ? $serendipity['noautodiscovery'] : false;
 
-        if ($this->data['autodiscovery'] == 'false') {
-            $serendipity['noautodiscovery'] = 1;
-        }
+        #if (!isset($this->data['autodiscovery']) || $this->data['autodiscovery'] == 'false') {
+        #    $serendipity['noautodiscovery'] = 1;
+        #}
+        //seems to be an unused b2evolution.inc.php importer c&p addition, since this has an autodiscovery inputField
 
         if ($this->data['preflight'] == 'true') {
             $this->execute = false;
@@ -464,6 +465,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
             return sprintf(COULDNT_SELECT_DB, mysqli_error($s9ydb));
         }
 
+        #echo "IN-DATA: <pre>". print_r($this->data, true) . "</pre>";
         if (!is_array($this->data['targets'])) {
             return "No targets selected";
         }
