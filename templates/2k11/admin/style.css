@@ -1027,6 +1027,11 @@ textarea[disabled] {
     cursor: default;
 }
 
+/* Special case rules in importers generic, livejournal */
+#serendipity\[import\]\[url\] {
+    width: 80%;
+}
+
 /* Special case rules in media file properties, media entry insert and media directory edit */
 #serendipity_alt,
 #serendipity_title,
@@ -3630,7 +3635,7 @@ img.mfp-img {
     #sort_entries .form_select select,
     #filter_entries .form_select select,
     #filter_entries .form_field input {
-        width: 79%;
+        width: 79%; /* keep, although looking redundant. Is mid-screen label - element one-liner. */
     }
 
     #uploadform label {
