@@ -324,21 +324,23 @@ class Serendipity_Import_Generic extends Serendipity_Import
 
         $import = false;
 
-        if (serendipity_db_bool($this->data['wpxrss'])) {
-            return $this->import_wpxrss();
-        }
-
-        $c = new Onyx_RSS($this->data['charset']);
-        $c->parse($this->data['url']);
-        $this->data['encoding'] = $c->rss['encoding'];
-
-        $serendipity['noautodiscovery'] = 1;
-        while ($item = $c->getNextItem()) {
-            $entry = array();
-            if ($this->buildEntry($item, $entry)) {
-                serendipity_updertEntry($entry);
+        if (!empty($this->data['url'])) {
+            if (serendipity_db_bool($this->data['wpxrss'])) {
+                return $this->import_wpxrss();
             }
-            $import = true;
+
+            $c = new Onyx_RSS($this->data['charset']);
+            $c->parse($this->data['url']);
+            $this->data['encoding'] = $c->rss['encoding'];
+
+            $serendipity['noautodiscovery'] = 1;
+            while ($item = $c->getNextItem()) {
+                $entry = array();
+                if ($this->buildEntry($item, $entry)) {
+                    serendipity_updertEntry($entry);
+                }
+                $import = true;
+            }
         }
 
         return $import;
