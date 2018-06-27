@@ -72,7 +72,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
 
     function buildEntry($item, &$entry)
     {
-        global $serendipity;
+        #global $serendipity;
 
         $bodyonly = serendipity_get_bool($this->data['bodyonly']);
 
