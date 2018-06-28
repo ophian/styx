@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.64');
+        $propbag->add('version',       '2.65');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -633,7 +633,7 @@ class serendipity_event_spartacus extends serendipity_event
         $custom  = $this->get_config('custommirror');
 
         // we currently disable custom template mirrors with $type != 'template'
-        if (strlen($custom) > 2 && $type != 'template') {
+        if (strlen($custom) > 2 && $custom != 'none' && $type != 'template') {
             $servers = explode('|', $custom);
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
             $valid = false;
