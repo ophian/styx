@@ -17,7 +17,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.06');
+        $propbag->add('version',       '2.07');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -271,7 +271,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                     $html .= '<li class="category_depth' . $cat['depth'] . ' category_' . $cat['categoryid'] . '" style="display: block;">';
 
                     if ($is_form) {
-                        $html .= '<input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="' . $cat['categoryid'] . '" />';
+                        $html .= '<input style="width: auto; vertical-align: middle;" type="checkbox" name="serendipity[multiCat][]" value="' . $cat['categoryid'] . '" />';
                     }
 
                     if (!empty($image)) {
