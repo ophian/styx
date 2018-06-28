@@ -19,4 +19,4 @@
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.WRITTEN_N_SAVED}</span>
     {/if}
 {/if}
-{$config}
+{$CONFIG}

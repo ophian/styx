@@ -71,7 +71,7 @@ if (empty($serendipity['updateReleaseFileUrl'])) {
     $serendipity['updateReleaseFileUrl'] = 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE';
 }
 
-$data['config'] = serendipity_printConfigTemplate(serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE), $serendipity, false, true);
+$data['CONFIG'] = serendipity_printConfigTemplate(serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE), $serendipity, false, true);
 
 if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
