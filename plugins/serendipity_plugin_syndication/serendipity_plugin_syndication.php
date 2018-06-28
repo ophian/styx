@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.4');
+        $propbag->add('version',       '2.5');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -168,6 +168,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $feed_format = $this->get_config('feed_format', 'rss');
 
         $useRss = true;
+        $useAtom = false;
         if ($feed_format  == 'atom') {
             $useRss = false;
             $useAtom = true;
@@ -175,7 +176,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
             $useAtom = true;
         }
 
-        $img = 'http://feeds.feedburner.com/~fc/'.$this->get_config('fb_id').'?bg=99CCFF&amp;fg=444444&amp;anim=0';
+        #$img = 'http://feeds.feedburner.com/~fc/'.$this->get_config('fb_id').'?bg=99CCFF&amp;fg=444444&amp;anim=0';
 
         $icon = $small_icon;
         if (!empty($custom_img) && $custom_img != 'default' && $custom_img != 'none' && $custom_img != 'empty') {
