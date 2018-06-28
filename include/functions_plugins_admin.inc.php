@@ -278,12 +278,12 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
             }
         }
 
-        if (isset($_POST['serendipity'][$postkey][$config_item])) {
-            if (is_array($_POST['serendipity'][$postkey][$config_item])) {
-                $hvalue = $_POST['serendipity'][$postkey][$config_item];
+        if (isset($_POST['serendipity'][$postKey][$config_item])) {
+            if (is_array($_POST['serendipity'][$postKey][$config_item])) {
+                $hvalue = $_POST['serendipity'][$postKey][$config_item];
                 array_walk($hvalue, 'serendipity_specialchars');
             } else {
-                $hvalue = serendipity_specialchars($_POST['serendipity'][$postkey][$config_item]);
+                $hvalue = serendipity_specialchars($_POST['serendipity'][$postKey][$config_item]);
             }
         } else {
             $hvalue = serendipity_specialchars($value);
