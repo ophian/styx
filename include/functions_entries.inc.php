@@ -1360,6 +1360,8 @@ function serendipity_cleanCache() {
         return false;
     }
 
+    global $serendipity;
+
     $options = array(
         'cacheDir' => $serendipity['serendipityPath'] . 'templates_c/',
         'lifeTime' => 3600,
@@ -1379,6 +1381,8 @@ function serendipity_setupCache() {
     if (!class_exists('Cache_Lite')) {
         return false;
     }
+
+    global $serendipity;
 
     $options = array(
         'cacheDir' => $serendipity['serendipityPath'] . 'templates_c/',
