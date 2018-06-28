@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Allow option 'custom mirror' new case: 'none' to be able to disable
+    the preset Styx mirror in the Spartacus plugin.
+
   * Improved comment previews, adding a preview message hint to the comment
     footer (meta) in [2k11, next] themes comments.tpl template file.
     Adapt this to your copy themes based on 2k11/next!
