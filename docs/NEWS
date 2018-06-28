@@ -1,6 +1,8 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix security POST check typo for plugins posted config items
+
   * Improve inline style for the multicat checkbox of plugin categories
 
   * Allow option 'custom mirror' new case: 'none' to be able to disable
