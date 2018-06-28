@@ -1,6 +1,8 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Improve inline style for the multicat checkbox of plugin categories
+
   * Allow option 'custom mirror' new case: 'none' to be able to disable
     the preset Styx mirror in the Spartacus plugin.
 
