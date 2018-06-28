@@ -1,6 +1,8 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Fix missing $serendipity global for entries cache options generation
+
   * 2k11: Fix wrong if/then/else logic for the commentform display in
     the entries.tpl template file.
     Adapt this to your copy themes based on 2k11!
