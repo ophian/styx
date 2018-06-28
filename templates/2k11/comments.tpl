@@ -19,6 +19,9 @@
     </div>
 
     <footer>
+    {if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
+        <strong>{$CONST.PREVIEW|upper}</strong>
+    {/if}
     {if $comment.type == 'TRACKBACK'}
         <strong>TRACKBACK</strong>
     {/if}
