@@ -1,7 +1,7 @@
 {foreach $comments AS $comment}
 <article id="c{$comment.id}" class="serendipity_comment{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} serendipity_comment_author_self{/if} {cycle values="odd,even"} {if $comment.depth > 8}commentlevel-9{else}commentlevel-{$comment.depth}{/if}">
     <header class="clearfix">
-        <h4{if $comment.spice_twitter_name AND $comment.spice_twitter_followme} class="short-heading"{/if}>{if $comment.url}<a href="{$comment.url}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} <span class="pc-owner">Post author</span> {/if}{if $comment.url}</a>{/if}{if $comment.spice_twitter_name AND NOT $comment.spice_twitter_followme} (<a href="{$comment.spice_twitter_url}"{if $comment.spice_twitter_nofollow} rel="nofollow"{/if}>@{$comment.spice_twitter_name}</a>){/if} {$CONST.ON} <time datetime="{$comment.timestamp|serendipity_html5time}">{$comment.timestamp|formatTime:$template_option.date_format}</time>:</h4>
+        <h4{if $comment.spice_twitter_name AND $comment.spice_twitter_followme} class="short-heading"{/if}>{if $comment.url}<a href="{$comment.url}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} <span class="pc-owner">Post author</span> {/if}{if $comment.url}</a>{/if}{if $comment.spice_twitter_name AND NOT $comment.spice_twitter_followme} (<a href="{$comment.spice_twitter_url}"{if $comment.spice_twitter_nofollow} rel="nofollow"{/if}>@{$comment.spice_twitter_name}</a>){/if} {$CONST.ON} <time datetime="{$comment.timestamp|serendipity_html5time}">{$comment.timestamp|formatTime:$template_option.date_format}</time>{if isset($comment.meta)} | <time>{$comment.timestamp|formatTime:'%H:%M'}</time>{/if}:</h4>
     {if $comment.spice_twitter_name AND $comment.spice_twitter_followme}
         <div class="twitter_follow"><a href="{$comment.spice_twitter_url}"{if $comment.spice_twitter_nofollow} rel="nofollow"{/if}><span class="visuallyhidden">@{$comment.spice_twitter_name}</span></a>
         {if $comment.spice_twitter_followme}{$comment.spice_twitter_followme}{/if}
@@ -21,7 +21,7 @@
     <footer>
     {if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
         <strong>{$CONST.PREVIEW|upper}</strong>
-    {else}
+    {else if !isset($comment.meta)}
     {if $comment.type == 'TRACKBACK'}
         <strong>TRACKBACK</strong>
     {/if}
