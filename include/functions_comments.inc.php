@@ -586,7 +586,7 @@ function serendipity_printCommentsByAuthor() {
                 $entry_comments[$comment['entry_id']] = $comment;
             }
             if ($serendipity['allow_html_comment']) {
-                $comment['body'] =& serendipity_prepCommentNewline($comment['body']);
+                $comment['body'] = serendipity_prepCommentNewline($comment['body']);
             }
             $entry_comments[$comment['entry_id']]['comments'][] = $comment;
         }
