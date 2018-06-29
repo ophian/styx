@@ -580,6 +580,7 @@ function serendipity_printCommentsByAuthor() {
         }
 
         foreach($c AS $i => $comment) {
+            $comment['meta'] = 'no-';
             if (!isset($entry_comments[$comment['entry_id']])) {
                 $comment['link'] = serendipity_archiveURL($comment['entry_id'], $comment['title'], 'serendipityHTTPPath', true, array('timestamp' => $comment['entrytimestamp']));
                 $entry_comments[$comment['entry_id']] = $comment;
