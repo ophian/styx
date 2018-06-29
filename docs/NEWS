@@ -1,8 +1,12 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
-  * Improve comments meta show-up logic by preview OR comment in 2k11 and
-    next themes comments.tpl template file.
+  * Added new Smarty $comment.meta variable for comments_by_author shortcut
+    pages, already used in [2k11, next] themes comments.tpl template file.
+    Adapt this to your copy themes based on 2k11/next.
+
+  * Improve comments footer meta show-up logic by preview OR comment
+    in [2k11, next] themes comments.tpl template file.
     Adapt this to your copy themes based on 2k11/next.
 
   * Fix security POST check typo for plugins posted config items
