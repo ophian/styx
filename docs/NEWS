@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Regression fix comments_by_author pages comment(s) body, when html
+    comments where allowed.
+
   * Added new Smarty $comment.meta variable for comments_by_author shortcut
     pages, already used in [2k11, next] themes comments.tpl template file.
     Adapt this to your copy themes based on 2k11/next.
