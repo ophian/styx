@@ -258,7 +258,7 @@ function serendipity_isCommentStripped($string, $stripped=false) {
 function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data = NULL, $showToolbar = true, $moderate_comments = true, $entry = null) {
     global $serendipity;
 
-    if ($comments == NULL) {
+    if ($comments === NULL) {
         if (empty($id)) {
             $comments = array();
         } else {
