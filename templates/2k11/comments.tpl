@@ -21,7 +21,7 @@
     <footer>
     {if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
         <strong>{$CONST.PREVIEW|upper}</strong>
-    {/if}
+    {else}
     {if $comment.type == 'TRACKBACK'}
         <strong>TRACKBACK</strong>
     {/if}
@@ -40,6 +40,7 @@
 {/if}
         | <a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_{$comment.id}"{if $comment_onchange != ''} onclick="{$comment_onchange}"{/if}>{$CONST.REPLY}</a>
         <div id="serendipity_replyform_{$comment.id}"></div>
+    {/if}
     {/if}
     </footer>
 </article>

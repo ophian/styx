@@ -25,7 +25,7 @@
             <ul class="meta{if $comment.type == 'TRACKBACK'} tb-meta{/if}">
             {if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
                 <li><strong>{$CONST.PREVIEW|upper}</strong></li>
-            {/if}
+            {else}
             {if $comment.type == 'TRACKBACK'}
                 <li><strong>TRACKBACK</strong></li>
             {/if}
@@ -45,6 +45,7 @@
             {if $entry.allow_comments AND $comment.body != 'COMMENT_DELETED'}
                 <li><a id="serendipity_reply_{$comment.id}" class="comment_reply" href="#serendipity_CommentForm">{$CONST.REPLY}</a>
                 <div id="serendipity_replyform_{$comment.id}" class="visuallyhidden"></div></li>
+            {/if}
             {/if}
             {/if}
             </ul>
