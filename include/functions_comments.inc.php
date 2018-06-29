@@ -597,14 +597,6 @@ function serendipity_printCommentsByAuthor() {
 
     $serendipity['smarty']->assignByRef('comments_by_authors', $entry_comments);
 
-    if (!empty($id)) {
-        $and .= " AND co.entry_id = '" . (int)$id ."'";
-    }
-
-    if (!$showAll) {
-        $and .= ' AND co.status = \'approved\'';
-    }
-
     // we need this here for the counter paging sql query - elsewise $type is top-checked in serendipity_fetchComments()
     if ($type == 'comments' || $type == 'NORMAL' || empty($type)) {
         $_type = 'NORMAL';
@@ -627,15 +619,12 @@ function serendipity_printCommentsByAuthor() {
             WHERE co.entry_id > 0
               AND co.type LIKE '" . $_type . "'
               AND co.status = 'approved' " . $sql_where . " "
-            .  $group_by;
+            . $group_by;
 
     $cc = serendipity_db_query($fc, true, 'assoc');
 
-    if (!isset($cc['counter'])) {
-        $totalComments = 0;
-    } else {
-        $totalComments = $cc['counter'];
-    }
+    $totalComments = !isset($cc['counter']) ? 0 : $cc['counter'];
+
     serendipity_printEntryFooter('', $totalComments, $serendipity['CBAfetchLimit']);
 
     serendipity_smarty_fetch('ENTRIES', 'comments_by_author.tpl');
