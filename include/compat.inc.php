@@ -62,7 +62,6 @@ function memSnap($tshow = '') {
     return '[' . date('d.m.Y H:i') . '] ' . number_format($current - $memUsage, 2, ',', '.') . ' label "' . $tshow . '", totaling ' . number_format($current, 2, ',', '.') . '<br />' . "\n";
 }
 
-
 /**
  * Make fatal Errors readable
  *
@@ -121,7 +120,6 @@ function debug_ErrorLevelType($type) {
     }
     return '';
 }
-
 
 /**
  * Set our own Exception handler to convert all errors into Exceptions automatically
@@ -327,7 +325,7 @@ if (extension_loaded('filter') && function_exists('filter_id') && function_exist
     */
 }
 
-/*
+/**
  *  Avoid magic_quotes_gpc issues
  *  courtesy of iliaa@php.net
  */
@@ -360,7 +358,7 @@ if (ini_get('magic_quotes_gpc')) {
     }
 
     if (@count($_COOKIE)) {
-        array_walk($_COOKIE, 'serendipity_strip_quotes');
+        array_walk($_COOKIE,  'serendipity_strip_quotes');
     }
 
     if (@count($_FILES) && strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
@@ -368,7 +366,7 @@ if (ini_get('magic_quotes_gpc')) {
     }
 }
 
-// Merge get and post into the serendipity array
+// Merge get and post into the global serendipity array
 $serendipity['GET']    = &$_GET['serendipity'];
 $serendipity['POST']   = &$_POST['serendipity'];
 $serendipity['COOKIE'] = &$_COOKIE['serendipity'];
@@ -509,6 +507,7 @@ if (function_exists('date_default_timezone_get')) {
 }
 
 /**
+ * Serendipity htmlspecialchars mapper
  * In PHP 5.4, the default encoding of htmlspecialchar changed to UTF-8 and it will emit empty strings when given
  * native encoded strings containing umlauts. This wrapper should to be used in the core until PHP 5.6 fixes the bug.
  */
@@ -533,6 +532,7 @@ function serendipity_specialchars($string, $flags = null, $encoding = LANG_CHARS
 }
 
 /**
+ * Serendipity htmlentities mapper
  * @see serendipity_specialchars()
  */
 function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, $double_encode = true) {
@@ -552,6 +552,7 @@ function serendipity_entities($string, $flags = null, $encoding = LANG_CHARSET, 
 }
 
 /**
+ * Serendipity html_entity_decode mapper
  * @see serendipity_specialchars()
  */
 function serendipity_entity_decode($string, $flags = null, $encoding = LANG_CHARSET) {
