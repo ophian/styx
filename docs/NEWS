@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Remove 2k11 configs "is_templatechooser" SMARTY var assignment
+    Adapt this to your copy themes based on 2k11.
+
   * Improve/extend HTML comments constant description and the backends
     empty stripped comment alert.
 
