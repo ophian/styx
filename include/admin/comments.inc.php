@@ -403,10 +403,10 @@ if (is_array($sql)) {
             }
         }
 
-        // do for both - else add ($serendipity['allow_html_comment'] && )
+        // Backend only: Do for both - else add ($serendipity['allow_html_comment'] && )
         if ($comment['type'] == 'NORMAL' && serendipity_isCommentStripped($comment['summary'], $comment['excerpt'])) {
             if (empty($comment['summary'])) {
-                $comment['summary'] .= '<span class="msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
+                $comment['summary'] .= '<span class="msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection. Check with disabled HTML-comments mode and EDIT.</span>';
             } else {
                 $comment['summary'] .= '<span class="summary_stripped" title="Content was stripped! Review content in EDIT or VIEW mode">&hellip;<span class="icon-filter"></span></span>';
             }
