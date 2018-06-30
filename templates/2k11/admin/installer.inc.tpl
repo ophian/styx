@@ -271,21 +271,21 @@
                 </div>
             {/if}
             </div>
-        {elseif $s9yGETstep == '2a' && $install_token_pass}
+        {elseif $s9yGETstep == '2a' AND $install_token_pass}
             <form action="?" method="post">
                 <input name="serendipity[step]" type="hidden" value="{$s9yGETstep}">
                 <input name="serendipity[getstep]" type="hidden" value="3">
                 {if $ob_serendipity_printConfigTemplate}{$ob_serendipity_printConfigTemplate}{/if}
                 <input name="submit" type="submit" value="{$CONST.COMPLETE_INSTALLATION}">
             </form>
-        {elseif $s9yGETstep == '2b' && $install_token_pass}
+        {elseif $s9yGETstep == '2b' AND $install_token_pass}
             <form action="?" method="post">
                 <input name="serendipity[step]" type="hidden" value="{$s9yGETstep}">
                 <input name="serendipity[getstep]" type="hidden" value="3">
                 {if $ob_serendipity_printConfigTemplate}{$ob_serendipity_printConfigTemplate}{/if}
                 <input name="submit" type="submit" value="{$CONST.COMPLETE_INSTALLATION}">
             </form>
-        {elseif $s9yGETstep == '3' && $install_token_pass}
+        {elseif $s9yGETstep == '3' AND $install_token_pass}
             <h3>{$CONST.CHECK_DATABASE_EXISTS}</h3>
             {if is_array($authors_query)}
             <span class="msg_success"><strong>{$CONST.THEY_DO}</strong>, {$CONST.WONT_INSTALL_DB_AGAIN}</span>

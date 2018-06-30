@@ -79,7 +79,7 @@
         <span class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.NO_UPDATES}</span>
     {else}
         {foreach $pluggroups AS $pluggroup => $groupstack}
-            {if !empty($only_group) AND ($only_group AND $pluggroup != $only_group || empty($pluggroup))}{continue}{/if}
+            {if !empty($only_group) AND ($only_group AND $pluggroup != $only_group OR empty($pluggroup))}{continue}{/if}
             <h3>{foreach $groupnames AS $available_group => $available_name}{if $pluggroup == $available_group}{$available_name}{/if}{/foreach}</h3>
             {if $only_group == 'UPGRADE' AND $pluggroups['UPGRADE']|count > 1}
                 <button id="updateAll">{$CONST.UPDATE_ALL}</button>
@@ -133,7 +133,7 @@
                         </ul>
                     </div>
 
-                    <div class="plugin_status{if (!$plug.installable && !$plug['upgradeable']) OR (!$plug['upgradeable'] AND $plug.installable AND $plug.stackable)} installed{/if}">
+                    <div class="plugin_status{if (!$plug.installable AND !$plug['upgradeable']) OR (!$plug['upgradeable'] AND $plug.installable AND $plug.stackable)} installed{/if}">
                     {if isset($requirements_failures.{$plug.class_name})}
                         <span class="unmet_requirements msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.UNMET_REQUIREMENTS|sprintf:"{if ($requirements_failures.{$plug.class_name}.s9y)}S9y {$plug.requirements.serendipity},{/if}{if ($requirements_failures.{$plug.class_name}.php)} PHP {$plug.requirements.php},{/if}{if ($requirements_failures.{$plug.class_name}.smarty)} Smarty {$plug.requirements.smarty}{/if}"|replace:' ,':','}</span>
                     {elseif $plug['upgradeable']}

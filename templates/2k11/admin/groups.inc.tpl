@@ -105,7 +105,7 @@
             {else}
 
                 <div class="form_check">
-                    <input id="{$perm@key|escape}" name="serendipity[{$perm@key|escape}]" type="checkbox" value="true"{if isset($from.{$perm@key}) && $from.{$perm@key} == 'true'} checked="checked"{/if}>
+                    <input id="{$perm@key|escape}" name="serendipity[{$perm@key|escape}]" type="checkbox" value="true"{if isset($from.{$perm@key}) AND $from.{$perm@key} == 'true'} checked="checked"{/if}>
                     <label for="{$perm@key|escape}">{$perm.permission_note|escape} <var class="perm_name">[{$perm.permission_name|escape}]</var></label>
                 </div>
             {/if}
