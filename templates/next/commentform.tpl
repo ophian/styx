@@ -8,12 +8,12 @@
         <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
 
         <div class="form_field">
-            <label for="serendipity_commentform_name">{$CONST.NAME}{if $required_fields.name}*{/if}</label>
+            <label for="serendipity_commentform_name">{$CONST.NAME}{if $required_fields.name}&#8727;{/if}</label>
             <input id="serendipity_commentform_name" type="text" name="serendipity[name]" value="{$commentform_name}"{if $required_fields.name} required{/if}>
         </div>
 
         <div class="form_field">
-            <label for="serendipity_commentform_email">{$CONST.EMAIL}{if $required_fields.email}*{/if}</label>
+            <label for="serendipity_commentform_email">{$CONST.EMAIL}{if $required_fields.email}&#8727;{/if}</label>
             <input id="serendipity_commentform_email" type="email" name="serendipity[email]" value="{$commentform_email}"{if $required_fields.email} required{/if}>
         </div>
     {if $spice.inputtwitter}
@@ -23,7 +23,7 @@
         </div>
     {/if}
         <div class="form_field">
-            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if $required_fields.url}*{/if}</label>
+            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if $required_fields.url}&#8727;{/if}</label>
             <input id="serendipity_commentform_url" type="url" name="serendipity[url]" value="{$commentform_url}" placeholder="http://example.org" {if $required_fields.url} required{/if}>
         </div>
     {if $spice.inputarticle}
@@ -38,7 +38,7 @@
         </div>
 
         <div class="form_tarea">
-            <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if $required_fields.comment}*{/if}</label>
+            <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if $required_fields.comment}&#8727;{/if}</label>
             <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]"{if $required_fields.comment} required{/if}>{$commentform_data}</textarea>
         </div>
 
