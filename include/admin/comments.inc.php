@@ -159,6 +159,25 @@ if (isset($serendipity['GET']['adminAction'])
         serendipity_smarty_init();
     }
     $serendipity['smarty']->assign('comment_wysiwyg', ($serendipity['allow_html_comment'] && $serendipity['wysiwyg']));
+    if ($serendipity['allow_html_comment'] && $serendipity['wysiwyg']) {
+        // define the script here and NOT in template for secureness, since we don't want any possible manipulation!
+        $ckescript = "
+        <script>
+            window.onload = function() {
+                var plugIN = (typeof CKECONFIG_CODE_ON === 'undefined' || !CKECONFIG_CODE_ON) ? '' : 'codesnippet';
+                CKEDITOR.replace( 'serendipity_commentform_comment',
+                {
+                    toolbar : [['Undo', 'Redo'],['Format'],['Bold','Italic','Underline','Strike','Superscript','TextColor','-','NumberedList','BulletedList','Outdent','Blockquote'],['JustifyBlock','JustifyCenter'],['SpecialChar'],['Maximize'],['CodeSnippet'],['Source']],
+                    toolbarGroups: null,
+                    entities: false,
+                    htmlEncodeOutput: false,
+                    extraAllowedContent: 'div(*);p(*);ul(*);pre;code{*}(*)',
+                    extraPlugins: plugIN
+                });
+            }
+        </script>";
+        $serendipity['smarty']->assign('secure_simple_ckeditor', $ckescript);
+    }
 
     if ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply') {
         $c = serendipity_fetchComments($_entry_id, 1, 'co.id', false, 'NORMAL', ' AND co.id=' . $_id);
