@@ -1,6 +1,10 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * 2k11: Run new unsaved comment previews as Smarty default id 0 and
+    add an independent style #c0 to the style.css file.
+    Adapt this to your copy themes based on 2k11.
+
   * Remove 2k11 configs "is_templatechooser" SMARTY var assignment
     Adapt this to your copy themes based on 2k11.
 
