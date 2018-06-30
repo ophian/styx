@@ -1,6 +1,9 @@
 Version 2.6-alpha1 ()
  ------------------------------------------------------------------------
 
+  * Improve/extend HTML comments constant description and the backends
+    empty stripped comment alert.
+
   * Regression fix comments_by_author pages comment(s) body, when html
     comments where allowed.
 
