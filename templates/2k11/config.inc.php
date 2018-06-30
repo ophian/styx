@@ -26,8 +26,6 @@ if (is_array($required_fieldlist)) {
     $serendipity['smarty']->assign('required_fields', $smarty_required_fields);
 }
 
-$serendipity['smarty']->assign('is_templatechooser', $_SESSION['serendipityUseTemplate']);
-
 $template_config = array(
     array(
       'var'           => 'infotwok',
@@ -117,6 +115,6 @@ jQuery(function() {
 })\n\n";
 }
 
-if ($_SESSION['serendipityUseTemplate']) {
+if (isset($_SESSION['serendipityUseTemplate'])) {
     $template_loaded_config['use_corenav'] = false;
 }
