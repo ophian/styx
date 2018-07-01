@@ -1455,7 +1455,7 @@ switch ($serendipity['GET']['cleanspamsg']) {
                     break;
 
                 case 'backend_sidebar_admin_appearance':
-                    echo '<li><a href="serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . $this->instance . '">' . PLUGIN_EVENT_SPAMBLOCK_TITLE . '</a></li>';
+                    echo '<li><a href="serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . $this->instance . '">' . PLUGIN_EVENT_SPAMBLOCK_TITLE . "</a></li>\n";
                     break;
 
                 default:
