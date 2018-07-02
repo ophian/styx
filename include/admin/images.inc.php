@@ -391,7 +391,10 @@ switch ($serendipity['GET']['adminAction']) {
                 }
             }
         } else {
-            if (!is_array($_FILES['serendipity']['name']['userfile'])) {
+            if (!is_array($_FILES['serendipity']['name']['userfile']) || empty($_FILES['serendipity']['name']['userfile'][1])) {
+                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . "</span>\n";
+                $data['messages'] = $messages;
+                unset($messages);
                 break;
             }
 
