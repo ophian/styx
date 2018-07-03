@@ -234,7 +234,7 @@
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.DATE_INVALID}</span>
     {/if}
     {if isset($get.adminAction) AND $single_error}
-        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PUBLISH_ERROR}: {$is_empty}</span>
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PUBLISH_ERROR} {$is_empty}</span>
     {/if}
     {if isset($get.adminAction) AND $use_legacy}
         {if $is_draft AND ! $errors}
