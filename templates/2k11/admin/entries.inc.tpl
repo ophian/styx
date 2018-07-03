@@ -230,10 +230,13 @@
 {/if}
 
 {if $switched_output}
-    {if ($get.adminAction AND $dateval)}
+    {if isset($get.adminAction) AND $dateval}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.DATE_INVALID}</span>
     {/if}
-    {if ($get.adminAction AND $use_legacy)}
+    {if isset($get.adminAction) AND $single_error}
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PUBLISH_ERROR}: {$is_empty}</span>
+    {/if}
+    {if isset($get.adminAction) AND $use_legacy}
         {if $is_draft AND ! $errors}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.IFRAME_SAVE_DRAFT}</span>
         {/if}
