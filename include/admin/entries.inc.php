@@ -68,7 +68,7 @@ switch($serendipity['GET']['adminAction']) {
 
             if ($entry['timestamp'] == -1) {
                 $data['switched_output'] = true;
-                $data['dateval'] = false;
+                $data['dateval'] = true; // date invalid message
                 // The date given by the user is not convertible. Reset the timestamp.
                 $entry['timestamp'] = $serendipity['POST']['timestamp'];
             }
