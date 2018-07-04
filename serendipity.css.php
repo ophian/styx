@@ -38,7 +38,6 @@ switch($css_mode) {
 }
 
 function serendipity_printStylesheet($file, $dir = '') {
-    global $serendipity;
     return "\n/* auto include $dir */\n\n" . str_replace(
              array(
                '{TEMPLATE_PATH}',
