@@ -2,8 +2,10 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+if (!headers_sent() && session_status() != PHP_SESSION_ACTIVE) {
+    session_cache_limiter('public');
+}
 header('Content-Type: text/xml; charset=utf-8');
-session_cache_limiter('public');
 
 @define('IN_RSS', true);
 include('serendipity_config.inc.php');

@@ -7,7 +7,10 @@ define('IN_installer', true);
 define('IN_upgrader', true);
 define('IN_CSS', true);
 
-session_cache_limiter('public');
+if (!headers_sent() && session_status() != PHP_SESSION_ACTIVE) {
+    session_cache_limiter('public');
+}
+
 if (!defined('S9Y_FRAMEWORK')) {
     include('serendipity_config.inc.php');
 }
