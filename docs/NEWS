@@ -1,6 +1,9 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Partially Sync "Improved NL2P (nl2br)" commit, added to Serendipity
+    by Stephan Brunker, part II.
+
   * Fix proper Backend message when developer build runs integrity check
 
   * PHP/Tpl Groundwork for Debugging Session of uninitialized variables,
