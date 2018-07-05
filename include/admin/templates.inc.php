@@ -86,7 +86,7 @@ if (($serendipity['GET']['adminAction'] == 'install' || $serendipity['GET']['adm
         // template_engine was set by default to default, which screws up the fallback chain (to the default-template first)
         // The "Engine" now only applies to FRONTEND themes. Backend themes will always fall back to our default backend theme only, to ensure proper backend operation.
         serendipity_set_config_var('template_engine', null);
-        if ($themeInfo['engine']) {
+        if (isset($themeInfo['engine'])) {
             serendipity_set_config_var('template_engine', $themeInfo['engine']);
         }
     }
@@ -183,7 +183,7 @@ ksort($stack);
 
 foreach($stack AS $theme => $info) {
     /* Sorry, but we don't display engines */
-    if (strtolower($info['engine']) == 'yes') {
+    if (isset($info['engine']) && strtolower($info['engine']) == 'yes') {
         continue;
     }
     $data['templates'][$theme]['info'] = $info;
@@ -211,7 +211,7 @@ foreach($stack AS $theme => $info) {
             $data['templates'][$theme]["preview${backendId}"] = $info["previewURL${backendId}"];
         }
 
-        if ($info['demoURL']) {
+        if (!empty($info['demoURL'])) {
             $data['templates'][$theme]['demoURL'] = $info['demoURL'];
         }
     }
@@ -222,7 +222,7 @@ foreach($stack AS $theme => $info) {
         $data['templates'][$theme]['unmetRequirements'] = sprintf(UNMET_REQUIREMENTS, implode(', ', $unmetRequirements));
     }
 
-    if ($info['recommended']) {
+    if (!empty($info['recommended'])) {
         $data['recommended_templates'][$theme] = $data['templates'][$theme];
         if ($theme != $serendipity['template'] && $theme != $serendipity['template_backend']) {
             unset($data['templates'][$theme]);

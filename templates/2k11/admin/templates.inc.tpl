@@ -1,11 +1,11 @@
-{if $adminAction == 'install'}
+{if isset($adminAction) AND $adminAction == 'install'}
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$install_template|string_format:"{$CONST.TEMPLATE_SET}"}</span>
 {/if}
-{if $deprecated}
+{if isset($deprecated) AND $deprecated}
     <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.WARNING_TEMPLATE_DEPRECATED}</span>
 {/if}
 
-{if $adminAction == 'editConfiguration'}
+{if isset($adminAction) AND $adminAction == 'editConfiguration'}
     <section id="template_options">
         <h2>{$CONST.STYLE_OPTIONS} ({$cur_template})</h2>
     {if $has_config}
@@ -55,9 +55,9 @@
                             <dd>{$cur_tpl.info.custom_admin_interface}</dd>
                             {if isset($cur_tpl.info.engine)}<dt class="template_description">Engine:</dt>
                             <dd>{$cur_tpl.info.engine}</dd>
-                            {/if}{if isset($cur_tpl.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
+                            {/if}{if !empty($cur_tpl.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
                             <dd>{$cur_tpl.info.summary}</dd>
-                            {/if}{if isset($cur_tpl.info.description)}<dt class="template_description">{$CONST.DESCRIPTION}:</dt>
+                            {/if}{if !empty($cur_tpl.info.description)}<dt class="template_description">{$CONST.DESCRIPTION}:</dt>
                             <dd>{$cur_tpl.info.description}</dd>
                             {/if}
 
@@ -70,7 +70,7 @@
 
             <button class="template_show_info button_link" type="button" data-href="#template_info_cur" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
             {if $cur_tpl.info.custom_config}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=editConfiguration&amp;{$urltoken}" title="{$CONST.CONFIGURATION}">{$CONST.CONFIGURATION}</a>{/if}
-            {if $cur_tpl.info.custom_admin_interface == $CONST.YES AND $cur_tpl.info.name != $cur_tpl_backend.info.name}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$template}{$info.info.customURI}&amp;{$urltoken}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>{/if}
+            {if $cur_tpl.info.custom_admin_interface == $CONST.YES AND $cur_tpl.info.name != $cur_tpl_backend.info.name}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$template}{$info.info.customURI|default:''}&amp;{$urltoken}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>{/if}
 
         </article>
 
@@ -141,9 +141,9 @@
                                     <dd>{if $template.info.custom_admin_interface}{$template.info.custom_admin_interface}{else}{$CONST.NO}{/if}</dd>
                                     {if isset($template.info.engine)}<dt class="template_description">Engine:</dt>
                                     <dd>{$template.info.engine}</dd>
-                                    {/if}{if isset($template.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
+                                    {/if}{if !empty($template.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
                                     <dd>{$template.info.summary}</dd>
-                                    {/if}{if isset($template.info.description)}<dt class="template_description">{$CONST.DESCRIPTION}:</dt>
+                                    {/if}{if !empty($template.info.description)}<dt class="template_description">{$CONST.DESCRIPTION}:</dt>
                                     <dd>{$template.info.description}</dd>
                                     {/if}
 
@@ -153,15 +153,15 @@
                     </div>
 
                     <button class="template_show_info button_link" type="button" data-href="#template_info_{$key}" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
-                    {if $template.demoURL}<a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>{/if}
-                {if !$template.unmetRequirements}
+                    {if !empty($template.demoURL)}<a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>{/if}
+                {if !isset($template.unmetRequirements)}
                     {if $template.info.custom_admin_interface == $CONST.YES AND $cur_tpl_backend.info.name != $template.info.name}
 
-                    {if !$template.info.custom_admin_only_interface}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-frontend&amp;serendipity[theme]={$key}{$template.info.customURI}&amp;{$urltoken}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>{/if}
-                    <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$key}{$template.info.customURI}&amp;{$urltoken}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>
+                    {if empty($template.info.custom_admin_only_interface)}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-frontend&amp;serendipity[theme]={$key}{$template.info.customURI|default:''}&amp;{$urltoken}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>{/if}
+                    <a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install-backend&amp;serendipity[theme]={$key}{$template.info.customURI|default:''}&amp;{$urltoken}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.BACKEND}</a>
                     {else}
 
-                    {if !$template.info.custom_admin_only_interface}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install&amp;serendipity[theme]={$key}{$template.info.customURI}&amp;{$urltoken}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>{/if}
+                    {if empty($template.info.custom_admin_only_interface)}<a class="button_link" href="?serendipity[adminModule]=templates&amp;serendipity[adminAction]=install&amp;serendipity[theme]={$key}{$template.info.customURI|default:''}&amp;{$urltoken}" title="{$CONST.SET_AS_TEMPLATE}">{$CONST.INSTALL}: {$CONST.FRONTEND}</a>{/if}
                     {/if}
                 {else}
 
