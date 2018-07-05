@@ -5,14 +5,14 @@
     <div class="comments_for_entry">{$entry_comments.tpl_comments}</div>
 </article>
 {/foreach}
-{if $footer_info OR $footer_prev_page OR $footer_next_page}
+{if !empty($footer_info) OR !empty($footer_prev_page) OR !empty($footer_next_page)}
     <nav class="serendipity_pagination block_level comments_by_author_pagination">
         <ul class="clearfix">
             {if $footer_info}
             <li class="info"><span>{$footer_info}</span></li>
             {/if}
-            <li class="prev">{if $footer_prev_page}<a href="{$footer_prev_page}">{/if}{if $footer_prev_page}&larr; {$CONST.PREVIOUS_PAGE}{else}&nbsp;{/if}{if $footer_prev_page}</a>{/if}</li>
-            <li class="next">{if $footer_next_page}<a href="{$footer_next_page}">{/if}{if $footer_next_page}{$CONST.NEXT_PAGE} &rarr;{else}&nbsp;{/if}{if $footer_next_page}</a>{/if}</li>
+            <li class="prev">{if isset($footer_prev_page)}<a href="{$footer_prev_page}">{/if}{if isset($footer_prev_page)}&larr; {$CONST.PREVIOUS_PAGE}{else}&nbsp;{/if}{if isset($footer_prev_page)}</a>{/if}</li>
+            <li class="next">{if isset($footer_next_page)}<a href="{$footer_next_page}">{/if}{if isset($footer_next_page)}{$CONST.NEXT_PAGE} &rarr;{else}&nbsp;{/if}{if isset($footer_next_page)}</a>{/if}</li>
         </ul>
     </nav>
 {/if}

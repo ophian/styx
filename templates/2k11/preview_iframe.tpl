@@ -33,7 +33,7 @@
 {else}
     <script src="{serendipity_getFile file="js/modernizr-2.7.1.min.js"}"></script>
 {/if}
-
+{* very long entry previews still have an (end) overlap of height ~70px *}
     <script type="text/javascript">
     window.onload = function() {ldelim}
         var frameheight = document.querySelector('html').offsetHeight{if $mode == 'preview'}-24{/if};
@@ -47,15 +47,16 @@
 
 <body class="{$mode}_preview_body{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
     <div id="page" class="clearfix container {$mode}_preview_container">
-        <div class="clearfix{if $leftSidebarElements > 0 AND $rightSidebarElements > 0} col3{elseif $leftSidebarElements > 0 AND $rightSidebarElements == 0} col2l{else} col2r{/if}">
+        <div class="clearfix{if isset($leftSidebarElements) AND $leftSidebarElements > 0 AND $rightSidebarElements > 0} col3{elseif  isset($leftSidebarElements) AND $leftSidebarElements > 0 AND $rightSidebarElements == 0} col2l{else} col2r{/if}">
             <main id="content" class="{$mode}_preview_content">
             {if $mode == 'preview'}
                 <div class="clearfix">
+                {$preview}
             {elseif $mode == 'save'}
                 <div class="clearfix">
                     <div class="{$mode}_preview_sizing"></div>
                     {$updertHooks}
-                {if $res}
+                {if !empty($res)}
                     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
                 {else}
                     {if isset($lastSavedEntry) AND (int)$lastSavedEntry}
@@ -71,7 +72,6 @@
                     <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
                 {/if}
             {/if}
-                {$preview}
                 </div>
             </main>
         </div>

@@ -1,4 +1,5 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
+{if !empty($entries)}
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
     {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
@@ -6,11 +7,11 @@
         <header class="clearfix">
             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
 
-            <span class="serendipity_byline block_level"><span class="single_user">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} </span><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $entry.is_entry_owner AND NOT $is_preview} | <a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a>{/if}</span>
+            <span class="serendipity_byline block_level"><span class="single_user">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} </span><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if isset($entry.is_entry_owner) AND $entry.is_entry_owner AND NOT $is_preview} | <a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a>{/if}</span>
         </header>
 
         <div class="clearfix content serendipity_entry_body">
-        {if $entry.categories}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+        {if isset($entry.categories) AND is_array($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
         {$entry.body}
         {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
         <a class="read_more block_level" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
@@ -26,27 +27,27 @@
         {/if}
 
         <footer class="clearfix">
-        {if $entry.categories}
+        {if isset($entry.categories) AND $entry.categories}
             <span class="visuallyhidden">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
         {/if}
-        {if $entry.categories AND ($entry.has_comments OR $entry.has_disqus)} | {/if}
-        {if ($entry.has_comments OR $entry.has_disqus)}
-        {if $entry.has_disqus }
-            {$entry.comments}{if $entry.has_trackbacks}, <a href="{$entry.link}#trackbacks">{$entry.trackbacks} {$entry.label_trackbacks}</a>{/if}
+        {if isset($entry.categories) AND $entry.categories AND ($entry.has_comments OR $entry.has_disqus)} | {/if}
+        {if $entry.has_comments OR $entry.has_disqus}
+        {if isset($entry.has_disqus) AND $entry.has_disqus}
+            {$entry.comments}{if isset($entry.has_trackbacks) AND $entry.has_trackbacks}, <a href="{$entry.link}#trackbacks">{$entry.trackbacks} {$entry.label_trackbacks}</a>{/if}
         {else}
-            <a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a>
+            <a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if isset($entry.has_trackbacks) AND $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a>
         {/if}
         {/if}
-        {if $entry.url_tweetthis}
+        {if isset($entry.url_tweetthis) AND $entry.url_tweetthis}
             | <a href="{$entry.url_tweetthis}" title="{$CONST.TWOK11_TWEET_THIS}">Twitter</a>
         {/if}
-        {if $entry.url_dentthis}
+        {if isset($entry.url_dentthis) AND $entry.url_dentthis}
             | <a href="{$entry.url_dentthis}" title="{$CONST.TWOK11_DENT_THIS}">Identica</a>
         {/if}
-        {if $entry.url_shorturl}
+        {if isset($entry.url_shorturl) AND $entry.url_shorturl}
             | <a href="{$entry.url_shorturl}" title="{$CONST.TWOK11_SHORT_URL_HINT}" class="short-url">{$CONST.TWOK11_SHORT_URL}</a>
         {/if}
-            {$entry.add_footer}
+            {$entry.add_footer|default:''}
         </footer>
 
         <!--
@@ -98,7 +99,7 @@
             </p>
 
             {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
-        {if $entry.is_entry_owner}
+        {if isset($entry.is_entry_owner) AND $entry.is_entry_owner}
             <p class="manage_comments">
             {if $entry.allow_comments}
             <a href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>
@@ -139,17 +140,20 @@
     <p class="nocontent">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
-{if $footer_info OR $footer_prev_page OR $footer_next_page}
+{/if}
+{if (!empty($footer_info) OR !empty($footer_prev_page) OR !empty($footer_next_page)) AND empty($is_preview)}
+    {if !isset($staticpage_pagetitle) OR $staticpage_pagetitle == ''}
     <nav class="serendipity_pagination block_level">
         <h2 class="visuallyhidden">{$CONST.TWOK11_PAG_TITLE}</h2>
 
         <ul class="clearfix">
-            {if $footer_info}
+            {if !empty($footer_info)}
             <li class="info"><span>{$footer_info}</span></li>
             {/if}
-            <li class="prev">{if $footer_prev_page}<a href="{$footer_prev_page}">{/if}{if $footer_prev_page}&larr; {$CONST.PREVIOUS_PAGE}{else}&nbsp;{/if}{if $footer_prev_page}</a>{/if}</li>
-            <li class="next">{if $footer_next_page}<a href="{$footer_next_page}">{/if}{if $footer_next_page}{$CONST.NEXT_PAGE} &rarr;{else}&nbsp;{/if}{if $footer_next_page}</a>{/if}</li>
+            <li class="prev">{if !empty($footer_prev_page)}<a href="{$footer_prev_page}">{/if}{if !empty($footer_prev_page)}&larr; {$CONST.PREVIOUS_PAGE}{else}&nbsp;{/if}{if !empty($footer_prev_page)}</a>{/if}</li>
+            <li class="next">{if !empty($footer_next_page)}<a href="{$footer_next_page}">{/if}{if !empty($footer_next_page)}{$CONST.NEXT_PAGE} &rarr;{else}&nbsp;{/if}{if !empty($footer_next_page)}</a>{/if}</li>
         </ul>
     </nav>
+    {/if}
 {/if}
     {serendipity_hookPlugin hook="entries_footer"}
