@@ -31,7 +31,8 @@ $rightSidebarElements = serendipity_plugin_api::count_plugins('right');
 $serendipity['smarty']->assignByRef('leftSidebarElements', $leftSidebarElements);
 $serendipity['smarty']->assignByRef('rightSidebarElements', $rightSidebarElements);
 
-switch ($serendipity['GET']['action']) {
+// mute possible uninitialized GET action item to fallback to default
+switch (@$serendipity['GET']['action']) {
     // User wants to read the diary
     case 'read':
         if (isset($serendipity['GET']['id'])) {
@@ -51,7 +52,8 @@ switch ($serendipity['GET']['action']) {
 
             serendipity_printEntries($entry, 1);
         } else {
-            serendipity_printEntries(serendipity_fetchEntries($serendipity['range'], true, $serendipity['fetchLimit']));
+            $range = isset($serendipity['range']) ? $serendipity['range'] : null;
+            serendipity_printEntries(serendipity_fetchEntries($range, true, $serendipity['fetchLimit']));
         }
         break;
 
@@ -90,7 +92,7 @@ switch ($serendipity['GET']['action']) {
             array(
                 'content_message'        => sprintf(YOUR_SEARCH_RETURNED_BLAHBLAH, '<span class="searchterm">' . $serendipity['GET']['searchTerm'] . '</span>', '<span class="searchresults">' . serendipity_getTotalEntries() . '</span>'),
                 'searchresult_results'   => true,
-                'searchresult_fullentry' => $serendipity['GET']['fullentry']
+                'searchresult_fullentry' => isset($serendipity['GET']['fullentry']) ? $serendipity['GET']['fullentry'] : ''
             )
         );
 
@@ -126,7 +128,8 @@ switch ($serendipity['GET']['action']) {
         break;
 }
 
-if ($serendipity['GET']['action'] != 'search' && !empty($serendipity['content_message']) && $serendipity['view'] != 'plugin' && $serendipity['viewtype'] != '404_1') {
+// mute possible uninitialized search action
+if (@$serendipity['GET']['action'] != 'search' && !empty($serendipity['content_message']) && $serendipity['view'] != 'plugin' && $serendipity['viewtype'] != '404_1') {
     $serendipity['smarty']->assign('content_message', $serendipity['content_message']);
 }
 

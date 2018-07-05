@@ -20,29 +20,31 @@ if (isset($serendipity['POST']['admin']['user']) && stristr($serendipity['dbType
     unset($probe);
 }
 
-switch($serendipity['POST']['adminAction']) {
-    case 'publish':
-        if (!serendipity_checkFormToken()) {
+if (isset($serendipity['POST']['adminAction'])) {
+    switch($serendipity['POST']['adminAction']) {
+        case 'publish':
+            if (!serendipity_checkFormToken()) {
+                break;
+            }
+            $success = serendipity_updertEntry(array(
+                'id' => serendipity_specialchars($serendipity['POST']['id']),
+                'timestamp' => time(),
+                'isdraft' => 0
+            ));
+            if (is_numeric($success)) {
+                $data['published'] = $success;
+            } else {
+                $data['error_publish'] = $success;
+            }
             break;
-        }
-        $success = serendipity_updertEntry(array(
-            'id' => serendipity_specialchars($serendipity['POST']['id']),
-            'timestamp' => time(),
-            'isdraft' => 0
-        ));
-        if (is_numeric($success)) {
-            $data['published'] = $success;
-        } else {
-            $data['error_publish'] = $success;
-        }
-        break;
 
-    case 'updateCheckDisable':
-        if (!serendipity_checkFormToken() || !serendipity_checkPermission('blogConfiguration')) {
+        case 'updateCheckDisable':
+            if (!serendipity_checkFormToken() || !serendipity_checkPermission('blogConfiguration')) {
+                break;
+            }
+            serendipity_set_config_var('updateCheck', false);
             break;
-        }
-        serendipity_set_config_var('updateCheck', false);
-        break;
+    }
 }
 
 $user = serendipity_fetchAuthor($serendipity['authorid']);
@@ -54,7 +56,7 @@ $data['username'] = $user[0]['realname'];
 $data['js_failure_file'] = serendipity_getTemplateFile('admin/serendipity_editor.js');
 
 serendipity_plugin_api::hook_event('backend_frontpage_display', $output);
-$data['backend_frontpage_display'] = $output['probe'] . $output['more'];
+$data['backend_frontpage_display'] = isset($output['more']) ? $output['probe'] . $output['more'] : '';
 $output = array(); // re-new array for the autoupdate empty check below
 
 if (serendipity_checkPermission('adminUsers')) {

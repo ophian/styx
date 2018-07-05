@@ -103,12 +103,10 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
             }
             return $type_map['true'];
         case 1:
-            if ($single) {
-                return mysqli_fetch_array($c, $result_type);
-            }
         default:
             if ($single) {
-                return mysqli_fetch_array($c, $result_type);
+                $result = mysqli_fetch_array($c, $result_type); // avoid Notice: Only variable references should be returned by reference
+                return $result;
             }
 
             $rows = array();
@@ -514,8 +512,8 @@ function serendipity_db_schema_import($query) {
     global $serendipity;
 
     if ($is_utf8 === null) {
-        $search[7] = '{UTF_8}'; //ITs Key ID 7 for both and this since being static, else it increments
-        if ($_POST['charset'] == 'UTF-8/' || $serendipity['charset'] == 'UTF-8/' || $serendipity['POST']['charset'] == 'UTF-8/' || LANG_CHARSET == 'UTF-8') {
+        $search[7] = '{UTF_8}'; // IT is Key ID 7 for both and this since being static, else it increments
+        if ((isset($_POST['charset']) && $_POST['charset'] == 'UTF-8/') || $serendipity['charset'] == 'UTF-8/' || (isset($serendipity['POST']['charset']) && $serendipity['POST']['charset'] == 'UTF-8/') || LANG_CHARSET == 'UTF-8') {
             if ($serendipity['dbUtf8mb4']) {
                 $replace[7] = '/*!50503 CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */';
             } else {

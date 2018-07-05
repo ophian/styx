@@ -78,15 +78,16 @@ if ($is_logged_in) {
 }
 
 $serendipity['ajax'] = $ajax = (!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest');
-$no_banner = (isset($serendipity['GET']['noBanner']) || isset($serendipity['POST']['noBanner']));
+$no_banner  = (isset($serendipity['GET']['noBanner'])  || isset($serendipity['POST']['noBanner']));
 $no_sidebar = (isset($serendipity['GET']['noSidebar']) || isset($serendipity['POST']['noSidebar']));
-$no_footer = (isset($serendipity['GET']['noFooter']) || isset($serendipity['POST']['noFooter']));
+$no_footer  = (isset($serendipity['GET']['noFooter'])  || isset($serendipity['POST']['noFooter']));
 
 $use_installer = (!isset($serendipity['serendipityPath']) || IS_installed === false || IS_up2date === false );
 
-$post_action = $serendipity['POST']['action'];
-
+$post_action = isset($serendipity['POST']['action']) ? $serendipity['POST']['action'] : ''; // see ($$) poll_admin_vars
+$admin_section = NONE;
 $main_content = '';
+
 if (!$use_installer && $is_logged_in) {
     if (!isset($serendipity['GET']['adminModule'])) {
         $serendipity['GET']['adminModule'] = (isset($serendipity['POST']['adminModule']) ? $serendipity['POST']['adminModule'] : '');
@@ -132,7 +133,7 @@ if (!$use_installer && $is_logged_in) {
 
             include S9Y_INCLUDE_PATH . 'include/admin/plugins.inc.php';
             // check for special case plugin_to conf - do we have more of this kind?
-            $admin_section = (FALSE !== strpos($serendipity['GET']['plugin_to_conf'], 'serendipity_event_spamblock') ? 'Spamblock Plugin Config' : MENU_PLUGINS);
+            $admin_section = (!isset($serendipity['GET']['plugin_to_conf']) || FALSE === strpos($serendipity['GET']['plugin_to_conf'], 'serendipity_event_spamblock')) ? MENU_PLUGINS : 'Spamblock Plugin Config';
             break;
 
         case 'users':
@@ -226,7 +227,7 @@ if (!$use_installer && $is_logged_in) {
 }
 
 if ($ajax) {
-    // if that is an ajax request we can stop here, since we by convention don't want to wrap the content in the usual backend code
+    // if that is an ajax request we can stop here, since by convention we don't want to wrap the content in the usual backend code
     echo $main_content;
 
 } elseif (!$use_installer) {
@@ -244,7 +245,7 @@ if ($ajax) {
     // The Styx default page title of backend pages is "section | SERENDIPITY_ADMIN_SUITE | blog title"
     // If set to true (in serendipity_config_local.inc.php), the pages (tab) title will be
     // "blog title | section | SERENDIPITY_ADMIN_SUITE" instead
-    $admin_vars['backendBlogtitleFirst'] = !$serendipity['backendBlogtitleFirst'] ? false : true;
+    $admin_vars['backendBlogtitleFirst'] = empty($serendipity['backendBlogtitleFirst']) ? false : true;
 
     if ($serendipity['expose_s9y']) {
         $admin_vars['version_info'] = sprintf(ADMIN_FOOTER_POWERED_BY, $serendipity['versionInstalled'], PHP_VERSION);
