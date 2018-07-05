@@ -1,9 +1,9 @@
 <div id="maintenance">
     <h2>{$CONST.MENU_MAINTENANCE}</h2>
 
-{if $action == "integrity"}
+{if isset($action) AND $action == "integrity"}
     <h3 class="visuallyhidden">{$CONST.INTEGRITY}</h3>
-    {if $noChecksum == true}
+    {if isset($noChecksum) AND $noChecksum == true}
         <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.CHECKSUMS_NOT_FOUND}</span>
     {else}
         {if $badsums|count == 0}
@@ -18,10 +18,10 @@
     {/if}
 {/if}
 
-{if $cleanup_finish > 0}
+{if isset($cleanup_finish) AND $cleanup_finish > 0}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}! <span class="perm_name">{$CONST.CLEANCOMPILE_PASS|sprintf:$cleanup_template}</span></span>
 {/if}
-{if $cleanup_finish === 0}
+{if isset($cleanup_finish) AND $cleanup_finish === 0}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CLEANCOMPILE_FAIL}</span>
 {/if}
 
@@ -116,11 +116,11 @@
     <section id="maintenance_utf8mb4" class="quick_list{if NOT $dbUtf8mb4_converted AND $dbUtf8mb4_migrate AND $dbUtf8mb4_ready AND NOT empty($dbUtf8mb4_migrate.sql)} mtask_long{/if}">
         <h3>{$CONST.UTF8MB4_MIGRATION_TITLE}</h3>
 
-        {if $dbUtf8mb4_error}
+        {if isset($dbUtf8mb4_error) AND $dbUtf8mb4_error}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_ERROR|sprintf:$dbUtf8mb4_error}</span></span>
         {/if}
 
-        {if $dbUtf8mb4_migrate}
+        {if isset($dbUtf8mb4_migrate) AND $dbUtf8mb4_migrate}
             <p>{$CONST.UTF8MB4_MIGRATION_TASK_RETURN}</p>
             <ul>
             {foreach $dbUtf8mb4_migrate.errors AS $error}

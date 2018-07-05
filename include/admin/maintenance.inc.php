@@ -12,7 +12,7 @@ include S9Y_INCLUDE_PATH . 'include/admin/import.inc.php';
 $data['importMenu'] = ob_get_contents();
 ob_end_clean();
 
-$usedSuffixes = serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
+$usedSuffixes = @serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
 
 $data['dbUtf8mb4_ready']     = $serendipity['dbUtf8mb4_ready'];
 $data['dbUtf8mb4']           = $serendipity['dbUtf8mb4'];
@@ -26,8 +26,7 @@ $data['suffixTask']          = (count($usedSuffixes) > 1) ? true : false;
 switch($serendipity['GET']['adminAction']) {
     case 'integrity':
         $data['action'] = 'integrity';
-
-        if (!is_readable(S9Y_INCLUDE_PATH . 'checksums.inc.php') || 0 == filesize(S9Y_INCLUDE_PATH . 'checksums.inc.php') ) {
+        if (strpos($serendipity['version'], '-alpha') || (!is_readable(S9Y_INCLUDE_PATH . 'checksums.inc.php') || 0 == filesize(S9Y_INCLUDE_PATH . 'checksums.inc.php')) ) {
             $data['noChecksum'] = true;
             break;
         }
