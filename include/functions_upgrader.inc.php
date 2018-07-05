@@ -469,6 +469,28 @@ function serendipity_fixPlugins($case) {
     global $serendipity;
 
     switch($case) {
+        case 'wrong_upgrade_version':
+            // ZARATHUSTRA - Temporary Repair Service for wrong set (local) pluginlocation upgrade_version _ keep for future repairs
+            $rows = serendipity_db_query("SELECT a.class_name, a.version, a.upgrade_version, b.upgrade_version AS new_version, a.plugintype, a.pluginlocation
+                                            FROM {$serendipity['dbPrefix']}pluginlist a
+                                       LEFT JOIN {$serendipity['dbPrefix']}pluginlist b
+                                              ON (a.pluginlocation = 'local' AND b.pluginlocation = 'Spartacus' AND a.upgrade_version < b.upgrade_version)
+                                           WHERE a.class_name = b.class_name");
+            if (!is_array($rows)) {
+                return false;
+            }
+
+            foreach($rows AS $row) {
+                serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
+                                         SET upgrade_version = '" . serendipity_db_escape_string($row['new_version']) . "'
+                                       WHERE class_name = '". serendipity_db_escape_string($row['class_name']) . "'
+                                         AND pluginlocation = 'local'");
+            }
+            unset($rows);
+            return true;
+            break;
+
+
         // Styx 2.4 moved some core plugins to the additional_plugins Spartacus repository. This checks for a proper upgrade version. It will also fix some older issues with moved plugins.
         // To catch em all, a plugin list sync should already have run before !!
         case 'moved_to_spartacus':

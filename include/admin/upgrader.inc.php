@@ -429,6 +429,12 @@ $tasks = array(
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_260, array('internals'), true),
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_260) . '</pre>'),
 
+            array(  'version'   => '2.6-alpha2',
+                    'function'  => 'serendipity_fixPlugins',
+                    'arguments' => array('wrong_ugrade_version'),
+                    'title'     => 'Spartacus Plugin Synchronizer',
+                    'desc'      => 'ZARATHUSTRA - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
+
 );
 
 /* Fetch SQL files which needs to be run */
