@@ -1,10 +1,10 @@
     <h2>{$CONST.PERSONAL_SETTINGS}</h2>
-{if $adminAction == 'save'}
-    {if $not_authorized}
+{if isset($adminAction) AND $adminAction == 'save'}
+    {if isset($not_authorized) AND $not_authorized}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CREATE_NOT_AUTHORIZED_USERLEVEL}</span>
-    {elseif $empty_username}
+    {elseif isset($empty_username) AND $empty_username}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.USERCONF_CHECK_USERNAME_ERROR}</span>
-    {elseif $password_check_fail}
+    {elseif isset($password_check_fail) AND $password_check_fail}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.USERCONF_CHECK_PASSWORD_ERROR}</span>
     {else}
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.MODIFIED_USER|sprintf:"{$realname|escape}"} ?></span>

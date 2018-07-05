@@ -1,17 +1,17 @@
-{if $delete_yes}
+{if isset($delete_yes) AND $delete_yes}
 
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DELETED_GROUP|sprintf:"{$group_id|escape}":"{$group.name|escape}"}</span>
 {/if}
-{if $save_new}
+{if isset($save_new) AND $save_new}
 
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CREATED_GROUP|sprintf:"{$group_id|escape}":"{$group.name|escape}"}</span>
 {/if}
-{if $save_edit}
+{if isset($save_edit) AND $save_edit}
 
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.MODIFIED_GROUP|sprintf:"{$name|escape}"}</span>
 {/if}
 
-{if !$delete}
+{if empty($delete)}
 
     <h2>{$CONST.GROUP}</h2>
 
@@ -28,19 +28,19 @@
     {/foreach}
 
     </ul>
-    {if $start}
+    {if isset($start) AND $start}
 
         <a class="button_link" href="?serendipity[adminModule]=groups&serendipity[adminAction]=new">{$CONST.CREATE_NEW_GROUP}</a>
     {/if}
 {/if}
 
-{if $edit OR $new}
+{if (isset($edit) AND $edit) OR (isset($new) AND $new)}
 
-    <h3>{if $edit}{$CONST.EDIT}{else}{$CONST.CREATE}{/if}</h3>
+    <h3>{if isset($edit) AND $edit}{$CONST.EDIT}{else}{$CONST.CREATE}{/if}</h3>
 
     <form id="serendipity_admin_groups" class="configuration_group option_list" action="?serendipity[adminModule]=groups" method="post">
         {$formToken}
-    {if $edit}
+    {if isset($edit) AND $edit}
 
         <input name="serendipity[group]" type="hidden" value="{$from.id}">
     {/if}
@@ -48,7 +48,7 @@
         <div class="clearfix odd form_field has_info">
             <label for="group_name">{$CONST.NAME} <button class="toggle_info button_link" type="button" data-href="#groupName_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button></label>
             <span id="groupName_info" class="field_info additional_info">{$CONST.GROUP_NAME_DESC}</span>
-            <input id="group_name" name="serendipity[name]" type="text" value="{$from.name|escape}">
+            <input id="group_name" name="serendipity[name]" type="text" value="{$from.name|escape|default:''}">
         </div>
 
         <div class="clearfix even form_select">
@@ -63,6 +63,7 @@
         </div>
 
         <ul>
+        {$indent=''}{$in_indent=false}{* init defaults *}
         {foreach $perms AS $perm}
             {if {$perm@key|truncate:2:''} == 'f_'}{continue}{/if}{* This are forbidden set event or sidebar plugins per PERMISSION_FORBIDDEN_ENABLE configuration option *}
             {if !isset($section)}
@@ -114,7 +115,7 @@
             </li>{* group indent 1 *}
         </ul>
 
-        {if $enablePluginACL}
+        {if isset($enablePluginACL) AND $enablePluginACL}
 
             <div class="clearfix form_select">
                 <label for="forbidden_plugins">{$CONST.PERMISSION_FORBIDDEN_PLUGINS}</label>
@@ -143,7 +144,7 @@
         {/if}
 
             <div class="form_buttons">
-                {if $edit}
+                {if isset($edit) AND $edit}
 
                 <input name="SAVE_EDIT" type="submit" value="{$CONST.SAVE}">
                 {/if}
@@ -152,7 +153,7 @@
             </div>
     </form>
 {else}
-    {if $delete}
+    {if isset($delete) AND $delete}
 
     <form action="?serendipity[adminModule]=groups" method="post">
         {$formToken}

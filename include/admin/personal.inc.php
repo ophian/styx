@@ -84,7 +84,7 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
 
                 // Moved to group administration:
                 if ($item['var'] == 'userlevel') continue;
-                if ($item['view'] == 'dangerous') continue;
+                if (isset($item['view']) && $item['view'] == 'dangerous') continue;
 
                 if (serendipity_checkConfigItemFlags($item, 'local')) {
                     serendipity_set_user_var($item['var'], $_POST[$item['var']], $serendipity['authorid'], true);
@@ -95,15 +95,17 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
                 }
             }
 
-            $pl_data = array(
-                'id'       => $serendipity['POST']['authorid'],
-                'authorid' => $serendipity['POST']['authorid'],
-                'username' => $_POST['username'],
-                'realname' => $_POST['realname'],
-                'email'    => $_POST['email']
-            );
-            serendipity_updatePermalink($pl_data, 'author');
-            serendipity_plugin_api::hook_event('backend_users_edit', $pl_data);
+            if (isset($serendipity['POST']['authorid'])) {
+                $pl_data = array(
+                    'id'       => (int)$serendipity['POST']['authorid'],
+                    'authorid' => (int)$serendipity['POST']['authorid'],
+                    'username' => $_POST['username'],
+                    'realname' => $_POST['realname'],
+                    'email'    => $_POST['email']
+                );
+                serendipity_updatePermalink($pl_data, 'author');
+                serendipity_plugin_api::hook_event('backend_users_edit', $pl_data);
+            }
         }
         if ($serendipity['authorid'] === $_SESSION['serendipityAuthorid']) {
             if (is_null($serendipity['detected_lang'])) {

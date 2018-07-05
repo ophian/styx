@@ -156,16 +156,17 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
             }
         }
 
-        $pl_data = array(
-            'id'       => $serendipity['POST']['user'],
-            'authorid' => $serendipity['POST']['user'],
-            'username' => $_POST['username'],
-            'realname' => $_POST['realname'],
-            'email'    => $_POST['email']
-        );
-        serendipity_updatePermalink($pl_data, 'author');
-
-        serendipity_plugin_api::hook_event('backend_users_edit', $pl_data);
+        if (isset($serendipity['POST']['authorid'])) {
+            $pl_data = array(
+                'id'       => $serendipity['POST']['user'],
+                'authorid' => $serendipity['POST']['user'],
+                'username' => $_POST['username'],
+                'realname' => $_POST['realname'],
+                'email'    => $_POST['email']
+            );
+            serendipity_updatePermalink($pl_data, 'author');
+            serendipity_plugin_api::hook_event('backend_users_edit', $pl_data);
+        }
     }
 }
 
