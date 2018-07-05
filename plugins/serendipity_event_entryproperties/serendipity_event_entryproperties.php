@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.58');
+        $propbag->add('version',       '1.59');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -500,7 +500,7 @@ class serendipity_event_entryproperties extends serendipity_event
 
                 if (is_array($plugins)) {
                     foreach($plugins AS $plugin => &$plugin_data) {
-                        if (!is_array($plugin_data['p']->markup_elements)) {
+                        if (!is_array(@$plugin_data['p']->markup_elements)) {
                             continue;
                         }
 
@@ -911,11 +911,11 @@ class serendipity_event_entryproperties extends serendipity_event
                         $serendipity['POST']['properties']['cache_extended'] = $eventData['extended'];
                     }
 
-                    if (is_array($serendipity['POST']['properties']['access_groups']) && $serendipity['POST']['properties']['access'] != 'member') {
+                    if (isset($serendipity['POST']['properties']['access_groups']) && is_array($serendipity['POST']['properties']['access_groups']) && $serendipity['POST']['properties']['access'] != 'member') {
                         unset($serendipity['POST']['properties']['access_groups']);
                     }
 
-                    if (is_array($serendipity['POST']['properties']['access_users']) && $serendipity['POST']['properties']['access'] != 'member') {
+                    if (isset($serendipity['POST']['properties']['access_users']) && is_array($serendipity['POST']['properties']['access_users']) && $serendipity['POST']['properties']['access'] != 'member') {
                         unset($serendipity['POST']['properties']['access_users']);
                     }
 
@@ -1104,7 +1104,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 case 'frontend_entries_rss':
                     if (is_array($eventData)) {
                         foreach($eventData AS $idx => $entry) {
-                            if (is_array($entry['properties']) && isset($entry['properties']['ep_hiderss']) && $entry['properties']['ep_hiderss']) {
+                            if (isset($entry['properties']) && is_array($entry['properties']) && isset($entry['properties']['ep_hiderss']) && $entry['properties']['ep_hiderss']) {
                                 unset($eventData[$idx]['body']);
                                 unset($eventData[$idx]['extended']);
                                 unset($eventData[$idx]['exflag']);

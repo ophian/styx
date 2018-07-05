@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.31');
+        $propbag->add('version',       '2.32');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -220,10 +220,11 @@ class serendipity_event_nl2br extends serendipity_event
                 case 'frontend_display':
 
                     // check single entry for temporary disabled markups
-                    if ( !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
-                         @!in_array($this->instance, $serendipity['POST']['properties']['disable_markups']) &&
-                         !$eventData['properties']['ep_no_textile'] && !isset($serendipity['POST']['properties']['ep_no_textile']) &&
-                         !$eventData['properties']['ep_no_markdown'] && !isset($serendipity['POST']['properties']['ep_no_markdown'])) {
+                    if ((isset($eventData['properties']) && is_array($eventData['properties']))
+                    &&  @!$eventData['properties']['ep_disable_markup_' . $this->instance]
+                    &&  !in_array($this->instance, $serendipity['POST']['properties']['disable_markups'])
+                    &&  !$eventData['properties']['ep_no_textile'] && !isset($serendipity['POST']['properties']['ep_no_textile'])
+                    &&  !$eventData['properties']['ep_no_markdown'] && !isset($serendipity['POST']['properties']['ep_no_markdown'])) {
                         // yes, this markup shall be applied
                         $serendipity['nl2br']['entry_disabled_markup'] = false;
                     } else {
@@ -237,7 +238,7 @@ class serendipity_event_nl2br extends serendipity_event
                         to explicitly allow to apply nl2br to markup (if we want to).
                         Although, since using the Serendipity GLOBAL we can actually set this true everywhere per item.
                     */
-                    $_disabled = (!isset($serendipity['POST']['properties']['disable_markups']) && !is_array($serendipity['POST']['properties']['disable_markups']))
+                    $_disabled = (!isset($serendipity['POST']['properties']['disable_markups']) || !is_array($serendipity['POST']['properties']['disable_markups']))
                                         ? array(false)
                                         : $serendipity['POST']['properties']['disable_markups'];
 
@@ -264,11 +265,11 @@ class serendipity_event_nl2br extends serendipity_event
                     }
 
                     foreach ($this->markup_elements AS $temp) {
-                        if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && isset($eventData[$temp['element']]) &&
-                                !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
-                                !in_array($this->instance, $_disabled) &&
-                                !$eventData['properties']['ep_no_nl2br'] &&
-                                !isset($serendipity['POST']['properties']['ep_no_nl2br'])) {
+                        if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && isset($eventData[$temp['element']])
+                        &&  !@$eventData['properties']['ep_disable_markup_' . $this->instance]
+                        &&  !in_array($this->instance, $_disabled)
+                        &&  !@$eventData['properties']['ep_no_nl2br']
+                        &&  !isset($serendipity['POST']['properties']['ep_no_nl2br'])) {
 
                             $element = $temp['element'];
                             if ($p_tags) {

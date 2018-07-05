@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.18');
+        $propbag->add('version',       '1.19');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'
@@ -229,7 +229,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
 <?php
                         break;
                     }
-                    if (serendipity_db_bool($serendipity['maintenance']) !== true && $this->blockMaintenance) {
+                    if ((!isset($serendipity['maintenance']) || serendipity_db_bool($serendipity['maintenance']) !== true) && $this->blockMaintenance) {
 ?>
 
     <section id="maintenance_moma" class="quick_list">
