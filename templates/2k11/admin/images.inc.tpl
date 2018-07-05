@@ -1,6 +1,7 @@
+{if isset($messages)}
 {foreach $messages AS $message}
     {$message}
-{/foreach}
+{/foreach}{/if}
 
 {if $case_doSync}
     {if !$perm_adminImagesSync}
@@ -9,7 +10,7 @@
         <h2>{$CONST.SYNCING}</h2>
 
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_SYNC_DONE}</span>
-        {if !$convertThumbs}
+        {if empty($convertThumbs)}
         <h2>{$CONST.RESIZING}</h2>
 
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_RESIZE_DONE}</span>
@@ -222,7 +223,7 @@
 {/if}
 
 {* TODO: obsolete? *}
-{if $case_addSelect}
+{if isset($case_addSelect) AND $case_addSelect}
     {** smarty display 'admin/media_upload.tpl' **}
 {/if}
 {* END *}

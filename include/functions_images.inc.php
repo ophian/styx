@@ -73,6 +73,8 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
 
     if ($limit != 0) {
         $limitsql = serendipity_db_limit_sql(serendipity_db_limit($start, $limit));
+    } else {
+        $limitsql = '';
     }
 
     if ($hideSubdirFiles) {
@@ -84,7 +86,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
 
     if (!empty($filename)) {
         $cond['parts']['filename'] = " AND (i.name LIKE '%" . serendipity_db_escape_string($filename) . "%' OR
-                i.realname LIKE '%" . serendipity_db_escape_string($filename) . "%')\n";
+                  i.realname LIKE '%" . serendipity_db_escape_string($filename) . "%')\n";
     }
 
     if (!is_array($keywords)) {
@@ -127,7 +129,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                                     (i.authorid = " . (int)$fval . ")
                                 )\n";
             $cond['joinparts']['hiddenproperties'] = true;
-        } elseif ($orderfields[$f]['type'] == 'int') {
+        } elseif (isset($orderfields[$f]) && $orderfields[$f]['type'] == 'int') {
             if (substr($f, 0, 3) === 'bp.') {
                 $realf = substr($f, 3);
                 $cond['parts']['filter'] .= " AND (bp2.property = '$realf' AND bp2.value = '" . serendipity_db_escape_string(trim($fval)) . "')\n";
@@ -135,6 +137,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                 $cond['parts']['filter'] .= " AND ($f = '" . serendipity_db_escape_string(trim($fval)) . "')\n";
             }
         } elseif ($f == 'fileCategory') {
+            if (!isset($cond['parts']['filter'])) $cond['parts']['filter'] = '';
             switch ($fval) {
                 case 'image':
                     $cond['parts']['filter'] .= " AND (i.mime LIKE 'image/%')\n";
@@ -163,7 +166,11 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
     serendipity_plugin_api::hook_event('fetch_images_sql', $cond);
     serendipity_ACL_SQL($cond, false, 'directory');
 
-    if ($cond['joinparts']['keywords']) {
+    if (!isset($cond['joins'])) {
+        $cond['joins'] = '';
+    }
+
+    if (isset($cond['joinparts']['keywords']) && $cond['joinparts']['keywords']) {
         $cond['joins'] .= "\n LEFT OUTER JOIN {$serendipity['dbPrefix']}mediaproperties AS mk
                                         ON (mk.mediaid = i.id AND mk.property_group = 'base_keyword')\n";
     }
@@ -177,17 +184,17 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         $cond['orderkey'] = "''";
     }
 
-    if ($cond['joinparts']['properties']) {
+    if (isset($cond['joinparts']['properties']) && $cond['joinparts']['properties']) {
         $cond['joins'] .= "\n LEFT OUTER JOIN {$serendipity['dbPrefix']}mediaproperties AS bp
                                         ON (bp.mediaid = i.id AND bp.property_group = 'base_property' AND bp.property = '{$cond['orderproperty']}')\n";
     }
 
-    if ($cond['joinparts']['filterproperties']) {
+    if (isset($cond['joinparts']['filterproperties']) && $cond['joinparts']['filterproperties']) {
         $cond['joins'] .= "\n LEFT OUTER JOIN {$serendipity['dbPrefix']}mediaproperties AS bp2
                                         ON (bp2.mediaid = i.id AND bp2.property_group = 'base_property')\n";
     }
 
-    if ($cond['joinparts']['hiddenproperties']) {
+    if (isset($cond['joinparts']['hiddenproperties']) && $cond['joinparts']['hiddenproperties']) {
         $cond['joins'] .= "\n LEFT OUTER JOIN {$serendipity['dbPrefix']}mediaproperties AS hp
                                         ON (hp.mediaid = i.id AND hp.property_group = 'base_hidden')\n";
     }
@@ -268,6 +275,8 @@ function serendipity_fetchImageFromDatabase($id, $mode = 'read') {
         $cond['group']    = 'GROUP BY i.id';
         $cond['distinct'] = '';
     }
+
+    $cond['joins'] = ''; // init for serendipity_ACL_SQL conditionals joins
 
     if ($mode != 'discard') {
         serendipity_ACL_SQL($cond, false, 'directory', $mode);
@@ -718,7 +727,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 }
 
                 $bang = '';
-                if (!$serendipity['imagemagick_nobang']) {
+                if (empty($serendipity['imagemagick_nobang'])) {
                     // force the first run image geometry exactly to given sizes, if there were rounding differences (@see https://github.com/s9y/Serendipity/commit/94881ba and comments)
                     $bang = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? '\!' : '!'; // escape by OS
                     // escapeshellarg() adds single quotes around a string and quotes/escapes any existing single quotes
@@ -1389,6 +1398,8 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                             AND mime = '" . serendipity_db_escape_string($fdim['mime']) . "'
                             AND extension = '" . serendipity_db_escape_string($f[1]) . "'"
         );
+
+        $cond['joins'] = ''; // init for serendipity_ACL_SQL conditionals joins
         serendipity_ACL_SQL($cond, false, 'directory');
 
         $rs = serendipity_db_query("SELECT *
@@ -1699,7 +1710,9 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     }
 
     $serendipity['GET']['only_path']        = serendipity_uploadSecure($limit_path . $serendipity['GET']['only_path'], true);
-    $serendipity['GET']['filter']['i.name'] = serendipity_specialchars(str_replace(array('*', '?'), array('%', '_'), $serendipity['GET']['filter']['i.name']));
+    if (isset($serendipity['GET']['filter']['i.name'])) {
+        $serendipity['GET']['filter']['i.name'] = serendipity_specialchars(str_replace(array('*', '?'), array('%', '_'), $serendipity['GET']['filter']['i.name']));
+    }
 
     $perPage = (!empty($serendipity['GET']['sortorder']['perpage']) ? (int)$serendipity['GET']['sortorder']['perpage'] : 8);
     while ($perPage % $lineBreak !== 0) {
@@ -1868,6 +1881,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     }
 
     // Out of Sync Files
+    if (!isset($aFilesNoSync)) $aFilesNoSync = array();
     if ($debug) { $serendipity['logger']->debug("$logtag ".print_r($aFilesNoSync,1)); }
     $serendipity['aFilesNoSync'] = $aFilesNoSync;
     $serendipity['smarty']->assign('imagesNoSync', $aFilesNoSync);
@@ -1909,7 +1923,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                                   (isset($serendipity['GET']['only_path']) ? $serendipity['GET']['only_path'] : ''),
                                   null,
                                   (isset($serendipity['GET']['keywords']) ? $serendipity['GET']['keywords'] : ''),
-                                  (isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : ''),
+                                  (isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : null),
                                   $hideSubdirFiles
     );
 
@@ -1924,7 +1938,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     }
 
     $dprops = $keywords = array();
-    if ($serendipity['parseMediaOverview']) {
+    if (@$serendipity['parseMediaOverview']) { // $serendipity['parseMediaOverview'] is either an undocumented user feature, or a development leftover since prior to 2006, or an unknown and unofficial plugin feature
         $ids = array();
         foreach($serendipity['imageList'] AS $k => $file) {
             $ids[] = $file['id'];
@@ -1941,7 +1955,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
             serendipity_prepareMedia($serendipity['imageList'][$k], $url);
 
-            if ($serendipity['parseMediaOverview']) {
+            if (isset($serendipity['parseMediaOverview']) && $serendipity['parseMediaOverview']) { // see above note
                 $serendipity['imageList'][$k]['props'] =& $allprops[$file['id']];
                 if (!is_array($serendipity['imageList'][$k]['props']['base_metadata'])) {
                     $serendipity['imageList'][$k]['metadata'] =& serendipity_getMetaData($serendipity['imageList'][$k]['realfile'], $serendipity['imageList'][$k]['header']);
@@ -1981,10 +1995,10 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 } // End serendipity_displayImageList()
 
 /**
- * Generate the url-parameters needed when generating the ML to select an image to add to the editor,
+ * Generate the URL-parameters needed when generating the ML to select an image to add to the editor,
  * to store the relevant options (like which textarea to add it to)
  *
- * @param   string  Url or Form format
+ * @param   string  URL or Form format
  */
 function serendipity_generateImageSelectorParems($format = 'url') {
     global $serendipity;
@@ -1992,7 +2006,7 @@ function serendipity_generateImageSelectorParems($format = 'url') {
     $sortParams   = array('perpage', 'order', 'ordermode');
     $importParams = array('adminModule', 'htmltarget', 'filename_only', 'textarea', 'subpage',  'keywords', 'noBanner', 'noSidebar', 'noFooter', 'showUpload','showMediaToolbar');
     $extraParems  = '';
-    $filterParams = $serendipity['GET']['filter'] ?: array(); // ?: elvis operator, see http://en.wikipedia.org/wiki/Elvis_operator and upcoming PHP 7 ?? (isset) operator
+    $filterParams = isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : array();
 
     $standaloneFilterParams = array('only_path');
     $parems = array();
@@ -2051,6 +2065,8 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
     global $serendipity;
 
     $file['displaymime'] = $file['mime'];
+
+    if (!isset($file['imgsrc'])) return false;
 
     // Strip HTTP path out of imgsrc
     $file['location'] = $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', $file['imgsrc']);
@@ -2403,16 +2419,6 @@ function serendipity_escapeshellarg($string) {
 }
 
 /**
- * Rename a media directory
- *
- * @access public
- * @param   string  Old directory name
- * @param   string  New directory name
- */
-function serendipity_renameDir($old, $new) {
-}
-
-/**
  * Makes sure a directory begins with or ends with a "/"
  *
  * @access public
@@ -2659,7 +2665,7 @@ function serendipity_showPropertyForm(&$new_media, $keywordsPerBlock = 3, $is_ed
         $show[$idx]['image_id'] = $media['image_id'];
 
         serendipity_prepareMedia($show[$idx]);
-        if (!is_array($props['base_metadata'])) {
+        if (!isset($props['base_metadata']) || !is_array($props['base_metadata'])) {
             $show[$idx]['metadata'] =& serendipity_getMetaData($show[$idx]['realfile'], $show[$idx]['header']);
         } else {
             $show[$idx]['metadata'] = $props['base_metadata'];
@@ -2674,7 +2680,7 @@ function serendipity_showPropertyForm(&$new_media, $keywordsPerBlock = 3, $is_ed
         'keywordsPerBlock'  => $keywordsPerBlock,
         'keywords'          => $keywords,
         'dprops'            => $dprops,
-        'case_add'          => is_array($new_media[0]['created_thumbnail'])     // created_thumbnail is only set when viewing properties after adding an image
+        'case_add'          => (isset($new_media[0]['created_thumbnail']) && is_array($new_media[0]['created_thumbnail']))     // created_thumbnail is only set when viewing properties after adding an image
     );
 
     return serendipity_showMedia(
@@ -2761,7 +2767,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
         if (!$is_edit) {
             $type = 'readonly';
         }
-        $val = serendipity_mediaTypeCast($parts[0], $props['base_property'][$parts[0]], true);
+        $val = serendipity_mediaTypeCast($parts[0], @$props['base_property'][$parts[0]], true); // mute possible uninitialized items
 
         $propkey = serendipity_specialchars($parts[0]) . $idx;
 
@@ -2772,7 +2778,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
             'title' => serendipity_specialchars($parts[0])
         );
 
-        if (!is_array($GLOBALS['IPTC'])) {
+        if (!isset($GLOBALS['IPTC']) || !is_array($GLOBALS['IPTC'])) {
             // Your templates config.inc.php or any of the language files can declare this variable,
             // if you want to use other default settings for this. No interface ability to declare this
             // yet, sorry.
@@ -3120,7 +3126,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
     }
 
     // Detect PDF thumbs
-    if (file_exists($file['full_thumb'] . '.png')) {
+    if (isset($file['full_thumb']) && file_exists($file['full_thumb'] . '.png')) {
         $file['full_thumb']     .= '.png';
         $file['full_thumbHTTP'] .= '.png';
         $file['show_thumb']     .= '.png';
@@ -3165,7 +3171,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
     }
 
     /* If it is an image, and the thumbnail exists */
-    if ($file['is_image'] && file_exists($file['full_thumb'])) {
+    if ($file['is_image'] && isset($file['full_thumb']) && file_exists($file['full_thumb'])) {
         $file['thumbWidth']  = $file['dim'][0];
         $file['thumbHeight'] = $file['dim'][1];
     } elseif ($file['is_image'] && $file['hotlink']) {
@@ -3209,7 +3215,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
 
     $form_hidden = '';
     // do not add, if not for the default media list form
-    if (($serendipity['GET']['adminAction'] == 'default' || empty($serendipity['GET']['adminAction'])) && !$serendipity['GET']['fid']) {
+    if (($serendipity['GET']['adminAction'] == 'default' || empty($serendipity['GET']['adminAction'])) && !isset($serendipity['GET']['fid'])) {
         foreach($serendipity['GET'] AS $g_key => $g_val) {
             // do not add token, since this is assigned separately to properties and list forms
             if (!is_array($g_val) && $g_key != 'page' && $g_key != 'token') {
@@ -3218,7 +3224,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         }
     }
 
-    $displayGallery  = (isset($serendipity['GET']['showGallery']) && !$show_upload && $serendipity['GET']['showGallery'] == 'true') ? true : false;
+    $displayGallery  = (isset($serendipity['GET']['showGallery']) && !isset($serendipity['GET']['showUpload']) && $serendipity['GET']['showGallery'] == 'true') ? true : false;
 
     if (!is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
@@ -3236,10 +3242,10 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'token'             => serendipity_setFormToken(),
         'form_hidden'       => $form_hidden,
         'blimit_path'       => empty($smarty_vars['limit_path']) ? '' : basename($smarty_vars['limit_path']),
-        'only_path'         => $serendipity['GET']['only_path'],
-        'sortorder'         => $serendipity['GET']['sortorder'],
-        'keywords_selected' => $serendipity['GET']['keywords'],
-        'filter'            => $serendipity['GET']['filter'],
+        'only_path'         => isset($serendipity['GET']['only_path']) ? $serendipity['GET']['only_path'] : '',
+        'sortorder'         => isset($serendipity['GET']['sortorder']) ? $serendipity['GET']['sortorder'] : '',
+        'keywords_selected' => isset($serendipity['GET']['keywords']) ? $serendipity['GET']['keywords'] : '',
+        'filter'            => isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : null,/* NIL or array() ?? (media_toolbar.tpl) */
         'sort_order'        => $order_fields,
         'simpleFilters'     => ($displayGallery) ? false : $serendipity['simpleFilters'],
         'metaActionBar'     => ($serendipity['GET']['adminAction'] != 'properties' && empty($serendipity['GET']['fid'])),
@@ -3554,7 +3560,7 @@ function &serendipity_getMetaData($file, &$info) {
                         continue;
                     }
                     $ret['EXIF'][$ExifItem['name']] = serendipity_metaFieldConvert($exif[$Exifgroup][$ExifName], $ExifItem['type']);
-                    if ($ret['EXIF'][$item['name']] == $ret['IPTC'][$item['name']]) {
+                    if (isset($item) && $ret['EXIF'][$item['name']] == $ret['IPTC'][$item['name']]) {
                         unset($ret['IPTC'][$item['name']]);
                     }
                 }
@@ -3570,7 +3576,7 @@ function &serendipity_getMetaData($file, &$info) {
         foreach($xmpPatterns AS $lookup => $item) {
             if (preg_match('@<' . $lookup . '>(.*)</' . $lookup . '>@', $xmp_data['content'], $match)) {
                 $ret['XMP'][$item['name']] = serendipity_metaFieldConvert($match[1], $item['type']);
-                if ($ret['EXIF'][$item['name']] == $ret['XMP'][$item['name']]) {
+                if (isset($ret['EXIF'][$item['name']]) && $ret['EXIF'][$item['name']] == $ret['XMP'][$item['name']]) {
                     unset($ret['EXIF'][$item['name']]);
                 }
             }
@@ -4388,14 +4394,12 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
         'filename_only' => isset($serendipity['GET']['filename_only']) ? $serendipity['GET']['filename_only'] : false,
     );
 
-    $show_upload = isset($serendipity['GET']['showUpload']) ? $serendipity['GET']['showUpload'] : false;
-
     $output .= serendipity_displayImageList(
         isset($serendipity['GET']['page']) ? $serendipity['GET']['page'] : 1,
         $serendipity['thumbPerPage'],
         isset($serendipity['GET']['showMediaToolbar']) ? serendipity_db_bool($serendipity['GET']['showMediaToolbar']) : true,
         NULL,
-        $show_upload,
+        isset($serendipity['GET']['showUpload']) ? $serendipity['GET']['showUpload'] : false,
         NULL,
         $smarty_vars
     );

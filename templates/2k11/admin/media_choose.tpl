@@ -1,9 +1,9 @@
 
-{if $perm_denied}
+{if isset($perm_denied) AND $perm_denied}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
 {else}
     <!-- MEDIA SELECTION START -->
-    {$media.external}
+    {if isset($media.external)}{$media.external}{/if}
 
     <div class="clearfix">
     {if $media.file.is_image}
@@ -30,7 +30,7 @@
         {if $media.filename_only}
             <input name="serendipity[filename_only]" type="hidden" value="{$media.filename_only|escape}">
         {/if}
-        {if $media.file.fast_select}
+        {if isset($media.file.fast_select) AND $media.file.fast_select}
             <script>
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_add_filenameonly' eventData=$media.file}
                 serendipity.serendipity_imageSelector_done('{$media.textarea|escape}');
@@ -115,19 +115,19 @@
 
             <div id="image_comment" class="form_area">
                 <label for="serendipity_imagecomment">{$CONST.COMMENT}</label>
-                <textarea id="serendipity_imagecomment" name="serendipity[imagecomment]" rows="5">{$media.file.props.base_property.COMMENT1|escape}</textarea>
+                <textarea id="serendipity_imagecomment" name="serendipity[imagecomment]" rows="5">{$media.file.props.base_property.COMMENT1|escape|default:''}</textarea>
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagecomment' eventData=$media.file}
             </div>
 
             <div id="image_alttext" class="form_field">
                 <label for="serendipity_alt">{$CONST.MEDIA_ALT}</label>
-                <input id="serendipity_alt" name="serendipity[alt]" type="text" value="{$media.file.props.base_property.ALT|escape}">
+                <input id="serendipity_alt" name="serendipity[alt]" type="text" value="{$media.file.props.base_property.ALT|escape|default:''}">
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_alt' eventData=$media.file}
             </div>
 
             <div id="image_title" class="form_field">
                 <label for="serendipity_title">{$CONST.MEDIA_TITLE}</label>
-                <input id="serendipity_title" name="serendipity[title]" type="text" value="{$media.file.props.base_property.TITLE|escape}">
+                <input id="serendipity_title" name="serendipity[title]" type="text" value="{$media.file.props.base_property.TITLE|escape|default:''}">
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_title' eventData=$media.file}
             </div>
             {/if}

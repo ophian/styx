@@ -1,5 +1,5 @@
 
-{if $perm_denied}
+{if isset($perm_denied) AND $perm_denied}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
 {else}
     <!-- MEDIA GALLERY SELECTION FINISHER -->

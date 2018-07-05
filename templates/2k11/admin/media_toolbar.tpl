@@ -25,7 +25,7 @@
                 <div class="form_select">
                     <label for="serendipity_only_path" class="visuallyhidden">{$CONST.FILTER_DIRECTORY}</label>
                     <select id="serendipity_only_path" name="serendipity[only_path]">
-                        <option value="">{if NOT $media.limit_path}{if $media.toggle_dir == 'yes' OR $media.hideSubdirFiles == 'yes'}{$CONST.BASE_DIRECTORY}{else}{$CONST.ALL_DIRECTORIES}{/if}{else}{$media.blimit_path}{/if}</option>
+                        <option value="">{if NOT $media.limit_path}{if isset($media.toggle_dir) AND $media.toggle_dir == 'yes' OR $media.hideSubdirFiles == 'yes'}{$CONST.BASE_DIRECTORY}{else}{$CONST.ALL_DIRECTORIES}{/if}{else}{$media.blimit_path}{/if}</option>
                     {foreach $media.paths AS $folderHead}
 
                         <option{if ($media.only_path == $media.limit_path|cat:$folderHead.relpath)} selected{/if} value="{$folderHead.relpath}">{'&nbsp;'|str_repeat:($folderHead.depth*2)}{$folderHead.name}</option>
@@ -53,7 +53,7 @@
                 </fieldset>
             </li>
             {/if}
-        {if $smarty.get.serendipity.showUpload}
+        {if isset($smarty.get.serendipity.showUpload) AND $smarty.get.serendipity.showUpload}
             <li class="popuplayer_showUpload"><a class="button_link" href="?serendipity[adminModule]=media&amp;serendipity[adminAction]=addSelect&amp;{$media.extraParems}">{$CONST.ADD_MEDIA}</a></li>
         {/if}
         </ul>
@@ -66,16 +66,16 @@
             {foreach $media.sort_order AS $filtername => $filter}
 
                 <div class="{cycle values="left,center,right"}{if $filter@iteration > 6} bp_filters{/if}">
-                {if $filter.type == 'date' OR $filter.type == 'intrange'}
+                {if isset($filter.type) AND ($filter.type == 'date' OR $filter.type == 'intrange')}
 
                     <fieldset>
                         <span class="wrap_legend"><legend>{$filter.desc}</legend></span>
                 {else}
 
-                    <div class="form_{if $filter.type == 'authors'}select{else}field{/if}">
+                    <div class="form_{if isset($filter.type) AND $filter.type == 'authors'}select{else}field{/if}">
                         <label for="serendipity_filter_{$filter@key}">{$filter.desc}</label>
                 {/if}
-                {if $filter.type == 'date'}
+                {if isset($filter.type) AND $filter.type == 'date'}
 
                         <div class="form_field">
                             <label for="serendipity_filter_{$filter@key}_from" class="range-label hidden">{$CONST.RANGE_FROM|lower}</label>
@@ -83,7 +83,7 @@
                             <label for="serendipity_filter_{$filter@key}_to" class="range-label"><span class="hidden">{$CONST.RANGE_TO|lower}</span><span class="icon-right-dir" title="{$CONST.RANGE_FROM|lower} - {$CONST.RANGE_TO|lower}"></span></label>
                             <input id="serendipity_filter_{$filter@key}_to" name="serendipity[filter][{$filter@key}][to]" type="date" placeholder="2005-12-31" value="{$media.filter[$filter@key].to|escape}">
                         </div>
-                {elseif $filter.type == 'intrange'}
+                {elseif isset($filter.type) AND $filter.type == 'intrange'}
 
                         <div class="form_field">
                             <label for="serendipity_filter_{$filter@key}_from" class="range-label">{$CONST.RANGE_FROM|lower}</label>
@@ -91,7 +91,7 @@
                             <label for="serendipity_filter_{$filter@key}_to" class="range-label">{$CONST.RANGE_TO|lower}</label>
                             <input id="serendipity_filter_{$filter@key}_to" name="serendipity[filter][{$filter@key}][to]" type="text" placeholder="{if $filtername == 'bp.RUN_LENGTH'}seconds{/if}" value="{$media.filter[$filter@key].to|escape}">
                         </div>
-                {elseif $filter.type == 'authors'}
+                {elseif isset($filter.type) AND $filter.type == 'authors'}
 
                         <select id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]">
                             <option value="">{$CONST.ALL_AUTHORS}</option>
@@ -105,7 +105,7 @@
                         {* label is already set on loop start, when type is not date or intrange *}
                         <input id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]" type="text" value="{$media.filter[$filter@key]|escape}">
                 {/if}
-                {if $filter.type == 'date' OR $filter.type == 'intrange'}
+                {if isset($filter.type) AND ($filter.type == 'date' OR $filter.type == 'intrange')}
 
                     </fieldset>
                 {else}
@@ -207,10 +207,12 @@
 
                 serendipity.SetCookie("sortorder_{$sortParam}","{$media.sortorder.{$sortParam}}");
             {/foreach}
+            {if isset($filterParams)}
             {foreach $media.filterParams AS $filterParam}
 
                 serendipity.SetCookie("{$filterParam}", "{$media.{$filterParam}}");
             {/foreach}
+            {/if}
 
                 serendipity.SetCookie("only_path", "{$media.only_path}");
 

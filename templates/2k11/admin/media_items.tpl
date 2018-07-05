@@ -1,8 +1,8 @@
 {foreach $media.files AS $file}
     {if NOT $media.manage}
         {* ML got called for inserting media *}
-            {if $file.is_image AND $file.full_thumb}
-                {if $media.textarea OR $media.htmltarget}
+            {if $file.is_image AND isset($file.full_thumb) AND $file.full_thumb}
+                {if (isset($media.textarea) AND $media.textarea) OR (isset($media.htmltarget) AND $media.htmltarget)}
                 {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
                 {else}
                     {if $file.url}
@@ -38,7 +38,7 @@
                     {$img_alt="{$file.mime}"}
             {/if}
     {else}
-        {if $file.is_image AND $file.full_thumb}
+        {if $file.is_image AND isset($file.full_thumb) AND $file.full_thumb}
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
             {$img_src="{$file.show_thumb}"}
             {$img_title="{$file.path}{$file.name}"}
@@ -70,16 +70,20 @@
                     </div>
                     {/if}
 
-                    <h3 title="{$file.diskname}">{$file.diskname|truncate:38:"&hellip;":true}{if $file.orderkey != ''}: {$file.orderkey|escape}{/if}</h3>
+                    <h3 title="{$file.diskname}">{$file.diskname|truncate:38:"&hellip;":true}{if !empty($file.orderkey)}: {$file.orderkey|escape}{/if}</h3>
                     {if $file.authorid != 0}<span class="author block_level">{$file.authorname}</span>{/if}
 
                 </header>
 
                 <div class="clearfix equal_heights media_file_wrap">
                     <div class="media_file_preview">
+                        {if isset($link)}
                         <a {if $media.manage AND $media.multiperm}class="media_fullsize"{/if} href="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                             <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}">
                         </a>
+                        {else}
+                        <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}">
+                        {/if}
                         <footer id="media_file_meta_{$file.id}" class="media_file_meta additional_info">
                             <ul class="plainList">
                             {if $file.hotlink}
@@ -199,10 +203,10 @@
                         <label for="newDir{$file@key}">{$CONST.FILTER_DIRECTORY}</label>
                         <input type="hidden" name="serendipity[oldDir][{$file@key}]" value="{$file.path|escape}">
                         <select id="newDir{$file@key}" name="serendipity[newDir][{$file@key}]">
-                            <option{if ($file.path == $folder.relpath)} selected{/if} value="">{$CONST.BASE_DIRECTORY}</option>
+                            <option{if empty($file.path)} selected="selected"{/if} value="">{$CONST.BASE_DIRECTORY}</option>
                         {foreach $media.paths AS $folder}
 
-                            <option{if ($file.path == $folder.relpath)} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
+                            <option{if ($file.path == $folder.relpath)} selected="selected"{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)}{$folder.name}</option>
                         {/foreach}
 
                         </select>
@@ -217,7 +221,7 @@
                     <ul class="clearfix plainList">
                     {foreach $file.base_keywords AS $keyword_cells}
                         {foreach $keyword_cells AS $keyword}
-                        {if $keyword.name}
+                        {if !empty($keyword.name)}
 
                         <li>
                             <input id="mediaKeyword{$keyword.name}{$file@key}" name="serendipity[mediaKeywords][{$file@key}][{$keyword.name}]" type="checkbox" value="true"{if $keyword.selected} checked="checked"{/if}>

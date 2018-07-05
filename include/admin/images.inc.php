@@ -32,6 +32,18 @@ if (isset($serendipity['GET']['fid'])) {
     $serendipity['GET']['fid'] = (int)$serendipity['GET']['fid'];
 }
 
+// init all Smarty variables to false
+$data['case_doSync'] = $data['case_do_delete'] = false;
+$data['case_do_multidelete'] = $data['case_delete'] = false;
+$data['case_multidelete'] = $data['case_confirm_deletion'] = false;
+$data['case_properties'] = $data['case_add'] = false;
+$data['case_directoryDoDelete'] = $data['case_directoryEdit'] = false;
+$data['case_directoryDelete'] = $data['case_directoryDoCreate'] = false;
+$data['case_directoryCreate'] = $data['case_directorySelect'] = false;
+$data['case_rotateCW'] = $data['case_rotateCCW'] = false;
+$data['case_scale'] = $data['case_scaleSelect'] = false;
+$data['showMLbutton'] = $data['case_default'] = false;
+
 switch ($serendipity['GET']['adminAction']) {
 
     case 'doSync':
@@ -147,14 +159,14 @@ switch ($serendipity['GET']['adminAction']) {
             serendipity_prepareMedia($file);
             $file['props'] =& serendipity_fetchMediaProperties((int)$media_id);
             serendipity_plugin_api::hook_event('media_getproperties_cached', $file['props']['base_metadata'], $file['realfile']);
-            $file['prop_imagecomment'] = serendipity_specialchars($file['props']['base_property']['COMMENT1']);
-            $file['prop_alt'] = serendipity_specialchars($file['props']['base_property']['ALT']);
-            $file['prop_title'] = serendipity_specialchars($file['props']['base_property']['TITLE']);
+            $file['prop_imagecomment'] = serendipity_specialchars((isset($file['props']['base_property']['COMMENT1']) ? $file['props']['base_property']['COMMENT1'] : ''));
+            $file['prop_alt'] = serendipity_specialchars((isset($file['props']['base_property']['ALT']) ? $file['props']['base_property']['ALT'] : ''));
+            $file['prop_title'] = serendipity_specialchars((isset($file['props']['base_property']['TITLE']) ? $file['props']['base_property']['TITLE'] : ''));
             unset($file['props']); // we don't need this bloat, except the three above
             unset($file['thumb_header']); // img (encoded) header data will make json_encode() fail and return nothing
             unset($file['header']);
             $files[] = &$file;
-            unset($file); // keep this to preveil overwrite!!!!
+            unset($file); // keep this to prevail overwrite!!!!
         }
         $media['files'] = $files;
         unset($files);
@@ -167,7 +179,7 @@ switch ($serendipity['GET']['adminAction']) {
         $media = array_merge($serendipity['GET'], $media);
         $serendipity['smarty']->assignByRef('media', $media);
         $serendipity['smarty']->assignByRef('jsmedia', $jsmedia);
-        echo $serendipity['smarty']->display('admin/media_galleryinsert.tpl', $data);// no need for a compile file
+        echo $serendipity['smarty']->display('admin/media_galleryinsert.tpl', $data); // no need for a compile file
         #echo serendipity_smarty_showTemplate('admin/media_galleryinsert.tpl', $data);
         break;
 
@@ -269,7 +281,7 @@ switch ($serendipity['GET']['adminAction']) {
         }
         $data['case_add'] = true;
         $messages = array();
-        if ($serendipity['POST']['adminSubAction'] == 'properties') {
+        if (isset($serendipity['POST']['adminSubAction']) && $serendipity['POST']['adminSubAction'] == 'properties') {
             serendipity_restoreVar($serendipity['COOKIE']['serendipity_only_path'], $serendipity['GET']['only_path']); // restore last set directory path, see true parameter
             $properties        = serendipity_parsePropertyForm();
             $image_id          = $properties['image_id'];
@@ -333,7 +345,6 @@ switch ($serendipity['GET']['adminAction']) {
                 // Try to get the URL
                 try {
                     $fContent = serendipity_request_url($_imageurl, 'GET', null, null, null, 'image');
-                    #echo '<pre>'.print_r($serendipity['last_http_request'], true).'</pre>';
                     if (!isset($serendipity['last_http_request']) || $serendipity['last_http_request']['responseCode'] != '200') {
                         throw new Exception("Something wrong with responseCode: {$serendipity['last_http_request']['responseCode']}?");
                     } else {
@@ -711,7 +722,7 @@ switch ($serendipity['GET']['adminAction']) {
         );
         // ToDo later: merge $data and $media
         $serendipity['smarty']->assign('media', $mediaFiles);
-        $serendipity['smarty']->display(serendipity_getTemplateFile('admin/media_upload.tpl', 'serendipityPath'));
+        $serendipity['smarty']->display(serendipity_getTemplateFile('admin/media_upload.tpl', 'serendipityPath')); // no need for a compile file
         return;
 
     case 'rotateCW':
@@ -839,8 +850,8 @@ if (! isset($data['showML'])) {
     }
 }
 
-$data['get']['fid']       = $serendipity['GET']['fid']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipty['GET'] by runtime
-$data['get']['only_path'] = $serendipity['GET']['only_path'];
+$data['get']['fid']       = isset($serendipity['GET']['fid']) ? $serendipity['GET']['fid'] : null; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipity['GET'] by runtime
+$data['get']['only_path'] = isset($serendipity['GET']['only_path']) ? $serendipity['GET']['only_path'] : '';
 
 echo serendipity_smarty_showTemplate('admin/images.inc.tpl', $data);
 
