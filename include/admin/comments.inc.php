@@ -13,11 +13,11 @@ $errormsg = '';
 $msg = '';
 $msgtype = 'notice';
 
-$_id       = (int)$serendipity['GET']['id'];
-$_replyTo  = (int)$serendipity['POST']['replyTo'];
-$_entry_id = (int)$serendipity['GET']['entry_id'];
+$_id       = !empty($serendipity['GET']['id']) ? (int)$serendipity['GET']['id'] : 0;
+$_replyTo  = !empty($serendipity['POST']['replyTo']) ? (int)$serendipity['POST']['replyTo'] : 0;
+$_entry_id = !empty($serendipity['GET']['entry_id']) ? (int)$serendipity['GET']['entry_id'] : 0;
 
-if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['POST']['delete']) != 0 && serendipity_checkFormToken()) {
+if (isset($serendipity['POST']['formAction']) && $serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['POST']['delete']) != 0 && serendipity_checkFormToken()) {
     if ($serendipity['POST']['togglemoderate'] != '') {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
             $ac = serendipity_approveComment((int)$k, (int)$v, false, 'flip');
@@ -44,7 +44,7 @@ if ($serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['
 }
 
 /* We are asked to save the edited comment, and we are not in preview mode */
-if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'doEdit' && !isset($serendipity['POST']['preview']) && serendipity_checkFormToken()) {
+if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'doEdit' && !isset($serendipity['POST']['preview']) && $_id > 0 && serendipity_checkFormToken()) {
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
                SET
                     author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
@@ -179,7 +179,7 @@ if (isset($serendipity['GET']['adminAction'])
         $serendipity['smarty']->assign('secure_simple_ckeditor', $ckescript);
     }
 
-    if ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply') {
+    if ($_id > 0 && $_entry_id > 0 && ($serendipity['GET']['adminAction'] == 'reply' || $serendipity['GET']['adminAction'] == 'doReply')) {
         $c = serendipity_fetchComments($_entry_id, 1, 'co.id', false, 'NORMAL', ' AND co.id=' . $_id);
         $p = $c[0]['parent_id'] = 0; // copy comments parent_id, since we also want to get a previewed reply view for multidepth comments
         if (isset($serendipity['POST']['preview'])) {
@@ -197,7 +197,8 @@ if (isset($serendipity['GET']['adminAction'])
         $out        = serendipity_printComments($c, $p);
         $codata     = $serendipity['POST'];
 
-        $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comment_reply.tpl', 'serendipityPath'));
+        $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comment_reply.tpl', 'serendipityPath')); // no need for a compile file
+        #echo serendipity_smarty_showTemplate('admin/comment_reply.tpl');
 
         $codata['replyTo'] = $_id;
         if (!isset($codata['name'])) {
@@ -211,7 +212,7 @@ if (isset($serendipity['GET']['adminAction'])
         $target_url = '?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=doEdit&amp;serendipity[id]=' . $_id . '&amp;serendipity[entry_id]=' . $_entry_id . '&amp;' . serendipity_setFormToken('url');
 
         /* If we are not in preview, we need comment data from our database */
-        if (!isset($serendipity['POST']['preview'])) {
+        if ($_id > 0 && !isset($serendipity['POST']['preview'])) {
             $comment = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}comments WHERE id = ". $_id);
             $codata['name']       = $comment[0]['author'];
             $codata['email']      = $comment[0]['email'];
@@ -238,7 +239,8 @@ if (isset($serendipity['GET']['adminAction'])
 
             serendipity_printComments($pc_data);
             // Displays the PREVIEW of your edited backend comment via edit. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
-            $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comments.tpl', 'serendipityPath'));
+            $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comments.tpl', 'serendipityPath')); // no need for a compile file
+            #echo serendipity_smarty_showTemplate('admin/comments.tpl');
         }
     }
 
@@ -249,18 +251,27 @@ if (isset($serendipity['GET']['adminAction'])
     serendipity_displayCommentForm($_entry_id, $target_url, NULL, $codata, false, false);
 
     // Displays the backend comment form. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
-    $serendipity['smarty']->display(serendipity_getTemplateFile('admin/commentform.tpl', 'serendipityPath'));
+    $serendipity['smarty']->display(serendipity_getTemplateFile('admin/commentform.tpl', 'serendipityPath')); // no need for a compile file
+    #echo serendipity_smarty_showTemplate('admin/commentform.tpl');
 
     return true;
 }
 
 /* Searchable fields */
 $filters = array('author', 'email', 'ip', 'url', 'body', 'referer');
+$and = $searchString = ''; // init default
 
 /* Compress the filters into an "AND" SQL query, and a querystring */
 foreach($filters AS $filter) {
     $and          .= (!empty($serendipity['GET']['filter'][$filter]) ? "AND c.". $filter ." LIKE '%". serendipity_db_escape_string($serendipity['GET']['filter'][$filter]) ."%'" : "");
     $searchString .= (!empty($serendipity['GET']['filter'][$filter]) ? "&amp;serendipity[filter][". $filter ."]=". serendipity_specialchars($serendipity['GET']['filter'][$filter]) : "");
+}
+
+// init default
+if (!isset($serendipity['GET']['filter'])) {
+    $serendipity['GET']['filter']['show'] = '';
+    $serendipity['GET']['filter']['type'] = '';
+    if (!isset($serendipity['GET']['page'])) $serendipity['GET']['page'] = 0;
 }
 
 if ($serendipity['GET']['filter']['show'] == 'approved') {
@@ -389,7 +400,7 @@ if (is_array($sql)) {
         $comment['entrylink'] = $entrylink;
 
         if ($serendipity['allow_html_comment']) {
-            // this replaces stripping tags or the serendipity_htmlspecialchars() usage
+            // this replaces stripping tags OR the serendipity_htmlspecialchars() usage
             $comment['fullBody'] = serendipity_sanitizeHtmlComments($comment['fullBody']);
             $is_html = ($comment['fullBody'] != strip_tags($comment['fullBody'])) ? true : false;
         }

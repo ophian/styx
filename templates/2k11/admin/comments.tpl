@@ -5,7 +5,7 @@
     </header>
 
     <div class="serendipity_commentBody clearfix content">
-    {if $comment.avatar}{$comment.avatar}{/if}
+        {$comment.avatar|default:''}
         {$comment.body}
     </div>
 

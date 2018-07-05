@@ -451,12 +451,14 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             $i++;
 
             if ($serendipity['allow_html_comment']) {
-                $comment['comment'] = serendipity_sanitizeHtmlComments((string)$comment['body']); // cast as string (for preview modes only)
+                $comment['comment'] = serendipity_sanitizeHtmlComments((string)$comment['body']); // cast as string (for PREVIEW modes only)
             } else {
-                $comment['comment'] = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings (for preview mode only)
+                $comment['comment'] = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings (for PREVIEW mode only)
             }
             $comment['url']         = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
-            $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
+            if (isset($comment['id'])) {
+                $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
+            }
 
             /* Fix invalid cases in protocol part */
             if (!empty($comment['url'])) {
@@ -475,11 +477,12 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['url'] = serendipity_specialchars($comment['url'], ENT_QUOTES);
             }
 
-            // check the origin field entry to HTML display each comment using NL2P in backend and/or frontend
+            // check the origin field entry to HTML display each comment using NL2P in backend and/or frontend - and in shortcut /comments/ pages
             if ($serendipity['allow_html_comment'] && false !== strpos($comment['body'], '</p>')) {
                 // disable NL2BR plugin parsing, for the NL2BR newline to p-tag option
                 $serendipity['POST']['properties']['disable_markups'] = array(true);
             }
+
             $addData = array('from' => 'functions_entries:printComments');
             serendipity_plugin_api::hook_event('frontend_display', $comment, $addData);
 
@@ -492,8 +495,9 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['clear_email'] = $comment['email'];
                 $comment['email']       = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
             }
+
             // frontend entry comments - do for both else add ($serendipity['allow_html_comment'] && )
-            if ($comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
+            if (isset($comment['type']) && $comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
                 $comment['comment'] = '<span class="serendipity_msg_important msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
             }
             $comment['body']    = $comment['comment'];
@@ -506,7 +510,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             }
             if (serendipity_userLoggedIn()) {
                 // these pop-up in the edit preview of backend comments for logged-in users
-                if ($comment['subscribed'] == 'true') {
+                if (isset($comment['subscribed']) && $comment['subscribed'] == 'true') {
                     if ($comment['status'] == 'approved') {
                         $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_on"><em>' . ACTIVE_COMMENT_SUBSCRIPTION . "</em></div>\n";
                     } else {
@@ -519,7 +523,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             }
 
             $_smartyComments[] = $comment;
-            if ($comment['id'] && $parentid !== VIEWMODE_LINEAR ) {
+            if (isset($comment['id']) && $comment['id'] && $parentid !== VIEWMODE_LINEAR ) {
                 serendipity_printComments($comments, $comment['id'], ($depth+1), ($trace . $i . '.'), $smarty_block, $smarty_file);
             }
         }

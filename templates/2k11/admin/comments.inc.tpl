@@ -8,7 +8,7 @@
             <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$msg|nl2br}</span>
     {/if}
 {/if}
-{if $commentReplied}
+{if isset($commentReplied) AND $commentReplied}
             <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.COMMENT_ADDED}</span>
             <button id="comment_replied" type="button">{$CONST.BACK}</button>
 {else}
@@ -30,32 +30,32 @@
                     <div class="clearfix inputs">
                         <div class="form_field">
                             <label for="filter_author">{$CONST.AUTHOR}</label>
-                            <input id="filter_author" name="serendipity[filter][author]" type="text" value="{$get.filter.author|escape}">
+                            <input id="filter_author" name="serendipity[filter][author]" type="text" value="{$get.filter.author|escape|default:''}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_email">{$CONST.EMAIL}</label>
-                            <input id="filter_email" name="serendipity[filter][email]" type="text" value="{$get.filter.email|escape}">
+                            <input id="filter_email" name="serendipity[filter][email]" type="text" value="{$get.filter.email|escape|default:''}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_url">{$CONST.HOMEPAGE}</label>
-                            <input id="filter_url" name="serendipity[filter][url]" type="text" value="{$get.filter.url|escape}">
+                            <input id="filter_url" name="serendipity[filter][url]" type="text" value="{$get.filter.url|escape|default:''}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_ip">IP</label>
-                            <input id="filter_ip" name="serendipity[filter][ip]" type="text" value="{$get.filter.ip|escape}">
+                            <input id="filter_ip" name="serendipity[filter][ip]" type="text" value="{$get.filter.ip|escape|default:''}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_body">{$CONST.CONTENT}</label>
-                            <input id="filter_body" name="serendipity[filter][body]" type="text" value="{$get.filter.body|escape}">
+                            <input id="filter_body" name="serendipity[filter][body]" type="text" value="{$get.filter.body|escape|default:''}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_referer">{$CONST.REFERER}</label>
-                            <input id="filter_referer" name="serendipity[filter][referer]" type="text" value="{$get.filter.referer|escape}">
+                            <input id="filter_referer" name="serendipity[filter][referer]" type="text" value="{$get.filter.referer|escape|default:''}">
                         </div>
 
                         <div class="form_select">
@@ -139,13 +139,13 @@
                                     <dt>{$CONST.AUTHOR}:</dt>
                                     <dd>{$comment.author|escape|truncate:72:"&hellip;"} {$comment.action_author}</dd>
                                     <dt>{$CONST.EMAIL}:</dt>
-                                    <dd>{if empty($comment.email)}N/A{else}<a href="mailto:{$comment.email|escape}" title="{$comment.email|escape}">{$comment.email|escape|truncate:72:"&hellip;"}</a>{if $comment.subscribed == 'true'} <i>({$CONST.ACTIVE_COMMENT_SUBSCRIPTION})</i>{/if}{/if} {$comment.action_email}</dd>
+                                    <dd>{if empty($comment.email)}N/A{else}<a href="mailto:{$comment.email|escape}" title="{$comment.email|escape}">{$comment.email|escape|truncate:72:"&hellip;"}</a>{if $comment.subscribed == 'true'} <i>({$CONST.ACTIVE_COMMENT_SUBSCRIPTION})</i>{/if}{/if} {$comment.action_email|default:''}</dd>
                                     <dt>IP:</dt>
-                                    <dd>{if empty($comment.ip)}N/A{else}{$comment.ip|escape}{/if} {$comment.action_ip}</dd>
+                                    <dd>{if empty($comment.ip)}N/A{else}{$comment.ip|escape}{/if} {$comment.action_ip|default:''}</dd>
                                     <dt>URL:</dt>
-                                    <dd>{if empty($comment.url)}N/A{else}<a href="{$comment.url|escape}" title="{$comment.url|escape}">{$comment.url|escape|truncate:72:"&hellip;"}</a> {/if} {$comment.action_url}</dd>
+                                    <dd>{if empty($comment.url)}N/A{else}<a href="{$comment.url|escape}" title="{$comment.url|escape}">{$comment.url|escape|truncate:72:"&hellip;"}</a> {/if} {$comment.action_url|default:''}</dd>
                                     <dt>{$CONST.REFERER}:</dt>
-                                    <dd>{if empty($comment.referer)}N/A{else}<a href="{$comment.referer|escape}" title="{$comment.referer|escape}">{$comment.referer|escape|truncate:72:"&hellip;"}</a>{/if} {$comment.action_referer}</dd>
+                                    <dd>{if empty($comment.referer)}N/A{else}<a href="{$comment.referer|escape}" title="{$comment.referer|escape}">{$comment.referer|escape|truncate:72:"&hellip;"}</a>{/if} {$comment.action_referer|default:''}</dd>
                                 </dl>
                             </div>
 
@@ -176,7 +176,7 @@
                                 <li><button class="button_link toggle_comment_full" type="button" data-href="#c{$comment.id}_full" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_OPTION}</span></button></li>
 {/if}
                             </ul>
-                            {$comment.action_more}
+                            {$comment.action_more|default:''}
                             <div class="comment_type {$comment.type|lower}" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : 'Pingback' )}"><span class="stype">{$comment.stype}</span></div>
 
                         </li>
