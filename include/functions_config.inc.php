@@ -298,23 +298,24 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
         }
 
         if (!$simple_plugin_fallback) {
-            // Frontend templates currently need to fall back to "default" (see "idea"), so that they get the
-            // output they desire. If templates are based on 2k11, they need to set "Engine: 2k11" in their info.txt
-            // file.
+            // Frontend templates currently need to fall back to "default" (see "idea"), so that they get the output
+            // they desire. If templates are based on 2k11, they need to set "Engine: 2k11" in their info.txt file.
             $directories[] = 'default/';
             $directories[] = $serendipity['defaultTemplate'] .'/';
         }
     }
 
-    foreach($directories AS $directory) {
-        $templateFile = $serendipity['templatePath'] . $directory . $file;
-        if (file_exists($serendipity['serendipityPath'] . $templateFile)) {
-            return $serendipity[$key] . $templateFile;
-        }
+    if (!empty($directories)) {
+        foreach($directories AS $directory) {
+            $templateFile = $serendipity['templatePath'] . $directory . $file;
+            if (file_exists($serendipity['serendipityPath'] . $templateFile)) {
+                return isset($serendipity[$key]) ? $serendipity[$key] . $templateFile : $templateFile; // avoid undefined index Notices if key was called with '', eg. serendipity_getTemplateFile('style_fallback.css', '')
+            }
 
-        if (file_exists($serendipity['serendipityPath'] . $templateFile . '.tpl')) {
-            # catch *.tpl files, used by the backend for serendipity_editor.js.tpl
-            return $serendipity['baseURL'] . 'index.php?/plugin/' . $file;
+            if (file_exists($serendipity['serendipityPath'] . $templateFile . '.tpl')) {
+                // catch *.tpl files, used by the backend for serendipity_editor.js.tpl
+                return $serendipity['baseURL'] . 'index.php?/plugin/' . $file;
+            }
         }
     }
 
@@ -885,7 +886,7 @@ function serendipity_authenticate_author($username = '', $password = '', $is_has
  * @return boolean  TRUE when logged in, FALSE when not.
  */
 function serendipity_userLoggedIn() {
-    if ($_SESSION['serendipityAuthedUser'] === true && IS_installed) {
+    if (isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true && IS_installed) {
         return true;
     } else {
         return false;
@@ -1009,9 +1010,9 @@ function serendipity_deleteCookie($name) {
 function serendipity_is_iframe() {
     global $serendipity;
 
-    if ($serendipity['GET']['is_iframe'] && is_array($_SESSION['save_entry'])) {
+    if (isset($serendipity['GET']['is_iframe']) && $serendipity['GET']['is_iframe'] == 'true' && is_array($_SESSION['save_entry'])) {
         if (!is_object($serendipity['smarty'])) {
-            // We need smarty also in the iframe to load a template's config.inc.php and register possible event hooks.
+            // We need Smarty also in the iframe to load a template's config.inc.php and register possible event hooks.
             serendipity_smarty_init();
         }
         return true;
@@ -1041,8 +1042,8 @@ function serendipity_iframe(&$entry, $mode = null) {
     }
 
     $data = array();
-    $data['is_preview'] =  true;
-    $data['mode'] =  $mode;
+    $data['is_preview'] = true;
+    $data['mode'] = $mode;
 
     switch ($mode) {
         case 'save':
@@ -1491,7 +1492,7 @@ function serendipity_checkPermission($permName, $authorid = null, $returnMyGroup
     }
 
     if ($authorid === null) {
-        $authorid = $serendipity['authorid'];
+        $authorid = isset($serendipity['authorid']) ? $serendipity['authorid'] : null;
     }
 
     if (!isset($group[$authorid])) {
@@ -1506,7 +1507,7 @@ function serendipity_checkPermission($permName, $authorid = null, $returnMyGroup
         }
     }
 
-    if ($authorid == $serendipity['authorid'] && $serendipity['no_create']) {
+    if (!empty($authorid) && $authorid == $serendipity['authorid'] && $serendipity['no_create']) {
         // This no_create user privilege overrides other permissions.
         return false;
     }
@@ -1527,7 +1528,7 @@ function serendipity_checkPermission($permName, $authorid = null, $returnMyGroup
 
     // If the function did not yet return it means there's a check for a permission which is not defined anywhere.
     // Let's use a backwards compatible way.
-    if ($return && isset($permissions[$permName]) && in_array($serendipity['serendipityUserlevel'], $permissions[$permName])) {
+    if ($return && isset($permissions[$permName]) && isset($serendipity['serendipityUserlevel']) && in_array($serendipity['serendipityUserlevel'], $permissions[$permName])) {
         return true;
     }
 
@@ -2365,7 +2366,7 @@ function &serendipity_loadThemeOptions(&$template_config, $okey = '', $bc_bool =
 
     foreach($template_config AS $key => $item) {
         if (!isset($template_vars[$item['var']])) {
-            $template_vars[$item['var']] = $item['default'];
+            $template_vars[$item['var']] = isset($item['default']) ? $item['default'] : null;
         }
     }
     if ($bc_bool) {
@@ -2409,14 +2410,14 @@ function serendipity_loadGlobalThemeOptions(&$template_config, &$template_loaded
         }
 
         // Check if we are currently inside the admin interface.
-        if ($serendipity['POST']['adminModule'] == 'templates' && $serendipity['POST']['adminAction'] == 'configure' && !empty($serendipity['POST']['template']['amount'])) {
+        if (isset($serendipity['POST']['adminModule']) && $serendipity['POST']['adminModule'] == 'templates' && $serendipity['POST']['adminAction'] == 'configure' && !empty($serendipity['POST']['template']['amount'])) {
             $template_loaded_config['amount'] = (int)$serendipity['POST']['template']['amount'];
         }
 
         for ($i = 0; $i < $template_loaded_config['amount']; $i++) {
             $navlinks[] = array(
-                'title' => $template_loaded_config['navlink' . $i . 'text'],
-                'href'  => $template_loaded_config['navlink' . $i . 'url']
+                'title' => isset($template_loaded_config['navlink' . $i . 'text']) ? $template_loaded_config['navlink' . $i . 'text'] : null,
+                'href'  => isset($template_loaded_config['navlink' . $i . 'url'])  ? $template_loaded_config['navlink' . $i . 'url']  : null
             );
 
             $template_config[] = array(

@@ -124,6 +124,28 @@ if (!isset($serendipity['expose_s9y'])) {
     $serendipity['expose_s9y'] = true;
 }
 
+// muteExpectedErrors undefined index "global" pre-check sets
+// functions_config.inc.php:273
+if (!isset($serendipity['smarty_preview'])) {
+    $serendipity['smarty_preview'] = false;
+}
+// functions_smarty.inc.php:1144
+if (!isset($serendipity['head_title'])) {
+    $serendipity['head_title'] = '';
+}
+// functions_smarty.inc.php:1145
+if (!isset($serendipity['head_subtitle'])) {
+    $serendipity['head_subtitle'] = '';
+}
+// functions_smarty.inc.php:1155
+if (!isset($serendipity['smarty_raw_mode'])) {
+    $serendipity['smarty_raw_mode'] = false;
+}
+// functions_config.inc.php:1511
+if (!isset($serendipity['no_create'])) {
+    $serendipity['no_create'] = false;
+}
+
 // If set to true (in serendipity_config_local.inc.php) this prevents using imap_8bit
 // functions to send a mail, and use base64 encoding instead
 if (!isset($serendipity['forceBase64'])) {

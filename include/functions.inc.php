@@ -199,7 +199,7 @@ function serendipity_request_url($uri, $method = 'GET', $contenttype = null, $da
  */
 function serendipity_contains($str, array $arr) {
     foreach($arr AS $a) {
-        if (false !== strpos($str, $a)) return true;
+        if (false !== @strpos($str, $a)) return true; // mute possible uninitialized items
     }
     return false;
 }
@@ -461,10 +461,12 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
     if (!$lines) {
         return array();
     }
+    // init default
+    $data['summary'] = $data['description'] = $data['backenddesc'] = $data['backend'] = null;
 
     for($x=0; $x<count($lines); $x++) {
         $j = preg_split('/([^\:]+)\:/', $lines[$x], -1, PREG_SPLIT_DELIM_CAPTURE);
-        if ($j[2]) {
+        if (!empty($j[2])) {
             $currSec = $j[1];
             $data[strtolower($currSec)][] = trim($j[2]);
         } else {
@@ -483,7 +485,8 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         if (!empty($info)) {
             $data['summary'] = $info['theme_info_summary'] ?: $data['summary'];
             $data['description'] = $info['theme_info_desc'] ?: $data['description'];
-            $data['backenddesc'] = $info['theme_info_backend'] ?: $data['backenddesc'];
+            $data['backenddesc'] = isset($info['theme_info_backend']) ? $info['theme_info_backend'] : $data['backenddesc'];
+            // Keep-in-mind-Note: These elvis operator(s) can NOT be used for meant issets, eg. isset($x), wrong "$x ?: $y", PHP7 offers ?? for issets.
         } else {
             @include(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_'.$serendipity['lang'].'.inc.php');
             if (empty($info)) {
@@ -684,7 +687,7 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
                LEFT OUTER JOIN {$serendipity['dbPrefix']}groups AS g
                             ON ag.groupid  = g.id
                                $query_join
-                         WHERE " . ($group_sql ? "g.id IN ($group_sql)" : '1=1') . "
+                         WHERE " . (isset($group_sql) ? "g.id IN ($group_sql)" : '1=1') . "
                                $where
                                $query_group
                       ORDER BY a.realname ASC";

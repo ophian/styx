@@ -550,26 +550,28 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
             break;
 
         case 'category':
-            $parent_path = array();
-
-            // This is expensive. Only lookup if required.
-            if (strstr($format, '%parentname%')) {
-                $parents = serendipity_getCategoryRoot($data['categoryid']);
-                if (is_array($parents)) {
-                    foreach($parents AS $parent) {
-                        $parent_path[] = serendipity_makeFilename($parent['category_name'], true);
+            // do not use in comments feeds - where no categories are defined
+            if (isset($data['categoryid'])) {
+                $parent_path = array();
+                // This is expensive. Only lookup if required.
+                if (strstr($format, '%parentname%')) {
+                    $parents = serendipity_getCategoryRoot($data['categoryid']);
+                    if (is_array($parents)) {
+                        foreach($parents AS $parent) {
+                            $parent_path[] = serendipity_makeFilename($parent['category_name'], true);
+                        }
                     }
                 }
-            }
 
-            $replacements =
-                array(
-                    (int)$data['categoryid'],
-                    serendipity_makeFilename($data['category_name'], true),
-                    implode('/', $parent_path),
-                    serendipity_makeFilename($data['category_description'], true)
-                );
-            return str_replace($categoryKeys, $replacements, $format);
+                $replacements =
+                    array(
+                        (int)$data['categoryid'],
+                        serendipity_makeFilename($data['category_name'], true),
+                        implode('/', $parent_path),
+                        serendipity_makeFilename($data['category_description'], true)
+                    );
+                return str_replace($categoryKeys, $replacements, $format);
+            }
             break;
     }
 

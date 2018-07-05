@@ -65,7 +65,8 @@ function &serendipity_fetchTrackbacks($id, $limit = null, $showAll = false) {
 
     $comments = serendipity_db_query($query);
     if (!is_array($comments)) {
-        return array();
+        $r = array(); // avoid Notice: Only variable references should be returned by reference
+        return $r;
     }
 
     return $comments;
@@ -438,12 +439,12 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
  *
  * @access public
  * @param   array       Smarty parameter input array:
- *                          id: An entryid to show the commentform for
- *                          url: an optional HTML target link for the form
- *                          comments: Optional array of containing comments
- *                          data: possible pre-submitted values to the input values
- *                          showToolbar: Toggle whether to show extended options of the comment form
- *                          moderate_comments: Toggle whether comments to this entry are allowed
+ *                          id:                 An entryid to show the commentform for
+ *                          url:                An optional HTML target link for the form
+ *                          comments:           Optional array of containing comments
+ *                          data:               Possible pre-submitted values to the input values
+ *                          showToolbar:        Toggle whether to show extended options of the comment form
+ *                          moderate_comments:  Toggle whether comments to this entry are allowed
  * @param   object      Smarty template object
  * @return  void
  */
@@ -502,9 +503,9 @@ function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $t
  *
  * @access public
  * @param   array       Smarty parameter input array:
- *                          class: The classname of the plugin to show
- *                          id: An ID of a plugin to show
- *                          side: The side of a plugin to show (left|right|hide|and|other|user-defined|sidebars)
+ *                          class:  The classname of the plugin to show
+ *                          id:     An ID of a plugin to show
+ *                          side:   The side of a plugin to show (left|right|hide|and|other|user-defined|sidebars)
  *                          negate: Revert previous filters
  * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
@@ -570,10 +571,10 @@ function serendipity_smarty_getTotalCount($params, $template) {
  *
  * @access public
  * @param   array       Smarty parameter input array:
- *                          hook: The name of the event hook
- *                          hookAll: boolean whether unknown hooks shall be executed
- *                          data: The $eventData to an event plugin
- *                          addData: the $addData to an event plugin
+ *                          hook:       The name of the event hook
+ *                          hookAll:    (boolean) Whether unknown hooks shall be executed
+ *                          data:       The $eventData to an event plugin
+ *                          addData:    The $addData to an event plugin
  * @param   object      Smarty template object
  * @return null
  */
@@ -827,7 +828,10 @@ function &serendipity_smarty_printComments($params, $template) {
         $params['order'] = 'ASC';
     }
 
-    $comments = serendipity_fetchComments($params['entry'], (int)$params['limit'], 'co.id ' . $params['order']);
+    $params['limit'] = isset($params['limit']) ? (int)$params['limit'] : null;
+    $params['order'] = isset($params['order']) ? : '';
+
+    $comments = serendipity_fetchComments($params['entry'], $params['limit'], 'co.id ' . $params['order']);
 
     if (!empty($serendipity['POST']['preview'])) {
         $comments[] =
@@ -1111,7 +1115,7 @@ function serendipity_smarty_init($vars = array()) {
 
         $wysiwyg_customPlugin = $wysiwyg_customConfig = null;
 
-        if (defined('IN_serendipity_admin') && $serendipity['wysiwyg']) {
+        if (defined('IN_serendipity_admin') && isset($serendipity['wysiwyg']) && $serendipity['wysiwyg']) {
 
             // check force internal toolbar config file
             if (strpos($serendipity['wysiwygToolbar'], 'NOCC-') !== false) {
@@ -1128,7 +1132,7 @@ function serendipity_smarty_init($vars = array()) {
 
         }
 
-        $_force_backendpopups = explode(',', $serendipity['enableBackendPopupGranular']);
+        $_force_backendpopups = explode(',', isset($serendipity['enableBackendPopupGranular']) ? $serendipity['enableBackendPopupGranular'] : '');
         $force_backendpopups  = array();
         foreach($_force_backendpopups AS $fbp_key => $fbp_val) {
             $fbp_val = trim($fbp_val);
@@ -1149,7 +1153,7 @@ function serendipity_smarty_init($vars = array()) {
 
                 'is_xhtml'                  => true,
                 'use_popups'                => $serendipity['enablePopup'],
-                'use_backendpopups'         => $serendipity['enableBackendPopup'],
+                'use_backendpopups'         => isset($serendipity['enableBackendPopup']) ? $serendipity['enableBackendPopup'] : false,
                 'force_backendpopups'       => $force_backendpopups,
                 'is_embedded'               => (!$serendipity['embed'] || $serendipity['embed'] === 'false' || $serendipity['embed'] === false) ? false : true,
                 'is_raw_mode'               => $serendipity['smarty_raw_mode'],
@@ -1175,10 +1179,10 @@ function serendipity_smarty_init($vars = array()) {
                 'template'                  => $serendipity['template'],
                 'templatePath'              => $serendipity['templatePath'],
                 'template_backend'          => $serendipity['template_backend'],
-                'wysiwygToolbar'            => $serendipity['wysiwygToolbar'],
+                'wysiwygToolbar'            => isset($serendipity['wysiwygToolbar']) ? $serendipity['wysiwygToolbar'] : false,
                 'wysiwyg_customPlugin'      => $wysiwyg_customPlugin,
                 'wysiwyg_customConfig'      => $wysiwyg_customConfig,
-                'use_autosave'              => (serendipity_db_bool($serendipity['use_autosave']) ? 'true' : 'false'),
+                'use_autosave'              => (isset($serendipity['use_autosave']) && serendipity_db_bool($serendipity['use_autosave'])) ? 'true' : 'false',
 
                 'dateRange'                 => (!empty($serendipity['range']) ? $serendipity['range'] : array())
             )

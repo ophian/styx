@@ -3,30 +3,30 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="{$lang}"> <!--<![endif]-->
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
-    <title>{if $admin_vars.title}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
+    <title>{if isset($admin_vars.title)}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{$head_link_stylesheet}">
 <!--[if lte IE 8]>
     <link rel="stylesheet" href="{serendipity_getFile file='admin/oldie.css'}">
 <![endif]-->
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
-{if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
+{if isset($admin_vars.admin_installed)}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
     <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
     <script src="{serendipity_getFile file="admin/js/plugins.js"}"></script>
     <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
 </head>
 <body id="serendipity_admin_page">
-{if NOT $admin_vars.no_banner}
+{if empty($admin_vars.no_banner)}
     <header id="top">
         <div class="clearfix">
-            <div id="banner{if NOT $admin_vars.is_logged_in}_install{/if}">
-            {if $admin_vars.admin_installed}
+            <div id="banner{if empty($admin_vars.is_logged_in)}_install{/if}">
+            {if isset($admin_vars.admin_installed)}
                 <h1><a href="serendipity_admin.php"><span class="visuallyhidden">{$CONST.SERENDIPITY_ADMIN_SUITE}: </span>{$blogTitle}</a></h1>
             {else}
                 <h1>{$CONST.SERENDIPITY_INSTALLATION}</h1>
             {/if}
             </div>
-        {if $admin_vars.is_logged_in}
+        {if isset($admin_vars.is_logged_in)}
             <nav id="user_menu">
                 <h2 class="visuallyhidden">{$CONST.MENU_PERSONAL}</h2>
 
@@ -52,10 +52,10 @@
     {elseif ($get.action == 'upgrade')}
         {foreach $call_tasks AS $ctask}
             {if $is_callable_task}
-                {$ctasks}
+                {$ctasks|default:''}
             {/if}
         {/foreach}
-        {if $errors}
+        {if !empty($errors)}
             <h2>{$CONST.DIAGNOSTIC_ERROR}</h2>
 
             <div class="msg_error">
@@ -125,7 +125,7 @@
         {/if}
         </div>
         {if ($errorCount < 1)}
-            {if (sizeof($sqlfiles) > 0)}
+            {if isset($sqlfiles) AND (sizeof($sqlfiles) > 0)}
                 <h3>{$database_update_types}:</h3>
 
                 <p>{$CONST.SERENDIPITY_UPGRADER_FOUND_SQL_FILES}:</p>
@@ -164,8 +164,8 @@
     {* end include upgrader *}
         </div>
     </main>
-{if NOT $admin_vars.no_footer}
-    {if $admin_vars.version_info}
+{if empty($admin_vars.no_footer)}
+    {if NOT empty($admin_vars.version_info)}
     <footer id="meta">
         <p>{$admin_vars.version_info}</p>
     </footer>

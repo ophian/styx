@@ -4,11 +4,11 @@
     </div>
 {$backend_frontpage_display}
     <div id="dashboard">
-    {if $published}
+    {if isset($published)}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ENTRY_PUBLISHED|sprintf:$published|escape}</span>
         <hr class="separator">
     {/if}
-    {if $error_publish}
+    {if isset($error_publish)}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PUBLISH_ERROR}: {$error_publish}</span>
         <hr class="separator">
     {/if}

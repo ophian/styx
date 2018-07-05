@@ -22,11 +22,11 @@
             {/if}
         {/if}
 
-            <div id="el{$category@index}" class="config_optiongroup{if $config_groupkeys@last} config_optiongroup_last{/if} additional_info option_list">
+            <div id="el{$category@index}" class="config_optiongroup{if isset($config_groupkeys) AND $config_groupkeys@last} config_optiongroup_last{/if} additional_info option_list">
                 <legend class="visuallyhidden">{$category.description}</legend>
         {foreach $category.items AS $item}
             {cycle assign='zebra_class' values='odd,even'}
-            {if $item.guessedInput}
+            {if isset($item.guessedInput) AND $item.guessedInput}
                 {if $item.type == 'bool'}
 
                 <fieldset class="clearfix {$zebra_class}{if $item.description != ''} has_info{/if}">
@@ -40,11 +40,11 @@
                     </div>
                 </fieldset>
                 {else}
-                {if $item.ignore}
+                {if isset($item.ignore) AND $item.ignore}
                     {cycle advance=true assign='temp'}
                 {/if}
 
-                <div class="clearfix {$zebra_class} form_{if $item.type == 'list'}select{elseif $item.type == 'multilist'}multiselect{elseif $item.type == 'textarea'}area{else}field{/if}{if $item.description != ''} has_info{/if}{if $item.ignore} hidden{/if}">
+                <div class="clearfix {$zebra_class} form_{if $item.type == 'list'}select{elseif $item.type == 'multilist'}multiselect{elseif $item.type == 'textarea'}area{else}field{/if}{if $item.description != ''} has_info{/if}{if isset($item.ignore) AND $item.ignore} hidden{/if}">
                     <label for="{$item.var}">{$item.title}{if $item.description != ''} <button class="toggle_info button_link" type="button" data-href="#{$item.var}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
                     {if $item.description != ''}
                     <span id="{$item.var}_info" class="field_info additional_info">{$item.description}</span>

@@ -482,7 +482,7 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
     foreach($config AS &$category) {
         foreach($category['items'] AS &$item) {
 
-            $value = $from[$item['var']];
+            $value = isset($from[$item['var']]) ? $from[$item['var']] : '';
 
             /* Calculate value if we are not installed, how clever :) */
             if ($from == false) {
@@ -498,7 +498,7 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
                 $value = '';
             }
 
-            if (!$showDangerous && $item['view'] == 'dangerous') {
+            if (!$showDangerous && isset($item['view']) && $item['view'] == 'dangerous') {
                 continue;
             }
 
@@ -646,7 +646,7 @@ function serendipity_checkInstallation() {
 
     if ($_POST['dbType'] == 'sqlite' || $_POST['dbType'] == 'sqlite3' || $_POST['dbType'] == 'pdo-sqlite' || $_POST['dbType'] == 'sqlite3oo') {
         // We don't want that our SQLite db file can be guessed from other applications on a server
-        // and have access to our's. So we randomize the SQLite dbname.
+        // and have access to ours. So we randomize the SQLite dbname.
         $_POST['sqlitedbName'] = $_POST['dbName'] . '_' . md5(time());
     }
 
@@ -1204,7 +1204,7 @@ function serendipity_verifyFTPChecksums() {
     // Verify that every file in the checksum list was uploaded correctly
     $basedir = realpath(dirname(__FILE__) . '/../');
 
-    if (!is_array($serendipity['checksums_' . $serendipity['version']])) {
+    if (!isset($serendipity['checksums_' . $serendipity['version']]) || !is_array($serendipity['checksums_' . $serendipity['version']])) {
         return $badsums;
     }
 

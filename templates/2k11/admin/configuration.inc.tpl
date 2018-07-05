@@ -1,12 +1,12 @@
 <h2>{$CONST.CONFIGURATION}</h2>
-{if $installAction == 'check'}
-    {if $diagnosticError}
+{if isset($installAction) AND $installAction == 'check'}
+    {if isset($diagnosticError) AND $diagnosticError}
             <h4>{$CONST.DIAGNOSTIC_ERROR}</h4>
         {foreach $res AS $r}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$r}</span>
         {/foreach}
     {else}
-        {if $htaccessRewrite}
+        {if isset($htaccessRewrite) AND $htaccessRewrite}
             <p>{$CONST.ATTEMPT_WRITE_FILE|sprintf:"{$serendipityPath}htaccess"}</p>
             {if is_array($res)}
                 {foreach $res AS $r}
