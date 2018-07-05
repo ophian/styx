@@ -470,7 +470,7 @@ function serendipity_fixPlugins($case) {
 
     switch($case) {
         case 'wrong_upgrade_version':
-            // ZARATHUSTRA - Temporary Repair Service for wrong set (local) pluginlocation upgrade_version _ keep for future repairs
+            // ZARATHUSTRA - Temporary Repair Service for wrong set (local) pluginlocation upgrade_version - keep for future repairs
             $rows = serendipity_db_query("SELECT a.class_name, a.version, a.upgrade_version, b.upgrade_version AS new_version, a.plugintype, a.pluginlocation
                                             FROM {$serendipity['dbPrefix']}pluginlist a
                                        LEFT JOIN {$serendipity['dbPrefix']}pluginlist b

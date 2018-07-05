@@ -432,7 +432,7 @@ $tasks = array(
             array(  'version'   => '2.6-alpha2',
                     'function'  => 'serendipity_fixPlugins',
                     'arguments' => array('wrong_ugrade_version'),
-                    'title'     => 'Spartacus Plugin Synchronizer',
+                    'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
                     'desc'      => 'ZARATHUSTRA - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
 
 );
