@@ -69,7 +69,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             if ($options['fullFeed']) {
                 $entry['body'] .= "\n" . $entry['extended'];
                 $ext = '';
-            } elseif ($entry['exflag']) {
+            } elseif (isset($entry['exflag']) && $entry['exflag']) {
                 $ext = '<a class="block_level" href="' . $entry['feed_entryLink'] . '#extended">' . sprintf(VIEW_EXTENDED_ENTRY, serendipity_specialchars($entry['title'])) . '</a>';
             } else {
                 $ext = '';
@@ -99,11 +99,11 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 $results = serendipity_db_query($query);
                 $entry['email'] = $results[0]['email'];
             }
-
-            if (!is_array($entry['categories'])) {
+            // these silenced non-defined categories is case comments feeds only where no cats are available!
+            if (@!is_array($entry['categories'])) {
                 $entry['categories'] = array(0 => array(
-                    'category_name'      => $entry['category_name'],
-                    'feed_category_name' => serendipity_utf8_encode(serendipity_specialchars($entry['category_name'])),
+                    'category_name'      => @$entry['category_name'],
+                    'feed_category_name' => serendipity_utf8_encode(serendipity_specialchars(@$entry['category_name'])),
                     'categoryURL'        => serendipity_categoryURL($entry, 'baseURL')
                 ));
             } else {
@@ -124,7 +124,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
 
             // 2. gmdate
             $entry['feed_timestamp']     = gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour($entry['timestamp']));
-            $entry['feed_last_modified'] = gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour($entry['last_modified']));
+            $entry['feed_last_modified'] = gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour(@$entry['last_modified'])); // mute possible uninitialized item
             $entry['feed_timestamp_r']   = date('r', $entry['timestamp']);
 
             // 3. UTF8 encoding

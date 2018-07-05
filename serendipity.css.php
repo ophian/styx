@@ -77,23 +77,27 @@ if (IS_installed === false) {
 ob_start();
 
 // First all of our fallback classes, so they can be overridden by the usual template.
+// The second (which could also use an @-silence) is just a "faked" call, to catch the files
+// relative path in _getTemplateFile (w/o the 2cd parameters serendipityHTTPPath key default)
+// of the same template directory for debug like messages.
+// This path isn't defined as a $serendipity GLOBAL and therefore throws an undefined index.
+// Since there may be more of this we just check for isset($serendipity[$key]) in there.
 $out = serendipity_printStylesheet(
-         serendipity_getTemplateFile('style_fallback.css', 'serendipityPath'),
-         serendipity_getTemplateFile('style_fallback.css', '')
+            serendipity_getTemplateFile('style_fallback.css', 'serendipityPath'),
+            serendipity_getTemplateFile('style_fallback.css', '')
 );
 
 $out .= serendipity_printStylesheet(
-         serendipity_getTemplateFile($css_file, 'serendipityPath'),
-         serendipity_getTemplateFile($css_file, '')
+            serendipity_getTemplateFile($css_file, 'serendipityPath'),
+            serendipity_getTemplateFile($css_file, '')
 );
-
 serendipity_plugin_api::hook_event($css_hook, $out);
 
 // Do not allow force_frontend_fallback for all three! (NO! For style_fallback.css this is obvious (normally).
 // But for the user.css files this is an vital behaviour, since the fall back line is always [0]user, [1]default, [2]standard - theme. Independently from 3rd param force_frontend_fallback true/false usage!)
 $out .= serendipity_printStylesheet(
-         serendipity_getTemplateFile($css_userfile, 'serendipityPath', true),
-         serendipity_getTemplateFile($css_userfile, '', true)
+            serendipity_getTemplateFile($css_userfile, 'serendipityPath', true),
+            serendipity_getTemplateFile($css_userfile, '', true)
 );
 
 echo $out;

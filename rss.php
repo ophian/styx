@@ -258,12 +258,12 @@ if (!$metadata['template_file'] || $metadata['template_file'] == 'feed_' . $file
     die("Invalid RSS version specified or RSS-template file not found\n");
 }
 
-$self_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . serendipity_specialchars($_SERVER['REQUEST_URI']);
+$self_url = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . serendipity_specialchars($_SERVER['REQUEST_URI']);
 if (!is_array($entries)) {
     $entries = array();
 }
 
-if ($entries[0]['last_modified']) {
+if (!empty($entries[0]['last_modified'])) {
     $gm_modified = gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour($entries[0]['last_modified']));
 } else {
     $gm_modified = gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour());
@@ -306,8 +306,8 @@ switch($version) {
 
 serendipity_plugin_api::hook_event($namespace_hook, $entries);
 
-$namespace_display_dat = $entries['display_dat'];
-$channel_display_dat   = $entries['channel_dat'];
+$namespace_display_dat = isset($entries['display_dat']) ? $entries['display_dat'] : null;
+$channel_display_dat   = isset($entries['channel_dat']) ? $entries['channel_dat'] : null;
 
 unset($entries['display_dat']);
 unset($entries['channel_dat']);
