@@ -500,6 +500,7 @@ class serendipity_event_entryproperties extends serendipity_event
 
                 if (is_array($plugins)) {
                     foreach($plugins AS $plugin => &$plugin_data) {
+                        // mute possible uninitialized items
                         if (!is_array(@$plugin_data['p']->markup_elements)) {
                             continue;
                         }
