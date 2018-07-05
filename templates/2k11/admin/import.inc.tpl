@@ -1,10 +1,10 @@
-{if $importForm}
-    {if $die}
+{if isset($importForm) AND $importForm}
+    {if isset($die) AND $die}
         <h2>{$CONST.IMPORT_ENTRIES}</h2>
 
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.INCLUDE_ERRORFAILURE|sprintf:'importer'}</span>
     {else}
-        {if $validateData}
+        {if isset($validateData) AND $validateData}
         <h2>{$CONST.IMPORT_ENTRIES}</h2>
 
         <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IMPORT_STARTING}</span>

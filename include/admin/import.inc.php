@@ -6,7 +6,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-if ($serendipity['GET']['importFrom'] == 'none') {
+if (isset($serendipity['GET']['importFrom']) && $serendipity['GET']['importFrom'] == 'none') {
     header('Location: ' . $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=maintenance');
     exit;
 }
@@ -205,7 +205,7 @@ class Serendipity_Import
             mysqli_set_charset( $db, $dbn );
         }
 
-        $return = &mysqli_query($db, $query);
+        $return = mysqli_query($db, $query); // removed reference to avoid Notice: Only variable references should be returned by reference
         mysqli_select_db($serendipity['dbConn'], $serendipity['dbName']);
         serendipity_db_reconnect();
         return $return;
@@ -236,7 +236,8 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
             $data['formToken'] = serendipity_setFormToken();
             $fields = $importer->getInputFields();
             foreach($fields AS &$field) {
-                $field['guessedInput'] = serendipity_guessInput($field['type'], 'serendipity[import]['. $field['name'] .']', (isset($serendipity['POST']['import'][$field['name']]) ? $serendipity['POST']['import'][$field['name']] : $field['default']), $field['default']);
+                // mute possible uninitialized parameters
+                $field['guessedInput'] = @serendipity_guessInput($field['type'], 'serendipity[import]['. $field['name'] .']', (isset($serendipity['POST']['import'][$field['name']]) ? $serendipity['POST']['import'][$field['name']] : $field['default']), $field['default']);
             }
             $data['fields'] = $fields;
             $data['notes'] = $importer->getImportNotes();
