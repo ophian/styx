@@ -1,8 +1,8 @@
 {foreach $comments AS $comment}
-    <article id="c{$comment.id}" class="comment{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} serendipity_comment_author_self{/if} {cycle values="odd,even"}{if $comment.depth > 8} commentlevel-9{else} commentlevel-{$comment.depth}{/if}">
+    <article id="c{$comment.id|default:0}" class="comment{if ( isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email ) OR ( isset($entry) AND isset($comment.entry_author_realname) AND $comment.entry_author_realname == $comment.author AND $comment.entry_author_email == $comment.clear_email )} serendipity_comment_author_self{/if} {cycle values="odd,even"}{if $comment.depth > 8} commentlevel-9{else} commentlevel-{$comment.depth}{/if}">
         <header class="clearfix">
-            <h4>{if $comment.url}<a href="{$comment.url}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} <span class="pc-owner">Post author</span> {/if}{if $comment.url}</a>{/if}{if $comment.spice_twitter_name AND NOT $comment.spice_twitter_followme} (<a href="{$comment.spice_twitter_url}"{if $comment.spice_twitter_nofollow} rel="nofollow"{/if}>@{$comment.spice_twitter_name}</a>){/if} {$CONST.ON} <time datetime="{$comment.timestamp|serendipity_html5time}">{$comment.timestamp|formatTime:$template_option.date_format}</time>{if isset($comment.meta)} | <time>{$comment.timestamp|formatTime:'%H:%M'}</time>{/if}:</h4>
-        {if $comment.spice_twitter_name AND $comment.spice_twitter_followme}
+            <h4>{if $comment.url}<a href="{$comment.url}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if ( isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email ) OR ( isset($entry) AND isset($comment.entry_author_realname) AND $comment.entry_author_realname == $comment.author AND $comment.entry_author_email == $comment.clear_email )} <span class="pc-owner">Post author</span> {/if}{if $comment.url}</a>{/if}{if isset($comment.spice_twitter_name) AND $comment.spice_twitter_name AND NOT $comment.spice_twitter_followme} (<a href="{$comment.spice_twitter_url}"{if $comment.spice_twitter_nofollow} rel="nofollow"{/if}>@{$comment.spice_twitter_name}</a>){/if} {$CONST.ON} <time datetime="{$comment.timestamp|serendipity_html5time}">{$comment.timestamp|formatTime:$template_option.date_format}</time>{if isset($comment.meta)} | <time>{$comment.timestamp|formatTime:'%H:%M'}</time>{/if}:</h4>
+        {if isset($comment.spice_twitter_name) AND $comment.spice_twitter_name AND $comment.spice_twitter_followme}
             <div class="twitter_follow">
             {$comment.spice_twitter_followme}
             </div>
@@ -10,31 +10,31 @@
         </header>
 
         <div class="clearfix">
-            {if $comment.avatar}{$comment.avatar}{/if}
+            {if isset($comment.avatar) AND $comment.avatar}{$comment.avatar}{/if}
         {if $comment.body == 'COMMENT_DELETED'}
             <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COMMENT_IS_DELETED}</p>
         {else}
-            {if $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
+            {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
         {/if}
         </div>
 
         <footer>
-        {if $comment.spice_article_name}
+        {if isset($comment.spice_article_name) AND $comment.spice_article_name}
             <p>{$comment.spice_article_prefix}: <a{if $comment.spice_article_nofollow} rel="nofollow"{/if} href="{$comment.spice_article_url}">{$comment.spice_article_name}</a></p>
         {/if}
-            <ul class="{$comment.meta|default:''}meta{if $comment.type == 'TRACKBACK'} tb-meta{/if}">
-            {if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
+            <ul class="{$comment.meta|default:''}meta{if isset($comment.type) AND $comment.type == 'TRACKBACK'} tb-meta{/if}">
+        {if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
                 <li><strong>{$CONST.PREVIEW|upper}</strong></li>
-            {else if !isset($comment.meta)}
-            {if $comment.type == 'TRACKBACK'}
+        {else if !isset($comment.meta)}
+            {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
                 <li><strong>TRACKBACK</strong></li>
             {/if}
                 <li><time>{$comment.timestamp|formatTime:'%H:%M'}</time></li>
                 <li><a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id}" title="{$CONST.NEXT_PLINK_TITLE}">{$CONST.NEXT_PLINK_TEXT}</a></li>
-            {if $entry.is_entry_owner}
+            {if isset($entry.is_entry_owner) AND $entry.is_entry_owner}
                 <li><a class="comment_source_ownerlink" href="{$comment.link_delete}" title="{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}">{$CONST.DELETE}</a></li>
             {/if}
-            {if $comment.type == 'TRACKBACK'}
+            {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
                 <li>{$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle|truncate:42|wordwrap:15:"\n":true|escape}</span></li>
             {else}
         {if $template_option.refcomments == true}
@@ -47,7 +47,7 @@
                 <div id="serendipity_replyform_{$comment.id}" class="visuallyhidden"></div></li>
             {/if}
             {/if}
-            {/if}
+        {/if}
             </ul>
         </footer>
     </article>

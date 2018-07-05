@@ -1,4 +1,5 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
+{if !empty($entries)}
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
     {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
@@ -23,14 +24,14 @@
 
         <footer class="post-info">
             <ul class="meta">
-            {if $entry.categories}
+            {if isset($entry.categories) && is_array($entry.categories)}
                 <li><span class="info-label">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</li>
             {/if}
             {if $entry.has_comments}
                 <li><a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a></li>
             {/if}
             </ul>
-            {$entry.add_footer}
+            {$entry.add_footer|default:''}
             {$entry.plugin_display_dat}
         </footer>
         <!--
@@ -77,7 +78,7 @@
         <span class="comment-view">{$CONST.DISPLAY_COMMENTS_AS} {if $entry.viewmode eq $CONST.VIEWMODE_LINEAR}{$CONST.COMMENTS_VIEWMODE_LINEAR} | <a href="{$entry.link_viewmode_threaded}#comments" rel="nofollow">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>{else}<a rel="nofollow" href="{$entry.link_viewmode_linear}#comments">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a> | {$CONST.COMMENTS_VIEWMODE_THREADED}{/if}</span>
 
         {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
-    {if $entry.is_entry_owner}
+    {if isset($entry.is_entry_owner) AND $entry.is_entry_owner}
         {if $entry.allow_comments}
         <a class="comments-enable" href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>
         {else}
@@ -117,14 +118,15 @@
     <p class="msg-notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
-{if NOT $is_preview}
-    {if $staticpage_pagetitle == ''}
+{/if}
+{if empty($is_preview)}
+    {if !isset($staticpage_pagetitle) OR $staticpage_pagetitle == ''}
     <nav class="pagination clearfix">
-        {if $footer_info}<h3>{$footer_info}</h3>{/if}
-    {if $footer_prev_page OR $footer_next_page}
+        {if isset($footer_info)}<h3>{$footer_info}</h3>{/if}
+    {if isset($footer_prev_page) OR isset($footer_next_page)}
         <ul>
-            <li class="prev-page">{if $footer_prev_page}<a href="{$footer_prev_page}"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.PREVIOUS_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
-            <li class="next-page">{if $footer_next_page}<a href="{$footer_next_page}"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NEXT_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
+            <li class="prev-page">{if isset($footer_prev_page)}<a href="{$footer_prev_page}"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.PREVIOUS_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
+            <li class="next-page">{if isset($footer_next_page)}<a href="{$footer_next_page}"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NEXT_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
         </ul>
     {/if}
     </nav>
