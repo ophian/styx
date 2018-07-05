@@ -444,6 +444,10 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
         $limit = serendipity_db_limit_sql($limit);
     }
 
+    if (!isset($cond['having'])) {
+        $cond['having'] = '';
+    }
+
     $query = "SELECT $select_key
                      $body
                      {$serendipity['fullCountQuery']}
@@ -571,6 +575,8 @@ function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false
     if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'entries' && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
         $cond['and'] = " AND e.authorid = '" . $serendipity['authorid'] . "'";
     }
+
+    $cond['single_group'] = $cond['single_having'] = $cond['single_orderby'] = ''; // init for ACL
 
     serendipity_ACL_SQL($cond, true);
 
@@ -888,6 +894,10 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
     serendipity_plugin_api::hook_event('frontend_fetchentries', $cond, array('source' => 'search', 'term' => $term));
     serendipity_ACL_SQL($cond, 'limited');
 
+    if (!isset($cond['having'])) {
+        $cond['having'] = '';
+    }
+
     $serendipity['fullCountQuery'] = "
                       FROM
                             {$serendipity['dbPrefix']}entries e
@@ -1164,6 +1174,8 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 $entry = &$dategroup[$dategroup_idx]['entries'][$x]; // PHP4 Compat
             }
 
+            $entry['is_cached'] = false;
+
             if (!empty($entry['properties']['ep_cache_body'])) {
                 $entry['pre_body']  = $entry['body'];
                 $entry['body']      = &$entry['properties']['ep_cache_body'];
@@ -1171,7 +1183,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             }
 
             //--JAM: Highlight-span search terms
-            if ($serendipity['action'] == 'search') {
+            if (isset($serendipity['action']) && $serendipity['action'] == 'search') {
                 $searchterms = str_replace('"', '', $serendipity['GET']['searchterms']);
                 $searchterms = explode($searchterms, ' ');
                 foreach($searchterms AS $searchdx => $searchterm) {
@@ -1206,8 +1218,8 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
 
             $authorData = array(
                             'authorid' => $entry['authorid'],
-                            'username' => $entry['loginname'],
-                            'email'    => $entry['email'],
+                            'username' => isset($entry['loginname']) ? $entry['loginname'] : '',
+                            'email'    => isset($entry['email']) ? $entry['email'] : '',
                             'realname' => $entry['author']
             );
 
@@ -1224,8 +1236,8 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             $entry['link_allow_comments']    = $serendipity['baseURL'] . 'comment.php?serendipity[switch]=enable&amp;serendipity[entry]=' . $entry['id'] . '&amp;' . $urltoken;
             $entry['link_deny_comments']     = $serendipity['baseURL'] . 'comment.php?serendipity[switch]=disable&amp;serendipity[entry]=' . $entry['id'] . '&amp;' . $urltoken;
             $entry['allow_comments']         = serendipity_db_bool($entry['allow_comments']);
-            $entry['moderate_comments']      = serendipity_db_bool($entry['moderate_comments']);
-            $entry['viewmode']               = ($serendipity['GET']['cview'] == VIEWMODE_LINEAR ? VIEWMODE_LINEAR : VIEWMODE_THREADED);
+            $entry['moderate_comments']      = isset($entry['moderate_comments']) ? serendipity_db_bool($entry['moderate_comments']) : false;
+            $entry['viewmode']               = (isset($serendipity['GET']['cview']) && $serendipity['GET']['cview'] == VIEWMODE_LINEAR) ? VIEWMODE_LINEAR : VIEWMODE_THREADED;
             $entry['link_popup_comments']    = $serendipity['serendipityHTTPPath'] .'comment.php?serendipity[entry_id]='. $entry['id'] .'&amp;serendipity[type]=comments';
             $entry['link_popup_trackbacks']  = $serendipity['serendipityHTTPPath'] .'comment.php?serendipity[entry_id]='. $entry['id'] .'&amp;serendipity[type]=trackbacks';
             $entry['link_edit']              = $serendipity['baseURL'] .'serendipity_admin.php?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]='. $entry['id'];
@@ -1234,7 +1246,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             $entry['link_viewmode_linear']   = $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] .'?url='. $entry['commURL'] .'&amp;serendipity[cview]='. VIEWMODE_LINEAR;
             $entry['link_author']            = serendipity_authorURL($authorData);
 
-            if (is_array($entry['categories'])) {
+            if (isset($entry['categories']) && is_array($entry['categories'])) {
                 foreach($entry['categories'] AS $k => $v) {
                     if (!isset($entry['categories'][$k]['category_link'])) {
                         $entry['categories'][$k]['category_link'] =  serendipity_categoryURL($entry['categories'][$k]);
@@ -1242,12 +1254,16 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 }
             }
 
-            if (strlen($entry['extended'])) {
+            if (isset($entry['extended']) && strlen($entry['extended'])) {
                 $entry['has_extended'] = true;
+            } else {
+                $entry['has_extended'] = false;
             }
 
             if (isset($entry['exflag']) && $entry['exflag'] && ($extended || $preview)) {
                 $entry['is_extended'] = true;
+            } else {
+                $entry['is_extended'] = false;
             }
 
             if (serendipity_db_bool($entry['allow_comments']) || !isset($entry['allow_comments']) || $entry['comments'] > 0) {
@@ -1273,6 +1289,8 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 serendipity_plugin_api::hook_event('backend_preview', $entry);
                 $entry['backend_preview'] = ob_get_contents();
                 ob_end_clean();
+            } else {
+                $entry['backend_preview'] = '';
             }
 
             /* IF WE ARE DISPLAYING A FULL ENTRY */
@@ -1285,7 +1303,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
 
                 $userData = $serendipity['POST'];
 
-                if ($serendipity['serendipityAuthedUser'] === true && !isset($serendipity['POST']['preview'])) {
+                if (isset($serendipity['serendipityAuthedUser']) && $serendipity['serendipityAuthedUser'] === true && !isset($serendipity['POST']['preview'])) {
                     if (empty($userData['name'])) {
                         $userData['name'] = $serendipity['serendipityRealname'];
                     }
@@ -1320,17 +1338,14 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
     }
 
     $serendipity['smarty']->assignByRef('entries', $dategroup);
-
-    $serendipity['smarty']->assign(array(
-        'is_preview' => $preview
-    ));
+    $serendipity['smarty']->assign('is_preview', $preview);
 
     // special case - else this would fetch 2k11 entries.tpl file
     if ($smarty_block == 'ENTRIES' && $serendipity['template'] == 'default-php' && $preview) {
         $GLOBALS['tpl']['entries'] = $dategroup; // assign to
         ob_start();
         // we seem to be not able to use a true switch in serendipity_smarty_fetch() function though
-        include serendipity_getTemplateFile('entries.tpl', 'serendipityPath', true); // yeah, this needs the forced frontend fallback, since being this "hermaphrodite" like case, inbetween front- and backend
+        include serendipity_getTemplateFile('entries.tpl', 'serendipityPath', true); // yeah, this needs the forced frontend fallback, since being this "hybrid" like case, inbetween front- and backend
         $entry_out = ob_get_contents();
         ob_end_clean();
         unset ($GLOBALS['tpl']['entries']);
@@ -1816,7 +1831,7 @@ function serendipity_printArchives() {
     $group = array();
     if (is_array($entries)) {
         foreach($entries AS $entry) {
-            $group[date('Ym', $entry['timestamp'])]++;
+            @$group[date('Ym', $entry['timestamp'])]++; // mute possible uninitialized items
         }
     }
 
@@ -1848,7 +1863,7 @@ function serendipity_printArchives() {
                     break;
             }
 
-            $entry_count = (int)$group[$y . (strlen($m) == 1 ? '0' : '') . $m];
+            $entry_count = @(int)$group[$y . (strlen($m) == 1 ? '0' : '') . $m]; // mute possible uninitialized items
 
             /* A silly hack to get the maximum amount of entries per month */
             if ($entry_count > $max) {
@@ -1867,6 +1882,7 @@ function serendipity_printArchives() {
     $serendipity['smarty']->assignByRef('archives', $output);
     $serendipity['smarty']->assignByRef('max_entries', $max);
 
+    $serendipity['smarty']->assign('ENTRIES', ''); // At here, content.tpl Smarty ENTRIES block variable needs to be set empty, else we'd need |default:'' modifier everywhere
     serendipity_smarty_fetch('ARCHIVES', 'entries_archives.tpl', true);
 }
 

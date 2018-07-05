@@ -41,7 +41,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
         $template_vars['draft_mode'] = 'publish';
     }
 
-    if (isset($entry['moderate_comments']) && (serendipity_db_bool($entry['moderate_comments']))) {
+    if (isset($entry['moderate_comments']) && serendipity_db_bool($entry['moderate_comments'])) {
         $template_vars['moderate_comments'] = true;
         $moderate_comments = ' checked="checked"';
     } elseif (!isset($entry['moderate_comments']) && ($serendipity['moderateCommentsDefault'] == 'true' || $serendipity['moderateCommentsDefault'] === true)) {
@@ -53,7 +53,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
         $template_vars['moderate_comments'] = false;
     }
 
-    if (isset($entry['allow_comments']) && (serendipity_db_bool($entry['allow_comments']))) {
+    if (isset($entry['allow_comments']) && serendipity_db_bool($entry['allow_comments'])) {
         $template_vars['allow_comments'] = true;
         $allow_comments = ' checked="checked"';
     } elseif ((!isset($entry['allow_comments']) || $entry['allow_comments'] !== 'false') && (!isset($serendipity['allowCommentsDefault']) || $serendipity['allowCommentsDefault'] == 'true' || $serendipity['allowCommentsDefault'] === true)) {
@@ -66,7 +66,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     }
 
     // Fix category list. If the entryForm is displayed after a POST request, the additional category information is lost.
-    if (is_array($entry['categories']) && !is_array($entry['categories'][0])) {
+    if (isset($entry['categories']) && is_array($entry['categories']) && (!isset($entry['categories'][0]) || !is_array($entry['categories'][0]))) {
         $categories = (array)$entry['categories'];
         $entry['categories'] = array();
         foreach($categories AS $catid) {
@@ -75,7 +75,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     }
 
     $selected = array();
-    if (is_array($entry['categories'])) {
+    if (isset($entry['categories']) && is_array($entry['categories'])) {
         if (count($entry['categories']) > 1) {
             $categoryselector_expanded = true;
         }

@@ -53,7 +53,7 @@
 
                 <div class="form_field">
                     <label for="filter_content">{$CONST.CONTENT}</label>
-                    <input id="filter_content" name="serendipity[filter][body]" type="text" value="{(isset($get.filter.body)) ? "{$get.filter.body|escape}" : ''}">
+                    <input id="filter_content" name="serendipity[filter][body]" type="text" value="{$get.filter.body|escape|default:''}">
                 </div>
             </div>
         </fieldset>
@@ -223,40 +223,40 @@
         </form>
     {/if}
 {/if}
-{if $no_entries}
+{if isset($no_entries)}
     <h2>{$CONST.FIND_ENTRIES}</h2>
 
     <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</span>
 {/if}
 
 {if $switched_output}
-    {if isset($get.adminAction) AND $dateval}
+    {if isset($get.adminAction) AND $get.adminAction == 'save' AND $dateval}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.DATE_INVALID}</span>
     {/if}
-    {if isset($get.adminAction) AND $single_error}
+    {if isset($get.adminAction) AND $get.adminAction == 'save' AND $single_error}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PUBLISH_ERROR} {$is_empty}</span>
     {/if}
-    {if isset($get.adminAction) AND $use_legacy}
+    {if isset($get.adminAction) AND $get.adminAction == 'save' AND $use_legacy}
         {if $is_draft AND ! $errors}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.IFRAME_SAVE_DRAFT}</span>
         {/if}
-        {if $is_iframe}
-        {if $iframe === true AND isset($smarty.post.serendipity.properties.lang_selected)}
+        {if $is_iframe === true}
+        {if isset($smarty.post.serendipity.properties.lang_selected)}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.PLUGIN_EVENT_MULTILINGUAL_ENTRY_RELOADED|sprintf:{('' == $smarty.post.serendipity.properties.lang_selected) ? $lang : $smarty.post.serendipity.properties.lang_selected}}</span>
         {else}
         <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.IFRAME_SAVE}</span>
         {/if}
         {/if}
-        {if $is_iframepreview}
+        {if isset($is_iframepreview) AND $is_iframepreview}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.IFRAME_PREVIEW}</span>
         {/if}
     {/if}
-    {if ($is_doDelete OR $is_doMultiDelete )}
+    {if $is_doDelete OR $is_doMultiDelete}
         {foreach $del_entry AS $delent}
         <span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$delent}</span>
         {/foreach}
     {/if}
-    {if ( $is_delete OR $is_multidelete )}
+    {if $is_delete OR $is_multidelete}
         {foreach $rip_entry AS $ripent}
         <span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$ripent}</span>
         {/foreach}
@@ -266,5 +266,5 @@
         </div>
     {/if}
 {/if}
-{if $iframe !== true AND !empty($iframe)}{$iframe}{/if}
+{if $iframe !== true}{$iframe}{/if}
 {$entryForm}

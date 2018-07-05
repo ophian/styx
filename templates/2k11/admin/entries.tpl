@@ -1,18 +1,18 @@
-<h2>{if $entry_vars.entry.title}{$CONST.EDIT_ENTRY}{else}{$CONST.NEW_ENTRY}{/if}</h2>
+<h2>{if isset($entry_vars.entry.title)}{$CONST.EDIT_ENTRY}{else}{$CONST.NEW_ENTRY}{/if}</h2>
 {if $entry_vars.errMsg}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$entry_vars.errMsg}</span>
 {/if}
-<form id="serendipityEntry" name="serendipityEntry" {$entry_vars.entry.entry_form} action="{$entry_vars.targetURL}" method="post">
+<form id="serendipityEntry" name="serendipityEntry"{if isset($entry_vars.entry.entry_form)} {$entry_vars.entry.entry_form}{/if} action="{$entry_vars.targetURL}" method="post">
     {foreach $entry_vars.hiddens AS $key => $value}
     <input type="hidden" name="{$key}" value="{$value}">
     {/foreach}
-    <input type="hidden" id="entryid" name="serendipity[id]" value="{$entry_vars.entry.id|escape}">
+    <input type="hidden" id="entryid" name="serendipity[id]" value="{$entry_vars.entry.id|escape|default:''}">
     <input type="hidden" name="serendipity[timestamp]" value="{$entry_vars.timestamp|escape}">
     <input type="hidden" name="serendipity[preview]" value="false">
     {$entry_vars.formToken}
     <div id="edit_entry_title" class="form_field">
         <label for="entryTitle">{$CONST.TITLE}</label>
-        <input id="entryTitle" name="serendipity[title]" type="text" value="{$entry_vars.entry.title|escape}">
+        <input id="entryTitle" name="serendipity[title]" type="text" value="{$entry_vars.entry.title|escape|default:''}">
     </div>
 
     <div id="cats_list" class="clearfix taxonomy">
@@ -44,15 +44,15 @@
             <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[body]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
             <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[body]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity[body]">URL</button>
-            {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry hookAll="true"}
+            {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry|default:'' hookAll="true"}
         </div>
     {else}
         <div id="tools_entry" class="editor_toolbar">
-            {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry hookAll="true"}
+            {serendipity_hookPlugin hook="backend_entry_toolbar_body" data=$entry_data.entry|default:'' hookAll="true"}
         </div>
     {/if}
         <div id="teaser_entry_editor">
-            <textarea id="serendipity[body]" name="serendipity[body]" rows="15">{$entry_vars.entry.body|escape}</textarea>
+            <textarea id="serendipity[body]" name="serendipity[body]" rows="15">{$entry_vars.entry.body|escape|default:''}</textarea>
         </div>
     </div>
 
@@ -71,15 +71,15 @@
             <button class="wrap_insgal" type="button" name="insG" title="Media Gallery" data-tarea="serendipity[extended]"><span class="icon-gallery" aria-hidden="true"></span><span class="visuallyhidden"> Media Gallery</span></button>
             <button class="wrap_insmedia" type="button" name="insImage" title="{$CONST.MEDIA_LIBRARY}" data-tarea="serendipity[extended]"><span class="icon-s9yml" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_LIBRARY}</span></button>
             <button class="wrap_insurl" type="button" name="insURL" data-tarea="serendipity[extended]">URL</button>
-            {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry hookAll="true"}
+            {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry|default:'' hookAll="true"}
         </div>
     {else}
         <div id="tools_extended" class="editor_toolbar">
-            {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry hookAll="true"}
+            {serendipity_hookPlugin hook="backend_entry_toolbar_extended" data=$entry_data.entry|default:'' hookAll="true"}
         </div>
     {/if}
         <div id="extended_entry_editor">
-            <textarea id="serendipity[extended]" name="serendipity[extended]" rows="15">{$entry_vars.entry.extended|escape}</textarea>
+            <textarea id="serendipity[extended]" name="serendipity[extended]" rows="15">{$entry_vars.entry.extended|escape|default:''}</textarea>
         </div>
     </div>
 
@@ -139,10 +139,10 @@
                         <label for="categoryfilter" class="visuallyhidden">{$CONST.FILTERS}</label>
                         <input id="categoryfilter" type="text" placeholder="{$CONST.FILTERS}: {$CONST.CATEGORIES}">
                         <button class="reset_livefilter icon_link" type="button" data-target="categoryfilter" title="{$CONST.RESET_FILTERS}"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.RESET_FILTERS}</span></button>
-                        {if $use_backendpopups OR $force_backendpopups.categories}<a href="#top" class="button_link button_up" title="{$CONST.UP}"><span class="ucc-up-pointing-triangle"></span></a>{/if}
+                        {if $use_backendpopups || (isset($force_backendpopups.categories) AND $force_backendpopups.categories)}<a href="#top" class="button_link button_up" title="{$CONST.UP}"><span class="ucc-up-pointing-triangle"></span></a>{/if}
                         <button id="toggle_cat_view" class="icon_link" type="button" title="{$CONST.TOGGLE_VIEW}"><span class="icon-th" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.TOGGLE_VIEW}</span></button>
                         {else}
-                        {if $use_backendpopups OR $force_backendpopups.categories}<a href="#top" class="button_link button_up" title="{$CONST.UP}"><span class="ucc-up-pointing-triangle"></span></a>{/if}
+                        {if $use_backendpopups || (isset($force_backendpopups.categories) AND $force_backendpopups.categories)}<a href="#top" class="button_link button_up" title="{$CONST.UP}"><span class="ucc-up-pointing-triangle"></span></a>{/if}
                         {/if}
                     </div>
 
@@ -150,7 +150,7 @@
                     <div class="form_check{if $entry_vars.category_compact} compact{/if}">
                         <input type="hidden" name="serendipity[had_categories]" value="1">
                         <span class="cat_view_pad">{$entry_cat.depth_pad}</span>
-                        <input id="serendipity_category_{$entry_cat.categoryid}" name="serendipity[categories][]" type="checkbox" value="{$entry_cat.categoryid}"{if $entry_cat.is_selected} checked="checked"{/if}>
+                        <input id="serendipity_category_{$entry_cat.categoryid}" name="serendipity[categories][]" type="checkbox" value="{$entry_cat.categoryid}"{if isset($entry_cat.is_selected)} checked="checked"{/if}>
 
                         <label for="serendipity_category_{$entry_cat.categoryid}">{$entry_cat.category_name|escape}</label>
                     </div>

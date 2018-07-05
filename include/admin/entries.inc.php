@@ -18,12 +18,18 @@ $sort_order = array('timestamp'     => DATE,
                     'id'            => 'ID');
 
 $data = array();
+// "global" Smarty index defines
+$data['switched_output'] = false;
+$data['iframe'] = false;
+$data['drawList'] = false;
+$data['single_error'] = false;
 
 if (!empty($serendipity['GET']['editSubmit'])) {
     $serendipity['GET']['adminAction'] = 'edit'; // does this change smarty.get vars?
 }
 
 $preview_only = false;
+$entryForm = '';
 
 switch($serendipity['GET']['adminAction']) {
 
@@ -48,10 +54,10 @@ switch($serendipity['GET']['adminAction']) {
                        'timestamp'          => $serendipity['POST']['timestamp'],
                        'body'               => $serendipity['POST']['body'],
                        'extended'           => $serendipity['POST']['extended'],
-                       'categories'         => $serendipity['POST']['categories'],
+                       'categories'         => isset($serendipity['POST']['categories']) ? $serendipity['POST']['categories'] : '',
                        'isdraft'            => $serendipity['POST']['isdraft'],
                        'allow_comments'     => $serendipity['POST']['allow_comments'],
-                       'moderate_comments'  => $serendipity['POST']['moderate_comments'],
+                       'moderate_comments'  => isset($serendipity['POST']['moderate_comments']) ? $serendipity['POST']['moderate_comments'] : '',
                        'exflag'             => (!empty($serendipity['POST']['extended']) ? true : false),
                        'had_categories'     => $serendipity['POST']['had_categories']
                        // Messing with other attributes causes problems when entry is saved
@@ -67,6 +73,15 @@ switch($serendipity['GET']['adminAction']) {
         if ($entry['moderate_comments'] != 'true' && $entry['moderate_comments'] !== true) {
             $entry['moderate_comments'] = 'false';
         }
+
+        // Smarty index defines
+        $data['dateval'] = false;
+        $data['is_draft'] = false;
+        $data['is_iframe'] = false;
+        $data['is_doMultiDelete'] = false;
+        $data['is_doDelete'] = false;
+        $data['is_delete'] = false;
+        $data['is_multidelete'] = false;
 
         // Check if the user changed the timestamp.
         if (isset($serendipity['allowDateManipulation']) && $serendipity['allowDateManipulation'] && isset($serendipity['POST']['new_timestamp']) && $serendipity['POST']['new_timestamp'] != date(DATE_FORMAT_2, $serendipity['POST']['chk_timestamp'])) {
@@ -112,7 +127,7 @@ switch($serendipity['GET']['adminAction']) {
                 // Only display the preview
                 $serendipity['hidefooter'] = true;
                 // Advanced templates use this to show update status and elapsed time
-                if (!is_numeric($entry['last_modified'])) {
+                if (!isset($entry['last_modified']) || !is_numeric($entry['last_modified'])) {
                     $entry['last_modified'] = time();
                 }
 
@@ -176,6 +191,7 @@ switch($serendipity['GET']['adminAction']) {
 
         if (!$preview_only) {
             include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
+            $errors = isset($errors) ? $errors : null; // set null to check again at end of file
             $entryForm = serendipity_printEntryForm(
                 '?',
                 array(
@@ -239,7 +255,7 @@ switch($serendipity['GET']['adminAction']) {
         }
 
         $perPage = !empty($serendipity['GET']['sort']['perPage']) ? $serendipity['GET']['sort']['perPage'] : $per_page[0];
-        $page    = (int)$serendipity['GET']['page'];
+        $page    = isset($serendipity['GET']['page']) ? (int)$serendipity['GET']['page'] : null;
         $offSet  = $perPage*$page;
 
         if (empty($serendipity['GET']['sort']['ordermode']) || $serendipity['GET']['sort']['ordermode'] != 'ASC') {
@@ -372,7 +388,7 @@ switch($serendipity['GET']['adminAction']) {
                     'timestamp'     => (int)$ey['timestamp'],
                     'last_modified' => (int)$ey['last_modified'],
                     'isdraft'       => serendipity_db_bool($ey['isdraft']),
-                    'ep_is_sticky'  => (serendipity_db_bool($ey['properties']['ep_is_sticky']) ? true : false),
+                    'ep_is_sticky'  => (isset($ey['properties']['ep_is_sticky']) && serendipity_db_bool($ey['properties']['ep_is_sticky']) ? true : false),
                     'pubdate'       => date('c', (int)$ey['timestamp']),
                     'author'        => serendipity_specialchars($ey['author']),
                     'cats'          => $entry_cats,
@@ -454,8 +470,8 @@ switch($serendipity['GET']['adminAction']) {
 }
 
 $data['entryForm'] = $entryForm;
-$data['errors'] = $errors;
-$data['get'] = $serendipity['GET']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipty['GET'] by runtime
+$data['errors'] = isset($errors) ? $errors : false;
+$data['get'] = $serendipity['GET']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipity['GET'] by runtime
 // make sure we've got these
 if (!isset($data['urltoken']))  $data['urltoken']  = serendipity_setFormToken('url');
 if (!isset($data['formtoken'])) $data['formtoken'] = serendipity_setFormToken();
