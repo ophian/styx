@@ -1,4 +1,4 @@
-{if $showSubmit_head}
+{if isset($showSubmit_head) AND $showSubmit_head}
 
     <div class="form_buttons">
         {if $postKey == "template"}
@@ -24,44 +24,44 @@
                 {if ($plugin_options[$config_groupkey]['ctype'] == 'separator' OR $plugin_options[$config_groupkey]['ctype'] == 'seperator')}{* compat - due to misspelled word 'seper...' *}
                     {$plugin_options[$config_groupkey]['config']}
                 {else}
+
                     <div class="{cycle values='odd,even'}">
                         {$plugin_options[$config_groupkey]['config']}
                     </div>
                 {/if}
             {/foreach}
+
             </fieldset>
         </div>
     {/foreach}
+
     </div>
 {/if}
-{foreach $plugin_options_ungrouped AS $plugin_option}
+{foreach $plugin_options_ungrouped AS $plugin_option}{if !isset($plugin_option)}{continue}{/if}
     {if ($plugin_option['ctype'] == 'separator' OR $plugin_option['ctype'] == 'seperator') OR $plugin_option['ctype'] == 'suboption'}{* compat - due to misspelled word 'seper...' *}
         {$plugin_option['config']}
     {else if !empty($plugin_option['config'])}
+
         <div class="configuration_group {cycle values='odd,even'}">
             {$plugin_option['config']}
         </div>
     {/if}
 {/foreach}
-{if $showSubmit_foot}
+{if isset($showSubmit_foot) AND $showSubmit_foot AND !empty($postKey)}
 
     <div class="form_buttons">
-        {if $postKey == "template"}
-        <a class="button_link" href="?serendipity[adminModule]=templates">{$CONST.BACK}</a>
-        {/if}
-        {if $postKey == "plugin"}
-         <a class="button_link" href="?serendipity[adminModule]=plugins">{$CONST.BACK}</a>
-        {/if}
+        <a class="button_link" href="?serendipity[adminModule]={$postKey}s">{$CONST.BACK}</a>
         <input name="SAVECONF" type="submit" value="{$CONST.SAVE}">
     </div>
 {/if}
-{if $showExample}
+{if isset($showExample) AND $showExample}
+
     <div>{$plugin_example}</div>
 {/if}
-{if $spawnNuggets}
+{if isset($spawnNuggets) AND $spawnNuggets}
     {serendipity_hookPlugin hook="backend_wysiwyg_nuggets" eventData=$ev hookAll=true}
 
-    {if $ev['skip_nuggets'] === false AND $init !== false}
+    {if $ev['skip_nuggets'] === false AND (!isset($init) OR $init !== false)}
 
     <script>
     function Spawnnugget() {

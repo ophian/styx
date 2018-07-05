@@ -40,7 +40,7 @@ function serendipity_groupname($group) {
  * @return boolean  Return code for array comparison
  */
 function serendipity_pluginListSort($x, $y) {
-    return strnatcasecmp($x['name'] . ' - ' . $x['description'], $y['name'] . ' - ' . $y['description']);
+    return strnatcasecmp($x['name'] . ' - ' . @$x['description'], $y['name'] . ' - ' . @$y['description']); // mute possible uninitialized parameters
 }
 
 /**
@@ -473,8 +473,8 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 // I can't get it to work unless there's a class of
                 // pluginmanager_container on the ol, either.
                 // The drag-n-drop returns the list of IDs in order.
-                $data['sequencejs_output'] = $sequencejs_output = $serendipity['sequencejs_output'];
-                if (!$sequencejs_output) {
+                $data['sequencejs_output'] = $sequencejs_output = isset($serendipity['sequencejs_output']) ? $serendipity['sequencejs_output'] : null;
+                if (empty($sequencejs_output)) {
                     $serendipity['sequencejs_output'] = true;
                 }
 

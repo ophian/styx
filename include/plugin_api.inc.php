@@ -487,8 +487,8 @@ class serendipity_plugin_api
     {
         global $serendipity;
 
-        // Can be shortcircuited via a $serendipity['prevent_sidebar_plugins_(left|right|event)'] variable!
-        if (!$negate && $serendipity['prevent_sidebar_plugins_' . $filter] == true) {
+        // Can be shortcircuited via a $serendipity['prevent_sidebar_plugins_(left|right|event)'] variable! // mute possible uninitialized globals
+        if (!$negate && @$serendipity['prevent_sidebar_plugins_' . $filter] == true) {
             return 0;
         }
 
@@ -641,7 +641,8 @@ class serendipity_plugin_api
 
         if (!class_exists($class_name)) {
             $serendipity['debug']['pluginload'][] = "Classname $class_name still does not exist. Aborting.";
-            return false;
+            $r = false;
+            return $r; // avoid Notice: Only variable references should be returned by reference
         }
 
         // $serendipity['debug']['pluginload'][] = "Returning new $class_name($instance_id)";
@@ -702,11 +703,11 @@ class serendipity_plugin_api
             }
         }
 
-        if (is_array($pluginlist[$pluginFile]) && !preg_match('@plugin_internal\.inc\.php@', $pluginFile)) {
+        if (isset($pluginlist[$pluginFile]) && is_array($pluginlist[$pluginFile]) && !preg_match('@plugin_internal\.inc\.php@', $pluginFile)) {
             $data = $pluginlist[$pluginFile];
             if ((int) filemtime($pluginFile) == (int) $data['last_modified']) {
                 $data['stackable'] = serendipity_db_bool($data['stackable']);
-                $plugin = $data;
+                $plugin = $data; // avoid Notice: Only variable references should be returned by reference (? while $pluginFile is in $data ?)
                 return $plugin;
             }
         }
@@ -800,10 +801,13 @@ class serendipity_plugin_api
         // Only insert data keys that exist in the DB.
         $insertdata = array();
         foreach($dbfields AS $field) {
-            $insertdata[$field] = $data[$field];
+            // if set, data has them all
+            if (isset($data[$field])) {
+                $insertdata[$field] = $data[$field];
+            }
         }
 
-        if ($data['upgradeable']) {
+        if (isset($data['upgradeable']) && $data['upgradeable']) {
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
                                      SET upgrade_version = '" . serendipity_db_escape_string($data['upgrade_version']) . "'
                                    WHERE plugin_class    = '" . serendipity_db_escape_string($data['plugin_class']) . "'");
@@ -1094,7 +1098,7 @@ class serendipity_plugin_api
         // skip the execution of any follow-up plugins.
         $plugins = serendipity_plugin_api::get_event_plugins();
 
-        if ($serendipity['core_events'][$event_name]) {
+        if (isset($serendipity['core_events'][$event_name])) {
             foreach($serendipity['core_events'][$event_name] AS $apifunc_key => $apifunc) {
                 $apifunc($event_name, $bag, $eventData, $addData);
             }
@@ -1649,7 +1653,8 @@ class serendipity_plugin
             $tfile = dirname($this->pluginFile) . '/' . $filename;
         }
 
-        return $serendipity['smarty']->fetch('file:'. $tfile);
+        $template = $serendipity['smarty']->fetch('file:'. $tfile);// avoid Notice: Only variable references should be returned by reference
+        return $template;
     }
 
 }
@@ -1707,13 +1712,13 @@ class serendipity_event extends serendipity_plugin
             } else {
                 $key = &$eventData[0][$fieldname];
             }
-        } elseif (is_array($eventData) && is_array($eventData['properties'])) {
+        } elseif (isset($eventData['properties']) && is_array($eventData['properties'])) {
             if (!empty($eventData['properties']['ep_cache_' . $fieldname])) {
                 $key = &$eventData['properties']['ep_cache_' . $fieldname];
             } else {
                 $key = &$eventData[$fieldname];
             }
-        } elseif (is_array($eventData[0]) && isset($eventData[0][$fieldname])) {
+        } elseif (isset($eventData[0][$fieldname])) {
             $key = &$eventData[0][$fieldname];
         } elseif (isset($eventData[$fieldname])) {
             $key = &$eventData[$fieldname];

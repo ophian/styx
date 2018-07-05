@@ -92,14 +92,14 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         foreach($config_names AS $config_item) {
             $cbag = new serendipity_property_bag;
             if ($plugin->introspect_config_item($config_item, $cbag)) {
-                $value    = $_POST['serendipity']['plugin'][$config_item];
+                $value    = isset($_POST['serendipity']['plugin'][$config_item]) ? $_POST['serendipity']['plugin'][$config_item] : '';
                 $validate = $plugin->validate($config_item, $cbag, $value);
                 if ($validate === true) {
                     if (!empty($_POST['serendipity']['plugin']['override'][$config_item])) {
                         $value = $_POST['serendipity']['plugin']['override'][$config_item];
                     }
 
-                    if (is_array($_POST['serendipity']['plugin']['activate'][$config_item])) {
+                    if (isset($_POST['serendipity']['plugin']['activate']) && is_array($_POST['serendipity']['plugin']['activate'][$config_item])) {
                         $active_values = array();
                         foreach($_POST['serendipity']['plugin']['activate'][$config_item] AS $ordered_item_value) {
                             $ordered_item_value;
@@ -150,7 +150,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
 } elseif ($serendipity['GET']['adminAction'] == 'addnew') {
 
-    $serendipity['GET']['type'] = $serendipity['GET']['type'] ?: 'sidebar';
+    $serendipity['GET']['type'] = !empty($serendipity['GET']['type']) ? $serendipity['GET']['type'] : 'sidebar';
     $data['adminAction'] = 'addnew';
     $data['type'] = $serendipity['GET']['type'];
     $data['urltoken'] = serendipity_setFormToken('url');
@@ -160,7 +160,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $pluginstack = array_merge((array)$foreignPlugins['pluginstack'], $pluginstack);
     $errorstack  = array_merge((array)$foreignPlugins['errorstack'], $errorstack);
 
-    if ($serendipity['GET']['only_group'] == 'UPGRADE') {
+    if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE') {
         // since sqlite being too slow for a full xml check and pluginlist rewrite - exceed the time limit
         if (stristr($serendipity['dbType'], 'sqlite')) {
             set_time_limit(0);
@@ -182,7 +182,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $plugins = serendipity_plugin_api::get_installed_plugins();
     $classes = serendipity_plugin_api::enum_plugin_classes(($serendipity['GET']['type'] === 'event'));
 
-    if ($serendipity['GET']['only_group'] == 'UPGRADE') {
+    if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE') {
         $classes = array_merge($classes, serendipity_plugin_api::enum_plugin_classes(!($serendipity['GET']['type'] === 'event')));
         $data['type'] = 'both';
     }
@@ -216,16 +216,20 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         }
 
         if (is_array($props)) {
+            if (!isset($props['upgradeable'])) {
+                $props['upgradeable'] = false; // default define - Matches all plugins that are stackable/installable
+            }
             if (version_compare($props['version'], $props['upgrade_version'], '<')) {
-                $props['upgradeable'] = true;
+                $props['upgradeable'] = true; // For the very most Spartacus::checkPlugin() already took care of false/true
                 $props['remote_path'] = $serendipity['spartacus_rawPluginPath'];
-                // since we merged sidebar and event plugins before, we can no longer rely on spartacus' $foreignPlugins['baseURI']
+                // since we merged sidebar and event plugins before, we can no longer rely on Spartacus' $foreignPlugins['baseURI']
                 // NOTE: This is not nice and it would be better to move it into the plugins array instead, but that collides with the cache
                 if (strpos($class_data['name'], 'serendipity_plugin') !== false) {
                     $baseURI = '&amp;serendipity[spartacus_fetch]=sidebar';
                 } else {
                     $baseURI = '&amp;serendipity[spartacus_fetch]=event';
                 }
+                if (!isset($props['customURI'])) $props['customURI'] = '';
                 $props['customURI'] .= $baseURI . $foreignPlugins['upgradeURI'];
             }
 
@@ -233,22 +237,26 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $props['stackable']    = ($props['stackable'] === true && $_installed);
             $props['installable']  = !($props['stackable'] === false && $_installed);
             $props['requirements'] = unserialize($props['requirements']);
-            $props['changelog']    = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
+            if (isset($foreignPlugins['pluginstack'][$class_data['name']]['changelog'])) {
+                $props['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
+            }
             // read temporary session stored data, in case the plugin update was not accessed immediately
             if (empty($props['changelog']) && isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'])) {
                 $props['changelog'] = $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'];
             }
             // cut and prep an existing constant, since we don't have this very often...
             if (!empty($props['website'])) {
-                $props['exdoc'] = trim(end(explode(':', PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES)));
+                $ref = explode(':', PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES);
+                $props['exdoc'] = trim(end($ref)); // avoid Notice: Only variable references should be returned by reference
             }
             // Fill this property, since it is locally there - but this does not mean we have to use it (although in addNew and upgrade only).
-            // But what we definitely want for upgradeable plugins are the new remote changelog paths! @see above.
-            if (empty($props['changelog']) && $serendipity['GET']['only_group'] != 'UPGRADE' && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
+            // What we definitely want for upgradeable plugins is the new remote changelog path! @see above.
+            // Better only mute possible undefined only_group, since else case to "blurry"
+            if (empty($props['changelog']) && @$serendipity['GET']['only_group'] != 'UPGRADE' && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
                 $props['changelog'] = 'plugins/' . $props['pluginPath'] . '/ChangeLog';
             }
             // assume session has timed out (since not upgraded at session runtime) and pluginstack is array and fetched from pluginlist table 
-            if (empty($props['changelog']) && $serendipity['GET']['only_group'] == 'UPGRADE' && !isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog']) && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
+            if (empty($props['changelog']) && isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE' && !isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog']) && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
                 if (serendipity_request_url($serendipity['spartacus_rawPluginPath'] . $class_data['name'] . '/ChangeLog', 'get')) {
                     // remember temporary, in case the update is not done immediately
                     $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'] = $serendipity['spartacus_rawPluginPath'] . $class_data['name'] . '/ChangeLog';
@@ -266,7 +274,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 } elseif (@file_exists(dirname($props['plugin_file']) . '/README')) {
                     $props['local_documentation'] = 'plugins/' . $props['pluginPath'] . '/README';
                 }
-                $props['local_documentation_name'] = basename($props['local_documentation']);
+                if (isset($props['local_documentation'])) {
+                    $props['local_documentation_name'] = basename($props['local_documentation']);
+                }
             }
 
             $pluginstack[$class_data['true_name']] = $props;
@@ -280,9 +290,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $pluggroups     = array();
     $pluggroups[''] = array();
     foreach($pluginstack AS $plugname => $plugdata) {
-        if ($serendipity['GET']['only_group'] == 'ALL') {
+        if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'ALL') {
             $pluggroups['ALL'][] = $plugdata;
-        } elseif ($serendipity['GET']['only_group'] == 'UPGRADE' && $plugdata['upgradeable']) {
+        } elseif (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE' && $plugdata['upgradeable']) {
             $pluggroups['UPGRADE'][] = $plugdata;
         } elseif (is_array($plugdata['groups'])) {
             foreach($plugdata['groups'] AS $group) {
@@ -306,7 +316,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $data['groupnames'] = $groupnames;
     $data['pluggroups'] = $pluggroups;
     $data['formToken'] = serendipity_setFormToken();
-    $data['only_group'] = $serendipity['GET']['only_group'];
+    $data['only_group'] = isset($serendipity['GET']['only_group']) ? $serendipity['GET']['only_group'] : '';
     $data['available_upgrades'] = isset($pluggroups['UPGRADE']);
     $requirement_failures = array();
 
@@ -501,7 +511,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
     $data['event_plugins'] = show_plugins(true);
 
-    if (count($serendipity['memSnaps']) > 0) {
+    if (isset($serendipity['memSnaps']) && count($serendipity['memSnaps']) > 0) {
         $data['$memsnaps'] = $serendipity['memSnaps'];
     }
     $data['updateAllMsg'] = isset($serendipity['GET']['updateAllMsg']);

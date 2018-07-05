@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.65');
+        $propbag->add('version',       '2.70');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -100,7 +100,7 @@ class serendipity_event_spartacus extends serendipity_event
             return false;
         }
 
-        foreach ($files AS $file) {
+        foreach($files AS $file) {
             $this->outputMSG('notice', sprintf(DELETING_FILE . '<br />', $file['name']));
             @unlink($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/' . $file['name']);
         }
@@ -319,16 +319,16 @@ class serendipity_event_spartacus extends serendipity_event
                 case 'complete':
                     $children[] = array(
                         'tag'        => $vals[$i]['tag'],
-                        'attributes' => $vals[$i]['attributes'],
-                        'value'      => $vals[$i]['value']
+                        'attributes' => isset($vals[$i]['attributes']) ? $vals[$i]['attributes'] : '',
+                        'value'      => isset($vals[$i]['value']) ? $vals[$i]['value'] : ''
                     );
                     break;
 
                 case 'open':
                     $children[] = array(
                         'tag'        => $vals[$i]['tag'],
-                        'attributes' => $vals[$i]['attributes'],
-                        'value'      => $vals[$i]['value'],
+                        'attributes' => isset($vals[$i]['attributes']) ? $vals[$i]['attributes'] : '',
+                        'value'      => isset($vals[$i]['value']) ? $vals[$i]['value'] : '',
                         'children'   => $this->GetChildren($vals, $i)
                     );
                     break;
@@ -442,13 +442,17 @@ class serendipity_event_spartacus extends serendipity_event
         // --JAM: Get the URL's IP in the most error-free way possible
         $url_parts = @parse_url($url);
         $url_hostname = 'localhost';
+
         if (is_array($url_parts)) {
             $url_hostname = $url_parts['host'];
         }
+
         $url_ip = gethostbyname($url_hostname);
+
         if ($debug) {
             $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHING, 'UTF-8', LANG_CHARSET), $url));
         }
+
         if (file_exists($target) && filesize($target) > 0 && filemtime($target) >= (time()-$cacheTimeout)) {
             $data = file_get_contents($target);
             if ($debug) {
@@ -486,7 +490,8 @@ class serendipity_event_spartacus extends serendipity_event
                     }
                 }
             }
-            if ($check_health) {
+
+            if (isset($check_health) && $check_health) {
                 /*--JAM: Useful for later, when we have a health monitor for SPARTACUS
                 $propbag = new serendipity_property_bag;
                 $this->introspect($propbag);
@@ -536,13 +541,16 @@ class serendipity_event_spartacus extends serendipity_event
                 }
             } else {
                 // Fetch file
-                if (!$data) {
+                if (empty($data)) {
                     $data = $fContent;
                 }
+
                 if ($debug) {
                     $serendipity['logger']->debug(sprintf(mb_convert_encoding(PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL, 'UTF-8', LANG_CHARSET), strlen($data), $target));
                 }
+
                 $tdir = dirname($target);
+
                 if (!is_dir($tdir) && !$this->rmkdir($tdir, $sub)) {
                     $this->outputMSG('error', sprintf(FILE_WRITE_ERROR, $tdir));
                     return $error;
@@ -656,8 +664,8 @@ class serendipity_event_spartacus extends serendipity_event
             if ($mirror == null) {
                 $mirror = $mirrors[0];
             }
-            $url    = $mirror . '/package_' . $url_type .  $lang . '.xml';
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
+            $url    = $mirror . '/package_' . $url_type .  $lang . '.xml';
             $target = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_' . $url_type . $lang . '.xml';
             $serendipity['spartacus_cachedXMLfile'] = $target; // keep the cache file target path to nuke the file within possible 'backend_plugins_update' to config redirects/breaks.
             $serendipity['spartacus_rawPluginPath'] = $mirror; // add a global var for plugin upgrade remote path documentaries usage
@@ -767,6 +775,7 @@ class serendipity_event_spartacus extends serendipity_event
     function checkPlugin(&$data, &$plugins, $type)
     {
         $installable = true;
+        $upgradeable = false; // default init defines
         $upgradeLink = '';
         if (in_array($data['class_name'], $plugins)) {
             $infoplugin =& serendipity_plugin_api::load_plugin($data['class_name']);
@@ -775,8 +784,9 @@ class serendipity_event_spartacus extends serendipity_event
                 $infoplugin->introspect($bag);
                 if ($bag->get('version') == $data['version']) {
                     $installable = false;
+                    $upgradeable = false;
                 } elseif (version_compare($bag->get('version'), $data['version'], '<')) {
-                    $data['upgradeable']     = true;
+                    $upgradeable             = true; // place to data is set down below!
                     $data['upgrade_version'] = $data['version'];
                     $data['version']         = $bag->get('version');
                     $upgradeLink             = '&amp;serendipity[spartacus_upgrade]=true';
@@ -785,6 +795,7 @@ class serendipity_event_spartacus extends serendipity_event
         }
 
         $data['installable']     = $installable;
+        $data['upgradeable']     = $upgradeable;
         $data['pluginPath']      = 'online_repository';
         $data['pluginlocation']  = 'Spartacus';
         $data['plugintype']      = $type;
@@ -1149,26 +1160,26 @@ class serendipity_event_spartacus extends serendipity_event
 
         // check connection
         if ((!$conn_id) || (!$login_result)) {
-            $this->outputMSG('error',PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CONNECT);
+            $this->outputMSG('error', PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CONNECT);
             return false;
         } else {
-            $paths  = preg_split('@/@', $basedir.$dir,-1,PREG_SPLIT_NO_EMPTY);
-            foreach ($paths AS $path) {
+            $paths  = preg_split('@/@', $basedir.$dir, -1, PREG_SPLIT_NO_EMPTY);
+            foreach($paths AS $path) {
                 // trying to change directory, if not successful, it means
                 // the directory does not exist and we must create it
-                if (!ftp_chdir($conn_id,$path)) {
-                    if (!ftp_mkdir($conn_id,$path)) {
-                        $this->outputMSG('error',PLUGIN_EVENT_SPARTACUS_FTP_ERROR_MKDIR);
+                if (!ftp_chdir($conn_id, $path)) {
+                    if (!ftp_mkdir($conn_id, $path)) {
+                        $this->outputMSG('error', PLUGIN_EVENT_SPARTACUS_FTP_ERROR_MKDIR);
                         return false;
                     }
                     if (!ftp_chmod($conn_id,$dir_rules,$path)) {
-                        $this->outputMSG('error',PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CHMOD);
+                        $this->outputMSG('error', PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CHMOD);
                         return false;
                     }
-                    if (!ftp_chdir($conn_id,$path)) {
+                    if (!ftp_chdir($conn_id, $path)) {
                         return false;
                     }
-                      $this->outputMSG('success',sprintf(PLUGIN_EVENT_SPARTACUS_FTP_SUCCESS, $path));
+                      $this->outputMSG('success', sprintf(PLUGIN_EVENT_SPARTACUS_FTP_SUCCESS, $path));
                 }
             }
             ftp_close($conn_id);
@@ -1205,7 +1216,7 @@ class serendipity_event_spartacus extends serendipity_event
 
                         $mailtext = '';
                         foreach($meth AS $method) {
-                            foreach ($install[$method] AS $class_data) {
+                            foreach($install[$method] AS $class_data) {
                                 #echo "Probe " . $class_data['name']. "<br />\n"; // DEBUG
                                 $pluginFile = serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
                                 $plugin     = serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $method);
@@ -1271,7 +1282,7 @@ class serendipity_event_spartacus extends serendipity_event
 
                         foreach($meth AS $method) {
                             echo "LISTING: $method\n-------------------\n";
-                            foreach ($install[$method] AS $class_data) {
+                            foreach($install[$method] AS $class_data) {
                                 $pluginFile = serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
                                 $plugin     = serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $method);
 

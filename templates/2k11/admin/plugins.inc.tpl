@@ -1,5 +1,5 @@
-{if $plugin_to_conf}
-    {if is_array($save_errors)}
+{if isset($plugin_to_conf) AND $plugin_to_conf}
+    {if isset($save_errors) AND is_array($save_errors)}
     <div class="msg_error">
         <h2><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}:</h2>
 
@@ -9,7 +9,7 @@
         {/foreach}
         </ul>
     </div>
-    {elseif $saveconf}
+    {elseif isset($saveconf) AND $saveconf}
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}: {$CONST.SETTINGS_SAVED_AT|sprintf:"$timestamp"}</span>
     {/if}
     <h2>{$name} ({$class})</h2>
@@ -20,15 +20,15 @@
         <p><b>{$CONST.MEDIA_PROPERTY_COPYRIGHT}:</b> {$license}</p>
     {/if}
     {if isset($smarty.post.SAVECONF)}{assign var='point' value='new'}{/if}
-    {if ! empty($documentation) OR $changelog OR $documentation_local}
+    {if !empty($documentation) OR (isset($changelog) AND $changelog) OR (isset($documentation_local) AND $documentation_local)}
         <ul class="plainList">
         {if !empty($documentation)}
             <li class="plugin_docu"><a target="_{$point|default:'self'}" href="{$documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="visuallyhidden"> in new tab</span>{/if}</li>
         {/if}
-        {if $changelog}
+        {if isset($changelog) AND $changelog}
             <li class="plugin_docu"><a target="_{$point|default:'self'}" href="plugins/{$plugin->act_pluginPath}/ChangeLog">{$CONST.PLUGIN_DOCUMENTATION_CHANGELOG}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="visuallyhidden"> in new tab</span>{/if}</li>
         {/if}
-        {if $documentation_local}
+        {if isset($documentation_local) AND $documentation_local}
             <li class="plugin_docu"><a target="_{$point|default:'self'}" href="plugins/{$plugin->act_pluginPath}{$documentation_local}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a>{if isset($point)} <span class="icon-info-circled" aria-hidden="true" title="in new tab"></span><span class="visuallyhidden"> in new tab</span>{/if}</li>
         {/if}
         </ul>
@@ -39,7 +39,7 @@
         {$formToken}
         {$config}
     </form>
-{elseif $adminAction == 'addnew'}
+{elseif isset($adminAction) AND $adminAction == 'addnew'}
     <h2>{if $type == 'event'}{$CONST.EVENT_PLUGINS}{/if}{if $type == 'sidebar'}{$CONST.SIDEBAR_PLUGINS}{/if}{if $type == 'both'}{$CONST.MENU_PLUGINS}{/if}{if $only_group != 'UPGRADE'} <span class="plugins_available">({$CONST.PLUGIN_AVAILABLE_COUNT|sprintf:$count_pluginstack})</span>{/if}</h2>
     {foreach $errorstack AS $e_idx => $e_name}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$e_name}</span>
@@ -79,7 +79,7 @@
         <span class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.NO_UPDATES}</span>
     {else}
         {foreach $pluggroups AS $pluggroup => $groupstack}
-            {if !empty($only_group) AND ($only_group AND $pluggroup != $only_group OR empty($pluggroup))}{continue}{/if}
+            {if !empty($only_group) AND ($only_group AND $pluggroup != $only_group || empty($pluggroup))}{continue}{/if}
             <h3>{foreach $groupnames AS $available_group => $available_name}{if $pluggroup == $available_group}{$available_name}{/if}{/foreach}</h3>
             {if $only_group == 'UPGRADE' AND $pluggroups['UPGRADE']|count > 1}
                 <button id="updateAll">{$CONST.UPDATE_ALL}</button>
@@ -109,7 +109,7 @@
                         {/if}
                         </div>
 
-                        <ul class="plugin_info{if !empty({$plug.upgrade_version}) AND $plug.upgrade_version != $plug.version} plugup_from{/if} plainList">
+                        <ul class="plugin_info{if $plug.upgrade_version != '' AND $plug.upgrade_version != $plug.version} plugup_from{/if} plainList">
                         {if !empty($plug.version)}
                             <li class="plugin_version"><b>{$CONST.VERSION}:</b> {$plug.version}</li>
                         {/if}
@@ -120,8 +120,8 @@
                             <li class="plugin_localdoc"><a href="{$plug.local_documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a></li>
                         {/if}
                         </ul>
-                        <ul class="plugin_info{if !empty({$plug.upgrade_version}) AND $plug.upgrade_version != $plug.version} plugup_to{/if} plainList">
-                        {if !empty({$plug.upgrade_version}) AND $plug.upgrade_version != $plug.version}
+                        <ul class="plugin_info{if $plug.upgrade_version != '' AND $plug.upgrade_version != $plug.version} plugup_to{/if} plainList">
+                        {if $plug.upgrade_version != '' AND $plug.upgrade_version != $plug.version}
                             <li class="plugin_toversion">{$CONST.UPGRADE_TO_VERSION|sprintf:"{$plug.upgrade_version}"}{if !empty($plug.pluginlocation) AND $plug.pluginlocation != 'local'} ({$plug.pluginlocation|escape}){/if}</li>
                             {if !empty($plug.local_documentation)}{* we assume this is remotely still available and we want to stick to the language already chosen to show *}
                             <li class="plugin_web"><a href="{$plug.remote_path}{$plug.plugin_class}/{$plug.local_documentation_name}">{$CONST.PLUGIN_DOCUMENTATION}</a> <em>(raw)</em></li>
@@ -150,7 +150,7 @@
             </ul>
         {/foreach}
     {/if}
-{elseif $adminAction == 'overlay'}
+{elseif isset($adminAction) AND $adminAction == 'overlay'}
     <div id="progressWidget">
         <span id="updateMessage">{$CONST.START_UPDATE}</span>
         <div id="updateIndicator" class="animated-css"></div>
@@ -162,10 +162,10 @@
 {else}
     {$backend_pluginlisting_header}
     <h2>{$CONST.CONFIGURE_PLUGINS}</h2>
-    {if $save}
+    {if isset($save) AND $save}
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}:{$CONST.SETTINGS_SAVED_AT|sprintf:"$timestamp"}</span>
     {/if}
-    {if $new_plugin_failed}
+    {if isset($new_plugin_failed) AND $new_plugin_failed}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.PLUGIN_ALREADY_INSTALLED}</span>
     {/if}
     {if $updateAllMsg}
@@ -188,7 +188,7 @@
             {$event_plugins}
         </section>
     </div>
-    {if $memsnaps}
+    {if isset($memsnaps) AND $memsnaps}
     <section>
         <h3>RAM</h3>
 

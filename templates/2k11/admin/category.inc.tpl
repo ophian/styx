@@ -1,8 +1,8 @@
-{if $post_save}
+{if isset($post_save) AND $post_save}
     {if $new}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CATEGORY_SAVED}</span>
     {/if}
-    {if $edit}
+    {if isset($edit) AND $edit}
         {if isset($editPermission) AND $editPermission == false}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
         {else}
@@ -15,14 +15,14 @@
          <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CATEGORY_ALREADY_EXIST|sprintf:$category_name|escape}</span>
     {/if}
 {/if}
-{if $doDelete}
+{if isset($doDelete) AND $doDelete}
   {if $deleteSuccess}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {if $remainingCat}{$CONST.CATEGORY_DELETED_ARTICLES_MOVED|sprintf:$remainingCat:$cid}{else}{$cid|string_format:"{$CONST.CATEGORY_DELETED}"}{/if}</span>
   {else}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.INVALID_CATEGORY}</span>
   {/if}
 {/if}
-{if $delete}
+{if isset($delete) AND $delete}
     {if $deletePermission == true}
         <h2>{$categoryName|escape}</h2>
 
@@ -44,8 +44,8 @@
     {/if}
 {/if}
 
-{if (! $post_save) AND ($edit OR $new)}
-    {if $edit}
+{if empty($post_save) AND ((isset($edit) AND $edit) OR (isset($new) AND $new))}
+    {if isset($edit) AND $edit}
         <h2>{$category_name|escape|string_format:"{$CONST.EDIT_THIS_CAT}"}</h2>
     {/if}
         <form id="serendipity_category" method="POST" name="serendipityCategory">
@@ -54,7 +54,7 @@
             <div id="category_basics" class="clearfix">
                 <div class="form_field">
                     <label for="category_name">{$CONST.NAME}</label>
-                    <input id="category_name" pattern="{if $new}^(?!({foreach $categories AS $cat}{$cat.category_name|escape}|{/foreach})$).*{else}^(?!({foreach $categories AS $cat}{if $this_cat.category_name != $cat.category_name}{$cat.category_name|escape}{/if}|{/foreach})$).*{/if}" name="serendipity[cat][name]" type="text" value="{$this_cat.category_name|default:""|escape}" title="{$CONST.CATEGORY}">
+                    <input id="category_name" pattern="{if isset($new) AND $new}^(?!({foreach $categories AS $cat}{$cat.category_name|escape}|{/foreach})$).*{else}^(?!({foreach $categories AS $cat}{if $this_cat.category_name != $cat.category_name}{$cat.category_name|escape}{/if}|{/foreach})$).*{/if}" name="serendipity[cat][name]" type="text" value="{$this_cat.category_name|default:""|escape}" title="{$CONST.CATEGORY}">
                 </div>
 
                 <div class="form_field">
@@ -64,7 +64,7 @@
             </div>
 
             <h3 class="toggle_headline">
-                <button class="show_config_option icon_link {if $newSub}show_config_option_now{/if}" type="button" data-href="#category_subcats" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.PARENT_CATEGORY}</button>
+                <button class="show_config_option icon_link {if isset($newSub) AND $newSub}show_config_option_now{/if}" type="button" data-href="#category_subcats" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.PARENT_CATEGORY}</button>
             </h3>
 
             <div id="category_subcats" class="clearfix additional_info">
@@ -74,7 +74,7 @@
                         <option value="0"{if $cid == 0} selected{/if}>{$CONST.NO_CATEGORY}</option>
                     {foreach $categories AS $cat}
                         {if $cat.categoryid == $cid}{continue}{/if}
-                        <option value="{$cat.categoryid}"{if $this_cat.parentid == $cat.categoryid} selected{/if}>{for $i=1 to $cat.depth}&nbsp{/for} {$cat.category_name|escape}</option>
+                        <option value="{$cat.categoryid}"{if isset($this_cat.parentid) AND $this_cat.parentid == $cat.categoryid} selected{/if}>{for $i=1 to $cat.depth}&nbsp{/for} {$cat.category_name|escape}</option>
                     {/foreach}
                     </select>
                 </div>
@@ -86,12 +86,12 @@
 
                     <div class="clearfix grouped">
                         <div class="form_radio">
-                            <input id="hide_sub_yes" name="serendipity[cat][hide_sub]" type="radio" value="1"{if $this_cat.hide_sub== 1} checked="checked"{/if}>
+                            <input id="hide_sub_yes" name="serendipity[cat][hide_sub]" type="radio" value="1"{if isset($this_cat.hide_sub) AND $this_cat.hide_sub == 1} checked="checked"{/if}>
                             <label for="hide_sub_yes">{$CONST.YES}</label>
                         </div>
 
                         <div class="form_radio">
-                            <input id="hide_sub_no" name="serendipity[cat][hide_sub]" type="radio" value="0"{if $this_cat.hide_sub == 0} checked="checked"{/if}>
+                            <input id="hide_sub_no" name="serendipity[cat][hide_sub]" type="radio" value="0"{if isset($this_cat.hide_sub) AND $this_cat.hide_sub == 0} checked="checked"{/if}>
                             <label for="hide_sub_no">{$CONST.NO}</label>
                         </div>
                     </div>
@@ -108,7 +108,7 @@
                     <select id="read_authors" size="6" multiple name="serendipity[cat][read_authors][]">
                         <option value="0"{if $selectAllReadAuthors} selected{/if}>{$CONST.ALL_AUTHORS}</option>
                     {foreach $groups AS $group}
-                        <option value="{$group.confkey}"{if isset($read_groups.{$group.confkey})} selected{/if} >{$group.confvalue|escape}</option>
+                        <option value="{$group.confkey}"{if isset($read_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
                     {/foreach}
                     </select>
                 </div>
@@ -149,7 +149,7 @@
             <input class="standalone" name="SAVE" type="submit" value="{$save}">
         </form>
 {/if}
-{if $view}
+{if isset($view) AND $view}
     <h2>{$CONST.CATEGORIES}</h2>
     {if is_array($viewCats)}
         <ul id="categories" class="option_list">

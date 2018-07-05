@@ -42,7 +42,7 @@
 {elseif ($ctype == 'html' OR $ctype == 'text')}
 
     <div class="clearfix form_area{if $cdesc != ''} has_info{/if}">
-        <label for="nuggets{$elcount}">{$cname}{if $cdesc != '' AND !$backend_wysiwyg} <button class="toggle_info button_link" type="button" data-href="#nuggets{$elcount}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
+        <label for="nuggets{$elcount}">{$cname}{if $cdesc != '' AND empty($backend_wysiwyg)} <button class="toggle_info button_link" type="button" data-href="#nuggets{$elcount}_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>{/if}</label>
         {if $cdesc != ''}<span id="nuggets{$elcount}_info" class="field_info additional_info">{$cdesc}</span>{/if}
         <textarea id="nuggets{$elcount}" class="direction_{$lang_direction}" name="serendipity[{$postKey}][{$config_item}]" rows="{$text_rows}">{$hvalue}</textarea>
     </div>
