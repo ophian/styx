@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Fix proper Backend message when developer build runs integrity check
+
   * PHP/Tpl Groundwork for Debugging Session of uninitialized variables,
     when the Smarty_class::muteExpectedErrors was enabled, which passes
     certain Errors and Warnings/Notices to the Serendipity Error Handler.
