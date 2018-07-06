@@ -788,7 +788,7 @@
     }
 
     serendipity.closeCommentPopup = function() {
-        <?php if ($GLOBALS['tpl']['use_backendpopups'] || $GLOBALS['tpl']['force_backendpopups']['comments']): ?>
+        <?php if ($GLOBALS['tpl']['use_backendpopups'] || isset($GLOBALS['tpl']['force_backendpopups']['comments'])): ?>
             parent.self.close();
         <?php else: ?>
             window.parent.parent.$.magnificPopup.close();
@@ -796,7 +796,7 @@
     }
 
     serendipity.openPopup = function(url) {
-        <?php if ($GLOBALS['tpl']['use_backendpopups'] || $GLOBALS['tpl']['force_backendpopups']['images']): ?>
+        <?php if ($GLOBALS['tpl']['use_backendpopups'] || isset($GLOBALS['tpl']['force_backendpopups']['images'])): ?>
             window.open(url,
                         'ImageSel',
                         'width=800,height=600,toolbar=no,scrollbars=1,scrollbars,resize=1,resizable=1');
@@ -1236,7 +1236,7 @@ $(function() {
     }
 
     // Show category selector
-    <?php if ($GLOBALS['tpl']['use_backendpopups'] || $GLOBALS['tpl']['force_backendpopups']['categories']): ?>
+    <?php if ($GLOBALS['tpl']['use_backendpopups'] || isset($GLOBALS['tpl']['force_backendpopups']['categories'])): ?>
         if($('#serendipityEntry').length > 0) {
             $('#select_category').click(function(e) {
                 e.preventDefault();
@@ -1307,7 +1307,7 @@ $(function() {
     };
 
     // Show tag selector
-    <?php if ($GLOBALS['tpl']['use_backendpopups'] || $GLOBALS['tpl']['force_backendpopups']['tags']): ?>
+    <?php if ($GLOBALS['tpl']['use_backendpopups'] || isset($GLOBALS['tpl']['force_backendpopups']['tags'])): ?>
         if($('#serendipityEntry').length > 0) {
             $('#select_tags').click(function(e) {
                 e.preventDefault();
@@ -1529,7 +1529,7 @@ $(function() {
     });
 
     // Show further links
-    <?php if ($GLOBALS['tpl']['use_backendpopups'] || $GLOBALS['tpl']['force_backendpopups']['links']): ?>
+    <?php if ($GLOBALS['tpl']['use_backendpopups'] || isset($GLOBALS['tpl']['force_backendpopups']['links'])): ?>
         if($('#dashboard').length > 0) {
             $('.toggle_links').click(function(e) {
                 $('#s9y_links').toggleClass('mfp-hide');
@@ -1546,7 +1546,7 @@ $(function() {
     <?php endif; ?>
 
     // Media file actions
-    <?php if ($GLOBALS['tpl']['use_backendpopups'] || $GLOBALS['tpl']['force_backendpopups']['images']): ?>
+    <?php if ($GLOBALS['tpl']['use_backendpopups'] || isset($GLOBALS['tpl']['force_backendpopups']['images'])): ?>
     $('.media_fullsize').click(function(e) {
         e.preventDefault();
         var $el = $(this);
