@@ -6,11 +6,11 @@ Version 2.6-alpha ()
 
   * Fix proper Backend message when developer build runs integrity check
 
-  * PHP/Tpl Groundwork for Debugging Session of uninitialized variables,
-    when the Smarty_class::muteExpectedErrors was enabled, which passes
-    certain Errors and Warnings/Notices to the Serendipity Error Handler.
-    This also checked into the [2k11, next] themes Frontend template files
-    and the configuration PHP file.
+  * PHP/TPL Groundwork for Debugging Session of uninitialized variables,
+    when the Smarty_class::muteExpectedErrors method was enabled, which
+    passes certain Errors and Warnings/Notices to the Serendipity Error
+    Handler. This also checked into the [2k11, next] themes Frontend
+    template files and the configuration PHP file.
     Adapt this to your copy themes based on 2k11/next.
 
   * 2k11: Run new unsaved comment previews as Smarty default id 0 and
