@@ -319,7 +319,7 @@ function serendipity_db_matched_rows() {
 }
 
 /**
- * Returns a escaped string, so that it can be safely included in a SQL string encapsulated within quotes, without allowing SQL injection.
+ * Returns an escaped string, so that it can be safely included in a SQL string encapsulated within quotes, without allowing SQL injection.
  *
  * @access  public
  * @param   string   input string

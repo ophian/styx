@@ -162,7 +162,7 @@ function serendipity_db_matched_rows() {
 }
 
 /**
- * Returns a escaped string, so that it can be safely included in a SQL string encapsulated within quotes, without allowing SQL injection.
+ * Returns an escaped string, so that it can be safely included in a SQL string encapsulated within quotes, without allowing SQL injection.
  *
  * @access  public
  * @param   string   input string
@@ -174,7 +174,7 @@ function serendipity_db_escape_string($string) {
 }
 
 /**
- * Returns the option to a LIMIT SQL statement, because it varies accros DB systems
+ * Returns the option to a LIMIT SQL statement, because it varies across DB systems
  *
  * @access public
  * @param  int      Number of the first row to return data from
