@@ -358,6 +358,13 @@
                                           'permission'  => 'blogConfiguration',
                                           'default'     => ''),
 
+                                    array('var'         => 'allowHtmlComment',
+                                          'title'       => HTML_COMMENTS,
+                                          'description' => HTML_COMMENTS_DESC,
+                                          'type'        => 'bool',
+                                          'default'     => false,
+                                          'permission'  => 'blogConfiguration'),
+
                                     array('var'         => 'allowSubscriptions',
                                           'title'       => INSTALL_SUBSCRIBE,
                                           'description' => INSTALL_SUBSCRIBE_DESC,

@@ -158,8 +158,8 @@ if (isset($serendipity['GET']['adminAction'])
     if (!is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
-    $serendipity['smarty']->assign('comment_wysiwyg', ($serendipity['allow_html_comment'] && $serendipity['wysiwyg']));
-    if ($serendipity['allow_html_comment'] && $serendipity['wysiwyg']) {
+    $serendipity['smarty']->assign('comment_wysiwyg', ($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']));
+    if ($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']) {
         // define the script here and NOT in template for secureness, since we don't want any possible manipulation!
         $ckescript = "
         <script>
@@ -399,7 +399,7 @@ if (is_array($sql)) {
         $entrylink = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true) . '#c' . $comment['id'];
         $comment['entrylink'] = $entrylink;
 
-        if ($serendipity['allow_html_comment']) {
+        if ($serendipity['allowHtmlComment']) {
             // this replaces stripping tags OR the serendipity_htmlspecialchars() usage
             $comment['fullBody'] = serendipity_sanitizeHtmlComments($comment['fullBody']);
             $is_html = ($comment['fullBody'] != strip_tags($comment['fullBody'])) ? true : false;
@@ -409,7 +409,7 @@ if (is_array($sql)) {
             $comment['excerpt'] = true;
 
             // When summary is not the full body, strip any HTML tags from summary, as it might break and leave unclosed HTML.
-            if ($serendipity['allow_html_comment']) {
+            if ($serendipity['allowHtmlComment']) {
                 $_summary = htmlspecialchars(str_replace('  ', ' ', strip_tags($comment['summary'])), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false);
                 $stripped = ($comment['summary'] != $_summary) ? true : false;
                 $comment['summary']  = $_summary;
@@ -420,7 +420,7 @@ if (is_array($sql)) {
             }
 
         } else {
-            if ($serendipity['allow_html_comment']) {
+            if ($serendipity['allowHtmlComment']) {
                 // excerpt allows to open up a non-stripped fullBody box, if summary was stripped before!
                 $comment['excerpt']  = ($comment['summary'] < strip_tags($comment['summary'])) ? true : false;
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
@@ -433,7 +433,7 @@ if (is_array($sql)) {
             }
         }
 
-        // Backend only: Do for both - else add ($serendipity['allow_html_comment'] && )
+        // Backend only: Do for both - else add ($serendipity['allowHtmlComment'] && )
         if ($comment['type'] == 'NORMAL' && serendipity_isCommentStripped($comment['summary'], $comment['excerpt'])) {
             if (empty($comment['summary'])) {
                 $comment['summary'] .= '<span class="msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection. Check with disabled HTML-comments mode and EDIT.</span>';

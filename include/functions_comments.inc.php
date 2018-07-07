@@ -450,7 +450,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
         if ($parentid === VIEWMODE_LINEAR || !isset($comment['parent_id']) || $comment['parent_id'] == $parentid) {
             $i++;
 
-            if ($serendipity['allow_html_comment']) {
+            if ($serendipity['allowHtmlComment']) {
                 $comment['comment'] = serendipity_sanitizeHtmlComments((string)$comment['body']); // cast as string (for PREVIEW modes only)
             } else {
                 $comment['comment'] = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings (for PREVIEW mode only)
@@ -478,7 +478,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             }
 
             // check the origin field entry to HTML display each comment using NL2P in backend and/or frontend - and in shortcut /comments/ pages
-            if ($serendipity['allow_html_comment'] && false !== strpos($comment['body'], '</p>')) {
+            if ($serendipity['allowHtmlComment'] && false !== strpos($comment['body'], '</p>')) {
                 // disable NL2BR plugin parsing, for the NL2BR newline to p-tag option
                 $serendipity['POST']['properties']['disable_markups'] = array(true);
             }
@@ -496,7 +496,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['email']       = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
             }
 
-            // frontend entry comments - do for both else add ($serendipity['allow_html_comment'] && )
+            // frontend entry comments - do for both else add ($serendipity['allowHtmlComment'] && )
             if (isset($comment['type']) && $comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
                 $comment['comment'] = '<span class="serendipity_msg_important msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
             }
@@ -589,7 +589,7 @@ function serendipity_printCommentsByAuthor() {
                 $comment['link'] = serendipity_archiveURL($comment['entry_id'], $comment['title'], 'serendipityHTTPPath', true, array('timestamp' => $comment['entrytimestamp']));
                 $entry_comments[$comment['entry_id']] = $comment;
             }
-            if ($serendipity['allow_html_comment']) {
+            if ($serendipity['allowHtmlComment']) {
                 $comment['body'] = serendipity_prepCommentNewline($comment['body']);
             }
             $entry_comments[$comment['entry_id']]['comments'][] = $comment;
