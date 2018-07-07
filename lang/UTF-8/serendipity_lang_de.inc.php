@@ -1099,7 +1099,7 @@
 @define('INSTALL_PASSWORD2', 'Admin-Passwort (erneut)');
 @define('INSTALL_PASSWORD2_DESC', 'Passwort für den Administrator-Zugang, nochmal zur Bestätigung eingeben.');
 @define('INSTALL_PASSWORD_INVALID', 'Die eingebenen Administrator-Passwörter stimmen nicht überein.');
-@define('INSTALL_BACKENDPOPUP_GRANULAR', 'Popup Verhalten in speziellen Bereichen erzwingen');
+@define('INSTALL_BACKENDPOPUP_GRANULAR', 'Verhalten in speziellen Bereichen erzwingen');
 @define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'Wenn Popups generell deaktiviert wurden (s.o.), kann an speziellen Stellen dennoch der Einsatz von Popups, bzw. eingebetteter Elemente forciert werden, indem die Liste jener Stellen hier aufgeführt wird (kommasepariert). Die vollständige Liste ist: ');
 @define('START_UPDATE', 'Starte Update ...');
 @define('UPDATE_ALL', 'Update Alle');

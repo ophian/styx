@@ -1096,7 +1096,7 @@
 @define('INSTALL_PASSWORD2', 'Admin password (verify)');
 @define('INSTALL_PASSWORD2_DESC', 'Password for admin login, enter again to verify.');
 @define('INSTALL_PASSWORD_INVALID', 'Your entered passwords for the administrator user do not match.');
-@define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
+@define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend embed/popup behavior');
 @define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('JS_FAILURE', 'The Serendipity JavaScript-library could not be loaded. This can happen due to PHP or Plugin errors, or even a malformed browser cache. To check the exact error please open <a href="%1$s">%1$s</a> manually in your browser and check for error messages.');
 @define('THEMES_PREVIEW_BLOG', 'See demo on blog.s9y.org');

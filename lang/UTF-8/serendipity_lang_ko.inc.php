@@ -1104,7 +1104,7 @@
 @define('INSTALL_PASSWORD2_DESC', '검증을 위해 관리자 로그인을 위한 암호를 다시 입력합니다.');
 @define('INSTALL_PASSWORD_INVALID', '입력한 관리자 암호가 일치하지 않습니다.');
 #@define('INSTALL_BACKENDPOPUP_GRANULAR', '특정 관리자 화면 팝업 창을 강제로 표시');
-@define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend popup behavior');
+@define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend embed/popup behavior');
 #@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', '일반적으로 관리자 화면의 팝업 창을 사용하고 있지 않을 경우라도 팝업 창을 강제로 사용하고자 하는 곳이 있으면 여기에 해당 장소들을 각각 쉼표로 분리하여 입력해둘 수 있습니다. 사용 가능한 장소는: ');
 @define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', '업데이트 시작...');
