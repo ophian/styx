@@ -1,6 +1,9 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * EXPERIMENTAL: Do not allow the Administrator to delete the highest
+    group level he is in.
+
   * Fix regression for html comments. This has to be a global configuration
     option and now has moved in the global configuration section: "General
     Settings". You have to allow this option again, if already using!
