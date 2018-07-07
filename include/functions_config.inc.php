@@ -1722,6 +1722,13 @@ function serendipity_deleteGroup($groupid) {
         }
     }
 
+    // Do not allow to delete the administrators (1) GROUP named USERLEVEL_ADMIN_DESC (3)
+    $self  = serendipity_db_query("SELECT authorid FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . (int)$groupid . " LIMIT 1", true, 'assoc');
+    $group = serendipity_db_query("SELECT name FROM {$serendipity['dbPrefix']}groups WHERE id = " . (int)$groupid . " LIMIT 1", true, 'assoc');
+    if ($serendipity['authorid'] == 1 && $group['name'] == 'USERLEVEL_ADMIN_DESC' && $self['authorid'] == $serendipity['authorid']) {
+        return false;
+    }
+
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groups WHERE id = " . (int)$groupid);
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . (int)$groupid);
 

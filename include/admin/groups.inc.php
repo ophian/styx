@@ -9,11 +9,15 @@ if (!serendipity_checkPermission('adminUsersGroups')) {
 }
 
 $data = array();
+
 /* Delete a group */
 if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
     $group = serendipity_fetchGroup($serendipity['POST']['group']);
-    serendipity_deleteGroup($serendipity['POST']['group']);
-    $data['delete_yes'] = true;
+    if (serendipity_deleteGroup($serendipity['POST']['group'])) {
+        $data['delete_yes'] = true;
+    } else {
+        $data['delete_yes'] = false;
+    }
     $data['group_id'] = $serendipity['POST']['group'];
     $data['group'] = $group;
 }
