@@ -200,7 +200,7 @@ function serendipity_sanitizeHtmlComments($str) {
     global $serendipity;
     // sanitize and break code blocks which is done per CKEplus plugin independently or by manual inserts for PLAIN EDITORs. (Disable nl2br::comment parsing!)
     // Do not switch the Editor and save a comment using code examples again, since that my lead to hidden code parts due to the nature of processing the codesnippet CKE plugin
-    if (!$serendipity['wysiwyg'] && (strpos($str, '<code') !== false || strpos($str, '<pre') !== false)) {
+    if (empty($serendipity['wysiwyg']) && (strpos($str, '<code') !== false || strpos($str, '<pre') !== false)) {
         $str = serendipity_entityCommentCodeTagBlocks($str);
     }
     // this is still unparsed by nl2br yet
