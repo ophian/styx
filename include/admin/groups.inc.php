@@ -21,17 +21,20 @@ if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
 /* Save new group */
 if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
     $serendipity['POST']['group'] = serendipity_addGroup($serendipity['POST']['name']);
+    $_forbidden_plugins = isset($serendipity['POST']['forbidden_plugins']) ? $serendipity['POST']['forbidden_plugins'] : null;
+    $_forbidden_hooks   = isset($serendipity['POST']['forbidden_hooks'])   ? $serendipity['POST']['forbidden_hooks']   : null;
     $perms = serendipity_getAllPermissionNames();
-    serendipity_updateGroupConfig($serendipity['POST']['group'], $perms, $serendipity['POST'], false, $serendipity['POST']['forbidden_plugins'], $serendipity['POST']['forbidden_hooks']);
+    serendipity_updateGroupConfig($serendipity['POST']['group'], $perms, $serendipity['POST'], false, $_forbidden_plugins, $_forbidden_hooks);
     $data['save_new'] = true;
     $data['group_id'] = $serendipity['POST']['group'];
-    $data['group'] = $group;
 }
 
 /* Edit a group */
 if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
     $perms = serendipity_getAllPermissionNames();
-    serendipity_updateGroupConfig($serendipity['POST']['group'], $perms, $serendipity['POST'], false, $serendipity['POST']['forbidden_plugins'], $serendipity['POST']['forbidden_hooks']);
+    $_forbidden_plugins = isset($serendipity['POST']['forbidden_plugins']) ? $serendipity['POST']['forbidden_plugins'] : null;
+    $_forbidden_hooks   = isset($serendipity['POST']['forbidden_hooks'])   ? $serendipity['POST']['forbidden_hooks']   : null;
+    serendipity_updateGroupConfig($serendipity['POST']['group'], $perms, $serendipity['POST'], false, $_forbidden_plugins, $_forbidden_hooks);
     $data['save_edit'] = true;
     $data['name'] = $serendipity['POST']['name'];
 }

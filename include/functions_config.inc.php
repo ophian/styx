@@ -1913,7 +1913,7 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
 
     serendipity_db_query("UPDATE {$serendipity['dbPrefix']}groups SET name = '" . serendipity_db_escape_string($values['name']) . "' WHERE id = " . (int)$groupid);
 
-    if (is_array($values['members'])) {
+    if (isset($values['members']) && is_array($values['members'])) {
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . (int)$groupid);
         foreach($values['members'] AS $member) {
             serendipity_db_query(
