@@ -1,6 +1,10 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Fix regression for html comments. This has to be a global configuration
+    option and now has moved in the global configuration section: "General
+    Settings". You have to allow this option again, if already using!
+
   * Partially Sync "Improved NL2P (nl2br)" commit, added to Serendipity
     by Stephan Brunker, part II.
 
