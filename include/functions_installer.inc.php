@@ -402,7 +402,7 @@ function serendipity_replaceEmbeddedConfigVars ($s) {
 }
 
 /**
- * Preprocess the configuration value and put it into a HTML output field (radio, password, text, select, ...)
+ * Pre-process the configuration value and put it into a HTML output field (radio, password, text, select, ...)
  *
  * @access public
  * @param   string  The type of the configuration item
@@ -438,11 +438,11 @@ function serendipity_guessInput($type, $name, $value='', $default='') {
             break;
 
         case 'list':
-            $cval = (string)$value;
+            $cval = @(string)$value;
             $default = (array)$default;
             foreach($default AS $k => $v) {
-                $selected = ((string)$k == (string)$value);
-                if (empty($cval) && ((string)$k === 'false' || (string)$k === null)) {
+                $selected = (@(string)$k == @(string)$value);
+                if (empty($cval) && (@(string)$k === 'false' || @(string)$k === null)) {
                     $selected = true;
                 }
                 $curOptions[$name][$k]['selected'] = $selected;
@@ -521,6 +521,7 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
             if (in_array('ifEmpty', $item['flags']) && empty($value)) {
                 $value = serendipity_query_default($item['var'], $item['default']);
             }
+
             $item['guessedInput'] = serendipity_guessInput($item['type'], $item['var'], $value, $item['default']);
         }
     }
