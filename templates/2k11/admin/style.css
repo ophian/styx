@@ -3000,7 +3000,8 @@ label .perm_name,
     font-size: .9125em;
     line-height: 1;
     margin: .5em 0 .5em;
-    width: unset;
+    width: 79%;
+    min-width: 6em;
 }
 .js .media_gallery .media_file_pregal {
     min-height: 5.5em;
@@ -3536,7 +3537,10 @@ img.mfp-img {
     transform-origin: 100%; }
   .mfp-container {
     padding-left: 6px;
-    padding-right: 6px; } }
+    padding-right: 6px; }
+  .js .media_gallery .media_gal header h3 {
+    width: 74%;
+    min-width: 4em; } }
 
 /* Additional styles for MagnificPopup, do not remove */
 .mfp-image-holder .mfp-content {
