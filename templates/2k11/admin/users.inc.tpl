@@ -1,6 +1,8 @@
 {if isset($delete_yes) AND $delete_yes}
     {if isset($no_delete_permission) AND $no_delete_permission}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CREATE_NOT_AUTHORIZED}</span>
+    {elseif isset($delete_no_user) AND $delete_no_user AND empty($no_delete_permission)}
+            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COULDNT_SELECT_USER_INFO|sprintf:"ID#{$user|escape}"}</span>
     {else}
         {if isset($no_delete_permission_userlevel) AND $no_delete_permission_userlevel}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CREATE_NOT_AUTHORIZED_USERLEVEL}</span>
@@ -20,7 +22,7 @@
         {if isset($no_group_selected) AND $no_group_selected}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.WARNING_NO_GROUPS_SELECTED}</span>
         {/if}
-            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CREATED_USER|sprintf:"# {$user|escape}":"{$realname|escape}"}</span>
+            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CREATED_USER|sprintf:"# {$user|escape}":"{$realname|escape|default:''}"}</span>
     {/if}
 {/if}
 {if isset($save_edit) AND $save_edit}
@@ -33,7 +35,7 @@
             {if isset($no_group_selected) AND $no_group_selected}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.WARNING_NO_GROUPS_SELECTED}</span>
             {/if}
-            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.MODIFIED_USER|sprintf:"{$realname|escape}"}</span>
+            <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.MODIFIED_USER|sprintf:"{$realname|escape|default:''}"}</span>
         {/if}
     {/if}
 {/if}
