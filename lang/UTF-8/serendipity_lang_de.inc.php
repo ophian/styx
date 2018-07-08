@@ -982,7 +982,7 @@
 @define('PLAIN_ASCII_NAMES', '(keine Sonderzeichen, Umlaute)');
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Vereinfachte Filter');
-@define('SIMPLE_FILTERS_DESC', 'Wenn aktiviert, werden Suchformulare und Filteroptionen auf die notwendigen Optionen reduziert. Ist diese Option deaktiviert, werden alle erweiterten Filteroptionen, z.b. beim Eintrags-Editor oder der Mediendatenbank, angezeigt.');
+@define('SIMPLE_FILTERS_DESC', 'Wenn aktiviert, werden Suchformulare und Filteroptionen auf die notwendigen Optionen reduziert. Ist diese Option deaktiviert, werden alle erweiterten Filteroptionen, z.b. beim Eintrags-Editor oder der Mediendatenbank, angezeigt, die den aktuellen Berechtigungen entsprechen.');
 @define('TOGGLE_SELECT', 'Zu Auswahl hinzufügen');
 @define('MORE', 'Mehr');
 @define('ENTRY_STATUS', 'Eintragsstatus');
