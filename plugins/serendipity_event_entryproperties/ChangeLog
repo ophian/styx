@@ -1,3 +1,7 @@
+1.61:
+-----
+    * Init some more uninitialized variables when using plain text editor
+
 1.60:
 -----
     * Init some more uninitialized variables and add a replacement

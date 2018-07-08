@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.60');
+        $propbag->add('version',       '1.61');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -230,7 +230,7 @@ class serendipity_event_entryproperties extends serendipity_event
     {
         global $serendipity;
 
-        if (is_array($properties['disable_markups'])) {
+        if (isset($properties['disable_markups']) && is_array($properties['disable_markups'])) {
             foreach($properties['disable_markups'] AS $idx => $instance) {
                 $properties['disable_markup_' . $instance] = $instance;
             }
@@ -245,8 +245,8 @@ class serendipity_event_entryproperties extends serendipity_event
         $property = serendipity_fetchEntryProperties($eventData['id']);
         $supported_properties = serendipity_event_entryproperties::getSupportedProperties();
 
-        // Cleanup properties first, if none disable_markups plugins were set, or a previous selected one was re-set
-        if (is_array($serendipity['POST']['properties']) && !is_array($serendipity['POST']['properties']['disable_markups'])) {
+        // Cleanup properties first, if none disable_markups plugins were set like in PLAIN TEXT Editor, or a previous selected one was re-set
+        if (is_array($serendipity['POST']['properties']) && (!isset($serendipity['POST']['properties']['disable_markups']) || !is_array($serendipity['POST']['properties']['disable_markups']))) {
             $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property LIKE 'ep_disable_markup_%'";
             serendipity_db_query($q);
         }
@@ -261,7 +261,7 @@ class serendipity_event_entryproperties extends serendipity_event
         }
 
         // Special case for disable markups.
-        if (is_array($properties['disable_markups'])) {
+        if (isset($serendipity['POST']['properties']['disable_markups']) && is_array($properties['disable_markups'])) {
             $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property LIKE 'ep_disable_markup_%'";
             serendipity_db_query($q);
 
