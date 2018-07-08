@@ -52,6 +52,7 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
         $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
         /* Save all the properties */
         $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
+        // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name. Normally these are 'pass' named input fields for login passwords.
         foreach($config AS $category) {
             foreach($category['items'] AS $item) {
                 if (in_array('groups', $item['flags'])) {
