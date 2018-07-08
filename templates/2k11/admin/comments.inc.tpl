@@ -21,7 +21,7 @@
 
                 <ul class="filters_toolbar plainList">
                     <li><a class="button_link" href="#filter_comments" title="{$CONST.FILTERS}"><span class="icon-filter" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
-                    <li><div class="backend_comments">{$backend_comments_top}</div></li>
+                    <li><div class="backend_comments">{$backend_comments_top|default:''}</div></li>
                 </ul>
 
                 <fieldset id="filter_comments" class="additional_info filter_pane">

@@ -354,7 +354,7 @@ switch($serendipity['GET']['adminAction']) {
         $data['page']       = $page;
 
         $data['totalEntries']  = serendipity_getTotalEntries();
-        $data['simpleFilters'] = $serendipity['simpleFilters'];
+        $data['simpleFilters'] = isset($serendipity['simpleFilters']) ? $serendipity['simpleFilters'] : true;
 
         if (is_array($entries)) {
             $data['is_entries'] = true;

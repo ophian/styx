@@ -134,7 +134,7 @@
                 <fieldset>
                     <span class="wrap_legend"><legend>{$CONST.CATEGORY}</legend></span>
 
-                    <div id="category_filter" class="form_field{if $entry_vars.category_compact} compact{/if}">
+                    <div id="category_filter" class="form_field{if isset($entry_vars.category_compact) AND $entry_vars.category_compact} compact{/if}">
                         {if !isset($entry_vars.category_compact)}
                         <label for="categoryfilter" class="visuallyhidden">{$CONST.FILTERS}</label>
                         <input id="categoryfilter" type="text" placeholder="{$CONST.FILTERS}: {$CONST.CATEGORIES}">
@@ -147,7 +147,7 @@
                     </div>
 
                 {foreach $entry_vars.category_options AS $entry_cat}
-                    <div class="form_check{if $entry_vars.category_compact} compact{/if}">
+                    <div class="form_check{if isset($entry_vars.category_compact) AND $entry_vars.category_compact} compact{/if}">
                         <input type="hidden" name="serendipity[had_categories]" value="1">
                         <span class="cat_view_pad">{$entry_cat.depth_pad}</span>
                         <input id="serendipity_category_{$entry_cat.categoryid}" name="serendipity[categories][]" type="checkbox" value="{$entry_cat.categoryid}"{if isset($entry_cat.is_selected)} checked="checked"{/if}>

@@ -13,7 +13,7 @@
         <hr class="separator">
     {/if}
 
-    {if $updateCheck == "stable" OR $updateCheck == "beta"}
+    {if isset($updateCheck) AND ($updateCheck == "stable" OR $updateCheck == "beta")}
         {if $curVersion == -1}
             <section id="dashboard_update" class="clearfix dashboard_widget{if $default_widgets} expand{/if}">
                 <h3>{$CONST.UPDATE_NOTIFICATION}</h3>

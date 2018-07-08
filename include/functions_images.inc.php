@@ -2347,7 +2347,7 @@ function serendipity_getimagesize($file, $ft_mime = '', $suf = '') {
 function serendipity_getImageFields() {
     global $serendipity;
 
-    if ($serendipity['simpleFilters'] !== false) {
+    if (isset($serendipity['simpleFilters']) && $serendipity['simpleFilters'] !== false) {
         $x = array(
             'i.date'              => array('desc' => SORT_ORDER_DATE,
                                          'type' => 'date'
@@ -3187,7 +3187,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['mimeicon'] = $mimeicon;
     }
 
-    $_iplus = (false !== stripos($serendipity['enableBackendPopupGranular'], 'images') || $serendipity['enableBackendPopup']) ? 20 : 0;
+    $_iplus = ((isset($serendipity['enableBackendPopupGranular']) && false !== stripos($serendipity['enableBackendPopupGranular'], 'images')) || (isset($serendipity['enableBackendPopup']) && $serendipity['enableBackendPopup'])) ? 20 : 0;
     $file['popupWidth']   = ($file['is_image'] ? ($file['dimensions_width']  + $_iplus) : 600);
     $file['popupHeight']  = ($file['is_image'] ? ($file['dimensions_height'] + $_iplus) : 500);
     if ($file['hotlink']) {
@@ -3232,7 +3232,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
     $order_fields = serendipity_getImageFields();
 
     $media = array(
-        'standardpane'      => ($displayGallery) ? false : true,
+        'standardpane'      => $displayGallery ? false : true,
         'manage'            => $manage,
         'multiperm'         => serendipity_checkPermission('adminImagesDirectories'),
         'lineBreak'         => $lineBreak,
@@ -3247,7 +3247,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'keywords_selected' => isset($serendipity['GET']['keywords']) ? $serendipity['GET']['keywords'] : '',
         'filter'            => isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : null,/* NIL or array() ?? (media_toolbar.tpl) */
         'sort_order'        => $order_fields,
-        'simpleFilters'     => ($displayGallery) ? false : $serendipity['simpleFilters'],
+        'simpleFilters'     => $displayGallery ? false : (isset($serendipity['simpleFilters']) ? $serendipity['simpleFilters'] : true),
         'metaActionBar'     => ($serendipity['GET']['adminAction'] != 'properties' && empty($serendipity['GET']['fid'])),
         'hideSubdirFiles'   => empty($serendipity['GET']['hideSubdirFiles']) ? 'yes' : $serendipity['GET']['hideSubdirFiles'],
         'authors'           => serendipity_fetchUsers(),

@@ -112,13 +112,17 @@
 
     <script>
         $(document).ready(function() {
+        {if isset($filter_import) AND is_array($filter_import)}
         {foreach $filter_import AS $f_import}
             {if $f_import == 'isdraft' AND isset($smarty.get.dashboard.filter.noset)}{continue}{/if}
             serendipity.SetCookie("entrylist_filter_{$f_import}", "{$get_filter_{$f_import}}");
         {/foreach}
+        {/if}
+        {if isset($sort_import) AND is_array($sort_import)}
         {foreach $sort_import AS $s_import}
             serendipity.SetCookie("entrylist_sort_{$s_import}", "{$get_sort_{$s_import}}");
         {/foreach}
+        {/if}
 
             $('#filter_entries').find('.reset_entry_filters').addClass('reset_filter');
             $('#sort_entries').find('.reset_entry_filters').addClass('reset_sort');
@@ -138,7 +142,7 @@
     </script>
 
 </div>
-    {if $is_entries}
+    {if isset($is_entries) AND $is_entries}
     {if NOT $simpleFilters}
         <form id="formMultiSelect" name="formMultiSelect" action="?" method="post">
             {$formtoken}

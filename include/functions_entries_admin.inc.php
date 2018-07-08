@@ -33,7 +33,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     serendipity_plugin_api::hook_event('backend_entryform', $entry);
 
     if ( (isset($entry['isdraft']) && serendipity_db_bool($entry['isdraft'])) ||
-         (!isset($entry['isdraft']) && $serendipity['publishDefault'] == 'draft') ) {
+         (!isset($entry['isdraft']) && isset($serendipity['publishDefault']) && $serendipity['publishDefault'] == 'draft') ) {
         $draftD = ' selected="selected"';
         $template_vars['draft_mode'] = 'draft';
     } else {
@@ -44,7 +44,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     if (isset($entry['moderate_comments']) && serendipity_db_bool($entry['moderate_comments'])) {
         $template_vars['moderate_comments'] = true;
         $moderate_comments = ' checked="checked"';
-    } elseif (!isset($entry['moderate_comments']) && ($serendipity['moderateCommentsDefault'] == 'true' || $serendipity['moderateCommentsDefault'] === true)) {
+    } elseif (!isset($entry['moderate_comments']) && (isset($serendipity['moderateCommentsDefault']) && ($serendipity['moderateCommentsDefault'] == 'true' || $serendipity['moderateCommentsDefault'] === true))) {
         // This is the default on creation of a new entry and depends on the "moderateCommentsDefault" variable of the configuration.
         $moderate_comments = ' checked="checked"';
         $template_vars['moderate_comments'] = true;
@@ -83,7 +83,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
         foreach($entry['categories'] AS $cat) {
             $selected[] = $cat['categoryid'];
         }
-    } elseif ($serendipity['categoryDefault'] > 0) {
+    } elseif (isset($serendipity['categoryDefault']) && $serendipity['categoryDefault'] > 0) {
         $selected[] = $serendipity['categoryDefault'];
     }
 
@@ -104,7 +104,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
 
             $template_vars['category_options'][] = $cat;
         }
-        if (false !== stripos($serendipity['enableBackendPopupGranular'], 'categories')) {
+        if (isset($serendipity['enableBackendPopupGranular']) && false !== stripos($serendipity['enableBackendPopupGranular'], 'categories')) {
             $template_vars['category_compact'] = true;
         }
     }
@@ -140,7 +140,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     $template_vars['entry']                   =& $entry;
     $template_vars['targetURL']               =  $targetURL;
     $template_vars['cat_count']               =  count($cats)+1;
-    $template_vars['wysiwyg']                 =  $serendipity['wysiwyg'];
+    $template_vars['wysiwyg']                 =  isset($serendipity['wysiwyg']) ? $serendipity['wysiwyg'] : false;
     $template_vars['serendipityRightPublish'] =  $_SESSION['serendipityRightPublish'];
     $template_vars['wysiwyg_blocks']          =  array(
                                                     'body'      => 'serendipity[body]',

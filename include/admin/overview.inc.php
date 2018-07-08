@@ -74,6 +74,10 @@ if (serendipity_checkPermission('adminUsers')) {
 $data['urltoken'] = serendipity_setFormToken('url');
 $data['token'] = serendipity_setFormToken();
 
+if (!isset($serendipity['default_widgets'])) {
+    $serendipity['default_widgets'] = true;
+}
+
 if ($serendipity['default_widgets']) {
     // Can be set through serendipity_config_local.inc.php
     if (!isset($serendipity['dashboardCommentsLimit'])) {
