@@ -56,7 +56,7 @@ switch($serendipity['GET']['adminAction']) {
                        'extended'           => $serendipity['POST']['extended'],
                        'categories'         => isset($serendipity['POST']['categories']) ? $serendipity['POST']['categories'] : '',
                        'isdraft'            => $serendipity['POST']['isdraft'],
-                       'allow_comments'     => $serendipity['POST']['allow_comments'],
+                       'allow_comments'     => isset($serendipity['POST']['allow_comments']) ? $serendipity['POST']['allow_comments'] : 'false',
                        'moderate_comments'  => isset($serendipity['POST']['moderate_comments']) ? $serendipity['POST']['moderate_comments'] : '',
                        'exflag'             => (!empty($serendipity['POST']['extended']) ? true : false),
                        'had_categories'     => $serendipity['POST']['had_categories']

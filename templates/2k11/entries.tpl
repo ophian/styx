@@ -30,8 +30,8 @@
         {if isset($entry.categories) AND $entry.categories}
             <span class="visuallyhidden">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
         {/if}
-        {if isset($entry.categories) AND $entry.categories AND ($entry.has_comments OR $entry.has_disqus)} | {/if}
-        {if $entry.has_comments OR $entry.has_disqus}
+        {if isset($entry.categories) AND $entry.categories AND ((isset($entry.has_comments) AND $entry.has_comments) OR $entry.has_disqus)} | {/if}
+        {if (isset($entry.has_comments) AND $entry.has_comments) OR (isset($entry.has_disqus) AND $entry.has_disqus)}
         {if isset($entry.has_disqus) AND $entry.has_disqus}
             {$entry.comments}{if isset($entry.has_trackbacks) AND $entry.has_trackbacks}, <a href="{$entry.link}#trackbacks">{$entry.trackbacks} {$entry.label_trackbacks}</a>{/if}
         {else}

@@ -789,7 +789,7 @@ function serendipity_authenticate_author($username = '', $password = '', $is_has
         $rows =& serendipity_db_query($query, false, 'assoc');
         if (is_array($rows)) {
             foreach($rows AS $row) {
-                if ($is_valid_user) continue;
+                if (isset($is_valid_user) && $is_valid_user) continue;
                 $is_valid_user = false;
 
                 if (empty($row['hashtype']) || $row['hashtype'] == 0) {

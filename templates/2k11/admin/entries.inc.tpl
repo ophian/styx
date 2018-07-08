@@ -152,6 +152,7 @@
     {/if}
 
         <div class="entries_pane">
+        {if isset($entries) AND is_array($entries)}
             <ul id="entries_list" class="plainList zebra_list">
             {foreach $entries AS $entry}
                 {if ($entry@index >= $perPage)}{continue}{/if}
@@ -203,7 +204,8 @@
                 </li>
             {/foreach}
             </ul>
-            {if ($offSet > 0) OR ($count > $perPage)}
+        {/if}
+        {if ($offSet > 0) OR ($count > $perPage)}
             {math assign=totalPages equation="ceil(values/parts)" values=$totalEntries parts=$perPage}
             <nav class="pagination">
                 <h3>{$CONST.PAGE_BROWSE_ENTRIES|sprintf:($page+1):$totalPages:$totalEntries}</h3>
@@ -216,10 +218,10 @@
                     <li class="next">{if ($count > $perPage)}<a class="button_link" href="{$linkNext}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir" aria-hidden="true"></span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
                 </ul>
             </nav>
-            {/if}
+        {/if}
         </div>
     {/if}
-    {if NOT $simpleFilters AND is_array($entries)}
+    {if NOT $simpleFilters AND isset($entries) AND is_array($entries)}
         <div id="multidelete_tools" class="form_buttons">
             <input class="invert_selection" name="toggle" type="button" value="{$CONST.INVERT_SELECTIONS}">
             <input class="state_cancel" name="toggle" type="submit" value="{$CONST.DELETE}">
