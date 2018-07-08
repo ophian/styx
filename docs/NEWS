@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Fix gallery header width styles floating screens
+
   * Fix wrong used POST password field passed to addAuthor
 
   * EXPERIMENTAL: Do not allow the Administrator to delete the highest
