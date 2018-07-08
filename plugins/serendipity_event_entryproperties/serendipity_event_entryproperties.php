@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.59');
+        $propbag->add('version',       '1.60');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -419,8 +419,9 @@ class serendipity_event_entryproperties extends serendipity_event
 <?php
                     $users = serendipity_fetchUsers('', 'hidden');
                     foreach($users AS $user) {
+                        $_realname = !empty($user['realname']) ? serendipity_specialchars($user['realname']) : 'no realname';
 ?>
-                    <option value="<?php echo $user['authorid']; ?>" <?php echo (in_array($user['authorid'], $access_users) ? 'selected="selected"' : ''); ?>><?php echo serendipity_specialchars($user['realname']); ?></option>
+                    <option value="<?php echo $user['authorid']; ?>" <?php echo (in_array($user['authorid'], $access_users) ? 'selected="selected"' : ''); ?>><?php echo $_realname; ?></option>
 <?php
                     }
                     echo "</select>\n";
@@ -480,7 +481,8 @@ class serendipity_event_entryproperties extends serendipity_event
                 $avail_users =& $this->getValidAuthors();
                 if (is_array($avail_users) && !empty($avail_users)) {
                     foreach($avail_users AS $user) {
-                        echo '<option value="' . $user['authorid'] . '" ' . ($selected_user == $user['authorid'] ? ' selected="selected"' : '') . '>' . serendipity_specialchars($user['realname']) . '</option>' . "\n";
+                        $_realname = !empty($user['realname']) ? serendipity_specialchars($user['realname']) : 'no realname';
+                        echo '<option value="' . $user['authorid'] . '" ' . ($selected_user == $user['authorid'] ? ' selected="selected"' : '') . '>' . $_realname . '</option>' . "\n";
                     }
                 }
                 ?>
@@ -513,7 +515,7 @@ class serendipity_event_entryproperties extends serendipity_event
                             $selected = false;
                         }
                         // automatically mark nl2br markup parser as disabled, when WYSIWYG is active
-                        if (!$selected && $serendipity['wysiwyg'] && $plugin_data['p']->act_pluginPath == 'serendipity_event_nl2br') {
+                        if (!$selected && isset($serendipity['wysiwyg']) && $serendipity['wysiwyg'] && $plugin_data['p']->act_pluginPath == 'serendipity_event_nl2br') {
                             $selected = true;
                         }
                         echo '<option ' . ($selected ? 'selected="selected"' : '') . ' value="' . $plugin_data['p']->instance . '">' . serendipity_specialchars($plugin_data['p']->title) . '</option>' . "\n";

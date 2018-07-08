@@ -1,3 +1,17 @@
+1.60:
+-----
+    * Init some more uninitialized variables and add a replacement
+      for the authors/users realname if not set.
+1.59:
+-----
+    * isset initialization checks for Debug session:
+      smarty_class::muteExpectedErrors - Pass muted/silenced Smarty
+      Exceptions to the Serendipity Error Handler.
+
+1.58:
+-----
+    * Add new "legal" property bag attribute
+
 1.57:
 -----
     * Replace PHP 7.2 set deprecated each() usage
