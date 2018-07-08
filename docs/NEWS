@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Fix wrong used POST password field passed to addAuthor
+
   * EXPERIMENTAL: Do not allow the Administrator to delete the highest
     group level he is in.
 
