@@ -1,6 +1,11 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Remove workaround for the iframe_preview.tpl template preview
+    offsetHeight, since that problem does not exist any more!
+    Fixed in [2k11, next, bootstrap 4] themes.
+    Adapt this to your copy themes based on 2k11/next/bootstrap4.
+
   * Fix gallery header width styles floating screens
 
   * Fix wrong used POST password field passed to addAuthor
