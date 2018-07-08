@@ -46,7 +46,8 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
     if (($serendipity['serendipityUserlevel'] < USERLEVEL_ADMIN && $_POST['userlevel'] >= $serendipity['serendipityUserlevel']) || !serendipity_checkPermission('adminUsersCreateNew')) {
         $data['no_save_permission'] = true;
     } else {
-        $serendipity['POST']['user'] = serendipity_addAuthor($_POST['username'], $_POST['pass'], $_POST['realname'], $_POST['email'], $_POST['userlevel']);
+        // POST check for password named field (see config build down below)
+        $serendipity['POST']['user'] = serendipity_addAuthor($_POST['username'], $_POST['password'], $_POST['realname'], $_POST['email'], $_POST['userlevel']);
 
         $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
         /* Save all the properties */
@@ -226,7 +227,6 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
             $from = &$user[0];
             unset($from['password']);
         } else {
-
             $from = array();
         }
     } else {
@@ -235,6 +235,7 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
     $data['from'] = $from;
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
+    // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name. Normally these are 'pass' named input fields for login passwords.
     if (!empty($serendipity['GET']['userid'])) {
         $from['groups'] = serendipity_getGroups($serendipity['GET']['userid']);
     } else {
