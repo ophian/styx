@@ -1,6 +1,10 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Extend the Smarty $compile_id (directory) to switch between current
+    Backend/Frontend themes, to make compilation build checks easier and
+    explicit.
+
   * Remove workaround for the iframe_preview.tpl template preview
     offsetHeight, since that problem does not exist any more!
     Fixed in [2k11, next, bootstrap 4] themes.
