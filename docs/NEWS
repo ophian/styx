@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Do not allow to delete the user SELF
+
   * Extend the Smarty $compile_id (directory) to switch between current
     Backend/Frontend themes, to make compilation build checks easier and
     explicit.
