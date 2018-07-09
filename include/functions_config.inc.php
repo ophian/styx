@@ -61,6 +61,11 @@ function serendipity_deleteAuthor($authorid) {
         return false;
     }
 
+     // Do not allow to delete the user SELF
+    if ($authorid == $serendipity['authorid']) {
+        return false;
+    }
+
     if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authors WHERE authorid=" . (int)$authorid)) {
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}permalinks WHERE entry_id=" . (int)$authorid ." and type='author'");
     }

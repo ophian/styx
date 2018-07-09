@@ -26,9 +26,14 @@ if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
         if (isset($user[0])) {
             $group_intersect = serendipity_intersectGroup($user[0]['authorid']);
             if (serendipity_checkPermission('adminUsersMaintainOthers') || (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
-                $data['delete_permission'] = true;
-                serendipity_deleteAuthor($user[0]['authorid']);
-                serendipity_plugin_api::hook_event('backend_users_delete', $user[0]);
+                // if user is trying to delete itself return false
+                if (serendipity_deleteAuthor($user[0]['authorid'])) {
+                    $data['delete_permission'] = true;
+                    serendipity_plugin_api::hook_event('backend_users_delete', $user[0]);
+                } else {
+                    $data['delete_permission'] = false;
+                    $data['delete_no_self_user'] = true;
+                }
             }
         } else {
             $data['delete_permission'] = false;
