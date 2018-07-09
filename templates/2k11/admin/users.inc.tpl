@@ -2,7 +2,7 @@
     {if isset($no_delete_permission) AND $no_delete_permission}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CREATE_NOT_AUTHORIZED}</span>
     {elseif isset($delete_no_self_user) AND $delete_no_self_user AND empty($no_delete_permission)}
-            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {'You should never delete yourself: %s: %s, %s.'|sprintf:"ID#{$user|escape}":"{$users.$user.realname|escape}":"{$users.$user.userlevel_name|escape}"}</span>
+            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.ERROR_DONT_SHOOT_YOURSELF|default:"You should never delete yourself: %s: %s, %s."|sprintf:"ID#{$user|escape}":"{$users.$user.realname|escape}":"{$users.$user.userlevel_name|escape}"}</span>
     {elseif isset($delete_no_user) AND $delete_no_user AND empty($no_delete_permission)}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COULDNT_SELECT_USER_INFO|sprintf:"ID#{$user|escape}"}</span>
     {else}
