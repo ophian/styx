@@ -64,13 +64,17 @@ switch($serendipity['GET']['adminAction']) {
         break;
 
     case 'runcleanup':
-        // The Smarty method clearCompiledTemplate() clears all compiled Smarty template files in templates_c and IS loaded dynamically by the extension handler when called.
-        // Since there may be other compiled template files in templates_c too, we have to restrict this call() to clear the blogs template only,
-        // to not have the following automated recompile, force the servers memory to get exhausted,
-        // when using plugins like serendipity_event_gravatar plugin, which can eat up some MB...
-        // Restriction to template means: leave the page we are on: ../admin/index.tpl and all others, which are set, included and compiled by runtime. (plugins, etc. this can be quite some..!)
+        // The Smarty method clearCompiledTemplate() clears all compiled Smarty template files in templates_c and is loaded dynamically by the extension handler when called.
+        // Since there may be other compiled template files in templates_c too, we have to restrict this call() to clear the current Blogs template only,
+        // to not have the following automated recompile, force the servers memory to get exhausted
+        //    (eg. when using plugins like the serendipity_event_gravatar plugin, which can eat up some MB...).
+        // Restriction to template means: leave/recompile the page we are on: ie. ../admin/index.tpl and all others, which are set, included and compiled by runtime. (plugins, etc. this can be quite some..!)
         if (is_object($serendipity['smarty'])) {
-            $data['cleanup_finish']   = $serendipity['smarty']->clearCompiledTemplate(null, $serendipity['template']);
+            // since we use different $compile_id directories for current Backend/Frontend themes to make compilation checks easier and explicit, we now have to clear them both.
+            $cct_backend  = $serendipity['smarty']->clearCompiledTemplate(null, $serendipity['template_backend']); // silent result
+            $cct_frontend = $serendipity['smarty']->clearCompiledTemplate(null, $serendipity['template']);
+            // But we only return the result for the Frontend template
+            $data['cleanup_finish']   = $cct_frontend;
             $data['cleanup_template'] = $serendipity['template'];
         }
         break;

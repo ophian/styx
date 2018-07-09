@@ -201,10 +201,11 @@ class Serendipity_Smarty extends Smarty
         /*
             Note: rodneyrehm
             If you actually manage to build a page from a single template (with inclusions and plugins and stuff)
-            in a way that allows smarty to do 304 handling - or implement the serve-stale-while-update approach,
+            in a way that allows Smarty to do 304 handling - or implement the serve-stale-while-update approach,
             you should go with CACHEMISS.
         */
-        $this->compile_id = &$serendipity['template']; // $this->setCompileId(&$serendipity['template'])
+        $tscope = (defined('IN_serendipity_admin') && IN_serendipity_admin === true) ? 'template_backend' : 'template'; // switch between current Backend/Frontend themes, to make compilation checks easier and explicit.
+        $this->compile_id = &$serendipity[$tscope]; // $this->setCompileId(&$serendipity['template'])
         /*
             Note: rodneyrehm
             Please only specify the compile_id if you really need to.
@@ -220,10 +221,10 @@ class Serendipity_Smarty extends Smarty
             $this->debugging     = true;   // $this->setDebugging(true);
         }
 
-        // Set smarty error reporting. General error_reporting is set in serendipity/serendipity_config.inc.php
+        // Set Smarty error reporting. General error_reporting is set in serendipity/serendipity_config.inc.php
         $this->error_reporting = E_ALL & ~(E_NOTICE|E_STRICT);
 
-        // We use our own error_handler and get in conflicts with smarty in any case?
+        // We use our own error_handler and get in conflicts with Smarty in any case?
         // $this->muteExpectedErrors();
     }
 

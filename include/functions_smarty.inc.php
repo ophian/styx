@@ -970,12 +970,12 @@ function serendipity_smarty_init($vars = array()) {
 
         if (!defined('IN_serendipity_admin') && file_exists($template_dir . '/template.inc.php')) {
             // If this file exists, a custom template engine will be loaded.
-            // Beware: Smarty is used in the Admin backend, despite of this.
-            // Special case "preview_iframe(d) backend previews" are configurated directly in the serendipity_iframe() function, since being a different "scope"
+            // Beware: Smarty is used in the Administration Backend, despite of this.
+            // Special case "preview_iframe(d) Backend previews" are configured directly in the serendipity_iframe() function, since being a different "scope"
             include_once $template_dir . '/template.inc.php';
         } else {
 
-            // Backend template overwritten here (NOT earlier due to frontend specific check)
+            // Backend template overwritten here (NOT earlier due to Frontend specific check)
             if (defined('IN_serendipity_admin')) {
                 $template_dir = $serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template_backend'];
             }
@@ -989,7 +989,7 @@ function serendipity_smarty_init($vars = array()) {
                 @define('SMARTY_RESOURCE_CHAR_SET', LANG_CHARSET);
             }
 
-            // define cache resources to load with smarty - see smarty cache readme - needs enabled cache, which does not work the way we use Smarty!
+            // define cache resources to load with Smarty - see Smarty cache readme - needs enabled cache, which does not work the way we use Smarty!
             #@define('APC_EXTENSION_LOADED', extension_loaded('apc') && ini_get('apc.enabled'));
             #@define('MEMCACHE_EXTENSION_LOADED', (class_exists('Memcached',false) || class_exists('Memcache',false)) && (extension_loaded("memcached") || extension_loaded("memcache")));
 
@@ -1193,7 +1193,7 @@ function serendipity_smarty_init($vars = array()) {
         }
 
         // For advanced usage, we allow template authors to create a file 'config.inc.php' where they can
-        // setup custom smarty variables, modifiers etc. to use in their templates.
+        // setup custom Smarty variables, modifiers etc. to use in their templates.
 
         // If a template engine is defined we need that config.inc.php file as well. The template's actual file is loaded after that to be able to overwrite config.
         if (isset($serendipity['template_engine']) && $serendipity['template_engine'] != null) {
@@ -1207,7 +1207,7 @@ function serendipity_smarty_init($vars = array()) {
             }
         }
 
-        // FIRST: Load config of the currently configured FRONTEND template. We might actually need this in the backend (sidebar configuration, IPTC options, some others).
+        // FIRST: Load config of the currently configured FRONTEND template. We might actually need this in the Backend (sidebar configuration, IPTC options, some others).
         // SECOND: Load config of the currently set template, which can also be the BACKEND template, or be the same as before. include_once takes care of only including the file once.
         $config =  $serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'] . '/config.inc.php';
         if (file_exists($config)) {
@@ -1232,7 +1232,7 @@ function serendipity_smarty_init($vars = array()) {
 }
 
 /**
- * Purge compiled Smarty Templates
+ * Purge compiled Smarty Templates completely
  *
  * @access public
  * @return null
