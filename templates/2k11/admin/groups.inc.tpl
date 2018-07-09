@@ -4,7 +4,7 @@
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DELETED_GROUP|sprintf:"{$group_id|escape}":"{$group.name|escape}"}</span>
 {else}
 
-    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {'You should never delete the highest GROUP LEVEL you are in: ["%d"] ["%s"].'|sprintf:"{$group_id|escape}":"{$group.name|escape}"}</span>
+    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {'You should never delete the highest GROUP LEVEL you are in: %s: %s.'|sprintf:"ID#{$group_id|escape}":"{$CONST.{$group.name|escape}}"}</span>
 {/if}
 {/if}
 {if isset($save_new) AND $save_new}
