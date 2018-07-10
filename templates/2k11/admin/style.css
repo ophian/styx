@@ -662,6 +662,16 @@ form > button,
     margin-top: 0;
     margin-bottom: 0;
 }
+.plugins_installable li.single_alert {
+    border: 1px solid red;
+}
+.plugins_installable .single_hint {
+    display: block;
+    border: 1px solid red;
+    box-shadow: 1px 2px 3px #555;
+    padding: .25em;
+    margin-bottom: 1.5em;
+}
 .plugins_available {
     font-size: .75em;
 }

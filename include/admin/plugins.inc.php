@@ -165,7 +165,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         if (stristr($serendipity['dbType'], 'sqlite')) {
             set_time_limit(0);
         }
-        // for upgrades, the distinction in sidebar and event-plugins is not useful. We will fetch both and mix the lists
+        // for UPGRADES, the distinction in sidebar and event-plugins is not useful. We will fetch both and mix the lists
         if ($serendipity['GET']['type'] == 'event') {
             $serendipity['GET']['type'] = 'sidebar';
         } else {
@@ -293,6 +293,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'ALL') {
             $pluggroups['ALL'][] = $plugdata;
         } elseif (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE' && $plugdata['upgradeable']) {
+            if ($plugdata['class_name'] == 'serendipity_event_ckeditor' && count($pluginstack) > 1) {
+                $plugdata['single_upgrade'] = true; // mark this a special plugin to only UPGRADE per item
+            }
             $pluggroups['UPGRADE'][] = $plugdata;
         } elseif (is_array($plugdata['groups'])) {
             foreach($plugdata['groups'] AS $group) {
@@ -400,19 +403,21 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $authorid = '0';
         }
         if ($serendipity['ajax']) {
-            // we need to catch the spartacus messages to return only them to the ajax call (used by the update all button)
+            // we need to catch the Spartacus messages to return only them to the Ajax call (used by the update all button)
             ob_start();
         }
 
         $fetchplugin_data = array('GET'     => &$serendipity['GET'],
                                   'install' => true);
 
+        // hook into Spartacus to download/upgrade the plugin
         serendipity_plugin_api::hook_event('backend_plugins_fetchplugin', $fetchplugin_data);
+        // Spartacus hook 'backend_plugins_fetchplugin' will set $eventData['install'] to false, if ($eventData['GET']['spartacus_upgrade']) is true on UPGRADE requests
 
         // we now have to check that the plugin is not already installed, or stackable, to prevent invalid double instances
         $new_plugin = true;
+        // and we want to check this only on INSTALLation requests
         if ($fetchplugin_data['install']) {
-            // spartacus will set this to false on upgrade, and we want to check this only on install
             foreach(serendipity_plugin_api::get_installed_plugins() AS $pluginName) {
                 if ($serendipity['GET']['install_plugin'] === $pluginName) {
                     $existingPlugin =& serendipity_plugin_api::load_plugin($serendipity['GET']['install_plugin']);
@@ -428,7 +433,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             }
         }
 
-        $data['new_plugin_failed'] = ! $new_plugin;
+        $data['new_plugin_failed'] = ! $new_plugin; // is true on false and vice versa
 
         if ($fetchplugin_data['install'] && $new_plugin) {
             $serendipity['debug']['pluginload'] = array();
@@ -460,7 +465,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         } else {
             // destroy eventually stored session changelog path data
             unset($_SESSION['foreignPlugins_remoteChangeLogPath'][$serendipity['GET']['install_plugin']]['changelog']);
-            // please note, in this plugins event hook you have to use die() after the redirect, if in need to force the direct config fallback, eg. see CKEditor plugin
+            // PLEASE NOTE, in this plugins event hook you have to use die() after the redirect, if in need to force the direct config fallback, eg. see CKEditor plugin
             serendipity_plugin_api::hook_event('backend_plugins_update', $serendipity['GET']['install_plugin'], $fetchplugin_data);
         }
 
@@ -514,7 +519,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     if (isset($serendipity['memSnaps']) && count($serendipity['memSnaps']) > 0) {
         $data['$memsnaps'] = $serendipity['memSnaps'];
     }
-    $data['updateAllMsg'] = isset($serendipity['GET']['updateAllMsg']);
+    $data['updateAllMsg'] = !empty($serendipity['GET']['updateAllMsg']) ? $serendipity['GET']['updateAllMsg'] : false;
 }
 
 echo serendipity_smarty_showTemplate('admin/plugins.inc.tpl', $data);

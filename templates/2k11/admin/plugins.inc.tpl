@@ -86,10 +86,13 @@
             {/if}
             <ul class="plugins_installable plainList">
             {foreach $groupstack AS $plug}
-                <li class="clearfix">
+                <li class="clearfix{if isset($plug.single_upgrade) AND $plug.single_upgrade} single_alert{/if}">
                     <div class="equal_heights">
                         <div class="plugin_features">
                             <h4>{$plug.name}</h4>
+                        {if isset($plug.single_upgrade) AND $plug.single_upgrade}{* for plugin UPGRADE page and CKEDITOR plugin only to only UPGRADE SINGULARY! *}
+                            <div class="single_hint"><strong>WARNING:</strong> Do <strong>NOT</strong> use in "{$CONST.UPDATE_ALL}"!</div>
+                        {/if}
 
                         {if $plug.description}{* for plugin UPGRADE page *}
                             <details class="plugin_data">
