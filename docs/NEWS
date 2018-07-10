@@ -1,6 +1,9 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Mark and highlight CKEditor plus Plugin-Updates as a SINGLE item update,
+    to not use the UPDATE All button.
+
   * Do not allow to delete the user SELF
 
   * Extend the Smarty $compile_id (directory) to switch between current
