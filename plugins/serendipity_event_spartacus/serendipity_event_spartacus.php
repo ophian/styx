@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.70');
+        $propbag->add('version',       '2.71');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -361,7 +361,7 @@ class serendipity_event_spartacus extends serendipity_event
         foreach($paths AS $pathid => $path) {
             $stack .= $path . '/';
 
-            if ($spaths[$pathid] == $path) {
+            if (empty($spaths[$pathid]) || $spaths[$pathid] == $path) {
                 continue;
             }
 
@@ -1119,7 +1119,7 @@ class serendipity_event_spartacus extends serendipity_event
         foreach($files AS $file) {
             $url    = $this->fixUrl($mirror . '/' . $sfloc . '/' . $gitloc . $file . $cvshack);
             $target = $this->fixUrl($pdir . $file);
-            $this->rmkdir($pdir . $plugin_to_install,$sub);
+            $this->rmkdir($pdir . $plugin_to_install, $sub);
             $this->fileperm($pdir . $plugin_to_install, true);
             $this->fetchfile($url, $target);
             if (!isset($baseDir)) {
@@ -1368,7 +1368,10 @@ class serendipity_event_spartacus extends serendipity_event
                 case 'backend_plugins_fetchplugin':
                     if (serendipity_db_bool($this->get_config('enable_plugins', 'true'))) {
                         if (!empty($eventData['GET']['spartacus_fetch'])) {
-                            $baseDir = $this->download($this->fetchOnline($eventData['GET']['spartacus_fetch'], true), $eventData['GET']['install_plugin']);
+                            $baseDir = $this->download(
+                                $this->fetchOnline($eventData['GET']['spartacus_fetch'], true),
+                                $eventData['GET']['install_plugin']
+                            );
 
                             if ($baseDir === false) {
                                 $eventData['install'] = false;
