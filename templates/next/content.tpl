@@ -4,4 +4,4 @@
     <p class="msg-notice content-msg"><span class="icon-info-circled" aria-hidden="true"></span> {$content_message}</p>
 {/if}
 {$ENTRIES}
-{$ARCHIVES|default:''}
+{$ARCHIVES}

@@ -4,4 +4,4 @@
     <p class="content_msg">{$content_message}</p>
 {/if}
 {$ENTRIES}
-{$ARCHIVES|default:''}
+{$ARCHIVES}

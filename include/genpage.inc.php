@@ -31,6 +31,8 @@ $rightSidebarElements = serendipity_plugin_api::count_plugins('right');
 $serendipity['smarty']->assignByRef('leftSidebarElements', $leftSidebarElements);
 $serendipity['smarty']->assignByRef('rightSidebarElements', $rightSidebarElements);
 
+$is_archives = false;
+
 // mute possible uninitialized GET action item to fallback to default
 switch (@$serendipity['GET']['action']) {
     // User wants to read the diary
@@ -107,6 +109,7 @@ switch (@$serendipity['GET']['action']) {
 
     // Show the archive
     case 'archives':
+        $is_archives = true;
         $serendipity['head_subtitle'] = ARCHIVES;
         $serendipity['smarty']->assign('head_subtitle', $serendipity['head_subtitle']);
         serendipity_printArchives();
@@ -133,7 +136,13 @@ if (@$serendipity['GET']['action'] != 'search' && !empty($serendipity['content_m
     $serendipity['smarty']->assign('content_message', $serendipity['content_message']);
 }
 
+// default init these Serendipity Smarty Blocks
+if (!$is_archives) {
+    $serendipity['smarty']->assign('ARCHIVES', '');
+}
+
 serendipity_smarty_fetch('CONTENT', 'content.tpl');
+
 $serendipity['smarty']->assign('ENTRIES', '');
 
 
