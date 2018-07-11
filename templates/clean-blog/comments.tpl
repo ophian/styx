@@ -15,7 +15,7 @@
         <a id="c{$comment.id}"></a>
         <div id="div-comment-{$comment.id}" class="comment_any{cycle values=" comment_odd, comment_even"} comment_author_{$comment.author|makeFilename}{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} serendipity_comment_author_self{/if}">
             {if $comment.avatar}
-                    {$comment.avatar}
+                {$comment.avatar|default:''}
             {/if}                
             <div class="comment-list-item-body">
                 <h5 class="comment-author-heading">
