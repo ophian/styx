@@ -108,7 +108,7 @@
 
 <?php endif; ?>
 <?= $GLOBALS['tpl']['raw_data'] ?>
-<?php /*serendipity_plugin_api::hook_event('frontend_footer', $template) *//* ENABLE TO USE any plugin hooked assets which often need an active jquery lib */ ?>
+<?php /*serendipity_plugin_api::hook_event('frontend_footer', $template) *//* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib */ ?>
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 </body>
 </html>
