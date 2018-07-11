@@ -120,7 +120,7 @@
 {/foreach}
 {/if}
 {if empty($is_preview)}
-    {if !isset($staticpage_pagetitle) OR $staticpage_pagetitle == ''}
+    {if empty($staticpage_pagetitle)}
     <nav class="pagination clearfix">
         {if isset($footer_info)}<h3>{$footer_info}</h3>{/if}
     {if isset($footer_prev_page) OR isset($footer_next_page)}
