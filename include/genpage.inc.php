@@ -32,6 +32,7 @@ $serendipity['smarty']->assignByRef('leftSidebarElements', $leftSidebarElements)
 $serendipity['smarty']->assignByRef('rightSidebarElements', $rightSidebarElements);
 
 $is_archives = false;
+$is_search_empty = false;
 
 // mute possible uninitialized GET action item to fallback to default
 switch (@$serendipity['GET']['action']) {
@@ -73,6 +74,7 @@ switch (@$serendipity['GET']['action']) {
         }
 
         if (is_string($r) && $r !== true) {
+            $is_search_empty = true;
             $serendipity['smarty']->assign(
                 array(
                     'content_message'    => sprintf(SEARCH_ERROR, $serendipity['dbPrefix'], $r),
@@ -81,6 +83,7 @@ switch (@$serendipity['GET']['action']) {
             );
             break;
         } elseif ($r === true) {
+            $is_search_empty = true;
             $serendipity['smarty']->assign(
                 array(
                     'content_message'        => sprintf(NO_ENTRIES_BLAHBLAH, '<span class="searchterm">' . $serendipity['GET']['searchTerm'] . '</span>'),
@@ -139,6 +142,9 @@ if (@$serendipity['GET']['action'] != 'search' && !empty($serendipity['content_m
 // default init these Serendipity Smarty Blocks
 if (!$is_archives) {
     $serendipity['smarty']->assign('ARCHIVES', '');
+}
+if ($is_search_empty) {
+    $serendipity['smarty']->assign('ENTRIES', '');
 }
 
 serendipity_smarty_fetch('CONTENT', 'content.tpl');
