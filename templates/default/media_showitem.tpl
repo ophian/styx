@@ -128,7 +128,7 @@
 {/if}
 
 {$raw_data}
-{* serendipity_hookPlugin hook="frontend_footer" *}{* ENABLE TO USE any plugin hooked assets which often need an active jquery lib *}
+{* serendipity_hookPlugin hook="frontend_footer" *}{* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib *}
 {if $is_embedded != true}
 </body>
 </html>
