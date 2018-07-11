@@ -15,6 +15,7 @@
         </div>
     {/if}
     <h2>{if $category}{$category_info.category_name} - {/if}{$CONST.ARCHIVES}</h2>
+{if isset($archives) AND is_array($archives)}
     {foreach $archives AS $archive}
         <section class="archives_year">
             <div class="container-fluid">
@@ -47,5 +48,6 @@
             </div>
         </section>
     {/foreach}
+{/if}
 </article>
 {serendipity_hookPlugin hook="entries_footer"}

@@ -19,6 +19,7 @@
                 <h3>{if $category}{$category_info.category_name} - {/if}{$CONST.ARCHIVES}</h3>
             {/if}
             <ul class="timeline">
+            {if isset($archives) AND is_array($archives)}
                 {foreach $archives AS $archive}
                     <li class="{cycle values='left,timeline-inverted timeline-top-margin'}">
                         <div class="timeline-badge"><i class="fa fa-dot-circle-o" aria-hidden="true"></i></div>
@@ -46,7 +47,8 @@
                         </div>
                     </li>
                 {/foreach}
-                <li class="clearfix" style="float: none;"></li>
+                    <li class="clearfix" style="float: none;"></li>
+            {/if}
             </ul>
         </section>
     </div>

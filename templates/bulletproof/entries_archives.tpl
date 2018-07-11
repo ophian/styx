@@ -1,6 +1,7 @@
 {serendipity_hookPlugin hook="entries_header"}
 <div class="serendipity_Entry_Date">
     <h3 class="serendipity_date">{$CONST.ARCHIVES}</h3>
+{if isset($archives) AND is_array($archives)}
     {foreach $archives AS $archive}
         <div class="serendipity_entry archives_all_entry">
             <h4 class="archives_header">{$archive.year}</h4>
@@ -19,6 +20,7 @@
             {/foreach}
         </div>
     {/foreach}
+{/if}
 </div>
 <div class="serendipity_pageFooter" style="text-align: center">
     {serendipity_hookPlugin hook="entries_footer"}

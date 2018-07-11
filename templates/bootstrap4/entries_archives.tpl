@@ -3,6 +3,7 @@
     <h2>{$CONST.ARCHIVES}</h2>
 
     <div id="archives">
+{if isset($archives) AND is_array($archives)}
     {foreach $archives AS $archive}
         <section class="card">
             <div class="card-header" id="header-{$archive.year}">
@@ -23,6 +24,7 @@
             </div>
         </section>
     {/foreach}
+{/if}
     </div>
 </article>
 {serendipity_hookPlugin hook="entries_footer"}

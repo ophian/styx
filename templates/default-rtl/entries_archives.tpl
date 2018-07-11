@@ -1,4 +1,5 @@
 {serendipity_hookPlugin hook="entries_header"}
+{if isset($archives) AND is_array($archives)}
 {foreach $archives AS $archive}
 <table cellspacing="4" cellpadding="4" border="0">
     <tr>
@@ -15,5 +16,6 @@
     {/foreach}
 </table>
 {/foreach}
+{/if}
 <div class="serendipity_entryFooter" style="text-align: center">
 {serendipity_hookPlugin hook="entries_footer"}</div>

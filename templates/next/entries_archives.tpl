@@ -2,6 +2,7 @@
 <article id="archives" class="clearfix">
     <h2>{$CONST.ARCHIVES}</h2>
 
+{if isset($archives) AND is_array($archives)}
 {foreach $archives AS $archive}
     <section class="{cycle values="odd,even"}">
         <h3>{$archive.year}</h3>
@@ -16,5 +17,6 @@
         </ul>
     </section>
 {/foreach}
+{/if}
 </article>
 {serendipity_hookPlugin hook="entries_footer"}
