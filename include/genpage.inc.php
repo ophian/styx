@@ -149,7 +149,9 @@ if ($is_search_empty) {
 
 serendipity_smarty_fetch('CONTENT', 'content.tpl');
 
+// global inits, waiting to be filled
 $serendipity['smarty']->assign('ENTRIES', '');
+$serendipity['smarty']->assign('raw_data', '');
 
 
 /* vim: set sts=4 ts=4 expandtab : */

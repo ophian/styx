@@ -98,7 +98,7 @@
 
     <script src="{serendipity_getFile file="scripts/master.js"}"></script>
 {/if}
-{$raw_data|default:''}
+{$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
 {if $is_embedded != true}
 </body>
