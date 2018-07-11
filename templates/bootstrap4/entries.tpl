@@ -39,7 +39,7 @@
             {/if}
             </ul>
         {/if}
-            {$entry.add_footer}
+            {$entry.add_footer|default:''}
             {$entry.plugin_display_dat}
         </footer>
         <!--

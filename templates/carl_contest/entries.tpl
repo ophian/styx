@@ -59,7 +59,7 @@
                     <br /><a href="{$entry.link}#trackbacks">{$entry.label_trackbacks} ({$entry.trackbacks})</a><br />
                 {/if}
             {/if}
-            {$entry.add_footer}
+            {$entry.add_footer|default:''}
         </div>
 
         <h4 class="serendipity_title"><a href="{$entry.link}">{$entry.title|default:$entry.body|truncate:200:" ..."}</a></h4>

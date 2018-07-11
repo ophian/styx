@@ -79,7 +79,7 @@
                         <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
-                        {$entry.add_footer}
+                        {$entry.add_footer|default:''}
 
                         {if $template_option.addthiswidget == 'true'}
                             <div class="addthiswidget">
@@ -206,7 +206,7 @@
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
-                        {$entry.add_footer}
+                        {$entry.add_footer|default:''}
 
                         {if $template_option.addthiswidget == 'true'}
                             <div class="addthiswidget">
@@ -260,7 +260,7 @@
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
-                        {$entry.add_footer}
+                        {$entry.add_footer|default:''}
 
                         {if $template_option.addthiswidget == 'true'}
                             <div class="addthiswidget">

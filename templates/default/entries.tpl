@@ -69,7 +69,7 @@
                         | <a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a>
                 {/if}
 
-                {$entry.add_footer}
+                {$entry.add_footer|default:''}
             </div>
         </div>
         <!--

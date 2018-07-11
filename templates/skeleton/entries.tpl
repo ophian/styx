@@ -32,7 +32,7 @@
                 <a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a>
             {/if}
             </div>
-            {$entry.add_footer}
+            {$entry.add_footer|default:''}
             {$entry.plugin_display_dat}
         </footer>
         <!--

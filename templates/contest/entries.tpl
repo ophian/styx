@@ -78,7 +78,7 @@
                 {if $entry.is_entry_owner AND NOT $is_preview}
                     <span class="serendipity_footer_owner"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></span>
                 {/if}
-                {$entry.add_footer}
+                {$entry.add_footer|default:''}
             </div>
         </div>
         <!--

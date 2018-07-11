@@ -133,7 +133,7 @@
                         {else}
                             {$entry.freetag}
                         {/if}
-                        {$entry.add_footer}
+                        {$entry.add_footer|default:''}
                     </footer>
                 {/if}
             </section>
