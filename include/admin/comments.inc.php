@@ -300,19 +300,6 @@ if ($serendipity['GET']['filter']['type'] == 'TRACKBACK') {
     $c_type = null;
 }
 
-if ($serendipity['GET']['filter']['type'] == 'TRACKBACK') {
-    $c_type = 'TRACKBACK';
-    $searchString .= '&amp;serendipity[filter][type]=TRACKBACK';
-} elseif ($serendipity['GET']['filter']['type'] == 'PINGBACK') {
-    $c_type = 'PINGBACK';
-    $searchString .= '&amp;serendipity[filter][type]=PINGBACK';
-} elseif ($serendipity['GET']['filter']['type'] == 'NORMAL') {
-    $c_type = 'NORMAL';
-    $searchString .= '&amp;serendipity[filter][type]=NORMAL';
-} else {
-    $c_type = null;
-}
-
 if ($commentsPerPage != 10) {
     $searchString .= '&amp;serendipity[filter][perpage]=' . $commentsPerPage;
 }
