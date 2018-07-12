@@ -3,7 +3,7 @@
     <head>
         <title><?= SERENDIPITY_ADMIN_SUITE ?></title>
         <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset'] ?>">
-        <meta name="Powered-By" content="Serendipity Sty Edition v.<?= $GLOBALS['tpl']['head_version'] ?>">
+        <meta name="Powered-By" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
         <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
     <?php if ($GLOBALS['tpl']['head_link_stylesheet_frontend']): ?>
         <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet_frontend'] ?>">

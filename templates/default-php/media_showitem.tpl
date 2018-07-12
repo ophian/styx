@@ -5,7 +5,7 @@
 <head>
     <meta charset="<?= $GLOBALS['tpl']['head_charset'] ?>">
     <title><?= (!empty($GLOBALS['tpl']['media']['file']['props']['base_property']['TITLE']) ? $GLOBALS['tpl']['media']['file']['props']['base_property']['TITLE'] : $GLOBALS['tpl']['media']['file']['realname']) ?></title>
-    <meta name="generator" content="Serendipity Sty Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
+    <meta name="generator" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
 <?php /*serendipity_plugin_api::hook_event('frontend_header', $template)*//* ENABLE TO USE any plugin hooked assets - see footer */ ?>

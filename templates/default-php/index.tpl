@@ -6,7 +6,7 @@
     <title><?= $GLOBALS['template']->getdefault('head_title', 'blogTitle'); ?> - <?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset']; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Serendipity Sty Edition v.<?= $GLOBALS['tpl']['serendipityVersion']; ?>">
+    <meta name="generator" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion']; ?>">
 <?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries', 'entry', 'feed', 'plugin']) || $GLOBALS['tpl']['staticpage_pagetitle'] != '' || $GLOBALS['tpl']['robots_index'] == 'index'): ?>
     <meta name="robots" content="index,follow">
 <?php else: ?>

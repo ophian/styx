@@ -5,7 +5,7 @@
     <title>{$media.file.props.base_property.TITLE|default:$media.file.realname}</title>
     <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content="Serendipity v.{$serendipityVersion}" />
+    <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}" />
     <link rel="stylesheet" type="text/css" href="{$head_link_stylesheet}" />
     <link rel="alternate"  type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2" />
     <link rel="alternate"  type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml" />

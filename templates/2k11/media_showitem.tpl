@@ -7,7 +7,7 @@
 <head>
     <meta charset="{$head_charset}">
     <title>{$media.file.props.base_property.TITLE|default:$media.file.realname}</title>
-    <meta name="generator" content="Serendipity v.{$serendipityVersion}">
+    <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {if $template_option.webfonts == 'droid'}
     <link  rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">

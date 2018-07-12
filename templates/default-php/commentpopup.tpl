@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
 <head>
-    <title><?= $GLOBALS['tpl']['head_title'] ? $GLOBALS['tpl']['head_title'] : $GLOBALS['tpl']['blogTitle']; ?> <?php if ($GLOBALS['tpl']['head_subtitle']): ?> - <?= $GLOBALS['tpl']['head_subtitle'] ?><?php endif; ?></title>
+    <title><?= !empty($GLOBALS['tpl']['head_title']) ? $GLOBALS['tpl']['head_title'] : $GLOBALS['tpl']['blogTitle']; ?> <?php if ($GLOBALS['tpl']['head_subtitle']): ?> - <?= $GLOBALS['tpl']['head_subtitle'] ?><?php endif; ?></title>
     <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset'] ?>">
-    <meta name="Powered-By" content="Serendipity Sty Edition v.<?= $GLOBALS['tpl']['head_version'] ?>">
+    <meta name="Powered-By" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
     <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['serendipityHTTPPath'] ?>serendipity.css.php">
     <link rel="alternate"  type="application/rss+xml" title="<?= $GLOBALS['tpl']['blogTitle'] ?> RSS feed" href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?><?= $GLOBALS['tpl']['serendipityRewritePrefix'] ?>feeds/index.rss2">
     <link rel="alternate"  type="application/x.atom+xml"  title="<?= $GLOBALS['tpl']['blogTitle'] ?> Atom feed"  href="<?= $GLOBALS['tpl']['serendipityBaseURL'] ?><?= $GLOBALS['tpl']['serendipityRewritePrefix'] ?>feeds/atom.xml">

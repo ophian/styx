@@ -3,7 +3,7 @@
     <head>
         <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
         <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
-        <meta name="generator" content="Serendipity v.{$serendipityVersion}" />
+        <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}" />
     {if $head_link_stylesheet_frontend}
         <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
     {else}
