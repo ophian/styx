@@ -13,7 +13,10 @@ if (!window.CKEDITOR) {
 <div id="serendipityCommentFormC" class="serendipityCommentForm">
     <div id="serendipity_replyform_0"></div>
     <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
-        <div><input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}"></div>
+        <div>
+            <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
+            <input type="hidden" name="serendipity[replyTo]" value="{$commentform_replyTo}">
+        </div>
         <div class="form_field">
             <label for="serendipity_commentform_name">{$CONST.NAME}</label>
             <input id="serendipity_commentform_name" name="serendipity[name]" type="text" value="{$commentform_name}">
@@ -34,10 +37,6 @@ if (!window.CKEDITOR) {
         {* Checks, if CKE-plus plugin is installed and active, else we need to load the cores CKE-lib, see file start. *}
         {if $is_logged_in AND $comment_wysiwyg}{$secure_simple_ckeditor}{/if}
 
-        <div class="form_field">
-            <label id="reply-to-hint" for="serendipity_replyTo">{$CONST.IN_REPLY_TO}</label>
-            {$commentform_replyTo}
-        </div>
         {serendipity_hookPlugin hook="frontend_comment"}
         {* We do not need any commentform data (array), since we do not have or even need any - this is a hook for s9ymarkup/spamblock/emoticonchooser and alike plugins. *}
         <div class="clearfix empty">&nbsp;</div>

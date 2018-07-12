@@ -266,6 +266,11 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
         }
     }
 
+    // /* 1st is Backend only, since it is either simple parentID OR 0 - the 2cd is the generated HTML selection dropdown for the Frontend */
+    $_commentform_replyTo = (defined('IN_serendipity_admin') && IN_serendipity_admin === true && isset($data['replyTo']))
+        ? $data['replyTo']
+        : serendipity_generateCommentList($id, $comments, (!empty($data['replyTo']) ? $data['replyTo'] : 0)); // last ternary is only for Frontend comment preview cases
+
     $commentform_data = array(
         'commentform_action'         => $url,
         'commentform_id'             => (int)$id,
@@ -273,7 +278,7 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
         'commentform_email'          => isset($data['email'])     ? serendipity_specialchars($data['email'])   : (isset($serendipity['COOKIE']['email'])    ? serendipity_specialchars($serendipity['COOKIE']['email']) : ''),
         'commentform_url'            => isset($data['url'])       ? serendipity_specialchars($data['url'])     : (isset($serendipity['COOKIE']['url'])      ? serendipity_specialchars($serendipity['COOKIE']['url']) : ''),
         'commentform_remember'       => isset($data['remember'])  ? 'checked="checked"'                        : (isset($serendipity['COOKIE']['remember']) ? 'checked="checked"' : ''),
-        'commentform_replyTo'        => serendipity_generateCommentList($id, $comments, (!empty($data['replyTo']) ? $data['replyTo'] : 0)),
+        'commentform_replyTo'        => $_commentform_replyTo,
         'commentform_subscribe'      => isset($data['subscribe']) ? 'checked="checked"' : '',
         'commentform_data'           => isset($data['comment'])   ? serendipity_specialchars($data['comment']) : '',
         'is_commentform_showToolbar' => $showToolbar,
