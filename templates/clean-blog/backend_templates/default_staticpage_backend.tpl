@@ -231,7 +231,7 @@
 
             <div class="sp_sect">
                 <label class="sp_label" title="CSS class of the main page body that should be associated">Main CSS class</label><br />
-                    <input type="text" name="serendipity[plugin][custom][css_class]" value="{$form_values.custom.css_class|@default:'None'}" />
+                    <input type="text" name="serendipity[plugin][custom][css_class]" value="{$form_values.custom.css_class|default:'None'}" />
             </div>
         </fieldset>
          END OF EXAMPLE FOR CUSTOM STATICPAGE PROPERTIES *}
