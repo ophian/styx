@@ -257,7 +257,7 @@ if (isset($serendipity['GET']['adminAction'])
     return true;
 }
 
-/* Searchable fields */
+/* Researchable fields */
 $filters = array('author', 'email', 'ip', 'url', 'body', 'referer');
 $and = $searchString = ''; // init default
 
