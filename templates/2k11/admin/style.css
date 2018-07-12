@@ -2989,6 +2989,7 @@ label .perm_name,
     -webkit-flex-direction: row;
     -webkit-flex-wrap: wrap;
     flex-flow: row wrap;
+    display: flex;
     align-items: flex-start; /* the default is stretch, internally used by Chrome when flexing direct child images */
     justify-content: space-around; /* IE10+ CSS fallback, since -evenly not supported */
     justify-content: space-evenly;
@@ -2996,6 +2997,7 @@ label .perm_name,
 }
 .js .media_gallery .media_gal {
     width: 16%;
+    min-width: 8.5em;
     height: 8em;
 }
 .js .media_gallery .media_gal.odd,
