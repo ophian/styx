@@ -1084,13 +1084,13 @@ function serendipity_iframe(&$entry, $mode = null) {
             break;
     }
 
-    // The "hybrid" preview_iframe is not that easy to parse through template_api.inc, thus we workaround it
+    // The "hybrid" preview_iframe is not that easy to parse through template_api.inc, thus we workaround it for the PHP template
     if ($serendipity['template'] == 'default-php' && (!empty($php_preview) || $mode == 'save')) {
         $data['lang']                           = $serendipity['smarty']->tpl_vars['lang']->value;
         $data['iconizr']                        = serendipity_getTemplateFile('admin/preview_iconizr.css'); // unforced since backend
         $data['modernizr']                      = serendipity_getTemplateFile('admin/js/modernizr.min.js'); // dito
         $data['head_charset']                   = $serendipity['smarty']->tpl_vars['head_charset']->value;
-        $data['head_version']                   = $serendipity['smarty']->tpl_vars['head_version']->value;
+        $data['serendipityVersion']             = $serendipity['smarty']->tpl_vars['serendipityVersion']->value;
         $data['head_link_stylesheet']           = $serendipity['smarty']->tpl_vars['head_link_stylesheet']->value;
         $data['head_link_stylesheet_frontend']  = $serendipity['smarty']->tpl_vars['head_link_stylesheet_frontend']->value;
         $data['serendipityHTTPPath']            = $serendipity['smarty']->tpl_vars['serendipityHTTPPath']->value;
