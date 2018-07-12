@@ -1084,7 +1084,7 @@ function serendipity_iframe(&$entry, $mode = null) {
             break;
     }
 
-    // The "hermaphrodite" preview_iframe is not that easy to parse through template_api.inc, thus we workaround it
+    // The "hybrid" preview_iframe is not that easy to parse through template_api.inc, thus we workaround it
     if ($serendipity['template'] == 'default-php' && (!empty($php_preview) || $mode == 'save')) {
         $data['lang']                           = $serendipity['smarty']->tpl_vars['lang']->value;
         $data['iconizr']                        = serendipity_getTemplateFile('admin/preview_iconizr.css'); // unforced since backend
