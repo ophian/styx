@@ -268,11 +268,9 @@ foreach($filters AS $filter) {
 }
 
 // init default
-if (!isset($serendipity['GET']['filter'])) {
-    $serendipity['GET']['filter']['show'] = '';
-    $serendipity['GET']['filter']['type'] = '';
-    if (!isset($serendipity['GET']['page'])) $serendipity['GET']['page'] = 0;
-}
+$serendipity['GET']['filter']['show'] = isset($serendipity['GET']['filter']['show']) ? $serendipity['GET']['filter']['show'] : '';
+$serendipity['GET']['filter']['type'] = isset($serendipity['GET']['filter']['type']) ? $serendipity['GET']['filter']['type'] : '';
+$serendipity['GET']['page']           = isset($serendipity['GET']['page'])           ? $serendipity['GET']['page']           : 0;
 
 if ($serendipity['GET']['filter']['show'] == 'approved') {
     $and          .= "AND status = 'approved'";
