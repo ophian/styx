@@ -148,7 +148,7 @@ switch ($serendipity['GET']['adminAction']) {
         if (!serendipity_checkFormToken()) {
             return; // blank content page, but default token check parameter is presenting a XSRF message when false
         }
-        if (!is_array($serendipity['POST']['multiSelect']) && isset($_POST['gallery_insert'])) {
+        if ((empty($serendipity['POST']['multiSelect']) || !is_array($serendipity['POST']['multiSelect'])) && isset($_POST['gallery_insert'])) {
             echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_ITEM, serendipity_specialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES | ENT_HTML401)) . '</div>'."\n";
             return; // blank content page exit
         }
