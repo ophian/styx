@@ -105,8 +105,9 @@
                 {/if}
             </span>
 
-            {if !empty($c_type) OR isset($smarty.get.submit)}<a class="block_level" href="serendipity_admin.php?serendipity[adminModule]=comments">{$CONST.BACK}</a>{/if}
+            {if !empty($c_type) OR isset($smarty.get.submit)}<a class="button_link" href="serendipity_admin.php?serendipity[adminModule]=comments">{$CONST.BACK}</a>{/if}
     {else}
+
             <form id="formMultiSelect" name="formMultiSelect" action="" method="POST">
                 {$formtoken}
                 <input name="serendipity[formAction]" type="hidden" value="multiDelete">
