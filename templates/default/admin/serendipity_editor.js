@@ -947,7 +947,7 @@
         // argument defaults
         stateClass = stateClass || 'additional_info';
         stateIcon = stateIcon || '> span';
-        if (toggler.context.className == 'button_link toggle_comment_full') {
+        if (toggler.className == 'button_link toggle_comment_full') {
             stateOpen = stateOpen || 'icon-up-dir';
         } else {
             stateOpen = stateOpen || 'icon-down-dir';
@@ -1342,7 +1342,7 @@ $(function() {
         $('.show_config_option').click(function(e) {
             var $el = $(this);
             if ($el.attr('href')) {
-                var $toggled= $el.attr('href');
+                var $toggled = $el.attr('href');
             } else {
                 var $toggled = $el.data('href');
             }
@@ -1662,7 +1662,7 @@ $(function() {
     }
 
     // Equal Heights
-    $(window).load(function() {
+    $(window).on('load', function() {
         if (!Modernizr.flexbox) {
             if (mq_small) {
                 serendipity.sync_heights();
