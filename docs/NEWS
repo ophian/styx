@@ -1,6 +1,11 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Prepare Backend and [2k11] Frontend javascript files to support more
+    modern jQuery Lib versions.
+    Be sure to not use "sticky" browser cached versions.
+    Adapt this to your copy themes based on 2k11.
+
   * Fix gallery Backend form flexible flow for mobile screens
 
   * Check themes content.tpl [next, 2k11] if $content_message is a plain
