@@ -11,9 +11,9 @@
     {elseif $comment.depth > $prevdepth}
         <ul class="comment-children">
     {/if}
-    <li id="comment-{$comment.id}" class="comment-list-item">
-        <a id="c{$comment.id}"></a>
-        <div id="div-comment-{$comment.id}" class="comment_any{cycle values=" comment_odd, comment_even"} comment_author_{$comment.author|makeFilename}{if ( ($entry.author == $comment.author) AND ($entry.email == $commentform_entry.email) ) OR ( ($comment.entry_author_realname == $comment.author) AND ($comment.entry_author_email == $comment.clear_email) )} serendipity_comment_author_self{/if}">
+    <li id="comment-{$comment.id|default:0}" class="comment-list-item">
+        <a id="c{$comment.id|default:0}"></a>
+        <div id="div-comment-{$comment.id|default:0}" class="comment_any{cycle values=" comment_odd, comment_even"} comment_author_{$comment.author|makeFilename}{if ( isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email ) OR ( isset($entry) AND isset($comment.entry_author_realname) AND $comment.entry_author_realname == $comment.author AND $comment.entry_author_email == $comment.clear_email )} serendipity_comment_author_self{/if}">
             {$comment.avatar|default:''}
             <div class="comment-list-item-body">
                 <h5 class="comment-author-heading">
@@ -30,11 +30,11 @@
                         {if $comment.body == 'COMMENT_DELETED'}
                             {$CONST.COMMENT_IS_DELETED}
                         {else}
-                            {if $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
+                            {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
                         {/if}
                 </div>
                 <div class="comment-meta">
-                    <a class="comment-source-trace btn btn-sm btn-default" href="{$comment.url|escape:'htmlall'}#c{$comment.id}">#{$comment.trace}</a>
+                    <a class="comment-source-trace btn btn-sm btn-default" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}">#{$comment.trace}</a>
                     {if $entry.is_entry_owner}
                         <a class="comment-source-ownerlink comment-reply-link btn btn-sm btn-default" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');" title="{$CONST.DELETE}"><i class="fa fa-lg fa-trash-o"></i><span class="sr-only"> {$CONST.DELETE}</span></a>
                     {/if}                        

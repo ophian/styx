@@ -1,21 +1,21 @@
 <?php $i=1; ?>
 <?php foreach ($GLOBALS['tpl']['comments'] AS $comment):?>
-    <a id="c<?= $comment['id'] ?>"></a>
-    <div id="serendipity_comment_<?= $comment['id'] ?>" class="serendipity_comment serendipity_comment_author_<?= serendipity_makeFilename($comment['author']); ?><?php if ((($GLOBALS['tpl']['commentform_entry']['author'] == $comment['author']) && ($GLOBALS['tpl']['commentform_entry']['email'] == $GLOBALS['tpl']['commentform_entry']['email'])) || (($comment['entry_author_realname'] == $comment['author']) AND ($comment['entry_author_email'] == $comment['clear_email']))): ?> serendipity_comment_author_self<?php endif; ?> <?php if($i%2 == 0): ?>comment_oddbox<?php else: ?>comment_evenbox<?php endif; ?>" style="padding-left: <?= ($comment['depth']*20) ?>px">
+    <a id="c<?= isset($comment['id']) ? $comment['id'] : 0; ?>"></a>
+    <div id="serendipity_comment_<?= isset($comment['id']) ? $comment['id'] : 0; ?>" class="serendipity_comment serendipity_comment_author_<?= serendipity_makeFilename($comment['author']); ?><?php if ((($GLOBALS['tpl']['commentform_entry']['author'] == $comment['author']) && ($GLOBALS['tpl']['commentform_entry']['email'] == $GLOBALS['tpl']['commentform_entry']['email'])) || (($comment['entry_author_realname'] == $comment['author']) AND ($comment['entry_author_email'] == $comment['clear_email']))): ?> serendipity_comment_author_self<?php endif; ?> <?php if($i%2 == 0): ?>comment_oddbox<?php else: ?>comment_evenbox<?php endif; ?>" style="padding-left: <?= ($comment['depth']*20) ?>px">
         <div class="serendipity_commentBody">
         <?php if ($comment['body'] == 'COMMENT_DELETED'): ?>
             <?= COMMENT_IS_DELETED ?>
         <?php else: ?>
-            <?= $comment['body'] ?><?php if ($comment['type'] == 'TRACKBACK'): ?> [&hellip;]<?php endif; ?>
+            <?= $comment['body'] ?><?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?> [&hellip;]<?php endif; ?>
         <?php endif; ?>
         </div>
         <div class="serendipity_comment_source">
-         <?php if ($comment['type'] == 'TRACKBACK'): ?>
+         <?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?>
             <strong>[TRACKBACK]</strong> <?= TRACKED ?>:
         <?php endif; ?>
-            <a class="comment_source_trace" href="<?= serendipity_specialchars($comment['url']) ?>#c<?= $comment['id'] ?>">#<?= $comment['trace'] ?></a>
+            <a class="comment_source_trace" href="<?= serendipity_specialchars($comment['url']) ?>#c<?= isset($comment['id']) ? $comment['id'] : 0; ?>">#<?= $comment['trace'] ?></a>
             <span class="comment_source_author">
-         <?php if ($comment['type'] == 'TRACKBACK'): ?>
+         <?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?>
             <strong><?= WEBLOG ?>:</strong>
         <?php endif; ?>
             <?php if ($comment['email']): ?>
@@ -23,7 +23,7 @@
             <?php else: ?>
                 <?= $comment['author'] ? $comment['author'] : ANONYMOUS; ?>
             <?php endif; ?>
-         <?php if ($comment['type'] == 'TRACKBACK'): ?>
+         <?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?>
             <br />
             <?= IN ?> <?= TITLE ?>: <span class="comment_source_ctitle"><?= $comment['ctitle'] ?></span>
         <?php endif; ?>
@@ -35,7 +35,7 @@
             <span class="comment_source_date"><?= serendipity_formatTime($comment['timestamp'], DATE_FORMAT_SHORT); ?></span>
 
             <?php if ($GLOBALS['tpl']['commentform_entry']['is_entry_owner']): ?>
-                (<a class="comment_source_ownerlink" href="<?= $comment['link_delete'] ?>" onclick="return confirm('<?= printf(COMMENT_DELETE_CONFIRM, $comment['id'], $comment['author']); ?>');"><?= DELETE ?></a>)
+                (<a class="comment_source_ownerlink" href="<?= $comment['link_delete'] ?>" onclick="return confirm('<?= printf(COMMENT_DELETE_CONFIRM, (isset($comment['id']) ? $comment['id'] : 0), $comment['author']); ?>');"><?= DELETE ?></a>)
             <?php endif; ?>
             <?php if ($GLOBALS['tpl']['commentform_entry']['allow_comments'] && $comment['body'] != 'COMMENT_DELETED'): ?>
                 (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_<?= $comment['id'] ?>" onclick="document.getElementById('serendipity_replyTo').value='<?= $comment['id'] ?>'; <?= $GLOBALS['tpl']['comment_onchange'] ?>"><?= REPLY ?></a>)
