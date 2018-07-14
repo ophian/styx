@@ -15,7 +15,7 @@
         {/if}
 
         <div class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if $entry.is_entry_owner}serendipity_entry_author_self{/if}">
-            {if $entry.categories}
+            {if NOT empty($entry.categories)}
 <!--
             <span class="serendipity_entryIcon">
             {foreach $entry.categories AS $entry_category}
@@ -41,7 +41,7 @@
 
             <div class="serendipity_entryFooter">
                 {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
-                {if $entry.categories}
+                {if NOT empty($entry.categories)}
                    {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                 {/if}
 
@@ -181,15 +181,15 @@
     {/foreach}
 
     <div class="serendipity_entryFooter" style="text-align: center">
-    {if $footer_prev_page}
+    {if !empty($footer_prev_page)}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
     {/if}
 
-    {if $footer_info}
+    {if !empty($footer_info)}
         ({$footer_info})
     {/if}
 
-    {if $footer_next_page}
+    {if !empty($footer_next_page)}
         <a href="{$footer_next_page}">&raquo; {$CONST.NEXT_PAGE}</a>
     {/if}
 

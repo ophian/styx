@@ -16,7 +16,7 @@
     {if $template_option.entrybody_detailed_only != true || $entry.is_extended || $is_single_entry || $is_preview}
         <section id="entry">
             <div class="content serendipity_entry_body clearfix">
-                {if $entry.categories}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+                {if NOT empty($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
                 {$entry.body}
                 {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
                     <a class="read_more" href="{$entry.link}#extended"><button class="btn btn-md btn-default pull-right">{$CONST.READ_MORE} <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
@@ -32,7 +32,7 @@
             {/if}
             {if $entry.categories OR $entry.add_footer}
                 <footer class="entry-footer">
-                    {if $entry.categories}
+                    {if NOT empty($entry.categories)}
                         <span class="sr-only">{$CONST.CATEGORIES}: </span>
                         <i class="fa fa-folder-open" aria-hidden="true"></i>
                         {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if !$entry_category@last}&nbsp;{/if}{/foreach}
@@ -151,14 +151,14 @@
         <p class="alert alert-info"><span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
-{if $footer_info OR $footer_prev_page OR $footer_next_page}
-            {if $footer_info}
-                <p class="summary serendipity_center">{$footer_info}</p>
-            {/if}
+{if !empty($footer_info) OR !empty($footer_prev_page) OR !empty($footer_next_page)}
+{if !empty($footer_info)}
+    <p class="summary serendipity_center">{$footer_info}</p>
+{/if}
     <nav role="navigation">
         <ul class="pager">
-            {if $footer_prev_page}<li class="previous"><a href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {$CONST.PREVIOUS_PAGE}</a></li>{/if}
-            {if $footer_next_page}<li class="next"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>{/if}
+            {if !empty($footer_prev_page)}<li class="previous"><a href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {$CONST.PREVIOUS_PAGE}</a></li>{/if}
+            {if !empty($footer_next_page)}<li class="next"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>{/if}
         </ul>
     </nav>
 {/if}

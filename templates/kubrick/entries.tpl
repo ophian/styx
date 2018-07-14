@@ -8,7 +8,7 @@
             <h2 id="post-{$entry.id}"><a href="{$entry.link}">{$entry.title}</a></h2>
             {if !$is_single_entry}<div class="small">{$entry.timestamp|formatTime:DATE_FORMAT_ENTRY}</div>{/if}
 
-            {if $entry.categories}
+            {if NOT empty($entry.categories)}
             <span class="categoryIcon">
             {foreach $entry.categories AS $entry_category}
                 {if $entry_category.category_icon}
@@ -34,7 +34,7 @@
                 {if $is_single_entry}
 
                 {$CONST.ENTRY_POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} {$entry.timestamp|formatTime:DATE_FORMAT_ENTRY} {$CONST.AT} {$entry.timestamp|formatTime:"%H:%M"}.
-                {if $entry.categories}
+                {if NOT empty($entry.categories)}
                    {$CONST.FILED_UNDER} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}.
                 {/if}
                 {if $entry.allow_comments}
@@ -48,7 +48,7 @@
 
                 {else}
                 {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
-                {if $entry.categories}
+                {if NOT empty($entry.categories)}
                    {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                 {/if}
 
@@ -184,15 +184,15 @@
     {/foreach}
 
     <div class="navigation" style="text-align: center">
-    {if $footer_prev_page}
+    {if !empty($footer_prev_page)}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
     {/if}
 
-    {if $footer_info}
+    {if !empty($footer_info)}
         ({$footer_info})
     {/if}
 
-    {if $footer_next_page}
+    {if !empty($footer_next_page)}
         <a href="{$footer_next_page}">&raquo; {$CONST.NEXT_PAGE}</a>
     {/if}
 

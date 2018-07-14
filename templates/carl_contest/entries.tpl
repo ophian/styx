@@ -15,7 +15,7 @@
 
        <div class="serendipity_entryFooter">
 
-        {if $entry.categories}
+        {if NOT empty($entry.categories)}
             <span class="serendipity_entryIcon">
             {foreach $entry.categories AS $entry_category}
                 {if $entry_category.category_icon}
@@ -26,12 +26,12 @@
         {/if}
         {if $is_single_entry}
             {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
-            {if $entry.categories}
+            {if NOT empty($entry.categories)}
                 {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
             {/if}
             <br />
             {else}<a href="{$entry.link}">{$entry.title|default:$entry.body|truncate:40:" ..."}</a> {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
-                {if $entry.categories}
+                {if NOT empty($entry.categories)}
                     {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                 {/if}
                 {if $dategroup.is_sticky}
@@ -183,8 +183,8 @@
     {/foreach}
 
   <div class="serendipity_pageFooter" style="text-align: center">
-    {if $footer_info}
-        {if $footer_prev_page}
+    {if !empty($footer_info)}
+        {if !empty($footer_prev_page)}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
         {else}
         <span class="grey">&laquo; {$CONST.PREVIOUS_PAGE}</span>&#160;&#160;
@@ -192,12 +192,12 @@
     {else}
     {/if}
 
-    {if $footer_info}
+    {if !empty($footer_info)}
         ({$footer_info})
     {/if}
 
-    {if $footer_info}
-        {if $footer_next_page}
+    {if !empty($footer_info)}
+        {if !empty($footer_next_page)}
         &#160;&#160;<a href="{$footer_next_page}">{$CONST.NEXT_PAGE} &raquo;</a>
         {else}
         &#160;&#160;<span class="grey">{$CONST.NEXT_PAGE} &raquo;</span>
@@ -205,7 +205,7 @@
     {else}
     {/if}
 
-    <br />{if NOT $startpage}<a href="{$serendipityBaseURL}">{$CONST.ADMIN_FRONTPAGE}</a>{/if}{if NOT $footer_info} - <a href="#topofpage">{$CONST.TOP_LEVEL}</a>{/if}
+    <br />{if empty($startpage)}<a href="{$serendipityBaseURL}">{$CONST.ADMIN_FRONTPAGE}</a>{/if}{if empty($footer_info)} - <a href="#topofpage">{$CONST.TOP_LEVEL}</a>{/if}
     {serendipity_hookPlugin hook="entries_footer"}
     </div>
 <!-- ENTRIES END -->

@@ -1,11 +1,11 @@
 <div class="comments_by_author_pagination" style="text-align: center">
-<?php if($GLOBALS['tpl']['footer_prev_page']): ?>
+<?php if (!empty($GLOBALS['tpl']['footer_prev_page'])): ?>
     <a href="<?= $GLOBALS['tpl']['footer_prev_page'] ?>">&laquo; <?= PREVIOUS_PAGE ?></a>&#160;&#160;
 <?php endif; ?>
-<?php if($GLOBALS['tpl']['footer_info']): ?>
+<?php if (!empty($GLOBALS['tpl']['footer_info'])): ?>
     (<?= $GLOBALS['tpl']['footer_info'] ?>)
 <?php endif; ?>
-<?php if($GLOBALS['tpl']['footer_next_page']): ?>
+<?php if (!empty($GLOBALS['tpl']['footer_next_page'])): ?>
     <a href="<?= $GLOBALS['tpl']['footer_next_page'] ?>">&raquo; <?= NEXT_PAGE ?></a>
 <?php endif; ?>
 <?php $template = str_replace('\\', '/', dirname(__FILE__).'/comments_by_author.tpl'); ?>

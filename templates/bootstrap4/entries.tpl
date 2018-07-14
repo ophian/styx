@@ -13,7 +13,7 @@
         </header>
 
         <div class="post_content clearfix">
-        {if $entry.categories}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+        {if NOT empty($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
         {$entry.body}
         {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
         <a class="post_more btn btn-outline-primary btn-sm d-inline-block mb-3" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
@@ -26,9 +26,9 @@
         {/if}
 
         <footer class="post_info">
-        {if $entry.categories OR $entry.has_comments}
+        {if !empty($entry.categories) OR $entry.has_comments}
             <ul class="post_meta plainList">
-            {if $entry.categories}
+            {if NOT empty($entry.categories)}
                 <li class="post_category d-inline-block"><svg class="icon-folder" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.CATEGORIES}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#folder"></use></svg>{foreach $entry.categories AS $entry_category}<a class="post_category" href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</li>
             {/if}
             {if $entry.has_comments}
@@ -113,13 +113,13 @@
     {if $staticpage_pagetitle == ''}
     <nav aria-label="{$footer_info}" title="{$footer_info}">
         <ul class="pagination justify-content-between">
-            <li class="page-item{if !$footer_prev_page} disabled{/if}">
+            <li class="page-item{if empty($footer_prev_page)} disabled{/if}">
                 <a class="page-link" href="{$footer_prev_page}">
                     <span aria-hidden="true">&laquo;</span>
                     <span class="sr-only">{$CONST.PREVIOUS_PAGE}</span>
                 </a>
             </li>
-            <li class="page-item{if !$footer_next_page} disabled{/if}">
+            <li class="page-item{if empty($footer_next_page)} disabled{/if}">
                 <a class="page-link" href="{$footer_next_page}">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">{$CONST.NEXT_PAGE}</span>

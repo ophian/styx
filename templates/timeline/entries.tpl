@@ -92,7 +92,7 @@
                     {/if}
                 {/if}
                 <div class="serendipity_entry_body clearfix">
-                    {if $entry.categories}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+                    {if NOT empty($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
                     {$entry.body}
                 </div>
                 {if $entry.is_extended}
@@ -105,7 +105,7 @@
                 {/if}
                 {if $entry.categories OR $entry.add_footer}
                     <footer class="entry-footer">
-                        {if $entry.categories}
+                        {if NOT empty($entry.categories)}
                             <span class="sr-only">{$CONST.CATEGORIES}: </span>
                             <i class="fa fa-folder-open" aria-hidden="true"></i>
                             {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if !$entry_category@last}&nbsp;{/if}{/foreach}
@@ -277,9 +277,9 @@
 {/if}
 
 
-{if $footer_info OR $footer_prev_page OR $footer_next_page}
+{if !empty($footer_info) OR !empty($footer_prev_page) OR !empty($footer_next_page)}
     <div class="serendipity_pageSummary">
-        {if $footer_info}
+        {if !empty($footer_info)}
             <p class="summary serendipity_center">{$footer_info}</p>
         {/if}
 
@@ -292,7 +292,7 @@
                 {if $paginationStartPage <= 0}
                     {assign var="paginationStartPage" value="1"}
                 {/if}
-                {if $footer_prev_page}
+                {if !empty($footer_prev_page)}
                     <a class="btn btn-md btn-default btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
                 {/if}
                 {if $paginationStartPage > 1}
@@ -314,7 +314,7 @@
                 {if $smarty.section.i.index <= $footer_totalPages}
                     <a class="btn btn-md btn-default btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
                 {/if}
-                {if $footer_next_page}
+                {if !empty($footer_next_page)}
                     <a class="btn btn-md btn-default btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
                 {/if}
             </nav>

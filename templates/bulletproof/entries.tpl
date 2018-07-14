@@ -25,7 +25,7 @@
                         {/if}
 
                         {if $template_option.footercategories == 'true'}
-                            {if $entry.categories}
+                            {if NOT empty($entry.categories)}
                                 {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
                         {/if}
@@ -104,7 +104,7 @@
                         {/if}
 
                         {if $template_option.footercategories == 'true'}
-                            {if $entry.categories}
+                            {if NOT empty($entry.categories)}
                                 {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
                         {/if}
@@ -122,7 +122,7 @@
                 {/if}
             {/if}
 
-            {if $entry.categories}
+            {if NOT empty($entry.categories)}
                 <span class="serendipity_entryIcon">
                     {foreach $entry.categories AS $entry_category}
                         {if $entry_category.category_icon}
@@ -152,7 +152,7 @@
                         {/if}
 
                         {if $template_option.footercategories == 'true'}
-                            {if $entry.categories}
+                            {if NOT empty($entry.categories)}
                                 {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
                         {/if}
@@ -376,7 +376,7 @@
 {/foreach}
 
 <div class="serendipity_pageFooter" style="text-align: center">
-    {if $footer_prev_page}
+    {if !empty($footer_prev_page)}
         {if $template_option.prev_next_style == 'texticon'}
             {if $template_option.colorset == 'blank'}
                 <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><img alt="{$CONST.PREVIOUS_PAGE}" title="{$CONST.PREVIOUS_PAGE}" src="{serendipity_getFile file="img/back.png"}" />{$CONST.PREVIOUS_PAGE}</a>
@@ -394,24 +394,24 @@
         {/if}
     {/if}
 
-    {if $footer_info}
+    {if !empty($footer_info)}
         ({$footer_info})
     {/if}
 
-    {if $footer_next_page}
+    {if !empty($footer_next_page)}
         {if $template_option.prev_next_style == 'texticon'}
             {if $template_option.colorset == 'blank'}
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE}<img alt="{$CONST.NEXT_PAGE}" title="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}" /></a>
             {else}
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE}<img alt="{$CONST.NEXT_PAGE}" title="{$CONST.NEXT_PAGE}" src="{$serendipityHTTPPath}templates/{$template}/img/{$template_option.colorset}_forward.png" /></a>
             {/if}
-        {elseif $template_option.prev_next_style == 'icon'}
+        {elseif isset($template_option.prev_next_style) AND $template_option.prev_next_style == 'icon'}
             {if $template_option.colorset == 'blank'}
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><img alt="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}" /></a>
             {else}
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><img alt="{$CONST.NEXT_PAGE}" src="{$serendipityHTTPPath}templates/{$template}/img/{$template_option.colorset}_forward.png" /></a>
             {/if}
-        {elseif $template_option.prev_next_style == 'text'}
+        {elseif isset($template_option.prev_next_style) AND $template_option.prev_next_style == 'text'}
              <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE} &#187;</a>
         {/if}
     {/if}
@@ -425,7 +425,7 @@
             {if $paginationStartPage <= 0}
                 {assign var="paginationStartPage" value="1"}
             {/if}
-            {if $footer_prev_page}
+            {if !empty($footer_prev_page)}
                 <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><span class="pagearrow">&#9668;</span></a>
             {/if}
             {if $paginationStartPage > 1}
@@ -447,7 +447,7 @@
             {if $smarty.section.i.index <= $footer_totalPages}
                 <a href="{$footer_pageLink|replace:'%s':$footer_totalPages}">{$footer_totalPages}</a>
             {/if}
-            {if $footer_next_page}
+            {if !empty($footer_next_page)}
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><span class="pagearrow">&#9658;</span></a>
             {/if}
         </div>
