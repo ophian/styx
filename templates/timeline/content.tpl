@@ -1,4 +1,4 @@
-{if $searchresult_tooShort || $searchresult_noEntries}
+{if isset($searchresult_tooShort) || isset($searchresult_noEntries)}
 <div id="search-block" class="row">
     <div class="col-md-8 col-md-offset-2">
         <div id="search-response" class="panel panel-warning">
@@ -25,7 +25,7 @@
     </div>
 </div>
 
-{elseif $searchresult_error}
+{elseif isset($searchresult_error)}
 <div id="search-block" class="row">
     <div class="col-md-8 col-md-offset-2">
         <div id="search-response" class="panel panel-danger">
@@ -52,7 +52,7 @@
     </div>
 </div>
 
-{elseif $searchresult_results}
+{elseif isset($searchresult_results)}
 <div id="search-block" class="row">
     <div class="col-md-8 col-md-offset-2">
         <div id="search-response" class="panel panel-success">
@@ -67,7 +67,7 @@
     </div>
 </div>
 
-{elseif $subscribe_confirm_error}
+{elseif isset($subscribe_confirm_error)}
 <div id="search-block" class="row">
     <div class="col-md-8 col-md-offset-2">
         <div id="search-response" class="panel panel-danger">
@@ -82,7 +82,7 @@
     </div>
 </div>
 
-{elseif $subscribe_confirm_success}
+{elseif isset($subscribe_confirm_success)}
 <div id="search-block" class="row">
     <div class="col-md-8 col-md-offset-2">
         <div id="search-response" class="panel panel-success">
@@ -96,13 +96,13 @@
         </div>
     </div>
 </div>
-{elseif $content_message}
+{elseif isset($content_message)}
 <div id="search-block" class="row">
     <div class="col-md-8 col-md-offset-2">
-        <div class="alert alert-info alert-dismissible fade in" role="alert">
+        {if $content_message|strip == $content_message}<div class="alert alert-info alert-dismissible fade in" role="alert">
             <button type="button" class="close" data-target="#search-block" data-dismiss="alert" aria-label="Close" title="{$CONST.CLOSE}"><span aria-hidden="true">&times;</span></button>
             <span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span></span> {$content_message}
-        </div>
+        </div>{else}{$content_message}{/if}
     </div>
 </div>
 {/if}
