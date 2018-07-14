@@ -4,8 +4,8 @@
     <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
     <div><input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}"></div>
     <div class="form_field">
-        <label for="serendipity_commentform_name">{$CONST.NAME}{if $required_fields.name}&#8727;{/if}</label>
-        <input id="serendipity_commentform_name" name="serendipity[name]" type="text" value="{$commentform_name}" placeholder="{$CONST.TWOK11_PLACE_NAME}"{if $required_fields.name} required{/if}>
+        <label for="serendipity_commentform_name">{$CONST.NAME}{if isset($required_fields.name) AND $required_fields.name}&#8727;{/if}</label>
+        <input id="serendipity_commentform_name" name="serendipity[name]" type="text" value="{$commentform_name}" placeholder="{$CONST.TWOK11_PLACE_NAME}"{if isset($required_fields.name) AND $required_fields.name} required{/if}>
     </div>
     <div class="form_field">
         <label for="serendipity_commentform_email">{$CONST.EMAIL}{if isset($required_fields.email) AND $required_fields.email}&#8727;{/if}</label>
