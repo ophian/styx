@@ -112,7 +112,7 @@
 {/foreach}
 {/if}
 {if NOT $is_preview}
-    {if $staticpage_pagetitle == ''}
+    {if empty($staticpage_pagetitle)}
     <nav aria-label="{$footer_info}" title="{$footer_info}">
         <ul class="pagination justify-content-between">
             <li class="page-item{if empty($footer_prev_page)} disabled{/if}">

@@ -114,7 +114,7 @@
 {/foreach}
 {/if}
 {if NOT $is_preview}
-    {if $staticpage_pagetitle == ''}
+    {if empty($staticpage_pagetitle)}
     <nav class="pager u-cf" role="navigation">
     {if !empty($footer_info)}
         <p>{$footer_info}</p>
