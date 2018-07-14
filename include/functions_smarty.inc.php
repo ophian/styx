@@ -1219,7 +1219,7 @@ function serendipity_smarty_init($vars = array()) {
             include_once $config;
         }
 
-        if (is_array($template_loaded_config)) {
+        if (isset($template_loaded_config) && is_array($template_loaded_config)) {
             $template_vars =& $template_loaded_config;
             $serendipity['smarty']->assignByRef('template_option', $template_vars);
         } elseif (is_array($template_config)) {
