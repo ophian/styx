@@ -1,6 +1,7 @@
 <!-- ENTRIES START -->
     {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
 
+{if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
     {foreach $entries AS $dategroup}
     <div class="serendipity_Entry_Date">
 
@@ -179,6 +180,7 @@
         {$CONST.NO_ENTRIES_TO_PRINT}
     {/if}
     {/foreach}
+{/if}
 
     <div class="serendipity_entryFooter" style="text-align: center">
     {if !empty($footer_prev_page)}

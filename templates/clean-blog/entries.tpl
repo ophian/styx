@@ -1,4 +1,5 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
+{if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
     {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
@@ -151,6 +152,7 @@
         <p class="alert alert-info"><span class="fa-stack"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
+{/if}
 {if !empty($footer_info) OR !empty($footer_prev_page) OR !empty($footer_next_page)}
 {if !empty($footer_info)}
     <p class="summary serendipity_center">{$footer_info}</p>

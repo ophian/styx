@@ -1,4 +1,5 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
+{if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
     {assign var="entry" value=$entry scope=root}
@@ -109,6 +110,7 @@
     <p class="alert alert-info" role="alert">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/foreach}
+{/if}
 {if NOT $is_preview}
     {if $staticpage_pagetitle == ''}
     <nav aria-label="{$footer_info}" title="{$footer_info}">

@@ -1,5 +1,5 @@
 <h4>{$CONST.STATICPAGE_NEW_HEADLINES|capitalize}</h4>
-{if $entries}
+{if NOT empty($entries)}
     <dl>
         {foreach $entries AS $dategroup}
             {foreach $dategroup.entries AS $entry}

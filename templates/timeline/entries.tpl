@@ -5,6 +5,7 @@
     {assign var="prevmonth" value=''}
 {/if}
 
+{if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
         {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
@@ -271,6 +272,7 @@
     {/if}
 
 {/foreach}
+{/if}
 {if $template_option.display_as_timeline AND $entries AND !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
         <li class="clearfix" style="float: none;"></li>
     </ul>
