@@ -4,7 +4,7 @@
         {foreach $entries AS $dategroup}
             {foreach $dategroup.entries AS $entry}
             <dt class="serendipity_recententries_entrylink"><a href="{$entry.link}" title="{$entry.title|default:$entry.id}">{$entry.title|default:$entry.id}</a></dt>
-            <dd class="text-muted serendipity_recententries_entrydate"><small>{$dategroup.date|formatTime:$template_option.date_format}</small></dd>
+            <dd class="text-muted serendipity_recententries_entrydate"><small>{$dategroup.date|formatTime:$template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY}</small></dd>
             {/foreach}
         {/foreach}
     </dl>
