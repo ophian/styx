@@ -8,9 +8,9 @@ Version 2.6-alpha ()
 
   * Fix gallery Backend form flexible flow for mobile screens
 
-  * Check themes content.tpl [2k11, next] if $content_message is a plain
-    message string or HTML markup.
-    Adapt this to your copy themes based on 2k11/next.
+  * Check all themes content.tpl if $content_message is a plain message
+    string or HTML markup.
+    Adapt this to your copy themes which have this file.
 
   * Mark and highlight CKEditor plus Plugin-Updates as a SINGLE item update,
     to not use the UPDATE All button.
