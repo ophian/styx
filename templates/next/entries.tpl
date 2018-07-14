@@ -27,7 +27,7 @@
             {if isset($entry.categories) && is_array($entry.categories)}
                 <li><span class="info-label">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</li>
             {/if}
-            {if isset($entry.has_comments) AND $entry.has_comments}
+            {if $entry.has_comments}
                 <li><a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a></li>
             {/if}
             </ul>
@@ -122,11 +122,11 @@
 {if empty($is_preview)}
     {if empty($staticpage_pagetitle)}
     <nav class="pagination clearfix">
-        {if isset($footer_info)}<h3>{$footer_info}</h3>{/if}
-    {if isset($footer_prev_page) OR isset($footer_next_page)}
+        {if !empty($footer_info)}<h3>{$footer_info}</h3>{/if}
+    {if !empty($footer_prev_page) OR !empty($footer_next_page)}
         <ul>
-            <li class="prev-page">{if isset($footer_prev_page)}<a href="{$footer_prev_page}"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.PREVIOUS_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
-            <li class="next-page">{if isset($footer_next_page)}<a href="{$footer_next_page}"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NEXT_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
+            <li class="prev-page">{if !empty($footer_prev_page)}<a href="{$footer_prev_page}"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.PREVIOUS_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-left" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
+            <li class="next-page">{if !empty($footer_next_page)}<a href="{$footer_next_page}"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NEXT_PAGE}</span></a>{else}<span class="no-page"><span class="icon-angle-circled-right" aria-hidden="true"></span><span class="fallback-text">{$CONST.NO_ENTRIES_TO_PRINT}</span></span>{/if}</li>
         </ul>
     {/if}
     </nav>

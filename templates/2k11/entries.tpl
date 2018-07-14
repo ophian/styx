@@ -11,7 +11,7 @@
         </header>
 
         <div class="clearfix content serendipity_entry_body">
-        {if isset($entry.categories) AND is_array($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+        {if NOT empty($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
         {$entry.body}
         {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
         <a class="read_more block_level" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
@@ -27,15 +27,15 @@
         {/if}
 
         <footer class="clearfix">
-        {if isset($entry.categories) AND $entry.categories}
+        {if NOT empty($entry.categories)}
             <span class="visuallyhidden">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
         {/if}
-        {if isset($entry.categories) AND $entry.categories AND ((isset($entry.has_comments) AND $entry.has_comments) OR $entry.has_disqus)} | {/if}
-        {if (isset($entry.has_comments) AND $entry.has_comments) OR (isset($entry.has_disqus) AND $entry.has_disqus)}
+        {if NOT empty($entry.categories) AND ($entry.has_comments OR $entry.has_disqus)} | {/if}
+        {if $entry.has_comments OR (isset($entry.has_disqus) AND $entry.has_disqus)}
         {if isset($entry.has_disqus) AND $entry.has_disqus}
-            {$entry.comments}{if isset($entry.has_trackbacks) AND $entry.has_trackbacks}, <a href="{$entry.link}#trackbacks">{$entry.trackbacks} {$entry.label_trackbacks}</a>{/if}
+            {$entry.comments}{if $entry.has_trackbacks}, <a href="{$entry.link}#trackbacks">{$entry.trackbacks} {$entry.label_trackbacks}</a>{/if}
         {else}
-            <a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if isset($entry.has_trackbacks) AND $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a>
+            <a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a>
         {/if}
         {/if}
         {if isset($entry.url_tweetthis) AND $entry.url_tweetthis}
