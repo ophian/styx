@@ -10,7 +10,7 @@
             {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
         {/if}
         </div>
-    {if isset($comment.id) AND $entry.allow_comments AND $comment.body != 'COMMENT_DELETED'}
+    {if isset($comment.id) AND isset($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
         <a id="serendipity_reply_{$comment.id}" class="comment_reply" href="#serendipity_CommentForm" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id}'; {$comment_onchange|default:''}">{$CONST.REPLY}</a>
         <div id="serendipity_replyform_{$comment.id}"></div>
     {/if}
