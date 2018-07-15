@@ -228,21 +228,15 @@ $template_config = array(
 $FooterSidebarElements = serendipity_plugin_api::count_plugins('footer');
 $serendipity['smarty']->assignByRef('FooterSidebarElements', $FooterSidebarElements);
 
-    //$template_global_config = array('navigation' => true);
-    //$template_loaded_config = serendipity_loadThemeOptions($template_config, $serendipity['smarty_vars']['template_option'], true);
-    //$serendipity['template_loaded_config'][$serendipity['template']] = $template_loaded_config; // copy into global scope for extended plugin API usage
-    //serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config);
-
-
+$top = isset($serendipity['smarty_vars']['template_option']) ? $serendipity['smarty_vars']['template_option'] : '';
+$template_config_groups = NULL;
 $template_global_config = array('navigation' => true);
-$serendipity['template_loaded_config'] = $template_loaded_config = serendipity_loadThemeOptions($template_config, $serendipity['smarty_vars']['template_option'], true);
+$template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
 serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config);
 
-
-// $template_global_config = array('navigation' => true);
-// $template_loaded_config = serendipity_loadThemeOptions($template_config, $serendipity['smarty_vars']['template_option'], true);
-// serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config);
-
+if (isset($_SESSION['serendipityUseTemplate'])) {
+    $template_loaded_config['use_corenav'] = false;
+}
 
 // if number of icons has changed, show new count
 if(isset($_POST['serendipity']['template']['social_icons_amount']) && serendipity_userLoggedIn() && serendipity_checkPermission('adminTemplates')) {
