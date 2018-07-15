@@ -119,7 +119,7 @@
     {/if}
 {/foreach}
 {/if}
-{if empty($is_preview)}
+{if NOT $is_preview}
     {if empty($staticpage_pagetitle)}
     <nav class="pagination clearfix">
         {if !empty($footer_info)}<h3>{$footer_info}</h3>{/if}
