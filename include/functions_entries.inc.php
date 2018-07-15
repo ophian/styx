@@ -1124,6 +1124,9 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 'plugin_clean_page' => true,
                 'view'              => $serendipity['view'])
             );
+            if ($serendipity['view'] == 'start') {
+                $serendipity['smarty']->assign('is_preview', false); // All themes entries.tpl file check for "NOT $is_preview", which is not set when a staticpage is defined as startpage
+            }
             serendipity_smarty_fetch($smarty_block, 'entries.tpl', true);
             return; // no display of this item
         }
