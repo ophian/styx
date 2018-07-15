@@ -36,9 +36,9 @@
             {if isset($entry) AND $entry.is_entry_owner}
                 (<a class="comment_source_ownerlink" href="{$comment.link_delete|default:''}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id|default:0:$comment.author}');">{$CONST.DELETE}</a>)
             {/if}
-            {if isset($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
-                (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_{$comment.id|default:0}" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id|default:0}'; {$comment_onchange|default:''}">{$CONST.REPLY}</a>)
-                <div id="serendipity_replyform_{$comment.id|default:0}"></div>
+            {if isset($comment.id) AND isset($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
+                (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_{$comment.id}" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id}'; {$comment_onchange|default:''}">{$CONST.REPLY}</a>)
+                <div id="serendipity_replyform_{$comment.id}"></div>
             {/if}
         </div>
     </div>

@@ -42,7 +42,7 @@
                 <li><a class="reply_origin" href="#c{$comment.parent_id}" title="{$CONST.NEXT_REPLYORIGIN}: {$CONST.COMMENT} #c{$comment.parent_id}">{$CONST.NEXT_REPLYORIGIN}</a></li>
             {/if}
         {/if}
-            {if $entry.allow_comments AND $comment.body != 'COMMENT_DELETED'}
+            {if isset($comment.id) AND $entry.allow_comments AND $comment.body != 'COMMENT_DELETED'}
                 <li><a id="serendipity_reply_{$comment.id}" class="comment_reply" href="#serendipity_CommentForm">{$CONST.REPLY}</a>
                 <div id="serendipity_replyform_{$comment.id}" class="visuallyhidden"></div></li>
             {/if}

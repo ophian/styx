@@ -39,7 +39,7 @@
                         <a class="comment-source-ownerlink comment-reply-link btn btn-sm btn-default" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');" title="{$CONST.DELETE}"><i class="fa fa-lg fa-trash-o"></i><span class="sr-only"> {$CONST.DELETE}</span></a>
                     {/if}                        
                     
-                    {if $entry.allow_comments AND $comment.body != 'COMMENT_DELETED'}
+                    {if isset($comment.id) AND $entry.allow_comments AND $comment.body != 'COMMENT_DELETED'}
                         <a class="comment-reply-link btn btn-sm btn-default" href="#serendipity_CommentForm" id="serendipity_reply_{$comment.id}" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id}'; {$comment_onchange|default:''}" title="{$CONST.REPLY}"><i class="fa fa-lg fa-reply"></i><span class="sr-only"> {$CONST.REPLY}</span></a>
                         <div id="serendipity_replyform_{$comment.id}"></div>
                     {/if}
