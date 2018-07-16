@@ -11,7 +11,7 @@
         {serendipity_hookPlugin hook="frontend_header"}
         <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
         <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}" />
-    {if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR !empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
+    {if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR NOT empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
         <meta name="robots" content="index,follow" />
     {else}
         <meta name="robots" content="noindex,follow" />
