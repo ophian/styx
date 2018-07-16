@@ -99,7 +99,7 @@
             </p>
 
             {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
-        {if isset($entry.is_entry_owner) AND $entry.is_entry_owner}
+        {if NOT empty($entry.is_entry_owner)}
             <p class="manage_comments">
             {if $entry.allow_comments}
             <a href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>
