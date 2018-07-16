@@ -8,13 +8,13 @@
         <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
 
         <div class="form_field">
-            <label for="serendipity_commentform_name">{$CONST.NAME}{if $required_fields.name}&#8727;{/if}</label>
-            <input id="serendipity_commentform_name" type="text" name="serendipity[name]" value="{$commentform_name}"{if $required_fields.name} required{/if}>
+            <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)}&#8727;{/if}</label>
+            <input id="serendipity_commentform_name" type="text" name="serendipity[name]" value="{$commentform_name}"{if NOT empty($required_fields.name)} required{/if}>
         </div>
 
         <div class="form_field">
-            <label for="serendipity_commentform_email">{$CONST.EMAIL}{if isset($required_fields.email) && $required_fields.email}&#8727;{/if}</label>
-            <input id="serendipity_commentform_email" type="email" name="serendipity[email]" value="{$commentform_email}"{if isset($required_fields.email) && $required_fields.email} required{/if}>
+            <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)}&#8727;{/if}</label>
+            <input id="serendipity_commentform_email" type="email" name="serendipity[email]" value="{$commentform_email}"{if NOT empty($required_fields.email)} required{/if}>
         </div>
     {if isset($spice.inputtwitter) && $spice.inputtwitter}
         <div id="serendipity_commentspice_twitter" class="form_field">
@@ -23,8 +23,8 @@
         </div>
     {/if}
         <div class="form_field">
-            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if isset($required_fields.url) && $required_fields.url}&#8727;{/if}</label>
-            <input id="serendipity_commentform_url" type="url" name="serendipity[url]" value="{$commentform_url}" placeholder="http://example.org" {if isset($required_fields.url) && $required_fields.url} required{/if}>
+            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)}&#8727;{/if}</label>
+            <input id="serendipity_commentform_url" type="url" name="serendipity[url]" value="{$commentform_url}" placeholder="http://example.org" {if NOT empty($required_fields.url)} required{/if}>
         </div>
     {if isset($spice.inputarticle) && $spice.inputarticle}
         <div id="serendipity_commentspice_rss"  class="form_select spicehidden">
@@ -38,8 +38,8 @@
         </div>
 
         <div class="form_tarea">
-            <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if $required_fields.comment}&#8727;{/if}</label>
-            <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]"{if $required_fields.comment} required{/if}>{$commentform_data}</textarea>
+            <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)}&#8727;{/if}</label>
+            <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
         </div>
 
         {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
