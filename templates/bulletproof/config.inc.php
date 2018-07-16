@@ -56,7 +56,7 @@ $template_config = array(
         'var'           => 'layouttype',
         'name'          => LAYOUT_TYPE,
         'type'          => 'select',
-        'default'       => '3sbs',
+        'default'       => '2bs',
         'select_values' => array('3sbs' => LAYOUT_SBS,
                                  '3bss' => LAYOUT_BSS,
                                  '3ssb' => LAYOUT_SSB,
