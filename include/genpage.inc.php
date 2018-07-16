@@ -139,7 +139,7 @@ if (@$serendipity['GET']['action'] != 'search' && !empty($serendipity['content_m
     $serendipity['smarty']->assign('content_message', $serendipity['content_message']);
 }
 
-// default init these Serendipity Smarty Blocks
+// default init these Serendipity Smarty Blocks for content.tpl
 if (!$is_archives) {
     $serendipity['smarty']->assign('ARCHIVES', '');
 }
