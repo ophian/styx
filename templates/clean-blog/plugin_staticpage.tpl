@@ -1,3 +1,5 @@
+{if !isset($staticpage_custom.show_author)}{$staticpage_custom.show_author = null}{/if}
+{if !isset($staticpage_custom.show_date)}{$staticpage_custom.show_date = null}{/if}
 <article id="staticpage_{$staticpage_pagetitle|makeFilename}" class="serendipity_staticpage{if $staticpage_articleformat} post serendipity_entry{/if}">
     <header>
         <h2>{if $staticpage_articleformat}{if $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}{else}{$staticpage_pagetitle|escape}{/if}{else}{if $staticpage_headline}{$staticpage_headline|escape}{else}{$staticpage_pagetitle|escape}{/if}{/if}</h2>

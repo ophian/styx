@@ -1,3 +1,5 @@
+{if !isset($staticpage_custom.show_author)}{$staticpage_custom.show_author = null}{/if}
+{if !isset($staticpage_custom.show_date)}{$staticpage_custom.show_date = null}{/if}
 {if isset($searchresult_tooShort) || isset($searchresult_noEntries)}
     <div class="alert alert-info"><h4>{$CONST.SEARCH}</h4><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span> {$content_message}</div>
 {elseif isset($searchresult_error)}
@@ -12,5 +14,5 @@
     {if $content_message|strip == $content_message}<div class="alert alert-info"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-info fa-stack-1x"></i></span>  {$content_message}</div>{else}{$content_message}{/if}
 {/if}
 
-{$ENTRIES}
+{$ENTRIES|default:''}
 {$ARCHIVES}
