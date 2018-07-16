@@ -11,7 +11,7 @@
         <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)}&#8727;{/if}</label>
         <input id="serendipity_commentform_email" name="serendipity[email]" type="email" value="{$commentform_email}" placeholder="{$CONST.TWOK11_PLACE_MAIL}"{if NOT empty($required_fields.email)} required{/if}>
     </div>
-{if isset($spice.inputtwitter) AND $spice.inputtwitter}
+{if NOT empty($spice.inputtwitter)}
     <div id="serendipity_commentspice_twitter" class="form_field">
         <label for="serendipity_commentform_twitter">{$spice.inputtwitterlabel}</label>
         <input id="serendipity_commentform_twitter" name="serendipity[twitter]" type="text" value="{$spice.inputtwittervalue}" placeholder="{$spice.inputtwitterplaceholder}">
@@ -21,7 +21,7 @@
         <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)}&#8727;{/if}</label>
         <input id="serendipity_commentform_url" name="serendipity[url]" type="url" value="{$commentform_url}" placeholder="{$CONST.TWOK11_PLACE_URL}"{if NOT empty($required_fields.url)} required{/if}>
     </div>
-{if isset($spice.inputarticle) AND $spice.inputarticle}
+{if NOT empty($spice.inputarticle)}
     <div id="serendipity_commentspice_rss"  class="form_tarea spicehidden">
         <label for="serendipity_commentform_rss">{$spice.inputarticlelabel}</label>
         <select class="commentspice_rss_input" id="serendipity_commentform_rss" name="serendipity[promorss]"></select>
