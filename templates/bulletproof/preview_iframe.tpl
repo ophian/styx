@@ -41,7 +41,7 @@
         </script>
     </head>
 
-  <body id="preview_iframe_body" class="{$mode}_preview_body{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
+  <body id="preview_iframe_body" class="{$mode}_preview_body{if isset($template_option.webfonts) AND $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
     <div id="wrapper" class="{$mode}_preview_container">
         <div id="content" class="{$mode}_preview_content">
             <div class="clearfix">

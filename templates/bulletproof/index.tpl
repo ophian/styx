@@ -77,7 +77,7 @@
         <ul>
             {if $template_option.sitenavpos != 'none'}<li lang="en"><a href="{if $template_option.sitenavpos == 'left'}#sbsitenav{elseif $template_option.sitenavpos == 'right'}#sbsitenav{else}#sitenav{/if}">Skip to site navigation</a></li>{/if}
             <li lang="en"><a href="#content">Skip to blog entries</a></li>
-            <li lang="en"><a href="{$serendipityArchiveURL}">Skip to archive page</a></li>
+            <li lang="en"><a href="{$serendipityArchiveURL|default:"{$serendipityHTTPPath}archives/"}">Skip to archive page</a></li>
             {if $template_option.layouttype != '2bs'}<li lang="en"><a href="#serendipityLeftSideBar">Skip to left sidebar</a></li>{/if}
             {if $template_option.layouttype != '2sb'}<li lang="en"><a href="#serendipityRightSideBar">Skip to right sidebar</a></li>{/if}
         </ul>
@@ -115,8 +115,8 @@
         <!-- #serendipity_banner: this is the header area. it holds the blog title and   -->
         <!--                      description headlines                                  -->
         <div id="serendipity_banner">
-            <h1><span class="{if $template_option.firbtitle == 'false'}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:" ..."}</a></span></h1>
-            <h2><span class="{if $template_option.firbdescr == 'false'}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></span></h2>
+            <h1><span class="{if NOT $template_option.firbtitle}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:" ..."}</a></span></h1>
+            <h2><span class="{if NOT $template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></span></h2>
         </div>
         <div id="serendipity_below_banner"></div>
 
