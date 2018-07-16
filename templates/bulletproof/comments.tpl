@@ -33,7 +33,7 @@
             {$CONST.ON}
             <span class="comment_source_date">{$comment.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT}</span>
 
-            {if $entry.is_entry_owner}
+            {if isset($entry) AND $entry.is_entry_owner AND NOT empty($comment.id)}
                 (<a class="comment_source_ownerlink" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');">{$CONST.DELETE}</a>)
             {/if}
             {if isset($comment.id) AND isset($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}

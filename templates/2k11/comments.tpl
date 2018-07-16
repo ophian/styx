@@ -27,7 +27,7 @@
     {/if}
         <time>{$comment.timestamp|formatTime:'%H:%M'}</time>
         | <a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}" title="{$CONST.TWOK11_PLINK_TITLE}">{$CONST.TWOK11_PLINK_TEXT}</a>
-    {if isset($entry) AND $entry.is_entry_owner}
+    {if isset($entry) AND $entry.is_entry_owner AND NOT empty($comment.id)}
         | <a class="comment_source_ownerlink" href="{$comment.link_delete}" title="{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}">{$CONST.DELETE}</a>
     {/if}
     {if isset($comment.type) AND $comment.type == 'TRACKBACK'}

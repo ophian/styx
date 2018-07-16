@@ -33,8 +33,8 @@
             {$CONST.ON}
             <span class="comment_source_date">{$comment.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT}</span>
 
-            {if isset($entry) AND $entry.is_entry_owner}
-                (<a class="comment_source_ownerlink" href="{$comment.link_delete|default:''}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id|default:0:$comment.author}');">{$CONST.DELETE}</a>)
+            {if isset($entry) AND $entry.is_entry_owner AND NOT empty($comment.id)}
+                (<a class="comment_source_ownerlink" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');">{$CONST.DELETE}</a>)
             {/if}
             {if isset($comment.id) AND isset($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
                 (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_{$comment.id}" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id}'; {$comment_onchange|default:''}">{$CONST.REPLY}</a>)
