@@ -11,7 +11,7 @@
 {/if}
     <link rel="stylesheet" href="{serendipity_getFile file='admin/preview_iconizr.css'}">
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
-    <style>.container { max-width: 100%; } main { width: 100%; } .msg_error { margin: 0; }</style>
+    <style>.container { max-width: 100%; } main { width: 100%; line-height: 1.8; padding: .25rem 0; } .save_preview_sizing { visibility: hidden; display: none; } .msg_error { margin: 0; }</style>
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
 {else}
     <style>.container { max-width: 100%; } .mb-4, .my-4 { margin-bottom: 0 !important; }</style>
@@ -33,8 +33,11 @@
     <div class="container{if $template_option.bs_fluid}-fluid{/if}">
         <div class="row">
         {if $mode == 'preview'}
+
             <main class="col-xs-12 col-lg-8">
+                {$preview}
         {elseif $mode == 'save'}
+
             <main class="xcol-xs-12 xcol-lg-8">
                 <div class="{$mode}_preview_sizing"></div>
                 {if !empty($updertHooks)}<div class="{$mode}_updertH">{$updertHooks}</div>{/if}
@@ -54,7 +57,6 @@
                 <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
             {/if}
         {/if}
-            {$preview}
             </main>
         </div>
     </div>
