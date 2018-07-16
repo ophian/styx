@@ -43,18 +43,18 @@
 
 {* HEADER IMAGE *}
     {if $view=="entry"}
-        {if $entry.properties.entry_specific_header_image}
+        {if NOT empty($entry.properties.entry_specific_header_image)}
             <style type="text/css">.intro-header {ldelim}background-image: url('{$entry.properties.entry_specific_header_image}');{rdelim}</style>
         {else}
             <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.entry_default_header_image}{$template_option.entry_default_header_image}{else}{serendipity_getFile file="img/post-bg.jpg"}{/if}');{rdelim}</style>
         {/if}
-    {elseif $staticpage_pagetitle AND NOT $plugin_contactform_name}
-        {if $staticpage_custom.staticpage_header_image}
+    {elseif NOT empty($staticpage_pagetitle) AND empty($plugin_contactform_name)}
+        {if NOT empty($staticpage_custom.staticpage_header_image)}
             <style type="text/css">.intro-header {ldelim}background-image: url('{$staticpage_custom.staticpage_header_image}');{rdelim}</style>
         {else}
-            <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.staticpage_header_image}{$template_option.staticpage_header_image}{else}{serendipity_getFile file="img/about-bg.jpg"}{/if}');{rdelim}</style>
+            <style type="text/css">.intro-header {ldelim}background-image: url('{if NOT empty($template_option.staticpage_header_image)}{$template_option.staticpage_header_image}{else}{serendipity_getFile file="img/about-bg.jpg"}{/if}');{rdelim}</style>
         {/if}
-    {elseif $plugin_contactform_name}
+    {elseif NOT empty($plugin_contactform_name)}
         <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.contactform_header_image}{$template_option.contactform_header_image}{else}{serendipity_getFile file="img/contact-bg.jpg"}{/if}');{rdelim}</style>
     {elseif $view=="archive"}
         <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.archive_header_image}{$template_option.archive_header_image}{else}{serendipity_getFile file="img/archive-bg.jpg"}{/if}');{rdelim}</style>
@@ -127,7 +127,7 @@
                             <hr class="small">
                             {if $head_subtitle}<span class="subheading">{$head_subtitle|default:$blogDescription}</span>{else}{$blogDescription}{/if}
                         {else}
-                            {if $entry.properties.entry_subtitle}<h2 class="subheading">{$entry.properties.entry_subtitle|escape}</h2>{/if}
+                            {if NOT empty($entry.properties.entry_subtitle)}<h2 class="subheading">{$entry.properties.entry_subtitle|escape}</h2>{/if}
                             <p class="meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-sm btn-default"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if NOT empty($entry.is_entry_owner) AND NOT $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
                         {/if}
                     </div>

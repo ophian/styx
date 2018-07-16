@@ -6,7 +6,7 @@
     <article id="post_{$entry.id}" class="post{if !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}-preview{/if} serendipity_entry{if $dategroup.is_sticky} sticky{/if}" role="article">
     {if !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}
         <a href="{$entry.link}"><h2 class="post-title">{$entry.title}</h2>
-        {if $entry.properties.entry_subtitle}
+        {if NOT empty($entry.properties.entry_subtitle)}
             <h3 class="post-subtitle">{$entry.properties.entry_subtitle|escape}</h3>
         {elseif $template_option.subtitle_use_entrybody==true AND $template_option.entrybody_detailed_only == true}
             <h3 class="post-subtitle">{$entry.body|strip_tags|strip|truncate:70:" ..."}</h3>
@@ -31,7 +31,7 @@
             {if $entry.plugin_display_dat}
                 {$entry.plugin_display_dat}
             {/if}
-            {if $entry.categories OR $entry.add_footer}
+            {if NOT empty($entry.categories) OR NOT empty($entry.add_footer)}
                 <footer class="entry-footer">
                     {if NOT empty($entry.categories)}
                         <span class="sr-only">{$CONST.CATEGORIES}: </span>
@@ -59,7 +59,7 @@
                             {/if}
                         {/if}
                     {else}
-                        {$entry.freetag}
+                        {$entry.freetag|default:''}
                     {/if}
                     {$entry.add_footer|default:''}
                 </footer>
