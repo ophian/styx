@@ -34,7 +34,7 @@
             <?= ON ?>
             <span class="comment_source_date"><?= serendipity_formatTime($comment['timestamp'], DATE_FORMAT_SHORT); ?></span>
 
-            <?php if (isset($GLOBALS['tpl']['entry']) && @$GLOBALS['tpl']['commentform_entry']['is_entry_owner'] && !empty($comment['id'])): ?>
+            <?php if (isset($GLOBALS['tpl']['entry']) && @$GLOBALS['tpl']['entry']['is_entry_owner'] && !empty($comment['id'])): ?>
                 (<a class="comment_source_ownerlink" href="<?= $comment['link_delete'] ?>" onclick="return confirm('<?= printf(COMMENT_DELETE_CONFIRM, (isset($comment['id']) ? $comment['id'] : 0), $comment['author']); ?>');"><?= DELETE ?></a>)
             <?php endif; ?>
             <?php if ($GLOBALS['tpl']['commentform_entry']['allow_comments'] && $comment['body'] != 'COMMENT_DELETED'): ?>
