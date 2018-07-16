@@ -7,8 +7,8 @@ if (IN_serendipity !== true) {
 // Load possible language files.
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
-$serendipity['smarty']->assign(array('currpage'=> "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']));
-$serendipity['smarty']->assign(array('currpage2'=> $_SERVER['REQUEST_URI']));
+$serendipity['smarty']->assign(array('currpage'  => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
+                                     'currpage2' => $_SERVER['REQUEST_URI']));
 
 if (!function_exists('serendipity_plugin_api_event_hook')) {
     function serendipity_plugin_api_event_hook($event, &$bag, &$eventData, $addData = null) {

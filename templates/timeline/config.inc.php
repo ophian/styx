@@ -81,7 +81,7 @@ if (!function_exists('timeAgoInWords')) {
     function timeAgoInWords($params, $template) {
         return distanceOfTimeInWords($params['from_time'], time());
     }
-    // smarty function to use distanceOfTimeInWords function
+    // Smarty function to use distanceOfTimeInWords function
     // call from tpl as {elapsed_time_words from_time=$comment.timestamp}
     $serendipity['smarty']->registerPlugin('function', 'elapsed_time_words', 'timeAgoInWords');
 }
@@ -224,7 +224,7 @@ $template_config = array(
     )
 );
 
-// register footer sidebar with smarty
+// register footer sidebar with Smarty
 $FooterSidebarElements = serendipity_plugin_api::count_plugins('footer');
 $serendipity['smarty']->assignByRef('FooterSidebarElements', $FooterSidebarElements);
 
@@ -238,11 +238,13 @@ if (isset($_SESSION['serendipityUseTemplate'])) {
     $template_loaded_config['use_corenav'] = false;
 }
 
+$serendipity['template_loaded_config'] = $template_loaded_config;
+
 // if number of icons has changed, show new count
-if(isset($_POST['serendipity']['template']['social_icons_amount']) && serendipity_userLoggedIn() && serendipity_checkPermission('adminTemplates')) {
-    $temp_post=$_POST['serendipity']['template']['social_icons_amount'];
-    if(is_numeric($temp_post)) {
-       $template_loaded_config['social_icons_amount'] =$temp_post;
+if (isset($_POST['serendipity']['template']['social_icons_amount']) && serendipity_userLoggedIn() && serendipity_checkPermission('adminTemplates')) {
+    $temp_post = $_POST['serendipity']['template']['social_icons_amount'];
+    if (is_numeric($temp_post)) {
+       $template_loaded_config['social_icons_amount'] = $temp_post;
     }
 }
 
@@ -361,7 +363,7 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
         // Check what Event is coming in, only react to those we want.
         switch($event) {
 
-            // Displaying the backend entry section
+            // Displaying the Backend entry section
             case 'backend_display':
                 // INFO: The whole 'entryproperties' injection is easiest to store any data you want. The entryproperties plugin
                 // should actually not even be required to do this, as serendipity loads all properties regardless of the installed plugin
@@ -372,7 +374,7 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                 // Check what our special key is set to (checks both POST data as well as the actual data)
                 $is_timeline_image = entry_option_get_value ($timeline_image_key, $eventData);
 
-                // This is the actual HTML output on the backend screen.
+                // This is the actual HTML output on the Backend screen.
                 //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
                 echo '<div class="entryproperties">';
                 echo '  <input type="hidden" value="true" name="serendipity[propertyform]">';
