@@ -22,7 +22,7 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
         $propbag->add('description',   $desc);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian');
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('configuration', array(
                                         'title',
                                         'backend_title',
@@ -66,7 +66,7 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        DO_MARKUP);
                 $propbag->add('description', DO_MARKUP_DESCRIPTION);
-                $propbag->add('default',     'true');
+                $propbag->add('default',     ($serendipity['wysiwyg'] ? 'false' : 'true'));
                 break;
 
             case 'show_where':
