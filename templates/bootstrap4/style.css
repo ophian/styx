@@ -15,3 +15,6 @@
 .comment_preview::after {
     content: 'P R E V I E W';
 }
+#serendipity_categories_list input {
+    margin-right: .25rem;
+}
