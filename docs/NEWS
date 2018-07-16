@@ -1,6 +1,10 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Fix default/style_fallback.css file, pre-bound into the serendipity.css
+    file, to set a max-width of 100% to the serendipity image selectors and
+    fixed the gallery item styles to better match the galleries forced width.
+
   * Prepare Backend and [2k11] Frontend javascript files to support more
     modern jQuery Lib versions.
     Be sure to not have "sticky" browser cached versions loaded after the
