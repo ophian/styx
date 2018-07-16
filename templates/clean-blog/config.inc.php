@@ -216,6 +216,7 @@ $template_config = array(
     )
 );
 
+// Collapse template options into groups.
 $top = isset($serendipity['smarty_vars']['template_option']) ? $serendipity['smarty_vars']['template_option'] : '';
 $template_config_groups = NULL;
 $template_global_config = array('navigation' => true);
