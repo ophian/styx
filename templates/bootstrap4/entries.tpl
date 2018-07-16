@@ -113,19 +113,23 @@
 {/if}
 {if NOT $is_preview}
     {if empty($staticpage_pagetitle)}
-    <nav aria-label="{$footer_info}" title="{$footer_info}">
+    <nav aria-label="{$footer_info|default:''}" title="{$footer_info|default:''}">
         <ul class="pagination justify-content-between">
             <li class="page-item{if empty($footer_prev_page)} disabled{/if}">
+            {if NOT empty($footer_prev_page)}
                 <a class="page-link" href="{$footer_prev_page}">
                     <span aria-hidden="true">&laquo;</span>
                     <span class="sr-only">{$CONST.PREVIOUS_PAGE}</span>
                 </a>
+            {/if}
             </li>
             <li class="page-item{if empty($footer_next_page)} disabled{/if}">
+            {if NOT empty($footer_next_page)}
                 <a class="page-link" href="{$footer_next_page}">
                     <span aria-hidden="true">&raquo;</span>
                     <span class="sr-only">{$CONST.NEXT_PAGE}</span>
                 </a>
+            {/if}
             </li>
         </ul>
     </nav>
