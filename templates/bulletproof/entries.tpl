@@ -378,7 +378,7 @@
 {/if}
 
 <div class="serendipity_pageFooter" style="text-align: center">
-    {if !empty($footer_prev_page)}
+    {if NOT empty($footer_prev_page)}
         {if $template_option.prev_next_style == 'texticon'}
             {if $template_option.colorset == 'blank'}
                 <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><img alt="{$CONST.PREVIOUS_PAGE}" title="{$CONST.PREVIOUS_PAGE}" src="{serendipity_getFile file="img/back.png"}" />{$CONST.PREVIOUS_PAGE}</a>
@@ -396,11 +396,11 @@
         {/if}
     {/if}
 
-    {if !empty($footer_info)}
+    {if NOT empty($footer_info)}
         ({$footer_info})
     {/if}
 
-    {if !empty($footer_next_page)}
+    {if NOT empty($footer_next_page)}
         {if $template_option.prev_next_style == 'texticon'}
             {if $template_option.colorset == 'blank'}
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}">{$CONST.NEXT_PAGE}<img alt="{$CONST.NEXT_PAGE}" title="{$CONST.NEXT_PAGE}" src="{serendipity_getFile file="img/forward.png"}" /></a>
@@ -418,7 +418,7 @@
         {/if}
     {/if}
 
-    {if $template_option.show_pagination == 'true' && $footer_totalPages > 1}
+    {if $template_option.show_pagination == 'true' AND $footer_totalPages > 1}
         <div class="pagination">
             {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
             {if $footer_currentPage+3 > $footer_totalPages}
@@ -427,7 +427,7 @@
             {if $paginationStartPage <= 0}
                 {assign var="paginationStartPage" value="1"}
             {/if}
-            {if !empty($footer_prev_page)}
+            {if NOT empty($footer_prev_page)}
                 <a title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><span class="pagearrow">&#9668;</span></a>
             {/if}
             {if $paginationStartPage > 1}
@@ -449,7 +449,7 @@
             {if $smarty.section.i.index <= $footer_totalPages}
                 <a href="{$footer_pageLink|replace:'%s':$footer_totalPages}">{$footer_totalPages}</a>
             {/if}
-            {if !empty($footer_next_page)}
+            {if NOT empty($footer_next_page)}
                 <a title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><span class="pagearrow">&#9658;</span></a>
             {/if}
         </div>

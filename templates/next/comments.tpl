@@ -37,7 +37,7 @@
             {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
                 <li>{$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle|truncate:42|wordwrap:15:"\n":true|escape}</span></li>
             {else}
-        {if !empty($template_option.refcomments)}
+        {if NOT empty($template_option.refcomments)}
             {if $comment.parent_id != '0'}
                 <li><a class="reply_origin" href="#c{$comment.parent_id}" title="{$CONST.NEXT_REPLYORIGIN}: {$CONST.COMMENT} #c{$comment.parent_id}">{$CONST.NEXT_REPLYORIGIN}</a></li>
             {/if}

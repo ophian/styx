@@ -26,7 +26,7 @@
     <div class="form-group">
             {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
     </div>
-    {if $is_commentform_showToolbar || $is_allowSubscriptions}
+    {if $is_commentform_showToolbar OR $is_allowSubscriptions}
         <div class="form-group">
             {if $is_commentform_showToolbar}           
                 <div class="checkbox">

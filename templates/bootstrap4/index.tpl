@@ -41,9 +41,9 @@
         <div class="collapse navbar-collapse" id="corenav">
             <ul class="navbar-nav mr-auto">
             {foreach $navlinks AS $navlink}
-                {if $navlink.title != "" && $navlink.href != ""}
+                {if $navlink.title != "" AND $navlink.href != ""}
                 <li class="nav-item{if $currpage == $navlink.href OR $currpage2 == $navlink.href} active{/if}">
-                    <a class="nav-link" href="{$navlink.href}">{$navlink.title}{if $currpage == $navlink.href || $currpage2 == $navlink.href} <span class="sr-only">(current)</span>{/if}</a>
+                    <a class="nav-link" href="{$navlink.href}">{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href} <span class="sr-only">(current)</span>{/if}</a>
                 </li>
                 {/if}
             {/foreach}
@@ -68,7 +68,7 @@
     {/if}
     </nav>
 {if $template_option.bs_jumbotron_type != 'none'}
-    <header class="jumbotron jumbotron-fluid bg-{$template_option.bs_jumbotron_style} text-{if $template_option.bs_jumbotron_style == 'light'}dark{else}white{/if}{if $template_option.bs_jumbotron_type == 'small' || $template_option.bs_jumbotron_type == 'compact'} py-3 py-sm-4{/if}">
+    <header class="jumbotron jumbotron-fluid bg-{$template_option.bs_jumbotron_style} text-{if $template_option.bs_jumbotron_style == 'light'}dark{else}white{/if}{if $template_option.bs_jumbotron_type == 'small' OR $template_option.bs_jumbotron_type == 'compact'} py-3 py-sm-4{/if}">
         <div class="container{if $template_option.bs_fluid}-fluid{/if}">
         {if $template_option.bs_jumbotron_type == 'compact'}
             <div class="row">

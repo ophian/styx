@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
 
-{if $template_option.display_as_timeline AND $entries AND !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - OPEN TIMELINE*}
+{if $template_option.display_as_timeline AND $entries AND NOT $is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - OPEN TIMELINE*}
     <ul class="timeline">
     {assign var="prevmonth" value=''}
 {/if}
@@ -47,7 +47,7 @@
                     </li>
                     {assign var="prevmonth" value=$entry.timestamp|formatTime:"%B"}
             {else}{* not using timeline - use blog format instead *}
-                {if $entry.body || $entry.properties.timeline_image}
+                {if $entry.body OR $entry.properties.timeline_image}
                     <div class="row each-blogstyle-entry">
                         <div class="col-md-5 blogstyle-post-thumb">
                             {if $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
@@ -111,7 +111,7 @@
                             <i class="fa fa-folder-open" aria-hidden="true"></i>
                             {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if !$entry_category@last}&nbsp;{/if}{/foreach}
                         {/if}
-                        {if isset($entry.freetag.extended) && $entry.freetag.extended == 1}
+                        {if isset($entry.freetag.extended) AND $entry.freetag.extended == 1}
                             {if NOT empty($entry.freetag.tags.tags)}
                                 <div class="timeline_freeTag">
                                 <span class="sr-only">{$entry.freetag.tags.description}</span>
@@ -273,15 +273,15 @@
 
 {/foreach}
 {/if}
-{if $template_option.display_as_timeline AND $entries AND !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
+{if $template_option.display_as_timeline AND $entries AND NOT $is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
         <li class="clearfix" style="float: none;"></li>
     </ul>
 {/if}
 
 
-{if !empty($footer_info) OR !empty($footer_prev_page) OR !empty($footer_next_page)}
+{if NOT empty($footer_info) OR NOT empty($footer_prev_page) OR NOT empty($footer_next_page)}
     <div class="serendipity_pageSummary">
-        {if !empty($footer_info)}
+        {if NOT empty($footer_info)}
             <p class="summary serendipity_center">{$footer_info}</p>
         {/if}
 
@@ -294,7 +294,7 @@
                 {if $paginationStartPage <= 0}
                     {assign var="paginationStartPage" value="1"}
                 {/if}
-                {if !empty($footer_prev_page)}
+                {if NOT empty($footer_prev_page)}
                     <a class="btn btn-md btn-default btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
                 {/if}
                 {if $paginationStartPage > 1}
@@ -316,7 +316,7 @@
                 {if $smarty.section.i.index <= $footer_totalPages}
                     <a class="btn btn-md btn-default btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
                 {/if}
-                {if !empty($footer_next_page)}
+                {if NOT empty($footer_next_page)}
                     <a class="btn btn-md btn-default btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
                 {/if}
             </nav>

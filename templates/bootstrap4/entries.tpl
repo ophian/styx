@@ -27,7 +27,7 @@
         {/if}
 
         <footer class="post_info">
-        {if !empty($entry.categories) OR $entry.has_comments}
+        {if NOT empty($entry.categories) OR $entry.has_comments}
             <ul class="post_meta plainList">
             {if NOT empty($entry.categories)}
                 <li class="post_category d-inline-block"><svg class="icon-folder" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$CONST.CATEGORIES}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#folder"></use></svg>{foreach $entry.categories AS $entry_category}<a class="post_category" href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}</li>

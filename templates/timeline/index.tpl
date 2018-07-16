@@ -112,7 +112,7 @@
                 {/if}
             </h2>
 
-            {if $footer_totalPages > 1 && !isset($staticpage_pagetitle)}
+            {if $footer_totalPages > 1 AND NOT isset($staticpage_pagetitle)}
                 <nav class="pagination pull-right">
                     {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
                     {if $footer_currentPage+3 > $footer_totalPages}
@@ -121,7 +121,7 @@
                     {if $paginationStartPage <= 0}
                         {assign var="paginationStartPage" value="1"}
                     {/if}
-                    {if !empty($footer_prev_page)}
+                    {if NOT empty($footer_prev_page)}
                         <a class="btn btn-md btn-default btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
                     {/if}
                     {if $paginationStartPage > 1}
@@ -143,7 +143,7 @@
                     {if $smarty.section.i.index <= $footer_totalPages}
                         <a class="btn btn-md btn-default btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
                     {/if}
-                    {if !empty($footer_next_page)}
+                    {if NOT empty($footer_next_page)}
                         <a class="btn btn-md btn-default btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
                     {/if}
                 </nav>
@@ -154,7 +154,7 @@
 {* MAIN CONTENT *}
     <div class="container content">
         <div class="row">
-            <main class="{if ($rightSidebarElements > 0 && $staticpage_pagetitle =='') || ($rightSidebarElements > 0 && $staticpage_pagetitle !='' && $staticpage_custom.show_sidebars != 'false')}col-md-9{else}col-md-12{/if} mainpanel">
+            <main class="{if ($rightSidebarElements > 0 AND $staticpage_pagetitle =='') OR ($rightSidebarElements > 0 AND $staticpage_pagetitle !='' AND $staticpage_custom.show_sidebars != 'false')}col-md-9{else}col-md-12{/if} mainpanel">
                 {if $view=='404'}
                     <div id="search-block" class="row">
                         <div class="col-md-8 col-md-offset-2">
@@ -205,7 +205,7 @@
                     {$CONTENT}
                 {/if}
             </main>
-            {if ($rightSidebarElements > 0 && $staticpage_pagetitle =='') || ($rightSidebarElements > 0 && $staticpage_pagetitle !='' && $staticpage_custom.show_sidebars != 'false')}
+            {if ($rightSidebarElements > 0 AND $staticpage_pagetitle =='') OR ($rightSidebarElements > 0 AND $staticpage_pagetitle !='' AND $staticpage_custom.show_sidebars != 'false')}
                 <aside class="col-md-3 RightSideBarContainer">
                     <div id="serendipityRightSideBar" class="RightSideBar">
                         {serendipity_printSidebar side="right"}

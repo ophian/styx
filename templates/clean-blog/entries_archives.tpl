@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header"}
 <article class="archive">
-    {if $template_option.categories_on_archive || $template_option.tags_on_archive}
+    {if $template_option.categories_on_archive OR $template_option.tags_on_archive}
         <div class="row"> 
             {if $template_option.categories_on_archive}
                 <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12">      

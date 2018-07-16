@@ -5,14 +5,14 @@
 </article>
 {/foreach}
 {*
-{if !empty($footer_info) OR !empty($footer_prev_page) OR !empty($footer_next_page)}
+{if NOT empty($footer_info) OR NOT empty($footer_prev_page) OR NOT empty($footer_next_page)}
     <div class="serendipity_pageSummary">
-    {if !empty($footer_info)}
+    {if NOT empty($footer_info)}
         <p class="summary serendipity_center">{$footer_info}</p>
     {/if}
         <nav class="pagination">
-            {if !empty($footer_prev_page)}<a class="btn btn-md btn-default btn-theme" href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>{/if}
-            {if !empty($footer_next_page)}<a class="btn btn-md btn-default btn-theme" href="{$footer_next_page}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>{/if}
+            {if NOT empty($footer_prev_page)}<a class="btn btn-md btn-default btn-theme" href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>{/if}
+            {if NOT empty($footer_next_page)}<a class="btn btn-md btn-default btn-theme" href="{$footer_next_page}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>{/if}
         </nav>
 {/if}
 *}

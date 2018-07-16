@@ -16,7 +16,7 @@
                     </div>
                 {/foreach}
             {/if}
-            {if (empty($is_contactform_sent)) && $plugin_contactform_preface}
+            {if (empty($is_contactform_sent)) AND $plugin_contactform_preface}
                <div class="contactform_preface">{$plugin_contactform_preface}</div>
             {/if}
             {if $is_contactform_sent}

@@ -4,7 +4,7 @@
 {foreach $plugindata AS $item}
     {if $item.class != "serendipity_plugin_quicksearch"}
         <section class="sidebar_plugin clearfix {cycle values="odd,even"} {$item.class}">
-            {if $item.title != "" && $item.class != "serendipity_plugin_freetag"}
+            {if $item.title != "" AND $item.class != "serendipity_plugin_freetag"}
             <h3>{$item.title}</h3>
             {/if}
             <div class="sidebar_content clearfix">{$item.content}</div>

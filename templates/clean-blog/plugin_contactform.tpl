@@ -10,7 +10,7 @@
                     <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$message}</p>
                 {/foreach}
             {/if}
-            {if (empty($is_contactform_sent)) && $plugin_contactform_preface}
+            {if (empty($is_contactform_sent)) AND $plugin_contactform_preface}
                <div class="contactform_preface">{$plugin_contactform_preface}</div>
             {/if}
             {if $is_contactform_sent}

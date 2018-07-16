@@ -1,4 +1,4 @@
-{if isset($searchresult_tooShort) || isset($searchresult_noEntries)}
+{if isset($searchresult_tooShort) OR isset($searchresult_noEntries)}
 <div id="search-block" class="row">
     <div class="col-md-8 col-md-offset-2">
         <div id="search-response" class="panel panel-warning">

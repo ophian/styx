@@ -1,7 +1,7 @@
 <ul class="comment-list">
 {foreach $comments AS $comment}
     {if $comment@first}{assign var="prevdepth" value=$comment.depth}{/if}
-    {if ($comment.depth == $prevdepth) && !$comment@first}
+    {if ($comment.depth == $prevdepth) AND NOT $comment@first}
         </li>
     {elseif $comment.depth < $prevdepth}
         {for $i=1 to $prevdepth-$comment.depth}

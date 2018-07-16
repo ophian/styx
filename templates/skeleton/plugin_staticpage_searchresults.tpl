@@ -4,7 +4,7 @@
 
     <ul class="plainList">
     {foreach $staticpage_results AS $result}
-        <li><a href="{$result.permalink|escape}" title="{$result.pagetitle|escape}">{if !empty($result.headline)}{$result.headline}{else}{$result.pagetitle|escape}{/if}</a> ({$result.realname|escape})
+        <li><a href="{$result.permalink|escape}" title="{$result.pagetitle|escape}">{if NOT empty($result.headline)}{$result.headline}{else}{$result.pagetitle|escape}{/if}</a> ({$result.realname|escape})
             <div class="page_result_content">{$result.content|strip_tags|strip|truncate:200:"&hellip;"}</div>
         </li>
     {/foreach}

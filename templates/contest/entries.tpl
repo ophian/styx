@@ -185,15 +185,15 @@
 {/if}
 
     <div class="serendipity_entryFooter serendipity_entriesFooter" style="text-align: center">
-    {if !empty($footer_prev_page)}
+    {if NOT empty($footer_prev_page)}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
     {/if}
 
-    {if !empty($footer_info)}
+    {if NOT empty($footer_info)}
         <span class="serendipity_footer_pagination">({$footer_info})</span>
     {/if}
 
-    {if !empty($footer_next_page)}
+    {if NOT empty($footer_next_page)}
         <a href="{$footer_next_page}">&raquo; {$CONST.NEXT_PAGE}</a>
     {/if}
 

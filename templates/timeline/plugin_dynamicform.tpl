@@ -16,7 +16,7 @@
                     </div>
                 {/foreach}
             {/if}
-            {if (empty($is_contactform_sent)) && $plugin_contactform_preface}
+            {if (empty($is_contactform_sent)) AND $plugin_contactform_preface}
                <div class="contactform_preface">{$plugin_contactform_preface}</div>
             {/if}
             {if $is_contactform_sent}
@@ -34,7 +34,7 @@
                             {if $field.type == "checkbox"}
                                 <fieldset class="form-group">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">*</span>{/if}</legend>
-                                    <div class="form-check{if $is_contactform_error && $field.required && !$field.default} text-danger{/if}">
+                                    <div class="form-check{if $is_contactform_error AND $field.required AND NOT $field.default} text-danger{/if}">
                                         <label class="form-check-label">
                                             <input type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default} class="form-check-label">
                                             {$field.message}
@@ -48,7 +48,7 @@
                                 {/foreach}
                                 <fieldset class="form-group">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">*</span>{/if}</legend>
-                                    <div class="form-check{if $is_contactform_error && $field.required && $radioset!='true'} text-danger{/if}">
+                                    <div class="form-check{if $is_contactform_error AND $field.required AND $radioset!='true'} text-danger{/if}">
                                         {foreach name="radio_option" from=$field.options item="option"}
                                             <label class="form-check-label">
                                                 <input type="radio" class="form-check-input" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default}>
@@ -62,7 +62,7 @@
                                 {foreach name="radio_option" from=$field.options item="option"}
                                     {if $option.default}{assign var="selectset" value='true'}{/if}
                                 {/foreach}
-                                <fieldset class="form-group{if $is_contactform_error && $field.required && $selectset != 'true'} has-error{/if}">
+                                <fieldset class="form-group{if $is_contactform_error AND $field.required AND $selectset != 'true'} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">*</span>{/if}</legend>
                                     <select name="{$field.id}" class="form-control">
 {* CHANGE 'PLEASE SELECT' TO LANGUAGE CONSTANT *}
@@ -73,22 +73,22 @@
                                     </select>
                                 </fieldset>
                             {elseif $field.type == "password"}
-                                <fieldset class="form-group{if $is_contactform_error && $field.required && !$field.default} has-error{/if}">
+                                <fieldset class="form-group{if $is_contactform_error AND $field.required AND NOT $field.default} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">*</span>{/if}</legend>
                                     <input type="password" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" class="form-control">
                                 </fieldset>
                             {elseif $field.type == "textarea"}
-                                <fieldset class="form-group{if $is_contactform_error && $field.required && !$field.default} has-error{/if}">
+                                <fieldset class="form-group{if $is_contactform_error AND $field.required AND NOT $field.default} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">*</span>{/if}</legend>
                                     <textarea id="serendipity_commentform_{$field.id}" class="form-control" name="serendipity[{$field.id}]" rows="10" placeholder="{$field.name}">{$field.default}</textarea>
                                 </fieldset>
                             {elseif $field.type == "email"}
-                                <fieldset class="form-group{if $is_contactform_error && $field.required && !$field.default} has-error{/if}">
+                                <fieldset class="form-group{if $is_contactform_error AND $field.required AND NOT $field.default} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">*</span>{/if}</legend>
                                     <input id="{$field.id}" class="form-control" name="serendipity[{$field.id}]" type="email" value="{$field.default}" placeholder="mail@example.org">
                                 </fieldset>
                             {else}
-                                <fieldset class="form-group{if $is_contactform_error && $field.required && !$field.default} has-error{/if}">
+                                <fieldset class="form-group{if $is_contactform_error AND $field.required AND NOT $field.default} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">*</span>{/if}</legend>
                                     <input type="text" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" class="form-control" placeholder="{$field.name}">
                                 </fieldset>

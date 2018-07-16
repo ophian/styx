@@ -3,7 +3,7 @@
     <ul class="plainList category-list">
         {foreach $categories AS $plugin_category}
             {if $plugin_category@first}{assign var="prevdepth" value=$plugin_category.catdepth}{/if}
-            {if ($plugin_category.catdepth == $prevdepth) && !$plugin_category@first}
+            {if ($plugin_category.catdepth == $prevdepth) AND NOT $plugin_category@first}
                 </li>
             {elseif $plugin_category.catdepth < $prevdepth}
                 {for $i=1 to $prevdepth-$plugin_category.catdepth}

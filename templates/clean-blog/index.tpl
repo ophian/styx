@@ -48,7 +48,7 @@
         {else}
             <style type="text/css">.intro-header {ldelim}background-image: url('{if $template_option.entry_default_header_image}{$template_option.entry_default_header_image}{else}{serendipity_getFile file="img/post-bg.jpg"}{/if}');{rdelim}</style>
         {/if}
-    {elseif $staticpage_pagetitle && !$plugin_contactform_name}
+    {elseif $staticpage_pagetitle AND NOT $plugin_contactform_name}
         {if $staticpage_custom.staticpage_header_image}
             <style type="text/css">.intro-header {ldelim}background-image: url('{$staticpage_custom.staticpage_header_image}');{rdelim}</style>
         {else}

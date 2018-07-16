@@ -1,5 +1,5 @@
 {serendipity_hookPlugin hook="entries_header"}
-    {if $template_option.categories_on_archive || $template_option.tags_on_archive}
+    {if $template_option.categories_on_archive OR $template_option.tags_on_archive}
         <div class="row">
             {if $template_option.categories_on_archive}
                 <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12 archive-categories">
@@ -15,7 +15,7 @@
     {/if}
     <div class="row">
         <section class="col-lg-12 archive-archive_history">
-            {if $template_option.categories_on_archive || $template_option.tags_on_archive}
+            {if $template_option.categories_on_archive OR $template_option.tags_on_archive}
                 <h3>{if $category}{$category_info.category_name} - {/if}{$CONST.ARCHIVES}</h3>
             {/if}
             <ul class="timeline">

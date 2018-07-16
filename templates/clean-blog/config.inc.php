@@ -58,7 +58,7 @@ if (!function_exists('timeAgoInWords')) {
     function timeAgoInWords($params, $template) {
         return distanceOfTimeInWords($params['from_time'], time());
     }
-    // smarty function to use distanceOfTimeInWords function
+    // Smarty function to use distanceOfTimeInWords function
     // call from tpl as {elapsed_time_words from_time=$comment.timestamp}
     $serendipity['smarty']->registerPlugin('function', 'elapsed_time_words', 'timeAgoInWords');
 }
@@ -280,7 +280,7 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
         // Check what Event is coming in, only react to those we want.
         switch($event) {
 
-            // Displaying the backend entry section
+            // Displaying the Backend entry section
             case 'backend_display':
                 // INFO: The whole 'entryproperties' injection is easiest to store any data you want. The entryproperties plugin
                 // should actually not even be required to do this, as serendipity loads all properties regardless of the installed plugin

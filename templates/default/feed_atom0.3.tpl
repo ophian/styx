@@ -43,7 +43,7 @@
 {/if}
         <id>{$entry.feed_guid}</id>
         <title mode="escaped" type="text/html">{$entry.feed_title}</title>
-{if !empty($entry.body)}
+{if NOT empty($entry.body)}
         <content type="application/xhtml+xml" xml:base="{$serendipityBaseURL}">
             <div xmlns="http://www.w3.org/1999/xhtml">
                 {$entry.feed_body} {$entry.feed_ext}

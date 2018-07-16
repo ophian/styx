@@ -28,7 +28,7 @@
             {if NOT empty($entry.categories)}
                 <span class="info_label">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
             {/if}
-            {if !empty($entry.categories) AND $entry.has_comments} | {/if}
+            {if NOT empty($entry.categories) AND $entry.has_comments} | {/if}
             {if $entry.has_comments}
                 <a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments} {$entry.label_comments}</a>
             {/if}
@@ -116,15 +116,15 @@
 {if NOT $is_preview}
     {if empty($staticpage_pagetitle)}
     <nav class="pager u-cf" role="navigation">
-    {if !empty($footer_info)}
+    {if NOT empty($footer_info)}
         <p>{$footer_info}</p>
     {/if}
-    {if !empty($footer_prev_page) || !empty($footer_next_page)}
+    {if NOT empty($footer_prev_page) OR !empty($footer_next_page)}
         <ul class="plainList">
-        {if !empty($footer_prev_page)}
+        {if NOT empty($footer_prev_page)}
             <li class="pager_prev u-pull-left"><a class="button button-primary" href="{$footer_prev_page}">{$CONST.PREVIOUS_PAGE}</a></li>
         {/if}
-        {if !empty($footer_next_page)}
+        {if NOT empty($footer_next_page)}
             <li class="pager_next u-pull-right"><a class="button button-primary" href="{$footer_next_page}">{$CONST.NEXT_PAGE}</a></li>
         {/if}
         </ul>

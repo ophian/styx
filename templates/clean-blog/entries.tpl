@@ -8,13 +8,13 @@
         <a href="{$entry.link}"><h2 class="post-title">{$entry.title}</h2>
         {if $entry.properties.entry_subtitle}
             <h3 class="post-subtitle">{$entry.properties.entry_subtitle|escape}</h3>
-        {elseif $template_option.subtitle_use_entrybody==true && $template_option.entrybody_detailed_only == true}
+        {elseif $template_option.subtitle_use_entrybody==true AND $template_option.entrybody_detailed_only == true}
             <h3 class="post-subtitle">{$entry.body|strip_tags|strip|truncate:70:" ..."}</h3>
         {/if}
         </a>
         <p class="post-meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-sm btn-default"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if $entry.is_entry_owner AND NOT $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
     {/if}
-    {if $template_option.entrybody_detailed_only != true || $entry.is_extended || $is_single_entry || $is_preview}
+    {if $template_option.entrybody_detailed_only != true OR $entry.is_extended OR $is_single_entry OR $is_preview}
         <section id="entry">
             <div class="content serendipity_entry_body clearfix">
                 {if NOT empty($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
@@ -38,7 +38,7 @@
                         <i class="fa fa-folder-open" aria-hidden="true"></i>
                         {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if !$entry_category@last}&nbsp;{/if}{/foreach}
                     {/if}
-                    {if isset($entry.freetag.extended) && $entry.freetag.extended == 1}
+                    {if isset($entry.freetag.extended) AND $entry.freetag.extended == 1}
                         {if NOT empty($entry.freetag.tags.tags)}
                             <div class="clean-blog_freeTag">
                             <span class="sr-only">{$entry.freetag.tags.description}</span>
@@ -153,14 +153,14 @@
     {/if}
 {/foreach}
 {/if}
-{if !empty($footer_info) OR !empty($footer_prev_page) OR !empty($footer_next_page)}
-{if !empty($footer_info)}
+{if NOT empty($footer_info) OR NOT empty($footer_prev_page) OR NOT empty($footer_next_page)}
+{if NOT empty($footer_info)}
     <p class="summary serendipity_center">{$footer_info}</p>
 {/if}
     <nav role="navigation">
         <ul class="pager">
-            {if !empty($footer_prev_page)}<li class="previous"><a href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {$CONST.PREVIOUS_PAGE}</a></li>{/if}
-            {if !empty($footer_next_page)}<li class="next"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>{/if}
+            {if NOT empty($footer_prev_page)}<li class="previous"><a href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {$CONST.PREVIOUS_PAGE}</a></li>{/if}
+            {if NOT empty($footer_next_page)}<li class="next"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>{/if}
         </ul>
     </nav>
 {/if}

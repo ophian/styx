@@ -5,7 +5,7 @@
     {if $staticpage_results}
     <dl class="staticpage_result">
     {foreach $staticpage_results AS $result}
-        <dt><strong><a href="{$result.permalink|escape}" title="{$result.pagetitle|escape}">{if !empty($result.headline)}{$result.headline}{else}{$result.pagetitle|escape}{/if}</a> ({$result.realname|escape})</dt>
+        <dt><strong><a href="{$result.permalink|escape}" title="{$result.pagetitle|escape}">{if NOT empty($result.headline)}{$result.headline}{else}{$result.pagetitle|escape}{/if}</a> ({$result.realname|escape})</dt>
         <dd>{$result.content|strip_tags|strip|truncate:200:"&hellip;"}</dd>
     {/foreach}
     </dl>

@@ -38,7 +38,7 @@
 {/if}
 
     <author>{$entry.feed_email} ({$entry.feed_author})</author>
-{if !empty($entry.body)}
+{if NOT empty($entry.body)}
     <content:encoded>
     {$entry.feed_body|escape} {$entry.feed_ext|escape}
     </content:encoded>

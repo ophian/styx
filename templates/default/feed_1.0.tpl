@@ -35,7 +35,7 @@
 <item rdf:about="{$entry.feed_guid}">
     <title>{$entry.feed_title}</title>
     <link>{$entry.feed_entryLink}{if $is_comments}#c{$entry.commentid}{/if}</link>
-{if !empty($entry.body)}
+{if NOT empty($entry.body)}
     <description>
     {$entry.feed_body|escape} {$entry.feed_ext|escape}
     </description>
