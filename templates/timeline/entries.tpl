@@ -112,7 +112,7 @@
                             {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if !$entry_category@last}&nbsp;{/if}{/foreach}
                         {/if}
                         {if isset($entry.freetag.extended) && $entry.freetag.extended == 1}
-                            {if $entry.freetag.tags.tags}
+                            {if NOT empty($entry.freetag.tags.tags)}
                                 <div class="timeline_freeTag">
                                 <span class="sr-only">{$entry.freetag.tags.description}</span>
                                 <i class="fa fa-tags" aria-hidden="true"></i>

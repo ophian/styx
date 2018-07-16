@@ -35,7 +35,7 @@
             {if $entry.has_comments}
                 <li class="post_comments d-inline-block"><svg class="icon-comments" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">{$entry.label_comments}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#comments"></use></svg><a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments}</a></li>
             {/if}
-            {if $entry.freetag.tags.tags}
+            {if NOT empty($entry.freetag.tags.tags)}
                 <li class="post_tags d-inline-block"><svg class="icon-tag" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">Tags</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#tag"></use></svg>{foreach $entry.freetag.tags.tags AS $tag}{$tag} {/foreach}</li>
             {/if}
             </ul>
