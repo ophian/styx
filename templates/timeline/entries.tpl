@@ -79,7 +79,7 @@
                     <span class="entry-author-link"><i class ="fa fa-user" aria-hidden="true"></i><a href="{$entry.link_author}">{$entry.author}</a></span>
                     <span class="sr-only"> {$CONST.ON}</span><span class="entry-timestamp"><i class="fa fa-clock-o" aria-hidden="true"></i><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time></span>
                     <span class="entry-comment-link"><i class="fa {if $entry.comments == 0}fa-comment-o{elseif $entry.comments == 1}fa-comment{else}fa-comments-o{/if}" aria-hidden="true"></i><a href="{$entry.link}#comments">{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}</a></span>
-                    {if $entry.is_entry_owner AND NOT $is_preview}<span class="entry-edit-link"><i class="fa fa-lg fa-edit"></i><a href="{$entry.link_edit}" title="{$CONST.EDIT_ENTRY}">{$CONST.EDIT_ENTRY}</a></span>{/if}
+                    {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}<span class="entry-edit-link"><i class="fa fa-lg fa-edit"></i><a href="{$entry.link_edit}" title="{$CONST.EDIT_ENTRY}">{$CONST.EDIT_ENTRY}</a></span>{/if}
                 </p>
                 {if $is_preview}
                     {append var='entry' value=$smarty.session.save_entry_POST.properties index='properties'}{* gives us access to entry properties in preview *}
@@ -208,7 +208,7 @@
                 </p>
             {/if}
             {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
-            {if $entry.is_entry_owner}
+            {if NOT empty($entry.is_entry_owner)}
                 <p class="manage_comments">
                     <small>
                         {if $entry.allow_comments}

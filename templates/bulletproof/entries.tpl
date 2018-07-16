@@ -16,7 +16,7 @@
     {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
         <h4 class="entry-title serendipity_title"><a href="{$entry.link}" rel="bookmark">{$entry.title}</a></h4>
 
-        <div class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if $entry.is_entry_owner}serendipity_entry_author_self{/if}">
+        <div class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if NOT empty($entry.is_entry_owner)}serendipity_entry_author_self{/if}">
 
             {if (NOT $dategroup.is_sticky OR ($dategroup.is_sticky AND $template_option.show_sticky_entry_footer == 'true'))}
                 {if $template_option.entryfooterpos == 'belowtitle'}
@@ -76,7 +76,7 @@
                             {/if}
                         {/if}
 
-                        {if $entry.is_entry_owner AND NOT $is_preview}
+                        {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
                         <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
@@ -203,7 +203,7 @@
                             {/if}
                         {/if}
 
-                        {if $entry.is_entry_owner AND NOT $is_preview}
+                        {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
@@ -257,7 +257,7 @@
                             {/if}
                         {/if}
 
-                        {if $entry.is_entry_owner AND NOT $is_preview}
+                        {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
                             <div class="editentrylink"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></div>
                         {/if}
 
@@ -336,7 +336,7 @@
                 </div>
                 <div id="serendipity_commentlist">{serendipity_printComments entry=$entry.id mode=$entry.viewmode}</div>
 
-                {if $entry.is_entry_owner}
+                {if NOT empty($entry.is_entry_owner)}
                     {if $entry.allow_comments}
                         <div class="serendipity_center">(<a href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>)</div>
                     {else}

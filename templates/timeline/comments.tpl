@@ -35,7 +35,7 @@
                 </div>
                 <div class="comment-meta">
                     <a class="comment-source-trace btn btn-sm btn-default btn-theme" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}">#{$comment.trace}</a>
-                    {if isset($entry) AND $entry.is_entry_owner AND NOT empty($comment.id)}
+                    {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
                         <a class="comment-source-ownerlink comment-reply-link btn btn-sm btn-default btn-theme" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');" title="{$CONST.DELETE}"><i class="fa fa-lg fa-trash-o"></i><span class="sr-only"> {$CONST.DELETE}</span></a>
                     {/if}
 
