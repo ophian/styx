@@ -39,7 +39,7 @@
                    {$CONST.FILED_UNDER} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}.
                 {/if}
                 {if $entry.allow_comments}
-                    {$CONST.LEAVE_RESPONSE|sprintf:'<a href="#serendipity_CommentForm">':'</a>':"<a href=\"$entry[link]\">":'</a>'}
+                    {$CONST.LEAVE_RESPONSE|sprintf:'<a href="#serendipity_CommentForm">':'</a>':"<a href=\"{$entry.link}\">":'</a>'}
                     {if $entry.moderate_comments}
                         {$CONST.SUBJECT_TO_MODERATION}
                     {/if}
@@ -117,12 +117,12 @@
                 <br /><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</div><br />
             {/if}
                 <a id="trackbacks"></a><h3>{$CONST.TRACKBACKS}</h3>
-                    <div class="serendipity_center">
-                        <a style="font-weight: normal" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
-                    </div>
-                    <ol class="commentlist">
-                        {serendipity_printTrackbacks entry=$entry.id}
-                    </ol>
+                <div class="serendipity_center">
+                    <a style="font-weight: normal" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
+                </div>
+                <ol class="commentlist">
+                    {serendipity_printTrackbacks entry=$entry.id}
+                </ol>
         {/if}
 
         {if $is_single_entry AND NOT $is_preview}
