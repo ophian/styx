@@ -1,11 +1,11 @@
 {serendipity_hookPlugin hook="entries_header"}
 <article id="archives" class="clearfix">
-    <h2>{$CONST.ARCHIVES}</h2>
+    <h2>{$CONST.ARCHIVES}{if NOT empty($category_info.categoryid)} :: {$category_info.category_name}{/if}</h2>
 
 {if isset($archives) AND is_array($archives)}
 {foreach $archives AS $archive}
     <section class="{cycle values="odd,even"}">
-        <h3>{$archive.year}{if $category_info.categoryid} :: {$category_info.category_name}{/if}</h3>
+        <h3>{$archive.year}</h3>
 
         <ul class="year">
         {foreach $archive.months AS $month}
