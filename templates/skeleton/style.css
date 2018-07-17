@@ -196,6 +196,11 @@ video,
     vertical-align: middle;
 }
 
+#serendipity_categories_list input[type="checkbox"] {
+    margin-right: .5rem;
+    vertical-align: sub;
+}
+
 /* Archives */
 .archive_date {
     display: inline-block;

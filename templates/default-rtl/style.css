@@ -5,6 +5,9 @@ h4,h3 {
 .serendipitySideBarContent input {
     width: 150px;
 }
+#serendipity_categories_list input[type="checkbox"] {
+    width: auto;
+}
 
 #mainpane {
     border-bottom: 1px solid #000000;

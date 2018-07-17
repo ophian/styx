@@ -226,6 +226,9 @@ img.serendipity_entryIcon {
 .serendipitySideBarContent input {
     width: 150px;
 }
+#serendipity_categories_list input[type="checkbox"] {
+    width: auto;
+}
 
 #serendipityRightSideBar {
     width: 190px;

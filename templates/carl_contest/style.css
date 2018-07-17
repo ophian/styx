@@ -434,6 +434,10 @@ div.serendipityPlug a {
 .serendipitySideBarContent input, .serendipitySideBarContent select {
 	width:150px; }
 
+#serendipity_categories_list input[type="checkbox"] {
+    width: auto;
+}
+
 /* style for side bar date eg recent entries plugin */
 .serendipitySideBarDate {
 	line-height:0.9em; }
