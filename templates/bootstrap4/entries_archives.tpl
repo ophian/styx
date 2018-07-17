@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header"}
 <article class="archive archive_overview">
-    <h2>{$CONST.ARCHIVES}</h2>
+    <h2>{$CONST.ARCHIVES}{if NOT empty($category_info.categoryid)} :: {$category_info.category_name}{/if}</h2>
 
     <div id="archives">
 {if isset($archives) AND is_array($archives)}

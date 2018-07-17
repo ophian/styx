@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header"}
 <article class="archives clearfix">
-    <h2>{$CONST.ARCHIVES}</h2>
+    <h2>{$CONST.ARCHIVES}{if NOT empty($category_info.categoryid)} :: {$category_info.category_name}{/if}</h2>
 {if isset($archives) AND is_array($archives)}
 {foreach $archives AS $archive}
     <section class="archives_year clearfix {cycle values="arch_odd,arch_even"}">

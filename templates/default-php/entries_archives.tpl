@@ -1,5 +1,5 @@
 <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl']['entry_id']); ?>
-<h3 class="serendipity_date"><?= ARCHIVES ?></h3>
+<h3 class="serendipity_date"><?= ARCHIVES ?><?php if (!empty($category_info.categoryid)):?> :: <?= $category_info['category_name'] ?><?php endif; ?></h3>
 <?php if (is_array($GLOBALS['tpl']['archives'])):
 foreach ($GLOBALS['tpl']['archives'] AS $archive):?>
 <table class="archives_listing" cellspacing="4" cellpadding="4" border="0">
