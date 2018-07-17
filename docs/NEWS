@@ -1,6 +1,10 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Add the categories name to nearly all themes entries_archives templates,
+    to make sure a visitor understands, that archive entries have a dependency
+    to the chosen category. Adapt this to your copy themes.
+
   * Fix default/style_fallback.css file, pre-bound into the serendipity.css
     file, to set a max-width of 100% to the serendipity image selectors and
     fixed the gallery item styles to better match the galleries forced width.
