@@ -325,6 +325,10 @@ input[type="button"], input[type="checkbox"] {
 #serendipity_categories_list img {
     vertical-align: middle;
 }
+#serendipity_categories_list input[type="checkbox"] {
+    width: auto;
+    margin-right: .5em;
+}
 
 table.serendipity_calendar td {
     font-size: 11px;
