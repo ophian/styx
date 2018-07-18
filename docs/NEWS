@@ -1,6 +1,15 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * For the Styx staticpage plugin both customized staticpage backendform
+    template files in [clean-blog, timeline] themes were renamed and
+    converted from ".../backend_templates/default_staticpage_backend.tpl"
+    to the themes name:
+    "templates/clean-blog/backend_templates/cleanblog_staticpage_backend.tpl"
+    and alike
+    "templates/timeline/backend_templates/timeline_staticpage_backend.tpl".
+    Check out these staticpage backend forms, if you use one of this themes.
+
   * Add the categories name to nearly all themes entries_archives templates,
     to make sure a visitor understands, that archive entries have a dependency
     to the chosen category. Adapt this to your copy themes.
