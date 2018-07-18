@@ -214,7 +214,7 @@ $template_config = array(
         'var'           => 'copyright',
         'name'          => COPYRIGHT,
         'type'          => 'string',
-        'default'       => 'Copyright &copy; ' . $serendipity['blogTitle'] . ' ' . date(Y) . '.  <a href="#">Link 1</a> | <a href="#">Link 2</a> | <a href="' . $serendipity['baseURL'] . 'serendipity_admin.php">Login</a>',
+        'default'       => 'Copyright &copy; ' . $serendipity['blogTitle'] . ' ' . date('Y') . '.  <a href="#">Link 1</a> | <a href="#">Link 2</a> | <a href="' . $serendipity['baseURL'] . 'serendipity_admin.php">Login</a>',
     ),
     array(
         'var'           => 'social_icons_amount',
