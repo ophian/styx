@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
 
-{if $template_option.display_as_timeline AND $entries AND NOT $is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - OPEN TIMELINE*}
+{if $template_option.display_as_timeline AND NOT empty($entries) AND NOT $is_single_entry AND NOT isset($entry.is_extended) AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - OPEN TIMELINE*}
     <ul class="timeline">
     {assign var="prevmonth" value=''}
 {/if}
@@ -26,10 +26,10 @@
                     <div class="timeline-badge"><i class="fa fa-dot-circle-o" aria-hidden="true"></i></div>
                     <div class="timeline-panel">
                         <div class="timeline-heading">
-                            {if $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
+                            {if NOT empty($entry.properties.timeline_image) AND $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                                 {$entry.properties.timeline_image}
                             {else}
-                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-responsive" {if $entry.properties.timeline_image}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
+                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-responsive" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
                             {/if}
                         </div>
                         <div class="timeline-body">
@@ -273,7 +273,7 @@
 
 {/foreach}
 {/if}
-{if $template_option.display_as_timeline AND $entries AND NOT $is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
+{if $template_option.display_as_timeline AND NOT empty($entries) AND NOT $is_single_entry AND NOT isset($entry.is_extended) AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
         <li class="clearfix" style="float: none;"></li>
     </ul>
 {/if}

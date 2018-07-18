@@ -101,7 +101,7 @@
                 {if in_array($view, ['start', 'entries', 'entry', '404', 'search']) OR ($head_title == '' AND $head_subtitle == '')}{$blogDescription}
                 {elseif $view == 'categories'}{$CONST.ENTRIES_FOR|sprintf:{$category_info.category_name|escape}}
                 {elseif $view == 'authors' OR $view == 'comments'}{$head_title}
-                {elseif $staticpage_pagetitle != ''}
+                {elseif NOT empty($staticpage_pagetitle)}
                     {if $staticpage_headline}{$staticpage_headline|escape}
                     {elseif $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}
                     {elseif $plugin_contactform_pagetitle}{$plugin_contactform_pagetitle}
@@ -112,7 +112,7 @@
                 {/if}
             </h2>
 
-            {if $footer_totalPages > 1 AND NOT isset($staticpage_pagetitle)}
+            {if isset($footer_totalPages) AND $footer_totalPages > 1 AND NOT isset($staticpage_pagetitle)}
                 <nav class="pagination pull-right">
                     {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
                     {if $footer_currentPage+3 > $footer_totalPages}
@@ -154,7 +154,7 @@
 {* MAIN CONTENT *}
     <div class="container content">
         <div class="row">
-            <main class="{if ($rightSidebarElements > 0 AND $staticpage_pagetitle =='') OR ($rightSidebarElements > 0 AND $staticpage_pagetitle !='' AND $staticpage_custom.show_sidebars != 'false')}col-md-9{else}col-md-12{/if} mainpanel">
+            <main class="{if ($rightSidebarElements > 0 AND empty($staticpage_pagetitle)) OR ($rightSidebarElements > 0 AND NOT empty($staticpage_pagetitle) AND isset($staticpage_custom.show_sidebars) AND $staticpage_custom.show_sidebars != 'false')}col-md-9{else}col-md-12{/if} mainpanel">
                 {if $view=='404'}
                     <div id="search-block" class="row">
                         <div class="col-md-8 col-md-offset-2">
@@ -205,7 +205,7 @@
                     {$CONTENT}
                 {/if}
             </main>
-            {if ($rightSidebarElements > 0 AND $staticpage_pagetitle =='') OR ($rightSidebarElements > 0 AND $staticpage_pagetitle !='' AND $staticpage_custom.show_sidebars != 'false')}
+            {if ($rightSidebarElements > 0 AND empty($staticpage_pagetitle)) OR ($rightSidebarElements > 0 AND NOT empty($staticpage_pagetitle) AND isset($staticpage_custom.show_sidebars) AND $staticpage_custom.show_sidebars != 'false')}
                 <aside class="col-md-3 RightSideBarContainer">
                     <div id="serendipityRightSideBar" class="RightSideBar">
                         {serendipity_printSidebar side="right"}
