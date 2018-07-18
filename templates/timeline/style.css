@@ -1064,6 +1064,11 @@ blockquote {
     height: auto;
     max-width: 100%;
 }
+#serendipity_categories_list input[type="checkbox"] {
+    width: auto;
+    margin-right: .5rem;
+    vertical-align: middle;
+}
 
 .entry-footer {
     padding: 20px 0;
