@@ -2,10 +2,8 @@
 {foreach $trackbacks AS $trackback}
     <li id="comment-c{$trackback.id}" class="comment-list-item">
         <a id="c{$trackback.id}"></a>
-        <div id="div-comment-c{$trackback.id}" class="comment_any{cycle values=" comment_odd, comment_even"} comment_author_{$comment.author|makeFilename} {if $trackback.author == $blogTitle}serendipity_comment_author_self{/if}">
-            {if $trackback.avatar}
-                {$trackback.avatar}
-            {/if}
+        <div id="div-comment-c{$trackback.id}" class="comment_any{cycle values=" comment_odd, comment_even"} comment_author_{$comment.author|makeFilename|default:'unknown'} {if $trackback.author == $blogTitle}serendipity_comment_author_self{/if}">
+            {$trackback.avatar|default:''}
             <div class="comment-list-item-body">
                 <h5 class="comment-author-heading">
                     <span class="comment-author-details">{$trackback.author|default:$CONST.ANONYMOUS}</span>&nbsp;
