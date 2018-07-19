@@ -1,18 +1,18 @@
 {serendipity_hookPlugin hook="entries_header"}
-    {if $template_option.categories_on_archive OR $template_option.tags_on_archive}
-        <div class="row">
-            {if $template_option.categories_on_archive}
-                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12 archive-categories">
-                    {serendipity_showPlugin class="serendipity_plugin_categories" template="archive_categories.tpl"}
-                </section>
-            {/if}
-            {if $template_option.tags_on_archive}
-                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12 archive-tags">
-                    {serendipity_showPlugin class="serendipity_plugin_freetag" template="archive_freetag.tpl"}
-                </section>
-            {/if}
-        </div>
-    {/if}
+{if $template_option.categories_on_archive OR $template_option.tags_on_archive}
+    <div class="row">
+        {if $template_option.categories_on_archive}
+            <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12 archive-categories">
+                {serendipity_showPlugin class="serendipity_plugin_categories" template="archive_categories.tpl"}
+            </section>
+        {/if}
+        {if $template_option.tags_on_archive}
+            <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12 archive-tags">
+                {serendipity_showPlugin class="serendipity_plugin_freetag" template="archive_freetag.tpl"}
+            </section>
+        {/if}
+    </div>
+{/if}
     <div class="row">
         <section class="col-lg-12 archive-archive_history">
             {if $template_option.categories_on_archive OR $template_option.tags_on_archive}
