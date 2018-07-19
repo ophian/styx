@@ -195,7 +195,7 @@ $template_config = array(
         'name'          => CATEGORIES_ON_ARCHIVE,
         'description'   => CATEGORIES_ON_ARCHIVE_DESC,
         'type'          => 'boolean',
-        'default'       => true,
+        'default'       => false,
     ),
     array(
         'var'           => 'category_rss_archive',
@@ -208,7 +208,7 @@ $template_config = array(
         'name'          => TAGS_ON_ARCHIVE,
         'description'   => TAGS_ON_ARCHIVE_DESC,
         'type'          => 'boolean',
-        'default'       => true,
+        'default'       => false,
     ),
     array(
         'var'           => 'copyright',
