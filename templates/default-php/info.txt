@@ -1,6 +1,6 @@
 Name: PHP Engine (Dev)
 Author: Garvin Hicking, Ian
-Date: 2017-06-26
+Date: 2018-07-17
 Require Serendipity Styx: 2.1
 
 Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)

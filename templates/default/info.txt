@@ -1,6 +1,6 @@
 Name: Serendipity default [ fallback ]
 Author: Tom Sommer, Ian
-Date: 2017-06-26
+Date: 2018-07-17
 Require Serendipity: 2.0
 Recommended: Yes
 
