@@ -1159,6 +1159,11 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
     }
     $commentInfo['type'] = $type;
     $commentInfo['source'] = $source;
+
+    // Secure email addresses, only one [first] allowed to not mail to multiple recipients
+    $mailparts = explode(',', $commentInfo['email']);
+    $commentInfo['email'] = trim($mailparts[0]);
+
     serendipity_plugin_api::hook_event('frontend_saveComment', $ca, $commentInfo);
     if ((!is_array($ca) || serendipity_db_bool($ca['allow_comments'])) && !$isUin) {
         if ($GLOBALS['tb_logging']) {
