@@ -47,13 +47,13 @@
                     </li>
                     {assign var="prevmonth" value=$entry.timestamp|formatTime:"%B"}
             {else}{* not using timeline - use blog format instead *}
-                {if $entry.body OR $entry.properties.timeline_image}
+                {if $entry.body OR NOT empty($entry.properties.timeline_image)}
                     <div class="row each-blogstyle-entry">
                         <div class="col-md-5 blogstyle-post-thumb">
-                            {if $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
+                            {if NOT empty($entry.properties.timeline_image) AND $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                                 <div>{$entry.properties.timeline_image}</div>
                             {else}
-                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-responsive" {if $entry.properties.timeline_image}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
+                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-responsive" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
                             {/if}
                         </div>
                         <div class="col-md-7 blogstyle-post-body">
@@ -84,7 +84,7 @@
                 {if $is_preview}
                     {append var='entry' value=$smarty.session.save_entry_POST.properties index='properties'}{* gives us access to entry properties in preview *}
                 {/if}
-                {if $entry.properties.timeline_image}
+                {if NOT empty($entry.properties.timeline_image)}
                     {if $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                         {$entry.properties.timeline_image}
                     {else}
@@ -104,7 +104,7 @@
                 {if $entry.plugin_display_dat}
                     {$entry.plugin_display_dat}
                 {/if}
-                {if $entry.categories OR $entry.add_footer}
+                {if $entry.categories OR NOT empty($entry.add_footer)}
                     <footer class="entry-footer">
                         {if NOT empty($entry.categories)}
                             <span class="sr-only">{$CONST.CATEGORIES}: </span>
@@ -132,7 +132,7 @@
                                 {/if}
                             {/if}
                         {else}
-                            {$entry.freetag}
+                            {$entry.freetag|default:''}
                         {/if}
                         {$entry.add_footer|default:''}
                     </footer>
