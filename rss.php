@@ -103,7 +103,7 @@ switch ($_GET['type']) {
     case 'comments_and_trackbacks':
     case 'trackbacks':
     case 'comments':
-        $entries     = serendipity_fetchComments($_GET['cid'], $serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
+        $entries     = serendipity_fetchComments($_GET['cid'], (int)$serendipity['RSSfetchLimit'], 'co.id desc', false, $_GET['type']);
         $description = $title . ' - ' . $description;
         if (isset($_GET['cid'])) {
             $title   = $title . ' - ' . COMMENTS_FROM . ' "' . $latest_entry[0]['title'] . '"';
@@ -119,7 +119,7 @@ switch ($_GET['type']) {
             // Fetch all entries in reverse order for later importing. Fetch sticky entries as normal entries.
             $entries = serendipity_fetchEntries(null, true, '', false, false, 'id ASC', '', false, true);
         } else {
-            $entries = serendipity_fetchEntries(null, true, $serendipity['RSSfetchLimit'], false, $modified_since, 'timestamp DESC', '', false, true);
+            $entries = serendipity_fetchEntries(null, true, (int)$serendipity['RSSfetchLimit'], false, $modified_since, 'timestamp DESC', '', false, true);
         }
         break;
 }

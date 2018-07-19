@@ -92,17 +92,10 @@ $serendipity['trackback_filelimit'] = 150 * 1024;
 // Allow "Access-Control-Allow-Origin: *" to be used in sensible locations (RSS feed)
 $serendipity['cors'] = false;
 
-if (!isset($serendipity['fetchLimit'])) {
-    $serendipity['fetchLimit'] = 15;
-}
-
-if (!isset($serendipity['CBAfetchLimit'])) {
-    $serendipity['CBAfetchLimit'] = 10;
-}
-
-if (!isset($serendipity['RSSfetchLimit'])) {
-    $serendipity['RSSfetchLimit'] = 15;
-}
+// Init default and ensure that these limits do not contain strings
+$serendipity['fetchLimit']    = !isset($serendipity['fetchLimit'])    ? 15 : (int)$serendipity['fetchLimit'];
+$serendipity['CBAfetchLimit'] = !isset($serendipity['CBAfetchLimit']) ? 10 : (int)$serendipity['CBAfetchLimit'];
+$serendipity['RSSfetchLimit'] = !isset($serendipity['RSSfetchLimit']) ? 15 : (int)$serendipity['RSSfetchLimit'];
 
 if (!isset($serendipity['mediaProperties'])) {
     $serendipity['mediaProperties'] = 'DPI;COPYRIGHT;TITLE;COMMENT1:MULTI;COMMENT2:MULTI;ALT';
