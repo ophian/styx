@@ -1,6 +1,22 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Security: Sync - Make sure that the admins configuration for RSS
+    and blog entry limit is parsed as integer for SQL queries.
+    Thanks to @oreamnos and Hanno Boeck for reporting!
+
+  * Security: Sync - Prevent XSS possibility in "edit entries" panel.
+    Thanks to @oreamnos and Hanno Boeck for reporting!
+
+  * Security: Sync - Disallow sending comment notifications and mails to more
+    than one mail address. This could be used to approving opt-ins of requests
+    that did not belong to the same email that was approved.
+    Thanks to Hanno Boeck for reporting!
+
+  * Security: Sync - Remove exit.php open redirect, when not using the
+    trackexits-plugin configured with Serendipity exit tracking.
+    Thanks to Julio Cesar (from infosec.com.br) and Hanno Boeck for reporting!
+
   * For the Styx staticpage plugin both customized staticpage backendform
     template files in [clean-blog, timeline] themes were renamed and
     converted from ".../backend_templates/default_staticpage_backend.tpl"
