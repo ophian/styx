@@ -250,7 +250,7 @@ switch($serendipity['GET']['adminAction']) {
         }
 
         foreach($sort_import AS $s_import) {
-            serendipity_restoreVar($serendipity['COOKIE']['entrylist_sort_' . serendipity_specialchars($s_import], $serendipity['GET']['sort'][$s_import]));
+            serendipity_restoreVar($serendipity['COOKIE']['entrylist_sort_' . $s_import], serendipity_specialchars($serendipity['GET']['sort'][$s_import]));
             $data["get_sort_$s_import"] = serendipity_specialchars($serendipity['GET']['sort'][$s_import]);
         }
 
