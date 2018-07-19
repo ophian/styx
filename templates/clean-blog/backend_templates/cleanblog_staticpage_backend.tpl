@@ -208,19 +208,23 @@
             </div>
 
             <div id="entry_option_authorname" class="form_field form_radio sp_sect">{* CUSTOM TO THIS THEME - OPTION TO SHOW/HIDE AUTHOR NAME *}
-                <label class="sp_label" title="{$CONST.STATIC_SHOW_AUTHOR_TITLE}">{$CONST.STATIC_SHOW_AUTHOR_TEXT}</label><br>
-                <input id="author_yes" type="radio" name="serendipity[plugin][custom][show_author]" {if isset($form_values.custom.show_author) AND $form_values.custom.show_author == 'true'}checked="checked" {/if}value="true">
-                <label for="author_yes">{$CONST.YES}</label>
-                <input id="author_no" type="radio" name="serendipity[plugin][custom][show_author]" {if NOT isset($form_values.custom.show_author) OR $form_values.custom.show_author != 'true'}checked="checked" {/if}value="false">
-                <label for="author_no">{$CONST.NO}</label>
+                <label class="sp_label" title="{$CONST.STATIC_SHOW_AUTHOR_TITLE}">{$CONST.STATIC_SHOW_AUTHOR_TEXT}</label>
+                <div class="sp_input_radio">
+                    <input id="author_yes" type="radio" name="serendipity[plugin][custom][show_author]" {if isset($form_values.custom.show_author) AND $form_values.custom.show_author == 'true'}checked="checked" {/if}value="true">
+                    <label for="author_yes">{$CONST.YES}</label>
+                    <input id="author_no" type="radio" name="serendipity[plugin][custom][show_author]" {if NOT isset($form_values.custom.show_author) OR $form_values.custom.show_author != 'true'}checked="checked" {/if}value="false">
+                    <label for="author_no">{$CONST.NO}</label>
+                </div>
             </div>
 
             <div id="entry_option_showdate" class="form_field form_radio sp_sect">{* CUSTOM TO THIS THEME - OPTION TO SHOW/HIDE DATE *}
-                <label class="sp_label" title="{$CONST.STATIC_SHOW_DATE_TITLE}">{$CONST.STATIC_SHOW_DATE_TEXT}</label><br>
-                <input id="date_yes" type="radio" name="serendipity[plugin][custom][show_date]" {if isset($form_values.custom.show_date) AND $form_values.custom.show_date == 'true'}checked="checked" {/if}value="true">
-                <label for="date_yes">{$CONST.YES}</label>
-                <input id="date_no" type="radio" name="serendipity[plugin][custom][show_date]" {if NOT isset($form_values.custom.show_date) OR $form_values.custom.show_date != 'true'}checked="checked" {/if}value="false">
-                <label for="date_no">{$CONST.NO}</label>
+                <label class="sp_label" title="{$CONST.STATIC_SHOW_DATE_TITLE}">{$CONST.STATIC_SHOW_DATE_TEXT}</label>
+                <div class="sp_input_radio">
+                    <input id="date_yes" type="radio" name="serendipity[plugin][custom][show_date]" {if isset($form_values.custom.show_date) AND $form_values.custom.show_date == 'true'}checked="checked" {/if}value="true">
+                    <label for="date_yes">{$CONST.YES}</label>
+                    <input id="date_no" type="radio" name="serendipity[plugin][custom][show_date]" {if NOT isset($form_values.custom.show_date) OR $form_values.custom.show_date != 'true'}checked="checked" {/if}value="false">
+                    <label for="date_no">{$CONST.NO}</label>
+                </div>
             </div>
 
         </fieldset>
