@@ -1428,7 +1428,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
 
             // Has the thumbnail suffix changed?
             $checkfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $rs['path'] . $rs['name'] . '.' . $rs['thumbnail_name'] . (empty($rs['extension']) ? '' : '.' . $rs['extension']);
-            if (!file_exists($checkfile) && file_exists($fthumb)) {
+            if (!file_exists($checkfile) && file_exists($fthumb) || !file_exists($fthumb)) {
                 $update['thumbnail_name'] = $serendipity['thumbSuffix'];
             }
 
