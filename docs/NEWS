@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Fix sorting reset for DESC/ASC sorting
+
   * Add some version like "days-since-first-commit" info to the [2k11,
     next] themes info.txt description, since they have been touched a lot.
 
