@@ -1058,6 +1058,8 @@ function serendipity_iframe(&$entry, $mode = null) {
             ob_end_clean();
             if (is_string($res)) {
                 $data['res'] = $res;
+            } else {
+                $data['res'] = null;
             }
             if (!empty($serendipity['lastSavedEntry'])) {
                 $data['lastSavedEntry'] = $serendipity['lastSavedEntry'];
