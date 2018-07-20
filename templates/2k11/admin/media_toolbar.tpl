@@ -30,8 +30,8 @@
 
                         <option{if ($media.only_path == $media.limit_path|cat:$folderHead.relpath)} selected{/if} value="{$folderHead.relpath}">{'&nbsp;'|str_repeat:($folderHead.depth*2)}{$folderHead.name}</option>
                     {/foreach}
-
                     </select>
+
                     <input name="go" type="submit" value="{$CONST.GO}">
                     {if NOT $media.standardpane}
                     <button class="toggle_info button_link" type="button" data-href="#media_gallery_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden">Gallery item selection</span></button>
@@ -97,13 +97,13 @@
                             <option value="">{$CONST.ALL_AUTHORS}</option>
                             {foreach $media.authors AS $media_author}
 
-                            <option value="{$media_author.authorid}"{if $media.filter[$filter@key] == $media_author.authorid} selected{/if}>{$media_author.realname|escape}</option>
+                            <option value="{$media_author.authorid}"{if isset($media.filter[$filter@key]) AND $media.filter[$filter@key] == $media_author.authorid} selected{/if}>{$media_author.realname|escape}</option>
                             {/foreach}
 
                         </select>
                 {else}{* this is of type string w/o being named *}
                         {* label is already set on loop start, when type is not date or intrange *}
-                        <input id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]" type="text" value="{$media.filter[$filter@key]|escape}">
+                        <input id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]" type="text" value="{$media.filter[$filter@key]|escape|default:''}">
                 {/if}
                 {if isset($filter.type) AND ($filter.type == 'date' OR $filter.type == 'intrange')}
 
