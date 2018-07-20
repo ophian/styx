@@ -68,14 +68,21 @@ if (preg_match(PAT_APPROVE, $uri, $res) && $serendipity['serendipityAuthedUser']
 $is_multicat  = (isset($serendipity['POST']['isMultiCat'])  && is_array($serendipity['POST']['multiCat']))  ? true : false;
 $is_multiauth = (isset($serendipity['POST']['isMultiAuth']) && is_array($serendipity['POST']['multiAuth'])) ? true : false;
 
-if (preg_match(PAT_ARCHIVES, $uri, $matches) || isset($serendipity['GET']['range']) && is_numeric($serendipity['GET']['range'])) {
+if (preg_match(PAT_ARCHIVES, $uri, $matches)
+    || isset($serendipity['GET']['range'])
+    && is_numeric($serendipity['GET']['range'])
+    ) {
     serveArchives();
-} else if (preg_match(PAT_PERMALINK, $uri, $matches) ||
-           preg_match(PAT_COMMENTSUB, $uri, $matches) ||
-           isset($serendipity['GET']['id']) ||
-           isset($_GET['p'])) {
+} else if (preg_match(PAT_PERMALINK, $uri, $matches)
+        || preg_match(PAT_COMMENTSUB, $uri, $matches)
+        || isset($serendipity['GET']['id'])
+        || isset($_GET['p'])
+) {
     serveEntry($matches);
-} elseif (preg_match(PAT_PERMALINK_FEEDCATEGORIES, $uri, $matches) || preg_match(PAT_PERMALINK_FEEDAUTHORS, $uri, $matches) || preg_match(PAT_FEEDS, $uri)) {
+} else if (preg_match(PAT_PERMALINK_FEEDCATEGORIES, $uri, $matches)
+        || preg_match(PAT_PERMALINK_FEEDAUTHORS, $uri, $matches)
+        || preg_match(PAT_FEEDS, $uri)
+) {
     serveFeed($matches);
     exit;
 } else if (preg_match(PAT_PLUGIN, $uri, $matches)) {
@@ -92,16 +99,17 @@ if (preg_match(PAT_ARCHIVES, $uri, $matches) || isset($serendipity['GET']['range
     serveAuthorPage($matches, $is_multiauth);
 } else if (preg_match(PAT_SEARCH, $uri, $matches)) {
     serveSearch();
-} elseif (preg_match(PAT_CSS, $uri, $matches)) {
+} else if (preg_match(PAT_CSS, $uri, $matches)) {
     serveCSS($matches[1]);
     exit;
-} elseif (preg_match(PAT_JS, $uri, $matches)) {
+} else if (preg_match(PAT_JS, $uri, $matches)) {
     serveJS($matches[1]);
     exit;
 } else if (preg_match(PAT_COMMENTS, $uri, $matches)) {
     serveComments();
-} else if (preg_match('@/(index(\.php|\.html)?)|'. preg_quote($serendipity['indexFile']) .'@', $uri) ||
-           preg_match('@^/' . preg_quote(trim($serendipity['serendipityHTTPPath'], '/')) . '/?(\?.*)?$@', $uri)) {
+} else if (preg_match('@/(index(\.php|\.html)?)|'. preg_quote($serendipity['indexFile']) .'@', $uri)
+       ||  preg_match('@^/' . preg_quote(trim($serendipity['serendipityHTTPPath'], '/')) . '/?(\?.*)?$@', $uri)
+) {
     serveIndex();
 } else {
     serve404();
