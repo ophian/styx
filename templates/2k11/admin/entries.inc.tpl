@@ -135,7 +135,7 @@
             });
             $('.reset_sort').click(function() {
                 $('#sort_order option:selected').removeAttr('selected');
-                $('#sort_ordermode option:selected').attr('selected', 'selected');
+                $('#sort_ordermode option:selected').removeAttr('selected');
                 $('#sort_perpage option:selected').removeAttr('selected');
             });
         });
