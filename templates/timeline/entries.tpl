@@ -104,7 +104,7 @@
                 {if $entry.plugin_display_dat}
                     {$entry.plugin_display_dat}
                 {/if}
-                {if $entry.categories OR NOT empty($entry.add_footer)}
+                {if NOT empty($entry.categories) OR NOT empty($entry.add_footer)}
                     <footer class="entry-footer">
                         {if NOT empty($entry.categories)}
                             <span class="sr-only">{$CONST.CATEGORIES}: </span>
