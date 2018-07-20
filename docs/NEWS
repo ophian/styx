@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Upgrade templates based jQuery Lib from Series 1 to v3.3.1
+
   * Fix serendipity_syncThumbs for database thumb name update if not exists
 
   * Fix sorting reset for DESC/ASC sorting
