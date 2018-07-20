@@ -9,7 +9,7 @@ $serendipity['smarty']->assign(array('currpage'  => "http://".$_SERVER['HTTP_HOS
 
 $serendipity['smarty']->assign('archiveURL', serendipity_rewriteURL(PATH_ARCHIVE));
 
-if ((isset($serendipity['GET']['adminModule']) || isset($serendipity['GET']['adminModule'])) && in_array($serendipity['GET']['adminModule'], ['templates', 'cattemplate'])) {
+if ((isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'templates') || (isset($serendipity['POST']['adminModule']) && $serendipity['POST']['adminModule'] == 'templates') || $serendipity['GET']['adminAction'] == 'cattemplate') {
     $css_files = glob(dirname(__FILE__) . '/*_style.css');
     foreach($css_files AS $css_file) {
         $css_file = str_replace('_style.css', '', basename($css_file));
