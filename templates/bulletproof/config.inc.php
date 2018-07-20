@@ -23,7 +23,7 @@ if (!function_exists('serendipity_plugin_api_event_hook')) {
     }
 }
 
-if ((isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'templates') || (isset($serendipity['GET']['adminModule']) && $serendipity['POST']['adminModule'] == 'templates') || $serendipity['GET']['adminAction'] == 'cattemplate') {
+if ((isset($serendipity['GET']['adminModule']) || isset($serendipity['GET']['adminModule'])) && in_array($serendipity['GET']['adminModule'], ['templates', 'cattemplate'])) {
     $css_files = glob(dirname(__FILE__) . '/*_style.css');
     foreach($css_files AS $css_file) {
         $css_file = str_replace('_style.css', '', basename($css_file));

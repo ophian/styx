@@ -9,7 +9,7 @@ $serendipity['smarty']->assign(array('currpage'  => "http://".$_SERVER['HTTP_HOS
 
 $serendipity['smarty']->assign('archiveURL', serendipity_rewriteURL(PATH_ARCHIVE));
 
-if ((isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'templates') || (isset($serendipity['GET']['adminModule']) && $serendipity['POST']['adminModule'] == 'templates') || (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminAction'] == 'cattemplate')) {
+if ((isset($serendipity['GET']['adminModule']) || isset($serendipity['GET']['adminModule'])) && in_array($serendipity['GET']['adminModule'], ['templates', 'cattemplate'])) {
     $css_files = glob(dirname(__FILE__) . '/*_style.css');
     foreach($css_files AS $css_file) {
         $css_file = str_replace('_style.css', '', basename($css_file));
@@ -17,9 +17,7 @@ if ((isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModu
             $colorsets[$css_file] = $css_file;
         }
     }
-}
 
-if ((isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'templates') || (isset($serendipity['GET']['adminModule']) && $serendipity['POST']['adminModule'] == 'templates') || (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminAction'] == 'cattemplate')) {
     $skin_files = glob(dirname(__FILE__) . '/*_skin.css');
     $skinsets[''] = 'light'; // light is default, but light_skin.css does not exist as light styles are written into style.css
     foreach($skin_files AS $skin_file) {
