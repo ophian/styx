@@ -26,7 +26,7 @@
                 {if is_array($users)}
                     {foreach $users AS $user}
                         {if isset($user.artcount) AND $user.artcount < 1}{continue}{/if}
-                        <option value="{$user.authorid}"{(isset($get.filter.author) AND ($get.filter.author == $user.authorid)) ? ' selected' : ''}>{$user.realname|escape}</option>
+                        <option value="{$user.authorid}"{(isset($get.filter.author) AND $get.filter.author == $user.authorid) ? ' selected' : ''}>{$user.realname|escape}</option>
                     {/foreach}
                 {/if}
                     </select>
@@ -46,7 +46,7 @@
                     <select id="filter_category" name="serendipity[filter][category]">
                         <option value="">-</option>
                     {foreach $categories AS $cat}
-                        <option value="{$cat.categoryid}"{($get.filter.category == $cat.categoryid) ? ' selected' : ''}>{'&nbsp;'|str_repeat:$cat.depth} {$cat.category_name|escape}</option>
+                        <option value="{$cat.categoryid}"{(isset($get.filter.category) AND $get.filter.category == $cat.categoryid) ? ' selected' : ''}>{'&nbsp;'|str_repeat:$cat.depth} {$cat.category_name|escape}</option>
                     {/foreach}
                     </select>
                 </div>
