@@ -1369,7 +1369,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
             } else if ($deleteThumbs == 'checksize') {
                 // Find existing thumbnail dimensions
                 $tdim = @serendipity_getimagesize($fthumb);
-                if ($tdim['noimage']) {
+                if (isset($tdim['noimage']) && $tdim['noimage']) {
                     // Delete it so it can be regenerated
                     if (@unlink($fthumb)) {
                         printf(DELETE_THUMBNAIL . "<br>\n", $sThumb);
