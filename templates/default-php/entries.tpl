@@ -14,7 +14,7 @@
         <h4 class="serendipity_title"><a href="<?= $entry['link'] ?>"><?= $entry['title'] ?></a></h4>
 
         <div class="serendipity_entry serendipity_entry_author_<?= serendipity_makeFilename($entry['author']); ?> <?php if ($entry['is_entry_owner']): ?>serendipity_entry_author_self<?php endif; ?>">
-            <?php if ($entry['categories']): ?>
+            <?php if (!empty($entry['categories'])): ?>
             <span class="serendipity_entryIcon">
             <?php foreach($entry['categories'] AS $entry_category):?>
                 <?php if ($entry_category['category_icon']): ?>
@@ -32,13 +32,13 @@
             <div class="serendipity_entry_extended"><a id="extended"></a><?= $entry['extended'] ?></div>
             <?php endif; ?>
 
-            <?php if ($entry['has_extended'] && !$GLOBALS['tpl']['is_single_entry'] && !$entry['is_extended']): ?>
+            <?php if ($entry['has_extended'] && empty($GLOBALS['tpl']['is_single_entry']) && !$entry['is_extended']): ?>
             <br><a href="<?= $entry['link'] ?>#extended"><?php printf(VIEW_EXTENDED_ENTRY, $entry['title']) ?></a><br><br>
             <?php endif; ?>
 
             <div class="serendipity_entryFooter">
                 <?= POSTED_BY ?> <a href="<?= $entry['link_author'] ?>"><?= $entry['author'] ?></a>
-                <?php if ($entry['categories']): ?>
+                <?php if (!empty($entry['categories'])): ?>
                    <?= IN ?> <?php foreach($entry['categories'] AS $entry_category):?><a href="<?= $entry_category['category_link'] ?>"><?= serendipity_specialchars($entry_category['category_name']); ?></a>, <?php endforeach; ?>
                 <?php endif; ?>
 
@@ -64,7 +64,7 @@
                     <?php endif; ?>
                 <?php endif; ?>
 
-                <?php if ($entry['is_entry_owner'] && !$GLOBALS['tpl']['is_preview']): ?>
+                <?php if ($entry['is_entry_owner'] && empty($GLOBALS['tpl']['is_preview'])): ?>
                         | <a href="<?= $entry['link_edit'] ?>"><?= EDIT_ENTRY; ?></a>
                 <?php endif; ?>
 
@@ -84,7 +84,7 @@
         -->
         <?= $entry['plugin_display_dat'] ?>
 
-        <?php if ($GLOBALS['tpl']['is_single_entry'] && !$GLOBALS['tpl']['use_popups'] && !$GLOBALS['tpl']['is_preview']): ?>
+        <?php if (!empty($GLOBALS['tpl']['is_single_entry']) && !$GLOBALS['tpl']['use_popups'] && empty($GLOBALS['tpl']['is_preview'])): ?>
             <?php if (defined(DATA_UNSUBSCRIBED)): ?>
                 <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br>
             <?php endif; ?>
@@ -117,7 +117,7 @@
             </div>
         <?php endif; ?>
 
-        <?php if ($GLOBALS['tpl']['is_single_entry'] && !$GLOBALS['tpl']['is_preview']): ?>
+        <?php if (!empty($GLOBALS['tpl']['is_single_entry']) && empty($GLOBALS['tpl']['is_preview'])): ?>
             <div class="serendipity_comments serendipity_section_comments">
                 <br>
                 <a id="comments"></a>
