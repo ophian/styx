@@ -28,6 +28,12 @@ h3, h4 {
   padding: 0;
 }
 
+pre {
+    width: auto;
+    min-width: 20em;
+    display: inline-block;
+}
+
 input[type="text"],
 input[type="password"],
 input[type="button"],

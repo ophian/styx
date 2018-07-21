@@ -6,6 +6,11 @@ h2 {
    Font-family: Times new roman, times, sans-serif;
    color: #16425E;
 }
+pre {
+    width: auto;
+    min-width: 20em;
+    display: inline-block;
+}
 .serendipitySideBarContent input {
     width: 80%;
 }

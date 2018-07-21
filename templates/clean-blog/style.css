@@ -12,6 +12,11 @@ body {
   font-size: 20px;
   color: #404040;
 }
+pre {
+    width: auto;
+    min-width: 20em;
+    display: inline-block;
+}
 p {
   line-height: 1.5;
   margin: 0 0 30px;

@@ -27,6 +27,12 @@ video {
     clear: both;
 }
 
+pre {
+    width: auto;
+    min-width: 20em;
+    display: inline-block;
+}
+
 /* Links */
 a {
     cursor: pointer;

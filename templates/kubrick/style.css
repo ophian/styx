@@ -45,6 +45,12 @@ body {
     font-size: 1.2em
     }
 
+pre {
+    width: auto;
+    min-width: 20em;
+    display: inline-block;
+}
+
 img.categoryIcon {
     float: right;
     border: 0px;

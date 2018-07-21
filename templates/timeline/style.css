@@ -21,6 +21,12 @@ body {
     line-height: 1.6;
 }
 
+pre {
+    width: auto;
+    min-width: 20em;
+    display: inline-block;
+}
+
 a {
   /*color: #72c02c;*/
   text-decoration: none;

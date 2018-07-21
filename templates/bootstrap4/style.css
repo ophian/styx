@@ -18,3 +18,8 @@
 #serendipity_categories_list input {
     margin-right: .25rem;
 }
+pre {
+    width: auto;
+    min-width: 20em;
+    display: inline-block;
+}
