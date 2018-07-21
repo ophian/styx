@@ -500,6 +500,7 @@ fieldset,
     font-size: .875em;
     margin: 0 0 1.2308em;
     padding: .5385em;
+    display: inline-block;
 }
 
 .serendipity_entry code,
@@ -1084,6 +1085,9 @@ pre .geshi {
         position: relative;
     }
 
+    #content.preview_preview_content {
+        width: 98%;
+    }
     #identity,
     #content { width: 62%; }
     #searchform,

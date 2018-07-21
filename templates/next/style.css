@@ -711,6 +711,7 @@ table {
   font-size: 0.875em; }
 
 pre {
+  min-width: 20em;
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word; }
@@ -1427,7 +1428,8 @@ details summary {
     padding: 0 16px 0 32px;
     padding: 0 1rem 0 2rem;
     float: left;
-    width: 68%; }
+    width: 68%;
+    max-width: 92%; }
     .columns-3 #primary {
       padding: 0;
       left: 25%;
