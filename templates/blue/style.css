@@ -8,6 +8,12 @@ a:hover {
   text-decoration: underline;
 }
 
+pre {
+    width: auto;
+    min-width: 20em;
+    display: inline-block;
+}
+
 body {
   background-color: #f0f0f0;
   color: #000000;
@@ -104,7 +110,10 @@ div.serendipitySideBarItem {
   padding-right: 20px;
   padding-bottom: 10px;
 }
-
+.serendipity_entry p {
+    margin-bottom: 1.5em;
+    display: inline-table;
+}
 div.serendipity_Entry_Date {
   background-color: #e6eaee;
   border: 1px dashed #d0d0d0;

@@ -24,6 +24,9 @@ pre {
     font-size: 90%;
     line-height: 1em;
     white-space: pre;
+    width: auto;
+    min-width: 20em;
+    display: inline-block;
 }
 
 abbr, acronym, .help{
@@ -132,7 +135,10 @@ abbr, acronym, .help{
 .serendipity_entry {
     margin-bottom: 0.5em;
 }
-
+.serendipity_entry p {
+    margin-bottom: 1.5em;
+    display: inline-table;
+}
 .serendipity_entry ul,
 .serendipity_entry ol { padding-left: 2.5em; }
 

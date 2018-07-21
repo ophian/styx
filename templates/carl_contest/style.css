@@ -4,12 +4,12 @@
 /* This is a structured and commented version         */
 /* of the serendipity blog default theme.             */
 /*                                                    */
-/* Styles have been organised into the following      */
+/* Styles have been organized into the following      */
 /* groups; general, header, footer, entry, comments   */
 /* commentform, sidebar, calendar, image media, and   */
 /* plugins.                                           */
 /*                                                    */
-/* My comments are inside the /*  */, these can       */
+/* My comments are inside the, these can              */
 /* safely be deleted if you do not require them.      */
 /******************************************************/
 
@@ -18,8 +18,8 @@
 
 /********* General Styles  *********/
 
- /* used in entry/sidebar titles */
-h4, h3	{
+/* used in entry/sidebar titles */
+h4, h3 {
 	margin: 0; }
 
 /* the input boxes used in forms */
@@ -39,6 +39,11 @@ blockquote {
 	margin: 15px 30px 0 15px;
 	padding-left: 15px;
 	border-left: 4px solid #2a5a8a; }
+
+pre {
+    width: auto;
+    min-width: 20em;
+    display: inline-block; }
 
 /* all links are blue with no underline */
 a:link, a:visited, a:active {
@@ -196,6 +201,10 @@ a.homelink2, a.homelink2:hover, a.homelink2:link, a.homelink2:visited, #serendip
 	font-size: 9.5pt;
 	font-weight: normal;
 	margin: 10px 0 40px 0; }
+
+.serendipity_entry p {
+    margin-bottom: 1.5em;
+    display: inline-table; }
 
 /* container for entry title and date */
 .serendipity_Entry_Date {
