@@ -276,7 +276,7 @@ class serendipity_event_entryproperties extends serendipity_event
             // Do not delete a property if it is not submitted to this function, because serendipity_updertEntry
             // possibly only wants to update entry metadata and left out any specific properties, which need to be kept.
             // An empty string like "" will properly remove an entryproperty, and POST values will always set an array index to an empty string.
-            // $serendipipty['POST']['propertyform'] will be set whenever the entryeditor was properly displayed and unticked checkboxes shall remain.
+            // $serendipity['POST']['propertyform'] will be set whenever the entryeditor was properly displayed and unticked checkboxes shall remain.
             // (Not for checkboxes, but checkboxes are not used for entryproperties) - (Edit: Well, actually we do have some, see reset special case checkboxed properties above!)
             if (!isset($properties[$prop_key]) && !isset($serendipity['POST']['propertyform'])) {
                 continue;
@@ -906,7 +906,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     }
 
                     if ($is_cache) {
-                        // Previous calls to frontend_display used the "no_scramble" atteribute to not tinker with the data.
+                        // Previous calls to frontend_display used the "no_scramble" attribute to not tinker with the data.
                         // We now need to call those plugins that have not yet operated before.
                         $to_addData = array('from' => 'entryproperties:' . $event);
                         serendipity_plugin_api::hook_event('frontend_display_cache', $eventData, $to_addData);
@@ -1090,7 +1090,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         $joins[] = " LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_access_users
                                                   ON (e.id = ep_access_users.entryid AND ep_access_users.property = 'ep_access_users')";
                     }
-
+                    // $serendipity['skipSticky'] is not documented anywhere, is it for debugging?
                     if ((!isset($addData['noSticky']) || $addData['noSticky'] !== true) && !isset($serendipity['skipSticky'])) {
                         $joins[] = " LEFT JOIN {$serendipity['dbPrefix']}entryproperties ep_sticky
                                             ON (e.id = ep_sticky.entryid AND ep_sticky.property = 'ep_is_sticky')";
