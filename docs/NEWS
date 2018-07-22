@@ -1,6 +1,9 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Fix issue for entryproperties set entries to not show up on Frontpage
+    entries list, were also hidden in archives views.
+
   * Update wysiwyg-style.css file for serendipity images styles in p tags
 
   * Upgrade templates based jQuery Lib from Series 1 to v3.3.1
