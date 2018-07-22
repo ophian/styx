@@ -7,7 +7,10 @@
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.ERROR_DONT_CUT_YOUR_WHINEYARD|default:"You should never delete the highest GROUP LEVEL you are in: %s: %s."|sprintf:"ID#{$group_id|escape}":"{$CONST.{$group.name|escape}}"}</span>
 {/if}
 {/if}
-{if isset($save_new) AND $save_new}
+{if isset($group_taken) AND $group_taken}
+
+    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.ERROR_TRY_ANOTHER_GROUPNAME|default:"Please try another groupname"}</span>
+{elseif isset($save_new) AND $save_new}
 
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CREATED_GROUP|sprintf:"{$group_id|escape}":"{$group.name|escape}"}</span>
 {/if}
