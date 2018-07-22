@@ -12,7 +12,7 @@
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.ERROR_TRY_ANOTHER_GROUPNAME|default:"Please try another groupname"}</span>
 {elseif isset($save_new) AND $save_new}
 
-    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CREATED_GROUP|sprintf:"{$group_id|escape}":"{$group.name|escape}"}</span>
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CREATED_GROUP|sprintf:"{$group_id|escape}":"{$group.name|escape|default:''}"}</span>
 {/if}
 {if isset($save_edit) AND $save_edit}
 
