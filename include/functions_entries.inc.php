@@ -390,6 +390,9 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
                     a.email";
     }
 
+    if (!isset($cond['and'])) {
+        $cond['and'] = '';
+    }
     serendipity_ACL_SQL($cond);
 
     // Store the unique query condition for entries for later reference, like getting the total article count.
@@ -578,6 +581,9 @@ function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false
 
     $cond['single_group'] = $cond['single_having'] = $cond['single_orderby'] = ''; // init for ACL
 
+    if (!isset($cond['joins'])) {
+        $cond['joins'] = '';
+    }
     serendipity_ACL_SQL($cond, true);
 
     serendipity_plugin_api::hook_event('frontend_fetchentry', $cond, array('noSticky' => true));
