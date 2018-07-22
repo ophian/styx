@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.61');
+        $propbag->add('version',       '1.62');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -1023,7 +1023,13 @@ class serendipity_event_entryproperties extends serendipity_event
                         $conds[] = " (ep_access.property IS NULL OR ep_access.value = 'public')";
                     }
 
-                    if (!isset($serendipity['GET']['viewAuthor']) && !isset($serendipity['plugin_vars']['tag']) && !isset($serendipity['GET']['category']) && !isset($serendipity['GET']['adminModule']) && $event == 'frontend_fetchentries' && $addData['source'] != 'search') {
+                    // only DO this on article overview / Frontpage - NOT for author, category, or free-tagged entries, any Backend related, or archives views and for searched entries.
+                    if (!isset($serendipity['GET']['viewAuthor'])
+                     && !isset($serendipity['GET']['category'])
+                     && !isset($serendipity['plugin_vars']['tag'])
+                     && !isset($serendipity['GET']['adminModule'])
+                     && (!isset($serendipity['GET']['action']) || $serendipity['GET']['action'] != 'read')
+                     && $event == 'frontend_fetchentries' && $addData['source'] != 'search') {
                         $conds[] = " (ep_no_frontpage.property IS NULL OR ep_no_frontpage.value != 'true') ";
                         $joins[] = " LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_no_frontpage
                                                   ON (e.id = ep_no_frontpage.entryid AND ep_no_frontpage.property = 'ep_no_frontpage')";
