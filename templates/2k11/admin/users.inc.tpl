@@ -20,6 +20,8 @@
 {if isset($save_new) AND $save_new}
     {if isset($no_save_permission) AND $no_save_permission}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CREATE_NOT_AUTHORIZED}</span>
+    {elseif isset($user_taken) AND $user_taken}
+            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.ERROR_TRY_ANOTHER_USERNAME|default:"Please try another username"}</span>
     {else}
         {if isset($no_group_selected) AND $no_group_selected}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.WARNING_NO_GROUPS_SELECTED}</span>

@@ -51,64 +51,69 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
     if (($serendipity['serendipityUserlevel'] < USERLEVEL_ADMIN && $_POST['userlevel'] >= $serendipity['serendipityUserlevel']) || !serendipity_checkPermission('adminUsersCreateNew')) {
         $data['no_save_permission'] = true;
     } else {
-        // POST check for password named field (see config build down below)
-        $serendipity['POST']['user'] = serendipity_addAuthor($_POST['username'], $_POST['password'], $_POST['realname'], $_POST['email'], $_POST['userlevel']);
+        if (!is_array($_user = serendipity_fetchAuthor($_POST['username']))) {
+            // POST check for password named field (see config build down below)
+            $serendipity['POST']['user'] = serendipity_addAuthor($_POST['username'], $_POST['password'], $_POST['realname'], $_POST['email'], $_POST['userlevel']);
 
-        $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
-        /* Save all the properties */
-        $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
-        // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name. Normally these are 'pass' named input fields for login passwords.
-        foreach($config AS $category) {
-            foreach($category['items'] AS $item) {
-                if (in_array('groups', $item['flags'])) {
-                    if (serendipity_checkPermission('adminUsersMaintainOthers')) {
+            $valid_groups = serendipity_getGroups($serendipity['authorid'], true);
+            /* Save all the properties */
+            $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
+            // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name. Normally these are 'pass' named input fields for login passwords.
+            foreach($config AS $category) {
+                foreach($category['items'] AS $item) {
+                    if (in_array('groups', $item['flags'])) {
+                        if (serendipity_checkPermission('adminUsersMaintainOthers')) {
 
-                        // Void, no fixing necessary
+                            // Void, no fixing necessary
 
-                    } elseif (serendipity_checkPermission('adminUsersMaintainSame')) {
-                        // Check that no user may assign groups he's not allowed to.
-                        foreach($_POST[$item['var']] AS $groupkey => $groupval) {
-                            if (in_array($groupval, $valid_groups)) {
-                                continue;
-                            } elseif ($groupval == 2 && in_array(3, $valid_groups)) {
-                                // Admin is allowed to assign users to chief editors
-                                continue;
-                            } elseif ($groupval == 1 && in_array(2, $valid_groups)) {
-                                // Chief is allowed to assign users to editors
-                                continue;
+                        } elseif (serendipity_checkPermission('adminUsersMaintainSame')) {
+                            // Check that no user may assign groups he's not allowed to.
+                            foreach($_POST[$item['var']] AS $groupkey => $groupval) {
+                                if (in_array($groupval, $valid_groups)) {
+                                    continue;
+                                } elseif ($groupval == 2 && in_array(3, $valid_groups)) {
+                                    // Admin is allowed to assign users to chief editors
+                                    continue;
+                                } elseif ($groupval == 1 && in_array(2, $valid_groups)) {
+                                    // Chief is allowed to assign users to editors
+                                    continue;
+                                }
+
+                                unset($_POST[$item['var']][$groupkey]);
                             }
 
-                            unset($_POST[$item['var']][$groupkey]);
+                        } else {
+                            continue;
                         }
 
-                    } else {
+                        if (isset($_POST[$item['var']]) && count($_POST[$item['var']]) < 1) {
+                            $data['no_group_selected'] = true;
+                        } else {
+                            if (isset($_POST[$item['var']])) {
+                                serendipity_updateGroups($_POST[$item['var']], $serendipity['POST']['user'], false);
+                            }
+                        }
                         continue;
                     }
 
-                    if (isset($_POST[$item['var']]) && count($_POST[$item['var']]) < 1) {
-                        $data['no_group_selected'] = true;
-                    } else {
-                        if (isset($_POST[$item['var']])) {
-                            serendipity_updateGroups($_POST[$item['var']], $serendipity['POST']['user'], false);
-                        }
+                    if (serendipity_checkConfigItemFlags($item, 'local')) {
+                        $_isSelf = (isset($serendipity['POST']['authorid']) && $serendipity['authorid'] == $serendipity['POST']['authorid']) ? true : false;
+                        serendipity_set_user_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user'], $_isSelf);
                     }
-                    continue;
-                }
 
-                if (serendipity_checkConfigItemFlags($item, 'local')) {
-                    $_isSelf = (isset($serendipity['POST']['authorid']) && $serendipity['authorid'] == $serendipity['POST']['authorid']) ? true : false;
-                    serendipity_set_user_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user'], $_isSelf);
-                }
-
-                if (serendipity_checkConfigItemFlags($item, 'configuration')) {
-                    serendipity_set_config_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user']);
+                    if (serendipity_checkConfigItemFlags($item, 'configuration')) {
+                        serendipity_set_config_var($item['var'], $_POST[$item['var']], $serendipity['POST']['user']);
+                    }
                 }
             }
-        }
 
-        serendipity_plugin_api::hook_event('backend_users_add', $serendipity['POST']['user']);
-        $data['user'] = $serendipity['POST']['user'];
-        $data['realname'] = $_POST['realname'];
+            serendipity_plugin_api::hook_event('backend_users_add', $serendipity['POST']['user']);
+            $data['user'] = $serendipity['POST']['user'];
+            $data['realname'] = $_POST['realname'];
+        } else {
+            $data['user_taken'] = true;
+            unset($_user);
+        }
     }
 }
 
