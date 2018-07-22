@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Do not allow to add users with existing usernames
+
   * Fix issue for entryproperties set entries to not show up on Frontpage
     entries list, were also hidden in archives views.
 
