@@ -868,9 +868,9 @@ class serendipity_event_spamblock extends serendipity_event
             }
 
             $forceopentopublic = $this->get_config('forceopentopublic', 0);
-            $forcemoderation = $this->get_config('forcemoderation', 60);
+            $forcemoderation = $this->get_config('forcemoderation', 30);
             $forcemoderation_treat = $this->get_config('forcemoderation_treat', 'moderate');
-            $forcemoderationt = $this->get_config('forcemoderationt', 60);
+            $forcemoderationt = $this->get_config('forcemoderationt', 30);
             $forcemoderationt_treat = $this->get_config('forcemoderationt_treat', 'moderate');
 
             $links_moderate  = $this->get_config('links_moderate', 10);
