@@ -1112,6 +1112,8 @@ function serendipity_getTotalEntries() {
  */
 function serendipity_printEntries($entries, $extended = 0, $preview = false, $smarty_block = 'ENTRIES', $smarty_fetch = true, $use_hooks = true, $use_footer = true, $use_grouped_array = false) {
     global $serendipity;
+    $comments_open = true;
+    $current_timestamp = (time() + 24*60*60);
 
     if (!is_object($serendipity['smarty'])) {
         serendipity_smarty_init(); // if not set, start Smarty templating to avoid member function "method()" on a non-object errors (was draft preview error, now at line 1239)
@@ -1327,16 +1329,33 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                     }
                 }
 
+                // check spamblock force.open.to.public in seconds of days
+                $ftstamp = $current_timestamp - (isset($serendipity['commentaire']['opentopublic']) ? $serendipity['commentaire']['opentopublic'] : 0);
+                if ($entry['timestamp'] < $ftstamp) {
+                    $entry['allow_comments'] = false; // adds COMMENTS_CLOSED message
+                    $commentform_entry['email'] = '';
+                    $serendipity['smarty']->assign(
+                        array(
+                            'commentform_entry'   => $commentform_entry,
+                            'is_comment_added'    => '',
+                            'is_comment_moderate' => '',
+                            'COMMENTFORM'         => '')
+                    );
+                    $comments_open = false;
+                }
+
                 $serendipity['smarty']->assign($comment_add_data);
-                serendipity_displayCommentForm(
-                    $entry['id'],
-                    $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?url=' . $entry['commURL'],
-                    true,
-                    $userData,
-                    true,
-                    serendipity_db_bool($entry['moderate_comments']),
-                    $entry
-                );
+                if ($comments_open) {
+                    serendipity_displayCommentForm(
+                        $entry['id'],
+                        $serendipity['serendipityHTTPPath'] . $serendipity['indexFile'] . '?url=' . $entry['commURL'],
+                        true,
+                        $userData,
+                        true,
+                        serendipity_db_bool($entry['moderate_comments']),
+                        $entry
+                    );
+                }
             } // END FULL ENTRY LOGIC
         } // end foreach-loop (entries)
     } // end foreach-loop (dates)
