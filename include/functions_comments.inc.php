@@ -482,7 +482,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['url'] = serendipity_specialchars($comment['url'], ENT_QUOTES);
             }
 
-            // check the origin field entry to HTML display each comment using NL2P in backend and/or frontend - and in shortcut /comments/ pages
+            // check the origin field entry to HTML display each comment using NL2P in Backend and/or Frontend - and in shortcut /comments/ pages
             if ($serendipity['allowHtmlComment'] && false !== strpos($comment['body'], '</p>')) {
                 // disable NL2BR plugin parsing, for the NL2BR newline to p-tag option
                 $serendipity['POST']['properties']['disable_markups'] = array(true);
@@ -501,7 +501,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['email']       = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
             }
 
-            // frontend entry comments - do for both else add ($serendipity['allowHtmlComment'] && )
+            // Frontend entry comments - do for both else add ($serendipity['allowHtmlComment'] && )
             if (isset($comment['type']) && $comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
                 $comment['comment'] = '<span class="serendipity_msg_important msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
             }
@@ -514,7 +514,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['title'] = serendipity_specialchars($comment['title']);
             }
             if (serendipity_userLoggedIn()) {
-                // these pop-up in the edit preview of backend comments for logged-in users
+                // these pop-up in the edit preview of Backend comments for logged-in users
                 if (isset($comment['subscribed']) && $comment['subscribed'] == 'true') {
                     if ($comment['status'] == 'approved') {
                         $comment['preview_editstatus'] = '<div class="msg_notice serendipity_subscription_on"><em>' . ACTIVE_COMMENT_SUBSCRIPTION . "</em></div>\n";
@@ -954,7 +954,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     $row = serendipity_db_query($query, true); // Get info on author/entry
     if (!is_array($row) || empty($id)) {
         // No associated entry found.
-        if ($GLOBALS['tb_logging']) {
+        if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
             $fp = fopen('trackback2.log', 'a');
             fwrite($fp, '[' . date('d.m.Y H:i') . '] entry reference not found: ' . $query . "\n");
             fclose($fp);
@@ -1000,7 +1000,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     $query  = "INSERT INTO {$serendipity['dbPrefix']}comments (entry_id, parent_id, ip, author, email, url, body, type, timestamp, title, subscribed, status, referer)";
     $query .= " VALUES ('". (int)$id ."', '$parentid', '$ip', '$name', '$email', '$url', '$commentsFixed', '$type', '$t', '$title', '$subscribe', '$dbstatus', '$referer')";
 
-    if ($GLOBALS['tb_logging']) {
+    if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
         $fp = fopen('trackback2.log', 'a');
         fwrite($fp, '[' . date('d.m.Y H:i') . '] SQL: ' . $query . "\n");
     }
@@ -1031,16 +1031,16 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     }
 
     // Approve with force, if moderation is disabled
-    if ($GLOBALS['tb_logging']) {
+    if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
         fwrite($fp, '[' . date('d.m.Y H:i') . '] status: ' . $status . ', moderate: ' . $ca['moderate_comments'] . "\n");
     }
 
     if ($status != 'confirm' && (empty($ca['moderate_comments']) || $_setTo_moderation == false)) {
-        if ($GLOBALS['tb_logging']) {
+        if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
             fwrite($fp, '[' . date('d.m.Y H:i') . '] Approving...' . "\n");
         }
         serendipity_approveComment($cid, $id, true);
-    } elseif ($GLOBALS['tb_logging']) {
+    } elseif (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
         fwrite($fp, '[' . date('d.m.Y H:i') . '] No need to approve...' . "\n");
     }
 
@@ -1087,7 +1087,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
 
     serendipity_purgeEntry($id, $t);
 
-    if ($GLOBALS['tb_logging']) {
+    if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
         fclose($fp);
     }
 
@@ -1166,7 +1166,7 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
 
     serendipity_plugin_api::hook_event('frontend_saveComment', $ca, $commentInfo);
     if ((!is_array($ca) || serendipity_db_bool($ca['allow_comments'])) && !$isUin) {
-        if ($GLOBALS['tb_logging']) {
+        if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
             $fp = fopen('trackback2.log', 'a');
             fwrite($fp, '[' . date('d.m.Y H:i') . '] insert comment into DB' . "\n");
             fclose($fp);
@@ -1177,7 +1177,7 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
         serendipity_plugin_api::hook_event('frontend_saveComment_finish', $ca, $commentInfo);
         return true;
     } else {
-        if ($GLOBALS['tb_logging']) {
+        if (isset($GLOBALS['tb_logging']) && $GLOBALS['tb_logging']) {
             $fp = fopen('trackback2.log', 'a');
             fwrite($fp, '[' . date('d.m.Y H:i') . '] discarding comment from DB' . "\n");
             fclose($fp);
