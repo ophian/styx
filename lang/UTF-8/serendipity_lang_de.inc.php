@@ -687,7 +687,7 @@
 
 @define('BACKEND_TITLE', 'Zusätzlicher Informationstext, der auf der Plugin-Oberfläche dargestellt wird');
 @define('BACKEND_TITLE_FOR_NUGGET', 'An dieser Stelle können Sie einen eigenen Text angeben, der auf der Plugin-Konfigurationsoberfläche zusätzlich angezeigt wird. Denn falls Sie mehrere HTML-Klötze mit leerem Titel angelegt haben, ist es gegebenenfalls schwierig, diese auseinanderzuhalten.');
-@define('CATEGORIES_ALLOW_SELECT', 'Besuchern erlauben, mehrere Kategorien gleichzeitig darzustellen?');
+@define('CATEGORIES_ALLOW_SELECT', 'Mehrere Kategorien zugleich anfordern?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Falls diese Option aktiviert ist, wird eine Auswahlbox neben jeder Kategorie angezeigt, damit Besucher mehrere Kategorien gleichzeitig auswählen können.');
 @define('PAGE_BROWSE_PLUGINS', 'Seite %s von %s, insgesamt %s Plugins.');
 @define('INSTALL_CAT_PERMALINKS', 'Permalinks');
@@ -785,8 +785,8 @@
 @define('INSTALL_BLOG_EMAIL_DESC', 'Mit dieser Option legen Sie die E-Mail-Adresse fest, die im "From"-Teil von ausgehenden Mails des Servers als Absender verwendet wird. Diese Adresse muss auf dem eingesetzten Mailserver gültig sein, da viele Mailserver ungültige From-Adressen als Spam klassifizieren.');
 @define('CATEGORIES_PARENT_BASE', 'Zeige nur Kategorien unterhalb ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Sie können eine Eltern-Kategorie definieren, so dass nur die Unterkategorien derselben angezeigt werden.');
-@define('CATEGORIES_HIDE_PARALLEL', 'Kategorien verstecken, die nicht Teil des vom Besucher gewählten Kategoriebaums sind.');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Falls Sie Kategorien verstecken wollen, die innerhalb einer parallelen Baumstruktur abgebildet sind, muss diese Option aktiviert werden. Diese Einstellung macht hauptsächlich dann Sinn, wenn sie in einem Multi-Blog-System des "Eigenschaften/Templates von Kategorien"-Plugins verwendet werden.');
+@define('CATEGORIES_HIDE_PARALLEL', 'Bestimmte Kategorien verstecken?');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Falls Sie Kategorien verstecken wollen, die nicht Teil des vom Besucher gewählten Kategoriebaums sind, und die innerhalb einer parallelen Baumstruktur abgebildet sind, muss diese Option aktiviert werden. Diese Einstellung macht hauptsächlich dann Sinn, wenn sie in einem Multi-Blog-System des "Eigenschaften/Templates von Kategorien"-Plugins verwendet werden.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Mediendaten anderer Benutzer ansehen');
 @define('CHARSET_NATIVE', 'Nationaler Zeichensatz');
 @define('INSTALL_CHARSET', 'Zeichensatz-Auswahl');
