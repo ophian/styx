@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.09');
+        $propbag->add('version',       '2.10');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -35,6 +35,7 @@ class serendipity_event_spamblock extends serendipity_event
             'backend_maintenance'  => true,
             'backend_comments_top' => true,
             'backend_view_comment' => true,
+            'frontend_display:html:per_entry'  => true,
             'backend_sidebar_admin_appearance' => true,
         ));
         $propbag->add('configuration', array(
@@ -47,6 +48,7 @@ class serendipity_event_spamblock extends serendipity_event
             'captchas',
             'captchas_ttl',
             'captcha_color',
+            'forceopentopublic',
             'forcemoderation',
             'forcemoderation_treat',
             'trackback_ipvalidation' ,
@@ -383,6 +385,13 @@ class serendipity_event_spamblock extends serendipity_event
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_CAPTCHA_COLOR_DESC);
                 $propbag->add('default', '255,255,255');
                 $propbag->add('validate', '@^[0-9]{1,3},[0-9]{1,3},[0-9]{1,3}$@');
+                break;
+
+            case 'forceopentopublic':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC);
+                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC);
+                $propbag->add('default', 0);
                 break;
 
             case 'forcemoderation':
@@ -858,6 +867,7 @@ class serendipity_event_spamblock extends serendipity_event
                 $show_captcha = false;
             }
 
+            $forceopentopublic = $this->get_config('forceopentopublic', 0);
             $forcemoderation = $this->get_config('forcemoderation', 60);
             $forcemoderation_treat = $this->get_config('forcemoderation_treat', 'moderate');
             $forcemoderationt = $this->get_config('forcemoderationt', 60);
@@ -878,6 +888,12 @@ class serendipity_event_spamblock extends serendipity_event
             $logmethod = $this->get_config('logtype');
 
             switch($event) {
+
+                case 'frontend_display:html:per_entry':
+                    if ($forceopentopublic > 0) {
+                        $serendipity['commentaire']['opentopublic'] = ($forceopentopublic * 86400);
+                    }
+                    break;
 
                 case 'fetchcomments':
                     // Check for global emergency moderation
