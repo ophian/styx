@@ -1135,6 +1135,8 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             }
             serendipity_smarty_fetch($smarty_block, 'entries.tpl', true);
             return; // no display of this item
+        } else {
+            $serendipity['smarty']->assign('plugin_clean_page', false);
         }
     }
 
