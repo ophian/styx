@@ -361,7 +361,7 @@ class serendipity_event_spartacus extends serendipity_event
         foreach($paths AS $pathid => $path) {
             $stack .= $path . '/';
 
-            if (@$spaths[$pathid] == $path) {
+            if ((empty($path) || empty($spaths[$pathid])) && @$spaths[$pathid] == $path) {
                 continue;
             }
 
