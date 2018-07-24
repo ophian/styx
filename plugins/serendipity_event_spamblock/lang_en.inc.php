@@ -19,8 +19,8 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'IP block interval');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'Only allow an IP to submit a comment every n minutes. Useful to prevent comment floods.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Enable Captchas');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Will force the user to input a random string displayed in a specially crafted image. This will disallow automated submits to your Blog. Please remember that people with decreased vision may find it hard to read those Captchas.');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'To prevent automated Bots from spamming comment, please enter the string you see in the image below in the appropriate input box. Your comment will only be submitted if the strings match. Please ensure that your browser supports and accepts cookies, or your comment cannot be verified correctly.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Will force the user to input a random string displayed in a specially crafted image. This will disallow automated submits to your Blog. Please remember that people with decreased vision may find it hard to read those Captchas. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'To prevent automated Bots from comment-spamming, please enter the string you see in the image below in the appropriate input box. Your comment will only be submitted if the strings match. Please ensure that your browser supports and accepts cookies, or your comment cannot be verified correctly.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Enter the string you see here in the input box!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Enter the string from the Spam-prevention image above: ');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_CAPTCHAS', 'You did not enter the correct string displayed in the Spam-prevention image box. Please look at the image and enter the values displayed there.');
