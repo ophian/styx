@@ -17,7 +17,7 @@ Version 2.6-alpha ()
 
   * Fix serendipity_syncThumbs for database thumb name update if not exists
 
-  * Fix sorting reset for DESC/ASC sorting
+  * Fix MediaLibrary filter sorting reset for DESC/ASC sorting
 
   * Add some version like "commit-days-since-first" info to the [2k11,
     next] themes info.txt description, since they have been touched a lot.
