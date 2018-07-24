@@ -20,7 +20,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'IP 블로킹 간격');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', '특정 IP가 덧글을 n분에 한 번씩만 작성할 수 있도록 합니다. 덧글 도배를 방지하는데 유용합니다.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Captcha 사용');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', '사용자가 특별 제작된 그림에 나타난 무작위 문자열을 입력하도록 강제합니다. 블로그에 자동화된 덧글이 달리는 것을 방지해줍니다. 시력이 떨어지는 사람은 captcha를 읽는데 곤란해 할 수 있음을 유의하십시오.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', '사용자가 특별 제작된 그림에 나타난 무작위 문자열을 입력하도록 강제합니다. 블로그에 자동화된 덧글이 달리는 것을 방지해줍니다. 시력이 떨어지는 사람은 captcha를 읽는데 곤란해 할 수 있음을 유의하십시오. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', '자동화된 봇(bot)이 덧글을 도배하는 것을 방지하기 위해서 아래에 표시된 그림에 나타난 문자열을 입력상자에 입력해주십시오. 문자열이 일치할 경우에만 덧글이 달립니다. 브라우저가 쿠키를 허용해야 정상적으로 검사가 이루어집니다.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', '여기에 보이는 문자열을 입력상자에 입력하십시오.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', '위에 표시된 스팸 방지 그림에 담긴 문자열을 여기에 적으십시오: ');

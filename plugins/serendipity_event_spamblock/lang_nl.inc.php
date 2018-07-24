@@ -18,7 +18,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'IP block interval');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'Laat een IP adres enkel toe X commentaren per minuut te posten, handig voor spam floods.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Zet Captchas aan');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Verplicht bezoekers een reeks letters te herhalen die uit een plaatje komen. Handig om geautomatiseerde posts tegen te gaan. Denk eraan dat bezoekers met verminderd zicht dit soms moeilijk kunnen uitvoeren.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Verplicht bezoekers een reeks letters te herhalen die uit een plaatje komen. Handig om geautomatiseerde posts tegen te gaan. Denk eraan dat bezoekers met verminderd zicht dit soms moeilijk kunnen uitvoeren. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'Om het posten door robots tegen te gaan, gelieve de letters die je in het plaatje ziet over te typen. Je commentaar wordt enkel gepost wanneer de letters overeen komen. Je browser dient cookies te ondersteunen (standaard staat dit aan), of je commentaar kan niet geverifieerd worden.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Typ de letters die je hier zien in het input veld.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Typ de letters van het plaatje hierboven ');

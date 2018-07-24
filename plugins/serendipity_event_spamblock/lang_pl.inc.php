@@ -19,7 +19,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'Czas blokowania adresu IP');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'Zezwól na komentarze z danego adresu IP co n minut. Przydatne dla blokowania komentarzowych floodów (wiele komentarzy z tego samego adresu IP w krótkim czasie).');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'W³±cz Captcha');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Wymusza na u¿ytkowniku wpisanie specjalnego losowego kodu wy¶wietlanego w wygenrowanym obrazku. Proszê, zwróæ uwagê na to, ¿e ludzie maj±cy problemy ze wzrokiem mog± mieæ problemy z odczytaniem kodu.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Wymusza na u¿ytkowniku wpisanie specjalnego losowego kodu wy¶wietlanego w wygenrowanym obrazku. Proszê, zwróæ uwagê na to, ¿e ludzie maj±cy problemy ze wzrokiem mog± mieæ problemy z odczytaniem kodu. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'Proszê, wpisz widoczny na obrazku kod do odpowiedniego pola. Twój komentarz zostanie dodany tylko gdy wpisany kod bêdzie siê zgadza³ z tym widocznym na obrazku. Proszê, upewnij siê, ¿e Twoja przegl±darka ma w³±czon± obs³ugê cookies (ciasteczek) lub Twój komentarz nie przejdzie poprawnie weryfikacji.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Wpisz ci±g znaków, który tu widzisz do odpowiedniego pola!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Wpisz ci±g znaków widoczny na obrazku powy¿ej: ');

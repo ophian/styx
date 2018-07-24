@@ -27,7 +27,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_RBLLIST', 'RBLs à contacter');
 @define('PLUGIN_EVENT_SPAMBLOCK_RBLLIST_DESC', 'Bloque les commentaires en se basant sur les listes RBL définies ici.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Activer les captchas');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Force les utilisateurs à entrer un texte affiché dans une image générée automatiquement pour éviter que des systèmes automatisés puissent ajouter des commentaires. Notez cependant que cela peut poser des problèmes aux personnes malvoyantes.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Force les utilisateurs à entrer un texte affiché dans une image générée automatiquement pour éviter que des systèmes automatisés puissent ajouter des commentaires. Notez cependant que cela peut poser des problèmes aux personnes malvoyantes. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'Pour éviter le spam par des robits automatisés (spambots), merci d\'entrer les caractères que vous voyez dans l\'image ci-dessous dans le champ de fomulaire prévu à cet effet. Assurez-vous que votre navigateur gère et accepte les cookies, sinon votre commentaire ne pourra pas être enregistré.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Entrez le texte que vous voyez ici dans le champs!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Entrez le texte de l\'image anti-spam ci-dessus ici: ');

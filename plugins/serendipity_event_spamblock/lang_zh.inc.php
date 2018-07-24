@@ -21,7 +21,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', '同一IP地址只允许每隔数分钟发表一次回复。这可有效避免国多的垃圾回复。');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', '启用验证码(Captchas)');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', '这将强制要求用户输入在特制的图片中显示的一个随机字符串。这可以防止机器人自动向你的博客发送回复信息等。需要注意的是，视力不好的访客可能很难看清这些验证码上的字符串。');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', '这将强制要求用户输入在特制的图片中显示的一个随机字符串。这可以防止机器人自动向你的博客发送回复信息等。需要注意的是，视力不好的访客可能很难看清这些验证码上的字符串。 To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', '为了阻止机器人提交垃圾回复，请在相应的文本框中输入你在下面的图片中所看到的字符串。只有在你输入的字符串和图片中的字符串吻合的情况下，你的回复才能被成功提交。请确认你的浏览器支持、并且已经开启了cookies功能，否则的话，你的回复无法被正确地验证。');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', '请在输入框输入你在此看到的字符。');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', '请输入上面图片中所显示的字符：');

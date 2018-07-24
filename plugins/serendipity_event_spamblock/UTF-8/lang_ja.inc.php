@@ -19,7 +19,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'IP ブロックの間隔');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', '1 つの IP アドレスからのコメント送信を n 分間隔でのみ許可します。コメントの氾濫を防ぐのに有用です。');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Captcha を有効にする');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', '特別に作られた画像に表示された任意の文字列を入力することをユーザーに強いるでしょう。これは、ブログへの自動投稿を無効にするでしょう。視力の減退した人々が、captcha を読むために、懸命に見分けなければいけないであろうことを覚えておいてください。');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', '特別に作られた画像に表示された任意の文字列を入力することをユーザーに強いるでしょう。これは、ブログへの自動投稿を無効にするでしょう。視力の減退した人々が、captcha を読むために、懸命に見分けなければいけないであろうことを覚えておいてください。 To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'ロボットからの自動的なコメントスパムを防ぐために、画像の下の入力ボックスに適切な文字列を入力してください。文字列が一致する場合のみ、コメントが送信されるでしょう。ブラウザーが Cookie をサポートし、受け入れることを確認してください。さもなければ、コメントを正確に確認することができません。');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', '入力ボックスにここに見える文字列を入力してください!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', '上のスパム防止画像から文字列を入力してください: ');

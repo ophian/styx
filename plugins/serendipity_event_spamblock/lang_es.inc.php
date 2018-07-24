@@ -18,7 +18,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'Intervaluo de bloqueo IP');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'Permite enviar comentarios a un IP cada n minutos. Útil para prevenir sobrecarga de comentarios.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Activar Captchas');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Forzará a los usuarios a introducir una cadena al azar mostrada en una imagen especialmente diseñada. Esta opción imposibilitará envíos automáticos a tu blog. Por favor ten en cuenta que personas con problemas visuales podrían encontrar dificil leer los captchas.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Forzará a los usuarios a introducir una cadena al azar mostrada en una imagen especialmente diseñada. Esta opción imposibilitará envíos automáticos a tu blog. Por favor ten en cuenta que personas con problemas visuales podrían encontrar dificil leer los captchas. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'Para prevenir un ataque spam en los comentarios por parte de bots, por favor ingresa la cadena que ves en la imagen mostrada más abajo en la apropiada caja de texto. Tu comentario será aceptado sólo si ambas cadenas son iguales. Por favor, asegúrate que tu navegador soporta y acepta cookies, o tu comentario no podrá ser verificado correctamente.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', '¡Ingresa la cadena que ves más abajo en la caja de texto!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Ingresa la cadena de protección contra spam de la imgen mostrada abajo: ');

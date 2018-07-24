@@ -25,7 +25,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'Blokování IP adres');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'Povol poslat z jedné IP adresy jeden komentář za n minut. Užitečné pro zabránění záplav komentářů.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Povolit kryptogramy');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Přispěvatel bude nucen zadat čísla z náhodně vygenerovaného deformovaného obrázku. Toto znemožní automatické přidávání komentářů, např. hackerským strojem. Mějte prosím na paměti, že lidé s poškozeným zrakem mohou mít potíže se čtením těchto kryptogramů.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Přispěvatel bude nucen zadat čísla z náhodně vygenerovaného deformovaného obrázku. Toto znemožní automatické přidávání komentářů, např. hackerským strojem. Mějte prosím na paměti, že lidé s poškozeným zrakem mohou mít potíže se čtením těchto kryptogramů. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'V rámci boje proti komentářovém spamu zadejte prosím znaky, které vidíte níže. Váš komentář bude poslán pouze pokud tyto znaky budou souhlasit. Ujistěte se, že Váš prohlížeč podporuje a přijímá cookies. Jinak vaše komentáře nemohou být správně ověřené.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Do políčka níže zadejte znaky, které vidíte nad tímto textem.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Zadejte znaky z protispamového obrázku: ');

@@ -28,7 +28,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_RBLLIST', 'Við hvaða RBL skal haft samband?');
 @define('PLUGIN_EVENT_SPAMBLOCK_RBLLIST_DESC', 'Synja athugasemdum byggt á RVL listum sem fengnir hafa verið. Forðast lista með breytileg (dynamic) net.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Virkja "Captchas"');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Neyðir notanda til að slá inn slembistreng sem sést í sértilbúinni mynd. Þetta mun hindra sjálfvirkar innsendingar á bloggið. Athugaðu þó að fólk með skerta sjón gæti átt erfitt með að þesa strenginn.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Neyðir notanda til að slá inn slembistreng sem sést í sértilbúinni mynd. Þetta mun hindra sjálfvirkar innsendingar á bloggið. Athugaðu þó að fólk með skerta sjón gæti átt erfitt með að þesa strenginn. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'Til að hindra sjálfvirkar sendingar auglýsinga á bloggið, sláðu þá vinsamlegast inn strenginn á myndinni að neðan í viðkomandi reit. Athugasemdin þín verður einungis send ef strengurinn passar við myndina. Vinsamlegast gakktu úr skugga um að vafrinn þinn styðji og samþykki kökur, annars getur athugasemdin þín getur ekki verið sannprófuð á réttan hátt.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Sláðu inn strenginn sem þú sérð hér í reitinn!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Sláðu inn strenginn úr spammvarnarmyndinni að ofan: ');

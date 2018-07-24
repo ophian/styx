@@ -19,7 +19,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'محدودیت زمانی روی IP');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'هر IP در هر n دقیقه می تواند نظر ارسال کند. این گزینه شما را در مقابل حمله مقاوم می کند.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'فعال کردن تصاویر گرافیکی');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Will force the user to input a random string displayed in a specially crafted image. This will disallow automated submits to your blog. Please remember that people with decreased vision may find it hard to read those captchas.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Will force the user to input a random string displayed in a specially crafted image. This will disallow automated submits to your blog. Please remember that people with decreased vision may find it hard to read those captchas. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'To prevent automated Bots from commentspamming, please enter the string you see in the image below in the appropriate input box. Your comment will only be submitted if the strings match. Please ensure that your browser supports and accepts cookies, or your comment cannot be verified correctly.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'این متن را در فیلد پایین وارد کنید!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'متن موجود در تصویر بالا را در زیر وارد کنید: ');

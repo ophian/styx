@@ -20,7 +20,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'IP blokerings interval');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', 'Hvor mange minutter skal der gå mellem den samme ipadresse kan gemme en kommentar.  Dette kan forhindre spamoversvømmelse');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', 'Aktiver CAPTHA billeder');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Kræver at brugeren indtaster en tilfældig tekst som vises i et specielt tegnet stykke grafik (CAPTHA). Dette kan forhindre robotter i at gemme kommentarer i din blog. Bemærk at svagtseende kan have problemer med at læse teksten i grafikken.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', 'Kræver at brugeren indtaster en tilfældig tekst som vises i et specielt tegnet stykke grafik (CAPTHA). Dette kan forhindre robotter i at gemme kommentarer i din blog. Bemærk at svagtseende kan have problemer med at læse teksten i grafikken. To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', 'Indtast venligst teksten du kan se i CAPTHA billedet i indtastningsfeltet, dette er nødvendigt for at forhindre robotter i at lave kommentarspam. Din kommentar vil kun blive gemt såfremt du indtaster den rigtige tekst. Det er også et krav at din browser accepterer cookies.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', 'Indtast teksten du kan se her i indtastningsfeltet!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', 'Indtast teksten fra CAPTHA billedet herover: ');

@@ -20,7 +20,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD', 'IP 阻擋時間');
 @define('PLUGIN_EVENT_SPAMBLOCK_IPFLOOD_DESC', '主允許同一個 IP 在 X 時間內發佈迴響。可避免遭受迴響灌水。');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS', '開啟 Captchas');
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', '訪客要留言時必須輸入圖片裡出現的文字。可允許自動廣告程式輸入迴響。記得有些訪客可能無法解讀圖片裡的文字。');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_DESC', '訪客要留言時必須輸入圖片裡出現的文字。可允許自動廣告程式輸入迴響。記得有些訪客可能無法解讀圖片裡的文字。 To avoid having to use Captchas at all, try out the extending Serendipity Spamblog Bee plugin.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC', '為了避免自動廣告程式輸入迴響，請輸入圖片裡的文字。如果文字正確，迴響就可以正常發佈。記得瀏覽器必須支援 cookies 要不然您的迴響無法通過測驗。');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC2', '請輸入欄位裡出現的文字。');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3', '請輸入圖片裡出現的文字： ');
