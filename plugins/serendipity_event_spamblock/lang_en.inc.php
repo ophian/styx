@@ -156,9 +156,9 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MSG_DONE', 'Cleanup successfuly done!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SELECT', 'Single select by criteria');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SAVE_BUTTON', 'Debug Log-logging');
-@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SAVE_DESC', 'Write all possible cleanup spamblocklog entries into the current debug log file. (See Maintenance ... Serendipity Logfiles.) Dont\'t do this when not in need, since may get quite big!');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SAVE_DESC', 'Write all possible cleanup spamblocklog entries into the current debug log file. (See Maintenance ... Serendipity Logfiles.) Dont\'t do this when not specifically in need, since this may get quite huge!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_LOGMSG_DONE', 'Written to Debug Logger output!');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC', 'Time frame for comments within X days');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC', 'The comment function of an article may only globally be allowed for a limited period of X days from the article date. The default value is "0" and allows comments to any existing article without age limit.');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC', 'The comment function of an article may only globally be allowed for a limited period of X days from the article date. This might be a valid request to make sure your Blog is not flooded with bogus comments for old entries. The default value is "0" and allows comments to any existing article without age limit.');
 
