@@ -187,7 +187,7 @@
     <?php endif; ?>
 
     <div class="serendipity_entryFooter">
-    <?php if (!empty($GLOBALS['tpl']['footer_prev_page'])): ?>
+    <?php if ($GLOBALS['tpl']['footer_prev_page']): ?>
         <a href="<?= $GLOBALS['tpl']['footer_prev_page'] ?>">&laquo; <?= PREVIOUS_PAGE; ?></a>&#160;&#160;
     <?php endif; ?>
 
@@ -195,7 +195,7 @@
         (<?= $GLOBALS['tpl']['footer_info'] ?>)
     <?php endif; ?>
 
-    <?php if (!empty($GLOBALS['tpl']['footer_next_page'])): ?>
+    <?php if ($GLOBALS['tpl']['footer_next_page']): ?>
         <a href="<?= $GLOBALS['tpl']['footer_next_page'] ?>">&raquo; <?= NEXT_PAGE; ?></a>
     <?php endif; ?>
 

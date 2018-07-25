@@ -121,7 +121,7 @@
                     {if $paginationStartPage <= 0}
                         {assign var="paginationStartPage" value="1"}
                     {/if}
-                    {if NOT empty($footer_prev_page)}
+                    {if $footer_prev_page}
                         <a class="btn btn-md btn-default btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
                     {/if}
                     {if $paginationStartPage > 1}
@@ -143,7 +143,7 @@
                     {if $smarty.section.i.index <= $footer_totalPages}
                         <a class="btn btn-md btn-default btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
                     {/if}
-                    {if NOT empty($footer_next_page)}
+                    {if $footer_next_page}
                         <a class="btn btn-md btn-default btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
                     {/if}
                 </nav>

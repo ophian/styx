@@ -153,14 +153,14 @@
     {/if}
 {/foreach}
 {/if}
-{if NOT empty($footer_info) OR NOT empty($footer_prev_page) OR NOT empty($footer_next_page)}
+{if NOT empty($footer_info) OR $footer_prev_page OR $footer_next_page}
 {if NOT empty($footer_info)}
     <p class="summary serendipity_center">{$footer_info}</p>
 {/if}
     <nav role="navigation">
         <ul class="pager">
-            {if NOT empty($footer_prev_page)}<li class="previous"><a href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {$CONST.PREVIOUS_PAGE}</a></li>{/if}
-            {if NOT empty($footer_next_page)}<li class="next"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>{/if}
+            {if $footer_prev_page}<li class="previous"><a href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i> {$CONST.PREVIOUS_PAGE}</a></li>{/if}
+            {if $footer_next_page}<li class="next"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>{/if}
         </ul>
     </nav>
 {/if}

@@ -186,7 +186,7 @@
 
   <div class="serendipity_pageFooter" style="text-align: center">
     {if NOT empty($footer_info)}
-        {if NOT empty($footer_prev_page)}
+        {if $footer_prev_page}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
         {else}
         <span class="grey">&laquo; {$CONST.PREVIOUS_PAGE}</span>&#160;&#160;
@@ -199,7 +199,7 @@
     {/if}
 
     {if NOT empty($footer_info)}
-        {if NOT empty($footer_next_page)}
+        {if $footer_next_page}
         &#160;&#160;<a href="{$footer_next_page}">{$CONST.NEXT_PAGE} &raquo;</a>
         {else}
         &#160;&#160;<span class="grey">{$CONST.NEXT_PAGE} &raquo;</span>

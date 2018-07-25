@@ -1,4 +1,4 @@
 Name: Kubrick 1.2.6 port
 Author: Tom Sommer
-Date: 2018-07-17
+Date: 2018-07-25
 Require Serendipity: 1.7

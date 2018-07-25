@@ -1,4 +1,4 @@
 Name: Blue Streak (contest)
 Author: Garvin Hicking
-Date: 2018-07-17
+Date: 2018-07-25
 Require Serendipity: 1.7

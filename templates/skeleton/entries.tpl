@@ -119,12 +119,12 @@
     {if NOT empty($footer_info)}
         <p>{$footer_info}</p>
     {/if}
-    {if NOT empty($footer_prev_page) OR !empty($footer_next_page)}
+    {if $footer_prev_page OR !empty($footer_next_page)}
         <ul class="plainList">
-        {if NOT empty($footer_prev_page)}
+        {if $footer_prev_page}
             <li class="pager_prev u-pull-left"><a class="button button-primary" href="{$footer_prev_page}">{$CONST.PREVIOUS_PAGE}</a></li>
         {/if}
-        {if NOT empty($footer_next_page)}
+        {if $footer_next_page}
             <li class="pager_next u-pull-right"><a class="button button-primary" href="{$footer_next_page}">{$CONST.NEXT_PAGE}</a></li>
         {/if}
         </ul>

@@ -141,7 +141,7 @@
     {/if}
 {/foreach}
 {/if}
-{if (NOT empty($footer_info) OR NOT empty($footer_prev_page) OR NOT empty($footer_next_page)) AND NOT $is_preview}
+{if (NOT empty($footer_info) OR $footer_prev_page OR $footer_next_page) AND NOT $is_preview}
     {if empty($staticpage_pagetitle)}
     <nav class="serendipity_pagination block_level">
         <h2 class="visuallyhidden">{$CONST.TWOK11_PAG_TITLE}</h2>
@@ -150,8 +150,8 @@
             {if NOT empty($footer_info)}
             <li class="info"><span>{$footer_info}</span></li>
             {/if}
-            <li class="prev">{if NOT empty($footer_prev_page)}<a href="{$footer_prev_page}">{/if}{if NOT empty($footer_prev_page)}&larr; {$CONST.PREVIOUS_PAGE}{else}&nbsp;{/if}{if NOT empty($footer_prev_page)}</a>{/if}</li>
-            <li class="next">{if NOT empty($footer_next_page)}<a href="{$footer_next_page}">{/if}{if NOT empty($footer_next_page)}{$CONST.NEXT_PAGE} &rarr;{else}&nbsp;{/if}{if NOT empty($footer_next_page)}</a>{/if}</li>
+            <li class="prev">{if $footer_prev_page}<a href="{$footer_prev_page}">{/if}{if $footer_prev_page}&larr; {$CONST.PREVIOUS_PAGE}{else}&nbsp;{/if}{if $footer_prev_page}</a>{/if}</li>
+            <li class="next">{if $footer_next_page}<a href="{$footer_next_page}">{/if}{if $footer_next_page}{$CONST.NEXT_PAGE} &rarr;{else}&nbsp;{/if}{if $footer_next_page}</a>{/if}</li>
         </ul>
     </nav>
     {/if}

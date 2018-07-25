@@ -5,14 +5,14 @@
     <div class="comments_for_entry">{$entry_comments.tpl_comments}</div>
 </article>
 {/foreach}
-{if NOT empty($footer_info) OR NOT empty($footer_prev_page) OR NOT empty($footer_next_page)}
+{if NOT empty($footer_info) OR $footer_prev_page OR $footer_next_page}
     <nav class="pager u-cf comments_by_author_pagination" role="navigation">
     {if NOT empty($footer_info)}
         <p class="info">{$footer_info}</p>
     {/if}
         <ul class="clearfix">
-            <li class="pager_prev u-pull-left">{if NOT empty($footer_prev_page)}<a class="button button-primary" href="{$footer_prev_page}">{/if}{if NOT empty($footer_prev_page)}&larr; {$CONST.PREVIOUS_PAGE}{else}&nbsp;{/if}{if NOT empty($footer_prev_page)}</a>{/if}</li>
-            <li class="pager_next u-pull-right">{if NOT empty($footer_next_page)}<a class="button button-primary" href="{$footer_next_page}">{/if}{if NOT empty($footer_next_page)}{$CONST.NEXT_PAGE} &rarr;{else}&nbsp;{/if}{if NOT empty($footer_next_page)}</a>{/if}</li>
+            <li class="pager_prev u-pull-left">{if $footer_prev_page}<a class="button button-primary" href="{$footer_prev_page}">{/if}{if $footer_prev_page}&larr; {$CONST.PREVIOUS_PAGE}{else}&nbsp;{/if}{if $footer_prev_page}</a>{/if}</li>
+            <li class="pager_next u-pull-right">{if $footer_next_page}<a class="button button-primary" href="{$footer_next_page}">{/if}{if $footer_next_page}{$CONST.NEXT_PAGE} &rarr;{else}&nbsp;{/if}{if $footer_next_page}</a>{/if}</li>
         </ul>
     </nav>
 {/if}

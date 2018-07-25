@@ -1,6 +1,6 @@
 Name: Skeleton
 Author: Matthias Mees
-Date: 2018-07-17
+Date: 2018-07-25
 Require Serendipity: 2.0
 Recommended: Yes
 
