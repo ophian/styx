@@ -3,7 +3,7 @@
     {$staticpage_jsStr}
     </div>
 {/if}
-{if !$staticpage_jsStr OR empty($staticpage_jsStr)}
+{if NOT $staticpage_jsStr OR empty($staticpage_jsStr)}
     <ul class="plainList">
         {if $frontpage_path}
         <li><a href="{$frontpage_path}">{$CONST.PLUGIN_STATICPAGELIST_FRONTPAGE_LINKNAME}</a></li>

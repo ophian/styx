@@ -37,7 +37,7 @@
         <created>{$entry.feed_timestamp}</created>
         <modified>{$entry.feed_last_modified}</modified>
         <wfw:comment>{$serendipityBaseURL}wfwcomment.php?cid={$entry.feed_id}</wfw:comment>
-{if !$is_comments}
+{if NOT $is_comments}
         <slash:comments>{$entry.comments}</slash:comments>
         <wfw:commentRss>{$serendipityBaseURL}rss.php?version={$metadata.version}&amp;type=comments&amp;cid={$entry.feed_id}</wfw:commentRss>
 {/if}

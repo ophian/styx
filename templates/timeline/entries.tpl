@@ -9,7 +9,7 @@
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
         {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
-        {if !$is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO *}
+        {if NOT $is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO *}
             {if $template_option.display_as_timeline}
                 {if $template_option.months_on_timeline == true}
                     {assign var="curmonth" value=$entry.timestamp|formatTime:"%B"}
@@ -109,7 +109,7 @@
                         {if NOT empty($entry.categories)}
                             <span class="sr-only">{$CONST.CATEGORIES}: </span>
                             <i class="fa fa-folder-open" aria-hidden="true"></i>
-                            {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if !$entry_category@last}&nbsp;{/if}{/foreach}
+                            {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}&nbsp;{/if}{/foreach}
                         {/if}
                         {if isset($entry.freetag.extended) AND $entry.freetag.extended == 1}
                             {if NOT empty($entry.freetag.tags.tags)}

@@ -31,7 +31,7 @@
 {/if}
 {if $is_raw_mode != true}
     <nav class="navbar{if $template_option.bs_navbar_type != 'default'} {$template_option.bs_navbar_type}{/if} navbar-expand-lg navbar-{if $template_option.bs_navbar_style == 'light'}light{else}dark{/if} bg-{$template_option.bs_navbar_style}">
-    {if !$template_option.bs_fluid}
+    {if NOT $template_option.bs_fluid}
         <div class="container">
     {/if}
         <a class="navbar-brand{if NOT $template_option.use_corenav} mr-auto{/if}" href="{$serendipityBaseURL}">{$blogTitle}</a>
@@ -63,7 +63,7 @@
         </form>
     {/if}
         {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
-    {if !$template_option.bs_fluid}
+    {if NOT $template_option.bs_fluid}
         </div>
     {/if}
     </nav>

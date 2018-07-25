@@ -7,7 +7,7 @@
         {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
         <div class="post">
             <h2 id="post-{$entry.id}"><a href="{$entry.link}">{$entry.title}</a></h2>
-            {if !$is_single_entry}<div class="small">{$entry.timestamp|formatTime:DATE_FORMAT_ENTRY}</div>{/if}
+            {if NOT $is_single_entry}<div class="small">{$entry.timestamp|formatTime:DATE_FORMAT_ENTRY}</div>{/if}
 
             {if NOT empty($entry.categories)}
             <span class="categoryIcon">
