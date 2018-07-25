@@ -1019,6 +1019,8 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
         $uriArguments = $serendipity['uriArguments'];
         $uriArguments[] = 'P'. ($serendipity['GET']['page'] - 1);
         $serendipity['smarty']->assign('footer_prev_page', serendipity_rewriteURL(str_replace('//', '/', implode('/', $uriArguments)) . $suffix));
+    } else {
+        $serendipity['smarty']->assign('footer_prev_page', null);
     }
 
     $uriArguments = $serendipity['uriArguments'];
@@ -1043,6 +1045,8 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
         $temp = $serendipity['smarty']->getTemplateVars('footer_prev_page');
         $serendipity['smarty']->assign('footer_prev_page', $serendipity['smarty']->getTemplateVars('footer_next_page'));
         $serendipity['smarty']->assign('footer_next_page', $temp);
+    } else {
+        $serendipity['smarty']->assign('footer_next_page', null);
     }
 }
 
