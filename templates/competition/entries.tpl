@@ -182,6 +182,7 @@
     {/foreach}
 {/if}
 
+{if NOT $is_single_entry AND NOT $is_preview}
     <div class="serendipity_entryFooter" style="text-align: center">
     {if $footer_prev_page}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
@@ -201,4 +202,5 @@
     {$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a>
     </p>
     </div>
+{/if}
 <!-- ENTRIES END -->

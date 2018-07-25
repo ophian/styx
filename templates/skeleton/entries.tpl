@@ -113,7 +113,7 @@
     {/if}
 {/foreach}
 {/if}
-{if NOT $is_preview}
+{if NOT $is_single_entry AND NOT $is_preview}
     {if empty($staticpage_pagetitle)}
     <nav class="pager u-cf" role="navigation">
     {if NOT empty($footer_info)}

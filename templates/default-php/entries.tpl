@@ -186,6 +186,7 @@
     </div>
     <?php endif; ?>
 
+<?php if (!$GLOBALS['tpl']['$is_single_entry'] && !$GLOBALS['tpl']['is_preview']): ?>
     <div class="serendipity_entryFooter">
     <?php if ($GLOBALS['tpl']['footer_prev_page']): ?>
         <a href="<?= $GLOBALS['tpl']['footer_prev_page'] ?>">&laquo; <?= PREVIOUS_PAGE; ?></a>&#160;&#160;
@@ -202,4 +203,5 @@
     <?php $template = str_replace('\\', '/', dirname(__FILE__).'/entries.tpl'); ?>
     <?php serendipity_plugin_api::hook_event('entries_footer', $template); ?>
     </div>
+<?php endif; ?>
 <!-- ENTRIES END -->

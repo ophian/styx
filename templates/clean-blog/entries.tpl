@@ -153,6 +153,7 @@
     {/if}
 {/foreach}
 {/if}
+{if NOT $is_single_entry AND NOT $is_preview}
 {if NOT empty($footer_info) OR $footer_prev_page OR $footer_next_page}
 {if NOT empty($footer_info)}
     <p class="summary serendipity_center">{$footer_info}</p>
@@ -165,3 +166,4 @@
     </nav>
 {/if}
     {serendipity_hookPlugin hook="entries_footer"}
+{/if}
