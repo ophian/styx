@@ -18,7 +18,7 @@
         <div class="staticpage_navigation_breadcrumb">
             <a href="{$serendipityBaseURL}">{$CONST.HOMEPAGE}</a>{if NOT empty($staticpage_navigation.crumbs)} &#187; {/if}
         {foreach $staticpage_navigation.crumbs AS $crumb}
-            {if !$crumb@first}&#187; {/if}{if $crumb.id != $staticpage_pid}<a href="{$crumb.link}">{$crumb.name|escape}</a>{else}{$crumb.name|escape}{/if}
+            {if NOT $crumb@first}&#187; {/if}{if $crumb.id != $staticpage_pid}<a href="{$crumb.link}">{$crumb.name|escape}</a>{else}{$crumb.name|escape}{/if}
         {/foreach}
         </div>
     {/if}
