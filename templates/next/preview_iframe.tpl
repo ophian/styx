@@ -70,7 +70,7 @@
                 {$preview}
         {elseif $mode == 'save'}
                 <div class="{$mode}_preview_sizing"></div>
-                {if !empty($updertHooks)}<div class="{$mode}_updertH">{$updertHooks}</div>{/if}
+                {if NOT empty($updertHooks)}<div class="{$mode}_updertH">{$updertHooks}</div>{/if}
             {if $res}
                 <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
             {else}
