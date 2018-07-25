@@ -377,8 +377,8 @@
 {/foreach}
 {/if}
 
-{if NOT $is_single_entry AND NOT $is_preview}
 <div class="serendipity_pageFooter" style="text-align: center">
+{if NOT $is_single_entry AND NOT $is_preview}
     {if $footer_prev_page}
         {if $template_option.prev_next_style == 'texticon'}
             {if $template_option.colorset == 'blank'}
@@ -455,8 +455,8 @@
             {/if}
         </div>
     {/if}
+{/if}
 
     {serendipity_hookPlugin hook="entries_footer"}
 </div>
-{/if}
 <!-- ENTRIES END -->

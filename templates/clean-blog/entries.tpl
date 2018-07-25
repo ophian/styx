@@ -165,5 +165,5 @@
         </ul>
     </nav>
 {/if}
-    {serendipity_hookPlugin hook="entries_footer"}
 {/if}
+    {serendipity_hookPlugin hook="entries_footer"}

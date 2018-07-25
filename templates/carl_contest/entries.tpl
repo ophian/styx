@@ -184,8 +184,8 @@
     {/foreach}
 {/if}
 
-{if NOT $is_single_entry AND NOT $is_preview}
   <div class="serendipity_pageFooter" style="text-align: center">
+{if NOT $is_single_entry AND NOT $is_preview}
     {if NOT empty($footer_info)}
         {if $footer_prev_page}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
@@ -207,9 +207,9 @@
         {/if}
     {else}
     {/if}
+{/if}
 
     <br />{if empty($startpage)}<a href="{$serendipityBaseURL}">{$CONST.ADMIN_FRONTPAGE}</a>{/if}{if empty($footer_info)} - <a href="#topofpage">{$CONST.TOP_LEVEL}</a>{/if}
     {serendipity_hookPlugin hook="entries_footer"}
     </div>
-{/if}
 <!-- ENTRIES END -->

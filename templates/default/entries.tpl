@@ -184,8 +184,8 @@
     {/foreach}
 {/if}
 
-{if NOT $is_single_entry AND NOT $is_preview}
     <div class="serendipity_entryFooter">
+{if NOT $is_single_entry AND NOT $is_preview}
     {if $footer_prev_page}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
     {/if}
@@ -197,8 +197,8 @@
     {if $footer_next_page}
         <a href="{$footer_next_page}">&raquo; {$CONST.NEXT_PAGE}</a>
     {/if}
+{/if}
 
     {serendipity_hookPlugin hook="entries_footer"}
     </div>
-{/if}
 <!-- ENTRIES END -->
