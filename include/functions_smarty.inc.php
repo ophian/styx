@@ -499,7 +499,7 @@ function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $t
 }
 
 /**
- * Smarty Function: Be able to include the output of a sidebar plugin within a smarty template
+ * Smarty Function: Be able to include the output of a sidebar plugin within a Smarty template
  *
  * @access public
  * @param   array       Smarty parameter input array:
@@ -513,9 +513,13 @@ function serendipity_smarty_showCommentForm($params, Smarty_Internal_Template $t
 function serendipity_smarty_showPlugin($params, $template) {
     global $serendipity;
 
-    if (empty($params['class']) && empty($params['id'])) {
-        trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'class' or 'id' parameter", E_USER_WARNING);
+    if (empty($params['class'])) {
+        trigger_error('Smarty Error: ' . __FUNCTION__ .": missing 'class' parameter", E_USER_WARNING);
         return;
+    }
+
+    if (empty($params['id'])) {
+        $params['id'] = null;
     }
 
     if (empty($params['side'])) {
