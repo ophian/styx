@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Fix empty id parameter in serendipity_smarty_showPlugin to not break
+
   * Add new spamblock config option to only allow entry comments within a
     global timeframe, hiding the commentform globally after X days.
 
