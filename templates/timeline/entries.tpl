@@ -278,8 +278,7 @@
     </ul>
 {/if}
 
-
-{if NOT empty($footer_info) OR $footer_prev_page OR $footer_next_page}
+{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
     <div class="serendipity_pageSummary">
         {if NOT empty($footer_info)}
             <p class="summary serendipity_center">{$footer_info}</p>

@@ -119,7 +119,7 @@
     {/if}
 {/foreach}
 {/if}
-{if NOT $is_single_entry AND NOT $is_preview}
+{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
     <nav class="pagination clearfix">
         {if NOT empty($footer_info)}<h3>{$footer_info}</h3>{/if}
     {if $footer_prev_page OR $footer_next_page}

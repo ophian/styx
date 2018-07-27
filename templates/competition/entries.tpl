@@ -183,7 +183,7 @@
 {/if}
 
     <div class="serendipity_entryFooter" style="text-align: center">
-{if NOT $is_single_entry AND NOT $is_preview}
+{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
     {if $footer_prev_page}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
     {/if}

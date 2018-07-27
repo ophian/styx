@@ -153,8 +153,7 @@
     {/if}
 {/foreach}
 {/if}
-{if NOT $is_single_entry AND NOT $is_preview}
-{if NOT empty($footer_info) OR $footer_prev_page OR $footer_next_page}
+{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
 {if NOT empty($footer_info)}
     <p class="summary serendipity_center">{$footer_info}</p>
 {/if}
@@ -164,6 +163,5 @@
             {if $footer_next_page}<li class="next"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE} <i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>{/if}
         </ul>
     </nav>
-{/if}
 {/if}
     {serendipity_hookPlugin hook="entries_footer"}

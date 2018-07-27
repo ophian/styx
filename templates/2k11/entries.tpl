@@ -141,7 +141,7 @@
     {/if}
 {/foreach}
 {/if}
-{if (NOT empty($footer_info) OR $footer_prev_page OR $footer_next_page) AND NOT $is_single_entry AND NOT $is_preview}
+{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
     <nav class="serendipity_pagination block_level">
         <h2 class="visuallyhidden">{$CONST.TWOK11_PAG_TITLE}</h2>
 
