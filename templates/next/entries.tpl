@@ -120,7 +120,6 @@
 {/foreach}
 {/if}
 {if NOT $is_single_entry AND NOT $is_preview}
-    {if empty($staticpage_pagetitle)}
     <nav class="pagination clearfix">
         {if NOT empty($footer_info)}<h3>{$footer_info}</h3>{/if}
     {if $footer_prev_page OR $footer_next_page}
@@ -130,6 +129,5 @@
         </ul>
     {/if}
     </nav>
-    {/if}
 {/if}
 {serendipity_hookPlugin hook="entries_footer"}

@@ -112,7 +112,6 @@
 {/foreach}
 {/if}
 {if NOT $is_single_entry AND NOT $is_preview}
-    {if empty($staticpage_pagetitle)}
     <nav aria-label="{$footer_info|default:''}" title="{$footer_info|default:''}">
         <ul class="pagination justify-content-between">
             <li class="page-item{if empty($footer_prev_page)} disabled{/if}">
@@ -133,6 +132,5 @@
             </li>
         </ul>
     </nav>
-    {/if}
 {/if}
 {serendipity_hookPlugin hook="entries_footer"}

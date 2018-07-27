@@ -142,7 +142,6 @@
 {/foreach}
 {/if}
 {if (NOT empty($footer_info) OR $footer_prev_page OR $footer_next_page) AND NOT $is_single_entry AND NOT $is_preview}
-    {if empty($staticpage_pagetitle)}
     <nav class="serendipity_pagination block_level">
         <h2 class="visuallyhidden">{$CONST.TWOK11_PAG_TITLE}</h2>
 
@@ -154,6 +153,5 @@
             <li class="next">{if $footer_next_page}<a href="{$footer_next_page}">{/if}{if $footer_next_page}{$CONST.NEXT_PAGE} &rarr;{else}&nbsp;{/if}{if $footer_next_page}</a>{/if}</li>
         </ul>
     </nav>
-    {/if}
 {/if}
     {serendipity_hookPlugin hook="entries_footer"}
