@@ -64,6 +64,7 @@ switch (@$serendipity['GET']['action']) {
     case 'search':
         $r = serendipity_searchEntries($serendipity['GET']['searchTerm']);
         if (strlen($serendipity['GET']['searchTerm']) <= 3) {
+            $is_search_empty = true;
             $serendipity['smarty']->assign(
                 array(
                     'content_message'       => SEARCH_TOO_SHORT,
