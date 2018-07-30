@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.73');
+        $propbag->add('version',       '2.74');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -110,46 +110,25 @@ class serendipity_event_spartacus extends serendipity_event
     {
         static $mirror = array(
             'xml' => array(
-                'github.com',
-//                'Netmirror.org',
-                's9y.org'
-//                'openmirror.org'
+                'github.com'
             ),
 
             'files' => array(
-                'github.com',
-//                'Netmirror.org',
-                'SourceForge.net',
-                's9y.org'
-//                'BerliOS.de (inactive)',
-//                'openmirror.org'
+                'github.com'
             )
         );
 
         static $http = array(
             'xml' => array(
-                'https://raw.github.com/s9y/additional_plugins/master/',
-//                'http://netmirror.org/mirror/serendipity/',
-                'http://s9y.org/mirror/'
-//                'http://openmirror.org/pub/s9y/',
+                'https://raw.githubusercontent.com/ophian/additional_plugins/master/'
             ),
 
             'files' => array(
-                'https://raw.github.com/s9y/',
-//                'http://netmirror.org/mirror/serendipity/',
-                'http://php-blog.cvs.sourceforge.net/viewvc/php-blog/',
-                'http://s9y.org/mirror/'
-//                'http://svn.berlios.de/viewcvs/serendipity/',
-//                'http://openmirror.org/pub/s9y/',
+                'https://raw.githubusercontent.com/ophian/additional_plugins/master/'
             ),
 
             'files_health' => array(
-                'https://raw.github.com/'               => 'https://raw.github.com/',
-//                'http://netmirror.org/'                 => 'http://netmirror.org/mirror/serendipity/last.txt',
-                'http://php-blog.cvs.sourceforge.net/'  => 'http://php-blog.cvs.sourceforge.net/viewvc/php-blog/serendipity/docs/LICENSE',
-                'http://s9y.org/'                       => 'http://s9y.org/'
-//                'http://svn.berlios.de/'                => 'http://svn.berlios.de/viewcvs/serendipity/',
-//                'http://openmirror.org/'                => 'http://openmirror.org/pub/s9y/last.txt',
+                'https://raw.githubusercontent.com/'               => 'https://raw.github.com/'
             )
         );
 
@@ -231,7 +210,7 @@ class serendipity_event_spartacus extends serendipity_event
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR);
                 $propbag->add('description', PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC . ' --------------------------------------------------------------------- ' . PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD);
-                $propbag->add('default',     'https://raw.githubusercontent.com/ophian/additional_plugins/master/');
+                $propbag->add('default',     '');
                 break;
 
             case 'mirror_xml':
@@ -360,7 +339,6 @@ class serendipity_event_spartacus extends serendipity_event
         $stack  = '';
         foreach($paths AS $pathid => $path) {
             $stack .= $path . '/';
-
             if ((empty($path) || empty($spaths[$pathid])) && @$spaths[$pathid] == $path) {
                 continue;
             }
@@ -433,7 +411,7 @@ class serendipity_event_spartacus extends serendipity_event
 
         $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
         if ($debug) {
-            $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START spartacus::fetchfile SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
+            $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START Spartacus::fetchfile SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
         }
 
         // Fix double URL strings. (Keeps protocol secured)
@@ -660,10 +638,14 @@ class serendipity_event_spartacus extends serendipity_event
             }
 
         } else {
-            $mirror = $mirrors[$this->get_config('mirror_xml', 0)];
-            if ($mirror == null) {
-                $mirror = $mirrors[0];
+            if ($type == 'template') {
+                $mirror = 'https://raw.githubusercontent.com/s9y/additional_plugins/master'; // stick to S9y Origin since this spares me ~50MB + .git repository
+            } else {
+                $mirror = $mirrors[$this->get_config('mirror_xml', 0)];
             }
+            #if ($mirror == null) {
+            #    $mirror = $mirrors[0];
+            #}
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
             $url    = $mirror . '/package_' . $url_type .  $lang . '.xml';
             $target = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_' . $url_type . $lang . '.xml';
@@ -905,19 +887,19 @@ class serendipity_event_spartacus extends serendipity_event
         $i = 0;
         $gitloc = '';
 
-        $mirrors = $this->getMirrors('files', true);
-        $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
-        if ($mirror == null) {
-            $mirror = $mirrors[0];
-        }
+        $mirror = 'https://raw.github.com/s9y/'; // stick to S9y Origin since this spares me ~50MB + .git repository
+        #$mirrors = $this->getMirrors('files', true);
+        #$mirror  = $mirrors[$this->get_config('mirror_files', 0)];
+        #if ($mirror == null) {
+        #    $mirror = $mirrors[0];
+        #}
 
-        // currently disabled, since Styx GitHub repo does not host additional_themes
-        /*
         $custom  = $this->get_config('custommirror');
+        $custom  = $custom != 'none' ? $custom : '';
         if (strlen($custom) > 2) {
             $servers = explode('|', $custom);
             $mirror = $servers[0];
-        }*/
+        }
 
         if (stristr($mirror, 'github.com')) {
             $gitloc = 'master/';
@@ -938,22 +920,6 @@ class serendipity_event_spartacus extends serendipity_event
                 foreach($subtree['children'] AS $child => $childtree) {
                     if (is_array($childtree) && isset($childtree['tag'])) {
                         switch($childtree['tag']) {
-/*                            case 'name':
-                                $pluginstack[$i]['name']         = $childtree['value'];
-                                break;
-
-                            case 'summary':
-                                $pluginstack[$i]['summary']      = $childtree['value'];
-                                break;
-
-                            case 'template':
-                                $pluginstack[$i]['template']     = $childtree['value'];
-                                break;
-
-                            case 'description':
-                                $pluginstack[$i]['description']  = $childtree['value'];
-                                break;
-*/
                             case 'release':
                                 $pluginstack[$i]['version']      = $childtree['children'][0]['value'];
 
@@ -1093,15 +1059,18 @@ class serendipity_event_spartacus extends serendipity_event
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
         }
 
-        $mirrors = $this->getMirrors('files', true);
-        $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
-        if ($mirror == null) {
-            $mirror = $mirrors[0];
+        if ($sub == 'templates') {
+            $mirror = 'https://raw.github.com/s9y/'; // stick to S9y Origin since this spares me ~50MB + .git repository
+        } else {
+            $mirrors = $this->getMirrors('files', true);
+            $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
+            if ($mirror == null) {
+                $mirror = $mirrors[0];
+            }
         }
 
         $custom  = $this->get_config('custommirror');
-        // currently allowed for non-templates only
-        if (strlen($custom) > 2 && $sub != 'templates') {
+        if (strlen($custom) > 2 && $custom != 'none') {
             $servers = explode('|', $custom);
             $mirror = $servers[0];
         }
