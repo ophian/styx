@@ -1,6 +1,9 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Moved from custom to Styx gitHub repository in Spartacus configuration.
+    Themes are still fetched by the s9y origin repository.
+
   * Fix empty id parameter in serendipity_smarty_showPlugin to not break
 
   * Add new spamblock config option to only allow entry comments within a
