@@ -6,7 +6,7 @@
     {/foreach}
 {/foreach}
 <article class="archive-summary">
-    <h3>{if $category}{$category_info.category_name} - {/if}{$entry_count} {$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B, %Y"}</h3>
+    <h3>{if $category}{$category_info.category_name} - {/if}{$entry_count|default:''} {$CONST.TOPICS_OF} {$dateRange.0|formatTime:"%B, %Y"}</h3>
     <div class="archives_summary">
     {foreach $entries AS $sentries}
         {foreach $sentries.entries AS $entry}
