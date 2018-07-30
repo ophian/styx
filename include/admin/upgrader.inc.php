@@ -435,6 +435,12 @@ $tasks = array(
                     'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
                     'desc'      => 'ZARATHUSTRA - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
 
+            array(  'version'   => '2.6-beta1',
+                    'function'  => 'serendipity_fixPlugins',
+                    'arguments' => array('spartacus_custom_reset'),
+                    'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
+                    'desc'      => 'The custom Styx mirror location was removed in favor of the the official gitHub repository location. Themes are still installed by the s9y origin gutHub repository location. The custom mirror is now either empty or set to "none" or points to your custom repository location for themes and plugins.'),
+
 );
 
 /* Fetch SQL files which needs to be run */

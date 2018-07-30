@@ -492,6 +492,13 @@ function serendipity_fixPlugins($case) {
             return true;
             break;
 
+        case: 'spartacus_custom_reset':
+           serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config
+                                    SET value = ''
+                                  WHERE name LIKE '%custommirror'
+                                    AND value = 'https://raw.githubusercontent.com/ophian/additional_plugins/master/'";
+            return true;
+            break;
 
         // Styx 2.4 moved some core plugins to the additional_plugins Spartacus repository. This checks for a proper upgrade version. It will also fix some older issues with moved plugins.
         // To catch em all, a plugin list sync should already have run before !!
