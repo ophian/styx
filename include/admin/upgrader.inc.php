@@ -441,6 +441,12 @@ $tasks = array(
                     'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
                     'desc'      => 'The custom Styx mirror location was removed in favor of the the official gitHub repository location. Themes are still installed by the s9y origin gutHub repository location. The custom mirror is now either empty or set to "none" or points to your custom repository location for themes and plugins.'),
 
+            array(  'version'   => '2.6-beta1',
+                    'function'  => 'TEMPLATE_NOTICE',
+                    'function'  => '',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
+                    'desc'      => 'for logic, initialization checks, etc. Please adapt these changes to your template copies. Read the ChangeLog for more. Styx recommends to start you copy theme from scratch, since not all of them were explicitly mentioned!'),
+
 );
 
 /* Fetch SQL files which needs to be run */
