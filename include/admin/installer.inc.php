@@ -104,6 +104,8 @@ $install_token_file = realpath(dirname(__FILE__) . '/../../') . '/install_token.
 if (file_exists($install_token_file) && is_readable($install_token_file) && filesize($install_token_file) > 0) {
     if (preg_match('@install_token\s*=\s*[\'"]([a-z\.0-9]+)[\'"];@imsU', file_get_contents($install_token_file), $tokenmatch)) {
         $install_token = $tokenmatch[1];
+    } else {
+        $data['install_blank'] = true;
     }
 } else {
     // does not exist yet
