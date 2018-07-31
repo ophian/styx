@@ -409,7 +409,7 @@ class serendipity_event_spartacus extends serendipity_event
         static $error = false;
         static $debug = false; // ad hoc, case-by-case debugging
 
-        $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+        $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
         if ($debug) {
             $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START Spartacus::fetchfile SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
         }

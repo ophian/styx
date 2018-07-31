@@ -648,7 +648,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
     if ($size === false) {
         $size = $serendipity['thumbSize'];
@@ -774,7 +774,7 @@ function serendipity_scaleImg($id, $width, $height) {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
     $file = serendipity_fetchImageFromDatabase($id);
     if (!is_array($file)) {
@@ -822,7 +822,7 @@ function serendipity_rotateImg($id, $degrees) {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
     $file = serendipity_fetchImageFromDatabase($id);
     if (!is_array($file)) {
@@ -1186,7 +1186,7 @@ function serendipity_convertThumbs() {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
     if ($debug) {
         $logtag = 'MAINTENANCE IMAGE-SYNC Opt4:';
@@ -1691,7 +1691,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
     if ($debug) {
         $logtag = 'ML-LIST:';
@@ -1786,7 +1786,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
         if ($debug) { $serendipity['logger']->debug("$logtag Image Sync Right: " . serendipity_checkPermission('adminImagesSync') . " Onthefly Sync: {$serendipity['onTheFlySynch']} Hash: {$serendipity['current_image_hash']}!={$serendipity['last_image_hash']}"); }
 
-        if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync') && ($debug || ($serendipity['current_image_hash'] != $serendipity['last_image_hash']))) {
+        if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync') && ($debug || (isset($serendipity['last_image_hash']) && $serendipity['current_image_hash'] != $serendipity['last_image_hash']))) {
             $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
                                                   FROM {$serendipity['dbPrefix']}images", false, 'assoc');
 
@@ -2456,7 +2456,7 @@ function serendipity_directoryACL(&$paths, $type = 'read') {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
     if ($debug) {
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START serendipity_directoryACL SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
         $serendipity['logger']->debug("Applying ACL for mode '$type'.");
@@ -4280,7 +4280,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     static $debug = false; // ad hoc, case-by-case debugging
 
     // Since being a wrapper function, this enables logging of all sub functions
-    $debug = is_object($serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
     // paranoid case for updating an old image id entry - else we have a new entry incrementary
     if (is_null($item_id) && isset($file['id']) && $file['id'] > 0) $item_id = $file['id'];

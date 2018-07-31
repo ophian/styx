@@ -515,11 +515,11 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
                 $cipher = @mcrypt_encrypt(MCRYPT_BLOWFISH, $key, $data, MCRYPT_MODE_CBC, $iv);
                 serendipity_setCookie('author_information_iv', $key);
                 if (false === $cipher) {
-                    if (is_object($serendipity['logger'])) {
+                    if (is_object(@$serendipity['logger'])) {
                         $serendipity['logger']->critical('ENCRYPT: mcrypt_encrypt package returned false');
                     }
                 } else {
-                    /*if (is_object($serendipity['logger'])) {
+                    /*if (is_object(@$serendipity['logger'])) {
                         $serendipity['logger']->warning('ENCRYPT: mcrypt_encrypt: $cipher: '.print_r($cipher, true).' key = ' . $key . ' and iv = '. $iv);
                     }*/
                     $cipher = base64_encode($cipher);
@@ -615,12 +615,12 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
                 }
 
                 if (false === $cipher) {
-                    if (is_object($serendipity['logger'])) {
+                    if (is_object(@$serendipity['logger'])) {
                         $serendipity['logger']->critical('ENCRYPT: openssl_encrypt package returned false and '.sprintf("OpenSSL error: %s", openssl_error_string()));
                     }
                 } else {
                     serendipity_setCookie('author_information_iv', $ckey); // store the key
-                    /*if (is_object($serendipity['logger'])) {
+                    /*if (is_object(@$serendipity['logger'])) {
                         $serendipity['logger']->warning('ENCRYPT: $cipher: '.print_r($cipher, true).' key = ' . $key . ' and iv = '. $iv .' and ivlen='.openssl_cipher_iv_length($algo).' and keyBinLen='.strlen($key).' and keyHexLen='.strlen($ckey));
                     }*/
                     if (PHP_VERSION_ID < 70103) {
