@@ -458,7 +458,7 @@ $data['msgtype']       = $msgtype;
 
 $data['urltoken']      = serendipity_setFormToken('url');
 $data['formtoken']     = serendipity_setFormToken();
-$data['get']['filter'] = $serendipity['GET']['filter']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipty['GET'] by runtime
+$data['get']['filter'] = $serendipity['GET']['filter']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipity['GET'] by runtime
 
 if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();

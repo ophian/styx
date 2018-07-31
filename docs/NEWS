@@ -1476,7 +1476,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
     This adds a native javascript delayed (lazy) load execution versus
     the previous used $(document.ready) and/or missing jquery loading.
     Now the iframe_preview tpl file really updates the entryform hidden
-    serendipty[id] value for direct further-on-submits to that entry!
+    serendipity[id] value for direct further-on-submits to that entry!
 
   * Partial fix a possible charset/symbol/database issue, that text
     after UTF8 'private use area' symbols was cut OFF on saving (#394).
