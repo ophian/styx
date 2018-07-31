@@ -146,6 +146,7 @@
                         {/if}
                     </div>
 
+            {if NOT empty($entry_vars.category_options)}
                 {foreach $entry_vars.category_options AS $entry_cat}
                     <div class="form_check{if isset($entry_vars.category_compact) AND $entry_vars.category_compact} compact{/if}">
                         <input type="hidden" name="serendipity[had_categories]" value="1">
@@ -155,6 +156,7 @@
                         <label for="serendipity_category_{$entry_cat.categoryid}">{$entry_cat.category_name|escape}</label>
                     </div>
                 {/foreach}
+            {/if}
 
                 </fieldset>
             </div>

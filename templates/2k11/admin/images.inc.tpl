@@ -170,7 +170,7 @@
     <ul id="serendipity_image_folders" class="option_list">
     {foreach $folders AS $folder}
         {if ! $folder@first}
-            {if ($folder.depth > $priorDepth)}
+            {if $folder.depth > $priorDepth}
 
             <ul>
             {/if}
@@ -186,7 +186,7 @@
             {/for}
             {/if}
 
-            {if ($folder.depth == $priorDepth)}
+            {if $folder.depth == $priorDepth}
 
         </li>
             {/if}
@@ -206,9 +206,11 @@
             </div>
     {/foreach}
 
+{if isset($priorDepth)}
     {if $priorDepth > 1}
             </li><!-- Depth:{$priorDepth} -->
     {/if}
+    {if $priorDepth > 0}
     {for $i=1 to $priorDepth}
         {if $i != $priorDepth}
 
@@ -216,6 +218,8 @@
         </li>
         {/if}
     {/for}
+    {/if}
+{/if}
 
     </ul>
 
