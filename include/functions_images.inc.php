@@ -398,8 +398,8 @@ function serendipity_fetchImages($reverse = false, $images = '', $odir = '') {
     $images = array();
 
     if (empty($serendipity['uniqueThumbSuffixes'])) {
-        $usedSuffixes = serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
-        $thumbSuffixes = call_user_func_array('array_merge', (array) $usedSuffixes);
+        $usedSuffixes    = serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
+        $thumbSuffixes   = is_array($usedSuffixes) ? call_user_func_array('array_merge', $usedSuffixes) : array();
         $thumbSuffixes[] = $serendipity['thumbSuffix']; // might be set to 'styxThumb' for new version
         $thumbSuffixes[] = 'serendipityThumb'; // might be the old suffix name - which should usually be inside usedSuffixes, but if not, hardcode it here to make sure!
         $thumbSuffixes[] = '.quickblog'; // an out-of-range imageselectorplus created thumb
