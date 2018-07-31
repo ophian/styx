@@ -1,6 +1,9 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Changed all themes entries.tpl file $entries array foreach logic check
+    to be valid for muteExpectedErrors. Adapt this to your copy themes.
+
   * Moved from custom to Styx gitHub repository in Spartacus configuration.
     Themes are still fetched by the s9y origin repository.
 
