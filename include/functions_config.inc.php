@@ -1514,7 +1514,7 @@ function serendipity_checkPermission($permName, $authorid = null, $returnMyGroup
         }
     }
 
-    if (!empty($authorid) && $authorid == $serendipity['authorid'] && $serendipity['no_create']) {
+    if (!empty($authorid) && !empty($serendipity['authorid']) && $authorid == $serendipity['authorid'] && $serendipity['no_create']) {
         // This no_create user privilege overrides other permissions.
         return false;
     }
