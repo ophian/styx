@@ -50,7 +50,7 @@ function serendipity_ini_bytesize($val) {
  * @param   string  Database prefix
  * @param   string  Database host
  * @param   string  Database user
- * @param   string  Datapase Passwort
+ * @param   string  Database Password
  * @param   string  Database type
  * @param   string  Use persistent connections?
  * @param   array   An array of additional variables to be put into the config file
@@ -137,7 +137,7 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
  * Creates the needed tables - beware, they will be empty and need to be stuffed with
  * default templates and such...
  *
- * @param  dbtype POST install data
+ * @param  dbType POST install data
  * @access public
  * @return null
  */
@@ -715,7 +715,7 @@ function serendipity_installFiles($serendipity_core = '') {
         @unlink($serendipity_core . '.htaccess');
     }
 
-    /* Detect comptability with php_value directives */
+    /* Detect compatibility with php_value directives */
     if ($htaccess_cgi == '') {
         $response = '';
         $serendipity_root = dirname($_SERVER['PHP_SELF']) . '/';

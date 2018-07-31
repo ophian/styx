@@ -33,7 +33,7 @@ if (defined('S9Y_DATA_PATH')) {
 $data['basedir'] = $basedir;
 $data['phpversion'] = PHP_VERSION;
 $data['versionInstalled'] = $serendipity['versionInstalled'];
-$data['templatePath']  = $serendipity['templatePath'];
+$data['templatePath'] = $serendipity['templatePath'];
 $data['installerHTTPPath'] = str_replace('//', '/', dirname($_SERVER['PHP_SELF']) . '/'); // since different OS handlers for enddir
 
 /**
