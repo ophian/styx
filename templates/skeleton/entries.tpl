@@ -107,12 +107,13 @@
     {$entry.backend_preview}
     </article>
     {/foreach}
-{foreachelse}
+{/foreach}
+{else}
     {if NOT $plugin_clean_page AND $view != '404'}
     <p class="serendipity_msg_notice">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
-{/foreach}
 {/if}
+
 {if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
     <nav class="pager u-cf" role="navigation">
     {if NOT empty($footer_info)}

@@ -175,11 +175,11 @@
         {$entry.backend_preview}
         {/foreach}
     </div>
-    {foreachelse}
+    {/foreach}
+{else}
     {if NOT $plugin_clean_page AND $view != '404'}
         {$CONST.NO_ENTRIES_TO_PRINT}
     {/if}
-    {/foreach}
 {/if}
 
     <div class="serendipity_entryFooter" style="text-align: center">

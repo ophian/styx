@@ -105,12 +105,13 @@
     {$entry.backend_preview}
     </article>
     {/foreach}
-{foreachelse}
+{/foreach}
+{else}
     {if NOT $plugin_clean_page AND $view != '404'}
     <p class="alert alert-info" role="alert">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
-{/foreach}
 {/if}
+
 {if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
     <nav aria-label="{$footer_info|default:''}" title="{$footer_info|default:''}">
         <ul class="pagination justify-content-between">

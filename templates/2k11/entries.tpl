@@ -135,11 +135,11 @@
     {$entry.backend_preview}
     </article>
     {/foreach}
-{foreachelse}
+{/foreach}
+{else}
     {if NOT $plugin_clean_page AND $view != '404'}
     <p class="nocontent">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
-{/foreach}
 {/if}
 {if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
     <nav class="serendipity_pagination block_level">

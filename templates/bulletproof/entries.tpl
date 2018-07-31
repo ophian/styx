@@ -368,13 +368,13 @@
     {/foreach}
 </div>
 
-{foreachelse}
+{/foreach}
+{else}
     {if NOT $plugin_clean_page AND $view != '404'}
         <div class="serendipity_overview_noentries">
             {$CONST.NO_ENTRIES_TO_PRINT}
         </div>
     {/if}
-{/foreach}
 {/if}
 
 <div class="serendipity_pageFooter" style="text-align: center">

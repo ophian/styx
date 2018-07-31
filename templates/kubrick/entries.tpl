@@ -178,11 +178,11 @@
 
         {$entry.backend_preview}
         {/foreach}
-    {foreachelse}
+    {/foreach}
+{else}
     {if NOT $plugin_clean_page AND $view != '404'}
         {$CONST.NO_ENTRIES_TO_PRINT}
     {/if}
-    {/foreach}
 {/if}
 
     <div class="navigation" style="text-align: center">

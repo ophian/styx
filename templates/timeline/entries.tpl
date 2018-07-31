@@ -262,7 +262,8 @@
     {$entry.backend_preview}
     {/foreach}
 
-{foreachelse}
+{/foreach}
+{else}
     {if NOT $plugin_clean_page AND $view != '404'}
         <div id="search-block" class="row">
             <div class="col-md-10 col-md-offset-1">
@@ -270,9 +271,8 @@
             </div>
         </div>
     {/if}
-
-{/foreach}
 {/if}
+
 {if $template_option.display_as_timeline AND NOT empty($entries) AND NOT $is_single_entry AND NOT isset($entry.is_extended) AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
         <li class="clearfix" style="float: none;"></li>
     </ul>
