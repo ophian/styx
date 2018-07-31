@@ -1235,7 +1235,7 @@ $(function() {
     }
 
     // Show category selector
-    {if $use_backendpopups OR $force_backendpopups.categories}
+    {if $use_backendpopups OR !empty($force_backendpopups.categories)}
         if ($('#serendipityEntry').length > 0) {
             $('#select_category').click(function(e) {
                 e.preventDefault();
@@ -1306,7 +1306,7 @@ $(function() {
     };
 
     // Show tag selector
-    {if $use_backendpopups OR $force_backendpopups.tags}
+    {if $use_backendpopups OR !empty($force_backendpopups.tags)}
         if ($('#serendipityEntry').length > 0) {
             $('#select_tags').click(function(e) {
                 e.preventDefault();
@@ -1528,7 +1528,7 @@ $(function() {
     });
 
     // Show further links
-    {if $use_backendpopups OR $force_backendpopups.links}
+    {if $use_backendpopups OR !empty($force_backendpopups.links)}
         if ($('#dashboard').length > 0) {
             $('.toggle_links').click(function(e) {
                 $('#s9y_links').toggleClass('mfp-hide');
