@@ -164,11 +164,10 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
     $cond['and']  = 'WHERE 1=1 ' . implode("\n", $cond['parts']);
     $cond['args'] = func_get_args();
     serendipity_plugin_api::hook_event('fetch_images_sql', $cond);
-    serendipity_ACL_SQL($cond, false, 'directory');
-
     if (!isset($cond['joins'])) {
         $cond['joins'] = '';
     }
+    serendipity_ACL_SQL($cond, false, 'directory');
 
     if (isset($cond['joinparts']['keywords']) && $cond['joinparts']['keywords']) {
         $cond['joins'] .= "\n LEFT OUTER JOIN {$serendipity['dbPrefix']}mediaproperties AS mk
