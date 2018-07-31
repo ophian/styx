@@ -1254,12 +1254,12 @@ function serendipity_getCurrentVersion() {
     // the user switches channels, it has its own timer.
     // Since Styx allows 'stable' over 'beta' preference, check a 'stable' overruling a set 'beta' first,
     // in the case last_update_version_'beta' and 'stable' were already set to config,
-    if ($serendipity['updateCheck'] == 'beta' && $serendipity['last_update_check_stable'] >= (time()-86400)) {
+    if ($serendipity['updateCheck'] == 'beta' && isset($serendipity['last_update_check_stable']) && $serendipity['last_update_check_stable'] >= (time()-86400)) {
         // Last update was performed less than a day ago. Return last result.
         return $serendipity['last_update_version_stable'];
     }
     // then run the normal check.
-    if ($serendipity['last_update_check_' . $serendipity['updateCheck']] >= (time()-86400)) {
+    if (isset($serendipity['last_update_check_' . $serendipity['updateCheck']]) && $serendipity['last_update_check_' . $serendipity['updateCheck']] >= (time()-86400)) {
         // Last update was performed less than a day ago. Return last result.
         return $serendipity['last_update_version_' . $serendipity['updateCheck']];
     }
