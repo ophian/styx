@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Fix regression in ade7515 which caused SQL install to fail
+
   * Changed all themes entries.tpl file $entries array foreach logic check
     to be valid for muteExpectedErrors. Adapt this to your copy themes.
 
