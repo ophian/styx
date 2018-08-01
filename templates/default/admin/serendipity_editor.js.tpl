@@ -1527,8 +1527,9 @@ $(function() {
         e.preventDefault();
     });
 
-    // Show further links
-    {if $use_backendpopups OR isset($force_backendpopups.links)}
+    // Show further  {* make sure this is not mpf layered per default (w/o preferences saved) *}
+    {if $use_backendpopups OR NOT isset($force_backendpopups.links)}
+
         if ($('#dashboard').length > 0) {
             $('.toggle_links').click(function(e) {
                 $('#s9y_links').toggleClass('mfp-hide');
@@ -1539,6 +1540,7 @@ $(function() {
             });
         }
     {else}
+
         if ($('#dashboard').length > 0) {
             $('.toggle_links').magnificPopup({ type: "inline" });
         }
