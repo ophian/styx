@@ -1528,7 +1528,7 @@ $(function() {
     });
 
     // Show further links
-    <?php if ($GLOBALS['serendipity']['use_backendpopups'] || isset($GLOBALS['serendipity']['force_backendpopups']['links'])): ?>
+    <?php if ($GLOBALS['serendipity']['use_backendpopups'] || isset($GLOBALS['serendipity']['force_backendpopups']['links']) && $GLOBALS['serendipity']['force_backendpopups']['links']): ?>
         if ($('#dashboard').length > 0) {
             $('.toggle_links').click(function(e) {
                 $('#s9y_links').toggleClass('mfp-hide');
