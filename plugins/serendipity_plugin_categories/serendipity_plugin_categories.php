@@ -4,8 +4,6 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-@define('CATEGORY_PLUGIN_SHOWALL_DESC', 'In case of Smarty set true, you need to add and build your own link for the sidebar, eg "<div class="category_link_all"><a href="{$serendipityHTTPPath}{$serendipityIndexFile}?frontpage">" title="{$CONST.ALL_CATEGORIES}">{$CONST.ALL_CATEGORIES}</a></div>"');
-
 class serendipity_plugin_categories extends serendipity_plugin
 {
     var $title = CATEGORIES;
@@ -17,7 +15,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.08');
+        $propbag->add('version',       '2.09');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -138,7 +136,7 @@ class serendipity_plugin_categories extends serendipity_plugin
             case 'show_all':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        CATEGORY_PLUGIN_SHOWALL);
-                $propbag->add('description', CATEGORY_PLUGIN_SHOWALL_DESC);
+                $propbag->add('description', '');
                 $propbag->add('default',     'false');
                 break;
 
@@ -309,6 +307,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         } else {
             $plugin_categories_data = array(
                 'is_form'           => $is_form,
+                'show_all'          => serendipity_db_bool($this->get_config('show_all', 'false')),
                 'category_image'    => $image,
                 'form_url'          => $serendipity['baseURL'] . $serendipity['indexFile'] . '?frontpage',
                 'categories'        => is_array($categories) ? $categories : array()

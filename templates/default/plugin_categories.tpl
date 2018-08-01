@@ -23,7 +23,9 @@
     <div class="category_submit"><input type="submit" name="serendipity[isMultiCat]" value="{$CONST.GO}" /></div>
 {/if}
 
+{if $show_all}
     <div class="category_link_all"><a href="{$form_url}?frontpage" title="{$CONST.ALL_CATEGORIES}">{$CONST.ALL_CATEGORIES}</a></div>
+{/if}
 
 {if $is_form}
     </div>

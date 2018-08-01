@@ -25,7 +25,9 @@
     <div class="category_submit"><input type="submit" name="serendipity[isMultiCat]" value="<?= GO ?>"></div>
 <?php endif; ?>
 
+<?php if ($GLOBALS['tpl']['show_all']): ?>
     <div class="category_link_all"><a href="<?= $GLOBALS['tpl']['form_url'] ?>" title="<?= ALL_CATEGORIES ?>"><?= ALL_CATEGORIES ?></a></div>
+<?php endif; ?>
 
 <?php if ($GLOBALS['tpl']['is_form']): ?>
     </div>
