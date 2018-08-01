@@ -1,6 +1,8 @@
 Version 2.6-alpha ()
  ------------------------------------------------------------------------
 
+  * Add "show_all" option to Smarty templates for the categories plugin.
+
   * Fix regression in ade7515 which caused SQL install to fail
 
   * Changed all themes entries.tpl file $entries array foreach logic check
