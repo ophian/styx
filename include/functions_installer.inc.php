@@ -662,13 +662,12 @@ function serendipity_checkInstallation() {
     }
 
     $serendipity['dbType'] = preg_replace('@[^a-z0-9-]@imsU', '', $_POST['dbType']);
-    // Probe database
-    // (do it after the dir stuff, as we need to be able to create the sqlite database)
-    include_once(S9Y_INCLUDE_PATH . "include/db/{$serendipity['dbType']}.inc.php");
+    // Include the database for the first time
     // For shared installations, probe the file on include path
-    //include_once(S9Y_INCLUDE_PATH . 'include/db/db.inc.php');
+    include_once(S9Y_INCLUDE_PATH . 'include/db/db.inc.php');
 
-    if (@S9Y_DB_INCLUDED) {
+    // possible failure
+    if (defined('S9Y_DB_INCLUDED') && S9Y_DB_INCLUDED === true) {
         serendipity_db_probe($_POST, $errs);
     }
 

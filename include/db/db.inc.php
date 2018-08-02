@@ -7,13 +7,12 @@ if ($serendipity['dbType'] == 'mysql' && (version_compare(PHP_VERSION, '5.5.0') 
     $serendipity['dbType'] = 'mysqli';
 }
 
-
-if (@include(S9Y_INCLUDE_PATH . "include/db/{$serendipity['dbType']}.inc.php")) {
-    @define('S9Y_DB_INCLUDED', TRUE);
+if (!empty($serendipity['dbType']) && include(S9Y_INCLUDE_PATH . "include/db/{$serendipity['dbType']}.inc.php")) {
+    define('S9Y_DB_INCLUDED', true);
 }
 // DEV-NOTE: Has known issues in the generic wrapper file with some queries using attributes from serendipity_db_query(), eg fetching $template_option(s).
 #include_once(S9Y_INCLUDE_PATH . "include/db/generic.inc.php");
-#define('S9Y_DB_INCLUDED', TRUE);
+#define('S9Y_DB_INCLUDED', true);
 
 /**
  * Perform a query to update the data of a certain table row

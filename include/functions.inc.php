@@ -13,7 +13,9 @@ if (defined('S9Y_FRAMEWORK_FUNCTIONS')) {
 
 $serendipity['imageList'] = array();
 
-include_once(S9Y_INCLUDE_PATH . 'include/db/db.inc.php');
+if (IS_installed === true) {
+    include_once(S9Y_INCLUDE_PATH . 'include/db/db.inc.php');
+}
 include_once(S9Y_INCLUDE_PATH . 'include/compat.inc.php');
 include_once(S9Y_INCLUDE_PATH . 'include/functions_config.inc.php');
 include_once(S9Y_INCLUDE_PATH . 'include/plugin_api.inc.php');
