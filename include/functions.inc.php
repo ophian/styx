@@ -496,7 +496,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
             }
             $data['summary'] = $info['theme_info_summary'] ?: $data['summary'];
             $data['description'] = $info['theme_info_desc'] ?: $data['description'];
-            $data['backenddesc'] = $info['theme_info_backend'] ?: $data['backenddesc'];
+            $data['backenddesc'] = isset($info['theme_info_backend']) ? $info['theme_info_backend'] : $data['backenddesc'];
         }
     }
 
