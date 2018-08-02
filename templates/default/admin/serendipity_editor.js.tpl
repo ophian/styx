@@ -1527,7 +1527,7 @@ $(function() {
         e.preventDefault();
     });
 
-    // Show further  {* make sure this is not mpf layered per default (w/o preferences saved) *}
+    // Show further links {* make sure this is not mpf layered per default (w/o preferences saved) *}
     {if $use_backendpopups OR NOT isset($force_backendpopups.links)}
 
         if ($('#dashboard').length > 0) {
