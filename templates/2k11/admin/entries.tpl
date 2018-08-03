@@ -34,7 +34,7 @@
     {if NOT $entry_vars.wysiwyg}
         <div id="tools_entry" class="editor_toolbar">
         {if isset($iso2br) AND $iso2br}
-            <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity[body]">NoBR</button>
+            <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity[body]">noBR</button>
         {/if}
             <button class="hilite_i wrap_selection lang-html" type="button" name="insI" data-tag-open="em" data-tag-close="em" data-tarea="serendipity[body]">i</button>
             <button class="hilite_b wrap_selection lang-html" type="button" name="insB" data-tag-open="strong" data-tag-close="strong" data-tarea="serendipity[body]">b</button>
@@ -61,7 +61,7 @@
     {if NOT $entry_vars.wysiwyg}
         <div id="tools_extended" class="editor_toolbar">
         {if isset($iso2br) AND $iso2br}
-            <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity[extended]">NoBR</button>
+            <button class="wrap_selection lang-html" type="button" name="insX" data-tag-open="nl" data-tag-close="nl" data-tarea="serendipity[extended]">noBR</button>
         {/if}
             <button class="hilite_i wrap_selection lang-html" type="button" name="insI" data-tag-open="em" data-tag-close="em" data-tarea="serendipity[extended]">i</button>
             <button class="hilite_b wrap_selection lang-html" type="button" name="insB" data-tag-open="strong" data-tag-close="strong" data-tarea="serendipity[extended]">b</button>
