@@ -290,6 +290,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $pluggroups     = array();
     $pluggroups[''] = array();
     foreach($pluginstack AS $plugname => $plugdata) {
+        if (!isset($plugdata['stackable'])) {
+            $plugdata['stackable'] = false; // default define - Matches all "foreign" plugins that are NOT stackable (OR don't have this property) AND are not already installed AND were not cached AND the xml files has just been renewed.
+        }
         if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'ALL') {
             $pluggroups['ALL'][] = $plugdata;
         } elseif (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE' && $plugdata['upgradeable']) {
