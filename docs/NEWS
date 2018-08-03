@@ -234,9 +234,9 @@ Version 2.5.0 (2018-05-15)
 
   * Silence malformed comment mail() throwing a stopping Exception
 
-  * Bugfix non-working s9ymarkup (plugin) asterix-bold-tag conversion.
+  * Bugfix non-working s9ymarkup (plugin) asterisk-bold-tag conversion.
     If you now encounter any issues in your blog text or feeds, this most
-    probably are words starting with an asterix not meant to be a bold-marked
+    probably are words starting with an asterisk not meant to be a bold-marked
     word. These occurrences need to start with a slash, eg. \*.
 
   * Bugfix feed array keys to not include dots for Smarty template loops
@@ -474,7 +474,7 @@ Version 2.4-beta1 (2017-10-09)
  ------------------------------------------------------------------------
 
   * [-strike- Add new maintenance widget plugin, serendipity_event_cleanspam.
-    This cleans up upblown database spamblocklog or visitor tables by items.
+    This cleans up up-blown database spamblocklog or visitor tables by items.
     Activate in your plugin-list and force cleanup on demand.] (see follow-ups)
 
   * Prepare for translatable ['summary', 'description', 'backenddesc']
@@ -493,7 +493,7 @@ Version 2.4-beta1 (2017-10-09)
 
   * Revert utf8mb4 sql-indexes for non-mysqli installs due to errors.
     SQLITE3 is able to use this extended Multibyte support already
-    without any changes, if compiled with unicode and intl support.
+    without any changes, if compiled with Unicode and intl support.
 
   * Fix plugin_api non-production install empty value check error
     for plugin sort order incrementations.
@@ -512,7 +512,7 @@ Version 2.4-beta1 (2017-10-09)
 
   * Add (non-activated) responsiveimages event plugin, which creates
     an easy way for authors to upload images and make Serendipity
-    automagically create specific thumnail sizes for the browser to
+    automagically create specific thumbnail sizes for the browser to
     choose.
     A templates config could then preset valid thumbnail sizes, like:
         $serendipity['responsiveImageThumbnails'] = [1440, 960, 480];
@@ -1026,9 +1026,9 @@ Version 2.1.0 (February, 24th 2017)
   * Fix the "SERENDIPITY_NEEDS_UPGRADE" page redirector to allow admins
     only. This keeps a 503 Maintenance Mode fully intact, until freed.
 
-  * Allow unicode searches for Chinese / Japanese like languages, see:
+  * Allow Unicode searches for Chinese / Japanese like languages, see:
         https://board.s9y.org/viewtopic.php?f=4&t=15112
-    This also helps when using the full unicode approach described
+    This also helps when using the full Unicode approach described
     below in 2.1-beta1.
 
   * Add upgrade task to remove possible old compiler file leftovers
@@ -1201,7 +1201,7 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
 
   * Partial Sync - flexbox Backend solution
 
-  * Sync core iconfont acessibility fixes
+  * Sync core iconfont accessibility fixes
 
   * Fix and optimize Plugin description
 
@@ -1240,8 +1240,8 @@ Version 2.1-beta2 Styx (September 26th, 2016)
 
   * Update to Smarty 3.1.31-dev/23
 
-  * Added two API functions for strpos() array neddles and
-    debugging referer parent level function name.
+  * Added two API functions for strpos() array needles and
+    debugging referrer parent level function name.
 
   * Fix bug in get URI arguments where uniqueness is bad
 
