@@ -192,7 +192,7 @@ foreach($stack AS $theme => $info) {
 
         if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg")) {
             $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg";
-        } elseif (!empty($info["preview{$backendId}_fullsizeURL"])) { // preview{$backendId}_fullsizeURL is not actually set in spartacus yet
+        } elseif (!empty($info["preview{$backendId}_fullsizeURL"])) { // preview{$backendId}_fullsizeURL is not actually set in Spartacus yet
             if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $theme ."{$backendId}.jpg")) {
                 $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme ."{$backendId}.jpg";
             } else {

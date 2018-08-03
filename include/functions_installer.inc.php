@@ -50,7 +50,7 @@ function serendipity_ini_bytesize($val) {
  * @param   string  Database prefix
  * @param   string  Database host
  * @param   string  Database user
- * @param   string  Database Password
+ * @param   string  Database password
  * @param   string  Database type
  * @param   string  Use persistent connections?
  * @param   array   An array of additional variables to be put into the config file
