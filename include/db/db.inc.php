@@ -3,14 +3,14 @@
 # All rights reserved.  See LICENSE file for licensing details
 
 // PHP 5.5 compat, no longer use deprecated mysql
-if ($serendipity['dbType'] == 'mysql' && (version_compare(PHP_VERSION, '5.5.0') >= 0 || !function_exists('mysql_connect'))) {
+if ($serendipity['dbType'] == 'mysql') {
     $serendipity['dbType'] = 'mysqli';
 }
 
 if (!empty($serendipity['dbType']) && include(S9Y_INCLUDE_PATH . "include/db/{$serendipity['dbType']}.inc.php")) {
     define('S9Y_DB_INCLUDED', true);
 }
-// DEV-NOTE: Has known issues in the generic wrapper file with some queries using attributes from serendipity_db_query(), eg fetching $template_option(s).
+// DEV-NOTE for Zend-Db: Has known issues in the generic wrapper file with some queries using attributes from serendipity_db_query(), eg fetching $template_option(s).
 #include_once(S9Y_INCLUDE_PATH . "include/db/generic.inc.php");
 #define('S9Y_DB_INCLUDED', true);
 
