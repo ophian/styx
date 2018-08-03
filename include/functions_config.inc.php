@@ -427,7 +427,7 @@ function serendipity_login($use_external = true) {
     if (isset($serendipity['POST']['user'])) $serendipity['POST']['user'] = (string)$serendipity['POST']['user'];
     if (isset($serendipity['POST']['pass'])) $serendipity['POST']['pass'] = (string)$serendipity['POST']['pass'];
 
-    // First try login via POST data. If true, the userinformation will be stored in a cookie (optionally)
+    // First try login via POST data. If true, the user information will be stored in a cookie (optionally)
     if (serendipity_authenticate_author($serendipity['POST']['user'], $serendipity['POST']['pass'], false, $use_external)) {
         if (empty($serendipity['POST']['auto'])) {
             serendipity_deleteCookie('author_information');
