@@ -291,7 +291,12 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $pluggroups[''] = array();
     foreach($pluginstack AS $plugname => $plugdata) {
         if (!isset($plugdata['stackable'])) {
-            $plugdata['stackable'] = false; // default define - Matches all "foreign" plugins that are NOT stackable (OR don't have this property) AND are not already installed AND were not cached AND the xml files has just been renewed.
+            /*  Default new install "fake" define
+                Matches all "foreign" plugins, merged into pluginstack, that are NOT stackable (OR don't have this property)
+                AND are not already installed AND were not cached AND only live as new in the xml files that have just been renewed.
+                After this first run all properties are listed and read "correct" in the pluginlist database table.
+                New plugins do always get the stackable property set to 0, until they are installed for the first time and then are read properly by the propbag! */
+            $plugdata['stackable'] = false;
         }
         if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'ALL') {
             $pluggroups['ALL'][] = $plugdata;
