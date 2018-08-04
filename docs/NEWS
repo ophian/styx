@@ -1,4 +1,4 @@
-Version 2.6-alpha ()
+Version 2.6-beta1 (2018-08-04)
  ------------------------------------------------------------------------
 
   * Add "show_all" option to Smarty templates for the categories plugin.
