@@ -492,11 +492,11 @@ function serendipity_fixPlugins($case) {
             return true;
             break;
 
-        case: 'spartacus_custom_reset':
+        case 'spartacus_custom_reset':
            serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config
                                     SET value = ''
                                   WHERE name LIKE '%custommirror'
-                                    AND value = 'https://raw.githubusercontent.com/ophian/additional_plugins/master/'";
+                                    AND value = 'https://raw.githubusercontent.com/ophian/additional_plugins/master/'");
             return true;
             break;
 
