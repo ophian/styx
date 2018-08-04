@@ -22,7 +22,7 @@
             {/if}
         {/if}
 
-            <div id="el{$category@index}" class="config_optiongroup{if isset($config_groupkeys) AND $config_groupkeys@last} config_optiongroup_last{/if} additional_info option_list">
+            <div id="el{$category@index}" class="config_optiongroup{if isset($config_groupkeys) AND $config_groupkeys@last} config_optiongroup_last{/if} option_list">
                 <legend class="visuallyhidden">{$category.description}</legend>
         {foreach $category.items AS $item}
             {cycle assign='zebra_class' values='odd,even'}
