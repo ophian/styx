@@ -5,7 +5,7 @@
     <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.WARNING_TEMPLATE_DEPRECATED}</span>
 {/if}
 
-{if isset($adminAction) AND $adminAction == 'editConfiguration'}
+{if isset($adminAction) AND ($adminAction == 'configure' OR $adminAction == 'editConfiguration')}
     <section id="template_options">
         <h2>{$CONST.STYLE_OPTIONS} ({$cur_template})</h2>
     {if $has_config}
