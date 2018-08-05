@@ -21,12 +21,12 @@
 
             <fieldset id="el{$config_groupkeys@iteration}" class="config_optiongroup{if $config_groupkeys@last} config_optiongroup_last{/if} additional_info">
             {foreach $config_groupkeys AS $config_groupkey}
-                {if ($plugin_options[$config_groupkey]['ctype'] == 'separator' OR $plugin_options[$config_groupkey]['ctype'] == 'seperator')}{* compat - due to misspelled word 'seper...' *}
+                {if isset($plugin_options[$config_groupkey]) AND ($plugin_options[$config_groupkey]['ctype'] == 'separator' OR $plugin_options[$config_groupkey]['ctype'] == 'seperator')}{* compat - due to misspelled word 'seper...' *}
                     {$plugin_options[$config_groupkey]['config']}
                 {else}
 
                     <div class="{cycle values='odd,even'}">
-                        {$plugin_options[$config_groupkey]['config']}
+                        {$plugin_options[$config_groupkey]['config']|default:''}
                     </div>
                 {/if}
             {/foreach}

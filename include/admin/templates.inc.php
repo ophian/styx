@@ -36,7 +36,7 @@ class template_option
                                     WHERE okey = 't_" . serendipity_db_escape_string($serendipity['template']) . "'
                                       AND name = '" . serendipity_db_escape_string($name) . "'");
 
-        if ($this->config[$name]['scope'] == 'global') {
+        if (isset($this->config[$name]['scope']) && $this->config[$name]['scope'] == 'global') {
             serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
                                    WHERE okey = 't_global'
                                      AND name = '" . serendipity_db_escape_string($name) . "'");
