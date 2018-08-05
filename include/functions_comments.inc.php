@@ -266,7 +266,7 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
         }
     }
 
-    // /* 1st is Backend only, since it is either simple parentID OR 0 - the 2cd is the generated HTML selection dropdown for the Frontend */
+    // First is Backend only, since it is either simple parentID OR 0 - the 2cd is the generated HTML selection dropdown for the Frontend
     $_commentform_replyTo = (defined('IN_serendipity_admin') && IN_serendipity_admin === true && isset($data['replyTo']))
         ? $data['replyTo']
         : serendipity_generateCommentList($id, $comments, (!empty($data['replyTo']) ? $data['replyTo'] : 0)); // last ternary is only for Frontend comment preview cases
