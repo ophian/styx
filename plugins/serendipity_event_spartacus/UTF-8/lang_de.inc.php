@@ -29,7 +29,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_CHECK_HINT', 'Sie können mehrere Plugins auf einmal installieren indem sie diesen Link in einem neuen Tab öffnen (mittlerer Mausbutton)');
 
 @define('PLUGIN_EVENT_SPARTACUS_REPOSITORY_ERROR', '(Der Mirror-Speicherort antwortet mit Fehler %s.)');
-@define('PLUGIN_EVENT_SPARTACUS_HEALTHCHECK', 'Die Daten des Spartacus-Speicherorts konnte nicht empfangen werden. Prüfe Verfügbarkeit der Quelle...');
+@define('PLUGIN_EVENT_SPARTACUS_HEALTHCHECK', 'Die Daten des Spartacus-Speicherorts konnte nicht empfangen werden. Prüfe Verfügbarkeit der Quelle "%s"');
 @define('PLUGIN_EVENT_SPARTACUS_HEALTHERROR', 'Die Prüfung der Verfügbarkeit einer Spartacus-Quelle konnte nicht durchgeführt werden (HTTP-Code %s). Bitte probieren Sie es später wieder.');
 @define('PLUGIN_EVENT_SPARTACUS_HEALTHLINK', '<a target="_blank" href="%s">Klicken Sie hier um die Spartacus-Verfügbarkeitsprüfung anzusehen</a> und dessen Erreichbarkeit zu überprüfen.');
 @define('PLUGIN_EVENT_SPARTACUS_HEALTHBLOCKED', 'SPARTACUS konnte keine Test-Verbindung zu Google herstellen (Fehler %d: %s).<br>Ihr Server blockiert vermutlich ausgehende Verbindungen. SPARTACUS kann so nicht ausgeführt werden, da auf keine der SPARTACUS-Quellen zugegriffen werden kann. <b>Bitte kontaktieren Sie ihren Web-Provider und bitten ihn, ausgehende HTTP-Verbindungen zuzulassen.</b> Plugins können nach wie vor auch lokal installiert werden. Laden Sie dazu einfach ein Plugin von <a href="http://spartacus.s9y.org">der originalen SPARTACUS Webseite</a> herunter, entpacken es und laden es in ihr Serendipity "plugins"-Verzeichnis hoch. Für Styx verlinken sie zur <a href="https://ophian.github.io/plugins/">Styx Spartacus Webseite</a>.');

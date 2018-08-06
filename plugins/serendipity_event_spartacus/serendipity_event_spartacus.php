@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.74');
+        $propbag->add('version',       '2.75');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -49,14 +49,14 @@ class serendipity_event_spartacus extends serendipity_event
         );
         $propbag->add('legal',    array(
             'services' => array(
-                'spartacus' => array(
+/*                'spartacus' => array(
                     'url'  => 'http://spartacus.s9y.org',
                     'desc' => 'Package server for theme/plugin downloads'
-                ),
+                ),*/
                 'github.com' => array(
                     'url'  => 'https://www.github.com',
                     'desc' => 'Package server for plugin downloads'
-                ),
+                )/*,
                 's9y.org' => array(
                     'url'  => 'http://www.s9y.org',
                     'desc' => 'Package server for plugin downloads'
@@ -64,7 +64,7 @@ class serendipity_event_spartacus extends serendipity_event
                 'sourceforge.net' => array(
                     'url'  => 'http://www.sourceforget.net',
                     'desc' => 'Package server for plugin downloads'
-                )
+                )*/
             ),
             'frontend' => array(
             ),
@@ -124,11 +124,11 @@ class serendipity_event_spartacus extends serendipity_event
             ),
 
             'files' => array(
-                'https://raw.githubusercontent.com/ophian/additional_plugins/master/'
+                'https://raw.githubusercontent.com/ophian/'
             ),
 
             'files_health' => array(
-                'https://raw.githubusercontent.com/'               => 'https://raw.github.com/'
+                'https://raw.githubusercontent.com/'
             )
         );
 
@@ -639,7 +639,7 @@ class serendipity_event_spartacus extends serendipity_event
 
         } else {
             if ($type == 'template') {
-                $mirror = 'https://raw.githubusercontent.com/s9y/additional_plugins/master'; // stick to S9y Origin since this spares me ~50MB + .git repository
+                $mirror = 'https://raw.githubusercontent.com/s9y/additional_plugins/master'; // temporary fully hardcoded - stick to S9y Origin since this spares me ~50MB + .git repository
             } else {
                 $mirror = $mirrors[$this->get_config('mirror_xml', 0)];
             }
@@ -887,7 +887,7 @@ class serendipity_event_spartacus extends serendipity_event
         $i = 0;
         $gitloc = '';
 
-        $mirror = 'https://raw.github.com/s9y/'; // stick to S9y Origin since this spares me ~50MB + .git repository
+        $mirror = 'https://raw.githubusercontent.com/s9y/'; // temporary hardcoded - stick to S9y Origin since this spares me ~50MB + .git repository
         #$mirrors = $this->getMirrors('files', true);
         #$mirror  = $mirrors[$this->get_config('mirror_files', 0)];
         #if ($mirror == null) {
@@ -901,7 +901,7 @@ class serendipity_event_spartacus extends serendipity_event
             $mirror = $servers[0];
         }
 
-        if (stristr($mirror, 'github.com')) {
+        if (stristr($mirror, 'githubusercontent.com')) {
             $gitloc = 'master/';
         }
 
@@ -921,7 +921,7 @@ class serendipity_event_spartacus extends serendipity_event
                     if (is_array($childtree) && isset($childtree['tag'])) {
                         switch($childtree['tag']) {
                             case 'release':
-                                $pluginstack[$i]['version']      = $childtree['children'][0]['value'];
+                                $pluginstack[$i]['version'] = $childtree['children'][0]['value'];
 
                                 $pluginstack[$i]['requirements'] = array(
                                     'serendipity' => '',
@@ -1060,7 +1060,7 @@ class serendipity_event_spartacus extends serendipity_event
         }
 
         if ($sub == 'templates') {
-            $mirror = 'https://raw.github.com/s9y/'; // stick to S9y Origin since this spares me ~50MB + .git repository
+            $mirror = 'https://raw.githubusercontent.com/s9y/'; // temporary hardcoded - stick to S9y Origin since this spares me ~50MB + .git repository
         } else {
             $mirrors = $this->getMirrors('files', true);
             $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
@@ -1069,19 +1069,19 @@ class serendipity_event_spartacus extends serendipity_event
             }
         }
 
-        $custom  = $this->get_config('custommirror');
+        $custom = $this->get_config('custommirror', '');
         if (strlen($custom) > 2 && $custom != 'none') {
             $servers = explode('|', $custom);
             $mirror = $servers[0];
         }
 
-        if (stristr($mirror, 'github.com')) {
+        if (stristr($mirror, 'githubusercontent.com')) {
             $gitloc = 'master/';
             $cvshack = '';
         }
 
         // fixes for custom mirror - currently custom mirror(s) for plugins only!
-        if (!empty($custom) && $sub != 'templates') {
+        if ((strlen($custom) > 2 && $custom != 'none') && $sub != 'templates') {
             $sfloc  = '';
             $gitloc = '';
         }
