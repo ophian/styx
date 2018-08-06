@@ -13,6 +13,8 @@ $errormsg = '';
 $msg = '';
 $msgtype = 'notice';
 
+if (!isset($serendipity['allowHtmlComment'])) $serendipity['allowHtmlComment'] = false;
+
 $_id       = !empty($serendipity['GET']['id']) ? (int)$serendipity['GET']['id'] : 0;
 $_replyTo  = !empty($serendipity['POST']['replyTo']) ? (int)$serendipity['POST']['replyTo'] : 0;
 $_entry_id = !empty($serendipity['GET']['entry_id']) ? (int)$serendipity['GET']['entry_id'] : 0;

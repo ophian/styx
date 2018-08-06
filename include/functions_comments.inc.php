@@ -450,6 +450,8 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
         $_smartyComments = array();
     }
 
+    if (!isset($serendipity['allowHtmlComment'])) $serendipity['allowHtmlComment'] = false;
+
     $i = 0;
     foreach($comments AS $comment) {
         if ($parentid === VIEWMODE_LINEAR || !isset($comment['parent_id']) || $comment['parent_id'] == $parentid) {
@@ -554,6 +556,7 @@ function serendipity_printCommentsByAuthor() {
 
     $type = serendipity_db_escape_string($serendipity['GET']['commentMode']);
 
+    if (!isset($serendipity['allowHtmlComment'])) $serendipity['allowHtmlComment'] = false;
     if (!empty($serendipity['GET']['viewCommentAuthor'])) {
         $sql_where = " AND co.author = '" . serendipity_db_escape_string($serendipity['GET']['viewCommentAuthor']) . "'";
         $group_by  = "GROUP BY co.author";
