@@ -423,17 +423,17 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> More themes were changed',
                     'desc'      => 'for webfonts, calendar, typos, display of post comment owner and trackbacks. Please adapt these changes to your template copy. Read the ChangeLog for more.'),
 
-            array(  'version'   => '2.6-alpha1',
-                    'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of old dead files in v.2.6.0',
-                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_260, array('internals'), true),
-                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_260) . '</pre>'),
-
             array(  'version'   => '2.6-alpha2',
                     'function'  => 'serendipity_fixPlugins',
                     'arguments' => array('wrong_ugrade_version'),
                     'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
                     'desc'      => 'ZARATHUSTRA - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
+
+            array(  'version'   => '2.6-beta1',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'title'     => 'Removal of old dead files in v.2.6.0',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_260, array('internals'), true),
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_260) . '</pre>'),
 
             array(  'version'   => '2.6-beta1',
                     'function'  => 'serendipity_fixPlugins',
