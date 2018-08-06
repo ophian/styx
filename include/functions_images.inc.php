@@ -1743,7 +1743,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             } else {
                 if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a file."); }
                 if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.')) {
-                    if ($sFile['relpath'] != '.empty' && !in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync'])) {
+                    if ($sFile['relpath'] != '.empty' && @!in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync'])) {
                         if ($debug) { $serendipity['logger']->debug("$logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);
                         $fdim = @serendipity_getimagesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sFile['relpath'], '', $path_parts['extension']);
