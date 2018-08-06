@@ -1,11 +1,10 @@
-Version 2.6 ()
+Version 2.6-beta1 (2018-08-06)
  ------------------------------------------------------------------------
 
- * Sync: If (backend) js is broken, fallback to open configuration options
+  * Fix regression in Spartacus putting together the URL for plugin update
+    files
 
-
-Version 2.6-beta1 (2018-08-04)
- ------------------------------------------------------------------------
+  * Sync: If (backend) js is broken, fallback to open configuration options
 
   * Add "show_all" option to Smarty templates for the categories plugin.
 
