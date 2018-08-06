@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.75');
+        $propbag->add('version',       '2.76');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -643,9 +643,9 @@ class serendipity_event_spartacus extends serendipity_event
             } else {
                 $mirror = $mirrors[$this->get_config('mirror_xml', 0)];
             }
-            #if ($mirror == null) {
-            #    $mirror = $mirrors[0];
-            #}
+            if ($mirror == null) {
+                $mirror = $mirrors[0];
+            }
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
             $url    = $mirror . '/package_' . $url_type .  $lang . '.xml';
             $target = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_' . $url_type . $lang . '.xml';
