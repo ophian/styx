@@ -1,4 +1,9 @@
 
+  * Fix <textarea> ID name in plugin_dynamicform.tpl to be static set to
+    'serendipity_commentform_comment', since other plugins use it. Changed in
+    [bulletproof, default-php, timeline] themes. Adapt to your copy theme.
+    The next version of serendipity_event_contactform [1.28] will support this.
+
   * Add missing init checks for themes (plugin) contactforms
 
   * Re-add strict mirror check to Spartacus
