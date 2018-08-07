@@ -1,4 +1,6 @@
 
+  * Add missing init checks for themes (plugin) contactforms
+
   * Re-add strict mirror check to Spartacus
 
 Version 2.6-beta1 (2018-08-06)
