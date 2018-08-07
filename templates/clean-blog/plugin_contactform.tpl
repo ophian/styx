@@ -4,16 +4,16 @@
     </header>
     <section id="entry">
         <div class="content serendipity_entry_body">
-            {if $is_contactform_error}
+            {if NOT empty($is_contactform_error)}
                 <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$plugin_contactform_error}</p>
                 {foreach $comments_messagestack AS $message}
                     <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$message}</p>
                 {/foreach}
             {/if}
-            {if (empty($is_contactform_sent)) AND $plugin_contactform_preface}
+            {if empty($is_contactform_sent) AND $plugin_contactform_preface}
                <div class="contactform_preface">{$plugin_contactform_preface}</div>
             {/if}
-            {if $is_contactform_sent}
+            {if NOT empty($is_contactform_sent)}
                 <p class="alert alert-success">{$plugin_contactform_sent}</p>
             {else}
             <div id="serendipityCommentForm" class="serendipityCommentForm">

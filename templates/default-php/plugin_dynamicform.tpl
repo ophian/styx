@@ -45,7 +45,7 @@
                <?php foreach ($GLOBALS['tpl']['commentform_dynamicfields'] AS $field):?>
                    <?php if ($field['type'] != "hidden"): ?>
                        <dt class="serendipity_commentsLabel">
-                           <?php if ($field['required']): ?><sup>*</sup><?php endif; ?><label for="serendipity_commentform_<?= $field['id'] ?>"><?= $field['name'] ?></label>
+                           <?php if ($field['required']): ?><sup>&#8727;</sup><?php endif; ?><label for="serendipity_commentform_<?= $field['id'] ?>"><?= $field['name'] ?></label>
                        </dt>
                        <dd class="serendipity_commentsValue">
                            <?php if ($field['type'] == "checkbox"): ?>
@@ -63,7 +63,7 @@
                            <?php elseif ($field['type'] == "password"): ?>
                                <input class="frm" type="password" id="serendipity_commentform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]" value="<?= $field['default'] ?>" size="30">
                            <?php elseif ($field['type'] == "textarea"): ?>
-                               <textarea class="frm" rows="10" cols="40" id="serendipity_commentform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]"><?= $field['default'] ?></textarea>
+                               <textarea class="frm" rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[<?= $field['id'] ?>]"><?= $field['default'] ?></textarea>
                            <?php else: ?>
                                <input class="frm" type="text" id="serendipity_commentform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]" value="<?= $field['default'] ?>" size="30">
                            <?php endif; ?>

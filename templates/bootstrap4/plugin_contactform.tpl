@@ -4,10 +4,10 @@
     <div class="page_content page_preface">
     {$plugin_contactform_preface}
     </div>
-{if $is_contactform_sent}
+{if NOT empty($is_contactform_sent)}
     <p class="alert alert-success" role="alert">{$plugin_contactform_sent}</p>
 {else}
-    {if $is_contactform_error}
+    {if NOT empty($is_contactform_error)}
     <p class="alert alert-warning" role="alert">{$plugin_contactform_error}</p>
     {foreach $comments_messagestack AS $message}
     <p class="alert alert-warning" role="alert">{$message}</p>

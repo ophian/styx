@@ -2,7 +2,7 @@
     <h3>{if $plugin_contactform_articleformat}{$plugin_contactform_name}{else}{$plugin_contactform_pagetitle}{/if}</h3>
     <section id="entry">
         <div class="content serendipity_entry_body">
-            {if $is_contactform_error}
+            {if NOT empty($is_contactform_error)}
                  <div id="search-block" class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <p class="alert alert-danger alert-error"><span class="fa-stack" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$plugin_contactform_error}</p>
@@ -16,10 +16,10 @@
                     </div>
                 {/foreach}
             {/if}
-            {if (empty($is_contactform_sent)) AND $plugin_contactform_preface}
+            {if empty($is_contactform_sent) AND $plugin_contactform_preface}
                <div class="contactform_preface">{$plugin_contactform_preface}</div>
             {/if}
-            {if $is_contactform_sent}
+            {if NOT empty($is_contactform_sent)}
                 <p class="alert alert-success">{$plugin_contactform_sent}</p>
             {else}
             <div id="serendipityCommentForm" class="serendipityCommentForm">

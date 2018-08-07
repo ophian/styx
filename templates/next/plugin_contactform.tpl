@@ -2,10 +2,10 @@
     <h2 class="post-title">{if $plugin_contactform_articleformat}{$plugin_contactform_name}{else}{$plugin_contactform_pagetitle}{/if}</h2>
 
     {$plugin_contactform_preface}
-{if $is_contactform_sent}
+{if NOT empty($is_contactform_sent)}
     <p class="msg-success"><span class="icon-ok-circled" aria-hidden="true"></span> {$plugin_contactform_sent}</p>
 {else}
-    {if $is_contactform_error}
+    {if NOT empty($is_contactform_error)}
     <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$plugin_contactform_error}</p>
     {foreach $comments_messagestack AS $message}
     <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$message}</p>
