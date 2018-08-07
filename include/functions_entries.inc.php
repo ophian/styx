@@ -1341,18 +1341,21 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 }
 
                 // check spamblock force.open.to.public in seconds of days
-                $ftstamp = $current_timestamp - (isset($serendipity['commentaire']['opentopublic']) ? $serendipity['commentaire']['opentopublic'] : 0);
-                if ($entry['timestamp'] < $ftstamp) {
-                    $entry['allow_comments'] = false; // adds COMMENTS_CLOSED message
-                    $commentform_entry['email'] = '';
-                    $serendipity['smarty']->assign(
-                        array(
-                            'commentform_entry'   => $commentform_entry,
-                            'is_comment_added'    => '',
-                            'is_comment_moderate' => '',
-                            'COMMENTFORM'         => '')
-                    );
-                    $comments_open = false;
+                $_opentopublic = isset($serendipity['commentaire']['opentopublic']) ? $serendipity['commentaire']['opentopublic'] : 0;
+                if ($_opentopublic > 0) {
+                    $ftstamp = ($current_timestamp - $_opentopublic);
+                    if ($entry['timestamp'] < $ftstamp) {
+                        $entry['allow_comments'] = false; // adds COMMENTS_CLOSED message
+                        $commentform_entry['email'] = '';
+                        $serendipity['smarty']->assign(
+                            array(
+                                'commentform_entry'   => $commentform_entry,
+                                'is_comment_added'    => '',
+                                'is_comment_moderate' => '',
+                                'COMMENTFORM'         => '')
+                        );
+                        $comments_open = false;
+                    }
                 }
 
                 $serendipity['smarty']->assign($comment_add_data);
