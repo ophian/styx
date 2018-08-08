@@ -326,6 +326,14 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
         $params['joincategories'] = true;
     }
 
+    if (empty($params['joinown'])) {
+        $params['joinown'] = null;
+    }
+
+    if (empty($params['filter_sql'])) {
+        $params['filter_sql'] = null;
+    }
+
     // Some functions deal with the $serendipity array. To modify them, we need to store
     // their original contents.
     $old_var = array();
@@ -334,15 +342,15 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
         $serendipity['short_archives'] = $params['short_archives'];
     }
 
-    $old_var['skip_smarty_hooks']     = $serendipity['skip_smarty_hooks'];
+    $old_var['skip_smarty_hooks']     = isset($serendipity['skip_smarty_hooks']) ? $serendipity['skip_smarty_hooks'] : null;
     $serendipity['skip_smarty_hooks'] = $params['skip_smarty_hooks'];
 
-    $old_var['skip_smarty_hook']     = $serendipity['skip_smarty_hook'];
+    $old_var['skip_smarty_hook']     = isset($serendipity['skip_smarty_hook']) ? $serendipity['skip_smarty_hook'] : null;
     $serendipity['skip_smarty_hook'] = $params['skip_smarty_hook'];
 
     foreach($restore_var_GET_keys AS $key) {
         if (!empty($params[$key])) {
-            $old_var['GET'][$key]     = $serendipity['GET'][$key];
+            $old_var['GET'][$key]     = isset($serendipity['GET'][$key]) ? $serendipity['GET'][$key] : null;
             $serendipity['GET'][$key] = $params[$key];
         }
     }
