@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix regression with $template_config_groups in ['bulletproof, clean-blog,
+    timeline] themes. Please adapt to your copy themes.
+
   * Fix return $textarray for array slice in nl2br::nl2p
 
   * Fix regression in "comments open to public" timeframe feature
