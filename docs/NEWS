@@ -1,6 +1,7 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix return $textarray for array slice in nl2br::nl2p
 
   * Fix regression in "comments open to public" timeframe feature
 
