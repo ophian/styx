@@ -227,7 +227,7 @@ $FooterSidebarElements = serendipity_plugin_api::count_plugins('footer');
 $serendipity['smarty']->assignByRef('FooterSidebarElements', $FooterSidebarElements);
 
 $top = isset($serendipity['smarty_vars']['template_option']) ? $serendipity['smarty_vars']['template_option'] : '';
-$template_config_groups = NULL;
+#$template_config_groups = NULL;
 $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
 serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config);
