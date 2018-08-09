@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Sync - Fix missing spamblock Captcha output by regression for non-GD
+    users since 7/2013.
+
   * Fix regression with $template_config_groups in ['bulletproof, clean-blog,
     timeline] themes. Please adapt to your copy themes.
 
