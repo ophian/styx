@@ -47,7 +47,7 @@ if (defined('USE_MEMSNAP')) {
 }
 
 // The version string
-$serendipity['version'] = '2.6-beta1';
+$serendipity['version'] = '2.6-beta2';
 $serendipity['edition'] = 'Styx';
 
 // Setting this to 'false' will enable debugging output.
@@ -151,7 +151,7 @@ $serendipity['use_iframe'] = true;
 // Default language for autodetection
 $serendipity['autolang'] = 'en';
 
-// Name of folder for the default theme
+// Name of folder for the default theme, which is called the Standard Theme
 $serendipity['defaultTemplate'] = '2k11';
 
 // Default backend theme
