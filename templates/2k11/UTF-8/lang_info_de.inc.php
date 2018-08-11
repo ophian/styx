@@ -5,7 +5,7 @@
  * Convert or save as UTF-8 file without BOM.
  **/
 
-$info['theme_info_summary'] = 'Das Styx Backend/Frontend Standard Theme';
+$info['theme_info_summary'] = 'Das Styx Frontend Standard Theme';
 
 $info['theme_info_desc'] = 'Dieses Theme definiert den augenblicklichen Standard, der im Serendipity Styx Kern definiert und benutzt wird.
 In Bezug auf die schier unendlichen Möglichkeiten von Serendipity, ist es das augenblicklich am besten verknüpfte und verzahnte Theme,
@@ -20,11 +20,3 @@ Wenn Sie diese Zeile nicht nutzen, muss das eigene Theme entweder alle Template-
 Setzen Sie ensprechende Zeilen "Require Serendipity&colon; 2.0" für eine Voraussetzung, "Backend&colon; Yes",
 wenn Sie ein eigenes Backend nutzen und "Recommended&colon; Yes", wenn Sie es zur empfohlenen Theme-Sektion hinzufügen wollen.<br><br>
 Zurück in der Template-Liste, laden Sie die Seite neu und wählen Sie ihr neues Theme anhand des gegebenen Namens.';
-
-$info['theme_info_backend'] = 'Dieses Theme beherbergt die Styx-Kern Backend Templates im Unterverzeichnis "2k11/admin".
-Die Template-Dateien in diesem Verzeichnis bilden und erstellen das Aussehen der kompletten Admin-Oberfläche.
-Sie enthalten auch einige Workflow- und Logikfunktionen sowie eigene Javascript-Bibliotheken.
-Wenn Sie ein eigenes Backend-Theme verwenden möchten, kopieren Sie das Verzeichnis "admin" in ihr Theme.
-Ändern Sie dort die Datei "info.txt", um eine Zeile "Backend&colon; Yes" hinzuzufügen, und wählen Sie das neue Backend-Theme in der neu geladenen Themenliste aus.
-Ab sofort können Sie die Dateien und Stile des eigenen Backend-Themes bearbeiten und an Ihre erweiterten Bedürfnisse anpassen.<br>
-<u><b>Bitte beachten Sie:</b></u> Dies ist nur für erfahrene Benutzer empfehlenswert und komplett abseits der Update-Funktionen!';

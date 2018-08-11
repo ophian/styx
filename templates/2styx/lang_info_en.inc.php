@@ -8,12 +8,12 @@
 $info['theme_info_summary'] = 'The Styx Backend testing Theme';
 
 $info['theme_info_desc'] = '<u>Please Note&colon;</u> This theme has no existing frontend!<br>
-This example backend theme relegates to the Styx core backend templates in the "2k11/admin" subdirectory.
-As an example it proves the ability that you can simply add a more or less empty backend theme, which uses the fallback to the default "2k11" backend template files.
+This example backend theme relegates to the Styx core backend templates in the "default/admin" subdirectory.
+As an example it proves the ability that you can simply add a more or less empty backend theme, which uses the fallback to the standard "default" backend template files.
 With this in mind you are able to just change and add those files only, which are necessary to fill your needs.';
 
-$info['theme_info_backend'] = 'This example backend theme relegates to the Styx core backend templates in the "2k11/admin" subdirectory.
-As an example it proves the ability that you can simply add a more or less empty backend theme, which uses the fallback to the default "2k11" backend template files.
+$info['theme_info_backend'] = 'This example backend theme relegates to the Styx core backend templates in the "default/default" subdirectory.
+As an example it proves the ability that you can simply add a more or less empty backend theme, which uses the fallback to the "default" backend template files.
 With this in mind you are able to just change and add those files only, which are necessary to fill your needs.
 This example may change in future to hold some more real files for the backend generation.
 For the moment it solely includes an index template file, which removes relevant informations and assets when not logged in.<br>
