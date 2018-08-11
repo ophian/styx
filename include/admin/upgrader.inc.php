@@ -423,12 +423,6 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> More themes were changed',
                     'desc'      => 'for webfonts, calendar, typos, display of post comment owner and trackbacks. Please adapt these changes to your template copy. Read the ChangeLog for more.'),
 
-            array(  'version'   => '2.6-alpha2',
-                    'function'  => 'serendipity_fixPlugins',
-                    'arguments' => array('wrong_ugrade_version'),
-                    'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
-                    'desc'      => 'ZARATHUSTRA - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
-
             array(  'version'   => '2.6-beta1',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'title'     => 'Removal of old dead files in v.2.6.0',
@@ -446,6 +440,12 @@ $tasks = array(
                     'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
                     'desc'      => 'for logic, initialization checks, etc. Please adapt these changes to your template copies. Read the ChangeLog for more. Styx recommends to start you copy theme from scratch, since not all of them were explicitly mentioned!'),
+
+            array(  'version'   => '2.6-beta2',
+                    'function'  => 'serendipity_fixPlugins',
+                    'arguments' => array('wrong_upgrade_version'),
+                    'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
+                    'desc'      => 'ZARATHUSTRA - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
 
 );
 
