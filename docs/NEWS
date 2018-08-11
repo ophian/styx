@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix and extend Zarathustra (pluginlist) upgrade task
+
   * Sync - Fix missing spamblock Captcha output by regression for non-GD
     users since 7/2013.
 
