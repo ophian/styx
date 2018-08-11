@@ -435,6 +435,7 @@ $dead_files_250 = array(
 /* A list of Styx files, to be removed or renamed by 2.6.0 */
 $dead_files_260 = array(
     'templates_c/.htaccess',
+    'templates/2k11/preview_backend_fullsize.jpg',
     'templates/clean-blog/backend_templates/default_staticpage_backend.tpl',
     'templates/default/admin/README.txt',
     'templates/timeline/backend_templates/default_staticpage_backend.tpl'

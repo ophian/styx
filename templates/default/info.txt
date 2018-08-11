@@ -2,6 +2,7 @@ Name: Serendipity default [ fallback ]
 Author: Tom Sommer, Ian
 Date: 2018-07-25
 Require Serendipity: 2.0
+Backend: Yes
 Recommended: Yes
 
 Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)

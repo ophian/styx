@@ -485,8 +485,8 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
     if ((isset($data['summary']) || isset($data['description']) || isset($data['backenddesc'])) && @is_file($info_default)) {
         @include(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . $charsetpath. '/lang_info_'.$serendipity['lang'].'.inc.php');
         if (!empty($info)) {
-            $data['summary'] = $info['theme_info_summary'] ?: $data['summary'];
-            $data['description'] = $info['theme_info_desc'] ?: $data['description'];
+            $data['summary']     = isset($info['theme_info_summary']) ? $info['theme_info_summary'] : $data['summary'];
+            $data['description'] = isset($info['theme_info_desc'])    ? $info['theme_info_desc']    : $data['description'];
             $data['backenddesc'] = isset($info['theme_info_backend']) ? $info['theme_info_backend'] : $data['backenddesc'];
             // Keep-in-mind-Note: These elvis operator(s) can NOT be used for meant issets, eg. isset($x), wrong "$x ?: $y", PHP7 offers ?? for issets.
         } else {
@@ -494,8 +494,8 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
             if (empty($info)) {
                 include($info_default);
             }
-            $data['summary'] = $info['theme_info_summary'] ?: $data['summary'];
-            $data['description'] = $info['theme_info_desc'] ?: $data['description'];
+            $data['summary']     = isset($info['theme_info_summary']) ? $info['theme_info_summary'] : $data['summary'];
+            $data['description'] = isset($info['theme_info_desc'])    ? $info['theme_info_desc']    : $data['description'];
             $data['backenddesc'] = isset($info['theme_info_backend']) ? $info['theme_info_backend'] : $data['backenddesc'];
         }
     }
@@ -520,7 +520,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         }
     }
 
-    if ($theme != 'default' && $theme != 'default-rtl'
+    if ($theme != 'default-rtl'
                 && @is_dir($serendipity['templatePath'] . $theme . '/admin')
                 && strtolower($data['backend']) == 'yes') {
         $data['custom_admin_interface'] = YES;

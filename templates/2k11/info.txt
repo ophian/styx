@@ -2,7 +2,6 @@ Name: 2k11 [ Standard ]
 Author: Matthias Mees, Veit Lehmann
 Date: 2018-07-25 | 2431 days
 Require Serendipity: 2.0
-Backend: Yes
 Recommended: Yes
 
 Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
