@@ -451,7 +451,7 @@ $tasks = array(
                     'function'  => 'recursive_directory_iterator',
                     'title'     => 'Styx moved the Smarty Backend templates to the default theme',
                     'arguments' => array($dead_dirs_260),
-                    'desc'      => 'If you have any custom or developer files in the the templates/2k11/admin directory, make a backup copy before proceeding. The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_260) . '</pre>'),
+                    'desc'      => 'If you have any custom or developer files in the templates/2k11/admin directory, make a backup copy before proceeding. The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_260) . '</pre>'),
 
 );
 
