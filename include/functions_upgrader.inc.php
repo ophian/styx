@@ -476,7 +476,9 @@ function serendipity_fixPlugins($case) {
             $rows = serendipity_db_query("SELECT a.class_name, a.version, a.upgrade_version, b.upgrade_version AS new_version, a.plugintype, a.pluginlocation
                                             FROM {$serendipity['dbPrefix']}pluginlist a
                                        LEFT JOIN {$serendipity['dbPrefix']}pluginlist b
-                                              ON (a.pluginlocation = 'local' AND b.pluginlocation = 'Spartacus' AND a.upgrade_version < b.upgrade_version)
+                                              ON (a.pluginlocation = 'local' AND b.pluginlocation = 'Spartacus' AND
+                                                 (a.upgrade_version < b.upgrade_version OR
+                                                 ((b.upgrade_version IS NULL OR b.upgrade_version = '') AND a.upgrade_version < b.version)))
                                            WHERE a.class_name = b.class_name");
             if (!is_array($rows)) {
                 return false;
