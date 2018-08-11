@@ -436,6 +436,7 @@ $dead_files_250 = array(
 $dead_files_260 = array(
     'templates_c/.htaccess',
     'templates/clean-blog/backend_templates/default_staticpage_backend.tpl',
+    'templates/default/admin/README.txt',
     'templates/timeline/backend_templates/default_staticpage_backend.tpl'
 );
 
@@ -443,6 +444,11 @@ $dead_files_260 = array(
 $dead_dirs_250 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/HTTP/Request',
     $serendipity['serendipityPath'] . 'plugins/serendipity_event_browsercompatibility'
+);
+
+/* A list of old or removed directories for 2.6.0 */
+$dead_dirs_260 = array(
+    $serendipity['serendipityPath'] . 'templates/2k11/admin'
 );
 
 /**

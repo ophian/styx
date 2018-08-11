@@ -433,7 +433,7 @@ $tasks = array(
                     'function'  => 'serendipity_fixPlugins',
                     'arguments' => array('spartacus_custom_reset'),
                     'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
-                    'desc'      => 'The custom Styx mirror location was removed in favor of the the official gitHub repository location. Themes are still installed by the s9y origin gutHub repository location. The custom mirror is now either empty or set to "none" or points to your custom repository location for themes and plugins.'),
+                    'desc'      => 'The custom Styx mirror location was removed in favor of the the official gitHub repository location. Themes are still installed by the s9y origin gitHub repository location. The custom mirror is now either empty or set to "none" or points to your custom repository location for themes and plugins.'),
 
             array(  'version'   => '2.6-beta1',
                     'function'  => 'TEMPLATE_NOTICE',
@@ -446,6 +446,12 @@ $tasks = array(
                     'arguments' => array('wrong_upgrade_version'),
                     'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
                     'desc'      => 'ZARATHUSTRA - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
+
+            array(  'version'   => '2.6-beta2',
+                    'function'  => 'recursive_directory_iterator',
+                    'title'     => 'Styx moved the Smarty Backend templates to the default theme',
+                    'arguments' => array($dead_dirs_260),
+                    'desc'      => 'If you have any custom or developer files in the the templates/2k11/admin directory, make a backup copy before proceeding. The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_260) . '</pre>'),
 
 );
 
