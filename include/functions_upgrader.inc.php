@@ -459,9 +459,7 @@ function recursive_directory_iterator($dir = array()) {
 }
 
 /**
- * Fix pluginlist upgrade cases
- *
- * Formerly known as  "Fix inpropper plugin constant names"
+ * Fix pluginlist for upgrade cases
  *
  * @access private
  * @param  string   (reserved for future use)
@@ -476,21 +474,33 @@ function serendipity_fixPlugins($case) {
             $rows = serendipity_db_query("SELECT a.class_name, a.version, a.upgrade_version, b.upgrade_version AS new_version, a.plugintype, a.pluginlocation
                                             FROM {$serendipity['dbPrefix']}pluginlist a
                                        LEFT JOIN {$serendipity['dbPrefix']}pluginlist b
-                                              ON (a.pluginlocation = 'local' AND b.pluginlocation = 'Spartacus' AND
-                                                 (a.upgrade_version < b.upgrade_version OR
-                                                 ((b.upgrade_version IS NULL OR b.upgrade_version = '') AND a.upgrade_version < b.version)))
+                                              ON a.pluginlocation = 'local' AND b.pluginlocation = 'Spartacus' AND a.upgrade_version < b.upgrade_version
                                            WHERE a.class_name = b.class_name");
-            if (!is_array($rows)) {
-                return false;
+            if (is_array($rows)) {
+                foreach($rows AS $row) {
+                    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
+                                             SET upgrade_version = '" . serendipity_db_escape_string($row['new_version']) . "'
+                                           WHERE class_name = '". serendipity_db_escape_string($row['class_name']) . "'
+                                             AND pluginlocation = 'local'");
+                }
+                unset($rows);
             }
-
-            foreach($rows AS $row) {
-                serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
-                                         SET upgrade_version = '" . serendipity_db_escape_string($row['new_version']) . "'
-                                       WHERE class_name = '". serendipity_db_escape_string($row['class_name']) . "'
-                                         AND pluginlocation = 'local'");
+            // second case where remote plugins do not have a upgrade_version and the version is the latest Spartacus version
+            $rows = serendipity_db_query("SELECT a.class_name, a.version, a.upgrade_version, b.version AS new_version, a.plugintype, a.pluginlocation
+                                            FROM {$serendipity['dbPrefix']}pluginlist a
+                                       LEFT JOIN {$serendipity['dbPrefix']}pluginlist b
+                                              ON a.pluginlocation = 'local' AND b.pluginlocation = 'Spartacus' AND
+                                                (b.upgrade_version IS NULL OR b.upgrade_version = '') AND a.upgrade_version < b.version
+                                           WHERE a.class_name = b.class_name");
+            if (is_array($rows)) {
+                foreach($rows AS $row) {
+                    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
+                                             SET upgrade_version = '" . serendipity_db_escape_string($row['new_version']) . "'
+                                           WHERE class_name = '". serendipity_db_escape_string($row['class_name']) . "'
+                                             AND pluginlocation = 'local'");
+                }
+                unset($rows);
             }
-            unset($rows);
             return true;
             break;
 
