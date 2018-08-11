@@ -81,7 +81,7 @@
 
             <div class="clearfix equal_heights template_wrap">
                 <div class="template_preview">
-            {if $cur_tpl_backend.fullsize_backend_preview OR $cur_tpl_backend.preview_backend}
+            {if NOT empty($cur_tpl_backend.fullsize_backend_preview) OR NOT empty($cur_tpl_backend.preview_backend)}
                 {if $cur_tpl_backend.fullsize_backend_preview}
 
                     <a class="media_fullsize" href="{$cur_tpl_backend.fullsize_backend_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl_backend.info.name}">
@@ -175,7 +175,7 @@
         <h2>{$CONST.RECOMMENDED}</h2>
         <ul class="plainList">
         {foreach $recommended_templates AS $template}
-            {if $template@key == $cur_template_backend AND $cur_tpl_backend.info.modul|lower == 'backend'}{continue}{/if}
+            {if $template@key == $cur_template_backend AND isset($cur_tpl_backend.info.modul) AND $cur_tpl_backend.info.modul|lower == 'backend'}{continue}{/if}
             {templateBlock template=$template key=$template@key}
         {/foreach}
         </ul>
