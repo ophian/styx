@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Move standard backend from 2k11 to default
+
   * Fix and extend Zarathustra (pluginlist) upgrade task
 
   * Sync - Fix missing spamblock Captcha output by regression for non-GD
