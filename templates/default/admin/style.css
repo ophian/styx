@@ -1995,6 +1995,7 @@ fieldset p,
 
 .upgrader_tasks dt b {
     font-weight: bolder;
+    color: #3e5f81;
 }
 
 .upgrader_perms dd,
