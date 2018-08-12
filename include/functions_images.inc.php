@@ -1408,7 +1408,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                                            {$cond['and']}", true, 'assoc');
         // Leave messages plain unstiled
         if (is_array($rs)) {
-            // This image is in the database.  Check our calculated data against the database data.
+            // This image is in the database. Check our calculated data against the database data.
             $update = array();
             // Is the width correct?
             if (isset($fdim[0]) && $rs['dimensions_width'] != $fdim[0]) {

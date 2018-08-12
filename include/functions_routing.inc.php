@@ -6,6 +6,7 @@ if (IN_serendipity !== true) {
 
 function serveIndex() {
     global $serendipity;
+
     $serendipity['view'] = (false === strpos($_SERVER['QUERY_STRING'], 'frontpage')) ? 'start' : 'entries';
 
     if ($serendipity['GET']['action'] == 'search') {
@@ -20,11 +21,14 @@ function serveIndex() {
 
 function serve404() {
     global $serendipity;
+
     $serendipity['view'] = '404';
     $serendipity['viewtype'] = '404_4';
     $serendipity['content_message'] = URL_NOT_FOUND;
+
     header('HTTP/1.0 404 Not found');
     header('Status: 404 Not found');
+
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
@@ -62,11 +66,13 @@ function locateHiddenVariables($_args) {
             }
         }
     }
+
     return $_args;
 }
 
 function serveComments() {
     global $serendipity;
+
     $serendipity['view'] = 'comments';
     $uri = $_SERVER['REQUEST_URI'];
     $args = serendipity_getUriArguments($uri, true); // Need to also match "." character
@@ -107,7 +113,7 @@ function serveComments() {
         }
     }
 
-    $serendipity['head_title']    = COMMENTS_FROM . ' ' . serendipity_specialchars($serendipity['GET']['viewCommentAuthor']);
+    $serendipity['head_title'] = COMMENTS_FROM . ' ' . serendipity_specialchars($serendipity['GET']['viewCommentAuthor']);
     if (isset($timedesc['start']) && isset($timedesc['end'])) {
         $serendipity['head_title'] .= ' (' . $timedesc['start'] . ' - ' . $timedesc['end'] . ')';
     } elseif (isset($timedesc['start'])) {
@@ -117,11 +123,13 @@ function serveComments() {
     }
     $serendipity['head_subtitle'] = $serendipity['blogTitle'];
     $serendipity['GET']['action'] = 'comments';
+
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
 function serveJS($js_mode) {
     global $serendipity;
+
     $serendipity['view'] = 'js';
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
         header('Cache-Control: no-cache');
@@ -156,13 +164,16 @@ function serveJS($js_mode) {
 
 function serveCSS($css_mode) {
     global $serendipity;
+
     serendipity_smarty_init();
     $serendipity['view'] = 'css';
+
     include(S9Y_INCLUDE_PATH . 'serendipity.css.php');
 }
 
 function serveSearch() {
     global $serendipity;
+
     $serendipity['view'] = 'search';
     $_args = $serendipity['uriArguments'];
 
@@ -189,6 +200,7 @@ function serveSearch() {
 
     $serendipity['GET']['action']     = 'search';
     $serendipity['GET']['searchTerm'] = urldecode(serendipity_specialchars(strip_tags(implode(' ', $search))));
+
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
@@ -263,6 +275,7 @@ function serveCategory($matches, $is_multicat=false) {
     if (!is_array($cInfo)) {
         $serendipity['view'] = '404';
         $serendipity['viewtype'] = '404_2';
+
         header('HTTP/1.0 404 Not found');
         header('Status: 404 Not found');
     } else {
@@ -278,6 +291,7 @@ function serveCategory($matches, $is_multicat=false) {
 
 function serveArchive() {
     global $serendipity;
+
     $serendipity['view'] = 'archive';
     $serendipity['GET']['action'] = 'archives';
 
@@ -288,6 +302,7 @@ function serveArchive() {
 
 function gotoAdmin() {
     global $serendipity;
+
     $base = $serendipity['baseURL'];
     if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
         $base = str_replace('http://', 'https://', $base);
@@ -298,9 +313,10 @@ function gotoAdmin() {
 
 function servePlugin($matches) {
     global $serendipity;
+
     $serendipity['view'] = 'plugin';
 
-    if (strpos($matches[2], 'admin/')  !== false) {
+    if (strpos($matches[2], 'admin/') !== false) {
         include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
     }
 
@@ -309,6 +325,7 @@ function servePlugin($matches) {
 
 function serveFeed($matches) {
     global $serendipity;
+
     $serendipity['view'] = 'feed';
     header('Content-Type: text/html; charset=utf-8');
     $uri = $_SERVER['REQUEST_URI'];
@@ -401,6 +418,7 @@ function serveEntry($matches) {
 
 function serveArchives() {
     global $serendipity;
+
     $serendipity['view'] = 'archives';
 
     $_args = locateHiddenVariables($serendipity['uriArguments']);
