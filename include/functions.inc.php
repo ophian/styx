@@ -488,7 +488,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
             $data['summary']     = isset($info['theme_info_summary']) ? $info['theme_info_summary'] : $data['summary'];
             $data['description'] = isset($info['theme_info_desc'])    ? $info['theme_info_desc']    : $data['description'];
             $data['backenddesc'] = isset($info['theme_info_backend']) ? $info['theme_info_backend'] : $data['backenddesc'];
-            // Keep-in-mind-Note: These elvis operator(s) can NOT be used for meant issets, eg. isset($x), wrong "$x ?: $y", PHP7 offers ?? for issets.
+            // Keep-in-mind-Note: The elvis operator shall NOT be used for meant issets, eg. isset($x), wrong "$x ?: $y", PHP7 offers ?? for issets.
         } else {
             @include(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_'.$serendipity['lang'].'.inc.php');
             if (empty($info)) {
