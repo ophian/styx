@@ -433,7 +433,7 @@ $tasks = array(
                     'function'  => 'serendipity_fixPlugins',
                     'arguments' => array('spartacus_custom_reset'),
                     'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
-                    'desc'      => 'The custom Styx mirror location was removed in favor of the the official gitHub repository location. Themes are still installed by the s9y origin gitHub repository location. The custom mirror is now either empty or set to "none" or points to your custom repository location for themes and plugins.'),
+                    'desc'      => 'The custom Styx mirror location was removed in favor of the official gitHub repository location. Themes are still installed by the s9y origin gitHub repository location. The custom mirror is now either empty or set to "none", or points to your custom repository location for themes and plugins. Please check your custom mirror option after upgrade to be set empty for Styx.'),
 
             array(  'version'   => '2.6-beta1',
                     'function'  => 'TEMPLATE_NOTICE',
