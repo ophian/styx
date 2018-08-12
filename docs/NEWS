@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix Backend dashboard links container popup behaviour for set
+    force_backendpopups and the default, when this has not been set yet.
+
   * Move standard backend from 2k11 to default
 
   * Fix and extend Zarathustra (pluginlist) upgrade task
