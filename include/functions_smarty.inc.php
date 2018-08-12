@@ -1144,7 +1144,7 @@ function serendipity_smarty_init($vars = array()) {
 
         }
 
-        $_force_backendpopups = explode(',', isset($serendipity['enableBackendPopupGranular']) ? $serendipity['enableBackendPopupGranular'] : '');
+        $_force_backendpopups = explode(',', isset($serendipity['enableBackendPopupGranular']) ? $serendipity['enableBackendPopupGranular'] : 'links'); // 'links' container is the only one in need to be non mpf layered per default install for the quicktip doc
         $force_backendpopups  = array();
         foreach($_force_backendpopups AS $fbp_key => $fbp_val) {
             $fbp_val = trim($fbp_val);

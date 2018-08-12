@@ -1527,8 +1527,8 @@ $(function() {
         e.preventDefault();
     });
 
-    // Show further links {* make sure this is not mpf layered per default (w/o preferences saved) *}
-    {if $use_backendpopups OR NOT isset($force_backendpopups.links)}
+    // Show further links {* we already made sure this is not mpf layered per default (w/o having self preferences ever saved) *}
+    {if $use_backendpopups OR isset($force_backendpopups.links)}
 
         if ($('#dashboard').length > 0) {
             $('.toggle_links').click(function(e) {

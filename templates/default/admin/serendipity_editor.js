@@ -1471,10 +1471,16 @@ $(function() {
         e.preventDefault();
     });
 
-    // Show further links
-            if ($('#dashboard').length > 0) {
-            $('.toggle_links').magnificPopup({ type: "inline" });
-        }
+    // Show further links - per fallback default non-mpf layered to support the quicktip doc
+    if ($('#dashboard').length > 0) {
+        $('.toggle_links').click(function(e) {
+            $('#s9y_links').toggleClass('mfp-hide');
+            $('#s9y_quicktip').toggleClass('mfp-hide');
+
+            e.preventDefault();
+            serendipity.skipScroll($(this).attr('href'));
+        });
+    }
 
     // Media file actions
         if ($('.media_fullsize').length > 0) {
