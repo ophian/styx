@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix a regression for the "If (backend) js is broken..." Sync - in
+    plugins toggled config groups, not starting closed.
+
   * Fix Backend dashboard links container popup behaviour for set
     force_backendpopups and the default, when this has not been set yet.
 
