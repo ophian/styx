@@ -1153,6 +1153,7 @@ function serendipity_smarty_init($vars = array()) {
         }
 
         /* Variable 'is_xhtml' deprecated with 2.1, keep for compatibility only, since this was configurable in old Serendipity versions and used in some themes (eg. bulletproof) */
+        /* Variable 'head_version' deprecated before 1.1-alpha, @see https://github.com/ophian/styx/commit/529dca9 as last history and only kept for old themes */
         $serendipity['smarty']->assign(
             array(
                 'head_charset'              => LANG_CHARSET,
