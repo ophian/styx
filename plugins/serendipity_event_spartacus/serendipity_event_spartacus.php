@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.76');
+        $propbag->add('version',       '2.77');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -343,7 +343,7 @@ class serendipity_event_spartacus extends serendipity_event
                 continue;
             }
 
-            if (!is_dir($stack) && !mkdir($stack)) {
+            if (@!is_dir($stack) && @!mkdir($stack)) {
                 return false;
             } else {
                 $this->fileperm($stack, true);
@@ -1002,7 +1002,7 @@ class serendipity_event_spartacus extends serendipity_event
                 break;
         }
 
-        $pdir = $serendipity['serendipityPath'] . '/' . $sub . '/';
+        $pdir = $this->fixUrl($serendipity['serendipityPath'] . '/' . $sub . '/');
         if (!is_writable($pdir)) {
             $this->outputMSG('error', sprintf(DIRECTORY_WRITE_ERROR, $pdir));
             return false;
