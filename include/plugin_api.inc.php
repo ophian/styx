@@ -1396,7 +1396,7 @@ class serendipity_plugin
      * Called by serendipity when it wants to display the configuration
      * editor for your plugin.
      * $name is the name of a configuration item you added in
-     * your instrospect method.
+     * your introspect method.
      * You need to fill the property bag with appropriate items
      * that describe the type and value(s) for that particular
      * configuration option.
