@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix possible BETA open_basedir restriction errors with Spartacus updates
+    and finally fix a possible double slash in update file targets.
+
   * Fix a regression for the "If (backend) js is broken..." Sync - in
     plugins toggled config groups, not starting closed.
 
