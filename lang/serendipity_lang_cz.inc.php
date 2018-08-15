@@ -1,5 +1,4 @@
 <?php
-# lang_cz.inc.php 1.10 2012-01-08 18:34:17 VladaAjgl $
 
 /**
  *  @version 1.10
@@ -7,23 +6,7 @@
  *  All rights reserved.  See LICENSE file for licensing details
  *  Translation (c) 2004 Josef Klimosz <ok2wo@centrum.cz>
  *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2009/02/23
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2009/07/14
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2009/08/25
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2010/02/06
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2010/05/02
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2010/09/12
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2010/12/25
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2011/04/17
- *  @author Vladimír Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2012/01/08
+ *  @revisionDate 2009-2012/01/08
  */
 $i18n_filename_from = array (
 'á','è','ï','é','ì','í','å','µ','ò','ó','à','ø','¶','¹','»','ú','ù','ý','¼','¾',
@@ -107,7 +90,7 @@ $i18n_filename_to = array (
 @define('EXTENDED_BODY', 'Roz¹íøená textová èást');
 @define('CATEGORY', 'Kategorie');
 @define('EDIT', 'Editace');
-@define('NO_ENTRIES_BLAHBLAH', 'Nenalezen ¾ádný záznam odpovídající volbì %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Nenalezen ¾ádný záznam odpovídající volbì %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Vyhledávání %s odpovídá %s výsledkù:');
 @define('SEARCH_TOO_SHORT', 'Vyhledávací dotaz musí být del¹í ne¾ 3 znaky. Ke krat¹ím slovùm mù¾ete zkusit pøidat *, jako: s9y*, abyste  vyhledávání pøimìli pracovat s krat¹ími slovy.');
 @define('IMAGE', 'Obrázek');

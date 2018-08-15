@@ -75,7 +75,7 @@
 @define('EXTENDED_BODY', 'Extended Body');
 @define('CATEGORY', 'Category');
 @define('EDIT', 'Edit');
-@define('NO_ENTRIES_BLAHBLAH', 'No Entries Found for Query %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'No Entries Found for Query %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Your search for %s returned %s results:');
 @define('SEARCH_TOO_SHORT', 'Your search-query must be longer than 3 characters. You can try to append * to shorter words, like: s9y* to trick the search into using shorter words.');
 @define('IMAGE', 'Image');

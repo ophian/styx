@@ -78,7 +78,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('EXTENDED_BODY', 'Допольнительный текст');
 @define('CATEGORY', 'Категория');
 @define('EDIT', 'Редактировать');
-@define('NO_ENTRIES_BLAHBLAH', 'Не было найдено записей по завпросу %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Не было найдено записей по завпросу %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'По вашему поиску %s найдено результатов:');
 @define('IMAGE', 'Изображение');
 @define('ERROR_FILE_NOT_EXISTS', 'Ошибка: Старое имя файла не существует!');

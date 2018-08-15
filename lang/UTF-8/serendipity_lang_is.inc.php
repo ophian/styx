@@ -76,7 +76,7 @@
 @define('EXTENDED_BODY', 'Aukainnihald');
 @define('CATEGORY', 'Flokkur');
 @define('EDIT', 'Breyta');
-@define('NO_ENTRIES_BLAHBLAH', 'Engar færslur fundnar fyrir fyrirspurn %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Engar færslur fundnar fyrir fyrirspurn %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Leit þín að %s skilaði %s niðurstöðum:');
 @define('IMAGE', 'Mynd');
 @define('ERROR_FILE_NOT_EXISTS', 'Villa: Gamla skráarnafnið er ekki til!');

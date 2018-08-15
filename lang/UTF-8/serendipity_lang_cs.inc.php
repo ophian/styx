@@ -6,23 +6,7 @@
  *  All rights reserved.  See LICENSE file for licensing details
  *  Translation (c) 2004 Josef Klimosz <ok2wo@centrum.cz>
  *  @author Vladim?r Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2009/02/23
- *  @author Vladim?r Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2009/07/14
- *  @author Vladim?r Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2009/08/25
- *  @author Vladim?r Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2010/02/06
- *  @author Vladim?r Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2010/05/02
- *  @author Vladim?r Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2010/09/12
- *  @author Vladim?r Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2010/12/25
- *  @author Vladim?r Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2011/04/17
- *  @author Vladim?r Ajgl <vlada@ajgl.cz>
- *  @revisionDate 2012/01/08
+ *  @revisionDate 2009-2012/01/08
  */
 $i18n_filename_from = array (
 'á','c','d','é','e','í','l','l','n','ó','r','r','s','š','t','ú','u','ý','z','ž',
@@ -106,7 +90,7 @@ $i18n_filename_to = array (
 @define('EXTENDED_BODY', 'Roz???en? textov? ??st');
 @define('CATEGORY', 'Kategorie');
 @define('EDIT', 'Editace');
-@define('NO_ENTRIES_BLAHBLAH', 'Nenalezen ??dn? z?znam odpov?daj?c? volb? %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Nenalezen ??dn? z?znam odpov?daj?c? volb? %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Vyhled?v?n? %s odpov?d? %s v?sledk?:');
 @define('SEARCH_TOO_SHORT', 'Vyhled?vac? dotaz mus? b?t del?? ne? 3 znaky. Ke krat??m slov?m m??ete zkusit p?idat *, jako: s9y*, abyste  vyhled?v?n? p?im?li pracovat s krat??mi slovy.');
 @define('IMAGE', 'Obr?zek');

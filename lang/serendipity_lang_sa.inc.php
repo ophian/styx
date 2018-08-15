@@ -76,7 +76,7 @@
 @define('EXTENDED_BODY', 'ЧсЬвС ЧсЪЧсэ');
 @define('CATEGORY', 'Ъефэн');
 @define('EDIT', 'ЪЭбэб');
-@define('NO_ENTRIES_BLAHBLAH', 'су эЪу ЧскЫцб ксь Чэ уцЧжэк ЬЯэЯЩ %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'су эЪу ЧскЫцб ксь Чэ уцЧжэк ЬЯэЯЩ %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'ШЭЫп кф  %s цЬЯ %s хах ЧсфЪЧЦЬ');
 @define('SEARCH_TOO_SHORT', 'эЬШ Уф Ъпцф кусэЩ ЧсШЭЫ ШпсуЩ УпЫб уф 3 УЭбн ! ! ! эупф сп ЧгЪЮЯЧу ЧсфЬуЩ * пэ ЪЬкс хах ЧскусэЩ Уоеб уф 3 УЭбн сЪЪу кусэЩ ШЭЫп кф ЧспсуЧЪ ЧсоеэбЩ');
 @define('IMAGE', 'Image');

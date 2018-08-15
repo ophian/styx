@@ -76,7 +76,7 @@
 @define('EXTENDED_BODY', 'الجزء التالي');
 @define('CATEGORY', 'تصنيف');
 @define('EDIT', 'تحرير');
-@define('NO_ENTRIES_BLAHBLAH', 'لم يتم العثور على اي مواضيع جديدة %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'لم يتم العثور على اي مواضيع جديدة %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'بحثك عن  %s وجد %s هذه النتائج');
 @define('SEARCH_TOO_SHORT', 'يجب أن تكون عملية البحث بكلمة أكثر من 3 أحرف ! ! ! يمكن لك استخدام النجمة * كي تجعل هذه العملية أقصر من 3 أحرف لتتم عملية بحثك عن الكلمات القصيرة');
 @define('IMAGE', 'Image');

@@ -76,7 +76,7 @@
 @define('EXTENDED_BODY', 'Utökat innehåll');
 @define('CATEGORY', 'Kategori');
 @define('EDIT', 'Redigera');
-@define('NO_ENTRIES_BLAHBLAH', 'Inga artiklar hittade för sökningen %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Inga artiklar hittade för sökningen %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Din sökning efter %s gav %s resultat:');
 @define('IMAGE', 'Bild');
 @define('ERROR_FILE_NOT_EXISTS', 'Fel: Det gamla filnamnet finns inte!');

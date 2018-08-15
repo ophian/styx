@@ -77,7 +77,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('EXTENDED_BODY', 'Rozszerzona treść wpisu');
 @define('CATEGORY', 'Kategoria');
 @define('EDIT', 'Edycja');
-@define('NO_ENTRIES_BLAHBLAH', 'Nie znaleziono wpisów zawierających zapytanie %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Nie znaleziono wpisów zawierających zapytanie %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Twoje zapytanie o %s zwróciło %s wyników:');
 @define('SEARCH_TOO_SHORT', 'Ilość znaków w zapytaniu musi być większa od trzech. Możesz próbować dodać * do krótszych słów, np. s9y* aby "oszukać" wyszukiwarkę by użyła krótsze zapytania.');
 @define('IMAGE', 'Obrazek');

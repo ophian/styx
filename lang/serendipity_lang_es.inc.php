@@ -82,7 +82,7 @@
 @define('EXTENDED_BODY', 'Texto ampliado');
 @define('CATEGORY', 'Categoría');
 @define('EDIT', 'Editar');
-@define('NO_ENTRIES_BLAHBLAH', 'No se han encontrado resultados para la búsqueda %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'No se han encontrado resultados para la búsqueda %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'La búsqueda para %s ha obtenido %s resultados:');
 @define('IMAGE', 'Imagen');
 @define('ERROR_FILE_NOT_EXISTS', 'Error: ¡El fichero antiguo no existe!');

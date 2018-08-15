@@ -73,7 +73,7 @@
 @define('EXTENDED_BODY', 'Extensão do corpo do artigo');
 @define('CATEGORY', 'Categoria:');
 @define('EDIT', 'Editar');
-@define('NO_ENTRIES_BLAHBLAH', 'Nenhum artigo encontrada para a consulta %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Nenhum artigo encontrada para a consulta %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Sua busca para %s retornou %s resultados:');
 @define('IMAGE', 'Imagem');
 @define('ERROR_FILE_NOT_EXISTS', 'Erro: O nome de arquivo antigo não existe!');

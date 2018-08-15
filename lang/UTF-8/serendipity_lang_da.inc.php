@@ -74,7 +74,7 @@
 @define('EXTENDED_BODY', 'Udvidet indhold');
 @define('CATEGORY', 'Kategori');
 @define('EDIT', 'Rediger');
-@define('NO_ENTRIES_BLAHBLAH', 'Ingen artikler blev fundet som indeholdt %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Ingen artikler blev fundet som indeholdt %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Din søgning på %s returnerede %s resultater:');
 @define('IMAGE', 'Billede');
 @define('ERROR_FILE_NOT_EXISTS', 'Fejl: Det gamle filnavn findes ikke!');

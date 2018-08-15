@@ -77,7 +77,7 @@
 @define('EXTENDED_BODY', 'Daha fazla yazı');
 @define('CATEGORY', 'Konu başlığı');
 @define('EDIT', 'Düzenle');
-@define('NO_ENTRIES_BLAHBLAH', ' %s sorunuz için herhangi bir kayıt bulunamadı' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', ' %s sorunuz için herhangi bir kayıt bulunamadı');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', ' %s terimiyle yaptığınız sorgunun döndürdüğü %s sonuçlar:');
 @define('SEARCH_TOO_SHORT', 'Arama sorgunuz üç karakterden uzun olmalı. Kısa kelimelerin sonuna * eklemeyi deneyebilirsiniz, şunun gibi: Edir* kısa kelimelerle arama yapmanın yolu bu şekildedir.');
 @define('IMAGE', 'Resim');

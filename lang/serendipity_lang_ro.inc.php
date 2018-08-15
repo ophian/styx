@@ -77,7 +77,7 @@
 @define('EXTENDED_BODY', 'Textul extins');
 @define('CATEGORY', 'Categorie');
 @define('EDIT', 'Modifică');
-@define('NO_ENTRIES_BLAHBLAH', 'Nu am găsit nici o însemnare căutând după %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Nu am găsit nici o însemnare căutând după %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Căutând după %s am găsit %s rezultate:');
 @define('IMAGE', 'Imagine');
 @define('ERROR_FILE_NOT_EXISTS', 'Eroare: Vechiul fişier nu există!');

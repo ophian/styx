@@ -77,7 +77,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('EXTENDED_BODY', 'Допълнително съдържание');
 @define('CATEGORY', 'Категория:');
 @define('EDIT', 'Редактиране');
-@define('NO_ENTRIES_BLAHBLAH', 'Няма намерени резултати за %s' . "\n");
+@define('NO_ENTRIES_BLAHBLAH', 'Няма намерени резултати за %s');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Търсенето на %s върна %s резултати:');
 @define('IMAGE', 'Изображение');
 @define('ERROR_FILE_NOT_EXISTS', 'Грешка: Старото име не съществува!');
