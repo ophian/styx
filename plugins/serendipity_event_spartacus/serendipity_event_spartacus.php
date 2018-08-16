@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.77');
+        $propbag->add('version',       '2.78');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -342,8 +342,8 @@ class serendipity_event_spartacus extends serendipity_event
             if ((empty($path) || empty($spaths[$pathid])) && @$spaths[$pathid] == $path) {
                 continue;
             }
-
-            if (@!is_dir($stack) && @!mkdir($stack)) {
+            // avoid possible open_basedir restrictions and better only check/make directories underneath sub (see method title)
+            if (!in_array($path, $spaths) && !is_dir($stack) && !mkdir($stack)) {
                 return false;
             } else {
                 $this->fileperm($stack, true);
