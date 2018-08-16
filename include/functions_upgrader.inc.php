@@ -432,6 +432,12 @@ $dead_files_250 = array(
     'templates/next/UTF-8/lang_en.inc.php'
 );
 
+/* A list of old or removed directories for 2.5.0 */
+$dead_dirs_250 = array(
+    $serendipity['serendipityPath'] . 'bundled-libs/HTTP/Request',
+    $serendipity['serendipityPath'] . 'plugins/serendipity_event_browsercompatibility'
+);
+
 /* A list of Styx files, to be removed or renamed by 2.6.0 */
 $dead_files_260 = array(
     'templates_c/.htaccess',
@@ -439,12 +445,6 @@ $dead_files_260 = array(
     'templates/clean-blog/backend_templates/default_staticpage_backend.tpl',
     'templates/default/admin/README.txt',
     'templates/timeline/backend_templates/default_staticpage_backend.tpl'
-);
-
-/* A list of old or removed directories for 2.5.0 */
-$dead_dirs_250 = array(
-    $serendipity['serendipityPath'] . 'bundled-libs/HTTP/Request',
-    $serendipity['serendipityPath'] . 'plugins/serendipity_event_browsercompatibility'
 );
 
 /* A list of old or removed directories for 2.6.0 */
