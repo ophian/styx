@@ -31,8 +31,8 @@
 
             <div class="clearfix equal_heights template_wrap">
                 <div class="template_preview">
-            {if $cur_tpl.fullsize_preview OR $cur_tpl.preview}
-                {if $cur_tpl.fullsize_preview}
+            {if NOT empty($cur_tpl.fullsize_preview) OR $cur_tpl.preview}
+                {if NOT empty($cur_tpl.fullsize_preview)}
 
                     <a class="media_fullsize" href="{$cur_tpl.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl.info.name}">
                         <img src="{$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
@@ -117,8 +117,8 @@
                     <h3 title="{$template.info.name}">{$template.info.name|truncate:27:"&hellip;"}</h3>
                     <div class="clearfix equal_heights template_wrap">
                         <div class="template_preview">
-                    {if $template.fullsize_preview OR $template.preview}
-                        {if $template.fullsize_preview}
+                    {if NOT empty($cur_tpl.fullsize_preview) OR $template.preview}
+                        {if NOT empty($template.fullsize_preview)}
 
                             <a class="media_fullsize" href="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
                                 <img src="{$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
