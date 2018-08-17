@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix templates fullsize_preview check if not available
+
   * Fix possible BETA open_basedir restriction errors with Spartacus updates
     and finally fix a possible double slash in update file targets.
 
