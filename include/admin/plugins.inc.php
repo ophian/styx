@@ -201,8 +201,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             // If a foreign plugin is upgradeable, keep the new version number.
             if (isset($foreignPlugins['pluginstack'][$class_data['name']]) && $foreignPlugins['pluginstack'][$class_data['name']]['upgradeable']) {
                 $class_data['upgrade_version'] = $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'];
-                // remember temporary, in case the update is not done immediately
-                $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
+                if (isset($foreignPlugins['pluginstack'][$class_data['name']]['changelog'])) {
+                    // remember temporary, in case the update is not done immediately
+                    $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
+                }
             }
 
             $props = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $foreignPlugins);
