@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.62');
+        $propbag->add('version',       '1.63');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -1002,7 +1002,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     if (!$ext_joins) {
                         return true;
                     }
-                    if ($_SESSION['serendipityAuthedUser'] === true) {
+                    if (isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true) {
                         $conds[] = " (ep_access.property IS NULL OR ep_access.value = 'member' OR ep_access.value = 'public' OR (ep_access.value = 'private' AND e.authorid = " . (int)$serendipity['authorid'] . ")) ";
 
                         if ($use_groups) {

@@ -1,3 +1,7 @@
+1.63:
+-----
+    * Init another uninitialized variable for authenticated fetchentries 
+
 1.62:
 -----
     * Make sure ep_no_frontpage article overview set entries are shown in
