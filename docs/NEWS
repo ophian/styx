@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix upgrade tasks array for some wrong key notices since 2.5.0
+
   * Fix templates image fullsize_preview check if not available
 
   * Fix possible BETA open_basedir restriction errors with Spartacus updates
