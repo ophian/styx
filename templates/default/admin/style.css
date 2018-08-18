@@ -2005,6 +2005,13 @@ fieldset p,
 .upgrader_tasks dd {
     margin-bottom: 1em;
 }
+.upgrader_tasks dd {
+    display: inline-block;
+    background: #fcf8e3;
+    border: 1px solid #fbeed5;
+    color: #c09853;
+    padding: 2px 5px;
+}
 
 .upgrader_perms dd pre,
 .upgrader_tasks dd pre {

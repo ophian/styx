@@ -417,12 +417,12 @@ $tasks = array(
                     'function'  => 'serendipity_fixPlugins',
                     'arguments' => array('spartacus_custom_reset'),
                     'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
-                    'desc'      => 'The custom Styx mirror location was removed in favor of the official gitHub repository location. Themes are still installed by the s9y origin gitHub repository location. The custom mirror is now either empty or set to "none", or points to your custom repository location for themes and plugins. Please check your custom mirror option after upgrade to be set empty for Styx.'),
+                    'desc'      => 'The custom Styx mirror location was removed in favour of the official gitHub repository location. Themes are still installed by the s9y origin gitHub repository location. The custom mirror is now either empty or set to "none", or points to your custom repository location for themes and plugins. Please check your custom mirror option after upgrade to be set empty for Styx.'),
 
             array(  'version'   => '2.6-beta1',
                     'type'      => 'HIDDEN',
-                    'title'     => 'Hidden temporary styles for upgrade',
-                    'desc'      => '<style> .upgrader_tasks dt b { font-weight: bolder; color: #3e5f81; border: 1px solid; padding: 2px 5px; background-color: #EEE; }</style>'),
+                    'title'     => 'Hidden',
+                    'desc'      => 'added temporary styles for upgrade.<style> .upgrader_tasks dt b { font-weight: bolder; color: #3e5f81; border: 1px solid; padding: 2px 5px; background-color: #EEE; } .upgrader_tasks dd { display: inline-block; background: #fcf8e3; border: 1px solid #fbeed5; color: #c09853; padding: 2px 5px; }</style>'),
 
             array(  'version'   => '2.6-beta1',
                     'type'      => 'TEMPLATE_NOTICE',
@@ -433,7 +433,7 @@ $tasks = array(
                     'function'  => 'serendipity_fixPlugins',
                     'arguments' => array('wrong_upgrade_version'),
                     'title'     => 'Spartacus (Developer) Plugin Update Synchronizer',
-                    'desc'      => 'ZARATHUSTRA - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
+                    'desc'      => '<b>ZARATHUSTRA</b> - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
 
             array(  'version'   => '2.6-beta2',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
