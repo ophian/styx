@@ -420,6 +420,11 @@ $tasks = array(
                     'desc'      => 'The custom Styx mirror location was removed in favor of the official gitHub repository location. Themes are still installed by the s9y origin gitHub repository location. The custom mirror is now either empty or set to "none", or points to your custom repository location for themes and plugins. Please check your custom mirror option after upgrade to be set empty for Styx.'),
 
             array(  'version'   => '2.6-beta1',
+                    'type'      => 'HIDDEN',
+                    'title'     => 'Hidden temporary styles for upgrade',
+                    'desc'      => '<style> .upgrader_tasks dt b { font-weight: bolder; color: #3e5f81; border: 1px solid; padding: 2px 5px; background-color: #EEE; }</style>'),
+
+            array(  'version'   => '2.6-beta1',
                     'type'      => 'TEMPLATE_NOTICE',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
                     'desc'      => 'for logic, initialization checks, etc. Please adapt these changes to your template copies. Read the ChangeLog for more. Styx recommends to start you copy theme from scratch, since not all of them were explicitly mentioned!'),
