@@ -93,14 +93,14 @@ $tasks = array(
 
             array(  'version'   => '0.8-alpha3',
                     'function'  => 'serendipity_removeFiles',
-                    'title'     => 'Removal of obsolete files',
                     'arguments' => array($obsolete_files),
+                    'title'     => 'Removal of obsolete files',
                     'desc'      => '<p>The directory structure has been reworked. The following files will be moved to a folder called "backup". If you made manual changes to those files, be sure to read the file docs/CHANGED_FILES to re-implement your changes.</p><pre>' . implode(', ', $obsolete_files) . '</pre>'),
 
             array(  'version'   => '0.8-alpha4',
                     'function'  => 'serendipity_removeFiles',
-                    'title'     => 'Removal of serendipity_entries.php',
                     'arguments' => array(array('serendipity_entries.php')),
+                    'title'     => 'Removal of serendipity_entries.php',
                     'desc'      => 'In order to implement the new administration, we have to remove the leftovers'),
 
             array(  'version'   => '0.8-alpha4',
@@ -131,7 +131,6 @@ $tasks = array(
 
             array(  'version'   => '0.8-alpha12',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file "entries.tpl" has changed.',
                     'desc'      => 'Authors can now have longer real names instead of only their loginnames. Those new fields need to be displayed in your Template, if you manually created one. Following variables were changes:
                                    <b>{$entry.username}</b> =&gt; <b>{$entry.author}</b>
@@ -164,7 +163,6 @@ $tasks = array(
 
             array(  'version'   => '1.7-rc2',
                     'type'      => 'PLUGIN_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>PLUGIN NOTICE:</b> Due to PHP 5.2+\'s raised error reporting, every Serendipity event plugin needs to conform to the core plugin API method signature.',
                     'desc'      => '<p>All internal and spartacus plugins have been updated to reflect this change. The most important signatures are:</p>'
                                  . '<p><strong>function uninstall(&$propbag)</strong><br />'
@@ -175,7 +173,6 @@ $tasks = array(
 
             array(  'version'   => '1.7-rc2',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file "entries.tpl" needs a specific assignment',
                     'desc'      => 'To transport the $entry variable to sub-templates like comments.tpl and trackbacks.tpl.
                                    All internal and spartacus templates have been updated, so make sure you are using a recent version of your blog\'s template.
@@ -189,7 +186,6 @@ $tasks = array(
 
             array(  'version'   => '1.7.1',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The Bulletproof template config has changed, to avoid a backend template view conflict with the "categorytemplates" plugin.',
                     'desc'      => 'Please check any used <strong>copy</strong> of an old BP template config.inc.php file, in the colorset if(...) conditionals at around line 29 in config.inc.php, to be the same as in the origin bulletproof.'),
 
@@ -201,8 +197,8 @@ $tasks = array(
 
             array(  'version'   => '2.0-alpha2',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of obsolete and dead Smarty 2.6.x files',
                     'arguments' => array($serendipity['serendipityPath'] . 'bundled-libs/Smarty', $dead_smarty_files, array('internals'), true),
+                    'title'     => 'Removal of obsolete and dead Smarty 2.6.x files',
                     'desc'      => 'Smarty 3.x brought a new file structure. The following dead files will be removed from "bundled-libs/Smarty/libs".<br /><pre>' . implode(', ', $dead_smarty_files) . '</pre>'),
 
             array(  'version'   => '2.0-alpha3',
@@ -212,14 +208,14 @@ $tasks = array(
 
             array(  'version'   => '2.0-alpha4',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of obsolete and dead htmlarea files',
                     'arguments' => array($serendipity['serendipityPath'] . 'htmlarea', $dead_htmlarea_files, array('internals'), true),
+                    'title'     => 'Removal of obsolete and dead htmlarea files',
                     'desc'      => 'Serendipity 2.0 replaces old WYSIWYG-Editors in htmlarea directory with CKEDITOR. The following dead files will be removed from "/htmlarea".<br /><pre>' . implode(', ', $dead_htmlarea_files) . '</pre>'),
 
             array(  'version'   => '2.0-alpha4',
                     'function'  => 'recursive_directory_iterator',
-                    'title'     => 'Removal of obsolete and dead htmlarea directories',
                     'arguments' => array($dead_htmlarea_dirs),
+                    'title'     => 'Removal of obsolete and dead htmlarea directories',
                     'desc'      => 'Serendipity 2.0 replaces old WYSIWYG-Editors in htmlarea directory with CKEDITOR. The following dead directories will be completely removed from "/htmlarea".<br /><pre>' . implode(', ', $dead_htmlarea_dirs) . '</pre>'),
 
             array(  'version'   => '2.0-beta3',
@@ -246,14 +242,14 @@ $tasks = array(
 
             array(  'version'   => '2.0.2',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of obsolete and still resting files in 2.0',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_200, array('internals'), true),
+                    'title'     => 'Removal of obsolete and still resting files in 2.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_200) . '</pre>'),
 
             array(  'version'   => '2.0.2',
                     'function'  => 'recursive_directory_iterator',
-                    'title'     => 'Removal of obsolete and dead directories',
                     'arguments' => array($dead_dirs_200),
+                    'title'     => 'Removal of obsolete and dead directories',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_200) . '</pre>'),
 
             array(  'version'   => '2.0.2',
@@ -263,26 +259,24 @@ $tasks = array(
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of old dead files in v.2.0.2',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_202, array('internals'), true),
+                    'title'     => 'Removal of old dead files in v.2.0.2',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_202) . '</pre>'),
 
             array(  'version'   => '2.1.0',
                     'function'  => 'recursive_directory_iterator',
-                    'title'     => 'Removal of obsolete and dead directories',
                     'arguments' => array($dead_dirs_202),
+                    'title'     => 'Removal of obsolete and dead directories',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_202) . '</pre>'),
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> Check the Styx 2.1 changeLog doc/NEWS file for theme file changes',
                     'desc'      => 'Serendipity Styx 2.1.0 fixes an issue creating the entry ID, in <em>"preview.tpl"</em>, caused by a wrong javascript execution.
                                     Please read the docs/NEWS file to add this manually to your custom/unsupported/copy theme.'),
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The "default", "default-php" and "default-xml" themes have been reworked.',
                     'desc'      => 'This had effects to some depending themes ("blue", "idea" and "default-rtl") delivered by core.
                                     Spartacus themes may be effected too. Also the general theme fallback stack has changed a little,
@@ -291,7 +285,6 @@ $tasks = array(
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"entries.tpl"</em> needs a specific assignment',
                     'desc'      => 'to transport the $entry variable to "sub"-templates like comments.tpl and trackbacks.tpl.
                                    Due to scoping changes in recent Smarty versions we were in need to touch this again.
@@ -301,7 +294,6 @@ $tasks = array(
 
             array(  'version'   => '2.1.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"comments.tpl"</em> and <em>"comments_by_authors.tpl"</em>',
                     'desc'      => 'now use some slightly changed variables, to check and set the "serendipity_comment_author_self" class. Please make sure to check both your files, if have in your custom theme.'),
 
@@ -312,49 +304,44 @@ $tasks = array(
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_cleanUpDirectories_SPL',
-                    'title'     => 'Removal of empty directories in templates_c',
                     'arguments' => array($serendipity['serendipityPath'] . 'templates_c'),
+                    'title'     => 'Removal of empty directories in templates_c',
                     'desc'      => 'Purges empty Smarty (and other) directory leftovers.'),
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_cleanUpOldCompilerFiles_SPL',
-                    'title'     => 'Removal of possible old Smarty2 compiler files leftovers in the root of templates_c',
                     'arguments' => array($serendipity['serendipityPath'] . 'templates_c'),
+                    'title'     => 'Removal of possible old Smarty2 compiler files leftovers in the root of templates_c',
                     'desc'      => ''),
 
             array(  'version'   => '2.2.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Due to changes to the Cookie LOGIN kept password strength generation with Styx 2.2.0 under PHP 7+,',
                     'desc'      => 'you shall <b>NOT</b> close your browser after the update, your current checkup and/or maintenance session, without fully terminating your current LOGIN session per LOGOUT. Else you\'ll get an error with the automated login on LOGIN. This only is a need when on PHP 7+ and only ONCE! In the case of updating your system to PHP 7 later on, please remember to terminate your Cookie kept login data for the switch once too, per LOGOUT."'),
 
             array(  'version'   => '2.2.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"entries.tpl"</em> now uses a slightly changed variable check,',
                     'desc'      => 'to evaluate if a 404 error page was assigned before announcing the possible "NO ENTRIES TO PRINT" constant error. Please make sure to check your own / or copy theme files to get the best results. Change "{if NOT $plugin_clean_page}" to "{if NOT $plugin_clean_page AND $view != \'404\'}."'),
 
             array(  'version'   => '2.2.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"plugin_staticpage.tpl"</em> and its siblings were changed',
                     'desc'      => 'regarding separator spaces in the breadcrumb navigation. Keep your own / or copy theme files in touch.'),
 
             array(  'version'   => '2.2.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of old dead files in v.2.2.0',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_220, array('internals'), true),
+                    'title'     => 'Removal of old dead files in v.2.2.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_220) . '</pre>'),
 
             array(  'version'   => '2.2.0',
                     'type'      => 'PLUGIN_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>PLUGIN_NOTICE:</b> The Spartacus plugin mirror <em>"Netmirror"</em> server is <b>not</b> the default mirror any more.',
                     'desc'      => 'The Spartacus mirror <em>"Netmirror"</em> has been down for a while. Please use the GitHub or the S9y server for plugin and theme locations. This does not hit Styx by default, since Styx uses a custom plugin repository.'),
 
             array(  'version'   => '2.2.0',
                     'type'      => 'TEMPLATE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> The template file <em>"entries.tpl"</em> was changed for the trackback URI constant.',
                     'desc'      => 'Keep your own / or copy theme files in touch. See all themes with date: 2017-06-21 for examples.<br>Serendipity also introduces a new trackback detection alternative to RDF, by adding a "rel=trackback" element to the "index.tpl" header. The standard theme 2k11 was already changed to use it. You may want to spread and test this any further.'),
 
@@ -365,20 +352,20 @@ $tasks = array(
 
             array(  'version'   => '2.4.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of special plugin .htaccess files since Styx v.2.3-beta1.',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_230hta, array('internals'), true),
+                    'title'     => 'Removal of special plugin .htaccess files since Styx v.2.3-beta1.',
                     'desc'      => 'As long as documentary .htaccess rewrite files were available via Spartacus, this upgrade task had to run on every system upgrade. Probably this is the last time.<details id="details_htaccesstask240" class="plugin_data"><summary role="button" aria-expanded="false">open details</summary><div>The following files will be removed from your system if available.<pre>' . implode(', ', $dead_files_230hta) . '</pre></div></details>'),
 
             array(  'version'   => '2.4.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of old dead files in v.2.4.0',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_240, array('internals'), true),
+                    'title'     => 'Removal of old dead files in v.2.4.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_240) . '</pre>'),
 
             array(  'version'   => '2.4.0',
                     'function'  => 'recursive_directory_iterator',
-                    'title'     => 'Removal of obsolete and dead directories',
                     'arguments' => array($dead_dirs_240),
+                    'title'     => 'Removal of obsolete and dead directories',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_240) . '</pre>'),
 
             array(  'version'   => '2.4.0',
@@ -389,13 +376,11 @@ $tasks = array(
 
             array(  'version'   => '2.5-beta1',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'function'  => '',
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> login COOKIE data encryption changed for PHP 7.1.3+',
                     'desc'      => 'Due to changes to the (optional) keep password login COOKIE crypt generation with Styx 2.5.0-alpha2 with PHP 7.1.3+, you shall <b>NOT</b> close your browser after the update, your current checkup and/or maintenance session, <b>without</b> fully terminating your current LOGIN session per <b>LOGOUT</b>. Else you\'ll get an error with the automated login on LOGIN and are stuck. This only is a need when upgrading PHP 7.1.3+ versions and only ONCE for this current beta upgrade! If you upgrade to a later Styx version (like the 2.5.0 release), you don\'t need to care.'),
 
             array(  'version'   => '2.5-beta1',
-                    'function'  => 'TEMPLATE_NOTICE',
-                    'function'  => '',
+                    'type'      => 'TEMPLATE_NOTICE',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
                     'desc'      => 'regarding Serendipity message colorizing for consistency. Please adapt this selector change to your copy or Spartacus pulled themes. Read the ChangeLog for more.'),
 
@@ -407,26 +392,25 @@ $tasks = array(
 
             array(  'version'   => '2.5.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of old dead files in v.2.5.0',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_250, array('internals'), true),
+                    'title'     => 'Removal of old dead files in v.2.5.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_250) . '</pre>'),
 
             array(  'version'   => '2.5.0',
                     'function'  => 'recursive_directory_iterator',
-                    'title'     => 'Removal of obsolete and dead directories',
                     'arguments' => array($dead_dirs_250),
+                    'title'     => 'Removal of obsolete and dead directories',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_250) . '</pre>'),
 
             array(  'version'   => '2.5.0',
-                    'function'  => 'TEMPLATE_NOTICE',
-                    'function'  => '',
+                    'type'      => 'TEMPLATE_NOTICE',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> More themes were changed',
                     'desc'      => 'for webfonts, calendar, typos, display of post comment owner and trackbacks. Please adapt these changes to your template copy. Read the ChangeLog for more.'),
 
             array(  'version'   => '2.6-beta1',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'title'     => 'Removal of old dead files in v.2.6.0',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_260, array('internals'), true),
+                    'title'     => 'Removal of old dead files in v.2.6.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_260) . '</pre>'),
 
             array(  'version'   => '2.6-beta1',
@@ -436,8 +420,7 @@ $tasks = array(
                     'desc'      => 'The custom Styx mirror location was removed in favor of the official gitHub repository location. Themes are still installed by the s9y origin gitHub repository location. The custom mirror is now either empty or set to "none", or points to your custom repository location for themes and plugins. Please check your custom mirror option after upgrade to be set empty for Styx.'),
 
             array(  'version'   => '2.6-beta1',
-                    'function'  => 'TEMPLATE_NOTICE',
-                    'function'  => '',
+                    'type'      => 'TEMPLATE_NOTICE',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> All release themes were changed',
                     'desc'      => 'for logic, initialization checks, etc. Please adapt these changes to your template copies. Read the ChangeLog for more. Styx recommends to start you copy theme from scratch, since not all of them were explicitly mentioned!'),
 
@@ -455,6 +438,8 @@ $tasks = array(
                     'desc'      => 'If you have any custom or developer files in the "templates/2k11/admin" directory, make a backup copy before proceeding. Do not try to keep this directory, since further file development already went to the new location! The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_260) . '</pre>'),
 
 );
+
+// TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
 /* Fetch SQL files which needs to be run */
 $dir      = opendir(S9Y_INCLUDE_PATH . 'sql/');
