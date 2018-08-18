@@ -1,7 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
-  * Fix upgrade tasks array for some wrong key notices since 2.5.0
+  * Fix upgrade tasks array for some wrong key notices since 2.5.0.
+    Improve readability of upgrade tasks.
 
   * Fix templates image fullsize_preview check if not available
 
