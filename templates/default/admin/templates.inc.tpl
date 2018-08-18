@@ -117,7 +117,7 @@
                     <h3 title="{$template.info.name}">{$template.info.name|truncate:27:"&hellip;"}</h3>
                     <div class="clearfix equal_heights template_wrap">
                         <div class="template_preview">
-                    {if NOT empty($template.fullsize_preview) OR $template.preview}
+                    {if NOT empty($template.fullsize_preview) OR NOT empty($template.preview)}
                         {if NOT empty($template.fullsize_preview)}
 
                             <a class="media_fullsize" href="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
