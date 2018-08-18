@@ -1304,7 +1304,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 $entry['has_trackbacks'] = false;
             }
 
-            if ($_SESSION['serendipityAuthedUser'] === true && ($_SESSION['serendipityAuthorid'] == $entry['authorid'] || serendipity_checkPermission('adminEntriesMaintainOthers'))) {
+            if (isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] === true && ($_SESSION['serendipityAuthorid'] == $entry['authorid'] || serendipity_checkPermission('adminEntriesMaintainOthers'))) {
                 $entry['is_entry_owner'] = true;
             }
 
