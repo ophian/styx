@@ -10,7 +10,7 @@
     </div>
 <?php endif; ?>
 <?php if (!$GLOBALS['tpl']['staticpage_jsStr'] || empty($GLOBALS['tpl']['staticpage_jsStr'])): ?>
-    <?php if ($GLOBALS['tpl']['frontpage_path']): ?>
+    <?php if (!empty($GLOBALS['tpl']['frontpage_path'])): ?>
         <a class="spp_title" href="<?= $GLOBALS['tpl']['frontpage_path'] ?>"><?= PLUGIN_STATICPAGELIST_FRONTPAGE_LINKNAME ?></a>
     <?php endif; ?>
     <?php if (is_array($GLOBALS['tpl']['staticpage_listContent']) && !empty($GLOBALS['tpl']['staticpage_listContent'])): ?>
