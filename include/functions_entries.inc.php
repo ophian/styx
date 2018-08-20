@@ -370,6 +370,9 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
     serendipity_plugin_api::hook_event('frontend_fetchentries', $cond, array('noCache' => $noCache, 'noSticky' => $noSticky, 'source' => 'entries'));
 
+    if (!isset($cond['addkey'])) {
+        $cond['addkey'] = '';
+    }
     if (is_null($select_key)) {
         $select_key = "{$cond['distinct']}
                     {$cond['addkey']}
@@ -392,6 +395,9 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
     if (!isset($cond['and'])) {
         $cond['and'] = '';
+    }
+    if (!isset($cond['joins'])) {
+        $cond['joins'] = '';
     }
     serendipity_ACL_SQL($cond);
 
