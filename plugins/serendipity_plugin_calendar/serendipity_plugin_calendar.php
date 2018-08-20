@@ -15,7 +15,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
         $propbag->add('configuration', array('beginningOfWeek', 'enableExtEvents', 'category'));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
 
@@ -204,6 +204,9 @@ class serendipity_plugin_calendar extends serendipity_plugin
 
         serendipity_plugin_api::hook_event('frontend_fetchentries', $cond, array('noCache' => false, 'noSticky' => false, 'source' => 'calendar'));
 
+        if (!isset($cond['joins'])) {
+            $cond['joins'] = '';
+        }
         // Event Calendar
         $cat = $this->get_config('category', 'all');
         if ($cat != 'all') {
