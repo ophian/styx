@@ -1,3 +1,7 @@
+1.64:
+-----
+    * Better init part fieldname array check for the customfields form values
+
 1.63:
 -----
     * Init another uninitialized variable for authenticated fetchentries 

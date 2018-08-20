@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '1.63');
+        $propbag->add('version',       '1.64');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.27',
@@ -556,8 +556,10 @@ class serendipity_event_entryproperties extends serendipity_event
                         $value = $serendipity['POST']['properties'][$_fieldname];
                     } elseif (!empty($eventData['properties']['ep_' . $_fieldname])) {
                         $value = $eventData['properties']['ep_' . $_fieldname];
-                    } else {
+                    } elseif (isset($fieldparts[1])) {
                         $value = trim(str_replace($special_to, $special_read, $fieldparts[1]));
+                    } else {
+                        $value = '';
                     }
 ?>
                     <div id="ep_column_<?php echo $_fieldname; ?>" class="clearfix form_area media_choose">
@@ -572,7 +574,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         <?php } ?>
                     </div>
 <?php
-                    }
+                }
 ?>
                 </div>
 <?php
