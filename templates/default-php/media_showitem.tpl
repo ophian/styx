@@ -107,7 +107,7 @@
 </div>
 
 <?php endif; ?>
-<?= $GLOBALS['tpl']['raw_data'] ?>
+<?php if (!empty($GLOBALS['tpl']['raw_data'])) ?><?= $GLOBALS['tpl']['raw_data'] ?><?php endif; ?>
 <?php /*serendipity_plugin_api::hook_event('frontend_footer', $template) *//* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib */ ?>
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 </body>

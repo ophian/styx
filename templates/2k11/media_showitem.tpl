@@ -133,7 +133,7 @@
 </div>
 <script src="{serendipity_getFile file="js/2k11.min.js"}"></script>
 {/if}
-{$raw_data}
+{$raw_data|default:''}
 {* serendipity_hookPlugin hook="frontend_footer" *}{* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib *}
 {if $is_embedded != true}
 </body>
