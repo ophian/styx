@@ -2809,7 +2809,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
 
                 case 'COPYRIGHT':
                     if (!isset($default_iptc_val)) {
-                        $default_iptc_val = $serendipity['serendipityUser'];
+                        $default_iptc_val = isset($serendipity['serendipityUser']) ? $serendipity['serendipityUser'] : null;
                     }
 
                 case 'TITLE':
@@ -3161,7 +3161,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
                         ? $file['path']
                         : $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
-    if ($full_perm || $serendipity['authorid'] == $file['authorid'] || $file['authorid'] == '0') {
+    if ($full_perm || (isset( $serendipity['authorid']) && $serendipity['authorid'] == $file['authorid']) || $file['authorid'] == '0') {
         $file['is_editable'] = true;
     } else {
         $file['is_editable'] = false;
