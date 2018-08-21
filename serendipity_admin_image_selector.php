@@ -52,7 +52,7 @@ if ($serendipity['GET']['step'] === 'tree') {
 
 $media = array(
     'body_id'    => $body_id,
-    'only_path'  => $serendipity['GET']['only_path'],
+    'only_path'  => isset($serendipity['GET']['only_path']) ? $serendipity['GET']['only_path'] : null,
     'css'        => serendipity_rewriteURL('serendipity_admin.css'),
     'css_tree'   => serendipity_getTemplateFile('treeview/tree.css'),
     'css_front'  => serendipity_rewriteURL('serendipity.css'),
@@ -159,7 +159,7 @@ switch ($serendipity['GET']['step']) {
     case 'showItem':
         serendipity_plugin_api::hook_event('frontend_media_showitem_init', $media);
 
-        if ($media['perm_denied']) {
+        if (!empty($media['perm_denied'])) {
             break;
         }
         $media['case'] = 'showitem';
@@ -175,9 +175,9 @@ switch ($serendipity['GET']['step']) {
         serendipity_prepareMedia($file);
 
         $showfile = null;
-        if (($serendipity['GET']['resizeWidth'] || $serendipity['GET']['resizeHeight']) && $serendipity['dynamicResize'] && $media['file']['is_image']) {
-            $width  = (int)$serendipity['GET']['resizeWidth'];
-            $height = (int)$serendipity['GET']['resizeHeight'];
+        if ((isset($serendipity['GET']['resizeWidth']) || isset($serendipity['GET']['resizeHeight'])) && $serendipity['dynamicResize'] && $media['file']['is_image']) {
+            $width  = isset($serendipity['GET']['resizeWidth']) ? (int)$serendipity['GET']['resizeWidth'] : null;
+            $height = isset($serendipity['GET']['resizeHeight']) ? (int)$serendipity['GET']['resizeHeight'] : null;
             if (empty($width)) {
                 $width = NULL;
             }
@@ -216,27 +216,29 @@ switch ($serendipity['GET']['step']) {
                                    WHERE   id = " . (int)$hit['id']);
         }
 
-        $curl = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . ($_SERVER['HTTP_PORT'] != 80 ? ':' . $_SERVER['HTTP_PORT'] : '');
-        switch($serendipity['GET']['show']) {
-            case 'redirect':
-                header('Status: 302 Found');
-                header('Location: ' . $curl . $file['links']['imagelinkurl']);
-                exit;
-                break;
+        $curl = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . ((isset($_SERVER['HTTP_PORT']) && $_SERVER['HTTP_PORT'] != 80) ? ':' . $_SERVER['HTTP_PORT'] : '');
+        if (isset($serendipity['GET']['show'])) {
+            switch($serendipity['GET']['show']) {
+                case 'redirect':
+                    header('Status: 302 Found');
+                    header('Location: ' . $curl . $file['links']['imagelinkurl']);
+                    exit;
+                    break;
 
-            case 'redirectThumb':
-                header('Status: 302 Found');
-                header('Location: ' . $curl . $file['show_thumb']);
-                exit;
-                break;
+                case 'redirectThumb':
+                    header('Status: 302 Found');
+                    header('Location: ' . $curl . $file['show_thumb']);
+                    exit;
+                    break;
 
-            case 'full':
-                $showfile = $file['realfile'];
-                break;
+                case 'full':
+                    $showfile = $file['realfile'];
+                    break;
 
-            case 'thumb':
-                $showfile = $file['location'];
-                break;
+                case 'thumb':
+                    $showfile = $file['location'];
+                    break;
+            }
         }
 
         if (!empty($showfile) && file_exists($showfile)) {
@@ -253,7 +255,7 @@ switch ($serendipity['GET']['step']) {
 
         serendipity_parseMediaProperties($keywords, $dprops, $media['file'], $media['file']['props'], 0, false);
         serendipity_plugin_api::hook_event('frontend_media_showitem', $media);
-        if ($media['perm_denied']) {
+        if (!empty($media['perm_denied'])) {
             unset($media['file']);
             unset($file);
         }
