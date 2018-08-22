@@ -259,17 +259,6 @@ switch ($serendipity['GET']['step']) {
             unset($media['file']);
             unset($file);
         }
-        // Take care of translatable modules in blogTitle and head_subtitle, split by {{--}} if using the multilingual event plugin.
-        $parts = explode('{{--}}', $serendipity['smarty']->getTemplateVars('blogTitle'));
-        foreach($parts AS $idx => $match) {
-            $serendipity['smarty']->assign('blogTitle', preg_replace('@\{\{!([a-z]){2}+\}\}@s', '', $match)); // take the first matching language to be displayed
-            break;
-        }
-        $parts = explode('{{--}}', $serendipity['smarty']->getTemplateVars('head_subtitle'));
-        foreach($parts AS $idx => $match) {
-            $serendipity['smarty']->assign('head_subtitle', preg_replace('@\{\{!([a-z]){2}+\}\}@s', '', $match)); // take the first matching language to be displayed
-            break;
-        }
         $showFile = 'media_showitem.tpl';
         break;
 
