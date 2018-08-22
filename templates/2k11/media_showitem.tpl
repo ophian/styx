@@ -46,7 +46,7 @@
         <main id="content"{if $template_option.imgstyle != 'none'} class="{$template_option.imgstyle}"{/if}>
             <article class="clearfix serendipity_entry">
                 <h2>{$media.file.props.base_property.TITLE|default:$media.file.realname}</h2>
-            {if $perm_denied}
+            {if NOT empty($perm_denied)}
                 <p class="msg_important">{$CONST.PERM_DENIED}</p>
             {else}
                 <div class="media_show">
@@ -77,7 +77,7 @@
                 </dl>
             </section>
         {/if}
-        {if $media.file.props.base_keyword}
+        {if NOT empty($media.file.props.base_keyword)}
             <section class="media_props_keywords sidebar_plugin clearfix">
                 <h3>{$CONST.MEDIA_KEYWORDS}</h3>
 

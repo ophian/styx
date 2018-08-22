@@ -26,7 +26,7 @@
     <main id="content" <?php if ($GLOBALS['tpl']['template_option']['imgstyle'] != 'none'): ?> class="<?= $GLOBALS['tpl']['template_option']['imgstyle'] ?>"<?php endif; ?>>
         <article class="clearfix serendipity_entry">
             <h2><?= (!empty($GLOBALS['tpl']['media']['file']['props']['base_property']['TITLE']) ? $GLOBALS['tpl']['media']['file']['props']['base_property']['TITLE'] : $GLOBALS['tpl']['media']['file']['realname']) ?></h2>
-        <?php if ($GLOBALS['tpl']['perm_denied']): ?>
+        <?php if (!empty($GLOBALS['tpl']['perm_denied'])): ?>
             <p class="msg_important"><?= PERM_DENIED ?></p>
         <?php else: ?>
             <div class="media_show">
@@ -56,7 +56,7 @@
             </dl>
         </section>
     <?php endif; ?>
-    <?php if ($GLOBALS['tpl']['media']['file']['props']['base_keyword']): ?>
+    <?php if (!empty($GLOBALS['tpl']['media']['file']['props']['base_keyword'])): ?>
         <section class="media_props_keywords sidebar_plugin clearfix">
             <h3><?= MEDIA_KEYWORDS ?></h3>
 

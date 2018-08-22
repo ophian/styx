@@ -36,7 +36,7 @@
 
             <div class="serendipity_entry">
                 <div class="serendipity_entry_body">
-                {if $perm_denied}
+                {if NOT empty($perm_denied)}
                     {$CONST.PERM_DENIED}
                 {else}
                     <div class="serendipity_center">
@@ -69,7 +69,7 @@
             </div>
         {/if}
 
-        {if $media.file.props.base_keyword}
+        {if NOT empty($media.file.props.base_keyword)}
             <div class="serendipitySideBarItem">
                 <h3 class="serendipitySideBarTitle">{$CONST.MEDIA_KEYWORDS}</h3>
 
@@ -126,7 +126,6 @@
     </div>
 </div>
 {/if}
-
 {$raw_data|default:''}
 {* serendipity_hookPlugin hook="frontend_footer" *}{* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib *}
 {if $is_embedded != true}
