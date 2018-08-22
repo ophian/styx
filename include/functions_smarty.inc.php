@@ -424,7 +424,7 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
         $serendipity['short_archives'] = $old_var['short_archives'];
     }
 
-    if (is_array($old_var['GET'])) {
+    if (isset($old_var['GET']) && is_array($old_var['GET'])) {
         foreach($old_var['GET'] AS $key => $val) {
             $serendipity['GET'][$key] = $val;
         }
