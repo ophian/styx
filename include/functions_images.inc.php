@@ -2996,7 +2996,7 @@ function serendipity_parsePropertyForm() {
         );
         serendipity_insertMediaProperty('base_hidden', '', $media['image_id'], $s9y_img['hidden']);
 
-        if ($serendipity['POST']['oldDir'][$id] != $serendipity['POST']['newDir'][$id]) {
+        if (isset($serendipity['POST']['oldDir'][$id]) && $serendipity['POST']['oldDir'][$id] != $serendipity['POST']['newDir'][$id]) {
             serendipity_moveMediaDirectory(
                 serendipity_uploadSecure($serendipity['POST']['oldDir'][$id]),
                 serendipity_uploadSecure($serendipity['POST']['newDir'][$id]),
