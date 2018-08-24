@@ -14,7 +14,7 @@
         </th>
 
         <th id="month" scope="col" colspan="5" class="serendipity_calendarHeader" style="text-align: center">
-            <b><a style="white-space: nowrap" href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B '%y":false}</a></b>
+            <b><a style="white-space: nowrap" href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a></b>
         </th>
 
         <th id="forward" scope="col" colspan="1" class="serendipity_calendarHeader" style="text-align: left">

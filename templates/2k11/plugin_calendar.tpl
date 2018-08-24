@@ -14,7 +14,7 @@
         {/if}
         </td>
         <td class="current_month" colspan="5">
-            <a href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B '%y":false}</a>
+            <a href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a>
         </td>
         <td class="next">
         {if $plugin_calendar_head.maxScroll ge $plugin_calendar_head.month_date}

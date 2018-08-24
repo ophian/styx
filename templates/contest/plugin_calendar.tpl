@@ -7,7 +7,7 @@
         </td>
 
         <td class="serendipity_calendarHeader" style="text-align: center; vertical-align: bottom">
-            <a style="white-space: nowrap" href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B '%y":false}</a>
+            <a style="white-space: nowrap" href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a>
         </td>
 
         <td class="serendipity_calendarHeader" style="text-align: right">

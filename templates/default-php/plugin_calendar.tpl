@@ -7,7 +7,7 @@
         </td>
 
         <td colspan="5" class="serendipity_calendarHeader" style="text-align: center; vertical-align: bottom">
-            <b><a style="white-space: nowrap" href="<?= $GLOBALS['tpl']['plugin_calendar_head']['uri_month'] ?>"><?= serendipity_formatTime("%B '%y", $GLOBALS['tpl']['plugin_calendar_head']['month_date']); ?></a></b>
+            <b><a style="white-space: nowrap" href="<?= $GLOBALS['tpl']['plugin_calendar_head']['uri_month'] ?>"><?= serendipity_formatTime("%B &rsquo;%y", $GLOBALS['tpl']['plugin_calendar_head']['month_date']); ?></a></b>
         </td>
 
         <td class="serendipity_calendarHeader" style="text-align: right">
