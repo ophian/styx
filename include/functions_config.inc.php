@@ -2209,7 +2209,8 @@ function serendipity_ACL_SQL(&$cond, $append_category = false, $type = 'category
 /**
  * Check for Cross-Site-Request-Forgery attacks because of missing HTTP Referer
  *
- * http://de.wikipedia.org/wiki/XSRF
+ * https://de.wikipedia.org/wiki/XSRF
+ * https://en.wikipedia.org/wiki/HTTP_referer about the Etymologie of the HTTP referer (originally a misspelling of referrer)
  * This function checks the HTTP referer, and if it is part of the current Admin panel.
  *
  * @access public
@@ -2259,7 +2260,7 @@ function serendipity_checkXSRF() {
 /**
  * Report a XSRF attempt to the Serendipity Interface
  *
- * http://de.wikipedia.org/wiki/XSRF
+ * https://de.wikipedia.org/wiki/XSRF
  *
  * LONG
  *
@@ -2292,7 +2293,7 @@ function serendipity_reportXSRF($type = 0, $reset = true, $use_config = false) {
 /**
  * Prevent XSRF attacks by checking for a form token
  *
- * http://de.wikipedia.org/wiki/XSRF
+ * https://de.wikipedia.org/wiki/XSRF
  *
  * This function checks, if a valid Form token was posted to the site.
  *
@@ -2327,7 +2328,7 @@ function serendipity_checkFormToken($output = true) {
 /**
  * Prevent XSRF attacks by setting a form token within HTTP Forms
  *
- * http://de.wikipedia.org/wiki/XSRF
+ * https://de.wikipedia.org/wiki/XSRF
  *
  * By inserting a unique Form token that holds the session id, all requests
  * to serendipity HTTP forms can only be processed if the token is present.
