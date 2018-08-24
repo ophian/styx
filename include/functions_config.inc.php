@@ -1163,17 +1163,30 @@ function serendipity_probeInstallation($item) {
     global $serendipity;
     $res = NULL;
 
-    switch ( $item ) {
+    switch ($item) {
         case 'dbType' :
             $res =  array();
+            if (extension_loaded('mysqli')) {
+                $res['mysqli'] = 'MySQLi (default)';
+            }
             if (extension_loaded('mysql')) {
                 $res['mysql'] = 'MySQL';
             }
+
             if (extension_loaded('PDO') &&
                 in_array('pgsql', PDO::getAvailableDrivers())) {
                 $res['pdo-postgres'] = 'PDO::PostgreSQL';
             }
+            if (extension_loaded('pgsql')) {
+                $res['postgres'] = 'PostgreSQL';
+            }
 
+            if (extension_loaded('sqlite') && function_exists('sqlite_open')) {
+                $res['sqlite'] = 'SQLite';
+            }
+            if (extension_loaded('SQLITE3') && function_exists('sqlite3_open')) {
+                $res['sqlite3'] = 'SQLite3';
+            }
             if (extension_loaded('PDO') &&
                 in_array('sqlite', PDO::getAvailableDrivers())) {
                 $res['pdo-sqlite'] = 'PDO::SQLite';
@@ -1181,26 +1194,14 @@ function serendipity_probeInstallation($item) {
             } else {
                 $has_pdo = false;
             }
-
-            if (extension_loaded('pgsql')) {
-                $res['postgres'] = 'PostgreSQL';
-            }
-            if (extension_loaded('mysqli')) {
-                $res['mysqli'] = 'MySQLi';
-            }
-            if (extension_loaded('sqlite') && function_exists('sqlite_open')) {
-                $res['sqlite'] = 'SQLite';
-            }
-            if (extension_loaded('SQLITE3') && function_exists('sqlite3_open')) {
-                $res['sqlite3'] = 'SQLite3';
-            }
             if (class_exists('SQLite3')) {
                 if ($has_pdo) {
-                    $res['sqlite3oo'] = 'SQLite3 (OO) (Preferably use PDO-SQlite!)';
+                    $res['sqlite3oo'] = 'SQLite3 (OO - Preferably use PDO-SQlite!)';
                 } else {
                     $res['sqlite3oo'] = 'SQLite3 (OO)';
                 }
             }
+
             if (function_exists('sqlrcon_alloc')) {
                 $res['sqlrelay'] = 'SQLRelay';
             }
@@ -1210,10 +1211,10 @@ function serendipity_probeInstallation($item) {
             $res = array();
             $res['none'] = 'Disable URL Rewriting';
             $res['errordocs'] = 'Use Apache errorhandling';
-            if( !function_exists('apache_get_modules') || in_array('mod_rewrite', apache_get_modules()) ) {
+            if (!function_exists('apache_get_modules') || in_array('mod_rewrite', apache_get_modules())) {
                 $res['rewrite'] = 'Use Apache mod_rewrite';
             }
-            if( !function_exists('apache_get_modules') || in_array('mod_rewrite', apache_get_modules()) ) {
+            if (!function_exists('apache_get_modules') || in_array('mod_rewrite', apache_get_modules())) {
                 $res['rewrite2'] = 'Use Apache mod_rewrite (for 1&amp;1 and problematic servers)';
             }
 
