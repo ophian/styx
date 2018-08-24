@@ -210,7 +210,7 @@ if ($serendipity['GET']['adminAction'] != 'delete') {
                     $data['users'][$user]['isEditable'] = true;
                     $data['users'][$user]['authorUrl'] = serendipity_authorURL($userdata);
             }
-            $data['users'][$user]['userlevel_name'] = $serendipity['permissionLevels'][$userdata['userlevel']];
+            $data['users'][$user]['userlevel_name'] = isset($serendipity['permissionLevels'][$userdata['userlevel']]) ? $serendipity['permissionLevels'][$userdata['userlevel']] : "Group level '{$userdata['userlevel']}' not exists. Save again!";
         }
     }
 
@@ -218,7 +218,6 @@ if ($serendipity['GET']['adminAction'] != 'delete') {
         $data['new'] = true;
     }
 }
-
 
 if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission('adminUsersDelete')) ||
     ((isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new')  && serendipity_checkPermission('adminUsersCreateNew'))) {
