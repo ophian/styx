@@ -132,7 +132,7 @@
                             <footer id="template_info_{$key}" class="template_info additional_info">
                                 <dl class="clearfix">
                                     <dt class="template_author">{$CONST.AUTHOR}:</dt>
-                                    <dd>{$template.info.author}</dd>
+                                    <dd>{$template.info.author|default:''}</dd>
                                     <dt class="template_date">{$CONST.LAST_UPDATED}:</dt>
                                     <dd>{$template.info.date}</dd>
                                     <dt class="template_config">{$CONST.CUSTOM_CONFIG}:</dt>
