@@ -2210,7 +2210,7 @@ function serendipity_ACL_SQL(&$cond, $append_category = false, $type = 'category
  * Check for Cross-Site-Request-Forgery attacks because of missing HTTP Referer
  *
  * https://de.wikipedia.org/wiki/XSRF
- * https://en.wikipedia.org/wiki/HTTP_referer about the Etymologie of the HTTP referer (originally a misspelling of referrer)
+ * https://en.wikipedia.org/wiki/HTTP_referer about the Etymology of the HTTP referer (originally a misspelling of referrer)
  * This function checks the HTTP referer, and if it is part of the current Admin panel.
  *
  * @access public
