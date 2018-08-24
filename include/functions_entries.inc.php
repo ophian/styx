@@ -904,10 +904,16 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
 
     $cond['and'] = " AND isdraft = 'false' " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND timestamp <= " . serendipity_db_time() : '');
     serendipity_plugin_api::hook_event('frontend_fetchentries', $cond, array('source' => 'search', 'term' => $term));
+    if (!isset($cond['joins'])) {
+        $cond['joins'] = '';
+    }
     serendipity_ACL_SQL($cond, 'limited');
 
     if (!isset($cond['having'])) {
         $cond['having'] = '';
+    }
+    if (!isset($cond['addkey'])) {
+        $cond['addkey'] = '';
     }
 
     $serendipity['fullCountQuery'] = "
