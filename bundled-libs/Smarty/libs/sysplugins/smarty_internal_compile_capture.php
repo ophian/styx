@@ -35,12 +35,11 @@ class Smarty_Internal_Compile_Capture extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {$smarty.capture.xxx}
      *
-     * @param  array                            $args      array with attributes from parser
-     * @param \Smarty_Internal_TemplateCompilerBase$compiler  compiler object
-     * @param  array                            $parameter array with compilation parameter
+     * @param array                                 $args      array with attributes from parser
+     * @param \Smarty_Internal_TemplateCompilerBase $compiler  compiler object
+     * @param array                                 $parameter array with compilation parameter
      *
      * @return string compiled code
-     * @throws \SmartyCompilerException
      */
     public static function compileSpecialVariable($args, Smarty_Internal_TemplateCompilerBase $compiler, $parameter = null)
     {
@@ -55,9 +54,9 @@ class Smarty_Internal_Compile_Capture extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {capture} tag
      *
-     * @param  array                            $args     array with attributes from parser
-     * @param \Smarty_Internal_TemplateCompilerBase $compiler compiler object
-     * @param null                              $parameter
+     * @param array                                 $args      array with attributes from parser
+     * @param \Smarty_Internal_TemplateCompilerBase $compiler  compiler object
+     * @param null                                  $parameter
      *
      * @return string compiled code
      */
@@ -90,9 +89,9 @@ class Smarty_Internal_Compile_CaptureClose extends Smarty_Internal_CompileBase
     /**
      * Compiles code for the {/capture} tag
      *
-     * @param  array                            $args     array with attributes from parser
-     * @param \Smarty_Internal_TemplateCompilerBase $compiler compiler object
-     * @param null                              $parameter
+     * @param array                                 $args      array with attributes from parser
+     * @param \Smarty_Internal_TemplateCompilerBase $compiler  compiler object
+     * @param null                                  $parameter
      *
      * @return string compiled code
      */

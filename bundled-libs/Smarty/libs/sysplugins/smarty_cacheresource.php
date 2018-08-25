@@ -25,12 +25,12 @@ abstract class Smarty_CacheResource
     /**
      * populate Cached Object with meta data from Resource
      *
-     * @param Smarty_Template_Cached   $cached    cached object
+     * @param \Smarty_Template_Cached   $cached    cached object
      * @param Smarty_Internal_Template $_template template object
      *
      * @return void
      */
-    abstract public function populate(Smarty_Template_Cached $cached, Smarty_Internal_Template $_template);
+    abstract public function populate(\Smarty_Template_Cached $cached, Smarty_Internal_Template $_template);
 
     /**
      * populate Cached Object with timestamp and exists from Resource
@@ -51,7 +51,8 @@ abstract class Smarty_CacheResource
      * @return boolean true or false if the cached content does not exist
      */
     abstract public function process(Smarty_Internal_Template $_template, Smarty_Template_Cached $cached = null,
-                                     $update = false);
+        $update = false
+    );
 
     /**
      * Write the rendered template output to cache
@@ -66,7 +67,7 @@ abstract class Smarty_CacheResource
     /**
      * Read cached template from cache
      *
-     * @param  Smarty_Internal_Template $_template template object
+     * @param Smarty_Internal_Template $_template template object
      *
      * @return string  content
      */

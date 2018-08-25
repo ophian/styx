@@ -133,7 +133,7 @@ class Smarty_Internal_Configfilelexer
      * @param   string                             $data template source
      * @param Smarty_Internal_Config_File_Compiler $compiler
      */
-    function __construct($data, Smarty_Internal_Config_File_Compiler $compiler)
+    public function __construct($data, Smarty_Internal_Config_File_Compiler $compiler)
     {
         $this->data = $data . "\n"; //now all lines are \n-terminated
         $this->dataLength = strlen($data);
@@ -169,8 +169,7 @@ class Smarty_Internal_Configfilelexer
             fprintf($this->yyTraceFILE,
                     "%sState push %s\n",
                     $this->yyTracePrompt,
-                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] :
-                        $this->_yy_state);
+                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] : $this->_yy_state);
         }
         array_push($this->_yy_stack, $this->_yy_state);
         $this->_yy_state = $state;
@@ -178,8 +177,7 @@ class Smarty_Internal_Configfilelexer
             fprintf($this->yyTraceFILE,
                     "%snew State %s\n",
                     $this->yyTracePrompt,
-                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] :
-                        $this->_yy_state);
+                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] : $this->_yy_state);
         }
     }
 
@@ -189,16 +187,14 @@ class Smarty_Internal_Configfilelexer
             fprintf($this->yyTraceFILE,
                     "%sState pop %s\n",
                     $this->yyTracePrompt,
-                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] :
-                        $this->_yy_state);
+                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] : $this->_yy_state);
         }
         $this->_yy_state = array_pop($this->_yy_stack);
         if ($this->yyTraceFILE) {
             fprintf($this->yyTraceFILE,
                     "%snew State %s\n",
                     $this->yyTracePrompt,
-                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] :
-                        $this->_yy_state);
+                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] : $this->_yy_state);
         }
     }
 
@@ -209,8 +205,7 @@ class Smarty_Internal_Configfilelexer
             fprintf($this->yyTraceFILE,
                     "%sState set %s\n",
                     $this->yyTracePrompt,
-                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] :
-                        $this->_yy_state);
+                    isset($this->state_name[ $this->_yy_state ]) ? $this->state_name[ $this->_yy_state ] : $this->_yy_state);
         }
     }
 
@@ -248,11 +243,11 @@ class Smarty_Internal_Configfilelexer
                     $this->line += substr_count($this->value, "\n");
                     // accept this token
                     return true;
-                } else if ($r === true) {
+                } elseif ($r === true) {
                     // we have changed state
                     // process this token in the new state
                     return $this->yylex();
-                } else if ($r === false) {
+                } elseif ($r === false) {
                     $this->counter += strlen($this->value);
                     $this->line += substr_count($this->value, "\n");
                     if ($this->counter >= $this->dataLength) {
@@ -346,11 +341,11 @@ class Smarty_Internal_Configfilelexer
                     $this->line += substr_count($this->value, "\n");
                     // accept this token
                     return true;
-                } else if ($r === true) {
+                } elseif ($r === true) {
                     // we have changed state
                     // process this token in the new state
                     return $this->yylex();
-                } else if ($r === false) {
+                } elseif ($r === false) {
                     $this->counter += strlen($this->value);
                     $this->line += substr_count($this->value, "\n");
                     if ($this->counter >= $this->dataLength) {
@@ -461,11 +456,11 @@ class Smarty_Internal_Configfilelexer
                     $this->line += substr_count($this->value, "\n");
                     // accept this token
                     return true;
-                } else if ($r === true) {
+                } elseif ($r === true) {
                     // we have changed state
                     // process this token in the new state
                     return $this->yylex();
-                } else if ($r === false) {
+                } elseif ($r === false) {
                     $this->counter += strlen($this->value);
                     $this->line += substr_count($this->value, "\n");
                     if ($this->counter >= $this->dataLength) {
@@ -521,11 +516,11 @@ class Smarty_Internal_Configfilelexer
                     $this->line += substr_count($this->value, "\n");
                     // accept this token
                     return true;
-                } else if ($r === true) {
+                } elseif ($r === true) {
                     // we have changed state
                     // process this token in the new state
                     return $this->yylex();
-                } else if ($r === false) {
+                } elseif ($r === false) {
                     $this->counter += strlen($this->value);
                     $this->line += substr_count($this->value, "\n");
                     if ($this->counter >= $this->dataLength) {
@@ -591,11 +586,11 @@ class Smarty_Internal_Configfilelexer
                     $this->line += substr_count($this->value, "\n");
                     // accept this token
                     return true;
-                } else if ($r === true) {
+                } elseif ($r === true) {
                     // we have changed state
                     // process this token in the new state
                     return $this->yylex();
-                } else if ($r === false) {
+                } elseif ($r === false) {
                     $this->counter += strlen($this->value);
                     $this->line += substr_count($this->value, "\n");
                     if ($this->counter >= $this->dataLength) {
@@ -656,11 +651,11 @@ class Smarty_Internal_Configfilelexer
                     $this->line += substr_count($this->value, "\n");
                     // accept this token
                     return true;
-                } else if ($r === true) {
+                } elseif ($r === true) {
                     // we have changed state
                     // process this token in the new state
                     return $this->yylex();
-                } else if ($r === false) {
+                } elseif ($r === false) {
                     $this->counter += strlen($this->value);
                     $this->line += substr_count($this->value, "\n");
                     if ($this->counter >= $this->dataLength) {
