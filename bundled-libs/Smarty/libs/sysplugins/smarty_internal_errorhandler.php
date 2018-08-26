@@ -7,8 +7,7 @@
  * @subpackage PluginsInternal
  * @author     Uwe Tews
  *
- * @deprecated
-Smarty does no longer use @filemtime()
+ * @deprecated Smarty does no longer use @filemtime()
  */
 class Smarty_Internal_ErrorHandler
 {
