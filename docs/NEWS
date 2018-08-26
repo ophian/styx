@@ -1,7 +1,7 @@
 Version ()
  ------------------------------------------------------------------------
 
-  * Sync Smarty 3.1.33-dev-6 bugfix updates, including Styx fixes
+  * Sync Smarty 3.1.33-dev-7 bugfix updates, including Styx fixes
 
   * Fix upgrade tasks array for some wrong key notices since 2.5.0.
     Improve readability of upgrade tasks.
