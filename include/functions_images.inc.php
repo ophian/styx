@@ -4277,6 +4277,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_id = null, $file = null) {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
+    $pick = null;
 
     // Since being a wrapper function, this enables logging of all sub functions
     $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
