@@ -2,7 +2,14 @@
 
 This file contains a brief description of new features which have been added to Smarty 3.1
 
-Smarty 3.1.32    New tags for inheritance parent and child
+Smarty 3.1.33-dev
+    Variable capture name in Smarty special variable
+    ================================================
+    {$smarty.capture.$foo} can now be used to access the content of a named
+     capture block
+
+Smarty 3.1.32
+    New tags for inheritance parent and child
     =========================================
     {parent}  == {$smarty.block.parent}
     {child}  == {$smarty.block.child}
@@ -31,7 +38,7 @@ Smarty 3.1.32    New tags for inheritance parent and child
         $smarty->setLiteral(array('{{','}}'));
         {{foo}} is now a literal as well.
     NOTE: In the last example nested Smarty tags starting with '{{' or ending with '}}' will not
-    work any longer, but this should be very very raw occouring restriction.
+    work any longer, but this should be very very raw occurring restriction.
     B) Example 2
     Assume your delimiter are '<-' , '->' and '<--' , '-->' shall be literals
         $smarty->setLiteral(array('<--','-->'));
@@ -86,7 +93,7 @@ Smarty 3.1.30
     This tag makes a variable which does exists normally only while rendering the compiled template
     available in the cached template for use in not cached expressions.
 
-    Expample:
+    Example:
         {foreach from=$list item=item}
             <li>{$item.name} {make_nocache $item}{if $current==$item.id} ACTIVE{/if}</li>
         {/foreach}
@@ -138,7 +145,7 @@ Smarty 3.1.30
           Use scopes only with variables for which it's realy needed. Avoid general scope settings with the
           {include} tag as it can have a performance impact.
 
-     The {assign}, {append}, {config_load} and {$foo...=...} tags have a new option flag 'noscope'.Thi
+     The {assign}, {append}, {config_load} and {$foo...=...} tags have a new option flag 'noscope'.
      Example: {$foo='bar' noscope}  This will assign $foo only in the current template and any scope settings
                at {include} is ignored.
 
