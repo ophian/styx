@@ -49,13 +49,13 @@
     {if isset($showML)}{$showML}{/if}
 {/if}
 {if $case_directoryDoDelete}
-    {if $print_DIRECTORY_WRITE_ERROR}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>{/if}
+    {if isset($print_DIRECTORY_WRITE_ERROR)}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>{/if}
     {if isset($ob_serendipity_killPath)}{$ob_serendipity_killPath}{/if}
     {if $print_ERROR_NO_DIRECTORY}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_ERROR_NO_DIRECTORY}</span>{/if}
 {/if}
 {if $case_directoryEdit}
-    {if !empty($smarty.post.serendipity.save)}
-    <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$print_SETTINGS_SAVED_AT}</span>
+    {if !empty($smarty.post.serendipity.save) AND isset($savedirtime)}
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.SETTINGS_SAVED_AT|sprintf:$savedirtime}</span>
     {/if}
     <h2>{$CONST.MANAGE_DIRECTORIES}</h2>
 
@@ -116,7 +116,7 @@
             <label for="diredit_delete"><b>{$basename_dir}</b> - {$CONST.FORCE_DELETE}</label>
         </div>
 
-        {* I think this is redudant: <p>{$CONST.CONFIRM_DELETE_DIRECTORY|sprintf:$dir|escape}</p> *}
+        {* I think this is redundant: <p>{$CONST.CONFIRM_DELETE_DIRECTORY|sprintf:$dir|escape}</p> *}
         <div class="form_buttons">
             <input class="state_cancel" name="SAVE" type="submit" value="{$CONST.DELETE_DIRECTORY}">
         </div>
@@ -126,7 +126,7 @@
     {if $print_DIRECTORY_CREATED}
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_DIRECTORY_CREATED}</span>
     {/if}
-    {if $print_DIRECTORY_WRITE_ERROR}
+    {if isset($print_DIRECTORY_WRITE_ERROR)}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$print_DIRECTORY_WRITE_ERROR}</span>
     {/if}
     <a class="button_link state_submit" href="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=directorySelect">{$CONST.BACK}</a>
