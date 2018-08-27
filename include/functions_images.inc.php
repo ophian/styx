@@ -3706,16 +3706,17 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     $real_newDir = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . rtrim($newDir, '/');
 
     if (!is_dir($real_oldDir)) {
-        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ';
-        printf(ERROR_FILE_NOT_EXISTS, rtrim($oldDir, '/'));
-        echo "</span>\n";
+        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_NOT_EXISTS . "</span>\n"; // const has no arg for  , rtrim($oldDir, '/')
         return false;
     }
 
     if (is_dir($real_newDir)) {
-        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ';
-        printf(ERROR_FILE_EXISTS, rtrim($newDir, '/'));
-        echo "</span>\n";
+        if ($serendipity['GET']['adminAction'] == 'directoryEdit') {
+            // void, since it already exists and this is just a change of properties, otherwise it is new and created and the move actions are proceeded.
+            //echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . sprintf(DIRECTORY_CREATED, rtrim($newDir, '/')) . "</span>\n";
+        } else {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_EXISTS . "</span>\n"; // const has no arg for , rtrim($newDir, '/')
+        }
         return false;
     }
 
