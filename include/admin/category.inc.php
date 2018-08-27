@@ -53,7 +53,9 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
                                                         WHERE categoryid = ". (int)$parentid);
                    $data['subcat'] = sprintf(ALREADY_SUBCATEGORY, serendipity_specialchars($r[0]['category_name']), serendipity_specialchars($name));
                 } else {
-                    serendipity_updateCategory($serendipity['GET']['cid'], $name, $desc, $authorid, $icon, $parentid, $serendipity['POST']['cat']['sort_order'], $serendipity['POST']['cat']['hide_sub'], $admin_category);
+                    $_sort_order = isset($serendipity['POST']['cat']['sort_order']) ? $serendipity['POST']['cat']['sort_order'] : 0;
+                    $_hide_sub   = isset($serendipity['POST']['cat']['hide_sub'])   ? $serendipity['POST']['cat']['hide_sub']   : 0;
+                    serendipity_updateCategory($serendipity['GET']['cid'], $name, $desc, $authorid, $icon, $parentid, $_sort_order, $_hide_sub, $admin_category);
                     serendipity_ACLGrant($serendipity['GET']['cid'], 'category', 'read', $serendipity['POST']['cat']['read_authors']);
                     serendipity_ACLGrant($serendipity['GET']['cid'], 'category', 'write', $serendipity['POST']['cat']['write_authors']);
                 }

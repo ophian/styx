@@ -41,7 +41,7 @@ function serendipity_fetchCategoryRange($categoryid) {
         $res = array(array('category_left' => 0, 'category_right' => 0));
     }
 
-    if ($res[0]['hide_sub'] == 1) {
+    if (isset($res[0]['hide_sub']) && $res[0]['hide_sub'] == 1) {
         // Set ranges only to own category. Patch by netmorix
         return array('category_left' => $res[0]['category_left'], 'category_right' => $res[0]['category_left']);
     } else {

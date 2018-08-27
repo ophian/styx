@@ -1,28 +1,28 @@
-{if isset($post_save) AND $post_save}
-    {if $new}
+{if NOT empty($post_save)}
+    {if NOT empty($new)}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CATEGORY_SAVED}</span>
     {/if}
-    {if isset($edit) AND $edit}
+    {if NOT empty($edit)}
         {if isset($editPermission) AND $editPermission == false}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
         {else}
-        {if $subcat}{$subcat}{else}
+        {if NOT empty($subcat)}{$subcat}{else}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CATEGORY_SAVED}</span>
         {/if}
         {/if}
     {/if}
-    {if $error_name}
-         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CATEGORY_ALREADY_EXIST|sprintf:$category_name|escape}</span>
+    {if isset($error_name)}
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CATEGORY_ALREADY_EXIST|sprintf:$category_name|escape}</span>
     {/if}
 {/if}
-{if isset($doDelete) AND $doDelete}
-  {if $deleteSuccess}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {if $remainingCat}{$CONST.CATEGORY_DELETED_ARTICLES_MOVED|sprintf:$remainingCat:$cid}{else}{$cid|string_format:"{$CONST.CATEGORY_DELETED}"}{/if}</span>
+{if NOT empty($doDelete)}
+  {if NOT empty($deleteSuccess)}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {if isset($remainingCat)}{$CONST.CATEGORY_DELETED_ARTICLES_MOVED|sprintf:$remainingCat:$cid}{else}{$cid|string_format:"{$CONST.CATEGORY_DELETED}"}{/if}</span>
   {else}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.INVALID_CATEGORY}</span>
   {/if}
 {/if}
-{if isset($delete) AND $delete}
+{if NOT empty($delete)}
     {if $deletePermission == true}
         <h2>{$categoryName|escape}</h2>
 
@@ -44,8 +44,8 @@
     {/if}
 {/if}
 
-{if empty($post_save) AND ((isset($edit) AND $edit) OR (isset($new) AND $new))}
-    {if isset($edit) AND $edit}
+{if empty($post_save) AND (NOT empty($edit) OR NOT empty($new))}
+    {if NOT empty($edit)}
         <h2>{$category_name|escape|string_format:"{$CONST.EDIT_THIS_CAT}"}</h2>
     {/if}
         <form id="serendipity_category" method="POST" name="serendipityCategory">
@@ -54,7 +54,7 @@
             <div id="category_basics" class="clearfix">
                 <div class="form_field">
                     <label for="category_name">{$CONST.NAME}</label>
-                    <input id="category_name" pattern="{if isset($new) AND $new}^(?!({foreach $categories AS $cat}{$cat.category_name|escape}|{/foreach})$).*{else}^(?!({foreach $categories AS $cat}{if $this_cat.category_name != $cat.category_name}{$cat.category_name|escape}{/if}|{/foreach})$).*{/if}" name="serendipity[cat][name]" type="text" value="{$this_cat.category_name|default:""|escape}" title="{$CONST.CATEGORY}">
+                    <input id="category_name" pattern="{if NOT empty($new)}^(?!({foreach $categories AS $cat}{$cat.category_name|escape}|{/foreach})$).*{else}^(?!({foreach $categories AS $cat}{if $this_cat.category_name != $cat.category_name}{$cat.category_name|escape}{/if}|{/foreach})$).*{/if}" name="serendipity[cat][name]" type="text" value="{$this_cat.category_name|default:""|escape}" title="{$CONST.CATEGORY}">
                 </div>
 
                 <div class="form_field">
@@ -64,7 +64,7 @@
             </div>
 
             <h3 class="toggle_headline">
-                <button class="show_config_option icon_link{if isset($newSub) AND $newSub} show_config_option_now{/if}" type="button" data-href="#category_subcats" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.PARENT_CATEGORY}</button>
+                <button class="show_config_option icon_link{if NOT empty($newSub)} show_config_option_now{/if}" type="button" data-href="#category_subcats" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.PARENT_CATEGORY}</button>
             </h3>
 
             <div id="category_subcats" class="clearfix additional_info">
