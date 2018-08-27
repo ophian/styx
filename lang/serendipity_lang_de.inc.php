@@ -78,7 +78,7 @@
 @define('NO_ENTRIES_BLAHBLAH', 'Bei der Suche nach "%s" konnte kein Eintrag gefunden werden.');
 @define('YOUR_SEARCH_RETURNED_BLAHBLAH', 'Die Suche nach "%s" ergab %s Treffer:');
 @define('IMAGE', 'Bild');
-@define('ERROR_FILE_NOT_EXISTS', ' Alte Datei existiert nicht!');
+@define('ERROR_FILE_NOT_EXISTS', 'Fehler: Alte Datei existiert nicht!');
 @define('ERROR_FILE_EXISTS', 'Fehler: Neuer Dateiname existiert schon, bitte einen anderen wählen.');
 @define('ERROR_SOMETHING', 'Fehler: Irgend etwas stimmt nicht.');
 @define('ADDING_IMAGE', 'Bild hinzufügen ...');
