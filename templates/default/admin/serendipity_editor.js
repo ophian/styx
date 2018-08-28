@@ -1451,7 +1451,7 @@ $(function() {
     // Dashboard bookmarklet hint
     $('.s9y_bookmarklet').click(function(e) {
         e.preventDefault();
-        alert('Bookmark this link and then use it on any page you want to blog about to quickly access your Serendipity Blog.');
+        alert('Bookmark this link and then use it on any page you want to Blog about, to quickly access your Serendipity Blogs backend entry form (when logged in).');
     });
 
     // Show media file info, template info, label info or filters
