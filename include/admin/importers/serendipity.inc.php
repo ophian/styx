@@ -19,7 +19,8 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
     function getImportNotes()
     {
         // TODO: I18n!
-        return '<div id="serendipity_config_options"><div class="configuration_group">Please set the correct settings for host, user, password, name, prefix and charset from your <b>import database</b><br><button id="toggle" class="show_config_option show_config_option_now" type="button" data-href="#more" title="' . TOGGLE_OPTION . '"><span class="icon-right-dir" aria-hidden="true"></span> ' . MORE . '</button>.
+        return 'Please set the correct settings for host, user, password, name, prefix and charset from your <b>import database</b>
+        <div id="serendipity_config_options"><div class="configuration_group"><button id="toggle" class="show_config_option show_config_option_now" type="button" data-href="#more" title="' . TOGGLE_OPTION . '"><span class="icon-right-dir" aria-hidden="true"></span> ' . MORE . '</button>.
         <div id="more" class="config_optiongroup additional_info">
         <p>This importer is still a work-in-progress. It can currently import most things of the database. HOWEVER, it can NOT import previously installed plugins (including their configuration) or any database tables of installed plugins. Those must be migrated manually. Also, you must use FTP (or any other useful modern transferring protocol) to transfer your uploaded images to the new location.</p>
         <p>Please do a test-run first if you are SQL-savvy. If you encounter any errors, save the message output you get - it will definitely help debugging! This test-run will "Dupe-Check" (show) you two short example tables ("groups" and "authors"), check for an existing current "import_" table and skip the rest, lopping through the selected tables/groups. If you don\'t get any other errors, all should be well for the final run.</p>
