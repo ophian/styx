@@ -895,8 +895,8 @@
 @define('PERM_SET_CHILD', 'Identische Rechte auch auf alle Unterverzeichnisse anwenden');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Verbotene Plugins');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Verbotene Ereignisse');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Sollen persönliche Plugin-Rechte für Benutzergruppen aktiviert werden?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Falls die globale Konfigurations-Option "Sollen persönliche Plugin-Rechte für Benutzergruppen aktiviert werden" aktiviert ist, können Sie bei jeder Benutzergruppe definieren, welche Plugins/Ereignisse diese Gruppe ausführen darf.');
+@define('PERMISSION_FORBIDDEN_ENABLE', 'Plugin-Rechte für Benutzergruppen aktivieren?');
+@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Falls Sie diese globale Konfigurations-Option aktivieren, können Sie bei jeder Benutzergruppe definieren, welche Plugins/Ereignisse diese Gruppe ausführen darf.');
 @define('DELETE_SELECTED_ENTRIES', 'Markierte Einträge löschen');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Nur Autoren mit mindestens X Beiträgen anzeigen');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
@@ -926,7 +926,7 @@
 
 @define('CONFIRMATION_MAIL_ALWAYS', "Hallo %s,\n\nSie haben einen neuen Kommentar zu \"%s\" erstellt. Ihr Kommentar war:\n\n%s\n\nDer Betreiber dieses Blogs hat die Bestätigung per E-Mail gewünscht, daher müssen Sie folgenden Link anklicken:\n<%s>\n");
 @define('CONFIRMATION_MAIL_ONCE', "Hallo %s,\n\nSie haben einen neuen Kommentar zu \"%s\" erstellt. Ihr Kommentar war:\n\n%s\n\nDer Betreiber dieses Blogs hat die Bestätigung per E-Mail gewünscht, daher müssen Sie folgenden Link anklicken:\n<%s>\n\nNachdem Sie dies getan haben, können Sie auf dem Blog jederzeit mit ihrem Namen und E-Mail-Adresse ohne weitere Freischaltung kommentieren.");
-@define('INSTALL_SUBSCRIBE_OPTIN', 'Benutze Double-Opt In für Abonnements von Kommentarbenachrichtigungen?');
+@define('INSTALL_SUBSCRIBE_OPTIN', 'Double-Opt In für Kommentar-Abonnementmails?');
 @define('INSTALL_SUBSCRIBE_OPTIN_DESC', 'Falls aktiviert, wird einem Kommentator, der E-Mail-Benachrichtigung zu neuen Kommentaren abonnieren möchte, eine E-Mail geschickt. Diese enthält einen Bestätigungslink nach dem z.B. für Deutsche Gesetze erforderlichen Opt-In-Schema.');
 @define('CONFIRMATION_MAIL_SUBSCRIPTION', "Hallo %s,\n\nSie haben bei ihrem Blog-Kommentar zu dem Eintrag \"%s\" auf <%s> das Abonnement neuer Kommentare gewünscht. Um dies zu bestätigen (\"Double Opt In\") klicken Sie bitte diesen Link:\n<%s>\n");
 @define('NOTIFICATION_CONFIRM_SUBMAIL', 'Die Bestätigung des Abonnements der Kommentarbenachrichtigung wurde erfolgreich verarbeitet.');
