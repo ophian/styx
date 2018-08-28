@@ -118,6 +118,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     }
 
     if (!empty($serendipity['GET']['url'])) {
+        if (!isset($entry['body'])) $entry['body'] = '';
         $entry['body'] .= "\n" . '<a class="block_level" href="' . serendipity_specialchars(utf8_decode(urldecode($serendipity['GET']['url']))) . '">' . $entry['title'] . '</a>';
     }
 
