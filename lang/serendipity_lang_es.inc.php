@@ -921,7 +921,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('DELETE_SELECTED_ENTRIES', 'Eliminar las entradas seleccionadas');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Sólo mostrar aquellos autores con al menos X artículos');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
-@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Bookmark this link and then use it on any page you want to blog about to quickly access your Serendipity Blog.');
+@define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Bookmark this link and then use it on any page you want to Blog about, to quickly access your Serendipity Blogs backend entry form (when logged in).');
 @define('IMPORT_WP_PAGES', '¿Descargar archivos adjuntos y páginas estáticas como entradas normales del blog?');
 @define('USERCONF_CREATE', '¿Deshabilitar usuario / prohibir actividad?');
 @define('USERCONF_CREATE_DESC', 'Si activas esta opción el usuario ya no podrá crear o editar entradas en el blog. Cuando él vuelva a ingresar al sistema no podrá hacer nada más que desconectarse y ver su configuración personal.');
