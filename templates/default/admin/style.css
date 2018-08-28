@@ -430,7 +430,7 @@ progress {
 @font-face {
   font-family: 'fontello';
   src: url('{TEMPLATE_PATH}font/fontello.eot?25294323');
-  src: url('{TEMPLATE_PATH}fontello.eot?25294323#iefix') format('embedded-opentype'),
+  src: url('{TEMPLATE_PATH}font/fontello.eot?25294323#iefix') format('embedded-opentype'),
        url('{TEMPLATE_PATH}font/fontello.woff2?25294323') format('woff2'),
        url('{TEMPLATE_PATH}font/fontello.woff?25294323') format('woff'),
        url('{TEMPLATE_PATH}font/fontello.ttf?25294323') format('truetype'),
