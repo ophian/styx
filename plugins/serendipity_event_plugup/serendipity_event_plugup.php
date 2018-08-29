@@ -19,15 +19,16 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian');
-        $propbag->add('version',        '1.10');
+        $propbag->add('version',        '1.11');
         $propbag->add('requirements',   array(
-            'serendipity' => '2.0.99',
+            'serendipity' => '2.1.0',
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
         $propbag->add('groups', array('BACKEND_ADMIN','BACKEND_DASHBOARD'));
         $propbag->add('event_hooks',    array(
             'backend_dashboard'         => true,
+            'backend_plugins_fetchlist' => true,
             'backend_plugins_update'    => true,
             'css_backend'               => true
         ));
@@ -37,7 +38,7 @@ class serendipity_event_plugup extends serendipity_plugin
         ));
         // Register (multiple) dependencies. KEY is the name of the depending plugin. VALUE is a mode of either 'remove' or 'keep'.
         // If the mode 'remove' is set, removing the plugin results in a removal of the depending plugin.
-        // 'Keep' meens to not touch the depending plugin.
+        // 'Keep' means to not touch the depending plugin.
         $this->dependencies = array('serendipity_event_spartacus' => 'keep');
     }
 
@@ -120,7 +121,7 @@ class serendipity_event_plugup extends serendipity_plugin
         if (isset($serendipity['COOKIE']['plugsEvent'])) @serendipity_deleteCookie('plugsEvent');
         if (isset($serendipity['COOKIE']['plugsPlugin'])) @serendipity_deleteCookie('plugsPlugin');
         if (isset($serendipity['COOKIE']['plugsCheckTime'])) @serendipity_deleteCookie('plugsCheckTime');
-        # echo "PLUGUP: update done - plugup cookies purged\n"; // OK
+        #echo "PLUGUP: update done - plugup cookies purged\n"; // OK
     }
 
     // Listen on events
@@ -152,13 +153,13 @@ class serendipity_event_plugup extends serendipity_plugin
                             $num    = (int)($event+$plugin);
                             #echo $event . ' + ' . $plugin . ' = ' .$num; // OK
                         }
-                    // We need to set (float) other (heigher) dashboard widget boxes to the right, eg. the feedly box, since all other boxes use float:left
+                    // We need to set (float) other (heigher sized) dashboard widget boxes to the right, eg. the feedly box, since all other boxes use float:left
                     // and -if not- would make the height-size per row like an equal-height box, which is NOT want we want to have!
                     // We want the dashboard widgets to easily float into the 2-grid space available in height.
                     }
                     // we still have to unset these two plugin cookies in case of
                     // - updates all done in serendipity_editor.js in serendipity.updateNext() for the javascript update all solution and
-                    // - try to unset them here in the 'backend_plugins_update' hook via the plugin api for Spartacus cases!
+                    // - try to unset them here in the 'backend_plugins_update' hook via the plugin API for Spartacus cases!
 ?>
 
     <section id="dashboard_plugup" class="clearfix dashboard_widget<?php if ($num == 0) { echo ' blend'; } ?>">
@@ -184,6 +185,7 @@ class serendipity_event_plugup extends serendipity_plugin
 <?php
                     break;
 
+                case 'backend_plugins_fetchlist':
                 case 'backend_plugins_update':
                     $this->purge_plugupCookies();
                     break;
