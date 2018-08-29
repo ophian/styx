@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * The plugup plugin now also listens on the fetchlist hook for its cookie
+    caching handler.
+
   * Fix backend IE fontello.eot fix missing correct path
 
   * Sync Smarty 3.1.33-dev-7 bugfix updates, including Styx fixes
