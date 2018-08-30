@@ -21,7 +21,7 @@ $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
 $data['dbnotmysql']          = ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true;
-$data['suffixTask']          = (count($usedSuffixes) > 1) ? true : false;
+$data['suffixTask']          = (is_array($usedSuffixes) && count($usedSuffixes) > 1) ? true : false;
 
 switch($serendipity['GET']['adminAction']) {
     case 'integrity':
@@ -57,7 +57,7 @@ switch($serendipity['GET']['adminAction']) {
                 $data['dbUtf8mb4_migrate'] = serendipity_db_migrate_index(true, $serendipity['dbPrefix']);
             }
 
-            if (count($data['dbUtf8mb4_migrate']['errors']) > 0) {
+            if (is_array($data['dbUtf8mb4_migrate']['errors']) && count($data['dbUtf8mb4_migrate']['errors']) > 0) {
                 $data['dbUtf8mb4_simulated'] = false;
             }
         }

@@ -3258,7 +3258,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
     $media = array_merge($media, $smarty_vars);
     $media['files'] =& $file;
 
-    if (count($paths) > 0) {
+    if (is_array($paths) && count($paths) > 0) {
         $media['paths'] =& $paths;
     } else {
         $media['paths'] =& serendipity_getMediaPaths();

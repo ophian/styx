@@ -582,7 +582,7 @@ function serendipity_walkRecursive($ary, $child_name = 'id', $parent_name = 'par
         }
     }
 
-    /* We are inside a recusive child, and we need to break out */
+    /* We are inside a recursive child, and we need to break out */
     if ($depth !== 0) {
         return true;
     }
@@ -931,7 +931,7 @@ function serendipity_fetchAuthor($author) {
  */
 function serendipity_parseFileName($file) {
     $x = explode('.', $file);
-    if (count($x) > 1) {
+    if (is_array($x) && count($x) > 1) {
         $suf = array_pop($x);
         $f   = @implode('.', $x);
         return array($f, $suf);
