@@ -543,7 +543,7 @@
     // save in the cookie which options were selected when inserting a image from the media db
     serendipity.rememberMediaOptions = function() {
         $('#imageForm :input').each(function(index, element) {
-            if (! (element.type == 'radio' && element.checked == false)) {
+            if (element.type != 'radio' && element.checked != false && trim(element.name) != '') {
                 serendipity.SetCookie(element.name.replace(/\[/g, '_').replace(/\]/g, ''), $(element).val());
             }
         });
@@ -732,7 +732,7 @@
 
     // save in which directory the first uploaded files is stored (the default when only inserting one file)
     serendipity.rememberUploadOptions = function() {
-        serendipity.SetCookie("addmedia_directory", $('#target_directory_2').val());
+        serendipity.SetCookie('addmedia_directory', $('#target_directory_2').val());
     }
 
     // Clones the upload form template
