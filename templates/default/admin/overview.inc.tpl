@@ -166,7 +166,21 @@ $(document).ready(function() {
     if (typeof(serendipity) != 'object' || typeof(serendipity.spawn) != 'function') {
         $('#dashboard_header').after("<span class=\"msg_error\"><span class=\"icon-attention-circled\"></span> {$CONST.JS_FAILURE|sprintf:$js_failure_file|escape:javascript}</span>");
     }
-    if ($("#dashboard_ticker").hasClass('blend')) { $("#dashboard_ticker").delay(5000).fadeOut( 2500, 'linear' ); }
-    if ($("#dashboard_plugup").hasClass('blend')) { $("#dashboard_plugup").delay(5000).fadeOut( 2500, 'linear' ); }
+    if ($("#dashboard_ticker").hasClass('blend')) {
+        if ($.cookie('styx_tickerBlend')) {
+            $("#dashboard_ticker").hide();
+        } else {
+            $("#dashboard_ticker").delay(5000).fadeOut( 2500, 'linear' );
+            $.cookie('styx_tickerBlend', true);
+        }
+    }
+    if ($("#dashboard_plugup").hasClass('blend')) {
+        if ($.cookie('styx_plugupBlend')) {
+            $("#dashboard_plugup").hide();
+        } else {
+            $("#dashboard_plugup").delay(5000).fadeOut( 2500, 'linear' );
+            $.cookie('styx_plugupBlend', true);
+        }
+    }
 });
 </script>
