@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Changed the "media add to entry" "done"-button semantically and state
+    it coloured as a submit action.
+
   * Fix SetCookie remember Media Options to only run on valid values
 
   * Removed entries API long time deprecated function serendipity_purgeEntry()
