@@ -133,8 +133,8 @@
             {/if}
             {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_more' eventData=$media.file}
             <div class="form_buttons">
-                <input class="go_back" type="button" value="{$CONST.BACK}">
-                <input type="button" value="{$CONST.DONE}" onclick="serendipity.rememberMediaOptions(); {$media.file.origfinishJSFunction}">
+                <input class="button_link go_back" type="button" value="{$CONST.BACK}">
+                <input class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA}" onclick="serendipity.rememberMediaOptions(); {$media.file.origfinishJSFunction}">
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_submit' eventData=$media.file}
             </div>
         {/if}{* else fast_select end *}
