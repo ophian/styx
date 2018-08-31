@@ -960,7 +960,7 @@ function serendipity_setCookie($name, $value, $securebyprot = true, $custom_time
  * Echo Javascript code to set a cookie variable
  *
  * This function is useful if your HTTP headers were already sent, but you still want to set a cookie
- * Note that contents are echo'd, not return'd. Can be used by plugins.
+ * Note that contents are echoed, not returned. Can be used by plugins.
  *
  * @access public
  * @param   string      The name of the cookie variable
