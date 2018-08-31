@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Removed entries API long time deprecated function serendipity_purgeEntry()
+    and all reference calls.
+
   * Extend Dashboard empty notifications "hider" to be kept for current session
 
   * The plugup plugin now also listens on the fetchlist hook for its cookie
