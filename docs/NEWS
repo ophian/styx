@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix SetCookie remember Media Options to only run on valid values
+
   * Removed entries API long time deprecated function serendipity_purgeEntry()
     and all reference calls.
 
