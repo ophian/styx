@@ -4,7 +4,7 @@ Version ()
   * Fix MediaLibrary backend scale image result handler
 
   * Changed the "media add to entry" "done"-button semantically and state
-    it coloured as a submit action.
+    it coloured as a submit action. Dito, scale image template for the latter.
 
   * Fix SetCookie remember Media Options to only run on valid values
 
