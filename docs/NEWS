@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Change and fix media properties header for mime type and proper extension
+
   * Fix MediaLibrary backend scale image result handler
 
   * Changed the "media add to entry" "done"-button semantically and state
