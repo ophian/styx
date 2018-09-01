@@ -1614,7 +1614,7 @@ $(function() {
         e.preventDefault();
     });
 
-    // MediaDB-Filter-Buttons should react instantly
+    // MediaDB-Filter-Buttons shall react instantly
     $('input[name="serendipity[filter][fileCategory]"]').on('change', function() {
         $('#media_library_control').submit();
     });

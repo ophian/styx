@@ -44,7 +44,7 @@
             {if $media.standardpane}
             <li id="media_selector_bar">
                 <fieldset>
-                    <input id="serendipity[filter][fileCategory][All]" type="radio" name="serendipity[filter][fileCategory]"{if isset($media.filter.fileCategory) AND $media.filter.fileCategory == ""} checked{/if} value="">
+                    <input id="serendipity[filter][fileCategory][All]" type="radio" name="serendipity[filter][fileCategory]"{if isset($media.filter.fileCategory) AND $media.filter.fileCategory == ""} checked{/if} value="all">
                     <label for="serendipity[filter][fileCategory][All]" class="media_selector button_link">{$CONST.COMMENTS_FILTER_ALL}</label>
                     <input id="serendipity[filter][fileCategory][Image]" type="radio" name="serendipity[filter][fileCategory]"{if isset($media.filter.fileCategory) AND $media.filter.fileCategory == "image"} checked{/if} value="image">
                     <label for="serendipity[filter][fileCategory][Image]" class="media_selector button_link">{$CONST.IMAGE}</label>
