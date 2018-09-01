@@ -284,7 +284,7 @@
             </div>
 
             <div class="form_buttons">
-                <input class="image_scale" name="scale" type="button" value="{$CONST.IMAGE_RESIZE}">
+                <input class="image_scale state_submit" name="scale" type="submit" value="{$CONST.IMAGE_RESIZE}">
             </div>
         </form>
 
