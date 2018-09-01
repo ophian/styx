@@ -96,7 +96,7 @@
                                 {/if}
                                 {if $file.mime}
 
-                                <li><b>MIME-Type:</b> {$file.mime}</li>
+                                <li><b>MIME-{$CONST.TYPE}:</b> {$file.mime}</li>
                                 {/if}
                                 {if $file.is_image}
 
@@ -158,7 +158,8 @@
             <article class="media_file media_enclose_no">
                 <header>
                     <h3>{$file.realname}</h3>
-                    <span class="block_level"><b>{$CONST.SORT_ORDER_EXTENSION}:</b> {$file.mime}{if $file.realname != $file.diskname}, {$file.diskname}{/if}</span>
+                    <span class="block_level"><b>MIME-{$CONST.TYPE}:</b> {$file.mime}{if $file.realname != $file.diskname}, {$file.diskname}{/if}</span>
+                    <span class="block_level"><b>{$CONST.SORT_ORDER_EXTENSION}:</b> {$file.extension}</span>
                 </header>
 
                 <footer>
