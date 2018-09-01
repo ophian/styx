@@ -788,7 +788,9 @@ function serendipity_scaleImg($id, $width, $height) {
     $infile = $outfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
     if ($serendipity['magick'] !== true) {
-        serendipity_resize_image_gd($infile, $outfile, $width, $height);
+        if (serendipity_resize_image_gd($infile, $outfile, $width, $height)) {
+            $result = 0;
+        }
     } else {
         $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . ' -scale ' . serendipity_escapeshellarg($width . 'x' . $height) . ' ' . serendipity_escapeshellarg($outfile);
         if ($debug) { $serendipity['logger']->debug("Scale File command: $cmd"); }
@@ -797,7 +799,7 @@ function serendipity_scaleImg($id, $width, $height) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, $output[0], $result) ."</span>\n";
             return false;
         }
-        unset($output, $result);
+        unset($output);
     }
 
     if ($result == 0) {
