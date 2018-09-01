@@ -85,7 +85,7 @@
                         {if $file.is_image}
                         <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties -->
                         {else}
-                        {if {$file.mime|regex_replace:"/\/.*$/":""} == 'video'}{* * *}
+                        {if {$file.mime|regex_replace:"/\/.*$/":""} == 'video' AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}{* * *}
                         <video width="320" height="240" controls>
                             <source src="{$file.full_file}"  type="video/{$file.extension}"><!-- media/properties video -->
                         </video>
