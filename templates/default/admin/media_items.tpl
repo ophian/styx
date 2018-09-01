@@ -79,10 +79,20 @@
                     <div class="media_file_preview">
                         {if isset($link)}
                         <a {if $media.manage AND $media.multiperm}class="media_fullsize"{/if} href="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
-                            <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}">
+                            <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                         </a>
                         {else}
-                        <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}">
+                        {if $file.is_image}
+                        <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties -->
+                        {else}
+                        {if {$file.mime|regex_replace:"/\/.*$/":""} == 'video'}{* * *}
+                        <video width="320" height="240" controls>
+                            <source src="{$file.full_file}"  type="video/{$file.extension}"><!-- media/properties video -->
+                        </video>
+                        {else}
+                         <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties non image file -->
+                        {/if}
+                        {/if}
                         {/if}
                         <footer id="media_file_meta_{$file.id}" class="media_file_meta additional_info">
                             <ul class="plainList">
