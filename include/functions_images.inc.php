@@ -44,7 +44,7 @@ function serendipity_isActiveFile($file) {
  * @param   string  Only fetch media with specific keyword
  * @param   array   An array of restricting filter sets
  * @param   boolean Apply strict directory checks, or include subdirectories?
- * @return  array   Resultset of images
+ * @return  array   Result-set of images
  */
 function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $order = false, $ordermode = false, $directory = '', $filename = '', $keywords = '', $filter = array(), $hideSubdirFiles = false) {
     global $serendipity;
@@ -468,7 +468,7 @@ function serendipity_fetchImages($reverse = false, $images = '', $odir = '') {
  * @param   string      The filename to hotlink
  * @param   string      The URL to hotlink with
  * @param   int         The owner of the hotlinked media item
- * @param   int         The timestamp of insertion (unix second)
+ * @param   int         The timestamp of insertion (UNIX second)
  * @param   string      A temporary filename for fetching the file to investigate it
  * @return  int         The ID of the inserted media item
  */
@@ -844,7 +844,7 @@ function serendipity_rotateImg($id, $degrees) {
         serendipity_rotate_image_gd($infileThumb, $outfileThumb, $degrees);
     } else {
         /* Why can't we just all agree on the rotation direction?
-        -> disabled, since that seems to be a workaround for a very very old bug
+        -> Styx 2.5 disabled, since that seems to be a workaround for a very very old bug
         $degrees = (360 - $degrees); */
 
         /* Resize main image */
@@ -1225,7 +1225,7 @@ function serendipity_convertThumbs() {
             if ($debug) { $serendipity['logger']->debug("$logtag UPDATE images db::images:\n$q"); }
             serendipity_db_query($q);
             if ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') {
-                // SELECTing the entries by $oldthumbnail singulary
+                // SELECT-ing the entries by $oldthumbnail singularly
                 $eq = "SELECT id, body, extended
                          FROM {$serendipity['dbPrefix']}entries
                         WHERE body     REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ")'
@@ -1453,7 +1453,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
  *
  * @access public
  * @param   string      Filename to operate on
- * @return string       Functionname to execute
+ * @return string       Name of GD function to execute
  */
 function serendipity_functions_gd($infilename) {
     if (!function_exists('imagecopyresampled')) {
@@ -1510,7 +1510,7 @@ function serendipity_functions_gd($infilename) {
  * @access public
  * @param   string      Source Filename to rotate
  * @param   string      Target file
- * @param   int         Degress to rotate
+ * @param   int         Degrees to rotate
  * @return  array       New width/height of the image
  */
 function serendipity_rotate_image_gd($infilename, $outfilename, $degrees)
@@ -1552,7 +1552,7 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
     }
 
     try {
-        // if an image exist that can not be loaded (invalid gif for example), the page shall still be rendered
+        // if an image exist that can not be loaded (invalid GIF for example), the page shall still be rendered
         $in = $func['load']($infilename);
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
@@ -1563,7 +1563,7 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
         echo 'Could not create thumbnail: ',  $e->getMessage(), "\n";
         return false;
     }
-    $width = imagesx($in);
+    $width  = imagesx($in);
     $height = imagesy($in);
 
     if (is_null($newheight)) {
@@ -1613,7 +1613,7 @@ function serendipity_calculate_aspect_size($width, $height, $size, $constraint =
     // Allow for future constraints (idea: 'percent')
     $known_constraints = array('width', 'height', 'largest', 'smallest');
 
-    // Rearrange params for calls from old imageselectorplus plugin
+    // Re-arrange params for calls from old imageselectorplus plugin
     if ($size == null) {
       $size       = $constraint;
       $constraint = 'smallest';
@@ -1685,7 +1685,7 @@ function serendipity_calculate_aspect_size($width, $height, $size, $constraint =
  * @param   string  The URL to use for pagination
  * @param   boolean Show the "upload media item" feature?
  * @param   boolean Restrict viewing images to a specific directory
- * @param   array   Map of smarty vars transported into all following templates
+ * @param   array   Map of Smarty vars transported into all following templates
  * @return  string   Generated HTML
  */
 function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = false, $url = NULL, $show_upload = false, $limit_path = NULL, $smarty_vars = array()) {
@@ -2182,7 +2182,7 @@ function serendipity_traversePath($basedir, $dir='', $onlyDirs = true, $pattern 
 
     if ($aExcludeDirs === null) {
         // add _vti_cnf to exclude possible added servers frontpage extensions
-        // add ckeditor/kcfinders .thumb dir to exclude, since no hook
+        // add CKEditors .thumb dir to exclude, since no hook
         $aExcludeDirs = array('CVS' => true, '.svn' => true, '.thumbs' => true, '_vti_cnf' => true, '.git' => true);
     }
 
@@ -2407,7 +2407,7 @@ function serendipity_getImageFields() {
 }
 
 /**
- * Escape a shell argument for imagemagick use
+ * Escape a shell argument for ImageMagick use
  *
  * @access public
  * @param   string  Input argument
@@ -2447,7 +2447,7 @@ function serendipity_dirSlash($type, $dir) {
 }
 
 /**
- * Cycle a serendipity_traversePath resultset and apply read/write ACLs.
+ * Cycle a serendipity_traversePath result-set and apply read/write ACLs.
  *
  * @access public
  * @param   array   serendipity_traversePath result array
@@ -2713,7 +2713,8 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
     if (!is_array($keywords)) {
         $keywords = explode(';', $serendipity['mediaKeywords']);
     }
-    // type 'media' only usage @see serendipity_admin_image_selector case $serendipity['GET']['step'] = 'showItem', eg /serendipity_admin_image_selector.php?serendipity[step]=showItem&serendipity[image]=42
+    // type 'media' only usage @see serendipity_admin_image_selector case $serendipity['GET']['step'] = 'showItem',
+    // eg. /serendipity_admin_image_selector.php?serendipity[step]=showItem&serendipity[image]=42
     $media['references'] = serendipity_db_query("SELECT link, name
                             FROM {$serendipity['dbPrefix']}references
                            WHERE entry_id = " . $media['id'] . "
@@ -3828,7 +3829,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
 
     $parts = pathinfo($newDir);
 
-    // build or rename: "new", "thumb" and "old file" names, relative to Serendipity "uploads/" root path, eg "a/b/c/"
+    // build or rename: "new", "thumb" and "old file" names, relative to Serendipity "uploads/" root path, eg. "a/b/c/"
 
     // case rename only
     if ($oldDir === null && $newDir != 'uploadRoot/') {
@@ -3887,7 +3888,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         if ($oldDir === null) {
             // Move the origin file
             @rename($oldfile, $newfile);
-            // do not re-name again, if an item has no thumb name (eg *.zip object file case) and old thumb eventually exists (possible missing pdf preview image on WinOS with IM)
+            // do not re-name again, if an item has no thumb name (eg. *.zip object file case) and old thumb eventually exists (possible missing PDF preview image on WinOS with IM)
             if (($newThumb != $newfile) && file_exists($oldThumb)) {
                 // the thumb file
                 @rename($oldThumb, $newThumb); // Keep both rename() errors disabled, since we have to avoid any output in renaming cases
@@ -4144,7 +4145,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 
         // strictly replace FILE+EXT check the oldDir in bulkmove case only,
         $oldDir = ($type == 'file' && !is_null($oldDir)) ? str_replace($_file['name'].'.'.$_file['extension'], '', $oldDir) : $oldDir;
-        // since $oldDir is the path structure only, relative down below "uploads", eg "a/b/c/"
+        // since $oldDir is the path structure only, relative down below "uploads", eg. "a/b/c/"
 
         // Path patterns to SELECT en detail with EXT, to not pick entries path parts in a loop
         if ($oldDir === null) {// care for a file renaming with oldpath
@@ -4166,7 +4167,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     }
 
     // Please note: imageselectorplus plugin quickblog is either quickblog:FullPath or quickblog:|?(none|plugin|js|_blank)|FullPath
-    // SELECTing the entries uses a more detailled approach to be as precise as possible, thus we need to reset these vars for the preg_replace later on in some cases
+    // SELECTing the entries uses a more detailed approach to be as precise as possible, thus we need to reset these vars for the preg_replace later on in some cases
     $q = "SELECT id, body, extended
             FROM {$serendipity['dbPrefix']}entries
            WHERE body     REGEXP '(src=|href=|window.open.|<!--quickblog:)(\'|\"|\\\|?(plugin|none|js|_blank)?\\\|?)(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . "|" . serendipity_db_escape_String($ispOldFile) . ")'
@@ -4204,10 +4205,10 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
         $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
 
-        // here we need to match THUMBS too, so we do not want the extension, see detailled SELECT regex note
+        // here we need to match THUMBS too, so we do not want the extension, see detailed SELECT regex note
         if ($type == 'file' && $oldDir === null) {
             $_ispOldFile = $oldfile; // these vars are more exact in every case
-            $_ispNewFile = $newfile; // dito
+            $_ispNewFile = $newfile; // ditto
             $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
         } else {
             $_ispOldFile = $ispOldFile;
@@ -4285,7 +4286,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     // Since being a wrapper function, this enables logging of all sub functions
     $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
 
-    // paranoid case for updating an old image id entry - else we have a new entry incrementary
+    // paranoid case for updating an old image id entry - else we have a new entry incrementation
     if (is_null($item_id) && isset($file['id']) && $file['id'] > 0) $item_id = $file['id'];
 
     if (!$item_id || $item_id < 1) {
