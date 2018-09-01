@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix MediaLibrary backend scale image result handler
+
   * Changed the "media add to entry" "done"-button semantically and state
     it coloured as a submit action.
 
