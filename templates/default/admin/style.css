@@ -2163,6 +2163,17 @@ form > .button_link:first-of-type,
     padding: 0 .5em 3.5em;
     position: relative;
 }
+.media_enclose_no header div {
+    display: block;
+    border-bottom: 1px solid #DDD;
+    background: #FEFEFE;
+    padding: .5rem 0 0 .5rem;
+    border-top: 1px solid #FDFDFD;
+    box-shadow: 1px 1px 1px #DDD;
+}
+.media_file_meta.plainList {
+    margin: .5rem auto;
+}
 
 h3 .media_file_actions {
     position: relative;
