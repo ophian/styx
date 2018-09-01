@@ -166,7 +166,7 @@
     {$backend_pluginlisting_header}
     <h2>{$CONST.CONFIGURE_PLUGINS}</h2>
     {if isset($save) AND $save}
-    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}:{$CONST.SETTINGS_SAVED_AT|sprintf:"$timestamp"}</span>
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}: {$CONST.SETTINGS_SAVED_AT|sprintf:"$timestamp"}</span>
     {/if}
     {if isset($new_plugin_failed) AND $new_plugin_failed}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.PLUGIN_ALREADY_INSTALLED}</span>
