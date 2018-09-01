@@ -132,7 +132,7 @@
                     <li><button class="media_rename button_link" type="button" title="{$CONST.MEDIA_RENAME}" data-fileid="{$file.id}" data-filename="{$file.name|escape:javascript}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_RENAME}</span></button></li>
                     {if $file.is_image AND NOT $file.hotlink AND $media.multiperm}
 
-                    <li><a class="media_resize button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=scaleSelect&amp;serendipity[fname]={$file.name|truncate:30:"&hellip;"}&amp;serendipity[fid]={$file.id}&amp;{$media.extraParems}" title="{$CONST.IMAGE_RESIZE}"><span class="icon-resize-full" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.IMAGE_RESIZE}</span></a></li>
+                    <li><a class="media_resize button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=scaleSelect&amp;serendipity[fname]={$file.name|truncate:30:"&hellip;"}&amp;serendipity[fid]={$file.id}&amp;{$media.extraParems|default:''}" title="{$CONST.IMAGE_RESIZE}"><span class="icon-resize-full" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.IMAGE_RESIZE}</span></a></li>
                     {/if}
                     {if $file.is_image AND NOT $file.hotlink AND $media.multiperm}
 
@@ -150,12 +150,14 @@
 
                     <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:javascript}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_DELETE}</span></a></li>
                     {/if}
+                    {if !empty($imagesNoSync)}
                     {foreach $imagesNoSync AS $special}
                     {if $file.name == $special.pfilename}
 
                     <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{$CONST.PUBLISHED}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
                     {/if}
                     {/foreach}
+                    {/if}
                 {/if}
 
                 </ul>

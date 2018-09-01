@@ -416,7 +416,7 @@ switch ($serendipity['GET']['adminAction']) {
                 $uploadFileCounter=-1;
                 foreach($uploadfiles AS $uploadfile) {
                     $uploadFileCounter++;
-                    $target_filename = $serendipity['POST']['target_filename'][$idx];
+                    $target_filename = isset($serendipity['POST']['target_filename'][$idx]) ? $serendipity['POST']['target_filename'][$idx] : null;
                     $uploadtmp  = $_FILES['serendipity']['tmp_name']['userfile'][$idx];
                     if (is_array($uploadtmp)) {
                         $uploadtmp = $uploadtmp[$uploadFileCounter];
@@ -438,7 +438,9 @@ switch ($serendipity['GET']['adminAction']) {
                         continue;
                     }
 
-                    $serendipity['POST']['target_directory'][$idx] = serendipity_uploadSecure($serendipity['POST']['target_directory'][$idx], true, true);
+                    $serendipity['POST']['target_directory'][$idx] = isset($serendipity['POST']['target_directory'][$idx])
+                                                                        ? serendipity_uploadSecure($serendipity['POST']['target_directory'][$idx], true, true)
+                                                                        : null;
 
                     if (!serendipity_checkDirUpload($serendipity['POST']['target_directory'][$idx])) {
                         $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . PERM_DENIED . "</span>\n";
