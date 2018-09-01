@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Extend media properties preview to show MIME video files embedded instead
+    of the thumb.
+
   * Change and fix media properties header for mime type and proper extension
 
   * Fix MediaLibrary backend scale image result handler
