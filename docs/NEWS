@@ -2,7 +2,7 @@ Version ()
  ------------------------------------------------------------------------
 
   * Extend media properties preview to show MIME video files embedded instead
-    of the thumb.
+    of the thumb. For security only allowed for 'mp4', 'webm', 'ogv' files.
 
   * Change and fix media properties header for mime type and proper extension
 
