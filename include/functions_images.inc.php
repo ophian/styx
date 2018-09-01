@@ -4190,7 +4190,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             if ($type == 'filedir' || ($type == 'file' && $oldDir !== null)) {
                 $newDirFile = (false === strpos($newDir, $_file['name'])) ? $newDir . $_file['name'] : $newDir;
             }
-            $newDirFile = ($newDirFile == 'uploadRoot/'.$_file['name']) ? str_replace('uploadRoot/', '', $newDirFile) : $newDirFile;
+            if (isset($newDirFile)) $newDirFile = ($newDirFile == 'uploadRoot/'.$_file['name']) ? str_replace('uploadRoot/', '', $newDirFile) : $newDirFile;
             if ($type == 'file' && $oldDir === null) {
                 $newDirFile = $newDir;
             }
