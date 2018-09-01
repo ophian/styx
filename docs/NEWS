@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Fix MediaDB-Filter-Buttons shall react instantly - The ALL (type) needs
+    a value to overwrite previously set types.
+
   * Better style media no-form-editable properties into header
 
   * Extend media properties preview to show MIME video files embedded instead
