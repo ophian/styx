@@ -28,7 +28,7 @@
                         <option value="">{if NOT $media.limit_path}{if isset($media.toggle_dir) AND $media.toggle_dir == 'yes' OR $media.hideSubdirFiles == 'yes'}{$CONST.BASE_DIRECTORY}{else}{$CONST.ALL_DIRECTORIES}{/if}{else}{$media.blimit_path}{/if}</option>
                     {foreach $media.paths AS $folderHead}
 
-                        <option{if ($media.only_path == $media.limit_path|cat:$folderHead.relpath)} selected{/if} value="{$folderHead.relpath}">{'&nbsp;'|str_repeat:($folderHead.depth*2)}{$folderHead.name}</option>
+                        <option{if ($media.only_path == $media.limit_path|cat:$folderHead.relpath)} selected{/if} value="{$folderHead.relpath}">{'&nbsp;'|str_repeat:($folderHead.depth*2)}{$folderHead.name}</option>{* * *}
                     {/foreach}
                     </select>
 
