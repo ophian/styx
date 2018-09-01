@@ -2174,6 +2174,9 @@ form > .button_link:first-of-type,
 .media_file_meta.plainList {
     margin: .5rem auto;
 }
+#mediaPropertyForm header b {
+    display: inline-flex;
+}
 
 h3 .media_file_actions {
     position: relative;
