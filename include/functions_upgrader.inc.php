@@ -16,7 +16,7 @@ if (defined('S9Y_FRAMEWORK_UPGRADER')) {
  * are not used within usual Serendipity control flow
  */
 
-/* A list of files which got obsoleted in 0.8 */
+/* A list of files which got obsolete in 0.8 */
 $obsolete_files = array(
     'serendipity.inc.php',
     'serendipity_layout.inc.php',
@@ -66,7 +66,7 @@ $obsolete_files = array(
     'templates/default/layout.php'
 );
 
-/* A list of smarty 2.6.x lib files which got obsoleted in >= 1.7 */
+/* A list of Smarty 2.6.x lib files which got obsolete in >= 1.7 */
 $dead_smarty_files = array(
     'BUGS',
     'ChangeLog',
@@ -123,7 +123,7 @@ $dead_smarty_files = array(
     'TODO'
 );
 
-/* A list of old WYSIWYG-Editor lib files which got obsoleted in 2.0 */
+/* A list of old WYSIWYG-Editor lib files which got obsolete in 2.0 */
 $dead_htmlarea_files = array(
     'htmlarea.css',
     'htmlarea.js',
@@ -142,7 +142,7 @@ $dead_htmlarea_files = array(
     'ckeditor/skins/moono/images/mini.png'
 );
 
-/* A list of old WYSIWYG-Editor lib directories which got obsoleted in 2.0 */
+/* A list of old WYSIWYG-Editor lib directories which got obsolete in 2.0 */
 $dead_htmlarea_dirs = array(
     $serendipity['serendipityPath'] . 'htmlarea/contrib',
     $serendipity['serendipityPath'] . 'htmlarea/examples',
@@ -155,7 +155,7 @@ $dead_htmlarea_dirs = array(
     $serendipity['serendipityPath'] . 'htmlarea/ckeditor/samples'
 );
 
-/* A list of old Serendipity files which were not marked obsolet with 2.0.0 upgrade - now 2.0.2 */
+/* A list of old Serendipity files which were not marked obsolete with 2.0.0 upgrade - now 2.0.2 */
 $dead_files_200 = array(
     'serendipity_editor.js',
     'serendipity_define.js.php',
@@ -183,7 +183,7 @@ $dead_files_200 = array(
     'templates/default-rtl/htmlarea.css'
 );
 
-/* A list of old lib directories which were not marked obsolet with 2.0.0 upgrade - now 2.0.2 */
+/* A list of old lib directories which were not marked obsolete with 2.0.0 upgrade - now 2.0.2 */
 $dead_dirs_200 = array(
     $serendipity['serendipityPath'] . 'htmlarea/plugins/ImageManage',
     $serendipity['serendipityPath'] . 'htmlarea/plugins',
@@ -191,7 +191,7 @@ $dead_dirs_200 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/YahooUI'
 );
 
-/* A list of old or beta Serendipity files, which were not marked obsolet with the 2.0.2 upgrade, or were removed by 2.1.0 */
+/* A list of old or beta Serendipity files, which were not marked obsolete with the 2.0.2 upgrade, or were removed by 2.1.0 */
 $dead_files_202 = array(
     'composer.phar',
     'bundled-libs/katzgrau/klogger/phpunit.xml',
@@ -804,8 +804,8 @@ function serendipity_upgrader_rename_plugins() {
             $origname = $plugin['name'];
             $plugin['name'] = str_replace('@', '', $plugin['name']);
             $plugin['name'] = preg_replace('@serendipity_([^_]+)_plugin@i', 'serendipity_plugin_\1', $plugin['name']); // force old (core) plugins to plugin naming convention with 2.0+
-            $plugin['name'] = str_replace('serendipity_html_nugget_plugin', 'serendipity_plugin_html_nugget', $plugin['name']); // dito force renaming of old nugget plugin name explicitly
-#            $plugin['name'] = str_replace('serendipity_plugin_topreferers', 'serendipity_plugin_topreferrers', $plugin['name']); // dito old plugin now lives as topreferrers plugin
+            $plugin['name'] = str_replace('serendipity_html_nugget_plugin', 'serendipity_plugin_html_nugget', $plugin['name']); // ditto force renaming of old nugget plugin name explicitly
+#            $plugin['name'] = str_replace('serendipity_plugin_topreferers', 'serendipity_plugin_topreferrers', $plugin['name']); // ditto old plugin now lives as topreferrers plugin
             $pluginparts = explode(':', $plugin['name']);
 
             echo "<!-- " . serendipity_specialchars($origname) . " &gt;&gt; " . serendipity_specialchars($plugin['name']) . "-->\n";
