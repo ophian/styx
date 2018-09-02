@@ -35,6 +35,6 @@
                 </li>
                 <li>
                     <b>VII. Styx Ratgeber:</b><br>
-                    <span><em>Lesen Sie die wichtige Styx Upgrade Dokumentation und den &#187;hitchhikers "upgrade" guide&#171; für das Styx Backend im Wiki</em>.</span>
+                    <span><em>Lesen Sie die wichtige Styx Upgrade Dokumentation und den &#187;hitchhikers "upgrade" guide&#171; für das Styx Backend im Styx Webseite <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank">Help Center</a></em>.</span>
                 </li>
             </ol>
