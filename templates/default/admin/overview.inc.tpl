@@ -140,14 +140,13 @@
             <h3>{$CONST.FURTHER_LINKS}</h3>
 
             <ul class="plainList">
-                <li><a href="https://www.s9y.org/">{$CONST.FURTHER_LINKS_S9Y}</a></li>
-                <li><a href="https://ophian.github.io/hc/en/">{$CONST.FURTHER_LINKS_S9Y_DOCS}</a></li>
-                <li><a href="https://ophian.github.io/">{$CONST.FURTHER_LINKS_S9Y_BLOG} (Styx)</a></li>
-                <li><a href="https://board.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_FORUMS}</a></li>
-                <li><a href="https://ophian.github.io/plugins/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS} Web</a></li>
-                <li><a href="https://github.com/s9y/Serendipity">GitHub Serendipity</a></li>
-                <li><a href="https://github.com/ophian/styx">GitHub Styx</a></li>
-                <li><a href="https://github.com/ophian/styx/wiki">GitHub Styx Wiki</a></li>
+                <li><a href="https://ophian.github.io/">{$CONST.FURTHER_LINKS_S9Y} (Styx)</a></li>
+                <li><a href="https://ophian.github.io/hc/en/">{$CONST.FURTHER_LINKS_S9Y_DOCS} (Styx)</a></li>
+                <li><a href="https://ophian.github.io/blog">{$CONST.FURTHER_LINKS_S9Y_BLOG} (Styx)</a></li>
+                <li><a href="https://board.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_FORUMS} (S9y)</a></li>
+                <li><a href="https://ophian.github.io/plugins/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS} (Styx) Web</a></li>
+                <li><a href="https://github.com/ophian/styx">GitHub Serendipity Styx Edition</a></li>
+                <li>&nbsp;</li>
                 <li><a class="s9y_bookmarklet" href="{$bookmarklet}" title="{$CONST.FURTHER_LINKS_S9Y_BOOKMARKLET_DESC}">{$CONST.FURTHER_LINKS_S9Y_BOOKMARKLET}</a></li>
             </ul>
         </section>
