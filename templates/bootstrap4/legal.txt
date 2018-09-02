@@ -1,4 +1,3 @@
-TODO: (Provide information on used javascripts, possible cookie, where data is
-transferred to)
+If manually enabled, Bootstrap dropdown requires Popper.js (https://popper.js.org), a script for easy position tooltips, popovers or anything.
 
 
