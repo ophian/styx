@@ -179,7 +179,7 @@ function serendipity_installDatabase($type='') {
  * @param   string      Name of the config item to check
  * @param   string      The default value, if none is found
  * @param   boolean     If true, it's the personal config template, if false its the global config template
- * @param   string      Protected fields will not be echo'd in the HTML form
+ * @param   string      Protected fields will not be echoed in the HTML form
  * @return  string      The default value
  */
 function serendipity_query_default($optname, $default, $usertemplate = false, $type = 'string') {
