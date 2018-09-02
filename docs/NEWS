@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Changed media properties form submit name
+
   * Fix MediaDB-Filter-Buttons shall react instantly - The ALL (type) needs
     a value to overwrite previously set types.
 
