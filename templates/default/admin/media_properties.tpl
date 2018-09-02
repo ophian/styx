@@ -12,10 +12,10 @@
 {$MEDIA_ITEMS}
 {if $media.is_edit}
     <div class="form_buttons">
-        {if NOT $media.case_add}
-            <a class="button_link" href="?serendipity[adminModule]=media">{$CONST.BACK}</a>
-        {/if}
-        <input name="submit" type="submit" value="{$CONST.GO}">
+    {if NOT $media.case_add}
+        <a class="button_link" href="?serendipity[adminModule]=media">{$CONST.BACK}</a>
+    {/if}
+        <input name="submit" type="submit" value="{$CONST.SAVE}">
     </div>
 </form>
 {/if}
