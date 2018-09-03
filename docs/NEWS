@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Sync Smarty 3.1.33-dev-12 bugfix updates, including Styx fix
+
   * Fix wrong set bulk image multimove conditional check variable for
     development sessions.
 
