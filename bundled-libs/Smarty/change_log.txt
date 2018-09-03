@@ -1,4 +1,22 @@
-﻿===== 3.1.33-dev-7 =====
+﻿===== 3.1.33-dev-12 =====
+03.09.2018
+  - bugfix {foreach} using new style property access like {$item@property} on
+    Smarty 2 style named foreach loop could produce errors https://github.com/smarty-php/smarty/issues/484
+
+31.08.2018
+  - bugfix some custom left and right delimiters like '{^' '^}' did not work
+    https://github.com/smarty-php/smarty/issues/450 https://github.com/smarty-php/smarty/pull/482
+
+  - reformating for PSR-2 coding standards https://github.com/smarty-php/smarty/pull/483
+
+  - bugfix on Windows absolute filepathes did fail if the drive letter was followed by a linux DIRECTORY_SEPARATOR
+    like C:/  at Smarty > 3.1.33-dev-5 https://github.com/smarty-php/smarty/issues/451
+
+  - PSR-2 code style fixes for config and template file Lexer/Parser generated with
+    the Smarty Lexer/Parser generator from https://github.com/smarty-php/smarty-lexer
+    https://github.com/smarty-php/smarty/pull/483
+
+===== 3.1.33-dev-7 =====
 26.08.2018
   - bugfix/enhancement {capture} allow variable as capture block name in Smarty special variable
     like $smarty.capture.$foo https://github.com/smarty-php/smarty/issues/478 https://github.com/smarty-php/smarty/pull/481

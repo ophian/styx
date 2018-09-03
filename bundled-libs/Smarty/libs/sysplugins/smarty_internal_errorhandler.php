@@ -7,7 +7,8 @@
  * @subpackage PluginsInternal
  * @author     Uwe Tews
  *
- * @deprecated Smarty does no longer use @filemtime()
+ * @deprecated
+Smarty does no longer use @filemtime()
  */
 class Smarty_Internal_ErrorHandler
 {
@@ -15,6 +16,7 @@ class Smarty_Internal_ErrorHandler
      * contains directories outside of SMARTY_DIR that are to be muted by muteExpectedErrors()
      */
     public static $mutedDirectories = array();
+
     /**
      * error handler returned by set_error_handler() in self::muteExpectedErrors()
      */
@@ -55,11 +57,11 @@ class Smarty_Internal_ErrorHandler
      *
      * @link http://php.net/set_error_handler
      *
-     * @param integer    $errno Error level
-     * @param $errstr
-     * @param $errfile
-     * @param $errline
-     * @param $errcontext
+     * @param integer $errno Error level
+     * @param         $errstr
+     * @param         $errfile
+     * @param         $errline
+     * @param         $errcontext
      *
      * @return bool
      */
