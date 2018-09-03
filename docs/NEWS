@@ -4,6 +4,8 @@ Version ()
   * Fix wrong set bulk image multimove conditional check variable for
     development sessions.
 
+  * Update Dashboard Quicktip documentary
+
   * Changed media properties form submit name
 
   * Fix MediaDB-Filter-Buttons shall react instantly - The ALL (type) needs
