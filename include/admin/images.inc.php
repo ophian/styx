@@ -195,7 +195,7 @@ switch ($serendipity['GET']['adminAction']) {
             echo '<div class="msg_notice"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MULTICHECK_NO_DIR, serendipity_specialchars($_SERVER['HTTP_REFERER'], ENT_QUOTES | ENT_HTML401)) . '</div>'."\n";
             return; // blank content page exit
         }
-        // case bulk multimove (leave the fake oldDir being send as an empty dir)
+        // case bulk multimove (leave the faked oldDir being send as an empty dir string)
         if (isset($serendipity['POST']['oldDir']) && !empty($serendipity['POST']['newDir'])) {
             $messages = array();
             $multiMoveImages = $serendipity['POST']['multiCheck'];
@@ -207,7 +207,7 @@ switch ($serendipity['GET']['adminAction']) {
             $nDir = (!empty($nDir) && $nDir != '/') ? rtrim($nDir, '/') . '/' : $nDir;
             // $nDir "set empty" check for the fake-named "uploadRoot" directory is done via functions_images.inc, since we need it for comparison checks before conversion
 
-            if ($oDir != $nDir) {
+            if ($serendipity['POST']['oldDir'] != $nDir) {
                 $i = 0;
                 foreach($multiMoveImages AS $mkey => $move_id) {
                     $file = serendipity_fetchImageFromDatabase((int)$move_id);
