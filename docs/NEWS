@@ -4,6 +4,8 @@ Version ()
   * Fix wrong set bulk image multimove conditional check variable for
     development sessions.
 
+  * Update Dashboard bookmarklet links
+
   * Update Dashboard Quicktip documentary
 
   * Changed media properties form submit name
