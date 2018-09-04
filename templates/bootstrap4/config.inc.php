@@ -98,7 +98,7 @@ $template_config = array(
        'var' => 'use_corenav',
        'name' => USE_CORENAV,
        'type' => 'boolean',
-       'default' => true
+       'default' => false
     )
 );
 
