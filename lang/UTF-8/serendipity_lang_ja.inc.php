@@ -963,7 +963,7 @@
 @define('PERMISSION_HIDDENGROUP', 'グループ/非著者を隠す');
 
 @define('SEARCH_FULLENTRY', '全エントリーを表示する');
-@define('NAVLINK_AMOUNT', 'ナビゲーション バーのリンク数の入力 (スタイル ページ管理の再読み込みに必要)');
+@define('NAVLINK_AMOUNT', 'ナビゲーション バーのリンク数の入力 (and save this form)');
 @define('NAV_LINK_TEXT', 'ナビゲーション バーのリンクでのテキストの入力');
 @define('NAV_LINK_URL', '完全なリンクの URL を入力する');
 @define('MODERATE_SELECTED_COMMENTS', '選択したコメントを許可する');

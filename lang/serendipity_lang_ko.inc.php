@@ -964,7 +964,7 @@
 @define('PERMISSION_HIDDENGROUP', '숨겨진 그룹 / 비작성자');
 
 @define('SEARCH_FULLENTRY', '글 전체를 보여주기');
-@define('NAVLINK_AMOUNT', '내비게이션에 표시할 링크의 수 입력 (스타일 관리 페이지를 다시 불러들여야 함)');
+@define('NAVLINK_AMOUNT', '내비게이션에 표시할 링크의 수 입력 (and save this form)');
 @define('NAV_LINK_TEXT', '내비게이션 링크에 표시할 문구 입력');
 @define('NAV_LINK_URL', '링크의 전체 주소(URL) 입력');
 @define('MODERATE_SELECTED_COMMENTS', '선택한 덧글 승인');

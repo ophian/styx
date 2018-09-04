@@ -960,7 +960,7 @@
 @define('PERMISSION_HIDDENGROUP', 'Hidden group / Non-Author');
 
 @define('SEARCH_FULLENTRY', 'Show full entry');
-@define('NAVLINK_AMOUNT', 'Enter number of links in the navbar (needs reload of the Manage Themes page)');
+@define('NAVLINK_AMOUNT', 'Enter number of links in the navbar (and save this form)');
 @define('NAV_LINK_TEXT', 'Enter the navbar link text');
 @define('NAV_LINK_URL', 'Enter the full URL of your link');
 @define('MODERATE_SELECTED_COMMENTS', 'Approve selected comments');

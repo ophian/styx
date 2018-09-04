@@ -978,7 +978,7 @@ $i18n_filename_to = array (
 @define('QUICKSEARCH_SORT_RELEVANCE', 'Relevance');
 @define('PERMISSION_HIDDENGROUP', 'Skryt? skupina / Bez autora');
 @define('SEARCH_FULLENTRY', 'Zobrazit cel? p??sp?vek');
-@define('NAVLINK_AMOUNT', 'Zadejte po?et odkaz? naviga?n? li?ty (ihned po zad?n? t?to volby klikn?te na "Ulo?it" a obnovte str?nku)');
+@define('NAVLINK_AMOUNT', 'Zadejte po?et odkaz? naviga?n? li?ty (and save this form)');
 @define('NAV_LINK_TEXT', 'Test odkazu');
 @define('NAV_LINK_URL', 'URL adresa odkazu');
 @define('MODERATE_SELECTED_COMMENTS', 'Schv?lit vybran? koment??e');

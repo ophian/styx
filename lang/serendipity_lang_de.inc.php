@@ -963,7 +963,7 @@
 @define('PERMISSION_HIDDENGROUP', 'Hidden group / Non-Author');
 
 @define('SEARCH_FULLENTRY', 'Zeige vollen Eintrag');
-@define('NAVLINK_AMOUNT', 'Anzahl der Links in der Navigationsleiste (Themes verwalten-Seite muss danach neu geladen werden)');
+@define('NAVLINK_AMOUNT', 'Anzahl der Navigationstabs (geänderten Wert speichern)');
 @define('NAV_LINK_TEXT', 'Text des Navigationsleisten-Links');
 @define('NAV_LINK_URL', 'URL des Navigationsleisten-Links');
 @define('MODERATE_SELECTED_COMMENTS', 'Markierte Kommentare freischalten');
