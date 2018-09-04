@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Internally release Styx 2.6-rc1
+
   * themes: Change 'use_corenav' default value to false
     [2k11, bootstrap4, clean-blog, next, skeleton, timeline]
 
