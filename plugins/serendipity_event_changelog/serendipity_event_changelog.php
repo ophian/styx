@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_plugin
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.32');
+        $propbag->add('version',       '1.33');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -30,7 +30,7 @@ class serendipity_event_changelog extends serendipity_plugin
             'backend_maintenance' => true,
             'external_plugin'     => true
         ));
-        $propbag->add('groups',         array('BACKEND_ADMIN', 'BACKEND_FEATURES', 'BACKEND_MAINTAIN'));
+        $propbag->add('groups',         array('BACKEND_ADMIN', 'BACKEND_FEATURES', 'BACKEND_MAINTAIN', 'MAINTENANCE'));
     }
 
     // Setup title
