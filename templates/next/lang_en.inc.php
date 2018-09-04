@@ -6,7 +6,7 @@
 @define('NEXT_WEBFONTS', 'Use a webfont, hosted by Google?');
 @define('NEXT_NOWEBFONT', 'Include no webfont');
 @define('NEXT_USERSTYLES', 'Include user.css? (You need to create that file in your theme directory!)');
-@define('NEXT_REFCOMMENTS', 'Add link to related comment to comments (if they are replies to another comment)?');
+@define('NEXT_REFCOMMENTS', 'Add link to parent comment if the comment is a reply?');
 // Lang constants
 @define('NEXT_PLINK_TEXT', 'Link');
 @define('NEXT_PLINK_TITLE', 'Permanent link for this comment');

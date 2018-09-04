@@ -10,7 +10,7 @@
 @define('TWOK11_IMGSTYLE_NONE', 'No border');
 @define('TWOK11_IMGSTYLE_BORDER', 'Simple border');
 @define('TWOK11_IMGSTYLE_SHADOW', 'Border shadow');
-@define('TWOK11_REFCOMMENTS', 'Add link to related comment to comments (if they are replies to another comment)?');
+@define('TWOK11_REFCOMMENTS', 'Add link to parent comment if the comment is a reply?');
 // Lang constants
 @define('TWOK11_NAV_TITLE', 'Navigation');
 @define('TWOK11_PAG_TITLE', 'Pagination');

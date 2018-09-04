@@ -6,7 +6,7 @@
 @define('NEXT_WEBFONTS', 'Einen von Google gehosteten Webfont nutzen?');
 @define('NEXT_NOWEBFONT', 'Keinen Webfont einbinden');
 @define('NEXT_USERSTYLES', 'user.css einbinden? (Muss selbst im Themeverzeichnis angelegt werden!)');
-@define('NEXT_REFCOMMENTS', 'Kommentaren (falls vorhanden) einen Link zum Kommentar, auf den geantwortet wurde, hinzufügen?');
+@define('NEXT_REFCOMMENTS', 'Link zum übergeordneten Kommentar hinzufügen, wenn der Kommentar eine Antwort ist?');
 // Sprachkonstanten
 @define('NEXT_PLINK_TEXT', 'Link');
 @define('NEXT_PLINK_TITLE', 'Permanenter Link zu diesem Kommentar');

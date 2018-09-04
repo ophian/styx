@@ -10,7 +10,7 @@
 @define('TWOK11_IMGSTYLE_NONE', 'Kein Rahmen');
 @define('TWOK11_IMGSTYLE_BORDER', 'Einfacher Rahmen');
 @define('TWOK11_IMGSTYLE_SHADOW', 'Schatten-Rahmen');
-@define('TWOK11_REFCOMMENTS', 'Kommentaren (falls vorhanden) einen Link zum Kommentar, auf den geantwortet wurde, hinzufügen?');
+@define('TWOK11_REFCOMMENTS', 'Link zum übergeordneten Kommentar hinzufügen, wenn der Kommentar eine Antwort ist?');
 // Sprachkonstanten
 @define('TWOK11_NAV_TITLE', 'Navigation');
 @define('TWOK11_PAG_TITLE', 'Pagination');
