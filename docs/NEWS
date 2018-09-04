@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * themes: Change 'use_corenav' default value to false
+    [2k11, bootstrap4, clean-blog, next, skeleton, timeline]
+
   * Fix NAVLINK_AMOUNT constant text for all languages and fix some [de]
     lang typos.
 
