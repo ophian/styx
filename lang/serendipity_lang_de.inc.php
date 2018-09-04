@@ -205,8 +205,8 @@
 @define('SUBSCRIBE_TO_THIS_ENTRY', 'Bei Aktualisierung dieser Kommentare benachrichtigen');
 @define('UNSUBSCRIBE_OK', 'Sie (%s) erhalten nun keine weiteren Benachrichtigungen mehr.');
 @define('NEW_COMMENT_TO_SUBSCRIBED_ENTRY', 'Benachrichtigung zu neuem Kommentar des Eintrags "%s"');
-@define('SUBSCRIPTION_MAIL', "Hallo %s,\n\nEin neuer Kommentar wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtung mit folgender URL kündigen: %s\n");
-@define('SUBSCRIPTION_TRACKBACK_MAIL', "Hallo %s,\n\nEin neues Trackback wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtung mit folgender URL kündigen: %s\n");
+@define('SUBSCRIPTION_MAIL', "Hallo %s,\n\nEin neuer Kommentar wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtigung mit folgender URL kündigen: %s\n");
+@define('SUBSCRIPTION_TRACKBACK_MAIL', "Hallo %s,\n\nEin neues Trackback wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtigung mit folgender URL kündigen: %s\n");
 @define('SIGNATURE', "\n-- \n%s wird betrieben mit %s.\nDas allerbeste Blog, Sie können es auch nutzen.\nWie das geht, sehen Sie auf <%s>.");
 @define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
@@ -659,7 +659,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Chefredakteur');
 @define('USERLEVEL_ADMIN_DESC', 'Administrator');
 @define('USERCONF_USERLEVEL', 'Zugriffsrechte');
-@define('USERCONF_USERLEVEL_DESC', 'Zugriffsrechte bestimmen die Art und den Umfang des Zugriffs eines Benutzers auf die Funkionalitäten des Blogs');
+@define('USERCONF_USERLEVEL_DESC', 'Zugriffsrechte bestimmen die Art und den Umfang des Zugriffs eines Benutzers auf die Funktionalitäten des Blogs');
 @define('USER_SELF_INFO', 'Angemeldet als %s (%s)');
 @define('ADMIN_ENTRIES', 'Einträge');
 @define('RECHECK_INSTALLATION', 'Installation erneut überprüfen');
@@ -863,12 +863,12 @@
 @define('PLUGIN_AVAILABLE_COUNT', 'Gesamt: %d Plugins.');
 
 @define('SYNDICATION_RFC2616', 'Strikte RFC2616 RSS-Feed Kompatibilität');
-@define('SYNDICATION_RFC2616_DESC', 'Falls RFC2616 NICHT strikt ausgelegt wird, können alle Conditional GET Anfragen zu Serendipity die letzten Einträge seit dem letzten Client-Abruf zurückliefern - für Benutzer, die auch nach ihrem Urlaub alle Artikel lesen wollen, ist dies eine tolle Sache. Jedoch können dadurch einige spezielle Clients wie z.B. Planet aus dem Tritt gebracht werden, und neue Artikel ihres RSS-Feeds falsch interpretieren. Wenn diese Option also auf JA gesetzt wird, wird zwar die RFC befolgt, aber ihre RSS-Leser könnten Einträge verpassen wenn Sie länger nicht auf ihrer Seite waren. Wie auch immer sie sich entscheiden, entweder ärgern Sie damit Clients wie Planet oder Ihre Benutzer. Referenz: <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=1461728&amp;group_id=75065&amp;atid=542822" target="_blank" rel="nofollow">SourceForge</a>');
+@define('SYNDICATION_RFC2616_DESC', 'Falls RFC2616 NICHT strikt ausgelegt wird, können alle Conditional-GET Anfragen zu Serendipity die letzten Einträge seit dem letzten Client-Abruf zurückliefern - für Benutzer, die auch nach ihrem Urlaub alle Artikel lesen wollen, ist dies eine tolle Sache. Jedoch können dadurch einige spezielle Clients wie z.B. Planet aus dem Tritt gebracht werden, und neue Artikel ihres RSS-Feeds falsch interpretieren. Wenn diese Option also auf JA gesetzt wird, wird zwar die RFC befolgt, aber ihre RSS-Leser könnten Einträge verpassen wenn Sie länger nicht auf ihrer Seite waren. Wie auch immer sie sich entscheiden, entweder ärgern Sie damit Clients wie Planet oder Ihre Benutzer. Referenz: <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=1461728&amp;group_id=75065&amp;atid=542822" target="_blank" rel="nofollow">SourceForge</a>');
 @define('MEDIA_PROPERTY_DATE', 'Verknüpftes Datum');
 @define('MEDIA_PROPERTY_RUN_LENGTH', 'Laufzeit');
 @define('FILENAME_REASSIGNED', 'Automagisch zugewiesener Dateiname: %s');
 @define('MEDIA_UPLOAD_SIZE', 'Maximale Dateigröße für den Upload');
-@define('MEDIA_UPLOAD_SIZE_DESC', 'Geben Sie die maximale Dateigröße für hochgeladene Dateien in Bytes an. Diese Option kann jedoch auch durch serverseitige Optionen der PHP.ini beschränkt sein. PHP.ini: upload_max_filesize, post_max_size, max_input_time. Wenn Sie diese Option leerlassen, werden nur die serverseitigen Einschränkungen angewandt.');
+@define('MEDIA_UPLOAD_SIZE_DESC', 'Geben Sie die maximale Dateigröße für hochgeladene Dateien in Bytes an. Diese Option kann jedoch auch durch serverseitige Optionen der PHP.ini beschränkt sein. PHP.ini: upload_max_filesize, post_max_size, max_input_time. Wenn Sie diese Option leer lassen, werden nur die serverseitigen Einschränkungen angewandt.');
 @define('MEDIA_UPLOAD_SIZEERROR', 'Fehler: Sie können keine Datei größer als %s Bytes hochladen!');
 @define('MEDIA_UPLOAD_MAXWIDTH', 'Maximale Breite eines hochgeladenen Bildes');
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Geben sie die maximale Breite eines hochgeladenen Bildes in Pixeln an.');
@@ -901,7 +901,7 @@
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Nur Autoren mit mindestens X Beiträgen anzeigen');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Fügen Sie diesen Link ihrem Browser manuell als Lesezeichen/Favoriten hinzu. Dann können Sie dieses Lesezeichen auf jeder beliebigen Seite nutzen, um in einem Popup Fenster direkt in das Backend Eintragsformular ihres Blog zu springen (nur wenn eingeloggt).');
-@define('IMPORT_WP_PAGES', 'Auch attachments und staticpages als normale Blog-Einträge importieren?');
+@define('IMPORT_WP_PAGES', 'Auch "attachments" und "staticpages" als normale Blog-Einträge importieren?');
 @define('USERCONF_CREATE', 'Benutzer deaktivieren / Rechte entziehen?');
 @define('USERCONF_CREATE_DESC', 'Wenn diese Option aktiviert ist, wird dieser Benutzer keine Möglichkeit mehr haben Einträge anzulegen oder sonstige Aktionen auszuführen. Wenn er in die Administrations-Oberfläche kommt, wird er nichts anderes tun können als seine Persönlichen Einstellungen zu ändern und sich auszuloggen.');
 @define('CATEGORY_HIDE_SUB', 'Artikel von Unterkategorien verstecken?');
@@ -942,7 +942,7 @@
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', 'Optional benutzerdefinierten Namen für die Feeds eingeben (Vorgabe ist "feed" wenn leer)');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', 'Anzeigename für "Kommentar" feed');
 @define('SYNDICATION_PLUGIN_COMMENTNAME_DESC', 'Optional benutzerdefinierten Namen für den Kommentar-Feed eingeben');
-@define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(ist eine absolute URL mit http://... eingetragen, wird diese URL wird als Umleitungsziel verwendet, wenn die "Erzwingen" Option für FeedBurner eingeschaltet ist. Hinweis: Das kann auch eine URL sein, die auf andere Ziele als FeedBurner verweist. Für die neuen Google FeedBurner Feeds muss http://feeds2.feedburner.com/yourfeedname eigetragen werden)');
+@define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD', '(ist eine absolute URL mit http://... eingetragen, wird diese URL wird als Umleitungsziel verwendet, wenn die "Erzwingen" Option für FeedBurner eingeschaltet ist. Hinweis: Das kann auch eine URL sein, die auf andere Ziele als FeedBurner verweist. Für die neuen Google FeedBurner Feeds muss http://feeds2.feedburner.com/yourfeedname eingetragen werden.)');
 
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', '(Wenn diese Option auf "Erzwingen" gesetzt ist, wird der RSS Feed an einen anderen Webservice weitergeleitet, wie z.B. (aber nicht nur) FeedBurner. Siehe die untenstehende Option "Feedburner ID" um die absolute URL einzutragen)');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Zu bestätigende');
@@ -1098,7 +1098,7 @@
 @define('DASHBOARD_ENTRIES', 'In Vorbereitung');
 @define('INSTALL_PASSWORD2', 'Admin-Passwort (erneut)');
 @define('INSTALL_PASSWORD2_DESC', 'Passwort für den Administrator-Zugang, nochmal zur Bestätigung eingeben.');
-@define('INSTALL_PASSWORD_INVALID', 'Die eingebenen Administrator-Passwörter stimmen nicht überein.');
+@define('INSTALL_PASSWORD_INVALID', 'Die eingegebenen Administrator-Passwörter stimmen nicht überein.');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Verhalten in speziellen Bereichen erzwingen');
 @define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'Wenn Popups generell deaktiviert wurden (s.o.), kann an speziellen Stellen dennoch der Einsatz von Popups, bzw. eingebetteter Elemente forciert werden, indem die Liste jener Stellen hier aufgeführt wird (kommasepariert). Die vollständige Liste ist: ');
 @define('START_UPDATE', 'Starte Update ...');
@@ -1110,7 +1110,7 @@
 @define('MULTICHECK_NO_ITEM', 'Kein Element ausgewählt, wählen Sie mindestens eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
 @define('MULTICHECK_NO_DIR', 'Kein Verzeichnis ausgewählt, wählen Sie eines. <a href="%s">Zurück zur vorherigen Seite</a>.');
 @define('BULKMOVE_INFO', 'Bulk-move Information');
-@define('BULKMOVE_INFO_DESC', 'Setzen Sie ein Häckchen bei den entsprechenden Dateien und wählen hier den Ort zum Verschieben aus. <b>Achtung:</b> Diese Aktion tritt ohne weitere Nachfrage sofort in Kraft. Alle gewählten Dateien werden auch physisch an den neuen Ort verschoben und alle Blog Einträge nach entsprechenden Pfaden durchsucht und geändert. Mit Staticpage Versionen ab v.4.52 gilt dies auch für Statische-Seiten-Einträge.');
+@define('BULKMOVE_INFO_DESC', 'Setzen Sie ein Häkchen bei den entsprechenden Dateien und wählen hier den Ort zum Verschieben aus. <b>Achtung:</b> Diese Aktion tritt ohne weitere Nachfrage sofort in Kraft. Alle gewählten Dateien werden auch physisch an den neuen Ort verschoben und alle Blog Einträge nach entsprechenden Pfaden durchsucht und geändert. Mit Staticpage Versionen ab v.4.52 gilt dies auch für Statische-Seiten-Einträge.');
 @define('FIRST_PAGE', 'Erste Seite');
 @define('LAST_PAGE', 'Letzte Seite');
 @define('MEDIA_PROPERTIES_DONE', 'Eigenschaften von #%d geändert.');
@@ -1118,20 +1118,20 @@
 @define('DIRECTORY_INFO_DESC', 'Verzeichnisse spiegeln ihren physikalischen Verzeichnis Namen. Wenn Sie Verzeichnisse ändern oder verschieben wollen, welche bereits Elemente enthalten, haben Sie zwei Möglichkeiten: Entweder erstellen Sie vorher das benötigte Verzeichnis oder Unterverzeichnis und verschieben dann die Elemente über die Medienbibliothek in das neue Verzeichnis und löschen danach das leere alte Verzeichnis. Oder, Sie ändern den Namen des alten Verzeichnisses einfach über die unten gegebene Schaltfläche "Verzeichnis Bearbeiten" und benennen es um (zB. bestehendes Unterverzeichnis / + neuerName). Dadurch werden alle Verzeichnisse und Elemente verschoben und verweisende Blog-Einträge entsprechend geändert.');
 @define('MEDIA_RESIZE_EXISTS', 'Datei-Dimensionen bereits vorhanden!');
 @define('USE_CACHE', 'Erlaube caching');
-@define('USE_CACHE_DESC', 'Erlaubt einen internen Puffer (cache), um spezifische SQL queries zwischenzuspeichern. Dadurch verringert sich die Last auf Servern mit mittlerem bis hohem Traffic und verbessert die Ladezeit.');
-@define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein Präfix verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden einzigartigen Ascii-Namen ändern, aber nicht komplett entfernen. Dies gilt für alle Pfad-Präfix Definitionen.');
+@define('USE_CACHE_DESC', 'Erlaubt einen internen Puffer (cache), um spezifische SQL queries zwischenzuspeichern. Dadurch verringert sich die Last auf Servern mit mittlerem bis hohem Verkehr und verbessert die Ladezeit.');
+@define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein Präfix verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden einzigartigen ASCII-Namen ändern, aber nicht komplett entfernen. Dies gilt für alle Pfad-Präfix Definitionen.');
 
 @define('HIDE_SUBDIR_FILES', 'Ohne Dateien von Unterverzeichnissen');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Dashboard Standard-Widgets anzeigen?');
 @define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Zeige voreingestellte und fest eingebaute Dashboard widgets, wie gepeicherte Entwurfs-Einträge und letzte Kommentare.');
 
 @define('UPDATE_NOTIFICATION_URL', 'Update-RELEASE-Datei URL');
-@define('UPDATE_NOTIFICATION_URL_DESC', 'Dies ist Styx! Bitte nur ändern, wenn Sie eine andere Ankündigungs-Datei für benutzerdefinierte System Downloads, in Kombination mit dem Serendipity Autoupdate Plugin, erstellen wollen. Die Standard-URL für die Original Serendipity RELEASE-Datei wäre dann: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE". Eine solche Datei enthält die Versions Nummern der aktuell freigegebenen (stable/beta) Veröffentlichung für das Autoupdate Plugin; zB. "stable:5.3.0".');
+@define('UPDATE_NOTIFICATION_URL_DESC', 'Dies ist Styx! Bitte nur ändern, wenn Sie eine andere Ankündigungs-Datei für benutzerdefinierte System Downloads, in Kombination mit dem Serendipity Autoupdate Plugin, erstellen wollen. Die Standard-URL für die Original Serendipity RELEASE-Datei wäre dann: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE". Eine solche Datei enthält die Versionsnummern der aktuell freigegebenen (stable/beta) Veröffentlichung für das Autoupdate Plugin; zB. "stable:5.3.0".');
 
 @define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.'); // better keep en
 
 @define('CONFIG_ALLOW_LOCAL_URL', 'Erlaube, Daten über lokale URLs abzurufen');
-@define('CONFIG_ALLOW_LOCAL_URL_DESC', 'Standardmäßig ist es aus Sicherheitsgründen verboten, Daten über lokale URLs abzurufen, um Server Side Request Forgers (SSRF) zu vermeiden. Wenn Sie ein lokales Intranet verwenden, können sie die Datenabfrage über diese Option explizit erlauben.');
+@define('CONFIG_ALLOW_LOCAL_URL_DESC', 'Standardmäßig ist es aus Sicherheitsgründen verboten, Daten über lokale URLs abzurufen, um Server Side Request Forgers (SSRF) zu vermeiden. Wenn Sie ein lokales Intranet verwenden, können Sie die Datenabfrage über diese Option explizit erlauben.');
 @define('REMOTE_FILE_INVALID', 'Die angegebene URL "%s" scheint eine lokale zu sein und darf nicht abgerufen werden. Sie können dies explizit gestatten, in dem Sie in der Konfiguration die Option "Erlaube, Daten über lokale URLs abzurufen" setzen.');
 
 @define('INSTALLER_TOKEN_NOTE', 'Um eine abgesicherte Installation auszuführen, müssen Sie eine Datei namens "%s" mit dem String "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" in diesem Verzeichnis erstellen. Sobald diese Datei existiert, müssen Sie die Installation innerhalb der nächsten %s Minuten ausführen und dürfen ihren Browser nicht schließen. Sie müssen Cookies erlauben.');
@@ -1145,7 +1145,7 @@
 @define('FUTURES_AVAILABLE', 'Zukünftige Einträge');
 @define('DRAFTS_AVAILABLE', 'Entwurfs Einträge');
 
-@define('MEDIA_GALLERY_SELECTION', 'Diese spezielle Auswahl für Medien-Galerien zeigt nur Verzeichnisbilder derselben Ebene. Sie enthält keine Anweisung zur Darstellung der Bilder von Unterordnern, so wie Sie es möglicherweise gewohnt sind. Die Anzahl der möglichen, zugleich darstellbaren Vorschaubilder ist auf 48 limitiert. Restrukturieren Sie ihre Mediendatenbank entsprechend!<br>Diese Mediengalerie zeigt nur Vorschaubilder (optional mit einer Verlinkung zum großen Bild). Sollten ihre Vorschaubilder nicht dem Standard von 400px entsprechen, und viel kleiner als das definierte Galerie-Format von 260px sein, kann es möglichwerweise zu Darstellungsproblemen hier in der Auswahl, wie nachher auch im Eintrag kommen.<br>Die Reihenfolge der Galeriebilder ist nur manuell im anschließendem (WYSIWYG)-Quelltext des Editor Fensters veränderbar, ansonsten orientiert sie sich an der Anzeige der folgenden Auswahl. Wenn Sie den WYSIWYG-Editor benutzen, dürfen sie <strong>nicht</strong> das <em>Drag & Drop</em> (per Maus) Feature des WYSIWYG-Modus benutzen, das nicht auf diese Galerie abgestimmt ist und den Quelltext nur durcheinander bringt.');
+@define('MEDIA_GALLERY_SELECTION', 'Diese spezielle Auswahl für Medien-Galerien zeigt nur Verzeichnisbilder derselben Ebene. Sie enthält keine Anweisung zur Darstellung der Bilder von Unterordnern, so wie Sie es möglicherweise gewohnt sind. Die Anzahl der möglichen, zugleich darstellbaren Vorschaubilder ist auf 48 limitiert. Restrukturieren Sie ihre Mediendatenbank entsprechend!<br>Diese Mediengalerie zeigt nur Vorschaubilder (optional mit einer Verlinkung zum großen Bild). Sollten ihre Vorschaubilder nicht dem Standard von 400px entsprechen, und viel kleiner als das definierte Galerie-Format von 260px sein, kann es möglicherweise zu Darstellungsproblemen hier in der Auswahl, wie nachher auch im Eintrag kommen.<br>Die Reihenfolge der Galeriebilder ist nur manuell im anschließendem (WYSIWYG)-Quelltext des Editor Fensters veränderbar, ansonsten orientiert sie sich an der Anzeige der folgenden Auswahl. Wenn Sie den WYSIWYG-Editor benutzen, dürfen sie <strong>nicht</strong> das <em>Drag & Drop</em> (per Maus) Feature des WYSIWYG-Modus benutzen, das nicht auf diese Galerie abgestimmt ist und den Quelltext nur durcheinander bringt.');
 
 @define('IMAGE_LINK_TO_BIG', 'Verweise auf das große Bild');
 
