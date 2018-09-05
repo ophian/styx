@@ -1,7 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
-  * Better check (utf8mb4) database collation checks when not using mysql
+  * themes: Update last modified date for Styx 2.6.0
+
+  * Better check (utf8mb4) database collation checks when not using MySQL
 
   * Change media related informational text messages highlight color
 
