@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Better check (utf8mb4) database collation checks when not using mysql
+
   * Change media related informational text messages highlight color
 
   * Internally release Styx 2.6-rc1
