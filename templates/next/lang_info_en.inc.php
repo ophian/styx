@@ -8,5 +8,5 @@
 $info['theme_info_summary'] = 'The mobile first successor of the 2k11 frontend';
 
 $info['theme_info_desc'] = 'Regarding the more or less extended possibilities of the
-current "standard" theme "2k11", "Next" is a more simplifying successor.
-It is <em>modernized</em> and <em>successing</em> in terms of styling and selector settings only.';
+current Standard theme "2k11", "Next" is a more simplifying successor.
+It is <em>modernized</em> and <em>successive</em> in terms of styling and selector settings only.';
