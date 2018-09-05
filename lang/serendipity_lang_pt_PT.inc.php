@@ -462,7 +462,7 @@
 @define('COMMENT_EDITED', 'O comentário selecionado foi editado');
 @define('HIDE', 'Ocultar');
 @define('VIEW_EXTENDED_ENTRY', 'Continuar lendo "%s"');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older Blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other Blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('THIS_TRACKBACK_NEEDS_REVIEW', 'Atenção: Esse trackback precisa de aprovação antes que seja exibido');
 @define('DELETE_TRACKBACK', 'Excluir trackback');
 @define('APPROVE_TRACKBACK', 'Aprovar trackback');
@@ -983,7 +983,7 @@
 // Next lines were added on 2012/05/29
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
-@define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to reindex them.');
+@define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to re-index them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Simplified filters');
@@ -1069,9 +1069,9 @@
 @define('SYNDICATION_PLUGIN_COMMENTFEED', 'Comment feed');
 @define('SYNDICATION_PLUGIN_COMMENTFEED_DESC', 'Show an additional link to a comment feed. This should be interesting only to the blogauthor itself');
 @define('SYNDICATION_PLUGIN_FEEDICON', 'Feed icon');
-@define('SYNDICATION_PLUGIN_FEEDICON_DESC', 'Show a (big) icon insteaf of a textlink to the feed. Set to "none" to deactivate, or to "feedburner" to show a feedburner counter if an id is given below');
+@define('SYNDICATION_PLUGIN_FEEDICON_DESC', 'Show a (big) icon instead of a textlink to the feed. Set to "none" to deactivate, or to "feedburner" to show a feedburner counter if an id is given below');
 @define('SYNDICATION_PLUGIN_CUSTOMURL', 'Custom URL');
-@define('SYNDICATION_PLUGIN_CUSTOMURL_DESC', 'If you want to link to the custom feed specified in the blog configuration, enable this option.');
+@define('SYNDICATION_PLUGIN_CUSTOMURL_DESC', 'If you want to link to the custom feed specified in the Blog configuration, enable this option.');
 @define('FEED_CUSTOM', 'Custom feed URL');
 @define('FEED_CUSTOM_DESC', 'If set, a custom feed URL can be set to forward Feedreaders to a specific URL. Useful for statistical analyzers like Feedburner, in which case you would enter your Feedburner-URL here.');
 @define('FEED_FORCE', 'Force custom feed URL?');
@@ -1080,7 +1080,7 @@
 @define('PLUGIN_GROUP_ALL', 'All categories');
 
 @define('CONF_USE_AUTOSAVE', 'Enable autosave-feature');
-@define('CONF_USE_AUTOSAVE_DESC', 'When enabled, the text you enter into blog entries will be periodically saved in your browser\'s session storage. If your browser crashes during writing, the next time you create a new entry, the text will be restored from this autosave.');
+@define('CONF_USE_AUTOSAVE_DESC', 'When enabled, the text you enter into Blog entries will be periodically saved in your browser\'s session storage. If your browser crashes during writing, the next time you create a new entry, the text will be restored from this autosave.');
 @define('INSTALL_CAT_FEEDS', 'Feed Settings');
 @define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR', 'Toolbar for WYSIWYG editor');
 @define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR_DESC', 'Sets the list of available toolbar buttons for the WYSIWYG-Editor. If you need to further change those presets, you can create a file templates/XXX/admin/ckeditor_custom_config.js. For further details please check out the files htmlarea/ckeditor_s9y_config.js and htmlarea/ckeditor_s9y_plugin.js.');
@@ -1096,7 +1096,7 @@
 @define('USERCONF_WYSIWYG_PRESET_NOCC_CKE', 'Force: CKEditor Full');
 
 @define('CATEGORY_PLUGIN_SHOWALL', 'Show a link to "All categories"?');
-@define('CATEGORY_PLUGIN_SHOWALL', 'If enabled, a link for the visitor to display the blog with no category restriction will be added.');
+@define('CATEGORY_PLUGIN_SHOWALL', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
 @define('SERENDIPITY_PHPVERSION_FAIL', 'Serendipity requires a PHP version >= %2$s - you are running a lower version (%1$s) and need to upgrade your PHP version. Most providers offer you to switch to newer PHP versions through their admin panels or .htaccess directives.');
 @define('TOGGLE_VIEW', 'Switch category view mode');
 @define('PUBLISH_NOW', 'Publish this entry now (sets current time and date)');
@@ -1116,12 +1116,12 @@
 @define('MULTICHECK_NO_ITEM', 'No item selected, please check at least one. <a href="%s">Return to previous page</a>.');
 @define('MULTICHECK_NO_DIR', 'No directory selected, please choose one. <a href="%s">Return to previous page</a>.');
 @define('BULKMOVE_INFO', 'Bulk-move info');
-@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring blog entries are rewritten to point to the new location. The entrychange is also supported by staticpage versions up from v.4.52.');
+@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring Blog entries are rewritten to point to the new location. The entrychange is also supported by staticpage versions up from v.4.52.');
 @define('FIRST_PAGE', 'First Page');
 @define('LAST_PAGE', 'Last Page');
 @define('MEDIA_PROPERTIES_DONE', 'Properties of #%d changed.');
 @define('DIRECTORY_INFO', 'Directory info');
-@define('DIRECTORY_INFO_DESC', 'Directories reflect their physical folder directory name. If you want to change or move directories which contain items, you have two choices. Either create the directory or subdirectory you want, then move the items to the new directory via the media library and afterwards, delete the empty old directory there. Or completely change the whole old directory via the edit directory button below and rename it to whatever you like (existing subdir/ + newname). This will move all directories and items and change referring blog entries.');
+@define('DIRECTORY_INFO_DESC', 'Directories reflect their physical folder directory name. If you want to change or move directories which contain items, you have two choices. Either create the directory or subdirectory you want, then move the items to the new directory via the media library and afterwards, delete the empty old directory there. Or completely change the whole old directory via the edit directory button below and rename it to whatever you like (existing subdir/ + newname). This will move all directories and items and change referring Blog entries.');
 @define('MEDIA_RESIZE_EXISTS', 'File dimensions already exist!');
 @define('USE_CACHE', 'Enable caching');
 @define('USE_CACHE_DESC', 'Enables an internal cache to not repeat specific database queries. This reduces the load on servers with medium to high traffic and improves page load time.');
@@ -1138,7 +1138,7 @@
 
 @define('CONFIG_ALLOW_LOCAL_URL', 'Allow to fetch data from local URLs');
 @define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server Side Request Forgers (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
-@define('REMOTE_FILE_INVALID', 'The given URL "%s" appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your blog configuration.');
+@define('REMOTE_FILE_INVALID', 'The given URL "%s" appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your Blog configuration.');
 
 @define('INSTALLER_TOKEN_NOTE', 'To continue a secure installation, you need to create a file called "%s" with the string "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" within this directory. Once that file exists, you must continue the installation within the next %s minutes and do not close your browser window, and you need to have Cookies enabled.');
 @define('INSTALLER_TOKEN_MISMATCH', 'You are not authorized to continue installation, since your install token is not identical (%s) to the one contained in the file "%s". Please make sure you created the file with the right content. You can get a new token by deleting the file.');
@@ -1156,11 +1156,11 @@
 @define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 
 @define('UTF8MB4_MIGRATION_TITLE', 'UTF-8-MB4 migration');
-@define('UTF8MB4_MIGRATION_ERROR', 'An error occured with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
+@define('UTF8MB4_MIGRATION_ERROR', 'An error occurred with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
 @define('UTF8MB4_MIGRATION_TASK_RETURN', 'The migration task returned:');
 @define('UTF8MB4_MIGRATION_TASK_HAVE', 'The following SQL commands have been executed:');
 @define('UTF8MB4_MIGRATION_TASK_CAN', 'The following SQL commands can be executed:');
-@define('UTF8MB4_MIGRATION_TASK_DONE', 'Your blog is using the UTF-8 with Multibyte-Extension charset.');
+@define('UTF8MB4_MIGRATION_TASK_DONE', 'Your Blog is using the UTF-8 with Multibyte-Extension charset.');
 @define('UTF8MB4_MIGRATION_INFO', 'When using Serendipity Styx 2.4+ with MySQLi and UTF-8 charsets (this is the default), the database tables and indexes can be migrated from UTF-8 to UTF-8 with Multibyte-Extension, to also support unicode characters outside the Basic Multilingual Plane (BMP), such as <b>Emojis</b>. Utf8mb4 is a superset of utf8.');
 @define('UTF8MB4_MIGRATION_BUTTON_CHECK', 'Simulate / Check');
 @define('UTF8MB4_MIGRATION_BUTTON_EXECUTE', 'Execute');
@@ -1168,7 +1168,7 @@
 <p>This is a task that can probably fail to properly convert your data, so be sure to make a full SQL backup before you perform the upgrade!</p>
 Please run the simulation first, to get a list of SQL statements, that will be issued on your installation, and make sure there are no (red) errors in the simulation or first execution before continuing.
 Run the <b>executor</b> [execute] task as long it appears, to fully convert the database tables and re-set the new dbCharset to "utf8mb4" in your configuration file. Do not reload your browser tab. You are finished with a <b>green</b> success message!');
-@define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
+@define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your Blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
 

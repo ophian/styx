@@ -479,7 +479,7 @@
 @define('COMMENT_EDITED', '선택된 덧글이 편집되었습니다.');
 @define('HIDE', '숨기기');
 @define('VIEW_EXTENDED_ENTRY', '"%s" 계속 읽기');
-@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
+@define('TRACKBACK_SPECIFIC_ON_CLICK', 'This link is not active. It contains a copyable trackback URI to manually send ping- & trackbacks to this entry for older Blogs; Eg. (still valid) via the provided entry field of the serendipity_event_trackback plugin. Serendipity and other Blog systems nowadays recognize the trackback URL automatically by the article URL. The trackback URI for your Sender entry link therefore is as follows:');
 @define('PLUGIN_SUPERUSER_HTTPS', '로그인에 https 사용');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', '로그인 링크가 https 위치로 향하도록 합니다. 웹서버가 이 기능을 지원해야 합니다.');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', '외부 링크를 클릭할 수 있게 하기');
@@ -1115,7 +1115,7 @@
 @define('MULTICHECK_NO_ITEM', '선택한 아이템이 없습니다. 최소한 한 개를 선택하십시오. <a href="%s">이전 페이지로 돌아가기</a>.');
 @define('MULTICHECK_NO_DIR', '선택한 디렉토리가 없습니다. 최고한 한 군데를 선택하십시오. <a href="%s">이전 페이지로 돌아가기</a>.');
 @define('BULKMOVE_INFO', '대량으로 이동하기');
-@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring blog entries are rewritten to point to the new location. The entrychange is also supported by staticpage versions up from v.4.52.');
+@define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring Blog entries are rewritten to point to the new location. The entrychange is also supported by staticpage versions up from v.4.52.');
 #@define('BULKMOVE_INFO_DESC', '여러 파일을 선택하여 한꺼번에 새로운 위치로 이동시킬 수 있습니다. <strong>주의:</strong> 이 작업은 여러 파일의 대량 삭제와 마찬가지로 되돌릴 수 없습니다. 선택한 파일은 물리적으로 이동되며 이를 참조하는 블로그 글은 새 위치를 참조하도록 재작성됩니다.');
 @define('FIRST_PAGE', '첫 페이지');
 @define('LAST_PAGE', '마지막 페이지');
@@ -1138,7 +1138,7 @@
 
 @define('CONFIG_ALLOW_LOCAL_URL', 'Allow to fetch data from local URLs');
 @define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server Side Request Forgers (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
-@define('REMOTE_FILE_INVALID', 'The given URL "%s" appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your blog configuration.');
+@define('REMOTE_FILE_INVALID', 'The given URL "%s" appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your Blog configuration.');
 
 @define('INSTALLER_TOKEN_NOTE', 'To continue a secure installation, you need to create a file called "%s" with the string "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" within this directory. Once that file exists, you must continue the installation within the next %s minutes and do not close your browser window, and you need to have Cookies enabled.');
 @define('INSTALLER_TOKEN_MISMATCH', 'You are not authorized to continue installation, since your install token is not identical (%s) to the one contained in the file "%s". Please make sure you created the file with the right content. You can get a new token by deleting the file.');
@@ -1156,11 +1156,11 @@
 @define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 
 @define('UTF8MB4_MIGRATION_TITLE', 'UTF-8-MB4 migration');
-@define('UTF8MB4_MIGRATION_ERROR', 'An error occured with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
+@define('UTF8MB4_MIGRATION_ERROR', 'An error occurred with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
 @define('UTF8MB4_MIGRATION_TASK_RETURN', 'The migration task returned:');
 @define('UTF8MB4_MIGRATION_TASK_HAVE', 'The following SQL commands have been executed:');
 @define('UTF8MB4_MIGRATION_TASK_CAN', 'The following SQL commands can be executed:');
-@define('UTF8MB4_MIGRATION_TASK_DONE', 'Your blog is using the UTF-8 with Multibyte-Extension charset.');
+@define('UTF8MB4_MIGRATION_TASK_DONE', 'Your Blog is using the UTF-8 with Multibyte-Extension charset.');
 @define('UTF8MB4_MIGRATION_INFO', 'When using Serendipity Styx 2.4+ with MySQLi and UTF-8 charsets (this is the default), the database tables and indexes can be migrated from UTF-8 to UTF-8 with Multibyte-Extension, to also support unicode characters outside the Basic Multilingual Plane (BMP), such as <b>Emojis</b>. Utf8mb4 is a superset of utf8.');
 @define('UTF8MB4_MIGRATION_BUTTON_CHECK', 'Simulate / Check');
 @define('UTF8MB4_MIGRATION_BUTTON_EXECUTE', 'Execute');
@@ -1168,7 +1168,7 @@
 <p>This is a task that can probably fail to properly convert your data, so be sure to make a full SQL backup before you perform the upgrade!</p>
 Please run the simulation first, to get a list of SQL statements, that will be issued on your installation, and make sure there are no (red) errors in the simulation or first execution before continuing.
 Run the <b>executor</b> [execute] task as long it appears, to fully convert the database tables and re-set the new dbCharset to "utf8mb4" in your configuration file. Do not reload your browser tab. You are finished with a <b>green</b> success message!');
-@define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
+@define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your Blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
 @define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
 
