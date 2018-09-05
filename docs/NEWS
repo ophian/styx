@@ -1,6 +1,8 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Change media related informational text messages highlight color
+
   * Internally release Styx 2.6-rc1
 
   * themes: Change 'use_corenav' default value to false
