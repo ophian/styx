@@ -1,6 +1,6 @@
 Name: Next
 Author: Matthias Mees, mm@yellowled.de
-Date: 2018-07-25 | 1261 days
+Date: 2018-09-05 | 1303 days
 Require Serendipity: 2.0
 Backend: No
 Recommended: Yes
