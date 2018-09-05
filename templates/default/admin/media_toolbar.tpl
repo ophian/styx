@@ -36,7 +36,7 @@
                     {if NOT $media.standardpane}
                     <button class="toggle_info button_link" type="button" data-href="#media_gallery_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden">Gallery item selection</span></button>
                     <div id="media_gallery_selection" class="clearfix additional_info media_gallery_selection">
-                        <span class="msg_notice">{$CONST.MEDIA_GALLERY_SELECTION}</span>
+                        <span class="msg_hint focused">{$CONST.MEDIA_GALLERY_SELECTION}</span>
                     </div>
                     {/if}
                 </div>

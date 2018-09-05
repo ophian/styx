@@ -1507,6 +1507,10 @@ summary {
     border: 1px solid #aaa;
     color: #777;
 }
+.msg_hint.focused {
+    color: #555;
+    text-shadow: 1px 1px 1px rgba(195, 195, 195, 0.8);
+}
 
 
 /* LAYOUT */

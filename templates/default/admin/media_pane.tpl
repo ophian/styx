@@ -49,7 +49,7 @@
                     <option value="uploadRoot">{$CONST.BASE_DIRECTORY}</option>
                 {foreach $media.paths AS $folderFoot}
 
-                    <option value="{$folderFoot.relpath}">{'&nbsp;'|str_repeat:($folderFoot.depth*2)}{$folderFoot.name}</option>
+                    <option value="{$folderFoot.relpath}">{'&nbsp;'|str_repeat:($folderFoot.depth*2)}{$folderFoot.name}</option>{* * *}
                 {/foreach}
 
                 </select>
@@ -60,7 +60,7 @@
         </div>
 
         <footer id="media_file_bulkmove" class="media_file_bulkmove additional_info">
-            <span class="msg_notice">{$CONST.BULKMOVE_INFO_DESC}</span>
+            <span class="msg_hint focused">{$CONST.BULKMOVE_INFO_DESC}</span>
         </footer>
 
     </form>
