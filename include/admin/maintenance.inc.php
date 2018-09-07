@@ -6,11 +6,19 @@ if (IN_serendipity !== true) {
 
 $data = array();
 
-// do not move to end of switch, since this will change smarty assignment scope
+// do not move to end of switch, since this will change Smarty assignment scope
 ob_start();
 include S9Y_INCLUDE_PATH . 'include/admin/import.inc.php';
 $data['importMenu'] = ob_get_contents();
 ob_end_clean();
+
+$keepthemes = [ '2k11', '2styx', 'blue','bootstrap4', 'bulletproof', 'carl_contest', 'clean-blog',
+            'competition', 'contest', 'default', 'default-php', 'default-rtl', 'default-xml',
+            'idea', 'kubrick', 'next', 'skeleton', 'timeline' ];
+
+if ($serendipity['GET']['adminAction'] == 'cleartemp') {
+    include_once S9Y_INCLUDE_PATH . 'include/functions_upgrader.inc.php';
+}
 
 $usedSuffixes = @serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
 
@@ -22,6 +30,7 @@ $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
 $data['dbnotmysql']          = ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true;
 $data['suffixTask']          = (is_array($usedSuffixes) && count($usedSuffixes) > 1) ? true : false;
+$data['zomb']                = null;
 
 switch($serendipity['GET']['adminAction']) {
     case 'integrity':
@@ -59,6 +68,52 @@ switch($serendipity['GET']['adminAction']) {
             if (is_array($data['dbUtf8mb4_migrate']['errors']) && count($data['dbUtf8mb4_migrate']['errors']) > 0) {
                 $data['dbUtf8mb4_simulated'] = false;
             }
+        }
+        break;
+
+    case 'checktemp':
+        if (!serendipity_checkPermission('siteConfiguration')) {
+            $data['thememanager_error'] = PERM_DENIED;
+            break;
+        }
+        $dir = new DirectoryIterator($serendipity['serendipityPath'] . 'templates');
+        foreach ($dir AS $fileinfo) {
+            if ($fileinfo->isDir() && !$fileinfo->isDot()) {
+                $dirname = $fileinfo->getFilename();
+                // exclude release theme names
+                if (!in_array($dirname, $keepthemes)) {
+                    #echo $dirname."<br>\n";
+                    if ($dirname != $serendipity['template']) {
+                        $data['local_themes'][] = $dirname;
+                    }
+                }
+            }
+        }
+        $data['select_localthemes_total'] = @count($data['local_themes']);
+        break;
+
+    case 'cleartemp':
+        if (!serendipity_checkPermission('siteConfiguration') || !serendipity_checkFormToken()) {
+            $data['thememanager_error'] = PERM_DENIED;
+            break;
+        }
+        if (isset($serendipity['POST']['cleartemp']['multi_themes']) && is_array($serendipity['POST']['cleartemp']['multi_themes'])) {
+                $postthemes = $serendipity['POST']['cleartemp']['multi_themes'];
+                $themezombies = array();
+                foreach ($postthemes AS $theme) {
+                    // exclude release theme names and prepend fullpath
+                    if (!in_array($postthemes, $keepthemes)) {
+                        $themezombies[] = $serendipity['serendipityPath'] . 'templates/' . $theme;
+                    }
+                }
+                if (!empty($themezombies)) {
+                    // do purge
+                    recursive_directory_iterator($themezombies);
+                    // test the first for messaging, since method does not return boolean
+                    if (!is_dir($themezombies[0])) {
+                        $data['zomb'] = true;
+                    }
+                }
         }
         break;
 

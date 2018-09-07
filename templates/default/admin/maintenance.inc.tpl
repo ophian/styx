@@ -176,4 +176,39 @@
     </section>
 {/if}
 
+{if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
+    <section id="maintenance_thememanager" class="quick_list">
+        <h3>{$CONST.THEMEMANAGER}</h3>
+    {if NOT empty($thememanager_error)}
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$thememanager_error}</span>
+    {else if $zomb}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.THEMEMANAGER_ZOMB_OK}</span>
+    {else if NOT isset($local_themes) OR !is_array($local_themes)}
+        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=checktemp" title="{$CONST.THEMEMANAGER_LOCALTHEMES|lower}"><span>{$CONST.THEMEMANAGER_LOCALTHEMES}</span></a>
+    {else}
+
+        <form id="maintenance_cleartemp_multi" enctype="multipart/form-data"  method="POST" action="serendipity_admin.php">
+            <input type="hidden" name="serendipity[adminModule]" value="maintenance">
+            <input type="hidden" name="serendipity[adminAction]" value="cleartemp">
+            {$formtoken}
+
+            <div class="form_select">
+                <select id="cleartemp_access_multi_themes" class="" name="serendipity[cleartemp][multi_themes][]" multiple="multiple" size="{$select_localthemes_total}">
+                {foreach $local_themes AS $themes}
+                    <option value="{$themes}">{$themes}</option>
+                {/foreach}
+                </select>
+            </div>
+
+            <div class="form_buttons">
+                <input class="state_submit" name="cleartemp_multi" value="{$CONST.THEMEMANAGER_SUBMIT}" type="submit">
+                <button class="toggle_info button_link" type="button" data-href="#thema_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                <span id="thema_info" class="comment_status additional_info">{$CONST.THEMEMANAGER_INFO}</span>
+            </div>
+        </form>
+
+    {/if}
+    </section>
+{/if}
+
 </div>

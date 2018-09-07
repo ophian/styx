@@ -2691,9 +2691,13 @@ h3 .media_file_actions {
 }
 
 #maintenance_cleanup .comment_status,
+#maintenance_thememanager .comment_status,
 #maintenance_thumbs .comment_status {
     float: none;
     margin: 0 0 .5em;
+}
+#cleartemp_access_multi_themes {
+    width: 100%;
 }
 
 .pending {
