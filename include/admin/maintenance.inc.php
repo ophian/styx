@@ -63,7 +63,7 @@ switch($serendipity['GET']['adminAction']) {
         }
         break;
 
-    case 'runcleanup':
+    case 'clearcomp':
         // The Smarty method clearCompiledTemplate() clears all compiled Smarty template files in templates_c and is loaded dynamically by the extension handler when called.
         // Since there may be other compiled template files in templates_c too, we have to restrict this call() to clear the current Blogs template only,
         // to not have the following automated recompile, force the servers memory to get exhausted
