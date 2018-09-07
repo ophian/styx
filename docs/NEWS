@@ -1,6 +1,9 @@
 Version ()
  ------------------------------------------------------------------------
 
+  * Add a Theme-Manager-Clearance maintenance Spot, to get rid of
+    old and presumably outdated additional or private plugins.
+
   * themes: Update last modified date for Styx 2.6.0
 
   * Better check (utf8mb4) database collation checks when not using MySQL
