@@ -1173,5 +1173,5 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die
 @define('THEMEMANAGER_ZOMB_OK', 'Gut gemacht! Alte Themes erfolgreich gelöscht!');
 @define('THEMEMANAGER_LOCALTHEMES', 'Untersuche lokale ältere Themes');
 @define('THEMEMANAGER_SUBMIT', 'Lösche gewählte Themes');
-@define('THEMEMANAGER_INFO', 'Multi-select und lösche alte Theme-Zombies. Machen Sie mich glücklich und halten Ihren Laden sauber! :) Wenn Sie jemals ein solches Theme wieder benötigen, laden Sie es einfach als frische Version über Spartacus.');
+@define('THEMEMANAGER_INFO', 'Multi-select und lösche alte Theme-Zombies. Machen Sie mich glücklich und halten Ihren Laden sauber! :) Wenn Sie jemals ein solches Theme wieder benötigen, laden Sie es einfach als frische Version über Spartacus. Anderseits, wenn Sie ein solches Template je verändert haben, sollten Sie ohne Backup auf die Löschung möglicherweise verzichten!');
 
