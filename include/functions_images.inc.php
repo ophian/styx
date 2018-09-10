@@ -5,6 +5,7 @@
 if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
+@define('NOTHING_TODO', 'Nothing to do');
 
 /**
  * Check if an uploaded file is "evil"
