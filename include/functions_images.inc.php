@@ -2182,7 +2182,7 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
 function serendipity_traversePath($basedir, $dir='', $onlyDirs = true, $pattern = NULL, $depth = 1, $max_depth = NULL, $apply_ACL = false, $aExcludeDirs = NULL) {
 
     if ($aExcludeDirs === null) {
-        // add _vti_cnf to exclude possible added servers frontpage extensions
+        // add _vti_cnf to exclude possible added servers frontpage extensions - deprecated and remove in future  since that is OLD!
         // add CKEditors .thumb dir to exclude, since no hook
         $aExcludeDirs = array('CVS' => true, '.svn' => true, '.thumbs' => true, '_vti_cnf' => true, '.git' => true);
     }
