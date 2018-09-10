@@ -75,20 +75,24 @@ switch ($serendipity['GET']['adminAction']) {
            }
         }
 
-        if ($deleteThumbs == 'convert') {
+        // guard clause - and force a strict check, since we want (bool)true to not touch this part!
+        if ($deleteThumbs === 'convert') {
             $i = serendipity_convertThumbs();
             $data['print_SYNC_DONE'] = sprintf(SYNC_DONE, $i);
             $data['convertThumbs'] = true;
             flush();
-        } else {
-            $i = serendipity_syncThumbs($deleteThumbs);
-            $data['print_SYNC_DONE'] = sprintf(SYNC_DONE, $i);
-            flush();
-
-            $i = serendipity_generateThumbs();
-            $data['print_RESIZE_DONE'] = sprintf(RESIZE_DONE, $i);
-            flush();
+            break; // stop here
         }
+
+        // this is: Maintenance ML cleanup for sync
+        $i = serendipity_syncThumbs($deleteThumbs);
+        $data['print_SYNC_DONE'] = sprintf(SYNC_DONE, $i);
+        flush();
+
+        // this is: Maintenance ML re-generate for sync
+        $i = serendipity_generateThumbs();
+        $data['print_RESIZE_DONE'] = sprintf(RESIZE_DONE, $i);
+        flush();
         break;
 
     case 'doDelete':
