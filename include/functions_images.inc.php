@@ -928,7 +928,7 @@ function serendipity_generateThumbs() {
                 }
             } elseif (!file_exists($oldThumb) && !file_exists($newThumb) && $fdim[0] <= $serendipity['thumbSize'] && $fdim[1] <= $serendipity['thumbSize']) {
                 if (!$msg_printed) {
-                    $resizethumb = sprintf(RESIZE_BLAHBLAH, THUMB);
+                    $resizethumb = sprintf(RESIZE_BLAHBLAH, $sThumb);
                     printf('<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . $resizethumb . "</span>\n");
                     echo "\n" . '<ul class="serendipityFileList">' . "\n";
                     $msg_printed = true;
