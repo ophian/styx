@@ -1335,13 +1335,18 @@ function serendipity_syncThumbs($deleteThumbs = false) {
 
     $files  = serendipity_fetchImages();
     $fcount = count($files);
+    $_list  = '';
+
+    echo "\n";
+    echo '<section class="media_sync_thumbs">' . "\n";
+    echo '    <header><h2>' . sprintf(SYNC_OPTION_DELETETHUMBS, '') . "</h2></header>\n";
 
     for ($x = 0; $x < $fcount; $x++) {
         $update = array();
         $f      = serendipity_parseFileName($files[$x]);
         if (empty($f[1]) || $f[1] == $files[$x]) {
             // No extension means bad file most probably. Skip it.
-            printf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . SKIPPING_FILE_EXTENSION . "</span>\n", $files[$x]);
+            printf('    <div class="media_sync_list">' . SKIPPING_FILE_EXTENSION . "</div>\n", $files[$x]);
             continue;
         }
 
@@ -1355,27 +1360,30 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         }
 
         if (!is_readable($ffull) || filesize($ffull) == 0) {
-            printf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . SKIPPING_FILE_UNREADABLE . "</span>\n", $files[$x]);
+            printf('    <div class="media_sync_list">' . SKIPPING_FILE_UNREADABLE . "</div>\n", $files[$x]);
             continue;
         }
 
         $ft_mime = serendipity_guessMime($f[1]);
         $fdim    = @serendipity_getimagesize($ffull, $ft_mime);
 
+        if (!empty($_list)) {
+            $_list .= '<div class="media_sync_list">' . "\n";
+        }
         // If we're supposed to delete thumbs, this is the easiest place. Leave messages plain unstiled.
         if (is_readable($fthumb)) {
             if ($deleteThumbs === true) {
                 if (@unlink($fthumb)) {
-                    printf(DELETE_THUMBNAIL . "<br>\n", $sThumb);
+                    $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
                     $i++;
                 }
             } else if ($deleteThumbs == 'checksize') {
-                // Find existing thumbnail dimensions
+                // Find existing thumbnail dimensions - does look redundant, but IS necessary!
                 $tdim = @serendipity_getimagesize($fthumb);
-                if (isset($tdim['noimage']) && $tdim['noimage']) {
+                if (isset($tdim['noimage'])) {
                     // Delete it so it can be regenerated
                     if (@unlink($fthumb)) {
-                        printf(DELETE_THUMBNAIL . "<br>\n", $sThumb);
+                        $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
                         $i++;
                     }
                 } else {
@@ -1386,7 +1394,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                         // This thumbnail is incorrect; delete it so
                         // it can be regenerated
                         if (@unlink($fthumb)) {
-                            printf(DELETE_THUMBNAIL . "<br>\n", $sThumb);
+                            $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
                             $i++;
                         }
                     }
@@ -1408,10 +1416,10 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         $rs = serendipity_db_query("SELECT *
                                       FROM {$serendipity['dbPrefix']}images AS i
                                            {$cond['joins']}
-
                                            {$cond['and']}", true, 'assoc');
         // Leave messages plain unstiled
         if (is_array($rs)) {
+
             // This image is in the database. Check our calculated data against the database data.
             $update = array();
             // Is the width correct?
@@ -1429,24 +1437,36 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                 $update['size'] = filesize($ffull);
             }
 
-            // Has the thumbnail suffix changed?
+            // Does it exist and is an image and has the thumbnail suffix changed?
             $checkfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $rs['path'] . $rs['name'] . '.' . $rs['thumbnail_name'] . (empty($rs['extension']) ? '' : '.' . $rs['extension']);
-            if (!file_exists($checkfile) && file_exists($fthumb) || !file_exists($fthumb)) {
+            if (!file_exists($checkfile) && empty($fdim['noimage']) && file_exists($fthumb)) {
                 $update['thumbnail_name'] = $serendipity['thumbSuffix'];
             }
 
-            /* Do the database update, if needed */
+            // Do the database update, if needed
             if (sizeof($update) != 0) {
-                printf(FOUND_FILE . ' (2)<br>', $files[$x]);
+                $_list .= "<br>\n" . sprintf(FOUND_FILE . " (<em>Update in database</em>)", $files[$x]);
                 serendipity_updateImageInDatabase($update, $rs['id']);
                 $i++;
             }
+
         } else {
-            printf(FOUND_FILE . ' (1)<br>', $files[$x]);
+            $_list .= "<br>\n" . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]);
             serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, filemtime($ffull));
             $i++;
         }
+        if (!empty($_list)) {
+            $_list .= "\n</div>\n"; // This is the first (x=1) closing div for the last loop $x case (the first displayed item) AS WELL AS looped by (x=2; etc) all filled messages in is_readable($fthumb) added by case FOUND FILE (do database action)
+        }
     }
+    if (!empty($_list)) {
+        echo '<div class="media_sync_list">' . "\n"; // <!-- $x --> this line is for the last looped $x item only, which then is the first matching (excluded the skipped) item in the list
+        echo $_list; // this are all listed messages in is_readable($fthumb) added by case FOUND FILE (do database action)
+    } else {
+        echo '    <span class="msg_success"><span class="icon-ok-circled"></span> ' . DONE . ' (' . NOTHING_TODO . ').</span>' . "\n";
+    }
+    echo "</section>\n\n";
+
     return $i;
 }
 
