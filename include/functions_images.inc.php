@@ -890,7 +890,7 @@ function serendipity_generateThumbs() {
     global $serendipity;
 
     $i = 0;
-    $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(0, 0, $total);
+    $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(0, 0, $total, array('path, name'), 'ASC');
     $msg_printed = false;
 
     foreach($serendipity['imageList'] AS $k => $file) {
