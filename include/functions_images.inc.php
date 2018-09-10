@@ -1337,6 +1337,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
     $files  = serendipity_fetchImages();
     $fcount = count($files);
     $_list  = '';
+    $_br    = '';
 
     echo "\n";
     echo '<section class="media_sync_thumbs">' . "\n";
@@ -1376,6 +1377,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
             if ($deleteThumbs === true) {
                 if (@unlink($fthumb)) {
                     $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
+                    $_br = "<br>\n";
                     $i++;
                 }
             } else if ($deleteThumbs == 'checksize') {
@@ -1385,6 +1387,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                     // Delete it so it can be regenerated
                     if (@unlink($fthumb)) {
                         $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
+                        $_br = "<br>\n";
                         $i++;
                     }
                 } else {
@@ -1396,6 +1399,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                         // it can be regenerated
                         if (@unlink($fthumb)) {
                             $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
+                            $_br = "<br>\n";
                             $i++;
                         }
                     }
@@ -1446,13 +1450,13 @@ function serendipity_syncThumbs($deleteThumbs = false) {
 
             // Do the database update, if needed
             if (sizeof($update) != 0) {
-                $_list .= "<br>\n" . sprintf(FOUND_FILE . " (<em>Update in database</em>)", $files[$x]);
+                $_list .= $_br . sprintf(FOUND_FILE . " (<em>Update in database</em>)", $files[$x]);
                 serendipity_updateImageInDatabase($update, $rs['id']);
                 $i++;
             }
 
         } else {
-            $_list .= "<br>\n" . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]);
+            $_list .= $_br . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]);
             serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, filemtime($ffull));
             $i++;
         }
