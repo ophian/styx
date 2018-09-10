@@ -2172,7 +2172,7 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
  * @param   string      The core directory
  * @param   string      The subdirectory
  * @param   boolean     Only return directories instead of files as well?
- * @param   string      A regexp patter to include files
+ * @param   string      A regexp pattern to include files
  * @param   int         Level of nesting (recursive use)
  * @param   int         The maximum level of nesting (recursive use)
  * @param   mixed       Toggle whether to apply serendipity_directoryACL (false / 'read' / 'write')
