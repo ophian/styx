@@ -128,8 +128,8 @@
 @define('LINK_TO_REMOTE_ENTRY', 'Link zum Remote-Eintrag');
 @define('IP_ADDRESS', 'IP-Adresse');
 @define('USER', 'Benutzer');
-@define('THUMBNAIL_USING_OWN', 'Verwende %s als Vorschaubild, da das Originalbild bereits so klein ist.');
-@define('THUMBNAIL_FAILED_COPY', 'Wollte %s als Vorschaubild verwenden, aber das Kopieren schlug fehl!');
+@define('THUMBNAIL_USING_OWN', 'Verwende %s für das Vorschaubild, da das Originalbild bereits so klein ist.');
+@define('THUMBNAIL_FAILED_COPY', 'Wollte %s für das Vorschaubild verwenden, aber das Kopieren schlug fehl!');
 @define('AUTHOR', 'Autor');
 @define('LAST_UPDATED', 'Zuletzt aktualisiert');
 @define('TRACKBACK_SPECIFIC', 'Trackback-URL für diesen Eintrag');
