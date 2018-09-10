@@ -654,7 +654,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug; // ad hoc debug + enabled logger
 
     if ($size === false) {
         $size = $serendipity['thumbSize'];
@@ -780,7 +780,7 @@ function serendipity_scaleImg($id, $width, $height) {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug; // ad hoc debug + enabled logger
 
     $file = serendipity_fetchImageFromDatabase($id);
     if (!is_array($file)) {
@@ -830,7 +830,7 @@ function serendipity_rotateImg($id, $degrees) {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug; // ad hoc debug + enabled logger
 
     $file = serendipity_fetchImageFromDatabase($id);
     if (!is_array($file)) {
@@ -1190,7 +1190,7 @@ function serendipity_convertThumbs() {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug; // ad hoc debug + enabled logger
 
     if ($debug) {
         $logtag = 'MAINTENANCE IMAGE-SYNC Opt4:';
@@ -1714,13 +1714,13 @@ function serendipity_calculate_aspect_size($width, $height, $size, $constraint =
  * @param   boolean Show the "upload media item" feature?
  * @param   boolean Restrict viewing images to a specific directory
  * @param   array   Map of Smarty vars transported into all following templates
- * @return  string   Generated HTML
+ * @return  string  Generated HTML
  */
 function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = false, $url = NULL, $show_upload = false, $limit_path = NULL, $smarty_vars = array()) {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug; // ad hoc debug + enabled logger
     if ($debug) {
         $logtag = 'ML-LIST:';
         $trace  = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
@@ -2479,7 +2479,7 @@ function serendipity_directoryACL(&$paths, $type = 'read') {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
-    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug; // ad hoc debug + enabled logger
     if ($debug) {
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START serendipity_directoryACL SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
         $serendipity['logger']->debug("Applying ACL for mode '$type'.");
@@ -4294,7 +4294,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     $pick = null;
 
     // Since being a wrapper function, this enables logging of all sub functions
-    $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
+    $debug = is_object(@$serendipity['logger']) && $debug; // ad hoc debug + enabled logger
 
     // paranoid case for updating an old image id entry - else we have a new entry incrementation
     if (is_null($item_id) && isset($file['id']) && $file['id'] > 0) $item_id = $file['id'];
