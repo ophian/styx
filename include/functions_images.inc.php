@@ -129,7 +129,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                                     (i.authorid = " . (int)$fval . ")
                                 )\n";
             $cond['joinparts']['hiddenproperties'] = true;
-        } elseif (isset($orderfields[$f]) && $orderfields[$f]['type'] == 'int') {
+        } elseif (isset($orderfields[$f]) && isset($orderfields[$f]['type']) && $orderfields[$f]['type'] == 'int') {
             if (substr($f, 0, 3) === 'bp.') {
                 $realf = substr($f, 3);
                 $cond['parts']['filter'] .= " AND (bp2.property = '$realf' AND bp2.value = '" . serendipity_db_escape_string(trim($fval)) . "')\n";
@@ -147,6 +147,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                     break;
             }
         } else {
+            if (!isset($cond['parts']['filter'])) $cond['parts']['filter'] = '';
             if (substr($f, 0, 3) === 'bp.') {
                 $realf = substr($f, 3);
                 $cond['parts']['filter'] .= " AND (bp2.property = '$realf' AND bp2.value LIKE '%" . serendipity_db_escape_string(trim($fval)) . "%')\n";
