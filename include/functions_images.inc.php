@@ -37,7 +37,7 @@ function serendipity_isActiveFile($file) {
  * @param   int     The offset to start fetching media files
  * @param   int     How many items to fetch
  * @param   int     The number (referenced variable) of fetched items
- * @param   string  The "ORDER BY" sql part when fetching items
+ * @param   mixed   The "ORDER BY" SQL part when fetching items. As a simple 0-key array, eg. array('x, y') for matching database field orders
  * @param   string  Order by DESC or ASC
  * @param   string  Only fetch files from a specific directory
  * @param   string  Only fetch specific filenames (including check for realname match) - deprecated, since now in filters
@@ -54,27 +54,32 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         'parts'     => array(),
     );
 
-    $orderfields = serendipity_getImageFields();
-    if (empty($order) || !isset($orderfields[$order])) {
-        $order = 'i.date';
+    if ($limit != 0) {
+        $limitsql = serendipity_db_limit_sql(serendipity_db_limit($start, $limit));
+    } else {
+        $limitsql = '';
     }
 
-    if (!is_array($filter)) {
-        $filter = array();
+    $orderfields = serendipity_getImageFields();
+
+    if (empty($order) || (!is_array($order)) && !isset($orderfields[$order])) {
+        $order = 'i.date';
     }
 
     if (empty($ordermode) || ($ordermode != 'DESC' && $ordermode != 'ASC')) {
         $ordermode = 'DESC';
     }
 
+    if (is_array($order)) {
+        $order = $order[0];
+    }
+
     if ($order == 'name') {
         $order = 'realname ' . $ordermode . ', name';
     }
 
-    if ($limit != 0) {
-        $limitsql = serendipity_db_limit_sql(serendipity_db_limit($start, $limit));
-    } else {
-        $limitsql = '';
+    if (!is_array($filter)) {
+        $filter = array();
     }
 
     if ($hideSubdirFiles) {
