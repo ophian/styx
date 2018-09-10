@@ -1194,6 +1194,7 @@ function serendipity_convertThumbs() {
 
     if ($debug) {
         $logtag = 'MAINTENANCE IMAGE-SYNC Opt4:';
+        $trace  = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START MS serendipity_convertThumbs() SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
@@ -1720,9 +1721,9 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     static $debug = false; // ad hoc, case-by-case debugging
 
     $debug = is_object(@$serendipity['logger']) && $debug;// ad hoc debug + enabled logger
-    $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
     if ($debug) {
         $logtag = 'ML-LIST:';
+        $trace  = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_displayImageList SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
