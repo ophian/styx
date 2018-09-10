@@ -1958,6 +1958,11 @@ fieldset p,
     padding: .25em 0;
 }
 
+.media_sync_thumbs .media_sync_list,
+.media_rebuild_thumbs .plainList li {
+    margin-bottom: .15rem;
+}
+
 .importer_data dd > div {
     margin-top: 0;
     margin-bottom: 0;
