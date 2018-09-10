@@ -891,7 +891,10 @@ function serendipity_generateThumbs() {
 
     $i = 0;
     $serendipity['imageList'] = serendipity_fetchImagesFromDatabase(0, 0, $total, array('path, name'), 'ASC');
-    $msg_printed = false;
+    $_list = '';
+
+    echo '<section class="media_rebuild_thumbs">' . "\n";
+    printf('    <header><h2>' . strip_tags(sprintf(RESIZE_BLAHBLAH, PREVIEW)) . "</h2></header>\n");
 
     foreach($serendipity['imageList'] AS $k => $file) {
         $is_image = serendipity_isImage($file);
@@ -915,36 +918,25 @@ function serendipity_generateThumbs() {
             $sThumb   = $file['path'] . $file['name'] . '.' . $serendipity['thumbSuffix'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
             $fdim     = @getimagesize($ffull);
 
+            // create a sized thumbnail
             if (!file_exists($oldThumb) && !file_exists($newThumb) && ($fdim[0] > $serendipity['thumbSize'] || $fdim[1] > $serendipity['thumbSize'])) {
                 $returnsize = serendipity_makeThumbnail($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), $file['path']);
                 if ($returnsize !== false ) {
-                    // Only print the resize message the first time
-                    if (!$msg_printed) {
-                        $resizemedia = sprintf(RESIZE_BLAHBLAH, THUMBNAIL_SHORT);
-                        printf('<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . $resizemedia . "</span>\n");
-                        echo "\n" . '<ul class="serendipityFileList">' . "\n";
-                        $msg_printed = true;
-                    }
-                    echo '<li>' . $sThumb . ': ' . $returnsize['width'] . 'x' . $returnsize['height'] . "</li>\n";
+                    $_list .= '<li>' . sprintf(RESIZE_BLAHBLAH, $sThumb) . ': ' . $returnsize['width'] . 'x' . $returnsize['height'] . "</li>\n";
                     if (!file_exists($newThumb)) {
-                        printf('<li><span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . THUMBNAIL_FAILED_COPY . '</span></li>' . "\n", $sThumb);
+                        $_list .= sprintf('<li>' . THUMBNAIL_FAILED_COPY . "</li>\n", '<b>' . $sThumb . '</b>');
                     } else {
                         $update = true;
                     }
                 }
+            // copy the too small origin $ffull image to a copy with the name $newThumb, since we need a thumbnail explicitly
             } elseif (!file_exists($oldThumb) && !file_exists($newThumb) && $fdim[0] <= $serendipity['thumbSize'] && $fdim[1] <= $serendipity['thumbSize']) {
-                if (!$msg_printed) {
-                    $resizethumb = sprintf(RESIZE_BLAHBLAH, $sThumb);
-                    printf('<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . $resizethumb . "</span>\n");
-                    echo "\n" . '<ul class="serendipityFileList">' . "\n";
-                    $msg_printed = true;
-                }
                 $res = @copy($ffull, $newThumb);
                 if (@$res === true) {
-                    printf('<li>' . THUMBNAIL_USING_OWN . '</li>' . "\n", $sThumb);
+                    $_list .= sprintf('<li>' . THUMBNAIL_USING_OWN . "</li>\n", '<b>' . $filename . '</b>');
                     $update = true;
                 } else {
-                    printf('<li><span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . THUMBNAIL_FAILED_COPY . '</span></li>' . "\n", $sThumb);
+                    $_list .= sprintf('<li>' . THUMBNAIL_FAILED_COPY . "</li>\n", '<b>' . $sThumb . '</b>');
                 }
             }
 
@@ -959,10 +951,14 @@ function serendipity_generateThumbs() {
     }
 
     // Close the list, if it was created
-    if ($msg_printed) {
-        echo "</ul>\n";
+    if (!empty($_list)) {
+         echo '<ul class="plainList">' . "\n";
+         echo $_list;
+         echo "</ul>\n";
+    } else {
+        echo '    <span class="msg_success"><span class="icon-ok-circled"></span> ' . DONE . ' (' . NOTHING_TODO . ')</span>' . "\n";
     }
-
+    echo "</section>\n";
 
     return $i;
 }
