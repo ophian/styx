@@ -1,4 +1,6 @@
 
+  * Refactor images API triplet messages
+
   * Refactor serendipity_syncThumbs() messaging and improve borked
     check for the serendipity_updateImageInDatabase() loop.
 
