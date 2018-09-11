@@ -1,4 +1,8 @@
 
+  * Refactor serendipity_fetchImagesFromDatabase() ORDER BY parameter
+    to allow multi field sorting orders in a simple way by an eg.
+    $order = array('x, y, z') array.
+
   * Fix maintenance MediaLibrary "Rebuild Thumbs" conditional regression
 
 Version 2.6.0 (2018-09-07)
