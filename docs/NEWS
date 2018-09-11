@@ -1,4 +1,6 @@
 
+  * Refactor serendipity_generateThumbs() messaging
+
   * Refactor serendipity_generateThumbs() for a better sorted list
 
   * Refactor serendipity_fetchImagesFromDatabase() ORDER BY parameter
