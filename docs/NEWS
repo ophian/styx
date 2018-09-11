@@ -1,4 +1,7 @@
 
+  * Refactor serendipity_syncThumbs() messaging and improve borked
+    check for the serendipity_updateImageInDatabase() loop.
+
   * Refactor serendipity_generateThumbs() messaging
 
   * Refactor serendipity_generateThumbs() for a better sorted list
