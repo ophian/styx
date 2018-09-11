@@ -1,4 +1,6 @@
 
+  * Refactor serendipity_generateThumbs() for a better sorted list
+
   * Refactor serendipity_fetchImagesFromDatabase() ORDER BY parameter
     to allow multi field sorting orders in a simple way by an eg.
     $order = array('x, y, z') array.
