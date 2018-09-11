@@ -1,4 +1,6 @@
 
+  * Fix debug missing trace path in serendipity_convertThumbs()
+
   * Refactor images API triplet messages
 
   * Refactor serendipity_syncThumbs() messaging and improve borked
