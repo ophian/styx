@@ -1,4 +1,6 @@
 
+  * Fix non-active Backend tab section name is LOGIN, not NONE
+
   * Fix debug missing trace path in serendipity_convertThumbs()
 
   * Refactor images API triplet messages
