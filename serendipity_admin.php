@@ -85,7 +85,7 @@ $no_footer  = (isset($serendipity['GET']['noFooter'])  || isset($serendipity['PO
 $use_installer = (!isset($serendipity['serendipityPath']) || IS_installed === false || IS_up2date === false );
 
 $post_action = isset($serendipity['POST']['action']) ? $serendipity['POST']['action'] : ''; // see ($$) poll_admin_vars
-$admin_section = NONE;
+$admin_section = LOGIN;
 $main_content = '';
 
 if (!$use_installer && $is_logged_in) {
