@@ -1,4 +1,6 @@
 
+  * Consolidate version to Smarty 3.1.33 release
+
   * Fix non-active Backend tab section name is LOGIN, not NONE
 
   * Fix debug missing trace path in serendipity_convertThumbs()
