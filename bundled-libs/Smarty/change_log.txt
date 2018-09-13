@@ -1,4 +1,5 @@
-﻿===== 3.1.33-dev-12 =====
+﻿===== 3.1.33 release ===== 12.09.2018
+===== 3.1.33-dev-12 =====
 03.09.2018
   - bugfix {foreach} using new style property access like {$item@property} on
     Smarty 2 style named foreach loop could produce errors https://github.com/smarty-php/smarty/issues/484
@@ -42,6 +43,7 @@
 ===== 3.1.32 ===== (24.04.2018)
 24.04.2018
  - bugfix possible Security Vulnerability in Smarty_Security class.
+   Security issue CVE-2018-16831
 
 26.03.2018
  - bugfix plugins may not be loaded if {function} or {block} tags are executed in nocache mode
