@@ -149,7 +149,7 @@ function serveJS($js_mode) {
     // because it assumes that all "normal" content pages could belong to it.
     // We need to override the header at this point (again), so that the files
     // will be properly parsed. Another (maybe better) idea would be to actually
-    // not include genpage.inc.php at this point and init smarty differently,
+    // not include genpage.inc.php at this point and init Smarty differently,
     // or to make sure the "genpage" event hook is not called at this point.
     header('HTTP/1.0 200 OK');
     header('Status: 200 OK');
@@ -210,7 +210,7 @@ function serveAuthorPage($matches, $is_multiauth=false) {
     $serendipity['view'] = 'authors';
 
     if ($is_multiauth) {
-        $serendipity['GET']['viewAuthor'] = implode(';', $serendipity['POST']['multiAuth']);
+        $serendipity['GET']['viewAuthor'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiAuth']));
         $serendipity['uriArguments'][]    = PATH_AUTHORS;
         $serendipity['uriArguments'][]    = serendipity_db_escape_string($serendipity['GET']['viewAuthor']) . '-multi';
     } elseif (empty($matches[1]) && preg_match('@/([0-9;]+)@', $uri, $multimatch)) {
@@ -252,7 +252,7 @@ function serveCategory($matches, $is_multicat=false) {
     $uri = $_SERVER['REQUEST_URI'];
 
     if ($is_multicat) {
-        $serendipity['GET']['category'] = implode(';', $serendipity['POST']['multiCat']);
+        $serendipity['GET']['category'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiCat']));
         $serendipity['uriArguments'][]  = PATH_CATEGORIES;
         $serendipity['uriArguments'][]  = serendipity_db_escape_string($serendipity['GET']['category']) . '-multi';
     } elseif (preg_match('@/([0-9;]+)@', $uri, $multimatch)) {
