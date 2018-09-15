@@ -89,7 +89,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'خطای ناشناخته، فایلی بالاگذاری نشد. ممکن است که حجم فایل شما بیشتر از ماکزیمم حجم اجازه داده شده باشد. لطفا ISP یا فایل php.ini خود را چک کنید.');
 @define('GO', 'برو!');
 @define('NEWSIZE', 'سایز جدید: ');
-@define('RESIZE_BLAHBLAH', '<b>تغییر اندازه %s</b>');
+@define('RESIZE_BLAHBLAH', 'تغییر اندازه <b>%s</b>');
 @define('ORIGINAL_SIZE', 'ابعاد اصلی: <i>%sx%s</i> پیکسل');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'در این مکان، شما می توانید ابعاد عکس را درست نمایید. اگر تصمیم دارید ابعاد عکس را متناسب تغییر دهید، فقط یکی از اعداد را وارد کرده و سپس کلید TAB را فشار دهید -- ما ضلع دیگر را به صورت متناسب تغییر خواهیم داد.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'تقویم برای پرش سریع');

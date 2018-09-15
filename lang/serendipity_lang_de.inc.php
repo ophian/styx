@@ -86,7 +86,7 @@
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fehler: Diese Datei existiert schon auf dem Server!');
 @define('GO', 'Los!');
 @define('NEWSIZE', 'Neue Größe ');
-@define('RESIZE_BLAHBLAH', '<b>Größe von %s ändern</b>');
+@define('RESIZE_BLAHBLAH', 'Größe von <b>%s</b> ändern');
 @define('ORIGINAL_SIZE', 'Originalgröße: <i>%sx%s</i> Pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier können Sie die Bildgröße ändern. Um die Proportionen beizubehalten, einfach einen der beiden Werte eingeben, anschließend die TAB-Taste drücken, und Sie erhalten die Voreinstellung mit den korrekten Proportionen.<br><b>ACHTUNG:</b> Dies ist kein "high end" Skaldierungs Werkzeug, abgestimmt auf die spezifischen Bedürfnisse eines jeden Bildes.<br>Verglichen mit dem Ausgangsbild, bringt jede Skaldierung zwangsläufig einen kleineren oder größeren Qualitätsverlust mit sich!');
 @define('DATE_FORMAT_1', 'd.m.Y');

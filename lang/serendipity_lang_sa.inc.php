@@ -89,7 +89,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'НХб ОШГ ЫнС гЪСжЭ! ! ! бг нКгб СЭЪ ЗбгбЭ – гд ЗбггЯд Гд нЯжд ЗбгбЭ ГЯИС гд НМг ЗбгбЭ бгХСН ИСЭЪе ! ! ! ГЭНХ ISP Гж Юг ИКНСнС гбЭ php.ini Ян КУгН ИСЭЪ ЗбгбЭЗК ЗбЯИнСЙ');
 @define('GO', 'ГЯгб!');
 @define('NEWSIZE', 'ЗбгЮЗУ ЗбМПнП: ');
-@define('RESIZE_BLAHBLAH', '<b>КЫннС ЗбгЮЗннУ %s</b>');
+@define('RESIZE_BLAHBLAH', 'КЫннС ЗбгЮЗннУ <b>%s</b>');
 @define('ORIGINAL_SIZE', 'ЗбНМг ЗбЗХбн <i>%sx%s</i> pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'нгЯд бЯ КЫннС ЮнЗУЗК ЗбХжСЙ - Зд ЯдК КСнП КЫннС ЮнЗУЗК ЗбХжСЙ ИГШжЗб гКдЗУИЙ - Яб гЗ ЪбнЯ еж ЗПОб ЗбЮнЗУ ЗбМПнП Эн ЗНП ЗбХдПжЮнд Лг ГЦЫШ ТС Tab -- УжЭ КЪШнЯ ЗКгЗКнЯнЗр ЗбНМг ЗбгдЗУИ ббЮнЗУ ЗбМПнП - бРбЯ ЗбХжСЙ УжЭ КУКгС ИФЯбеЗ ЗбГХбн ж бЗ КЭЮП ФЯб КжЗТдеЗ.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Calendar');

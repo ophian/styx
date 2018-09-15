@@ -88,7 +88,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ismeretlen hiba történt, a fájl nincs feltöltve. Talán a fájl mérete nagyobb mint a szerveren beállított megengedett maximum érték. Ezt a beállítást a szerver üzemeltetõje tudja megváltoztatni.');
 @define('GO', 'OK');
 @define('NEWSIZE', 'Új méret: ');
-@define('RESIZE_BLAHBLAH', '<b>Átméretezés %s</b>');
+@define('RESIZE_BLAHBLAH', 'Átméretezés <b>%s</b>');
 @define('ORIGINAL_SIZE', 'Eredeti méret: <i>%sx%s</i> képpont');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Itt módosíthatja a kép méretét. Ha arányosan szeretné a képet átméretezni, elég az egyik dobozban módosítani a számot,majd megnyomni a TAB billentyût -- az új méret automatikusan kerül meghatározásra, így a kép nem lesz aránytalan.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Gyors naptárra ugrás');

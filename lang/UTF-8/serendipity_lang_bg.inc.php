@@ -88,7 +88,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ERROR_FILE_EXISTS_ALREADY', 'Грешка: Този файл вече съществува!');
 @define('GO', 'Продължаване');
 @define('NEWSIZE', 'Нов размер: ');
-@define('RESIZE_BLAHBLAH', '<b>Промяна на размерите на %s</b>');
+@define('RESIZE_BLAHBLAH', 'Промяна на размерите на <b>%s</b>');
 @define('ORIGINAL_SIZE', 'Оригинални размери: <i>%s&#215;%s</i> pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Тук можете да настроите новите размери на изображенията. Ако искате да запазите пропорциите им, въведете стойност в едно от полетата и натиснете бутона TAB. Другото поле ще бъде изчислено автоматично, така че да се запази пропорцията.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKSEARCH', 'Бързо търсене');

@@ -88,7 +88,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Unknown error occurred, file not uploaded. Maybe your filesize is larger than the maximum size allowed by your server installation. Check with your ISP or edit your php.ini file to allow larger file size uploads.');
 @define('GO','செயல்படுத்துக!');
 @define('NEWSIZE', 'New size: ');
-@define('RESIZE_BLAHBLAH', '<b>Resize %s</b>');
+@define('RESIZE_BLAHBLAH', 'Resize <b>%s</b>');
 @define('ORIGINAL_SIZE', 'Original size: <i>%sx%s</i> pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Here, you can adjust the image size. If you want to resize the image proportionally, just enter a value in one of the two boxes and press the TAB key -- It will automatically calculate the new size so the image proportions do not get messed up.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Calendar');

@@ -90,7 +90,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Wystąpił nieznany błąd, plik nie został załadowany. Być może konfiguracja serwera nie zezwala na przesyłanie tak dużych plików. Sprawdź to u swojego ISP lub wyedytuj odpowiednio plik php.ini (jeśli masz dostęp do konfiguracji serwera) by zezwolić na przesyłanie większych plików.');
 @define('GO', 'Start!');
 @define('NEWSIZE', 'Nowy rozmiar: ');
-@define('RESIZE_BLAHBLAH', '<b>Zmień rozmiar: %s</b>');
+@define('RESIZE_BLAHBLAH', 'Zmień rozmiar: <b>%s</b>');
 @define('ORIGINAL_SIZE', 'Oryginalny rozmiar: <i>%sx%s</i> pikseli');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Tu możesz zmienić rozmiar obrazka. Jeśli chcesz zmienić rozmiar proporcjonalnie, zaznacz odpowiednią opcję, wpisz wartość w jedno z pól i wciśnij TAB - nowy rozmiar dla drugiej wartości zostanie automatycznie obliczony, tak by proporcje obrazka zostały zachowane.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Kalendarz szybkiego dostępu');

@@ -90,7 +90,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', '알 수 없는 오류가 발생하여 파일이 업로드되지 않았습니다. 서버가 허용하는 파일 크기를 초과했을 수 있습니다. 호스팅 업체에 확인을 하거나 php.ini 파일을 수정하여 더 큰 파일을 업로드할 수 있도록 하십시오.');
 @define('GO', '시작!');
 @define('NEWSIZE', '새로운 크기: ');
-@define('RESIZE_BLAHBLAH', '<b>크기 조절: %s</b>');
+@define('RESIZE_BLAHBLAH', '크기 조절: <b>%s</b>');
 @define('ORIGINAL_SIZE', '원래 크기: <i>%sx%s</i> 픽셀');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', '여기서 그림 크기를 조절할 수 있습니다. 비율을 유지하면서 크기를 조절하려면 입력상자 한 쪽에 값을 넣고 Tab 키를 누르면 됩니다. 비율이 유지되는 값이 자동으로 계산됩니다.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', '빨리 찾아보는 달력');

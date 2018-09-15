@@ -90,7 +90,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Errore sconosciuto, file non inviato. Forse le dimensioni sono superiori al massimo consentito dall\'installazione del server. Chiedi al tuo provider o modifica php.ini per consentire upload più corposi.');
 @define('GO', 'Vai!');
 @define('NEWSIZE', 'Nuove dimensioni: ');
-@define('RESIZE_BLAHBLAH', '<b>Ridimensiona %s</b>');
+@define('RESIZE_BLAHBLAH', 'Ridimensiona <b>%s</b>');
 @define('ORIGINAL_SIZE', 'Dimensione originale: <i>%sx%s</i> pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Qui puoi definire le nuove dimensioni dell\'immagine. Se vuoi mantenere le proporzioni inserisci un solo valore e premi TAB, calcolerò automaticamente le nuove dimensioni in modo da non modificare le proporzioni.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Calendario di accesso veloce');
