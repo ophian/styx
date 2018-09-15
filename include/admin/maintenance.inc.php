@@ -89,7 +89,7 @@ switch($serendipity['GET']['adminAction']) {
                 }
             }
         }
-        $data['select_localthemes_total'] = @count($data['local_themes']);
+        $data['select_localthemes_total'] = isset($data['local_themes']) ? count($data['local_themes']) : 0;
         break;
 
     case 'cleartemp':
