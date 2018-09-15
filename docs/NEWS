@@ -1,4 +1,6 @@
 
+  * Improve maintenance theme manager for empty return messaging
+
   * Add some routing security checks against XSS
 
   * Consolidate version to Smarty 3.1.33 release
