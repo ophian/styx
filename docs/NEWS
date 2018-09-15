@@ -1,4 +1,7 @@
 
+  * Fix NL2BR / NL2P regression added by Styx 2.6-alpha1, that
+    prevented correct parsing of plain text markup_elements.
+
   * Improve maintenance theme manager for empty return messaging
 
   * Add some routing security checks against XSS
