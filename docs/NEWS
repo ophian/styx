@@ -1,3 +1,5 @@
+Version 2.6.1 (2018-09-16)
+ ------------------------------------------------------------------------
 
   * Fix NL2BR / NL2P regression added by Styx 2.6-alpha1, that
     prevented correct parsing of plain text markup_elements.
