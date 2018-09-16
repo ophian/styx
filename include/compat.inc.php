@@ -126,6 +126,9 @@ function debug_ErrorLevelType($type) {
  * function_exists() avoids 'cannot redeclare previously declared' fatal errors in XML feed context.
  *
  * See Notes about returning false
+ * PHP 7.2 note - The $errcontext argument contains all local variables of the error site. Given its rare usage,
+ * and the problems it causes with internal optimisations, it has now been deprecated. Instead,
+ * a debugger should be used to retrieve information on local variables at the error site.
  *
  * @access public
  * @param  standard
