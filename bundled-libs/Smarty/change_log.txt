@@ -1,4 +1,4 @@
-﻿===== 3.1.33 release ===== 12.09.2018
+===== 3.1.33 release ===== 12.09.2018
 ===== 3.1.33-dev-12 =====
 03.09.2018
   - bugfix {foreach} using new style property access like {$item@property} on
@@ -2520,7 +2520,7 @@ request_use_auto_globals
 - added $smarty->_tag_stack for tracing block tag hierarchy
 
 08/02/2010
-- bugfix  use template fullpath at §smarty->cache->clear(...), $smarty->clear_cache(....)
+- bugfix  use template fullpath at $smarty->cache->clear(...), $smarty->clear_cache(....)
 - bugfix of cache filename on extended templates when force_compile=true
 
 07/02/2010
