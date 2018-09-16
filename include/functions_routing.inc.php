@@ -270,7 +270,7 @@ function serveCategory($matches, $is_multicat=false) {
         $matches[1] = serendipity_searchPermalink($serendipity['permalinkCategoryStructure'], implode('/', $_args), $matches[1], 'category');
         $serendipity['GET']['category'] = $matches[1];
     }
-    $cInfo = serendipity_fetchCategoryInfo($serendipity['GET']['category']);
+    $cInfo = serendipity_fetchCategoryInfo($serendipity['GET']['category']); // category already secured to be an integer only
 
     if (!is_array($cInfo)) {
         $serendipity['view'] = '404';
@@ -534,7 +534,7 @@ function serveArchives() {
 
     if ($serendipity['GET']['action'] == 'read') {
         if ($serendipity['GET']['category']) {
-            $cInfo = serendipity_fetchCategoryInfo($serendipity['GET']['category']);
+            $cInfo = serendipity_fetchCategoryInfo($serendipity['GET']['category']); // category already secured to be an integer only
             $serendipity['head_title'] = $cInfo['category_name'];
         }
         $serendipity['head_subtitle'] .= sprintf(ENTRIES_FOR, $date);
