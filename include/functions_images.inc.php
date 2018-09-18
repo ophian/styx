@@ -1411,7 +1411,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
 
         $cond = array(
             'and' => "WHERE name = '" . serendipity_db_escape_string($fbase) . "'
-                            " . ($fdir != '' ? "AND path = '" . serendipity_db_escape_string($fdir) . "'" : '') . "
+                            AND path = '" . serendipity_db_escape_string($fdir) . "'
                             AND mime = '" . serendipity_db_escape_string($fdim['mime']) . "'
                             AND extension = '" . serendipity_db_escape_string($f[1]) . "'"
         );
