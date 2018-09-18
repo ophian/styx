@@ -1,3 +1,7 @@
+
+  * Fix serendipity_syncThumbs() SQL Query to support the root upload dir,
+    which could have forced to unnecessarily run a database update.
+
 Version 2.6.1 (2018-09-16)
  ------------------------------------------------------------------------
 
