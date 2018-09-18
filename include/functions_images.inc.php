@@ -248,7 +248,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
 }
 
 /**
- * Fetch a specific media item from the mediadatabase
+ * Fetch a specific media item from the media database
  *
  * @access public
  * @param   int     The ID of an media item
@@ -353,7 +353,7 @@ function serendipity_deleteImage($id) {
         }
 
         if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
-            // A non-admin user may not delete private files from other users.
+            // A non-admin user shall not be able to delete private files from other users.
             return;
         }
 
@@ -906,7 +906,7 @@ function serendipity_generateThumbs() {
             $ffull    = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $filename;
 
             if (!file_exists($ffull)) {
-                serendipity_deleteImage($file['id']);
+                serendipity_deleteImage($file['id']); // no message output?
                 continue;
             }
 
@@ -1738,7 +1738,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         $serendipity['GET']['hideSubdirFiles'] = 'yes'; // Definitely YES! 'The site maintainer has get to know that it is better to split up media directories with more than 48 items
     }
 
-    $serendipity['GET']['only_path']        = serendipity_uploadSecure($limit_path . $serendipity['GET']['only_path'], true);
+    $serendipity['GET']['only_path'] = serendipity_uploadSecure($limit_path . $serendipity['GET']['only_path'], true);
     if (isset($serendipity['GET']['filter']['i.name'])) {
         $serendipity['GET']['filter']['i.name'] = serendipity_specialchars(str_replace(array('*', '?'), array('%', '_'), $serendipity['GET']['filter']['i.name']));
     }
@@ -1848,7 +1848,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                         if (!$sFile['hotlink']) {
                             if ($debug) { $serendipity['logger']->debug("$logtag Deleting Image {$sFile['id']}"); }
 
-                            serendipity_deleteImage($sFile['id']);
+                            serendipity_deleteImage($sFile['id']); // no message output?
                             ++$nCount;
                         }
                     }
@@ -2318,7 +2318,7 @@ function serendipity_uploadSecure($var, $strip_paths = true, $append_slash = fal
 }
 
 /**
- * Get the imagesize for a file
+ * Get the image size for a file
  *
  * @access public
  * @param   string      The filename of the image

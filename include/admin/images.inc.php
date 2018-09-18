@@ -32,7 +32,7 @@ if (isset($serendipity['GET']['fid'])) {
     $serendipity['GET']['fid'] = (int)$serendipity['GET']['fid'];
 }
 
-// init all Smarty variables to false
+// init all boolean Smarty variables to false
 $data['case_doSync'] = $data['case_do_delete'] = false;
 $data['case_do_multidelete'] = $data['case_delete'] = false;
 $data['case_multidelete'] = $data['case_confirm_deletion'] = false;
@@ -487,7 +487,7 @@ switch ($serendipity['GET']['adminAction']) {
                             'created_thumbnail' => $created_thumbnail
                         );
                     } else {
-                        // necessary for the ajax-uplaoder to show upload errors
+                        // necessary for the ajax-uploader to show upload errors
                         header("Internal Server Error", true, 500);
                         $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_UNKNOWN_NOUPLOAD . "</span>\n";
                     }
