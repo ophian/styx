@@ -208,11 +208,11 @@
 @define('SUBSCRIPTION_MAIL', "Hallo %s,\n\nEin neuer Kommentar wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtigung mit folgender URL kündigen: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hallo %s,\n\nEin neues Trackback wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtigung mit folgender URL kündigen: %s\n");
 @define('SIGNATURE', "\n-- \n%s wird betrieben mit %s.\nDas allerbeste Blog, Sie können es auch nutzen.\nWie das geht, sehen Sie auf <%s>.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
-@define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
-@define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
+@define('SYNDICATION_PLUGIN_091', 'RSS 0.91 Feed');
+@define('SYNDICATION_PLUGIN_10', 'RSS 1.0 Feed');
+@define('SYNDICATION_PLUGIN_20', 'RSS 2.0 Feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 Kommentar');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3 feed');
+@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3 Feed');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Feld "managingEditor"');
 @define('SYNDICATION_PLUGIN_WEBMASTER',  'Feld "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Bild für den RSS-Feed');
@@ -364,7 +364,7 @@
 @define('INSTALL_INDEXFILE', 'Index-Datei');
 @define('INSTALL_INDEXFILE_DESC', 'Welche Datei wird als Index-Datei verwendet (index.php)');
 
-/* Generel settings */
+/* General settings */
 @define('INSTALL_CAT_SETTINGS', 'Generelle Einstellungen');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Stellt die Grundeigenschaften von Serendipity ein');
 @define('INSTALL_USERNAME', 'Admin-Benutzername');
@@ -407,7 +407,7 @@
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Wie soll Serendipity Bilder handhaben');
 @define('INSTALL_IMAGEMAGICK', 'ImageMagick zur Skalierung verwenden');
 @define('INSTALL_IMAGEMAGICK_DESC', 'Ist ImageMagick installiert? Verwendet ansonsten die GDLib.');
-@define('INSTALL_IMAGEMAGICKPATH', 'Pfad zur convert ImageMagick-Datei');
+@define('INSTALL_IMAGEMAGICKPATH', 'Pfad zur "convert" ImageMagick-Datei');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Voller Pfad und Name zur Image-Magick Datei');
 @define('INSTALL_THUMBSUFFIX', 'Vorschaubild-Endung');
 @define('INSTALL_THUMBSUFFIX_DESC', 'Vorschaubilder werden nach dem Schema originalname.Suffix.erweiterung benannt.');
@@ -1173,5 +1173,5 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('THEMEMANAGER_ZOMB_OK', 'Gut gemacht! Alte Themes erfolgreich gelöscht!');
 @define('THEMEMANAGER_LOCALTHEMES', 'Untersuche lokale ältere Themes');
 @define('THEMEMANAGER_SUBMIT', 'Lösche gewählte Themes');
-@define('THEMEMANAGER_INFO', 'Multi-select und lösche alte Theme-Zombies. Machen Sie mich glücklich und halten Ihren Laden sauber! :) Wenn Sie jemals ein solches Theme wieder benötigen, laden Sie es einfach als frische Version über Spartacus. Anderseits, wenn Sie ein solches Template je verändert haben, sollten Sie ohne Backup auf die Löschung möglicherweise verzichten!');
+@define('THEMEMANAGER_INFO', 'Lösche alte Theme-Zombies (Multi-Auswahl). Machen Sie mich glücklich und halten Sie Ihren Laden sauber! :) Wenn Sie jemals ein solches Theme wieder benötigen, laden Sie es einfach als frische Version über Spartacus. Anderseits, wenn Sie ein solches Template je verändert haben, sollten Sie ohne Backup auf die Löschung möglicherweise verzichten!');
 
