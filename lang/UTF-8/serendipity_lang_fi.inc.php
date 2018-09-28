@@ -373,7 +373,7 @@
 @define('INSTALL_INDEXFILE', 'Aloitustiedosto');
 @define('INSTALL_INDEXFILE_DESC', 'Serendipityn aloitustiedoston nimi');
 
-/* Generel settings */
+/* General settings */
 @define('INSTALL_CAT_SETTINGS', 'Yleiset asetukset');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Serendipity toimintojen muokkaus');
 @define('INSTALL_USERNAME', 'Ylläpitäjän tunnus');

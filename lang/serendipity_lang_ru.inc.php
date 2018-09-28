@@ -377,7 +377,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_INDEXFILE', 'Индекс-файл');
 @define('INSTALL_INDEXFILE_DESC', 'Имя индекс-файла вашего блога');
 
-/* Generel settings */
+/* General settings */
 @define('INSTALL_CAT_SETTINGS', 'Общие настройки');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Влияют на поведение вашего блога Serendipity');
 @define('INSTALL_USERNAME', 'Имя администратора');

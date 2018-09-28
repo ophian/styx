@@ -374,7 +374,7 @@
 @define('INSTALL_INDEXFILE', 'インデックスファイル');
 @define('INSTALL_INDEXFILE_DESC', 'Serendipity インデックスファイルの名前');
 
-/* Generel settings */
+/* General settings */
 @define('INSTALL_CAT_SETTINGS', '一般設定');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Serendipity がどのように振舞うかカスタマイズします。');
 @define('INSTALL_USERNAME', '管理者ユーザー名');

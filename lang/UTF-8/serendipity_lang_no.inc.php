@@ -335,7 +335,7 @@
 @define('INSTALL_INDEXFILE', 'Index-fil');
 @define('INSTALL_INDEXFILE_DESC', 'Navnet på din Serendipity index-fil');
 
-/* Generel settings */
+/* General settings */
 @define('INSTALL_CAT_SETTINGS', 'Generelle innstillinger');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Tilpass måten Serendipity oppfører seg på');
 @define('INSTALL_USERNAME', 'Admin-brukernavn');

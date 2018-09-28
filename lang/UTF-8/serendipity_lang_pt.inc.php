@@ -358,7 +358,7 @@
 @define('INSTALL_INDEXFILE', 'Arquivo inicial');
 @define('INSTALL_INDEXFILE_DESC', 'Nome do arquivo inicial do Serendipity');
 
-/* Generel settings */
+/* General settings */
 @define('INSTALL_CAT_SETTINGS', 'Configurações gerais');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Padroniza como o Serendipity deve se comportar');
 @define('INSTALL_USERNAME', 'Usuário do administrador');

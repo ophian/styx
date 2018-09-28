@@ -360,7 +360,7 @@
 @define('INSTALL_INDEXFILE', 'Fichero índice');
 @define('INSTALL_INDEXFILE_DESC', 'El nombre del fichero índice de Serendipity');
 
-/* Generel settings */
+/* General settings */
 @define('INSTALL_CAT_SETTINGS', 'Opciones generales');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Configura el comportamiento de Serendipity');
 @define('INSTALL_USERNAME', 'Usuario administrador');

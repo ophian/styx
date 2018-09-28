@@ -375,7 +375,7 @@
 @define('INSTALL_INDEXFILE', 'Index 文件');
 @define('INSTALL_INDEXFILE_DESC', '系统的 index 文件');
 
-/* Generel settings */
+/* General settings */
 @define('INSTALL_CAT_SETTINGS', '一般设定');
 @define('INSTALL_CAT_SETTINGS_DESC', '系统的一般设定');
 @define('INSTALL_USERNAME', '管理员帐号');

@@ -375,7 +375,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_INDEXFILE', 'Index 檔案');
 @define('INSTALL_INDEXFILE_DESC', 'Serendipity 的 index 檔案');
 
-/* Generel settings */
+/* General settings */
 @define('INSTALL_CAT_SETTINGS', '一般設定');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Serendipity 的一般設定');
 @define('INSTALL_USERNAME', '管理員帳號');
