@@ -332,8 +332,7 @@ if (extension_loaded('filter') && function_exists('filter_id') && function_exist
  *  Avoid magic_quotes_gpc issues
  *  courtesy of iliaa@php.net
  */
-function serendipity_strip_quotes(&$var)
-{
+function serendipity_strip_quotes(&$var) {
     if (is_array($var)) {
         foreach($var AS $k => $v) {
             if (is_array($v)) {
