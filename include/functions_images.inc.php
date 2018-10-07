@@ -726,6 +726,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
             // The here used -flatten and -scale are Sequence Operators, while -antialias is a Setting and -resize is an Operator.
             if ($fdim['mime'] == 'application/pdf') {
                 $cmd = escapeshellcmd($serendipity['convert']) . ' '. serendipity_escapeshellarg($infile . '[0]') . ' -antialias -flatten -scale ' . serendipity_escapeshellarg($newSize) .' '. serendipity_escapeshellarg($outfile . '.png');
+                $isPDF = true;
                 if ($debug) { $serendipity['logger']->debug("PDF thumbnail creation: $cmd"); }
             } else {
                 if (!$force_resize && serendipity_ini_bool(ini_get('safe_mode')) === false) {
@@ -750,11 +751,16 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 } else {
                     $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . $_itp . ' -antialias -resize ' . serendipity_escapeshellarg($newSize) . ' ' . serendipity_escapeshellarg($outfile);
                 }
+                $isPDF = false;
                 if ($debug) { $serendipity['logger']->debug("Image thumbnail creation: $cmd"); }
             }
             exec($cmd, $output, $result);
             if ($result != 0) {
-                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, $output[0], $result) ."</span>\n";
+                if (!$isPDF) {
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, @$output[0], $result) ."</span>\n";
+                } else {
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> PDF thumbnail creation using ImageMagick and Ghostscript failed!' . "</span>\n";
+                }
                 $r = false; // return failure
             } else {
                 touch($outfile);
