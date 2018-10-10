@@ -1,4 +1,6 @@
 
+  * Refactor parts of the MediaLibrary onTheFlySynch
+
   * Fix regression when debugging the MediaLibrary onTheFlySynch
 
   * Some operating systems/users tend to create, hold and manage image files
