@@ -1819,7 +1819,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         $nTimeStart = microtime_float();
         $nCount = 0;
 
-        if ($debug) { $serendipity['logger']->debug("$logtag Image Sync Right: " . serendipity_checkPermission('adminImagesSync') . " Onthefly Sync: {$serendipity['onTheFlySynch']} Hash: {$serendipity['current_image_hash']}!={$serendipity['last_image_hash']}"); }
+        if ($debug) { $serendipity['logger']->debug("$logtag Image-Sync has perm: " . serendipity_checkPermission('adminImagesSync') . ", Onthefly Sync: {$serendipity['onTheFlySynch']}, Hash: " . ($serendipity['current_image_hash']!=$serendipity['last_image_hash']?"uneven, cleanup":"even, skip cleanup")); }
 
         if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync')
             && (isset($serendipity['last_image_hash']) && $serendipity['current_image_hash'] != $serendipity['last_image_hash'])) {
@@ -1829,13 +1829,17 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             if ($debug) { $serendipity['logger']->debug("$logtag Got images: " . print_r($aResultSet, 1)); }
 
             if (is_array($aResultSet)) {
+                $msgdelfile = array();
                 foreach($aResultSet AS $sKey => $sFile) {
-                    serendipity_plugin_api::hook_event('backend_thumbnail_filename_select', $sFile);
+                    serendipity_plugin_api::hook_event('backend_thumbnail_filename_select', $sFile); // unknown usage anywhere -> $sFile['thumbnail_filename']
                     $sThumbNailFile = '';
                     if (isset($sFile['thumbnail_filename'])) {
                         $sThumbNailFile = $sFile['thumbnail_filename'];
                     } else {
-                        $sThumbNailFile = $sFile['path'] . $sFile['name'] . '.' . $sFile['thumbnail_name'] . (empty($sFile['extension']) ? '' : '.' . $sFile['extension']);
+                        // avoid non existing thumbs, eg. pdf files without ImageMagick/ghostscript captured thumb preview
+                        if (!empty($sFile['thumbnail_name'])) {
+                            $sThumbNailFile = $sFile['path'] . $sFile['name'] . '.' . $sFile['thumbnail_name'] . (empty($sFile['extension']) ? '' : '.' . $sFile['extension']);
+                        }
                     }
 
                     if ($sFile['hotlink']) {
@@ -1849,17 +1853,24 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
                     unset($aResultSet[$sKey]);
 
+                    // check existing realFiles against remaining files without any reference to cleanup
                     if (isset($aFilesOnDisk[$sFileName])) {
                         unset($aFilesOnDisk[$sFileName]);
                     } else {
                         if (!$sFile['hotlink']) {
                             if ($debug) { $serendipity['logger']->debug("$logtag Deleting Image {$sFile['id']}"); }
 
-                            serendipity_deleteImage($sFile['id']); // no message output?
+                            $msgdelfile[] = serendipity_deleteImage($sFile['id']);
                             ++$nCount;
                         }
                     }
                     unset($aFilesOnDisk[$sThumbNailFile]);
+                }
+                if (count($msgdelfile) > 0) {
+                    echo "<h3>MediaLibrary Cleanup:</h3>";
+                    echo '<ul class="plainList">'."\n";
+                    foreach ($msgdelfile AS $f) { echo "<li>$f</li>\n"; }
+                    echo "</ul>\n";
                 }
             }
 
@@ -3754,7 +3765,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVE_ERROR, $newDir) . "</span>\n";
-         #echo ': '.$t->getMessage();
+        #echo ': '.$t->getMessage();
         return false;
     } catch (Exception $e) {
         // Executed only in PHP 5.x, will not be reached in PHP 7
