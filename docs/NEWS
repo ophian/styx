@@ -1,4 +1,6 @@
 
+  * Fix regression when debugging the MediaLibrary onTheFlySynch
+
   * Some operating systems/users tend to create, hold and manage image files
     without an extension. Uploading such images to the MediaLibrary does
     somehow work, but further image file management really needs a correct set
