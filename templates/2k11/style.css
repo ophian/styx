@@ -500,7 +500,7 @@ fieldset,
     font-size: .875em;
     margin: 0 0 1.2308em;
     padding: .5385em;
-    display: inline-block;
+    overflow: auto;
 }
 
 .serendipity_entry code,
