@@ -141,7 +141,7 @@
     <p class="nocontent">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/if}
-{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
+{if NOT $is_single_entry AND NOT $is_preview AND (($startpage AND $view != 'plugin') OR in_array($view, ['archives', 'entries']))}
     <nav class="serendipity_pagination block_level">
         <h2 class="visuallyhidden">{$CONST.TWOK11_PAG_TITLE}</h2>
 

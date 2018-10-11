@@ -185,7 +185,7 @@
 {/if}
 
     <div class="serendipity_entryFooter">
-{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
+{if NOT $is_single_entry AND NOT $is_preview AND (($startpage AND $view != 'plugin') OR in_array($view, ['archives', 'entries']))}
     {if $footer_prev_page}
         <a href="{$footer_prev_page}">&laquo; {$CONST.PREVIOUS_PAGE}</a>&#160;&#160;
     {/if}

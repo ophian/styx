@@ -154,7 +154,7 @@
     {/if}
 {/if}
 
-{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
+{if NOT $is_single_entry AND NOT $is_preview AND (($startpage AND $view != 'plugin') OR in_array($view, ['archives', 'entries']))}
 {if NOT empty($footer_info)}
     <p class="summary serendipity_center">{$footer_info}</p>
 {/if}

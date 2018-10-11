@@ -112,7 +112,7 @@
     {/if}
 {/if}
 
-{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
+{if NOT $is_single_entry AND NOT $is_preview AND (($startpage AND $view != 'plugin') OR in_array($view, ['archives', 'entries']))}
     <nav aria-label="{$footer_info|default:''}" title="{$footer_info|default:''}">
         <ul class="pagination justify-content-between">
             <li class="page-item{if empty($footer_prev_page)} disabled{/if}">

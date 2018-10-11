@@ -114,7 +114,7 @@
     {/if}
 {/if}
 
-{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
+{if NOT $is_single_entry AND NOT $is_preview AND (($startpage AND $view != 'plugin') OR in_array($view, ['archives', 'entries']))}
     <nav class="pager u-cf" role="navigation">
     {if NOT empty($footer_info)}
         <p>{$footer_info}</p>

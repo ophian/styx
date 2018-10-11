@@ -119,7 +119,7 @@
     <p class="msg-notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 {/if}
-{if NOT $is_single_entry AND NOT $is_preview AND NOT $startpage AND $view != 'plugin'}
+{if NOT $is_single_entry AND NOT $is_preview AND (($startpage AND $view != 'plugin') OR in_array($view, ['archives', 'entries']))}
     <nav class="pagination clearfix">
         {if NOT empty($footer_info)}<h3>{$footer_info}</h3>{/if}
     {if $footer_prev_page OR $footer_next_page}
