@@ -1,4 +1,6 @@
 
+  * Fix [2k11, default] themes default pre styles
+
   * Fix regression in all entries.tpl files for the entries list pagination.
     Please adapt to your copy themes.
 
