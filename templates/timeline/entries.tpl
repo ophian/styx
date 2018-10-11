@@ -278,7 +278,7 @@
     </ul>
 {/if}
 
-{if NOT $is_single_entry AND NOT $is_preview AND (($startpage AND $view != 'plugin') OR in_array($view, ['archives', 'entries']))}
+{if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND NOT empty($footer_prev_page) OR NOT empty($footer_next_page)}
     <div class="serendipity_pageSummary">
         {if NOT empty($footer_info)}
             <p class="summary serendipity_center">{$footer_info}</p>
