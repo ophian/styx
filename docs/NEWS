@@ -1,4 +1,7 @@
 
+  * Fix regression in all entries.tpl files for the entries list pagination.
+    Please adapt to your copy themes.
+
   * Refactor parts of the MediaLibrary onTheFlySynch
 
   * Fix regression when debugging the MediaLibrary onTheFlySynch
