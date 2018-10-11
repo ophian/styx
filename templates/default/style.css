@@ -55,7 +55,14 @@ h4,h3 {
 pre {
     width: auto;
     min-width: 20em;
-    display: inline-table;
+    display: grid;
+    overflow: auto;
+}
+pre code {
+    font-size: 1em;
+    white-space: pre;
+    overflow-x: auto;
+    padding: 1em 0;
 }
 
 a:link,
