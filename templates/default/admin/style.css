@@ -1714,10 +1714,12 @@ summary {
 }
 
 #image_directory_create_form .form_field input,
-#image_directory_create_form .form_select select,
+#image_directory_create_form .form_select select {
+    min-width: 12em;
+}
 #mediaPropertyForm .form_field input,
 #mediaPropertyForm .form_select select {
-    min-width: 12em;
+    min-width: 18em;
 }
 
 #mediaPropertyForm textarea {
