@@ -12,8 +12,8 @@
     without an extension. Uploading such images to the MediaLibrary does
     somehow work, but further image file management really needs a correct set
     extensions for the preview thumbs etc.
-    We now try to automatically append the image mime for the most common
-    used image files (gif, jpeg, png, bmp, tiff, webp).
+    We now try to automatically append the image extension by mime for the
+    most common used image files (gif, jpeg, png, bmp, tiff, webp).
 
   * Fix serendipity_syncThumbs() SQL Query to support the root upload dir,
     which could have forced to unnecessarily run a database update.
