@@ -1,5 +1,6 @@
+<h2>{$CONST.MENU_MAINTENANCE}</h2>
+
 <div id="maintenance">
-    <h2>{$CONST.MENU_MAINTENANCE}</h2>
 
 {if isset($action) AND $action == "integrity"}
     <h3 class="visuallyhidden">{$CONST.INTEGRITY}</h3>
@@ -110,8 +111,6 @@
     </section>
 {/if}
 
-{serendipity_hookPlugin hook="backend_maintenance" hookAll="true"}
-
 {if 'siteConfiguration'|checkPermission AND !$dbnotmysql}
     <section id="maintenance_utf8mb4" class="quick_list{if NOT $dbUtf8mb4_converted AND $dbUtf8mb4_migrate AND $dbUtf8mb4_ready AND NOT empty($dbUtf8mb4_migrate.sql)} mtask_long{/if}">
         <h3>{$CONST.UTF8MB4_MIGRATION_TITLE}</h3>
@@ -212,5 +211,7 @@
     {/if}
     </section>
 {/if}
+
+{serendipity_hookPlugin hook="backend_maintenance" hookAll="true"}
 
 </div>

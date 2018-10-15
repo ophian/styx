@@ -3832,13 +3832,25 @@ img.mfp-img {
         width: 16em;
     }
 
+    #maintenance {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+    #maintenance > section {
+        display: inline-block;
+        width: -moz-available;
+        width: 100%;
+    }
+    #maintenance > .quick_list {
+        margin: 0 2% 1.0625em 0;
+    }
     .no-flexbox #template_select article,
     .no-flexbox .plugins_installable > li,
     #serendipityScaleForm,
     #serendipityScaleImg,
     .no-flexbox .media_file,
     .no-flexbox #dashboard > .dashboard_widget,
-    #maintenance > .quick_list,
     .serendipity_statistics > section,
     #serendipity_category > div > div,
     #serendipity_category #preview,
