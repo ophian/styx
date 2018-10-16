@@ -442,6 +442,11 @@ $tasks = array(
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx moved the Smarty Backend templates to the "default" theme',
                     'desc'      => 'If you have any custom or developer files in the "templates/2k11/admin" directory, make a backup copy before proceeding. Do not try to keep this directory, since further file development already went to the new location! The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_260) . '</pre>'),
 
+            array(  'version'   => '2.6.2',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> All core delivered themes were changed',
+                    'desc'      => 'fixing a regression in the "entries.tpl" file for the entries list pagination condition. PLEASE adapt to your copy themes <pre>{if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}</pre>'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
