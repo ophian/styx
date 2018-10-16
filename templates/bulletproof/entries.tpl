@@ -378,7 +378,7 @@
 {/if}
 
 <div class="serendipity_pageFooter" style="text-align: center">
-{if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND NOT empty($footer_prev_page) OR NOT empty($footer_next_page)}
+{if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
     {if $footer_prev_page}
         {if $template_option.prev_next_style == 'texticon'}
             {if $template_option.colorset == 'blank'}
