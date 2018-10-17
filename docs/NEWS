@@ -1,4 +1,7 @@
 
+  * Fix an image selection error in the serendipity_editor.js.* template files
+    regarding jQuery trim usage, not adding and closing the entry media add form.
+
   * Fix PHP 7 must implement Countable error in importers
 
   * Sync Smarty 3.1.34-dev-5 bugfix commits
