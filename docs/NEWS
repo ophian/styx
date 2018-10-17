@@ -7,7 +7,7 @@
   * Sync Smarty 3.1.34-dev-5 bugfix commits
 
   * Fix column section gap for auto floated block heights in Maintenance.
-    This re-orders the Maintenance item section.
+    This re-orders the Maintenance item sections.
 
   * Fix [2k11, default] themes default pre styles
 
