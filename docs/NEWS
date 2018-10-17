@@ -1,4 +1,6 @@
 
+  * Styx now automatically converts media upload file extension to lower case
+
   * Fix an image selection error in the serendipity_editor.js.* template files
     regarding jQuery trim usage, not adding and closing the entry media add form.
 
