@@ -62,7 +62,7 @@ class Serendipity_Import_geeklog extends Serendipity_Import
 
     function validateData()
     {
-        return sizeof($this->data);
+        return is_array($this->data) ? sizeof($this->data) : false;
     }
 
     function getInputFields()

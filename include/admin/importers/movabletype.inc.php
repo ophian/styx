@@ -90,7 +90,7 @@ class Serendipity_Import_MovableType extends Serendipity_Import
 
     function validateData()
     {
-        return sizeof($this->data);
+        return is_array($this->data) ? sizeof($this->data) : false;
     }
 
     function getInputFields()
