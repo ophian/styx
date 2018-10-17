@@ -460,6 +460,10 @@ switch ($serendipity['GET']['adminAction']) {
                         continue;
                     }
 
+                    // last chance to lower the upload file extension part
+                    $info   = pathinfo($tfile);
+                    $tfile  = $info['filename'] . '.' . strtolower($info['extension']);
+
                     $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$idx] . $tfile;
 
                     $realname = $tfile;
