@@ -1,4 +1,6 @@
 
+  * Fix MediaLibrary toolbar undefined filter keys
+
   * Styx now automatically converts media upload file extension to lower case
 
   * Fix an image selection error in the serendipity_editor.js.* template files
