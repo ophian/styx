@@ -1,7 +1,5 @@
 <h2>{$CONST.MENU_MAINTENANCE}</h2>
 
-<div id="maintenance">
-
 {if isset($action) AND $action == "integrity"}
     <h3 class="visuallyhidden">{$CONST.INTEGRITY}</h3>
     {if isset($noChecksum) AND $noChecksum == true}
@@ -25,6 +23,8 @@
 {if isset($cleanup_finish) AND $cleanup_finish === 0}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CLEANCOMPILE_FAIL}</span>
 {/if}
+
+<div id="maintenance">
 
 {if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
     <section id="maintenance_integrity" class="quick_list">
