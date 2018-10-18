@@ -1,19 +1,14 @@
 <h2>{$CONST.MENU_MAINTENANCE}</h2>
 
-{if isset($action) AND $action == "integrity"}
+{if isset($action) AND $action == "integrity" AND isset($badsums)}
     <h3 class="visuallyhidden">{$CONST.INTEGRITY}</h3>
-    {if isset($noChecksum) AND $noChecksum == true}
-        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.CHECKSUMS_NOT_FOUND}</span>
-    {else}
-        {if $badsums|count == 0}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CHECKSUMS_PASS}</span>
-        {else}
-        <ul class="plainList">
-            {foreach $badsums AS $rpath => $calcsum}
-            <li class="msg_error_list"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CHECKSUM_FAILED|sprintf:$rpath}</li>
-            {/foreach}
-        </ul>
-        {/if}
+    {if $badsums|count > 0}
+    {assign "cfiles" $badsums|count}
+    <ul class="plainList">
+        {foreach $badsums AS $rpath => $calcsum}
+        <li class="msg_error_list"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CHECKSUM_FAILED|sprintf:$rpath}</li>
+        {/foreach}
+    </ul>
     {/if}
 {/if}
 
@@ -23,7 +18,19 @@
     <section id="maintenance_integrity" class="quick_list">
         <h3>{$CONST.INTEGRITY}</h3>
 
+{if isset($action) AND $action == "integrity"}
+    {if isset($noChecksum) AND $noChecksum == true}
+        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.CHECKSUMS_NOT_FOUND}</span>
+    {/if}
+    {if isset($badsums) AND $badsums|count == 0}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CHECKSUMS_PASS}</span>
+    {/if}
+    {if isset($cfiles) AND $cfiles > 0}
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CHECKSUM_FAILED|sprintf:$cfiles}</span>
+    {/if}
+{else}
         <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=integrity" title="{$CONST.INTEGRITY}"><span>{$CONST.INTEGRITY}</span></a>
+{/if}
     </section>
 {/if}
 
