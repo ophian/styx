@@ -17,13 +17,6 @@
     {/if}
 {/if}
 
-{if isset($cleanup_finish) AND $cleanup_finish > 0}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}! <span class="perm_name">{$CONST.CLEANCOMPILE_PASS|sprintf:$cleanup_template}</span></span>
-{/if}
-{if isset($cleanup_finish) AND $cleanup_finish === 0}
-        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CLEANCOMPILE_FAIL}</span>
-{/if}
-
 <div id="maintenance">
 
 {if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
@@ -38,9 +31,18 @@
     <section id="maintenance_cleanup" class="quick_list">
         <h3>{$CONST.CLEANCOMPILE_TITLE}</h3>
 
+{if isset($cleanup_finish)}
+    {if $cleanup_finish > 0}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}! <span class="perm_name">{$CONST.CLEANCOMPILE_PASS|sprintf:$cleanup_template}</span></span>
+    {/if}
+    {if $cleanup_finish === 0}
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CLEANCOMPILE_FAIL}</span>
+    {/if}
+{else}
         <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=clearcomp" title="{$CONST.CLEANCOMPILE_TITLE}"><span>{$CONST.CLEANCOMPILE_TITLE}</span></a>
         <button class="toggle_info button_link" type="button" data-href="#cleanup_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
         <span id="cleanup_info" class="comment_status additional_info">{$CONST.CLEANCOMPILE_INFO}</span>
+{/if}
     </section>
 {/if}
 
