@@ -324,7 +324,7 @@
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', 'feed %s');
 @define('PERMISSIONS', 'Permessi');
 @define('INTEGRITY', 'Verify Installation Integrity');
-@define('CHECKSUMS_NOT_FOUND', 'Unable to compare checksums! (No checksums.inc.php in main directory, or dev version)');
+@define('CHECKSUMS_NOT_FOUND', 'Unable to compare checksums! (No checksums.inc.php in main directory, or DEV version)');
 @define('CHECKSUMS_PASS', 'All required files verified.');
 @define('CHECKSUM_FAILED', '%s corrupt or modified: failed verification');
 @define('SETTINGS_SAVED_AT', 'Le nuove impostazioni sono state salvate in %s');
