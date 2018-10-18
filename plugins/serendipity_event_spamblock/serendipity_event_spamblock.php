@@ -1274,7 +1274,7 @@ class serendipity_event_spamblock extends serendipity_event
                     if (serendipity_userLoggedIn() && $this->inGroup()) {
                         return true;
                     }
-                    $_show_captcha = $show_captcha ? $show_captcha : ($captchas && ($serendipity['GET']['subpage'] == 'adduser' || $serendipity['POST']['subpage'] == 'adduser'));
+                    $_show_captcha = $show_captcha ? $show_captcha : ($captchas && (@$serendipity['GET']['subpage'] == 'adduser' || @$serendipity['POST']['subpage'] == 'adduser'));
 
                     if ($_show_captcha) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_captcha">'."\n";
