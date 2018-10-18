@@ -1,4 +1,6 @@
 
+  * Improve Maintenance message handler
+
   * Fix MediaLibrary toolbar undefined filter keys
 
   * Styx now automatically converts media upload file extension to lower case
