@@ -391,14 +391,12 @@ progress {
 
 /* Clearfix: contain floats */
 .clearfix:before,
-#maintenance:before,
 #dashboard:before,
 .no-flexbox .media_pane:before,
 .no-flexbox .plugins_installable:before,
 .no-flexbox .pluginmanager:before,
 .no-flexbox #template_select > ul:before,
 .clearfix:after,
-#maintenance:after,
 #dashboard:after,
 .no-flexbox .media_pane:after,
 .no-flexbox .plugins_installable:after,
@@ -409,7 +407,6 @@ progress {
 }
 
 .clearfix:after,
-#maintenance:after,
 #dashboard:after,
 .no-flexbox .media_pane:after,
 .no-flexbox .plugins_installable:after,
@@ -647,10 +644,10 @@ form > button,
 #maintenance_thumbs .wrap_legend {
     display: inline-table;
 }
-#maintenance > #maintenance_utf8mb4.mtask_long::before {
+#maintenance_utf8mb4.mtask_long::before {
     clear: both;
 }
-#maintenance > #maintenance_utf8mb4.mtask_long {
+#maintenance_utf8mb4.mtask_long {
     float: left;
     margin: 0 2% 1em 0;
     width: 98%;
@@ -3914,7 +3911,6 @@ img.mfp-img {
         width: 32%;
     }
 
-    #maintenance > h2,
     .media_pane .pagination,
     #template_select > h2 {
         flex: 0 0 auto;
