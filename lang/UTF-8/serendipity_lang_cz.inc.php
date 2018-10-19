@@ -1191,7 +1191,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('THEMEMANAGER_INFO', 'Multi-select and purge old theme zombies. Make me happy and delete this old crap! :) If you ever need it again just load it with Spartacus, to get the last maintained fresh version. On the other hand, don\'t do this when having changed anything within such theme without having a backup!');
 
 @define('GALLERY_ORIENTATION', 'Gallery Orientation');
-@define('GALLERY_ORIENTATION_PERCOL', 'Thumb item order per <b>column</b>, arranged vertical (modern browser default). No size restriction!');
+@define('GALLERY_ORIENTATION_PERCOL', 'Thumb item order per <b>column</b>, arranged vertical (recommended). No size restriction!');
 @define('GALLERY_ORIENTATION_PERROW', 'Thumb item order per <b>row</b>, left to right. Max-width: 260px restriction.');
 @define('GALLERY_ORIENTATION_STRICTCOL', 'Strict <b>columns</b> depend containers content size:');
 
