@@ -1,12 +1,16 @@
 
   * Improve Gallery Widget to use use column ordered "lists", by 2, 3, or 4
-    columns.
-    This is the recommended default usage for modern browsers. The (old)
+    columns. The 3-Column design is the default and will smoothly downsize
+    to 2 columns on MID-Screens and a single column on SMALL-screens. Vice
+    versa for the 2-Column design. The 4-Column smaller item pattern will just
+    behave the same, except it ends up with 2 columns on small screens.
+
+    This is the recommended default order usage for modern browsers. The (old)
     "per row" flexed option is still supported. Please replace your galleries,
     since some image block class selectors and default styles have been changed
     accordingly and may not match any more.
-    This new column order also supports the WYSIWYG-Editors drag & drop mode,
-    if you do and check it carefully.
+    This new column order also supports the WYSIWYG-Editors drag & drop mode
+    very well, if you do and check it carefully.
 
   * Improve Maintenance message handler
 
