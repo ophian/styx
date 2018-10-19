@@ -1,5 +1,5 @@
 /**
- * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.5 on 2018-08-05
+ * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.6 on 2018-10-19
  */
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
@@ -99,7 +99,7 @@ p > img.serendipity_image_right {
 }
 
 /* Gallery-Container: This is used to enclose a gallery, using serendipity_image_left or _right floated images */
-.serendipity_image_block {
+.serendipity_image_block.row {
     clear: both;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -107,7 +107,7 @@ p > img.serendipity_image_right {
 }
 
 /* Gallery-Size: This sizes the origin single-line image gallery to be used as a real multi-item image container */
-.serendipity_image_block {
+.serendipity_image_block.row {
     flex: auto;
     -webkit-flex-direction: row;
     -webkit-flex-wrap: wrap;
@@ -118,22 +118,22 @@ p > img.serendipity_image_right {
     margin-bottom: 1em;
 }
 /* The inline containers or items min/max size to scale gallery images to a effordable size */
-.serendipity_image_block .serendipity_imageComment_left,
-.serendipity_image_block .serendipity_imageComment_right,
-.serendipity_image_block .serendipity_image_link,
-.serendipity_image_block > .serendipity_image_left,
-.serendipity_image_block > .serendipity_image_right {
+.serendipity_image_block.row .serendipity_imageComment_left,
+.serendipity_image_block.row .serendipity_imageComment_right,
+.serendipity_image_block.row .serendipity_image_link,
+.serendipity_image_block.row > .serendipity_image_left,
+.serendipity_image_block.row > .serendipity_image_right {
     min-width: 100px;
     max-width: 260px;
 }
 /* direct item styles forced */
-.serendipity_image_block > .serendipity_image_left,
-.serendipity_image_block > .serendipity_image_right {
+.serendipity_image_block.row > .serendipity_image_left,
+.serendipity_image_block.row > .serendipity_image_right {
     max-width: 260px !important; /* since having to force the inline style */
 }
 /* Workaround styles for older Chrome. Direct images manually wrapped inside a simple unstyled container - generic div preferred */
-.serendipity_image_block > div:not([id]):not([class]):not([style]),
-.serendipity_image_block > span:not([class]):not([style]) {
+.serendipity_image_block.row > div:not([id]):not([class]):not([style]),
+.serendipity_image_block.row > span:not([class]):not([style]) {
     min-width: 100px;
     max-width: 260px;
 }
@@ -163,8 +163,70 @@ p > img.serendipity_image_right {
 .serendipity_image_block  .serendipity_image_link {
     margin: .5em 0 0 0; /* no display here! */
 }
+/* Gallery-Margins: end */
+
 /* webkit (all) hack */
-.serendipity_image_block > .serendipity_imageComment_left .serendipity_image_link:not(*:root) {
+.serendipity_image_block.row > .serendipity_imageComment_left .serendipity_image_link:not(*:root) {
     display: table-row; /* A Chrome fix to automatically size the link (level 2) container without any additionally thrown space around the inner scaled image */
 }
-/* Gallery-Margins: end */
+
+/* Gallery-Container: by columns, vertically ordered, screen sized 3:2:1 and 4:3:2 */
+/* SMALL SCREENS */
+.serendipity_image_block.col {
+    column-count: 1;
+    column-gap: .187rem;/*3*/
+    justify-content: space-evenly;
+}
+.serendipity_image_block.col.c4 {
+    column-count: 2;
+}
+/* MEDIUM SCREENS 92% of 552px */
+@media only screen and (min-width: 508px) {
+    .serendipity_image_block.col {
+        column-count: 2;
+        column-gap: .312rem;/*6*/
+    }
+    .serendipity_image_block.col.c4 {
+        column-count: 3;
+    }
+}
+/* DEFAULT SCREENS 92% of 768px */
+@media only screen and (min-width: 723px) {
+    .serendipity_image_block.col {
+        column-gap: .5rem;/*9*/
+    }
+    .serendipity_image_block.col.c2 {
+        column-count: 2;
+    }
+    .serendipity_image_block.col.c3 {
+        column-count: 3;
+    }
+    .serendipity_image_block.col.c4 {
+        column-count: 4;
+    }
+}
+/* DEFAULT SCREEN COL4 92% of 1024px */
+@media only screen and (min-width: 942px) {
+    .serendipity_image_block.col.c4 {
+        column-count: 4;
+    }
+}
+.serendipity_image_block.col .serendipity_imageComment_left,
+.serendipity_image_block.col .serendipity_imageComment_right,
+.serendipity_image_block.col .serendipity_image_link,
+.serendipity_image_block.col > .serendipity_image_left,
+.serendipity_image_block.col > .serendipity_image_right {
+    display: inline-grid;
+    vertical-align: middle;
+}
+.serendipity_image_block.col .serendipity_image_left,
+.serendipity_image_block.col .serendipity_imageComment_left {
+    float: unset;
+}
+.serendipity_image_block.col .serendipity_image_left,
+.serendipity_image_block.col .serendipity_imageComment_left,
+.serendipity_image_block.col .serendipity_imageComment_left,
+.serendipity_image_block.col .serendipity_imageComment_right {
+    display: unset;
+}
+/* Gallery-Columns: end */

@@ -32,6 +32,30 @@
 
         </div>{* media pane gallery edition end *}
 
+        <fieldset id="gallery_orientation">
+            <span class="wrap_legend"><legend>{$CONST.GALLERY_ORIENTATION}</legend></span>
+
+            <div class="clearfix">
+                <div class="form_radio">
+                    <input id="gallery_orientation_col" name="serendipity[orient]" checked="checked" type="radio" value="col">
+                    <label for="gallery_orientation_col">{$CONST.GALLERY_ORIENTATION_PERCOL}</label>
+                    <br/>
+                    <span class="gallery_strict_columns_head">{$CONST.GALLERY_ORIENTATION_STRICTCOL} </span>
+                    <span class="gallery_strict_columns">
+                        <input id="gallery_orientation_col2" name="serendipity[defcols]" type="radio" value="2">
+                        <label for="gallery_orientation_col2">2 (<span class="gsc-size">552px</span>)</label>
+                        <input id="gallery_orientation_coldef" name="serendipity[defcols]" checked="checked" type="radio" value="3">
+                        <label for="gallery_orientation_coldef">3 (default, <span class="gsc-size">768px</span>)</label>
+                        <input id="gallery_orientation_col4" name="serendipity[defcols]" type="radio" value="4">
+                        <label for="gallery_orientation_col4">4 (<span class="gsc-size">1024px</span>)</label>
+                    </span>
+                    <br/><br/>
+                    <input id="gallery_orientation_row" name="serendipity[orient]" type="radio" value="row">
+                    <label for="gallery_orientation_row">{$CONST.GALLERY_ORIENTATION_PERROW}</label>
+                </div>
+            </div>
+        </fieldset>
+
         <fieldset id="image_as_link">
             <span class="wrap_legend"><legend>{$CONST.IMAGE_AS_A_LINK}</legend></span>
 
@@ -49,24 +73,9 @@
 
         </fieldset>
 
-        <fieldset id="image_alignment">
-            <span class="wrap_legend"><legend>{$CONST.IMAGE_ALIGNMENT}</legend></span>
-
-            <div class="clearfix">
-                <div class="form_radio">
-                    <input id="image_align_left" name="serendipity[align]" checked="checked" type="radio" value="left">
-                    <label for="image_align_left"><img src="{serendipity_getFile file='img/img_align_left.png'}" alt="{$CONST.ALIGN_LEFT}"></label>
-                </div>
-
-                <div class="form_radio">
-                    <input id="image_align_right" name="serendipity[align]" type="radio" value="right">
-                    <label for="image_align_right"><img src="{serendipity_getFile file='img/img_align_right.png'}" alt="{$CONST.ALIGN_RIGHT}"></label>
-                </div>
-            </div>
-        </fieldset>
-
         <div class="form_buttons">
             <input class="invert_selection" name="toggle" type="button" value="{$CONST.INVERT_SELECTIONS}">
+            <input name="serendipity[align]" type="hidden" value="left">
             <input name="serendipity[mediaTextarea]" type="hidden" value="{$media.textarea}">
             <input class="state_submit" name="gallery_insert" type="submit" value="{$CONST.ADD_MEDIA}">
         </div>

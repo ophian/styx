@@ -3056,6 +3056,16 @@ label .perm_name,
     min-height: 5.5em;
     height: 5.5em;
 }
+#gallery_orientation .gallery_strict_columns_head {
+    margin-left: 1rem;
+}
+#gallery_orientation .gallery_strict_columns input {
+    margin-left: .75rem;
+}
+#gallery_orientation .gsc-size {
+    display: inline;
+    font-size: smaller;
+}
 /*gallery pane end*/
 
 .js .media_pane .media_file_meta,
