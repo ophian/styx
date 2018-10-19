@@ -1175,8 +1175,8 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die
 @define('THEMEMANAGER_SUBMIT', 'Lösche gewählte Themes');
 @define('THEMEMANAGER_INFO', 'Lösche alte Theme-Zombies (Multi-Auswahl). Machen Sie mich glücklich und halten Sie Ihren Laden sauber! :) Wenn Sie jemals ein solches Theme wieder benötigen, laden Sie es einfach als frische Version über Spartacus. Anderseits, wenn Sie ein solches Template je verändert haben, sollten Sie ohne Backup auf die Löschung möglicherweise verzichten!');
 
-@define('GALLERY_ORIENTATION', 'Gallery Orientation');
-@define('GALLERY_ORIENTATION_PERCOL', 'Thumb item order per <b>column</b>, arranged vertical (modern browser default). No size restriction!');
-@define('GALLERY_ORIENTATION_PERROW', 'Thumb item order per <b>row</b>, left to right. Max-width: 260px restriction.');
-@define('GALLERY_ORIENTATION_STRICTCOL', 'Strict <b>columns</b> depend containers content size:');
+@define('GALLERY_ORIENTATION', 'Galerie Ausrichtung');
+@define('GALLERY_ORIENTATION_PERCOL', 'Reihenfolge per <b>Spalte</b>, vertikal angeordnet (empfohlen). Keine Größenbeschränkung!');
+@define('GALLERY_ORIENTATION_PERROW', 'Reihenfolge per <b>Zeile</b>, links nach rechts. Max-width: 260px Beschränkung.');
+@define('GALLERY_ORIENTATION_STRICTCOL', 'Erzwinge <b>Spalten</b> für die abhängige container Breite:');
 
