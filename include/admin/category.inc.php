@@ -199,9 +199,7 @@ if ($serendipity['GET']['adminAction'] == 'view') {
     if (is_array($cats)) {
         $categories = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
         $data['viewCategories'] = $categories;
-        $catentries = serendipity_getTotalCount('entriesbycat');
-        foreach($catentries AS $k => $each) { $catenum[$each['cat']] = $each['num']; }
-        $data['catentries'] = $catenum;
+        $data['catentries'] = array_column(serendipity_getTotalCount('entriesbycat'), 'num', 'cat');
     }
 }
 
