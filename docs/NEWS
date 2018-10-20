@@ -1,4 +1,6 @@
 
+  * Improve categories list adding the number of associated entries
+
   * Improve Gallery Widget to use use column ordered "lists", by 2, 3, or 4
     columns. The 3-Column design is the default and will smoothly downsize
     to 2 columns on MID-Screens and a single column on SMALL-screens. Vice
