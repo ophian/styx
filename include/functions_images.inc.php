@@ -754,7 +754,9 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 $isPDF = false;
                 if ($debug) { $serendipity['logger']->debug("Image thumbnail creation: $cmd"); }
             }
+
             exec($cmd, $output, $result);
+
             if ($result != 0) {
                 if (!$isPDF) {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, @$output[0], $result) ."</span>\n";
@@ -1822,7 +1824,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         if ($debug) { $serendipity['logger']->debug("$logtag Image-Sync has perm: " . serendipity_checkPermission('adminImagesSync') . ", Onthefly Sync: {$serendipity['onTheFlySynch']}, Hash: " . ($serendipity['current_image_hash']!=$serendipity['last_image_hash']?"uneven, cleanup":"even, skip cleanup")); }
 
         if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync')
-            && (isset($serendipity['last_image_hash']) && $serendipity['current_image_hash'] != $serendipity['last_image_hash'])) {
+        && isset($serendipity['last_image_hash']) && $serendipity['current_image_hash'] != $serendipity['last_image_hash']) {
             $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
                                                   FROM {$serendipity['dbPrefix']}images", false, 'assoc');
 
