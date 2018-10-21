@@ -2492,6 +2492,10 @@ h3 .media_file_actions {
     width: 48%;
 }
 
+.emptydim {
+    color: #696969;
+}
+
 #serendipityScaleImg img,
 .configure_plugin .cke {
     height: auto;
@@ -3007,6 +3011,11 @@ label .perm_name,
 .js .template_wrap,
 .media_file .form_check {
     margin: 0 0 1em;
+}
+.media_directory_entries {
+    text-align: right;
+    display: inherit;
+    margin-top: -1.2rem;
 }
 
 .js .template_info > dl {
@@ -3614,6 +3623,10 @@ img.mfp-img {
 
     .media_file h3 {
         width: 15em;
+    }
+
+    .media_directory_entries {
+        margin-top: -3.2rem;
     }
 
     #media_pane_filter div fieldset input {/*mediafilter*/

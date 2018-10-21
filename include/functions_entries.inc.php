@@ -1926,6 +1926,13 @@ function serendipity_getTotalCount($what) {
                                            FROM {$serendipity['dbPrefix']}entrycat
                                        GROUP BY cat", false, 'assoc');
             return $res;
+            break;
+        case 'mediabypath':
+            $res = serendipity_db_query("SELECT path AS cat, COUNT(path) AS num
+                                           FROM {$serendipity['dbPrefix']}images
+                                       GROUP BY cat", false, 'assoc');
+            return $res;
+            break;
         case 'comments':
             $res = serendipity_db_query("SELECT SUM(e.comments) AS sum
                                            FROM {$serendipity['dbPrefix']}entries AS e

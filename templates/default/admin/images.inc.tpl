@@ -166,6 +166,7 @@
     <header id="media_directory_info" class="media_directory_info additional_info">
         <span class="msg_hint focused">{$CONST.DIRECTORY_INFO_DESC}</span>
     </header>
+    <span class="media_directory_entries"><em>{if isset($pathitems[''])}{$pathitems['']}{else}<span class="emptydim">0</span>{/if} {$CONST.PLUGIN_GROUP_IMAGES}</em></span>
 
     <ul id="serendipity_image_folders" class="option_list">
     {foreach $folders AS $folder}
@@ -199,6 +200,7 @@
                 <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
                 <ul class="plainList clearfix edit_actions">
+                    <li><em>{if isset($pathitems[$folder.relpath])}{$pathitems[$folder.relpath]} {$CONST.ENTRIES}{else}<span class="emptydim">0 {$CONST.ENTRIES}</span>{/if}</em></li>
                     <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
                     <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
                     <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
