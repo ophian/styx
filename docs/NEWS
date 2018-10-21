@@ -1,4 +1,6 @@
 
+  * Improve media directory list adding the number of local media entries
+
   * Improve categories list adding the number of associated entries
 
   * Improve Gallery Widget to use use column ordered "lists", by 2, 3, or 4
