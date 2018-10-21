@@ -1494,8 +1494,8 @@ function serendipity_updertEntry($entry) {
     $categories = $entry['categories'];
     unset($entry['categories']);
 
-    $had_categories = $entry['had_categories'];
-    unset($entry['had_categories']);
+    $had_categories = isset($entry['had_categories']) ? $entry['had_categories'] : null;
+    @unset($entry['had_categories']);
 
     $newEntry = 0;
     $exflag = 0;
@@ -1504,7 +1504,7 @@ function serendipity_updertEntry($entry) {
         unset($entry['properties']);
     }
 
-    if (!is_numeric($entry['timestamp'])) {
+    if (!isset($entry['timestamp']) || !is_numeric($entry['timestamp'])) {
         $entry['timestamp'] = time();
     }
 
@@ -1513,16 +1513,16 @@ function serendipity_updertEntry($entry) {
         $entry['extended'] = '';
     }
 
-    if (strlen($entry['extended'])) {
+    if (isset($entry['extended']) && strlen($entry['extended'])) {
         $exflag = 1;
     }
 
     $entry['exflag'] = $exflag;
 
-    if (!is_numeric($entry['id'])) {
+    if (!isset($entry['id']) || !is_numeric($entry['id'])) {
         /* we need to insert */
 
-        unset($entry['id']);
+        @unset($entry['id']);
         $entry['comments'] = 0;
 
         if (!isset($entry['last_modified']) || !is_numeric($entry['last_modified'])) {
@@ -1531,7 +1531,7 @@ function serendipity_updertEntry($entry) {
 
         // New entries need an author
         $entry['author'] = $serendipity['user'];
-        if (!isset($entry['authorid']) || empty($entry['authorid'])) {
+        if (empty($entry['authorid'])) {
             $entry['authorid'] = $serendipity['authorid'];
         }
 
@@ -1632,7 +1632,7 @@ function serendipity_updertEntry($entry) {
         // shall only be send at the end of the execution flow. However, certain plugins depend on
         // the existence of handled references. Thus we store the current references at this point,
         // execute the plugins and then reset the found references to the original state.
-        serendipity_handle_references($entry['id'], $serendipity['blogTitle'], $drafted_entry['title'], $drafted_entry['body'] . $drafted_entry['extended'], true);
+        serendipity_handle_references($entry['id'], $serendipity['blogTitle'], $drafted_entry['title'], $drafted_entry['body'] . @$drafted_entry['extended'], true);
     }
 
     // Send publish tags if either a new article has been inserted from scratch, or if the entry was previously
@@ -1647,7 +1647,7 @@ function serendipity_updertEntry($entry) {
     if (!serendipity_db_bool($entry['isdraft']) && $entry['timestamp'] <= serendipity_serverOffsetHour()) {
         // Now that plugins are executed, we go ahead into the Temple of Doom and send possibly failing trackbacks.
         // First, original list of references is restored (inside the function call)
-        serendipity_handle_references($entry['id'], $serendipity['blogTitle'], $drafted_entry['title'], $drafted_entry['body'] . $drafted_entry['extended'], false);
+        serendipity_handle_references($entry['id'], $serendipity['blogTitle'], $drafted_entry['title'], $drafted_entry['body'] . @$drafted_entry['extended'], false);
     }
 
     serendipity_cleanCache();
