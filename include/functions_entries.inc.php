@@ -1495,7 +1495,7 @@ function serendipity_updertEntry($entry) {
     unset($entry['categories']);
 
     $had_categories = isset($entry['had_categories']) ? $entry['had_categories'] : null;
-    @unset($entry['had_categories']);
+    unset($entry['had_categories']);
 
     $newEntry = 0;
     $exflag = 0;
@@ -1522,7 +1522,7 @@ function serendipity_updertEntry($entry) {
     if (!isset($entry['id']) || !is_numeric($entry['id'])) {
         /* we need to insert */
 
-        @unset($entry['id']);
+        unset($entry['id']);
         $entry['comments'] = 0;
 
         if (!isset($entry['last_modified']) || !is_numeric($entry['last_modified'])) {
