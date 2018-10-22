@@ -233,13 +233,13 @@ if (!function_exists('errorToExceptionHandler')) {
         } else {
             // Only display error (production blog) if an admin is logged in, else we discard the error.
             if ($serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
-                $str  = ' == SERENDIPITY ERROR == ';
-                $str .= '<p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . '</p>';
+                $debug_note = "<br />\nAdministrative Login Error $type only - not seen by visitors! Send us a note what happened where and when, please.";
+                $str .= '<div><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . '</div>';
                 if (headers_sent()) {
-                    serendipity_die($str); // case HTTP headers: needs to halt with die() here, else it will pass through and gets written underneath blog content, or into streamed js files, which hardly isn't seen by many users
+                    serendipity_die($str); // case HTTP headers: needs to halt with die() here,
+                                           // else it will pass through and gets written underneath blog content, or into streamed js files, which hardly isn't seen by many users
                 } else {
-                    // see global include of function in plugin_api.inc.php
-                    echo "\n" . $str . "\n";
+                    echo '<div id="serendipity_error_top" class="error_totop">' . $str . "</div>\n";
                 }
             }
         }
