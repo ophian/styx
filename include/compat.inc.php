@@ -190,7 +190,7 @@ if (!function_exists('errorToExceptionHandler')) {
          * $serendipity['production'] can be:
          *
          * (bool) TRUE:         Live-blog, conceal error messages
-         * (bool) FALSE         Beta/alpha builds
+         * (bool) FALSE         rc/beta/alpha/cvs builds
          * (string) 'debug'     Developer build, specifically enabled.
          */
         $debug_note = ($serendipity['production'] !== 'debug')
@@ -199,7 +199,7 @@ if (!function_exists('errorToExceptionHandler')) {
         $head = '';
 
         // Debug environments shall be verbose...
-        if ($serendipity['production'] === 'debug') {
+        if ($serendipity['production'] === 'debug' && !in_array($type, ['Warning', 'Notice', 'Catchable'])) {
             echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br />\n";
             echo " == (When you copy this debug output to a forum or other places, make sure to remove your username/passwords, as they may be contained within function calls) == \n";
             echo "<pre>\n";
@@ -207,34 +207,42 @@ if (!function_exists('errorToExceptionHandler')) {
             if (function_exists('debug_backtrace')) {
                 $debugbacktrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 8);
                 print_r($debugbacktrace);
+                $dbt = 1;
             }
             // print_r($args); // debugging [Use with care! Not to public, since holding password and credentials!!!]
             // debugbacktrace is nice, but additional it is good to have the verbosity of SPL EXCEPTIONS, except for db connect errors
             echo "</pre>\n";
             $debug_note = '';
         }
-        elseif ($serendipity['production'] === false) {
-            $head = " == ERROR-REPORT (BETA/ALPHA-BUILDS) == \n";
-        }
-
-        if ($serendipity['production'] !== true) {
-            // Display error (production: FALSE and production: 'debug') and trigger_errors with E_USER_ERROR
+        if ($serendipity['production'] === false) {
+            $head = " == ERROR-REPORT (RC/BETA/ALPHA-BUILDS) == \n";
+            // Display error (production: FALSE and trigger_errors with E_USER_ERROR
             if (!$serendipity['dbConn'] || $exit) {
                 echo '<p>'.$head.'</p><p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . "</p>\n";
             } else {
                 if (false !== strpos($errStr, $debug_note)) echo $head . $debug_note."\n\n";
-                echo '<pre style="white-space: pre-line;">'."\n\n";
-                throw new \ErrorException($type . ': ' . $errStr, 0, $errNo, $errFile, $errLine); // tracepath = all, if not ini_set('display_errors', 0);
-                echo "</pre>\n";
+                // die into Exception, else echo to page top and resume
+                if (!in_array($type, ['Warning', 'Notice', 'Catchable'])) {
+                    echo '<pre style="white-space: pre-line;">'."\n\n";
+                    throw new \ErrorException("$type: $errStr, 0, $errNo, $errFile, $errLine"); // tracepath = all, if not ini_set('display_errors', 0);
+                    echo "</pre>\n";
+                } else {
+                    echo '<div id="serendipity_error_top" class="error_totop"><b>' . $type . ':</b> ' . $errStr . ' in ' . $errFile . ': ' . $errLine . '.' . $debug_note . "</div>\n";
+                }
                 if (!$serendipity['dbConn'] || $exit) {
                     exit; // make sure to exit in case of database connection errors or fatal errors.
                 }
             }
         } else {
-            // Only display error (production blog) if an admin is logged in, else we discard the error.
+            // Only display error (production/debug blog) if an admin is logged in, else we discard the error.
             if ($serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
-                $debug_note = "<br />\nAdministrative Login Error $type only - not seen by visitors! Send us a note what happened where and when, please.";
-                $str .= '<div><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . '</div>';
+                if ($serendipity['production'] === 'debug') {
+                    $debug_note = "<br />\n" . (!empty($dbt) ? 'See DEBUG tracepath at page end!' : ' == ERROR-REPORT (DEBUGGING ENABLED) ==');
+                }
+                if ($serendipity['production'] === true) {
+                    $debug_note = "<br />\nAdministrative Login Error $type only - not seen by visitors! Send us a note what happened where and when, please.";
+                }
+                $str .= '<div><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ': ' . $errLine . '.' . $debug_note . '</div>';
                 if (headers_sent()) {
                     serendipity_die($str); // case HTTP headers: needs to halt with die() here,
                                            // else it will pass through and gets written underneath blog content, or into streamed js files, which hardly isn't seen by many users
