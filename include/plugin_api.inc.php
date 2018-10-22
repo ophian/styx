@@ -64,24 +64,6 @@ function serendipity_plugin_api_core_event_hook($event, &$bag, &$eventData, &$ad
 
     switch($event) {
 
-        case 'js_backend':
-        case 'js':
-            // Add a global available (index.tpl; admin/index.tpl; preview_iframe.tpl) redirect error string function used by errorToExceptionHandler()
-            // hardened by admin only - better have that here, to be reachable everywhere
-            if ($serendipity['production'] === true && $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN ) {
-                echo "
-function errorHandlerCreateDOM(htmlStr) {
-    var frag = document.createDocumentFragment(),
-        temp = document.createElement('div');
-        temp.innerHTML = htmlStr;
-    while (temp.firstChild) {
-        frag.appendChild(temp.firstChild);
-    }
-    return frag;
-} \n";
-            }
-            break;
-
         case 'external_plugin':
             if ($eventData == 'admin/serendipity_editor.js') {
                 header('Content-Type: application/javascript');
