@@ -1,4 +1,6 @@
 
+  * Improve and refactor production error messages
+
   * Improve media directory list adding the number of local media entries
 
   * Improve categories list adding the number of associated entries
