@@ -1,4 +1,6 @@
 
+  * Add srcset to RSS URI pattern
+
   * Improve and refactor production type error messages
 
   * Improve media directory list adding the number of local media entries
