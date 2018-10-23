@@ -78,16 +78,16 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             $addData = array('from' => 'functions_entries:printEntries_rss','rss_options' => $options);
             serendipity_plugin_api::hook_event('frontend_display', $entry, $addData);
 
-            // Do some relative -> absolute URI replacing magic. Replaces all HREF/SRC (<a>, <img>, ...) references to only the serendipitypath with the full baseURL URI
+            // Do some relative -> absolute URI replacing magic. Replaces all HREF/SRC/SRCSET (<a>, <img>, ...) references to only the serendipity path with the full baseURL URI
             // garvin: Could impose some problems. Closely watch this one.
             // onli: Did impose some problems, when having //-links to stuff. following pattern-selection tries to workaround that
             if ($serendipity['serendipityHTTPPath'] == '/') {
-                $pattern = '@(href|src)=(["\'])/([^/][^"\']*)@imsU';
+                $pattern = '@(href|src|srcset)=(["\'])/([^/][^"\']*)@imsU';
             } else {
-                $pattern = '@(href|src)=(["\'])' . preg_quote($serendipity['serendipityHTTPPath']) . '([^"\']*)@imsU';
+                $pattern = '@(href|src|srcset)=(["\'])' . preg_quote($serendipity['serendipityHTTPPath']) . '([^"\']*)@imsU';
             }
             $entry['body'] = preg_replace($pattern, '\1=\2' . $serendipity['baseURL'] . '\3', $entry['body']);
-            //$entry['body'] = preg_replace('@(href|src)=("|\')(' . preg_quote($serendipity['serendipityHTTPPath']) . ')(.*)("|\')(.*)>@imsU', '\1=\2' . $serendipity['baseURL'] . '\4\2\6>', $entry['body']);
+            //$entry['body'] = preg_replace('@(href|src|srcset)=("|\')(' . preg_quote($serendipity['serendipityHTTPPath']) . ')(.*)("|\')(.*)>@imsU', '\1=\2' . $serendipity['baseURL'] . '\4\2\6>', $entry['body']);
             // clean up body for XML compliance and doubled whitespace between (img) attributes as best we can.
             $entry['body'] = str_replace('"  ', '" ', xhtml_cleanup($entry['body']));
 
@@ -159,7 +159,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             }
 
             serendipity_plugin_api::hook_event($entry_hook, $entry);
-            $entry['per_entry_display_dat'] = $entry['display_dat'];
+            $entry['per_entry_display_dat'] = !empty($entry['display_dat']) ? $entry['display_dat'] : '';
         }
     }
 
