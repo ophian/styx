@@ -205,25 +205,22 @@ input[type="button"], input[type="checkbox"] {
         column-count: 4;
     }
 }
+
 .serendipity_image_block.col .serendipity_imageComment_left,
+.serendipity_image_block.col.c2 .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right,
+.serendipity_image_block.col.c2 .serendipity_imageComment_right,
 .serendipity_image_block.col .serendipity_image_link,
+.serendipity_image_block.col.c2 .serendipity_image_link,
 .serendipity_image_block.col > .serendipity_image_left,
-.serendipity_image_block.col > .serendipity_image_right {
-    display: inline-grid;
+.serendipity_image_block.col.c2 > .serendipity_image_left,
+.serendipity_image_block.col > .serendipity_image_right,
+.serendipity_image_block.col.c2 > .serendipity_image_right {
+    display: table;
     vertical-align: middle;
-}
-.serendipity_image_block.col .serendipity_image_left,
-.serendipity_image_block.col .serendipity_imageComment_left {
+    margin: auto;
     float: unset;
 }
-.serendipity_image_block.col .serendipity_image_left,
-.serendipity_image_block.col .serendipity_imageComment_left,
-.serendipity_image_block.col .serendipity_imageComment_left,
-.serendipity_image_block.col .serendipity_imageComment_right {
-    display: unset;
-}
-
 /* Gallery-Size: end */
 
 /* Gallery-Margins: the default margins for all default level 1 gallery items (direct containers or direct items) */
@@ -243,9 +240,9 @@ input[type="button"], input[type="checkbox"] {
 .serendipity_image_block > span .serendipity_image_right {
     margin: 5px 0 0 0;
 }
-.serendipity_image_block > .serendipity_image_left,
-.serendipity_image_block > .serendipity_image_right {
-    margin: 10px 0 0 0 !important; /* so that a direct child image behaves like a containered image - and the top is 2x5px */
+.serendipity_image_block:not(.col) > .serendipity_image_left,
+.serendipity_image_block:not(.col) > .serendipity_image_right {
+    margin: 10px 0 0 0 !important; /* so that a direct child image behaves like a containerized image - and the top is 2x5px */
 }
 /* webkit (all) hack */
 .serendipity_image_block > .serendipity_imageComment_left .serendipity_image_link:not(*:root) {
