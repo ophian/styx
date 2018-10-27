@@ -174,6 +174,9 @@ input[type="button"], input[type="checkbox"] {
 .serendipity_image_block.col.c4 {
     column-count: 2;
 }
+.serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
+    margin: auto auto .187rem;
+}
 /* MEDIUM SCREENS */
 @media only screen and (min-width: 552px) {
     .serendipity_image_block.col {
@@ -183,11 +186,15 @@ input[type="button"], input[type="checkbox"] {
     .serendipity_image_block.col.c4 {
         column-count: 3;
     }
+    .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
+        margin: auto auto .5em;
+    }
 }
 /* DEFAULT SCREENS */
 @media only screen and (min-width: 768px) {
     .serendipity_image_block.col {
         column-gap: .5rem;/*9*/
+        column-fill: balance;
     }
     .serendipity_image_block.col.c2 {
         column-count: 2;

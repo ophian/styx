@@ -1,5 +1,5 @@
 /**
- * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.6 on 2018-10-19
+ * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.7 on 2018-10-27
  */
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
@@ -180,6 +180,9 @@ p > img.serendipity_image_right {
 .serendipity_image_block.col.c4 {
     column-count: 2;
 }
+.serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
+    margin: auto auto .187rem;
+}
 /* MEDIUM SCREENS 92% of 552px */
 @media only screen and (min-width: 508px) {
     .serendipity_image_block.col {
@@ -189,11 +192,15 @@ p > img.serendipity_image_right {
     .serendipity_image_block.col.c4 {
         column-count: 3;
     }
+    .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
+        margin: auto auto .5em;
+    }
 }
 /* DEFAULT SCREENS 92% of 768px */
 @media only screen and (min-width: 723px) {
     .serendipity_image_block.col {
         column-gap: .5rem;/*9*/
+        column-fill: balance;
     }
     .serendipity_image_block.col.c2 {
         column-count: 2;
@@ -212,21 +219,18 @@ p > img.serendipity_image_right {
     }
 }
 .serendipity_image_block.col .serendipity_imageComment_left,
+.serendipity_image_block.col.c2 .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right,
+.serendipity_image_block.col.c2 .serendipity_imageComment_right,
 .serendipity_image_block.col .serendipity_image_link,
+.serendipity_image_block.col.c2 .serendipity_image_link,
 .serendipity_image_block.col > .serendipity_image_left,
-.serendipity_image_block.col > .serendipity_image_right {
-    display: inline-grid;
+.serendipity_image_block.col.c2 > .serendipity_image_left,
+.serendipity_image_block.col > .serendipity_image_right,
+.serendipity_image_block.col.c2 > .serendipity_image_right {
+    display: table;
     vertical-align: middle;
-}
-.serendipity_image_block.col .serendipity_image_left,
-.serendipity_image_block.col .serendipity_imageComment_left {
+    margin: auto;
     float: unset;
-}
-.serendipity_image_block.col .serendipity_image_left,
-.serendipity_image_block.col .serendipity_imageComment_left,
-.serendipity_image_block.col .serendipity_imageComment_left,
-.serendipity_image_block.col .serendipity_imageComment_right {
-    display: unset;
 }
 /* Gallery-Columns: end */
