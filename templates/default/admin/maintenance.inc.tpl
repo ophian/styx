@@ -12,7 +12,7 @@
     {/if}
 {/if}
 
-<div id="maintenance">
+<div id="maintenance" class="maintenance_container">
 
 {if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
     <section id="maintenance_integrity" class="quick_list">
@@ -34,32 +34,7 @@
     </section>
 {/if}
 
-{if 'adminTemplates'|checkPermission}
-    <section id="maintenance_cleanup" class="quick_list">
-        <h3>{$CONST.CLEANCOMPILE_TITLE}</h3>
-
-{if isset($cleanup_finish)}
-    {if $cleanup_finish > 0}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}! <span class="perm_name">{$CONST.CLEANCOMPILE_PASS|sprintf:$cleanup_template}</span></span>
-    {/if}
-    {if $cleanup_finish === 0}
-        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CLEANCOMPILE_FAIL}</span>
-    {/if}
-{else}
-        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=clearcomp" title="{$CONST.CLEANCOMPILE_TITLE}"><span>{$CONST.CLEANCOMPILE_TITLE}</span></a>
-        <button class="toggle_info button_link" type="button" data-href="#cleanup_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
-        <span id="cleanup_info" class="comment_status additional_info">{$CONST.CLEANCOMPILE_INFO}</span>
-{/if}
-    </section>
-{/if}
-
 {if 'adminImport'|checkPermission}
-    <section id="maintenance_export" class="quick_list">
-        <h3>{$CONST.EXPORT_ENTRIES}</h3>
-
-        <a class="button_link" href="{$serendipityBaseURL}rss.php?version=2.0&amp;all=1"><span class="icon-rss" aria-hidden="true"></span> {$CONST.EXPORT_FEED}</a>
-    </section>
-
     <section id="maintenance_import" class="quick_list">
         <h3>{$CONST.IMPORT_ENTRIES}</h3>
 
@@ -117,6 +92,70 @@
                 <input name="doSync" type="submit" value="{$CONST.CREATE_THUMBS}">
             </div>
         </form>
+    </section>
+{/if}
+
+{if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
+    <section id="maintenance_thememanager" class="quick_list">
+        <h3>{$CONST.THEMEMANAGER}</h3>
+    {if NOT empty($thememanager_error)}
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$thememanager_error}</span>
+    {else if $zomb}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.THEMEMANAGER_ZOMB_OK}</span>
+    {else if isset($select_localthemes_total) AND $select_localthemes_total == 0}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <em>{$CONST.NOTHING_TODO}</em></span>
+    {else if NOT isset($local_themes) OR !is_array($local_themes)}
+        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=checktemp" title="{$CONST.THEMEMANAGER_LOCALTHEMES|lower}"><span>{$CONST.THEMEMANAGER_LOCALTHEMES}</span></a>
+    {else}
+
+        <form id="maintenance_cleartemp_multi" enctype="multipart/form-data"  method="POST" action="serendipity_admin.php">
+            <input type="hidden" name="serendipity[adminModule]" value="maintenance">
+            <input type="hidden" name="serendipity[adminAction]" value="cleartemp">
+            {$formtoken}
+
+            <div class="form_select">
+                <select id="cleartemp_access_multi_themes" class="" name="serendipity[cleartemp][multi_themes][]" multiple="multiple" size="{$select_localthemes_total}">
+                {foreach $local_themes AS $themes}
+                    <option value="{$themes}">{$themes}</option>
+                {/foreach}
+                </select>
+            </div>
+
+            <div class="form_buttons">
+                <input class="state_submit" name="cleartemp_multi" value="{$CONST.THEMEMANAGER_SUBMIT}" type="submit">
+                <button class="toggle_info button_link" type="button" data-href="#thema_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                <span id="thema_info" class="comment_status additional_info">{$CONST.THEMEMANAGER_INFO}</span>
+            </div>
+        </form>
+
+    {/if}
+    </section>
+{/if}
+
+{if 'adminTemplates'|checkPermission}
+    <section id="maintenance_cleanup" class="quick_list breakme">
+        <h3>{$CONST.CLEANCOMPILE_TITLE}</h3>
+
+{if isset($cleanup_finish)}
+    {if $cleanup_finish > 0}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}! <span class="perm_name">{$CONST.CLEANCOMPILE_PASS|sprintf:$cleanup_template}</span></span>
+    {/if}
+    {if $cleanup_finish === 0}
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CLEANCOMPILE_FAIL}</span>
+    {/if}
+{else}
+        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=clearcomp" title="{$CONST.CLEANCOMPILE_TITLE}"><span>{$CONST.CLEANCOMPILE_TITLE}</span></a>
+        <button class="toggle_info button_link" type="button" data-href="#cleanup_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+        <span id="cleanup_info" class="comment_status additional_info">{$CONST.CLEANCOMPILE_INFO}</span>
+{/if}
+    </section>
+{/if}
+
+{if 'adminImport'|checkPermission}
+    <section id="maintenance_export" class="quick_list">
+        <h3>{$CONST.EXPORT_ENTRIES}</h3>
+
+        <a class="button_link" href="{$serendipityBaseURL}rss.php?version=2.0&amp;all=1"><span class="icon-rss" aria-hidden="true"></span> {$CONST.EXPORT_FEED}</a>
     </section>
 {/if}
 
@@ -180,43 +219,6 @@
         {else}
         <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_FAIL}</span>
         {/if}
-    {/if}
-    </section>
-{/if}
-
-{if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
-    <section id="maintenance_thememanager" class="quick_list">
-        <h3>{$CONST.THEMEMANAGER}</h3>
-    {if NOT empty($thememanager_error)}
-        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$thememanager_error}</span>
-    {else if $zomb}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.THEMEMANAGER_ZOMB_OK}</span>
-    {else if isset($select_localthemes_total) AND $select_localthemes_total == 0}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <em>{$CONST.NOTHING_TODO}</em></span>
-    {else if NOT isset($local_themes) OR !is_array($local_themes)}
-        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=checktemp" title="{$CONST.THEMEMANAGER_LOCALTHEMES|lower}"><span>{$CONST.THEMEMANAGER_LOCALTHEMES}</span></a>
-    {else}
-
-        <form id="maintenance_cleartemp_multi" enctype="multipart/form-data"  method="POST" action="serendipity_admin.php">
-            <input type="hidden" name="serendipity[adminModule]" value="maintenance">
-            <input type="hidden" name="serendipity[adminAction]" value="cleartemp">
-            {$formtoken}
-
-            <div class="form_select">
-                <select id="cleartemp_access_multi_themes" class="" name="serendipity[cleartemp][multi_themes][]" multiple="multiple" size="{$select_localthemes_total}">
-                {foreach $local_themes AS $themes}
-                    <option value="{$themes}">{$themes}</option>
-                {/foreach}
-                </select>
-            </div>
-
-            <div class="form_buttons">
-                <input class="state_submit" name="cleartemp_multi" value="{$CONST.THEMEMANAGER_SUBMIT}" type="submit">
-                <button class="toggle_info button_link" type="button" data-href="#thema_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
-                <span id="thema_info" class="comment_status additional_info">{$CONST.THEMEMANAGER_INFO}</span>
-            </div>
-        </form>
-
     {/if}
     </section>
 {/if}

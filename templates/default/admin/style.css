@@ -3854,13 +3854,20 @@ img.mfp-img {
 
     #maintenance {
         -webkit-column-count: 2;
-        -moz-column-count: 2;
-        column-count: 2;
+           -moz-column-count: 2;
+                column-count: 2;
     }
     #maintenance > section {
-        display: inline-block;
+        display: inline-table;
         width: -moz-available;
         width: 100%;
+        -webkit-column-break-inside: avoid;
+                  page-break-inside: avoid;
+                       break-inside: avoid;
+    }
+    /* this forces chromium (webkit) to use next column */
+    #maintenance_thememanager {
+        height: 100%;
     }
     #maintenance > .quick_list {
         margin: 0 2% 1.0625em 0;
