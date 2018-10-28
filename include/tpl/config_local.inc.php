@@ -541,13 +541,13 @@
                             ));
 
     if (function_exists('date_default_timezone_set')) {
-        $res['display']['items'][] = array('var'       =>   'useServerOffset',
-                                       'title'         =>   INSTALL_OFFSET_ON_SERVER_TIME,
-                                       'description'   =>   INSTALL_OFFSET_ON_SERVER_TIME_DESC,
-                                       'type'          =>   'bool',
-                                       'default'       =>   true,
-                                       'permission'    =>   'blogConfiguration'
-                                       );
+        $res['display']['items'][] = array('var'           =>   'useServerOffset',
+                                           'title'         =>   INSTALL_OFFSET_ON_SERVER_TIME,
+                                           'description'   =>   INSTALL_OFFSET_ON_SERVER_TIME_DESC,
+                                           'type'          =>   'bool',
+                                           'default'       =>   true,
+                                           'permission'    =>   'blogConfiguration'
+                                        );
     }
 
     array_push( $res['display']['items'],
