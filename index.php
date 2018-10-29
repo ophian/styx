@@ -9,7 +9,7 @@ header('Status: 200 OK');
 
 // Session are needed to also remember an autologin user on the frontend
 include('serendipity_config.inc.php');
-include('include/functions_routing.inc.php');
+include_once('include/functions_routing.inc.php');
 header('Content-Type: text/html; charset='. LANG_CHARSET);
 
 if ($serendipity['CacheControl']) {
@@ -36,7 +36,7 @@ if (preg_match(PAT_UNSUBSCRIBE, $uri, $res)) {
 
     $uri = '/' . PATH_UNSUBSCRIBE . '/' . $res[2] . '-untitled.html';
 } else {
-    define('DATA_UNSUBSCRIBED', false);
+    if (!defined('DATA_UNSUBSCRIBED')) define('DATA_UNSUBSCRIBED', false);
 }
 
 serendipity_checkCommentTokenModeration($uri);
@@ -48,8 +48,8 @@ if (preg_match(PAT_DELETE, $uri, $res) && $serendipity['serendipityAuthedUser'] 
         define('DATA_TRACKBACK_DELETED', sprintf(TRACKBACK_DELETED, $res[2]));
     }
 } else {
-    define('DATA_COMMENT_DELETED', false);
-    define('DATA_TRACKBACK_DELETED', false);
+    if (!defined('DATA_COMMENT_DELETED')) define('DATA_COMMENT_DELETED', false);
+    if (!defined('DATA_TRACKBACK_DELETED')) define('DATA_TRACKBACK_DELETED', false);
 }
 
 if (preg_match(PAT_APPROVE, $uri, $res) && $serendipity['serendipityAuthedUser'] === true) {
@@ -61,8 +61,8 @@ if (preg_match(PAT_APPROVE, $uri, $res) && $serendipity['serendipityAuthedUser']
         define('DATA_TRACKBACK_APPROVED', sprintf(TRACKBACK_APPROVED, $res[2]));
     }
 } else {
-    define('DATA_COMMENT_APPROVED', false);
-    define('DATA_TRACKBACK_APPROVED', false);
+    if (!defined('DATA_COMMENT_APPROVED')) define('DATA_COMMENT_APPROVED', false);
+    if (!defined('DATA_TRACKBACK_APPROVED')) define('DATA_TRACKBACK_APPROVED', false);
 }
 
 $is_multicat  = (isset($serendipity['POST']['isMultiCat'])  && is_array($serendipity['POST']['multiCat']))  ? true : false;
