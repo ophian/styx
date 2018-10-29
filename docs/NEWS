@@ -1,4 +1,6 @@
 
+  * Fix embedding install redeclaration issues
+
   * Add srcset to RSS URI pattern
 
   * Improve and refactor production type error messages
