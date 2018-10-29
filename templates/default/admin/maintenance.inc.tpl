@@ -78,7 +78,7 @@
                     {if $dbnotmysql}<br><br>
                         <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_THUMBURL_REPLACE_ENTRY}
                     {else}<br><br>
-                        <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE|default:'Recommended: Install modemaintain event plugin!'}
+                        <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE}
                     {/if}
                     </div>
 
