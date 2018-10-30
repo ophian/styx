@@ -3629,6 +3629,10 @@ img.mfp-img {
         margin-top: -3.2rem;
     }
 
+    #note_subject {/*admin(quick)-notes*/
+        min-width: 25em;
+    }
+
     #media_pane_filter div fieldset input {/*mediafilter*/
         width: 6em;
     }
