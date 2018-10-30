@@ -24,7 +24,9 @@ function serve404() {
 
     $serendipity['view'] = '404';
     $serendipity['viewtype'] = '404_4';
-    $serendipity['content_message'] = URL_NOT_FOUND;
+    if (!isset($serendipity['embed']) || serendipity_db_bool($serendipity['embed'] === false)) {
+        $serendipity['content_message'] = URL_NOT_FOUND;
+    }
 
     header('HTTP/1.0 404 Not found');
     header('Status: 404 Not found');
