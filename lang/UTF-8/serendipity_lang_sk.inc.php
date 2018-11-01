@@ -529,7 +529,7 @@ $i18n_filename_to = array (
 @define('DELETE_SELECTED_COMMENTS', 'Zmazať vybrané komentáre');
 @define('VIEW_COMMENT', 'Zobraziť komentár');
 @define('VIEW_ENTRY', 'Zobraziť článok');
-@define('DELETE_FILE_FAIL', 'Nepodarilo sa zmazať súbor <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Súbor <b>%s</b> sa nepodarilo zmaza»');
 @define('DELETE_THUMBNAIL', 'Zmazaný náhľad obrázku s názvom <b>%s</b>');
 @define('DELETE_FILE', 'Vymazať súbor s názvom <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'Chcete zmazať <b>%s</b><br>Ak používate tento súbor v článkoch, spôsobí to neprítomnosť odkazov alebo obrázkov.<br>Napriek tomu pokračovať?<br><br>');
