@@ -481,8 +481,8 @@
 @define('SORT_BY', 'Sortieren nach');
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Kein Trackback: Konnte Verbindung zu %s auf Port %d nicht herstellen.');
 @define('MEDIA', 'Medien');
-@define('MEDIA_LIBRARY', 'Mediendatenbank');
-@define('ADD_MEDIA', 'Mediendaten hinzufügen');
+@define('MEDIA_LIBRARY', 'Mediathek');
+@define('ADD_MEDIA', 'Medien hinzufügen');
 @define('ENTER_MEDIA_URL', 'URL zum Download angeben:');
 @define('ENTER_MEDIA_UPLOAD', 'Datei zum Hochladen angeben:');
 @define('SAVE_FILE_AS', 'Datei speichern mit dem Namen:');
@@ -827,7 +827,7 @@
 @define('INSTALL_RSSFETCHLIMIT_DESC', 'Anzahl der Einträge, die im RSS-Feed dargestellt werden sollen.');
 @define('INSTALL_DB_UTF8', 'Datenbank-Zeichensatzkonvertierung aktivieren');
 @define('INSTALL_DB_UTF8_DESC', 'Sendet einen MySQL "SET NAMES" Befehl, um den verwendeten Zeichensatz der Datenbank mitzuteilen. Falls sich merkwürdige oder fehlende Zeichen im Blog zeigen, ist es einen Versuch wert, diese Option zu (de)aktivieren.');
-@define('ONTHEFLYSYNCH', 'Auto-Synchronisation der Mediendatenbank');
+@define('ONTHEFLYSYNCH', 'Auto-Synchronisation der Mediathek');
 @define('ONTHEFLYSYNCH_DESC', 'Falls diese Option aktiviert ist, wird Serendipity den Inhalt der Mediendatenbank mit dem echten Inhalt im Dateisystem abgleichen und überwachen.');
 @define('USERCONF_CHECK_USERNAME_ERROR', 'Der Benutzername darf nicht leer gelassen werden.');
 @define('FURTHER_LINKS', 'Weitere Links');
@@ -843,7 +843,7 @@
 @define('WORD_NEW', 'Neu');
 @define('SHOW_MEDIA_TOOLBAR', 'Bearbeitungs-Symbolleiste im Medien-Popup anzeigen?');
 @define('MEDIA_KEYWORDS', 'Medien-Schlüsselwörter');
-@define('MEDIA_KEYWORDS_DESC', 'Tragen Sie eine Liste von ";" separierten Schlüsselwörtern ein, die für Mediendatenbankeinträge vergeben werden können.');
+@define('MEDIA_KEYWORDS_DESC', 'Tragen Sie eine Liste von ";" separierten Schlüsselwörtern ein, die für Mediendaten vergeben werden können.');
 @define('MEDIA_EXIF', 'EXIF/JPEG Metadaten übernehmen?');
 @define('MEDIA_EXIF_DESC', 'Falls aktiviert, werden EXIF/JPEG Metadaten ausgelesen und in der Datenbank gespeichert.');
 @define('MEDIA_PROP', 'Medien-Eigenschaften');
@@ -854,8 +854,8 @@
 @define('MEDIA_PROPERTY_COMMENT1', 'Kurzer Kommentar');
 @define('MEDIA_PROPERTY_COMMENT2', 'Langer Kommentar');
 @define('MEDIA_PROPERTY_TITLE', 'Titel');
-@define('MEDIA_PROP_DESC', 'Tragen Sie eine Liste von ";" separierten Eigenschaftsfeldern ein, die für Mediendatenbankeinträge ausgefüllt werden können.');
-@define('MEDIA_PROP_MULTIDESC', '(Sie können ":MULTI" nach jedem Element eintragen, um anzugeben dass für dieses Feld eine lange Beschreibung erwartet wird)');
+@define('MEDIA_PROP_DESC', 'Tragen Sie eine Liste von ";" separierten Eigenschaftsfeldern ein, die für Mediendaten ausgefüllt werden können.');
+@define('MEDIA_PROP_MULTIDESC', '(Sie können ":MULTI" nach jedem Element eintragen, um anzugeben, dass für dieses Feld eine lange Beschreibung erwartet wird)');
 
 @define('STYLE_OPTIONS_NONE', 'Dieses Theme hat keine speziellen Optionen. Wie Ihr Theme solche Optionen anlegen kann, ist in der technischen Dokumentation auf www.s9y.org im Bereich "Configuration of Theme options" beschrieben.');
 @define('STYLE_OPTIONS', 'Theme-Optionen');
@@ -982,7 +982,7 @@
 @define('PLAIN_ASCII_NAMES', '(keine Sonderzeichen, Umlaute)');
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Vereinfachte Filter');
-@define('SIMPLE_FILTERS_DESC', 'Wenn aktiviert, werden Suchformulare und Filteroptionen auf die notwendigen Optionen reduziert. Ist diese Option deaktiviert, werden alle erweiterten Filteroptionen, z.b. beim Eintrags-Editor oder der Mediendatenbank, angezeigt, die den aktuellen Berechtigungen entsprechen.');
+@define('SIMPLE_FILTERS_DESC', 'Wenn aktiviert, werden Suchformulare und Filteroptionen auf die notwendigen Optionen reduziert. Ist diese Option deaktiviert, werden alle erweiterten Filteroptionen, z.b. beim Eintrags-Editor oder der Mediathek, angezeigt, die den aktuellen Berechtigungen entsprechen.');
 @define('TOGGLE_SELECT', 'Zu Auswahl hinzufügen');
 @define('MORE', 'Mehr');
 @define('ENTRY_STATUS', 'Eintragsstatus');
@@ -1055,7 +1055,7 @@
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Lade das externe subToMe Javascript und nutze das interne subToMe Icon, mit dem Feed-Abonnements einfacher für Besucher verwaltet werden können.');
 @define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Zeigt ein (großes) Bild oberhalb der Seitenleiste. Hier kann eine volle (oder absolut referenzierte) URL eingetragen werden oder "none" für einen Textlink (bisheriger Standard)');
 @define('INSTALL_BACKENDPOPUP', 'Popups für das Backend verwenden?');
-@define('INSTALL_BACKENDPOPUP_DESC', 'Sollen im Backend Popup-Fenster eingesetzt werden? Wenn deaktiviert (Standard), werden eingebettete modale Dialoge z.b. für die Mediendatenbank und die Kategorieauswahl verwendet. Andererseits gilt diese Popup-Option nur für bestimmte Elemente, wie die Mediendatenbank oder auch einige Plugins. Anderes, wie die Kategorien, wird eingebettet angezeigt.');
+@define('INSTALL_BACKENDPOPUP_DESC', 'Sollen im Backend Popup-Fenster eingesetzt werden? Wenn deaktiviert (Standard), werden eingebettete modale Dialoge z.b. für die Mediathek und die Kategorieauswahl verwendet. Andererseits gilt diese Popup-Option nur für bestimmte Elemente, wie die Mediathek oder auch einige Plugins. Anderes, wie die Kategorien, wird eingebettet angezeigt.');
 @define('UPDATE_STABLE', 'stabil');
 @define('UPDATE_BETA', 'beta');
 @define('SYNDICATION_PLUGIN_FEEDFORMAT', 'Feed-Format');
@@ -1145,7 +1145,7 @@
 @define('FUTURES_AVAILABLE', 'Zukünftige Einträge');
 @define('DRAFTS_AVAILABLE', 'Entwurfs Einträge');
 
-@define('MEDIA_GALLERY_SELECTION', 'Diese spezielle Auswahl für Medien-Galerien zeigt nur Verzeichnisbilder derselben Ebene. Sie enthält keine Anweisung zur Darstellung der Bilder von Unterordnern, so wie Sie es möglicherweise gewohnt sind. Die Anzahl der möglichen, zugleich darstellbaren Vorschaubilder ist auf <b>48 Stück</b> limitiert. Restrukturieren Sie ihre Mediendatenbank entsprechend!<br>Diese Mediengalerie zeigt nur Vorschaubilder (optional mit einer Verlinkung zum großen Bild). Sollten ihre Vorschaubilder nicht der Standardbreite von 400px entsprechen, und viel kleiner als das definierte Galerie-Format von 260px für die "per row" Option sein, kann es möglicherweise zu Darstellungsproblemen hier in der Auswahl, wie nachher auch im Eintrag kommen.<br>Die <b>Reihenfolge</b> der Galeriebilder ist nur manuell im anschließendem (WYSIWYG)-Quelltext des Editor Fensters veränderbar, ansonsten orientiert sie sich an der Anzeige der folgenden Auswahl. Wenn Sie den WYSIWYG-Editor benutzen, sollten sie <strong>nicht</strong> unbedarft das <em>Drag & Drop</em> (per Maus) Feature des WYSIWYG-Modus benutzen, das nicht unbedingt auf diese Galerie abgestimmt ist und den Quelltext gehörig durcheinander bringen kann. Es <b>ist</b> aber möglich und benutzbar, sollte aber im Nachhinein immer im Quelltext nachkontrolliert werden, dass die verschobenen Einträge vollständig und an der richtigen Stelle im image block container platziert sind.');
+@define('MEDIA_GALLERY_SELECTION', 'Diese spezielle Auswahl für Medien-Galerien zeigt nur Verzeichnisbilder derselben Ebene. Sie enthält keine Anweisung zur Darstellung der Bilder von Unterordnern, so wie Sie es möglicherweise gewohnt sind. Die Anzahl der möglichen, zugleich darstellbaren Vorschaubilder ist auf <b>48 Stück</b> limitiert. Restrukturieren Sie ihre Mediathek entsprechend!<br>Diese Mediengalerie zeigt nur Vorschaubilder (optional mit einer Verlinkung zum großen Bild). Sollten ihre Vorschaubilder nicht der Standardbreite von 400px entsprechen, und viel kleiner als das definierte Galerie-Format von 260px für die "per row" Option sein, kann es möglicherweise zu Darstellungsproblemen hier in der Auswahl, wie nachher auch im Eintrag kommen.<br>Die <b>Reihenfolge</b> der Galeriebilder ist nur manuell im anschließendem (WYSIWYG)-Quelltext des Editor Fensters veränderbar, ansonsten orientiert sie sich an der Anzeige der folgenden Auswahl. Wenn Sie den WYSIWYG-Editor benutzen, sollten sie <strong>nicht</strong> unbedarft das <em>Drag & Drop</em> (per Maus) Feature des WYSIWYG-Modus benutzen, das nicht unbedingt auf diese Galerie abgestimmt ist und den Quelltext gehörig durcheinander bringen kann. Es <b>ist</b> aber möglich und benutzbar, sollte aber im Nachhinein immer im Quelltext nachkontrolliert werden, dass die verschobenen Einträge vollständig und an der richtigen Stelle im image block container platziert sind.');
 
 @define('IMAGE_LINK_TO_BIG', 'Verweise auf das große Bild');
 
