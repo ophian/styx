@@ -966,6 +966,22 @@ $i18n_filename_to = array (
 @define('QUICKSEARCH_SORT', 'Ako sa majú zoraïova» výsledky hµadania?');
 
 @define('QUICKSEARCH_SORT_RELEVANCE', 'Relevancia');
+
+@define('PERMISSION_HIDDENGROUP', 'Hidden group / Non-Author');
+
+@define('SEARCH_FULLENTRY', 'Show full entry');
+@define('NAVLINK_AMOUNT', 'Enter number of links in the navbar (and save this form)');
+@define('NAV_LINK_TEXT', 'Enter the navbar link text');
+@define('NAV_LINK_URL', 'Enter the full URL of your link');
+@define('MODERATE_SELECTED_COMMENTS', 'Approve selected comments');
+@define('WEBLOG', 'Weblog');
+@define('ACTIVE_COMMENT_SUBSCRIPTION', 'Subscribed');
+@define('PENDING_COMMENT_SUBSCRIPTION', 'Pending confirmation');
+@define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
+@define('SUMMARY', 'Summary');
+
+// Next lines were added on 2012/05/29
+@define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to re-index them.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');
