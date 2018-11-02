@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Change misread MEDIA constant in several languages
+
   * Add missing constant defines in slovak [sk] lang
 
   * Fix embedding install throws 404 message
