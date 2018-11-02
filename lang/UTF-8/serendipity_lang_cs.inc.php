@@ -504,7 +504,7 @@ $i18n_filename_to = array (
 @define('FILTER_DIRECTORY', 'Adres??');
 @define('SORT_BY', 'Se?adit podle');
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Odezva nebyla odesl?na: nepoda?ilo se spojen? s %s na portu %d');
-@define('MEDIA', 'M?dia (obr?zky)');
+@define('MEDIA', 'M?dia');
 @define('MEDIA_LIBRARY', 'Knihovna m?di?');
 @define('ADD_MEDIA', 'P?idat');
 @define('ENTER_MEDIA_URL', 'Vlo?te URL p?id?van?ho souboru:');

@@ -480,7 +480,7 @@
 @define('FILTER_DIRECTORY', 'Verzeichnis');
 @define('SORT_BY', 'Sortieren nach');
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Kein Trackback: Konnte Verbindung zu %s auf Port %d nicht herstellen.');
-@define('MEDIA', 'Mediendatenbank');
+@define('MEDIA', 'Medien');
 @define('MEDIA_LIBRARY', 'Mediendatenbank');
 @define('ADD_MEDIA', 'Mediendaten hinzufügen');
 @define('ENTER_MEDIA_URL', 'URL zum Download angeben:');

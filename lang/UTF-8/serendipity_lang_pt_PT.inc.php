@@ -481,7 +481,7 @@
 @define('FILTER_DIRECTORY', 'Directoria');
 @define('SORT_BY', 'Ordenar por');
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Nenhum trackback enviado: Não foi possível abrir conexão para %s na porta %d');
-@define('MEDIA', 'Multimédia');
+@define('MEDIA', 'Média');
 @define('MEDIA_LIBRARY', 'Biblioteca de multimédia');
 @define('ADD_MEDIA', 'Adicionar multimédia');
 @define('ENTER_MEDIA_URL', 'Introduza a URL de um ficheiro para ir buscá-lo:');
