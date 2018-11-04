@@ -203,6 +203,7 @@ if ($serendipity['GET']['adminAction'] == 'view') {
         $data['catentries'] = array_column(is_array($cnums) ? array_values($cnums) : array(), 'num', 'cat');
         $enumnocat = serendipity_getTotalCount('entriesnocat');
         $data['entriesnocat'] = array_column(is_array($enumnocat) ? array_values($enumnocat) : array(), 'num', 'cat');
+        $data['entriesauthor'] = serendipity_specialchars($serendipity['serendipityUser']);
     }
 }
 
