@@ -50,7 +50,7 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
                         // Void, no fixing necessarry
 
                     } elseif (serendipity_checkPermission('adminUsersMaintainSame')) {
-                        if (!is_array($_POST[$item['var']])) {
+                        if (!isset($_POST[$item['var']]) || !is_array($_POST[$item['var']])) {
                             continue;
                         }
 
