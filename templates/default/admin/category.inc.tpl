@@ -151,6 +151,7 @@
 {/if}
 {if isset($view) AND $view}
     <h2>{$CONST.CATEGORIES}</h2>
+    <span class="category_base_entries"><em>{if isset($entriesnocat)}{if $entriesnocat.0 > 0}{$entriesnocat.0}{else}<span class="emptydim">0</span>{/if} {$CONST.ENTRIES}{/if}</em></span>
     {if is_array($viewCats)}
         <ul id="categories" class="option_list">
         {foreach $viewCategories AS $category}

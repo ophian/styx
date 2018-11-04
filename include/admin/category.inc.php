@@ -201,6 +201,8 @@ if ($serendipity['GET']['adminAction'] == 'view') {
         $data['viewCategories'] = $categories;
         $cnums = serendipity_getTotalCount('entriesbycat');
         $data['catentries'] = array_column(is_array($cnums) ? array_values($cnums) : array(), 'num', 'cat');
+        $enumnocat = serendipity_getTotalCount('entriesnocat');
+        $data['entriesnocat'] = array_column(is_array($enumnocat) ? array_values($enumnocat) : array(), 'num', 'cat');
     }
 }
 

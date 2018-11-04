@@ -1921,6 +1921,15 @@ function serendipity_getTotalCount($what) {
     global $serendipity;
 
     switch($what) {
+        case 'entriesnocat':
+            $res = serendipity_db_query("SELECT COUNT(e.id) AS num
+                                           FROM {$serendipity['dbPrefix']}entries AS e
+                                      LEFT JOIN {$serendipity['dbPrefix']}entrycat AS c
+                                             ON e.id = c.entryid
+                                          WHERE c.entryid IS NULL
+                                            AND e.authorid = '{$serendipity['authorid']}'", false, 'assoc');
+            return $res;
+            break;
         case 'entriesbycat':
             $res = serendipity_db_query("SELECT c.categoryid AS cat, COUNT(c.entryid) AS num
                                            FROM {$serendipity['dbPrefix']}entrycat AS c

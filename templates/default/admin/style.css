@@ -3012,6 +3012,8 @@ label .perm_name,
 .media_file .form_check {
     margin: 0 0 1em;
 }
+
+.category_base_entries,
 .media_directory_entries {
     text-align: right;
     display: inherit;
@@ -3625,6 +3627,7 @@ img.mfp-img {
         width: 15em;
     }
 
+    .category_base_entries,
     .media_directory_entries {
         margin-top: -3.2rem;
     }
