@@ -23,7 +23,8 @@ input[type="button"], input[type="checkbox"] {
     padding: .5rem;
     border-bottom: 1px solid #e4b9b9;
     background: #f2dede;
-    color: #b94a48
+    color: #b94a48;
+    text-align: left;
 }
 
 /* Default image classes for left/right/usual layout */
