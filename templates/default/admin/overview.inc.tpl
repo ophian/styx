@@ -140,12 +140,13 @@
             <h3>{$CONST.FURTHER_LINKS}</h3>
 
             <ul class="plainList">
-                <li><a href="https://ophian.github.io/">{$CONST.FURTHER_LINKS_S9Y} (Styx)</a></li>
-                <li><a href="https://ophian.github.io/hc/en/">{$CONST.FURTHER_LINKS_S9Y_DOCS} (Styx)</a></li>
-                <li><a href="https://ophian.github.io/blog">{$CONST.FURTHER_LINKS_S9Y_BLOG} (Styx)</a></li>
-                <li><a href="https://board.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_FORUMS} (S9y)</a></li>
-                <li><a href="https://ophian.github.io/plugins/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS} (Styx) Web</a></li>
-                <li><a href="https://github.com/ophian/styx">GitHub Serendipity Styx Edition</a></li>
+                <li><a target="_blank" href="https://ophian.github.io/">{$CONST.FURTHER_LINKS_S9Y} (Styx)</a></li>
+                <li><a target="_blank" href="https://ophian.github.io/hc/en/">{$CONST.FURTHER_LINKS_S9Y_DOCS} (Styx)</a></li>
+                <li><a target="_blank" href="https://ophian.github.io/book/">Serendipity Styx Edition Book [de]</a></li>
+                <li><a target="_blank" href="https://ophian.github.io/blog">{$CONST.FURTHER_LINKS_S9Y_BLOG} (Styx)</a></li>
+                <li><a target="_blank" href="https://board.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_FORUMS} (S9y)</a></li>
+                <li><a target="_blank" href="https://ophian.github.io/plugins/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS} (Styx) Web</a></li>
+                <li><a target="_blank" href="https://github.com/ophian/styx">GitHub Serendipity Styx Edition</a></li>
                 <li>&nbsp;</li>
                 <li><a class="s9y_bookmarklet" href="{$bookmarklet}" title="{$CONST.FURTHER_LINKS_S9Y_BOOKMARKLET_DESC}">{$CONST.FURTHER_LINKS_S9Y_BOOKMARKLET}</a></li>
             </ul>
