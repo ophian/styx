@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Reduce CHIEFEDITOR permissions for update and error logging configurations
+
   * Change [de] "Mediendatenbank" to "Mediathek" where appropriate
 
   * Change misread MEDIA and ADD_MEDIA constants in several languages
