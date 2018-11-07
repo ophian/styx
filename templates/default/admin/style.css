@@ -2624,10 +2624,10 @@ h3 .media_file_actions {
 }
 #serendipity_image_folders li > ul {
     background-color: #FCFCFC;
-    background-image: -webkit-linear-gradient(to bottom, #FCFCFC, #CECECE);
-    background-image:    -moz-linear-gradient(to bottom, #FCFCFC, #CECECE);
-    background-image:      -o-linear-gradient(to bottom, #FCFCFC, #CECECE);
-    background-image:         linear-gradient(to bottom, #FCFCFC, #CECECE);
+    background-image: -webkit-linear-gradient(to bottom, #FCFCFC, #F2F2F2);
+    background-image:    -moz-linear-gradient(to bottom, #FCFCFC, #F2F2F2);
+    background-image:      -o-linear-gradient(to bottom, #FCFCFC, #F2F2F2);
+    background-image:         linear-gradient(to bottom, #FCFCFC, #F2F2F2);
     border-left: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
 }
