@@ -659,6 +659,12 @@ form > button,
     margin-top: 0;
     margin-bottom: 0;
 }
+.ping_services .form_check {
+    display: inline-table;
+    border: 1px solid #EEE;
+    padding-right: .5em;
+    box-shadow: 3px 2px 2px #CCC;
+}
 .plugins_installable li.single_alert {
     border: 1px solid red;
 }
