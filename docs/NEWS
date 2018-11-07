@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Changed threaded categories list to be block-consistent to MediaLibrary
+    directory list styles.
+
   * Fix category ACL template that did not properly evaluate read/write selections
 
   * Reduce CHIEFEDITOR permissions for update and error logging configurations
