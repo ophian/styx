@@ -150,58 +150,55 @@
         </form>
 {/if}
 {if isset($view) AND $view}
+
     <h2>{$CONST.CATEGORIES}</h2>
-    <span class="category_base_entries"><em>{if isset($entriesnocat)}{if $entriesnocat.0 > 0}{$entriesnocat.0}{else}<span class="emptydim">0</span>{/if} {$CONST.ENTRIES} ({$CONST.AUTHOR}: {$entriesauthor}){/if}</em></span>
+
     {if is_array($viewCats)}
-        <ul id="categories" class="option_list{if !$threadedCat} slist{/if}">
-        {foreach $viewCategories AS $category}
-            {if ! $category@first}
-                {if $category.depth > $priorDepth}
-                    <ul>
-                {/if}
 
-                {if $category.depth < $priorDepth}
-                    </li>
-                    {for $i=$category.depth+1 to $priorDepth}
-                        </ul></li>
-                    {/for}
-                {/if}
+    <h3>{$CONST.NO_CATEGORY}</h3>
+    <span class="category_base_entries"><em>{if isset($entriesnocat)}{if $entriesnocat.0 > 0}{$entriesnocat.0}{else}<span class="emptydim">0</span>{/if} {$CONST.ENTRIES} ({$CONST.AUTHOR}: {$entriesauthor}){/if}</em></span>
 
-                {if $category.depth == $priorDepth}
-                    </li>
-                {/if}
+    <ul id="categories" class="option_list{if !$threadedCat} slist{/if}">
+    {foreach $viewCategories AS $category}
+        {if ! $category@first}
+            {if $category.depth > $priorDepth}<ul>{/if}
+
+            {if $category.depth < $priorDepth}
+                </li>
+                {for $i=$category.depth+1 to $priorDepth}</ul></li>{/for}
             {/if}
 
-            {$priorDepth=$category.depth}
+            {if $category.depth == $priorDepth}</li>{/if}
+        {/if}
+        {$priorDepth=$category.depth}
 
-            <li>
-                <div class="clearfix {cycle values="odd,even"}">
-                    <details class="category_data">
-                        <summary>{$category.category_name|escape}</summary>
+        <li>
+            <div class="clearfix {cycle values="odd,even"}">
+                <details class="category_data">
+                    <summary>{$category.category_name|escape}</summary>
 
-                        <div class="category_info clearfix">
-                        {if $category.category_description != ''}
-                            <span class="category_desc">{$category.category_description|escape}</span>
-                        {/if}
-                            (<span>{if $category.authorid == 0}{$CONST.ALL_AUTHORS}{else}{$category.realname|escape}{/if}</span>)
-                        </div>
-                    </details>
+                    <div class="category_info clearfix">
+                    {if $category.category_description != ''}
+                        <span class="category_desc">{$category.category_description|escape}</span>
+                    {/if}
+                        (<span>{if $category.authorid == 0}{$CONST.ALL_AUTHORS}{else}{$category.realname|escape}{/if}</span>)
+                    </div>
+                </details>
 
-                    <ul class="plainList clearfix edit_actions">
-                        <li><em>{if isset($catentries[{$category.categoryid}])}{$catentries[{$category.categoryid}]} {$CONST.ENTRIES}{else}<span class="emptydim">0 {$CONST.ENTRIES}</span>{/if}</em></li>
-                        <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=edit&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.EDIT}: #{$category.categoryid} - {$category.category_name|escape}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
-                        <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=newSub&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.CREATE_NEW_CAT}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_NEW_CAT}</span></a></li>
-                        <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=delete&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.DELETE} {$category.category_name|escape}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
-                    </ul>
-                </div>
-        {/foreach}
+                <ul class="plainList clearfix edit_actions">
+                    <li><em>{if isset($catentries[{$category.categoryid}])}{$catentries[{$category.categoryid}]} {$CONST.ENTRIES}{else}<span class="emptydim">0 {$CONST.ENTRIES}</span>{/if}</em></li>
+                    <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=edit&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.EDIT}: #{$category.categoryid} - {$category.category_name|escape}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
+                    <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=newSub&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.CREATE_NEW_CAT}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_NEW_CAT}</span></a></li>
+                    <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=delete&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.DELETE} {$category.category_name|escape}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                </ul>
+            </div>
+    {/foreach}
+
         </li>
-        {for $i=1 to $priorDepth}
-            </ul></li>
-        {/for}
-        </ul>
+        {for $i=1 to $priorDepth}</ul></li>{/for}
+    </ul>
     {else}
-        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_CATEGORIES}</span>
+    <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_CATEGORIES}</span>
     {/if}
-        <a class="button_link" href="?serendipity[adminModule]=category&serendipity[adminAction]=new">{$CONST.CREATE_NEW_CAT}</a>
+    <a class="button_link" href="?serendipity[adminModule]=category&serendipity[adminAction]=new">{$CONST.CREATE_NEW_CAT}</a>
 {/if}
