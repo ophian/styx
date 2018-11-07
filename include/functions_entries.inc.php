@@ -1935,7 +1935,7 @@ function serendipity_getTotalCount($what) {
                                            FROM {$serendipity['dbPrefix']}entrycat AS c
                                       LEFT JOIN {$serendipity['dbPrefix']}entries AS e
                                              ON c.entryid = e.id
-                                           WHERE e.authorid = '{$serendipity['authorid']}'
+                                          WHERE e.authorid = '{$serendipity['authorid']}'
                                        GROUP BY cat", false, 'assoc');
             return $res;
             break;
