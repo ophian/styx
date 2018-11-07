@@ -2609,11 +2609,18 @@ h3 .media_file_actions {
 #serendipity_image_folders .edit_actions li {
     padding: 0;
 }
-/* MediaLibrary directories - zebra to gradient replacement */
+/* Categories + MediaLibrary directories - zebra to gradient replacement */
+#categories li {
+    margin-bottom: .5em;
+}
+#categories li ul li {
+    margin-bottom: 0;
+}
 #serendipity_image_folders > li {
     margin-bottom: .5em;
     background-color: #FCFCFC;
 }
+#categories li > div,
 #serendipity_image_folders li > div,
 #serendipity_image_folders ul li ul {
     background-color: transparent;
@@ -2622,6 +2629,7 @@ h3 .media_file_actions {
     background-image:      -o-linear-gradient(to bottom, transparent 50%, transparent 50%);
     background-image:         linear-gradient(to bottom, transparent 50%, transparent 50%);
 }
+#categories li > ul,
 #serendipity_image_folders li > ul {
     background-color: #FCFCFC;
     background-image: -webkit-linear-gradient(to bottom, #FCFCFC, #F2F2F2);
@@ -2631,9 +2639,12 @@ h3 .media_file_actions {
     border-left: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
 }
+#categories ul li div:last-of-type,
 #serendipity_image_folders ul li div:last-of-type {
     border-bottom: 0 none;
 }
+#categories ul li > div,
+#categories ul li ul,
 #serendipity_image_folders ul li > div,
 #serendipity_image_folders ul li ul {
     border-left: 0 none;
