@@ -700,6 +700,7 @@ switch ($serendipity['GET']['adminAction']) {
         usort($folders, 'serendipity_sortPath');
         $data['case_directorySelect'] = true;
         $data['folders'] = $folders;
+        $data['threadedDirs'] = in_array(1, array_column($folders, 'depth'));
         $data['pathitems'] = array_column(serendipity_getTotalCount('mediabypath'), 'num', 'cat');
         break;
 

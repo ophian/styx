@@ -199,7 +199,7 @@ if ($serendipity['GET']['adminAction'] == 'view') {
     if (is_array($cats)) {
         $categories = serendipity_walkRecursive($cats, 'categoryid', 'parentid', VIEWMODE_THREADED);
         $data['viewCategories'] = $categories;
-        $data['threadedCat'] = array_search(1, array_column($categories, 'depth'));
+        $data['threadedCat'] = in_array(1, array_column($categories, 'depth'));
         $cnums = serendipity_getTotalCount('entriesbycat');
         $data['catentries'] = array_column(is_array($cnums) ? array_values($cnums) : array(), 'num', 'cat');
         $enumnocat = serendipity_getTotalCount('entriesnocat');
