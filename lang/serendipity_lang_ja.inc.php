@@ -825,7 +825,7 @@
 @define('INSTALL_TRACKREF_DESC', 'Enabling the referrer tracking will show you which sites refer to your articles. Today this is often abused for spamming, so you can disable it if you want.');
 @define('CATEGORIES_HIDE_PARENT', '選択された親カテゴリを隠しますか?');
 @define('CATEGORIES_HIDE_PARENT_DESC', 'If you restrict the listing of categories to a specific category, by default you will see that parent category within the output listing. If you disable this option, the parent category name will not be displayed.');
-@define('WARNING_NO_GROUPS_SELECTED', '警告: いくつかのグループメンバーを選択していません。This would effectively log you out of the usergroup management, and thus your group memberships werde not changed.');
+@define('WARNING_NO_GROUPS_SELECTED', '警告: いくつかのグループメンバーを選択していません。This would effectively log you out of the usergroup management, and thus your group memberships were not changed.');
 @define('INSTALL_RSSFETCHLIMIT', 'フィードに表示するエントリー数');
 @define('INSTALL_RSSFETCHLIMIT_DESC', '各ページでRSSフィードに表示するエントリーの数です。');
 @define('INSTALL_DB_UTF8', 'データベース文字エンコード変換を有効にする');
