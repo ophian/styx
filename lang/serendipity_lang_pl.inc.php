@@ -557,6 +557,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('ALREADY_INSTALLED', 'Ju¿ zainstalowane');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Wybierz wtyczkê, któr± chcesz zainstalowaæ');
 @define('INSTALL_OFFSET', 'Przesuniêcie czasu serwera');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Wpisy Przyklejone');
 @define('INSTALL_FETCHLIMIT', 'Ilo¶æ wpisów wy¶wietlanych na stronie g³ównej');
 @define('INSTALL_FETCHLIMIT_DESC', 'Podaj ile wpisów ma byæ jednocze¶nie wy¶wietlanych na stronie g³ównej i nastêpnych stronach bloga');
@@ -904,6 +906,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Poka¿ tylko autorów maj±cych co najmniej X wpisów');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Bookmark (dodaj do Ulubionych) ten link i u¿yj na dowolnej stronie, o której chcesz blogowaæ, by szybko dostaæ siê do swojego bloga.');
+@define('IMPORT_WP_PAGES', 'Also fetch attachments and staticpages as normal Blog entries?');
 @define('USERCONF_CREATE', 'Disable user / forbid activity?');
 @define('USERCONF_CREATE_DESC', 'If selected, the user will not have any editing or creation possibilities on the blog anymore. When logging in to the backend, he cannot do anything else apart from logging out and viewing his personal configuration.');
 @define('CATEGORY_HIDE_SUB', 'Hide postings made to sub-categories?');

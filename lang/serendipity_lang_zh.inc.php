@@ -9,6 +9,7 @@
 @define('LANG_CHARSET', 'gb2312');
 @define('SQL_CHARSET', 'gb2312');
 @define('DATE_LOCALES', 'zh_CN.GB2312, cn, zh, zh_GB, zh_CN');
+@define('DATE_FORMAT_ENTRY', '%A, %B %e. %Y');
 @define('DATE_FORMAT_SHORT', '%Y-%m-%d %H:%M');
 @define('WYSIWYG_LANG', 'zh_CN');
 @define('NUMBER_FORMAT_DECIMALS', '2');
@@ -110,6 +111,8 @@
 @define('THE_NUGGET', 'HTML 讯息');
 @define('SYNDICATE_THIS_BLOG', '集合菜单');
 @define('YOU_CHOSE', '你选择 %s');
+@define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
+@define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');
 @define('IMAGE_SIZE', '图片大小');
 @define('IMAGE_AS_A_LINK', '输入图片');
 @define('POWERED_BY', '网站信息');
@@ -556,6 +559,8 @@
 @define('RSS_IMPORT_CATEGORY', '用这个类别给不相同的文章');
 
 @define('INSTALL_OFFSET', '主机时间');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', '置顶文章');
 @define('INSTALL_FETCHLIMIT', '在主页显示的文章');
 @define('INSTALL_FETCHLIMIT_DESC', '在主页显示文章的数量');

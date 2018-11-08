@@ -566,9 +566,9 @@ $i18n_filename_to = array (
 @define('INSTALL', 'In¹talova»');
 @define('ALREADY_INSTALLED', 'Nain¹talované');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Vyberte doplnok, ktorý chcete nain¹talova»');
+@define('INSTALL_OFFSET', 'Èasový posun servera');
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Nastavi» posun èasovéj zóny voèi serveru?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Posun èasu èlánkov voèi èasu na serveri. Vyberte "áno" pre zadanie relatívneho èasového posunu voèi èasovej zóne serveru. Nejedná sa o posun voèi GMT (Greenwich mean time).');
-@define('INSTALL_OFFSET', 'Èasový posun servera');
 @define('STICKY_POSTINGS', 'Prilepené èlánky');
 @define('INSTALL_FETCHLIMIT', 'Èlánky zobrazené na hlavnej stránke');
 @define('INSTALL_FETCHLIMIT_DESC', 'Poèet èlánkov zobrazených na hlavnej stránke');

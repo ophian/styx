@@ -49,7 +49,6 @@
 @define('PLACEMENT', 'Posizionamento');
 @define('DELETE', 'Cancella');
 @define('SAVE', 'Salva');
-@define('SELECT_A_PLUGIN_TO_ADD', 'Scegli il plugin da aggiungere');
 @define('UP', 'SU');
 @define('DOWN', 'GIU`');
 @define('ENTRIES', 'notizie');
@@ -555,6 +554,8 @@
 @define('ALREADY_INSTALLED', 'Già installato');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Seleziona il plugin che vuoi installare');
 @define('INSTALL_OFFSET', 'Differenza oraria del server');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Postings permanenti');
 @define('INSTALL_FETCHLIMIT', 'Notizie da visualizzare sulla pagina iniziale');
 @define('INSTALL_FETCHLIMIT_DESC', 'Numero di notizie da visualizzare per ogni paginai sull\'interfaccia');

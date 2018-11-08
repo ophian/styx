@@ -111,6 +111,8 @@ $i18n_unknown = 'tw';
 @define('THE_NUGGET', 'HTML 訊息!');
 @define('SYNDICATE_THIS_BLOG', '同步這個日記');
 @define('YOU_CHOSE', '您選擇 %s');
+@define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
+@define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');
 @define('IMAGE_SIZE', '圖片大小');
 @define('IMAGE_AS_A_LINK', '輸入圖片');
 @define('POWERED_BY', 'Powered by');
@@ -557,6 +559,8 @@ $i18n_unknown = 'tw';
 @define('RSS_IMPORT_CATEGORY', '用這個類別給不相同的輸入文章');
 
 @define('INSTALL_OFFSET', '主機時區');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', '頂置文章');
 @define('INSTALL_FETCHLIMIT', '在主頁顯示的文章');
 @define('INSTALL_FETCHLIMIT_DESC', '主頁顯示的文章數');

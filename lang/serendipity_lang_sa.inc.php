@@ -557,6 +557,8 @@
 @define('ALREADY_INSTALLED', 'Êã ÊËÈíÊ åĞÇ ÇáÅÌÑÇÁ ãÓÈŞÇğ');
 @define('SELECT_A_PLUGIN_TO_ADD', 'ÃÎÊÑ ãáİ ÇáÍË - ÈáæŞ Çä -ÇáĞí ÊÑíÏ ÊÑßíÈÉ');
 @define('INSTALL_OFFSET', 'ÍİÙ æŞÊ ÇáÚãá');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'ãÔÇÑßÉ ãËÈÊå');
 @define('INSTALL_FETCHLIMIT', 'ÚÏÏ ÇáãæÇÖíÚ ÇáÊí ÊÚÑÖ İí ÇáÕİÍÉ ÇáÑÆíÓíÉ');
 @define('INSTALL_FETCHLIMIT_DESC', 'ÚÏÏ ÇáÊÚáíŞÇÊ ÇáÊí íÊã ÚÑÖåÇ ÊÇÈÚÉ ááãæÖæÚ İí ßá ÕİÍÉ');

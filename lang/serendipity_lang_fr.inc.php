@@ -558,6 +558,8 @@
 @define('ALREADY_INSTALLED', 'Déjà installé');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Sélectionnez le plugin que vous voulez installer');
 @define('INSTALL_OFFSET', 'Décalage de l\'heure serveur');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Billets indélébiles');
 @define('INSTALL_FETCHLIMIT', 'Billets à afficher sur la page d\'accueil');
 @define('INSTALL_FETCHLIMIT_DESC', 'Nombre de billets à afficher par page dans l\'interface principale du blog');

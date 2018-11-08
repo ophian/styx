@@ -555,6 +555,8 @@
 @define('ALREADY_INSTALLED', '既にインストール済みです。');
 @define('SELECT_A_PLUGIN_TO_ADD', 'インストールしたいプラグインを選択する');
 @define('INSTALL_OFFSET', 'サーバー時間差');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'スティッキ投稿');
 @define('INSTALL_FETCHLIMIT', 'フロントページにエントリーを表示する');
 @define('INSTALL_FETCHLIMIT_DESC', '各ページでフロントエンドに表示するエントリーの数');
@@ -697,8 +699,7 @@
 @define('INSTALL_PERMALINK_CATEGORY', 'カテゴリの固定リンク URL 構造');
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'ここで、ベース URL からあるカテゴリのエントリーが入手可能になる、適当な場所への相対的な URL 構造の先頭を定義することができます。変数は、%id%、%name%、%parentname、%description%、そして他の文字を使用することができます。');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'カテゴリ RSS フィードの固定リンク URL 構造');
-@define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', '
-ここで、ベース URL からあるカテゴリーの RSS フィード が入手可能になる、適当な場所への相対的な URL 構造の先頭を定義することができます。変数は、%id%、%name%、%description%、そして他の文字を使用することができます。');
+@define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'ここで、ベース URL からあるカテゴリーの RSS フィード が入手可能になる、適当な場所への相対的な URL 構造の先頭を定義することができます。変数は、%id%、%name%、%description%、そして他の文字を使用することができます。');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', '書庫一覧へのパス');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', '書庫へのパス');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'カテゴリ一覧へのパス');
@@ -730,8 +731,7 @@
 @define('SYNDICATION_PLUGIN_FEEDBURNERTITLE_DESC', 'イメージの側に表示するべきタイトルです(もしあれば)');
 @define('SYNDICATION_PLUGIN_FEEDBURNERALT', 'FeedBurner 画像のテキスト');
 @define('SYNDICATION_PLUGIN_FEEDBURNERALT_DESC', 'Text (if any) to display when hovering the image');
-@define('SEARCH_TOO_SHORT', '検索文字は少なくとも 3 文字なければなりません。
-例えば次のように簡潔な単語に「*(アスタリスク)」を追加できます: 「s9y*」は簡潔な単語を用い、検索をするコツです。');
+@define('SEARCH_TOO_SHORT', '検索文字は少なくとも 3 文字なければなりません。 例えば次のように簡潔な単語に「*(アスタリスク)」を追加できます: 「s9y*」は簡潔な単語を用い、検索をするコツです。');
 @define('INSTALL_DBPORT', 'データベースのポート番号');
 @define('INSTALL_DBPORT_DESC', 'データベースサーバーへの接続に使用するポート番号です。');
 @define('PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES', 'フロントエンド: 外部サービス');

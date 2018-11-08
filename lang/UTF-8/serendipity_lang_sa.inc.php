@@ -557,6 +557,8 @@
 @define('ALREADY_INSTALLED', 'تم تثبيت هذا الإجراء مسبقاً');
 @define('SELECT_A_PLUGIN_TO_ADD', 'أختر ملف الحث - بلوق ان -الذي تريد تركيبة');
 @define('INSTALL_OFFSET', 'حفظ وقت العمل');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'مشاركة مثبته');
 @define('INSTALL_FETCHLIMIT', 'عدد المواضيع التي تعرض في الصفحة الرئيسية');
 @define('INSTALL_FETCHLIMIT_DESC', 'عدد التعليقات التي يتم عرضها تابعة للموضوع في كل صفحة');

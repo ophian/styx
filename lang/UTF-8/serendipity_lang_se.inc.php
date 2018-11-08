@@ -555,6 +555,8 @@
 @define('ALREADY_INSTALLED', 'Redan installerad');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Välj den instickmodul som du vill installera');
 @define('INSTALL_OFFSET', 'Kompensation för serverklocka');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Spikade artiklar');
 @define('INSTALL_FETCHLIMIT', 'Artiklar att visa på framsidan');
 @define('INSTALL_FETCHLIMIT_DESC', 'Antal artiklar att visa per sida');

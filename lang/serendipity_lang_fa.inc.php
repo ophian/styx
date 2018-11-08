@@ -556,6 +556,8 @@
 @define('ALREADY_INSTALLED', 'قبلا نصب شده');
 @define('SELECT_A_PLUGIN_TO_ADD', 'افزونه ای که می خواهید نصب کنید را انتخاب کنید');
 @define('INSTALL_OFFSET', 'مبدا زمان سرور');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'پست های چسبناک');
 @define('INSTALL_FETCHLIMIT', 'ارسال هایی که در ابتدای صفحه نمایش داده شوند');
 @define('INSTALL_FETCHLIMIT_DESC', 'چه تعداد ارسال در صفحه اصلی نمایش داده شوند');

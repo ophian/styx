@@ -554,6 +554,8 @@
 @define('ALREADY_INSTALLED', 'Allerede installeret');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Vælg det plugin du ønsker at installere');
 @define('INSTALL_OFFSET', 'Server tidsforskydelse');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Vedvarende artikler');
 @define('INSTALL_FETCHLIMIT', 'Artikler på forsiden');
 @define('INSTALL_FETCHLIMIT_DESC', 'Antallet af artikler at vise på hver side på forsiden');
@@ -899,6 +901,8 @@
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Forbidden events');
 @define('PERMISSION_FORBIDDEN_ENABLE', 'Aktiver plugin adgangskontrol for grupper?');
 @define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Mulighed for at bestemme hvilke grupper der må anvende hvilke plugins.');
+@define('DELETE_SELECTED_ENTRIES', 'Delete selected entries');
+@define('PLUGIN_AUTHORS_MINCOUNT', 'Show only authors with at least X articles');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET_DESC', 'Bookmark this link and then use it on any page you want to Blog about, to quickly access your Serendipity Blogs backend entry form (when logged in).');
 @define('IMPORT_WP_PAGES', 'Also fetch attachments and staticpages as normal blog entries?');

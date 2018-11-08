@@ -425,6 +425,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_CAT_DISPLAY_DESC', 'Настройване как да изглежда Serendipity');
 @define('INSTALL_WYSIWYG', 'Използване на редактор WYSIWYG');
 @define('INSTALL_WYSIWYG_DESC', 'Искате ли да използвате редактора WYSIWYG?');
+@define('INSTALL_XHTML11', 'Force XHTML 1.1 compliance');
+@define('INSTALL_XHTML11_DESC', 'Do you want to force XHTML 1.1 compliance (may cause problems for back-/frontend on older 4th generation browsers)');
 @define('INSTALL_POPUP', 'Активиране на употребата на изскачащи прозорци');
 @define('INSTALL_POPUP_DESC', 'Искате ли да използвате изскачащи прозорци за коментари, проследявания и др.?');
 @define('INSTALL_EMBED', 'Вграден ли е Serendipity?');
@@ -542,9 +544,9 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL', 'Инсталиране');
 @define('ALREADY_INSTALLED', 'Вече е инсталирана');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Изберете приставка, която искате да инсталирате');
+@define('INSTALL_OFFSET', 'Времево отместване на сървъра');
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Използване на времевата зона на сървъра?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Задаване на времето на статиите спрямо сървъра или не. Изберете \'да\' за база сървъра или не за база GMT.');
-@define('INSTALL_OFFSET', 'Времево отместване на сървъра');
 @define('STICKY_POSTINGS', 'Лепкави съобщения');
 @define('INSTALL_FETCHLIMIT', 'Статии за показване в лицевата част');
 @define('INSTALL_FETCHLIMIT_DESC', 'Брой на статиите, които се показват във всяка страница на лицевата част');

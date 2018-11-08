@@ -555,6 +555,8 @@
 @define('ALREADY_INSTALLED', 'Þegar uppsett');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Veldu viðbót til að setja inn');
 @define('INSTALL_OFFSET', 'Frávik frá þjónstíma');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Þrautseigar innsetningar');
 @define('INSTALL_FETCHLIMIT', 'Færslur sem sýna skal á forsíðu');
 @define('INSTALL_FETCHLIMIT_DESC', 'Fjöldi færsla sem sýna skal á hverri síðu');

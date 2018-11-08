@@ -566,9 +566,9 @@ $i18n_filename_to = array (
 @define('INSTALL', 'Inštalovať');
 @define('ALREADY_INSTALLED', 'Nainštalované');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Vyberte doplnok, ktorý chcete nainštalovať');
+@define('INSTALL_OFFSET', 'Časový posun servera');
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Nastaviť posun časovéj zóny voči serveru?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Posun času článkov voči času na serveri. Vyberte "áno" pre zadanie relatívneho časového posunu voči časovej zóne serveru. Nejedná sa o posun voči GMT (Greenwich mean time).');
-@define('INSTALL_OFFSET', 'Časový posun servera');
 @define('STICKY_POSTINGS', 'Prilepené články');
 @define('INSTALL_FETCHLIMIT', 'Články zobrazené na hlavnej stránke');
 @define('INSTALL_FETCHLIMIT_DESC', 'Počet článkov zobrazených na hlavnej stránke');

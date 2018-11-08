@@ -555,6 +555,8 @@
 @define('ALREADY_INSTALLED', 'Már telepített');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Válaszd ki a telepítendõ modult');
 @define('INSTALL_OFFSET', 'Szerver idõ eltolódás');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Ragadós beküldés');
 @define('INSTALL_FETCHLIMIT', 'A fõoldalon megjelenítendõ bejegyzések');
 @define('INSTALL_FETCHLIMIT_DESC', 'A fõoldalon lévõ oldalakon megjelenõ bejegyzések száma');
@@ -913,6 +915,9 @@
 @define('PINGBACK_NOT_FOUND', 'Nem található hivatkozás az URL létezés ellenõrzéséhez.');
 @define('CATEGORY_PLUGIN_HIDEZEROCOUNT', 'Az archívum hivatkozás elrejtése, ha nincs abban az idõszakban bejegyzés (a bejegyzések számolása szükséges)');
 @define('RSS_IMPORT_WPXRSS', 'WordPress eXtended RSS importálása, PHP5 szükséges, és lehet hogy sok memóriát igényel');
+@define('SET_TO_MODERATED', 'Moderate');
+@define('COMMENT_MODERATED', 'Comment #%s has successfully been set back to state "moderate".');
+@define('CENTER', 'center');
 @define('FULL_COMMENT_TEXT', 'Yes, with full comment text');
 
 @define('COMMENT_TOKENS', 'Tokenek használata a hozzászólások moderálásához?');

@@ -557,6 +557,8 @@
 @define('ALREADY_INSTALLED', 'Reeds geïnstalleerd');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Selecteer welke plugin u wenst te installeren');
 @define('INSTALL_OFFSET', 'Verschil met servertijd');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Klevend');
 @define('INSTALL_FETCHLIMIT', 'Artikelen die weergegeven moeten worden');
 @define('INSTALL_FETCHLIMIT_DESC', 'Aantal artikelen die weergeven moeten worden per pagina');

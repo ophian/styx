@@ -115,6 +115,8 @@
 @define('THE_NUGGET', '¡Fragmento de HTML!');
 @define('SYNDICATE_THIS_BLOG', 'Sindica este blog');
 @define('YOU_CHOSE', 'Elige %s');
+@define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
+@define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');
 @define('IMAGE_SIZE', 'Tamaño de la imagen');
 @define('IMAGE_AS_A_LINK', 'Inserción de imagen');
 @define('POWERED_BY', 'Basado en');
@@ -570,6 +572,8 @@
 @define('ALREADY_INSTALLED', 'Ya está instalado');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Selecciona la extensión que quieras instalar');
 @define('INSTALL_OFFSET', 'Diferencia horaria del servidor');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Entradas permanentes');
 @define('INSTALL_FETCHLIMIT', 'Entradas a mostrar en la página principal');
 @define('INSTALL_FETCHLIMIT_DESC', 'Número de entradas a mostrar en la página principal');

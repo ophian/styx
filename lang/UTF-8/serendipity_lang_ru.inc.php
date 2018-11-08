@@ -558,6 +558,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ALREADY_INSTALLED', 'Уже установлен');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Выберите плагин для добавления');
 @define('INSTALL_OFFSET', 'Смещение времени на сервере');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Закреплённые записи');
 @define('INSTALL_FETCHLIMIT', 'Записи, которые всегда следует отображать на главной странице');
 @define('INSTALL_FETCHLIMIT_DESC', 'Количество записей для показа на каждой странице frontend\'а');

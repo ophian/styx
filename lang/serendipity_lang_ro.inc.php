@@ -556,6 +556,8 @@
 @define('ALREADY_INSTALLED', 'Deja instalat');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Alege extensia pe care vrei să o instalezi');
 @define('INSTALL_OFFSET', 'Decalaj timp server');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Însemnări lipicioase');
 @define('INSTALL_FETCHLIMIT', 'Însemnări de afişat pe prima pagină');
 @define('INSTALL_FETCHLIMIT_DESC', 'Numărul de însemnări afişate pe fiecare pagină');

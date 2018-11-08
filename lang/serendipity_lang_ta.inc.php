@@ -555,6 +555,8 @@
 @define('ALREADY_INSTALLED', 'Already installed');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Select the plugin which you wish to install');
 @define('INSTALL_OFFSET', 'Server time Offset');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Sticky Postings');
 @define('INSTALL_FETCHLIMIT', 'முதற்பக்கத்தில் காண்பிக்கவேண்டிய குறிப்புகள்');
 @define('INSTALL_FETCHLIMIT_DESC', 'எத்தனை குறிப்புகளை முதற்பக்கத்தில் காண்பிக்க');

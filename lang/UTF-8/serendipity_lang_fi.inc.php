@@ -554,6 +554,8 @@
 @define('ALREADY_INSTALLED', 'Asennettu jo');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Valitse laajennos, jonka haluat asentaa');
 @define('INSTALL_OFFSET', 'Palvelimen aikasiirtymä');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Tahmeat merkinnät');
 @define('INSTALL_FETCHLIMIT', 'Etusivulla esitettävien merkintöjen määrä');
 @define('INSTALL_FETCHLIMIT_DESC', 'Selaimessa esitettävien kirjausten lukumäärä');

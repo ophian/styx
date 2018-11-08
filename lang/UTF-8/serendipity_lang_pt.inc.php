@@ -556,6 +556,8 @@
 @define('ALREADY_INSTALLED', 'Já instalado');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Selecione o plugin que você deseja instalar');
 @define('INSTALL_OFFSET', 'Offset temporal no servidor');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Postagens fixas');
 @define('INSTALL_FETCHLIMIT', 'Entradas que serão mostradas na primeira página');
 @define('INSTALL_FETCHLIMIT_DESC', 'Números de entradas para mostrar na primeira página');

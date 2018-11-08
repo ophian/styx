@@ -563,6 +563,8 @@
 @define('ALREADY_INSTALLED', 'Já instalado');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Seleccione o plugin que pretende instalar');
 @define('INSTALL_OFFSET', 'Offset temporal no servidor');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Postagens fixas'); // Translate ?
 @define('INSTALL_FETCHLIMIT', 'Entradas a mostrar na primeira página');
 @define('INSTALL_FETCHLIMIT_DESC', 'Número de entradas a mostrar por cada página do página principal'); // Translate frontend?
@@ -708,9 +710,12 @@
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'Aqui pode definir a estrura relativa dos URLs do seu URL base até onde entradas para certas categorias ficam disponíveis. Pode usar as variáveis %id%, %name%, %parentname%, %description% e quaisquer outros caracteres.'); // Verify
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'Estrutura do URL para Links Permanentes por Categoria de RSS-Feed'); // Verify
 @define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Aqui pode definir a estrutura relativa dos URLs d seu URL base até onde entradas para certas categorias de RSS-Feed ficam disponíveis. Pode usar as variáveis %id%, %name%, %description% e quaisquer outros caracteres.'); // Verify
+@define('INSTALL_PERMALINK_FEEDAUTHOR', 'Permalink RSS-Feed Author URL structure');
+@define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Here you can define the relative URL structure beginning from your base URL to where RSS-feeds from specific users may be viewed. You can use the variables %id%, %realname%, %username%, %email% and any other characters.');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Caminho para arquivos');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Caminho para arquivo');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Caminho para categorias');
+@define('INSTALL_PERMALINK_AUTHORSPATH', 'Path to authors');
 @define('INSTALL_PERMALINK_UNSUBSCRIBEPATH', 'Caminho para desistir da subscrição de comentários');
 @define('INSTALL_PERMALINK_DELETEPATH', 'Caminho para apagar comentários');
 @define('INSTALL_PERMALINK_APPROVEPATH', 'Caminho para aprovar comentários');

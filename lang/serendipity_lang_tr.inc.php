@@ -557,6 +557,8 @@
 @define('ALREADY_INSTALLED', 'Zaten kurulu');
 @define('SELECT_A_PLUGIN_TO_ADD', 'Kurmak istediğiniz eklentiyi seçin');
 @define('INSTALL_OFFSET', 'Sunucu Zaman Dilimi Seçimi');
+@define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
+@define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
 @define('STICKY_POSTINGS', 'Yapışkan iletiler');
 @define('INSTALL_FETCHLIMIT', 'Anasayfada gösterilecek yazı sayısı');
 @define('INSTALL_FETCHLIMIT_DESC', 'Anasayfada gösterilecek yazıların adedi');
