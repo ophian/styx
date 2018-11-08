@@ -677,7 +677,6 @@
 @define('EMPTY_SETTING', '你没有提供 "%s" 的正确参数');
 @define('USERCONF_REALNAME', '全名');
 @define('USERCONF_REALNAME_DESC', '作者全名，将显示全部读者');
-#@define('HOTLINK_DONE', '文件外部连接<br>结束。');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', '取得方法:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '注意:如果你选择外部连接，请先得到来源网站的允许。外部连接允许你用其它网站的图片而不需要将图片保存在你的主机内。');

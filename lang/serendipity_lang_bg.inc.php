@@ -666,7 +666,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('EMPTY_SETTING', 'Не зададохте валидна стойност за "%s"!');
 @define('USERCONF_REALNAME', 'Истинско име');
 @define('USERCONF_REALNAME_DESC', 'Пълното име на автора. Това име ще бъде виждано от читателите');
-#@define('HOTLINK_DONE', 'Файлът е гореща връзка.<br>Готово.');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Начин на изтегляне:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Забележка: Ако изберете гореща връзка към сървъра, уверете се, че имате право да използвате гореща връзка към сайта или че сайтът е ваш. Горещите връзки позволяват да използвате външни изображения, без да ги съхранявате локално.');

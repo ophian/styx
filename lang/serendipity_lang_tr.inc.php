@@ -491,7 +491,7 @@
 @define('FIND_MEDIA', 'Medya bul');
 @define('FILTER_DIRECTORY', 'Dizin');
 @define('SORT_BY', 'Sırala');
-@define('TRACKBACK_COULD_NOT_CONNECT', 'Gönderilen iz bulunamadı:  %s port %d numarasındaki bağlantı açılamadı' );
+@define('TRACKBACK_COULD_NOT_CONNECT', 'Gönderilen iz bulunamadı:  %s port %d numarasındaki bağlantı açılamadı');
 @define('MEDIA', 'Medya');
 @define('MEDIA_LIBRARY', 'Medya Kütüphanesi');
 @define('ADD_MEDIA', 'Medya Ekle');
@@ -676,7 +676,6 @@
 @define('EMPTY_SETTING', 'Bunun için doğru bir değer belirlemediniz: "%s"!');
 @define('USERCONF_REALNAME', 'Gerçek Ad'); // Translate
 @define('USERCONF_REALNAME_DESC', 'Yazarın tam adı. Okuyucular için gerekli'); // Translate
-#@define('HOTLINK_DONE', 'Dosya ilişkilendirmesi.<br>Tamamlandı.');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Alma yöntemi:'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Not: Sunucuya sıcak bağlantı vermeyi seçerseniz, tüm izinlere sahip olduğunuza emin olun.Sıcak linkler size site dışından resim saklama imkanı verir.'); // Translate

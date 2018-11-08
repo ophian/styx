@@ -676,7 +676,6 @@
 @define('EMPTY_SETTING', 'су Ъоу ШУкиЧС уксцуЧЪ ЯоэоЩ кф "%s"!');
 @define('USERCONF_REALNAME', 'ЧсУгу ЧсЭоэоэ'); // Translate
 @define('USERCONF_REALNAME_DESC', 'ЧсУгу ЧспЧус ссуЭбб Уц ЧсфЧдб. цхаЧ гцн эйхб собЧС Чсуцжцк'); // Translate
-#@define('HOTLINK_DONE', 'бЧШи нкЧс<br>Ъу'); // Translate
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'ибэоЩ ЬсШ ЧсецбЩ'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'усЧЭйЩ: нэ ЭЧс ЬсШ ецбЩ уф бЧШи укэф ЪУпЯ Уф Чсуцок Чсаэ гцн ЪЭус ЧсецбЩ уфх эгуЭ Шкбж Чсецб нэ уцЧок УЮбь. Уц ЪУпЯ Уф хаЧ ЧсбЧШи уф уцокп. кбж Чсецб ШцЧгиЩ бЧШихЧ экфэп кф ЪЭуэс ЧсецбЩ нэ уЯцфЪп Уц уцокп (уЫЧс ЧгЪЮЯЧу убЧпв ЪЭуэс Чсецб)'); // Translate

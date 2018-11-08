@@ -678,7 +678,6 @@
 @define('EMPTY_SETTING', '"%s"에 대한 유효한 값을 지정하지 않았습니다.');
 @define('USERCONF_REALNAME', '실제 이름');
 @define('USERCONF_REALNAME_DESC', '작성자의 실제 이름으로서, 독자가 보게 되는 이름입니다.');
-#@define('HOTLINK_DONE', '파일이 핫링크 되었습니다.<br>완료.');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', '불러오기 방식:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', '주의: 서버에서 핫링크 하기는 해당 사이트에서 핫링크 허락을 미리 받아놓거나 자신의 사이트인 경우에 대해 하기 바랍니다. 핫링크를 하게 되면 외부 그림을 따로 저장하지 않고 쓸 수 있게 됩니다.');
@@ -1043,7 +1042,6 @@
 @define('FRONTEND', '외부 페이지');
 @define('BACKEND', '관리 페이지');
 @define('MEDIA_UPLOAD_RESIZE', '올리기 전 크기 조절');
-#@define('MEDIA_UPLOAD_RESIZE_DESC', '서버에 그림을 올리기 전에 자바스크립트로 크기를 조절합니다. 이 경우 올리는 기능이 Ajax를 쓰게 되므로 등록정보 버튼을 표시하지 않게 됩니다.');
 @define('MEDIA_UPLOAD_RESIZE_DESC', 'Resize images according to configured maximum/minimum dimensions before the upload using Javascript. This will also change the uploader to use Ajax and thus remove the Property-Button.<br>PLEASE NOTE: Setting this option true will prevent other options to behave like they should, in special, when the imageselectorplus event plugin is used!');
 @define('LOG_LEVEL', '로그 기록 수준');
 @define('LOG_LEVEL_DESC', '세렌디피티 코드 내의 특정 부분에 디버그 중단점을 배치해 두었습니다. 이 설정을 "디버그"로 둘 경우 이러한 위치에서 발생한 디버그 출력내역을 templates_c/logs/에 기록하게 됩니다. 특정 부분에서 버그가 발생하고 있거나 본인이 개발자인 경우에만 이 설정을 사용하기 바랍니다. 이 설정을 "오류"로 두면 PHP 에러를 기록하게 되며 PHP error_log 설정을 덮어씁니다.');
@@ -1052,12 +1050,10 @@
 @define('PLUGIN_ALREADY_INSTALLED', '플러그인이 이미 설치되었으며, 다중 설치 ("겹침") 지원을 하지 않습니다.');
 @define('INSTALL_DBPREFIX_INVALID', '데이터베이스 테이블 이름의 접두사는 비워둘 수 없으며 영문자, 숫자, 그리고 밑줄 문자("_")만 허용됩니다.');
 @define('SYNDICATION_PLUGIN_SUBTOME', '서브투미(subToMe)');
-#@define('SYNDICATION_PLUGIN_SUBTOME_DESC', '서브투미(subToMe) 버튼을 보여줍니다. 이는 피드 구독을 더 쉽게 하도록 도와주는 계층입니다.');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
 @define('SYNDICATE_THIS_BLOG', '구독하기');
 @define('SYNDICATION_PLUGIN_BIGIMG_DESC', '옆줄에 나타나는 피드 맨 위에 (대형) 그림을 표시합니다. 그림 파일에 대한 전체 또는 절대 경로를 입력합니다. "없음"으로 설정하면 문자 링크를 표시합니다(예전 기본 설정).');
 @define('INSTALL_BACKENDPOPUP', '관리 페이지에서 팝업 창을 사용할 수 있게 함');
-#@define('INSTALL_BACKENDPOPUP_DESC', '일부 관리 페이지 기능에서 팝업 창을 사용하고자 합니까? 사용하지 않을 경우 (기본값) 인라인 모달 대화상자를 범주 선택, 미디어 보관함 등에 사용하게 됩니다.');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', '안정화 버전');
 @define('UPDATE_BETA', '베타 버전');
@@ -1103,9 +1099,7 @@
 @define('INSTALL_PASSWORD2', '관리자 암호 (다시 입력)');
 @define('INSTALL_PASSWORD2_DESC', '검증을 위해 관리자 로그인을 위한 암호를 다시 입력합니다.');
 @define('INSTALL_PASSWORD_INVALID', '입력한 관리자 암호가 일치하지 않습니다.');
-#@define('INSTALL_BACKENDPOPUP_GRANULAR', '특정 관리자 화면 팝업 창을 강제로 표시');
 @define('INSTALL_BACKENDPOPUP_GRANULAR', 'Force specific backend embed/popup behavior');
-#@define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', '일반적으로 관리자 화면의 팝업 창을 사용하고 있지 않을 경우라도 팝업 창을 강제로 사용하고자 하는 곳이 있으면 여기에 해당 장소들을 각각 쉼표로 분리하여 입력해둘 수 있습니다. 사용 가능한 장소는: ');
 @define('INSTALL_BACKENDPOPUP_GRANULAR_DESC', 'If you generally disable upper backend popup option, you can specifically force using popups, respectively the embedded entryform mode for specific places by entering a comma separated list of places here. Available places are: ');
 @define('START_UPDATE', '업데이트 시작...');
 @define('UPDATE_ALL', '모두 업데이트');
@@ -1116,7 +1110,6 @@
 @define('MULTICHECK_NO_DIR', '선택한 디렉토리가 없습니다. 최고한 한 군데를 선택하십시오. <a href="%s">이전 페이지로 돌아가기</a>.');
 @define('BULKMOVE_INFO', '대량으로 이동하기');
 @define('BULKMOVE_INFO_DESC', 'You can select multiple files to bulk-move them to a new location. <strong>Note:</strong> This action takes effect immediately without any further demand. All checked files will be physically moved, and referring Blog entries are rewritten to point to the new location. The entrychange is also supported by staticpage versions up from v.4.52.');
-#@define('BULKMOVE_INFO_DESC', '여러 파일을 선택하여 한꺼번에 새로운 위치로 이동시킬 수 있습니다. <strong>주의:</strong> 이 작업은 여러 파일의 대량 삭제와 마찬가지로 되돌릴 수 없습니다. 선택한 파일은 물리적으로 이동되며 이를 참조하는 블로그 글은 새 위치를 참조하도록 재작성됩니다.');
 @define('FIRST_PAGE', '첫 페이지');
 @define('LAST_PAGE', '마지막 페이지');
 @define('MEDIA_PROPERTIES_DONE', '%d번의 등록정보가 변경되었습니다.');
