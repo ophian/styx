@@ -674,8 +674,8 @@
 @define('INSTALL_AUTODETECT_URL_DESC', 'If set to "true", Serendipity will ensure that the HTTP Host which was used by your visitor is used as your BaseURL setting. Enabling this will let you be able to use multiple domain names for your Serendipity Blog, and use the domain for all follow-up links which the user used to access your blog.');
 @define('CONVERT_HTMLENTITIES', 'Try to auto-convert HTML entities?');
 @define('EMPTY_SETTING', 'You did not specify a valid value for "%s"!');
-@define('USERCONF_REALNAME', 'முழுப்பெயர்'); // Translate
-@define('USERCONF_REALNAME_DESC', 'வலைக்குறிப்பு அன்பர்கள் இப்பெயரைக் காண்பார்கள்'); // Translate
+@define('USERCONF_REALNAME', 'முழுப்பெயர்');
+@define('USERCONF_REALNAME_DESC', 'வலைக்குறிப்பு அன்பர்கள் இப்பெயரைக் காண்பார்கள்');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
 @define('ENTER_MEDIA_URL_METHOD', 'Fetch method:'); // Translate
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Note: If you choose to hotlink to server, make sure you have permission to hotlink to the designated website, or the website is yours. Hotlink allows you to use off-site images without storing them locally.'); // Translate
