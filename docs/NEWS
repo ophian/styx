@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix missing constants in various languages; remove doublets and fix
+    spaces and missing linebreaks.
+
   * Changed threaded categories list to be block-consistent to MediaLibrary
     directory list styles.
 
