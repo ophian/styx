@@ -676,20 +676,20 @@
 @define('INSTALL_AUTODETECT_URL_DESC', 'أن أختر الخيار صحيح. سوف تتمكن المجلة من معرفة الرابط الذي يستخدمه الزوار على أنه الرابط الأساسي. باختيارك هذا الخيار يجعلك قادر على استخدام أكثر من أسم نطاق (دومين) للوصول إلى مدونتك. وسوف يستخدم أسم النطاق هذا لجميع الروابط التابعة للمدونة');
 @define('CONVERT_HTMLENTITIES', 'جرب تحويل المواضيع إلى هتمل؟');
 @define('EMPTY_SETTING', 'لم تقم بأعطاء معلومات دقيقة عن "%s"!');
-@define('USERCONF_REALNAME', 'الأسم الحقيقي'); // Translate
-@define('USERCONF_REALNAME_DESC', 'الأسم الكامل للمحرر أو الناشر. وهذا سوف يظهر لقراء الموضوع'); // Translate
-@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
-@define('ENTER_MEDIA_URL_METHOD', 'طريقة جلب الصورة'); // Translate
-@define('ADD_MEDIA_BLAHBLAH_NOTE', 'ملاحظة: في حال جلب صورة من رابط معين تأكد أن الموقع الذي سوف تحمل الصورة منه يسمح بعرض الصور في مواقع أخرى. أو تأكد أن هذا الرابط من موقعك. عرض الصور بواسطة رابطها يعنيك عن تحميل الصورة في مدونتك أو موقعك (مثال استخدام مراكز تحميل الصور)'); // Translate
-@define('MEDIA_HOTLINKED', 'من رابط'); // Translate
-@define('FETCH_METHOD_IMAGE', 'رفع الصورة إلى موقعك'); // Translate
-@define('FETCH_METHOD_HOTLINK', 'رابط صورة إلى موقع'); // Translate
-@define('DELETE_HOTLINK_FILE', 'تم حذف الرابط النشط والملف <b>%s</b>'); // Translate
+@define('USERCONF_REALNAME', 'الأسم الحقيقي');
+@define('USERCONF_REALNAME_DESC', 'الأسم الكامل للمحرر أو الناشر. وهذا سوف يظهر لقراء الموضوع');
+@define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.');
+@define('ENTER_MEDIA_URL_METHOD', 'طريقة جلب الصورة');
+@define('ADD_MEDIA_BLAHBLAH_NOTE', 'ملاحظة: في حال جلب صورة من رابط معين تأكد أن الموقع الذي سوف تحمل الصورة منه يسمح بعرض الصور في مواقع أخرى. أو تأكد أن هذا الرابط من موقعك. عرض الصور بواسطة رابطها يعنيك عن تحميل الصورة في مدونتك أو موقعك (مثال استخدام مراكز تحميل الصور)');
+@define('MEDIA_HOTLINKED', 'من رابط');
+@define('FETCH_METHOD_IMAGE', 'رفع الصورة إلى موقعك');
+@define('FETCH_METHOD_HOTLINK', 'رابط صورة إلى موقع');
+@define('DELETE_HOTLINK_FILE', 'تم حذف الرابط النشط والملف <b>%s</b>');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'أعرض البريد الالكتروني؟');
 @define('IMAGE_MORE_INPUT', 'أضف صور أكثر');
-@define('BACKEND_TITLE', 'معلومات إضافية عن وظيفة هذا الاجراء'); // Translate
-@define('BACKEND_TITLE_FOR_NUGGET', 'يمكن لك هنا وضع الوصف المناسب للأجراء الذي سوف تقوم به ولن يتم عرضه على الزائر ، ان الوصف الذي تقدمه هنا مفيد جداً لو كان لديك أكثر من HTML Nugget  في مدونتك و لم تعطها عناوين وهو يساعد بتعريفك كل إجراء عن الاخر'); // Translate
-@define('CATEGORIES_ALLOW_SELECT', 'السماح للزوار بعرض أقسام متعددة مرة واحدة؟'); // Translate
+@define('BACKEND_TITLE', 'معلومات إضافية عن وظيفة هذا الاجراء');
+@define('BACKEND_TITLE_FOR_NUGGET', 'يمكن لك هنا وضع الوصف المناسب للأجراء الذي سوف تقوم به ولن يتم عرضه على الزائر ، ان الوصف الذي تقدمه هنا مفيد جداً لو كان لديك أكثر من HTML Nugget  في مدونتك و لم تعطها عناوين وهو يساعد بتعريفك كل إجراء عن الاخر');
+@define('CATEGORIES_ALLOW_SELECT', 'السماح للزوار بعرض أقسام متعددة مرة واحدة؟');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'في حال تشغيل هذا الخيار فإن صندوق إختيار سوف يتم عرضة بجانب مسمى كل قسم من أقسام المجلة ، وبذلك الزائر يمكن له التعليم على الاقسام التي يريد الاطلاع عليها فقط'); // Translate
 @define('PAGE_BROWSE_PLUGINS', 'الصفحة رقم %s من %s, مجموع %s مواضيع.');
 @define('INSTALL_CAT_PERMALINKS', 'الروابط الدائمة');

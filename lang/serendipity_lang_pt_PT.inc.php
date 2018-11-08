@@ -124,7 +124,7 @@
 @define('SET_AS_TEMPLATE', 'Definir como modelo');
 @define('IN', 'em');
 @define('EXCERPT', 'Excerto');
-@define('TRACKED', 'Tracked'); // Translate?
+@define('TRACKED', 'Tracked');
 @define('LINK_TO_ENTRY', 'Ligação para o artigo');
 @define('LINK_TO_REMOTE_ENTRY', 'Ligação para artigo remoto');
 @define('IP_ADDRESS', 'Endereço IP');
@@ -565,9 +565,9 @@
 @define('INSTALL_OFFSET', 'Offset temporal no servidor');
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Base offset on server timezone?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Offset entry times on server timezone or not. Select yes to base offset on server timezone and no to offset on GMT.');
-@define('STICKY_POSTINGS', 'Postagens fixas'); // Translate ?
+@define('STICKY_POSTINGS', 'Postagens fixas');
 @define('INSTALL_FETCHLIMIT', 'Entradas a mostrar na primeira página');
-@define('INSTALL_FETCHLIMIT_DESC', 'Número de entradas a mostrar por cada página do página principal'); // Translate frontend?
+@define('INSTALL_FETCHLIMIT_DESC', 'Número de entradas a mostrar por cada página do página principal');
 @define('IMPORT_ENTRIES', 'Importar dados');
 @define('EXPORT_ENTRIES', 'Exportar entradas');
 @define('IMPORT_WELCOME', 'Bem vindo ao utilitário de importação do Serendipity');
@@ -611,8 +611,8 @@
 @define('ACTUAL', 'Actual'); // Verify
 @define('PHPINI_CONFIGURATION', 'configuração em php.ini');
 @define('PHP_INSTALLATION', 'instalação de PHP installation');
-@define('THEY_DO', 'eles fazem'); // Translate
-@define('THEY_DONT', 'eles não'); // Translate
+@define('THEY_DO', 'eles fazem');
+@define('THEY_DONT', 'eles não');
 @define('SIMPLE_INSTALLATION', 'Instalação simples');
 @define('EXPERT_INSTALLATION', 'Instalação para especialistas');
 @define('COMPLETE_INSTALLATION', 'Instalação completa');
@@ -686,10 +686,10 @@
 @define('EMPTY_SETTING', 'Não especificou um valor válido para "%s"!');
 @define('USERCONF_REALNAME', 'Nome verdadeiro');
 @define('USERCONF_REALNAME_DESC', 'O nome completo do autor. Este é o nome visto pelos leitores');
-@define('HOTLINK_DONE', 'Ficheiro "%s" hotlinked.<br>Internal name: \'%s\'. Feito.'); // Translate
+@define('HOTLINK_DONE', 'Ficheiro "%s" hotlinked.<br>Internal name: \'%s\'. Feito.'); // Verify
 @define('ENTER_MEDIA_URL_METHOD', 'Método de obtenção:');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'Nota: Se escolher fazer um hotlink para  o servidor, assegure-se que tem permissão para tal ou que o servidor é seu. Hotlinks permitem usar imagens sem as guardar localmente.'); // Verify
-@define('MEDIA_HOTLINKED', 'hotlinked'); // Translate?
+@define('MEDIA_HOTLINKED', 'hotlinked');
 @define('FETCH_METHOD_IMAGE', 'Download da imagem para o seu servidor');
 @define('FETCH_METHOD_HOTLINK', 'Hotlink para servidor'); // Verify
 @define('DELETE_HOTLINK_FILE', 'Apagado o ficheiro hotlinked intitulado <b>%s</b>'); // Verify
@@ -700,7 +700,7 @@
 @define('CATEGORIES_ALLOW_SELECT', 'Permitir aos visitantes mostrar múltiplas categorias simultaneamente?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Se esta opção for activada, uma caixa de marcação será posta ao lado de cada categoria no plugin da barra lateral. Os utilizadores podem marcar estas caixas e depois ver as entradas correspondendo à sua selecção.'); // Verify
 @define('PAGE_BROWSE_PLUGINS', 'Página %s de %s, totalizando %s plugins.');
-@define('INSTALL_CAT_PERMALINKS', 'Links Pernamentes'); // Translate ?
+@define('INSTALL_CAT_PERMALINKS', 'Links Pernamentes');
 @define('INSTALL_CAT_PERMALINKS_DESC', 'Define vários padrões de URLs para definir ligações permanentes no seu blogue. É sugerido que use as escolhas por omissão; caso contrário, deverá tentar usar o valor da %id% sempre que possível para evitar que o Serendipity pergunte à base de dados pela URL alvo.'); // Verify
 @define('INSTALL_PERMALINK', 'Estrutura de introdução do URL de Links Pernamentes'); // Verify
 @define('INSTALL_PERMALINK_DESC', 'Aqui pode definir a estrura relativa de URLs do seu URL base até onde as entradas estão disponíveis. Pode usar as variáveis %id%, %title%, %day%, %month%, %year% e quaisquer outros caracteres..'); // Verify

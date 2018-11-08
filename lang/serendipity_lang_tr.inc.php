@@ -676,21 +676,21 @@
 @define('INSTALL_AUTODETECT_URL_DESC', 'Eğer "true" olarak seçilirse, Serendipity ziyaretçilerin HTTP Host adresini sizin BaseURL ayarlarınıza göre kesin olarak belirleyebilecek.Bu seçenek açık olursa çoklu domain kullanma imkanına da sahip olursunuz, ve tüm izleyen bağlantılarda hangi kullanıcı hangi site bölümünüze erişmek istiyorsa erişebilir.');
 @define('CONVERT_HTMLENTITIES', 'HTML işaretleri kendiliğinden dönüştürülsün mü?');
 @define('EMPTY_SETTING', 'Bunun için doğru bir değer belirlemediniz: "%s"!');
-@define('USERCONF_REALNAME', 'Gerçek Ad'); // Translate
-@define('USERCONF_REALNAME_DESC', 'Yazarın tam adı. Okuyucular için gerekli'); // Translate
+@define('USERCONF_REALNAME', 'Gerçek Ad');
+@define('USERCONF_REALNAME_DESC', 'Yazarın tam adı. Okuyucular için gerekli');
 @define('HOTLINK_DONE', 'File "%s" hotlinked.<br>Internal name: \'%s\'. Done.'); // Translate
-@define('ENTER_MEDIA_URL_METHOD', 'Alma yöntemi:'); // Translate
-@define('ADD_MEDIA_BLAHBLAH_NOTE', 'Not: Sunucuya sıcak bağlantı vermeyi seçerseniz, tüm izinlere sahip olduğunuza emin olun.Sıcak linkler size site dışından resim saklama imkanı verir.'); // Translate
-@define('MEDIA_HOTLINKED', 'Sıcak Medya Bağlantıları'); // Translate
-@define('FETCH_METHOD_IMAGE', 'Sunucudan resmi indir'); // Translate
-@define('FETCH_METHOD_HOTLINK', 'Sunucudaki sıcak linkler'); // Translate
-@define('DELETE_HOTLINK_FILE', ' <b>%s</b> başlıklı dosyanın sıcak linklerini sil'); // Translate
+@define('ENTER_MEDIA_URL_METHOD', 'Alma yöntemi:');
+@define('ADD_MEDIA_BLAHBLAH_NOTE', 'Not: Sunucuya sıcak bağlantı vermeyi seçerseniz, tüm izinlere sahip olduğunuza emin olun.Sıcak linkler size site dışından resim saklama imkanı verir.');
+@define('MEDIA_HOTLINKED', 'Sıcak Medya Bağlantıları');
+@define('FETCH_METHOD_IMAGE', 'Sunucudan resmi indir');
+@define('FETCH_METHOD_HOTLINK', 'Sunucudaki sıcak linkler');
+@define('DELETE_HOTLINK_FILE', ' <b>%s</b> başlıklı dosyanın sıcak linklerini sil');
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'E-Posta adresi gösterilsin mi?');
 @define('IMAGE_MORE_INPUT', 'Daha fazla resim ekle');
-@define('BACKEND_TITLE', 'Eklenti yapılandırma ekranı hakkında daha fazla bilgi'); // Translate
-@define('BACKEND_TITLE_FOR_NUGGET', 'Burada özel karakterler tanımlayabilirsiniz Bunlar eklenti yapılandırma ekranında  HTML Nugget eklentisiyle beraber yayınlanabilir.Eğer boş başlıkla beraber çoklu HTML nugget sahibiyseniz , bu bir eklentiyi diğerinden ayırdedebilmenize yardım eder.'); // Translate
-@define('CATEGORIES_ALLOW_SELECT', 'Ziyaretçilerin önce çoklu konu başlıklarını görebilmesi için izin ver?'); // Translate
-@define('CATEGORIES_ALLOW_SELECT_DESC', 'Bu seçenek açık olursa, bir kontrol kutusu yanblok eklentilerindeki konu başlıklarının herbirinin yanına eklenecek.Ziyaretçiler bunlardan birkaçını işaretleyip bir kaç konu başlığı altındaki yazılara da aynı anda erişebilecekler.'); // Translate
+@define('BACKEND_TITLE', 'Eklenti yapılandırma ekranı hakkında daha fazla bilgi');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Burada özel karakterler tanımlayabilirsiniz Bunlar eklenti yapılandırma ekranında  HTML Nugget eklentisiyle beraber yayınlanabilir.Eğer boş başlıkla beraber çoklu HTML nugget sahibiyseniz , bu bir eklentiyi diğerinden ayırdedebilmenize yardım eder.');
+@define('CATEGORIES_ALLOW_SELECT', 'Ziyaretçilerin önce çoklu konu başlıklarını görebilmesi için izin ver?');
+@define('CATEGORIES_ALLOW_SELECT_DESC', 'Bu seçenek açık olursa, bir kontrol kutusu yanblok eklentilerindeki konu başlıklarının herbirinin yanına eklenecek.Ziyaretçiler bunlardan birkaçını işaretleyip bir kaç konu başlığı altındaki yazılara da aynı anda erişebilecekler.');
 @define('PAGE_BROWSE_PLUGINS', 'Sayfa %s sayısı %s, toplamda %s eklenti mevcut.');
 @define('INSTALL_CAT_PERMALINKS', 'Kalıcı Bağlantılar');
 @define('INSTALL_CAT_PERMALINKS_DESC', 'Sitenizdeki yazılara kalıcı bağlantı verilebilmesi için URL adresi modeli tanımlama seçeneği.Öntanımlı olarak kullanmanız önerilir; kullanmazsanız, şunu denemelisiniz %id% değeri nerede mümkünse Serendipity veritabanına oradan sorgu yapmalı; hedef URL adresini belirlemek için.');
