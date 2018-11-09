@@ -123,6 +123,15 @@ input[type="button"], input[type="checkbox"] {
     visibility: hidden;
 }
 
+/* Gallery-Container: default (fallback for no rows, no cols) */
+.serendipity_image_block {
+    display: inline-block;
+}
+.serendipity_image_block.row,
+.serendipity_image_block.col {
+    display: inherit;
+}
+
 /* Gallery-Container: per row order, flexed */
 /* This is used to enclose a gallery, using serendipity_image_left or _right floated images */
 .serendipity_image_block.row {
@@ -250,7 +259,7 @@ input[type="button"], input[type="checkbox"] {
 }
 .serendipity_image_block:not(.col) > .serendipity_image_left,
 .serendipity_image_block:not(.col) > .serendipity_image_right {
-    margin: 10px 0 0 0 !important; /* so that a direct child image behaves like a containerized image - and the top is 2x5px */
+    margin: 10px 0 !important; /* so that a direct child image behaves like a containerized image - and the top/right is 2x5px */
 }
 /* webkit (all) hack */
 .serendipity_image_block > .serendipity_imageComment_left .serendipity_image_link:not(*:root) {
