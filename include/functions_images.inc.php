@@ -165,6 +165,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
     }
 
     if (isset($serendipity['authorid']) && !serendipity_checkPermission('adminImagesViewOthers')) {
+        if (!isset($cond['parts']['authorid'])) $cond['parts']['authorid'] = '';
         $cond['parts']['authorid'] .= ' AND (i.authorid = 0 OR i.authorid = ' . (int)$serendipity['authorid'] . ")\n";
     }
 
