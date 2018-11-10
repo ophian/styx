@@ -486,7 +486,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
 
                 // Get the data we need to display the list
                 if (!$value) {
-                    $value = $eventData['default'];
+                    $value = isset($eventData['default']) ? $eventData['default'] : null;
                 }
                 $data['value'] = $value;
                 $data['cname'] = $cname = $cbag->get('name');

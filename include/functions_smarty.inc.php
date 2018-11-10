@@ -1162,7 +1162,7 @@ function serendipity_smarty_init($vars = array()) {
                 'head_subtitle'             => $serendipity['head_subtitle'],
                 'head_link_stylesheet'      => $serendipity['smarty_vars']['head_link_stylesheet'],
                 'head_link_script'          => $serendipity['smarty_vars']['head_link_script'],
-                'head_link_stylesheet_frontend' => $serendipity['smarty_vars']['head_link_stylesheet_frontend'],
+                'head_link_stylesheet_frontend' => isset($serendipity['smarty_vars']['head_link_stylesheet_frontend']) ? $serendipity['smarty_vars']['head_link_stylesheet_frontend'] : null,
 
                 'is_xhtml'                  => true,
                 'use_popups'                => $serendipity['enablePopup'],
