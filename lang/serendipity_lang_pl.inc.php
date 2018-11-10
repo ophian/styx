@@ -678,7 +678,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('EMPTY_SETTING', 'Podano nieprawid³owe dane dla "%s"!');
 @define('USERCONF_REALNAME', 'Prawdziwe imiê i nazwisko');
 @define('USERCONF_REALNAME_DESC', 'Pe³ne imiê i nazwisko, jest widziane przez czytaj±cych');
-@define('HOTLINK_DONE', 'Plik "%s" podlinkowany.<br>Internal name: \'%s\'. Zrobione.'); // Translate
+@define('HOTLINK_DONE', 'Plik "%s" podlinkowany.<br>Internal name: \'%s\'. Zrobione.');
 @define('ENTER_MEDIA_URL_METHOD', 'Sposób pobierania');
 @define('ADD_MEDIA_BLAHBLAH_NOTE', 'UWAGA! Je¶li wybierasz opcjê linkowania do pliku w sieci, upewnij siê, ¿e masz do tego prawo! Linkowanie pozwala na u¿ywanie obrazków z innych stron bez potrzeby ich zgrywania na serwer.');
 @define('MEDIA_HOTLINKED', 'podlinkowane');
