@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Sort serendipity_getAllGroups() return natural by name, since this
+    matters when having added additional groups.
+
   * Fix missing constants in various languages; remove doublets and fix
     spaces and missing linebreaks.
 
