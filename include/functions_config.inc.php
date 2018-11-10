@@ -1607,6 +1607,10 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
                 $groups[$k]['confvalue'] = $groups[$k]['name'] = constant($v['confvalue']);
             }
         }
+        // sort natural by name - start mattering if having additional groups
+        usort($groups, function($a, $b) {
+            return strnatcasecmp($a['name'],$b['name']);
+        });
     }
     return $groups;
 }
