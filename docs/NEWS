@@ -1,6 +1,11 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Add new lang constant ADDITIONAL_PROPERTIES_BY_PLUGIN for plugins
+    that add extended properties to entry forms, eg. for
+    <h3><?php echo sprintf(ADDITIONAL_PROPERTIES_BY_PLUGIN, PLUGIN_EXAMPLEPLUGIN_NAME); ?></h3>
+    header usage.
+
   * Sort serendipity_getAllGroups() return natural by name, since this
     matters when having added additional groups.
 
