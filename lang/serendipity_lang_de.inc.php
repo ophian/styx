@@ -1180,3 +1180,5 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die
 @define('GALLERY_ORIENTATION_PERROW', 'Reihenfolge per <b>Zeile</b>, links nach rechts. Max-width: 260px Beschränkung.');
 @define('GALLERY_ORIENTATION_STRICTCOL', 'Erzwinge <b>Spalten</b> für die abhängige container Breite:');
 
+@define('ADDITIONAL_PROPERTIES_BY_PLUGIN', 'Zusätzliche Einstellungen durch Plugin: %s');
+
