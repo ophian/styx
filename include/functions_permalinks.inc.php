@@ -281,7 +281,7 @@ function &serendipity_permalinkPatterns($return = false) {
     $PAT['UNSUBSCRIBE']              = '@/'  . $serendipity['permalinkUnsubscribePath'].'/(.*)/([0-9]+)@';
     $PAT['APPROVE']                  = '@/'  . $serendipity['permalinkApprovePath'].'/(.*)/(.*)/([0-9]+)@';
     $PAT['DELETE']                   = '@/'  . $serendipity['permalinkDeletePath'].'/(.*)/(.*)/([0-9]+)@';
-    $PAT['ARCHIVES']                 = '@/'  . $serendipity['permalinkArchivesPath'].'([/A-Za-z0-9]+)\.html@';
+    $PAT['ARCHIVES']                 = '@/'  . $serendipity['permalinkArchivesPath'].'/([/A-Za-z0-9]+)\.html@';
     $PAT['FEEDS']                    = '@/'  . $serendipity['permalinkFeedsPath'].'/@';
     $PAT['ADMIN']                    = '@/(' . $serendipity['permalinkAdminPath'] . '|entries)(/.+)?$@';
     $PAT['ARCHIVE']                  = '@/'  . $serendipity['permalinkArchivePath'] . '/?@';
@@ -788,7 +788,7 @@ function serendipity_getUriArguments($uri, $wildcard = false) {
         if ($args[0] == $indexFile || $args[0] == $serendipity['indexFile']) {
             unset($args[0]);
         }
-        // there are cases where uniqueness is error-prone, see "plugin/faq/cid/id"
+        // there are certain cases where uniqueness is error-prone, see "plugin/faq/cid/id"
         if ($args[0] != 'plugin') {
             $args = array_unique($args);
         }
