@@ -1,6 +1,12 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix mode_rewrite PAT_ARCHIVES permalinks pattern for wrong set
+    $_GET['url'] eg. "/archives//C2.html" cases. This does not matter
+    other archives rewrite cases. The (mode_rewrite) .htaccess file
+    needs to get rewritten by changing the archives path to something else
+    - save the configuration - reset to the old value and save again.
+
   * Add new lang constant ADDITIONAL_PROPERTIES_BY_PLUGIN for plugins
     that add extended properties to entry forms, eg. for
     <h3 class="additional_properties">
