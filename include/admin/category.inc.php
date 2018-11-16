@@ -53,7 +53,7 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
                 if (is_array($r)) {
                     $r = serendipity_db_query("SELECT category_name FROM {$serendipity['dbPrefix']}category
                                                         WHERE categoryid = ". (int)$parentid);
-                   $data['subcat'] = sprintf(ALREADY_SUBCATEGORY, serendipity_specialchars($r[0]['category_name']), serendipity_specialchars($name));
+                    $data['subcat'] = sprintf(ALREADY_SUBCATEGORY, serendipity_specialchars($r[0]['category_name']), serendipity_specialchars($name));
                 } else {
                     $_sort_order = isset($serendipity['POST']['cat']['sort_order']) ? $serendipity['POST']['cat']['sort_order'] : 0;
                     $_hide_sub   = isset($serendipity['POST']['cat']['hide_sub'])   ? $serendipity['POST']['cat']['hide_sub']   : 0;
