@@ -69,7 +69,7 @@
         </div>
 
         <h3 class="toggle_headline">
-            <button class="show_config_option icon_link" type="button" data-href="#directory_permissions" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.PERMISSIONS}</button>
+            <button class="show_config_option icon_link{if $closed} show_config_option_hide{/if}" type="button" data-href="#directory_permissions" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$CONST.PERMISSIONS}</button>
         </h3>
 
         <div id="directory_permissions" class="clearfix additional_info">

@@ -43,6 +43,7 @@ $data['case_directoryCreate'] = $data['case_directorySelect'] = false;
 $data['case_rotateCW'] = $data['case_rotateCCW'] = false;
 $data['case_scale'] = $data['case_scaleSelect'] = false;
 $data['showMLbutton'] = $data['case_default'] = false;
+$data['closed'] = false;
 
 switch ($serendipity['GET']['adminAction']) {
 
@@ -555,6 +556,7 @@ switch ($serendipity['GET']['adminAction']) {
         }
 
         $data['case_directoryEdit'] = true;
+        $data['closed'] = true;
 
         $use_dir   = serendipity_uploadSecure($serendipity['GET']['dir']);
         $checkpath = array(
