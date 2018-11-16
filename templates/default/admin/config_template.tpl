@@ -15,7 +15,7 @@
             {if $allowToggle}
 
                 <h3 class="toggle_headline">
-                    <button id="optionel{$category@iteration}" class="show_config_option icon_link{if $category@first} show_config_option_now{/if}" type="button" data-href="#el{$category@index}" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$category.title}</button>
+                    <button id="optionel{$category@iteration}" class="show_config_option icon_link{if $category@first} show_config_option_hide{/if}" type="button" data-href="#el{$category@index}" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span> {$category.title}</button>
                 </h3>
             {else}
                 <h3>{$category.title}</h3>
