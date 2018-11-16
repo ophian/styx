@@ -1400,6 +1400,7 @@ $(function() {
     // Collapsible configuration elements
     if ($('#serendipity_config_options, #serendipity_category, #image_directory_edit_form').length > 0) {
         var optsCollapsed = true;
+        var defaultConfigState = true;
 
         $('.show_config_option').click(function(e) {
             var $el = $(this);
@@ -1435,9 +1436,19 @@ $(function() {
             }
             $(this).toggleClass('active');
             e.preventDefault();
+            defaultConfigState = false;
         });
 
-        $('.show_config_option:not(.show_config_option_hide)').click();
+        if (defaultConfigState && $('#serendipity_config_options').length > 0) {
+            // Be strict to the default Serendipity configuration groups state only
+            $('#show_config_all').click(); // Yes, click twice to open and close the config groups,
+            $('#show_config_all').click(); // to remove and reset possible default wrong icon switches which occur with the else click part
+            // Now reopen and reset the icon-dir for the first group
+            $('#optionel1').find('span').removeClass('icon-right-dir').addClass('icon-down-dir');
+            $('#el0').removeClass('additional_info');
+        } else {
+            $('.show_config_option:not(.show_config_option_hide)').click();
+        }
     }
 
     $('.change_preview').change(function() {
