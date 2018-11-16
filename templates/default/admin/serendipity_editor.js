@@ -552,7 +552,7 @@
     // save in the cookie which options were selected when inserting a image from the media db
     serendipity.rememberMediaOptions = function() {
         $('#imageForm :input').each(function(index, element) {
-            if (element.type != 'radio' && element.checked != false && element.name.trim() != '') {
+            if (element.type == 'radio' && element.checked !== false && element.name.trim() != '') {
                 serendipity.SetCookie(element.name.replace(/\[/g, '_').replace(/\]/g, ''), $(element).val());
             }
         });
