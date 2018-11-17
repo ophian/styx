@@ -1438,7 +1438,9 @@ $(function() {
             defaultConfigState = false;
         });
 
-        // Since having changed the config_group default state behaviour to "open", to support non-js erroneousness pages - this is to catch all different pages to set the default state
+        // Since having changed the config_group default state behaviour to "open",
+        // to support non-js erroneousness pages in special for the main and personal configuration groups (!)
+        // this is to catch all different pages to set the default state
         if (defaultConfigState && ($('#plugin_options').length > 0 || $('#template_options').length > 0)) {
             // Plugin and Theme config groups only
             // void
