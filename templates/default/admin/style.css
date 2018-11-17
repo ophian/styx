@@ -2106,7 +2106,10 @@ form > .button_link:first-of-type,
 #serendipity_comments_list .actions,
 .actions_extra {
     float: right;
-    margin: .75em 0;
+    position: relative;
+    margin: 0;
+    top: 1.75em;
+    right: .25em;
 }
 
 .bayes_done {
