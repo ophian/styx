@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Separate spamblock main configuration_group for plugin_config generation
+
   * Fix mode_rewrite PAT_ARCHIVES permalinks pattern for wrong set
     $_GET['url'] eg. "/archives//C2.html" cases. This does not matter
     other archives rewrite cases. The (mode_rewrite) .htaccess file
