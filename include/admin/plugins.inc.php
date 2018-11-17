@@ -85,6 +85,8 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $config_names  = $bag->get('configuration');
     $config_groups = $bag->get('config_groups');
 
+    $data['has_config_groups'] = (!empty($config_groups) && is_array($config_groups)) ? count($config_groups) : 0;
+
     if (isset($_POST['SAVECONF']) && serendipity_checkFormToken()) {
         /* enum properties and set their values */
 

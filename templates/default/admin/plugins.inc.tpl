@@ -12,6 +12,10 @@
     {elseif isset($saveconf) AND $saveconf}
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}: {$CONST.SETTINGS_SAVED_AT|sprintf:"$timestamp"}</span>
     {/if}
+    {if $has_config_groups > 0}
+    <section id="plugin_options">
+
+    {/if}
     <h2>{$name} ({$class})</h2>
 
     <div class="plugin_info">
@@ -39,6 +43,10 @@
         {$formToken}
         {$config}
     </form>
+    {if $has_config_groups > 0}
+    </section>
+
+    {/if}
 {elseif isset($adminAction) AND $adminAction == 'addnew'}
     <h2>{if $type == 'event'}{$CONST.EVENT_PLUGINS}{/if}{if $type == 'sidebar'}{$CONST.SIDEBAR_PLUGINS}{/if}{if $type == 'both'}{$CONST.MENU_PLUGINS}{/if}{if $only_group != 'UPGRADE'} <span class="plugins_available">({$CONST.PLUGIN_AVAILABLE_COUNT|sprintf:$count_pluginstack})</span>{/if}</h2>
     {foreach $errorstack AS $e_idx => $e_name}
@@ -174,7 +182,7 @@
     {if $updateAllMsg}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}: All Plugins updated</span>{* i18n *}
     {/if}
-    <div class="tabs" id="pluginlist_tabs">
+    <div id="pluginlist_tabs" class="tabs">
         <section id="pluginlist_sidebar" class="panel">
             <h3>{$CONST.SIDEBAR_PLUGINS}</h3>
             <a class="button_link" href="?serendipity[adminModule]=plugins&amp;serendipity[adminAction]=addnew" title='{$CONST.CLICK_HERE_TO_INSTALL_PLUGIN|sprintf:"{$CONST.SIDEBAR_PLUGIN}"}'>{$CONST.INSTALL_NEW_SIDEBAR_PLUGIN}</a>
