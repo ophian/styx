@@ -162,3 +162,5 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC', 'Time frame for comments within X days');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC', 'The comment function of an article may only globally be allowed for a limited period of X days from the article date. This might be a valid request to make sure your Blog is not flooded with bogus comments for old entries. The default value is "0" and allows comments to any existing article without age limit.');
 
+@define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION', 'Main-Configuration');
+
