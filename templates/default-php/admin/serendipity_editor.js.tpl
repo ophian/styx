@@ -1439,7 +1439,11 @@ $(function() {
             defaultConfigState = false;
         });
 
-        if (defaultConfigState && $('#serendipity_config_options').length > 0) {
+        // Since having changed the config_group default state behaviour to "open", to support non-js erroneousness pages - this is to catch all different pages to set the default state
+        if (defaultConfigState && ($('#plugin_options').length > 0 || $('#template_options').length > 0)) {
+            // Plugin and Theme config groups only
+            // void
+        } else if (defaultConfigState && $('#serendipity_config_options').length > 0) {
             // Be strict to the default Serendipity configuration groups state only
             $('#show_config_all').click(); // Yes, click twice to open and close the config groups,
             $('#show_config_all').click(); // to remove and reset possible default wrong icon switches which occur with the else click part
