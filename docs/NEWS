@@ -134,7 +134,7 @@ Version 2.6.0 (2018-09-07)
  ------------------------------------------------------------------------
 
   * Add a Theme-Manager-Clearance maintenance Spot, to get rid of
-    old and presumably outdated additional or private plugins.
+    old and presumably outdated additional or private themes.
 
   * themes: Update last modified date for Styx 2.6.0
 
