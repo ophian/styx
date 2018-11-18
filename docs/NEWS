@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Add a Zombie Plugin Manager Clearance maintenance Spot, to get rid of
+    old and locally outdated unsynchronized plugins.
+
   * Fix unknown regression for comment actions group styles
 
   * Separate spamblock main configuration_group for plugin_config generation
