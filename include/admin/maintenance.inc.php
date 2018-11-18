@@ -15,6 +15,11 @@ ob_end_clean();
 $keepthemes = [ '2k11', '2styx', 'blue','bootstrap4', 'bulletproof', 'carl_contest', 'clean-blog',
             'competition', 'contest', 'default', 'default-php', 'default-rtl', 'default-xml',
             'idea', 'kubrick', 'next', 'skeleton', 'timeline' ];
+$keepevplugins = [ 'bbcode', 'changelog', 'emoticate', 'entryproperties', 'mailer', 'modemaintain',
+            'nl2br', 'plugup', 's9ymarkup', 'spamblock', 'spartacus', 'xhtmlcleanup' ];
+$keepsbplugins = [ 'archives', 'authors', 'calendar', 'categories', 'comments', 'entrylinks',
+            'eventwrapper', 'history', 'html_nugget', 'plug', 'quicksearch', 'recententries',
+            'remoterss', 'superuser', 'syndication' ];
 
 if ($serendipity['GET']['adminAction'] == 'cleartemp') {
     include_once S9Y_INCLUDE_PATH . 'include/functions_upgrader.inc.php';
@@ -69,6 +74,37 @@ switch($serendipity['GET']['adminAction']) {
                 $data['dbUtf8mb4_simulated'] = false;
             }
         }
+        break;
+
+    case 'checkplug':
+        if (!serendipity_checkPermission('siteConfiguration')) {
+            $data['pluginmanager_error'] = PERM_DENIED;
+            break;
+        }
+        $extpluginzs = serendipity_db_query("SELECT a.class_name AS path
+                                            FROM {$serendipity['dbPrefix']}pluginlist a
+                                       LEFT JOIN {$serendipity['dbPrefix']}pluginlist b
+                                              ON a.pluginlocation = 'local' AND b.pluginlocation = 'Spartacus' AND
+                                                (b.upgrade_version IS NULL OR b.upgrade_version = '') AND a.upgrade_version < b.version
+                                           WHERE a.class_name = b.class_name");
+        if (!empty($extpluginzs) && is_array($extpluginzs)) {
+            foreach ($extpluginzs AS $pstack) $plugins[] = $pstack['path'];
+
+            $dir = new DirectoryIterator($serendipity['serendipityPath'] . 'plugins');
+            foreach ($dir AS $fileinfo) {
+                if ($fileinfo->isDir() && !$fileinfo->isDot()) {
+                    $dirname = str_replace(array('serendipity_event_', 'serendipity_plugin_'), '', $fileinfo->getFilename());
+                    // exclude release plugin names
+                    if (!in_array($dirname, $keepevplugins) && !in_array($dirname, $keepsbplugins)) {
+                        if (in_array($fileinfo->getFilename(), $plugins)) {
+                            #echo $dirname."<br>\n";
+                            $data['local_plugins'][$fileinfo->getFilename()] = $dirname;
+                        }
+                    }
+                }
+            }
+        }
+        $data['select_localplugins_total'] = isset($data['local_plugins']) ? count($data['local_plugins']) : 0;
         break;
 
     case 'checktemp':

@@ -96,6 +96,43 @@
 {/if}
 
 {if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
+    <section id="maintenance_pluginmanager" class="quick_list">
+        <h3>{$CONST.PLUGINMANAGER}</h3>
+    {if NOT empty($pluginmanager_error)}
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$pluginmanager_error}</span>
+    {else if $zomb}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.PLUGINMANAGER_ZOMB_OK}</span>
+    {else if isset($select_localplugins_total) AND $select_localplugins_total == 0}
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <em>{$CONST.NOTHING_TODO}</em></span>
+    {else if NOT isset($local_plugins) OR !is_array($local_plugins)}
+        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=checkplug" title="{$CONST.PLUGINMANAGER_LOCALPLUGINS|default:'Plugin Zombies'|lower}"><span>{$CONST.PLUGINMANAGER_LOCALPLUGINS}</span></a>
+    {else}
+
+        <form id="maintenance_clearplug_multi" enctype="multipart/form-data"  method="POST" action="serendipity_admin.php">
+            <input type="hidden" name="serendipity[adminModule]" value="maintenance">
+            <input type="hidden" name="serendipity[adminAction]" value="clearplug">
+            {$formtoken}
+
+            <div class="form_select">
+                <select id="clearplug_access_multi_plugins" class="" name="serendipity[clearplug][multi_plugins][]" multiple="multiple" size="{$select_localplugins_total}">
+                {foreach $local_plugins AS $plugins}
+                    <option value="{$plugins@key}">{$plugins}</option>
+                {/foreach}
+                </select>
+            </div>
+
+            <div class="form_buttons">
+                <input class="state_submit" name="clearplug_multi" value="{$CONST.PLUGINMANAGER_SUBMIT}" type="submit">
+                <button class="toggle_info button_link" type="button" data-href="#zomplug_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+                <span id="zomplug_info" class="comment_status additional_info">{$CONST.PLUGINMANAGER_INFO}</span>
+            </div>
+        </form>
+
+    {/if}
+    </section>
+{/if}
+
+{if 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission}
     <section id="maintenance_thememanager" class="quick_list">
         <h3>{$CONST.THEMEMANAGER}</h3>
     {if NOT empty($thememanager_error)}

@@ -2726,6 +2726,7 @@ h3 .media_file_actions {
     float: none;
     margin: 0 0 .5em;
 }
+#clearplug_access_multi_plugins,
 #cleartemp_access_multi_themes {
     width: 100%;
 }
