@@ -21,7 +21,7 @@ $keepsbplugins = [ 'archives', 'authors', 'calendar', 'categories', 'comments', 
             'eventwrapper', 'history', 'html_nugget', 'plug', 'quicksearch', 'recententries',
             'remoterss', 'superuser', 'syndication' ];
 
-if ($serendipity['GET']['adminAction'] == 'cleartemp') {
+if ($serendipity['GET']['adminAction'] == 'cleartemp' || $serendipity['GET']['adminAction'] == 'clearplug') {
     include_once S9Y_INCLUDE_PATH . 'include/functions_upgrader.inc.php';
 }
 
@@ -35,7 +35,8 @@ $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
 $data['dbnotmysql']          = ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true;
 $data['suffixTask']          = (is_array($usedSuffixes) && count($usedSuffixes) > 1) ? true : false;
-$data['zomb']                = null;
+$data['zombP']               = null;
+$data['zombT']               = null;
 
 switch($serendipity['GET']['adminAction']) {
     case 'integrity':
@@ -107,6 +108,28 @@ switch($serendipity['GET']['adminAction']) {
         $data['select_localplugins_total'] = isset($data['local_plugins']) ? count($data['local_plugins']) : 0;
         break;
 
+    case 'clearplug':
+        if (!serendipity_checkPermission('siteConfiguration') || !serendipity_checkFormToken()) {
+            $data['pluginmanager_error'] = PERM_DENIED;
+            break;
+        }
+        if (isset($serendipity['POST']['clearplug']['multi_plugins']) && is_array($serendipity['POST']['clearplug']['multi_plugins'])) {
+            $postplugz = $serendipity['POST']['clearplug']['multi_plugins'];
+            $plugzombies = array();
+            foreach ($postplugz AS $plugz) {
+                $plugzombies[] = $serendipity['serendipityPath'] . 'plugins/' . $plugz;
+            }
+            if (!empty($plugzombies)) {
+                // do purge
+                recursive_directory_iterator($plugzombies);
+                // test the first for messaging, since method does not return boolean
+                if (!is_dir($plugzombies[0])) {
+                    $data['zombP'] = true;
+                }
+            }
+        }
+        break;
+
     case 'checktemp':
         if (!serendipity_checkPermission('siteConfiguration')) {
             $data['thememanager_error'] = PERM_DENIED;
@@ -147,7 +170,7 @@ switch($serendipity['GET']['adminAction']) {
                     recursive_directory_iterator($themezombies);
                     // test the first for messaging, since method does not return boolean
                     if (!is_dir($themezombies[0])) {
-                        $data['zomb'] = true;
+                        $data['zombT'] = true;
                     }
                 }
         }

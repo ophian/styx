@@ -100,7 +100,7 @@
         <h3>{$CONST.PLUGINMANAGER}</h3>
     {if NOT empty($pluginmanager_error)}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$pluginmanager_error}</span>
-    {else if $zomb}
+    {else if $zombP}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.PLUGINMANAGER_ZOMB_OK}</span>
     {else if isset($select_localplugins_total) AND $select_localplugins_total == 0}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <em>{$CONST.NOTHING_TODO}</em></span>
@@ -137,7 +137,7 @@
         <h3>{$CONST.THEMEMANAGER}</h3>
     {if NOT empty($thememanager_error)}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$thememanager_error}</span>
-    {else if $zomb}
+    {else if $zombT}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.THEMEMANAGER_ZOMB_OK}</span>
     {else if isset($select_localthemes_total) AND $select_localthemes_total == 0}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <em>{$CONST.NOTHING_TODO}</em></span>
