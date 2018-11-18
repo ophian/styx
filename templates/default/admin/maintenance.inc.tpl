@@ -105,7 +105,7 @@
     {else if isset($select_localplugins_total) AND $select_localplugins_total == 0}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <em>{$CONST.NOTHING_TODO}</em></span>
     {else if NOT isset($local_plugins) OR !is_array($local_plugins)}
-        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=checkplug" title="{$CONST.PLUGINMANAGER_LOCALPLUGINS|default:'Plugin Zombies'|lower}"><span>{$CONST.PLUGINMANAGER_LOCALPLUGINS}</span></a>
+        <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=checkplug" title="{$CONST.PLUGINMANAGER_LOCALPLUGINS|lower}"><span>{$CONST.PLUGINMANAGER_LOCALPLUGINS}</span></a>
     {else}
 
         <form id="maintenance_clearplug_multi" enctype="multipart/form-data"  method="POST" action="serendipity_admin.php">
