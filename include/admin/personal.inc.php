@@ -46,9 +46,7 @@ if ($serendipity['GET']['adminAction'] == 'save' && serendipity_checkFormToken()
             foreach($category['items'] AS $item) {
                 if (in_array('groups', $item['flags'])) {
                     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
-
-                        // Void, no fixing necessarry
-
+                        // Void, no fixing necessary
                     } elseif (serendipity_checkPermission('adminUsersMaintainSame')) {
                         if (!isset($_POST[$item['var']]) || !is_array($_POST[$item['var']])) {
                             continue;
