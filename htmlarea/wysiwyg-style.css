@@ -117,7 +117,7 @@ p > img.serendipity_image_right {
     justify-content: space-evenly;
     margin-bottom: 1em;
 }
-/* The inline containers or items min/max size to scale gallery images to a effordable size */
+/* The inline containers or items min/max size to scale gallery images to an affordable size */
 .serendipity_image_block.row .serendipity_imageComment_left,
 .serendipity_image_block.row .serendipity_imageComment_right,
 .serendipity_image_block.row .serendipity_image_link,
