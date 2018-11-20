@@ -2396,6 +2396,7 @@ h3 .media_file_actions {
     float: left;
     line-height: 1.5em;
     margin: .375em 2em 0 0;
+    color: #222;
 }
 
 .taxonomy ul {
