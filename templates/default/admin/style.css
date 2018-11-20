@@ -2427,6 +2427,10 @@ h3 .media_file_actions {
     padding: .1428em .5em 0;
     text-align: center;
 }
+.taxonomy .tagged {
+    color: #101081;
+    text-decoration: underline;
+}
 
 #template_select article,
 .plugins_installable > li,

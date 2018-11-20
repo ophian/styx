@@ -849,7 +849,7 @@
                 $('<li><?= EDITOR_NO_TAGS ?></li>').appendTo($target);
             } else {
                 $.each(tagged, function(key, tag) {
-                    $('<li class="selected">'+ tag +'</li>').appendTo($target);
+                    $('<li class="tagged">'+ tag +'</li>').appendTo($target);
                 });
             }
         }
