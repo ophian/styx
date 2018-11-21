@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix plugin config generation for case ctype: hidden to not use the zebra
+
   * Add a Zombie Plugin Manager Clearance maintenance Spot, to get rid of
     old and locally outdated unsynchronized plugins.
 
