@@ -719,7 +719,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
             continue;
         }
 
-        if (preg_match_all('@<img[^>]+?alt=["\']?([^\'">]+?)[\'"][^>]+?>@i', $names[$i], $img_alt)) {
+        if (isset($names[$i]) && preg_match_all('@<img[^>]+?alt=["\']?([^\'">]+?)[\'"][^>]+?>@i', $names[$i], $img_alt)) {
             if (is_array($img_alt) && is_array($img_alt[0])) {
                 foreach($img_alt[0] AS $alt_idx => $alt_img) {
                     // Replace all <img>s within a link with their respective ALT tag, so that references
@@ -739,7 +739,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
             if ($debug) $serendipity['logger']->debug($row);
         }
 
-        $names[$i] = strip_tags($names[$i]);
+        $names[$i] = isset($names[$i]) ? strip_tags($names[$i]) : array();
         if (empty($names[$i])) {
             if ($debug) $serendipity['logger']->debug("Found reference $locations[$i] w/o name. Adding location as name");
             $names[$i] = $locations[$i];
