@@ -211,11 +211,11 @@
                 <h3>{$CONST.PAGE_BROWSE_ENTRIES|sprintf:($page+1):$totalPages:$totalEntries}</h3>
 
                 <ul class="clearfix">
-                    <li class="first">{if ($page) > 0}<a class="button_link" href="{$linkFirst}" title="{$CONST.FIRST_PAGE}"><span class="visuallyhidden">{$CONST.FIRST_PAGE} </span><span class="icon-to-start" aria-hidden="true"></span></a>{/if}</li>
-                    <li class="prev">{if ($offSet > 0)}<a class="button_link" href="{$linkPrevious}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
+                    <li class="first">{if $page > 0}<a class="button_link" href="{$linkFirst}" title="{$CONST.FIRST_PAGE}"><span class="visuallyhidden">{$CONST.FIRST_PAGE} </span><span class="icon-to-start" aria-hidden="true"></span></a>{/if}</li>
+                    <li class="prev">{if $offSet > 0}<a class="button_link" href="{$linkPrevious}" title="{$CONST.PREVIOUS}"><span class="icon-left-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.PREVIOUS}</span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
                     {* Looks weird, but last will be placed to end by the CSS float:right *}
                     <li class="last">{if ($page+1) < $totalPages}<a class="button_link" href="{$linkLast}{$totalPages-1}" title="{$CONST.LAST_PAGE}"><span class="visuallyhidden">{$CONST.LAST_PAGE} </span><span class="icon-to-end" aria-hidden="true"></span></a>{/if}</li>
-                    <li class="next">{if ($count > $perPage)}<a class="button_link" href="{$linkNext}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir" aria-hidden="true"></span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
+                    <li class="next">{if $count > $perPage}<a class="button_link" href="{$linkNext}" title="{$CONST.NEXT}"><span class="visuallyhidden">{$CONST.NEXT} </span><span class="icon-right-dir" aria-hidden="true"></span></a>{else}<span class="visuallyhidden">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}</li>
                 </ul>
             </nav>
         {/if}
@@ -223,6 +223,7 @@
     {/if}
     {if NOT $simpleFilters AND isset($entries) AND is_array($entries)}
         <div id="multidelete_tools" class="form_buttons">
+            {if isset($smarty.get.serendipity.catref)}<a class="button_link" href="?serendipity[adminModule]=category&serendipity[adminAction]=view">{$CONST.BACK}</a>{/if}
             <input class="invert_selection" name="toggle" type="button" value="{$CONST.INVERT_SELECTIONS}">
             <input class="state_cancel" name="toggle" type="submit" value="{$CONST.DELETE}">
         </div>
