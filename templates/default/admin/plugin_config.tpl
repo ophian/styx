@@ -41,7 +41,7 @@
     {if NOT empty($spamblock_main_group)}<h3>{$CONST.PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION}</h3>{/if}
     <div class="configuration_group main_group">
 {foreach $plugin_options_ungrouped AS $plugin_option}{if !isset($plugin_option)}{continue}{/if}
-    {if ($plugin_option['ctype'] == 'separator' OR $plugin_option['ctype'] == 'seperator') OR $plugin_option['ctype'] == 'suboption' OR $plugin_option['ctype'] == 'hidden'}{* compat - due to misspelled word 'seper...' *}
+    {if in_array($plugin_option['ctype'], ['separator', 'seperator', 'suboption', 'hidden'])}{* 'seper...' for compat, while being misspelled too long *}
         {$plugin_option['config']}
     {else if !empty($plugin_option['config'])}
 
