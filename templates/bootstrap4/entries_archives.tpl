@@ -16,8 +16,10 @@
                 <div class="card-body">
                     <dl class="row">
                     {foreach $archive.months AS $month}
+                        {if $month.entry_count > 0}
                         <dt class="col-xs-12 col-lg-6">{if $month.entry_count}<a href="{$month.link}" title="{$CONST.VIEW_FULL}">{/if}{$month.date|formatTime:"%B"}{if $month.entry_count}</a>{/if}:</dt>
                         <dd class="col-xs-12 col-lg-6">{if $month.entry_count}<a href="{$month.link_summary}" title="{$CONST.VIEW_TOPICS}">{/if}{$month.entry_count} {$CONST.ENTRIES}{if $month.entry_count}</a>{/if}</dd>
+                        {/if}
                     {/foreach}
                     </dl>
                 </div>
