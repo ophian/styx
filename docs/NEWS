@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Add new 'frontend_fetcharchives' event hook to the entries API,
+    which allows SQL conditions by plugins; tailored for categorytemplates.
+
   * Extend categories / entries list link references
 
   * Fix plugin config generation for case ctype: hidden to not use the zebra
