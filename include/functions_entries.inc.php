@@ -1838,8 +1838,18 @@ function serendipity_printArchives() {
         $distinct = '';
     }
 
+    $cond = array();
+    serendipity_plugin_api::hook_event('frontend_fetcharchives', $cond, array('source' => 'entries'));
+    if (!isset($cond['and']) || !empty($cat_get)) {
+        $cond['and'] = '';
+    }
+    if (!isset($cond['joins']) || !empty($cat_get)) {
+        $cond['joins'] = '';
+    }
+
     $q = "SELECT $distinct e.timestamp
             FROM {$serendipity['dbPrefix']}entries e
+            {$cond['joins']}
             " . (!empty($cat_sql) ? "
        LEFT JOIN {$serendipity['dbPrefix']}entrycat ec
               ON e.id = ec.entryid
@@ -1849,7 +1859,9 @@ function serendipity_printArchives() {
                 . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : '')
                 . (!empty($cat_sql) ? ' AND ' . $cat_sql : '')
                 . (!empty($serendipity['GET']['viewAuthor']) ? ' AND e.authorid = ' . (int)$serendipity['GET']['viewAuthor'] : '')
+                . "{$cond['and']}"
                 . (!empty($cat_sql) ? ' GROUP BY e.id, e.timestamp' : '');
+    // die($q);
     $entries =& serendipity_db_query($q, false, 'assoc');
 
     $group = array();
