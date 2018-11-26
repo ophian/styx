@@ -60,7 +60,7 @@ function locateHiddenVariables($_args) {
             $serendipity['short_archives'] = true;
             $serendipity['head_subtitle'] .= SUMMARY . ' - ';
             unset($_args[$k]);
-        } elseif ($v[0] == 'C') { /* category */
+        } elseif ($v[0] == 'C') { /* C.ategory in "/categories/" and "/archives/" like URIs */
             $cat = substr($v, 1);
             if (is_numeric($cat)) {
                 $serendipity['GET']['category'] = $cat;
