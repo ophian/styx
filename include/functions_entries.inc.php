@@ -427,7 +427,8 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     $serendipity['fullCountQuery'] .= "
                     {$cond['joins']}
                     {$cond['and']}";
-
+    // DEBUG:
+    // die($serendipity['fullCountQuery']);
     if (!empty($limit)) {
         if (isset($serendipity['GET']['page']) && ($serendipity['GET']['page'] > 1 || serendipity_db_bool($serendipity['archiveSortStable'])) && !strstr($limit, ',')) {
             if (serendipity_db_bool($serendipity['archiveSortStable'])) {
@@ -774,7 +775,8 @@ function &serendipity_fetchCategories($authorid = null, $name = null, $order = n
     if (!empty($order)) {
         $querystring .= "\n ORDER BY $order";
     }
-
+    // DEBUG:
+    // die($querystring);
     $ret =& serendipity_db_query($querystring);
     if (is_string($ret)) {
         echo "Query failed: $ret";
