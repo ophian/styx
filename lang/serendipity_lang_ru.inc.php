@@ -790,7 +790,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CATEGORIES_PARENT_BASE', 'Показывать только подкатегории...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Вы можете выбрать какую-нибудь категорию, чтобы показывались только её подкатегории.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Прятать категории, не входящие в дерево категорий');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Если вы хотите прятать категории, которые принадлежат другому дереву категорий, вам нужно включить эту опцию. Эта настройка имеет больше всего смысла, если используется вместе с мульти-блогами с помощью плагина "Properties/Templates of categories".');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Если вы хотите прятать категории, которые принадлежат другому дереву категорий, вам нужно включить эту опцию. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Просматривать медиа-файлы других пользователей');
 @define('CHARSET_NATIVE', 'Родная');
 @define('INSTALL_CHARSET', 'Выбор кодировки');

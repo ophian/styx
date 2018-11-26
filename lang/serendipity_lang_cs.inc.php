@@ -800,7 +800,7 @@ $i18n_filename_to = array (
 @define('CATEGORIES_PARENT_BASE', 'Zobrazit jen kategorie niže ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Mùžete vybrat rodièovskou kategorii, takže budou zobrazeny jen její nižší kategori.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Skrýt kategorie, které nejsou souèástí stromu kategorií');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jestliže chcete skrýt kategorie, které jsou èástí jiného stromu kategorií, musíte tohle povolit. Tato možnost se nejlépe  použije ve spojení s multi-blogem a pluginem  "Properties/Templates of categories".');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jestliže chcete skrýt kategorie, které jsou èástí jiného stromu kategorií, musíte tohle povolit. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminProhlíženíObrázkùOstatní: Prohlížení medií ostatních uživatelù');
 @define('CHARSET_NATIVE', 'Národní');
 @define('INSTALL_CHARSET', 'Volba znakové sady - Charset');

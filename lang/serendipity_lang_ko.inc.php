@@ -787,7 +787,7 @@
 @define('CATEGORIES_PARENT_BASE', '하위 범주만 보이기');
 @define('CATEGORIES_PARENT_BASE_DESC', '하나의 상위 범주를 골라서 그 아래에 있는 범주만 보이도록 할 수 있습니다.');
 @define('CATEGORIES_HIDE_PARALLEL', '범주 트리에 속하지 않는 범주 숨기기');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', '다른 범주 트리에 속해 있는 범주를 보이지 않게 하려면 이것을 사용하십시오. "범주의 속성/템플릿" 플러그인을 적용한 멀티블로그와 함께 사용할 때 가장 의미가 있습니다.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', '다른 범주 트리에 속해 있는 범주를 보이지 않게 하려면 이것을 사용하십시오. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 다른 사용자의 미디어 파일 보기');
 @define('CHARSET_NATIVE', '지역 전용');

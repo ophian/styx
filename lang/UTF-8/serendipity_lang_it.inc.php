@@ -788,7 +788,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Visualizza solo categorie qui sotto ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Puoi scegliere una gategoria padre in modo che siano visualizzate solo le categorie figlie.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Nascondi le categorie che non sono parte dell\'albero delle categorie');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Se vuoi nascondere le categorie che fanno parte di un different albero di categorie, devi abilitare questo. Questa categoria ha senso soprattutto se usata in congiunzione con un multi-blog che utilizzi il plugin "Proprietà/Modelli di categorie".');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Se vuoi nascondere le categorie che fanno parte di un different albero di categorie, devi abilitare questo. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Visualizza files media di altri utenti');
 @define('CHARSET_NATIVE', 'Nativo');
 @define('INSTALL_CHARSET', 'Selezione insieme di caratteri');

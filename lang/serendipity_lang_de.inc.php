@@ -786,7 +786,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Zeige nur Kategorien unterhalb ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Sie können eine Eltern-Kategorie definieren, so dass nur die Unterkategorien derselben angezeigt werden.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Bestimmte Kategorien verstecken?');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Falls Sie Kategorien verstecken wollen, die nicht Teil des vom Besucher gewählten Kategoriebaums sind, und die innerhalb einer parallelen Baumstruktur abgebildet sind, muss diese Option aktiviert werden. Diese Einstellung macht hauptsächlich dann Sinn, wenn sie in einem Multi-Blog-System des "Eigenschaften/Templates von Kategorien"-Plugins verwendet werden.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Falls Sie Kategorien verstecken wollen, die nicht Teil des vom Besucher gewählten Kategoriebaums sind, und die innerhalb einer parallelen Baumstruktur abgebildet sind, muss diese Option aktiviert werden. Diese Einstellung machte früher hauptsächlich dann Sinn, wenn sie in einem "Multi-Blog" artigen System mittels des "Eigenschaften/Templates von Kategorien"-Plugins verwendet wurde. Dies ist jetzt aber nicht mehr der Fall, da dieses Plugin in seiner Version größer/gleich v.1.50 versteckte Kategorien unabhängig und besser herausrechnen kann. Sie sollten diese Option also nur noch verwenden, wenn sie einen konkreten Anwendungsfall außerhalb vom genannten "categorytemplates" Plugin haben.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Mediendaten anderer Benutzer ansehen');
 @define('CHARSET_NATIVE', 'Nationaler Zeichensatz');
 @define('INSTALL_CHARSET', 'Zeichensatz-Auswahl');

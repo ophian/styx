@@ -787,7 +787,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Laat alleen categorieën zien onder...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Kies een categorie waarvan alleen de onderliggende categorieën getoond moeten worden.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Verberg categorieën die geen deel uitmaken van de categorieënboom');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Zet deze optie aan als u categorieën wilt verbergen die deel uitmaken van een andere categorieënboom. Dit is vooral nuttig voor een multiblog dat de "Eigenschappen/Templates van categorieën"-plugin gebruikt.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Zet deze optie aan als u categorieën wilt verbergen die deel uitmaken van een andere categorieënboom. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Mediabestanden van anderen bekijken');
 @define('CHARSET_NATIVE', 'Taalafhankelijk');
 @define('INSTALL_CHARSET', 'Tekensetselectie');

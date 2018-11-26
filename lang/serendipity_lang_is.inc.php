@@ -786,7 +786,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Sýna einungis flokka undir...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Þú getur valið yfirflokk svo að einungis undirflokkar þess flokks eru sýndir.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Sýna flokka sem eru ekki hluti af flokkstrénu');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ef þú vilt fela flokka sem eru hluti af öðru flokkstré þarftu að virkja þetta. Þessi möguleiki á best rétt á sér ef notaður í samfloti við fjölda-blogg, þegar viðbótin "Properties/Templates of categories" er notuð.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ef þú vilt fela flokka sem eru hluti af öðru flokkstré þarftu að virkja þetta. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Skoða gagnaskrár annarra notenda');
 @define('CHARSET_NATIVE', 'Innlent');
 @define('INSTALL_CHARSET', 'Val stafasetts (charset)');

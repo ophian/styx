@@ -790,7 +790,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('CATEGORIES_PARENT_BASE', 'Poka¿ tylko kategorie zawieraj±ce siê w...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Mo¿esz wybraæ kategoriê nadrzêdn± co spowoduje wy¶wietlanie tylko kategorii podrzêdnych, zawartych w kategorii nadrzêdnej');
 @define('CATEGORIES_HIDE_PARALLEL', 'Ukryj kategorie, które nie s± czê¶ci± drzewa kategorii');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Je¶li chcesz ukryæ kategorie, które znajduj± siê w innym drzewie kategorii, musisz w³±czyæ tê opcjê. Korzystanie z tej opcji ma sens przy u¿ywaniu Serendipity jako multi-bloga i u¿yciu wtyczki "Properties/Templates of categories".');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Je¶li chcesz ukryæ kategorie, które znajduj± siê w innym drzewie kategorii, musisz w³±czyæ tê opcjê. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Ogl±danie plików z mediami innych u¿ytkowników');
 @define('CHARSET_NATIVE', 'Natywne');
 @define('INSTALL_CHARSET', 'Wybór kodowania znaków');

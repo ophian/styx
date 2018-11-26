@@ -786,7 +786,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Csak ezen kategóriák mutatása ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Választhatsz szülő kategóriát, így csak az alá tartozó gyermekkategóriák látszódnak.');
 @define('CATEGORIES_HIDE_PARALLEL', 'A kategória fába nem tartozó kategóriák elrejtése');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ha nem szeretnéd hogy azok a kategóriák is megjelenjenek, amelyek más kategóriafához tartoznak, engedélyezheted. Ennek csak akkor van jelentősége, ha a "multi-blog"-al együtt használod, a "Kategóriák tulajdonságai/sablonjai" modulban.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ha nem szeretnéd hogy azok a kategóriák is megjelenjenek, amelyek más kategóriafához tartoznak, engedélyezheted. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'Más felhasználók média fájljainak megtekintése');
 @define('CHARSET_NATIVE', 'Natív (beépített)');
 @define('INSTALL_CHARSET', 'Karakterkódolás választása');

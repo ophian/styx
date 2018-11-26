@@ -787,7 +787,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Vis kun kategorier herunder...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Du kan vælge en forælder kategori, så kun kategorierne herunder vises.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Skjul kategorier som ikke er en del af kategoritræet');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Hvis du ønsker at skjule kategorier som er del af et andet kategoritræ skal du vælge \'Ja\' her. Denne feature giver mest mening i en flerbruger blog installation, som anvender "Properties/Tempaltes of categories" pluginet.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Hvis du ønsker at skjule kategorier som er del af et andet kategoritræ skal du vælge \'Ja\' her. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Vis andre brugeres media filer');
 @define('CHARSET_NATIVE', 'Native');
 @define('INSTALL_CHARSET', 'Karaktersæt valg');

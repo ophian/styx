@@ -790,7 +790,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Sadece Konu başlıklarını göster...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Sadece alt konu başlıklarını seçebilirsiniz, sitede de sadece seçtiğiniz konu başlıkları gösterilir.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Konu başlıkları ağaç yapısının parçası olmayan konu başlıklarını gizle');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Başka bir konu başlığı ağacı altında gösterilen konu başlığını gizlemek istiyorsanız, bu seçenek açık olsun. Eğer bir altyapıda çoklu site yayını yapıyor ve  "Konu Başlıklarının Özellikleri/Şablonlar" eklentisi kullanıyorsanız işinize yarayacaktır.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Başka bir konu başlığı ağacı altında gösterilen konu başlığını gizlemek istiyorsanız, bu seçenek açık olsun. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'DiğerKullanıcılarınMedyalarınınYönetimi: Diğer Kullanıcıların medya dosyalarını izleyebil');
 @define('CHARSET_NATIVE', 'Doğal');
 @define('INSTALL_CHARSET', 'Karakter Seçimi');

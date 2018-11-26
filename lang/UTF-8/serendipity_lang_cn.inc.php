@@ -791,7 +791,7 @@
 @define('CATEGORIES_PARENT_BASE', '只显示以下类别...');
 @define('CATEGORIES_PARENT_BASE_DESC', '你可以选择一个主类别，只显示它下面的子类别。');
 @define('CATEGORIES_HIDE_PARALLEL', '隐藏不在类别结构的类别');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', '如果隐藏位于其它类别结构的类别，你必须先开启这个设定。这个功能通常是用在多重日志的外挂。');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', '浏览会员的媒体文件');
 @define('CHARSET_NATIVE', '预设');
 @define('INSTALL_CHARSET', '语言选项');

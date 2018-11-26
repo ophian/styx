@@ -786,7 +786,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Visa endast kategorier under...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Du kan välja en överordnad kategori så att endast dess underordnade kategorier visas.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Göm kategorier som inte är en del av kategoriträdet.');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Om du vill gömma kategorier som är dela av ett annat kategoriträd måste du välja detta. Denna funktion är mest användbar i samband med en multi-blogg som använder "Properties/Tempaltes of categories"-insticksmodulen.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Om du vill gömma kategorier som är dela av ett annat kategoriträd måste du välja detta. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Visa andra användares mediafiler');
 @define('CHARSET_NATIVE', 'Inneboende');
 @define('INSTALL_CHARSET', 'Tangentuppsättningsval');

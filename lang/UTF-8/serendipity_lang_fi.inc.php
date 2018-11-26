@@ -785,7 +785,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Näytä vain allaolevat kategoriat...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Voit valita kategoriavanhemman, jolloin vain alikategoriat näytetään.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Piilota kategoriat, jotka eivät kuulu kategoriapuuhun');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jos haluat piilottaa kategoriat, jotka eivät kuulu tähän puuhun, valitse tämä. Tämän toiminnon käytössä on eniten järkeä "multi-blog":ssa, jossa on käytössä "Properties/Templates of categories" laajennos.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jos haluat piilottaa kategoriat, jotka eivät kuulu tähän puuhun, valitse tämä. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'ylläpitoKuvatKatsoToisten: Katsoo toisten kuvatiedostoja');
 @define('CHARSET_NATIVE', 'Kansallinen');
 @define('INSTALL_CHARSET', 'Merkistövalinta');

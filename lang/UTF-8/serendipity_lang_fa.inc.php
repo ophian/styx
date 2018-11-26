@@ -787,7 +787,7 @@
 @define('CATEGORIES_PARENT_BASE', 'فقط موضوعات زیر را نمایش بده...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'شما می توانید یک موضوع "پدر" را انتخاب کنید، در این صورت، فقط موضوعات "فرزند" نمایش داده می شوند.');
 @define('CATEGORIES_HIDE_PARALLEL', 'مخفی کردن موضوعاتی که در درخت موضوعات قرار ندارند');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'اگر می خواهید موضوعاتی که قسمتی از یک درخت دیگرند را مخفی کنید، این گزینه را فعال سازید. این گزینه، امکاناتی برای استفاده از سیستم های وبلاگ چندگانه را با کمک افزونه "Properties/Tempaltes of categories" فراهم می کند.');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'اگر می خواهید موضوعاتی که قسمتی از یک درخت دیگرند را مخفی کنید، این گزینه را فعال سازید.This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: مشاهده فایل های رسانه کاربران دیگر');
 @define('CHARSET_NATIVE', 'طبیعی');
 @define('INSTALL_CHARSET', 'انتخاب نوع حروف');

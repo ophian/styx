@@ -790,7 +790,7 @@ $i18n_unknown = 'tw';
 @define('CATEGORIES_PARENT_BASE', '只顯示下面的類別...');
 @define('CATEGORIES_PARENT_BASE_DESC', '您可以選擇一個母類別，只顯示它下面的子類別。');
 @define('CATEGORIES_HIDE_PARALLEL', '隱藏不在類別結構內的類別');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', '如果要隱藏位於其它類別結構的類別，您必須先開啟這個設定。這個功能通常是用在多重網誌的外掛。');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 瀏覽會員的媒體檔案');
 @define('CHARSET_NATIVE', '預設');
 @define('INSTALL_CHARSET', '語系選項');

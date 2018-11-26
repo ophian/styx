@@ -790,7 +790,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('CATEGORIES_PARENT_BASE', 'Pokaż tylko kategorie zawierające się w...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Możesz wybrać kategorię nadrzędną co spowoduje wyświetlanie tylko kategorii podrzędnych, zawartych w kategorii nadrzędnej');
 @define('CATEGORIES_HIDE_PARALLEL', 'Ukryj kategorie, które nie są częścią drzewa kategorii');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jeśli chcesz ukryć kategorie, które znajdują się w innym drzewie kategorii, musisz włączyć tę opcję. Korzystanie z tej opcji ma sens przy używaniu Serendipity jako multi-bloga i użyciu wtyczki "Properties/Templates of categories".');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jeśli chcesz ukryć kategorie, które znajdują się w innym drzewie kategorii, musisz włączyć tę opcję. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Oglądanie plików z mediami innych użytkowników');
 @define('CHARSET_NATIVE', 'Natywne');
 @define('INSTALL_CHARSET', 'Wybór kodowania znaków');

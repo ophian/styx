@@ -792,7 +792,7 @@
 @define('CATEGORIES_PARENT_BASE', 'N\'afficher que les sous-catégories de...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Vous pouvez choisir une catégorie pour que seulement les sous-catégories de celle-ci soient affichées.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Cacher les catégories ne faisant pas partie de l\'arborescence');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Si vous désirez cacher les catégories qui font partie d\'une autre arborescence de catégories, vous devez activer cette option. Cette fonctionnalité est surtout intéressante si vous utilisez un multi-blog avec le plugin "Propriétés/Thèmes de catégories".');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Si vous désirez cacher les catégories qui font partie d\'une autre arborescence de catégories, vous devez activer cette option. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers : Affichage de documents d\'autres utilisateurs');
 @define('CHARSET_NATIVE', 'Natif');
 @define('INSTALL_CHARSET', 'Sélection de la table de caractères');

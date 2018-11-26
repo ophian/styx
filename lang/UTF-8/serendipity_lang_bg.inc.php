@@ -778,7 +778,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CATEGORIES_PARENT_BASE', 'Показване само на категориите от по-долу...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Можете да изберете родителска категория, така че само подчинените категории да се покажат.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Скриване на категориите, които не са част от дървото на категории');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ако искате да скриете категориите, които са част от различно дърво категории, трябва да изберете тази възможност. Това качество е най-смислено, ако се използва във връзка с съставен блог, използвайки приставката "Свойства/Шаблони на категории".');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ако искате да скриете категориите, които са част от различно дърво категории, трябва да изберете тази възможност. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Преглед на медийни файлове на друг потребител');
 @define('CHARSET_NATIVE', 'Местно');
 @define('INSTALL_CHARSET', 'Избор на кодиране на знаци');

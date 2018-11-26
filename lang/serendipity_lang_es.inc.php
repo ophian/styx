@@ -808,7 +808,7 @@
 @define('CATEGORIES_PARENT_BASE', 'Sólo mostrar categorías bajo...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Puedes elegir una categoría padre de manera que sólo las categorías hijos sean mostradas.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Ocultar las categorías que no son parte del árbol de categorías');
-@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Si deseas ocultar categorías que son parte de otro árbol de directorios, necesitas activar esta opción. Esta característica tiene más sentido si se utiliza junto con un multi-blog y la extensión de "Propiedades/plantillas de categorías".');
+@define('CATEGORIES_HIDE_PARALLEL_DESC', 'Si deseas ocultar categorías que son parte de otro árbol de directorios, necesitas activar esta opción. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
 @define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Ver ficheros de medios de otros usuario');
 @define('CHARSET_NATIVE', 'Nativo');
 @define('INSTALL_CHARSET', 'Selección del juego de caracteres');
