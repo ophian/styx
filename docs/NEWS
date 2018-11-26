@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Add new 'frontend_fetchcategories' event hook to the entries API,
+    which allows SQL conditions by plugins; tailored for categorytemplates.
+
   * Add archives entry count 0-sum excluder to [2k11, bootstrap4,
     next, skeleton] themes "entries_archives.tpl" per default.
 
