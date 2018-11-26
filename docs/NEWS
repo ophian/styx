@@ -1,6 +1,11 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * lang: Rephrase outdated CATEGORIES_HIDE_PARALLEL_DESC constant text,
+    since the "Hide categories that are not part of the category tree"
+    option no longer relies on the categorytemplates plugin.
+    UPGRADERS: Please check your categories plugin settings!
+
   * Add new 'frontend_fetchcategories' event hook to the entries API,
     which allows SQL conditions by plugins; tailored for categorytemplates.
 
