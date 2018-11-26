@@ -15,7 +15,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.10');
+        $propbag->add('version',       '2.11');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -95,7 +95,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                 $select['categoryid']           = 'ID';
                 $select['none']                 = NONE;
                 $propbag->add('type',         'select');
-                $propbag->add('name',         SORT_ORDER);
+                $propbag->add('name',         SORT_ORDER . ' (field)');
                 $propbag->add('description',  '');
                 $propbag->add('select_values', $select);
                 $propbag->add('default',     'category_name');
@@ -106,7 +106,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                 $select['ASC'] = SORT_ORDER_ASC;
                 $select['DESC'] = SORT_ORDER_DESC;
                 $propbag->add('type',         'select');
-                $propbag->add('name',         SORT_ORDER);
+                $propbag->add('name',         SORT_ORDER . ' (method)');
                 $propbag->add('description',  '');
                 $propbag->add('select_values', $select);
                 $propbag->add('default',     'ASC');
