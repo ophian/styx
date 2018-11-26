@@ -15,7 +15,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.09');
+        $propbag->add('version',       '2.10');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -237,7 +237,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                 }
 
                 // Hide parents outside of our tree
-                if ($hide_parallel && $serendipity['GET']['category']) {
+                if ($hide_parallel && !empty($serendipity['GET']['category'])) {
                     if ($hidedepth == 0 && $cat['parentid'] != $serendipity['GET']['category'] && $cat['categoryid'] != $serendipity['GET']['category']) {
                         unset($categories[$cid]);
                         continue;
