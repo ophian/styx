@@ -730,6 +730,16 @@ function &serendipity_fetchCategories($authorid = null, $name = null, $order = n
         $where .= " c.category_name = '" . serendipity_db_escape_string($name) . "'";
     }
 
+    $cond = array();
+    serendipity_plugin_api::hook_event('frontend_fetchcategories', $cond, array('source' => 'categories'));
+    // $name is XMLRPC by category (only) so this hooks $cond should be disabled
+    if (!isset($cond['and']) || !empty($name)) {
+        $cond['and'] = '';
+    }
+    if (!empty($cond['and']) && empty($name)) {
+        $where = empty($where) ? ' WHERE ' : ' AND ';
+    }
+
     if ($serendipity['dbType'] == 'postgres' ||
         $serendipity['dbType'] == 'pdo-postgres') {
         $group    = '';
@@ -759,6 +769,7 @@ function &serendipity_fetchCategories($authorid = null, $name = null, $order = n
            LEFT OUTER JOIN {$serendipity['dbPrefix']}access AS acl
                         ON ($sql_groupid = acl.groupid AND acl.artifact_id = c.categoryid)
                            $where
+                           {$cond['and']}
                            $group";
     if (!empty($order)) {
         $querystring .= "\n ORDER BY $order";
