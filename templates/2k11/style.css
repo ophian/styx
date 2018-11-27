@@ -1036,19 +1036,27 @@ pre .geshi {
 
     .archives_date { min-width: 7em; }
 
+    .serendipity_entrypaging { overflow: hidden; }
+
+    .serendipity_entrypaging_left { float: left; }
+    .serendipity_entrypaging_right { float: right; }
+
     .serendipity_entrypaging_left,
     .serendipity_entrypaging_right {
-        display: inline;
-        width: 50%;
+        display: inline-block;
+        white-space: nowrap;
+        width: auto;
+        max-width: 50%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .serendipity_entrypaging_right {
+        text-overflow: "… →"; /* not for chrome */
     }
 
     .lt-ie8 .serendipity_entrypaging_left,
     .lt-ie8 .serendipity_entrypaging_right { width: 49.9%; }
 
-    .serendipity_entrypaging { overflow: hidden; }
-
-    .serendipity_entrypaging_left { float: left; }
-    .serendipity_entrypaging_right { float: right; }
 }
 
 @media only screen and (min-width: 768px) {
