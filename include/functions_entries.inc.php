@@ -734,7 +734,7 @@ function &serendipity_fetchCategories($authorid = null, $name = null, $order = n
     $cond = array();
     serendipity_plugin_api::hook_event('frontend_fetchcategories', $cond, array('source' => 'categories'));
     // $name is XMLRPC by category (only) so this hooks $cond should be disabled
-    if (!isset($cond['and']) || !empty($name)) {
+    if (!isset($cond['and']) || !empty($name) || (defined('IN_serendipity_admin') && IN_serendipity_admin === true)) {
         $cond['and'] = '';
     }
     if (!empty($cond['and']) && empty($name)) {
