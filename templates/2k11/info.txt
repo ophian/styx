@@ -1,6 +1,6 @@
 Name: 2k11 [ Standard ]
 Author: Matthias Mees, Veit Lehmann
-Date: 2018-10-16
+Date: 2018-11-27
 Require Serendipity: 2.0
 Recommended: Yes
 
