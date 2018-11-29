@@ -502,6 +502,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
                 $comment['clear_email'] = $comment['email'];
                 $comment['email']       = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
             }
+            if (!isset($comment['clear_email'])) $comment['clear_email'] = null;
 
             // Frontend entry comments - do for both else add ($serendipity['allowHtmlComment'] && )
             if (isset($comment['type']) && $comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
