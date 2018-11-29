@@ -352,6 +352,21 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
         $distinct = '';
     }
 
+    $cond = array();
+    serendipity_plugin_api::hook_event('frontend_fetchcomments', $cond);
+    if (!isset($cond['joins'])) {
+        $cond['joins'] = '';
+    }
+    if (!isset($cond['and'])) {
+        $cond['and'] = '';
+    }
+    if (!empty($cond['and'])) {
+        $and = str_replace(' AND 1', '', $and); // Remove serendipity_printCommentsByAuthor() required faked 'where' condition
+        $where = empty($and) ? ' WHERE ' : ' AND ';
+    }
+    $and .=  $where . $cond['and'];
+    //echo $and;
+
     $query = "SELECT $distinct
                     co.id,
                     co.entry_id, co.timestamp, co.title AS ctitle, co.email, co.url, co.ip, co.body, co.type, co.subscribed,
@@ -367,11 +382,14 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
               FROM
                     {$serendipity['dbPrefix']}comments AS co
                     LEFT JOIN {$serendipity['dbPrefix']}entries AS e ON (co.entry_id = e.id)
+                    {$cond['joins']}
               WHERE co.type LIKE '" . $type . "' AND co.entry_id > 0 $and
               $group
               ORDER BY
                     " . (empty($order) ? 'co.id' : $order) . "
                     $limit";
+    // DEBUG:
+    // die($query);
     $comments = serendipity_db_query($query, false, 'assoc');
 
     if (!is_array($comments)) {
