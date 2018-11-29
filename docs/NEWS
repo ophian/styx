@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Add new 'frontend_fetchcomments' event hook to the comments API
+    which allows SQL conditions by plugins; tailored for categorytemplates.
+
   * Initialize 'store_order' Smarty var to make empty checkable(s) run
 
   * lang: Rephrase outdated CATEGORIES_HIDE_PARALLEL_DESC constant text,
