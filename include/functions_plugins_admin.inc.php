@@ -501,6 +501,8 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 if ($value) {
                     $data['store_order'] = $store_order = $order = explode(',', $value);
                 }
+                // initialize as array on empty for Smarty template to make empty checkable(s) run
+                if (empty($data['store_order'])) $data['store_order'] = array();
 
                 // $items is the list of things to sequence.  It's not in
                 // order, and reordering PHP arrays is problematic.  So
