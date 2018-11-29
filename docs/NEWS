@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Initialize 'store_order' Smarty var to make empty checkable(s) run
+
   * lang: Rephrase outdated CATEGORIES_HIDE_PARALLEL_DESC constant text,
     since the "Hide categories that are not part of the category tree"
     option no longer relies on the categorytemplates plugin.
