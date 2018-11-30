@@ -1,6 +1,6 @@
 <h2 class="visuallyhidden">{$CONST.COMMENTS}</h2>
 {foreach $comments_by_authors AS $entry_comments}
-<article class="clearfix serendipity_entry">
+<article class="clearfix serendipity_entry byauthor">
     <h3><a href="{$entry_comments.link}">{$entry_comments.title|default:$entry_comments.link}</a></h3>
     <div class="comments_for_entry">{$entry_comments.tpl_comments}</div>
 </article>

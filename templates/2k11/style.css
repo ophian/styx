@@ -1197,6 +1197,7 @@ pre .geshi {
     .serendipity_blogpdf { margin: 0 2em 1em; }
 
     .serendipity_entry { margin: 0 2em 3em; }
+    .serendipity_entry.byauthor { margin: 0 2em auto; }
 
     .archives, .freetag_cloud,
     .content_msg,
