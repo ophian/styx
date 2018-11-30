@@ -657,13 +657,13 @@ function serendipity_printCommentsByAuthor() {
     }
     if (!empty($cond['and'])) {
         $sql_where = str_replace(' AND 1', '', $sql_where); // Remove this faked 'where' condition
-        $and = empty($sql_where) ? ' AND ' : '';
+        $and = ' AND ';
     }
     $cond['and'] =  "\n" . $and . $cond['and'];
 
     $fc = "SELECT count(co.id) AS counter
              FROM {$serendipity['dbPrefix']}comments AS co
-            {$cond['joins']}
+             {$cond['joins']}
             WHERE co.entry_id > 0
               AND co.type LIKE '" . $_type . "'
               AND co.status = 'approved' " . $sql_where . "{$cond['and']} "
