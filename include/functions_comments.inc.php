@@ -353,7 +353,7 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
     }
 
     $cond = array();
-    serendipity_plugin_api::hook_event('frontend_fetchcomments', $cond);
+    serendipity_plugin_api::hook_event('frontend_fetchcomments', $cond, array('source' => 'comments'));
     if (!isset($cond['joins'])) {
         $cond['joins'] = '';
     }
@@ -646,13 +646,30 @@ function serendipity_printCommentsByAuthor() {
         return false;
     }
 
+    $and = '';
+    $cond = array();
+    serendipity_plugin_api::hook_event('frontend_fetchcomments', $cond, array('source' => 'comments_counter'));
+    if (!isset($cond['joins'])) {
+        $cond['joins'] = '';
+    }
+    if (!isset($cond['and'])) {
+        $cond['and'] = '';
+    }
+    if (!empty($cond['and'])) {
+        $sql_where = str_replace(' AND 1', '', $sql_where); // Remove this faked 'where' condition
+        $and = empty($sql_where) ? ' AND ' : '';
+    }
+    $cond['and'] =  "\n" . $and . $cond['and'];
+
     $fc = "SELECT count(co.id) AS counter
              FROM {$serendipity['dbPrefix']}comments AS co
+            {$cond['joins']}
             WHERE co.entry_id > 0
               AND co.type LIKE '" . $_type . "'
-              AND co.status = 'approved' " . $sql_where . " "
+              AND co.status = 'approved' " . $sql_where . "{$cond['and']}"
             . $group_by;
-
+    // DEBUG:
+    // die($fc);
     $cc = serendipity_db_query($fc, true, 'assoc');
 
     $totalComments = !isset($cc['counter']) ? 0 : $cc['counter'];
