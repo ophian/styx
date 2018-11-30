@@ -666,7 +666,7 @@ function serendipity_printCommentsByAuthor() {
             {$cond['joins']}
             WHERE co.entry_id > 0
               AND co.type LIKE '" . $_type . "'
-              AND co.status = 'approved' " . $sql_where . "{$cond['and']}"
+              AND co.status = 'approved' " . $sql_where . "{$cond['and']} "
             . $group_by;
     // DEBUG:
     // die($fc);
