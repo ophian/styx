@@ -432,6 +432,8 @@ fieldset,
 .freetag_cloud, .content_msg,
 .serendipity_entrypaging { margin: 0 1em 2em; }
 
+.serendipity_entry.byauthor { margin: 0 1em 1em; }
+
 .serendipity_search,
 .staticpage_results,
 .comment_results,
@@ -1196,8 +1198,8 @@ pre .geshi {
     .serendipity_entrypaging,
     .serendipity_blogpdf { margin: 0 2em 1em; }
 
-    .serendipity_entry { margin: 0 2em 3em; }
-    .serendipity_entry.byauthor { margin: 0 2em auto; }
+    .serendipity_entry { margin: 0 2em 3rem; }
+    .serendipity_entry.byauthor { margin: 0 2em 1em; }
 
     .archives, .freetag_cloud,
     .content_msg,
