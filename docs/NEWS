@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix wrong 'footer_pageLink' assignment to stay compatible with themes
+    based on (old) bulletproof-theme syntax for the entrypaging.
+
   * themes: Preparation to simplify, add and/or fix comment author/owner
     selectors .serendipity_comment_author_self and (post comment) .pc-owner
     conditional checks. UPGRADERS: Please check your copy themes.
