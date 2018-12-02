@@ -1057,7 +1057,7 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
     } else {
         $serendipity['smarty']->assign('footer_currentPage', $serendipity['GET']['page']);
     }
-    $serendipity['smarty']->assign('footer_pageLink', str_replace('%2A', '*', serendipity_rewriteURL(implode('/', $uriArguments) . $suffix)));
+    $serendipity['smarty']->assign('footer_pageLink', str_replace(array('%2A', '//'), array('*', '/'), serendipity_rewriteURL(implode('/', $uriArguments) . $suffix)));
     $serendipity['smarty']->assign('footer_info', sprintf(PAGE_BROWSE_ENTRIES, serendipity_db_bool($serendipity['archiveSortStable']) && $serendipity['GET']['action'] != 'search' ?  $totalPages - (int)$serendipity['GET']['page'] +1 : (int)$serendipity['GET']['page'], $totalPages, $totalEntries));
 
     if ($serendipity['GET']['page'] < $totalPages) {
