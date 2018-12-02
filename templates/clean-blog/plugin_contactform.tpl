@@ -26,7 +26,7 @@
                 <div class="form-group">
                     <label for="serendipity_commentform_name">{$CONST.NAME}</label>
                     <input id="serendipity_commentform_name" class="form-control" name="serendipity[name]" type="text" value="{$commentform_name}" placeholder="{$CONST.NAME}">
-                </div>        
+                </div>
                 <div class="form-group">
                     <label for="serendipity_commentform_email">{$CONST.EMAIL}</label>
                     <input id="serendipity_commentform_email" class="form-control" name="serendipity[email]" type="email" value="{$commentform_email}" placeholder="mail@example.org">

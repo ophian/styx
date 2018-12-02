@@ -1,14 +1,14 @@
 {serendipity_hookPlugin hook="entries_header"}
 <article class="archive">
     {if $template_option.categories_on_archive OR $template_option.tags_on_archive}
-        <div class="row"> 
+        <div class="row">
             {if $template_option.categories_on_archive}
-                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12">      
+                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     {serendipity_showPlugin class="serendipity_plugin_categories" template="archive_categories.tpl"}
                 </section>
             {/if}
             {if $template_option.tags_on_archive}
-                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12">      
+                <section class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                     {serendipity_showPlugin class="serendipity_plugin_freetag" template="archive_freetag.tpl"}
                 </section>
             {/if}
@@ -19,15 +19,15 @@
     {foreach $archives AS $archive}
         <section class="archives_year">
             <div class="container-fluid">
-                <div class="row archive-year">                 
+                <div class="row archive-year">
                     <h3>{$archive.year}</h3>
                     {foreach $archive.months AS $month}
                         <div class="col-md-3 col-sm-4 col-xs-6">
                             {if $template_option.entrybody_detailed_only==true}
                                 {if $month.entry_count}
                                     <a class="btn btn-default archive-button" href="{$month.link}" title="{$CONST.VIEW_FULL}">{$month.date|formatTime:"%b"}&nbsp;<span class="badge">{$month.entry_count}</span></a>
-                                {else}                                            
-                                    <button type="button" class="btn btn-default disabled archive-button"><span class="text-muted">{$month.date|formatTime:"%b"}&nbsp;</span></button>  
+                                {else}
+                                    <button type="button" class="btn btn-default disabled archive-button"><span class="text-muted">{$month.date|formatTime:"%b"}&nbsp;</span></button>
                                 {/if}
                             {else}
                                 <div class="btn-group archive-button">
@@ -40,7 +40,7 @@
                                     {else}
                                         <button type="button" class="btn btn-default disabled dropdown-toggle archive-button" data-toggle="dropdown" aria-expanded="false">{$month.date|formatTime:"%b"}</button>
                                     {/if}
-                                </div>                                
+                                </div>
                             {/if}
                         </div>
                     {/foreach}

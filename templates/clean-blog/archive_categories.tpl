@@ -18,7 +18,7 @@
                 <a class="serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}" title="{$plugin_category.category_name|escape} rss"><i class="fa fa-rss"></i></a>
                 <a href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
             {if $plugin_category@last}
-                {if $plugin_category.catdepth>0}    
+                {if $plugin_category.catdepth>0}
                     {for $i=1 to $plugin_category.catdepth}
                         </li>
                         </ul>
@@ -26,7 +26,7 @@
                 {/if}
                 </li>
             {/if}
-            {assign var="prevdepth" value=$plugin_category.catdepth}       
+            {assign var="prevdepth" value=$plugin_category.catdepth}
         {/foreach}
     </ul>
 {else}
