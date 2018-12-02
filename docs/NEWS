@@ -1,6 +1,10 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * themes: Preparation to simplify, add and/or fix comment author/owner
+    selectors .serendipity_comment_author_self and (post comment) .pc-owner
+    conditional checks. UPGRADERS: Please check your copy themes.
+
   * 2k11: Fix bottom-margin for serendipity_entry comments-by-author summary
     pages.
 
