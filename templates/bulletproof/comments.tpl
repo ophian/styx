@@ -1,6 +1,6 @@
 {foreach $comments AS $comment}
     <a id="c{$comment.id|default:0}"></a>
-    <div id="serendipity_comment_{$comment.id|default:0}" class="serendipity_comment serendipity_comment_author_{$comment.author|makeFilename}{if ( isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email ) OR ( isset($entry) AND isset($comment.entry_author_realname) AND $comment.entry_author_realname == $comment.author AND $comment.entry_author_email == $comment.clear_email )} serendipity_comment_author_self{/if} {cycle values="comment_oddbox,comment_evenbox"}" style="margin-left: {$comment.depth*10}px">
+    <div id="serendipity_comment_{$comment.id|default:0}" class="serendipity_comment serendipity_comment_author_{$comment.author|makeFilename}{if isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email} serendipity_comment_author_self{/if} {cycle values="comment_oddbox,comment_evenbox"}" style="margin-left: {$comment.depth*10}px">
         <div class="serendipity_commentBody">
         {if $comment.body == 'COMMENT_DELETED'}
             {$CONST.COMMENT_IS_DELETED}
@@ -22,6 +22,7 @@
             {else}
                 {$comment.author|default:$CONST.ANONYMOUS}
             {/if}
+            {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $commentform_entry.email} <span class="pc-owner">Post author</span> {/if}
         {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
             <br />
             {$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle|truncate:42|wordwrap:15:"\n":true|escape}</span>

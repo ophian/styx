@@ -13,7 +13,7 @@
     {/if}
     <li id="comment-{$comment.id|default:0}" class="comment-list-item">
         <a id="c{$comment.id|default:0}"></a>
-        <div id="div-comment-{$comment.id|default:0}" class="comment_any{cycle values=" comment_odd, comment_even"} comment_author_{$comment.author|makeFilename}{if ( isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email ) OR ( isset($entry) AND isset($comment.entry_author_realname) AND $comment.entry_author_realname == $comment.author AND $comment.entry_author_email == $comment.clear_email )} serendipity_comment_author_self{/if}">
+        <div id="div-comment-{$comment.id|default:0}" class="comment_any {cycle values="comment_odd,comment_even"} comment_author_{$comment.author|makeFilename}{if isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email} serendipity_comment_author_self{/if}">
             {$comment.avatar|default:''}
             <div class="comment-list-item-body">
                 <h5 class="comment-author-heading">
@@ -23,6 +23,7 @@
                         {else}
                             {$comment.author|default:$CONST.ANONYMOUS}
                         {/if}
+                    {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $commentform_entry.email} <span class="pc-owner">Post author</span> {/if}
                     </span>&nbsp;
                     <time class="comment-date" datetime="{$comment.timestamp|serendipity_html5time}">{if $template_option.comment_time_format =='time'}{$comment.timestamp|formatTime:'%b %e. %Y'} {$CONST.AT} {$comment.timestamp|formatTime:'%I:%M %p'}{else}{elapsed_time_words from_time=$comment.timestamp}{/if}</time>
                 </h5>

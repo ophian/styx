@@ -13,7 +13,7 @@
     {/if}
     <li id="comment-{$comment.id|default:0}" class="comment-list-item">
         <a id="c{$comment.id|default:0}"></a>
-        <div id="div-comment-{$comment.id|default:0}" class="comment_any{cycle values=" comment_odd, comment_even"} comment_author_{$comment.author|makeFilename}{if ( isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email ) OR ( isset($entry) AND isset($comment.entry_author_realname) AND $comment.entry_author_realname == $comment.author AND $comment.entry_author_email == $comment.clear_email )} serendipity_comment_author_self{/if}">
+        <div id="div-comment-{$comment.id|default:0}" class="comment_any {cycle values="comment_odd,comment_even"} comment_author_{$comment.author|makeFilename}{if isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email} serendipity_comment_author_self{/if}">
             {$comment.avatar|default:''}
             <div class="comment-list-item-body">
                 <h5 class="comment-author-heading">
@@ -23,7 +23,8 @@
                         {else}
                             {$comment.author|default:$CONST.ANONYMOUS}
                         {/if}
-                    </span>&nbsp;                      
+                    {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $commentform_entry.email} <span class="pc-owner">Post author</span> {/if}
+                    </span>&nbsp;
                     <time class="comment-date" datetime="{$comment.timestamp|serendipity_html5time}">{if $template_option.comment_time_format =='time'}{$comment.timestamp|formatTime:'%b %e. %Y'} {$CONST.AT} {$comment.timestamp|formatTime:'%I:%M %p'}{else}{elapsed_time_words from_time=$comment.timestamp}{/if}</time>
                 </h5>
                 <div class="comment-content">
@@ -37,8 +38,8 @@
                     <a class="comment-source-trace btn btn-sm btn-default" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}">#{$comment.trace}</a>
                     {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
                         <a class="comment-source-ownerlink comment-reply-link btn btn-sm btn-default" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');" title="{$CONST.DELETE}"><i class="fa fa-lg fa-trash-o"></i><span class="sr-only"> {$CONST.DELETE}</span></a>
-                    {/if}                        
-                    
+                    {/if}
+
                     {if isset($comment.id) AND isset($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
                         <a class="comment-reply-link btn btn-sm btn-default" href="#serendipity_CommentForm" id="serendipity_reply_{$comment.id}" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id}'; {$comment_onchange|default:''}" title="{$CONST.REPLY}"><i class="fa fa-lg fa-reply"></i><span class="sr-only"> {$CONST.REPLY}</span></a>
                         <div id="serendipity_replyform_{$comment.id}"></div>
@@ -47,13 +48,13 @@
             </div>
         </div>
     {if $comment@last}
-        {if $comment.depth>0}    
+        {if $comment.depth>0}
             {for $i=1 to $comment.depth}
                 </li></ul>
             {/for}
         {/if}
         </li>
     {/if}
-    {assign var="prevdepth" value=$comment.depth}    
+    {assign var="prevdepth" value=$comment.depth}
 {/foreach}
 </ul>
