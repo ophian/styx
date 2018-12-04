@@ -1,12 +1,12 @@
 {foreach $comments AS $comment}
     <a id="c{$comment.id|default:0}"></a>
-    <li class="{if $comment@iteration is odd}graybox{/if}{if isset($entry) AND $entry.author == $comment.author AND $entry.email == $commentform_entry.email} serendipity_comment_author_self{/if}" style="margin-left: {$comment.depth*20}px">
+    <li class="{if $comment@iteration is odd}graybox{/if}{if isset($entry) AND $entry.author == $comment.author AND $entry.email == $comment.clear_email} serendipity_comment_author_self{/if}"{if $comment.depth > 0} style="margin-left: {$comment.depth*20}px"{/if}>
         <cite>{if $comment.url}
                 <a href="{$comment.url}" target="_blank">{$comment.author|default:$CONST.ANONYMOUS}</a>
             {else}
                 {$comment.author|default:$CONST.ANONYMOUS}
             {/if}
-        {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $commentform_entry.email} <span class="pc-owner">Post author</span> {/if}
+        {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}
         </cite> {$CONST.SAYS}:<br />
         <div class="commentmetadata" id="serendipity_comment_{$comment.id|default:0}">
             <a href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}" title="{$CONST.LINK_TO_COMMENT|sprintf:$comment.trace}">#{$comment.trace}</a>

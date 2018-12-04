@@ -1,7 +1,7 @@
 <?php $i=1; ?>
-<?php foreach ($GLOBALS['tpl']['comments'] AS $comment):?>
+<?php foreach ($GLOBALS['tpl']['comments'] AS $comment): ?>
     <a id="c<?= isset($comment['id']) ? $comment['id'] : 0; ?>"></a>
-    <div id="serendipity_comment_<?= isset($comment['id']) ? $comment['id'] : 0; ?>" class="serendipity_comment serendipity_comment_author_<?= serendipity_makeFilename($comment['author']); ?><?php if ((($GLOBALS['tpl']['commentform_entry']['author'] == $comment['author']) && ($GLOBALS['tpl']['commentform_entry']['email'] == $GLOBALS['tpl']['commentform_entry']['email'])) || (($comment['entry_author_realname'] == $comment['author']) AND ($comment['entry_author_email'] == $comment['clear_email']))): ?> serendipity_comment_author_self<?php endif; ?> <?php if($i%2 == 0): ?>comment_oddbox<?php else: ?>comment_evenbox<?php endif; ?>" style="padding-left: <?= ($comment['depth']*20) ?>px">
+    <div id="serendipity_comment_<?= isset($comment['id']) ? $comment['id'] : 0; ?>" class="serendipity_comment serendipity_comment_author_<?= serendipity_makeFilename($comment['author']); ?><?php if ( isset($GLOBALS['tpl']['entry']) && $GLOBALS['tpl']['entry']['author'] == $comment['author'] && $GLOBALS['tpl']['entry']['email'] == $GLOBALS['tpl']['commentform_entry']['email']): ?> serendipity_comment_author_self<?php endif; ?> <?php if($i%2 == 0): ?>comment_oddbox<?php else: ?>comment_evenbox<?php endif; ?>" style="padding-left: <?= ($comment['depth']*20) ?>px">
         <div class="serendipity_commentBody">
         <?php if ($comment['body'] == 'COMMENT_DELETED'): ?>
             <?= COMMENT_IS_DELETED ?>
@@ -23,6 +23,7 @@
             <?php else: ?>
                 <?= $comment['author'] ? $comment['author'] : ANONYMOUS; ?>
             <?php endif; ?>
+            <?php if (isset($comment['entryauthor']) && $comment['entryauthor'] == $comment['author'] AND isset($GLOBALS['tpl']['entry']) AND $GLOBALS['tpl']['entry']['email'] == $comment['clear_email']): ?> <span class="pc-owner">Post author</span> <?php endif; ?>
          <?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?>
             <br />
             <?= IN ?> <?= TITLE ?>: <span class="comment_source_ctitle"><?= $comment['ctitle'] ?></span>
@@ -32,7 +33,7 @@
                 (<a class="comment_source_url" href="<?= $comment['url'] ?>" title="<?= serendipity_specialchars($comment['url']); ?>"><?= HOMEPAGE ?></a>)
             <?php endif; ?>
             <?= ON ?>
-            <span class="comment_source_date"><?= serendipity_formatTime($comment['timestamp'], DATE_FORMAT_SHORT); ?></span>
+            <span class="comment_source_date"><?= serendipity_formatTime(DATE_FORMAT_SHORT, $comment['timestamp']); ?></span>
 
             <?php if (isset($GLOBALS['tpl']['entry']) && @$GLOBALS['tpl']['entry']['is_entry_owner'] && !empty($comment['id'])): ?>
                 (<a class="comment_source_ownerlink" href="<?= $comment['link_delete'] ?>" onclick="return confirm('<?= printf(COMMENT_DELETE_CONFIRM, (isset($comment['id']) ? $comment['id'] : 0), $comment['author']); ?>');"><?= DELETE ?></a>)
