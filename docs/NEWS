@@ -2096,7 +2096,7 @@ Version 2.0.2 (July 24th, 2015)
       now need to use the {TEMPLATE_PATH} like
 
         .selector {
-            background-image: url({TEMPLATE_PATH}img/example.jpg);
+            background-image: url('{TEMPLATE_PATH}img/example.jpg');
         }
 
       Content of a user.css will always be put LAST into the combined
