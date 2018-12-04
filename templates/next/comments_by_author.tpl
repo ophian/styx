@@ -1,10 +1,25 @@
+{if $view == 'comments'}
+{if $typeview == 'comments'}
+    <h2 class="comments_permalink">{$CONST.WEBLOG} {$CONST.COMMENTS}</h2>
+{elseif $typeview == 'trackbacks'}
+    <h2 class="comments_permalink">{$CONST.WEBLOG} {$CONST.TRACKBACKS}</h2>
+{elseif $typeview == 'pingbacks'}
+    <h2 class="comments_permalink">{$CONST.WEBLOG} {$CONST.PINGBACKS}</h2>
+{elseif $typeview == 'comments_and_trackbacks'}
+    <h2 class="comments_permalink">{$CONST.WEBLOG} {$CONST.COMMENTS}/{$CONST.TRACKBACKS}/{$CONST.PINGBACKS}</h2>
+{/if}
+{/if}
 {foreach $comments_by_authors AS $entry_comments}
-<article class="post">
+
+<article id="e{$entry_comments@key}" class="post">
     <h2 class="post-title"><a href="{$entry_comments.link}">{$entry_comments.title|default:$entry_comments.link}</a></h2>
-    <div class="comments_for_entry">{$entry_comments.tpl_comments}</div>
+    <div class="comments_for_entry">
+        {$entry_comments.tpl_comments}
+    </div>
 </article>
 {/foreach}
 {if NOT empty($footer_info) OR $footer_prev_page OR $footer_next_page}
+
     <nav class="pagination clearfix">
         {if $footer_info}<h3>{$footer_info}</h3>{/if}
     {if $footer_prev_page OR $footer_next_page}
@@ -15,4 +30,5 @@
     {/if}
     </nav>
 {/if}
+
 {serendipity_hookPlugin hook="comments_by_author_footer" hookAll="true"}

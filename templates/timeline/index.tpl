@@ -100,7 +100,13 @@
             <h2 class="pull-left">
                 {if in_array($view, ['start', 'entries', 'entry', '404', 'search']) OR ($head_title == '' AND $head_subtitle == '')}{$blogDescription}
                 {elseif $view == 'categories'}{$CONST.ENTRIES_FOR|sprintf:{$category_info.category_name|escape}}
-                {elseif $view == 'authors' OR $view == 'comments'}{$head_title}
+                {elseif $view == 'authors'}{$head_title}
+                {elseif $view == 'comments' AND isset($typeview)}{$CONST.WEBLOG} 
+                    {if $typeview == 'comments'}{$CONST.COMMENTS}
+                    {elseif $typeview == 'trackbacks'}{$CONST.TRACKBACKS}
+                    {elseif $typeview == 'pingbacks'}{$CONST.PINGBACKS}
+                    {elseif $typeview == 'comments_and_trackbacks'}{$CONST.COMMENTS}/{$CONST.TRACKBACKS}/{$CONST.PINGBACKS}
+                    {/if}
                 {elseif NOT empty($staticpage_pagetitle)}
                     {if $staticpage_headline}{$staticpage_headline|escape}
                     {elseif $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}
