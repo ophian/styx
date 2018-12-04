@@ -1,6 +1,12 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Add new comment page shortcut "pcomments.tpl" template file to
+    [ 2k11, bootstrap4, default-php, default, next, skeleton ] themes.
+    The default ("default"-theme) fallback works with all themes which do
+    not have their own file, or use their engines parent.
+    UPGRADERS: Please check your copy themes.
+
   * Preparation to simplify entry comments and comment pages and comment
     author/owner selectors by changing the [ 2k11, bootstrap4, clean-blog,
     default-php, default, next, skeleton, timeline ] themes
