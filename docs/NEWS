@@ -1,6 +1,12 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Preparation to simplify entry comments and comment pages and comment
+    author/owner selectors by changing the [ 2k11, bootstrap4, clean-blog,
+    default-php, default, next, skeleton, timeline ] themes
+    "comments_by_author.tpl" template file (and additionally the "index.tpl"
+    for the "timeline" theme). UPGRADERS: Please check your copy themes.
+
   * Fix wrong 'footer_pageLink' assignment to stay compatible with themes
     based on (old) bulletproof-theme syntax for the entrypaging.
 
