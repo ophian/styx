@@ -11,6 +11,7 @@
         <?php endif; ?>
 
         <?php foreach($dategroup['entries'] AS $entry):?>
+        <?php $GLOBALS['tpl']['entry'] = $entry; ?>
         <h4 class="serendipity_title"><a href="<?= $entry['link'] ?>"><?= $entry['title'] ?></a></h4>
 
         <div class="serendipity_entry serendipity_entry_author_<?= serendipity_makeFilename($entry['author']); ?> <?php if ($entry['is_entry_owner']): ?>serendipity_entry_author_self<?php endif; ?>">
