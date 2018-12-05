@@ -1,6 +1,12 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Add styles for the preparation of ".pc-owner" selector and the separated
+    template files for entry comments and comment shortcut pages. Applied to
+    [ 2k11, blue, bootstrap4, bulletproof, carl_contest, clean-blog, competition,
+    contest, default-rtl, default, idea, kubrick, next, skeleton, timeline ]
+    themes. UPGRADERS: Please check your copy themes.
+
   * Fix missing Smarty scope 'root' "assignment" in the "default-php" theme
 
   * Add new comment page shortcut "pcomments.tpl" template file to
