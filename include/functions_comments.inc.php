@@ -454,7 +454,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
     global $serendipity;
     static $_smartyComments;
 
-    /* - $_smartyComments holds the ending smarty array.
+    /* - $_smartyComments holds the ending Smarty array.
        - $depth is the current depth of the recurrence.
        - $i is the position in the current depth. */
 
@@ -480,7 +480,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             } else {
                 $comment['comment'] = serendipity_specialchars(strip_tags((string)$comment['body'])); // cast as strings (for PREVIEW mode only)
             }
-            $comment['url']         = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
+            $comment['url'] = strip_tags((string)$comment['url']); // via serendipity_smarty_printComments() to not error strip sanitizers
             if (isset($comment['id'])) {
                 $comment['link_delete'] = $serendipity['baseURL'] . 'comment.php?serendipity[delete]=' . $comment['id'] . '&amp;serendipity[entry]=' . $comment['entry_id'] . '&amp;serendipity[type]=comments&amp;' . serendipity_setFormToken('url');
             }
@@ -511,16 +511,16 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             $addData = array('from' => 'functions_entries:printComments');
             serendipity_plugin_api::hook_event('frontend_display', $comment, $addData);
 
+            $comment['clear_email'] = !empty($comment['email']) ? $comment['email'] : null; // independently from spamblock no_email option, since used for selector (self/owner) checks only!
+
             if (isset($comment['no_email']) && $comment['no_email']) {
                 $comment['email'] = false;
-                if (!empty($comment['entry_author_email'])) {
-                    $comment['entry_author_email'] = ''; // case: comment_by_authors only
+                if (empty($comment['entry_author_email'])) {
+                    $comment['entry_author_email'] = ''; // init case: for entry comments per 'comments.tpl' only
                 }
             } elseif (!empty($comment['email'])) {
-                $comment['clear_email'] = $comment['email'];
-                $comment['email']       = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
+                $comment['email'] = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
             }
-            if (!isset($comment['clear_email'])) $comment['clear_email'] = null;
 
             // Frontend entry comments - do for both else add ($serendipity['allowHtmlComment'] && )
             if (isset($comment['type']) && $comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
@@ -623,11 +623,12 @@ function serendipity_printCommentsByAuthor() {
         }
 
         foreach($entry_comments AS $entry_id => $_data) {
-            $entry_comments[$entry_id]['tpl_comments'] = serendipity_printComments($_data['comments'], VIEWMODE_LINEAR, 0, null, 'COMMENTS', 'comments.tpl');
+            $entry_comments[$entry_id]['tpl_comments'] = serendipity_printComments($_data['comments'], VIEWMODE_LINEAR, 0, null, 'COMMENTS', 'pcomments.tpl');
         }
     }
 
     $serendipity['smarty']->assignByRef('comments_by_authors', $entry_comments);
+    $serendipity['smarty']->assign('typeview', $type); // only for comment archive pages; not 'viewtype', since that is used for response header return codes
 
     // we need this here for the counter paging sql query - elsewise $type is top-checked in serendipity_fetchComments()
     if ($type == 'comments' || $type == 'NORMAL' || empty($type)) {
