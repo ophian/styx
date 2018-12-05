@@ -515,9 +515,6 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
 
             if (isset($comment['no_email']) && $comment['no_email']) {
                 $comment['email'] = false;
-                if (empty($comment['entry_author_email'])) {
-                    $comment['entry_author_email'] = ''; // init case: for entry comments per 'comments.tpl' only
-                }
             } elseif (!empty($comment['email'])) {
                 $comment['email'] = serendipity_specialchars(str_replace('@', '[at]', $comment['email']));
             }
