@@ -1,4 +1,4 @@
 Name: Coffee Cup (competition)
 Author: David Cummins
-Date: 2018-10-16
+Date: 2018-12-05
 Require Serendipity: 1.7

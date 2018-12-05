@@ -1,4 +1,4 @@
 Name: Serendipity v3.0 (carl_contest)
 Author: Carl Galloway
-Date: 2018-10-16
+Date: 2018-12-05
 Require Serendipity: 1.7
