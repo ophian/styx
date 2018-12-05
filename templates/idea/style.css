@@ -285,6 +285,25 @@ div.serendipity_entryFooter {
   font-weight: bold;
   text-transform: uppercase;
 }
+.serendipity_comment_author_self .serendipity_comment_source .pc-owner,
+.serendipity_comment_author_self .comment_header .pc-owner {
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    text-shadow: 1px 1px 2px #222;
+}
+.serendipity_entryFooter,
+.comments_by_author_pagination {
+    text-align: center;
+}
+.comments_by_author_pagination.top {
+    margin-top: 1em;
+}
+.serendipity_entryFooter,
+.comments_by_author_pagination.bottom {
+    margin: 2em auto;
+}
 
 /* Admin */
 
@@ -394,6 +413,7 @@ img.serendipity_entryIcon {
 .serendipity_comment_author_self {
   border-left: double #669999 thick;
   color: #669999;
+  overflow: initial;
 }
 
 

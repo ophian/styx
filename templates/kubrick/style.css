@@ -48,7 +48,8 @@ body {
 pre {
     width: auto;
     min-width: 20em;
-    display: inline-block;
+    display: inline-block;/* as fallback */
+    display: inline-grid;
 }
 
 img.categoryIcon {
@@ -152,6 +153,23 @@ h2, h2 a, h2 a:hover, h2 a:visited, h3, h3 a, h3 a:hover, h3 a:visited, #sidebar
     line-height: 1.5em;
     text-transform: none;
     }
+.serendipity_comment_author_self .serendipity_comment_source .pc-owner,
+.serendipity_comment_author_self .comment_header .pc-owner {
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    text-shadow: 1px 1px 2px #222;
+}
+.comments_by_author_pagination {
+    text-align: center;
+}
+.comments_by_author_pagination.top {
+    margin-top: 1em;
+}
+.comments_by_author_pagination.bottom {
+    margin: 2em auto;
+}
 
 .serendipity_commentForm {
     font-family: 'Lucida Grande', Verdana, Arial, Sans-Serif;

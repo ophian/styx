@@ -215,6 +215,25 @@ td.serendipity_commentsValue textarea {
     padding-bottom: 3px;
     border-bottom: 2px solid #36558C;
 }
+.serendipity_comment_author_self .serendipity_comment_source .pc-owner,
+.serendipity_comment_author_self .comment_header .pc-owner {
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    text-shadow: 1px 1px 2px #222;
+}
+.serendipity_entryFooter,
+.comments_by_author_pagination {
+    text-align: center;
+}
+.comments_by_author_pagination.top {
+    margin-top: 1em;
+}
+.serendipity_entryFooter,
+.comments_by_author_pagination.bottom {
+    margin: 2em auto;
+}
 
 a:link,
 a:visited,

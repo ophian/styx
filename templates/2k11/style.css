@@ -37,6 +37,7 @@ sub { bottom: -0.25em; }
 ul, ol, dd,
 nav ul, nav ol { margin: 0; padding: 0; }
 
+ol { list-style-position: inside; }
 nav ul, nav ol { list-style: none; list-style-image: none; }
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
@@ -377,7 +378,7 @@ fieldset,
 .serendipity_calendar thead,
 .serendipity_calendar tfoot {
     background: #294564;
-    background-image: url({TEMPLATE_PATH}img/gradient-dblue.png) left top repeat-x; /* Fallback */
+    background-image: url("{TEMPLATE_PATH}img/gradient-dblue.png") left top repeat-x; /* Fallback */
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3e5f81), color-stop(100%, #294564));
     background-image: -webkit-linear-gradient(#3e5f81, #294564);
     background-image: -moz-linear-gradient(#3e5f81, #294564);
@@ -418,7 +419,7 @@ fieldset,
 #primary-nav a:hover,
 #primary-nav a:focus {
     background: #aabcc5;
-    background-image: url({TEMPLATE_PATH}img/gradient-lblue.png) left top repeat-x; /* Fallback */
+    background-image: url("{TEMPLATE_PATH}img/gradient-lblue.png") left top repeat-x; /* Fallback */
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ccdee7), color-stop(100%, #aabcc5));
     background-image: -webkit-linear-gradient(#ccdee7, #aabcc5);
     background-image: -moz-linear-gradient(#ccdee7, #aabcc5);
@@ -433,6 +434,7 @@ fieldset,
 .serendipity_entrypaging { margin: 0 1em 2em; }
 
 .serendipity_entry.byauthor { margin: 0 1em 1em; }
+.comments_permalink { margin-left: 1rem; }
 
 .serendipity_search,
 .staticpage_results,
@@ -553,6 +555,15 @@ pre .geshi {
 .serendipity_comment cite { font-style: normal; }
 
 .serendipity_comment { margin: 0 0 2em; }
+.serendipity_comment.odd {
+    background-color: #EEE;
+}
+.serendipity_comment.even,
+.serendipity_comment.odd {
+    box-sizing: border-box;
+    padding: .25em;
+    border: 1px solid #DDD;
+}
 /*
 .serendipity_comment_author_self {
     background: #FFFFF7;
@@ -1200,6 +1211,7 @@ pre .geshi {
 
     .serendipity_entry { margin: 0 2em 3rem; }
     .serendipity_entry.byauthor { margin: 0 2em 1em; }
+    .comments_permalink { margin-left: 2rem; }
 
     .archives, .freetag_cloud,
     .content_msg,

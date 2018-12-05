@@ -958,6 +958,29 @@ img.comment_avatar {
     margin: 1em 0;
 }
 
+.serendipity_comment {
+    margin-bottom: 1em;
+}
+/* site wide used colors for the post comment owner */
+.serendipity_comment_author_self h5 .pc-owner,
+.serendipity_comment_author_self header .pc-owner {
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    text-shadow: 1px 1px 2px #222;
+    text-transform: initial;
+    font-weight: 600;
+}
+/* green-style (default) colorset - copy this ruleset as an example to style post comment owner by different colorsets */
+.serendipity_comment_author_self h5 .pc-owner,
+.serendipity_comment_author_self header .pc-owner {
+    background: #e6e6e6e6;
+    color: #72c02c;
+    text-shadow: 1px 1px 2px #e6e6e6;
+    border-color: #adadad;
+}
+
 /* If the basic styles for aligning images are changed, the changes
    must be ported to htmlarea/ckeditor/wysiwyg-style.css as well. */
 .serendipity_image_left,

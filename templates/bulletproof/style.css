@@ -309,6 +309,10 @@ ul.staticpage_navigation {
 
 
 /*** Comment form ***/
+#content .comments_by_author {
+    margin: auto 1em;
+}
+
 #serendipity_comment {
     font-weight: normal;
     margin: 0 10px;
@@ -322,6 +326,19 @@ ul.staticpage_navigation {
 
 .serendipity_comment {
     padding: 0;
+}
+
+.comment_content {
+    margin-bottom: 1em;
+}
+
+.serendipity_comment_author_self .serendipity_comment_source .pc-owner,
+.serendipity_comment_author_self .comment_header .pc-owner {
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    text-shadow: 1px 1px 2px #222;
 }
 
 .serendipity_comments .serendipity_center {
@@ -340,15 +357,16 @@ ul.staticpage_navigation {
 .serendipity_comment_author_self comment_evenbox,
 .comment_evenbox {
     margin: 0 10px 10px;
-    padding: 1em;
-    line-height: 1.5em;
 }
 
 .serendipity_comment_author_self comment_oddbox,
 .comment_oddbox {
     margin: 0 10px 10px;
-    padding: 1em;
-    line-height: 1.5em;
+}
+
+.comments_by_author_pagination {
+    margin: 1.5em auto;
+    text-align: center;
 }
 
 .serendipity_commentsValue .frm_check_label,

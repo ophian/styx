@@ -181,19 +181,18 @@ a.homelink2:link, a.homelink2:visited,
     color: #336d9f;
 }
 
-.serendipity_comment_author_self {
-    border-top: 3px solid #e37235;
-    border-bottom: 3px solid #e37235;
+.comments_permalink {
+    margin-left: 1em;
 }
 
-.comment_evenbox {
-    border-top: 1px solid #5f90ba;
-    border-bottom: 1px solid #5f90ba;
+.serendipity_comment.even {
+/*    border-top: 1px solid #5f90ba;
+    border-bottom: 1px solid #5f90ba;*/
     background-color: #fafbfc;
     color: #505050;
 }
 
-.comment_oddbox {
+.serendipity_comment.odd {
     border-top: 1px solid #c0c0c0;
     border-bottom: 1px solid #c0c0c0;
     background-color: #fafbfc;

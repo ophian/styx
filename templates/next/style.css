@@ -769,12 +769,13 @@ pre {
   font-size: 0.8125rem; }
 
 /* comments styling add start */
+
 /* blog/comments/ shortcuts */
-article.post article.commentlevel-0 {
+article.post section.commentlevel-0 {
     margin-bottom: .25em; }
-article.post article .pc-owner {
+article.post section .pc-owner {
     display: inline;
-    background: #3e5f81e6;
+    background: #3E5F81E6;
     padding: .1em .25em;
     border-radius: 3px;
     color: #efefef;
@@ -782,7 +783,7 @@ article.post article .pc-owner {
 
 #trackbacks article, #comments article {
     background-color: #FFF;
-    border: 2px solid #acacac;
+    border: 2px solid #ACACAC;
     border-radius: 5px 5px 5px 5px;
     margin: 0 0 16px;
     margin: 0 0 1rem;
@@ -800,7 +801,7 @@ article.post article .pc-owner {
     background: #EEE; }
 
 #trackbacks article.pingback {
-    border: 2px solid #d1d1d1;
+    border: 2px solid #D1D1D1;
     padding: 0 0.625rem; }
     #trackbacks article.pingback.tb-odd,
     #trackbacks article.pingback.tb-even {
@@ -833,7 +834,7 @@ article.post article .pc-owner {
     -moz-border-left-colors: none;
     -moz-border-right-colors: none;
     -moz-border-top-colors: none;
-    border-color: #acacac transparent transparent;
+    border-color: #ACACAC transparent transparent;
     border-right: 20px solid transparent;
     border-style: solid;
     border-width: 20px;

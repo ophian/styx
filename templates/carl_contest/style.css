@@ -349,6 +349,18 @@ img.serendipity_entryIcon {
 .serendipity_comment {
 	padding: 3px; }
 
+.comment_content {
+    margin-bottom: 1em; }
+
+.serendipity_comment.odd {
+    background-color: #EEE; }
+.serendipity_comment.even,
+.serendipity_comment.odd {
+    box-sizing: border-box;
+    padding: .25em;
+    margin: 0 0 .25em;
+    border: 1px solid #DDD; }
+
 /* style for comment author, date commented etc */
 .serendipity_comment_source {
 	margin-top: 5px;
@@ -357,9 +369,14 @@ img.serendipity_entryIcon {
 	padding-bottom: 3px; }
 
 /* style for comment author if logged in */
-.serendipity_comment_author_self {
-	border-top:3px solid #e37235;
-	border-bottom:3px solid #e37235; }
+.serendipity_comment_author_self .serendipity_comment_source .pc-owner,
+.serendipity_comment_author_self .comment_header .pc-owner {
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    text-shadow: 1px 1px 2px #222;
+}
 
 /* style for even numbered comments*/
 .comment_evenbox {
@@ -378,6 +395,16 @@ img.serendipity_entryIcon {
 	background-color:#fafbfc;
 	color:#505050;
 	line-height:1.5em; }
+
+.comments_by_author_pagination {
+    text-align: center;
+}
+.comments_by_author_pagination.top {
+    margin-top: 1em;
+}
+.comments_by_author_pagination.bottom {
+    margin-top: 2em;
+}
 
 /********* End of Comment Styles *********/
 
