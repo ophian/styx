@@ -1,6 +1,10 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix some old themes for viewport and/or some global styles for gallery
+    media images. Applied to [ blue, bulletproof, carl_contest, competition,
+    contest, idea, kubrick ] themes. UPGRADERS: Please check your copies.
+
   * Fix commit (4ce2e5f) for carl_contest theme entries.tpl file
 
   * Add styles for the preparation of ".pc-owner" selector and the separated
