@@ -182,7 +182,6 @@
     <h3 class="serendipity_date">{$CONST.ADMIN_FRONTPAGE}</h3>
         <div class="serendipity_overview_noentries">{$CONST.NO_ENTRIES_TO_PRINT}</div>
     {/if}
-    {/if}
 {/if}
 
   <div class="serendipity_pageFooter" style="text-align: center">
