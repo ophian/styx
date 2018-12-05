@@ -12,12 +12,13 @@
     <title>{$head_title|default:$blogTitle} {if $head_subtitle} - {$head_subtitle}{/if}</title>
     <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 {if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR NOT empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
     <meta name="robots" content="index,follow" />
 {else}
     <meta name="robots" content="noindex,follow" />
 {/if}
-{if $view == 'entry'}
+{if $view == 'entry' AND isset($entry)}
     <link rel="canonical" href="{$entry.rdf_ident}" />
 {/if}
 {if in_array($view, ['start', 'entries'])}
