@@ -1,6 +1,10 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Enable all preparations for the now separated template files for entry
+    comments and comment archive pages in serendipity_printComments() and
+    serendipity_printCommentsByAuthor().
+
   * Fix some old themes for viewport and/or some global styles for gallery
     media images. Applied to [ blue, bulletproof, carl_contest, competition,
     contest, idea, kubrick ] themes. UPGRADERS: Please check your copies.
