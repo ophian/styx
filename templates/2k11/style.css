@@ -554,7 +554,7 @@ pre .geshi {
 
 .serendipity_comment cite { font-style: normal; }
 
-.serendipity_comment { margin: 0 0 2em; }
+.serendipity_comment { margin: 0 0 1em; }
 .serendipity_comment.odd {
     background-color: #EEE;
 }
