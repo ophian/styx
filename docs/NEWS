@@ -8,14 +8,14 @@ Version 2.7-dev ()
   * Fix commit (4ce2e5f) for carl_contest theme entries.tpl file
 
   * Add styles for the preparation of ".pc-owner" selector and the separated
-    template files for entry comments and comment shortcut pages. Applied to
+    template files for entry comments and comment archive pages. Applied to
     [ 2k11, blue, bootstrap4, bulletproof, carl_contest, clean-blog, competition,
     contest, default-rtl, default, idea, kubrick, next, skeleton, timeline ]
     themes. UPGRADERS: Please check your copy themes.
 
   * Fix missing Smarty scope 'root' "assignment" in the "default-php" theme
 
-  * Add new comment page shortcut "pcomments.tpl" template file to
+  * Add new comment archive page "pcomments.tpl" template file to
     [ 2k11, bootstrap4, default-php, default, next, skeleton ] themes.
     The default ("default"-theme) fallback works with all themes which do
     not have their own file, or use their engines parent.
@@ -437,7 +437,7 @@ Version 2.6-beta1 (2018-08-06)
   * Regression fix comments_by_author pages comment(s) body, when html
     comments where allowed.
 
-  * Added new Smarty $comment.meta variable for comments_by_author shortcut
+  * Added new Smarty $comment.meta variable for comments_by_author archive
     pages, already used in [2k11, next] themes comments.tpl template file.
     Adapt this to your copy themes based on 2k11/next.
 
@@ -488,7 +488,7 @@ Version 2.6-beta1 (2018-08-06)
     vulnerabilities.
 
   * Introduce new $serendipity['CBAfetchLimit'] variable (default: 10),
-    to have an independent limit rule for comments_by_author shortcut pages.
+    to have an independent limit rule for comments_by_author archive pages.
     The entries $serendipity['fetchLimit'] is historically a kind of "subset"
     of the $serendipity['RSSfetchLimit'] limit (default: 15), which is the
     "default" value in the RSS world. In Blog entries, page limits by 15 can
@@ -529,7 +529,7 @@ Version 2.6-beta1 (2018-08-06)
     This was necessary to not have somehow confusing same titled
     item names in case of doublets.
 
-  * Fix GET routing for /comments/pingbacks/ shortcut pages
+  * Fix GET routing for /comments/pingbacks/ archive pages
 
   * Sync Smarty 3.1.33-dev-5 bugfix updates
 
@@ -551,7 +551,7 @@ Version 2.5.0 (2018-05-15)
   * Bugfix atom feed XHTML compliance for common unclosed HTML tags
 
   * Improve various themes: Distinguish trackbacks output in comment
-    shortcut pages like "blog/comments/trackbacks/" in comments.tpl
+    archive pages like "blog/comments/trackbacks/" in comments.tpl
     for the [default, default-php, bulletproof, 2k11, next] themes.
     - Adding trackback truncation-cut dots all over.
     - Add a new comments_by_author.tpl file for [skeleton, bootstrap4,
@@ -591,7 +591,7 @@ Version 2.5-beta1 (2018-04-19)
     This supports:
       - the Backend comments list, edit forms and previews,
       - Frontend related entry comment views,
-      - Frontend shortcut /comments/ like lists,
+      - Frontend archive /comments/ like lists,
       - but does not touch comment feeds.
     Since not as strict as permanently converting all comment data to display
     plain text only, this needs CHECKED comments!
@@ -1118,7 +1118,7 @@ Version 2.3-beta1 (2017-08-14)
 
   * Fix old bug, missing the links "comment url" in the "comments.tpl"
     template file, when called by "/comments/" or "/comments/trackbacks/"
-    or "/comments/comments_and_trackbacks/" etc. page shortcuts, via the
+    or "/comments/comments_and_trackbacks/" etc. page archives, via the
     comments_by_author.tpl template file. All relying themes [2k11,
     bulletproof, clean-blog, default-php, default, kubrick, next, timeline]
     were changed.
