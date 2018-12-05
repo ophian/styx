@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix commit (4ce2e5f) for carl_contest theme entries.tpl file
+
   * Add styles for the preparation of ".pc-owner" selector and the separated
     template files for entry comments and comment shortcut pages. Applied to
     [ 2k11, blue, bootstrap4, bulletproof, carl_contest, clean-blog, competition,
