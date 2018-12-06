@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix old bug since 2012 not correctly failing the plugin(s) requirement(s)
+    bag, which allowed installs/updates where it should have failed.
+
   * Enable all preparations for the now separated template files for entry
     comments and comment archive pages in serendipity_printComments() and
     serendipity_printCommentsByAuthor().
