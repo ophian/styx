@@ -338,7 +338,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     foreach($pluggroups AS $pluggroup => $groupstack) {
         foreach($groupstack AS $plug) {
             if (!empty($plug['requirements']['serendipity']) && version_compare($plug['requirements']['serendipity'], serendipity_getCoreVersion($serendipity['version']), '>')) {
-                $requirement_failures[$plug['class_name']] = array('s9y' => true);
+                $requirement_failures[$plug['class_name']] = array('styx' => true);
             }
 
             if (!empty($plug['requirements']['php']) && version_compare($plug['requirements']['php'], PHP_VERSION, '>')) {
@@ -358,7 +358,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             }
         }
     }
-    $data['requirements_failues'] = $requirement_failures;
+    $data['requirement_failures'] = $requirement_failures;
 
 } elseif ($serendipity['GET']['adminAction'] == 'renderOverlay') {
     $data['adminAction'] = 'overlay';
