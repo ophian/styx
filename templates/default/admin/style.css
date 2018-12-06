@@ -1486,6 +1486,10 @@ summary {
     border: 1px solid #e4b9b9;
     color: #b94a48;
 }
+.unmet_requirements.msg_error {
+    border-radius: .5em;
+    padding: .5em .25em;
+}
 
 .msg_error_list {
     background: #f2dede;
