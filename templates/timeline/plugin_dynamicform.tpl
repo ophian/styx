@@ -29,7 +29,7 @@
                         <input type="hidden" name="serendipity[subpage]" value="{$commentform_sname}">
                         <input type="hidden" name="serendipity[commentform]" value="true">
                     </div>
-                    {foreach name="field" from=$commentform_dynamicfields item="field"}
+                    {foreach $commentform_dynamicfields AS $field}
                         {if $field.type != "hidden"}
                             {if $field.type == "checkbox"}
                                 <fieldset class="form-group">
@@ -43,13 +43,13 @@
                                 </fieldset>
                             {elseif $field.type == "radio"}
                                 {assign var="radioset" value=''}
-                                {foreach name="radio_option" from=$field.options item="option"}
+                                {foreach $field.options AS $option}
                                     {if $option.default}{assign var="radioset" value='true'}{/if}
                                 {/foreach}
                                 <fieldset class="form-group">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">&#8727;</span>{/if}</legend>
                                     <div class="form-check{if NOT empty($is_contactform_error) AND $field.required AND $radioset!='true'} text-danger{/if}">
-                                        {foreach name="radio_option" from=$field.options item="option"}
+                                        {foreach $field.options AS $option}
                                             <label class="form-check-label">
                                                 <input type="radio" class="form-check-input" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default}>
                                                 {$option.name}
@@ -59,7 +59,7 @@
                                 </fieldset>
                             {elseif $field.type == "select"}
                                 {assign var="selectset" value=''}
-                                {foreach name="radio_option" from=$field.options item="option"}
+                                {foreach $field.options AS $option}
                                     {if $option.default}{assign var="selectset" value='true'}{/if}
                                 {/foreach}
                                 <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND $selectset != 'true'} has-error{/if}">
@@ -67,7 +67,7 @@
                                     <select name="{$field.id}" class="form-control">
 {* CHANGE 'PLEASE SELECT' TO LANGUAGE CONSTANT *}
                                         {if $selectset != 'true'}<option value="" disabled selected style="display: none;">{$CONST.PLEASESELECT|default:'Please select'}...</option>{/if}
-                                        {foreach name="radio_option" from=$field.options item="option"}
+                                        {foreach $field.options AS $option}
                                             <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} >{$option.name}</option>
                                         {/foreach}
                                     </select>
