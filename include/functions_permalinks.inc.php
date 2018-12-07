@@ -783,13 +783,13 @@ function serendipity_getUriArguments($uri, $wildcard = false) {
 
     /* Explode the path into sections, to later be able to check for arguments and add our own */
     preg_match('/^'. preg_quote($serendipity['serendipityHTTPPath'], '/') . '(' . preg_quote($serendipity['indexFile'], '/') . '\?\/)?(' . ($wildcard ? '.+' : '[!;,_a-z0-9\-*\/%\+]+') . ')/i', $uri, $_res);
-    if (strlen($_res[2]) != 0) {
+    if (isset($_res[2]) && strlen($_res[2]) != 0) {
         $args = explode('/', $_res[2]);
         if ($args[0] == $indexFile || $args[0] == $serendipity['indexFile']) {
             unset($args[0]);
         }
         // there are certain cases where uniqueness is error-prone, see "plugin/faq/cid/id"
-        if ($args[0] != 'plugin') {
+        if (isset($args[0]) && $args[0] != 'plugin') {
             $args = array_unique($args);
         }
         return $args;
