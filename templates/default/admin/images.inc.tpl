@@ -253,10 +253,10 @@
     {if $showML}{$showML}{/if}
 {/if}
 {if $case_scaleSelect}
-    {if $print_RESIZE_BLAHBLAH}<h2>{$print_RESIZE_BLAHBLAH}</h2>{/if}
-    {if $print_ORIGINAL_SIZE}<span class="block_level standalone">{$print_ORIGINAL_SIZE}</span>{/if}
+    {if isset($print_RESIZE_BLAHBLAH)}<h2>{$print_RESIZE_BLAHBLAH}</h2>{/if}
+    {if isset($print_ORIGINAL_SIZE)}<span class="block_level standalone">{$print_ORIGINAL_SIZE}</span>{/if}
 
-    <span class="msg_notice image_resize_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.HERE_YOU_CAN_ENTER_BLAHBLAH}</span>
+    <span class="msg_hint image_resize_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.HERE_YOU_CAN_ENTER_BLAHBLAH}</span>
 
     <div class="clearfix">
         <form id="serendipityScaleForm" name="serendipityScaleForm" action="?" method="GET">
@@ -286,6 +286,7 @@
             </div>
 
             <div class="form_buttons">
+                <a class="button_link" href="javascript: window.history.go(-1);">{$CONST.BACK}</a>
                 <input class="image_scale state_submit" name="scale" type="submit" value="{$CONST.IMAGE_RESIZE}">
             </div>
         </form>
@@ -294,7 +295,6 @@
             <img src="{$file}" name="serendipityScaleImg" alt="{$CONST.PREVIEW}">
         </div>
     </div>
-    <a class="button_link" href="javascript: window.history.go(-1);">{$CONST.BACK}</a>
 {/if}
 {if $case_default}
     {if $showML}{$showML}{/if}
