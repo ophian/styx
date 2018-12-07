@@ -3778,6 +3778,9 @@ img.mfp-img {
     .media_file h3 {
         width: 19em;
     }
+    .mfile_prop h3 {
+        overflow: unset;
+    }
 
     #entries_list h3,
     #serendipity_comments_list h4,

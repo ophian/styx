@@ -60,7 +60,7 @@
         {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[fid]={$file.id}&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[htmltarget]={$media.htmltarget}"}
     {/if}
 
-            <article id="media_{$file.id}" class="media_file {if $media.manage AND $media.multiperm}manage {/if}{cycle values="odd,even"}">
+            <article id="media_{$file.id}" class="media_file{if !$media.manage} mfile_prop{/if} {if $media.manage AND $media.multiperm}manage {/if}{cycle values="odd,even"}">
                 <header class="clearfix">
                     {if $media.manage AND $media.multiperm}
 
@@ -70,7 +70,7 @@
                     </div>
                     {/if}
 
-                    <h3 title="{$file.diskname}">{$file.diskname|truncate:38:"&hellip;":true}{if !empty($file.orderkey)}: {$file.orderkey|escape}{/if}</h3>
+                    <h3 title="{$file.diskname}">{if $media.manage}{$file.diskname|truncate:38:"&hellip;":true}{else}{$file.diskname}{/if}{if !empty($file.orderkey)}: {$file.orderkey|escape}{/if}</h3>
                     {if $file.authorid != 0}<span class="author block_level">{$file.authorname}</span>{/if}
 
                 </header>
@@ -167,7 +167,7 @@
 
         {if NOT $media.enclose}
 
-            <article class="media_file media_enclose_no">
+            <article class="media_file{if !$media.manage} mfile_prop{/if} media_enclose_no">
                 <header>
                     <h3>{$file.realname}</h3>
                     <div>
