@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix media properties header name truncation
+
   * Some small tweaks to the image resize page
 
   * Fix old bug since 2012 not correctly failing the plugin(s) requirement(s)
