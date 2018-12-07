@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Some small tweaks to the image resize page
+
   * Fix old bug since 2012 not correctly failing the plugin(s) requirement(s)
     bag, which allowed installs/updates where it should have failed.
 
