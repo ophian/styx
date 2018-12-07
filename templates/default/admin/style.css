@@ -3782,6 +3782,13 @@ img.mfp-img {
         overflow: unset;
     }
 
+    .scale_fname {
+        display: inline;
+        border: 1px solid #ddd;
+        background: #ededed;
+        padding: 0 .25em;
+    }
+
     #entries_list h3,
     #serendipity_comments_list h4,
     .karmalog h4 {

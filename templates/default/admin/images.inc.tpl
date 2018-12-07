@@ -253,7 +253,7 @@
     {if $showML}{$showML}{/if}
 {/if}
 {if $case_scaleSelect}
-    {if isset($print_RESIZE_BLAHBLAH)}<h2>{$print_RESIZE_BLAHBLAH}</h2>{/if}
+    {if isset($scaleFileName)}<h2>{$CONST.RESIZE_BLAHBLAH|sprintf:'<div class="scale_fname">%s</div>'|sprintf:$scaleFileName}</h2>{/if}
     {if isset($print_ORIGINAL_SIZE)}<span class="block_level standalone">{$print_ORIGINAL_SIZE}</span>{/if}
 
     <span class="msg_hint image_resize_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.HERE_YOU_CAN_ENTER_BLAHBLAH}</span>
