@@ -1,9 +1,18 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
-  * Fix media properties header name truncation
+  * Fix MediaLibrary properties action page header name truncation
 
-  * Some small tweaks to the image resize page
+  * Refactor MediaLibrary image scale page action, Smarty assignment and
+    template(s):
+    - to move the back button and change the image resize hint color to hint,
+    - not truncate the titles on the image resize page,
+    - simplify the action button link get parameters,
+    - enclose the image resize hint box into an informational field box
+    - and remove the scaling pages (useless) auto extra parameters, except for
+      the possible pagination page number, to jump back to after submit.
+      This might have some "hidden" regressions with deep ML filters & sortings.
+      Check it out.
 
   * Fix old bug since 2012 not correctly failing the plugin(s) requirement(s)
     bag, which allowed installs/updates where it should have failed.
