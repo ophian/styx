@@ -90,7 +90,7 @@
 @define('ERROR_FILE_EXISTS_ALREADY', 'Erreur : le fichier existe déjà sur votre machine.');
 @define('GO', 'Go!');
 @define('NEWSIZE', 'Nouvelle taille : ');
-@define('RESIZE_BLAHBLAH', 'Redimensionner <b>%s</b>');
+@define('RESIZE_BLAHBLAH', 'Redimensionner %s');
 @define('ORIGINAL_SIZE', 'Taille d\'origine : <i>%sx%s</i> pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Ici vous pouvez ajuster la taille de l\'image sélectionnée. Si vous voulez respecter les proportions de l\'image, entrez juste la hauteur ou la largeur, et pressez la touche TAB - la valeur correspondante sera insérée automatiquement.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Saut rapide vers le Calendrier');

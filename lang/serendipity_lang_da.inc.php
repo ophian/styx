@@ -85,7 +85,7 @@
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fejl: Filen findes allerede på din maskine!');
 @define('GO', 'Begynd!');
 @define('NEWSIZE', 'Ny størrelse: ');
-@define('RESIZE_BLAHBLAH', 'Ændre størrelse på <b>%s</b>');
+@define('RESIZE_BLAHBLAH', 'Ændre størrelse på %s');
 @define('ORIGINAL_SIZE', 'Original størrelse: <i>%sx%s</i> pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Her kan du justere billedets størrelse. Hvis du vil bevare proportionerne, skal du bare indtaste én af værdirene og trykke på TAB-tasten, den anden værdi beregnes så automatisk.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Hurtigkalender');

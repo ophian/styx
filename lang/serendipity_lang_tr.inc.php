@@ -90,7 +90,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Bilinmeyen hata oluştu, dosya yüklenemedi.Dosyanız sunucunuzda izin verilen boyuttan daha büyük olabilir.Servis sağlayıcınızdan araştırın ya da php.ini dosyanızı daha büyük boyutta dosya yüklenmesine izin verecek şekilde ayarlayın.');
 @define('GO', 'Git!');
 @define('NEWSIZE', 'Yeni boyut: ');
-@define('RESIZE_BLAHBLAH', 'Yeniden boyutlandır <b>%s</b>');
+@define('RESIZE_BLAHBLAH', 'Yeniden boyutlandır %s');
 @define('ORIGINAL_SIZE', 'Özgün boyut: <i>%sx%s</i> pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Burada resmi yeniden boyutlandırabilirsiniz. Eğer resim özelliklerini değiştirmek istiyorsanız,İki kutudan birine bir değer girin ve TAB tuşuna basın -- Otomatik olarak resminiz yeniden boyutlandırılacaktır.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Ajandaya hızlı bakış');

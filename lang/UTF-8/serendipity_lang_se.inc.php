@@ -88,7 +88,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ett okänt fel inträffade och filen laddades inte upp. Filstorleken är kanske större än vad som tillåts av din serverinstallation. Kolla med din tjänsteleverantör eller ändra i filen php.ini för att tillåta uppladdning av större filer.');
 @define('GO', 'Kör!');
 @define('NEWSIZE', 'Ny storlek: ');
-@define('RESIZE_BLAHBLAH', 'Ändra storlek på <b>%s</b>');
+@define('RESIZE_BLAHBLAH', 'Ändra storlek på %s');
 @define('ORIGINAL_SIZE', 'Ursprunglig storlek: <i>%sx%s</i> pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Här kan du anpassa bildstorleken. Om du vill ändra storlek proportionellt, ändra bara ett värde i något av de två fälten och tryck på TAB - Då ändras automatiskt storleken automatiskt så att bildens proportioner bibehålls.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Snabbkalender');

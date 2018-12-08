@@ -103,7 +103,7 @@ $i18n_filename_to = array (
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Neznámá chyba, soubor nebyl nahrán. Je možné, že délka souboru překračuje maximum, povolené serverem. Spojte se s vaším ISP nebo editujte soubor php.ini a povolte větší velikost.');
 @define('GO', 'Provést!');
 @define('NEWSIZE', 'Nový rozměr: ');
-@define('RESIZE_BLAHBLAH', 'Změnit rozměr <b>%s</b>');
+@define('RESIZE_BLAHBLAH', 'Změnit rozměr %s');
 @define('ORIGINAL_SIZE', 'Původní rozměr: <i>%sx%s</i> pixelů');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Zde můžete zadat nový rozměr obrázku. Pokud chcete zachovat proporce, zadejte jen jednu hodnotu a stiskněte klávesu TAB, nový rozměr bude dopočítán automaticky.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Vyhledávací kalendář');

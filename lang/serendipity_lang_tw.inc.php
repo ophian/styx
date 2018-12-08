@@ -90,7 +90,7 @@ $i18n_unknown = 'tw';
 @define('ERROR_UNKNOWN_NOUPLOAD', '未知的錯誤發生, 檔案還沒上傳. 也許你的檔案大於限制的大小. 請詢問您的 ISP 或修改您的 php.ini 檔.');
 @define('GO', '繼續!');
 @define('NEWSIZE', '新大小: ');
-@define('RESIZE_BLAHBLAH', '重設大小 <b>%s</b>');
+@define('RESIZE_BLAHBLAH', '重設大小 %s');
 @define('ORIGINAL_SIZE', '原有的大小: <i>%sx%s</i> 像素');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', '在這裡您可以修改圖片大小. 如果您要修改成相同的圖片比例, 您只需要輸入一個數值然後按 TAB -- 系統會自動幫您計算比例以免出錯.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', '日曆快速跳躍');

@@ -103,7 +103,7 @@ $i18n_filename_to = array (
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Nezn?m? chyba, soubor nebyl nahr?n. Je mo?n?, ?e d?lka souboru p?ekra?uje maximum, povolen? serverem. Spojte se s va??m ISP nebo editujte soubor php.ini a povolte v?t?? velikost.');
 @define('GO', 'Prov?st!');
 @define('NEWSIZE', 'Nov? rozm?r: ');
-@define('RESIZE_BLAHBLAH', 'Zm?nit rozm?r <b>%s</b>');
+@define('RESIZE_BLAHBLAH', 'Zm?nit rozm?r %s');
 @define('ORIGINAL_SIZE', 'P?vodn? rozm?r: <i>%sx%s</i> pixel?');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Zde m??ete zadat nov? rozm?r obr?zku. Pokud chcete zachovat proporce, zadejte jen jednu hodnotu a stiskn?te kl?vesu TAB, nov? rozm?r bude dopo??t?n automaticky.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'Vyhled?vac? kalend??');

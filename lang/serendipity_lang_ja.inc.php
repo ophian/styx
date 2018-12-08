@@ -88,7 +88,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', '未知のエラーが生じました。ファイルはアップロードしませんでした。おそらくファイルサイズがサーバーのインストールで許可された最大サイズを超えたと思われます。ISP に確認するか、php.ini ファイルで許可されたアップロード可能な最大ファイルサイズを編集してください。');
 @define('GO', 'Go!');
 @define('NEWSIZE', '新規サイズ: ');
-@define('RESIZE_BLAHBLAH', 'リサイズ <b>%s</b>');
+@define('RESIZE_BLAHBLAH', 'リサイズ %s');
 @define('ORIGINAL_SIZE', '元サイズ: <i>%sx%s</i> ピクセル');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'ここで、画像サイズを調節することができます。画像の比率を変えずにサイズ変更をしたい場合は、2 つの入力ボックスのうちの 1 つにだけ値入力して、TAB キーを押してください - 自動的に新しいサイズを計算します。したがって、イメージは台無しになりません。<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
 @define('QUICKJUMP_CALENDAR', 'カレンダー クイック ジャンプ');
