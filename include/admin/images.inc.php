@@ -799,8 +799,7 @@ switch ($serendipity['GET']['adminAction']) {
                 (int)$serendipity['GET']['width'],
                 (int)$serendipity['GET']['height']
             );
-            $data['extraParems'] = serendipity_generateImageSelectorParems();
-            $scaleImg = serendipity_scaleImg($serendipity['GET']['fid'], $serendipity['GET']['width'], $serendipity['GET']['height']);
+            $scaleImg = serendipity_scaleImg($serendipity['GET']['fid'], (int)$serendipity['GET']['width'], (int)$serendipity['GET']['height']);
             if (!empty($scaleImg) && is_string($scaleImg)) {
                 $data['scaleImgError'] = $scaleImg;
             }
@@ -818,16 +817,13 @@ switch ($serendipity['GET']['adminAction']) {
             return;
         }
 
-        $data['extraParems'] = serendipity_generateImageSelectorParems('form');
         $data['case_scaleSelect'] = true;
         $s = getimagesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . ($file['extension'] ? '.'. $file['extension'] : ''));
-        $data['img_width']  = $s[0];
-        $data['img_height'] = $s[1];
 
-        $data['scaleFileName']       = serendipity_specialchars($serendipity['GET']['fname']);
-        $data['print_ORIGINAL_SIZE'] = sprintf(ORIGINAL_SIZE, $s[0],$s[1]);
-        $data['formtoken']           = serendipity_setFormToken();
-        $data['file']                = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] .($file['extension'] ? '.'. $file['extension'] : '');
+        $data['scaleFileName']   = $file['name'];
+        $data['scaleOriginSize'] = array('width' => $s[0], 'height' => $s[1]);
+        $data['formtoken']       = serendipity_setFormToken();
+        $data['file']            = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] .($file['extension'] ? '.'. $file['extension'] : '');
         break;
 
     case 'choose':

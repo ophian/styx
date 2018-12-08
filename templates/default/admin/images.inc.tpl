@@ -253,10 +253,17 @@
     {if $showML}{$showML}{/if}
 {/if}
 {if $case_scaleSelect}
-    {if isset($scaleFileName)}<h2>{$CONST.RESIZE_BLAHBLAH|sprintf:'<div class="scale_fname">%s</div>'|sprintf:$scaleFileName}</h2>{/if}
-    {if isset($print_ORIGINAL_SIZE)}<span class="block_level standalone">{$print_ORIGINAL_SIZE}</span>{/if}
+    {if isset($scaleFileName)}<h2>{$CONST.RESIZE_BLAHBLAH|sprintf:'<span class="scale_fname">%s</span>'|sprintf:$scaleFileName}</h2>{/if}
 
-    <span class="msg_hint image_resize_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.HERE_YOU_CAN_ENTER_BLAHBLAH}</span>
+    {if isset($scaleOriginSize)}
+    <span class="block_level standalone">
+        {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height}
+        <button class="toggle_info button_link" type="button" data-href="#media_scale_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+        <span id="media_scale_selection" class="clearfix additional_info media_scale_selection">
+            <span class="msg_hint image_resize_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.HERE_YOU_CAN_ENTER_BLAHBLAH}</span>
+        </span>
+    </span>
+    {/if}
 
     <div class="clearfix">
         <form id="serendipityScaleForm" name="serendipityScaleForm" action="?" method="GET">
@@ -264,19 +271,20 @@
             <input name="serendipity[adminModule]" type="hidden" value="images">
             <input name="serendipity[adminAction]" type="hidden" value="scale">
             <input name="serendipity[fid]" type="hidden" value="{$get.fid}">
-            {$extraParems}
+            {if isset($smarty.get.serendipity.page)}<input name="serendipity[page]" type="hidden" value="{$smarty.get.serendipity.page}">{/if}
+
 
             <fieldset>
                 <span class="wrap_legend"><legend>{$CONST.NEWSIZE}</legend></span>
 
                 <div class="form_field">
                     <label for="resize_width">{$CONST.INSTALL_THUMBDIM_WIDTH}</label>
-                    <input id="resize_width" name="serendipity[width]" type="text" value="{$img_width}">
+                    <input id="resize_width" name="serendipity[width]" type="text" value="{$scaleOriginSize.width}">
                 </div>
 
                 <div class="form_field">
                     <label for="resize_height">{$CONST.INSTALL_THUMBDIM_HEIGHT}</label>
-                    <input id="resize_height" name="serendipity[height]" type="text" value="{$img_height}">
+                    <input id="resize_height" name="serendipity[height]" type="text" value="{$scaleOriginSize.height}">
                 </div>
             </fieldset>
 
@@ -291,7 +299,7 @@
             </div>
         </form>
 
-        <div id="serendipityScaleImg" data-imgwidth="{$img_width}" data-imgheight="{$img_height}">
+        <div id="serendipityScaleImg" data-imgwidth="{$scaleOriginSize.width}" data-imgheight="{$scaleOriginSize.height}">
             <img src="{$file}" name="serendipityScaleImg" alt="{$CONST.PREVIEW}">
         </div>
     </div>

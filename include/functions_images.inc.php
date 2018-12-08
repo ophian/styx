@@ -259,6 +259,7 @@ function serendipity_fetchImageFromDatabase($id, $mode = 'read') {
     global $serendipity;
 
     if (is_array($id)) {
+        // int casting in serendipity_db_implode()
         $cond = array(
             'and' => 'WHERE i.id IN (' . serendipity_db_implode(',', $id) . ')'
         );
@@ -904,7 +905,7 @@ function serendipity_generateThumbs() {
     $_list = '';
 
     echo '<section class="media_rebuild_thumbs">' . "\n";
-    printf('    <header><h2>' . strip_tags(sprintf(RESIZE_BLAHBLAH, PREVIEW)) . "</h2></header>\n");
+    printf('    <header><h2>' . sprintf(RESIZE_BLAHBLAH, PREVIEW) . "</h2></header>\n");
 
     foreach($serendipity['imageList'] AS $k => $file) {
         $is_image = serendipity_isImage($file);
@@ -932,7 +933,7 @@ function serendipity_generateThumbs() {
             if (!file_exists($oldThumb) && !file_exists($newThumb) && ($fdim[0] > $serendipity['thumbSize'] || $fdim[1] > $serendipity['thumbSize'])) {
                 $returnsize = serendipity_makeThumbnail($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), $file['path']);
                 if ($returnsize !== false ) {
-                    $_list .= '<li>' . sprintf(RESIZE_BLAHBLAH, $sThumb) . ': ' . $returnsize['width'] . 'x' . $returnsize['height'] . "</li>\n";
+                    $_list .= '<li>' . sprintf(RESIZE_BLAHBLAH, '<b>' . $sThumb . '</b>') . ': ' . $returnsize['width'] . 'x' . $returnsize['height'] . "</li>\n";
                     if (!file_exists($newThumb)) {
                         $_list .= sprintf('<li>' . THUMBNAIL_FAILED_COPY . "</li>\n", '<b>' . $sThumb . '</b>');
                     } else {
@@ -2045,8 +2046,8 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 } // End serendipity_displayImageList()
 
 /**
- * Generate the URL-parameters needed when generating the ML to select an image to add to the editor,
- * to store the relevant options (like which textarea to add it to)
+ * Gather the URL-parameters needed when generating the ML to select an image to add to the editor,
+ * to store the relevant options (eg. like, which textarea to add it to)
  *
  * @param   string  URL or Form format
  */
