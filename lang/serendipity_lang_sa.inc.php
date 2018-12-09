@@ -282,7 +282,7 @@
 @define('SORT_ORDER_ASC', ' — Ì»  ’«⁄œÌ');
 @define('SORT_ORDER_DESC', ' — Ì»  ‰«“·Ì');
 @define('THUMBNAIL_SHORT', '’Ê—… „’€—…');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', '÷⁄ ≈‘«—… ≈·Ï %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', '»œ«Ì… «·«”»Ê⁄');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity has detected that your currently installed version is %s. It seems you are attempting to upgrade to version %s, so you need to <a href="%s">click here</a> to continue the upgrade process.');

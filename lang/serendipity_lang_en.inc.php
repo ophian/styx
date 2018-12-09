@@ -279,7 +279,7 @@
 @define('SORT_ORDER_ASC', 'Ascending');
 @define('SORT_ORDER_DESC', 'Descending');
 @define('THUMBNAIL_SHORT', 'Thumb');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Apply markup to %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Beginning of the week');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity has detected that your currently installed version is %s. It seems you are attempting to upgrade to version %s, so you need to <a href="%s">click here</a> to continue the upgrade process.');

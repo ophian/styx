@@ -270,7 +270,7 @@
 @define('SORT_ORDER_ASC', 'Croissant');
 @define('SORT_ORDER_DESC', 'Décroissant');
 @define('THUMBNAIL_SHORT', 'Miniature');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Appliquer la transformation des balises à %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Début de la semaine');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity a détecté que votre configuration (version %s) ne correspond pas à la version de votre installation de Serendipity (version %s). Pour continuer à utiliser Serendipity, l\'assistant de mise à jour va vous guider pour <a href="%s">mettre à jour</a> votre installation.');

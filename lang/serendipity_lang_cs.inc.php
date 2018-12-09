@@ -297,7 +297,7 @@ $i18n_filename_to = array (
 @define('SORT_ORDER_ASC', 'Vzestupnì');
 @define('SORT_ORDER_DESC', 'Sestupnì');
 @define('THUMBNAIL_SHORT', 'Náhl.');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Zapnout znaèkování %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Zaèátek týdne');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity detekoval, že vaše konfigurace je uložena ve verzi %s, ale serendipity je instalován jako verze %s, je potøeba upgrade! <a href="%s">Kliknìte zde</a>');

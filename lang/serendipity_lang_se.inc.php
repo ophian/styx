@@ -280,7 +280,7 @@
 @define('SORT_ORDER_ASC', 'Stigande');
 @define('SORT_ORDER_DESC', 'Fallande');
 @define('THUMBNAIL_SHORT', 'Mini');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Applicera textdekoration på %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Början av veckan');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Din nuvarande version av Serendipity är %s. Det verkar som om du försöker uppgradera till %s, så du behöver <a href="%s">klicka här</a> för att fortsätta uppgraderingsprocessen.');

@@ -263,7 +263,7 @@
 @define('SORT_ORDER_ASC', 'Stigende');
 @define('SORT_ORDER_DESC', 'Fallende');
 @define('THUMBNAIL_SHORT', 'Mini');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Formater %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Starten på uken');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity har opdaget at din nåværende konfigurasjon passer til versjon %s. Serendipity selv er installert som version %s, Det er nødvendig å oppgradere! <a href="%s">Klikk her!</a>');

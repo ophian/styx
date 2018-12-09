@@ -268,7 +268,7 @@
 @define('SORT_ORDER_ASC', 'Crescente');
 @define('SORT_ORDER_DESC', 'Decrescente');
 @define('THUMBNAIL_SHORT', 'Mini');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Applica markup a %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Inizio settimana');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity ha rilevato che la configurazione si riferisce alla versione %s, mentre Serendipity è installato nella versione %s, è necessario fare l\'upgrade! <a href="%s">Clicka qui</a>');

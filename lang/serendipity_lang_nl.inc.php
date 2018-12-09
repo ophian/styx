@@ -282,7 +282,7 @@
 @define('SORT_ORDER_ASC', 'Oplopend');
 @define('SORT_ORDER_DESC', 'Aflopend');
 @define('THUMBNAIL_SHORT', 'Mini');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Tekstopmaak toepassen op %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Begin van de week');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity heeft ontdekt dat u uw configuratie wilt bijwerken van versie %s naar versie %s. <a href="%s">Klik hier</a> om dat proces te voltooien.');

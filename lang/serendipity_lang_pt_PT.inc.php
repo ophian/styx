@@ -270,7 +270,7 @@
 @define('SORT_ORDER_ASC', 'Ascendente');
 @define('SORT_ORDER_DESC', 'Descendente');
 @define('THUMBNAIL_SHORT', 'Miniatura');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Aplicar código a %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Começo da semana');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'O Serendipity detectou que a configuração está de acordo com a versão %s, embora a versão %s de Serendipity esteja instalada. Precisa de actualizar o Serendipity! <a href="%s">Clique aqui</a>');

@@ -295,7 +295,7 @@ $i18n_filename_to = array (
 @define('SORT_ORDER_ASC', 'Vzostupne');
 @define('SORT_ORDER_DESC', 'Zostupne');
 @define('THUMBNAIL_SHORT', 'Náhµ.');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Pou¾i» formátovanie textu na %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Zaèiatok tý¾dòa');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity zistil, ¾e máte nain¹talovanú verziu %s a zrejme sa pokú¹ate aktualizova» na verziu %s. Ak chcete pokraèova» v aktualizácii, <a href="%s">kliknite tu</a>.');

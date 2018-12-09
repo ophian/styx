@@ -281,7 +281,7 @@
 @define('SORT_ORDER_ASC', 'Crescător');
 @define('SORT_ORDER_DESC', 'Descrescător');
 @define('THUMBNAIL_SHORT', 'Mini');
-@define('ORIGINAL_SHORT', 'Orig.');
+@define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Aplică selecţia pentru %s');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Începutul săptămânii');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity a detectat din baza de date că ai instalată versiunea %s, dar serendipity e instalat ca versiunea %s, deci trebuie să faci upgrade! <a href="%s">Click aici</a>');
