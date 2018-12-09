@@ -270,8 +270,8 @@
 @define('SORT_ORDER_DATE', 'Upload-Datum');
 @define('SORT_ORDER_ASC', 'Aufsteigend');
 @define('SORT_ORDER_DESC', 'Absteigend');
-@define('THUMBNAIL_SHORT', 'Vorschau');
-@define('ORIGINAL_SHORT', 'Origin');
+@define('THUMBNAIL_SHORT', 'Vorschaubild');
+@define('ORIGINAL_SHORT', 'Originalbild');
 @define('APPLY_MARKUP_TO', 'Textformatierung auf %s anwenden');
 @define('CALENDAR_BEGINNING_OF_WEEK', 'Anfang der Woche');
 @define('SERENDIPITY_NEEDS_UPGRADE', 'Serendipity hat entdeckt, dass derzeit Version %s verwendet wird. Jedoch wurde Version %s installiert, daher müssen Sie die <a href="%s">Installation aktualisieren</a>!');
