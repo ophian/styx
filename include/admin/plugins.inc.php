@@ -349,7 +349,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 }
             }
 
-            if (!empty($plug['requirements']['smarty']) && version_compare($plug['requirements']['smarty'], str_replace('Smarty-', '', Smarty::SMARTY_VERSION), '>')) {
+            if (!empty($plug['requirements']['smarty']) && version_compare($plug['requirements']['smarty'], Smarty::SMARTY_VERSION, '>')) {
                 if (isset($requirement_failures[$plug['class_name']])) {
                      $requirement_failures[$plug['class_name']] = array_merge($requirement_failures[$plug['class_name']] , array('smarty' => true));
                 } else {
