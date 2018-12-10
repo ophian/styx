@@ -1,7 +1,7 @@
 <h2>{$CONST.MEDIA_PROP}</h2>
 
 {if $media.is_edit}
-<form id="mediaPropertyForm" action="?" method="POST">
+<form id="mediaPropertyForm" action="?{if isset($smarty.get.serendipity.page)}serendipity[page]={$smarty.get.serendipity.page}{/if}" method="POST">
     {$media.token}
     <input name="serendipity[action]" type="hidden" value="admin">
     <input name="serendipity[adminModule]" type="hidden" value="images">
