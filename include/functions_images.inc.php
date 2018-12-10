@@ -905,7 +905,7 @@ function serendipity_generateThumbs() {
     $_list = '';
 
     echo '<section class="media_rebuild_thumbs">' . "\n";
-    printf('    <header><h2>' . sprintf(RESIZE_BLAHBLAH, PREVIEW) . "</h2></header>\n");
+    printf('    <header><h2>' . sprintf(RESIZE_BLAHBLAH, THUMBNAIL_SHORT) . "</h2></header>\n");
 
     foreach($serendipity['imageList'] AS $k => $file) {
         $is_image = serendipity_isImage($file);
