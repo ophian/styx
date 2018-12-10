@@ -197,7 +197,8 @@
 
             </div>
             <div class="form_buttons">
-                <input name="go" type="submit" value="{$CONST.GO}"> <input class="reset_media_filters state_cancel" name="media_filters_reset" title="{$CONST.RESET_FILTERS}" type="submit" value="Reset">
+                <input name="go" type="submit" value="{$CONST.GO}">
+                <input class="reset_media_filters state_cancel" name="media_filters_reset" title="{$CONST.RESET_FILTERS}" type="submit" value="Reset">
             </div>
         </fieldset>
         <script>
@@ -205,7 +206,7 @@
                 // write: is plain "foo", read: is "serendipity[foo]"!
             {foreach $media.sortParams AS $sortParam}
 
-                serendipity.SetCookie("sortorder_{$sortParam}","{$media.sortorder.{$sortParam}}");
+                serendipity.SetCookie("sortorder_{$sortParam}", "{$media.sortorder.{$sortParam}}");
             {/foreach}
             {if isset($filterParams)}
             {foreach $media.filterParams AS $filterParam}
