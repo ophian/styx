@@ -3246,6 +3246,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
  * Prints a media item
  *
  * @param  array    Array of image metadata
+ * @param  array    Array of additional image metadata like mediaKeywords or paths
  * @param  string   URL for maintenance tasks
  * @param  boolean  Whether to show maintenance task items
  * @param  int      how many media items to display per row
