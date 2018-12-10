@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Add (submit) pagination page fallback to MediaLibrary properties action
+    link and its form, analogue to media scale.
+
   * Fix MediaLibrary properties action page header name truncation
 
   * Refactor MediaLibrary image scale page action, Smarty assignment and
