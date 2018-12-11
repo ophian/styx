@@ -223,7 +223,9 @@ function show_plugins($event_only = false, $sidebars = null) {
  * @param  boolean  Shows the FORM submit button?
  * @param  boolean  Shows a plugin's "example" method output?
  * @param  boolean  Spawn a plugins' configuration WYSIWYG items?
- * @param  string   The array index name of POSTed values ($serendipity['POST'][xxx])
+ * @param  string   The array index name of POSTed values ($serendipity['POST'][xxx]) which is either 'template' or 'plugin',
+ *                       but since used for BACK buttonizing in plugin_config.tpl too, the event plugin categorytemplates
+ *                       uses 'categorytemplate'.
  * @param  array    An array that groups certain config keys
  * @return string   The configuration HTML
  */
@@ -241,6 +243,8 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
     if ($showSubmit && $postKey != 'plugin') {
         $data['showSubmit_head'] = true;
     }
+
+    $_postKey = ($postKey == 'categorytemplate') ? 'template' : $postKey;
 
     if ($showTable) {
         $data['showTable'] = true;
@@ -278,12 +282,12 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
             }
         }
 
-        if (isset($_POST['serendipity'][$postKey][$config_item])) {
-            if (is_array($_POST['serendipity'][$postKey][$config_item])) {
-                $hvalue = $_POST['serendipity'][$postKey][$config_item];
+        if (isset($_POST['serendipity'][$_postKey][$config_item])) {
+            if (is_array($_POST['serendipity'][$_postKey][$config_item])) {
+                $hvalue = $_POST['serendipity'][$_postKey][$config_item];
                 array_walk($hvalue, 'serendipity_specialchars');
             } else {
-                $hvalue = serendipity_specialchars($_POST['serendipity'][$postKey][$config_item]);
+                $hvalue = serendipity_specialchars($_POST['serendipity'][$_postKey][$config_item]);
             }
         } else {
             $hvalue = serendipity_specialchars($value);
@@ -300,7 +304,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
 
         $data['elcount']     = $elcount;
         $data['hvalue']      = $hvalue;
-        $data['postKey']     = $postKey;
+        $data['postKey']     = $_postKey;
         $data['config_item'] = $config_item;
 
         $assign_plugin_config = function($data) use (&$plugin_options, $tfile, $config_item) {
@@ -625,6 +629,8 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
     }
 
     $data['plugin_options_ungrouped'] = $plugin_options;
+
+    $data['button_postKey'] = $postKey; // reset the postKey assignment for buttonizing
 
     if ($showSubmit) {
         $data['showSubmit_foot'] = true;

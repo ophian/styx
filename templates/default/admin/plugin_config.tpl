@@ -1,9 +1,9 @@
 {if isset($showSubmit_head) AND $showSubmit_head}
 
     <div class="form_buttons">
-        {if $postKey == "template"}
+        {if $button_postKey == 'template'}
         <a class="button_link" href="?serendipity[adminModule]=templates">{$CONST.BACK}</a>
-        {elseif $postKey == "categorytemplate"}
+        {elseif $button_postKey == 'categorytemplate'}
         <a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=edit&amp;serendipity[cid]={$smarty.get.serendipity.catid}">{$CONST.BACK}</a>
         {/if}
         <input name="SAVECONF" type="submit" value="{$CONST.SAVE}">
@@ -56,10 +56,10 @@
 {if isset($showSubmit_foot) AND $showSubmit_foot AND !empty($postKey)}
 
     <div class="form_buttons">
-    {if $postKey == "template"}
-        <a class="button_link" href="?serendipity[adminModule]=templates">{$CONST.BACK}</a>
-    {elseif $postKey == "categorytemplate"}
+    {if $button_postKey == 'categorytemplate'}
         <a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=edit&amp;serendipity[cid]={$smarty.get.serendipity.catid}">{$CONST.BACK}</a>
+    {else}
+        <a class="button_link" href="?serendipity[adminModule]={$postKey}s">{$CONST.BACK}</a>
     {/if}
         <input name="SAVECONF" type="submit" value="{$CONST.SAVE}">
     </div>
