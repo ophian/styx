@@ -1,7 +1,7 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
-  * Fix strict PHP 7.3 preg_match routing regex
+  * Fix more strict PHP 7.3 preg_match routing regex due to PCRE2
 
   * Allow plugin_config $postKey 'categorytemplate' where BACK to form button
 
