@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix strict PHP 7.3 preg_match routing regex
+
   * Allow plugin_config $postKey 'categorytemplate' BACK to form button
 
   * Do not include keys with empty value to $extraParems GET query string
