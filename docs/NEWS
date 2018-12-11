@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Allow plugin_config $postKey 'categorytemplate' BACK to form button
+
   * Do not include keys with empty value to $extraParems GET query string
 
   * Add (submit) pagination page fallback to MediaLibrary properties action
