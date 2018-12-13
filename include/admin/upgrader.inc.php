@@ -447,6 +447,11 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> All core delivered themes were changed',
                     'desc'      => 'fixing a regression in the "entries.tpl" file for the entries list pagination condition. PLEASE adapt to your copy themes <pre>{if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}</pre>'),
 
+            array(  'version'   => '2.6.4',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> All core delivered themes were changed',
+                    'desc'      => 'for comment owner selectors and the new (paged comments) "pcomments.tpl" file . PLEASE check your copy themes.'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
