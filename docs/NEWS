@@ -1,7 +1,7 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
-  * Enhance plugin sidebar archives links for category (templates)
+  * Enhance plugin sidebar archives links for category templates
 
   * Fix more strict PHP 7.3 preg_match routing regex due to PCRE2
 
