@@ -836,8 +836,8 @@ pre .geshi {
 .serendipity_entrypaging>.epicon { display: none; visibility: hidden; }
 
 .generatedcontent .epicon { display: none; visibility: hidden; }
-.generatedcontent .serendipity_entrypaging_left:before { content: "← "; }
-.generatedcontent .serendipity_entrypaging_right:after { content: " →"; }
+.generatedcontent .serendipity_entrypaging_left:before { content: "← "; vertical-align: text-bottom; }
+.generatedcontent .serendipity_entrypaging_right:after { content: " →"; vertical-align: text-bottom; }
 
 #LSResult {
     background: #ccdee7;
