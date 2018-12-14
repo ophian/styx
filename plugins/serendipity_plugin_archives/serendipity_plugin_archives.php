@@ -14,7 +14,7 @@ class serendipity_plugin_archives extends serendipity_plugin
         $propbag->add('description',   BROWSE_ARCHIVES);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian');
-        $propbag->add('version',       '1.3');
+        $propbag->add('version',       '1.4');
         $propbag->add('configuration', array('title', 'frequency', 'count', 'show_count', 'hide_zero_count'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -72,8 +72,11 @@ class serendipity_plugin_archives extends serendipity_plugin
         $title = $this->get_config('title', $this->title);
         $ts = mktime(0, 0, 0, date('m'), 1);
         $add_query = '';
-        $uri = $_SERVER['REQUEST_URI'];
-        $args = serendipity_getUriArguments($uri);
+
+        if (class_exists('serendipity_event_categorytemplates')) {
+            $uri = $_SERVER['REQUEST_URI'];
+            $args = serendipity_getUriArguments($uri);
+        }
 
         $category_set = isset($serendipity['GET']['category']);
         if ($category_set) {
@@ -206,7 +209,7 @@ class serendipity_plugin_archives extends serendipity_plugin
                 echo '    <li><a href="' . $serendipity['GET']['subpage'] . '">' . RECENT. "</a></li>\n";
         } else
             // find category sub (month) view
-            if (isset($base_query) && $base_query == $args[count($args)-1]) {
+            if (isset($args) && isset($base_query) && $base_query == $args[count($args)-1]) {
                 echo '    <li><a href="' . serendipity_rewriteURL(PATH_ARCHIVES . '/' . $base_query . '.html') . '">' . RECENT. "</a></li>\n";
         } else {
             // set blogs frontpage
