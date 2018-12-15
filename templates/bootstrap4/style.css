@@ -95,6 +95,7 @@ article.post li .pc-owner {
     padding: .5rem 0 }
 .comment_preview::after {
     content: 'P R E V I E W' }
+.calendar,.calendar-nav { width: 100% }
 #serendipity_categories_list input {
     margin-right: .25rem }
 pre { width: auto }
