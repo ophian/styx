@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Add calendar sidebar template to bootstrap4 theme
+
   * Enhance plugin sidebar archives links for category templates
 
   * Fix more strict PHP 7.3 preg_match routing regex due to PCRE2
