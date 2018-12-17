@@ -26,7 +26,7 @@ class Serendipity_Smarty_Security_Policy extends Smarty_Security
 
     public $allow_super_globals = true;
 
-    // Array of template directories that are considered secure. No need, as ...TemplateDir concidered secure implicitly. (Unproofed)
+    // Array of template directories that are considered secure. No need, as ...TemplateDir considered secure implicitly. (Unproofed)
     public $secure_dir = array(S9Y_TEMPLATE_SECUREDIR); // do we need this then?
 
     // Actually no need, as template dirs are explicit defined as trusted_dirs. (Unproofed)
