@@ -452,6 +452,12 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> All core delivered themes were changed',
                     'desc'      => 'for comment owner selectors and the new (paged comments) "pcomments.tpl" file . PLEASE check your copy themes.'),
 
+            array(  'version'   => '2.7.0',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_270, array('internals'), true),
+                    'title'     => 'Removal of old dead files in v.2.7.0',
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_270) . '</pre>'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!

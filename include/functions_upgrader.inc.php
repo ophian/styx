@@ -452,6 +452,12 @@ $dead_dirs_260 = array(
     $serendipity['serendipityPath'] . 'templates/2k11/admin'
 );
 
+/* A list of Styx files, to be removed or renamed by 2.7.0 */
+$dead_files_270 = array(
+    'include/admin/entries_overview.inc.php',
+    'templates/default/admin/entries_overview.inc.tpl'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
