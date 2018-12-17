@@ -1955,6 +1955,7 @@ function serendipity_getTotalCount($what) {
                                             AND e.authorid = '{$serendipity['authorid']}'", false, 'assoc');
             return $res;
             break;
+
         case 'entriesbycat':
             $res = serendipity_db_query("SELECT c.categoryid AS cat, COUNT(c.entryid) AS num
                                            FROM {$serendipity['dbPrefix']}entrycat AS c
@@ -1964,30 +1965,37 @@ function serendipity_getTotalCount($what) {
                                        GROUP BY cat", false, 'assoc');
             return $res;
             break;
+
         case 'mediabypath':
             $res = serendipity_db_query("SELECT path AS cat, COUNT(path) AS num
                                            FROM {$serendipity['dbPrefix']}images
                                        GROUP BY cat", false, 'assoc');
-            return $res;
+            return is_array($res) ? $res : array();
             break;
+
         case 'comments':
             $res = serendipity_db_query("SELECT SUM(e.comments) AS sum
                                            FROM {$serendipity['dbPrefix']}entries AS e
                                           WHERE e.isdraft = 'false'
                                                 " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND e.timestamp  <= ' . serendipity_db_time() : ''), true, 'assoc');
             return $res['sum'];
+            break;
+
         case 'trackbacks':
             $res = serendipity_db_query("SELECT SUM(e.trackbacks) AS sum
                                            FROM {$serendipity['dbPrefix']}entries AS e
                                           WHERE e.isdraft = 'false'
                                                 " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND e.timestamp  <= ' . serendipity_db_time() : ''), true, 'assoc');
             return $res['sum'];
+            break;
+
         case 'entries':
             $res = serendipity_db_query("SELECT COUNT(e.id) AS sum
                                            FROM {$serendipity['dbPrefix']}entries AS e
                                           WHERE e.isdraft = 'false'
                                                 " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND e.timestamp  <= ' . serendipity_db_time() : ''), true, 'assoc');
             return $res['sum'];
+            break;
 
     }
 }
