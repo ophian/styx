@@ -16,7 +16,7 @@ function serendipity_db_logmsg($msgstr) {
  * @access private
  * @param  resource     The row resource handle
  * @param  int          Bitmask to tell whether to fetch numerical/associative arrays
- * @return array        Propper array containing the resource results
+ * @return array        Proper array containing the resource results
  */
 function serendipity_db_sqlite_fetch_array($row, $type = PDO::FETCH_ASSOC)
 {
