@@ -214,7 +214,7 @@ class Serendipity_Smarty extends Smarty
         */
         $this->config_overwrite = true; // $this->setConfigOverwrite(true);
 
-        // S9y set production == debug extends from s9y version information (alpha|beta|cvs) is always debug | USE ===
+        // S9y set production == debug extends from s9y version information (alpha|beta|rc) is always debug | USE ===
         if ($serendipity['production'] === 'debug') {
             $this->force_compile = true;   // $this->setForceCompile(true);
             $this->caching       = false;  // $this->setCaching(false);
