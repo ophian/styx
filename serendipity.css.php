@@ -24,6 +24,8 @@ if (!isset($css_mode)) {
 }
 
 switch($css_mode) {
+    case 'external_plugin':
+        $css_root = '../';
     case 'serendipity.css':
     default:
         $css_hook = 'css';
@@ -40,19 +42,28 @@ switch($css_mode) {
         break;
 }
 
-function serendipity_printStylesheet($file, $dir = '') {
+/**
+ * Print out the Stylesheet
+ *
+ * @param string file file name
+ * @param string dir (optional) The relative directory path
+ * @param string root (optional) Whether to change files relative replacement {TEMPLATE_PATH} path because of subdirectory /plugin call
+ *
+ * @return string file contents
+ */
+function serendipity_printStylesheet($file, $dir = '', $root = '') {
     return "\n/* auto include $dir */\n\n" . str_replace(
-             array(
+            array(
                '{TEMPLATE_PATH}',
                '{LANG_DIRECTION}'
-             ),
+            ),
 
-             array(
-               dirname($dir) . '/',
+            array(
+               $root . dirname($dir) . '/',
                LANG_DIRECTION
-             ),
+            ),
 
-             @file_get_contents($file, 1));
+            @file_get_contents($file, 1));
 }
 
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
@@ -69,6 +80,10 @@ if (IS_installed === false) {
         echo serendipity_printStylesheet('templates/' . $serendipity['defaultTemplate'] . '/' . $css_file, 'templates/' . $serendipity['defaultTemplate'] . '/' . $css_file);
     }
     die();
+}
+
+if (!isset($css_root) || $css_root != '../') {
+    $css_root = '';
 }
 
 // Use output buffering to capture all output. This is necessary
@@ -89,7 +104,8 @@ $out = serendipity_printStylesheet(
 
 $out .= serendipity_printStylesheet(
             serendipity_getTemplateFile($css_file, 'serendipityPath'),
-            serendipity_getTemplateFile($css_file, '')
+            serendipity_getTemplateFile($css_file, ''),
+            $css_root
 );
 serendipity_plugin_api::hook_event($css_hook, $out);
 
@@ -97,7 +113,8 @@ serendipity_plugin_api::hook_event($css_hook, $out);
 // But for the user.css files this is an vital behaviour, since the fall back line is always [0]user, [1]default, [2]standard - theme. Independently from 3rd param force_frontend_fallback true/false usage!)
 $out .= serendipity_printStylesheet(
             serendipity_getTemplateFile($css_userfile, 'serendipityPath', true),
-            serendipity_getTemplateFile($css_userfile, '', true)
+            serendipity_getTemplateFile($css_userfile, '', true),
+            $css_root
 );
 
 echo $out;
