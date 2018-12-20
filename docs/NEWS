@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Extend the frontend serendipity.css {TEMPLATE_PATH} replacement for
+    subdirectory calls; tailored for categorytemplates.
+
   * Add calendar sidebar template to bootstrap4 theme
 
   * Enhance plugin sidebar archives links for category templates
