@@ -3974,8 +3974,9 @@ img.mfp-img {
         height: 100%;
     }
     #dashboard_ticker .hl {
-        color: red;
+        color: #f20000;
         font-weight: 600;
+        padding: 0 2px;
     }
 
     .pluginmanager .pluginmanager_event {
