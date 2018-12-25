@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Improve MediaLibrary directories page for fresh installations, to not show
+    the base path media counter when having no folders and no items set yet.
+
   * Changed the dashboard shortcut ticker box to not expand, when not empty
 
   * Extend the frontend serendipity.css {TEMPLATE_PATH} replacement for
