@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Changed the dashboard shortcut ticker box to not expand, when not empty
+
   * Extend the frontend serendipity.css {TEMPLATE_PATH} replacement for
     subdirectory calls; tailored for categorytemplates.
 
