@@ -2102,7 +2102,7 @@ function serendipity_generateImageSelectorParems($format = 'url') {
         }
     }
 
-    return rtrim($extraParems, '&amp;');
+    return preg_replace("/&amp;$/", '', $extraParems);
 }
 
 /**
