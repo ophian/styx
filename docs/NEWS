@@ -1,6 +1,9 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Fix a regressional manifestation of wrong used rtrim() usage,
+    which silently failed uploading media items to fresh installation.
+
   * Improve MediaLibrary directories page for fresh installations, to not show
     the base path media counter when having no folders and no items set yet.
 
