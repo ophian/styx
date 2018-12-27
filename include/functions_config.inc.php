@@ -545,7 +545,7 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
         }
 
         if ($decrypt) {
-             // DECRYT
+             // DECRYPT
              // $data returns as serialized RAW array
              // @see notes in ENCRYPT
             if (function_exists('openssl_decrypt')) {
@@ -594,7 +594,7 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
             }
             return false;
         } else {
-             // ENCRYT
+             // ENCRYPT
              // $data comes as serialized RAW, while being a login credential array ...
              // openssl_en/decrypt uses (date(BINARY), method(string from openssl_get_cipher_methods()), key(BINARY), options(INT by constants), iv(BINARY), tag(NULL returns BINARY), aad(BINARY), tag_length(INT=16))
              // GCM runs CTR internally which requires a 16-byte counter. The IV provides 12 of those, the other 4 are an actual block-wise counter. Changing this can therefore only be detrimental to security, never better.
