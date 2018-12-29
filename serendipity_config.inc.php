@@ -494,7 +494,7 @@ if (!isset($serendipity['useInternalCache'])) {
 // and quality-compression of 75% (default would be to use quality of original image)
 if (!isset($serendipity['imagemagick_thumb_parameters'])) {
     $serendipity['imagemagick_thumb_parameters'] = '';
-    // Set a variable like below in your serendpity_config_local.inc.php // Be strict! -settings go before -operators, see http://magick.imagemagick.org/script/command-line-processing.php#setting
+    // Set a variable like below in your serendipity_config_local.inc.php // Be strict! -settings go before -operators, see http://magick.imagemagick.org/script/command-line-processing.php#setting
     #$serendipity['imagemagick_thumb_parameters'] = '-quality 75 -modulate 105,140 -unsharp 0.5x0.5+1.0';
 }
 

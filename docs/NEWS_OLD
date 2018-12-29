@@ -867,7 +867,7 @@ Version 1.2 (August 26th, 2007)
 
     * (beta4) Stronger autologin cookie encryption, prevent mixup with
       template options (which could make foreign users delete your
-      configured template option keys). Also use new serendpity_db_implode()
+      configured template option keys). Also use new serendipity_db_implode()
       function for a safer API on image handling.
       All hail Stefan Esser. :)
 
