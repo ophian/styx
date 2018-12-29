@@ -1,6 +1,8 @@
 Version 2.7-dev ()
  ------------------------------------------------------------------------
 
+  * Set default values of BACKENDPOPUP_GRANULAR as stated on hc::configuration
+
   * Fix a regressional manifestation of wrong used rtrim() usage,
     which silently failed uploading media items to fresh installation.
     (This as well fixes cutOff MediaLibrary pagination parameters under
