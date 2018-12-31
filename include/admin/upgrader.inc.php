@@ -458,6 +458,12 @@ $tasks = array(
                     'title'     => 'Removal of old dead files in v.2.7.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_270) . '</pre>'),
 
+            array(  'version'   => '2.7.0',
+                    'function'  => 'serendipity_fixPlugins',
+                    'arguments' => array('wrong_upgrade_version'),
+                    'title'     => 'Spartacus (Developer) Plugin Update (Database) Synchronizer',
+                    'desc'      => '<b>ZARATHUSTRA</b> - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
