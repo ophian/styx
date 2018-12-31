@@ -1,9 +1,10 @@
-Version 2.7-dev ()
+Version 2.7.0 (2018-12-31)
  ------------------------------------------------------------------------
 
-  * Set default values of BACKENDPOPUP_GRANULAR as stated on hc::configuration
+  * Set default values of BACKENDPOPUP_GRANULAR as stated on Styx help center
+    - configuration page.
 
-  * Fix a regressional manifestation of wrong used rtrim() usage,
+  * Fix a (2.6.4-dev) regressional manifestation of wrong used rtrim() usage,
     which silently failed uploading media items to fresh installation.
     (This as well fixes cutOff MediaLibrary pagination parameters under
     certain conditions.)
