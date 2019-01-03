@@ -1,3 +1,10 @@
+
+  * Prepare categories sidebar plugin to not emit markup when empty, so
+    we are able to not show the categories section via sidebar.tpl(s).
+    Added if "NOT empty($item.content)" condition to all core delivered themes.
+    UPGRADERS: Please check your copy themes.
+
+
 Version 2.7.0 (2018-12-31)
  ------------------------------------------------------------------------
 
