@@ -2,7 +2,7 @@
 <div id="serendipity{$pluginside}SideBar">
 {/if}
 {foreach $plugindata AS $item}
-{if $item.class != "serendipity_plugin_quicksearch"}
+{if $item.class != "serendipity_plugin_quicksearch" AND NOT empty($item.content)}
     <section class="sidebar_widget {$item.class}">
     {if $item.title != ""}
         <h3>{$item.title}</h3>
