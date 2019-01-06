@@ -137,6 +137,11 @@
                     {if 'adminPlugins'|checkPermission AND $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_admin_appearance" hookAll="true"}
                     {/if}
+                    {if 'siteConfiguration'|checkPermission}
+
+                        <li><a href="serendipity_admin.php?serendipity[adminModule]=maintenance">{$CONST.MENU_MAINTENANCE}</a></li>
+                    {/if}
+
                     </ul>
                 </li>
                 {if 'adminUsersGroups'|checkPermission OR 'adminImport'|checkPermission OR 'siteConfiguration'|checkPermission OR 'blogConfiguration'|checkPermission OR 'adminUsers'|checkPermission OR 'adminTemplates'|checkPermission OR 'adminPlugins'|checkPermission}
@@ -163,8 +168,6 @@
 
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=groups">{$CONST.MENU_GROUPS}</a></li>
                     {/if}
-
-                        <li><a href="serendipity_admin.php?serendipity[adminModule]=maintenance">{$CONST.MENU_MAINTENANCE}</a></li>
                     {if $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_admin" hookAll="true"}
                     {/if}
