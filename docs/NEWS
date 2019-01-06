@@ -1,4 +1,7 @@
 
+  * Moved MAINTENANCE backend link into sidebar section ACTIVITY/appearance
+    and the SPAMBLOCK backend link into section SETTING(s).
+
   * Prepare categories sidebar plugin to not emit markup when empty, so
     we are able to not show the categories section via sidebar.tpl(s).
     Added if "NOT empty($item.content)" condition to all core delivered themes.
