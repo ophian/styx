@@ -2385,6 +2385,7 @@ function &serendipity_loadThemeOptions(&$template_config, $okey = '', $bc_bool =
     }
 
     foreach($template_config AS $key => $item) {
+        if (!isset($item['var'])) continue;
         if (!isset($template_vars[$item['var']])) {
             $template_vars[$item['var']] = isset($item['default']) ? $item['default'] : null;
         }

@@ -55,6 +55,7 @@ class template_option
     function import(&$config)
     {
         foreach($config AS $key => $item) {
+            if (!isset($item['var'])) continue;
             $this->config[$item['var']] = $item;
             $this->keys[$item['var']]   = $item['var'];
         }
