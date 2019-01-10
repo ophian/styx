@@ -225,7 +225,8 @@ class Serendipity_Smarty extends Smarty
         $this->error_reporting = E_ALL & ~(E_NOTICE|E_STRICT);
 
         // We use our own error_handler and get in conflicts with Smarty in any case?
-        // $this->muteExpectedErrors();
+        // $this->muteExpectedErrors(); # enable, to get all template warnings, which are normally suppressed, passed to the Serendipity error handler
+        // $this->unmuteExpectedErrors();
     }
 
     /*
