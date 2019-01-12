@@ -869,7 +869,8 @@ $i18n_filename_to = array (
 @define('MEDIA_PROPERTY_TITLE', 'Titulok');
 @define('MEDIA_PROP_DESC', 'Zadajte zoznam polí vlastností (oddelených  ";"), ktoré chcete definovať pre každý souor v médiách');
 @define('MEDIA_PROP_MULTIDESC', '(Za každú položku môžete pridať ":MULTI", čo bude indikovať, že táto položka bude obsahovať dlhý text namiesto iba niekoľko znamkv)');
-@define('STYLE_OPTIONS_NONE', 'Táto téma/štýl nemá špecifické voľby. Ak chcete vedieť, ako môžete pre Vaše šablóny nastaviť špecifické voľby, prečítajte si Technical Documentation (technickú dokumentáciu) na www.s9y.org "Configuration of Theme options".');
+
+@define('STYLE_OPTIONS_NONE', 'Táto téma/štýl nemá špecifické voľby. Ak chcete vedieť, ako môžete pre Vaše šablóny nastaviť špecifické voľby, prečítajte si Technical Documentation (technickú dokumentáciu) na https://ophian.github.io/hc/en/ "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Nastavenia pre tému/štýl');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Spolu %d pluginov');

@@ -863,7 +863,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MEDIA_PROP_DESC', 'Enter a list of ";" separated property fields you want to define for each media file');
 @define('MEDIA_PROP_MULTIDESC', '(You can append ":MULTI" after any item to indicate that this item will contain long text instead of just some characters)');
 
-@define('STYLE_OPTIONS_NONE', 'This theme/style has no specific options. To see how your template can specify options, read the Technical Documentation on www.s9y.org about "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'This theme/style has no specific options. To see how your template can specify options, read the Technical Documentation on https://ophian.github.io/hc/en/ about "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Theme/Style options');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Total: %d plugins.');

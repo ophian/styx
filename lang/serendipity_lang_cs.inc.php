@@ -870,7 +870,7 @@ $i18n_filename_to = array (
 @define('MEDIA_PROP_DESC', 'Zadejte seznam polí vlastností oddìlených  ";" , které chcete definovat pro každý souor v mediích');
 @define('MEDIA_PROP_MULTIDESC', '(Za každou položku mùžete pøidat ":MULTI", což bude indikovat, že tato položka bude obsahovat dlouhý text místo jen nìkolika znakù)');
 
-@define('STYLE_OPTIONS_NONE', 'Toto téma/styl nemá specifické volby. Pokud chcete vìdìt, jak mùžete pro svoje šablony nastavit specifické volby, ètìte Technical Documentation na www.s9y.org  "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'Toto téma/styl nemá specifické volby. Pokud chcete vìdìt, jak mùžete pro svoje šablony nastavit specifické volby, ètìte Technical Documentation na https://ophian.github.io/hc/en/  "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Volby pro téma/stylu');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Celkem: %d pluginù.');

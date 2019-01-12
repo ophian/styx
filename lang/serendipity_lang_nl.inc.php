@@ -860,7 +860,7 @@
 @define('MEDIA_PROP_DESC', 'Geef een lijst met eigenschapsvelden, gescheiden door een ";", die u wilt definiëren voor elk mediabestand');
 @define('MEDIA_PROP_MULTIDESC', '(U kunt ":MULTI" aan een item toevoegen om aan te geven dat het een lange tekst zal bevatten in plaats van slechts enkele tekens)');
 
-@define('STYLE_OPTIONS_NONE', 'Deze template heeft geen specifieke opties. Als u wilt weten hoe u opties kunt definiëren voor uw sjabloon, lees dan in de technische documentatie op www.s9y.org het artikel "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'Deze template heeft geen specifieke opties. Als u wilt weten hoe u opties kunt definiëren voor uw sjabloon, lees dan in de technische documentatie op https://ophian.github.io/hc/en/ het artikel "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Template-opties');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Totaal: %d plugins.');

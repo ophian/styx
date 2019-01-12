@@ -860,7 +860,7 @@
 @define('MEDIA_PROP_DESC', '各メディア ファイルに定義したいプロパティ項目を「;」で分割した一覧で入力します');
 @define('MEDIA_PROP_MULTIDESC', '(You can append ":MULTI" after any item to indicate that this item will contain long text instead of just some characters)');
 
-@define('STYLE_OPTIONS_NONE', 'このテーマ、スタイルは指定オプションがありません。To see how your template can specify options, read the Technical Documentation on www.s9y.org about "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'このテーマ、スタイルは指定オプションがありません。To see how your template can specify options, read the Technical Documentation on https://ophian.github.io/hc/en/ about "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'テーマスタイルオプション');
 
 @define('PLUGIN_AVAILABLE_COUNT', '合計: %d プラグインです。');

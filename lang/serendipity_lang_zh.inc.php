@@ -864,7 +864,7 @@
 @define('MEDIA_PROP_DESC', '输入媒体使用的内容菜单，用 ";" 来分开每个菜单的名称');
 @define('MEDIA_PROP_MULTIDESC', '(你可以在名称后面加上 ":MULTI" 来设定加大它的文字限制)');
 
-@define('STYLE_OPTIONS_NONE', '这个主题没有特别的选项。如果要在你的主题里加上选项，请浏览 www.s9y.org 内的 Technical Documentation，然后 "Configuration of Theme options"。');
+@define('STYLE_OPTIONS_NONE', '这个主题没有特别的选项。如果要在你的主题里加上选项，请浏览 https://ophian.github.io/hc/en/ 内的 Technical Documentation，然后 "Configuration of Theme options"。');
 @define('STYLE_OPTIONS', '主题选项');
 
 @define('PLUGIN_AVAILABLE_COUNT', '总共： %d 个外挂');

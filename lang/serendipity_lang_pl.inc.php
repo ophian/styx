@@ -860,7 +860,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MEDIA_PROP_DESC', 'Wprowad¼ listê pól w³a¶ciwo¶ci, jakie chcesz ustaliæ dla ka¿dego pliku medium. Elementy listy rozdzielaj znakiem ¶rednika ";".');
 @define('MEDIA_PROP_MULTIDESC', '(Mo¿esz dodaæ ":MULTI" po ka¿dym elemencie by poinformowaæ Serendipity, ¿e dany element bêdzie posiada³ d³ugi opis)');
 
-@define('STYLE_OPTIONS_NONE', 'Ten Styl nie posiada opcji specjalnych. Aby dowiedzieæ siê jak mo¿esz zaimplementowaæ w swoim Stylu opcje specjalne, odwied¼ stronê www.s9y.org i przeczytaj w dziale Technical Documentation dokument zatytu³owany "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'Ten Styl nie posiada opcji specjalnych. Aby dowiedzieæ siê jak mo¿esz zaimplementowaæ w swoim Stylu opcje specjalne, odwied¼ stronê https://ophian.github.io/hc/en/ i przeczytaj w dziale Technical Documentation dokument zatytu³owany "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Opcje Stylu/Tematu');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Razem: %d wtyczek');

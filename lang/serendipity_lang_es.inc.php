@@ -881,8 +881,10 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('MEDIA_PROPERTY_TITLE', 'Título');
 @define('MEDIA_PROP_DESC', 'Ingresa una lista de campos de propiedades separados por ";" que te gustaría definir por cada archivo de medios');
 @define('MEDIA_PROP_MULTIDESC', '(Puedes añadir al final de cualquier item ":MULTI" para indicar que contendrá una descripción larga en ves de sólo algunos caracteres)');
-@define('STYLE_OPTIONS_NONE', 'Este tema/estilo no tiene opciones específicas. Para ver como tu plantilla puede especificar opciones, lee la documentación técnica en www.s9y.org acerca de "Configuración de las opciones de los estilos".');
+
+@define('STYLE_OPTIONS_NONE', 'Este tema/estilo no tiene opciones específicas. Para ver como tu plantilla puede especificar opciones, lee la documentación técnica en https://ophian.github.io/hc/en/ acerca de "Configuración de las opciones de los estilos".');
 @define('STYLE_OPTIONS', 'Opciones de Tema/estilo');
+
 @define('PLUGIN_AVAILABLE_COUNT', 'Total: %d extensiones.');
 @define('SYNDICATION_RFC2616', 'Activar seguimiento estricto de la norma RFC2616 para sindicaciones RSS');
 @define('SYNDICATION_RFC2616_DESC', 'NO forzar el seguimiento de RFC2616 significa que todos los GETs condicionales a Serendipity regresarán entradas modificadas desde la fecha de la última solicitud. Con esa característica definida a "false", tus visitantes obtendrán todos los artículos desde su última solicitud, lo cual es considerado algo bueno. Sin embargo, algunos agentes como Planet tienen un comportamiento extraño, dado viola la norma RFC2616. De esta manera, si defines esta opción como "TRUE" estarás cumpliendo con la norma, pero los lectores de tus sindicaciones RSS quizás pierdan algunas entradas en sus días de ausencia. De cualquier forma, o evitas un funcionamiento adecuado de agregadores como Planet, o dañas a tus lectores reales. Si estás enfrentando quejas de cualquiera de los dos, puedes cambiar esta opción. Rerefencia: <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=1461728&amp;group_id=75065&amp;atid=542822" target="_blank" rel="nofollow">SourceForge</a>');

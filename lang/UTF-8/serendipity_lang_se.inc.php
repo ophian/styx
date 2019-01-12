@@ -858,7 +858,7 @@
 @define('MEDIA_PROP_DESC', 'Fyll i en lista med egenskapsfält separerade av  ";" som du vill definiera för varje mediafil');
 @define('MEDIA_PROP_MULTIDESC', '(Du kan lägga till ":MULTI" efter valfritt egenskapsfält för att indikera att detta kommer att innehålla en längre text snarare än enstaka tecken)');
 
-@define('STYLE_OPTIONS_NONE', 'Denna stil har inga specifika inställningar. För att se hur din mall kan specifiera inställningar, läs "Technical Documentation" på www.s9y.org om "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'Denna stil har inga specifika inställningar. För att se hur din mall kan specifiera inställningar, läs "Technical Documentation" på https://ophian.github.io/hc/en/ om "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Tema/stil-inställningar');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Totalt: %d insticksmoduler.');
