@@ -51,7 +51,7 @@
     {/if}
     <div class="container">
         <div class="row">
-            <main class="eight columns" role="main">
+            <main class="{if $view == 'entry' AND $entry_id}twelfe{else}eight{/if} columns" role="main">
             {$CONTENT}
             </main>
 

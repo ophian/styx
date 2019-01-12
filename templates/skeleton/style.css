@@ -93,9 +93,9 @@ h6 a {
 }
 
 .post table {
-    border-collapse: collapse;
-    border-spacing: 0;
     width: 100%;
+    display: inline-grid;
+    overflow: auto;
 }
 
 .post_meta {
