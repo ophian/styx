@@ -1,5 +1,5 @@
 
-  * Pass by possible uninitialized $item['var']s in templates config API
+  * Bypass possible uninitialized $item['var']s in templates config API
 
   * Moved MAINTENANCE backend link into sidebar section ACTIVITY/appearance
     and the SPAMBLOCK backend link into section SETTING(s).
