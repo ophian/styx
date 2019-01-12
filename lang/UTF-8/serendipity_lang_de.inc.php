@@ -857,7 +857,7 @@
 @define('MEDIA_PROP_DESC', 'Tragen Sie eine Liste von ";" separierten Eigenschaftsfeldern ein, die für Mediendaten ausgefüllt werden können.');
 @define('MEDIA_PROP_MULTIDESC', '(Sie können ":MULTI" nach jedem Element eintragen, um anzugeben, dass für dieses Feld eine lange Beschreibung erwartet wird)');
 
-@define('STYLE_OPTIONS_NONE', 'Dieses Theme hat keine speziellen Optionen. Wie Ihr Theme solche Optionen anlegen kann, ist in der technischen Dokumentation auf www.s9y.org im Bereich "Configuration of Theme options" beschrieben.');
+@define('STYLE_OPTIONS_NONE', 'Dieses Theme hat keine speziellen Optionen. Wie Ihr Theme solche Optionen anlegen kann, ist in der technischen Dokumentation von Serendipitx Styx auf "https://ophian.github.io/hc/en/templating.html#docs-theme-options" beschrieben.');
 @define('STYLE_OPTIONS', 'Theme-Optionen');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Gesamt: %d Plugins.');
