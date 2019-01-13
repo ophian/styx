@@ -114,7 +114,7 @@ if (isset($data['cur_template_info']['custom_config_engine']) && file_exists($se
     if ($serendipity['GET']['adminAction'] == 'install' && $serendipity['GET']['adminModule'] == 'templates') {
         // array diff - but do not do this for bulletproof, as this is the only one which needs them in case of reloads (temporary)
         if ($old_template_config_groups === $template_config_groups && $serendipity['GET']['theme'] != 'bulletproof') {
-            $template_config_groups = NULL; // force destroy previouses config_group array!
+            $template_config_groups = NULL; // force destroy previous config_group array!
         }
     }
     unset($old_template_config_groups);
@@ -238,7 +238,7 @@ $data['urltoken']        = serendipity_setFormToken('url');
 unset($data['templates'][$serendipity['template']]);
 if ($serendipity['template'] != $serendipity['template_backend'] && isset($data['recommended_templates'][$serendipity['template_backend']]) && isset($data['templates'][$serendipity['template_backend']])) {
     // when we could not unset a template because it is a backend template, and when that template is also a recommended template, then it will now
-    // be in recommended and in the normal tmeplate list. We just detected that and have to remove it
+    // be in recommended and in the normal template list. We just detected that and have to remove it
     unset($data['templates'][$serendipity['template_backend']]);
 }
 unset($data['recommended_templates'][$serendipity['template']]);
