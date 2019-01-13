@@ -15,7 +15,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.12');
+        $propbag->add('version',       '2.13');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -291,7 +291,11 @@ class serendipity_plugin_categories extends serendipity_plugin
         }
 
         if (!$smarty && $is_form) {
-            $html .= '<div class="category_submit"><input type="submit" name="serendipity[isMultiCat]" value="' . GO . '" /></div>'."\n";
+            $html .= '<div class="category_submit">'."\n";
+            $html .= isset($serendipity['GET']['category'])
+                ? '<input type="submit" name="serendipity[isMultiCat]" value="' . RESET_FILTERS . '" />'
+                : '<input type="submit" name="serendipity[isMultiCat]" value="' . GO . '" />';
+            $html .= "</div>\n";
         }
 
         if (!$smarty && serendipity_db_bool($this->get_config('show_all', 'false'))) {
