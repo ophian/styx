@@ -1,4 +1,6 @@
 
+  * Fix serendipity_smarty_getImageSize() Smarty "fallback" path issue
+
   * Better handle wide table CSS styling issue in [2k11, skeleton].
     UPGRADERS: Please check your copy themes.
 
