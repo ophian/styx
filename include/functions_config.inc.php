@@ -265,7 +265,7 @@ function serendipity_set_user_var($name, $val, $authorid, $copy_to_s9y = true) {
  *
  * @access public
  * @param   string      The filename to search for in the selected template
- * @param   string      The path selector that tells whether to return a HTTP or realpath
+ * @param   string      The path selector that tells whether to return a HTTP or realpath; an empty string or null will return a relative path
  * @param   bool        Enable to include frontend template fallback chaining (used for wysiwyg Editor custom config files, emoticons, etc)
  * @param   bool        Enable to check into $serendipity['template'] or its engine, then fall back to $this->pluginFile dir (used by plugins via parseTemplate() method)
  * @return  string      The full path+filename to the requested file
