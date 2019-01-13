@@ -1,4 +1,7 @@
 
+  * Better handle wide table CSS styling issue in [2k11, skeleton].
+    UPGRADERS: Please check your copy themes.
+
   * Bypass possible uninitialized $item['var']s in templates config API
 
   * Moved MAINTENANCE backend link into sidebar section ACTIVITY/appearance
