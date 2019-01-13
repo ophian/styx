@@ -859,7 +859,7 @@
 @define('MEDIA_PROP_DESC', 'Adj meg ";"-vel elválasztott tulajdonságokat, amelyeket szeretnél használni a média fájloknál');
 @define('MEDIA_PROP_MULTIDESC', '(Bármelyik elem mögé hozzáfûzheted hogy ":MULTI", így jelezve azt, hogy ez a mezõ nagyobb szöveget is tartalmazhat, nemcsak kisebb szöveget)');
 
-@define('STYLE_OPTIONS_NONE', 'Ennek a témának/stílusnak nincsenek speciális opciói. A sablon opcióihoz olvasd el a dokumentációt a következõ oldalon https://ophian.github.io/hc/en/ a "Configuration of Theme options" résznél.');
+@define('STYLE_OPTIONS_NONE', 'Ennek a témának/stílusnak nincsenek speciális opciói. A sablon opcióihoz olvasd el a dokumentációt a következõ oldalon "https://ophian.github.io/hc/en/templating.html#docs-theme-options" a "Configuration of Theme options" résznél.');
 @define('STYLE_OPTIONS', 'Téma/stílus opciók');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Összesen: %d modul.');

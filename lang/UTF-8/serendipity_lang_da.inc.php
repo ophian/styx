@@ -860,7 +860,7 @@
 @define('MEDIA_PROP_DESC', 'Indtast ";" adskilt liste af felter/egenskaber du vil definere for hver mediefil. ');
 @define('MEDIA_PROP_MULTIDESC', '(Du kan tilføje ":MULTI" efter ethvert felt for at angive dette felt indeholder en lang tekst i stedet for blot nogle karakterer)');
 
-@define('STYLE_OPTIONS_NONE', 'Denne skabelon/stil har ikke nogen specifikke indstillinger. Læs den tekniske dokumentation på https://ophian.github.io/hc/en/, punktet "Configuration of Theme options", for at se hvordan din skabelon kan anvende indstillinger.');
+@define('STYLE_OPTIONS_NONE', 'Denne skabelon/stil har ikke nogen specifikke indstillinger. Læs den tekniske dokumentation på "https://ophian.github.io/hc/en/templating.html#docs-theme-options", punktet "Configuration of Theme options", for at se hvordan din skabelon kan anvende indstillinger.');
 @define('STYLE_OPTIONS', 'Tema/stil indstillinger');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Total: %d plugins.');

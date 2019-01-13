@@ -864,7 +864,7 @@ $i18n_unknown = 'tw';
 @define('MEDIA_PROP_DESC', '輸入媒體使用的內容欄位，用 ";" 來分開每個欄位的名稱');
 @define('MEDIA_PROP_MULTIDESC', '(您可以在名稱後面加上 ":MULTI" 來設定加大它的文字限制)');
 
-@define('STYLE_OPTIONS_NONE', '這個佈景沒有特別的選項。如果要在您的佈景裡加上選項，請看 https://ophian.github.io/hc/en/ 內的 Technical Documentation，然後 "Configuration of Theme options"。');
+@define('STYLE_OPTIONS_NONE', '這個佈景沒有特別的選項。如果要在您的佈景裡加上選項，請看 "https://ophian.github.io/hc/en/templating.html#docs-theme-options" 內的 Technical Documentation，然後 "Configuration of Theme options"。');
 @define('STYLE_OPTIONS', '佈景選項');
 
 @define('PLUGIN_AVAILABLE_COUNT', '總共： %d 個外掛。');

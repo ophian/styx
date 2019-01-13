@@ -873,7 +873,7 @@
 @define('MEDIA_PROP_DESC', 'Entre uma listagem separada por ";" nos campos de propriedade, relativa ao modo como deseja definir cada um dos seus ficheiros Media');
 @define('MEDIA_PROP_MULTIDESC', '(Você pode colocar ":MULTI" após algum item para indicar que o mesmo irá conter texto longo em vez de apenas alguns caracteres)');
 
-@define('STYLE_OPTIONS_NONE', 'Este tema/estilo não tem opções específicas. Para visualizar como o seu modelo (template) pode expecificar opções, leia a Documentação Técnica disponível em https://ophian.github.io/hc/en/ acerca de "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'Este tema/estilo não tem opções específicas. Para visualizar como o seu modelo (template) pode expecificar opções, leia a Documentação Técnica disponível em "https://ophian.github.io/hc/en/templating.html#docs-theme-options" acerca de "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Opções de Tema/Estilo');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Total: %d plugins.');

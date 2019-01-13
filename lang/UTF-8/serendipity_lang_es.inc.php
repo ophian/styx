@@ -882,7 +882,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('MEDIA_PROP_DESC', 'Ingresa una lista de campos de propiedades separados por ";" que te gustaría definir por cada archivo de medios');
 @define('MEDIA_PROP_MULTIDESC', '(Puedes añadir al final de cualquier item ":MULTI" para indicar que contendrá una descripción larga en ves de sólo algunos caracteres)');
 
-@define('STYLE_OPTIONS_NONE', 'Este tema/estilo no tiene opciones específicas. Para ver como tu plantilla puede especificar opciones, lee la documentación técnica en https://ophian.github.io/hc/en/ acerca de "Configuración de las opciones de los estilos".');
+@define('STYLE_OPTIONS_NONE', 'Este tema/estilo no tiene opciones específicas. Para ver como tu plantilla puede especificar opciones, lee la documentación técnica en "https://ophian.github.io/hc/en/templating.html#docs-theme-options" acerca de "Configuración de las opciones de los estilos".');
 @define('STYLE_OPTIONS', 'Opciones de Tema/estilo');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Total: %d extensiones.');

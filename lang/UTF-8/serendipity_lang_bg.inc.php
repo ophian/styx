@@ -851,7 +851,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MEDIA_PROP_DESC', 'Въведете списък от свойства, разделени с \';\', които искате да дефинирате за всеки медиен файл.');
 @define('MEDIA_PROP_MULTIDESC', '(Можете да добавите ":MULTI" след името на свойство за да укажете, че то ще съдържа дълъг текст вместо само няколко символа)');
 
-@define('STYLE_OPTIONS_NONE', 'Тази тема няма специфични опции. За да видите как вашата тема може да има опции, прочетете Техническата документация на https://ophian.github.io/hc/en/ раздел "Configuration of Theme options".');
+@define('STYLE_OPTIONS_NONE', 'Тази тема няма специфични опции. За да видите как вашата тема може да има опции, прочетете Техническата документация на "https://ophian.github.io/hc/en/templating.html#docs-theme-options" раздел "Configuration of Theme options".');
 @define('STYLE_OPTIONS', 'Опции на темата');
 
 @define('PLUGIN_AVAILABLE_COUNT', 'Общо: %d приставки.');

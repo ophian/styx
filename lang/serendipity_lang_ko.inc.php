@@ -861,7 +861,7 @@
 @define('MEDIA_PROP_DESC', '각 미디어 파일에 정의하고자 하는 등록정보 필드를 ";"로 하나씩 분리하여 입력합니다');
 @define('MEDIA_PROP_MULTIDESC', '(특정 아이템이 글자 몇 자가 아니라 긴 글이 포함되어 있다는 것을 표시하고자 할 경우 해당 아이템 뒤에 ":MULTI"를 붙일 수 있습니다)');
 
-@define('STYLE_OPTIONS_NONE', '이 템플릿이나 스타일은 별도의 선택사항이 없습니다. 템플릿에 선택사항을 추가할 수 있는 방법은 https://ophian.github.io/hc/en/에 있는 기술문서(Technical Documentation) 중 "Configuration of Theme options" 항목을 참고하기 바랍니다.');
+@define('STYLE_OPTIONS_NONE', '이 템플릿이나 스타일은 별도의 선택사항이 없습니다. 템플릿에 선택사항을 추가할 수 있는 방법은 "https://ophian.github.io/hc/en/templating.html#docs-theme-options" 에 있는 기술문서(Technical Documentation) 중 "Configuration of Theme options" 항목을 참고하기 바랍니다.');
 @define('STYLE_OPTIONS', '템플릿/스타일 선택사항');
 
 @define('PLUGIN_AVAILABLE_COUNT', '총 플러그인 수: %d개.');
