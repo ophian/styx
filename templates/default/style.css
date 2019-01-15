@@ -234,9 +234,7 @@ a.homelink2:visited,
     margin-top: 0;
     padding-bottom: 0;
     width: auto;
-    display: -moz-box;
-    display: -webkit-inline-box;
-    display: inline-table;
+    display: inherit;
 }
 
 .serendipity_entry_date {
@@ -529,7 +527,7 @@ div.serendipitySideBarItem {
 @media screen and (min-width: 504px) {
     .serendipity_entry_body,
     .serendipity_entry_extended {
-        display: table;
+        display: block;
         clear: both;
         width: auto;
     }
