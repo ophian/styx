@@ -22,7 +22,7 @@
     </ul>
 
 <?php if ($GLOBALS['tpl']['is_form']): ?>
-    <div class="category_submit"><input type="submit" name="serendipity[isMultiCat]" value="<?= GO ?>"></div>
+    <div class="category_submit"><input type="submit" name="serendipity[isMultiCat]" value="<?php if (isset($_GET['serendipity']['category'])): ?><?= RESET_FILTERS ?><?php else: ?><?= GO ?><?php endif; ?>"></div>
 <?php endif; ?>
 
 <?php if ($GLOBALS['tpl']['show_all']): ?>
