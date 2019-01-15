@@ -5,6 +5,8 @@
 
   * Change the GO submit button to RESET FILTERS in sidebar plugin categories,
     when inside a category URL routing situation.
+    Also applied to [2k11, bootstrap4, default, default-php, next, skeleton]
+    themes templates.
 
   * Fix serendipity_smarty_getImageSize() Smarty "fallback" path issue
 
