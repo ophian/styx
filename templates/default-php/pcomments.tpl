@@ -6,8 +6,8 @@
     </div>
 
     <div class="comment_content">
-        {$comment.avatar|default:''}
-        {<?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?><?= str_replace('  ', ' ', strip_tags($comment['body'])) ?> [&hellip;]<?php else: ?><?= $comment['body'] ?><?php endif; ?>
+        <?= isset($comment['avatar']) ? $comment['avatar'] : ''; ?>
+        <?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?><?= str_replace('  ', ' ', strip_tags($comment['body'])) ?> [&hellip;]<?php else: ?><?= $comment['body'] ?><?php endif; ?>
     </div>
 </div>
 <?php $i++; ?>
