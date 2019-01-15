@@ -4,15 +4,15 @@
 <?php endif; ?>
 
     <ul id="serendipity_categories_list" class="plainList">
-<?php if (is_array($categories)):
-    foreach ($categories AS $plugin_category):?>
-        <li style="display: block;">
+<?php if (is_array($GLOBALS['tpl']['categories'])):
+    foreach ($GLOBALS['tpl']['categories'] AS $plugin_category):?>
+        <li>
         <?php if ($GLOBALS['tpl']['is_form']): ?>
-            <input style="width: 15px" type="checkbox" name="serendipity[multiCat][]" value="<?= $plugin_category['categoryid'] ?>">
+            <input type="checkbox" name="serendipity[multiCat][]" value="<?= $plugin_category['categoryid'] ?>">
         <?php endif; ?>
 
         <?php if (!empty($GLOBALS['tpl']['category_image'])): ?>
-            <a class="serendipity_xml_icon" href="<?= $plugin_category['feedCategoryURL'] ?>"><img src="<?= $GLOBALS['tpl']['category_image'] ?>" alt="XML" style="border: 0px"></a>
+            <a class="serendipity_xml_icon" href="<?= $plugin_category['feedCategoryURL'] ?>"><img src="<?= $GLOBALS['tpl']['category_image'] ?>" alt="XML" /></a>
         <?php endif; ?>
 
             <a href="<?= $plugin_category['categoryURL'] ?>" title="<?= serendipity_specialchars($plugin_category['category_description']); ?>" style="padding-left: <?= $plugin_category['paddingPx'] ?>px"><?= serendipity_specialchars($plugin_category['category_name']); ?></a>
