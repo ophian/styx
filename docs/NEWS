@@ -1,4 +1,6 @@
 
+  * Fix some unconverted variable handlers in default-php theme
+
   * Fix .serendipity_entry p{aragraphs} flexing floats in default theme
 
   * Change the GO submit button to RESET FILTERS in sidebar plugin categories,
