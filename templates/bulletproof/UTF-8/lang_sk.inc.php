@@ -80,6 +80,4 @@
 @define('SITENAV_QUICKSEARCH',          'Zobraziť pole rýchleho vyhľadávania v navigačnej lište (zobrazí sa iba v navigačnej lište nad alebo pod obrázkom v záhlaví stránky. Ak je navigačná lišta v bočných stĺpcoch, vyhľadávacie pole nebude zobrazené.)');
 @define('SITENAV_TITLE',                'Nadpis pré navigačnú lištu/menu (iba ak je zobrazená na začiatku bočného stĺpca)');
 @define('SITENAV_TITLE_TEXT',           'Hlavné menu');
-@define('NAVLINK_AMOUNT',               'Zadajte počet odkazov navigačnej lišty (po zadaní tohto nastavenia kliknite na "Uložiť" a obnovte stránku)');
-@define('NAV_LINK_TEXT',                'Test odkazu');
-@define('NAV_LINK_URL',                 'URL adresa odkazu');
+

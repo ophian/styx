@@ -94,9 +94,6 @@
 @define('SITENAV_QUICKSEARCH',          'Zobrazit políèko rychlého vyhledávání v navigaèní li¹tì (zobrazuje se pouze v navigaèní li¹tì nad nebo pod obrázkem v záhlaví stránky. Je-li navigaèní li¹ta v postranních sloupcích, vyhledávací políèko není nikdy zobrazeno.)');
 @define('SITENAV_TITLE',                'Nadpis pro navigaèní li¹tu/menu (pouze pokud je zobrazena na zaèátku postranního sloupce)');
 @define('SITENAV_TITLE_TEXT',           'Hlavní menu');
-@define('NAVLINK_AMOUNT',               'Zadejte poèet odkazù navigaèní li¹ty (ihned po zadání této volby kliknìte na "Ulo¾i" a obnovte stránku)');
-@define('NAV_LINK_TEXT',                'Test odkazu');
-@define('NAV_LINK_URL',                 'URL adresa odkazu');
 
 // Next lines were translated on 2009/06/30
 @define('SHOW_PAGINATION',              'Zobrazovat èísla stránek (stránkování)');

@@ -80,7 +80,4 @@
 @define('SITENAV_QUICKSEARCH',          'Zobrazi» pole rýchleho vyhµadávania v navigaènej li¹te (zobrazí sa iba v navigaènej li¹te nad alebo pod obrázkom v záhlaví stránky. Ak je navigaèná li¹ta v boèných ståpcoch, vyhµadávacie pole nebude zobrazené.)');
 @define('SITENAV_TITLE',                'Nadpis pré navigaènú li¹tu/menu (iba ak je zobrazená na zaèiatku boèného ståpca)');
 @define('SITENAV_TITLE_TEXT',           'Hlavné menu');
-@define('NAVLINK_AMOUNT',               'Zadajte poèet odkazov navigaènej li¹ty (po zadaní tohto nastavenia kliknite na "Ulo¾i»" a obnovte stránku)');
-@define('NAV_LINK_TEXT',                'Test odkazu');
-@define('NAV_LINK_URL',                 'URL adresa odkazu');
 

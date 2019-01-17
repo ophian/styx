@@ -1,4 +1,4 @@
-<?php # lang_cz.inc.php 1.3 2011-01-08 10:43:18 VladaAjgl $
+<?php
 
 /**
  *  @version 1.3
@@ -94,12 +94,10 @@
 @define('SITENAV_QUICKSEARCH',          'Zobrazit políčko rychlého vyhledávání v navigační liště (zobrazuje se pouze v navigační liště nad nebo pod obrázkem v záhlaví stránky. Je-li navigační lišta v postranních sloupcích, vyhledávací políčko není nikdy zobrazeno.)');
 @define('SITENAV_TITLE',                'Nadpis pro navigační lištu/menu (pouze pokud je zobrazena na začátku postranního sloupce)');
 @define('SITENAV_TITLE_TEXT',           'Hlavní menu');
-@define('NAVLINK_AMOUNT',               'Zadejte počet odkazů navigační lišty (ihned po zadání této volby klikněte na "Uloži" a obnovte stránku)');
-@define('NAV_LINK_TEXT',                'Test odkazu');
-@define('NAV_LINK_URL',                 'URL adresa odkazu');
 
 // Next lines were translated on 2009/06/30
 @define('SHOW_PAGINATION',              'Zobrazovat čísla stránek (stránkování)');
 
 // Next lines were translated on 2011/01/08
 @define('THEME_HEADER',                 'Hlavička');
+
