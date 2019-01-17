@@ -113,11 +113,10 @@
                 <br />
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle">{$CONST.TRACKBACKS}</div>
-                    <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
-                    </div>
-                    <br />
-                        {serendipity_printTrackbacks entry=$entry.id}
+                <div class="serendipity_center">
+                    <a rel="nofollow" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
+                </div><br />
+                {serendipity_printTrackbacks entry=$entry.id}
             </div>
         {/if}
 
