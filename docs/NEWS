@@ -6,7 +6,7 @@
     Same for the ".serendipity_calendar" selector.
 
     Also some old inline styles in plugin_calendar.tpl where removed in
-    [carl_contest, default-php, default-rtl, default]
+    [carl_contest, contest, default-php, default-rtl, default]
     and another old inline styles in entries.tpl, which touched the
     [bulletproof, carl_contest, competition, contest, default] themes.
     UPGRADERS: Please check your copy themes.
