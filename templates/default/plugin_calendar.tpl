@@ -6,11 +6,11 @@
 {/if}
         </td>
 
-        <td colspan="5" class="serendipity_calendarHeader" style="text-align: center; vertical-align: bottom">
-            <b><a style="white-space: nowrap" href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a></b>
+        <td colspan="5" class="serendipity_calendarHeader">
+            <b><a href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a></b>
         </td>
 
-        <td class="serendipity_calendarHeader" style="text-align: right">
+        <td class="serendipity_calendarHeader">
 {if $plugin_calendar_head.maxScroll ge $plugin_calendar_head.month_date}
             <a title="{$CONST.FORWARD}" href="{$plugin_calendar_head.uri_next}"><span class="icon icon-next" alt="{$CONST.FORWARD}"></span></a>
 {/if}

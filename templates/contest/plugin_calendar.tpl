@@ -1,24 +1,24 @@
-<table cellspacing="0" cellpadding="0" class="serendipity_calendar">
+<table class="serendipity_calendar">
     <tr>
         <td class="serendipity_calendarHeader">
 {if $plugin_calendar_head.minScroll le $plugin_calendar_head.month_date}
-            <a title="{$CONST.BACK}" href="{$plugin_calendar_head.uri_previous}"><img alt="{$CONST.BACK}" src="{serendipity_getFile file="img/back.png"}" width="16" height="16" style="border: 0px" /></a>
+            <a title="{$CONST.BACK}" href="{$plugin_calendar_head.uri_previous}"><img alt="{$CONST.BACK}" src="{serendipity_getFile file="img/back.png"}" width="16" height="16" /></a>
 {/if}
         </td>
 
-        <td class="serendipity_calendarHeader" style="text-align: center; vertical-align: bottom">
-            <a style="white-space: nowrap" href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a>
+        <td class="serendipity_calendarHeader">
+            <a href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a>
         </td>
 
-        <td class="serendipity_calendarHeader" style="text-align: right">
+        <td class="serendipity_calendarHeader">
 {if $plugin_calendar_head.maxScroll ge $plugin_calendar_head.month_date}
-            <a title="{$CONST.FORWARD}" href="{$plugin_calendar_head.uri_next}"><img alt="{$CONST.FORWARD}" src="{serendipity_getFile file="img/forward.png"}" width="16" height="16" style="border: 0px" /></a>
+            <a title="{$CONST.FORWARD}" href="{$plugin_calendar_head.uri_next}"><img alt="{$CONST.FORWARD}" src="{serendipity_getFile file="img/forward.png"}" width="16" height="16" /></a>
 {/if}
         </td>
     </tr>
 </table>
 
-<table cellspacing="0" cellpadding="0" class="serendipity_calendar serendipity_calendar_content">
+<table class="serendipity_calendar serendipity_calendar_content">
     <tr>
     {foreach $plugin_calendar_dow AS $dow}
         <td scope="col" abbr="{$dow.date|formatTime:"%A":false}" title="{$dow.date|formatTime:"%A":false}" class="serendipity_weekDayName" align="center">{$dow.date|formatTime:"%a":false}</td>

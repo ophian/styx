@@ -2,17 +2,17 @@
     <tr>
         <td class="serendipity_calendarHeader">
 {if $plugin_calendar_head.minScroll le $plugin_calendar_head.month_date}
-            <a title="{$CONST.BACK}" href="{$plugin_calendar_head.uri_previous}"><img alt="{$CONST.BACK}" src="{serendipity_getFile file="img/back.gif"}" width="16" height="12" style="border: 0px" /></a>
+            <a title="{$CONST.BACK}" href="{$plugin_calendar_head.uri_previous}"><img alt="{$CONST.BACK}" src="{serendipity_getFile file="img/back.gif"}" width="16" height="12" /></a>
 {/if}
         </td>
 
-        <td colspan="5" class="serendipity_calendarHeader" style="text-align: center; vertical-align: bottom">
-            <b><a style="white-space: nowrap" href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a></b>
+        <td colspan="5" class="serendipity_calendarHeader">
+            <b><a href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a></b>
         </td>
 
-        <td class="serendipity_calendarHeader" style="text-align: right">
+        <td class="serendipity_calendarHeader">
 {if $plugin_calendar_head.maxScroll ge $plugin_calendar_head.month_date}
-            <a title="{$CONST.FORWARD}" href="{$plugin_calendar_head.uri_next}"><img alt="{$CONST.FORWARD}" src="{serendipity_getFile file="img/forward.gif"}" width="16" height="12" style="border: 0px" /></a>
+            <a title="{$CONST.FORWARD}" href="{$plugin_calendar_head.uri_next}"><img alt="{$CONST.FORWARD}" src="{serendipity_getFile file="img/forward.gif"}" width="16" height="12" /></a>
 {/if}
         </td>
     </tr>

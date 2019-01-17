@@ -2,17 +2,17 @@
     <tr>
         <td class="serendipity_calendarHeader">
 <?php if ($GLOBALS['tpl']['plugin_calendar_head']['minScroll'] <= $GLOBALS['tpl']['plugin_calendar_head']['month_date']): ?>
-            <a title="<?= BACK ?>" href="<?= $GLOBALS['tpl']['plugin_calendar_head']['uri_previous'] ?>"><img alt="<?= BACK ?>" src="<?php echo serendipity_getTemplateFile('img/back-r.png'); ?>" width="16" height="12" style="border: 0px"></a>
+            <a title="<?= BACK ?>" href="<?= $GLOBALS['tpl']['plugin_calendar_head']['uri_previous'] ?>"><img alt="<?= BACK ?>" src="<?php echo serendipity_getTemplateFile('img/back-r.png'); ?>" width="16" height="12" /></a>
 <?php endif; ?>
         </td>
 
-        <td colspan="5" class="serendipity_calendarHeader" style="text-align: center; vertical-align: bottom">
-            <b><a style="white-space: nowrap" href="<?= $GLOBALS['tpl']['plugin_calendar_head']['uri_month'] ?>"><?= serendipity_formatTime("%B &rsquo;%y", $GLOBALS['tpl']['plugin_calendar_head']['month_date']); ?></a></b>
+        <td colspan="5" class="serendipity_calendarHeader">
+            <b><a href="<?= $GLOBALS['tpl']['plugin_calendar_head']['uri_month'] ?>"><?= serendipity_formatTime("%B &rsquo;%y", $GLOBALS['tpl']['plugin_calendar_head']['month_date']); ?></a></b>
         </td>
 
-        <td class="serendipity_calendarHeader" style="text-align: right">
+        <td class="serendipity_calendarHeader">
 <?php if ($GLOBALS['tpl']['plugin_calendar_head']['maxScroll'] >= $GLOBALS['tpl']['plugin_calendar_head']['month_date']): ?>
-            <a title="<?= FORWARD ?>" href="<?= $GLOBALS['tpl']['plugin_calendar_head']['uri_next'] ?>"><img alt="<?= FORWARD ?>" src="<?php echo serendipity_getTemplateFile('img/forward-r.png'); ?>" width="16" height="12" style="border: 0px"></a>
+            <a title="<?= FORWARD ?>" href="<?= $GLOBALS['tpl']['plugin_calendar_head']['uri_next'] ?>"><img alt="<?= FORWARD ?>" src="<?php echo serendipity_getTemplateFile('img/forward-r.png'); ?>" width="16" height="12" /></a>
 <?php endif; ?>
         </td>
     </tr>
