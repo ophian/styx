@@ -16,7 +16,7 @@ class serendipity_plugin_authors extends serendipity_plugin
         $propbag->add('description', AUTHOR_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.2');
+        $propbag->add('version',       '2.3');
         $propbag->add('configuration', array('image', 'allow_select', 'title', 'showartcount', 'mincount'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -114,7 +114,7 @@ class serendipity_plugin_authors extends serendipity_plugin
                 }
 
                 if ( !empty($image) ) {
-                    $html .= '    <a class="serendipity_xml_icon" href="'. serendipity_feedAuthorURL($auth, 'serendipityHTTPPath') .'"><img src="'. $image .'" alt="XML" style="border: 0px" /></a> ';
+                    $html .= '    <a class="serendipity_xml_icon" href="'. serendipity_feedAuthorURL($auth, 'serendipityHTTPPath') .'"><img src="'. $image .'" alt="XML" /></a> ';
                 }
                 $html .= '    <a href="'. serendipity_authorURL($auth, 'serendipityHTTPPath') .'" title="'. serendipity_specialchars($auth['realname']) .'">'. serendipity_specialchars($auth['realname']) . $entrycount . '</a>';
                 $html .= '</li>' . "\n";

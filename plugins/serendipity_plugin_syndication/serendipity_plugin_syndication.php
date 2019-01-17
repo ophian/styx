@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.5');
+        $propbag->add('version',       '2.6');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -256,7 +256,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
             $class .= " serendipity_xml_icon";
         }
         if ($icon) {
-            $output .= '<a class="'. $class .'" ' . $link . '><img src="' . $icon . '" alt="XML" style="border: 0px" /></a>'."\n";
+            $output .= '<a class="'. $class .'" ' . $link . '><img src="' . $icon . '" alt="XML" /></a>'."\n";
         }
         if (! empty($label)) {
             $output .= " <a $link>$label</a>\n";
