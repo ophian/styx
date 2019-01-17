@@ -1,4 +1,4 @@
-<table style="width: 100%" cellspacing="0" cellpadding="0" class="serendipity_calendar">
+<table class="serendipity_calendar">
     <tr>
         <td class="serendipity_calendarHeader">
 {if $plugin_calendar_head.minScroll le $plugin_calendar_head.month_date}
