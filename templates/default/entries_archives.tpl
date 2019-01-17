@@ -2,9 +2,9 @@
 <h3 class="serendipity_date">{$CONST.ARCHIVES}{if NOT empty($category_info.categoryid)} :: {$category_info.category_name}{/if}</h3>
 {if isset($archives) AND is_array($archives)}
 {foreach $archives AS $archive}
-<table class="archives_listing" cellspacing="4" cellpadding="4" border="0">
+<table class="archives_listing">
     <tr class="archives_header">
-        <td class="archives_header" colspan="4"><h2>{$archive.year}</h2></td>
+        <td class="archives_header" colspan="5"><h2>{$archive.year}</h2></td>
     </tr>
     {foreach $archive.months AS $month}
     <tr class="archives_row">

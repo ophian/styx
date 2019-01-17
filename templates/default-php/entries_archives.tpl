@@ -2,9 +2,9 @@
 <h3 class="serendipity_date"><?= ARCHIVES ?><?php if (!empty($GLOBALS['tpl']['category_info']['categoryid'])):?> :: <?= $GLOBALS['tpl']['category_info']['category_name'] ?><?php endif; ?></h3>
 <?php if (is_array($GLOBALS['tpl']['archives'])):
 foreach ($GLOBALS['tpl']['archives'] AS $archive):?>
-<table class="archives_listing" cellspacing="4" cellpadding="4" border="0">
+<table class="archives_listing">
     <tr class="archives_header">
-        <td class="archives_header" colspan="4"><h2><?= $archive['year'] ?></h2></td>
+        <td class="archives_header" colspan="5"><h2><?= $archive['year'] ?></h2></td>
     </tr>
     <?php foreach ($archive['months'] AS $month):?>
     <tr class="archives_row">
