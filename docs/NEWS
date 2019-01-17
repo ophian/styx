@@ -10,6 +10,8 @@
     [bulletproof, carl_contest, competition, contest, default] themes.
     UPGRADERS: Please check your copy themes.
 
+  * Remove some redundant language constants in the bulletproof theme
+
   * Fix some unconverted variable handlers in default-php theme
 
   * Fix .serendipity_entry p{aragraphs} flexing floats in default theme
