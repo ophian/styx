@@ -114,6 +114,22 @@ input[type="button"], input[type="checkbox"] {
     text-align: center;
 }
 
+table.archives_listing {
+    display: table;
+    width: auto;
+    border-collapse: separate;
+    border-spacing: 4px; }
+    .archives_row td {
+        padding: 4px; }
+        td.archives_graph img {
+            height: 1em;
+            border: 1px solid #000; }
+
+ul#serendipity_categories_list {
+	margin: 0;
+	padding: 0;
+	list-style-type: none; }
+
 /* disable s9ymarkup, gravatar, spamblock markup and emoticate hooked text messages in contact-form template files, having at least this staticpage_plugin_contactform selector */
 .staticpage_plugin_contactform .serendipity_comment_emoticate,
 .staticpage_plugin_contactform .serendipity_comment_gravatar,
