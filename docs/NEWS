@@ -3,6 +3,7 @@
     "ul#serendipity_categories_list" selectors to the style_fallback.css file,
     which removes entries_archives table attributes in [default, default-php
     and all themes without this template file using the fallback cascade].
+    Same for the ".serendipity_calendar" selector.
 
     Also some old inline styles in plugin_calendar.tpl where removed in
     [carl_contest, default-php, default-rtl, default]
