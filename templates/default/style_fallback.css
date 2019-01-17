@@ -114,6 +114,7 @@ input[type="button"], input[type="checkbox"] {
     text-align: center;
 }
 
+/* this and that */
 table.archives_listing {
     display: table;
     width: auto;
@@ -129,6 +130,9 @@ ul#serendipity_categories_list {
 	margin: 0;
 	padding: 0;
 	list-style-type: none; }
+
+.serendipity_calendar {
+    width: 100%; }
 
 /* disable s9ymarkup, gravatar, spamblock markup and emoticate hooked text messages in contact-form template files, having at least this staticpage_plugin_contactform selector */
 .staticpage_plugin_contactform .serendipity_comment_emoticate,
