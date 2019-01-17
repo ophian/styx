@@ -1,4 +1,15 @@
 
+  * Add default styles for HTML table ".archives_listing" and sidebars
+    "ul#serendipity_categories_list" selectors to the style_fallback.css file,
+    which removes entries_archives table attributes in [default, default-php
+    and all themes without this template file using the fallback cascade].
+
+    Also some old inline styles in plugin_calendar.tpl where removed in
+    [carl_contest, default-php, default-rtl, default]
+    and another old inline styles in entries.tpl, which touched the
+    [bulletproof, carl_contest, competition, contest, default] themes.
+    UPGRADERS: Please check your copy themes.
+
   * Fix some unconverted variable handlers in default-php theme
 
   * Fix .serendipity_entry p{aragraphs} flexing floats in default theme
