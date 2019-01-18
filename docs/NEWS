@@ -1,4 +1,7 @@
 
+  * Some Serendipity Styx updates to [bulletproof, kubrick] themes
+    UPGRADERS: Please check your copy themes.
+
   * Add default styles for HTML table ".archives_listing" and sidebars
     "ul#serendipity_categories_list" selectors to the style_fallback.css file,
     which removes entries_archives table attributes in [default, default-php
