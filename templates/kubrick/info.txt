@@ -1,4 +1,7 @@
-Name: Kubrick 1.2.6 port
+Name: Kubrick
 Author: Tom Sommer
-Date: 2018-12-05
+Date: 2019-01-18
 Require Serendipity: 1.7
+
+Summary: A Kubrick 1.2.6 port. Additional old theme from 2004-08-12 with a default size of ~760 pixel content width.
+Description: Fixed and basically upgraded for Serendipity Styx 2.1+ revisions. Not <u>fully</u> mobile friendly!

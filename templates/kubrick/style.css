@@ -1,3 +1,96 @@
+@-ms-viewport { width: device-width; }
+ul,ol { list-style-position: inside; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+/* Modern Serendipity image sizing default */
+
+img {
+    border: 0;
+    vertical-align: middle;
+    overflow: hidden;
+    position: relative; }
+embed, object, audio, video, img {
+    max-width: 100%; }
+img, video {
+    height: auto; }
+
+/* Serendipity Styx comment summary pages */
+
+.comment_content {
+    margin-bottom: 1em; }
+
+.serendipity_comment_author_self .serendipity_comment_source .pc-owner,
+.serendipity_comment_author_self .comment_header .pc-owner {
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    font-style: normal;
+    text-shadow: 1px 1px 2px #222; }
+.comments_by_author_pagination {
+    text-align: center; }
+.comments_by_author_pagination.top {
+    margin-top: 1em; }
+.comments_by_author_pagination.bottom {
+    margin: 2em auto; }
+
+/* defaults */
+
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+#c0 { /* a new unsaved comment preview only */
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: .625em;
+}
+
+.serendipity_image_link {
+    display: inline-block;
+}
+.serendipity_entry table {
+    border: 1px solid #eee;
+    display: inline-grid;
+    max-width: 100%;
+    width: auto;
+    overflow: auto;
+    padding: 2px; }
+
+/** Modernizing Serendipity Styx default styles END **/
+
+/** Theme fixes depending presets and theme styles **/
+
+[type="checkbox"],
+[type="radio"] {
+    vertical-align: middle; }
+
+.serendipity_Entry_Date.freetag_cloud {
+    display: inline-block;
+    margin-bottom: 1em; }
+
+.serendipity_staticpage h2,
+h2.staticpage_title {
+    display: block;
+    margin-bottom: 1.5em; }
+
+.serendipity_staticpage h1 {
+    color: inherit;
+    padding-top: inherit; }
+
+.serendipity_calendarHeader {
+    text-align: center; }
+
+/* backend preview */
+#content.preview_preview_content {
+    background: #FFF;
+    width: 760px !important;
+    padding-left: 2em !important; }
+    #content.preview_preview_content .post {
+        width: 495px; }
+
 /*   
     Kubrick v1.2.5  for  WordPress 1.2
      http://binarybonsai.com/kubrick/
@@ -42,7 +135,8 @@ body {
     }
 
 #content {
-    font-size: 1.2em
+    font-size: 1.2em;
+    margin-top: 2em;
     }
 
 pre {
@@ -74,7 +168,7 @@ img.categoryIcon {
     line-height: 1.6em;
     }
     
-.graybox {
+.comment_oddbox {
     background-color: #f8f8f8;
     border-top: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
@@ -146,6 +240,7 @@ h2, h2 a, h2 a:hover, h2 a:visited, h3, h3 a, h3 a:hover, h3 a:visited, #sidebar
     font-weight: bold;
     font-style: normal;
     font-size: 1.1em;
+    line-height: 1.5;
     }
 
 .commentlist p {
@@ -316,7 +411,7 @@ h1 {
     }
 
 h2 {
-    margin: 30px 0 0;
+    margin: 0;
     }
 
 h2.pagetitle {
@@ -502,7 +597,7 @@ select {
 
 
 /* Begin Comments*/
-.graybox {
+.comment_oddbox,.comment_evenbox {
     margin: 0;
     padding: 10px;
     }
