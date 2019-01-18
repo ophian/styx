@@ -211,7 +211,7 @@
 
                         {if $template_option.addthiswidget == 'true'}
                             <div class="addthiswidget">
-                                <a href="//www.addthis.com/bookmark.php?v=250" onmouseover="return addthis_open(this, '', encodeURIComponent('{$entry.rdf_ident}'), encodeURIComponent('{$entry.title|escape:url}'));" onmouseout="addthis_close()" onclick="return addthis_sendto()" title="Bookmark and Share" target="_blank"><img src="//s7.addthis.com/static/btn/lg-bookmark-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0" /></a>
+                                <a href="//www.addthis.com/bookmark.php?v=250" onmouseover="return addthis_open(this, '', encodeURIComponent('{$entry.rdf_ident}'), encodeURIComponent('{$entry.title|escape:url}'));" onmouseout="addthis_close()" onclick="return addthis_sendto()" title="Bookmark and Share" target="_blank"><img src="//s7.addthis.com/static/btn/lg-bookmark-en.gif" width="125" height="16" alt="Bookmark and Share" /></a>
                                 <script type="text/javascript" src="//s7.addthis.com/js/250/addthis_widget.js?pub={$template_option.addthisaccount|escape}"></script>
                             </div>
                         {/if}
@@ -377,7 +377,7 @@
     {/if}
 {/if}
 
-<div class="serendipity_pageFooter" style="text-align: center">
+<div class="serendipity_pageFooter">
 {if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
     {if $footer_prev_page}
         {if $template_option.prev_next_style == 'texticon'}

@@ -214,7 +214,7 @@ body {
     overflow: hidden;
 }
 
-.serendipitySideBarContent input,
+.serendipitySideBarContent input:not(type="checkbox"),
 .serendipitySideBarContent select {
     width: 95%;
 }

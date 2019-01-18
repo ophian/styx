@@ -1,7 +1,9 @@
-{* bulletproof frontend plugin_staticpage.tpl file v. 1.06, 2015-02-01 *}
+{* bulletproof frontend plugin_staticpage.tpl file v. 1.07, 2019-01-18 *}
 {if $staticpage_articleformat}
 <div id="staticpage_{$staticpage_pagetitle|makeFilename}" class="serendipity_Entry_Date serendipity_staticpage">
     <h3 class="serendipity_date">{if $staticpage_articleformattitle}{$staticpage_articleformattitle}{else}{$staticpage_pagetitle|escape}{/if}</h3>
+{else}
+<div class="staticpage_content">
 {/if}
 
     <h4>{if $staticpage_headline}{$staticpage_headline}{else}{$staticpage_pagetitle|escape}{/if}</h4>
@@ -73,6 +75,6 @@
     | <a class="staticpage_metainfo_editlink" href="{$staticpage_adminlink.link_edit}">{$staticpage_adminlink.link_name|escape}</a>
 {/if}
     </div>
-{if $staticpage_articleformat}
+{*if $staticpage_articleformat*}
 </div>
-{/if}
+{*/if*}

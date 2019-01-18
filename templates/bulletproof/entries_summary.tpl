@@ -25,6 +25,6 @@
     </div>
 </div>
 
-<div class="serendipity_pageFooter" style="text-align: center">
+<div class="serendipity_pageFooter">
 {serendipity_hookPlugin hook="entries_footer"}
 </div>
