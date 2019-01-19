@@ -1,4 +1,4 @@
-Name: Bulletproof v1.4 (s9y-bulletproof.com)
+Name: Bulletproof
 Author: Bulletproof development team
 Date: 2019-01-19
 Require Serendipity: 1.7
