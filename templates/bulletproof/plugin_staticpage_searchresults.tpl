@@ -1,5 +1,5 @@
-{* bulletproof frontend plugin_staticpage_searchresults.tpl file v. 1.06, 2015-02-01 *}
-<div class="staticpage_results" style="text-align: left">
+{* bulletproof frontend plugin_staticpage_searchresults.tpl file v. 1.07, 2019-01-18 *}
+<div class="staticpage_results">
     <p class="staticpage_result_header">{$CONST.STATICPAGE_SEARCHRESULTS|sprintf:$staticpage_searchresults}</p>
 
     {if $staticpage_results}
