@@ -1,7 +1,8 @@
 
-  * Fix conditional $head_subtitle for external_plugin freetag cloud in [blue,
-    bulletproof, carl_contest, clean_blog, competition, contest, default,
-    default-php, default-rtl, idea, kubrick, timeline] themes.
+  * Fix themes conditional $head_subtitle for the freetag related tags cloud, via
+    the external_plugin hook in entries.tpl, for [blue, bulletproof, carl_contest,
+    clean_blog, competition, contest, default, default-php, default-rtl, idea,
+    kubrick, timeline] "index.tpl" template file.
     UPGRADERS: Please check your copy themes.
 
   * Add back button if a theme config was available without configuration
