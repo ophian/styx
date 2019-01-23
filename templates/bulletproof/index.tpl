@@ -117,7 +117,7 @@
         <!--                      description headlines                                  -->
         <div id="serendipity_banner">
             <h1><span class="{if NOT $template_option.firbtitle}in{/if}visible"><a class="homelink1" href="{$serendipityBaseURL}">{$head_title|default:$blogTitle|truncate:80:" ..."}</a></span></h1>
-            <h2><span class="{if NOT $template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></span></h2>
+            <h2><span class="{if NOT $template_option.firbdescr}in{/if}visible"><a class="homelink2" href="{$serendipityBaseURL}">{if $view == 'plugin'}{$blogDescription}{else}{$head_subtitle|default:$blogDescription}{/if}</a></span></h2>
         </div>
         <div id="serendipity_below_banner"></div>
 

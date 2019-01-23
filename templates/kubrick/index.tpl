@@ -42,7 +42,7 @@
 <div id="header" onclick="location.href='{$serendipityBaseURL}';" style="cursor: pointer;">
     <div id="headerimg">
         <h1>{$head_title|default:$blogTitle}</h1>
-        <div class="description">{$head_subtitle|default:$blogDescription}</div>
+        <div class="description">{if $view == 'plugin'}{$blogDescription}{else}{$head_subtitle|default:$blogDescription}{/if}</div>
     </div>
 </div>
 <hr />

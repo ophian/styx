@@ -114,7 +114,7 @@
                     {else}{$head_title}{/if}
                 {elseif $view == 'archives' AND $category}{$head_title} - {$head_subtitle}
                 {elseif $view == 'archive' AND $category}{$category_info.category_name} - {$head_subtitle}
-                {elseif $head_subtitle}{$head_subtitle}
+                {elseif $head_subtitle}{if $view == 'plugin'}{$blogDescription}{else}{$head_subtitle|default:$blogDescription}{/if}
                 {/if}
             </h2>
 

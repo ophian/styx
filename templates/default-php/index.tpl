@@ -36,7 +36,7 @@
 <?php if ($GLOBALS['tpl']['is_raw_mode'] != true): ?>
     <header id="serendipity_banner">
         <h1><a class="homelink1" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>"><?= $GLOBALS['template']->getdefault('head_title', 'blogTitle'); ?></a></h1>
-        <h2><a class="homelink2" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>"><?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></a></h2>
+        <h2><a class="homelink2" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>"><?php if ($GLOBALS['tpl']['view'] == 'plugin'): ?><?= $GLOBALS['tpl']['blogDescription']; ?><?php else: ?><?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?><?php endif; ?></a></h2>
     </header>
 
 <div id="mainpane">
