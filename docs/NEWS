@@ -1,4 +1,6 @@
 
+  * Add back button if a theme config was available without configuration
+
   * Some Serendipity Styx updates to [bulletproof, kubrick] themes
     UPGRADERS: Please check your copy themes.
 
