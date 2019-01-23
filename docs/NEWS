@@ -1,4 +1,9 @@
 
+  * Fix conditional $head_subtitle for external_plugin freetag cloud in [blue,
+    bulletproof, carl_contest, clean_blog, competition, contest, default,
+    default-php, default-rtl, idea, kubrick, timeline] themes.
+    UPGRADERS: Please check your copy themes.
+
   * Add back button if a theme config was available without configuration
 
   * Some Serendipity Styx updates to [bulletproof, kubrick] themes
