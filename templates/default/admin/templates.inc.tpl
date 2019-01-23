@@ -20,6 +20,7 @@
         </form>
     {else}
         <p>{$CONST.STYLE_OPTIONS_NONE}</p>
+        <a class="button_link" href="?serendipity[adminModule]=templates" title="{$CONST.BACK}">{$CONST.BACK}</a>
     {/if}
     </section>
 {else}
