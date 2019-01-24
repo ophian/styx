@@ -1,4 +1,7 @@
 
+  * Fix some false variable handlers and bugs in default-php theme
+    UPGRADERS: Please check your copy themes.
+
   * Fix some theme styles in [kubrick, default, default-rtl]
 
   * Remove some remaining inline styles in [carl_contest, competition, contest,
