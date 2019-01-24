@@ -3,9 +3,11 @@
     UPGRADERS: Please check your copy themes.
 
   * Fix some theme styles in [kubrick, default, default-rtl]
+    UPGRADERS: Please check your copy themes.
 
   * Remove some remaining inline styles in [carl_contest, competition, contest,
     default-rtl] themes.
+    UPGRADERS: Please check your copy themes.
 
   * Fix themes conditional $head_subtitle for the freetag related tags cloud, via
     the external_plugin hook in entries.tpl, for [blue, bulletproof, carl_contest,
