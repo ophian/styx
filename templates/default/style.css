@@ -264,9 +264,11 @@ a.homelink2:visited,
     font-size: .75em;
     text-align: center;
     color: #222;
-    margin: auto;
+    margin: 3em auto auto;
     padding-top: 1em;
     padding-bottom: 4px;
+    display: block;
+    width: 100%;
 }
 
 img.serendipity_entryIcon {
@@ -335,7 +337,7 @@ input[type="button"], input[type="checkbox"] {
     margin-top: .5em;
     padding-left: .5em;
     margin-bottom: .5em;
-    padding-bottom: 0.25em;
+/*    padding-bottom: 0.25em;*/
     border-bottom: 2px ridge #DDD;
 }
 .comments_by_author_pagination {
@@ -364,6 +366,7 @@ input[type="button"], input[type="checkbox"] {
 
 table.serendipity_calendar td {
     font-size: 11px;
+    text-align: center;
     padding: 0.25em;
 }
 table.serendipity_calendar a {
@@ -493,6 +496,12 @@ div.serendipitySideBarItem {
 
 .serendipity_comment_author_self .serendipity_comment_source {
     background-color: #EEE;
+}
+
+.staticpage_sbJsList {
+    overflow: hidden;
+    white-space: nowrap;
+    padding-bottom: 10px;
 }
 
 /*** Additional plugin styles needed for the modernized output code ***/
