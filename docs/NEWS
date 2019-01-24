@@ -1,4 +1,7 @@
 
+  * Remove some remaining inline styles in [carl_contest, competition, contest,
+    default-rtl] themes.
+
   * Fix themes conditional $head_subtitle for the freetag related tags cloud, via
     the external_plugin hook in entries.tpl, for [blue, bulletproof, carl_contest,
     clean_blog, competition, contest, default, default-php, default-rtl, idea,
