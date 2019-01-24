@@ -51,13 +51,31 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 .serendipity_image_link {
     display: inline-block;
 }
-.serendipity_entry table {
+.post table {
+    border-collapse: separate;
+    border-spacing: 2px;
     border: 1px solid #eee;
     display: inline-grid;
     max-width: 100%;
     width: auto;
     overflow: auto;
     padding: 2px; }
+
+/* calendar */
+.icon-back::before {
+    content: "<"; }
+.icon-next::before {
+    content: ">"; }
+.icon {
+    display: inline-block;
+    font-weight: 600;
+    font-size: 1.065em;
+    /*color: #FFF;*/
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; }
+.serendipity_calendarHeader {
+    text-align: center; }
 
 /** Modernizing Serendipity Styx default styles END **/
 
