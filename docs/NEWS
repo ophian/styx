@@ -1,4 +1,6 @@
 
+  * Fix some theme styles in [kubrick, default, default-rtl]
+
   * Remove some remaining inline styles in [carl_contest, competition, contest,
     default-rtl] themes.
 
