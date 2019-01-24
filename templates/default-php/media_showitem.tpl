@@ -1,4 +1,3 @@
-<?php $template = str_replace('\\', '/', dirname(__FILE__).'/media_showitem.tpl'); ?>
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 <!doctype html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
@@ -8,12 +7,12 @@
     <meta name="generator" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
-<?php /*serendipity_plugin_api::hook_event('frontend_header', $template)*//* ENABLE TO USE any plugin hooked assets - see footer */ ?>
+<?php /*serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template'])*//* ENABLE TO USE any plugin hooked assets - see footer */ ?>
     <script src="<?= $GLOBALS['tpl']['head_link_script'] ?>"></script>
 </head>
 <body>
 <?php else: ?>
-<?php /*serendipity_plugin_api::hook_event('frontend_header', $template)*//* ENABLE TO USE any plugin hooked assets - see footer */ ?>
+<?php /*serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template'])*//* ENABLE TO USE any plugin hooked assets - see footer */ ?>
 <?php endif; ?>
 
 <?php if ($GLOBALS['tpl']['is_raw_mode'] != true): ?>
@@ -108,7 +107,7 @@
 
 <?php endif; ?>
 <?php if (!empty($GLOBALS['tpl']['raw_data'])) ?><?= $GLOBALS['tpl']['raw_data'] ?><?php endif; ?>
-<?php /*serendipity_plugin_api::hook_event('frontend_footer', $template) *//* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib */ ?>
+<?php /*serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['template']) *//* ENABLE TO USE any plugin hooked assets which often need an active jQuery lib */ ?>
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 </body>
 </html>

@@ -2,10 +2,10 @@
 <!-- plugin based plugin_staticpage_sidebar.tpl file -->
 
 <?php if ($GLOBALS['tpl']['is_raw_mode']): ?>
-<div class="staticpage_sbList" style="margin: 0; padding: 0;">
+<div class="staticpage_sbList">
 <?php endif; ?>
 <?php if (!empty($GLOBALS['tpl']['staticpage_jsStr'])): ?>
-    <div class="staticpage_sbJsList" style="overflow: hidden;white-space: nowrap;padding-bottom: 10px;">
+    <div class="staticpage_sbJsList">
     <?= $GLOBALS['tpl']['staticpage_jsStr'] ?>
     </div>
 <?php endif; ?>

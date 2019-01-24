@@ -1,5 +1,5 @@
 <!-- ENTRIES START -->
-    <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['tpl']['entry_id']); ?>
+    <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['serendipity'], $GLOBALS['tpl']['entry_id']); ?>
 <?php /* NOTE: in case of staticpages it either needs to check is_array() or cast foreach($GLOBALS as (array) */ ?>
     <?php if (is_array($GLOBALS['tpl']['entries'])):
     foreach($GLOBALS['tpl']['entries'] AS $dategroup):?>
@@ -87,23 +87,23 @@
 
         <?php if (!empty($GLOBALS['tpl']['is_single_entry']) && !$GLOBALS['tpl']['use_popups'] && empty($GLOBALS['tpl']['is_preview'])): ?>
             <?php if (defined(DATA_UNSUBSCRIBED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br>
             <?php endif; ?>
 
             <?php if (defined(DATA_TRACKBACK_DELETED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_TRACKBACK_DELETED, TRACKBACK_DELETED) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_TRACKBACK_DELETED, TRACKBACK_DELETED) ?></div><br>
             <?php endif; ?>
 
             <?php if (defined(DATA_TRACKBACK_APPROVED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_TRACKBACK_APPROVED, TRACKBACK_APPROVED) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_TRACKBACK_APPROVED, TRACKBACK_APPROVED) ?></div><br>
             <?php endif; ?>
 
             <?php if (defined(DATA_COMMENT_DELETED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_COMMENT_DELETED, COMMENT_DELETED) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_COMMENT_DELETED, COMMENT_DELETED) ?></div><br>
             <?php endif; ?>
 
             <?php if (defined(DATA_COMMENT_APPROVED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= printf(DATA_COMMENT_APPROVED, COMMENT_APPROVED) ?></div><br>
+                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_COMMENT_APPROVED, COMMENT_APPROVED) ?></div><br>
             <?php endif; ?>
 
             <div class="serendipity_comments serendipity_section_trackbacks">
@@ -111,7 +111,7 @@
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle"><?= TRACKBACKS ?></div>
                     <div class="serendipity_center">
-                        <a rel="nofollow" style="font-weight: normal" href="<?= $entry['link_trackback'] ?>" onclick="alert('<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;'); return false;" title="<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;"><?= TRACKBACK_SPECIFIC; ?></a>
+                        <a rel="nofollow" href="<?= $entry['link_trackback'] ?>" onclick="alert('<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;'); return false;" title="<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;"><?= TRACKBACK_SPECIFIC; ?></a>
                     </div>
                     <br>
                         <?php echo serendipity_printTrackbacks(serendipity_fetchTrackbacks($entry['id'])) ?>
@@ -202,7 +202,6 @@
     <?php endif; ?>
 <?php endif; ?>
 
-    <?php $template = str_replace('\\', '/', dirname(__FILE__).'/entries.tpl'); ?>
-    <?php serendipity_plugin_api::hook_event('entries_footer', $template); ?>
+    <?php serendipity_plugin_api::hook_event('entries_footer', $GLOBALS['template']); ?>
     </div>
 <!-- ENTRIES END -->

@@ -731,8 +731,7 @@
 
     // ..?
     serendipity.checkSave = function() {
-        <?php $template = str_replace('\\', '/', dirname(__FILE__).'/serendipity_editor.js.tpl'); ?>
-        <?php serendipity_plugin_api::hook_event('backend_entry_checkSave', $template); ?>
+        <?php serendipity_plugin_api::hook_event('backend_entry_checkSave', $GLOBALS['template']); ?>
         return true;
     }
 

@@ -36,7 +36,7 @@
             <span class="comment_source_date"><?= serendipity_formatTime(DATE_FORMAT_SHORT, $comment['timestamp']); ?></span>
 
             <?php if (isset($GLOBALS['tpl']['entry']) && @$GLOBALS['tpl']['entry']['is_entry_owner'] && !empty($comment['id'])): ?>
-                (<a class="comment_source_ownerlink" href="<?= $comment['link_delete'] ?>" onclick="return confirm('<?= printf(COMMENT_DELETE_CONFIRM, (isset($comment['id']) ? $comment['id'] : 0), $comment['author']); ?>');"><?= DELETE ?></a>)
+                (<a class="comment_source_ownerlink" href="<?= $comment['link_delete'] ?>" onclick="return confirm('<?= sprintf(COMMENT_DELETE_CONFIRM, (isset($comment['id']) ? $comment['id'] : 0), $comment['author']); ?>');"><?= DELETE ?></a>)
             <?php endif; ?>
             <?php if ($GLOBALS['tpl']['commentform_entry']['allow_comments'] && $comment['body'] != 'COMMENT_DELETED'): ?>
                 (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_<?= $comment['id'] ?>" onclick="document.getElementById('serendipity_replyTo').value='<?= $comment['id'] ?>'; <?= @$GLOBALS['tpl']['comment_onchange'] ?>"><?= REPLY ?></a>)
