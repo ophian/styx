@@ -36,10 +36,10 @@
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]" {$commentform_remember} /><label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]" {$commentform_remember}/><label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label>
     {if $is_allowSubscriptions}
                 <br />
-                <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]" {$commentform_subscribe} /><label for="checkbox_subscribe">{$CONST.SUBSCRIBE_TO_THIS_ENTRY}</label>
+                <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]" {$commentform_subscribe}/><label for="checkbox_subscribe">{$CONST.SUBSCRIBE_TO_THIS_ENTRY}</label>
     {/if}
             </td>
        </tr>
