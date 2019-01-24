@@ -1,8 +1,109 @@
+@-ms-viewport { width: device-width; }
+ul,ol { list-style-position: inside; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+
+/* Modern Serendipity image sizing default */
+
+img {
+    border: 0;
+    vertical-align: middle;
+    overflow: hidden;
+    position: relative; }
+embed, object, audio, video, img {
+    max-width: 100%; }
+img, video {
+    height: auto; }
+
+/* Serendipity Styx comment summary pages */
+
+.comment_content {
+    margin-bottom: 1em; }
+
+.serendipity_comment_author_self .serendipity_comment_source .pc-owner,
+.serendipity_comment_author_self .comment_header .pc-owner {
+    background: #3e5f81e6;
+    padding: .1em .25em;
+    border-radius: 3px;
+    color: #efefef;
+    font-style: normal;
+    text-shadow: 1px 1px 2px #222; }
+.comments_by_author_pagination {
+    text-align: center; }
+.comments_by_author_pagination.top {
+    margin-top: 1em; }
+.comments_by_author_pagination.bottom {
+    margin: 2em auto; }
+
+/* defaults */
+
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+
+#c0 { /* a new unsaved comment preview only */
+    border: 1px solid #ddd;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: .625em;
+}
+
+.serendipity_image_link {
+    display: inline-block;
+}
+
+.serendipity_entry table {
+    border-collapse: separate;
+    border-spacing: 2px;
+    border: 1px solid #eee;
+    display: inline-block;
+    max-width: 100%;
+    width: auto;
+    overflow: auto;
+    padding: 2px; }
+
+/** Modernizing Serendipity Styx default styles END **/
+
+/** Theme fixes depending presets and theme styles **/
+
+[type="checkbox"],
+[type="radio"] {
+    vertical-align: middle; }
+
+.serendipity_Entry_Date.freetag_cloud {
+    display: inline-block;
+    margin-bottom: 1em; }
+
+.serendipity_staticpage h2,
+h2.staticpage_title {
+    display: block;
+    margin-bottom: 1.5em; }
+
+.serendipity_staticpage h1 {
+    color: inherit;
+    padding-top: inherit; }
+
+.serendipity_calendarHeader {
+    text-align: center; }
+
+/* this and that */
+table.archives_listing {
+    display: table;
+    width: auto;
+    border-collapse: separate;
+    border-spacing: 4px; }
+    .archives_row td {
+        padding: 4px; }
+        td.archives_graph img {
+            height: 1em;
+            border: 1px solid #000; }
+
+/* rtl styles */
 h4,h3 {
     margin: 0;
 }
 
-.serendipitySideBarContent input {
+.serendipitySideBarContent input:not(type="checkbox") {
     width: 150px;
 }
 #serendipity_categories_list input[type="checkbox"] {
@@ -188,6 +289,9 @@ td.serendipity_commentsValue textarea {
     width: 400px;
 }
 
+.archives_graph {
+    border: 1px solid #000;
+}
 
 .serendipity_commentForm {
     font-size: 13px;
