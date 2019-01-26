@@ -8,6 +8,7 @@
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+{if isset($template_option.webfonts)}
 {if $template_option.webfonts == 'droid'}
     <link  rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Sans:400,700">
 {elseif $template_option.webfonts == 'ptsans'}
@@ -20,6 +21,7 @@
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
 {elseif $template_option.webfonts == 'dserif'}
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700,700italic">
+{/if}
 {/if}
 {if $head_link_stylesheet_frontend}
     <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
@@ -45,7 +47,7 @@
     </script>
 </head>
 
-<body class="{$mode}_preview_body{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
+<body class="{$mode}_preview_body{if isset($template_option.webfonts) AND $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
     <div id="page" class="clearfix container {$mode}_preview_container">
         <div class="clearfix{if isset($leftSidebarElements) AND $leftSidebarElements > 0 AND $rightSidebarElements > 0} col3{elseif  isset($leftSidebarElements) AND $leftSidebarElements > 0 AND $rightSidebarElements == 0} col2l{else} col2r{/if}">
             <main id="content" class="{$mode}_preview_content">
