@@ -53,9 +53,9 @@
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
 
-<script type="text/javascript" src="{serendipity_getFile file="default.js"}"></script>
-
 {if $is_embedded != true}
+
+<script type="text/javascript" src="{serendipity_getFile file="default.js"}"></script>
 </body>
 </html>
 {/if}
