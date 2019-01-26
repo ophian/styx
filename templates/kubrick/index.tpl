@@ -38,35 +38,38 @@
 {else}
 {serendipity_hookPlugin hook="frontend_header"}
 {/if}
+{if $is_raw_mode != true}
 <div id="page">
-<div id="header" onclick="location.href='{$serendipityBaseURL}';" style="cursor: pointer;">
-    <div id="headerimg">
-        <h1>{$head_title|default:$blogTitle}</h1>
-        <div class="description">{if $view == 'plugin'}{$blogDescription}{else}{$head_subtitle|default:$blogDescription}{/if}</div>
+    <div id="header" onclick="location.href='{$serendipityBaseURL}';" style="cursor: pointer;">
+        <div id="headerimg">
+            <h1>{$head_title|default:$blogTitle}</h1>
+            <div class="description">{if $view == 'plugin'}{$blogDescription}{else}{$head_subtitle|default:$blogDescription}{/if}</div>
+        </div>
     </div>
-</div>
-<hr />
+    <hr />
 
-<div id="content" class="narrowcolumn">
-    {$CONTENT}
-</div>
+    <div id="content" class="narrowcolumn">
+        {$CONTENT}
+    </div>
 
 {if $rightSidebarElements > 0}
     <div id="sidebar">
-    {serendipity_printSidebar side="right"}
-    {serendipity_printSidebar side="left"}
+        {serendipity_printSidebar side="right"}
+        {serendipity_printSidebar side="left"}
     </div>
 {/if}
 
-<hr />
-<div id="footer">
-    <p>
-    {$CONST.PROUDLY_POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a>.<br />
-    Design is <a href="http://binarybonsai.com/kubrick/">Kubrick</a>, by Michael Heilemann, ported by <a href="http://blog.dreamcoder.dk">Tom Sommer</a>.
-    </p>
-</div>
+    <hr />
+    <div id="footer">
+        <p>
+        {$CONST.PROUDLY_POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a>.<br />
+        Design is <a href="http://binarybonsai.com/kubrick/">Kubrick</a>, by Michael Heilemann, ported by <a href="http://blog.dreamcoder.dk">Tom Sommer</a>.
+        </p>
+    </div>
 
 </div>
+{/if}
+{$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
 {if $is_embedded != true}
 </body>
