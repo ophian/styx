@@ -1,4 +1,6 @@
 
+  * Move copyright footer into non-embedded part in [contest, default] themes
+
   * Fix "kubrick" theme raw mode data condition
 
   * Fix some false variable handlers and bugs in default-php theme
