@@ -1,5 +1,5 @@
 
-  * Fix [default, preview_iframe.tpl] mode order
+  * Fix [default, preview_iframe.tpl] theme mode order
 
   * Fix [2k11, preview_iframe.tpl] template_option.webfonts condition for
     theme fallback cases when not being set.
