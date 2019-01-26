@@ -1,7 +1,10 @@
 
+  * Fix [2k11, preview_iframe.tpl] template_option.webfonts condition for
+    theme fallback cases when not being set.
+
   * Move copyright footer into non-embedded part in [contest, default] themes
 
-  * Fix "kubrick" theme raw mode data condition
+  * Fix [kubrick] theme raw mode data condition
 
   * Fix some false variable handlers and bugs in default-php theme
     UPGRADERS: Please check your copy themes.
