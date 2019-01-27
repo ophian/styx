@@ -89,7 +89,7 @@ a:hover {
 #serendipity_banner {
     height: 150px;
     background-color: #011b7c;
-    background-image: url("{TEMPLATE_PATH}img/header_bar.png");
+    background-image: url('{TEMPLATE_PATH}img/header_bar.png');
     background-repeat: repeat-x;
     width: 100%;
     padding: 0px;
@@ -99,14 +99,9 @@ a:hover {
 
 
 #serendipity_banner h1 {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    background-image: url("{TEMPLATE_PATH}img/header_logo.png");
+    background-image: url('{TEMPLATE_PATH}img/header_logo.png');
     background-repeat: no-repeat;
     padding: 78px 0px 0px 131px;
-    height: 100px;
-    width: 770px;
     font-size: 2.4em;
     letter-spacing: 0.05em;
     margin: 0px;
@@ -115,7 +110,6 @@ a:hover {
 
 #serendipity_banner h2 {
     position: absolute;
-    top: 108px;
     left: 131px;
     font-size: 1.3em;
     margin: 0px;
@@ -230,7 +224,7 @@ h3.serendipity_date {
     text-align: right;
     margin: 0px;
     padding: 2px 7px 0px 0px;
-    background-image: url("{TEMPLATE_PATH}img/header_spacer.png");
+    background-image: url('{TEMPLATE_PATH}img/header_spacer.png');
     background-repeat: repeat-x;
     background-position: 0px 0px;
     background-color: white;
@@ -254,7 +248,7 @@ img.serendipity_entryIcon {
    SIDEBARS
  * *****************************/
 
-.serendipitySideBarContent input {
+.serendipitySideBarContent input:not(type="submit") {
     width: 150px;
 }
 #serendipity_categories_list input[type="checkbox"] {
@@ -294,7 +288,7 @@ div.serendipitySideBarItem {
 
 .serendipitySideBarContent {
     background-color: #FFFFFF;
-    background-image: url("{TEMPLATE_PATH}img/sidebar_spacer.jpg");
+    background-image: url('{TEMPLATE_PATH}img/sidebar_spacer.jpg');
     background-repeat: repeat-x;
     background-position: 0px 0px;
     padding: 5px;
@@ -307,13 +301,13 @@ div.serendipitySideBarItem {
 }
 
 #serendipityLeftSideBar .serendipitySideBarTitle {
-    background-image: url("{TEMPLATE_PATH}img/sidebar_left.jpg");
+    background-image: url('{TEMPLATE_PATH}img/sidebar_left.jpg');
     background-repeat: no-repeat;
     border: 1px solid #011a7c;
 }
 
 #serendipityRightSideBar .serendipitySideBarTitle {
-    background-image: url("{TEMPLATE_PATH}img/sidebar_left.jpg");
+    background-image: url('{TEMPLATE_PATH}img/sidebar_left.jpg');
     background-repeat: no-repeat;
     border: 1px solid #011a7c;
 }
@@ -352,7 +346,7 @@ td.serendipity_commentsLabel {
     vertical-align: top;
 }
 
-td.serendipity_commentsValue input,
+td.serendipity_commentsValue input:not(type="button"),
 td.serendipity_commentsValue select,
 td.serendipity_commentsValue textarea {
     font-size: 12px;
@@ -537,7 +531,7 @@ td.serendipity_calendarHeader a:hover {
     text-align: center;
     padding: 15px;
     border-top: 1px solid #011a7c;
-    background-image: url("{TEMPLATE_PATH}img/sidebar_spacer.jpg");
+    background-image: url('{TEMPLATE_PATH}img/sidebar_spacer.jpg');
     background-repeat: repeat-x;
     background-color: #FFFFFF;
     font-size: 1.2em;

@@ -55,8 +55,8 @@
 {serendipity_hookPlugin hook="frontend_footer"}
 
 {if $is_embedded != true}
-
 <div id="copyright">Design <a href="http://garv.in/">Garvin Hicking</a>, Icons <a href="http://tango-project.org/">Tango Project</a></div>
+
 </body>
 </html>
 {/if}
