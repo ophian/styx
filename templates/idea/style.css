@@ -86,7 +86,7 @@ input[type="checkbox"] {
 
 blockquote {
   border: 1px #999 dashed;
-  background-image: url({TEMPLATE_PATH}img/quote.gif);
+  background-image: url('{TEMPLATE_PATH}img/quote.gif');
   background-repeat: no-repeat;
   background-position: 0.5em 0.5em;
   padding: 1em;
@@ -95,7 +95,7 @@ blockquote {
 }
 
 ul {
-  list-style-image: url({TEMPLATE_PATH}img/bullet.gif);
+  list-style-image: url('{TEMPLATE_PATH}img/bullet.gif');
   list-style-type: circle;
   padding-left: 1em;
 }
@@ -111,7 +111,7 @@ ul {
 /* Banner */
 
 #serendipity_banner {
-  background-image: url({TEMPLATE_PATH}img/I_had_an_idea.jpg);
+  background-image: url('{TEMPLATE_PATH}img/I_had_an_idea.jpg');
   background-repeat: no-repeat;
   height: 150px;
 }
@@ -241,7 +241,7 @@ div.serendipity_Entry_Date {
   border-bottom: 1px #999 dashed;
   text-align: right;
 
-  background-image: url({TEMPLATE_PATH}img/clock_face_messy_paint_runs.jpg);
+  background-image: url('{TEMPLATE_PATH}img/clock_face_messy_paint_runs.jpg');
   background-repeat: no-repeat;
   background-position: bottom right;
   height: 21px;
