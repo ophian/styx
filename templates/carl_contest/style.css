@@ -228,8 +228,11 @@ a.homelink2, a.homelink2:hover, a.homelink2:link, a.homelink2:visited, #serendip
 	margin: 10px 0 40px 0; }
 
 .serendipity_entry p {
-    margin-bottom: 1.5em;
-    display: inline-table; }
+    margin-top: 0;
+    padding-bottom: 0;
+    width: auto;
+    display: inherit;
+}
 
 /* container for entry title and date */
 .serendipity_Entry_Date {
@@ -272,11 +275,6 @@ a.homelink2, a.homelink2:hover, a.homelink2:link, a.homelink2:visited, #serendip
 /*entry title link when hovered over, changes to orange */
 .serendipity_title a:hover {
 	color: #e37235; }
-
-/* additional styles used for entry text */
-.serendipity_entry p {
-	margin-top: 0px;
-	padding-bottom: 0px; }
 
 /* style for extended body */
 .serendipity_entry_extended {
@@ -492,7 +490,7 @@ div.serendipityPlug a {
 	border: 0px; }
 
 /* style for input and select drop downs in sidebar */
-.serendipitySideBarContent input, .serendipitySideBarContent select {
+.serendipitySideBarContent input:not(type="submit",type="checkbox"), .serendipitySideBarContent select {
 	width:150px; }
 
 #serendipity_categories_list input[type="checkbox"] {
