@@ -27,7 +27,7 @@ blockquote {
 
 body {
     font-family: "trebuchet ms", "bitstream vera sans", arial, sans-serif;
-    background: #94ADC4 url(img/default_body.jpg) repeat-x;
+    background: #94ADC4 url('img/default_body.jpg') repeat-x;
 }
 
 #wrapper {
@@ -55,7 +55,7 @@ input#serendipityQuickSearchTermField {
 }
 
 #serendipity_banner {
-    background: #578cb0 url(img/default_banner.jpg) left top repeat-x;
+    background: #578cb0 url('img/default_banner.jpg') left top repeat-x;
 }
 
 a.homelink1, a.homelink1:hover,
@@ -79,7 +79,7 @@ a.homelink2:link, a.homelink2:visited,
 
 /* site navigation styles */
 #sitenav {
-    background: #ddecfb url(img/default_sitenav_back.png) center left repeat-x;
+    background: #ddecfb url('img/default_sitenav_back.png') center left repeat-x;
     border-top: 1px solid #000000;
     border-bottom: 1px solid #000000;
     margin: 0;
@@ -227,7 +227,7 @@ div.pagination{
 
 .pagination a:link,
 .pagination a:visited{
-    background: #DDECFB url(img/default_sitenav_back.png) center left repeat-x;
+    background: #DDECFB url('img/default_sitenav_back.png') center left repeat-x;
     border: 1px solid #CFCFCF;
     padding: 2px 6px;
     text-decoration: none;
