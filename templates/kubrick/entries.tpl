@@ -116,7 +116,8 @@
             {if $CONST.DATA_COMMENT_APPROVED}
                 <br /><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</div><br />
             {/if}
-                <a id="trackbacks"></a><h3>{$CONST.TRACKBACKS}</h3>
+                <a id="trackbacks"></a>
+                <h3>{$CONST.TRACKBACKS}</h3>
                 <div class="serendipity_center">
                     <a href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
                 </div>
