@@ -110,11 +110,12 @@
                 <br>
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle"><?= TRACKBACKS ?></div>
-                    <div class="serendipity_center">
-                        <a rel="nofollow" href="<?= $entry['link_trackback'] ?>" onclick="alert('<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;'); return false;" title="<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;"><?= TRACKBACK_SPECIFIC; ?></a>
-                    </div>
-                    <br>
-                        <?php echo serendipity_printTrackbacks(serendipity_fetchTrackbacks($entry['id'])) ?>
+                <div class="serendipity_center">
+                    <a rel="nofollow" href="<?= $entry['link_trackback'] ?>" onclick="alert('<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;'); return false;" title="<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;"><?= TRACKBACK_SPECIFIC; ?></a>
+                </div>
+                <div id="serendipity_trackbacklist">
+                    <?php echo serendipity_printTrackbacks(serendipity_fetchTrackbacks($entry['id'])) ?>
+                </div>
             </div>
         <?php endif; ?>
 
