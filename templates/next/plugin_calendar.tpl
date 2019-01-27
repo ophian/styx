@@ -24,7 +24,7 @@
         <a href="{$plugin_calendar_head.uri_previous}">&larr;<span> {$CONST.BACK}</span></a>
         {/if}
         </td>
-        <td class="month" colspan="5">
+        <td class="month">
             <a href="{$plugin_calendar_head.uri_month}">{$plugin_calendar_head.month_date|formatTime:"%B &rsquo;%y":false}</a>
         </td>
         <td class="next">
