@@ -299,6 +299,10 @@ img.serendipity_entryIcon {
 input[type="button"], input[type="checkbox"] {
     width: auto;
 }
+#captcha {
+    max-width: 10em;
+    width: auto;
+}
 
 .serendipity_edit_nugget {
     font-size: .75em;
