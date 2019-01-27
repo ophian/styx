@@ -36,7 +36,7 @@ pre {
     min-width: 20em;
     display: inline-block;
 }
-.serendipitySideBarContent input {
+.serendipitySideBarContent input:not(type="submit") {
     width: 80%;
 }
 #serendipity_categories_list input[type="checkbox"] {
@@ -57,7 +57,7 @@ pre {
 }
 #serendipityRightSideBar {
     width: 180px;
-  border-left: 1px dotted #16425e; 
+    border-left: 1px dotted #16425e;
     padding: 10px;
     margin-top: 10px;
     vertical-align: top;
@@ -220,17 +220,17 @@ img.serendipity_entryIcon {
     border: 0px;
 }
 td.serendipity_commentsLabel {
-	font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
 
-	color: #607080;
-    	text-transform: uppercase;
-    	font-size: x-small;
-    	font-weight: bold;
-    	text-align: right;
-    	padding-top: 10px;
+    color: #607080;
+    text-transform: uppercase;
+    font-size: x-small;
+    font-weight: bold;
+    text-align: right;
+    padding-top: 10px;
     vertical-align: top;
 }
-td.serendipity_commentsValue input,
+td.serendipity_commentsValue input:not(type="button"),
 td.serendipity_commentsValue select,
 td.serendipity_commentsValue textarea {
     font-size: 11px;
@@ -248,11 +248,11 @@ td.serendipity_commentsValue textarea {
 }
 
 .serendipity_commentDirection {
-	font-family: Arial, Helvetica, sans-serif;
-	color: #506070;
-    	font-size: x-small;
-    	font-weight: normal;
-    	text-align: left;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #506070;
+    font-size: x-small;
+    font-weight: normal;
+    text-align: left;
     vertical-align: top;
     }
 .serendipity_comment {
@@ -301,7 +301,7 @@ table.serendipity_calendar a:hover {
 td.serendipity_weekDayName {
     color: #607080;
     font-size:x-small;
-	font-weight: bold;
+    font-weight: bold;
 }
 td.serendipity_calendarHeader a:link,
 td.serendipity_calendarHeader a:visited,
@@ -384,7 +384,7 @@ div.serendipitySideBarItem {
     width: 95%;
 }
 .serendipity_center {
-	font-size: xx-small;
+    font-size: xx-small;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
