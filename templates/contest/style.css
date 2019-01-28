@@ -82,6 +82,23 @@ a:hover {
     position: relative;
 }
 
+/* backend preview */
+body.save_preview_body {
+    font-size: inherit; }
+#content.save_preview_content {
+    width: 100%;
+    background: #FFF; }
+#content.save_preview_content a:hover {
+    color: #001f3f; }
+#content.save_preview_content a:link, #content.save_preview_content a:visited, #content.save_preview_content a:active {
+    color: #0074d9; }
+#content.preview_preview_content div.serendipity_entryFooter {
+    display: none;
+    visibility: hidden; }
+#content.preview_preview_content div.serendipity_Entry_Date {
+    margin-bottom: 1em;
+    border-bottom: 0 none; }
+
 /* *****************************
    HEADER
  * *****************************/
