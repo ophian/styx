@@ -1,4 +1,7 @@
 
+  * Smaller backend preview fixes to [contest, competition, default, default-rtl,
+    kubrick] themes.
+
   * Smaller fixes to [blue, bootstrap4, bulletproof, contest, competition,
     carl_contest, default, default-php, default-rtl, idea, kubrick, next]
     themes.
