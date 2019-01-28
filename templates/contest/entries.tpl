@@ -75,12 +75,14 @@
             <div class="serendipity_extended_link"><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a></div>
             {/if}
 
+        {if NOT $is_preview}
             <div class="serendipity_entryFooter">
                 {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
                     <span class="serendipity_footer_owner"><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a></span>
                 {/if}
                 {$entry.add_footer|default:''}
             </div>
+        {/if}
         </div>
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
