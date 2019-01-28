@@ -36,6 +36,19 @@ pre {
     min-width: 20em;
     display: inline-block;
 }
+
+/* backend preview */
+#content.save_preview_content {
+    width: 100%;
+    background: #FFF; }
+#content.save_preview_content a:hover {
+    color: #001f3f; }
+#content.save_preview_content a:link, #content.save_preview_content a:visited, #content.save_preview_content a:active {
+    color: #0074d9; }
+#content.preview_preview_content div.serendipity_entryFooter {
+    display: none;
+    visibility: hidden; }
+
 .serendipitySideBarContent input:not(type="submit") {
     width: 80%;
 }
