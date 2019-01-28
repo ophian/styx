@@ -122,16 +122,17 @@ a:hover {
     color: #0074d9;
 }
 
+/* backend preview */
 #content.preview_preview_content {
     width: 100%;
-    background: #FFF;
-}
-.save_preview_content a:hover {
-    color: #001f3f;
-}
-.save_preview_content a:link, .save_preview_content a:visited, .save_preview_content a:active {
-    color: #0074d9;
-}
+    background: #FFF; }
+#content.save_preview_content a:hover {
+    color: #001f3f; }
+#content.save_preview_content a:link, #content.save_preview_content a:visited, #content.save_preview_content a:active {
+    color: #0074d9; }
+#content.preview_preview_content div.serendipity_entryFooter {
+    display: none;
+    visibility: hidden; }
 
 #serendipityLeftSideBar,
 #serendipityRightSideBar {
