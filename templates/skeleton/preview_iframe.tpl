@@ -49,7 +49,7 @@
     {/if}
 
         </div>
-        <!-- filed by theme "{$template}" -->
+        <!-- Filed by theme "{$template}" -->
     </main>
 </body>
 </html>

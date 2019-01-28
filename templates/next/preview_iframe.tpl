@@ -91,7 +91,7 @@
             </div>
         </main>
     </div>
-<!-- filed by theme "{$template}" -->
+<!-- Filed by theme "{$template}" -->
 
 {if $mode == 'preview'}
     <script src="{$serendipityHTTPPath}{$templatePath}{$template}/scripts/master.js"></script>

@@ -72,7 +72,7 @@
             </div>
         </div>
     </main>
-<!-- filed by theme "{$template}" -->
+<!-- Filed by theme "{$template}" -->
 
 {if $mode == 'preview'}
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

@@ -62,7 +62,7 @@
                 {/if}
             </div>
         </div>
-        <!-- filed by theme "{$template}" -->
+        <!-- Filed by theme "{$template}" -->
     </main>
 
 {if $mode == 'preview'}
