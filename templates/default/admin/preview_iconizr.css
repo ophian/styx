@@ -161,7 +161,7 @@ body {
 #page {
     border: 0 none;
     margin: inherit;
-    box-shadow: 0 none;
+    box-shadow: inherit;
     width: 100%;
     max-width: inherit; }
     #content {
