@@ -31,6 +31,7 @@
                 <br /><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a><br /><br />
                 {/if}
 
+        {if NOT $is_preview}
             <div class="postmetadata{if $is_single_entry} graybox{/if}">
                 {if $is_single_entry}
 
@@ -82,6 +83,7 @@
                 {$entry.add_footer|default:''}
                </div>
             </div>
+        {/if}
         </div>
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
