@@ -30,7 +30,11 @@
     <body class="<?= $GLOBALS['tpl']['mode'] ?>_preview_body">
         <div id="mainpane" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_container">
             <main id="content" class="<?= $GLOBALS['tpl']['mode'] ?>_preview_content">
-        <?php if ($GLOBALS['tpl']['mode'] == 'save'): ?>
+        <?php if ($GLOBALS['tpl']['mode'] == 'preview'): ?>
+                <div class="preview_entry">
+                    <?= $GLOBALS['tpl']['preview'] ?>
+                </div>
+        <?php elseif ($GLOBALS['tpl']['mode'] == 'save'): ?>
                 <div class="<?= $GLOBALS['tpl']['mode'] ?>_preview_sizing"></div>
                 <?= $GLOBALS['tpl']['updertHooks'] ?>
             <?php if ($GLOBALS['tpl']['res']):  ?>
@@ -49,9 +53,8 @@
                 <a href="<?= $GLOBALS['tpl']['entrylink'] ?>" target="_blank"><?= VIEW ?></a></span>
             <?php endif; ?>
         <?php endif; ?>
-            <?= $GLOBALS['tpl']['preview'] ?>
             </main>
         </div>
-        <!-- filed by theme "<?= $GLOBALS['tpl']['template'] ?>" -->
+        <!-- Filed by theme "<?= $GLOBALS['tpl']['template'] ?>" -->
     </body>
 </html>
