@@ -100,10 +100,28 @@ h2.staticpage_title {
     text-align: center; }
 
 /* backend preview */
+body.preview_preview_body,
+body.save_preview_body,
+#page.save_preview_container {
+    background: inherit;
+    padding: inherit;
+    font-size: .6em; }
+#content.preview_preview_content,
+#content.save_preview_content {
+    float: inherit; }
+#content.save_preview_content {
+    font-size: initial; }
+#mainpane.preview_preview_container {
+    font-size: inherit; }
+#content.preview_preview_content div.serendipity_entryFooter {
+    display: none;
+    visibility: hidden; }
+#content.preview_preview_content .preview_entry .entry {
+    padding-bottom: inherit; }
 #content.preview_preview_content {
     background: #FFF;
-    width: 760px !important;
-    padding-left: 2em !important; }
+    width: 760px;
+    padding-left: 2em; }
     #content.preview_preview_content .post {
         width: 495px; }
 
