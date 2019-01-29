@@ -238,7 +238,9 @@ a.homelink2:visited,
     display: inherit;
 }
 
-.serendipity_entry_date {
+.serendipity_entry_date,
+.serendipity_Entry_Date {
+    display: inline-block;
     margin: auto;
 }
 
