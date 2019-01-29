@@ -82,6 +82,10 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 [type="checkbox"],
 [type="radio"] {
     vertical-align: middle; }
+.post p > .serendipity_image_left,
+.post p > .serendipity_imageComment_center,
+.post p > .serendipity_image_right {
+    margin: .25em auto; }
 
 .serendipity_Entry_Date.freetag_cloud {
     display: inline-block;
