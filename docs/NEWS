@@ -1,7 +1,7 @@
 
-  * Fix case insensitive ".serendipity_Entry_Date" selector as responsive
-    inline-block header in [competition, default, default-rtl] and (lowered)
-    for some fallback using themes.
+  * Fix case insensitive ".serendipity_Entry_Date" and ".serendipity_entryFooter"
+    selectors as responsive full blocks in [blue, competition, contest, default,
+    default-rtl] and (lowered) for some fallback using themes.
 
   * Fix a missing image selector margin edge case in [blue, carl_contest,
     contest, competition, default, idea, kubrick, default-rtl] themes.
