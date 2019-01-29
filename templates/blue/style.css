@@ -286,6 +286,11 @@ div.serendipity_entryFooter {
     margin: 3px;
 }
 
+.serendipity_entry p > .serendipity_image_left,
+.serendipity_entry p > .serendipity_imageComment_center,
+.serendipity_entry p > .serendipity_image_right {
+    margin: .25em auto; }
+
 .serendipity_imageComment_center {
     margin: 0px;
 }
