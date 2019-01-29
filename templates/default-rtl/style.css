@@ -45,12 +45,9 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    padding: .625em;
-}
-
+    padding: .625em; }
 .serendipity_image_link {
-    display: inline-block;
-}
+    display: inline-block; }
 
 .serendipity_entry table {
     border-collapse: separate;
@@ -437,6 +434,11 @@ div.serendipitySideBarItem {
     padding: 3px;
     text-align: center;
 }
+
+.serendipity_entry p > .serendipity_image_left,
+.serendipity_entry p > .serendipity_imageComment_center,
+.serendipity_entry p > .serendipity_image_right {
+    margin: .25em auto; }
 
 .serendipity_imageComment_center {
     margin: auto;
