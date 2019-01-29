@@ -245,7 +245,9 @@ a.homelink2:visited,
     /* Inner blocks of .serendipity_entry, can be used for further customization */
 }
 
-.serendipity_entry_date {
+.serendipity_entry_date,
+.serendipity_Entry_Date {
+    display: inline-block;
     margin: auto;
 }
 
