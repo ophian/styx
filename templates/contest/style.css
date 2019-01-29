@@ -495,6 +495,11 @@ td.serendipity_calendarHeader a:hover {
     text-align: center;
 }
 
+.serendipity_entry p > .serendipity_image_left,
+.serendipity_entry p > .serendipity_imageComment_center,
+.serendipity_entry p > .serendipity_image_right {
+    margin: .25em auto; }
+
 .serendipity_imageComment_center {
     margin: auto;
 }
