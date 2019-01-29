@@ -577,6 +577,11 @@ td.Today {color: #444; text-decoration: overline; }
 	padding: 3px;
 	text-align: center; }
 
+.serendipity_entry p > .serendipity_image_left,
+.serendipity_entry p > .serendipity_imageComment_center,
+.serendipity_entry p > .serendipity_image_right {
+    margin: .25em auto; }
+
 /* style to center image and text within entry */
 .serendipity_imageComment_center {
 	margin: auto; }
