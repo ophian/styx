@@ -193,7 +193,9 @@ div.serendipity_entryFooter {
     padding-bottom: 4px;
     clear: both;
 }
-.serendipity_entry_date {
+.serendipity_entry_date,
+.serendipity_Entry_Date {
+    display: inline-block;
     margin: auto;
 }
 .serendipity_date {
