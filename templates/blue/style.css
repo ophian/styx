@@ -274,6 +274,7 @@ div.serendipity_entryFooter {
   font-size: x-small;
   padding-top: 5px;
   padding-bottom: 4px;
+  display: block;
 }
 
 

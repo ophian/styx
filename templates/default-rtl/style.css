@@ -39,7 +39,6 @@ img, video {
 /* defaults */
 
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
-
 #c0 { /* a new unsaved comment preview only */
     border: 1px solid #ddd;
     -webkit-border-radius: 3px;
@@ -48,7 +47,6 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     padding: .625em; }
 .serendipity_image_link {
     display: inline-block; }
-
 .serendipity_entry table {
     border-collapse: separate;
     border-spacing: 2px;
@@ -247,7 +245,6 @@ a.homelink2:visited,
 
 .serendipity_entry_date,
 .serendipity_Entry_Date {
-    display: inline-block;
     margin: auto;
 }
 

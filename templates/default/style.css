@@ -240,7 +240,6 @@ a.homelink2:visited,
 
 .serendipity_entry_date,
 .serendipity_Entry_Date {
-    display: inline-block;
     margin: auto;
 }
 
@@ -270,7 +269,7 @@ a.homelink2:visited,
     margin: 3em auto auto;
     padding-top: 1em;
     padding-bottom: 4px;
-    display: block;
+    display: inline-block;
     width: 100%;
 }
 

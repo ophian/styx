@@ -253,9 +253,12 @@ div.serendipity_entryFooter {
     color: #000000;
     padding-top: 10px;
     padding-bottom: 10px;
+    display: block;
     clear: both;
 }
-
+.serendipity_entriesFooter {
+    text-align: center;
+}
 img.serendipity_entryIcon {
     float: right;
     border: 0px;

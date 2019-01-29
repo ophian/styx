@@ -169,7 +169,7 @@ a.homelink2:visited,
 .serendipity_entry {
     font-family:Verdana, Arial, Geneva, Helvetica, sans-serif;
     color: #333333;
-    font-size: x-small;
+    font-size: small;
     font-weight: normal;
     text-align: justify;
     padding-right: 0px;
@@ -185,17 +185,18 @@ a.homelink2:visited,
 }
 div.serendipity_entryFooter {
     font-family:Verdana, Arial, Geneva, Helvetica, sans-serif;
-    font-size: xx-small;
+    font-size: x-small;
     color: #000000;
+    text-align: center;
     border-top: 1px none #807F6C;
     border-bottom: 1px dotted #807F6C;
     padding-top: 18px;
     padding-bottom: 4px;
+    display: block;
     clear: both;
 }
 .serendipity_entry_date,
 .serendipity_Entry_Date {
-    display: inline-block;
     margin: auto;
 }
 .serendipity_date {
@@ -236,7 +237,6 @@ img.serendipity_entryIcon {
 }
 td.serendipity_commentsLabel {
     font-family: Arial, Helvetica, sans-serif;
-
     color: #607080;
     text-transform: uppercase;
     font-size: x-small;
