@@ -1,4 +1,7 @@
 
+  * Fix a missing image selector margin edge case in [blue, carl_contest,
+    contest, competition, default, idea, kubrick, default-rtl] themes.
+
   * Smaller backend preview fixes to [contest, competition, default, default-rtl,
     kubrick] themes.
 
