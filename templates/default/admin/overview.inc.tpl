@@ -20,7 +20,7 @@
 
                 <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UPDATE_FAILMSG|sprintf:$releaseFUrl}</span>
                 <form id="updateCheckDisable" method="POST">
-                    <input type="hidden" name="serendipity[adminAction]" value="updateCheckDisable" />
+                    <input type="hidden" name="serendipity[adminAction]" value="updateCheckDisable">
                     {$token}
                     <button type="submit">{$CONST.UPDATE_FAILACTION}</button>
                 </form>
@@ -90,8 +90,8 @@
                         {if $entry.isdraft == "true"}
                             <li>
                                 <form method="POST" class="overviewListForm">
-                                    <input type="hidden" name="serendipity[adminAction]" value="publish" />
-                                    <input type="hidden" name="serendipity[id]" value="{$entry.id}" />
+                                    <input type="hidden" name="serendipity[adminAction]" value="publish">
+                                    <input type="hidden" name="serendipity[id]" value="{$entry.id}">
                                     {$token}
                                     <button class="publish_now" type="submit" title="{$CONST.PUBLISH_NOW}"><span class="icon-rocket" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.PUBLISH_NOW}</span></button>
                                 </form>

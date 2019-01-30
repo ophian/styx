@@ -17,8 +17,8 @@
                 {foreach $plugin_placement['plugin_data'] AS $plugin_data}
 
                     <li id="p{$plugin_placement['pid']}-{$plugin_data.css_key}" class="pluginmanager_plugin pluginmanager_item_{cycle values="odd,even"}">
-                        <input type="hidden" name="serendipity[plugin][{$plugin_data.name}][id]" value="{$plugin_data.name}" />
-                        <input type="hidden" name="serendipity[plugin][{$plugin_data.name}][position]" value="{$plugin_data@index}" />
+                        <input type="hidden" name="serendipity[plugin][{$plugin_data.name}][id]" value="{$plugin_data.name}">
+                        <input type="hidden" name="serendipity[plugin][{$plugin_data.name}][position]" value="{$plugin_data@index}">
                     {if $plugin_data.is_plugin_editable}
 
                         <div class="form_check">
