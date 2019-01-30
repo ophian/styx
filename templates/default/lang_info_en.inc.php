@@ -5,16 +5,16 @@
  * Convert or save as ANSI (ISO-8859-1) or your native charset, analogue to the non-UTF-8 lang constant files.
  **/
 
-$info['theme_info_summary'] = 'The Styx default template. Previously named Serendipity v2.3 (w/o relation to core version number).';
+$info['theme_info_summary'] = 'The Serendipity Styx base template.';
 
-$info['theme_info_desc'] = 'New revisited for Styx 2.1 to make it fully responsive (3-2-1),
-without changing much of the "old school" html. Works additionally as a full styled fallback
-for the PHP and XML Engine and as a file fallback pool for several other themes.
-This theme previously wasn\'t meant to be a theme out of hundrets.
-Since "bulletproof" and later on "2k11" became the Serendipity <b>standard</b> template(s),
-this theme was used as the default backend, a backup and error fallback theme, when something was searched for compile
-and not in your usual theme or the fallback theme cascade. It also is chosen
-if no engine and no style is set, like for the default-php and/or default-xml themes.';
+$info['theme_info_desc'] = 'A frontend theme newly revisited for Styx to make it a fully responsive (3-2-1) HTML5 theme,
+without changing too much of the "old school" html(4) markup.<br>
+It works as a full styled fallback for the PHP and XML Engine and as a base file fallback pool for several other themes.<br><br>
+In difference to the Serendipity <b>standard</b> template(s) (earlier "bulletproof", later on "2k11") this theme is the ground system basement,
+unless special instructions (*) or internal reasons force differently, i.e. when something was searched for compile and not in your usual
+theme or the normal fallback theme cascade.<br><br>
+<span class="footnote">[*] In mean, when no "Engine" (in info.txt) and no Serendipity stylesheet-file (style.css) is set, like for the "default-php" or "default-xml" themes.
+for the backend templates and a backup and error fallback theme.</span>';
 
 $info['theme_info_backend'] = 'This theme accommodates the Styx core backend templates in the "default/admin" subdirectory.
 The template files in that directory build and create the look of the complete admin interface.

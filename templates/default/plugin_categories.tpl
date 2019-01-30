@@ -7,11 +7,11 @@
 {foreach $categories AS $plugin_category}
         <li class="category_depth{$plugin_category.catdepth} category_{$plugin_category.categoryid}">
         {if $is_form}
-            <input type="checkbox" name="serendipity[multiCat][]" value="{$plugin_category.categoryid}" />
+            <input type="checkbox" name="serendipity[multiCat][]" value="{$plugin_category.categoryid}">
         {/if}
 
         {if NOT empty($category_image)}
-            <a class="serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}"><img src="{$category_image}" alt="XML" /></a>
+            <a class="serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}"><img src="{$category_image}" alt="XML"></a>
         {/if}
 
             <a href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}" style="padding-left: {$plugin_category.paddingPx}px">{$plugin_category.category_name|escape}</a>
@@ -20,7 +20,7 @@
     </ul>
 
 {if $is_form}
-    <div class="category_submit"><input type="submit" name="serendipity[isMultiCat]" value="{if isset($smarty.get.serendipity.category)}{$CONST.RESET_FILTERS}{else}{$CONST.GO}{/if}" /></div>
+    <div class="category_submit"><input type="submit" name="serendipity[isMultiCat]" value="{if isset($smarty.get.serendipity.category)}{$CONST.RESET_FILTERS}{else}{$CONST.GO}{/if}"></div>
 {/if}
 
 {if $show_all}

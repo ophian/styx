@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{$lang}" lang="{$lang}">
+<html lang="{$lang}">
 <head>
     <title>{$head_title|default:$blogTitle} {if $head_subtitle} - {$head_subtitle}{/if}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
-    <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}" />
-    <link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}serendipity.css.php" />
-    <link rel="alternate"  type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2" />
-    <link rel="alternate"  type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml" />
+    <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}">
+    <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
+    <link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}serendipity.css.php">
+    <link rel="alternate"  type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
+    <link rel="alternate"  type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
 </head>
 
 <body class="s9y_wrap" id="serendipity_comment_page">

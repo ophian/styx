@@ -24,7 +24,7 @@
             {/if}
             {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}
         {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
-            <br />
+            <br>
             {$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle|truncate:42|wordwrap:15:"\n":true|escape}</span>
         {/if}
             </span>

@@ -1,17 +1,17 @@
 {if $is_embedded != true}
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="{$lang}" lang="{$lang}">
+<html lang="{$lang}">
 <head>
     <title>{$media.file.props.base_property.TITLE|default:$media.file.realname}</title>
-    <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}" />
-    <link rel="stylesheet" type="text/css" href="{$head_link_stylesheet}" />
-    <link rel="alternate"  type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2" />
-    <link rel="alternate"  type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml" />
+    <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
+    <link rel="stylesheet" type="text/css" href="{$head_link_stylesheet}">
+    <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
+    <link rel="alternate" type="application/x.atom+xml" title="{$blogTitle} Atom feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
 
 {if $entry_id}
-    <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}" />
+    <link rel="pingback" href="{$serendipityBaseURL}comment.php?type=pingback&amp;entry_id={$entry_id}">
 {/if}
 
 {* serendipity_hookPlugin hook="frontend_header" *}{* ENABLE TO USE any plugin hooked assets - see footer *}
@@ -41,11 +41,11 @@
                 {else}
                     <div class="serendipity_center">
                         {if $media.file.is_image}
-                            <img src="{$media.file.full_file}" />
+                            <img src="{$media.file.full_file}">
                         {else}
                             <a href="{$media.file.full_file}">{$media.file.realname} ({$media.file.displaymime})</a>
                         {/if}
-                        <br /><a href="{$media.from|escape}" title="{$CONST.BACK_TO_BLOG}">{$CONST.BACK_TO_BLOG}</a>
+                        <br><a href="{$media.from|escape}" title="{$CONST.BACK_TO_BLOG}">{$CONST.BACK_TO_BLOG}</a>
                     </div>
                 {/if}
                 </div>
