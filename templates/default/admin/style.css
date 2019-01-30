@@ -2807,6 +2807,11 @@ label .perm_name,
     font-style: normal;
 }
 
+.footnote {
+    font-size: small;
+    font-style: italic;
+}
+
 
 /* FOOTER */
 #meta {
