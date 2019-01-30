@@ -9,7 +9,7 @@
                 {$comment.author|default:$CONST.ANONYMOUS}
             {/if}
             {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}
-            </cite> {$CONST.SAYS}:<br />
+            </cite> {$CONST.SAYS}:<br>
             <div class="commentmetadata comment_source_author"">
                 <a href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}" title="{$CONST.LINK_TO_COMMENT|sprintf:$comment.trace}">#{$comment.trace}</a>
                 {$comment.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT}

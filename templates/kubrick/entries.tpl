@@ -13,7 +13,7 @@
             <span class="categoryIcon">
             {foreach $entry.categories AS $entry_category}
                 {if $entry_category.category_icon}
-                    <a href="{$entry_category.category_link}"><img class="categoryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}" /></a>
+                    <a href="{$entry_category.category_link}"><img class="categoryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>
                 {/if}
             {/foreach}
             </span>
@@ -28,7 +28,7 @@
               </div>
 
                 {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
-                <br /><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a><br /><br />
+                <br><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a><br><br>
                 {/if}
 
         {if NOT $is_preview}
@@ -100,23 +100,23 @@
 
         {if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
             {if $CONST.DATA_UNSUBSCRIBED}
-                <br /><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</div><br />
+                <br><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</div><br>
             {/if}
 
             {if $CONST.DATA_TRACKBACK_DELETED}
-                <br /><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_TRACKBACK_DELETED|sprintf:$CONST.TRACKBACK_DELETED}</div><br />
+                <br><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_TRACKBACK_DELETED|sprintf:$CONST.TRACKBACK_DELETED}</div><br>
             {/if}
 
             {if $CONST.DATA_TRACKBACK_APPROVED}
-                <br /><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_TRACKBACK_APPROVED|sprintf:$CONST.TRACKBACK_APPROVED}</div><br />
+                <br><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_TRACKBACK_APPROVED|sprintf:$CONST.TRACKBACK_APPROVED}</div><br>
             {/if}
 
             {if $CONST.DATA_COMMENT_DELETED}
-                <br /><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_COMMENT_DELETED|sprintf:$CONST.COMMENT_DELETED}</div><br />
+                <br><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_COMMENT_DELETED|sprintf:$CONST.COMMENT_DELETED}</div><br>
             {/if}
 
             {if $CONST.DATA_COMMENT_APPROVED}
-                <br /><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</div><br />
+                <br><div class="serendipity_center serendipity_msg_success">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</div><br>
             {/if}
                 <a id="trackbacks"></a>
                 <h3>{$CONST.TRACKBACKS}</h3>
@@ -137,7 +137,7 @@
                     (<a rel="nofollow" href="{$entry.link_viewmode_linear}#comments">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a> | {$CONST.COMMENTS_VIEWMODE_THREADED})
                 {/if}
                 </div>
-                <br />
+                <br>
                 <ol class="commentlist">
                     {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
                 </ol>
@@ -157,22 +157,22 @@
 
                 {if $is_comment_moderate}
 
-                <br />
-                <div class="serendipity_center serendipity_msg_success">{$CONST.COMMENT_ADDED}<br />{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
+                <br>
+                <div class="serendipity_center serendipity_msg_success">{$CONST.COMMENT_ADDED}<br>{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
 
                 {elseif $is_comment_added}
 
-                <br />
+                <br>
                 <div class="serendipity_center serendipity_msg_success">{$CONST.COMMENT_ADDED}</div>
 
                 {elseif NOT $entry.allow_comments}
 
-                <br />
+                <br>
                 <div class="serendipity_center serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</div>
 
                 {else}
 
-                <br />
+                <br>
                 <h3>{$CONST.ADD_COMMENT}</h3>
                 {$COMMENTFORM}
 
