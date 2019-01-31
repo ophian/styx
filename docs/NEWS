@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Basic HTML5 Upgrade for the [kubrick] theme.
+    UPGRADERS: Please check your copy themes.
+
   * Fix case insensitive ".serendipity_Entry_Date" and ".serendipity_entryFooter"
     selectors as responsive full blocks in [blue, competition, contest, default,
     default-rtl] and (lowered) for some fallback using themes.
