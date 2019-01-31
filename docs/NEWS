@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Upgrade for the [default] theme, removing XHTML and prepare ready for Styx 2.7+.
+    UPGRADERS: Please check your copy themes.
+
   * Basic HTML5 Upgrade for the [kubrick] theme.
     UPGRADERS: Please check your copy themes.
 
