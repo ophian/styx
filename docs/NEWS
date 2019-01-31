@@ -1,3 +1,6 @@
+Version dev ()
+ ------------------------------------------------------------------------
+
 
   * Fix case insensitive ".serendipity_Entry_Date" and ".serendipity_entryFooter"
     selectors as responsive full blocks in [blue, competition, contest, default,
