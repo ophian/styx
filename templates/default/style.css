@@ -118,6 +118,10 @@ td { vertical-align: top; }
 [type="radio"] {
     vertical-align: middle;
     margin-right: 2px; }
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  width: auto !important; }
 
 /* Modern Serendipity image sizing default */
 
@@ -494,9 +498,6 @@ img.serendipity_entryIcon {
 #serendipity_categories_list img {
     vertical-align: middle;
 }
-#serendipity_categories_list input[type="checkbox"] {
-    margin-right: .5em;
-}
 
 table.serendipity_calendar td {
     font-size: 11px;
@@ -605,6 +606,7 @@ div.serendipitySideBarItem {
     width: auto !important; /* force overwrite delivered inline styles */
     display: table;
 }
+
 .serendipity_comments {
 }
 /* overwrite fallback plain image padding */
