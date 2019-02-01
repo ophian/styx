@@ -29,7 +29,7 @@
 </div>
 
 <div id="mainpane">
-    <div id="content" valign="top">
+    <div id="content">
         <div class="serendipity_Entry_Date">
             <h3 class="serendipity_date">{$media.file.realname}</h3>
             <h4 class="serendipity_title"><a href="#">{$media.file.props.base_property.TITLE|default:''}</a></h4>
@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div id="serendipityRightSideBar" valign="top">
+        <div id="serendipityRightSideBar">
         {if $media.file.base_property}
             <div class="serendipitySideBarItem">
                 <h3 class="serendipitySideBarTitle">{$CONST.MEDIA_PROP}</h3>
@@ -94,7 +94,7 @@
                         <table>
                         {foreach $meta_data AS $meta_name => $meta_value}
                             <tr>
-                                <td valign="top"><em>{$meta_name}!</em></th>
+                                <td><em>{$meta_name}!</em></th>
                                 <td>{if is_array($meta_value)}<pre>{$meta_value|print_r}</pre>{else}{$meta_value|formatTime:DATE_FORMAT_SHORT:false:$meta_name}{/if}</td>
                             </tr>
                         {/foreach}

@@ -40,13 +40,23 @@
 </div>
 
 <div id="mainpane">
-    <div id="content" valign="top">{$CONTENT}</div>
+
+    <div id="content">
+        {$CONTENT}
+    </div>
 {if $leftSidebarElements > 0}
-    <div id="serendipityLeftSideBar" valign="top">{serendipity_printSidebar side="left"}</div>
+
+    <div id="serendipityLeftSideBar">
+        {serendipity_printSidebar side="left"}
+    </div>
 {/if}
 {if $rightSidebarElements > 0}
-    <div id="serendipityRightSideBar" valign="top">{serendipity_printSidebar side="right"}</div>
+
+    <div id="serendipityRightSideBar">
+        {serendipity_printSidebar side="right"}
+    </div>
 {/if}
+
 </div>
 {/if}
 
@@ -55,7 +65,7 @@
 
 {if $is_embedded != true}
 
-<script type="text/javascript" src="{serendipity_getFile file="default.js"}"></script>
+    <script type="text/javascript" src="{serendipity_getFile file="default.js"}"></script>
 </body>
 </html>
 {/if}
