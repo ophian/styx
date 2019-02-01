@@ -19,9 +19,9 @@
     </div>
 
     <footer>
-    {if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
+{if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
         <strong>{$CONST.PREVIEW|upper}</strong>
-    {else if !isset($comment.meta)}
+{else if !isset($comment.meta)}
     {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
         <strong>TRACKBACK</strong>
     {/if}
@@ -43,7 +43,7 @@
         <div id="serendipity_replyform_{$comment.id}"></div>
     {/if}
     {/if}
-    {/if}
+{/if}
     </footer>
 </article>
 {foreachelse}
