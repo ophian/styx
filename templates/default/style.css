@@ -448,6 +448,9 @@ ul.staticpage_result li {
     max-width: 10em;
     width: auto;
 }
+.comments_permalink {
+    margin-top: 0;
+}
 .serendipity_commentsTitle {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: .9em;
