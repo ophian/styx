@@ -18,12 +18,7 @@
 
         <script type="text/javascript">
             window.onload = function() {ldelim}
-                var isChrome = !!window.chrome || !!window.opera;
-                if (!isChrome) {
-                    var frameheight = document.querySelector('html').offsetHeight{if $mode == 'preview'}-19{/if};
-                } else {
-                    var frameheight = document.querySelector('html').offsetHeight;
-                }
+                var frameheight = document.querySelector('html').offsetHeight;
                 parent.document.getElementById('serendipity_iframe').style.height = frameheight + 'px';
                 parent.document.getElementById('serendipity_iframe').scrolling    = 'no';
                 parent.document.getElementById('serendipity_iframe').style.border = 0;
@@ -41,23 +36,23 @@
                     {$preview}
                 </div>
             {elseif $mode == 'save'}
-                <div class="{$mode}_preview_sizing"></div>
-                    {$updertHooks}
-                {if $res}
-                    <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
-                {else}
-                    {if isset($lastSavedEntry) && (int)$lastSavedEntry}
+            <div class="{$mode}_preview_sizing"></div>
+                {$updertHooks}
+            {if $res}
+                <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <b>{$CONST.ERROR}:</b><br> {$res}</span>
+            {else}
+                {if isset($lastSavedEntry) && (int)$lastSavedEntry}
 
-                    <script type="text/javascript">
-                        window.onload = function() {ldelim}
-                            parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
-                        {rdelim};
-                    </script>
-                    {/if}
-
-                    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ENTRY_SAVED}</span>
-                    <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
+                <script type="text/javascript">
+                    window.onload = function() {ldelim}
+                        parent.document.forms['serendipityEntry']['serendipity[id]'].value = "{$lastSavedEntry}";
+                    {rdelim};
+                </script>
                 {/if}
+
+                <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.ENTRY_SAVED}</span>
+                <a href="{$entrylink}" target="_blank">{$CONST.VIEW}</a>
+            {/if}
             {/if}
             </div>
         </div>
