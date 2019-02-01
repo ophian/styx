@@ -698,7 +698,6 @@ div.serendipityPlug a {
 .serendipity_imageComment_txt {
     border-top: 1px solid #DDD;
     background-color: #EFEFEF;
-    margin-top: .25em;
     padding: .25em;
     clear: both;
     font-size: 8pt;
@@ -723,10 +722,14 @@ div.serendipityPlug a {
     background-color: unset;
     padding-top: 0;
 }
+.serendipity_entry_body > .serendipity_imageComment_center > .serendipity_imageComment_txt,
+.serendipity_entry_extended > .serendipity_imageComment_center > .serendipity_imageComment_txt {
+    margin-top: .25em;
+}
 /* inside image blocks closely append .serendipity_imageComment_txt */
-.serendipity_image_block .serendipity_imageComment_left .serendipity_imageComment_img,
-.serendipity_image_block .serendipity_imageComment_right .serendipity_imageComment_img {
-    margin-bottom: -8px;
+.serendipity_image_block > .serendipity_imageComment_left > .serendipity_imageComment_txt,
+.serendipity_image_block > .serendipity_imageComment_right > .serendipity_imageComment_txt {
+    margin-top: -6px;
 }
 
 
