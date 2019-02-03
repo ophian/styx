@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
     <head>
         <title><?= SERENDIPITY_ADMIN_SUITE ?></title>

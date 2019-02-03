@@ -1,5 +1,5 @@
 <?php if ($GLOBALS['tpl']['linktrimmer_external']): ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
 <head>
     <meta charset="<?= LANG_CHARSET ?>">

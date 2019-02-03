@@ -1,5 +1,5 @@
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
 <head>
     <meta charset="<?= $GLOBALS['tpl']['head_charset'] ?>">

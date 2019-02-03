@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
 <head>
     <title><?= !empty($GLOBALS['tpl']['head_title']) ? $GLOBALS['tpl']['head_title'] : $GLOBALS['tpl']['blogTitle']; ?> <?php if ($GLOBALS['tpl']['head_subtitle']): ?> - <?= $GLOBALS['tpl']['head_subtitle'] ?><?php endif; ?></title>

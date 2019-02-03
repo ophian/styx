@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{$lang}">
 <head>
     <meta charset="{$head_charset}">

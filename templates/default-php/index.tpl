@@ -1,5 +1,5 @@
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
 <head>
     <title><?= $GLOBALS['template']->getdefault('head_title', 'blogTitle'); ?> - <?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></title>
