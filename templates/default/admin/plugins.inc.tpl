@@ -165,7 +165,7 @@
     <div id="progressWidget">
         <span id="updateMessage">{$CONST.START_UPDATE}</span>
         <div id="updateIndicator" class="animated-css"></div>
-        <progress id="updateProgress" value="0" />
+        <progress id="updateProgress" value="0"></progress>
     </div>
     <script src="{serendipity_getFile file='admin/js/progress-polyfill.min.js'}"></script>
 {elseif isset($ajax_output)}
