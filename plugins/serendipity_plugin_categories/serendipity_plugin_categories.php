@@ -267,14 +267,14 @@ class serendipity_plugin_categories extends serendipity_plugin
                 }
 
                 if (!$smarty) {
-                    $html .= '<li class="category_depth' . $cat['depth'] . ' category_' . $cat['categoryid'] . '" style="display: block;">';
+                    $html .= '<li class="category_depth' . $cat['depth'] . ' category_' . $cat['categoryid'] . '">';
 
                     if ($is_form) {
                         $html .= '<input type="checkbox" name="serendipity[multiCat][]" value="' . $cat['categoryid'] . '" />';
                     }
 
                     if (!empty($image)) {
-                        $html .= '<a class="serendipity_xml_icon" href="'. $categories[$cid]['feedCategoryURL'] .'"><img src="'. $image .'" alt="XML" style="border: 0px" /></a> ';
+                        $html .= '<a class="serendipity_xml_icon" href="'. $categories[$cid]['feedCategoryURL'] .'"><img src="'. $image .'" alt="XML" /></a> ';
                     }
                     $html .= '<a href="'. $categories[$cid]['categoryURL'] .'" title="'. serendipity_specialchars($cat['category_description']) .'" style="padding-left: '. $categories[$cid]['paddingPx'] .'px">'. serendipity_specialchars($categories[$cid]['category_name']) .'</a>';
                     $html .= '</li>' . "\n";
