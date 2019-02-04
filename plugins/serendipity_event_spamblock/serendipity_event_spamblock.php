@@ -1284,7 +1284,7 @@ class serendipity_event_spamblock extends serendipity_event
                             echo PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . "<br />\n";
                             echo $this->show_captcha($use_gd);
                             echo '<br /><label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . '</label>';
-                            echo '<input class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" id="captcha" />';
+                            echo '<input id="captcha" class="input_textbox" type="text" size="5" name="serendipity[captcha]" value="" />';
                         } elseif (isset($serendipity['POST']['captcha'])) {
                             echo '<input type="hidden" name="serendipity[captcha]" value="' . serendipity_specialchars($serendipity['POST']['captcha']) . '" />';
                         }
