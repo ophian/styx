@@ -224,7 +224,7 @@ function show_plugins($event_only = false, $sidebars = null) {
  * @param  boolean  Shows a plugin's "example" method output?
  * @param  boolean  Spawn a plugins' configuration WYSIWYG items?
  * @param  string   The array index name of POSTed values ($serendipity['POST'][xxx]) which is either 'template' or 'plugin',
- *                       but since used for BACK buttonizing in plugin_config.tpl too, the event plugin categorytemplates
+ *                       but since used for BACK buttoning in plugin_config.tpl too, the event plugin categorytemplates
  *                       uses 'categorytemplate'.
  * @param  array    An array that groups certain config keys
  * @return string   The configuration HTML
@@ -630,7 +630,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
 
     $data['plugin_options_ungrouped'] = $plugin_options;
 
-    $data['button_postKey'] = $postKey; // reset the postKey assignment for buttonizing
+    $data['button_postKey'] = $postKey; // reset the postKey assignment for buttoning
 
     if ($showSubmit) {
         $data['showSubmit_foot'] = true;
