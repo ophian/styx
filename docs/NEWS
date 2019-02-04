@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix bug of depth (&nbsp;) entities in template config select options being
+    double encoded.
+
   * Upgrade for the [default] theme, removing XHTML and prepare ready for Styx 2.7+.
     UPGRADERS: Please check your copy themes.
 
