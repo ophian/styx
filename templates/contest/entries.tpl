@@ -156,7 +156,7 @@
                 {/foreach}
 
                 {if $is_comment_moderate}
-                <div class="serendipity_center serendipity_msg_success">{$CONST.COMMENT_ADDED}<br />{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
+                <div class="serendipity_center serendipity_msg_success">{$CONST.COMMENT_ADDED}<br>{$CONST.THIS_COMMENT_NEEDS_REVIEW}</div>
                 {elseif $is_comment_added}
                 <div class="serendipity_center serendipity_msg_success">{$CONST.COMMENT_ADDED}</div>
                 {elseif NOT $entry.allow_comments}

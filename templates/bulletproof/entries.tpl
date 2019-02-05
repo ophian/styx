@@ -334,7 +334,9 @@
                         (<a rel="nofollow" href="{$entry.link_viewmode_linear}#comments">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a> | {$CONST.COMMENTS_VIEWMODE_THREADED})
                     {/if}
                 </div>
-                <div id="serendipity_commentlist">{serendipity_printComments entry=$entry.id mode=$entry.viewmode}</div>
+                <div id="serendipity_commentlist">
+                    {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
+                </div>
 
                 {if NOT empty($entry.is_entry_owner)}
                     {if $entry.allow_comments}
