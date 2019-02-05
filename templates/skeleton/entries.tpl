@@ -23,6 +23,7 @@
         </div>
         {/if}
 
+        {if NOT $is_preview}
         <footer class="post_footer u-cf">
             <div class="post_meta">
             {if NOT empty($entry.categories)}
@@ -47,6 +48,7 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
+        {/if}
 {if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
     {if $CONST.DATA_UNSUBSCRIBED}
         <p class="serendipity_msg_success">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
