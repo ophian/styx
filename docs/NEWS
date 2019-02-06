@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix backend maintenance container style when inside containers where too
+    wide (Spamblock Maintain).
+
   * Fix bug of depth (&nbsp;) entities in template config select options being
     double encoded.
 
