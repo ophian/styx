@@ -3911,8 +3911,7 @@ img.mfp-img {
                 column-count: 2;
     }
     #maintenance > section {
-        display: inline-table;
-        width: -moz-available;
+        display: inline-block;
         width: 100%;
         -webkit-column-break-inside: avoid;
                   page-break-inside: avoid;
