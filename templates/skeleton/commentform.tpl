@@ -1,4 +1,4 @@
-<div id="serendipityCommentFormC" class="serendipityCommentForm">
+<div id="serendipityCommentFormC" class="serendipity_commentForm">
     <div id="serendipity_replyform_0"></div>
     <a id="serendipity_CommentForm"></a>
 {if $is_moderate_comments}
