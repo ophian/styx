@@ -27,7 +27,7 @@
         <tr>
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment"><?= COMMENT ?></label></td>
             <td class="serendipity_commentsValue">
-                <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"><?= $GLOBALS['tpl']['commentform_data'] ?></textarea><br>
+                <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]"><?= $GLOBALS['tpl']['commentform_data'] ?></textarea>
                 <?php serendipity_plugin_api::hook_event('frontend_comment', $GLOBALS['tpl']['commentform_entry']); ?>
             </td>
         </tr>
