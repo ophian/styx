@@ -134,7 +134,7 @@
                         {else}
                             {$entry.freetag|default:''}
                         {/if}
-                        {$entry.add_footer|default:''}
+                        {if NOT $is_preview}{$entry.add_footer|default:''}{/if}
                     </footer>
                 {/if}
             </section>
