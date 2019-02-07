@@ -11,7 +11,7 @@
     <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$message}</p>
     {/foreach}
     {/if}
-    <div class="serendipityCommentForm">
+    <div class="serendipity_commentForm">
         <a id="serendipity_CommentForm"></a>
         <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
             <input type="hidden" name="serendipity[subpage]" value="{$commentform_sname}">
