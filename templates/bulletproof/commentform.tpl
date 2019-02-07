@@ -1,4 +1,4 @@
-<div class="serendipityCommentForm">
+<div class="serendipity_commentForm">
 <div id="serendipity_replyform_0"></div>
 <a id="serendipity_CommentForm"></a>
 <!-- The actual form -->
