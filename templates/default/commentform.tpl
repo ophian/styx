@@ -27,7 +27,7 @@
         <tr>
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_comment">{$CONST.COMMENT}</label></td>
             <td class="serendipity_commentsValue">
-                <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]">{$commentform_data}</textarea><br>
+                <textarea rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[comment]">{$commentform_data}</textarea>
                 {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
             </td>
         </tr>
@@ -35,7 +35,7 @@
 {if $is_commentform_showToolbar}
         <tr>
             <td>&#160;</td>
-            <td class="serendipity_commentsLabel">
+            <td class="serendipity_commentsLabel toolbar">
                 <input id="checkbox_remember" type="checkbox" name="serendipity[remember]" {$commentform_remember}/><label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label>
     {if $is_allowSubscriptions}
                 <br>
