@@ -1,9 +1,9 @@
-<div id="serendipityCommentFormC" class="serendipityCommentForm">
+<div id="serendipityCommentFormC" class="serendipity_commentForm">
     <div id="serendipity_replyform_0"></div>
     <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment" action="<?= $GLOBALS['tpl']['commentform_action'] ?>#feedback" method="post">
     <div><input type="hidden" name="serendipity[entry_id]" value="<?= $GLOBALS['tpl']['commentform_id'] ?>"></div>
-    <table border="0" width="100%" cellpadding="3">
+    <table>
         <tr>
             <td class="serendipity_commentsLabel"><label for="serendipity_commentform_name"><?= NAME ?></label></td>
             <td class="serendipity_commentsValue"><input type="text" id="serendipity_commentform_name" name="serendipity[name]" value="<?= $GLOBALS['tpl']['commentform_name'] ?>" size="30"></td>

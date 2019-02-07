@@ -27,7 +27,7 @@
             <?php endforeach; ?>
             <?php endif; ?>
 
-            <div id="serendipity_comment" class="serendipityCommentForm">
+            <div id="serendipity_comment" class="serendipity_commentForm">
               <a id="serendipity_CommentForm"></a>
 
               <form id="serendipity_comment" action="<?= $GLOBALS['tpl']['commentform_action'] ?>#feedback" method="post">
