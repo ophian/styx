@@ -1,4 +1,4 @@
-<div id="serendipityCommentForm" class="serendipityCommentForm">
+<div id="serendipityCommentForm" class="serendipity_commentForm">
     <div id="serendipity_replyform"></div>
     <a id="serendipity_CommentForm"></a>
     <form id="serendipity_comment" class="form-vertical" action="{$commentform_action}#feedback" method="post">

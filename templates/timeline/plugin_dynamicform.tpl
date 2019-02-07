@@ -22,7 +22,7 @@
             {if NOT empty($is_contactform_sent)}
                 <p class="alert alert-success"><span class="fa-stack text-success" aria-hidden="true"></i><i class="fa fa-smile-o fa-2x"></i></span> {$plugin_contactform_sent}</p>
             {else}
-            <div id="serendipityCommentForm" class="serendipityCommentForm">
+            <div id="serendipityCommentForm" class="serendipity_commentForm">
                 <a id="serendipity_CommentForm"></a>
                 <form id="serendipity_comment" class="form-vertical" action="{$commentform_action}#feedback" method="post">
                     <div>
