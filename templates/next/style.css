@@ -1196,9 +1196,11 @@ details summary {
     #comments article.comment.odd {
         margin: 0 3rem 2rem 0rem; }
     table.calendar {
-        width: 15.4rem; }
+        max-width: 15.4rem; }
         .calendar th, .calendar td {
             text-align:right }
+        .calendar-nav a {
+            text-decoration:none; }
     table.calendar-nav {
         max-width: 24rem; }
     }
