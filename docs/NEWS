@@ -2,6 +2,15 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix (all) themes comment/contact form selector for consistency with the
+    written book declaration, in "commentform.tpl". "plugin_contactform.tpl"
+    and "plugin_dynamicform.tpl" template files, or themes falling back to.
+    This applies to the ["2k11", "default", "default-php", "bootstrap4",
+    "bulletproof", "clean-blog", "next", "skeleton", "timeline"] themes and
+    the "default backend". Only the 2k11 "style.css" file had to be changed
+    for the print rules.
+    UPGRADERS: Please check your COPY themes.
+
   * Fix backend maintenance container issue when inside containers where too
     wide (Spamblock Maintain).
 
