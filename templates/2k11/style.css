@@ -1253,7 +1253,7 @@ pre .geshi {
     .serendipity_comment>details,
     .serendipity_comment>footer,
     .comment_avatar, #respond,
-    .serendipityCommentForm { display: none;}
+    .serendipity_commentForm,.serendipityCommentForm { display: none;}
 
     body { font-family: Times, "Times New Roman", serif !important; }
 }

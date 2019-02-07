@@ -14,7 +14,7 @@
     {/foreach}
     {/if}
 
-    <div class="serendipityCommentForm">
+    <div class="serendipity_commentForm">
         <a id="serendipity_CommentForm"></a>
 
         <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
