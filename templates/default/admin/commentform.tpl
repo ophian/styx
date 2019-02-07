@@ -10,7 +10,7 @@ if (!window.CKEDITOR) {
 <h2>{$CONST.EDIT_THIS_CAT|sprintf:"{$CONST.COMMENT} #`$smarty.get.serendipity.id`"|replace:'"':''}</h2>
 {/if}
 
-<div id="serendipityCommentFormC" class="serendipityCommentForm">
+<div id="serendipityCommentFormC" class="serendipity_commentForm">
     <div id="serendipity_replyform_0"></div>
     <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
         <div>

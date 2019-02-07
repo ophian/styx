@@ -1687,7 +1687,7 @@ fieldset p,
 }
 
 #entries_list .actions,
-.serendipityCommentForm,
+.serendipity_commentForm,
 #captchabox .captcha,
 .editor_toolbar {
     margin-top: .75em;
