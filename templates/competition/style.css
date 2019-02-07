@@ -242,7 +242,7 @@ td.serendipity_commentsLabel {
     font-size: x-small;
     font-weight: bold;
     text-align: right;
-    padding-top: 10px;
+    padding-top: 6px;
     vertical-align: top;
 }
 td.serendipity_commentsValue input:not(type="button"),
@@ -251,6 +251,9 @@ td.serendipity_commentsValue textarea {
     font-size: 11px;
     padding: 2px;
     width: 50%;
+}
+td.serendipity_commentsLabel.toolbar {
+    text-align: left;
 }
 
 .serendipity_commentForm {
