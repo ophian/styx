@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="{$lang}">
     <head>
+        <meta charset="{$head_charset}">
         <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
-        <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}">
-        <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     {if $head_link_stylesheet_frontend}
         <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
     {else}
