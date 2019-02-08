@@ -2,8 +2,8 @@
 <html class="no-js" lang="{$lang}">
 <head>
     <meta charset="{$head_charset}">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 {if $head_link_stylesheet_frontend}
     <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
 {else}
