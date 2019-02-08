@@ -2,10 +2,8 @@
 <html lang="{$lang}">
 <head>
     <meta charset="{$head_charset}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 {* BOOTSTRAP CORE CSS *}
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 {* S9Y CSS *}
@@ -20,12 +18,6 @@
 {if $template_option.use_googlefonts}
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,600,800|Lora:400,400italic" rel="stylesheet" type="text/css">
 {/if}
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
 
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
