@@ -3,6 +3,7 @@
     <head>
         <meta charset="<?= LANG_CHARSET ?>">
         <title><?= PLUGIN_EVENT_AMAZONCHOOSER_MEDIA_BUTTON ?></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['plugin_amazonchooser_css'] ?>">
         <script type="text/javascript" src="<?= $GLOBALS['tpl']['plugin_amazonchooser_js'] ?>"></script>
     </head>

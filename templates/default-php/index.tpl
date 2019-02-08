@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
 <head>
+    <meta charset="<?= $GLOBALS['tpl']['head_charset'] ?>">
     <title><?= $GLOBALS['template']->getdefault('head_title', 'blogTitle'); ?> - <?= $GLOBALS['template']->getdefault('head_subtitle', 'blogDescription'); ?></title>
-    <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset']; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion']; ?>">
 <?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries', 'entry', 'feed', 'plugin']) || !empty($GLOBALS['tpl']['staticpage_pagetitle']) || (isset($GLOBALS['tpl']['robots_index']) && $GLOBALS['tpl']['robots_index'] == 'index')): ?>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
     <head>
+        <meta charset="<?= $GLOBALS['tpl']['head_charset'] ?>">
         <title><?= SERENDIPITY_ADMIN_SUITE ?></title>
-        <meta http-equiv="Content-Type" content="text/html; charset=<?= $GLOBALS['tpl']['head_charset'] ?>">
-        <meta name="Powered-By" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
     <?php if ($GLOBALS['tpl']['head_link_stylesheet_frontend']): ?>
         <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet_frontend'] ?>">
