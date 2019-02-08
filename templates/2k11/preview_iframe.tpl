@@ -6,7 +6,6 @@
 <head>
     <meta charset="{$head_charset}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
-    <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {if isset($template_option.webfonts)}
 {if $template_option.webfonts == 'droid'}
