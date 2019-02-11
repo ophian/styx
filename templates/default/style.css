@@ -231,7 +231,6 @@ a:hover {
     background-color: #26292b; /* fallback color if gradients are not supported */
     background-image: -webkit-linear-gradient(top, #26292b, #383838); /* For Chrome 25 and Safari 6, iOS 6.1, Android 4.3 */
     background-image:    -moz-linear-gradient(top, #26292b, #383838); /* For Firefox (3.6 to 15) */
-    background-image:      -o-linear-gradient(top, #26292b, #383838); /* For old Opera (11.1 to 12.0) */
     background-image:         linear-gradient(to bottom, #26292b, #383838); /* Standard syntax; must be last */
     box-shadow: 0 1px 4px rgba(0,0,0,.5);
     color: #ccdde7;

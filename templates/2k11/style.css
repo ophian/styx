@@ -382,7 +382,6 @@ fieldset,
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3e5f81), color-stop(100%, #294564));
     background-image: -webkit-linear-gradient(#3e5f81, #294564);
     background-image: -moz-linear-gradient(#3e5f81, #294564);
-    background-image: -o-linear-gradient(#3e5f81, #294564);
     background-image: linear-gradient(#3e5f81, #294564);
 }
 
@@ -423,7 +422,6 @@ fieldset,
     background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ccdee7), color-stop(100%, #aabcc5));
     background-image: -webkit-linear-gradient(#ccdee7, #aabcc5);
     background-image: -moz-linear-gradient(#ccdee7, #aabcc5);
-    background-image: -o-linear-gradient(#ccdee7, #aabcc5);
     background-image: linear-gradient(#ccdee7, #aabcc5);
 }
 

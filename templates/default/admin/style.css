@@ -2640,7 +2640,6 @@ h3 .media_file_actions {
     background-color: transparent;
     background-image: -webkit-linear-gradient(to bottom, transparent 50%, transparent 50%);
     background-image:    -moz-linear-gradient(to bottom, transparent 50%, transparent 50%);
-    background-image:      -o-linear-gradient(to bottom, transparent 50%, transparent 50%);
     background-image:         linear-gradient(to bottom, transparent 50%, transparent 50%);
 }
 #categories:not(.slist) li > ul,
@@ -2648,7 +2647,6 @@ h3 .media_file_actions {
     background-color: #FCFCFC;
     background-image: -webkit-linear-gradient(to bottom, #FCFCFC, #F2F2F2);
     background-image:    -moz-linear-gradient(to bottom, #FCFCFC, #F2F2F2);
-    background-image:      -o-linear-gradient(to bottom, #FCFCFC, #F2F2F2);
     background-image:         linear-gradient(to bottom, #FCFCFC, #F2F2F2);
     border-left: 1px solid #aaa;
     border-bottom: 1px solid #aaa;
