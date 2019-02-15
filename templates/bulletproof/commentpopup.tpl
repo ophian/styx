@@ -27,7 +27,7 @@
    <link rel="alternate"  type="application/x.atom+xml"  title="{$blogTitle} Atom feed"  href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml" />
 </head>
 
-<body class="s9y_wrap" id="serendipity_comment_page">
+<body id="serendipity_comment_page" class="s9y_wrap">
 {if $is_comment_added}
     <div class="popup_comments_message popup_comments_message_added">{$CONST.COMMENT_ADDED}{$comment_string.0}<a href="{$comment_url}">{$comment_string.1}</a>{$comment_string.2}<a href="#" onclick="self.close()">{$comment_string.3}</a>{$comment_string.4}</div>
 {elseif $is_comment_notadded}
