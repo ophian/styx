@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}serendipity.css.php">
 </head>
 
-<body class="s9y_wrap" id="serendipity_comment_page">
+<body id="serendipity_comment_page" class="s9y_wrap">
 
 {if $is_comment_added}
 
