@@ -2,7 +2,7 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
-  * Improve trackback template "header" title to only linebreak on trackbacks
+  * Improve trackback template "header" title to only linebreak on trackback
     types. Applies to [default, default-php] and falling back themes.
 
   * Improve pcomments template to not emit (styled) comment_content block,
