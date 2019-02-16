@@ -2,6 +2,10 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Improve pcomments template to not emit (styled) comment_content block,
+    when body var is empty. Applies to [2k11, default, default-php, next]
+    themes. UPGRADERS: Please check your COPY themes.
+
   * Fix (all) themes comment/contact form selector for consistency with the
     written book declaration, in "commentform.tpl". "plugin_contactform.tpl"
     and "plugin_dynamicform.tpl" template files, or themes falling back to.
