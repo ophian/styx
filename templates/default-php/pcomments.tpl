@@ -4,11 +4,14 @@
     <div class="comment_header">
         <h4><?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?><strong>[TRACKBACK]</strong> <?= TRACKED ?>:<?php endif; ?><?php if ($comment['url']): ?><a href="<?= $comment['url'] ?>"><?php endif; ?><?= $comment['author'] ? $comment['author'] : ANONYMOUS; ?> <?php if (isset($comment['entry_author_realname']) && $comment['entry_author_realname'] == $comment['author'] AND $comment['entry_author_email'] == $comment['clear_email']): ?> <span class="pc-owner">Post author</span> <?php endif; ?><?php if ($comment['url']): ?></a><?php endif; ?> <?= ON ?> <time datetime="<?= serendipity_formatTime(DATE_FORMAT_SHORT, $comment['timestamp']); ?>"><?= serendipity_formatTime(DATE_FORMAT_ENTRY, $comment['timestamp']); ?></time><?php if (isset($comment['meta'])): ?> | <time><?= serendipity_formatTime('%H:%M', $comment['timestamp']) ?></time><?php endif; ?>:</h4>
     </div>
+<?php if ($comment.body != ''): ?>
 
     <div class="comment_content">
         <?= isset($comment['avatar']) ? $comment['avatar'] : ''; ?>
         <?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?><?= str_replace('  ', ' ', strip_tags($comment['body'])) ?> [&hellip;]<?php else: ?><?= $comment['body'] ?><?php endif; ?>
     </div>
+<?php endif; ?>
+
 </div>
 <?php $i++; ?>
 <?php endforeach; ?>
