@@ -4,7 +4,7 @@
             <h4>{if $comment.url}<a href="{$comment.url}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}{if $comment.url}</a>{/if}{if isset($comment.spice_twitter_name) AND $comment.spice_twitter_name AND NOT $comment.spice_twitter_followme} (<a href="{$comment.spice_twitter_url}"{if $comment.spice_twitter_nofollow} rel="nofollow"{/if}>@{$comment.spice_twitter_name}</a>){/if} {$CONST.ON} <time datetime="{$comment.timestamp|serendipity_html5time}">{$comment.timestamp|formatTime:($template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY)}</time>{if isset($comment.meta)} | <time>{$comment.timestamp|formatTime:'%H:%M'}</time>{/if}:</h4>
         {if isset($comment.spice_twitter_name) AND $comment.spice_twitter_name AND $comment.spice_twitter_followme}
             <div class="twitter_follow">
-            {$comment.spice_twitter_followme}
+                {$comment.spice_twitter_followme}
             </div>
         {/if}
         </header>
@@ -25,7 +25,7 @@
             <ul class="{$comment.meta|default:''}meta{if isset($comment.type) AND $comment.type == 'TRACKBACK'} tb-meta{/if}">
         {if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
                 <li><strong>{$CONST.PREVIEW|upper}</strong></li>
-        {else if !isset($comment.meta)}
+        {else if NOT isset($comment.meta)}
             {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
                 <li><strong>TRACKBACK</strong></li>
             {/if}

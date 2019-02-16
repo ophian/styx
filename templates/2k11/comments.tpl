@@ -21,7 +21,7 @@
     <footer>
 {if empty($comment.id) AND isset($smarty.post.serendipity.preview)}
         <strong>{$CONST.PREVIEW|upper}</strong>
-{else if !isset($comment.meta)}
+{else if NOT isset($comment.meta)}
     {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
         <strong>TRACKBACK</strong>
     {/if}
