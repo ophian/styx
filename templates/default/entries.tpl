@@ -70,7 +70,7 @@
                     {/if}
                 {/if}
 
-                {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
+                {if NOT empty($entry.is_entry_owner)}
                         | <a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a>
                 {/if}
 
