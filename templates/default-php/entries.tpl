@@ -37,6 +37,7 @@
             <br><a href="<?= $entry['link'] ?>#extended"><?php printf(VIEW_EXTENDED_ENTRY, $entry['title']) ?></a><br><br>
             <?php endif; ?>
 
+            <?php if (!$GLOBALS['tpl']['is_preview']): ?>
             <div class="serendipity_entryFooter">
                 <?= POSTED_BY ?> <a href="<?= $entry['link_author'] ?>"><?= $entry['author'] ?></a>
                 <?php if (!empty($entry['categories'])): ?>
@@ -65,13 +66,15 @@
                     <?php endif; ?>
                 <?php endif; ?>
 
-                <?php if ($entry['is_entry_owner'] && empty($GLOBALS['tpl']['is_preview'])): ?>
+                <?php if ($entry['is_entry_owner']): ?>
                         | <a href="<?= $entry['link_edit'] ?>"><?= EDIT_ENTRY; ?></a>
                 <?php endif; ?>
 
                 <?= $entry['add_footer'] ?>
             </div>
+            <?php endif; ?>
         </div>
+        <?php if (!$GLOBALS['tpl']['is_preview']): ?>
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
@@ -84,6 +87,7 @@
         </rdf:RDF>
         -->
         <?= $entry['plugin_display_dat'] ?>
+        <?php endif; ?>
 
         <?php if (!empty($GLOBALS['tpl']['is_single_entry']) && !$GLOBALS['tpl']['use_popups'] && empty($GLOBALS['tpl']['is_preview'])): ?>
             <?php if (defined(DATA_UNSUBSCRIBED)): ?>

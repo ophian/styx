@@ -14,6 +14,7 @@
     </div>
     <div class="serendipity_entry serendipity_entry_author_{$entry.author|makeFilename} {if NOT empty($entry.is_entry_owner)}serendipity_entry_author_self{/if} ">
 
+    {if NOT $is_preview}
        <div class="serendipity_entryFooter">
 
         {if NOT empty($entry.categories)}
@@ -42,7 +43,7 @@
                 {/if}
                 {if $dategroup.is_sticky}{$entry.timestamp|formatTime:DATE_FORMAT_ENTRY}{else} {$entry.timestamp|formatTime:'%H:%M'}{/if}<br>
             {/if}
-            {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
+            {if NOT empty($entry.is_entry_owner)}
                 <br><a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a>
             {/if}
             {if $entry.has_comments}
@@ -62,6 +63,7 @@
             {/if}
             {$entry.add_footer|default:''}
         </div>
+    {/if}
 
         <h4 class="serendipity_title"><a href="{$entry.link}">{$entry.title|default:$entry.body|truncate:200:" ..."}</a></h4>
         <div class="serendipity_entry_body">
@@ -75,6 +77,7 @@
         {/if}
 
         </div>
+    {if NOT $is_preview}
 
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -88,6 +91,7 @@
         </rdf:RDF>
         -->
         {$entry.plugin_display_dat}
+    {/if}
 
         {if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
             {if $CONST.DATA_UNSUBSCRIBED}

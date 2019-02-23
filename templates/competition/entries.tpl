@@ -40,6 +40,7 @@
             <br><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a><br>
             {/if}
 
+        {if NOT $is_preview}
             <div class="serendipity_entryFooter">
                 {$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a>
                 {if NOT empty($entry.categories)}
@@ -68,13 +69,16 @@
                     {/if}
                 {/if}
 
-                {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
+                {if NOT empty($entry.is_entry_owner)}
                         | <a href="{$entry.link_edit}">{$CONST.EDIT_ENTRY}</a>
                 {/if}
 
                 {$entry.add_footer|default:''}
             </div>
+        {/if}
         </div>
+        {if NOT $is_preview}
+
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
                  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
@@ -87,6 +91,7 @@
         </rdf:RDF>
         -->
         {$entry.plugin_display_dat}
+        {/if}
 
         {if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
             {if $CONST.DATA_UNSUBSCRIBED}
