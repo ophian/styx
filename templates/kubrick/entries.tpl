@@ -22,16 +22,18 @@
             <div class="entrytext">
               <div>
                 {$entry.body}
-                {if $is_single_entry}
-                <a id="extended"></a>{$entry.extended}
-                {/if}
-              </div>
 
                 {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
-                <br><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a><br>
+                <p><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a></p>
                 {/if}
 
+            {if $is_single_entry AND $entry.is_extended}
+                <a id="extended"></a>
+                {$entry.extended}
+            {/if}
+              </div>
         {if NOT $is_preview}
+
             <div class="postmetadata{if $is_single_entry} graybox{/if}">
                 {if $is_single_entry}
 
