@@ -176,7 +176,7 @@ p, td, th, div, span {
     margin: auto;
     width: 100%;
     height: 72px;
-    background-image: url({TEMPLATE_PATH}img/background.png);
+    background-image: url('{TEMPLATE_PATH}img/background.png);
 }
 
 a.homelink1,
