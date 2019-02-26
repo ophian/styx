@@ -2,6 +2,17 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Change the "default"-themes entries footer selector to better fit semantically,
+    since it is different to the real "serendipity_entryFooter" selector.
+    If already using a theme without an entries.tpl template file, falling back
+    to "default", please style the new ".serendipity_entries_footer" pagination
+    selector to your needs. Example:
+        .serendipity_entries_footer {
+            text-align: center;
+            font-size: medium;
+            margin-bottom: 1em;
+        }
+
   * Improve trackback template "header" title to only linebreak on trackback
     types. Applies to [default, default-php] and falling back themes.
 
