@@ -415,7 +415,8 @@ a.homelink2:visited,
     margin: 0;
     text-align: right;
 }
-.serendipity_entryFooter {
+.serendipity_entryFooter,
+.serendipity_entries_footer {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: .75em;
     text-align: center;
