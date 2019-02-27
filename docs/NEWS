@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix commentpopup init checks and add frontend_footer hook for form assets
+    (see emoticonchooser). Applies to [default, default-php, bulletproof] themes.
+
   * Change the "default"-themes entries footer selector to better fit semantically,
     since it is different to the real "serendipity_entryFooter" selector.
     If already using a theme without an entries.tpl template file, falling back
