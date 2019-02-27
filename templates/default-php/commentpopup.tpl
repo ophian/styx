@@ -10,21 +10,21 @@
 
 <body id="serendipity_comment_page" class="s9y_wrap">
 
-<?php if ($is_comment_added): ?>
+<?php if (!empty($is_comment_added)): ?>
 
     <div class="popup_comments_message popup_comments_message_added"><?= COMMENT_ADDED ?><?= $GLOBALS['tpl']['comment_string'][0] ?><a href="<?= $GLOBALS['tpl']['comment_url'] ?>"><?= $GLOBALS['tpl']['comment_string'][1] ?></a><?= $GLOBALS['tpl']['comment_string'][2] ?><a href="#" onclick="self.close()"><?= $GLOBALS['tpl']['comment_string'][3] ?></a><?= $GLOBALS['tpl']['comment_string'][4] ?></div>
 
-<?php elseif ($is_comment_notadded): ?>
+<?php elseif (!empty($is_comment_notadded)): ?>
 
     <div class="popup_comments_message popup_comments_message_notadded"><?= COMMENT_NOT_ADDED ?><?= $GLOBALS['tpl']['comment_string'][0] ?><a href="<?= $GLOBALS['tpl']['comment_url'] ?>"><?= $GLOBALS['tpl']['comment_string'][1] ?></a><?= $GLOBALS['tpl']['comment_string'][2] ?><a href="#" onclick="self.close()"><?= $GLOBALS['tpl']['comment_string'][3] ?></a><?= $GLOBALS['tpl']['comment_string'][4] ?></div>
 
-<?php elseif ($is_comment_empty): ?>
+<?php elseif (!empty($is_comment_empty)): ?>
 
     <div class="popup_comments_message popup_comments_message_empty"><?= $GLOBALS['tpl']['comment_string'][0] ?><a href="#" onclick="history.go(-1)"><?= $GLOBALS['tpl']['comment_string'][1] ?></a></div>
 
-<?php elseif ($is_showtrackbacks): ?>
+<?php elseif (!empty($is_showtrackbacks)): ?>
 
-    <div class="serendipity_commentsTitle"><?= TRACKBACKS ?></div>
+    <div class="popup_content serendipity_commentsTitle"><?= TRACKBACKS ?></div>
     <dl>
         <dt><strong><?= TRACKBACK_SPECIFIC ?>:</strong></dt>
         <dd><a rel="nofollow" href="<?= $GLOBALS['tpl']['comment_url'] ?>"><?= $GLOBALS['tpl']['comment_url'] ?></a></dd>
@@ -37,7 +37,7 @@
 
 <?php elseif ($is_showcomments): ?>
 
-    <div class="serendipity_commentsTitle"><?= COMMENTS ?></div>
+    <div class="popup_content serendipity_commentsTitle"><?= COMMENTS ?></div>
 
     <?= $GLOBALS['template']->call('printComments', array('entry' => $entry_id)); ?>
     <?php if ($is_comment_allowed): ?>
@@ -49,5 +49,6 @@
 
 <?php endif; ?>
 
+<?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['template']); ?>
 </body>
 </html>
