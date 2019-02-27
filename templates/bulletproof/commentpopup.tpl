@@ -28,13 +28,13 @@
 </head>
 
 <body id="serendipity_comment_page" class="s9y_wrap">
-{if $is_comment_added}
+{if NOT empty($is_comment_added)}
     <div class="popup_comments_message popup_comments_message_added">{$CONST.COMMENT_ADDED}{$comment_string.0}<a href="{$comment_url}">{$comment_string.1}</a>{$comment_string.2}<a href="#" onclick="self.close()">{$comment_string.3}</a>{$comment_string.4}</div>
-{elseif $is_comment_notadded}
+{elseif NOT empty($is_comment_notadded)}
     <div class="popup_comments_message popup_comments_message_notadded">{$CONST.COMMENT_NOT_ADDED}{$comment_string.0}<a href="{$comment_url}">{$comment_string.1}</a>{$comment_string.2}<a href="#" onclick="self.close()">{$comment_string.3}</a>{$comment_string.4}</div>
-{elseif $is_comment_empty}
+{elseif NOT empty($is_comment_empty)}
     <div class="popup_comments_message popup_comments_message_empty">{$comment_string.0}<a href="#" onclick="history.go(-1)">{$comment_string.1}</a>{$comment_string.2}</div>
-{elseif $is_showtrackbacks}
+{elseif NOT empty($is_showtrackbacks)}
     <div class="serendipity_commentsTitle">{$CONST.TRACKBACKS}</div>
     <dl>
         <dt><strong>{$CONST.TRACKBACK_SPECIFIC}:</strong></dt>
@@ -53,5 +53,6 @@
         <div class="serendipity_center serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</div>
     {/if}
 {/if}
+{serendipity_hookPlugin hook="frontend_footer"}
 </body>
 </html>
