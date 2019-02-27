@@ -38,7 +38,7 @@
             <?php if (isset($GLOBALS['tpl']['entry']) && @$GLOBALS['tpl']['entry']['is_entry_owner'] && !empty($comment['id'])): ?>
                 (<a class="comment_source_ownerlink" href="<?= $comment['link_delete'] ?>" onclick="return confirm('<?= sprintf(COMMENT_DELETE_CONFIRM, (isset($comment['id']) ? $comment['id'] : 0), $comment['author']); ?>');"><?= DELETE ?></a>)
             <?php endif; ?>
-            <?php if ($GLOBALS['tpl']['commentform_entry']['allow_comments'] && $comment['body'] != 'COMMENT_DELETED'): ?>
+            <?php if (isset($comment['id']) && !empty($GLOBALS['tpl']['commentform_entry']['allow_comments']) && $comment['body'] != 'COMMENT_DELETED'): ?>
                 (<a class="comment_reply" href="#serendipity_CommentForm" id="serendipity_reply_<?= $comment['id'] ?>" onclick="document.getElementById('serendipity_replyTo').value='<?= $comment['id'] ?>'; <?= @$GLOBALS['tpl']['comment_onchange'] ?>"><?= REPLY ?></a>)
                 <div id="serendipity_replyform_<?= $comment['id'] ?>"></div>
             <?php endif; ?>
