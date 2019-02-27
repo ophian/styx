@@ -2,6 +2,11 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix comments.tpl "$entry.allow_comments" true condition for reply link.
+    Applies to ["2k11", "bootstrap4", "bulletproof", "clean-blog", "default",
+    "default-php", "kubrick", "next", "skeleton", "timeline"] themes.
+    UPGRADERS: Please check your COPY themes.
+
   * Fix commentpopup init checks and add frontend_footer hook for form assets
     (see emoticonchooser). Applies to [default, default-php, bulletproof] themes.
 
