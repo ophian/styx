@@ -16,7 +16,7 @@ class serendipity_plugin_authors extends serendipity_plugin
         $propbag->add('description', AUTHOR_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.3');
+        $propbag->add('version',       '2.4');
         $propbag->add('configuration', array('image', 'allow_select', 'title', 'showartcount', 'mincount'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -45,7 +45,7 @@ class serendipity_plugin_authors extends serendipity_plugin
                 $propbag->add('type',         'string');
                 $propbag->add('name',         XML_IMAGE_TO_DISPLAY);
                 $propbag->add('description',  XML_IMAGE_TO_DISPLAY_DESC);
-                $propbag->add('default',     serendipity_getTemplateFile('img/xml.gif'));
+                $propbag->add('default',     serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
                 break;
 
             case 'showartcount':
@@ -90,7 +90,7 @@ class serendipity_plugin_authors extends serendipity_plugin
             $html .= '<form action="' . $serendipity['baseURL'] . $serendipity['indexFile'] . '?frontpage" method="post">';
         }
 
-        $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif'));
+        $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
         $image = (($image == "'none'" || $image == 'none') ? '' : $image);
 
         $html .= '<ul class="plainList">' . "\n";
