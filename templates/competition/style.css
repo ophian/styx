@@ -413,13 +413,12 @@ div.serendipitySideBarItem {
     text-align: center;
 }
 .serendipity_msg_important {
-    color: red;
+    color: #ff4136;
 }
 .serendipity_msg_notice {
-    color: green;
+    color: #2ecc40;
 }
-.serendipity_entry_author_self {
-}
+.serendipity_entry_author_self {}
 .serendipity_comment_author_self .serendipity_comment_source .pc-owner,
 .serendipity_comment_author_self .comment_header .pc-owner {
     background: #3e5f81e6;

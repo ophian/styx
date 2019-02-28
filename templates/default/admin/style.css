@@ -2876,7 +2876,7 @@ label .perm_name,
 
 .pluginmanager_container .placeholder:before {
     border: 5px solid transparent;
-    border-left-color: red;
+    border-left-color: #ff4136;
     border-right: none;
     content: "";
     height: 0;

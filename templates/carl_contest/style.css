@@ -88,11 +88,11 @@ a:hover {
 
 /* warning messages from s9y */
 .serendipity_msg_important {
-	color: red; }
+	color: #ff4136; }
 
 /* messages letting you know something has happened eg comment saved */
 .serendipity_msg_notice {
-	color: green; }
+	color: #2ecc40; }
 
 /* style to temporarily change something to grey */
 .grey {
