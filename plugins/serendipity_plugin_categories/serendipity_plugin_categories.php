@@ -15,7 +15,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.13');
+        $propbag->add('version',       '2.14');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -116,7 +116,7 @@ class serendipity_plugin_categories extends serendipity_plugin
                 $propbag->add('type',         'string');
                 $propbag->add('name',         XML_IMAGE_TO_DISPLAY);
                 $propbag->add('description',  XML_IMAGE_TO_DISPLAY_DESC);
-                $propbag->add('default',     serendipity_getTemplateFile('img/xml.gif'));
+                $propbag->add('default',     serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
                 break;
 
             case 'smarty':
@@ -201,7 +201,7 @@ class serendipity_plugin_categories extends serendipity_plugin
             $html .= '<ul id="serendipity_categories_list" class="plainList">'."\n";
         }
 
-        $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif'));
+        $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
         $image = (($image == "'none'" || $image == 'none') ? '' : $image);
 
         $use_parent  = $this->get_config('parent_base');
