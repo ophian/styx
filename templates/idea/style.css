@@ -48,6 +48,17 @@ img {
   border: 0;
 }
 
+p {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hypens: auto;
+    hyphens: auto; }
+p code,p samp,p kbd {
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hypens: none;
+    hyphens: none; }
+
 h3, h4 {
   margin: 0;
   padding: 0;

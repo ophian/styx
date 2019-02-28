@@ -72,6 +72,16 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
     -moz-osx-font-smoothing: grayscale; }
 .serendipity_calendarHeader {
     text-align: center; }
+p {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hypens: auto;
+    hyphens: auto; }
+p code,p samp,p kbd {
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hypens: none;
+    hyphens: none; }
 
 /** Modernizing Serendipity Styx default styles END **/
 

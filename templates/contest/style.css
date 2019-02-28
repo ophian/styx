@@ -52,6 +52,17 @@ a, input, textarea, p, td, th, div, span {
     font-family: luxi sans, "Trebuchet ms", bitstream vera sans, verdana, arial, helvetica, sans-serif;
 }
 
+p {
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    -ms-hypens: auto;
+    hyphens: auto; }
+p code,p samp,p kbd {
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hypens: none;
+    hyphens: none; }
+
 h4,h3 {
     margin: 0;
 }
