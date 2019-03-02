@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Change default theme content/sidebar toogler to use the standard media
+    screen size 1024px with. This is a need for engine and fallback themes.
+
   * Fix plugin_authors and plugin_categories to behave consistently for feed
     icon fallbacks.
 
