@@ -157,14 +157,14 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; overflow: 
     overflow: auto;
     padding: .5em; }
 /* staticpages without articleformat */
-#content > .serendipity_staticpage h2 {
+#content > .serendipity_staticpage header h2 {
     margin-top: 0; }
 p {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hypens: auto;
     hyphens: auto; }
-p code,p samp,p kbd {
+p code, p samp, p kbd {
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hypens: none;
