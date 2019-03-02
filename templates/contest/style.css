@@ -57,7 +57,7 @@ p {
     -moz-hyphens: auto;
     -ms-hypens: auto;
     hyphens: auto; }
-p code,p samp,p kbd {
+p code, p samp, p kbd {
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hypens: none;
