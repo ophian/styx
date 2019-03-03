@@ -2,7 +2,11 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
-  * Add specific selectors to default themes entries_summary template
+  * Disable "default" themes ".serendipity_entry p" styles, which should
+    better natively use the default browsers behaviour, separating paragraphs
+    with a single blank line.
+
+  * Add specific selectors to "default" themes entries_summary template
 
   * Change default theme content/sidebar toogler to use the standard media
     screen size 1024px with. This is a need for engine and fallback themes.
