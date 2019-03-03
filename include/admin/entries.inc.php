@@ -40,7 +40,7 @@ switch($serendipity['GET']['adminAction']) {
         // no break [PSR-2] - extends save
 
     case 'save':
-        if ( empty($serendipity['POST']['title']) && empty($serendipity['POST']['body']) && empty($serendipity['POST']['extended']) ) {
+        if (empty($serendipity['POST']['title']) && empty($serendipity['POST']['body']) && empty($serendipity['POST']['extended'])) {
             $data['is_empty'] = sprintf(EMPTY_SETTING, TITLE.', '.ENTRY_BODY.', '.EXTENDED_BODY);// .' This submit was changed back to a preview request.';
             $data['single_error'] = true;
             // reset/fallback to preview view, since we don't want any storage
@@ -49,16 +49,16 @@ switch($serendipity['GET']['adminAction']) {
 
         if (!$preview_only) {
             $entry = array(
-                       'id'                 => $serendipity['POST']['id'],
-                       'title'              => $serendipity['POST']['title'],
-                       'timestamp'          => $serendipity['POST']['timestamp'],
-                       'body'               => $serendipity['POST']['body'],
-                       'extended'           => $serendipity['POST']['extended'],
+                       'id'                 => isset($serendipity['POST']['id']) ? $serendipity['POST']['id'] : null,
+                       'title'              => isset($serendipity['POST']['title']) ? $serendipity['POST']['title'] : '',
+                       'timestamp'          => isset($serendipity['POST']['timestamp']) ? $serendipity['POST']['timestamp'] : '',
+                       'body'               => isset($serendipity['POST']['body']) ? $serendipity['POST']['body'] : '',
+                       'extended'           => isset($serendipity['POST']['extended']) ? $serendipity['POST']['extended'] : '',
                        'categories'         => isset($serendipity['POST']['categories']) ? $serendipity['POST']['categories'] : '',
-                       'isdraft'            => $serendipity['POST']['isdraft'],
+                       'isdraft'            => isset($serendipity['POST']['isdraft']) ? $serendipity['POST']['isdraft'] : false,
                        'allow_comments'     => isset($serendipity['POST']['allow_comments']) ? $serendipity['POST']['allow_comments'] : 'false',
                        'moderate_comments'  => isset($serendipity['POST']['moderate_comments']) ? $serendipity['POST']['moderate_comments'] : '',
-                       'exflag'             => (!empty($serendipity['POST']['extended']) ? true : false),
+                       'exflag'             => !empty($serendipity['POST']['extended']) ? true : false,
                        'had_categories'     => isset($serendipity['POST']['had_categories']) ? $serendipity['POST']['had_categories'] : false
                        // Messing with other attributes causes problems when entry is saved
                        // Attributes need to explicitly matched/addressed in serendipity_updertEntry!
