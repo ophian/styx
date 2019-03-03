@@ -2,6 +2,7 @@
 # Copyright (c) 2003-2005, Jannis Hermanns (on behalf the Serendipity Developer Team)
 # All rights reserved.  See LICENSE file for licensing details
 
+# Developer
 #if ($_REQUEST['type'] == 'trackback') die('Disabled');
 
 include('serendipity_config.inc.php');
@@ -54,10 +55,12 @@ if (!empty($_REQUEST['optin'])) {
 
 serendipity_rememberComment();
 
-// Trackback logging. For developers: can be switched to true!
-$tb_logging = false;
-// Pingback logging. For developers: can be switched to true!
-$pb_logging = false;
+if (!empty($HTTP_RAW_POST_DATA)) {
+    // Trackback logging. For developers: can be switched to true!
+    $tb_logging = false;
+    // Pingback logging. For developers: can be switched to true!
+    $pb_logging = false;
+}
 
 if ($pb_logging) {
     log_pingback('CONTENT_TYPE: ' . $_SERVER['CONTENT_TYPE']);
@@ -70,7 +73,7 @@ if (!($type = @$_REQUEST['type'])) {
     }
 
     // WordPress pingbacks don't give any parameter. If it is a XML POST assume it's a pingback
-    if ($_SERVER['CONTENT_TYPE'] == 'text/xml' && isset($HTTP_RAW_POST_DATA)) {
+    if ($_SERVER['CONTENT_TYPE'] == 'text/xml' && !empty($HTTP_RAW_POST_DATA)) {
         $type = 'pingback';
     }
     else {
