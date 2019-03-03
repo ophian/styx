@@ -1738,7 +1738,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
     $extraParems     = serendipity_generateImageSelectorParems();
-    $hideSubdirFiles = ($serendipity['GET']['hideSubdirFiles'] == 'yes') ? true : false; // default
+    $hideSubdirFiles = (isset($serendipity['GET']['hideSubdirFiles']) && $serendipity['GET']['hideSubdirFiles'] == 'yes') ? true : false; // default
     $userPerms       = array('delete' => serendipity_checkPermission('adminImagesDelete'));
 
     $displayGallery  = (isset($serendipity['GET']['showGallery']) && !$show_upload && $serendipity['GET']['showGallery'] == 'true') ? true : false;
