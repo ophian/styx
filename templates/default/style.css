@@ -408,12 +408,12 @@ a.homelink2:visited,
     /* Inner blocks of .serendipity_entry, can be used for further customization
     display: inline-block; */
 }
-.serendipity_entry p {
+/*.serendipity_entry p {
     margin-top: 0;
     padding-bottom: 0;
     width: auto;
     display: inherit;
-}
+}*/
 .serendipity_entry_date,
 .serendipity_Entry_Date {
     margin: auto;
