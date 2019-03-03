@@ -30,7 +30,7 @@ if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
-if (empty($serendipity['GET']['step']) && $serendipity['GET']['page'] < 1) {
+if (empty($serendipity['GET']['step']) && isset($serendipity['GET']['page']) && $serendipity['GET']['page'] < 1) {
     $media = array(
         'GET_STRING' => serendipity_build_query($_GET),
         'frameset'   => true
@@ -57,7 +57,7 @@ $media = array(
     'css_tree'   => serendipity_getTemplateFile('treeview/tree.css'),
     'css_front'  => serendipity_rewriteURL('serendipity.css'),
     'token_url'  => serendipity_setFormToken('url'),
-    'imgID'      => (int)$serendipity['GET']['image'],
+    'imgID'      => isset($serendipity['GET']['image']) ? (int)$serendipity['GET']['image'] : 0,
     'from'       => empty($serendipity['GET']['from']) ? $serendipity['baseURL'] : $serendipity['GET']['from'],/* see media_showitems.tpl back to blog anchors */
     'GET_STRING' => serendipity_build_query($import_vars, 'serendipity', '&'),
     'paths'      => serendipity_getMediaPaths()
@@ -298,7 +298,7 @@ switch ($serendipity['GET']['step']) {
             (isset($serendipity['GET']['page']) ? $serendipity['GET']['page'] : 1),
             $serendipity['thumbPerPage2'],
             ($serendipity['showMediaToolbar'] ? true : false),
-            '?serendipity[step]=1' . $add_url . '&amp;serendipity[textarea]='. serendipity_specialchars($serendipity['GET']['textarea']),
+            '?serendipity[step]=1' . $add_url . '&amp;serendipity[textarea]='. (isset($serendipity['GET']['textarea']) ? serendipity_specialchars($serendipity['GET']['textarea']) : ''),
             true,
             null
         );
