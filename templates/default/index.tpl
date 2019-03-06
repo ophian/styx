@@ -39,7 +39,7 @@
     <h2><a class="homelink2" href="{$serendipityBaseURL}">{if $view == 'plugin'}{$blogDescription}{else}{$head_subtitle|default:$blogDescription}{/if}</a></h2>
 </div>
 
-<div id="mainpane">
+<div id="mainpane" class="{if $leftSidebarElements == 0 AND $rightSidebarElements == 0}full{else}side-{/if}{if $leftSidebarElements > 0 AND $rightSidebarElements == 0}left{else if $rightSidebarElements > 0 AND $leftSidebarElements == 0}right{else}both{/if}">
 
     <div id="content">
         {$CONTENT}
