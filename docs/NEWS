@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Add conditional sidebar class selectors for responsive child themes
+    to the default theme index template files #mainpane node.
+
   * Disable "default" themes ".serendipity_entry p" styles, which should
     better natively use the default browsers behaviour, separating paragraphs
     with a single blank line.
