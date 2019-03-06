@@ -178,8 +178,6 @@ a.homelink2:visited,
     width: 95%;
     margin: auto;
 }
-.serendipity_entry_body_folded,
-.serendipity_entry_body_unfolded,
 .serendipity_entry_extended {
     /* Inner blocks of .serendipity_entry, can be used for further customization */
 }
