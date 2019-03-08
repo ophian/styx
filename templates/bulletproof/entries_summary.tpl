@@ -13,7 +13,7 @@
                             {$CONST.POSTED_BY} <address class="author"><a href="{$entry.link_author}">{$entry.author}</a></address>
                         {/if}
                         {if $template_option.footercategories == 'true'}
-                            {if $entry.categories}
+                            {if NOT empty($entry.categories)}
                                 {$CONST.IN} {foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                             {/if}
                         {/if}
