@@ -333,7 +333,7 @@ img.serendipity_entryIcon {
 	}
 
 /* styles for the next/previous links above footer, includes start page and archives links */
-.serendipity_pageFooter {
+.serendipity_entries_footer {
 	clear:both;
 	margin-top:10px; }
 
