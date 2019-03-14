@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.6');
+        $propbag->add('version',       '2.7');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -246,7 +246,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
 
     function generateFeedButton($feed, $label, $onclick, $icon, $small = false)
     {
-        $link = 'href="'.$feed.'" '. $onclick;
+        $link = 'href="'.$feed.'"'. $onclick;
         $output = '<li>';
         $class = "";
         if ($onclick != "") {   # this might be not a good solution, but right now works to add the subtome-class only when subtome is on
@@ -266,7 +266,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
 
     function getOnclick($url)
     {
-        return "onclick=\"document.subtomeBtn=this;document.subtomeBtn.dataset['subtomeFeeds']='". urlencode($url). "';var s=document.createElement('script');s.src='https://www.subtome.com/load.js';document.body.appendChild(s);return false;\"";
+        return " onclick=\"document.subtomeBtn=this;document.subtomeBtn.dataset['subtomeFeeds']='". urlencode($url). "';var s=document.createElement('script');s.src='https://www.subtome.com/load.js';document.body.appendChild(s);return false;\"";
     }
 
 }
