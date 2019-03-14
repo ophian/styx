@@ -185,8 +185,10 @@
     {/if}
 {/if}
 
-    <div class="serendipity_entryFooter">
-{if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
+{if NOT $is_single_entry AND NOT $is_preview}
+    <div class="serendipity_entries_footer">
+{/if}
+{if NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
     {if $footer_prev_page}<a href="{$footer_prev_page}">{/if}{if $footer_prev_page}&#9668; {$CONST.PREVIOUS_PAGE}{else}&nbsp;{/if}{if $footer_prev_page}</a>{/if}
     {if NOT empty($footer_info)}{$footer_info}{/if}
     {if $footer_next_page}<a href="{$footer_next_page}">{/if}{if $footer_next_page}{$CONST.NEXT_PAGE} &#9658;{else}&nbsp;{/if}{if $footer_next_page}</a>{/if}
@@ -197,5 +199,7 @@
     Competition entry by <a href="http://themes.daves.me.uk">David Cummins</a>
     {$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a>
     </p>
+{if NOT $is_single_entry AND NOT $is_preview}
     </div>
+{/if}
 <!-- ENTRIES END -->
