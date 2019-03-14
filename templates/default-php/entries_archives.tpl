@@ -18,6 +18,6 @@ foreach ($GLOBALS['tpl']['archives'] AS $archive):?>
 </table>
 <?php endforeach; ?>
 <?php endif; ?>
-<div class="serendipity_pageFooter">
-<?php serendipity_plugin_api::hook_event('entries_footer', $GLOBALS['tpl']['entry_id']); ?>
+<div class="serendipity_entries_footer">
+    <?php serendipity_plugin_api::hook_event('entries_footer', $GLOBALS['tpl']['entry_id']); ?>
 </div>
