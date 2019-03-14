@@ -18,6 +18,6 @@
 </table>
 {/foreach}
 {/if}
-<div class="serendipity_pageFooter">
-{serendipity_hookPlugin hook="entries_footer"}
+<div class="serendipity_entries_footer">
+    {serendipity_hookPlugin hook="entries_footer"}
 </div>
