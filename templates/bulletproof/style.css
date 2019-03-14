@@ -192,7 +192,7 @@ h4.staticpage_title {
 }
 
 .serendipity_calendarHeader img,
-.serendipity_pageFooter img{
+.serendipity_entries_footer img{
     vertical-align: middle;
     margin: 0 2px;
     height: 12px;
