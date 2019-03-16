@@ -192,10 +192,8 @@
     </div>
     <?php endif; ?>
 
-<?php if (!$GLOBALS['tpl']['$is_single_entry'] && !$GLOBALS['tpl']['is_preview']): ?>
-    <div class="serendipity_entryFooter">
-<?php endif; ?>
-<?php if !$GLOBALS['tpl']['plugin_clean_page'] && (!empty($GLOBALS['tpl']['footer_prev_page']) OR !empty($GLOBALS['tpl']['footer_next_page']))): ?>
+<?php if (!$GLOBALS['tpl']['$is_single_entry'] && !$GLOBALS['tpl']['is_preview'] && !$GLOBALS['tpl']['plugin_clean_page'] && (!empty($GLOBALS['tpl']['footer_prev_page']) OR !empty($GLOBALS['tpl']['footer_next_page']))): ?>
+    <div class="serendipity_entries_footer">
     <?php if ($GLOBALS['tpl']['footer_prev_page']): ?>
         <a href="<?= $GLOBALS['tpl']['footer_prev_page'] ?>">&laquo; <?= PREVIOUS_PAGE; ?></a>&#160;&#160;
     <?php endif; ?>
@@ -207,11 +205,9 @@
     <?php if ($GLOBALS['tpl']['footer_next_page']): ?>
         <a href="<?= $GLOBALS['tpl']['footer_next_page'] ?>">&raquo; <?= NEXT_PAGE; ?></a>
     <?php endif; ?>
+    </div>
 <?php endif; ?>
 
     <?php serendipity_plugin_api::hook_event('entries_footer', $GLOBALS['template']); ?>
-<?php if (!$GLOBALS['tpl']['$is_single_entry'] && !$GLOBALS['tpl']['is_preview']): ?>
-    </div>
-<?php endif; ?>
 
 <!-- ENTRIES END -->
