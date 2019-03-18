@@ -31,7 +31,7 @@
             </div>
 
             {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
-            <div class="serendipity_entry_read_more"><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a></div>
+            <p class="serendipity_entry_read_more"><a href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a></p>
             {/if}
 
             {if $entry.is_extended}
@@ -195,6 +195,7 @@
     {if $footer_next_page}
         <a href="{$footer_next_page}">&raquo; {$CONST.NEXT_PAGE}</a>
     {/if}
+
     </div>
 {/if}
 

@@ -402,7 +402,6 @@ a.homelink2:visited,
 .serendipity_entry_author_self {}
 .serendipity_entry_read_more {
     text-align: right;
-    margin-top: 1.5em;
 }
 .serendipity_entry_extended {
     /* Inner blocks of .serendipity_entry, can be used for further customization
