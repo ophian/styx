@@ -2,6 +2,11 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Changed default theme for using the "read more" container as a paragraph
+    and adding the entries summary title to the same format tag as in entries
+    for consistency, and never use more than 2-chars abbreviation for the
+    calendars head, since expanding too wide.
+
   * Simplify entries footer container conditions and move the entries_footer
     hook out. Applies to ["bulletproof", "carl_contest", "competition",
     "contest", "default", "default-php", "kubrick"] themes.
