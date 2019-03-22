@@ -14,7 +14,7 @@
         <?php $GLOBALS['tpl']['entry'] = $entry; ?>
         <h4 class="serendipity_title"><a href="<?= $entry['link'] ?>"><?= $entry['title'] ?></a></h4>
 
-        <div class="serendipity_entry serendipity_entry_author_<?= serendipity_makeFilename($entry['author']); ?> <?php if ($entry['is_entry_owner']): ?>serendipity_entry_author_self<?php endif; ?>">
+        <div class="serendipity_entry serendipity_entry_author_<?= serendipity_makeFilename($entry['author']); ?> <?php if (!empty($entry['is_entry_owner'])): ?>serendipity_entry_author_self<?php endif; ?>">
             <?php if (!empty($entry['categories'])): ?>
             <span class="serendipity_entryIcon">
             <?php foreach($entry['categories'] AS $entry_category):?>
@@ -66,7 +66,7 @@
                     <?php endif; ?>
                 <?php endif; ?>
 
-                <?php if ($entry['is_entry_owner']): ?>
+                <?php if (!empty($entry['is_entry_owner'])): ?>
                         | <a href="<?= $entry['link_edit'] ?>"><?= EDIT_ENTRY; ?></a>
                 <?php endif; ?>
 
@@ -136,7 +136,7 @@
                 <br>
                     <?= $GLOBALS['template']->call('printComments', array('entry' => $entry['id'], 'mode' => $entry['viewmode'])); ?>
 
-                <?php if ($entry['is_entry_owner']): ?>
+                <?php if (!empty($entry['is_entry_owner'])): ?>
                     <?php if ($entry['allow_comments']): ?>
                     <div class="serendipity_center">(<a href="<?= $entry['link_deny_comments'] ?>"><?= COMMENTS_DISABLE ?></a>)</div>
                     <?php else: ?>
