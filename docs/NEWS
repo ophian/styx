@@ -2,6 +2,13 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix "entries.tpl" template file logical "millennium bug", not showing trackbacks
+    in single entry views, when having enabled (frontend) $use_popups, which is for
+    entries list links only. This simplifies conditionals at all.
+    Applies to: ["bootstrap4", "bulletproof", "carl_contest", "competition",
+    "contest", "default", "default-php", "kubrick", "next", "skeleton"] themes.
+    UPGRADERS: Please check your COPY themes.
+
   * Add serendipity_trackbacklist container to [carl_contest, competition, contest].
     References b0ba198 in default theme.
 
