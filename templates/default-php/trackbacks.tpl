@@ -1,9 +1,9 @@
-<?php if (is_object($GLOBALS['tpl']['trackbacks'])):
+<?php if (is_array($GLOBALS['tpl']['trackbacks'])):
 foreach($GLOBALS['tpl']['trackbacks'] AS $trackback): ?>
     <div class="serendipity_comment">
         <a id="c<?= $trackback['id'] ?>"></a>
         <div class="serendipity_commentBody">
-            <a href="<?= strip_tags($trackback['url']); ?>" <?php serendipity_xhtml_target(); ?>><?= $trackback['title'] ?></a><?php if ($trackback['type'] == 'TRACKBACK'): ?><br><?php endif; ?>
+            <a href="<?= strip_tags($trackback['url']); ?>" <?php serendipity_xhtml_target('blank'); ?>><?= $trackback['title'] ?></a><?php if ($trackback['type'] == 'TRACKBACK'): ?><br><?php endif; ?>
             <?= serendipity_specialchars(strip_tags($trackback['body'])); ?> [&hellip;]
         </div>
         <div class="serendipity_comment_source">

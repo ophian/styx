@@ -30,7 +30,10 @@
             </div>
 
             <?php if ($entry['is_extended']): ?>
-            <div class="serendipity_entry_extended"><a id="extended"></a><?= $entry['extended'] ?></div>
+            <div class="serendipity_entry_extended">
+                <a id="extended"></a>
+                <?= $entry['extended'] ?>
+            </div>
             <?php endif; ?>
 
             <?php if ($entry['has_extended'] && empty($GLOBALS['tpl']['is_single_entry']) && !$entry['is_extended']): ?>
@@ -117,7 +120,7 @@
                     <a rel="nofollow" href="<?= $entry['link_trackback'] ?>" onclick="alert('<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;'); return false;" title="<?= serendipity_specialchars(TRACKBACK_SPECIFIC_ON_CLICK) ?> &raquo;<?= serendipity_specialchars($entry['rdf_ident']) ?>&laquo;"><?= TRACKBACK_SPECIFIC; ?></a>
                 </div>
                 <div id="serendipity_trackbacklist">
-                    <?php echo serendipity_printTrackbacks(serendipity_fetchTrackbacks($entry['id'])) ?>
+                    <?php echo serendipity_printTrackbacks(serendipity_fetchTrackbacks($entry['id'])); ?>
                 </div>
             </div>
 
