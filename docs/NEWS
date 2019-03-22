@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix display of trackbacks in default-php emulator theme
+
   * Fix "entries.tpl" template file logical "millennium bug", not showing trackbacks
     in single entry views, when having enabled (frontend) $use_popups, which is for
     entries list links only. This simplifies conditionals at all.
