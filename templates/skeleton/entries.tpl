@@ -49,7 +49,7 @@
         </rdf:RDF>
         -->
         {/if}
-{if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
+{if $is_single_entry AND NOT $is_preview}
     {if $CONST.DATA_UNSUBSCRIBED}
         <p class="serendipity_msg_success">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
     {/if}
@@ -65,6 +65,7 @@
     {if $CONST.DATA_COMMENT_APPROVED}
         <p class="serendipity_msg_success">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</p>
     {/if}
+
     <section id="trackbacks">
         <h3>{$CONST.TRACKBACKS}</h3>
 
@@ -72,8 +73,7 @@
 
         {serendipity_printTrackbacks entry=$entry.id}
     </section>
-{/if}
-{if $is_single_entry AND NOT $is_preview}
+
     <section id="comments">
         <h3>{$CONST.COMMENTS}</h3>
 

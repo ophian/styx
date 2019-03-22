@@ -45,7 +45,7 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
-{if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
+{if $is_single_entry AND NOT $is_preview}
     {if $CONST.DATA_UNSUBSCRIBED}
         <p class="msg-success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
     {/if}
@@ -70,8 +70,7 @@
 
         {serendipity_printTrackbacks entry=$entry.id}
     </section>
-{/if}
-{if $is_single_entry AND NOT $is_preview}
+
     <section id="comments" class="clearfix">
         <h3>{$CONST.COMMENTS}</h3>
 

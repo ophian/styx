@@ -102,7 +102,7 @@
         {$entry.plugin_display_dat}
         {/if}
 
-        {if $is_single_entry AND NOT $use_popups AND NOT $is_preview}
+        {if $is_single_entry AND NOT $is_preview}
             {if $CONST.DATA_UNSUBSCRIBED}
                 <div class="serendipity_center serendipity_msg_success">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</div>
             {/if}
@@ -122,19 +122,21 @@
             {if $CONST.DATA_COMMENT_APPROVED}
                 <div class="serendipity_center serendipity_msg_success">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</div>
             {/if}
+
+            <div class="serendipity_comments serendipity_section_trackbacks">
                 <a id="trackbacks"></a>
-                <h3>{$CONST.TRACKBACKS}</h3>
+                <div class="serendipity_commentsTitle">{$CONST.TRACKBACKS}</div>
                 <div class="serendipity_center">
-                    <a href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
+                    <a rel="nofollow" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
                 </div>
-                <ol class="commentlist">
+                <ol id="serendipity_trackbacklist" class="commentlist">
                     {serendipity_printTrackbacks entry=$entry.id}
                 </ol>
-        {/if}
+            </div>
 
-        {if $is_single_entry AND NOT $is_preview}
+            <div class="serendipity_comments serendipity_section_comments">
                 <a id="comments"></a>
-                <h3>{$CONST.COMMENTS}</h3>
+                <div class="serendipity_commentsTitle">{$CONST.COMMENTS}</div>
                 <div class="serendipity_center">{$CONST.DISPLAY_COMMENTS_AS}
                 {if $entry.viewmode eq $CONST.VIEWMODE_LINEAR}
                     ({$CONST.COMMENTS_VIEWMODE_LINEAR} | <a rel="nofollow" href="{$entry.link_viewmode_threaded}#comments">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>)
@@ -142,7 +144,7 @@
                     (<a rel="nofollow" href="{$entry.link_viewmode_linear}#comments">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a> | {$CONST.COMMENTS_VIEWMODE_THREADED})
                 {/if}
                 </div>
-                <ol class="commentlist">
+                <ol id="serendipity_trackbacklist" class="commentlist">
                     {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
                 </ol>
 

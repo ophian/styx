@@ -89,7 +89,7 @@
         <?= $entry['plugin_display_dat'] ?>
         <?php endif; ?>
 
-        <?php if (!empty($GLOBALS['tpl']['is_single_entry']) && !$GLOBALS['tpl']['use_popups'] && empty($GLOBALS['tpl']['is_preview'])): ?>
+        <?php if (!empty($GLOBALS['tpl']['is_single_entry']) && empty($GLOBALS['tpl']['is_preview'])): ?>
             <?php if (defined(DATA_UNSUBSCRIBED)): ?>
                 <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br>
             <?php endif; ?>
@@ -121,9 +121,7 @@
                     <?php echo serendipity_printTrackbacks(serendipity_fetchTrackbacks($entry['id'])) ?>
                 </div>
             </div>
-        <?php endif; ?>
 
-        <?php if (!empty($GLOBALS['tpl']['is_single_entry']) && empty($GLOBALS['tpl']['is_preview'])): ?>
             <div class="serendipity_comments serendipity_section_comments">
                 <br>
                 <a id="comments"></a>
