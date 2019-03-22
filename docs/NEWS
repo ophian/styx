@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Add serendipity_trackbacklist container to [carl_contest, competition, contest].
+    References b0ba198 in default theme.
+
   * Changed default theme for using the "read more" container as a paragraph
     and adding the entries summary title to the same format tag as in entries
     for consistency, and never use more than 2-chars abbreviation for the
