@@ -1207,7 +1207,7 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
  *
  * @access public
  * @param   string  The target to use (_blank, _parent, ...)
- * @return  string  HTML string containig the valid markup for the target attribute.
+ * @return  string  HTML string containing the valid markup for the target attribute.
  */
 function serendipity_xhtml_target($target) {
     global $serendipity;
