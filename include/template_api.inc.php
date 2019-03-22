@@ -401,6 +401,25 @@ class serendipity_smarty_emulator
         }
     }
 
+    /**
+     * clear the given assigned template variable(s).
+     *
+     * @param string|array $tpl_var the template variable(s) to clear
+     *
+     * @return \Smarty_Internal_Data|\Smarty_Internal_Template|\Smarty
+     */
+    public function clearAssign($tpl_var)
+    {
+        if (is_array($tpl_var)) {
+            foreach ($tpl_var as $curr_var) {
+                unset($GLOBALS['tpl'][$data]->tpl_vars[$curr_var]);
+            }
+        } else {
+            unset($GLOBALS['tpl'][$data]->tpl_vars[$tpl_var]);
+        }
+        return $GLOBALS['tpl'][$data];
+    }
+
 }
 
 /**
