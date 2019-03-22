@@ -34,7 +34,7 @@
             <?php endif; ?>
 
             <?php if ($entry['has_extended'] && empty($GLOBALS['tpl']['is_single_entry']) && !$entry['is_extended']): ?>
-            <br><a href="<?= $entry['link'] ?>#extended"><?php printf(VIEW_EXTENDED_ENTRY, $entry['title']) ?></a><br><br>
+            <p><a href="<?= $entry['link'] ?>#extended"><?php printf(VIEW_EXTENDED_ENTRY, $entry['title']) ?></a></p>
             <?php endif; ?>
 
             <?php if (!$GLOBALS['tpl']['is_preview']): ?>
@@ -91,27 +91,26 @@
 
         <?php if (!empty($GLOBALS['tpl']['is_single_entry']) && empty($GLOBALS['tpl']['is_preview'])): ?>
             <?php if (defined(DATA_UNSUBSCRIBED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div><br>
+                <div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_UNSUBSCRIBED, UNSUBSCRIBE_OK) ?></div>
             <?php endif; ?>
 
             <?php if (defined(DATA_TRACKBACK_DELETED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_TRACKBACK_DELETED, TRACKBACK_DELETED) ?></div><br>
+                <div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_TRACKBACK_DELETED, TRACKBACK_DELETED) ?></div>
             <?php endif; ?>
 
             <?php if (defined(DATA_TRACKBACK_APPROVED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_TRACKBACK_APPROVED, TRACKBACK_APPROVED) ?></div><br>
+                <div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_TRACKBACK_APPROVED, TRACKBACK_APPROVED) ?></div>
             <?php endif; ?>
 
             <?php if (defined(DATA_COMMENT_DELETED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_COMMENT_DELETED, COMMENT_DELETED) ?></div><br>
+                <div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_COMMENT_DELETED, COMMENT_DELETED) ?></div>
             <?php endif; ?>
 
             <?php if (defined(DATA_COMMENT_APPROVED)): ?>
-                <br><div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_COMMENT_APPROVED, COMMENT_APPROVED) ?></div><br>
+                <div class="serendipity_center serendipity_msg_success"><?= sprintf(DATA_COMMENT_APPROVED, COMMENT_APPROVED) ?></div>
             <?php endif; ?>
 
             <div class="serendipity_comments serendipity_section_trackbacks">
-                <br>
                 <a id="trackbacks"></a>
                 <div class="serendipity_commentsTitle"><?= TRACKBACKS ?></div>
                 <div class="serendipity_center">
@@ -123,7 +122,6 @@
             </div>
 
             <div class="serendipity_comments serendipity_section_comments">
-                <br>
                 <a id="comments"></a>
                 <div class="serendipity_commentsTitle"><?= COMMENTS; ?></div>
                 <div class="serendipity_center"><?= DISPLAY_COMMENTS_AS; ?>
@@ -133,8 +131,7 @@
                     (<a rel="nofollow" href="<?= $entry['link_viewmode_linear'] ?>#comments"><?= COMMENTS_VIEWMODE_LINEAR; ?></a> | <?= COMMENTS_VIEWMODE_THREADED; ?>)
                 <?php endif; ?>
                 </div>
-                <br>
-                    <?= $GLOBALS['template']->call('printComments', array('entry' => $entry['id'], 'mode' => $entry['viewmode'])); ?>
+                <?= $GLOBALS['template']->call('printComments', array('entry' => $entry['id'], 'mode' => $entry['viewmode'])); ?>
 
                 <?php if (!empty($entry['is_entry_owner'])): ?>
                     <?php if ($entry['allow_comments']): ?>
@@ -153,22 +150,18 @@
 
                 <?php if ($GLOBALS['tpl']['is_comment_added']): ?>
 
-                <br>
                 <div class="serendipity_center serendipity_msg_success"><?= COMMENT_ADDED; ?></div>
 
                 <?php elseif ($GLOBALS['tpl']['is_comment_moderate']): ?>
 
-                <br>
                 <div class="serendipity_center serendipity_msg_success"><?= COMMENT_ADDED; ?><br><?= THIS_COMMENT_NEEDS_REVIEW ?></div>
 
                 <?php elseif (!$entry['allow_comments']): ?>
 
-                <br>
                 <div class="serendipity_center serendipity_msg_important"><?= COMMENTS_CLOSED; ?></div>
 
                 <?php else: ?>
 
-                <br>
                 <div class="serendipity_section_commentform">
                     <div class="serendipity_commentsTitle"><?= ADD_COMMENT; ?></div>
                     <?= $GLOBALS['tpl']['COMMENTFORM']; ?>
