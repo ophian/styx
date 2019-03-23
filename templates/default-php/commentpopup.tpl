@@ -39,7 +39,9 @@
 
     <div class="popup_content serendipity_commentsTitle"><?= COMMENTS ?></div>
 
+    <div id="serendipity_commentlist">
     <?= $GLOBALS['template']->call('printComments', array('entry' => $entry_id)); ?>
+    </div>
     <?php if ($is_comment_allowed): ?>
         <div class="serendipity_commentsTitle"><?= ADD_COMMENT ?></div>
         <?= $GLOBALS['tpl']['COMMENTFORM'] ?>

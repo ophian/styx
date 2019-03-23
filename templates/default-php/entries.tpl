@@ -134,7 +134,9 @@
                     (<a rel="nofollow" href="<?= $entry['link_viewmode_linear'] ?>#comments"><?= COMMENTS_VIEWMODE_LINEAR; ?></a> | <?= COMMENTS_VIEWMODE_THREADED; ?>)
                 <?php endif; ?>
                 </div>
+                <div id="serendipity_commentlist">
                 <?= $GLOBALS['template']->call('printComments', array('entry' => $entry['id'], 'mode' => $entry['viewmode'])); ?>
+                </div>
 
                 <?php if (!empty($entry['is_entry_owner'])): ?>
                     <?php if ($entry['allow_comments']): ?>

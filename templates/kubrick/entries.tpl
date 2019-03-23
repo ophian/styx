@@ -130,7 +130,7 @@
                     <a rel="nofollow" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
                 </div>
                 <ol id="serendipity_trackbacklist" class="commentlist">
-                    {serendipity_printTrackbacks entry=$entry.id}
+                {serendipity_printTrackbacks entry=$entry.id}
                 </ol>
             </div>
 
@@ -145,7 +145,7 @@
                 {/if}
                 </div>
                 <ol id="serendipity_trackbacklist" class="commentlist">
-                    {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
+                {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
                 </ol>
 
                 {if NOT empty($entry.is_entry_owner)}

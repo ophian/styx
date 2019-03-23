@@ -33,13 +33,18 @@
         <dd><a href="{$comment_entryurl}">{$comment_entryurl}</a></dd>
     </dl>
 
+    <div id="serendipity_trackbacklist">
     {serendipity_printTrackbacks entry=$entry_id}
+    </div>
 
 {elseif $is_showcomments}
 
     <div class="popup_content serendipity_commentsTitle">{$CONST.COMMENTS}</div>
 
+    <div id="serendipity_commentlist">
     {serendipity_printComments entry=$entry_id}
+    </div>
+
     {if $is_comment_allowed}
         <div class="serendipity_commentsTitle">{$CONST.ADD_COMMENT}</div>
         {$COMMENTFORM}

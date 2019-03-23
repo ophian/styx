@@ -119,7 +119,7 @@
                     <a rel="nofollow" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
                 </div>
                 <div id="serendipity_trackbacklist">
-                    {serendipity_printTrackbacks entry=$entry.id}
+                {serendipity_printTrackbacks entry=$entry.id}
                 </div>
             </div>
 
@@ -131,7 +131,9 @@
                     {if $entry.viewmode eq $CONST.VIEWMODE_LINEAR}({$CONST.COMMENTS_VIEWMODE_LINEAR} | <a href="{$entry.link_viewmode_threaded}#comments" rel="nofollow">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>){else}(<a rel="nofollow" href="{$entry.link_viewmode_linear}#comments">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a> | {$CONST.COMMENTS_VIEWMODE_THREADED}){/if}
 
                 </div>
+                <div id="serendipity_commentlist">
                 {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
+                </div>
 
                 {if NOT empty($entry.is_entry_owner)}
                     {if $entry.allow_comments}
