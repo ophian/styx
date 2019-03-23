@@ -99,6 +99,11 @@ p code, p samp, p kbd {
     display: inline-block;
     margin-bottom: 1em; }
 
+.serendipity_date.small {
+    text-align: right;
+    font-size: 14px;
+    margin-top: 0; }
+
 .serendipity_staticpage h2,
 h2.staticpage_title {
     display: block;
