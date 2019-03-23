@@ -36,10 +36,12 @@
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel toolbar">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]" {$commentform_remember}/><label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]" {$commentform_remember}>
+                <label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label>
     {if $is_allowSubscriptions}
                 <br>
-                <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]" {$commentform_subscribe}/><label for="checkbox_subscribe">{$CONST.SUBSCRIBE_TO_THIS_ENTRY}</label>
+                <input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]" {$commentform_subscribe}>
+                <label for="checkbox_subscribe">{$CONST.SUBSCRIBE_TO_THIS_ENTRY}</label>
     {/if}
             </td>
        </tr>
@@ -53,7 +55,10 @@
 
        <tr>
             <td>&#160;</td>
-            <td><input type="submit" name="serendipity[submit]" value="{$CONST.SUBMIT_COMMENT}"> <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="{$CONST.PREVIEW}"></td>
+            <td>
+                <input type="submit" name="serendipity[submit]" value="{$CONST.SUBMIT_COMMENT}">
+                <input type="submit" id="serendipity_preview" name="serendipity[preview]" value="{$CONST.PREVIEW}">
+            </td>
         </tr>
     </table>
     </form>
