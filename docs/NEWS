@@ -2,6 +2,11 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Add serendipity_commentlist container for consistency, referring to
+    serendipity_trackbacklist container in ["carl_contest", "competition",
+    "contest", "default", "default-php", "kubrick"].
+    Also applies to the commentpopup template file.
+
   * Fix display of trackbacks in default-php emulator theme
 
   * Fix "entries.tpl" template file logical "millennium bug", not showing trackbacks
