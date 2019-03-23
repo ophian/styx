@@ -319,7 +319,9 @@
                 <div class="serendipity_center">
                     <a rel="nofollow" href="{$entry.link_trackback}" onclick="alert('{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;'); return false;" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
                 </div>
-                <div id="serendipity_trackbacklist">{serendipity_printTrackbacks entry=$entry.id}</div>
+                <div id="serendipity_trackbacklist">
+                {serendipity_printTrackbacks entry=$entry.id}
+                </div>
             </div>
 
             <div class="serendipity_comments serendipity_section_comments">
@@ -333,7 +335,7 @@
                     {/if}
                 </div>
                 <div id="serendipity_commentlist">
-                    {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
+                {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
                 </div>
 
                 {if NOT empty($entry.is_entry_owner)}
