@@ -335,8 +335,7 @@ a.homelink2:visited,
     cursor: pointer;
 }
 .serendipity_center {
-    margin-left: auto;
-    margin-right: auto;
+    margin: .5em auto;
     text-align: center;
     font-size: 0.8em;
 }
@@ -362,13 +361,13 @@ a.homelink2:visited,
     background-color: lightgray;
 }
 .serendipity_content_message {
-    background-color: aliceblue;
+    background-color: #f0f8ff;
 }
 .serendipity_msg_success {
     background-color: lightgreen;
 }
 .serendipity_msg_important {
-    background-color: turquoise;
+    background-color: #fff0f0;
 }
 
 /** Entries **/
@@ -404,15 +403,9 @@ a.homelink2:visited,
     text-align: right;
 }
 .serendipity_entry_extended {
-    /* Inner blocks of .serendipity_entry, can be used for further customization
-    display: inline-block; */
+    /* Inner blocks of .serendipity_entry, can be used for further customization */
 }
-/*.serendipity_entry p {
-    margin-top: 0;
-    padding-bottom: 0;
-    width: auto;
-    display: inherit;
-}*/
+
 .serendipity_entry_date,
 .serendipity_Entry_Date {
     margin: auto;
@@ -452,6 +445,19 @@ ul.staticpage_result li {
 
 
 /** Comments **/
+
+/* commentpopup */
+#serendipity_comment_page {
+    background-color: #fff; }
+    .s9y_wrap .serendipity_comment {
+        background-color: #f5f5f5; }
+    .s9y_wrap a:link, .s9y_wrap a:visited, .s9y_wrap a:active {
+        color: #3a84ce; }
+    .s9y_wrap .serendipity_comment_source {
+        background-color: #eee;
+        border-bottom: 0;
+        margin-bottom: 0;
+        padding-left: 0; }
 
 #captcha {
     max-width: 10em;
