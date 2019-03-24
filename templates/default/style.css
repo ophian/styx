@@ -458,6 +458,9 @@ ul.staticpage_result li {
         border-bottom: 0;
         margin-bottom: 0;
         padding-left: 0; }
+#serendipity_comment_page dl {
+    margin: .5em;
+    font-size: smaller; }
 
 #captcha {
     max-width: 10em;
