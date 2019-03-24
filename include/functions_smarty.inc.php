@@ -202,7 +202,7 @@ function serendipity_ifRemember($name, $value, $isDefault = false, $att = 'check
  *                          noSticky         (boolean) If set to TRUE, all sticky entries will NOT be fetched.
  *                          select_key       (string)  Can contain a SQL statement on which keys to select. Plugins can also set this, pay attention!
  *                          group_by         (string)  Can contain a SQL statement on how to group the query. Plugins can also set this, pay attention!
- *                          returncode       (string)  If set to "array", the array of entries will be returned. "flat-array" will only return the articles without their entryproperties. "single" will only return a 1-dimensional array. "query" will only return the used SQL.
+ *                          returncode       (string)  If set to "array", the array of entries will be returned. "flat-array" will only return the articles without their entryproperties. "single" will only return a 1-dimensional array. "assign" will assign this particular entry data to your Smarty template (needs the id parameter). "query" will only return the used SQL.
  *                          joinauthors      (bool)    Should an SQL-join be made to the AUTHORS DB table?
  *                          joincategories   (bool)    Should an SQL-join be made to the CATEGORIES DB table?
  *                          joinown          (string)  SQL-Parts to add to the "JOIN" query
@@ -402,6 +402,11 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
                 $entry =& $groupdata;
                 break;
         }
+    }
+
+    if (!empty($params['id']) && $params['returncode'] == 'assign') {
+        $serendipity['smarty']->assignByRef('entry', $entry);
+        return;
     }
 
     if ($params['returncode'] == 'query') {
