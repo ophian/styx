@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Improve conditional comment popup entrieslist links in [default] theme
+
   * Add serendipity_commentlist container for consistency, referring to
     serendipity_trackbacklist container in ["carl_contest", "competition",
     "contest", "default", "default-php", "kubrick"].
