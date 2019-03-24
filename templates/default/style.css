@@ -449,8 +449,6 @@ ul.staticpage_result li {
 /* commentpopup */
 #serendipity_comment_page {
     background-color: #fff; }
-    .s9y_wrap .serendipity_comment {
-        background-color: #f5f5f5; }
     .s9y_wrap a:link, .s9y_wrap a:visited, .s9y_wrap a:active {
         color: #3a84ce; }
     .s9y_wrap .serendipity_comment_source {
@@ -516,6 +514,7 @@ ul.staticpage_result li {
     background-color: #FDFDFD;
     overflow: auto;
 }
+#serendipity_comment_page .serendipity_comment_source .pc-owner,
 .serendipity_comment_author_self .serendipity_comment_source .pc-owner,
 .serendipity_comment_author_self .comment_header .pc-owner {
     background: #3e5f81e6;
