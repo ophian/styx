@@ -54,20 +54,24 @@
                     {$CONST.AT}
                 {/if} <a href="{$entry.link}">{if $dategroup.is_sticky}{$entry.timestamp|formatTime:DATE_FORMAT_ENTRY} {/if}{$entry.timestamp|formatTime:'%H:%M'}</a>
 
-                {if $entry.has_comments}
+                {if $entry.has_comments AND empty($is_single_entry)}
                     {if $use_popups}
                         | <a href="{$entry.link_popup_comments}" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;">{$entry.label_comments} ({$entry.comments})</a>
                     {else}
                         | <a href="{$entry.link}#comments">{$entry.label_comments} ({$entry.comments})</a>
                     {/if}
+                {else if isset($entry.label_comments)}
+                        | <a href="{$entry.link}#comments">{$entry.label_comments} ({$entry.comments})</a>
                 {/if}
 
-                {if $entry.has_trackbacks}
+                {if $entry.has_trackbacks AND empty($is_single_entry)}
                     {if $use_popups}
                         | <a href="{$entry.link_popup_trackbacks}" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;">{$entry.label_trackbacks} ({$entry.trackbacks})</a>
                     {else}
                         | <a href="{$entry.link}#trackbacks">{$entry.label_trackbacks} ({$entry.trackbacks})</a>
                     {/if}
+                {else if isset($entry.label_trackbacks)}
+                        | <a href="{$entry.link}#trackbacks">{$entry.label_trackbacks} ({$entry.trackbacks})</a>
                 {/if}
 
                 {if NOT empty($entry.is_entry_owner)}
@@ -135,13 +139,15 @@
                 {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
                 </div>
 
-                {if NOT empty($entry.is_entry_owner)}
-                    {if $entry.allow_comments}
-                    <div class="serendipity_center">(<a href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>)</div>
-                    {else}
-                    <div class="serendipity_center">(<a href="{$entry.link_allow_comments}">{$CONST.COMMENTS_ENABLE}</a>)</div>
-                    {/if}
+            {if NOT empty($entry.is_entry_owner)}
+                {if $entry.allow_comments}
+
+                <div class="serendipity_center">(<a href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>)</div>
+                {else}
+
+                <div class="serendipity_center">(<a href="{$entry.link_allow_comments}">{$CONST.COMMENTS_ENABLE}</a>)</div>
                 {/if}
+            {/if}
                 <a id="feedback"></a>
 
                 {foreach $comments_messagestack AS $message}
