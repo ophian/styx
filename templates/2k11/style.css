@@ -625,6 +625,13 @@ pre .geshi {
 
 .serendipity_comment_captcha label { margin: 0 0 .5em; }
 
+#serendipity_comment_page {
+    margin: auto .5em;
+}
+#serendipity_comment_page #serendipity_comment {
+    margin-bottom: 1rem;
+}
+
 .comment_avatar {
     border: 1px solid #aaa;
     float: left;
@@ -1155,6 +1162,9 @@ pre .geshi {
         border-left: 4px solid #aaa;
         padding-left: .75em;
     }
+
+    .content pre {
+        min-width: 6em; }
 
     .content blockquote,
     .content blockquote + cite { margin: 0 2.5em 1em; }
