@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix up non-standard $entry plugin_display_dat emitting place in [2k11,
+    bootstrap4, clean-blog, next, skeleton, timeline] themes.
+
   * Improve commentpopup for comment author self in [default] theme. Applies
     to all falling back themes, even the standard theme.
 
