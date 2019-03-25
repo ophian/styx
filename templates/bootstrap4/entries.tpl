@@ -25,6 +25,7 @@
         {$entry.extended}
         </div>
         {/if}
+    {if NOT $is_preview}
 
         <footer class="post_info">
         {if NOT empty($entry.categories) OR $entry.has_comments}
@@ -41,7 +42,6 @@
             </ul>
         {/if}
             {$entry.add_footer|default:''}
-            {$entry.plugin_display_dat}
         </footer>
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -54,6 +54,9 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
+        {$entry.plugin_display_dat}
+    {/if}
+
 {if $is_single_entry AND NOT $is_preview}
     {if $CONST.DATA_UNSUBSCRIBED}
         <p class="alert alert-success" role="alert">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>

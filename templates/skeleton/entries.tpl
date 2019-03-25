@@ -23,7 +23,7 @@
         </div>
         {/if}
 
-        {if NOT $is_preview}
+    {if NOT $is_preview}
         <footer class="post_footer u-cf">
             <div class="post_meta">
             {if NOT empty($entry.categories)}
@@ -35,7 +35,6 @@
             {/if}
             </div>
             {$entry.add_footer|default:''}
-            {$entry.plugin_display_dat}
         </footer>
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -48,7 +47,9 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
-        {/if}
+        {$entry.plugin_display_dat}
+    {/if}
+
 {if $is_single_entry AND NOT $is_preview}
     {if $CONST.DATA_UNSUBSCRIBED}
         <p class="serendipity_msg_success">{$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>

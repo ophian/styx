@@ -28,9 +28,7 @@
                     {$entry.extended}
                 </div>
             {/if}
-            {if $entry.plugin_display_dat}
-                {$entry.plugin_display_dat}
-            {/if}
+
             {if NOT empty($entry.categories) OR NOT empty($entry.add_footer)}
                 <footer class="entry-footer">
                     {if NOT empty($entry.categories)}
@@ -64,6 +62,7 @@
                     {$entry.add_footer|default:''}
                 </footer>
             {/if}
+            {$entry.plugin_display_dat}
         </section>
     {/if}
         <!--

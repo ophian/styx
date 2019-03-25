@@ -22,6 +22,7 @@
         </div>
         {/if}
 
+    {if NOT $is_preview}
         <footer class="post-info">
             <ul class="meta">
             {if isset($entry.categories) AND is_array($entry.categories)}
@@ -32,7 +33,6 @@
             {/if}
             </ul>
             {$entry.add_footer|default:''}
-            {$entry.plugin_display_dat}
         </footer>
         <!--
         <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
@@ -45,6 +45,9 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
+        {$entry.plugin_display_dat}
+    {/if}
+
 {if $is_single_entry AND NOT $is_preview}
     {if $CONST.DATA_UNSUBSCRIBED}
         <p class="msg-success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DATA_UNSUBSCRIBED|sprintf:$CONST.UNSUBSCRIBE_OK}</p>
