@@ -53,20 +53,24 @@
                     <?= AT ?>
                 <?php endif; ?> <a href="<?= $entry['link'] ?>"><?php if ($dategroup['is_sticky']): ?><?= serendipity_formatTime(DATE_FORMAT_ENTRY, $entry['timestamp']); ?> <?php endif; ?><?= serendipity_formatTime('%H:%M', $entry['timestamp']); ?></a>
 
-                <?php if ($entry['has_comments']): ?>
+                <?php if ($entry['has_comments'] && empty($GLOBALS['tpl']['is_single_entry'])): ?>
                     <?php if ($GLOBALS['tpl']['use_popups']): ?>
                         | <a href="<?= $entry['link_popup_comments'] ?>" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;"><?= $entry['label_comments'] ?> (<?= $entry['comments'] ?>)</a>
                     <?php else: ?>
                         | <a href="<?= $entry['link'] ?>#comments"><?= $entry['label_comments'] ?> (<?= $entry['comments'] ?>)</a>
                     <?php endif; ?>
+                <?php elseif (null !== $entry['label_comments']): ?>
+                        | <a href="<?= $entry['link'] ?>#comments"><?= $entry['label_comments'] ?> (<?= $entry['comments'] ?>)</a>
                 <?php endif; ?>
 
-                <?php if ($entry['has_trackbacks']): ?>
+                <?php if ($entry['has_trackbacks'] && empty($GLOBALS['tpl']['is_single_entry'])): ?>
                     <?php if ($GLOBALS['tpl']['use_popups']): ?>
                         | <a href="<?= $entry['link_popup_trackbacks'] ?>" onclick="window.open(this.href, 'comments', 'width=480,height=480,scrollbars=yes'); return false;"><?= $entry['label_trackbacks'] ?> (<?= $entry['trackbacks'] ?>)</a>
                     <?php else: ?>
                         | <a href="<?= $entry['link'] ?>#trackbacks"><?= $entry['label_trackbacks'] ?> (<?= $entry['trackbacks'] ?>)</a>
                     <?php endif; ?>
+                <?php elseif (null !== $entry['label_trackbacks']): ?>
+                        | <a href="<?= $entry['link'] ?>#trackbacks"><?= $entry['label_trackbacks'] ?> (<?= $entry['trackbacks'] ?>)</a>
                 <?php endif; ?>
 
                 <?php if (!empty($entry['is_entry_owner'])): ?>
