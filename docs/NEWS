@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Sync timeline theme update
+
   * Fixup non-standard $entry.plugin_display_dat emitting place in [2k11,
     bootstrap4, clean-blog, next, skeleton, timeline] themes.
 
