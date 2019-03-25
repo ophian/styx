@@ -5,7 +5,7 @@ Version dev ()
   * Improve commentpopup for comment author self in [default] theme. Applies
     to all falling back themes, even the standard theme.
 
-  * Improve conditional comment popup entries list links in [default] theme
+  * Improve conditional comment popup entries list links in [default, 2k11] themes
 
   * Add serendipity_commentlist container for consistency, referring to
     serendipity_trackbacklist container in ["carl_contest", "competition",
