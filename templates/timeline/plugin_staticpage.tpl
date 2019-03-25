@@ -61,9 +61,9 @@
         {if $staticpage_shownavi}
 
             <ul class="pager staticpage_navigation">
-                <li class="staticpage_navigation_left">{if NOT empty($staticpage_navigation.prev.link)}<a href="{$staticpage_navigation.prev.link}" title="prev">{$staticpage_navigation.prev.name|escape}</a>{else}<span class="staticpage_navigation_dummy">{$CONST.PREVIOUS}</span>{/if}</li>
+                <li class="staticpage_navigation_left">{if NOT empty($staticpage_navigation.prev.link)}<a href="{$staticpage_navigation.prev.link}" title="prev"><i class="fas fa-arrow-left" aria-hidden="true"></i> {$staticpage_navigation.prev.name|escape}</a>{else}<span class="staticpage_navigation_dummy">{$CONST.PREVIOUS}</span>{/if}</li>
                 <li class="staticpage_navigation_center">{if $staticpage_navigation.top.new}{if NOT empty($staticpage_navigation.top.topp_name)}<a href="{$staticpage_navigation.top.topp_link}" title="top">{$staticpage_navigation.top.topp_name|escape}</a> | {/if}&#171 {$staticpage_navigation.top.curr_name|escape} &#187; {if NOT empty($staticpage_navigation.top.exit_name)}| <a href="{$staticpage_navigation.top.exit_link}" title="exit">{$staticpage_navigation.top.exit_name|escape}</a>{/if}{else}<a href="{$staticpage_navigation.top.link}" title="current page">{$staticpage_navigation.top.name|escape}</a>{/if}</li>
-                <li class="staticpage_navigation_right">{if NOT empty($staticpage_navigation.next.link)}<a href="{$staticpage_navigation.next.link}" title="next">{$staticpage_navigation.next.name|escape}</a>{else}<span class="staticpage_navigation_dummy">{$CONST.NEXT}</span>{/if}</li>
+                <li class="staticpage_navigation_right">{if NOT empty($staticpage_navigation.next.link)}<a href="{$staticpage_navigation.next.link}" title="next">{$staticpage_navigation.next.name|escape} <i class="fas fa-arrow-right" aria-hidden="true"></i></a>{else}<span class="staticpage_navigation_dummy">{$CONST.NEXT}</span>{/if}</li>
             </ul>{* 'top' is just a synonym for current page, or top parent, or exit *}
         {/if}
         {if $staticpage_show_breadcrumb}
@@ -80,10 +80,19 @@
 
         </nav>
     {/if}
+{* CUSTOM TO THIS THEME - CUSTOM STATICPAGE IMAGE *}
+    {if NOT empty($staticpage_custom.staticpage_image)}
+        {if $staticpage_custom.staticpage_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
+            {$staticpage_custom.staticpage_image}
+        {else}
+            {serendipity_getImageSize file=$staticpage_custom.staticpage_image assign="img_size"}
+            <img class="{if $img_size[0]>=800}image-full-width{else}serendipity_image_left{/if}" src="{$staticpage_custom.staticpage_image}" width="{$img_size[0]}" height="{$img_size[1]}" alt=""/>
+        {/if}
+    {/if}
     {if (isset($staticpage_custom.show_author) AND $staticpage_custom.show_author == 'true') OR (isset($staticpage_custom.show_date) AND $staticpage_custom.show_date == 'true') OR ($staticpage_adminlink AND $staticpage_adminlink.page_user)}
 
         <p class="post-meta">
-            {if isset($staticpage_custom.show_author) AND $staticpage_custom.show_author == 'true'}{$CONST.POSTED_BY} {$staticpage_author|escape}{/if}{if isset($staticpage_custom.show_date) AND $staticpage_custom.show_date == 'true'}{if isset($staticpage_custom.show_author) AND $staticpage_custom.show_author == 'true'} {$CONST.ON} {/if}<time datetime="{$staticpage_lastchange|serendipity_html5time}">{$staticpage_lastchange|formatTime:($template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY)}</time>{/if}{if $staticpage_adminlink AND $staticpage_adminlink.page_user}{if (isset($staticpage_custom.show_author) AND $staticpage_custom.show_author == 'true') OR (isset($staticpage_custom.show_date) AND $staticpage_custom.show_date == 'true')}&nbsp;&nbsp;{/if}<a href="{$staticpage_adminlink.link_edit}" title="{$staticpage_adminlink.link_name|escape}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$staticpage_adminlink.link_name|escape}</span></button></a>{/if}
+            {if isset($staticpage_custom.show_author) AND $staticpage_custom.show_author == 'true'}{$CONST.POSTED_BY} {$staticpage_author|escape}{/if}{if isset($staticpage_custom.show_date) AND $staticpage_custom.show_date == 'true'}{if isset($staticpage_custom.show_author) AND $staticpage_custom.show_author == 'true'} {$CONST.ON} {/if}<time datetime="{$staticpage_lastchange|serendipity_html5time}">{$staticpage_lastchange|formatTime:($template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY)}</time>{/if}{if $staticpage_adminlink AND $staticpage_adminlink.page_user}{if (isset($staticpage_custom.show_author) AND $staticpage_custom.show_author == 'true') OR (isset($staticpage_custom.show_date) AND $staticpage_custom.show_date == 'true')}&nbsp;&nbsp;{/if}<a href="{$staticpage_adminlink.link_edit}" title="{$staticpage_adminlink.link_name|escape}"><button class="btn btn-sm btn-default"><i class="fas fa-lg fa-edit"></i><span class="sr-only">{$staticpage_adminlink.link_name|escape}</span></button></a>{/if}
         </p>
     {/if}
 
