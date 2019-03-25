@@ -891,6 +891,9 @@ article.post section .pc-owner {
 .serendipity_plugin_comments_avatar {
     height: 30px;
     width: 30px; }
+
+#serendipity_comment_page {
+    margin: auto .5rem; }
 /* comments styling add end */
 
 /* comment_author styling start */
