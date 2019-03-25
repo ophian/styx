@@ -22,9 +22,6 @@
         {$entry.extended}
         </div>
         {/if}
-        {if $entry.plugin_display_dat}
-        {$entry.plugin_display_dat}
-        {/if}
 
         <footer class="clearfix">
         {if NOT empty($entry.categories)}
@@ -67,6 +64,8 @@
                  dc:identifier="{$entry.rdf_ident}" />
         </rdf:RDF>
         -->
+
+        {$entry.plugin_display_dat}
 
     {if $is_single_entry AND NOT $is_preview}
         {if $CONST.DATA_UNSUBSCRIBED}
