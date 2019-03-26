@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.42');
+        $propbag->add('version',       '2.43');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -473,8 +473,7 @@ p.wl_notopbottom {
             $this->inline_elements          = array_diff($this->inline_elements,$this->isolationtags);
             $this->singleton_block_elements = array_diff($this->singleton_block_elements,$this->isolationtags);
             $this->ignored_elements         = array_diff($this->ignored_elements,$this->isolationtags);
-            $this->isolation_block_elements = array_merge($this->isolationtags,$this->isolation_block_elements);
-            $this->isolationtags            = array();
+            $this->isolation_block_elements = array_diff($this->isolation_block_elements,$this->isolationtags);
         }
         if (empty($text)) {
             return '';
@@ -552,7 +551,8 @@ p.wl_notopbottom {
                     || in_array($tag,$this->isolation_block_elements)
                     || in_array($tag,$this->isolation_inline_elements)
                     || in_array($tag,$this->nested_block_elements)
-                    || in_array($tag,$this->ignored_elements) ))
+                    || in_array($tag,$this->ignored_elements)
+                    || in_array($tag,$this->isolationtags) ) )
                 {
                     // unknown tag definition
                     $text[$tagstart_b] = '&lt;';
@@ -676,7 +676,9 @@ p.wl_notopbottom {
                 $start = $i+1;
             }
             // isolation tag
-            elseif ($tag && !$isolation_flag && $this->is_starttag($textarray[$i]) && in_array($tag, $this->isolation_block_elements)) {
+            elseif ($tag && !$isolation_flag && $this->is_starttag($textarray[$i])
+                && (in_array($tag, $this->isolation_block_elements) || in_array($tag, $this->isolationtags) ) )
+            {
                 // merge previous content, apply nl2p if needed and concatenate
                 if (empty($tagstack)) {
                     $content .= $this->nl2pblock(implode(array_slice($textarray, $start, $i-$start))) . "\n";
@@ -687,8 +689,19 @@ p.wl_notopbottom {
                 } else {
                     $content .= implode(array_slice($textarray, $start, $i-$start));
                 }
+
+                // concatenate tag if it's standard html
+                if (in_array($tag, $this->isolation_block_elements) ) {
+                    $content .= $textarray[$i];
+                }
+
                 $isolation_flag = $tag; // isolation has to be started and ended with the same tag
                 $start = $i+1;
+
+                // concatenate closing tag if it's standard html
+                if (in_array($tag, $this->isolation_block_elements) ) {
+                    $content .= $textarray[$i];
+                }
             }
             // closing isolation tag
             elseif ($tag && !$this->is_starttag($textarray[$i]) && $tag == $isolation_flag) {

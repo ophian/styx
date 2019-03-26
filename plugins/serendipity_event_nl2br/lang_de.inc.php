@@ -12,7 +12,7 @@
 @define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP', 'Überprüfe Markup-Plugins?');
 @define('PLUGIN_EVENT_NL2BR_CHECK_MARKUP_DESC', 'Überprüft automatisch auf existierende Markup-Plugins, um die weitere Ausführung des NL2BR-Plugins zu untersagen. Dies gilt dann, wenn WYSIWYG oder spezifische Markup-Plugins entdeckt werden.');
 @define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS', 'Ausnahmen für alle folgenden Regeln');
-@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'Eine Liste von HTML-Tags, innerhalb derer keine Umbrüche konvertiert werden sollen. Konfigurationsvorschlag: "pre,geshi,textarea". Trennen Sie mehrere HTML-Tags mit Komma. Hinweis: Die eingegebenen Tags sind reguläre Ausdrücke!');
+@define('PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC', 'Eine Liste von benutzerdefinierten HTML-Tags, innerhalb derer keine Umbrüche konvertiert werden sollen. Konfigurationsvorschlag: "nl,pre,geshi,textarea". Trennen Sie mehrere HTML-Tags mit Komma. Hinweis: Die eingegebenen Tags sind reguläre Ausdrücke!');
 @define('PLUGIN_EVENT_NL2BR_PTAGS', 'Nutze P-Tags');
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC', 'Setze statt br-Tags p-Tags ein.');
 @define('PLUGIN_EVENT_NL2BR_PTAGS_DESC2', 'Dies kann bei verschachtelten Markup-Fällen aber zu Fehlinterpretationen führen!');
@@ -24,12 +24,15 @@
 
 @define('PLUGIN_EVENT_NL2BR_ABOUT_TITLE', 'BITTE BEACHTEN Sie die Auswirkungen dieses Markup-Plugins:');
 @define('PLUGIN_EVENT_NL2BR_ABOUT_DESC', '<p>Dieses Plugin überträgt Zeilenumbrüche in HTML-Zeilenumbrüche, so dass sie in Ihrem Blog-Eintrag erscheinen.</p>
+<p><b>PLAIN EDITOR</b>s Basis-Funktionalität: Konvertiere die Zeilenumbrüche zu &lt;br&gt; - Tags.<br>
+<b>PLAIN EDITOR</b>s Erweiterte Funktionalität: Parse den Text in &lt;p&gt;-Tags unter Berücksichtigung der HTML-Syntax wo sie erlaubt sind und automatische Ignorierung bei vorformatiertem Text mit &lt;pre&gt; oder innerhalb von &lt;style&gt; oder &lt;svg&gt;-Tags.</p>
 <p>In zwei Fällen kann dies für Sie zu Problemen führen:</p>
 <ul>
-    <li>wenn Sie zuvor einen <strong>WYSIWYG-Editor</strong> zum Schreiben Ihrer Einträge verwendet haben. In diesem Fall hat der WYSIWYG-Editor bereits korrekte HTML-Zeilenumbrüche platziert, so dass das nl2br-Plugin diese Zeilenumbrüche eigentlich verdoppeln täte. Seit <strong>Serendipity 2.0</strong> braucht man sich darum, in Blogeinträgen und statischen Seiten, aber nicht mehr zu kümmern, da der nl2br Parser automatisch erkannt und deaktiviert wird.</li>
+    <li>wenn Sie zuvor einen <strong>WYSIWYG-Editor</strong> zum Schreiben Ihrer Einträge verwendet haben. In diesem Fall hat der WYSIWYG-Editor bereits korrekte HTML-Zeilenumbrüche platziert, so dass das nl2br-Plugin diese Zeilenumbrüche eigentlich verdoppeln täte. Seit <strong>Serendipity 2.0</strong> braucht man sich darum, in Blogeinträgen und für statische Seiten, aber nicht mehr zu kümmern, da der nl2br Parser automatisch erkannt und deaktiviert wird.</li>
     <li>wenn Sie andere Markup-Plugins in Verbindung mit diesem Plugin verwenden, die bereits Zeilenumbrüche übersetzen. Die <strong>TEXTILE</strong>- und <strong>MARKDOWN</strong>-Plugins sind Beispiele für solche Plugins.</li>
 </ul>
-<p>Um Probleme zu vermeiden, sollten Sie das nl2br-Plugin für Einträge global oder per Eintrag im Abschnitt "Erweiterte Eigenschaften" eines Eintrags deaktivieren, wenn Sie das Plugin für die Eingabeeigenschaften (entryproperties) installiert haben.</p>
+<p><u>Pro-Tipp</u>: Der eingebaute <strong>WYSIWYG-Editor</strong> oder das <strong>CKEditor Plus</strong> Plugin setzt die nl2br Funktionlität automatisch außer Kraft!</p>
+<p>Um weitere Probleme zu vermeiden, sollten Sie das nl2br-Plugin entweder für Einträge global oder per Eintrag im Abschnitt "Erweiterte Eigenschaften" eines Eintrags deaktivieren, wenn Sie das Plugin für die Eingabeeigenschaften (entryproperties) installiert haben.</p>
 <p><u>Genereller Hinweis:</u> Das nl2br Plugin ist also nur wirklich sinnvoll, wenn Sie</p>
 <ul>
     <li>keine anderen Markup-Plugins verwenden - oder</li>
