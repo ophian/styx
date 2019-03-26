@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.43');
+        $propbag->add('version',       '2.44');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -445,7 +445,7 @@ p.wl_notopbottom {
                                 'acronym', 'cite', 'code', 'dfn', 'em', 'kbd', 'strong',
                                 'samp', 'var', 'a', 'bdo', 'bdi', 'map', 'object',
                                 'q', 'script', 'span', 'sub', 'sup', 'button',
-                                'label', 'select', 'textarea', 's');
+                                'label', 'select', 'textarea', 's', 'strike');
     var $allowed_p_parents = array('blockquote', 'td', 'div', 'article', 'aside', 'dd',
                                 'details', 'dl', 'dt', 'footer', 'header', 'summary');
     const P_END = '</p>';
@@ -556,9 +556,16 @@ p.wl_notopbottom {
                 {
                     // unknown tag definition
                     $text[$tagstart_b] = '&lt;';
-                    $text[strpos($textstring,'>',$i)] = '&gt;';
+                    $tagstart = false;
+                    $tagdef = false;
+                    if ($text[$i] == '>') {
+                        $text[$i] = '&gt;';
+                    }
                 } else {
-
+                    //convert to lowercase
+                    for ($j = $tagdef; $j <= $i; $j++) {
+                        $text[$j] = strtolower($text[$j]);
+                    }
                     $tagdef = false;
                     // closing >
                     if ($text[$i] == '>') {
@@ -595,11 +602,6 @@ p.wl_notopbottom {
                 $tagdef = $i;
                 $tagstart_b = $tagstart;
                 $tagstart = false;
-                $text[$i] = strtolower($text[$i]);
-            }
-            // definition characters
-            elseif ($tagdef) {
-                $text[$i] = strtolower($text[$i]);
             }
             // quotes in style - isolate
             elseif ($tagstyle && $text[$i] == '\'' && !$doublequote ) {
