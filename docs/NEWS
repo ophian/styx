@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Security: Sync - Fix XSS in Media Library by interpreted EXIF tags
+
   * Sync nl2br changes (partial)
     - Fix bug in p-mode that ate pre elements
     - Improve nl2br p-mode to work with <strike> tags
