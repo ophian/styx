@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Check API method first in 2k11 theme config, for theme switches
+
   * Add min-width to default theme sidebars
 
   * Security: Sync - Fix XSS in Media Library by interpreted EXIF tags
