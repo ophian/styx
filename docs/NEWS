@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Add min-width to default theme sidebars
+
   * Security: Sync - Fix XSS in Media Library by interpreted EXIF tags
 
   * Sync nl2br plugin nl2p-mode changes (partial)
