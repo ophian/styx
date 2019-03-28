@@ -133,7 +133,7 @@ body {
 	border-bottom:1px solid #235587;
 	margin: 0 auto;
 	width: 100%;
-	border-top: 0px;
+	border-top: 0;
 	background-color: #FFFFFF; }
 
 /* container for entries column */
@@ -173,10 +173,10 @@ body {
 a.homelink1, a.homelink1:hover, a.homelink1:link, a.homelink1:visited, #serendipity_banner h1 {
 	color: #fff;
 	font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
-	font-size : 20px;
+	font-size: 20px;
 	padding-left:15px;
 	padding-top: 20px;
-	margin: 0px;
+	margin: 0;
 	text-decoration: none; }
 
 /* the smaller link in the banner, blog description */
@@ -184,7 +184,7 @@ a.homelink2, a.homelink2:hover, a.homelink2:link, a.homelink2:visited, #serendip
 	color: #fff;
 	padding-left: 15px;
 	font-size: 14px;
-	margin: 0px;
+	margin: 0;
 	text-decoration: none; }
 
 /********* End of Header/Banner Styles *********/
@@ -308,7 +308,7 @@ div.serendipity_entryFooter a:hover {
 /* styles for category icon if used */
 img.serendipity_entryIcon {
 	float: right;
-	border: 0px;
+	border: 0;
 	margin-top:1px; }
 
 /* styling the continue reading byline, needed to stop firefox making the link 100% wide */
@@ -487,7 +487,7 @@ div.serendipityPlug img {
 /* style for the powered by link */
 div.serendipityPlug a {
 	text-decoration: none;
-	border: 0px; }
+	border: 0; }
 
 /* style for input and select drop downs in sidebar */
 .serendipitySideBarContent input:not(type="submit",type="checkbox"), .serendipitySideBarContent select {
@@ -596,15 +596,15 @@ td.Today {color: #444; text-decoration: overline; }
 
 /* styles for the images */
 .serendipity_imageComment_img, .serendipity_imageComment_img img {
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 	border:none;
 	text-align: center; }
 
 /* styles for the text below the image if used */
 .serendipity_imageComment_txt {
 	border-top: 1px solid #DDDDDD;
-	margin: 0px;
+	margin: 0;
 	padding: 3px;
 	clear: both;
 	font-size: 8pt;
