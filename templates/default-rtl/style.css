@@ -134,7 +134,7 @@ h4,h3 {
     border-bottom: 1px solid #000000;
     margin: auto;
     width: 100%;
-    border-top: 0px;
+    border-top: 0;
     background-color: #FFFFFF;
     border-top: 1px solid #000000;
 }
@@ -196,10 +196,10 @@ a.homelink1:visited,
 #serendipity_banner h1 {
     color: #FFFFFF;
     font-family: Tahoma, Verdana, Arial, Geneva, Helvetica, sans-serif;
-    font-size : 20px;
+    font-size: 20px;
     padding-right:15px;
     padding-top: 10px;
-    margin: 0px;
+    margin: 0;
     text-decoration: none;
 }
 
@@ -211,7 +211,7 @@ a.homelink2:visited,
     color: #FFFFFF;
     padding-right: 15px;
     font-size: 14px;
-    margin: 0px;
+    margin: 0;
     text-decoration: none;
 }
 
@@ -286,12 +286,12 @@ div.serendipity_entryFooter {
 
 img.serendipity_entryIcon {
     float: left;
-    border: 0px;
+    border: 0;
 }
 
 img.serendipity_entryIcon {
     float: left;
-    border: 0px;
+    border: 0;
 }
 
 td.serendipity_commentsLabel {
@@ -400,7 +400,7 @@ div.serendipityPlug {
 
 div.serendipityPlug a {
     text-decoration: none;
-    border: 0px;
+    border: 0;
 }
 
 /* Container for each item on the side bar */
@@ -427,8 +427,8 @@ div.serendipitySideBarItem {
     cursor: pointer;
 }
 .serendipity_entry p {
-    margin-top: 0px;
-    padding-bottom: 0px;
+    margin-top: 0;
+    padding-bottom: 0;
 }
 
 /** Embedded images with the s9y image manager **/
@@ -461,14 +461,14 @@ div.serendipitySideBarItem {
 
 .serendipity_imageComment_img,
 .serendipity_imageComment_img img {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     text-align: center;
 }
 
 .serendipity_imageComment_txt {
     border-top: 1px solid #DDDDDD;
-    margin: 0px;
+    margin: 0;
     padding: 3px;
     clear: both;
     font-size: 8pt;
