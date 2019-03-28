@@ -103,7 +103,8 @@ serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $t
 // Since serendipity_plugin_api_pre_event_hook() is the advertised method for template authors to hook into
 // 2k11 cannot declare this on its own. We rather use per-event hook functions now, which templates other than 2k11
 // (or other custom engines) should not use.
-function serendipity_plugin_api_pre_event_hook_js($event, &$bag, &$eventData, &$addData) {
+if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
+  function serendipity_plugin_api_pre_event_hook_js($event, &$bag, &$eventData, &$addData) {
     // always add newlines to the end of last element, in case of other plugins using this hook and
     // always start at line Col 1, to populate the (virtual) serendipity.js file
     echo "
@@ -114,6 +115,7 @@ jQuery(function() {
         }
     });
 })\n\n";
+  }
 }
 
 if (isset($_SESSION['serendipityUseTemplate'])) {
