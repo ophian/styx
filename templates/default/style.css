@@ -231,9 +231,6 @@ a:hover {
     background-color: #FDFDFD;
     border-top: 1px solid #222;
 }
-#mainpane.preview_preview_container {
-    border: 0 none;
-}
 #serendipity_banner {
     margin: auto;
     width: 100%;
@@ -312,6 +309,8 @@ a.homelink2:visited,
 
 /** Backend preview **/
 
+#mainpane.preview_preview_container {
+    border: 0 none; }
 #content.preview_preview_content {
     width: 100%;
     background: #FFF; }
@@ -787,6 +786,7 @@ div.serendipityPlug a {
     #serendipityLeftSideBar,
     #serendipityRightSideBar {
         width: 14em;
+        min-width: 12em;
         height: auto;
         color: inherit;
         text-shadow: inherit;
