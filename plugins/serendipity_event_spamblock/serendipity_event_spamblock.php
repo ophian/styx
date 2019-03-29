@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.13');
+        $propbag->add('version',       '2.14');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1337,7 +1337,7 @@ switch ($serendipity['GET']['cleanspamsg']) {
 ?>
 
         <div id="cleanspam_action_access" class="additional_info">
-            <a id="cpmall" class="button_link state_submit" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/cleanspam/all" title=""><span><?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_BUTTON; ?></span></a>
+            <a id="cpmall" class="button_link state_submit" href="<?php echo $serendipity['serendipityHTTPPath'] . (($serendipity['rewrite'] == 'rewrite') ? '' : 'index.php?/') ?>plugin/cleanspam/all" title=""><span><?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_BUTTON; ?></span></a> (<?php echo $allnum ?>)
             <button class="toggle_info button_link" style="margin: 1em 0" type="button" data-href="#cpmall_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button>
             <span id="cpmall_info" class="comment_status additional_info"><?php echo sprintf(PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_DESC, $allnum); ?></span>
             <div class="serendipity_cpmdiff" style="margin-top: .5em;">
