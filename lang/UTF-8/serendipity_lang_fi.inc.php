@@ -974,7 +974,7 @@
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
-@define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable and search-crawler do not have to re-index them.');
+@define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Simplified filters');
