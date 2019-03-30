@@ -23,6 +23,14 @@ $data['switched_output'] = false;
 $data['iframe'] = false;
 $data['drawList'] = false;
 $data['single_error'] = false;
+$data['dateval'] = false;
+$data['is_draft'] = false;
+$data['is_iframe'] = false;
+$data['is_doMultiDelete'] = false;
+$data['is_doDelete'] = false;
+$data['is_delete'] = false;
+$data['is_multidelete'] = false;
+
 
 if (!empty($serendipity['GET']['editSubmit'])) {
     $serendipity['GET']['adminAction'] = 'edit'; // does this change smarty.get vars?
@@ -73,15 +81,6 @@ switch($serendipity['GET']['adminAction']) {
         if ($entry['moderate_comments'] != 'true' && $entry['moderate_comments'] !== true) {
             $entry['moderate_comments'] = 'false';
         }
-
-        // Smarty index defines
-        $data['dateval'] = false;
-        $data['is_draft'] = false;
-        $data['is_iframe'] = false;
-        $data['is_doMultiDelete'] = false;
-        $data['is_doDelete'] = false;
-        $data['is_delete'] = false;
-        $data['is_multidelete'] = false;
 
         // Check if the user changed the timestamp.
         if (isset($serendipity['allowDateManipulation']) && $serendipity['allowDateManipulation'] && isset($serendipity['POST']['new_timestamp']) && $serendipity['POST']['new_timestamp'] != date(DATE_FORMAT_2, $serendipity['POST']['chk_timestamp'])) {
