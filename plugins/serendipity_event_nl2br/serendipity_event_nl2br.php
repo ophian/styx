@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.44');
+        $propbag->add('version',       '2.45');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -130,7 +130,7 @@ class serendipity_event_nl2br extends serendipity_event
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_NL2BR_ISOLATE_TAGS);
                 $propbag->add('description', PLUGIN_EVENT_NL2BR_ISOLATE_TAGS_DESC);
-                $propbag->add('default',     'pre');
+                $propbag->add('default',     'nl');
                 break;
 
             case 'p_tags':
@@ -249,7 +249,7 @@ class serendipity_event_nl2br extends serendipity_event
 
                     // check for users isolation tags
                     if ($isolate === null) {
-                        $isolate = $this->get_config('isolate', 'pre');
+                        $isolate = $this->get_config('isolate', 'nl');
                         $tags    = (array)explode(',', $isolate);
                         $isolate = array();
                         foreach($tags AS $tag) {
