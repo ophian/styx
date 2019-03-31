@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.14');
+        $propbag->add('version',       '2.15');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -39,6 +39,7 @@ class serendipity_event_spamblock extends serendipity_event
             'backend_sidebar_admin' => true,
         ));
         $propbag->add('configuration', array(
+            'config_mainconfiggrouper',
             'killswitch',
             'hide_for_authors',
             'bodyclone',
@@ -131,8 +132,6 @@ class serendipity_event_spamblock extends serendipity_event
     function introspect_config_item($name, &$propbag)
     {
         global $serendipity;
-
-        $serendipity['smarty']->assign('spamblock_main_group', true);
 
         switch($name) {
 
@@ -257,6 +256,12 @@ class serendipity_event_spamblock extends serendipity_event
                 $propbag->add('select_values', $groups);
                 $propbag->add('select_size',   5);
                 $propbag->add('default', 'all');
+                break;
+
+            case 'config_mainconfiggrouper':
+                $propbag->add('type',    'content');
+                $propbag->add('name',    'Configuration Preferences');
+                $propbag->add('default', '<h3>' . PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION . '</h3>');
                 break;
 
             case 'killswitch':
