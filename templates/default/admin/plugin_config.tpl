@@ -40,7 +40,6 @@
     </div>
 {/if}
 
-    {if NOT empty($spamblock_main_group)}<h3>{$CONST.PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION}</h3>{/if}
     <div class="configuration_group main_group">
 {foreach $plugin_options_ungrouped AS $plugin_option}{if !isset($plugin_option)}{continue}{/if}
     {if in_array($plugin_option['ctype'], ['separator', 'seperator', 'suboption', 'hidden'])}{* 'seper...' for compat, while being misspelled too long *}
