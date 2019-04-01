@@ -646,7 +646,7 @@ div.serendipityPlug a {
     color: #e6e6e6;
 }
 /* authors */
-.container_serendipity_authors_plugin .serendipitySideBarContent div {
+.container_serendipity_plugin_authors .serendipitySideBarContent div {
     margin: .5em 0;
     padding-left: 0;
 }

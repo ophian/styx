@@ -573,7 +573,7 @@ input#serendipityQuickSearchTermField {
 }
 
 /* override serendipitySideBarItem overflow: hidden just for sidebar quicksearch livesearch_result */
-.container_serendipity_quicksearch_plugin{
+.container_serendipity_plugin_quicksearch{
     overflow: visible !important;
 }
 

@@ -264,14 +264,14 @@ ul.staticpage_navigation li {
 }
 
 /*** Additional plugin styles needed for the modernized output code ***/
-/*** these will eventuelly kick in starting with s9y v1.4           ***/
+/*** these will eventually kick in starting with s9y v1.4           ***/
 .plainList {
     list-style: none;
     margin-left: 0;
     padding-left: 0;
 }
 
-.container_serendipity_authors_plugin .serendipitySideBarContent div {
+.container_serendipity_plugin_authors .serendipitySideBarContent div {
     margin: 5px 0;
     padding-left: 0;
 }
