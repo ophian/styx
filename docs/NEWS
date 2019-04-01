@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Allow search requests by post forms
+
   * Check API method first in 2k11 theme config, for theme switches
 
   * Add min-width to default theme sidebars
