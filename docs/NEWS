@@ -2,6 +2,10 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix old ".container_authors/quicksearch_xxx" css plugin class name selectors
+    since 2.0-beta1, in early 2014. Applies to [blue, bulletproof, carl_contest,
+    competition, contest, default-rtl, default, idea, kubrick] themes.
+
   * Allow search requests by post forms
 
   * Check API method first in 2k11 theme config, for theme switches
