@@ -34,6 +34,13 @@ $serendipity['smarty']->assignByRef('rightSidebarElements', $rightSidebarElement
 $is_archives = false;
 $is_search_empty = false;
 
+// Allow search requests per post
+if (empty($serendipity['GET']['searchTerm']) && !empty($serendipity['POST']['searchTerm'])) {
+    $serendipity['GET']['action'] = 'search';
+    $serendipity['GET']['searchTerm'] = $serendipity['POST']['searchTerm'];
+    $serendipity['uriArguments'][] = serendipity_specialchars($serendipity['POST']['searchTerm']);
+}
+
 // mute possible uninitialized GET action item to fallback to default
 switch (@$serendipity['GET']['action']) {
     // User wants to read the diary
