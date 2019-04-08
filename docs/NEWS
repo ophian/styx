@@ -2,6 +2,10 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Improve commentpopup template file with "frontend_header" hook, for possible
+    jQuery capabilities (eg. CKEplus highlight code) and specific styles in
+    [bulletproof, default, default-php] themes.
+
   * Fix old ".container_authors/quicksearch_xxx" css plugin class name selectors
     since 2.0-beta1, in early 2014. Applies to [blue, bulletproof, carl_contest,
     competition, contest, default-rtl, default, idea, kubrick] themes.
