@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
     <link rel="stylesheet" type="text/css" href="{$serendipityHTTPPath}serendipity.css.php">
+{serendipity_hookPlugin hook="frontend_header"}
 </head>
 
 <body id="serendipity_comment_page" class="s9y_wrap">
