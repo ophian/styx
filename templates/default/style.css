@@ -486,7 +486,7 @@ ul.staticpage_result li {
 .serendipity_commentsLabel label {
     vertical-align: bottom;
 }
-.serendipity_commentsValue input,
+.serendipity_commentsValue input:not(type="button"),
 .serendipity_commentsValue select,
 .serendipity_commentsValue textarea {
     font-size: 1em;
