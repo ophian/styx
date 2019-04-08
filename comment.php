@@ -161,11 +161,17 @@ if ($type == 'trackback') {
                 )
             );
         } else {
-            $query = "SELECT id, last_modified, timestamp, allow_comments, moderate_comments FROM {$serendipity['dbPrefix']}entries WHERE id = '" . $id . "'";
+            /* see below, since we need the $entry array assigned for authors comment author_self comparison via commentpopup template file */
+            $query = "SELECT e.id, e.author, e.authorid, a.email, e.last_modified, e.timestamp, e.allow_comments, e.moderate_comments
+                        FROM {$serendipity['dbPrefix']}entries e
+                   LEFT JOIN {$serendipity['dbPrefix']}authors a
+                          ON (e.authorid = a.authorid)
+                       WHERE e.id = '" . $id . "'";
             $ca    = serendipity_db_query($query, true);
             $comment_allowed = serendipity_db_bool($ca['allow_comments']) || !is_array($ca) ? true : false;
             $serendipity['smarty']->assign(
                 array(
+                    'entry'              => $ca,
                     'is_showcomments'    => true,
                     'is_comment_allowed' => $comment_allowed
                 )
