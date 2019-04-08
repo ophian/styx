@@ -260,8 +260,7 @@ div.serendipity_Entry_Date {
   vertical-align: bottom;
 }
 
-.serendipity_title,
-.serendipity_Admin_title {
+.serendipity_title {
   padding-bottom: 0.7em;
   font-size: medium;
   font-weight: bold;
@@ -271,17 +270,12 @@ div.serendipity_Entry_Date {
 .serendipity_title a,
 .serendipity_title a:hover,
 .serendipity_title a:link,
-.serendipity_title a:visited,
-.serendipity_Admin_title a,
-.serendipity_Admin_title a:hover,
-.serendipity_Admin_title a:link,
-.serendipity_Admin_title a:visited {
+.serendipity_title a:visited {
   color: #999;
   text-decoration: none;
 }
 
-.serendipity_entry,
-.serendipity_admin {
+.serendipity_entry {
   font-size: small;
   font-weight: normal;
   line-height: 140%;
@@ -488,4 +482,4 @@ img.serendipity_entryIcon {
 
 .serendipity_shoutbox_comment { padding: 3px 0; }
 
-/*** End Additional plugin styles                                   ***/
+/*** End Additional plugin styles ***/
