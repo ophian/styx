@@ -451,7 +451,7 @@ td.serendipity_commentsLabel {
 	vertical-align: top; }
 
 /* styles for input boxes in comments form */
-td.serendipity_commentsValue input, td.serendipity_commentsValue select, td.serendipity_commentsValue textarea {
+td.serendipity_commentsValue input:not(type="button"), td.serendipity_commentsValue select, td.serendipity_commentsValue textarea {
 	font-size: 12px;
 	padding: 2px; }
 
@@ -740,4 +740,4 @@ img.serendipity_freeTag_xmlButton {
 
 .serendipity_shoutbox_comment { padding: 3px 0; }
 
-/*** End Additional plugin styles                                   ***/
+/*** End Additional plugin styles ***/
