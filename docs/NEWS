@@ -2,6 +2,10 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix kubrick theme wrong commentlist selector style and add the commentpopup
+    template file modified, since using ol li lists.
+    UPGRADERS: Please check your COPY themes.
+
   * Improve commentpopup template file with "frontend_header" hook, for possible
     jQuery capabilities (eg. CKEplus highlight code) and specific styles in
     [bulletproof, default, default-php] themes.
