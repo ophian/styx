@@ -36,7 +36,6 @@
     <?= $GLOBALS['template']->call('printTrackbacks', array('entry' => $GLOBALS['tpl']['entry_id'])); ?>
 
 <?php elseif ($GLOBALS['tpl']['is_showcomments']): ?>
-    <?= serendipity_smarty_fetchPrintEntries(array('id' => $GLOBALS['tpl']['entry_id'], 'returncode' => 'assign', 'full' => false, 'use_hooks' => false, 'skip_smarty_hooks' => true), $GLOBALS['template']); ?>
 
     <h3 class="popup_content serendipity_commentsTitle"><?= COMMENTS ?></h3>
 

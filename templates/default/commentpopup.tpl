@@ -38,8 +38,6 @@
     </div>
 
 {elseif $is_showcomments}
-    {* we need the $entry array assigned for comment author_self comparison in commentpopup template file *}
-    {serendipity_fetchPrintEntries id=$entry_id returncode="assign" full=false use_hooks=false skip_smarty_hooks=true}
 
     <h3 class="popup_content serendipity_commentsTitle">{$CONST.COMMENTS}</h3>
 
