@@ -27,8 +27,9 @@ Version dev ()
   * Fixup non-standard $entry.plugin_display_dat emitting place in [2k11,
     bootstrap4, clean-blog, next, skeleton, timeline] themes.
 
-  * Improve commentpopup template for comment author self in [default] theme.
-    Applies to all falling back themes, even the standard theme.
+  * Improve comment.php assignment for commentpopup templates comment author
+    self condition, in [default, default-php] themes.
+    Change applies to all falling back themes, even the Standard-theme.
 
   * Improve conditional comment popup entries list links in [2k11, default,
     default-php, next] themes
