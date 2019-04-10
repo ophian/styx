@@ -234,7 +234,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
     if (!$serendipity['dbSth']) {
         if (!$expectError && !$serendipity['production']) {
-            print "<span class='msg_error'>Error in $sql</span>";
+            print "<span class=\"msg_error\">Error in $sql</span>";
             print $serendipity['dbConn']->errorInfo() . "<BR/>\n";
             if (function_exists('debug_backtrace')) {
                 highlight_string(var_export(debug_backtrace(), 1));

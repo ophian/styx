@@ -190,7 +190,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
                         $dbid = serendipity_db_insert_id($table, $primary_key);
                         $this->storage[$table][$primary_key][$primary_val] = $dbid;
                     }
-                    echo "<span class='block_level'>Migrated entry #{$dbid} into {$table}.</span>";
+                    echo "<span class=\"block_level\">Migrated entry #{$dbid} into {$table}.</span>";
                 } else {
                     if ($this->debug) {
                         echo 'DB Insert: <pre>' . print_r($row, true) . '</pre>';
@@ -209,7 +209,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
                 }
             } else {
                 if ($this->debug && !$this->execute) {
-                    echo "<span class='block_level'>Ignoring Duplicate.</span>";
+                    echo "<span class=\"block_level\">Ignoring Duplicate.</span>";
                 }
             }
         }
@@ -217,7 +217,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
         if (!$this->execute) {
             echo 'Storage on '. $table . ':<pre>' . print_r($this->storage[$table], true) . '</pre>';
         } else {
-            echo "<span class='block_level'>Finished table <strong>{$table}</strong></span>";
+            echo "<span class=\"block_level\">Finished table <strong>{$table}</strong></span>";
         }
     }
 

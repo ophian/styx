@@ -239,7 +239,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
                 foreach($item->category AS $idx => $category) {
                     $cstring=(string)$category;
                     if (!isset($s9y_cat[$cstring])) {
-                        echo "<span class='msg_error'>WARNING: $category unset!</span>";
+                        echo "<span class=\"msg_error\">WARNING: $category unset!</span>";
                     } else {
                         $entry['categories'][] = $s9y_cat[$cstring];
                     }

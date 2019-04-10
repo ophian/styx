@@ -131,28 +131,28 @@ ENDPOST
             # locate the post title
             if (preg_match("/TITLE:(.*)/", $post, $title)) {
                 $title = trim($title[1]);
-                echo "<b class='block_level'>" . serendipity_specialchars($title) . "</b>";
+                echo "<b class=\"block_level\">" . serendipity_specialchars($title) . "</b>";
             } else {
                 $title = "";
-                echo "<b class='block_level'>Empty title</b>";
+                echo "<b class=\"block_level\">Empty title</b>";
             }
 
             # locate the post author
             if (preg_match("/AUTHOR:(.*)/", $post, $author)) {
                 $author = trim($author[1]);
-                echo "<em class='block_level'>" . serendipity_specialchars($author[1]) . "</em>";
+                echo "<em class=\"block_level\">" . serendipity_specialchars($author[1]) . "</em>";
             } else {
                 $author = "";
-                echo "<em class='block_level'>Unknown author</em>";
+                echo "<em class=\"block_level\">Unknown author</em>";
             }
 
             # locate the post date
             if (preg_match("/DATE:(.*)/", $post, $date)) {
                 $date = strtotime(trim($date[1]));
-                echo "<span class='block_level'>Posted on " . serendipity_specialchars($date[1]) . ".</span>";
+                echo "<span class=\"block_level\">Posted on " . serendipity_specialchars($date[1]) . ".</span>";
             } else {
                 $date = time();
-                echo "<span class='block_level'>Unknown posting time.</span>";
+                echo "<span class=\"block_level\">Unknown posting time.</span>";
             }
 
             # locate the post body
@@ -169,7 +169,7 @@ ENDPOST
                 echo '<span class="block_level">' . count($commentlist[1]) . " comments found.</span>";
             } else {
                 $commentlist = array();
-                echo "<span class='block_level'>No comments found.</span>";
+                echo "<span class=\"block_level\">No comments found.</span>";
             }
 
             $result = serendipity_db_query("SELECT authorid FROM ". $serendipity['dbPrefix'] ."authors WHERE username = '". serendipity_db_escape_string($author) ."' LIMIT 1", true, 'assoc');
@@ -196,7 +196,7 @@ ENDPOST
                            'authorid'       => $authorid
                            );
 
-            echo "<span class='block_level'>Entry insert...</span>";
+            echo "<span class=\"block_level\">Entry insert...</span>";
             if (!is_int($id = serendipity_updertEntry($entry))) {
                 echo "<span class='msg_error'>Inserting entry failed.</span>";
                 return $id;
@@ -246,10 +246,10 @@ ENDPOST
             }
 
             serendipity_db_query("UPDATE ". $serendipity['dbPrefix'] ."entries SET comments = ". $c ." WHERE id = ". $id);
-            echo "<span class='block_level'>Comment count set to: ". $c ."</span>";
+            echo "<span class=\"block_level\">Comment count set to: ". $c ."</span>";
         }
 
-        echo "<span class='msg_success'>Import finished.</span>";
+        echo "<span class=\"msg_success\">Import finished.</span>";
 
         return true;
     }
