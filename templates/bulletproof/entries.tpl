@@ -20,7 +20,7 @@
 
             {if (NOT $dategroup.is_sticky OR ($dategroup.is_sticky AND $template_option.show_sticky_entry_footer == 'true'))}
                 {if $template_option.entryfooterpos == 'belowtitle'}
-                    <div class='serendipity_entryFooter belowtitle'>
+                    <div class="serendipity_entryFooter belowtitle">
                         {if $template_option.footerauthor == 'true'}
                             {$CONST.POSTED_BY} <address class="author"><a href="{$entry.link_author}">{$entry.author}</a></address>
                         {/if}
