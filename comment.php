@@ -148,7 +148,7 @@ if ($type == 'trackback') {
             )
         );
     } else if (!isset($serendipity['POST']['submit'])) {
-        if ($serendipity['GET']['type'] == 'trackbacks') {
+        if (isset($serendipity['GET']['type']) && $serendipity['GET']['type'] == 'trackbacks') {
             $query = "SELECT title, timestamp FROM {$serendipity['dbPrefix']}entries WHERE id = '". $id ."'";
             $entry = serendipity_db_query($query);
             $entry = serendipity_archiveURL($id, $entry[0]['title'], 'baseURL', true, array('timestamp' => $entry[0]['timestamp']));
