@@ -2,6 +2,10 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix serendipity_image_center styles regression in the "next" theme and
+    add a real serendipity_image_center selector style to the "default" theme.
+    UPGRADERS: Please check your COPY themes.
+
   * Fix kubrick theme wrong commentlist selector style and add the commentpopup
     template file modified, since using ol li lists.
     UPGRADERS: Please check your COPY themes.
