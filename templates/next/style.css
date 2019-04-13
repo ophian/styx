@@ -1013,7 +1013,7 @@ details summary {
 .serendipity_image_center, .serendipity_imageComment_center {
   margin: 16px auto;
   margin: 1rem auto;
-  display: block; }
+  display: inherit; }
 
 .serendipity_imageComment_img img {
   border: none !important;
@@ -1340,12 +1340,15 @@ details summary {
   #archives .odd {
     clear: left; }
 
-  .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
+  .serendipity_image_left, .serendipity_image_right, .serendipity_imageComment_img {
     margin: 9px 0 0 0;
     margin: .5rem 0 0 0; }
     .serendipity_image_block .serendipity_image_link {
         margin: 9px 0 0 0;
         margin: .5rem 0 0 0; }
+  .serendipity_image_center {
+    margin: 9px auto 1rem auto;
+    margin: .5rem auto 1rem auto; }
 
   .serendipity_image_left, .serendipity_imageComment_left {
     margin: 24px 16px 24px 0;
