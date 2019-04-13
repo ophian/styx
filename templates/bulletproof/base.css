@@ -181,6 +181,7 @@ body {
     color: red;
     margin-bottom: 1em;
 }
+.serendipity_msg_success,
 .serendipity_msg_notice {
     color: green;
     margin-bottom: 1em;

@@ -398,6 +398,7 @@ div.serendipity_entryFooter {
     color: #ff4136;
 }
 
+.serendipity_msg_success,
 .serendipity_msg_notice {
     color: #2ecc40;
 }
