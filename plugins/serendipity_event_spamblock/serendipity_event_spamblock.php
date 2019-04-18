@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.15');
+        $propbag->add('version',       '2.16');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1219,11 +1219,24 @@ class serendipity_event_spamblock extends serendipity_event
                             $query = "SELECT count(id) AS counter FROM {$serendipity['dbPrefix']}comments WHERE type = '" . $addData['type'] . "' AND body = '" . serendipity_db_escape_string($addData['comment']) . "'";
                             $row   = serendipity_db_query($query, true);
                             if (is_array($row) && $row['counter'] > 0) {
-                                $this->IsHardcoreSpammer();
-                                $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_BODYCLONE, $addData);
-                                $eventData = array('allow_comments' => false);
-                                $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY;
-                                return false;
+                                // WHAT WE NEED HERE: Is a check, if someone posts an entry with more than 1 valid trackback URLs to this current blog.
+                                //      EG., a weekly blog "summary" linklist entry with some trackback links to different articles of this current blog.
+                                // These trackbacks look like bodyclones, since using the same entry as referrer, but are valid and appreciated trackbacks.
+                                $mtbcase = false;
+                                // non valid multi trackback case
+                                if ($addData['type'] == 'TRACKBACK') {
+                                    $trackback_ip = isset($trackback_ip) ? $trackback_ip : preg_replace('/[^0-9.]/', '', gethostbyname($parts['host']));
+                                    $sender_ip    = isset($sender_ip) ? $sender_ip : preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']);
+                                    $mtbcase      = $trackback_ip != $sender_ip; // Is host IP and sender IP matching (IP validation)?
+                                }
+                                // we could now even extend this special trackback case to send all follow-up-siblings to state 'moderate' (and/or after n $row['counter'])
+                                if ($addData['type'] == 'NORMAL' || $mtbcase == true) {
+                                    $this->IsHardcoreSpammer();
+                                    $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_BODYCLONE, $addData);
+                                    $eventData = array('allow_comments' => false);
+                                    $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY;
+                                    return false;
+                                }
                             }
                         }
 
