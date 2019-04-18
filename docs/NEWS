@@ -2,6 +2,10 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Allow to receive special cased multi valid trackbacks from one entry, when
+    spamblock plugins (recommended!) option "check duplicate comments" is set.
+    (thanks @mitch!)
+
   * Add missing success message style to [blue, bulletproof, carl_contest,
     competition, contest, default-rtl, idea] themes.
 
