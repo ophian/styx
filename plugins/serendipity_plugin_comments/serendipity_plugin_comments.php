@@ -20,15 +20,16 @@ class serendipity_plugin_comments extends serendipity_plugin
         $propbag->add('description',   PLUGIN_COMMENTS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Judebert, G. Brockhaus');
-        $propbag->add('version',       '1.15');
+        $propbag->add('version',       '1.16');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'php'         => '5.3.4'
         ));
         $propbag->add('groups', array('FRONTEND_VIEWS'));
         $propbag->add('configuration', array(
                                              'title',
+                                             'cssbreak',
                                              'wordwrap',
                                              'max_chars',
                                              'max_entries',
@@ -43,7 +44,7 @@ class serendipity_plugin_comments extends serendipity_plugin
         switch($name) {
 
             case 'authorid':
-                $authors     = array('all' => ALL_AUTHORS, 'login' => CURRENT_AUTHOR);
+                $authors = array('all' => ALL_AUTHORS, 'login' => CURRENT_AUTHOR);
                 /*
                 $row_authors = serendipity_db_query("SELECT realname, authorid FROM {$serendipity['dbPrefix']}authors");
                 if (is_array($row_authors)) {
@@ -94,6 +95,13 @@ class serendipity_plugin_comments extends serendipity_plugin
                 $propbag->add('default',     COMMENTS);
                 break;
 
+            case 'cssbreak':
+                $propbag->add('type',        'boolean');
+                $propbag->add('name',        'Auto break by theme styles only');
+                $propbag->add('description', 'ie. "word-wrap: break-word;"');
+                $propbag->add('default',     'true');
+                break;
+
             case 'wordwrap':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_COMMENTS_WORDWRAP);
@@ -134,18 +142,20 @@ class serendipity_plugin_comments extends serendipity_plugin
         $title       = $this->get_config('title', $this->title);
         $max_entries = $this->get_config('max_entries');
         $max_chars   = $this->get_config('max_chars');
+        $cssbreak    = serendipity_db_bool($this->get_config('cssbreak', 'true'));
         $wordwrap    = $this->get_config('wordwrap');
         $dateformat  = $this->get_config('dateformat');
+        $showurls    = $this->get_config('showurls','trackbacks');
 
         if (!$max_entries || !is_numeric($max_entries) || $max_entries < 1) {
             $max_entries = 15;
         }
 
-        if (!$max_chars || !is_numeric($max_chars) || $max_chars < 1) {
+        if ($max_chars || !is_numeric($max_chars) || $max_chars < 1) {
             $max_chars = 120;
         }
 
-        if (!$wordwrap || !is_numeric($wordwrap) || $wordwrap < 1) {
+        if (!$cssbreak && (!$wordwrap || !is_numeric($wordwrap) || $wordwrap < 1)) {
             $wordwrap = 30;
         }
 
@@ -166,8 +176,9 @@ class serendipity_plugin_comments extends serendipity_plugin
             serendipity_ACL_SQL($cond, true);
             serendipity_plugin_api::hook_event('frontend_fetchentries', $cond, array('source' => 'entries'));
         }
+        if (!isset($cond['joins'])) $cond['joins'] = '';
 
-        $q = 'SELECT    co.body              AS comment,
+        $q = "SELECT    co.body              AS comment,
                         co.timestamp         AS stamp,
                         co.author            AS user,
                         e.title              AS subject,
@@ -178,16 +189,16 @@ class serendipity_plugin_comments extends serendipity_plugin
                         co.url               AS comment_url,
                         co.title             AS comment_title,
                         co.email             AS comment_email
-                FROM    '.$serendipity['dbPrefix'].'comments AS co,
-                        '.$serendipity['dbPrefix'].'entries  AS e
-                        ' . $cond['joins'] . '
+                FROM    {$serendipity['dbPrefix']}comments AS co,
+                        {$serendipity['dbPrefix']}entries  AS e
+                        {$cond['joins']}
                WHERE    e.id = co.entry_id
-                 AND    NOT (co.type = \'TRACKBACK\' AND co.author = \'' . serendipity_db_escape_string($serendipity['blogTitle']) . '\' AND co.title != \'\')
-                 AND    co.status = \'approved\'
-                        ' . $viewtype . '
-                        ' . $cond['and'] . '
+                 AND    NOT (co.type = 'TRACKBACK' AND co.author = '" . serendipity_db_escape_string($serendipity['blogTitle']) . "' AND co.title != '')
+                 AND    co.status = 'approved'
+                        $viewtype
+                        {$cond['and']}
             ORDER BY    co.timestamp DESC
-            LIMIT ' . $max_entries;
+               LIMIT    $max_entries";
         $sql = serendipity_db_query($q);
         // echo $q;
 
@@ -203,8 +214,6 @@ class serendipity_plugin_comments extends serendipity_plugin
                         $comment .= ' [...]';
                     }
                 }
-
-                $showurls = $this->get_config('showurls','trackbacks');
                 $isTrackBack = $row['comment_type'] == 'TRACKBACK' || $row['comment_type'] == 'PINGBACK';
 
                 if ($row['comment_url'] != '' && ( ($isTrackBack && ($showurls =='trackbacks' || $showurls =='all') || !$isTrackBack && ($showurls =='comments' || $showurls =='all')))) {
@@ -223,24 +232,25 @@ class serendipity_plugin_comments extends serendipity_plugin
                 }
 
                 $user = trim($user);
-                if (empty($user))
-                {
+                if (empty($user)) {
                     $user = PLUGIN_COMMENTS_ANONYMOUS;
                 }
 
-                if (function_exists('mb_strimwidth')) {
-                    $pos = 0;
-                    $parts = array();
-                    $enc = LANG_CHARSET;
-                    $comment_len = mb_strlen($comment, $enc);
-                    while ($pos < $comment_len) {
-                        $part = mb_strimwidth($comment, $pos, $wordwrap, '', $enc);
-                        $pos += mb_strlen($part, $enc);
-                        $parts[] = $part;
+                if (!$cssbreak) {
+                    if (function_exists('mb_strimwidth')) {
+                        $pos = 0;
+                        $parts = array();
+                        $enc = LANG_CHARSET;
+                        $comment_len = mb_strlen($comment, $enc);
+                        while ($pos < $comment_len) {
+                            $part = mb_strimwidth($comment, $pos, $wordwrap, '', $enc);
+                            $pos += mb_strlen($part, $enc);
+                            $parts[] = $part;
+                        }
+                        $comment = implode("\n", $parts);
+                    } else {
+                        $comment = wordwrap($comment, $wordwrap, "\n", 1);
                     }
-                    $comment = implode("\n", $parts);
-                } else {
-                    $comment = wordwrap($comment, $wordwrap, "\n", 1);
                 }
                 $entry = array('comment' => $comment,
                                'email'   => $row['comment_email'],
@@ -256,15 +266,13 @@ class serendipity_plugin_comments extends serendipity_plugin
                 $addData = array('from' => 'serendipity_plugin_comments:generate_content');
                 serendipity_plugin_api::hook_event('frontend_display', $entry, $addData);
 
-                printf(
-                  '<div class="plugin_comment_wrap">' . PLUGIN_COMMENTS_ABOUT . '</div>',
-
-                  '<div class="plugin_comment_subject"><span class="plugin_comment_author">' . $user . '</span>',
-                  ' <a class="highlight" href="' . serendipity_archiveURL($row['entry_id'], $row['subject'], 'baseURL', true, array('timestamp' => $row['entrystamp'])) .'#c' . $row['comment_id'] . '" title="' . serendipity_specialchars($row['subject']) . '">'
+                printf('<div class="plugin_comment_wrap">' . "\n" . PLUGIN_COMMENTS_ABOUT . "</div>\n\n",
+                    '<div class="plugin_comment_subject"><span class="plugin_comment_author">' . $user . '</span>',
+                    ' <a class="highlight" href="' . serendipity_archiveURL($row['entry_id'], $row['subject'], 'baseURL', true, array('timestamp' => $row['entrystamp'])) .'#c' . $row['comment_id'] . '" title="' . serendipity_specialchars($row['subject']) . '">'
                       . serendipity_specialchars($row['subject'])
-                      . '</a></div>' . "\n"
+                      . "</a></div>\n"
                       . '<div class="plugin_comment_date">' . serendipity_specialchars(serendipity_strftime($dateformat, $row['stamp'])) . '</div>' . "\n"
-                      . '<div class="plugin_comment_body">' . strip_tags($entry['comment'], '<br /><img><a>') . '</div>' . "\n\n"
+                      . '<div class="plugin_comment_body">' . strip_tags($entry['comment'], '<br><img><a>') . '</div>' . "\n"
                 );
             }
         }
