@@ -2,6 +2,12 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Changing the default wordbreak option of serendipity_plugin_comments,
+    by adding a new 'cssbreak' (default:true) option for theme css comment body
+    (word) break behaviour styles.
+    This changes and overrules the wordbreak option!
+    UPGRADERS: Check your Settings and Sidebar appearance!
+
   * Allow to receive special cased multi valid trackbacks from one entry, when
     spamblock plugins (recommended!) option "check duplicate comments" is set.
     (thanks @mmitch (gitHub)!)
