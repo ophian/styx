@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Extend serendipity_plugin_comments with a "bodyclone" trackback placeholder
+
   * Changing the default wordbreak option of serendipity_plugin_comments,
     by adding a new 'cssbreak' (default:true) option for theme css comment body
     (word) break behaviour styles.
