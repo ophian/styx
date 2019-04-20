@@ -6,6 +6,7 @@
  *  @translated 2009/06/03
  */
 @define('PLUGIN_COMMENTS_BLAHBLAH', 'Zeigt die letzten Kommentare');
+@define('PLUGIN_COMMENTS_CSSONLY', 'Responsiver Umbruch durch eigenes Theme?');
 @define('PLUGIN_COMMENTS_WORDWRAP', 'Zeilenumbruch');
 @define('PLUGIN_COMMENTS_WORDWRAP_BLAHBLAH', 'Nach wievielen Buchstaben soll ein Zeilenumbruch eingefügt werden? (Standard: 30)');
 @define('PLUGIN_COMMENTS_MAXCHARS', 'Zeichen pro Kommentar');
