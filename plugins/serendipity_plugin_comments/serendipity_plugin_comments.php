@@ -203,7 +203,7 @@ class serendipity_plugin_comments extends serendipity_plugin
         // echo $q;
 
         if ($sql && is_array($sql)) {
-            // search for trackbacks with duplicate values for 'comment' body and 'comment_title'; BBC/SVG Mark them as clone
+            // search for trackbacks with duplicate values for 'comment' body and 'comment_title'; BBC/SVG mark them as clone
             foreach ($sql AS $current_key => &$current_array) {
                 foreach ($sql AS $search_key => $search_array) {
                     if ($search_array['comment_type'] == 'TRACKBACK' && $search_array['comment_title'] == $current_array['comment_title'] && $search_array['comment'] == $current_array['comment']) {
