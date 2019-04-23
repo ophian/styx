@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Improved [de, en] forced moderation descriptions in spamblock plugin,
+    to clear up minds for what is meant with use or reset.
+
   * Extend serendipity_plugin_comments with a "bodyclone" trackback placeholder
 
   * Changing the default wordbreak option of serendipity_plugin_comments,
