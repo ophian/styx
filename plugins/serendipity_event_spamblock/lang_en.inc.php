@@ -29,7 +29,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL', 'Force Captchas after how many days');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL_DESC', 'Captchas can be enforced depending on the age of your articles. Enter the amount of days after which entering a correct Captcha is necessary. If set to 0, Captchas will always be used.');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION', 'Force comment moderation after how many days');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_DESC', 'You can automatically set all incoming comments for entries to state "moderation". Enter the age of an entry in days, after which it should be set auto-moderated. 0 means no auto-moderation.');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_DESC', 'You can automatically set all incoming comments for entries to state "moderation". Enter the age of an entry in days, after which it should be set "auto-moderated". 0 means no "auto-moderation".');
 @define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE', 'How many links before a comment gets moderated');
 @define('PLUGIN_EVENT_SPAMBLOCK_LINKS_MODERATE_DESC', 'When a comment reaches a certain amount of links, that comment can be set to be moderated. 0 means that no link-checking is done.');
 @define('PLUGIN_EVENT_SPAMBLOCK_LINKS_REJECT', 'How many links before a comment gets rejected');
@@ -111,7 +111,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_TREAT', 'What to do with comments when being auto-moderated?');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_TREAT', 'What to do with trackbacks/pingbacks when being auto-moderated?');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT', 'Force API comment moderation after how many days');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_DESC', 'You can automatically set all trackbacks/pingbacks for entries to be moderated. Enter the age of an entry in days, after which it should be auto-moderated. 0 means no auto-moderation.');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_DESC', 'You can automatically set all incoming trackbacks/pingbacks for entries to state "moderation". Enter the age of an entry in days, after which it should be set "auto-moderated". 0 means no "auto-moderation".');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_CSRF', 'Forbid direct comments (XSRF protection)');
 @define('PLUGIN_EVENT_SPAMBLOCK_CSRF_DESC', 'If enabled, visitors are not allowed to submit a comment when visiting your articles directly. This can block spambots, but also people who are commenting from their RSS readers or who have cookies disabled. This protection is implemented by setting a special hash field, which will only exist when a valid session was already started. This will also protect you from XSRF attacks that could trick you into submitting comments under false pretenses.');
