@@ -19,13 +19,13 @@ class serendipity_event_spamblock extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_SPAMBLOCK_TITLE);
         $propbag->add('description',   PLUGIN_EVENT_SPAMBLOCK_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking, Sebastian Nohn, Grischa Brockhaus, Ian');
+        $propbag->add('author',        'Garvin Hicking, Sebastian Nohn, Grischa Brockhaus, Ian Styx');
         $propbag->add('requirements',  array(
             'serendipity' => '2.3.1',
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.16');
+        $propbag->add('version',       '2.17');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
