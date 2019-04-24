@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Allow serendipity_setCookie() function to auto-set the HTTPOnly flag,
+    when 3rd parameter $securebyprot is true, to protect against XSS flaws.
+
   * Improved [de, en] forced moderation descriptions in spamblock plugin,
     to clear up minds for what is meant with use or reset.
 
