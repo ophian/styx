@@ -436,6 +436,7 @@ switch ($serendipity['GET']['adminAction']) {
                     }
 
                     $tfile = str_replace(' ', '_', basename($tfile)); // keep serendipity_uploadSecure(URL) whitespace convert behaviour, when using serendipity_makeFilename()
+                    $tfile = serendipity_specialchars($tfile); // needed to prevent ability for uploader to inject javascript https://github.com/s9y/Serendipity/commit/f295a3b123bd7840ae65ccb2050ee93e5fbbcd93#diff-96c5729a7a3cb8af240c8d9fee9f023fR
                     $tfile = serendipity_uploadSecure(serendipity_makeFilename($tfile));
 
                     if (serendipity_isActiveFile($tfile)) {
@@ -475,6 +476,7 @@ switch ($serendipity['GET']['adminAction']) {
 
                     // Accept file
                     if (is_uploaded_file($uploadtmp) && serendipity_checkMediaSize($uploadtmp) && move_uploaded_file($uploadtmp, $target)) {
+                        $uploadfile = serendipity_specialchars($uploadfile); //see $tfile L 439 - and we  want the origin name here!
                         $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . FILE_UPLOADED . "</span>\n", "<b>$uploadfile</b>", $target);
                         @umask(0000);
                         @chmod($target, 0664);
