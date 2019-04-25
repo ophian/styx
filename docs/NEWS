@@ -4,8 +4,6 @@ Version dev ()
 
   * Add (sync) hidden mediaID tag to media object links added to entries.
     This enables automatic entry link renaming when this file is renamed.
-    For now this does not change the entries link 'title' attribute and the
-    link name itself, which may be done later.
 
   * Allow serendipity_setCookie() function to auto-set the HTTPOnly flag,
     when 3rd parameter $securebyprot is true, to protect against XSS flaws.
