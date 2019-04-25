@@ -2250,6 +2250,10 @@ h3 .media_file_actions {
     justify-content: inherit;
 }
 
+.mfp-content #serendipity_error_top {
+    width: 97.5%;
+}
+
 .mfp-content #edit_entry_category,
 .mfp-content #edit_entry_freetags,
 .mfp-content #s9y_links {
