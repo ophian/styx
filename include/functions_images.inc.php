@@ -4309,7 +4309,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 }
 
 /**
- * Moves a media directory and or File. A wrapper for
+ * Moves a media directory and or file. A wrapper for
  *
  * 1. case type 'dir' via 'directoryEdit':
  *              serendipity_renameDirAccess($oldDir, $newDir)

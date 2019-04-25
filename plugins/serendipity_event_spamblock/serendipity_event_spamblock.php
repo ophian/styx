@@ -1215,7 +1215,7 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check for identical comments. We allow to bypass trackbacks from our server to our own blog.
-                        if ( serendipity_db_bool($this->get_config('bodyclone', 'true')) === true && $_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR'] && $addData['type'] != 'PINGBACK') {
+                        if (serendipity_db_bool($this->get_config('bodyclone', 'true')) === true && $_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR'] && $addData['type'] != 'PINGBACK') {
                             $query = "SELECT count(id) AS counter FROM {$serendipity['dbPrefix']}comments WHERE type = '" . $addData['type'] . "' AND body = '" . serendipity_db_escape_string($addData['comment']) . "'";
                             $row   = serendipity_db_query($query, true);
                             if (is_array($row) && $row['counter'] > 0) {
