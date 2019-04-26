@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Allow automatic media item renaming actions of entryproperties cached
+    entries too. (See previous staticpage changelog entry for staticpages.)
+
   * Fix some wrong heading serendipity_convertThumbs() debug log entries
 
   * Allow renaming of staticpage entries media object links and link/image
