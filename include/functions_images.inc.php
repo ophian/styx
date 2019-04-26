@@ -1264,28 +1264,28 @@ function serendipity_convertThumbs() {
                         $epq1 = "SELECT entry_id, ep_cache_body
                                    FROM {$serendipity['dbPrefix']}entryproperties
                                   WHERE entry_id = {$entry['id']}";
-                        if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT entryproperties db::ep::content:ID:{$entry['id']}\n$epq1"); }
+                        if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::ep_cache_body:ID:{$entry['id']}\n$epq1"); }
                         $eps1 = serendipity_db_query($epq1, false, 'assoc');
                         if (is_array($eps1)) {
                             $eps1['body'] = preg_replace('@(src=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newThumbnail, $eps1['ep_cache_body']);
                             $uepq1 = "UPDATE {$serendipity['dbPrefix']}entryproperties
                                          SET body = '" . serendipity_db_escape_string($eps1['ep_cache_body']) . "'
                                        WHERE id =  " . serendipity_db_escape_string($eps1['entry_id']);
-                            if ($debug) { $serendipity['logger']->debug("$logtag SUB-UPDATE entryproperties db-ep:\nENTRY_ID:{$eps1['entry_id']} {$serendipity['dbPrefix']}entryproperties::content update " .DONE); }
+                            if ($debug) { $serendipity['logger']->debug("$logtag entries SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps1['entry_id']} {$serendipity['dbPrefix']}entryproperties::ep_cache_body SUB-UPDATE " .DONE); }
                             serendipity_db_query($uepq1);
                         }
-                        // SAME FOR ENTRYPROPERTIES CACHE for ep_cache_body
+                        // SAME FOR ENTRYPROPERTIES CACHE for ep_cache_extended
                         $epq2 = "SELECT entry_id, ep_cache_extended
                                    FROM {$serendipity['dbPrefix']}entryproperties
                                   WHERE entry_id = {$entry['id']}";
-                        if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT entryproperties db::ep::pre_content:ID:{$entry['id']}\n$epq2"); }
+                        if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::ep_cache_extended:ID:{$entry['id']}\n$epq2"); }
                         $eps2 = serendipity_db_query($epq2, false, 'assoc');
                         if (is_array($eps2)) {
                             $eps2['extended'] = preg_replace('@(src=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newThumbnail, $eps2['ep_cache_extended']);
                             $uepq2 = "UPDATE {$serendipity['dbPrefix']}entryproperties
                                          SET extended = '" . serendipity_db_escape_string($eps2['ep_cache_extended']) . "'
                                        WHERE id =  " . serendipity_db_escape_string($eps2['entry_id']);
-                            if ($debug) { $serendipity['logger']->debug("$logtag SUB-UPDATE entryproperties db-ep:\nENTRY_ID:{$eps2['entry_id']} {$serendipity['dbPrefix']}entryproperties::pre_content update " .DONE); }
+                            if ($debug) { $serendipity['logger']->debug("$logtag entries SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps2['entry_id']} {$serendipity['dbPrefix']}entryproperties::ep_cache_extended SUB-UPDATE " .DONE); }
                             serendipity_db_query($uepq2);
                         }
                     }
@@ -1296,7 +1296,7 @@ function serendipity_convertThumbs() {
                          FROM {$serendipity['dbPrefix']}staticpages
                         WHERE content     REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ")'
                            OR pre_content REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ")'";
-                if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT staticpages db::sp:\n$sq"); }
+                if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-SELECT staticpages DB::sp:\n$sq"); }
                 $spages = serendipity_db_query($sq, false, 'assoc');
                 if (is_array($spages)) {
                     foreach($spages AS $spage) {
@@ -1306,7 +1306,7 @@ function serendipity_convertThumbs() {
                                   SET content = '" . serendipity_db_escape_string($spage['content']) . "' ,
                                       pre_content = '" . serendipity_db_escape_string($spage['pre_content']) . "'
                                 WHERE id =  " . serendipity_db_escape_string($spage['id']);
-                        if ($debug) { $serendipity['logger']->debug("$logtag SUB-UPDATE staticpages db-sp:\nID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] update " .DONE); }
+                        if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-UPDATE staticpages DB:\nID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] UPDATE " .DONE); }
                         serendipity_db_query($pq);
                         // count the staticpage entries changed
                         if ($tmpStaticpID != $spage['id']) $s++;
@@ -4299,7 +4299,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                  FROM {$serendipity['dbPrefix']}staticpages
                 WHERE content     REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . "|" . serendipity_db_escape_String($ispOldFile) . ")'
                    OR pre_content REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . ")'";
-        if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT staticpages db::sp:\n$sq"); }
+        if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-SELECT staticpages DB::sp:\n$sq"); }
         $spages = serendipity_db_query($sq, false, 'assoc');
         if (is_array($spages)) {
             $spmdbitems = 0;
@@ -4314,12 +4314,12 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                               pre_content = '" . serendipity_db_escape_string($spage['pre_content']) . "'
                         WHERE id =  " . serendipity_db_escape_string($spage['id']);
 
-                if ($debug) { $serendipity['logger']->debug("$logtag SUB-UPDATE staticpages DB: ID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] update " .DONE); }
+                if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-UPDATE staticpages DB: ID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] UPDATE " .DONE); }
                 serendipity_db_query($pq);
                 // count the staticpage entry media items changed
                 $spmdbitems++;
             }
-            if ($debug) { $serendipity['logger']->debug("$logtag SUB-UPDATE staticpages DB: ID:{$spage['id']} UPDATE renamed $spmdbitems items "); }
+            if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-UPDATE staticpages DB: ID:{$spage['id']} UPDATE renamed $spmdbitems items "); }
         }
 
         if ($oldDir !== null) {
