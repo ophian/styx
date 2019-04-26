@@ -1271,7 +1271,7 @@ function serendipity_convertThumbs() {
                             $uepq1 = "UPDATE {$serendipity['dbPrefix']}entryproperties
                                          SET body = '" . serendipity_db_escape_string($eps1['ep_cache_body']) . "'
                                        WHERE id =  " . serendipity_db_escape_string($eps1['entry_id']);
-                            if ($debug) { $serendipity['logger']->debug("$logtag entries SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps1['entry_id']} {$serendipity['dbPrefix']}entryproperties::ep_cache_body SUB-UPDATE " .DONE); }
+                            if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps1['entry_id']} {$serendipity['dbPrefix']}entryproperties::ep_cache_body SUB-UPDATE " .DONE); }
                             serendipity_db_query($uepq1);
                         }
                         // SAME FOR ENTRYPROPERTIES CACHE for ep_cache_extended
@@ -1285,7 +1285,7 @@ function serendipity_convertThumbs() {
                             $uepq2 = "UPDATE {$serendipity['dbPrefix']}entryproperties
                                          SET extended = '" . serendipity_db_escape_string($eps2['ep_cache_extended']) . "'
                                        WHERE id =  " . serendipity_db_escape_string($eps2['entry_id']);
-                            if ($debug) { $serendipity['logger']->debug("$logtag entries SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps2['entry_id']} {$serendipity['dbPrefix']}entryproperties::ep_cache_extended SUB-UPDATE " .DONE); }
+                            if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps2['entry_id']} {$serendipity['dbPrefix']}entryproperties::ep_cache_extended SUB-UPDATE " .DONE); }
                             serendipity_db_query($uepq2);
                         }
                     }
