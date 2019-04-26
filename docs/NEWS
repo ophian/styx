@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix media rename actions in entryproperties cached entries for maintenance
+    task "convertThumbs".
+
   * Allow automatic media item renaming actions of entryproperties cached
     entries too. (See previous staticpage changelog entry for staticpages.)
 
