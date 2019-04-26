@@ -3,10 +3,11 @@ Version dev ()
 
 
   * Add (sync) hidden mediaID tag to media object links added to entries.
-    This enables automatic entry link renaming when this file is renamed.
+    This enables automatic entry link renaming when this file is renamed
+    via the MediaLibrary.
 
   * Allow serendipity_setCookie() function to auto-set the HTTPOnly flag,
-    when 3rd parameter $securebyprot is true, to protect against XSS flaws.
+    under certain default parameter condition, to protect against XSS flaws.
 
   * Improved [de, en] forced moderation descriptions in spamblock plugin,
     to clear up minds for what is meant with use or reset.
@@ -530,8 +531,8 @@ Version 2.6.0 (2018-09-07)
 
   * Fix MediaLibrary backend scale image result handler
 
-  * Changed the "media add to entry" "done"-button semantically and state
-    it coloured as a submit action. Dito, scale image template for the latter.
+  * Changed the (media add to entry) "done"-button semantically and state
+    it coloured as a submit action. Ditto, scale image template for the latter.
 
   * Fix SetCookie remember Media Options to only run on valid values
 
@@ -2302,7 +2303,7 @@ Version 2.1-beta1 Styx (September 3rd, 2016)
   * Issue #248: Add $serendipity['forceBase64']=true option (can be
     set in serendipity_config_local.inc.php) to make Serendipity
     *not* use 8bit Imap functions for sending mail, for MTAs that
-    behave erradically otherwise.
+    behave erratically otherwise.
 
   * Issue #257: Make sure to check entered admin-user password
 
