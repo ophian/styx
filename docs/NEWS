@@ -2,6 +2,10 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Allow renaming of staticpage entries media object links and link/image
+    items via the MediaLibrary too. Temporary(?), and similar to
+    serendipity_convertThumbs() actions, established in core.
+
   * Add (sync) hidden mediaID tag to media object links added to entries.
     This enables automatic entry link renaming when this file is renamed
     via the MediaLibrary.
