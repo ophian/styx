@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix some wrong heading serendipity_convertThumbs() debug log entries
+
   * Allow renaming of staticpage entries media object links and link/image
     items via the MediaLibrary too. Temporary(?), and similar to
     serendipity_convertThumbs() actions, established in core.
