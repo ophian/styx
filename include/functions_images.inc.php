@@ -4294,6 +4294,34 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $serendipity['logger']->debug("$logtag THE NEW regexed entry BODY = {$entry['body']}");
         }
 
+        // SAME FOR STATICPAGES
+        $sq = "SELECT id, content, pre_content
+                 FROM {$serendipity['dbPrefix']}staticpages
+                WHERE content     REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . "|" . serendipity_db_escape_String($ispOldFile) . ")'
+                   OR pre_content REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . ")'";
+        if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT staticpages db::sp:\n$sq"); }
+        $spages = serendipity_db_query($sq, false, 'assoc');
+        if (is_array($spages)) {
+            $spmdbitems = 0;
+            foreach($spages AS $spage) {
+                $spage['content']     = preg_replace('@(src=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $spage['content']);
+                $spage['pre_content'] = preg_replace('@(src=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $spage['pre_content']);
+                $spage['content']     = str_replace($link_pattern, $link_replace, $spage['content']);
+                $spage['pre_content'] = str_replace($link_pattern, $link_replace, $spage['pre_content']);
+
+                $pq = "UPDATE {$serendipity['dbPrefix']}staticpages
+                          SET content = '" . serendipity_db_escape_string($spage['content']) . "' ,
+                              pre_content = '" . serendipity_db_escape_string($spage['pre_content']) . "'
+                        WHERE id =  " . serendipity_db_escape_string($spage['id']);
+
+                if ($debug) { $serendipity['logger']->debug("$logtag SUB-UPDATE staticpages DB: ID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] update " .DONE); }
+                serendipity_db_query($pq);
+                // count the staticpage entry media items changed
+                $spmdbitems++;
+            }
+            if ($debug) { $serendipity['logger']->debug("$logtag SUB-UPDATE staticpages DB: ID:{$spage['id']} UPDATE renamed $spmdbitems items "); }
+        }
+
         if ($oldDir !== null) {
             echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVE_ENTRIES, count($entries)) . "</span>\n";
         } else {
@@ -4303,6 +4331,9 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             }
             if (count($entries) > 0) {
                 echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_FILE_RENAME_ENTRY, count($entries)) . "</span>\n";
+            }
+            if (count($spages) > 0 && $spmdbitems > 0) {
+                echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_FILE_RENAME_ENTRY, count($spages) . ' (staticpages)') . "</span>\n";
             }
         }
     }
