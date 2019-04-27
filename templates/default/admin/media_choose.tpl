@@ -8,7 +8,7 @@
     <div class="clearfix">
     {if $media.file.is_image}
         {serendipity_hookPlugin hook="frontend_image_selector" eventData=$media.file hookAll=true}
-        <h1>{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
+        <h1 id="media_selection_title">{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
 
         <img src="{$media.file.imgsrc}" alt="">
 

@@ -2996,6 +2996,10 @@ label .perm_name,
     vertical-align: top;
 }
 
+#media_selection_title {
+    word-wrap: break-word;
+}
+
 #template_select h3,
 .media_file h3 {
     margin: .5em 0 1em;
