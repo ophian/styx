@@ -4328,14 +4328,14 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $serendipity['logger']->debug("$logtag AFTER regexed entry BODY $oldLink = $newLink");
             $serendipity['logger']->debug("$logtag AFTER regexed entry BODY newLinkHTTPPath = $newLinkHTTPPath");
             $serendipity['logger']->debug("$logtag AFTER regexed entry BODY linkpattern = $link_pattern");
-            $serendipity['logger']->debug("$logtag AFTER regexed entry BODY linkrep = $link_replace");
+            $serendipity['logger']->debug("$logtag AFTER regexed entry BODY linkreplace = $link_replace");
             $serendipity['logger']->debug("$logtag THE NEW regexed entry BODY = {$entry['body']}");
         }
 
-        // SAME FOR STATICPAGES
+        // SAME FOR STATICPAGES (w/o isp)
         $sq = "SELECT id, content, pre_content
                  FROM {$serendipity['dbPrefix']}staticpages
-                WHERE content     REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . "|" . serendipity_db_escape_String($ispOldFile) . ")'
+                WHERE content     REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . ")'
                    OR pre_content REGEXP '(src=|href=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . ")'";
         if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-SELECT staticpages DB::sp:\n$sq"); }
         $spages = serendipity_db_query($sq, false, 'assoc');
