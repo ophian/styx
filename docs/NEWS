@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix regression in #28e1dfd for staticpage media item rename actions, when
+    this had no corresponding value in entries DB.
+
   * Sync image comment change:
     - Use figure/figcaption markup for media db images w/ captions.
 
