@@ -1187,3 +1187,5 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('PLUGINMANAGER_SUBMIT', 'Purge plugin zombies');
 @define('PLUGINMANAGER_INFO', 'Often there are older systems with plugins that were never activated or stored as local zombies in the database and thus never synchronized. Such plugins appear in the list as local plugins when searching for new plugins to install, although a newer version might be found on Spartacus. Such plugin zombies should be deleted so that the latest version can always be accessed in case of need. Sometimes, however, these are developer versions that have only fallen into oblivion. So think carefully before deleting marked plugins.');
 
+@define('MEDIA_RENAME_FINISH_RELOAD', 'Please self reload the ' . MEDIA_LIBRARY . ' after closing this message popup, to really show up your desired changes!');
+

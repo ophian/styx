@@ -1188,3 +1188,5 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('PLUGINMANAGER_SUBMIT', 'Lösche Plugin Zombies');
 @define('PLUGINMANAGER_INFO', 'Oft liegen auf älteren Systemen noch Plugins herum, die niemals aktiviert wurden, bzw. als lokale Zombies in der Datenbank abgelegt und damit auch nie synchronisiert wurden. Solche Plugins tauchen beim Suchen nach neu zu installierenden Plugins in der angezeigten Liste als lokal schon vorhandene Plugins auf, obwohl möglicherweise eine neuere Version auf Spartacus zu finden wäre. Solche Plugin Zombies sollte man löschen, damit im Falle des Falles immer auf die neueste Version zugegriffen werden kann. Manchmal aber auch sind dies Developer Versionen die nur etwas in Vergessenheit geraten sind. Denken Sie also gut nach bevor Sie den Löschvorgang für markierte Plugins betätigen.');
 
+@define('MEDIA_RENAME_FINISH_RELOAD', 'Damit die Änderungen sichtbar werden, laden die die aktuelle Seite der ' . MEDIA_LIBRARY . ' anschließend neu!');
+
