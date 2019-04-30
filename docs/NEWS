@@ -6,6 +6,7 @@ Version dev ()
     MediaLibrary and entry related databases like (entries / entryproperties
     cache / staticpages) and now support all current db layers, although the
     MySQL regular expression is more precise and recommended at all.
+    References staticpage event plugin update v.5.68.
 
   * Fix regression in #28e1dfd for staticpage media item rename actions, when
     this had no corresponding value in entries DB.
