@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Improve some media rename item related messaging
+
   * Remove the image (file | filedir | dir) media rename limitation from
     MediaLibrary and entry related databases like (entries / entryproperties
     cache / staticpages) and now support all current db layers, although the
