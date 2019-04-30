@@ -583,12 +583,14 @@
                 cache: false,
                 success: function(response) {
                     $response = (response.trim() == '')
-                        ? '<p>Done!</p>\
-                           <button id="rename_ok" class="button_link state_submit" type="button" >Go!</button>\
+                        ? '<p>DONE!</p>\
+                           <button id="rename_ok" class="button_link state_submit" type="button">Go!</button>\
                           '
-                        : response + '\
+                        : response + ((response.indexOf("error") > -1) ? '\
+                           <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> If you see this message there was probably an error message and something could not be done. To be able to undo any partial changes you may have made, the current MediaLibrary page is not reloaded by the following button. This means that the same action can be repeated directly with the old name so that the successing changes are back to the old state. On the other hand, partial changes that have already been made only become visible when you reload the current page manually! It is a question of which option you give priority to. The former is recommended, even if the error message probably repeats itself similarly, in order to only then trace the cause of the actual error message. Copy the error message for the subsequent debugging!</span>\
                            <input class="go_back" type="button" onClick="$.magnificPopup.close();" value="Back">\
-                          ';
+                          ' : ' <button id="rename_ok" class="button_link state_submit" type="button">Go!</button>\
+                          ');
                     $.magnificPopup.open({
                         items: {
                             type: 'inline',

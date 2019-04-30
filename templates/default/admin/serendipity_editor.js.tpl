@@ -580,11 +580,13 @@
                 success: function(response) {
                     $response = (response.trim() == '')
                         ? '<p>{$CONST.DONE}!</p>\
-                           <button id="rename_ok" class="button_link state_submit" type="button" >{$CONST.GO}</button>\
+                           <button id="rename_ok" class="button_link state_submit" type="button">{$CONST.GO}</button>\
                           '
-                        : response + '\
+                        : response + ((response.indexOf("error") > -1) ? '\
+                           <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_RENAME_ERROR_RELOAD}</span>\
                            <input class="go_back" type="button" onClick="$.magnificPopup.close();" value="{$CONST.BACK}">\
-                          ';
+                          ' : ' <button id="rename_ok" class="button_link state_submit" type="button">{$CONST.GO}</button>\
+                          ');
                     $.magnificPopup.open({
                         items: {
                             type: 'inline',
