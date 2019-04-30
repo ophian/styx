@@ -583,7 +583,7 @@
                 cache: false,
                 success: function(response) {
                     $response = (response.trim() == '')
-                        ? '<p>DONE!</p>\
+                        ? '<p>Done!</p>\
                            <button id="rename_ok" class="button_link state_submit" type="button">Go!</button>\
                           '
                         : response + ((response.indexOf("error") > -1) ? '\
