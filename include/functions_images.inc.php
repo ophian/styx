@@ -4428,7 +4428,6 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             if (is_array($spages) && !empty($spages) && count($spages) > 0 && $spmdbitems > 0) {
                 echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_FILE_RENAME_ENTRY, count($spages) . ' (staticpages)') . "</span>\n";
             }
-            echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . MEDIA_RENAME_FINISH_RELOAD . "</span>\n";
         }
     } // entries OR staticpages end
 }
