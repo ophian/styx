@@ -3179,6 +3179,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         }
     } else {
         $file['full_file']  = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
+        $file['full_path_file'] = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
         $file['show_thumb'] = $file['full_thumbHTTP'];
         if (!isset($file['imgsrc'])) {
             $file['imgsrc'] = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
@@ -3201,7 +3202,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
     $file['links'] = array('imagelinkurl' => $file['full_file']);
 
     $file['dim']       = @getimagesize($file['full_thumb'], $file['thumb_header']);
-    $file['dim_orig']  = @getimagesize($serendipity['serendipityPath'] . $file['full_file'], $file['header']);
+    $file['dim_orig']  = @getimagesize($file['full_path_file'], $file['header']);
     $file['is_image']  = serendipity_isImage($file);
 
     if ($file['is_image']) {
