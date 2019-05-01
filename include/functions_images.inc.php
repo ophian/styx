@@ -3201,9 +3201,9 @@ function serendipity_prepareMedia(&$file, $url = '') {
 
     $file['links'] = array('imagelinkurl' => $file['full_file']);
 
-    $file['dim']       = @getimagesize($file['full_thumb'], $file['thumb_header']);
-    $file['dim_orig']  = @getimagesize($file['full_path_file'], $file['header']);
     $file['is_image']  = serendipity_isImage($file);
+    $file['dim']       = $file['is_image'] ? @getimagesize($file['full_thumb'], $file['thumb_header']) : null;
+    $file['dim_orig']  = $file['is_image'] ? @getimagesize($file['full_path_file'], $file['header']) : null;
 
     if ($file['is_image']) {
         $file['mediatype'] = 'image';
