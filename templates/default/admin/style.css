@@ -2382,6 +2382,12 @@ h3 .media_file_actions {
     border: 2px double #00FFDB;
     padding: 0.5em;
 }
+.mfp-content #rename_msg .msg_error,
+.mfp-content #rename_msg code,
+.mfp-content #rename_msg pre {
+    display: inline-block;
+    text-align: left;
+}
 .mfp-content #delete_ok,
 .mfp-content #rename_ok {
     margin-bottom: 1em;
