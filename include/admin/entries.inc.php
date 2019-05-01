@@ -245,13 +245,17 @@ switch($serendipity['GET']['adminAction']) {
         $sort_import   = array('perPage', 'ordermode', 'order');
 
         foreach($filter_import AS $f_import) {
-            @serendipity_restoreVar($serendipity['COOKIE']['entrylist_filter_' . $f_import], serendipity_specialchars($serendipity['GET']['filter'][$f_import]));
-            $data["get_filter_$f_import"] = @serendipity_specialchars($serendipity['GET']['filter'][$f_import]);
+            if (isset($serendipity['GET']['filter'])) {
+                @serendipity_restoreVar($serendipity['COOKIE']['entrylist_filter_' . $f_import], serendipity_specialchars($serendipity['GET']['filter'][$f_import]));
+                $data["get_filter_$f_import"] = @serendipity_specialchars($serendipity['GET']['filter'][$f_import]);
+            }
         }
 
         foreach($sort_import AS $s_import) {
-            @serendipity_restoreVar($serendipity['COOKIE']['entrylist_sort_' . $s_import], serendipity_specialchars($serendipity['GET']['sort'][$s_import]));
-            $data["get_sort_$s_import"] = @serendipity_specialchars($serendipity['GET']['sort'][$s_import]);
+            if (isset($serendipity['GET']['sort'])) {
+                @serendipity_restoreVar($serendipity['COOKIE']['entrylist_sort_' . $s_import], serendipity_specialchars($serendipity['GET']['sort'][$s_import]));
+                $data["get_sort_$s_import"] = @serendipity_specialchars($serendipity['GET']['sort'][$s_import]);
+            }
         }
 
         $perPage = !empty($serendipity['GET']['sort']['perPage']) ? $serendipity['GET']['sort']['perPage'] : $per_page[0];
@@ -364,8 +368,10 @@ switch($serendipity['GET']['adminAction']) {
             foreach((array)$serendipity['GET']['sort'] AS $k => $v) {
                 $qString .= '&amp;serendipity[sort]['. $k .']='. $v;
             }
-            foreach(@(array)$serendipity['GET']['filter'] AS $k => $v) {
-                $qString .= '&amp;serendipity[filter]['. $k .']='. $v;
+            if (isset($serendipity['GET']['filter'])) {
+                foreach((array)$serendipity['GET']['filter'] AS $k => $v) {
+                    $qString .= '&amp;serendipity[filter]['. $k .']='. $v;
+                }
             }
             $data['linkFirst']    = $qString . '&amp;serendipity[page]=' . 0;
             $data['linkPrevious'] = $qString . '&amp;serendipity[page]=' . ($page-1);
