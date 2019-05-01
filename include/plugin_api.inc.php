@@ -470,10 +470,9 @@ class serendipity_plugin_api
         global $serendipity;
 
         // Can be shortcircuited via a $serendipity['prevent_sidebar_plugins_(left|right|event)'] variable! // mute possible uninitialized globals
-        if (!$negate && @$serendipity['prevent_sidebar_plugins_' . $filter] == true) {
+        if (!$negate && !empty($serendipity['prevent_sidebar_plugins_' . $filter]) && $serendipity['prevent_sidebar_plugins_' . $filter] == true) {
             return 0;
         }
-
 
         $sql = "SELECT COUNT(placement) AS count from {$serendipity['dbPrefix']}plugins ";
 
