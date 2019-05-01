@@ -233,7 +233,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     if (!$res) {
         if (!$expectError && !$serendipity['production']) {
             var_dump($res);
-            var_dump($sql);
+            var_dump(serendipity_specialchars($sql));
             $msg = "problem with query";
             return $msg;
         }
