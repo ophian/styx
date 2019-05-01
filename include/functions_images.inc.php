@@ -2004,7 +2004,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     }
 
     $dprops = $keywords = array();
-    if (@$serendipity['parseMediaOverview']) { // $serendipity['parseMediaOverview'] is either an undocumented user feature, or a development leftover since prior to 2006, or an unknown and unofficial plugin feature
+    if (isset($serendipity['parseMediaOverview']) && $serendipity['parseMediaOverview']) { // $serendipity['parseMediaOverview'] is either an undocumented user feature, or a development leftover since prior to 2006, or an unknown and unofficial plugin feature
         $ids = array();
         foreach($serendipity['imageList'] AS $k => $file) {
             $ids[] = $file['id'];
