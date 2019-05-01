@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix wrong constant declaration in modemaintain plugin
+
   * Fix getimagesize() full file path for MediaLibrary media info
 
   * [Security] Sanitize simple printed $sql errors db layers for XSS,
