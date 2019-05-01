@@ -1075,6 +1075,7 @@
 @define('CONF_USE_AUTOSAVE', '자동 저장 기능 사용');
 @define('CONF_USE_AUTOSAVE_DESC', '사용할 경우 블로그 글에 입력한 내용을 브라우저의 세션 저장소에 주기적으로 저장하게 됩니다. 글 작성 중 브라우저가 비정상 종료될 경우 다음 번에 새로 글을 작성할 때 본문 내용이 자동 저장에서 복구되어 표시됩니다.');
 @define('INSTALL_CAT_FEEDS', '피드 설정');
+@define('INSTALL_CAT_FEEDS_DESC', 'Customize how Serendipity feeds Feeds');
 @define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR', 'WYSIWYG 편집기의 도구 모음');
 @define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR_DESC', 'WYSIWYG 편집기에 표시할 수 있는 도구 모음 버튼의 목록을 설정합니다. 기본 설정 묶음(프리셋)을 추가적으로 변경하고자 할 경우 templates/XXX/admin/ckeditor_custom_config.js 파일을 만들면 됩니다. 보다 자세한 사항은 htmlarea/ckeditor_s9y_config.js 및 htmlarea/ckeditor_s9y_plugin.js 파일을 참고하기 바랍니다.');
 @define('USERCONF_WYSIWYG_PRESET_S9Y', '세렌디피티 (기본값)');
