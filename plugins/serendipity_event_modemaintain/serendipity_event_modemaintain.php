@@ -12,7 +12,7 @@ if (IN_serendipity !== true) {
   * Class member instance attribute values
   * Members must be initialized with a constant expression (like a string constant, numeric literal, etc), not a dynamic expression!
   */
-@define(MODEMAINTAIN_PRESET_MOMATXT, sprintf(PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT, $serendipity['blogTitle']));
+@define('MODEMAINTAIN_PRESET_MOMATXT', sprintf(PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT, $serendipity['blogTitle']));
 
 // Extend the base class
 class serendipity_event_modemaintain extends serendipity_plugin
@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.21');
+        $propbag->add('version',       '1.22');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'
