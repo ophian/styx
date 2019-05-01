@@ -30,32 +30,32 @@
                     <div class="clearfix inputs">
                         <div class="form_field">
                             <label for="filter_author">{$CONST.AUTHOR}</label>
-                            <input id="filter_author" name="serendipity[filter][author]" type="text" value="{$get.filter.author|escape|default:''}">
+                            <input id="filter_author" name="serendipity[filter][author]" type="text" value="{if NOT empty($get.filter.author)}{$get.filter.author|escape}{/if}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_email">{$CONST.EMAIL}</label>
-                            <input id="filter_email" name="serendipity[filter][email]" type="text" value="{$get.filter.email|escape|default:''}">
+                            <input id="filter_email" name="serendipity[filter][email]" type="text" value="{if NOT empty($get.filter.email)}{$get.filter.email|escape}{/if}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_url">{$CONST.HOMEPAGE}</label>
-                            <input id="filter_url" name="serendipity[filter][url]" type="text" value="{$get.filter.url|escape|default:''}">
+                            <input id="filter_url" name="serendipity[filter][url]" type="text" value="{if NOT empty($get.filter.url)}{$get.filter.url|escape}{/if}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_ip">IP</label>
-                            <input id="filter_ip" name="serendipity[filter][ip]" type="text" value="{$get.filter.ip|escape|default:''}">
+                            <input id="filter_ip" name="serendipity[filter][ip]" type="text" value="{if NOT empty($get.filter.ip)}{$get.filter.ip|escape}{/if}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_body">{$CONST.CONTENT}</label>
-                            <input id="filter_body" name="serendipity[filter][body]" type="text" value="{$get.filter.body|escape|default:''}">
+                            <input id="filter_body" name="serendipity[filter][body]" type="text" value="{if NOT empty($get.filter.body)}{$get.filter.body|escape}{/if}">
                         </div>
 
                         <div class="form_field">
                             <label for="filter_referer">{$CONST.REFERER}</label>
-                            <input id="filter_referer" name="serendipity[filter][referer]" type="text" value="{$get.filter.referer|escape|default:''}">
+                            <input id="filter_referer" name="serendipity[filter][referer]" type="text" value="{if NOT empty($get.filter.referer)}{$get.filter.referer|escape}{/if}">
                         </div>
 
                         <div class="form_select">
@@ -177,7 +177,7 @@
                                 <li><button class="button_link toggle_comment_full" type="button" data-href="#c{$comment.id}_full" title="{$CONST.TOGGLE_OPTION}"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_OPTION}</span></button></li>
 {/if}
                             </ul>
-                            {$comment.action_more|default:''}
+                            {if NOT empty($comment.action_more)}{$comment.action_more}{/if}
                             <div class="comment_type {$comment.type|lower}" title="{($comment.type == 'NORMAL') ? $CONST.COMMENT : (($comment.type == 'TRACKBACK') ? $CONST.TRACKBACK : 'Pingback' )}"><span class="stype">{$comment.stype}</span></div>
 
                         </li>
