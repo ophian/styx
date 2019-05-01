@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * [Security] Sanitize simple printed $sql errors db layers for XSS,
+    which also helps showing up complete error messages.
+
   * Improve some media rename item related messaging
 
   * Remove the image (file | filedir | dir) media rename limitation from
