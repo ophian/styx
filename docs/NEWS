@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Improve fallback condition in entity/specialchars wrapper functions
+
   * Fix wrong constant declaration in modemaintain plugin
 
   * Fix getimagesize() full file path for MediaLibrary media info
