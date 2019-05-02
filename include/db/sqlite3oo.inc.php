@@ -265,7 +265,6 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
         return $type_map['false'];
     }
 
-
     if (!preg_match('@^SELECT@imsU', trim($sql))) {
         // Everything that is not SELECT will not return rows.
         // SQLite3 OO will always return an object though.
