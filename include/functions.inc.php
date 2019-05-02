@@ -477,7 +477,9 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
     }
 
     foreach($data AS $k => $v) {
-        $data[$k] = @trim(implode("\n", $v));
+        if (is_array($v)) {
+            $data[$k] = @trim(implode("\n", $v));
+        }
     }
 
     $charsetpath  = (LANG_CHARSET == 'UTF-8') ? '/UTF-8' : '';
