@@ -95,8 +95,9 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
         }
     }
 
-    if (!$expectError && mysql_error($serendipity['dbConn']) != '') {
-        $msg = '<pre>' . serendipity_specialchars($sql) . '</pre> / ' . serendipity_specialchars(mysql_error($serendipity['dbConn']));
+    if (!$expectError && mysql_error($serendipity['dbConn']) != '' && $serendipity['production']) {
+        $msg = mysql_error($serendipity['dbConn']);
+        $msg = serendipity_specialchars($msg); // avoid Notice: Only variable references should be returned by reference
         return $msg;
     }
 
@@ -123,12 +124,10 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
             }
             return $type_map['true'];
         case 1:
-            if ($single) {
-                return mysql_fetch_array($c, $result_type);
-            }
         default:
             if ($single) {
-                return mysql_fetch_array($c, $result_type);
+                $result = mysqli_fetch_array($c, $result_type); // avoid Notice: Only variable references should be returned by reference
+                return $result;
             }
 
             $rows = array();
