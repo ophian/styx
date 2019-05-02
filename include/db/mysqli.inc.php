@@ -74,14 +74,17 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
         $c = mysqli_query($serendipity['dbConn'], $sql);
     }
 
-    if (!$expectError && mysqli_error($serendipity['dbConn']) != '') {
+    if (!$expectError && mysqli_error($serendipity['dbConn']) != '' && $serendipity['production']) {
         $msg = mysqli_error($serendipity['dbConn']);
-        return $msg;
+        $msg = serendipity_specialchars($msg); // avoid Notice: Only variable references should be returned by reference
+        return $msg; // watch out, this is just the simplified error message, alike "Unknown column 'bug' in 'where clause'" and not the full SQL query. You need to catch it though!
     }
 
     if (!$c) {
         if (!$expectError && !$serendipity['production']) {
-            print mysqli_error($serendipity['dbConn']);
+            $tsql = serendipity_specialchars($sql);
+            print "<span class=\"msg_error\">Error in $tsql</span>";
+            print '<span class="msg_error">' . mysqli_error($serendipity['dbConn']) . "</span>";
             if (function_exists('debug_backtrace') && $reportErr == true) {
                 highlight_string(var_export(debug_backtrace(), 1));
             }
