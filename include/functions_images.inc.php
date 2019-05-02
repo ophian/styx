@@ -4239,18 +4239,21 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     $entries = serendipity_db_query($q, false, 'assoc');
 
     if ($debug) {
-        $serendipity['logger']->debug($logtag . 'SQL QUERY:' . "\n" . $q);
+        $serendipity['logger']->debug("$logtag SQL QUERY: \n$q");
         $did = array(); // init for NULL cases
         if (is_array($entries)) {
             foreach($entries AS $d) { $did[] = $d['id']; }
             reset($entries);
         }
-        if (!empty($did)) {
-            $serendipity['logger']->debug($logtag . "Found Entry ID: " . implode(', ', $did));
-        } else {
-            $serendipity['logger']->debug($logtag . "Found no entries to change");
+        if (is_string($entries) && !empty($entries)) {
+            $serendipity['logger']->debug("$logtag DB ERROR! Entries serendipity_db_query returned: $entries");
         }
-        $serendipity['logger']->debug($logtag . "Change IMAGESELECTORPLUS ispOldFile=$ispOldFile");
+        if (!empty($did)) {
+            $serendipity['logger']->debug("$logtag FOUND Entry ID: " . implode(', ', $did));
+        } else {
+            $serendipity['logger']->debug("$logtag Found NO ENTRIES to change");
+        }
+        $serendipity['logger']->debug("$logtag Change IMAGESELECTORPLUS ispOldFile=$ispOldFile");
     }
 
     if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
