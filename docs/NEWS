@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix db/mysqli thrown (and missing) error reporting, depending on blogs
+    $serendipity['production'] state.
+
   * Fix db/sqlrelay sendQuery reporting for consistency
 
   * Improve fallback condition in entity/specialchars wrapper functions
