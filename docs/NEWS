@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix db/sqlrelay sendQuery reporting for consistency
+
   * Improve fallback condition in entity/specialchars wrapper functions
 
   * Fix wrong constant declaration in modemaintain plugin
