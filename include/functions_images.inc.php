@@ -4363,7 +4363,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                                  AND property = 'ep_cache_body'";
                     if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps1['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_body) SUB-UPDATE " .DONE); }
                     serendipity_db_query($uepq1);
-                }
+                } // no need for else thrown mysql/i error message
                 // SAME FOR ENTRIES ENTRYPROPERTIES CACHE for ep_cache_extended
                 $epq2 = "SELECT entryid, value
                            FROM {$serendipity['dbPrefix']}entryproperties
@@ -4379,7 +4379,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                                AND property = 'ep_cache_extended'";
                     if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps2['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_extended) SUB-UPDATE " .DONE); }
                     serendipity_db_query($uepq2);
-                }
+                } // no need for else thrown mysql/i error message
             }
 
             if ($debug) {
@@ -4434,6 +4434,12 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             }
         }
     } // entries OR staticpages end
+    else {
+        if (($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') && $serendipity['production'] && (is_string($entries) || is_string($spages))) {
+            // NOTE: keep "error" somewhere in echoed string since that is the matching JS condition
+            echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> DB ERROR: ' . (!empty($entries) ? $entries : $spages) . "</span>\n";
+        }
+    }
 }
 
 /**
