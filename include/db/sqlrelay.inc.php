@@ -77,6 +77,25 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
 }
 
 /**
+ * Generate the SQL resultset.
+ */
+function generate_resultset($cursor, $result_type = 'sqlr_BOTH') {
+   $return_row = array();
+
+    for ($r_row = 0, $max_r = sqlrcur_rowCount($cursor); $r_row < $max_r; $r_row++) {
+       for ($r_col=0, $max_rc = sqlrcur_colCount($cursor); $r_col < $max_rc ; $r_col++) {
+            if ($result_type == 'sqlr_ASSOC') {
+                $return_row[sqlrcur_getColumnName($cursor, $r_col)] = sqlrcur_getField($cursor, $r_row, $r_col);
+            } else {
+                $return_row[$r_row][$r_col] = sqlrcur_getField($cursor, $r_row,$r_col);
+                $return_row[$r_row][sqlrcur_getColumnName($cursor, $r_col)] = $return_row[$r_row][$r_col];
+            }
+        }
+    }
+   return $return_row;
+}
+
+/**
  * Perform a DB Layer SQL query.
  *
  * This function returns values depending on the input parameters and the result of the query.
@@ -96,23 +115,6 @@ function serendipity_db_in_sql($col, &$search_ids, $type = ' OR ') {
  * @param   boolean     If true, the executed SQL error is known to fail, and should be disregarded (errors can be ignored on DUPLICATE INDEX queries and the likes)
  * @return  mixed       Returns the result of the SQL query, depending on the input parameters
  */
-
-function generate_resultset($cursor, $result_type = 'sqlr_BOTH') {
-   $return_row = array();
-
-    for ($r_row = 0, $max_r = sqlrcur_rowCount($cursor); $r_row < $max_r; $r_row++) {
-       for ($r_col=0, $max_rc = sqlrcur_colCount($cursor); $r_col < $max_rc ; $r_col++) {
-            if ($result_type == 'sqlr_ASSOC') {
-                $return_row[sqlrcur_getColumnName($cursor, $r_col)] = sqlrcur_getField($cursor, $r_row, $r_col);
-            } else {
-                $return_row[$r_row][$r_col] = sqlrcur_getField($cursor, $r_row,$r_col);
-                $return_row[$r_row][sqlrcur_getColumnName($cursor, $r_col)] = $return_row[$r_row][$r_col];
-            }
-        }
-    }
-   return $return_row;
-}
-
 function &serendipity_db_query($sql, $single = false, $result_type = "both", $reportErr = false, $assocKey = false, $assocVal = false, $expectError = false) {
     global $serendipity;
     $type_map = array(
@@ -138,7 +140,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     }
 
     if ($expectError) {
-       $c = sqlrcur_sendQuery($cur, $sql);
+       $c = @sqlrcur_sendQuery($cur, $sql);
     } else {
        $c = sqlrcur_sendQuery($cur, $sql);
     }
