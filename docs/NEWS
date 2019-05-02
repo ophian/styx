@@ -13,8 +13,8 @@ Version dev ()
 
   * Fix getimagesize() full file path for MediaLibrary media info
 
-  * [Security] Sanitize simple printed $sql errors db layers for XSS,
-    which also helps showing up complete error messages.
+  * [Security] Sanitize simple printed $sql errors in db layers, which also
+    helps showing up complete error messages in cases.
 
   * Improve some media rename item related messaging
 
