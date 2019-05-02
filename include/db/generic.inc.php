@@ -98,9 +98,9 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
 
 
 /**
- *  Perform a sql-query with the now possible ? syntax for parameters
- *  @param  string   SQL query to exectue, for example "SELECT * from X where Y = ?
- *  @param  array    Paramters to insert into the sql-query
+ *  Perform a SQL-query with the now possible ? syntax for parameters
+ *  @param  string   SQL query to execute, for example "SELECT * from X where Y = ?
+ *  @param  array    Parameters to insert into the SQL-query
  *  @result mixed    Returns the result of the SQL query, depending on the input parameters
  */
 function serendipity_db_query2($sql, $parameters = array()) {
