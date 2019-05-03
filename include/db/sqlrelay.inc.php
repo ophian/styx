@@ -158,12 +158,12 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
         $c     = sqlrcur_sendQuery($cur, $sql_U);
         if (sqlrcur_affectedRows() < 1) {
            $sql_i = "INSERT INTO BLOGLOG_TOTAL (sql, counter) VALUES ('" . serendipity_db_escape_string($psql) . "', 1)";
-           $c = sqlrcur_sendQuery($cur,$sql_i);
+           $c = sqlrcur_sendQuery($cur, $sql_i);
         }
     }
 
-    if (!$expectError && sqlrcur_errorMessage($cur) != '') {
-        $msg = '<pre>' . serendipity_specialchars($sql) . '</pre> / ' . serendipity_specialchars(sqlrcur_errorMessage($cur));
+    if (!$expectError && sqlrcur_errorMessage($cur) != '' && $serendipity['production']) {
+        $msg = serendipity_specialchars(sqlrcur_errorMessage($cur));
         return $msg;
     }
 
