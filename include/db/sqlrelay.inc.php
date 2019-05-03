@@ -140,7 +140,7 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     }
 
     if ($expectError) {
-       $c = @sqlrcur_sendQuery($cur, $sql);
+       $c = sqlrcur_sendQuery($cur, $sql);
     } else {
        $c = sqlrcur_sendQuery($cur, $sql);
     }
