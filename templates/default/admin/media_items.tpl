@@ -118,7 +118,7 @@
                                 {if isset($file.nice_thumbsize) AND NOT $file.hotlink}
                                 <li><b>{$CONST.THUMBFILE_SIZE}:</b> {$file.nice_thumbsize} KB</li>
                                 {/if}
-                                <li><b>{$CONST.INSTALL_RELUPLOADPATH}:</b> "{$file.path}"</li>
+                                <li><b>{$CONST.PATH}:</b> "{$file.path}"</li>
                                 <li><b>{$CONST.DATE}:</b> {$file.date|formatTime:DATE_FORMAT_SHORT}</li>
                             {/if}
 
