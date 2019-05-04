@@ -3235,10 +3235,12 @@ function serendipity_prepareMedia(&$file, $url = '') {
     if ($file['is_image'] && isset($file['full_thumb']) && file_exists($file['full_thumb'])) {
         $file['thumbWidth']  = $file['dim'][0];
         $file['thumbHeight'] = $file['dim'][1];
+        $file['thumbSize']   = @filesize($file['full_thumb']);
     } elseif ($file['is_image'] && $file['hotlink']) {
         $sizes = serendipity_calculate_aspect_size($file['dimensions_width'], $file['dimensions_height'], $serendipity['thumbSize'], $serendipity['thumbConstraint']);
         $file['thumbWidth']  = $sizes[0];
         $file['thumbHeight'] = $sizes[1];
+        $file['thumbSize']   = 0;
     /* If it's not an image, or the thumbnail does not exist */
     } else {
         $mimeicon = serendipity_getTemplateFile('admin/img/mime_' . preg_replace('@[^a-z0-9\-\_]@i', '-', $file['mime']) . '.png');
@@ -3255,6 +3257,9 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['nice_hotlink'] = wordwrap($file['path'], 45, '<br />', 1);
     }
     $file['nice_size']    = number_format(round($file['size']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+    if (isset($file['thumbSize'])) {
+        $file['nice_thumbsize'] = number_format(round($file['thumbSize']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+    }
 
     return true;
 }
