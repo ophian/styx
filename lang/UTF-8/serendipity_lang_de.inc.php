@@ -1191,3 +1191,5 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 
 @define('MEDIA_RENAME_ERROR_RELOAD', 'Wenn Sie diese Nachricht sehen gab es wahrscheinlich eine Fehlermeldung und etwas konnte nicht durchgeführt werden. Damit Sie eventuell erfolgte Teilveränderungen aber wieder rückgängig machen können, wird die aktuelle Mediatheks-Seite nicht neu geladen. Somit kann dieselbe Aktion mit dem alten Namen direkt wiederholt werden, damit die Änderungen wieder auf dem alten Stand sind. Andererseits werden bereits erfolgte Teilveränderungen erst sichtbar, wenn Sie die aktuelle Seite der Mediathek von Hand neu laden! Es ist eine Frage welcher Option Sie Priorität einräumen. Empfohlen ist Ersteres, auch wenn die Fehlermeldung sich vermutlich ähnlich wiederholt, um erst dann der Ursache der eigentlichen Fehlermeldung nachzuspüren. Kopieren Sie sich die Fehlermeldung für das anschließende Debugging!');
 
+@define('THUMBFILE_SIZE', 'Vorschau Dateigröße');
+
