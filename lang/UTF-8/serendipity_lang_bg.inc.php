@@ -970,7 +970,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Simplified filters');
-@define('SIMPLE_FILTERS_DESC', 'When enabled, search forms and filter functions are reduced to essential options. When disabled, you will see every possible filter option, i.e. in the media library or the entry editor, under condition of actual permission.');
+@define('SIMPLE_FILTERS_DESC', 'When enabled, search forms and filter functions are reduced to essential options. When disabled, you will see every possible filter option, like in the "Media library" or the "Edit entries" list, under condition of actual permission.');
 @define('TOGGLE_SELECT', 'Mark for selection');
 @define('MORE', 'More');
 @define('ENTRY_STATUS', 'Entry status');
