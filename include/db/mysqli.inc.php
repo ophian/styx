@@ -86,7 +86,9 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
             print "<span class=\"msg_error\">Error in $tsql</span>";
             print '<span class="msg_error">' . mysqli_error($serendipity['dbConn']) . "</span>";
             if (function_exists('debug_backtrace') && $reportErr == true) {
-                highlight_string(var_export(debug_backtrace(), 1));
+                highlight_string(var_export(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 4), 1));
+                // if you need the "object" Index filled use
+                // highlight_string(var_export(debug_backtrace(DEBUG_BACKTRACE_PROVIDE_OBJECT | DEBUG_BACKTRACE_IGNORE_ARGS, 4), 1));
             }
         }
 
