@@ -227,8 +227,8 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     if (!$serendipity['dbLastResult']) {
         if (!$expectError && !$serendipity['production']) {
             $tsql = serendipity_specialchars($sql);
-            print "<span class=\"msg_error\">Error in $tsql</span>";
-            print pg_last_error($serendipity['dbConn']) . "<br/>\n";
+            print "<span class=\"msg_error\">Error in $tsql</span>\n";
+            print '<span class="msg_error">' . pg_last_error($serendipity['dbConn']) . "</span>\n";
             if (function_exists('debug_backtrace') && $reportErr == true) {
                 // highlight_string() in mean of '<pre></pre>' equivalent, not in mean of php code highlight...
                 highlight_string(var_export(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 4), 1));
