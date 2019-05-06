@@ -2,6 +2,9 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * [Security] Secure non-production state SQL (4th parameter) forced backtraced
+    errors with PHP DEBUG_BACKTRACE_IGNORE_ARGS bitmask.
+
   * Add image thumb KB file size to MediaLibrary item info array
 
   * Fix db/mysqli thrown (and missing) error reporting, depending on blogs
