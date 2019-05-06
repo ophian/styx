@@ -83,8 +83,8 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     if (!$c) {
         if (!$expectError && !$serendipity['production']) {
             $tsql = serendipity_specialchars($sql);
-            print "<span class=\"msg_error\">Error in $tsql</span>";
-            print '<span class="msg_error">' . mysqli_error($serendipity['dbConn']) . "</span>";
+            print "<span class=\"msg_error\">Error in $tsql</span>\n";
+            print '<span class="msg_error">' . mysqli_error($serendipity['dbConn']) . "</span>\n";
             if (function_exists('debug_backtrace') && $reportErr == true) {
                 // highlight_string() in mean of '<pre></pre>' equivalent, not in mean of php code highlight...
                 highlight_string(var_export(debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 4), 1));
