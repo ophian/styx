@@ -103,6 +103,10 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         }
     }
 
+    if (!isset($cond['parts']['filter'])) {
+        $cond['parts']['filter'] = '';
+    }
+
     if (count($keywords) > 0) {
         $cond['parts']['keywords'] = " AND (mk.property IN ('" . serendipity_db_implode("', '", $keywords, 'string') . "'))\n";
         $cond['joinparts']['keywords'] = true;
