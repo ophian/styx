@@ -2,8 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
-  * Fix postgres and pdo-sqlite SQL error backtrace condition to emit consistently
-    only when forceError (4th parameter) is set.
+  * Fix both postgres and pdo-sqlite serendipity_db_query() SQL error backtrace
+    conditions to consistently emit only when $reportErr (4th parameter) is set.
 
   * [Security] Secure non-production state SQL (4th parameter) forced backtraced
     errors with PHP DEBUG_BACKTRACE_IGNORE_ARGS bitmask.
