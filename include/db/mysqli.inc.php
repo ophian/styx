@@ -62,9 +62,9 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     global $serendipity;
     $type_map = array(
                         'assoc' => MYSQLI_ASSOC,
-                        'num' => MYSQLI_NUM,
-                        'both' => MYSQLI_BOTH,
-                        'true' => true,
+                        'num'   => MYSQLI_NUM,
+                        'both'  => MYSQLI_BOTH,
+                        'true'  => true,
                         'false' => false
     );
 
