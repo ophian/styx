@@ -103,7 +103,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         }
     }
 
-    if (!isset($cond['parts']['filter'])) {
+    if (!empty($filter) && !isset($cond['parts']['filter'])) {
         $cond['parts']['filter'] = '';
     }
 
@@ -147,7 +147,6 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                 $cond['parts']['filter'] .= " AND ($f = '" . serendipity_db_escape_string(trim($fval)) . "')\n";
             }
         } elseif ($f == 'fileCategory') {
-            if (!isset($cond['parts']['filter'])) $cond['parts']['filter'] = '';
             switch ($fval) {
                 case 'image':
                     $cond['parts']['filter'] .= " AND (i.mime LIKE 'image/%')\n";
@@ -157,7 +156,6 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
                     break;
             }
         } else {
-            if (!isset($cond['parts']['filter'])) $cond['parts']['filter'] = '';
             if (substr($f, 0, 3) === 'bp.') {
                 $realf = substr($f, 3);
                 $cond['parts']['filter'] .= " AND (bp2.property = '$realf' AND bp2.value LIKE '%" . serendipity_db_escape_string(trim($fval)) . "%')\n";
