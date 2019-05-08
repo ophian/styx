@@ -464,6 +464,11 @@ $tasks = array(
                     'title'     => 'Spartacus (Developer) Plugin Update (Database) Synchronizer',
                     'desc'      => '<b>ZARATHUSTRA</b> - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
 
+            array(  'version'   => '2.8.0',
+                    'type'      => 'CONFIGURATION_NOTICE',
+                    'title'     => '<b>CONFIGURATION_NOTICE:</b> Missing (default) media property fields on elder systems',
+                    'desc'      => 'cause some media backend forms to not display all available items. Please READ about this "issue" later on in the ChangeLog file via the backends "Maintenance" page and re-check your settings.'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
