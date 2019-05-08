@@ -6,11 +6,11 @@ Version dev ()
     elder set default value in the "Media properties" option field configuration,
     issuing missing fields in the MediaLibrary filter options search form, or the
     media per item mediaproperties form.
-    Please check that your settings in Sidebar "Settings" ::
-        "Configuration" : "Image Conversion Settings" (tab): "Media properties" option
+    Please check that your settings in Sidebar "Settings" :: "Configuration" :
+      "Image Conversion Settings" (tab): "Media properties" option
     do reflect your actual needs or special sets. Else better reset the value to
     "DPI:IMAGE;RUN_LENGTH:VIDEO:AUDIO;DATE;COPYRIGHT;TITLE;COMMENT1:MULTI;COMMENT2:MULTI;ALT"
-    without quotes.
+    without quotes and in this order.
 
   * Fix both postgres and pdo-sqlite serendipity_db_query() SQL error backtrace
     conditions to consistently emit only when $reportErr (4th parameter) is set.
