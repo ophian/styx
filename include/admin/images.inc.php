@@ -444,7 +444,7 @@ switch ($serendipity['GET']['adminAction']) {
                         continue;
                     }
 
-                    // avoid uploading images files without extensions, which quite often is done on Macs, since that that is bad for the MediaLibrary Management
+                    // avoid uploading images files without extensions, which quite often is done on Macs, since that is bad for the MediaLibrary Management
                     $tmpfileinfo = @serendipity_getimagesize($uploadtmp);
                     if (empty(strtolower(pathinfo($tfile, PATHINFO_EXTENSION)))
                     && $tmpfileinfo[0] > 0 && $tmpfileinfo[1] > 0 /* check width and height */
