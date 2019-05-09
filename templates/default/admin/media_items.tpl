@@ -84,6 +84,12 @@
                         {else}
                         {if $file.is_image}
                         <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties -->
+                        {if $file.mime|truncate:6:'' == 'image/' AND $file.extension|count_characters > $CONST.PATHINFO_EXTENSION}
+                        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR_SOMETHING}
+                            <p>{$CONST.MEDIA_EXTENSION_FAILURE|sprintf:$file.realname:$file.mime:$file.extension:($file.extension|count_characters):$CONST.PATHINFO_EXTENSION}</p>
+                            {$CONST.MEDIA_EXTENSION_FAILURE_REPAIR}
+                        </span>
+                        {/if}
                         {else}
                         {if {$file.mime|regex_replace:"/\/.*$/":""} == 'video' AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}{* * *}
                         <video width="320" height="240" controls>

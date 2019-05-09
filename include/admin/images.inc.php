@@ -814,8 +814,16 @@ switch ($serendipity['GET']['adminAction']) {
 
     case 'scaleSelect':
         $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
+        $_file['is_image'] = serendipity_isImage($file);
 
-        if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete') || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
+        if (!is_array($file) || !$_file['is_image'] || !serendipity_checkPermission('adminImagesDelete') || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
+            return;
+        }
+
+        if ($_file['is_image'] && strlen($file['extension']) > PATHINFO_EXTENSION) {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> '. ERROR_SOMETHING . "\n<p>";
+                printf(MEDIA_EXTENSION_FAILURE, $file['realname'], $file['mime'], $file['extension'], strlen($file['extension']), PATHINFO_EXTENSION);
+            echo "</p>\n" . MEDIA_EXTENSION_FAILURE_REPAIR . "</span>\n";
             return;
         }
 
