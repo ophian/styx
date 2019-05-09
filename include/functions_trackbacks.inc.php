@@ -313,7 +313,7 @@ function add_trackback($id, $title, $url, $name, $excerpt) {
     // Decode HTML Entities
     $excerpt = trackback_body_strip($excerpt);
 
-    log_trackback('[' . date('d.m.Y H:i') . '] Trackback body:' . $excerpt);
+    log_trackback('[' . date('d.m.Y H:i') . '] Trackback body: ' . $excerpt);
 
     $comment = array(
         'title'   => $title,
