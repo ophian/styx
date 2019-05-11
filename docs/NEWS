@@ -49,7 +49,7 @@ Version dev ()
   * Fix regression in #28e1dfd for staticpage media item rename actions, when
     this had no corresponding value in entries DB.
 
-  * Sync image comment change:
+  * Sync [s9y] image comment change:
     - Use figure/figcaption markup for media db images w/ captions.
 
   * Fix media rename actions in entryproperties cached entries for maintenance
@@ -64,7 +64,7 @@ Version dev ()
     items via the MediaLibrary too. Temporary(?), and similar to
     serendipity_convertThumbs() actions, established in core.
 
-  * Add (sync) hidden mediaID tag to media object links added to entries.
+  * Sync [s9y]: Add hidden mediaID tag to media object links added to entries.
     This enables automatic entry link renaming when this file is renamed
     via the MediaLibrary.
 
@@ -111,13 +111,13 @@ Version dev ()
 
   * Add min-width to default theme sidebars
 
-  * Security: Sync - Fix XSS in Media Library by interpreted EXIF tags
+  * [Security]: Sync [s9y] - Fix XSS in Media Library by interpreted EXIF tags
 
-  * Sync nl2br plugin nl2p-mode changes (partial)
+  * Sync [s9y] nl2br plugin nl2p-mode changes (partial)
     - Fix bug in p-mode that ate pre elements
     - Improve nl2br p-mode to work with <strike> tags
 
-  * Sync timeline theme update
+  * Sync [s9y] timeline theme update
 
   * Fixup non-standard $entry.plugin_display_dat emitting place in [2k11,
     bootstrap4, clean-blog, next, skeleton, timeline] themes.
@@ -525,7 +525,7 @@ Version 2.6.1 (2018-09-16)
 
   * Improve maintenance theme manager for empty return messaging
 
-  * Add some routing security checks against XSS
+  * [Security] Add some routing security checks against XSS
 
   * Consolidate version to Smarty 3.1.33 release
 
@@ -630,7 +630,7 @@ Version 2.6.0 (2018-09-07)
 
   * Fix and extend Zarathustra (pluginlist) upgrade task
 
-  * Sync - Fix missing spamblock Captcha output by regression for non-GD
+  * Sync [s9y] - Fix missing spamblock Captcha output by regression for non-GD
     users since 7/2013.
 
   * Fix regression with $template_config_groups in ['bulletproof, clean-blog,
@@ -658,7 +658,7 @@ Version 2.6-beta1 (2018-08-06)
   * Fix regression in Spartacus putting together the URL for plugin update
     files
 
-  * Sync: If (backend) js is broken, fallback to open configuration options
+  * Sync [s9y]: If (backend) js is broken, fallback to open configuration options
 
   * Add "show_all" option to Smarty templates for the categories plugin.
 
@@ -693,19 +693,19 @@ Version 2.6-beta1 (2018-08-06)
   * Add some version like "commit-days-since-first" info to the [2k11,
     next] themes info.txt description, since they have been touched a lot.
 
-  * Security: Sync - Make sure that the admins configuration for RSS
+  * [Security]: Sync [s9y] - Make sure that the admins configuration for RSS
     and blog entry limit is parsed as integer for SQL queries.
     Thanks to @oreamnos and Hanno Boeck for reporting!
 
-  * Security: Sync - Prevent XSS possibility in "edit entries" panel.
+  * [Security]: Sync [s9y] - Prevent XSS possibility in "edit entries" panel.
     Thanks to @oreamnos and Hanno Boeck for reporting!
 
-  * Security: Sync - Disallow sending comment notifications and mails to more
+  * [Security]: Sync [s9y] - Disallow sending comment notifications and mails to more
     than one mail address. This could be used to approving opt-ins of requests
     that did not belong to the same email that was approved.
     Thanks to Hanno Boeck for reporting!
 
-  * Security: Sync - Remove exit.php open redirect, when not using the
+  * [Security]: Sync [s9y] - Remove exit.php open redirect, when not using the
     trackexits-plugin configured with Serendipity exit tracking.
     Thanks to Julio Cesar (from infosec.com.br) and Hanno Boeck for reporting!
 
@@ -762,7 +762,7 @@ Version 2.6-beta1 (2018-08-06)
     option and now has moved in the global configuration section: "General
     Settings". You have to allow this option again, if already using!
 
-  * Partially Sync "Improved NL2P (nl2br)" commit, added to Serendipity
+  * Partially Sync [s9y] "Improved NL2P (nl2br)" commit, added to Serendipity
     by Stephan Brunker, part II.
 
   * Fix proper Backend message when developer build runs integrity check
@@ -836,7 +836,7 @@ Version 2.6-beta1 (2018-08-06)
   * Add a third parameter to serendipity_printEntryFooter() entries API
     for new comments_by_author limits.
 
-  * No-Sync for "allow SVG files in Media Library", since that opens XSS
+  * No-s9y-Sync for "allow SVG files in Media Library", since that opens XSS
     vulnerabilities.
 
   * Introduce new $serendipity['CBAfetchLimit'] variable (default: 10),
@@ -857,7 +857,7 @@ Version 2.6-beta1 (2018-08-06)
   * Trust logged-in CHIEF and ADMIN USERLEVELs to set already approved
     comments.
 
-  * No-Sync for "INSTALL_SUBSCRIBE default false value change"
+  * No-s9y-Sync for "INSTALL_SUBSCRIBE default false value change"
 
   * Optimize MediaLibrary filter extension SQL-query performance for
     serendipity_fetchImagesFromDatabase() requests.
@@ -931,7 +931,7 @@ Version 2.5.0 (2018-05-15)
     input for logged in authors with an empty realname (wrong array
     key name) and deleted all existing text input
 
-  * Sync bootstrap4 theme to Bootstrap 4.1.0 update
+  * Sync [s9y] bootstrap4 theme to Bootstrap 4.1.0 update
 
 
 Version 2.5-beta1 (2018-04-19)
@@ -993,7 +993,7 @@ Version 2.5-beta1 (2018-04-19)
 
   * Remove old Smarty2 BC mode wrapper methods
 
-  * Sync and fix new bootstrap 4 theme
+  * Sync [s9y] and fix new bootstrap 4 theme
 
   * Replace PHP 7.2 set deprecated each() usage where possible
 
@@ -1001,7 +1001,7 @@ Version 2.5-beta1 (2018-04-19)
 
   * Fix path variable name in hook backend_sendcomment
 
-  * Sync and fix new NL2P OPERATION mode with the nl2br plugin
+  * Sync [s9y] and fix new NL2P OPERATION mode with the nl2br plugin
 
   * Themes: Convert old serendipity message styles - notice green to blue
             At now all success Frontend message selectors where changed
@@ -1433,7 +1433,7 @@ Version 2.3-beta1 (2017-08-14)
 
   * GIT: Update .gitignore file to allow subdirectory based .htaccess files
 
-  * Sync - Adapt .htaccess default rules to exclude rewriting plugin
+  * Sync [s9y] - Adapt .htaccess default rules to exclude rewriting plugin
     documentation files (Issue #521).
 
   * Fixed regression bug for HOTlinked media items and the hideSubdirFiles
@@ -1512,7 +1512,7 @@ Version 2.2.0 (2017-06-23)
   * Spend some love to Backend comments list for a better distinction
     of Comments/Trackbacks/Pingbacks.
 
-  * Extend Modemaintain Plugin for security
+  * [Security]: Extend Modemaintain Plugin for security
 
   * Optimise Maintain section messages
 
@@ -1521,15 +1521,15 @@ Version 2.2.0 (2017-06-23)
   * Update this NEWS file documentary for the MySQL full unicode
     implementation "bug" down below by a marked "JUNE 2017" part.
 
-  * Sync and enhance: Add "backend_view_entry" hook, that is executed for
+  * Sync [s9y] and enhance: Add "backend_view_entry" hook, that is executed for
     every entry in the Backend entry list.
 
-  * Sync: Emit and detect rel=trackback element to find trackback
+  * Sync [s9y]: Emit and detect rel=trackback element to find trackback
     url, to have a reliable alternative to RDF used so far.
 
   * Bugfix upgrade to Smarty 3.1.32-dev-11
 
-  * Sync: Updated entryproperties plugin to support a custom property
+  * Sync [s9y]: Updated entryproperties plugin to support a custom property
     for multiple ownership of an article.
 
   * Improve the Dashboards "no default widget" option, to show shortcut
@@ -1586,7 +1586,7 @@ Version 2.2.0 (2017-06-23)
   * Merge Smarty 3.1.32-1: Fix compiling isset() and empty() functions
     for differing PHP behaviour since PHP 5.5.
 
-  * Sync and fix:
+  * Sync [s9y] and fix:
     Added secure installer with a token, manually created inside a file.
     This is to prevent unauthorized installation access at the very
     moment of install. Just follow the guided steps!
@@ -1610,17 +1610,17 @@ Version 2.2.0 (2017-06-23)
   * Fix odd Chrome line break issue with MediaLibrary item titles and
     the multi form_check box.
 
-  * Sync: Fix comment preview for logged-in user overwriting user data
+  * Sync [s9y]: Fix comment preview for logged-in user overwriting user data
 
   * INFO:
-        - No sync for adding a "delete" button to the Backend entry form.
+        - No s9y-sync for adding a "delete" button to the Backend entry form.
           Styx does not want to overload the entry form with tasks that
           can better be done in the entry list.
-        - No sync for including the PEAR Net/DNS2 lib. Currently it seems
+        - No s9y-sync for including the PEAR Net/DNS2 lib. Currently it seems
           ridiculous to add a 84 file lib, while some old plugins are out
           of date. See: serendipity_event_spamblock_(rbl/surbl).
 
-  * Sync: "Suppress empty groups in plugin list" issue, which only
+  * Sync [s9y]: "Suppress empty groups in plugin list" issue, which only
     matters with the Serendipity origin additional_plugin repository.
 
   * Make Backend page tab title order configurable.
@@ -1829,7 +1829,7 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
   * Add upgrade task (again) to rename internally used plugins for the
     stable Styx release
 
-  * Synced/Added new API wrapper serendipity_request_url() to request
+  * [s9y] Synced/Added new API wrapper serendipity_request_url() to request
     URLs for compat. Styx plugins currently still use the simpler Styx
     approach.
     Core Image hotlink requests do now support this new API method.
@@ -1858,9 +1858,9 @@ Version 2.1-beta-3 Styx (December 19th, 2016)
     the Serendipity and PHP version information and assets for unlogged
     users.
 
-  * Partial Sync - flexbox Backend solution
+  * Partial Sync [s9y] - flexbox Backend solution
 
-  * Sync core iconfont accessibility fixes
+  * Sync [s9y] core iconfont accessibility fixes
 
   * Fix and optimize Plugin description
 
