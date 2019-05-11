@@ -6,6 +6,7 @@
     {if isset($media.external)}{$media.external}{/if}
 
     <div class="clearfix">
+{if isset($media.file) && is_array($media.file)}
     {if $media.file.is_image}
         {serendipity_hookPlugin hook="frontend_image_selector" eventData=$media.file hookAll=true}
         <h1 id="media_selection_title">{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
@@ -169,6 +170,7 @@
         </script>
         {/if}
     {/if}{* if $media.file.is_image is something else end *}
+{/if}
     </div>
 {/if}{* if $perm_denied else end *}
 
