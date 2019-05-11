@@ -1575,7 +1575,7 @@ function serendipity_updertEntry($entry) {
 
             serendipity_insertPermalink($entry);
         } else {
-            //Some error message here
+            // Some error message here
             return ENTRIES_NOT_SUCCESSFULLY_INSERTED;
         }
         $newEntry = 1;
