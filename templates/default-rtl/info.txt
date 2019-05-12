@@ -1,6 +1,6 @@
 Name: RTL-Languages v0.4
 Author: Tom Sommer, Omid Mottaghi
-Date: 2018-12-04
+Date: 2019-04-12
 Require Serendipity: 1.7
 
 Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)

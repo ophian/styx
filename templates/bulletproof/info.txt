@@ -1,6 +1,6 @@
 Name: Bulletproof
 Author: Bulletproof development team
-Date: 2019-01-19
+Date: 2019-04-12
 Require Serendipity: 1.7
 Engine: default
 

@@ -1,6 +1,6 @@
 Name: blue
 Author: Sebastian Bergmann
-Date: 2018-12-05
+Date: 2019-04-15
 
 Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
 Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
