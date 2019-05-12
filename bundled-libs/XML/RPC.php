@@ -1487,15 +1487,6 @@ class XML_RPC_Message extends XML_RPC_Base
         $data = substr($data, 0, $final + 17);
         $this->response_payload = $data;
 
-        /**
-         * thanks to https://www.php.net/manual/en/function.is-countable.php#123725
-         */
-        if (version_compare(PHP_VERSION, '7.3') < 0 && !function_exists('is_countable')) {
-            function is_countable($var) {
-                return (is_array($var) || is_object($var) || is_iterable($var) || $var instanceof Countable);
-            }
-        }
-
         // Check is_final data is the last piece of data sent in this parse
         $end = (is_countable($data) && false === $final) ? false : true;
 
