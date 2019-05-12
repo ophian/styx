@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Add is_countable() PHP < 7.3 polyfill to the functions API
+
   * Fix (old) bundled libs XML/RPC because of PHP7 new count() warnings
 
   * Check for "non-Internet" image formats already uploaded to the MediaLibrary
