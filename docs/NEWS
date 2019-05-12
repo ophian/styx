@@ -2,6 +2,8 @@ Version dev ()
  ------------------------------------------------------------------------
 
 
+  * Fix (old) bundled libs XML/RPC because of PHP7 new count() warnings
+
   * Check for "non-Internet" image formats already uploaded to the MediaLibrary
     and place a detailed image EXTENSION handler error message in the scale
     image and image properties pages.
