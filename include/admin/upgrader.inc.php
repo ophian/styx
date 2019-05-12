@@ -465,6 +465,11 @@ $tasks = array(
                     'desc'      => '<b>ZARATHUSTRA</b> - [Z]ero [A]ccess [R]epository [A]nd [T]emporary/able [H]ealth [U]pgrade [S]ynchronizer [T]ask [R]egulation [A]ctor.'),
 
             array(  'version'   => '2.8.0',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> All core delivered themes were changed.',
+                    'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page. And PLEASE check your copy themes.'),
+
+            array(  'version'   => '2.8.0',
                     'type'      => 'CONFIGURATION_NOTICE',
                     'title'     => '<b>CONFIGURATION_NOTICE:</b> Missing (default) media property fields on elder systems',
                     'desc'      => 'cause some media backend forms to not display all available items. Please READ about this "issue" later on in the ChangeLog file via the backends "Maintenance" page and re-check your settings.'),
