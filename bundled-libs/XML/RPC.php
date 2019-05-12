@@ -1479,14 +1479,27 @@ class XML_RPC_Message extends XML_RPC_Base
         }
 
         /*
-         * be tolerant of junk after methodResponse
+         * Be aware of junk after methodResponse
          * (e.g. javascript automatically inserted by free hosts)
          * thanks to Luca Mariano <luca.mariano@email.it>
          */
-        $data = substr($data, 0, strpos($data, "</methodResponse>") + 17);
+        $final = strpos($data, "</methodResponse>");
+        $data = substr($data, 0, $final + 17);
         $this->response_payload = $data;
 
-        if (!xml_parse($parser_resource, $data, sizeof($data))) {
+        /**
+         * thanks to https://www.php.net/manual/en/function.is-countable.php#123725
+         */
+        if (version_compare(PHP_VERSION, '7.3') < 0 && !function_exists('is_countable')) {
+            function is_countable($var) {
+                return (is_array($var) || is_object($var) || is_iterable($var) || $var instanceof Countable);
+            }
+        }
+
+        // Check is_final data is the last piece of data sent in this parse
+        $end = (is_countable($data) && false === $final) ? false : true;
+
+        if (!xml_parse($parser_resource, $data, $end)) {
             // thanks to Peter Kocks <peter.kocks@baygate.com>
             if (xml_get_current_line_number($parser_resource) == 1) {
                 $errstr = 'XML error at line 1, check URL';
