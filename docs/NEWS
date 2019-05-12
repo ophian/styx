@@ -9,9 +9,9 @@ Version 2.8.0 RC1 ()
     being a little more strict and which becomes new features and enhancements
     etc. This will give legacy applications more time to upgrade to version 7.
 
-    The current Debian 9 "stretch" is running IM 6.9.7.x, while upcoming Debian
-    10 "buster" and "sid" are at IM 6.9.10.x versions. That means, it seems that
-    even for dist-upgrades the next ~5 years there will be no change, without
+    The current stable Debian 9 "stretch" is running IM 6.9.7.x, while upcoming
+    Debian 10 "buster" and "sid" are at IM 6.9.10.x versions. That means, it seems
+    that even for dist-upgrades the next ~5 years there will be no change, without
     giving the opportunity to run both versions co-existing in your environment.
     Same issue for Centos/Fedora or Ubuntu. Fedora Devs stated to support the
     co-existing tooling, so that migration is at least possible over the years.
