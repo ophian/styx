@@ -40,6 +40,9 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Remove maintenance restriction note for entries media replace/rename iteration
+    with non-MySQL databases.
+
   * Add is_countable() PHP < 7.3 polyfill to the functions API
 
   * Fix (old) bundled libs XML/RPC because of PHP7 new count() warnings
