@@ -145,7 +145,7 @@ function serendipity_installDatabase($type='') {
     global $serendipity;
 
     // PostgreSQL and SQLite do not care about string length, other than as required by the SQL standard and define the N in varchar(N) as characters (not bytes).
-    // MySQL decided to store codepoints in fixed-size areas and can not index columns larger than 767 bytes. "UTF8MB4" has an index length limitation of  VARCHAR(191).
+    // MySQL decided to store codepoints in fixed-size areas and can not index columns larger than 767 bytes. "UTF8MB4" has an index length limitation of VARCHAR(191).
     if ($type == 'mysqli' || $type == 'mysql') {
         $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql');
     } else {
@@ -156,8 +156,8 @@ function serendipity_installDatabase($type='') {
     foreach($queries AS $query) {
         $return = serendipity_db_schema_import($query);
         if (is_string($return)) {
-            echo "SQL-ERROR: " . $return . "<br />\n";
-            echo "QUERY: <pre>" . $query . "</pre><br />\n";
+            echo "SQL-ERROR: " . $return . "<br>\n";
+            echo "QUERY: <pre>" . $query . "</pre><br>\n";
         }
     }
 
@@ -167,8 +167,8 @@ function serendipity_installDatabase($type='') {
         foreach($queries AS $query) {
             $return = serendipity_db_schema_import($query);
             if (is_string($return)) {
-                echo "SQL-ERROR: " . $return . "<br />\n";
-                echo "QUERY: <pre>" . $query . "</pre><br />\n";
+                echo "SQL-ERROR: " . $return . "<br>\n";
+                echo "QUERY: <pre>" . $query . "</pre><br>\n";
             }
         }
     }
@@ -1006,7 +1006,7 @@ function serendipity_removeFiles($files = null) {
         }
 
         if (!is_writable($source)) {
-            $errors[] = sprintf(FILE_WRITE_ERROR, $source) . '<br />';
+            $errors[] = sprintf(FILE_WRITE_ERROR, $source) . '<br>';
         } else {
             rename($source, $target);
         }
