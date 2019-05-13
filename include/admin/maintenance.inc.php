@@ -33,7 +33,7 @@ $data['dbUtf8mb4_converted'] = isset($serendipity['dbUtf8mb4_converted']) ? $ser
 $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
-$data['dbnotmysql']          = ($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true;
+$data['dbnotmysql']          = false;//($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true; // Remove completely, when new LIKE solution found guilty
 $data['suffixTask']          = (is_array($usedSuffixes) && count($usedSuffixes) > 1) ? true : false;
 $data['zombP']               = null;
 $data['zombT']               = null;
