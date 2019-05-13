@@ -893,7 +893,7 @@ $i18n_unknown = 'tw';
 
 @define('MEDIA_DIRECTORY_MOVED', '目錄和檔案已成功移動到 %s');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', '目錄和檔案無法移動到 %s！');
-@define('MEDIA_DIRECTORY_MOVE_ENTRY', '在非 MySQL 資料庫內，無法移動文章到新的目錄。您需要自己修改文章的網址。您還是可以將舊目錄回覆到原來的位址。');
+#@define('MEDIA_DIRECTORY_MOVE_ENTRY', '在非 MySQL 資料庫內，無法移動文章到新的目錄。您需要自己修改文章的網址。您還是可以將舊目錄回覆到原來的位址。');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', '移動 %s 篇文章的網誌到新的目錄。');
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', '開啟');
@@ -1168,7 +1168,7 @@ Please run the simulation first, to get a list of SQL statements, that will be i
 Run the <b>executor</b> [execute] task as long it appears, to fully convert the database tables and re-set the new dbCharset to "utf8mb4" in your configuration file. Do not reload your browser tab. You are finished with a <b>green</b> success message!');
 @define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your Blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
-@define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
+#@define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
 
 @define('HTML_COMMENTS', 'Allow HTML comments');
 @define('HTML_COMMENTS_DESC', 'If the WYSIWYG option in personal preferences is set true, you may additionally allow tag-restricted HTML comments and "pre/code" tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');

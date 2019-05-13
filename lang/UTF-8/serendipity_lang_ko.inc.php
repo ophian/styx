@@ -890,7 +890,7 @@
 
 @define('MEDIA_DIRECTORY_MOVED', '디렉토리와 파일이 %s(으)로 이동하는데 성공했습니다');
 @define('MEDIA_DIRECTORY_MOVE_ERROR', '디렉토리와 파일을 %s(으)로 이동할 수 없었습니다!');
-@define('MEDIA_DIRECTORY_MOVE_ENTRY', 'MySQL이 아닌 데이터베이스에서는 이전 디렉토리 주소를 새 디렉토리 주소로 바꾸기 위해 모든 글을 하나씩 살펴가는 작업을 할 수 없습니다. 수작업으로 각 글에 대해 주소 교체 작업을 해야 합니다. 이것이 너무 번거로울 경우 디렉토리를 원래 위치로 다시 되돌릴 수 있습니다.');
+#@define('MEDIA_DIRECTORY_MOVE_ENTRY', 'MySQL이 아닌 데이터베이스에서는 이전 디렉토리 주소를 새 디렉토리 주소로 바꾸기 위해 모든 글을 하나씩 살펴가는 작업을 할 수 없습니다. 수작업으로 각 글에 대해 주소 교체 작업을 해야 합니다. 이것이 너무 번거로울 경우 디렉토리를 원래 위치로 다시 되돌릴 수 있습니다.');
 @define('MEDIA_DIRECTORY_MOVE_ENTRIES', '%s개의 글에서 이동한 디렉토리로 주소를 변경했습니다.');
 @define('MEDIA_FILE_RENAME_ENTRY', 'The filename was changed in %s entries.');
 @define('PLUGIN_ACTIVE', '사용 중');
@@ -1164,7 +1164,7 @@ Please run the simulation first, to get a list of SQL statements, that will be i
 Run the <b>executor</b> [execute] task as long it appears, to fully convert the database tables and re-set the new dbCharset to "utf8mb4" in your configuration file. Do not reload your browser tab. You are finished with a <b>green</b> success message!');
 @define('UTF8MB4_MIGRATION_FAIL', 'Your current installation either does not use the UTF-8 charset already, does not use the MySQLi driver, or the server version is lower than 5.5.3 and does not support UTF8MB4. To be able to use UTF8MB4, make sure your Blog is configured for the UTF-8 charset, and make sure existing data is also converted to UTF-8 (by using a tool like mysqldump to export, convert to UTF-8 and import).');
 
-@define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
+#@define('MEDIA_THUMBURL_REPLACE_ENTRY', 'On Non-MySQL databases, iterating through every article to replace the old thumbSuffix URLs with the new thumbSuffix URLs is not possible. You will need to manually edit your entries to fix these old URLs. You can still rename your thumbSuffix back to the old name, or just live with all current stored suffixes (see above), if that is too cumbersome for you.');
 
 @define('HTML_COMMENTS', 'Allow HTML comments');
 @define('HTML_COMMENTS_DESC', 'If the WYSIWYG option in personal preferences is set true, you may additionally allow tag-restricted HTML comments and "pre/code" tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
