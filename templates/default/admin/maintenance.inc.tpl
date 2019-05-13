@@ -232,7 +232,7 @@
 
         {/if}
 
-    {if $dbUtf8mb4_converted}
+    {if $dbUtf8mb4_converted OR $dbUtf8mb4_ready}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true" title="{$CONST.UTF8MB4_MIGRATION_TASK_DONE}"></span> <span title="{$CONST.UTF8MB4_MIGRATION_TASK_DONE}"> {$CONST.UTF8MB4_MIGRATION_TASK_DONE|truncate:44|replace:'8':'8-MB4'}</span></span>
     {else}
         <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_INFO}</span>

@@ -34,6 +34,7 @@ $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
 $data['dbnotmysql']          = false;//($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true; // Remove completely, when new LIKE solution found guilty
+$data['dbUtf8mb4_ready']     = in_array($serendipity['dbType'], ['sqlite3', 'sqlite3oo', 'pdo-sqlite', 'postgres', 'pdo-postgres']); // we assume that postgres is at least >= version 9.4, with UTF8 full Unicode, 8-bit, 1-4 Bytes/Char support
 $data['suffixTask']          = (is_array($usedSuffixes) && count($usedSuffixes) > 1) ? true : false;
 $data['zombP']               = null;
 $data['zombT']               = null;
