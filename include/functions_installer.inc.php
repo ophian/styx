@@ -144,6 +144,8 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
 function serendipity_installDatabase($type='') {
     global $serendipity;
 
+    // PostgreSQL and SQLite do not care about string length, other than as required by the SQL standard and define the N in varchar(N) as characters (not bytes).
+    // MySQL decided to store codepoints in fixed-size areas and can not index columns larger than 767 bytes. "UTF8MB4" has an index length limitation of  VARCHAR(191).
     if ($type == 'mysqli' || $type == 'mysql') {
         $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql');
     } else {
