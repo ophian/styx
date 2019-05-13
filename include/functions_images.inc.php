@@ -4542,7 +4542,8 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     // Entry REPLACEMENT AREA
 
     // Only MySQL supported, since I don't know how to use REGEXPs differently.
-    // Ian: Whoever wrote this; We should improve this to all! Remove, when LIKE solution found working overall!
+    // Ian: Whoever wrote this; We should improve this to all!
+    //      Remove completely, when new LIKE solution found working overall!
     #if (!in_array($serendipity['dbType'], ['mysql', 'mysqli', 'sqlite3', 'sqlite3oo', 'pdo-sqlite'])) {
     #    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVE_ENTRY . "</span>\n";
     #    return true;
