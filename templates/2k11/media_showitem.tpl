@@ -27,7 +27,7 @@
 {* serendipity_hookPlugin hook="frontend_header" *}{* ENABLE TO USE any plugin hooked assets - see footer *}
     <script src="{$head_link_script}"></script>
 </head>
-<body{if $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
+<body{if isset($template_option.webfonts) AND $template_option.webfonts != 'none'} class="{$template_option.webfonts}"{/if}>
 {else}
 {* serendipity_hookPlugin hook="frontend_header" *}{* ENABLE TO USE any plugin hooked assets - see footer *}
 {/if}
