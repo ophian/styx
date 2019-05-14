@@ -62,7 +62,7 @@
     {/if}
 </head>
 
-<body class="{$mode}_preview_body{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
+<body class="{$mode}_preview_body{if isset($template_option.webfonts) AND $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
     <div id="main" class="clearfix {$mode}_preview_container">
         <main id="primary" class="{$mode}_preview_content">
             <div class="clearfix">

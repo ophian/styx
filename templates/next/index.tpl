@@ -44,7 +44,7 @@
 {/if}
 {serendipity_hookPlugin hook="frontend_header"}
 </head>
-<body class="columns-{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}3{else}2{/if}{if $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
+<body class="columns-{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}3{else}2{/if}{if isset($template_option.webfonts) AND $template_option.webfonts != 'none'} {$template_option.webfonts}{/if}">
 {else}
 {serendipity_hookPlugin hook="frontend_header"}
 {/if}
