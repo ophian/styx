@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.17');
+        $propbag->add('version',       '2.18');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -261,7 +261,7 @@ class serendipity_event_spamblock extends serendipity_event
             case 'config_mainconfiggrouper':
                 $propbag->add('type',    'content');
                 $propbag->add('name',    'Configuration Preferences');
-                $propbag->add('default', '<h3>' . PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION . '</h3>');
+                $propbag->add('default', '<h3>' . PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION . '</h3><em>'.PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION_DESC.'</em>');
                 break;
 
             case 'killswitch':

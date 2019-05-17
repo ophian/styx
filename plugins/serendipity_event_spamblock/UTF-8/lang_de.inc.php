@@ -156,4 +156,5 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC', 'Die Kommentarfunktion eines Artikels kann global für einen begrenzten Zeitraum von X Tagen seit dem Artikeldatum erlaubt werden, um zu vermeiden, dass ältere Beiträge ihres Blogs mit Kommentaren geflutet werden. Der default Wert ist "0" und erlaubt Kommentare zu jedem vorhandenen Artikel ohne Altersbegrenzung.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION', 'Haupt-Konfiguration');
+@define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION_DESC', 'Die Benennung unterscheidet sich intern als (User) Kommentare und (Blog) Trackbacks/Pingbacks. Allgemein wird hier das Wort "Kommentar(e)" für beide Erscheinungsformen verwendet, wenn nicht gesondert unterschieden oder darauf hingewiesen wird.');
 
