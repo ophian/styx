@@ -160,7 +160,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_LOGMSG_DONE', 'Written to Debug Logger output!');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC', 'Time frame for comments within X days');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC', 'The comment function of an article may only globally be allowed for a limited period of X days from the article date. This might be a valid request to make sure your Blog is not flooded with bogus comments for old entries. The default value is "0" and allows comments to any existing article without age limit.');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC', 'The comment (form) function of an article can be permitted generally for a limited period of X days starting from the article date, in order to avoid that old entry contributions are flooded with bogus comments. This might be a valid optional request for a Blog. The default value is "0" and allows (user) comments to any existing article without age limit (if not restricted by other options).');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION', 'Main-Configuration');
 @define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION_DESC', 'The naming is differentiated internally in (user) comments and (blog) trackbacks/pingbacks. In general, the word "comment(s)" is used here for both manifestations, unless a separate distinction or reference is made.');
