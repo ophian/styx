@@ -40,6 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Fix commentpopup commentform condition for time-frame(d) "allow(ed)_comments"
+
   * Extend spamblock time-frame option (since Styx 2.6.0) for trackbacks
 
   * Upgrade jQuery lib to version 3.4.1
