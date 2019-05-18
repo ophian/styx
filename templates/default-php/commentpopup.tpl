@@ -36,6 +36,8 @@
 
     <?= $GLOBALS['template']->call('printTrackbacks', array('entry' => $GLOBALS['tpl']['entry_id'])); ?>
 
+    <br>
+
 <?php elseif ($GLOBALS['tpl']['is_showcomments']): ?>
 
     <h3 class="popup_content serendipity_commentsTitle"><?= COMMENTS ?></h3>
@@ -47,6 +49,7 @@
         <div class="serendipity_commentsTitle"><?= ADD_COMMENT ?></div>
         <?= $GLOBALS['tpl']['COMMENTFORM'] ?>
     <?php else: ?>
+        <br>
         <div class="serendipity_center serendipity_msg_important"><?= COMMENTS_CLOSED ?></div>
     <?php endif; ?>
 

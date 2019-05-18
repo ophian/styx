@@ -44,6 +44,7 @@
         <dd><a href="{$comment_entryurl}">{$comment_entryurl}</a></dd>
     </dl>
     {serendipity_printTrackbacks entry=$entry_id}
+    <br>
 {elseif $is_showcomments}
     <div class="serendipity_commentsTitle">{$CONST.COMMENTS}</div>
     {serendipity_printComments entry=$entry_id}
@@ -51,6 +52,7 @@
         <div class="serendipity_commentsTitle">{$CONST.ADD_COMMENT}</div>
         {$COMMENTFORM}
     {else}
+        <br>
         <div class="serendipity_center serendipity_msg_important">{$CONST.COMMENTS_CLOSED}</div>
     {/if}
 {/if}
