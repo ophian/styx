@@ -64,6 +64,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_API_MODERATE', 'moderate');
 @define('PLUGIN_EVENT_SPAMBLOCK_API_REJECT', 'reject');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_API', 'No API-created comments allowed');
+@define('PLUGIN_EVENT_SPAMBLOCK_REASON_DATE', 'No trackbacks allowed outside of time frame');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE', 'Activate wordfilter');
 @define('PLUGIN_EVENT_SPAMBLOCK_FILTER_ACTIVATE_DESC', 'Searches comments for certain strings and marks them as Spam.');
@@ -161,6 +162,8 @@
 
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC', 'Time frame for comments within X days');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC', 'The comment (form) function of an article can be permitted generally for a limited period of X days starting from the article date, in order to avoid that old entry contributions are flooded with bogus comments. This might be a valid optional request for a Blog. The default value is "0" and allows (user) comments to any existing article without age limit (if not restricted by other options).');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_TREAT', 'Shall this time frame block later trackbacks too?');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_TREAT_DESC', '"Yes" will block and reject potentially valid Trackbacks/Pingbacks, which income to entries after this time frame closed. (Other option actions may influence this behaviour.)');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION', 'Main-Configuration');
 @define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION_DESC', 'The naming is differentiated internally in (user) comments and (blog) trackbacks/pingbacks. In general, the word "comment(s)" is used here for both manifestations, unless a separate distinction (cf. "Trackbacks") or reference is made.');

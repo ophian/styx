@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.18');
+        $propbag->add('version',       '2.19');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -50,6 +50,7 @@ class serendipity_event_spamblock extends serendipity_event
             'captchas_ttl',
             'captcha_color',
             'forceopentopublic',
+            'forceopentopublic_treat',
             'forcemoderation',
             'forcemoderation_treat',
             'trackback_ipvalidation' ,
@@ -399,6 +400,17 @@ class serendipity_event_spamblock extends serendipity_event
                 $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC);
                 $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC);
                 $propbag->add('default', 0);
+                break;
+
+            case 'forceopentopublic_treat':
+                $propbag->add('type', 'radio');
+                $propbag->add('name', PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_TREAT);
+                $propbag->add('description', PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_TREAT_DESC);
+                $propbag->add('default', 'no');
+                $propbag->add('radio', array(
+                    'value' => array('yes', 'no'),
+                    'desc'  => array(YES, NO . ' (default)')
+                ));
                 break;
 
             case 'forcemoderation':
@@ -924,6 +936,11 @@ class serendipity_event_spamblock extends serendipity_event
                     fclose($fp);
                 */
 
+                    $_disallow_trackbacks_passthrough = false;
+                    if ($addData['type'] != 'NORMAL' && $forceopentopublic > 0 && $this->get_config('forceopentopublic_treat', 'no') == 'yes' && $eventData['timestamp'] < (time() - ($forceopentopublic * 60 * 60 * 24))) {
+                        $_disallow_trackbacks_passthrough = true;
+                    }
+
                     if (!is_array($eventData) || serendipity_db_bool($eventData['allow_comments'])) {
                         $this->checkScheme();
 
@@ -1029,8 +1046,8 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check for not allowing trackbacks/pingbacks/wfwcomments
-                        if ( ($addData['type'] != 'NORMAL' || $addData['source'] == 'API') &&
-                             $this->get_config('disable_api_comments', 'none') != 'none') {
+                        if (($addData['type'] != 'NORMAL' || $addData['source'] == 'API')
+                        &&   $this->get_config('disable_api_comments', 'none') != 'none') {
                             if ($this->get_config('disable_api_comments') == 'reject') {
                                 $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_API, $addData);
                                 $eventData = array('allow_comments' => false);
@@ -1206,6 +1223,15 @@ class serendipity_event_spamblock extends serendipity_event
                             }
                         }
 
+                        // check for disallowed trackback/pingback to pass-through outside of time-framed allowed comments (forceopentopublic)
+                        if ($_disallow_trackbacks_passthrough) {
+                            $this->log($logfile, $eventData['id'], 'REJECT', PLUGIN_EVENT_SPAMBLOCK_REASON_DATE, $addData);
+                            $eventData['moderate_comments'] = false;
+                            $serendipity['csuccess']        = 'reject';
+                            $serendipity['moderate_reason'] = PLUGIN_EVENT_SPAMBLOCK_REASON_DATE;
+                            $eventData = array('allow_trackbacks_passthrough' => false);
+                        }
+
                         // Check for maximum number of links before forcing moderation
                         if ($links_moderate > 0 && $link_count > $links_moderate) {
                             $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_LINKS_MODERATE, $addData);
@@ -1337,20 +1363,20 @@ class serendipity_event_spamblock extends serendipity_event
         <span id="cleanspam_info_desc" class="comment_status additional_info"><?php echo PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MAINTAIN_DESC; ?></span>
 <?php
 if (isset($serendipity['GET']['cleanspamsg'])) {
-switch ($serendipity['GET']['cleanspamsg']) {
-    case 'true':
-        echo '<p class="msg_success" style="margin:0"><span class="icon-ok-circled" aria-hidden="true"></span> ' . PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MSG_DONE . "<p>\n";
-        break;
-    case 'false':
-        echo '<p class="msg_error" style="margin:0"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . "<p>\n";
-        break;
-    case 'logged':
-        echo '<p class="msg_success" style="margin:0"><span class="icon-ok-circled" aria-hidden="true"></span> ' . PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_LOGMSG_DONE . "<p>\n";
-        break;
-    default:
-        //void
-        break;
-}
+    switch ($serendipity['GET']['cleanspamsg']) {
+        case 'true':
+            echo '<p class="msg_success" style="margin:0"><span class="icon-ok-circled" aria-hidden="true"></span> ' . PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MSG_DONE . "<p>\n";
+            break;
+        case 'false':
+            echo '<p class="msg_error" style="margin:0"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . "<p>\n";
+            break;
+        case 'logged':
+            echo '<p class="msg_success" style="margin:0"><span class="icon-ok-circled" aria-hidden="true"></span> ' . PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_LOGMSG_DONE . "<p>\n";
+            break;
+        default:
+            //void
+            break;
+    }
 }
 ?>
 
@@ -1367,6 +1393,7 @@ switch ($serendipity['GET']['cleanspamsg']) {
                     <select id="cleanspam_access_multi_reasons" class="additional_info" name="serendipity[cleanspam][multi_reasons][]" multiple="multiple">
                         <option value="">- - -</option>
                         <option value="api">LIKE "<?php echo PLUGIN_EVENT_SPAMBLOCK_REASON_API; ?>"</option>
+                        <option value="api">LIKE "<?php echo PLUGIN_EVENT_SPAMBLOCK_REASON_DATE; ?>"</option>
                         <option value="amx">LIKE "<?php echo PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION; ?>"</option>
                         <option value="filter">LIKE "Wordfilter for urls, authors, words, emails"</option>
                         <option value="hpot">LIKE "BEE Honeypot%"</option>
