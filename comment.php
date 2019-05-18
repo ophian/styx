@@ -168,6 +168,14 @@ if ($type == 'trackback') {
                           ON (e.authorid = a.authorid)
                        WHERE e.id = '" . $id . "'";
             $ca    = serendipity_db_query($query, true);
+            serendipity_plugin_api::hook_event('frontend_display:html:per_entry', $id);
+            $_opentopublic = isset($serendipity['commentaire']['opentopublic']) ? $serendipity['commentaire']['opentopublic'] : 0;
+            if ($_opentopublic > 0) {
+                $ftstamp = ((time() + 24*60*60) - $_opentopublic);
+                if ($ca['timestamp'] < $ftstamp) {
+                    $ca['allow_comments'] = false; // adds COMMENTS_CLOSED message
+                }
+            }
             $comment_allowed = serendipity_db_bool($ca['allow_comments']) || !is_array($ca) ? true : false;
             $serendipity['smarty']->assign(
                 array(
