@@ -40,6 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Fix Standard editor`s permission to view MediaLibrary images via magnific-popup
+
   * Fix the entryforms javascript hidden extended entry textarea for the plain text
     Editor, by a previously possible set localStorage cookie.
 
