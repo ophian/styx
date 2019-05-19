@@ -115,12 +115,16 @@
         {if isset($filter_import) AND is_array($filter_import)}
         {foreach $filter_import AS $f_import}
             {if $f_import == 'isdraft' AND isset($smarty.get.dashboard.filter.noset)}{continue}{/if}
+            {if NOT empty($get_filter_{$f_import})}
             serendipity.SetCookie("entrylist_filter_{$f_import}", "{$get_filter_{$f_import}}");
+            {/if}
         {/foreach}
         {/if}
         {if isset($sort_import) AND is_array($sort_import)}
         {foreach $sort_import AS $s_import}
+            {if NOT empty($get_sort_{$s_import})}
             serendipity.SetCookie("entrylist_sort_{$s_import}", "{$get_sort_{$s_import}}");
+            {/if}
         {/foreach}
         {/if}
 
