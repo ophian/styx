@@ -18,6 +18,9 @@ require_once S9Y_PEAR_PATH . 'paragonie/random_compat/lib/random.php'; // skips 
  * @param   string  The realname of the user
  * @param   string  The email address of the user
  * @param   int     The userlevel of a user
+ * @param   int     The hashtype, 1 used for S9y versions 1.5 until Styx 2.5.0 as sha1,
+ *                                2 for the latter with PASSWORD_BCRYPT
+ *                                and at all replacing the very old md5() routine
  * @return  int     The new user ID of the added author
  */
 function serendipity_addAuthor($username, $password, $realname, $email, $userlevel=0, $hashtype=2) {
