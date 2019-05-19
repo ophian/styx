@@ -460,8 +460,8 @@
                 e.preventDefault();
                 serendipity.toggle_extended(true);
             });
-            if (localStorage !== null && localStorage.show_extended_editor == "true") {
-                // the editor is visible by default - note the string, as bool is not supported yet in localStorage
+            if (localStorage !== null && localStorage.show_extended_editor == "true" || $('#toggle_extended').length == 0) {
+                // the editor is visible by default - note the value as string, since bool is not supported yet in localStorage
                 return;
             }
         }
