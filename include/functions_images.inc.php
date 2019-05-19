@@ -3304,6 +3304,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'standardpane'      => $displayGallery ? false : true,
         'manage'            => $manage,
         'multiperm'         => serendipity_checkPermission('adminImagesDirectories'),
+        'viewperm'          => serendipity_checkPermission('adminImages'),
         'lineBreak'         => $lineBreak,
         'lineBreakP'        => round(1/$lineBreak*100),
         'url'               => $url,
