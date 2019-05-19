@@ -164,15 +164,16 @@ else {
             LEFT JOIN {$serendipity['dbPrefix']}authors a ON (e.authorid = a.authorid)
                 WHERE e.authorid = " . (int)$serendipity['authorid']
             : '';
+    $where = !empty($cjoin) ? 'AND' : 'WHERE';
     $cquery = "SELECT COUNT(c.id) AS newcom
                  FROM {$serendipity['dbPrefix']}comments c
             LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
-            " . $cjoin ."
-             WHERE status = 'pending'";
+               $cjoin
+               $where status = 'pending'";
     $efilter  = ($serendipity['serendipityUserlevel'] == USERLEVEL_EDITOR) ? ' AND e.authorid = ' . (int)$serendipity['authorid'] : '';
     $comments = serendipity_db_query($cquery);
-    $futures  = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin WHERE e.timestamp >= " . serendipity_serverOffsetHour() . $efilter, true);
-    $drafts   = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin WHERE e.isdraft = 'true'" . $efilter, true);
+    $futures  = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin $where e.timestamp >= " . serendipity_serverOffsetHour() . $efilter, true);
+    $drafts   = serendipity_db_query("SELECT COUNT(e.id) AS count FROM {$serendipity['dbPrefix']}entries AS e $cjoin $where e.isdraft = 'true'" . $efilter, true);
 
     $permByAuthor = (!serendipity_checkPermission('adminUsers') && (int)$serendipity['authorid'] > 1) ? '&serendipity[filter][author]=' .(int)$serendipity['authorid'] : '';
 
