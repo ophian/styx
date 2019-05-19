@@ -40,6 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Fix the dashboards db query in Styx 2.2.0 "no default widget" option for authors
+
   * Improve backends comments list comment header for length
 
   * Fix commentpopup commentform condition for time-frame(d) "allow(ed)_comments"
