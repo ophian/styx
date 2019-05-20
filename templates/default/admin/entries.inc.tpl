@@ -235,7 +235,7 @@
     {/if}
 {/if}
 {if isset($no_entries)}
-    <h2>{$CONST.FIND_ENTRIES}</h2>
+    {if empty($drawList)}<h2>{$CONST.FIND_ENTRIES}</h2>{/if}
 
     <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</span>
 {/if}
