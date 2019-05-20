@@ -166,6 +166,7 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         $cond['joinparts']['filterproperties'] = true;
     }
 
+    // Ahem.., having to say: 'adminImagesViewOthers' is just fake, since that would need a real authorid to condition the images list by self and others! Todo: re-enable authorid.
     if (isset($serendipity['authorid']) && !serendipity_checkPermission('adminImagesViewOthers')) {
         if (!isset($cond['parts']['authorid'])) $cond['parts']['authorid'] = '';
         $cond['parts']['authorid'] .= ' AND (i.authorid = 0 OR i.authorid = ' . (int)$serendipity['authorid'] . ")\n";
@@ -2019,6 +2020,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         foreach($serendipity['imageList'] AS $k => $file) {
             if (!($serendipity['authorid'] == $file['authorid'] || $file['authorid'] == '0' || serendipity_checkPermission('adminImagesViewOthers'))) {
                 // This is a fail-safe continue. Basically a non-matching file should already be filtered in SQL.
+                // Ahem.., the word-of-day is "should" here..., see L 169 which conditions the SQL query
                 continue;
             }
 
