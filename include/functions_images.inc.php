@@ -357,7 +357,7 @@ function serendipity_deleteImage($id) {
         }
 
         if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
-            // A non-admin user shall not be able to delete private files from other users.
+            // A non-admin user SHALL NOT be able to delete private files from other users.
             return;
         }
 
@@ -801,6 +801,7 @@ function serendipity_scaleImg($id, $width, $height) {
 
     $admin = '';
     if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
+        // A non-admin user SHALL NOT change private files from other users.
         return;
     }
 
@@ -851,7 +852,7 @@ function serendipity_rotateImg($id, $degrees) {
 
     $admin = '';
     if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
-        // A non-admin user may not delete private files from other users.
+        // A non-admin user SHALL NOT change private files from other users.
         return false;
     }
 
@@ -3304,6 +3305,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'standardpane'      => $displayGallery ? false : true,
         'manage'            => $manage,
         'multiperm'         => serendipity_checkPermission('adminImagesDirectories'),
+        'resetperm'         => (serendipity_checkPermission('adminImagesDelete') && serendipity_checkPermission('adminImagesMaintainOthers')),
         'viewperm'          => serendipity_checkPermission('adminImagesView'),
         'lineBreak'         => $lineBreak,
         'lineBreakP'        => round(1/$lineBreak*100),
