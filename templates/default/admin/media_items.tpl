@@ -78,7 +78,7 @@
                 <div class="clearfix equal_heights media_file_wrap">
                     <div class="media_file_preview">
                         {if isset($link)}
-                        <a{if $media.viewperm} class="media_fullsize"{/if} href="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
+                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                             <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                         </a>
                         {else}
