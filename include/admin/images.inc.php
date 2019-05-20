@@ -134,7 +134,8 @@ switch ($serendipity['GET']['adminAction']) {
     case 'delete':
         $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
 
-        if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete') || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
+        if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete')
+        || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
             return;
         }
 
@@ -753,7 +754,9 @@ switch ($serendipity['GET']['adminAction']) {
 
     case 'rotateCW':
         $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
-        if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete') || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
+
+        if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete')
+        || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
             return;
         }
 
@@ -770,7 +773,9 @@ switch ($serendipity['GET']['adminAction']) {
 
     case 'rotateCCW':
         $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
-        if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete') || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
+
+        if (!is_array($file) || !serendipity_checkPermission('adminImagesDelete')
+        || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
             return;
         }
 
@@ -818,7 +823,8 @@ switch ($serendipity['GET']['adminAction']) {
         $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);
         $_file['is_image'] = serendipity_isImage($file);
 
-        if (!is_array($file) || !$_file['is_image'] || !serendipity_checkPermission('adminImagesDelete') || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
+        if (!is_array($file) || !$_file['is_image'] || !serendipity_checkPermission('adminImagesDelete')
+        || (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid'])) {
             return;
         }
 
