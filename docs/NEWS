@@ -42,7 +42,7 @@ Version 2.8.0 RC1 ()
 
   * Do not show rename scriptlet for non-authorized users in MediaLibrary
 
-    PLEASE NOTE: Further finetuning of permission by GROUP AND the users ID,
+    PLEASE NOTE: Further finetuning of permission by GROUP and the users ID,
                  i.e. to delete images OF and BY this particular user only,
                  is negligible, since the MediaLibrary always runs with ID 0,
                  which is NOT some kind of superuser, than a not set authorid.
@@ -52,6 +52,8 @@ Version 2.8.0 RC1 ()
                  authorid was given up, due to user error experiences, for the
                  simpler use of only ACL access-control based permissions, not
                  media items themselves.
+                 Sadly some of these ACL permissions won't work without having a
+                 real authorid to condition the output themselves.
 
                  NOW, since these media functions have developed, we could even
                  reopen this in future. Please file an issue or valid request to
