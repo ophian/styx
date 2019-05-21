@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.19');
+        $propbag->add('version',       '2.20');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1491,7 +1491,9 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                         $this->set_config('contentfilter_emails', implode(';', $items));
                     }
 
-                    echo '<a class="button_link" title="' . PLUGIN_EVENT_SPAMBLOCK_CONFIG . '" href="serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . $this->instance . '"><span class="icon-medkit" aria-hidden="true"></span><span class="visuallyhidden"> ' . PLUGIN_EVENT_SPAMBLOCK_CONFIG . '</span></a>';
+                    if (serendipity_checkPermission('adminUsers')) {
+                        echo '<a class="button_link" title="' . PLUGIN_EVENT_SPAMBLOCK_CONFIG . '" href="serendipity_admin.php?serendipity[adminModule]=plugins&amp;serendipity[plugin_to_conf]=' . $this->instance . '"><span class="icon-medkit" aria-hidden="true"></span><span class="visuallyhidden"> ' . PLUGIN_EVENT_SPAMBLOCK_CONFIG . '</span></a>';
+                    }
                     break;
 
                 case 'backend_view_comment':
