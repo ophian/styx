@@ -43,7 +43,7 @@ Version 2.8.0 RC1 ()
   * Fix group permission_* constants for the permissive variable name in
     [cn, cs, cz, fi, hu, tr, zh] languages. DO NOT translate or dismiss!
 
-  * Fix backend comments list (count) SQL(s) for (non-)privileged users
+  * Fix backend comments list (count) SQL query for (non-)privileged users
 
   * Do not present the quickjump spamblock configuration button for non-authorized
     users in comments.
