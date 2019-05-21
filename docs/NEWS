@@ -40,6 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Fix backend comments list (count) SQL(s) for (non-)privileged users
+
   * Do not present the quickjump spamblock configuration button for non-authorized
     users in comments.
 
