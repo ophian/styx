@@ -40,6 +40,9 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Do not present the quickjump spamblock configuration button for non-authorized
+    users in comments.
+
   * Do not show rename scriptlet for non-authorized users in MediaLibrary
 
     PLEASE NOTE: Further finetuning of permission by GROUP and the users ID,
