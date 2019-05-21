@@ -305,9 +305,13 @@ if ($commentsPerPage != 10) {
 }
 
 $searchString .= '&amp;' . serendipity_setFormToken('url');
+$ctype = $c_type !== null ? " AND c.type = '$c_type' " : '';
+$perm = !serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int)$serendipity['authorid'] : '';
 
 /* Paging */
-$sql = serendipity_db_query("SELECT COUNT(*) AS total FROM {$serendipity['dbPrefix']}comments c WHERE 1 = 1 " . ($c_type !== null ? " AND c.type = '$c_type' " : '') . $and, true);
+$sql = serendipity_db_query("SELECT COUNT(*) AS total FROM {$serendipity['dbPrefix']}comments c
+                          LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
+                              WHERE 1 = 1 $ctype $perm $and", true);
 
 $totalComments = $sql['total'];
 $pages = ($commentsPerPage == COMMENTS_FILTER_ALL ? 1 : ceil($totalComments/(int)$commentsPerPage));
@@ -331,8 +335,7 @@ if ($commentsPerPage == COMMENTS_FILTER_ALL) {
 
 $sql = serendipity_db_query("SELECT c.*, e.title FROM {$serendipity['dbPrefix']}comments c
                           LEFT JOIN {$serendipity['dbPrefix']}entries e ON (e.id = c.entry_id)
-                              WHERE 1 = 1 " . ($c_type !== null ? " AND c.type = '$c_type' " : '') . $and
-                            . (!serendipity_checkPermission('adminEntriesMaintainOthers') ? 'AND e.authorid = ' . (int)$serendipity['authorid'] : '') . "
+                              WHERE 1 = 1 $ctype $perm $and
                            ORDER BY c.id DESC $limit");
 
 if (serendipity_checkPermission('adminComments')) {
