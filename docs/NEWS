@@ -40,6 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Fix backends pingback comment action block margin for media screens
+
   * Fix group permission_* constants for the permissive variable name in
     [cn, cs, cz, fi, hu, tr, zh] languages. DO NOT translate or dismiss!
 
