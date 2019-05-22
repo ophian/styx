@@ -177,6 +177,9 @@
                     {/if}
                         <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}" title="{$CONST.EDIT} #{$entry.id}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
                         <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry.id}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
+                    {if $entry.ep_is_sticky}
+                        <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[id]={$entry.id}&amp;serendipity[timestamp]={$entry.timestamp}&amp;serendipity[preview]=false&amp;{$urltoken}&amp;serendipity[properties][is_sticky]=false" title="{$CONST.RESET_FILTERS}: {$CONST.PLUGIN_EVENT_ENTRYPROPERTIES_STICKYPOSTS}"><span class="icon-off" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.RESET_FILTERS}</span></a></li>
+                    {/if}
                     </ul>
 
                     <div class="entry_info clearfix">

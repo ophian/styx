@@ -239,6 +239,14 @@ switch($serendipity['GET']['adminAction']) {
         // no break [PSR-2] - extends editSelect
 
     case 'editSelect':
+        // An entries list quickie to easily de-select a stickied entry
+        if ($serendipity['GET']['action'] == 'admin' && isset($serendipity['GET']['properties']['is_sticky']) && serendipity_checkFormToken()) {
+            $quick_stick = serendipity_db_bool($serendipity['GET']['properties']['is_sticky']) ? 'true' : 'false';
+            serendipity_db_query("UPDATE {$serendipity['dbPrefix']}entryproperties SET value = " . $quick_stick . " WHERE entryid = " . (int)$serendipity['GET']['id'] . " AND property = 'ep_is_sticky'");
+            serendipity_db_query("UPDATE {$serendipity['dbPrefix']}entries SET last_modified = " . time() . " WHERE id = " . (int)$serendipity['GET']['id'] . ' AND timestamp = ' . serendipity_db_escape_string($serendipity['GET']['timestamp']));
+            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . ENTRY_SAVED . "</span>\n";
+        }
+
         $data['switched_output'] = false;
 
         $filter_import = array('author', 'category', 'isdraft');
