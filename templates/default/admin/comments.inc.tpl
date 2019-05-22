@@ -154,7 +154,7 @@
 
                             <div id="c{$comment.id}_full" class="clearfix comment_full additional_info">{$comment.fullBody}</div>
 
-                            <ul class="plainList clearfix actions">
+                            <ul class="plainList clearfix {$comment.type|lower} actions">
                                 <li><a class="button_link" href="{$comment.entrylink}" title="{$CONST.VIEW}"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.VIEW}</span></a></li>
 {if $comment.type == 'NORMAL'}
                                 <li><a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=comments&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$comment.id}&amp;serendipity[entry_id]={$comment.entry_id}&amp;{$urltoken}" title="{$CONST.EDIT}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>

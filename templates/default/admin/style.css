@@ -3695,8 +3695,26 @@ img.mfp-img {
         width: auto;
     }
 
+    #serendipity_comments_list h4.pingback {
+        max-width: 94%;
+        width: 94%;
+    }
+
     .popuplayer_showUpload {
         margin: 1em .4rem 0 0;
+    }
+}
+
+@media only screen and (min-width: 400px) {
+    #serendipity_comments_list h4.pingback {
+        max-width: 95%;
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 426px) {
+    #serendipity_comments_list .pingback.actions {
+        margin-top: 1.5em;
     }
 }
 
@@ -3811,6 +3829,13 @@ img.mfp-img {
         max-width: 75%;
     }
 
+    #serendipity_comments_list h4.pingback {
+        max-width: 96%;
+        width: 96%;
+    }
+    #serendipity_comments_list .pingback.actions {
+        margin-top: -1em;
+    }
     .comment_type.pingback {
         margin-top: 3em;/* not 2.4em, since too small when h4 breaks */
     }
@@ -4481,6 +4506,13 @@ img.mfp-img {
     }
     .js .configuration_group .media_choose input {
         max-width: 42.5%;
+    }
+    #serendipity_comments_list h4.pingback {
+        max-width: 97.75%;
+        width: 97.75%;
+    }
+    #serendipity_comments_list .pingback.actions {
+        margin-top: -1.5em;
     }
     .comment_type.pingback {
         margin-top: 2.4em;
