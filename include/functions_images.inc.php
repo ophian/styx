@@ -3308,7 +3308,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'manage'            => $manage,
         'multiperm'         => serendipity_checkPermission('adminImagesDirectories'),
         'resetperm'         => (serendipity_checkPermission('adminImagesDelete') && serendipity_checkPermission('adminImagesMaintainOthers')),
-        'viewperm'          => serendipity_checkPermission('adminImagesView'),
+        'viewperm'          => (serendipity_checkPermission('adminImagesView') && $serendipity['GET']['adminAction'] != 'choose'),
         'lineBreak'         => $lineBreak,
         'lineBreakP'        => round(1/$lineBreak*100),
         'url'               => $url,
