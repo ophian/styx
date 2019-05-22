@@ -71,7 +71,8 @@ Version 2.8.0 RC1 ()
                  reopen this in future. Please file an issue or valid request to
                  discuss.
 
-  * Fix Standard editor`s permission to view MediaLibrary images via magnific-popup
+  * Fix for Standard editor`s permission to view and pass MediaLibrary images
+    via popup.
 
   * Fix the entryforms javascript hidden extended entry textarea for the plain text
     Editor, by a previously possible set localStorage cookie.
