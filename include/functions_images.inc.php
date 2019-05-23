@@ -3606,7 +3606,7 @@ function &serendipity_getMetaData($file, &$info) {
     if (function_exists('iptcparse') && is_array($info) && isset($info['APP13'])) {
         $iptc = iptcparse($info['APP13']);
         foreach($IPTC_Fields AS $field => $desc) {
-            if ($iptc[$field]) {
+            if (isset($iptc[$field])) {
                 if (is_array($iptc[$field])) {
                     $ret['IPTC'][$desc] = trim(implode(';', $iptc[$field]));
                 } else {
