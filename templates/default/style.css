@@ -671,6 +671,7 @@ div.serendipityPlug a {
 /* last comments */
 .plugin_comment_body {
     padding: 0.25em 0;
+    word-break: break-all;
 }
 /* shoutbox */
 .serendipity_shoutbox_date {
@@ -790,18 +791,12 @@ div.serendipityPlug a {
     }
     #serendipityLeftSideBar,
     #serendipityRightSideBar {
-        width: 14em;
+        max-width: 14em;
         min-width: 12em;
-        height: auto;
+        height: 100%;
         color: inherit;
         text-shadow: inherit;
         background: inherit;
-    }
-    @-moz-document url-prefix() {
-        #serendipityLeftSideBar,
-        #serendipityRightSideBar {
-            height: 100%;
-        }
     }
     #serendipityLeftSideBar {
         border-left: 0 none;
