@@ -40,6 +40,9 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Remove backend CSS hack "@-moz-document url-prefix()" End-Of-Life with Firefox 68
+    https://www.fxsitecompat.com/en-CA/docs/2018/moz-document-url-prefix-css-hack-will-no-longer-work/
+
   * Add a backends entries list quickie to easily de-select a stickied entry
 
   * Fix backends pingback comment action block margin for media screens
