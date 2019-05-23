@@ -6,7 +6,7 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-if (!serendipity_checkPermission('adminCategories') && !serendipity_checkPermission('adminCategoriesMaintainOthers')) {
+if (!serendipity_checkPermission('adminCategories')) {
     return;
 }
 
@@ -63,7 +63,6 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
                 }
             }
     }
-
 
     serendipity_rebuildCategoryTree();
     $serendipity['GET']['adminAction'] = 'view';
