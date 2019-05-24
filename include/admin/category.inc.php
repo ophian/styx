@@ -209,7 +209,7 @@ if ($serendipity['GET']['adminAction'] == 'view') {
     if (empty($admin_category)) {
         $cats = serendipity_fetchCategories('all');
     } else {
-        $cats = serendipity_fetchCategories(null, null, null, 'write'); // $serendipity['authorid'] is added in there - only use per given parameter. when current user is different to meant user!!
+        $cats = serendipity_fetchCategories(null, null, null, 'write'); // $serendipity['authorid'] is added in there - only use per given parameter, when current user is different to meant user!!
     }
     $data['view'] = true;
     $data['viewCats'] = $cats;
