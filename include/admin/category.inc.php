@@ -145,7 +145,7 @@ if ($serendipity['GET']['adminAction'] == 'delete') {
             }
         }
     } else {
-        echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . PERM_DENIED . "</span>\n";
+        echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . PERM_DENIED . ' ' . sprintf(UNMET_REQUIREMENTS, '"' . trim(explode(':', PERMISSION_ADMINCATEGORIESMAINTAINOTHERS)[1])) . "\".</span>\n";
     }
 }
 
