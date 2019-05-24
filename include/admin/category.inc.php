@@ -143,6 +143,8 @@ if ($serendipity['GET']['adminAction'] == 'delete') {
                 $data['cats'][] = $cat_data;
             }
         }
+    } else {
+        echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . PERM_DENIED . "</span>\n";
     }
 }
 
