@@ -40,6 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Fix backends wrong category write permission "selected" selection
+
   * Remove Mozilla CSS hack due to End-Of-Life with next Firefox 68 version in
     the backend and the "default" frontend theme. Read about it here:
     https://www.fxsitecompat.com/en-CA/docs/2018/moz-document-url-prefix-css-hack-will-no-longer-work/
