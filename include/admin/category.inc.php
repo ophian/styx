@@ -14,6 +14,14 @@ $admin_category = (!serendipity_checkPermission('adminCategoriesMaintainOthers')
 $data = array();
 $data['closed'] = false;
 
+/* KEEP in mind:
+    IMHO, there is a difference between ACL write permissions, which always additionally plays with authorid = 0 (all),
+          to EITHER allow writing entries to a category OR writing to change the category itself for a least-privileged user.
+    Since ACL cannot distinguish the difference of permission you either have it both or not.
+    So the ACL perms have to be combined with serendipity_checkPermission() checks to restrict/allow actions, see 'edit' action.
+    Thus we allow the 'edit' or 'delete' buttons to show up for non-privileged users.
+*/
+
 /* Add a new category */
 if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
     $name = $serendipity['POST']['cat']['name'];
@@ -28,9 +36,8 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
     $icon     = $serendipity['POST']['cat']['icon'];
     $parentid = (isset($serendipity['POST']['cat']['parent_cat']) && is_numeric($serendipity['POST']['cat']['parent_cat'])) ? $serendipity['POST']['cat']['parent_cat'] : 0;
 
-
     if ($serendipity['GET']['adminAction'] == 'new' || $serendipity['GET']['adminAction'] == 'newSub') {
-        # only continue if category-name doesn't already exists, as user have no means to distinguish between them
+        // only continue, if the category-name does not already exists, as user have no means to distinguish between them
         $r = serendipity_db_query("SELECT category_name FROM {$serendipity['dbPrefix']}category WHERE category_name = '". serendipity_db_escape_string($name)."'");
         if (is_array($r) && is_array($r[0])) {
             $data['error_name'] = true;
@@ -43,7 +50,7 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
         }
     } elseif ($serendipity['GET']['adminAction'] == 'edit') {
             $data['edit'] = true;
-            if (!serendipity_checkPermission('adminCategoriesMaintainOthers') && !serendipity_ACLCheck($serendipity['authorid'], $serendipity['GET']['cid'], 'category', 'write')) {
+            if (false === (serendipity_checkPermission('adminCategoriesMaintainOthers') && serendipity_ACLCheck($serendipity['authorid'], $serendipity['GET']['cid'], 'category', 'write'))) {
                 $data['editPermission'] = false;
             } else {
                 /* Check to make sure parent is not a child of self */
