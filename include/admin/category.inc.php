@@ -174,9 +174,13 @@ if ($serendipity['GET']['adminAction'] == 'edit' || $serendipity['GET']['adminAc
     $data['cat'] = $this_cat;
     if (!is_array($this_cat) || (isset($this_cat['authorid']) && $this_cat['authorid'] == '0') || isset($read_groups[0])) {
         $data['selectAllReadAuthors'] = true;
+    } else {
+        $data['selectAllReadAuthors'] = false;
     }
     if (!is_array($this_cat) || (isset($this_cat['authorid']) && $this_cat['authorid'] == '0') || isset($write_groups[0])) {
         $data['selectAllWriteAuthors'] = true;
+    } else {
+        $data['selectAllWriteAuthors'] = false;
     }
 
     $categories = serendipity_fetchCategories('all');
