@@ -4,7 +4,7 @@
     {/if}
     {if NOT empty($edit)}
         {if isset($editPermission) AND $editPermission === false}
-        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
+        <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED} {$failedperm}</span>
         {else}
         {if NOT empty($subcat)}{$subcat}{else}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CATEGORY_SAVED}</span>

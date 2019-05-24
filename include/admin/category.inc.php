@@ -52,6 +52,7 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
         $data['edit'] = true;
         if (false === (serendipity_checkPermission('adminCategoriesMaintainOthers') && serendipity_ACLCheck($serendipity['authorid'], $serendipity['GET']['cid'], 'category', 'write'))) {
             $data['editPermission'] = false;
+            $data['failedperm'] = sprintf(UNMET_REQUIREMENTS, '"' . trim(explode(':', PERMISSION_ADMINCATEGORIESMAINTAINOTHERS)[1])) . '"';
         } else {
             /* Check to make sure parent is not a child of self */
             $r = serendipity_db_query("SELECT categoryid FROM {$serendipity['dbPrefix']}category c
