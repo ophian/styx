@@ -3,7 +3,7 @@
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.CATEGORY_SAVED}</span>
     {/if}
     {if NOT empty($edit)}
-        {if isset($editPermission) AND $editPermission == false}
+        {if isset($editPermission) AND $editPermission === false}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
         {else}
         {if NOT empty($subcat)}{$subcat}{else}
@@ -23,7 +23,7 @@
   {/if}
 {/if}
 {if NOT empty($delete)}
-    {if $deletePermission == true}
+    {if $deletePermission === true}
         <h2>{$categoryName|escape}</h2>
 
         <form method="POST" name="serendipityCategory" action="?serendipity[adminModule]=category&amp;serendipity[adminAction]=doDelete&amp;serendipity[cid]={$cid}">

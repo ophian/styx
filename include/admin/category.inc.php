@@ -118,9 +118,11 @@ if ($serendipity['GET']['adminAction'] == 'doDelete' && serendipity_checkFormTok
 if ($serendipity['GET']['adminAction'] == 'delete') {
     $data['delete'] = true;
     $this_cat = serendipity_fetchCategoryInfo($serendipity['GET']['cid']);
-    if (   (serendipity_checkPermission('adminCategoriesDelete') && serendipity_checkPermission('adminCategoriesMaintainOthers'))
-        || (serendipity_checkPermission('adminCategoriesDelete') && ($serendipity['authorid'] == $this_cat['authorid'] || $this_cat['authorid'] == '0'))
-        || (serendipity_checkPermission('adminCategoriesDelete') && serendipity_ACLCheck($serendipity['authorid'], $serendipity['GET']['cid'], 'category', 'write'))) {
+    $data['deletePermission'] = false;
+    if (
+       (serendipity_checkPermission('adminCategoriesDelete') && serendipity_checkPermission('adminCategoriesMaintainOthers'))
+    || (serendipity_checkPermission('adminCategoriesDelete') && ($serendipity['authorid'] == $this_cat['authorid'] || $this_cat['authorid'] == '0'))
+    || (serendipity_checkPermission('adminCategoriesDelete') && serendipity_ACLCheck($serendipity['authorid'], $serendipity['GET']['cid'], 'category', 'write'))) {
         $data['deletePermission'] = true;
         $data['cid'] = (int)$serendipity['GET']['cid'];
         $data['formToken'] = serendipity_setFormToken();
