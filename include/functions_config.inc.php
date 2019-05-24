@@ -2093,7 +2093,7 @@ function serendipity_ACLCheck($authorid, $artifact_id, $artifact_type, $artifact
 
     $artifact_sql = array();
 
-    // TODO: If more artifact_types are available, the JOIN needs to be edited so that the first AND portion is not required, and the join is fully made on that conditiion.
+    // TODO: If more artifact_types are available, the JOIN needs to be edited so that the first AND portion is not required, and the join is fully made on that condition.
     switch($artifact_type) {
         default:
         case 'category':
@@ -2118,7 +2118,8 @@ function serendipity_ACLCheck($authorid, $artifact_id, $artifact_type, $artifact
              WHERE {$artifact_sql['cond']}
                AND ( {$artifact_sql['where']} )
           GROUP BY result";
-
+    // die($sql);
+    // look my friend, as long as these categories authorid are 0=all the ACL permission check does not care to deny permission
     $res =& serendipity_db_query($sql, true, 'assoc');
     if (is_array($res) && !empty($res['result'])) {
         return true;
