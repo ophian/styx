@@ -40,6 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Add pdo-postgres to backends categories db type SQL division
+
   * Fix backends wrong category write permission "selected" selection
 
   * Remove Mozilla CSS hack due to End-Of-Life with next Firefox 68 version in
