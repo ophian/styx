@@ -40,6 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Deny non-privileged users to add sub-categories to categories by others
+
   * Fix bug, that a less-privileged user was allowed to edit other authors
     categories without having (group) permission.
 
