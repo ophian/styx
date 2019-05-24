@@ -36,7 +36,13 @@ if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
     $icon     = $serendipity['POST']['cat']['icon'];
     $parentid = (isset($serendipity['POST']['cat']['parent_cat']) && is_numeric($serendipity['POST']['cat']['parent_cat'])) ? $serendipity['POST']['cat']['parent_cat'] : 0;
 
-    if ($serendipity['GET']['adminAction'] == 'new' || $serendipity['GET']['adminAction'] == 'newSub') {
+    if ($parentid > 0 && $serendipity['GET']['adminAction'] == 'newSub'
+    && false === (serendipity_checkPermission('adminCategoriesMaintainOthers') && serendipity_ACLCheck($serendipity['authorid'], $serendipity['GET']['cid'], 'category', 'write'))) {
+        // non-privileged users shall not be able to add sub-categories to categories they do not have permissions to maintain
+        $data['post_save'] = false;
+        echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . PERM_DENIED . ' ' . sprintf(UNMET_REQUIREMENTS, '"' . trim(explode(':', PERMISSION_ADMINCATEGORIESMAINTAINOTHERS)[1])) . "\".</span>\n";
+    }
+    if ($data['post_save'] === true && ($serendipity['GET']['adminAction'] == 'new' || $serendipity['GET']['adminAction'] == 'newSub')) {
         // only continue, if the category-name does not already exists, as user have no means to distinguish between them
         $r = serendipity_db_query("SELECT category_name FROM {$serendipity['dbPrefix']}category WHERE category_name = '". serendipity_db_escape_string($name)."'");
         if (is_array($r) && is_array($r[0])) {
