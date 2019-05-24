@@ -116,7 +116,7 @@
                 <div class="form_multiselect">
                     <label for="write_authors">{$CONST.PERM_WRITE}</label>
                     <select id="write_authors" size="6" multiple name="serendipity[cat][write_authors][]">
-                        <option value="0"{if $selectAllReadAuthors} selected{/if}>{$CONST.ALL_AUTHORS}</option>
+                        <option value="0"{if $selectAllWriteAuthors} selected{/if}>{$CONST.ALL_AUTHORS}</option>
                     {foreach $groups AS $group}
                         <option value="{$group.confkey}"{if isset($write_groups.{$group.confkey})} selected{/if}>{$group.confvalue|escape}</option>
                     {/foreach}
