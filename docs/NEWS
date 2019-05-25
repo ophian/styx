@@ -48,7 +48,10 @@ Version 2.8.0 RC1 ()
   * Improve entries counter for categories, by giving up the too strict set
     authorid-only SQL fetch for high-privileged user (groups).
 
-  * Deny non-privileged users to add sub-categories to categories by others
+  * Deny non-privileged grouped users to add sub-categories to categories by
+    others, which sadly has the downside of being unable to do this on standard
+    users self created categories, though. You then have to ask a CHIEF or ADMIN
+    for it.
 
   * Fix bug, that a less-privileged user was allowed to edit other authors
     categories without having (group) permission.
