@@ -229,7 +229,13 @@ if ($serendipity['GET']['adminAction'] == 'view') {
         $data['catentries'] = array_column(is_array($cnums) ? array_values($cnums) : array(), 'num', 'cat');
         $enumnocat = serendipity_getTotalCount('entriesnocat');
         $data['entriesnocat'] = array_column(is_array($enumnocat) ? array_values($enumnocat) : array(), 'num', 'cat');
-        $data['entriesauthor'] = serendipity_specialchars($serendipity['serendipityUser']);
+        $data['entriesbyauthor'] = serendipity_checkPermission('siteConfiguration')
+                                    ? GROUP . ': ' . USERLEVEL_ADMIN_DESC . '++'
+                                    : (
+                                        (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers'))
+                                        ? GROUP . ': ' . USERLEVEL_CHIEF_DESC . '+'
+                                        : AUTHOR . ': ' .serendipity_specialchars($serendipity['serendipityUser'])
+                                    );
     }
 }
 

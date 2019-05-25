@@ -156,7 +156,7 @@
     {if is_array($viewCats)}
 
     <h3>{$CONST.NO_CATEGORY}</h3>
-    <span class="category_base_entries"><em>{if isset($entriesnocat)}{if $entriesnocat.0 > 0}{$entriesnocat.0}{else}<span class="emptydim">0</span>{/if} {$CONST.ENTRIES} ({$CONST.AUTHOR}: {$entriesauthor}){/if}</em></span>
+    <span class="category_base_entries"><em>{if isset($entriesnocat)}{if $entriesnocat.0 > 0}{$entriesnocat.0}{else}<span class="emptydim">0</span>{/if} {$CONST.ENTRIES} ({$entriesbyauthor}){/if}</em></span>
 
     <ul id="categories" class="option_list{if !$threadedCat} slist{/if}">
     {foreach $viewCategories AS $category}
