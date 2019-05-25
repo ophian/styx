@@ -668,8 +668,8 @@ $i18n_filename_to = array (
 @define('CREATE_NEW_DIRECTORY', 'Vytvořit nový adresář');
 @define('CREATE_DIRECTORY_DESC', 'Zde můžete vytvořit adresář pro ukládání mediálních souborů. Zvolte název adresáře a případný nadřízený adresář.');
 @define('BASE_DIRECTORY', 'Základní adresář');
-@define('USERLEVEL_EDITOR_DESC', 'Autor');
-@define('USERLEVEL_CHIEF_DESC', 'Redaktor');
+@define('USERLEVEL_EDITOR_DESC', 'Redaktor');
+@define('USERLEVEL_CHIEF_DESC', 'Šéfredaktor');
 @define('USERLEVEL_ADMIN_DESC', 'Administrátor');
 @define('USERCONF_USERLEVEL', 'Úroveň');
 @define('USERCONF_USERLEVEL_DESC', 'Tato úroveň určuje práva uživatele weblogu.');

@@ -668,8 +668,8 @@ $i18n_filename_to = array (
 @define('CREATE_NEW_DIRECTORY', 'Vytvoriť nový priečinok');
 @define('CREATE_DIRECTORY_DESC', 'Tu môžete vytvoriť priečinok pre ukladanie mediálných súborov. Vyberte názov priečinka název a prípadný nadradený priečinok.');
 @define('BASE_DIRECTORY', 'Koreňový priečinok');
-@define('USERLEVEL_EDITOR_DESC', 'Autor');
-@define('USERLEVEL_CHIEF_DESC', 'Redaktor');
+@define('USERLEVEL_EDITOR_DESC', 'Redaktor');
+@define('USERLEVEL_CHIEF_DESC', 'Šéfredaktor');
 @define('USERLEVEL_ADMIN_DESC', 'Administrátor');
 @define('USERCONF_USERLEVEL', 'Úroveň prístupu');
 @define('USERCONF_USERLEVEL_DESC', 'Táto úroveň prístupu určuje práva používateľa weblogu.');
