@@ -1482,7 +1482,7 @@ function serendipity_getPermissionNames() {
  * @param   boolean     If set to true, all groups that the requested author is a user of will be returned.
  *                          This bypasses the permission check and mainly acts as a mean to return cached permissions,
  *                          since those variables are only available within this function.
- * @return  mixed       Either returns true if a permission check is performed, or return an array of group memberships. Depends on the $returnMyGroups variable.
+ * @return  mixed       Either returns true if a permission check is performed or false if not, or returns an array of group memberships. This depends on the $returnMyGroups variable.
  */
 function serendipity_checkPermission($permName, $authorid = null, $returnMyGroups = false) {
     global $serendipity;
