@@ -17,8 +17,8 @@ $data['closed'] = false;
 /* KEEP in mind:
     IMHO, there is a difference between ACL write permissions, which always additionally plays with authorid = 0 (all),
           to EITHER allow writing entries to a category OR writing to change the category itself for a least-privileged user.
-    Since ACL cannot distinguish the difference of permission you either have it both or not.
-    So the ACL perms have to be combined with serendipity_checkPermission() checks to restrict/allow actions, see 'edit' action.
+    Since ACL - including authorid 0 - cannot distinguish this difference of permission, you either have it both or not.
+    So the ACL perms have to be combined with serendipity_checkPermission() checks to restrict/allow ACTIONS, see 'edit' action.
     Thus we allow the 'edit' or 'delete' buttons to show up for non-privileged users.
 */
 
