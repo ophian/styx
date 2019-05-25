@@ -1939,29 +1939,33 @@ function serendipity_printArchives() {
  * Get total count for specific objects
  *
  * @access public
- * @param   string      The type of count to show: "entries", "trackbacks", "comments"
- * @return  string      The number
+ * @param   string      The type of count to show: "entries", "trackbacks", "comments", "...categories", "medias.."
+ * @return  string      The counted number
  */
 function serendipity_getTotalCount($what) {
     global $serendipity;
 
     switch($what) {
         case 'entriesnocat':
+            // operatorPerm (opp) is not bulletproof ideal though, since it relies on these group permissions ...
+            $opp = (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers')) ? '>=' : '=';
             $res = serendipity_db_query("SELECT COUNT(e.id) AS num
                                            FROM {$serendipity['dbPrefix']}entries AS e
                                       LEFT JOIN {$serendipity['dbPrefix']}entrycat AS c
                                              ON e.id = c.entryid
                                           WHERE c.entryid IS NULL
-                                            AND e.authorid = '{$serendipity['authorid']}'", false, 'assoc');
+                                            AND e.authorid $opp '{$serendipity['authorid']}'", false, 'assoc');
             return $res;
             break;
 
         case 'entriesbycat':
+            // ... and you never know what admin or chiefs do..., but IMHO better than a strict set authorid only.
+            $opp = (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers')) ? '>=' : '=';
             $res = serendipity_db_query("SELECT c.categoryid AS cat, COUNT(c.entryid) AS num
                                            FROM {$serendipity['dbPrefix']}entrycat AS c
                                       LEFT JOIN {$serendipity['dbPrefix']}entries AS e
                                              ON c.entryid = e.id
-                                          WHERE e.authorid = '{$serendipity['authorid']}'
+                                          WHERE e.authorid $opp '{$serendipity['authorid']}'
                                        GROUP BY cat", false, 'assoc');
             return $res;
             break;
