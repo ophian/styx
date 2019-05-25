@@ -59,7 +59,8 @@ serendipity_plugin_api::hook_event('backend_frontpage_display', $output);
 $data['backend_frontpage_display'] = isset($output['more']) ? $output['probe'] . $output['more'] : '';
 $output = array(); // re-new array for the autoupdate empty check below
 
-if (serendipity_checkPermission('adminUsers')) {
+// make sure it is the Administrator only
+if (serendipity_checkPermission('siteConfiguration') && serendipity_checkPermission('adminUsersMaintainOthers') && $serendipity['serendipityUserlevel'] == USERLEVEL_ADMIN) {
     $data['usedVersion']  = $serendipity['version'];
     $data['updateCheck']  = $serendipity['updateCheck'];
     $data['curVersion']   = serendipity_getCurrentVersion();
