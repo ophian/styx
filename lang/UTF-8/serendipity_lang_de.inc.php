@@ -722,7 +722,7 @@
 @define('GROUP', 'Gruppe');
 @define('CREATE_NEW_GROUP', 'Neue Gruppe anlegen');
 @define('DELETE_GROUP', 'Sie beabsichtigen, die Gruppe #%d %s zu löschen. Sind Sie sicher?');
-@define('USERLEVEL_OBSOLETE', 'HINWEIS: Das Attribut "Benutzerrang" gilt als veraltet und wird nur noch zwecks Abwärtskompatibilität zu Plugins und für Fallback-Autorisierungen benötigt. Benutzerrechte werden nun mittels Gruppenzugehörigkeiten verwaltet!');
+@define('USERLEVEL_OBSOLETE', 'HINWEIS: Das Attribut "Benutzerrang" (userlevel) wird nur noch zwecks Abwärtskompatibilität zu Plugins und für Fallback-Autorisierungen benötigt. Benutzerrechte werden nun mittels Gruppenzugehörigkeiten verwaltet!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner-ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Die ID des Feeds, der veröffentlicht werden soll');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner-Bild');
