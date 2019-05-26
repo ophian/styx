@@ -111,6 +111,7 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
     }
 
     if ($serendipity['enablePluginACL']) {
+        if (!isset($from['id'])) $from['id'] = null;
         $data['enablePluginACL'] = true;
         $allplugins =& serendipity_plugin_api::get_event_plugins();
         $allhooks   = array();
