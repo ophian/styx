@@ -759,6 +759,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: "글 생성 금지하기" 설정 변경');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: 글 게시 권한 변경');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: 시스템 설정 관리');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: 블로그 관련 설정 관리');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: 글 관리');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: 다른 사용자의 글 관리');

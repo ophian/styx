@@ -758,6 +758,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: 「エントリー作成の禁止」の変更');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: エントリーを公開する権限の変更');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: システム設定のアクセス');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: ブログの中心設定のアクセス');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: エントリーの管理');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: 他ユーザーのエントリーの管理');

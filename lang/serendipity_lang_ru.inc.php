@@ -762,6 +762,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Изменять опцию "запретить создание записей"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Изменять разрешение на публикацию записей');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Доступ к конфигурации');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Доступ к конфигурации блога');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Администрировать записи');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Администрировать записи других пользователей');

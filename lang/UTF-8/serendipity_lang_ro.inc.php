@@ -759,6 +759,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Change "forbid creating entries"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Change right to publish entries');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Access system configuration');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Access blog-centric configuration');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Administrate entries');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Administrate other user\'s entries');

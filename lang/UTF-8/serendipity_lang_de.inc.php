@@ -758,6 +758,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Ändern von "Erstellung von Einträgen verbieten"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Recht zur Veröffentlichung von Einträgen');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Systemweite Konfiguration');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Blog-spezifische Konfiguration');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Einträge verwalten');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Einträge anderer Benutzer verwalten');

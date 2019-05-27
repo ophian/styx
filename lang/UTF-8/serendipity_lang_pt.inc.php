@@ -762,6 +762,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Trocar "entradas proibidas"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Trocar direitos de publicação das entradas');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Acesso a configuração do sistema');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Acesso a configuração do blog-centric');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Administrar entradas');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Adminitrar outras entradas de usuários');

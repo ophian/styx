@@ -762,6 +762,7 @@ $i18n_unknown = 'tw';
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: 改變 "禁止建立文章"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: 改變發佈文章的權限');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: 讀取系統設定');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: 讀取網誌設定');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: 管理文章');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: 管理會員的文章');

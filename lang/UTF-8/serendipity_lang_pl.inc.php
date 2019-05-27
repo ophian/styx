@@ -762,6 +762,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Zmiana "zabroń tworzenia wpisów"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Zmiana uprawnień do publikowania wpisów');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Dostęp do konfiguracji systemu');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Dostęp do konfiguracji bloga');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Administracja wpisami');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Administracja wpisami innych użytkowników');

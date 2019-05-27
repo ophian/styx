@@ -760,6 +760,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Cambio "impedisci la creazione delle notizie"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Cambio dei diritti di pubblicazione delle notizie');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Accesso alla configurazione di sistema');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Accesso alla configurazione blog-centrica');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Amministrazione notizie');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Amministrazione notizie di altri utenti');

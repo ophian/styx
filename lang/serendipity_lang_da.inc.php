@@ -759,6 +759,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Ændre "forbyd oprettelse af artikler"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Ændre rettighed til at offentliggøre artikler');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Adgang til system konfiguration');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Adgang til blog-specifik konfiguration');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Administrer artikler');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Administrer andres artikler');

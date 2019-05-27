@@ -759,6 +759,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: تغییر "ممنوع بودن ارسال پست"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: تغییر دسترسی به ارسال پست');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: دسترسی به تنظیمات سایت');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: دسترسی به تنظیمات مرکزی وبلاگ');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: مدیریت ارسال ها');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: دسترسی به مدیریت ارسال های دیگران');

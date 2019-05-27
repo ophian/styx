@@ -758,6 +758,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Ändra "Förbjud skapa artiklar"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Ändra rätt att publicera artiklar');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Tillgå systeminställningar');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Tillgå blogg-centrerade inställningar');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Administrativa artiklar');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Administrera andra användares artiklar');

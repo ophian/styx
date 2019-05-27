@@ -764,6 +764,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate : Changement du droit de création de billets');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish : Changement du droit de publication de billets');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration : Accès à la configuration du système');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration : Accès à la configuration du blog');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries : Administration des billets');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers : Administration des billets d\'autres utilisateurs');

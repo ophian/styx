@@ -762,6 +762,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Değiştirin: "Yazı oluşturma yasağı"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Yazıların yayınlanması için izin verin');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Sistem yapılandırmasına erişim');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Günlük bazlı yapılandırmaya erişim');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Yazı kayıtlarını yönetebil');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Diğer kullanıcıların Kayıtlarını da Yönetebil');

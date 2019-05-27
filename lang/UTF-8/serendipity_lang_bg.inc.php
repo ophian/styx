@@ -750,6 +750,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Промяна на "забрана за създаване на статии"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Промяна на правото да се публикуват статии');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Достъп до системни настройки');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Достъп до настройки на блог');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Администриране на статии');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Администриране на статии на други потребители');

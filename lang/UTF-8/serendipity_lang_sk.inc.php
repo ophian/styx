@@ -772,6 +772,7 @@ $i18n_filename_to = array (
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Zmena "zákazu nových článkov"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Zmena práva na publikovanie článkov');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Konfigurácia systému');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Konfigurácia weblogu');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Správa článkov');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Správa článkov ostatných používateľov');

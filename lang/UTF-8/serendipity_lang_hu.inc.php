@@ -758,6 +758,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: A "nem vehet fel bejegyzést" változtatása');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Bejegyzés publikálási jogosultság változtatása');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Rendszer-konfigurációhoz hozzáfér');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Blog specifikus beállításokhoz hozzáfér');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Bejegyzések adminisztrálása');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Más felhasználók bejegyzéseinek adminisztrálása');

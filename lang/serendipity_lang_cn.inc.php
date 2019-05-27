@@ -763,6 +763,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: 变更 "禁止建立文章"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: 变更发布文章的权限');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: 读取系统设定');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: 读取日志设定');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: 管理文章');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: 管理会员的文章');

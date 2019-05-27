@@ -759,6 +759,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Recht op het aanmaken van artikelen wijzigen');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Recht op het publiceren van artikelen wijzigen');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Toegang tot systeemconfiguratie');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Toegang tot weblogconfiguratie');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Artikelen beheren');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Artikelen van anderen beheren');

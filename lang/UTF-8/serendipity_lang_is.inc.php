@@ -758,6 +758,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Breyta "banna nýskráningu færsla"');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Breyta rétti til að birta færslur');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Fara í kerfisstillingar');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Fara í bloggtengdar stillingar');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Stjórna færslum');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Stjórna færslum annarra notenda');

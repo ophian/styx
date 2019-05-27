@@ -757,6 +757,7 @@
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Muuttaa "kiellä kirjoittaminen"-asetusta');
 @define('PERMISSION_PERSONALCONFIGURATIONRIGHTPUBLISH', 'personalConfigurationRightPublish: Muutta oikeutta julkaista');
 @define('PERMISSION_SITECONFIGURATION', 'siteConfiguration: Muokkaa järjestelmäasetuksia');
+@define('PERMISSION_SITEAUTOUPGRADES', 'siteAutoUpgrades: Access system autoupgrades');
 @define('PERMISSION_BLOGCONFIGURATION', 'blogConfiguration: Muokkaa blogin asetuksia');
 @define('PERMISSION_ADMINENTRIES', 'adminEntries: Merkintöjen hallinta');
 @define('PERMISSION_ADMINENTRIESMAINTAINOTHERS', 'adminEntriesMaintainOthers: Hallitsee toisten käyttäjien merkintöjä');
