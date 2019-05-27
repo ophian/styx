@@ -71,7 +71,7 @@ Version 2.8.0 RC1 ()
   * Fix backends pingback comment action block margin for media screens
 
   * Fix group permission_* constants for the permissive variable name in
-    [cn, cs, cz, fi, hu, tr, zh] languages. DO NOT translate or dismiss!
+    [cn, cs, cz, fi, hu, ja, tr, zh] languages. DO NOT translate or dismiss!
 
   * Fix backend comments list (count) SQL query for (non-)privileged users
 
