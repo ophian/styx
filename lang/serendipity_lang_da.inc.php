@@ -752,6 +752,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Markup');
 @define('PLUGIN_GROUP_STATISTICS', 'Statistik');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Adgang til personlig konfiguration');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Ændre brugerniveauer');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Ændre "forbyd oprettelse af artikler"');
@@ -780,15 +782,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Administrer andres media filer');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Vis media filer');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Opdater minibilleder');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Vis andre brugeres media filer');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrer kommentarer');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrer skabeloner');
+
 @define('INSTALL_BLOG_EMAIL', 'Bloggens emailadresse');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Her angives emailadressen som anvendes i \'fra\' feltet på udgående email fra bloggen. Vær opmærksom på at mange mailservere afviser email med ukendt eller ikke eksisterende emailadresse i \'fra\' feltet.');
 @define('CATEGORIES_PARENT_BASE', 'Vis kun kategorier herunder...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Du kan vælge en forælder kategori, så kun kategorierne herunder vises.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Skjul kategorier som ikke er en del af kategoritræet');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Hvis du ønsker at skjule kategorier som er del af et andet kategoritræ skal du vælge \'Ja\' her. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Vis andre brugeres media filer');
 @define('CHARSET_NATIVE', 'Native');
 @define('INSTALL_CHARSET', 'Karaktersæt valg');
 @define('INSTALL_CHARSET_DESC', 'Her kan du vælge mellem UTF-8 eller \'native\' (lokalt,  f.eks. ISO-8859-1) karaktersæt. Nogle sprog har kun UTF-8 oversættelsen, så at sætte valget til \'native\' vil ikke have nogen effekt. UTF-8 anbefales til nyinstallationer. Lad være med at ændre denne indstilling hvis du allerede har lavet artikler med special karakterer - det kan medføre dine artikler vises forkert. Læs mere om alt dette på <a href="https://ophian.github.io/hc/en/i18n.html">https://ophian.github.io/hc/en/i18n.html</a>');
@@ -797,7 +800,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'Serendipity\'s XML-RPC API interface leveres ikke længere sammen med Serendipity på grund af gentagne sikkerhedsproblemer med dette API. Du er derfor nødt til at installere XML-RPC pluginet for at kunne bruge XML-RPC API. URL\'en i dine programmer ændres IKKE - så snart pluginet er installeret vil du igen være istand til at bruge dette API.');
 @define('PERM_READ', 'Læse rettighed');
 @define('PERM_WRITE', 'Skrive rettighed');
-
 @define('PERM_DENIED', 'Permission denied.');
 @define('INSTALL_ACL', 'Anvend læserettigheder for kategorier');
 @define('INSTALL_ACL_DESC', 'Hvis aktiveret anvendes grupperettigheder for brugere der er logget ind. I modsat fald anvendes læserettigheder for kategorier ikke, men din blog bliver til gengæld lidt hurtigere. Så har du ikke brug for multibruger læserettigheder  i din blog bør du vælge \'nej\' her.');

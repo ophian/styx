@@ -765,6 +765,8 @@ $i18n_filename_to = array (
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Markup - textové znaèky');
 @define('PLUGIN_GROUP_STATISTICS', 'Statistiky');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Pøístup k osobní konfiguraci');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Zmìnit úroveò u¾ivatele (level)');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Zmìnit "zákaz nových pøíspìvkù"');
@@ -793,15 +795,16 @@ $i18n_filename_to = array (
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Administrace souborù medií ostatních u¾ivatelù');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Prohlí¾ení souborù medií');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Sync thumbnailù');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Prohlí¾ení medií ostatních u¾ivatelù');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrace komentáøù');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrace ¹ablon (template)');
+
 @define('INSTALL_BLOG_EMAIL', 'E-Mail pro blog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Toto nastaví E-Mailovou adresu, která je pou¾ita v poli "From"- (od) pro odchozí e-maily. Nastavte si tuto adresu tak, aby byla rozpoznána mailovým serverem pou¾ívaným va¹ím webhosterem - mnoho mailserverù odmítá po¹tu, která má neznámou From-addresu (adr odesilatele).');
 @define('CATEGORIES_PARENT_BASE', 'Zobrazit jen kategorie ni¾e ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Mù¾ete vybrat rodièovskou kategorii, tak¾e budou zobrazeny jen její ni¾¹í kategori.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Skrýt kategorie, které nejsou souèástí stromu kategorií');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jestli¾e chcete skrýt kategorie, které jsou èástí jiného stromu kategorií, musíte tohle povolit. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Prohlí¾ení medií ostatních u¾ivatelù');
 @define('CHARSET_NATIVE', 'Národní');
 @define('INSTALL_CHARSET', 'Volba znakové sady - Charset');
 @define('INSTALL_CHARSET_DESC', 'Zde mù¾ete volit mezi UTF-8 nebo národní (ISO, EUC, ...) znakovou sadou. Nìkteré jazyky mají jen pøeklady UTF-8, tak¾e nastavení znakové sady na národní nemá ¾ádný úèinek. UTF-8 se doporuèuje pro nové instalace. Nemìòte toto nastavení, jestli¾e jste ji¾  napsali pøíspìvky se speciálními (národními) znaky - mohlo by zpùsobit poru¹ení textu. Pøeètìte si o tomto problému více na  https://ophian.github.io/hc/en/i18n.html .');
@@ -810,7 +813,6 @@ $i18n_filename_to = array (
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API Interface na Serendipity ji¾ není pøibaleno  kvùli pokraèujícím bezpeènostním problémùm s tímhle API a proto¾e ho moc lidí nepou¾ívá. Proto musíte nainstalovat plugin XML-RPC, kdy¾ chcete  XML-RPC API pou¾ívat. URL, které se pou¾ije ve va¹í aplikaci, se nezmìní - hned po instalaci pluginu budete moci API pou¾ívat.');
 @define('PERM_READ', 'Právo na ètení');
 @define('PERM_WRITE', 'Právo na zápis');
-
 @define('PERM_DENIED', 'Pøístup odepøen.');
 @define('INSTALL_ACL', 'Aplikovat práva na ètení pro kategorie');
 @define('INSTALL_ACL_DESC', 'Pokud je povoleno, budou na kategorie aplikována nastavení práv pro skupiny u¾ivatelù, kdy¾ si pøihlá¹ení u¾ivatelé budou prohlí¾et vá¹ blog. Není-li povoleno, práva na ètení pro kategorie nejsou aplikována,  a  zlep¹uje se rychlost blogu. Jestli¾e nechcete mít práva pro ètení pro rùzné u¾ivatele,  toto nastavení zaka¾te.');

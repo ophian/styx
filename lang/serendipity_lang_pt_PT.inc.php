@@ -764,6 +764,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Anti-Spam');
 @define('PLUGIN_GROUP_MARKUP', 'Código');
 @define('PLUGIN_GROUP_STATISTICS', 'Estatísticas');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Aceder à configuração pessoal');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Modificar níveis de utilizador');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Mudar "proibir criação de entradas"');
@@ -792,15 +794,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Administrar ficheiros de multimédia de outros utilizadores');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Ver ficheiros de multimédia');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Sincronizar thumbnails');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Ver ficheiros de multimédia de outros utilizadores');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrar comentários');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrar modelos');
+
 @define('INSTALL_BLOG_EMAIL', 'Endereço de E-mail do Blogue');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Isto configura o endereço de E-mail que é usado na linha de "From" de e-mail que segue para o exterior. Certifique-se que isto é um endereço de e-mail que é reconhecido pelo servidor de mail configurado no seu servidor - muitos servidores de mail rejeitam mensagens com um endereço de "From"" desconhecido.');
 @define('CATEGORIES_PARENT_BASE', 'Mostre só categorias abaixo...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Pode escolher uma categoria antecessora para que só as categorias descendentes sejam vistas.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Esconder categorias que não fazem parte da árvore de categorias');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Se quiser esconder categorias que fazem parte de uma árvore de categorias distinta, é preciso autorizar isto. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Ver ficheiros de multimédia de outros utilizadores');
 @define('CHARSET_NATIVE', 'Nativo');
 @define('INSTALL_CHARSET', 'Escolha de codificação de caracteres');
 @define('INSTALL_CHARSET_DESC', 'Aqui pode optar entre codificações de caracteres UTF-8 ou nativas (ISO, EUC, ...). Algumas línguas só têm traduções UTF-8 de forma que mudar a codificação para "Nativo" não produzirá qualquer efeito. Sugere-se UTF-8 em instalações novas. Não altere esta definição se já criou entradas com caracteres especiais - isso pode causar corrupção de caracteres. Certifique-se que lê mais sobre este assunto em https://ophian.github.io/hc/en/i18n.html.');
@@ -809,7 +812,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'A Interface da API de XML-RPC para Serendipity já não é incluída devido a questões de segurança correntes com esta API e ao facto de ser pouco usada. Assim precisa de instalar o Plugin de XML-RPC para usar a API de XML-RPC. A URL a usar nas suas aplicações NÃO mudará - assim que instalar o plugin, poderá de novo usar a API.');
 @define('PERM_READ', 'Permissão de leitura');
 @define('PERM_WRITE', 'Permissão de escrita');
-
 @define('PERM_DENIED', 'Permissão negada.');
 @define('INSTALL_ACL', 'Aplicar permissões de leitura às categorias');
 @define('INSTALL_ACL_DESC', 'Se accionado, as preferências de permissões de grupos de utilizadores que definir para categorias serão aplicadas quando utilizadores que fizeram login virem o seu blogue. Se inactivo, as permissões de leitura das categorias NÃO serão aplicadas, mas o efeito positivo é uma ligeira velocidade adicional no seu blogue. Assim se não precisar de permissões de leitura multi-utilizador para o seu blogue, inactive esta preferência.');

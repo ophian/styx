@@ -757,6 +757,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Balises');
 @define('PLUGIN_GROUP_STATISTICS', 'Statistiques');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration : Accès à la configuration personnelle');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel : Changement des niveaux d\'autorisation des utilisateurs');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate : Changement du droit de création de billets');
@@ -785,15 +787,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers : Administration des documents d\'autres utilisateurs');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView : Affichage de documents');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync : Synchronisation des miniatures');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers : Affichage de documents d\'autres utilisateurs');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments : Administration des commentaires de billets');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates : Administration des thèmes');
+
 @define('INSTALL_BLOG_EMAIL', 'Adresse Email du blog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Définit l\'adresse email qui est utilisée pour les messages sortants, pour permettre aux destinataires d\'y répondre. Assurez-vous que cette adresse est reconnue par le serveur mail qui sera utilisé pour l\'envoi : beaucoup de serveurs refusent l\'envoi de messages contenant des adresses inconnues.');
 @define('CATEGORIES_PARENT_BASE', 'N\'afficher que les sous-catégories de...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Vous pouvez choisir une catégorie pour que seulement les sous-catégories de celle-ci soient affichées.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Cacher les catégories ne faisant pas partie de l\'arborescence');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Si vous désirez cacher les catégories qui font partie d\'une autre arborescence de catégories, vous devez activer cette option. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers : Affichage de documents d\'autres utilisateurs');
 @define('CHARSET_NATIVE', 'Natif');
 @define('INSTALL_CHARSET', 'Sélection de la table de caractères');
 @define('INSTALL_CHARSET_DESC', 'Vous permet de définir la table de caractères à utiliser : UTF-8 ou Natif (ISO, EUC, ...). Quelques langues ne sont disponibles qu\'en UTF-8, dans ce cas cette option n\'aura pas d\'effet. UTF-8 est recommandé pour de nouvelles installations. Attention : ne changez pas cette option si vous avez déjà crée des billets avec des caractères spéciaux - cela pourrait entraîner un affichage corrompu de ces caractères. Vous trouverez plus d\'informations à ce sujet à l\'adresse suivamte : https://ophian.github.io/hc/en/i18n.html (en anglais)');
@@ -802,7 +805,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'L\'interface de programmation XML-RPC de Serendipity n\'est plus incluse automatiquement à cause de failles de sécurité dans celle-ci et parce que très peu de personnes l\'utilisent. Pour l\'activer, vous devez installer le plugin XML-RPC. L\'adresse que vous utilisez dans vos applications NE CHANGERA PAS - dès que vous aurez installé le plugin, vous pourrez à nouveau accéder à l\'interface.');
 @define('PERM_READ', 'Autorisation de lecture');
 @define('PERM_WRITE', 'Autorisation d\'écriture');
-
 @define('PERM_DENIED', 'Autorisation refusée.');
 @define('INSTALL_ACL', 'Appliquer les autorisations pour les catégories');
 @define('INSTALL_ACL_DESC', 'Si vous activez cette option, les autorisations que vous définissez pour les catégories seront utilisées pour les utilisateurs authentifiés visitant votre blog. Autrement, les autorisations ne sont PAS vérifiées, mais votre blog sera un peu plus rapide. Si vous n\'avez pas besoin d\'autorisations multi-utilisateurs pour votre blog, vous devriez désactiver cette option.');

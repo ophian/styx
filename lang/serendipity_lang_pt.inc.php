@@ -755,6 +755,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Marcação');
 @define('PLUGIN_GROUP_STATISTICS', 'Estatísticas');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Acesso as configurações pessoais');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Trocar níveis de usuários');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Trocar "entradas proibidas"');
@@ -783,15 +785,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Administrar outros arquivos multimídia de usuário(s)');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Ver arquivos multimídia');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Syncronizar miniaturas');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Visualizar arquivos multimídia de outros usuários');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrar comentários');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrar modelos');
+
 @define('INSTALL_BLOG_EMAIL', 'Endereços de e-mail do Blog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Aqui é configurado o nome do usuário que será usado nos e-mails de saída. Tenha certeza que este e-mail é reconhecido pelo servidor - muitos servidores rejeitam o envio caso não conheçam quem está enviando.');
 @define('CATEGORIES_PARENT_BASE', 'Mostre apenas as categorias abaixo...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'você pode escolher uma categoria "pai" de forma que apenas as categorias "filhas" sejam mostradas.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Esconder categorias que não fazem parte da árvore de categorias');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Se você quer esconder categorias que são partes diferentes da árvore de categorias, você deve habilitar isso. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Visualizar arquivos multimídia de outros usuários');
 @define('CHARSET_NATIVE', 'Código de página nativo');
 @define('INSTALL_CHARSET', 'Seleção do código de página');
 @define('INSTALL_CHARSET_DESC', 'Aqui você pode escolher os códigos de página entre o UTF-8 ou nativo (ISO, EUC, ...). Algumas linguagens apenas possuem traduções em UTF-8 então a escolha por nativo não terá efeito. o UTF-8 é sugerido para novas instalações. Não faça alterações se você já fez entradas com caracteres especiais - eles podem aparecer corrompidos. Para saber mais acesse https://ophian.github.io/hc/en/i18n.html.');
@@ -800,7 +803,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'The XML-RPC API Interface to Serendipity is no longer bundled because of ongoing security issues with this API and not many people using it. Thus you need to install the XML-RPC Plugin to use the XML-RPC API. The URL to use in your applications will NOT change - as soon as you have installed the plugin, you will again be able to use the API.');
 @define('PERM_READ', 'Read permission');
 @define('PERM_WRITE', 'Write permission');
-
 @define('PERM_DENIED', 'Permission denied.');
 @define('INSTALL_ACL', 'Apply read-permissions for categories');
 @define('INSTALL_ACL_DESC', 'If enabled, the usergroup permission settings you setup for categories will be applied when logged-in users view your blog. If disabled, the read-permissions of the categories are NOT applied, but the positive effect is a little speedup on your blog. So if you don\'t need multi-user read permissions for your blog, disable this setting.');

@@ -755,6 +755,8 @@ $i18n_unknown = 'tw';
 @define('PLUGIN_GROUP_ANTISPAM', '防止廣告');
 @define('PLUGIN_GROUP_MARKUP', '標記');
 @define('PLUGIN_GROUP_STATISTICS', '統計資料');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: 讀取私人設定');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: 改變會員權限');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: 改變 "禁止建立文章"');
@@ -783,15 +785,16 @@ $i18n_unknown = 'tw';
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: 管理會員的媒體檔案');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: 瀏覽媒體檔案');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: 同步縮圖');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 瀏覽會員的媒體檔案');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: 管理迴響');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: 管理佈景');
+
 @define('INSTALL_BLOG_EMAIL', '網誌的電子郵件');
 @define('INSTALL_BLOG_EMAIL_DESC', '這會設定您的電子郵件，任何從網誌內寄出的信件將會顯示這個郵件位址。記得這個電子郵件必須可以用在您的主機內，很多主機會拒絕接收不明的郵件。');
 @define('CATEGORIES_PARENT_BASE', '只顯示下面的類別...');
 @define('CATEGORIES_PARENT_BASE_DESC', '您可以選擇一個母類別，只顯示它下面的子類別。');
 @define('CATEGORIES_HIDE_PARALLEL', '隱藏不在類別結構內的類別');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 瀏覽會員的媒體檔案');
 @define('CHARSET_NATIVE', '預設');
 @define('INSTALL_CHARSET', '語系選項');
 @define('INSTALL_CHARSET_DESC', '這裡可以讓您轉換 UTF-8 或預設語系 (ISO, EUC, ...)。有些語言只有 UTF-8 語系檔，所以換成預設語系不會改變任何東西。新安裝的網誌建議使用 UTF-8 語系。記得不要改變這個設定如果您已經發佈了文章。詳情請看 https://ophian.github.io/hc/en/i18n.html。');
@@ -801,7 +804,6 @@ $i18n_unknown = 'tw';
 @define('PERM_READ', 'Read permission');
 @define('PERM_READ', '讀取權限');
 @define('PERM_WRITE', '寫入權限');
-
 @define('PERM_DENIED', '權限拒絕。');
 @define('INSTALL_ACL', '套入讀取的權限到類別');
 @define('INSTALL_ACL_DESC', '如果開啟，群組對類別的權限設定將會套用到登入的會員。如果關閉，類別的讀取權限不會被使用，但是會加快您的網誌速度。如果您不需要多使用者的讀取權限，建議將這個設定關閉。');

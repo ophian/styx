@@ -755,6 +755,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Markup');
 @define('PLUGIN_GROUP_STATISTICS', 'İstatistikler');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Kişisel yapılandırmaya erişim');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Kullanıcı yetkiseviyesini değiştirin');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Değiştirin: "Yazı oluşturma yasağı"');
@@ -783,15 +785,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Diğer Kullanıcıların Medya Dosyalarını Yönetebil');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Resim Dosyalarına bakabil');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Küçükresimleri eşleyebil');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Diğer Kullanıcıların medya dosyalarını izleyebil');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Yorumları Yönetebil');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Şablonları Yönetebil');
+
 @define('INSTALL_BLOG_EMAIL', 'Site Sahibi E-Posta adresi');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Bu yapılandırma sizden giden e-postalar için kullanılacaktır. Bu adresin sizin postasunucunuz olarak size barındırma hizmeti veren firmadan sağlandığına emin olun - Pekçok posta sunucusu iletileri bilinmeyen başlığıyla geri iade eder.');
 @define('CATEGORIES_PARENT_BASE', 'Sadece Konu başlıklarını göster...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Sadece alt konu başlıklarını seçebilirsiniz, sitede de sadece seçtiğiniz konu başlıkları gösterilir.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Konu başlıkları ağaç yapısının parçası olmayan konu başlıklarını gizle');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Başka bir konu başlığı ağacı altında gösterilen konu başlığını gizlemek istiyorsanız, bu seçenek açık olsun. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Diğer Kullanıcıların medya dosyalarını izleyebil');
 @define('CHARSET_NATIVE', 'Doğal');
 @define('INSTALL_CHARSET', 'Karakter Seçimi');
 @define('INSTALL_CHARSET_DESC', 'Burada UTF-8 ya da doğal (ISO, EUC, ...) karakter seti seçimi yapabilirsiniz. Bazı diller sadece UTF-8 olarak çevrildiklerinden  "Doğal" karakterseti seçimi hiç bir etki yapmayabilir. UTF-8 yeni kurulumlar için önerilir".Bu seçeneğe eğer özel karakterleri çok kullanıyorsanız hiç dokunmayın.Daha fazla bilgi için https://ophian.github.io/hc/en/i18n.html bu adrese başvurun.');
@@ -800,7 +803,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', ' XML-RPC API Arayüzü  Serendipity ile beraber verilmedi. Çünkü bu API güvenlik sorunları süren bir durumda ve çok fazla insan kullanmıyor. Bu nedenle sadece ihtiyacınız varsa  XML-RPC Eklentisini kurarak XML-RPC API sini kullanabilirsiniz.Uygulamanızda kullanılan URL adresi değişmeyecektir- eklentiyi kurarsanız bu API yi kullanabilirsiniz.');
 @define('PERM_READ', 'Okuma izni');
 @define('PERM_WRITE', 'Yazma İzni');
-
 @define('PERM_DENIED', 'Erişim engellendi.');
 @define('INSTALL_ACL', 'Konu başlıkları için sadece okuma iznini uygula');
 @define('INSTALL_ACL_DESC', 'Eğer açık olursa konu başlıkları için kullanıcı grubu izinleri ayarlarınız kullanıcılar sitenize bağlandıklarına uygulanacak. Eğer kapalı olursa, siteniz birazcık ta olsa hızlanır.Sonuçta eğer sitenizde çoklu kullanıcılı bir kaç site barındırmıyorsanız, bu ayar kapalı olabilir.');

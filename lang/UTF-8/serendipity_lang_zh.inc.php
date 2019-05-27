@@ -756,6 +756,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', '防止广告');
 @define('PLUGIN_GROUP_MARKUP', '标记');
 @define('PLUGIN_GROUP_STATISTICS', '统计资料');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: 读取私人设定');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: 改变会员权限');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: 变更 "禁止建立文章"');
@@ -784,15 +786,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: 管理会员的媒体文件');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: 浏览媒体文件');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: 同步缩图');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 浏览会员的媒体文件');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: 管理回复');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: 管理主题');
+
 @define('INSTALL_BLOG_EMAIL', '网站的电子邮件');
 @define('INSTALL_BLOG_EMAIL_DESC', '这会设定你的电子邮件，任何日志内寄出的邮件将会显示这个电子邮件地址。记得这个电子邮件必须用在你的主机内，很多主机会拒绝接收不明的邮件。');
 @define('CATEGORIES_PARENT_BASE', '只显示以下类别...');
 @define('CATEGORIES_PARENT_BASE_DESC', '你可以选择一个主类别，只显示它下面的子类别。');
 @define('CATEGORIES_HIDE_PARALLEL', '隐藏不在类别结构的类别');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 浏览会员的媒体文件');
 @define('CHARSET_NATIVE', '预设');
 @define('INSTALL_CHARSET', '语言选项');
 @define('INSTALL_CHARSET_DESC', '这里可以让你转换 UTF-8 或预设编码 (ISO, UTF-8, ...)有些语言包只有 UTF-8 编码，所以换成预设语言有不会任何改变。新安装的日志建议使用 UTF-8 编码。记得不要改变这个设定如果你已经发布了文章。详情参阅 https://ophian.github.io/hc/en/i18n.html');
@@ -801,7 +804,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API 功能不会添加在 s9y 的安装里，因为漏洞和不多人使用的关系。所以必须安装 XML-RPC 的外挂如果使用 XML-RPC API。所有的 URL 不会因此改变，安装这个外挂后马上使用。');
 @define('PERM_READ', '读取权限');
 @define('PERM_WRITE', '写入权限');
-
 @define('PERM_DENIED', '权限拒绝');
 @define('INSTALL_ACL', '套入读取的权限到类别');
 @define('INSTALL_ACL_DESC', '如果开启，群组对类别的权限设定将会套用到登入的会员。如果关闭，类别的读取权限不会被使用，但是会加快你日志的速度。如果你不需要多个使用者的读取权限，建议你将这个设定关闭。');

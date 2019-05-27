@@ -751,6 +751,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Textformatierungen');
 @define('PLUGIN_GROUP_STATISTICS', 'Statistik');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Zugriff auf Persönliche Einstellungen');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Benutzerlevel ändern');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Ändern von "Erstellung von Einträgen verbieten"');
@@ -779,15 +781,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Mediendaten anderer Benutzer verwalten');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Mediendaten ansehen');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Vorschaubilder synchronisieren');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Mediendaten anderer Benutzer ansehen');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Kommentare verwalten');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Templates verwalten');
+
 @define('INSTALL_BLOG_EMAIL', 'E-Mail-Adresse des Blogs');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Mit dieser Option legen Sie die E-Mail-Adresse fest, die im "From"-Teil von ausgehenden Mails des Servers als Absender verwendet wird. Diese Adresse muss auf dem eingesetzten Mailserver gültig sein, da viele Mailserver ungültige From-Adressen als Spam klassifizieren.');
 @define('CATEGORIES_PARENT_BASE', 'Zeige nur Kategorien unterhalb ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Sie können eine Eltern-Kategorie definieren, so dass nur die Unterkategorien derselben angezeigt werden.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Bestimmte Kategorien verstecken?');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Falls Sie Kategorien verstecken wollen, die nicht Teil des vom Besucher gewählten Kategoriebaums sind, und die innerhalb einer parallelen Baumstruktur abgebildet sind, muss diese Option aktiviert werden. Diese Einstellung machte früher hauptsächlich dann Sinn, wenn sie in einem "Multi-Blog" artigen System mittels des "Eigenschaften/Templates von Kategorien"-Plugins verwendet wurde. Dies ist jetzt aber nicht mehr der Fall, da dieses Plugin in seiner Version größer/gleich v.1.50 versteckte Kategorien unabhängig und besser herausrechnen kann. Sie sollten diese Option also nur noch verwenden, wenn sie einen konkreten Anwendungsfall außerhalb vom genannten "categorytemplates" Plugin haben.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Mediendaten anderer Benutzer ansehen');
 @define('CHARSET_NATIVE', 'Nationaler Zeichensatz');
 @define('INSTALL_CHARSET', 'Zeichensatz-Auswahl');
 @define('INSTALL_CHARSET_DESC', 'Hier können Sie zwischen UTF-8 und dem nationalen Zeichensatz ("Native" - ISO, EUC, ...) wählen. Einige Sprachen sind sowieso nur in UTF-8 Zeichensätzen verfügbar, so dass die Option "Nationaler Zeichensatz" dort keine Auswirkungen hat. UTF-8 wird als Zeichensatz für Neuinstallation empfohlen. Ändern Sie diese Einstellung nicht, wenn Sie bereits Einträge erstellt haben - dies kann zu defekten Zeichen führen. Weitere Informationen finden Sie unter https://ophian.github.io/hc/en/i18n.html.');

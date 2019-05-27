@@ -750,6 +750,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Roskapostin torjunta');
 @define('PLUGIN_GROUP_MARKUP', 'Notaatio');
 @define('PLUGIN_GROUP_STATISTICS', 'Tilastot');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Pääsee omiin asetuksiin');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Muuttaa käyttäjätasoa');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Muuttaa "kiellä kirjoittaminen"-asetusta');
@@ -778,15 +780,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Ylläpitää toisten media-hakemistoja');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Katselee toisten kuvatiedostoja');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Luo kuvakkeet');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Katsoo toisten kuvatiedostoja');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Ylläpitää kommentteja');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Ylläpitää malleja');
+
 @define('INSTALL_BLOG_EMAIL', 'Blogin sähköpostiosoite');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Tätä osoitetta käytettään lähettäjän (From:)-osoitteena kun blogisi lähettää postia. Valitse toimiva osoite, sillä useat sähköpostipalvelimet eivät suostu toimimaan virheellisten osoitteiden kanssa.');
 @define('CATEGORIES_PARENT_BASE', 'Näytä vain allaolevat kategoriat...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Voit valita kategoriavanhemman, jolloin vain alikategoriat näytetään.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Piilota kategoriat, jotka eivät kuulu kategoriapuuhun');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jos haluat piilottaa kategoriat, jotka eivät kuulu tähän puuhun, valitse tämä. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Katsoo toisten kuvatiedostoja');
 @define('CHARSET_NATIVE', 'Kansallinen');
 @define('INSTALL_CHARSET', 'Merkistövalinta');
 @define('INSTALL_CHARSET_DESC', 'Voit valita UTF-8 tai kansallisen merkistön (ISO, EUC, ...). Joillekin kielille on olemassa vain UTF-8 käännös, jolloin "Kansallinen" valinta ei ole käytössä. UTF-8 merkistöä suositellaan uusille asennuksille. Älä vaihda merkistöä, jos olet jo tehnyt logimerkintöjä erityiskirjaimilla, vaihtaminen saattaa hajoittaa merkinnät. Lisätietoja https://ophian.github.io/hc/en/i18n.html aiheesta.');
@@ -795,7 +798,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'Serendipityn XML-RPC API liittymä ei ole käytössä tietoturvaongelmien ja pienen käyttäjäkunnan takia. Joten käyttääksesi XML-RPC liittymää tarvitset XML-RPC-laajennoksen. URL, jota sovelluksesi käyttävät ei ole muuttunut. Saat liittymän takaisin käyttöösi, kun asennat laajennoksen.');
 @define('PERM_READ', 'Lukuoikeus');
 @define('PERM_WRITE', 'Kirjoitusoikeus');
-
 @define('PERM_DENIED', 'Pääsy kielletty.');
 @define('INSTALL_ACL', 'Käytä kategorioiden lukuoikeuksia');
 @define('INSTALL_ACL_DESC', 'Jos otat käyttöön voit rajoittaa sisäänkirjautuneiden käyttäjien lukuoikeuksia. Jos et ota käyttöön blogisi on hivenen nopeampi. Jos et tarvitse eritasoisia lukuoikeuksia blogissasi, älä ota tätä käyttöön.');

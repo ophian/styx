@@ -743,6 +743,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLUGIN_GROUP_ANTISPAM', 'Антиспам');
 @define('PLUGIN_GROUP_MARKUP', 'Маркап');
 @define('PLUGIN_GROUP_STATISTICS', 'Статистика');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Достъп до лични настройки');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Промяна на потребителски нива');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Промяна на "забрана за създаване на статии"');
@@ -771,15 +773,16 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Администриране на медийните файлове на друг потребител');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Преглед на медийни файлове');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Синхронизиране на миниатюри');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Преглед на медийни файлове на друг потребител');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Администриране на коментари');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Администриране на шаблони');
+
 @define('INSTALL_BLOG_EMAIL', 'Електронен адрес на блога');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Това настройва електронния адрес, който да бъде използван в частта "From" на изпращаната поща. Уверете се, че задавате адрес, който се разпознава от пощенския сървър, използван в системата - много пощенски сървъри отказват съобщения с неизвестен адрес From.');
 @define('CATEGORIES_PARENT_BASE', 'Показване само на категориите от по-долу...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Можете да изберете родителска категория, така че само подчинените категории да се покажат.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Скриване на категориите, които не са част от дървото на категории');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ако искате да скриете категориите, които са част от различно дърво категории, трябва да изберете тази възможност. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Преглед на медийни файлове на друг потребител');
 @define('CHARSET_NATIVE', 'Местно');
 @define('INSTALL_CHARSET', 'Избор на кодиране на знаци');
 @define('INSTALL_CHARSET_DESC', 'Тук можете да превключвате между местно кодиране (ISO, EUC, ...) или UTF-8. Някои езици имат само превод в UTF-8 и задаването на "Местно" няма да има ефект. Препоръчва се UTF-8 за нови инсталации. Не променяйте тази настройка, ако вече имате статии със специални знаци - това може да доведе до развалени знаци. Добре е да прочетете повече за този проблем в https://ophian.github.io/hc/en/i18n.html.');
@@ -788,7 +791,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('XMLRPC_NO_LONGER_BUNDLED', 'Интерфейсът XML-RPC към Serendipity вече не се разпространява със Serendipity заради продължаващи проблеми със сигурноста, както и защото малко хора го ползват. Затова трябва да инсталирате приставката XML-RPC, за да използвате XML-RPC. URL-ът за употреба от приложения НЯМА да се промени - веднага след инсталиране на приставката ще можете отново да използвате API-то.');
 @define('PERM_READ', 'Позволение за четене');
 @define('PERM_WRITE', 'Позволение за запис');
-
 @define('PERM_DENIED', 'Отказано позволение.');
 @define('INSTALL_ACL', 'Прилагане на позволение за четене към категории');
 @define('INSTALL_ACL_DESC', 'Ако е активирано, позволенията на потребителските групи, настроени за категориите, ще бъдат прилагани към влезли потребители, които четат вашия блог. Ако е деактивирано, правата за четене на категории НЕ се прилагат, но положителният ефект от това е малко ускоряване на блога. Така че ако не се нуждаете от многопотребителски права за четене, деактивирайте тази възможност.');

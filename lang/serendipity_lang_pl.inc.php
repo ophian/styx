@@ -755,6 +755,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('PLUGIN_GROUP_ANTISPAM', 'Antyspam');
 @define('PLUGIN_GROUP_MARKUP', 'Znaczniki');
 @define('PLUGIN_GROUP_STATISTICS', 'Statystyki');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Dostêp do ustawieñ osobistych');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Zmiana poziomu u¿ytkowników');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Zmiana "zabroñ tworzenia wpisów"');
@@ -783,15 +785,16 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Administracja mediami innych u¿ytkowników');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Ogl±danie plików z mediami');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Synchronizacja miniatur');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Ogl±danie plików z mediami innych u¿ytkowników');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administracja komentarzami');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administracja stylami');
+
 @define('INSTALL_BLOG_EMAIL', 'Adres e-mail bloga');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Mo¿esz tu wpisaæ adres poczty e-mail, który bêdzie widoczny w polu "From" wysy³anych maili z powiadomieniami. Upewnij siê, ¿e podajesz adres rozpoznawalny dla serwera - wiele serwerów mailowych odrzuca maile nie zawieraj±ce poprawnego nag³ówka "From".');
 @define('CATEGORIES_PARENT_BASE', 'Poka¿ tylko kategorie zawieraj±ce siê w...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Mo¿esz wybraæ kategoriê nadrzêdn± co spowoduje wy¶wietlanie tylko kategorii podrzêdnych, zawartych w kategorii nadrzêdnej');
 @define('CATEGORIES_HIDE_PARALLEL', 'Ukryj kategorie, które nie s± czê¶ci± drzewa kategorii');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Je¶li chcesz ukryæ kategorie, które znajduj± siê w innym drzewie kategorii, musisz w³±czyæ tê opcjê. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Ogl±danie plików z mediami innych u¿ytkowników');
 @define('CHARSET_NATIVE', 'Natywne');
 @define('INSTALL_CHARSET', 'Wybór kodowania znaków');
 @define('INSTALL_CHARSET_DESC', 'Tu mo¿esz ustawiæ kodowanie pomiêdzy UTF-8 a natywnym kodowaniem danego jêzyka (ISO, EUC, ...). Niektóre jêzyki oferuj± wsparcie tylko kodowania UTF-8 wiêc ich zmiana na "natywne" nie odniesie skutku. SUGERUJEMY wybór kodowania UTF-8 dla nowych instalacji. Nie zmieniaj tych ustawieñ je¶li ju¿ dokona³e¶(a¶) wpisów ze znakami specjalnymi (diakrytycznymi) - to mo¿e spowodowaæ problemy z wy¶wietlaniem znaków. Przeczytaj wiêcej o tym problemie na stronie https://ophian.github.io/hc/en/i18n.html');
@@ -800,7 +803,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('XMLRPC_NO_LONGER_BUNDLED', 'Interfejs XML-RPC API nie jest ju¿ wbudowany w Serendipity z powodu problemów z bezpieczeñstwem tego protoko³u. Je¶li jednak chcesz obs³ugê tego protoko³u mieæ zaimplementowan± w swoim blogu, musisz zainstalowaæ wtyczkê XML-RPC by móc u¿ywaæ protoko³u XML-RPC API. URL, jaki nale¿y u¿ywaæ w swoich aplikacjach NIE ulegnie zmianie - kiedy tylko zainstalujesz wtyczkê, bêdziesz móg³ u¿ywaæ tego API.');
 @define('PERM_READ', 'Uprawnienia odczytu');
 @define('PERM_WRITE', 'Uprawnienia zapisu');
-
 @define('PERM_DENIED', 'Dostêp zabroniony.');
 @define('INSTALL_ACL', 'Zastosuj ograniczenia dostêpu dla kategorii');
 @define('INSTALL_ACL_DESC', 'Je¶li to ustawienie zostanie w³±czone, bêd± stosowane ogranieczenia dostêpu do kategorii podczas przegl±dania wpisów przez zalogowanych u¿ytkowników. Je¶li ustawienie to zostanie wy³±czone, takie ogranieczenia NIE bêd± stosowane. Pozytywnym efektem wy³±czenia tej opcji jest przyspieszenie pracy silnika bloga. Je¶li wiêc nie musisz stosowaæ ograniczeñ dostêpu do kategorii - wy³±cz tê opcjê.');

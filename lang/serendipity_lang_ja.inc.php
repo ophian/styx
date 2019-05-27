@@ -751,6 +751,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'アンチスパム');
 @define('PLUGIN_GROUP_MARKUP', 'マークアップ');
 @define('PLUGIN_GROUP_STATISTICS', '統計');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: 個人設定のアクセス');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: ユーザー レベルの変更');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: 「エントリー作成の禁止」の変更');
@@ -779,15 +781,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: 他ユーザーのメディア ファイルの管理');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: メディア ファイルの閲覧');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: サムネイル同期');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 他ユーザーのメディア ファイルの閲覧');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: コメント管理');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: テンプレート管理');
+
 @define('INSTALL_BLOG_EMAIL', 'ブログの電子メールアドレス');
 @define('INSTALL_BLOG_EMAIL_DESC', 'この設定は送信メールの「From」パートの電子メールアドレスとして使用されます。必ず、ホスト上で使用するメールサーバーで認識するアドレスとしてこれを設定定します - 多くのメールサーバーが、不明の From アドレス後を持っているメッセージを拒絶します。');
 @define('CATEGORIES_PARENT_BASE', 'カテゴリの下のみ表示する...');
 @define('CATEGORIES_PARENT_BASE_DESC', '子カテゴリーだけが表示されるように、親カテゴリーを選ぶことができます。');
 @define('CATEGORIES_HIDE_PARALLEL', 'カテゴリツリーの一部ではないカテゴリを隠す');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 他ユーザーのメディア ファイルの閲覧');
 @define('CHARSET_NATIVE', 'ネイティブ');
 @define('INSTALL_CHARSET', '文字コード選択');
 @define('INSTALL_CHARSET_DESC', 'ここは  UTF-8 かネイティブ(ISO・EUC など)の文字コードを切り替えることができます。「ネイティブ」に文字エンコード設定することに変化がないように、いくつかの言語は UTF-8 のみ翻訳を持っています。UTF-8 は新規インストールで提案されます。特殊文字で既にエントリーを作っている場合は、この設定を変更しないでください - これは不正な文字を導くかもしれません。必ずこの問題に関すしては https://ophian.github.io/hc/en/i18n.html をさらに読んでください。 訳注: 日本語は文字エンコードは UTF-8 のみ用意されています。');
@@ -796,7 +799,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 's9y への XML-RPC API インタフェースは、もはやそれを使用して、この API を含めた進行中のセキュリティ問題および多くでない人々のためにバンドルされません。Serendipity の XML-RPC API インターフェースは、ずっと継続するセキュリティの問題と、この API を多くの人が使用していないため、もはやバンドルされていません。したがって、XML-RPC API を使用するために XML-RPC プラグインをインストールする必要があります。アプリケーション中で使用する URL は変わりません。プラグインをインストールしたらすぐに、再び API を使用することができるでしょう。');
 @define('PERM_READ', '読み込み権限');
 @define('PERM_WRITE', '書き込み権限');
-
 @define('PERM_DENIED', 'アクセス拒否です。');
 @define('INSTALL_ACL', 'カテゴリの読み込み権限を適用する');
 @define('INSTALL_ACL_DESC', '有効な場合、ログインしたウェブログ閲覧ユーザーはグループ許可設定のカテゴリ設定が適用されるでしょう。無効な場合、カテゴリの読み込み許可は適用されません。しかし、しかし、前向きな結果はあなたのウェブログ上の小さなスピードアップです。マルチユーザーを必要としない場合ウェブログ読み込み権限は必要なく、これを無効に設定します。');

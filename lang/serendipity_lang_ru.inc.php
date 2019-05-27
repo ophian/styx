@@ -755,6 +755,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLUGIN_GROUP_ANTISPAM', 'Антиспам');
 @define('PLUGIN_GROUP_MARKUP', 'Markup (Разметка)');
 @define('PLUGIN_GROUP_STATISTICS', 'Статистика');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Доступ к персональным настройкам');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Изменять уровни пользователей');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Изменять опцию "запретить создание записей"');
@@ -783,15 +785,16 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Администрировать медиа-файлы других пользователей');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Просматривать медиа-файлы');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Сихнронизировать тамбнэйлы');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Просматривать медиа-файлы других пользователей');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Администрировать комментарии');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Администрировать шаблоны дизайнов');
+
 @define('INSTALL_BLOG_EMAIL', 'E-Mail адрес вашего блога');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Здесь вы можете указать электронный адрес, который будет использоваться в поле "From" для всех исходящих от блога сообщений. Проверьте, чтобы здесь был узнаваемый вашим почтовым сервером адрес - многие почтовые сервера отказываются принимать сообщения с неизвестными адресами в поле "From".');
 @define('CATEGORIES_PARENT_BASE', 'Показывать только подкатегории...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Вы можете выбрать какую-нибудь категорию, чтобы показывались только её подкатегории.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Прятать категории, не входящие в дерево категорий');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Если вы хотите прятать категории, которые принадлежат другому дереву категорий, вам нужно включить эту опцию. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Просматривать медиа-файлы других пользователей');
 @define('CHARSET_NATIVE', 'Родная');
 @define('INSTALL_CHARSET', 'Выбор кодировки');
 @define('INSTALL_CHARSET_DESC', 'Здесь вы выбираете кодировку для символов вашего языка - UTF-8 или родную (ISO, EUC, ...). У некоторых языков есть только UTF-8 переводы, поэтому выбор "родной" кодировки здесь не будет иметь никакого эффекта. Для новых инсталляций рекомендуется использовать UTF-8. Не изменяйте этот параметр, если вы уже создали записи в другой кодировке - это может привести к нечитаемым символам. Обязательно изучите страницу https://ophian.github.io/hc/en/i18n.html по этому поводу.');
@@ -800,7 +803,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('XMLRPC_NO_LONGER_BUNDLED', 'Интерфейс Serendipity XML-RPC API больше не входит в стандартную поставку из-за постоянных проблем с безопасностью этого API и не таким уж большим количеством людей, им пользующихся. Поэтому, для использования этого интерфейса, вам следует установить плагин XML-RPC. URL для использования в ваших приложениях НЕ ИЗМЕНИТСЯ - так что как только вы установите плагин, можно начинать пользоваться этим API.');
 @define('PERM_READ', 'Доступ на чтение');
 @define('PERM_WRITE', 'Доступ на запись');
-
 @define('PERM_DENIED', 'Доступ запрещён.');
 @define('INSTALL_ACL', 'Применять разрешения на чтения для категорий');
 @define('INSTALL_ACL_DESC', 'Если включена, эта опция заставляет права доступа на чтение категорий применяться для всех пользователей, кто вошёл под своим именем на ваш блог. Если эта опция отключена, никакие права доступа на чтение категорий НЕ применяются, что немного ускоряет ваш блог. Так что, если вам не нужна многопользовательская поддержка чтения категорий на вашем блоге, вы можете отключить эту настройку.');

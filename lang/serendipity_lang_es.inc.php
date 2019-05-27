@@ -773,6 +773,8 @@
 @define('PLUGIN_GROUP_MARKUP', 'Markup');//Translate
 
 @define('PLUGIN_GROUP_STATISTICS', 'Estadísticas');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Configuración de acceso personal');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Modificar los niveles de usuario');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Modificar "prohibir crear entradas"');
@@ -801,21 +803,21 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Administrar ficheros de medios de otros usuarios');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Ver ficheros de medios');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Sincronizar miniaturas');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Ver ficheros de medios de otros usuario');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrar comentarios');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrar plantillas');
+
 @define('INSTALL_BLOG_EMAIL', 'Correo electrónico del Blog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Aquí se configura la dirección de correo electrónico que se utiliza como "De:" en los correos salientes. Asegúrate de definir esta variable con una dirección que sea reconocida por el servidor de correo de tu hosts - muchos servidores de correo rechazan los mensajes que tienen una dirección "De:" desconocida.');
 @define('CATEGORIES_PARENT_BASE', 'Sólo mostrar categorías bajo...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Puedes elegir una categoría padre de manera que sólo las categorías hijos sean mostradas.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Ocultar las categorías que no son parte del árbol de categorías');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Si deseas ocultar categorías que son parte de otro árbol de directorios, necesitas activar esta opción. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Ver ficheros de medios de otros usuario');
 @define('CHARSET_NATIVE', 'Nativo');
 @define('INSTALL_CHARSET', 'Selección del juego de caracteres');
 @define('INSTALL_CHARSET_DESC', 'Aquí puedes activar la codificación de caracteres UTF-8 o nativo (ISO, EUC, ...). Algunos lenguajes sólo tienen traducciones UTF-8 así que colocar la codificación en "nativo" no tendrá efectos. Se sugiere UTF-8 en nuevas instalaciones. No alteres la configuración si ya has hecho entradas con caracteres especiales ya que podría conllevar una corrupción de caracteres. Asegúrate de leer más sobre este problema en  https://ophian.github.io/hc/en/i18n.html.');
 @define('CALENDAR_ENABLE_EXTERNAL_EVENTS', 'Habilitar API de conexiones de las extensiones');
 @define('CALENDAR_EXTEVENT_DESC', 'Si está habilitada, esta opción permite que las extensiones se conecten con el calendario para mostrar sus eventos resaltados. Utilízalo sólo si has instalado extensiones que lo necesitan, de otra forma sólo disminuye el desempeño.');
-
 
 /*
 Melvin TODO [20060128]: Reorganize (perhaps) next constants in the order they belong

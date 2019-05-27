@@ -765,6 +765,8 @@ $i18n_filename_to = array (
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Markup - textov? zna?ky');
 @define('PLUGIN_GROUP_STATISTICS', 'Statistiky');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: P??stup k osobn? konfiguraci');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Zm?nit ?rove? u?ivatele (level)');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Zm?nit "z?kaz nov?ch p??sp?vk?"');
@@ -793,15 +795,16 @@ $i18n_filename_to = array (
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Administrace soubor? medi? ostatn?ch u?ivatel?');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Prohl?en? soubor? medi?');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Sync thumbnail?');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Prohl?en? medi? ostatn?ch u?ivatel?');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrace koment???');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrace ?ablon (template)');
+
 @define('INSTALL_BLOG_EMAIL', 'E-Mail pro blog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Toto nastav? E-Mailovou adresu, kter? je pou?ita v poli "From"- (od) pro odchoz? e-maily. Nastavte si tuto adresu tak, aby byla rozpozn?na mailov?m serverem pou??van?m va??m webhosterem - mnoho mailserver? odm?t? po?tu, kter? m? nezn?mou From-addresu (adr odesilatele).');
 @define('CATEGORIES_PARENT_BASE', 'Zobrazit jen kategorie ni?e ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'M??ete vybrat rodi?ovskou kategorii, tak?e budou zobrazeny jen jej? ni??? kategori.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Skr?t kategorie, kter? nejsou sou??st? stromu kategori?');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Jestli?e chcete skr?t kategorie, kter? jsou ??st? jin?ho stromu kategori?, mus?te tohle povolit. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Prohl?en? medi? ostatn?ch u?ivatel?');
 @define('CHARSET_NATIVE', 'N?rodn?');
 @define('INSTALL_CHARSET', 'Volba znakov? sady - Charset');
 @define('INSTALL_CHARSET_DESC', 'Zde m??ete volit mezi UTF-8 nebo n?rodn? (ISO, EUC, ...) znakovou sadou. N?kter? jazyky maj? jen p?eklady UTF-8, tak?e nastaven? znakov? sady na n?rodn? nem? ??dn? ??inek. UTF-8 se doporu?uje pro nov? instalace. Nem??te toto nastaven?, jestli?e jste ji?  napsali p??sp?vky se speci?ln?mi (n?rodn?mi) znaky - mohlo by zp?sobit poru?en? textu. P?e?t?te si o tomto probl?mu v?ce na  https://ophian.github.io/hc/en/i18n.html .');
@@ -810,7 +813,6 @@ $i18n_filename_to = array (
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API Interface na Serendipity ji? nen? p?ibaleno  kv?li pokra?uj?c?m bezpe?nostn?m probl?m?m s t?mhle API a proto?e ho moc lid? nepou??v?. Proto mus?te nainstalovat plugin XML-RPC, kdy? chcete  XML-RPC API pou??vat. URL, kter? se pou?ije ve va?? aplikaci, se nezm?n? - hned po instalaci pluginu budete moci API pou??vat.');
 @define('PERM_READ', 'Pr?vo na ?ten?');
 @define('PERM_WRITE', 'Pr?vo na z?pis');
-
 @define('PERM_DENIED', 'P??stup odep?en.');
 @define('INSTALL_ACL', 'Aplikovat pr?va na ?ten? pro kategorie');
 @define('INSTALL_ACL_DESC', 'Pokud je povoleno, budou na kategorie aplikov?na nastaven? pr?v pro skupiny u?ivatel?, kdy? si p?ihl?en? u?ivatel? budou prohl?et v? blog. Nen?-li povoleno, pr?va na ?ten? pro kategorie nejsou aplikov?na,  a  zlep?uje se rychlost blogu. Jestli?e nechcete m?t pr?va pro ?ten? pro r?zn? u?ivatele,  toto nastaven? zaka?te.');

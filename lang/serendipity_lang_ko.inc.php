@@ -752,6 +752,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', '스팸 방지');
 @define('PLUGIN_GROUP_MARKUP', '마크업');
 @define('PLUGIN_GROUP_STATISTICS', '통계');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: 개인 설정 관리');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: 사용자 레벨 변경');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: "글 생성 금지하기" 설정 변경');
@@ -780,16 +782,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: 다른 사용자의 미디어 파일 관리');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: 미디어 파일 보기');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: 작은 그림 동기화');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 다른 사용자의 미디어 파일 보기');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: 덧글 관리');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: 템플릿 관리');
+
 @define('INSTALL_BLOG_EMAIL', '블로그의 전자우편 주소');
 @define('INSTALL_BLOG_EMAIL_DESC', '발송하는 전자우편의 "보낸 사람" 부분에 나타날 전자우편 주소를 설정합니다. 호스트의 메일 서버에서 인식하는 주소로 반드시 설정하십시오. 상당수의 메일 서버는 보낸 사람 주소를 알 수 없는 전자우편을 거부합니다.');
 @define('CATEGORIES_PARENT_BASE', '하위 범주만 보이기');
 @define('CATEGORIES_PARENT_BASE_DESC', '하나의 상위 범주를 골라서 그 아래에 있는 범주만 보이도록 할 수 있습니다.');
 @define('CATEGORIES_HIDE_PARALLEL', '범주 트리에 속하지 않는 범주 숨기기');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', '다른 범주 트리에 속해 있는 범주를 보이지 않게 하려면 이것을 사용하십시오. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: 다른 사용자의 미디어 파일 보기');
 @define('CHARSET_NATIVE', '지역 전용');
 @define('INSTALL_CHARSET', '문자열 종류 선택');
 @define('INSTALL_CHARSET_DESC', '여기서 문자열을 UTF-8로 할 것인지 지역 전용 (ISO, EUC 등)으로 할 것인지 정할 수 있습니다. 일부 언어는 UTF-8 버전만 제공되므로 "지역 전용"을 설정해도 변화가 없습니다. 새로 설치한 경우 UTF-8을 권장합니다. 이미 특별 문자를 사용하여 글을 작성했을 경우 이 설정을 변경하지 마십시오. 글자가 깨질 수 있습니다. 이 설정에 대해서는 https://ophian.github.io/hc/en/i18n.html 에 더 자세하게 소개가 되어 있습니다.');
@@ -798,7 +800,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', '세렌디피티에 대한 XML-RPC API 인터페이스는 지속적으로 보안 상의 문제가 지적되고 있고 사용자 수가 적은 관계로 더 이상 기본적으로 포함되어 있지 않습니다. 그러므로 XML-RPC API를 사용하기 위해서는 XML-RPC 플러그인을 설치해야 합니다. 기존 어플리케이션에 사용하던 주소에는 변함이 없습니다. 플러그인을 설치하게 되면 곧바로 API를 사용할 수 있게 됩니다.');
 @define('PERM_READ', '읽기 권한');
 @define('PERM_WRITE', '쓰기 권한');
-
 @define('PERM_DENIED', '권한이 없습니다.');
 @define('INSTALL_ACL', '범주에 대한 읽기 권한 적용');
 @define('INSTALL_ACL_DESC', '사용할 경우 로그인한 사용자가 당신의 블로그를 읽을 때 각 범주에 대해 지정한 사용자 권한 설정이 적용됩니다. 사용하지 않을 경우 범주에 대한 읽기 권한이 적용되지 않게 되지만 블로그 속도가 약간 빨라지는 장점이 있습니다. 그러므로 블로그에 대한 다중 사용자 읽기 권한이 필요 없다면 이 설정을 끄십시오.');

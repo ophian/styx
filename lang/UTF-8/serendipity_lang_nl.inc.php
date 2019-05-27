@@ -752,6 +752,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Opmaak/Structuur');
 @define('PLUGIN_GROUP_STATISTICS', 'Statistieken');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Toegang tot persoonlijke configuratie');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Gebruikersniveaus wijzigen');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Recht op het aanmaken van artikelen wijzigen');
@@ -780,15 +782,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Mediabestanden van anderen beheren');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Mediabestanden bekijken');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Mediabestanden synchroniseren');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Mediabestanden van anderen bekijken');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Reacties beheren');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Templates beheren');
+
 @define('INSTALL_BLOG_EMAIL', 'E-mailadres van het weblog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Dit is het e-mailadres dat wordt gebruikt als afzender in uitgaande e-mails. Zorg ervoor dat het herkend wordt door de mail server - veel mail servers verwerpen berichten van een afzender die ze niet kennen.');
 @define('CATEGORIES_PARENT_BASE', 'Laat alleen categorieën zien onder...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Kies een categorie waarvan alleen de onderliggende categorieën getoond moeten worden.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Verberg categorieën die geen deel uitmaken van de categorieënboom');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Zet deze optie aan als u categorieën wilt verbergen die deel uitmaken van een andere categorieënboom. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Mediabestanden van anderen bekijken');
 @define('CHARSET_NATIVE', 'Taalafhankelijk');
 @define('INSTALL_CHARSET', 'Tekensetselectie');
 @define('INSTALL_CHARSET_DESC', 'Hier kunt u kiezen tussen UTF-8 en taalafhankelijke (ISO, EUC, ...) tekensets. Sommige talen hebben alleen een UTF-8-vertaling, dus kiezen voor "Taalafhankelijk" heeft dan geen effect. UTF-8 wordt aangeraden voor een nieuwe installatie. Verander deze instelling niet als u al artikelen gemaakt heeft met speciale tekens, dit kan leiden tot corrupte tekens. Lees meer hierover op https://ophian.github.io/hc/en/i18n.html.');
@@ -797,7 +800,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'De XML-RPC API-interface naar Serendipity wordt niet meer meegeleverd vanwege veiligheidsproblemen en omdat maar weinig mensen het gebruikten. Om hier gebruik van te maken moet u de XML-RPC-plugin installeren. De URL voor uw programma\'s verandert NIET. Zodra de plugin geïnstalleerd is, kunt u de API terug gebruiken.');
 @define('PERM_READ', 'Leesrechten');
 @define('PERM_WRITE', 'Schrijfrechten');
-
 @define('PERM_DENIED', 'Toegang geweigerd.');
 @define('INSTALL_ACL', 'Leesrechten voor categorieën toepassen');
 @define('INSTALL_ACL_DESC', 'Als dit aan staat, zijn de gebruikersrechten voor categorieën van kracht als ingelogde gebruikers uw weblog bekijken. In het andere geval is de autorisatie niet van toepassing en wordt uw weblog iets sneller. Dus als u geen aparte leesrechten voor meerdere gebruikers nodig heeft, laat u deze optie best uit.');

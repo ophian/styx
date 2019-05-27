@@ -751,6 +751,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Textdekoration');
 @define('PLUGIN_GROUP_STATISTICS', 'Statistik');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Tillgå personliga inställningar');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Ändra användarnivå');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Ändra "Förbjud skapa artiklar"');
@@ -779,15 +781,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Administrera andra användares mediafiler');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Visa mediafiler');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Synkronisera miniatyrbilder');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Visa andra användares mediafiler');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrera kommentarer');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrera mallar');
+
 @define('INSTALL_BLOG_EMAIL', 'Bloggens e-postadress');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Ställer in den e-postadress som används som avsändare i utgående meddelanden. Försäkra dig om att använda en adress som e-postservern på din värddator känner igen - många e-postservrar avfärdar meddelanden som har en okänd avsändaradress.');
 @define('CATEGORIES_PARENT_BASE', 'Visa endast kategorier under...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Du kan välja en överordnad kategori så att endast dess underordnade kategorier visas.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Göm kategorier som inte är en del av kategoriträdet.');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Om du vill gömma kategorier som är dela av ett annat kategoriträd måste du välja detta. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Visa andra användares mediafiler');
 @define('CHARSET_NATIVE', 'Inneboende');
 @define('INSTALL_CHARSET', 'Tangentuppsättningsval');
 @define('INSTALL_CHARSET_DESC', 'Här kan du välja UTF-8 eller inneboende (ISO, EUC, ...) tangentuppsättning. Vissa språk har endast UTF-8-översättningar och att välja tangentuppsättningen "Inneboende" har då ingen effekt. UTF-8 rekommenderas vid nyinstallation. Ändra inte denna inställning om du redan har skrivit artiklar med specialtecken - detta kan leda till korrupta tecken. Läs vänligen mer om detta på https://ophian.github.io/hc/en/i18n.html .');

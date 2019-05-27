@@ -751,6 +751,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Spamvörn');
 @define('PLUGIN_GROUP_MARKUP', 'Textasnið');
 @define('PLUGIN_GROUP_STATISTICS', 'Tölfræði');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Fara í persónustillingar');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Breyta stjórnstigum');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Breyta "banna nýskráningu færsla"');
@@ -779,15 +781,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Stjórna gagnastrám annarra notenda');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Skoða gagnaskrár');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Samhæfa sýnishorn');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Skoða gagnaskrár annarra notenda');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Stjórna athugasemdum');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Stjórna forsniðum');
+
 @define('INSTALL_BLOG_EMAIL', 'Netfang bloggkerfis');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Þetta stillir inn netfangið sem er notað sem "Frá"-hluti útsendra pósta. Passaðu að þetta sé netfang sem er viðurkennt af póstþjóni hýsingarvélarinnar. Margir póstþjónar synja skilaboðum sem eru með óþekkt netfang í "Frá"-hlutanum.');
 @define('CATEGORIES_PARENT_BASE', 'Sýna einungis flokka undir...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Þú getur valið yfirflokk svo að einungis undirflokkar þess flokks eru sýndir.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Sýna flokka sem eru ekki hluti af flokkstrénu');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ef þú vilt fela flokka sem eru hluti af öðru flokkstré þarftu að virkja þetta. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Skoða gagnaskrár annarra notenda');
 @define('CHARSET_NATIVE', 'Innlent');
 @define('INSTALL_CHARSET', 'Val stafasetts (charset)');
 @define('INSTALL_CHARSET_DESC', 'Hér geturðu valið UTF-8 eða innlend (ISO, EUC, ...) stafasett. Sum tungumál hafa einungis UTF-8 þýðingar svo það að stilla stafasettið á "Innlent" mun ekki hafa nein áhrif. UTF-8 er ráðlagt fyrir nýjar uppsetningar. Ekki breyta þessari stillingu ef þú hefur þegar skráð færslur með sérstöfum - það gæti leitt til rangrar birtingar. Frekari upplýsingar um þetta eru á https://ophian.github.io/hc/en/i18n.html');
@@ -796,7 +799,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API viðmót Serendipity fylgir ekki lengur með vegna ítrekaðra öryggisvandamála með þetta API og það eru ekki margir sem nota það. Vegna þess þarftu að setja inn XML-RPC viðbótina til að nota XML-RPC API viðmótið. Slóðin sem nota ber í forritunum þínum mun ekki breytast - um leið og þú setur inn viðbótina muntu geta notað API viðmótið.');
 @define('PERM_READ', 'Lesréttindi');
 @define('PERM_WRITE', 'Skrifréttindi');
-
 @define('PERM_DENIED', 'Aðgerð ekki leyfð.');
 @define('INSTALL_ACL', 'Bæta við lesréttindum fyrir flokka');
 @define('INSTALL_ACL_DESC', 'Ef virkjað munu réttindi notendahópa sem þú settir upp virkjuð þegar innskráðir notendur skoða bloggið þitt. Ef óvirkjað eru lesréttindi flokkanna ekki virkjuð en jákvæðu áhrifin eru örlítið hraðari afköst kerfissins. Ef þú þarft ekki fjöldanotenda lesréttindi er skynsamlegt að óvirkja þetta.');

@@ -751,6 +751,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Spamszûrõ');
 @define('PLUGIN_GROUP_MARKUP', 'Kiemelés');
 @define('PLUGIN_GROUP_STATISTICS', 'Statisztika');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Személyes beállítások elérése');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel:Felhasználói szint változtatása');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: A "nem vehet fel bejegyzést" változtatása');
@@ -779,15 +781,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Más felhasználók média fájljainak adminisztrálása');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Média fájlok megtekintése');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Elõnézeti képek szinkronizálása');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Más felhasználók média fájljainak megtekintése');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Hozzászólások adminisztrálása');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Sablonok adminisztrálása');
+
 @define('INSTALL_BLOG_EMAIL', 'A Blog email címe');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Itt adható meg az az email cím, ami a kimenõ levelek "Küldõ" részében lesz megtalálható. Érdemes valós email címet megadni itt, mert sok levelezõ szerver ellenõrzi a küldõ email cím érvényességét.');
 @define('CATEGORIES_PARENT_BASE', 'Csak ezen kategóriák mutatása ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Választhatsz szülõ kategóriát, így csak az alá tartozó gyermekkategóriák látszódnak.');
 @define('CATEGORIES_HIDE_PARALLEL', 'A kategória fába nem tartozó kategóriák elrejtése');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ha nem szeretnéd hogy azok a kategóriák is megjelenjenek, amelyek más kategóriafához tartoznak, engedélyezheted. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Más felhasználók média fájljainak megtekintése');
 @define('CHARSET_NATIVE', 'Natív (beépített)');
 @define('INSTALL_CHARSET', 'Karakterkódolás választása');
 @define('INSTALL_CHARSET_DESC', 'Itt beállíthatod az UTF-8, vagy a natív (ISO, EUC, ...) karakterkódolást. Néhány nyelvnek csak UTF-8 leképezése létezik, így itt a natívot nem érdemes választani. Az UTF-8 ajánlott új telepítéskor. Ne változtasd meg ezt akkor, ha már vannak bejegyzéseid speciális karakterekkel - mert így hibás karakterek jelenhetnek meg. Itt olvashatsz errõl többet: https://ophian.github.io/hc/en/i18n.html.');
@@ -796,7 +799,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'Az XML-RPC API Interfész a Serendipity-hez, többé nincs használatban, mivel vannak biztonsági problémái, és nem sokan használják. Így telepítened kell az XML-RPC modult ahhoz hogy használd az XML-RPC API-t. Az alkalmazásban használandó URL nem változik - telepítés után használható.');
 @define('PERM_READ', 'Olvasási jogosultság');
 @define('PERM_WRITE', 'Írási jogosultság');
-
 @define('PERM_DENIED', 'Hozzáférés megtagadva.');
 @define('INSTALL_ACL', 'Olvasási jogosultságok bekapcsolása a kategóriákon');
 @define('INSTALL_ACL_DESC', 'Ha engedélyezed, akkor a kategóriákra alkalmazott olvasási jogosultságok minden alkalommal ellenõrzésre kerülnek amikor egy látogató megtekinti az oldalt. Ha nincs engedélyezve, az olvasási jogosultságok nem kerülnek ellenõrzésre, de cserébe gyorsabb lesz a mûködés. Így ha nincs szükséged erre, ne engedélyezd.');

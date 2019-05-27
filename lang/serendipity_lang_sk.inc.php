@@ -765,6 +765,8 @@ $i18n_filename_to = array (
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Markup - textové znaèky');
 @define('PLUGIN_GROUP_STATISTICS', '©tatistiky');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'ersonalConfiguration: Prístup k osobnej konfigurácii');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Zmena úrovne pou¾ívateµa (level)');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Zmena "zákazu nových èlánkov"');
@@ -793,15 +795,16 @@ $i18n_filename_to = array (
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Správa mediálnych súborov (obrázkov) ostatných pou¾ívateµov');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Prehliadanie mediálnych súborov (obrázkov)');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Synchronizácia náhµadov');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Zobrazi» mediálne súbory (obrázky) ostatných pou¾ívateµov');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Správa komentárov');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Správa ¹ablón (templates)');
+
 @define('INSTALL_BLOG_EMAIL', 'E-Mail pre weblog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Tu je nastavená e-mailová adresa, ktorá je pou¾itá v poli "From"- (od) pre odchádzajúce e-maily. Nastavte túto adresu tak, aby byla rozpoznanaá mailovým serverom Vá¹ho poskytovateµa - veµa mailových serverov odmieta po¹tu, ktorá má neznámu From-addresu (adr. odosielateµa).');
 @define('CATEGORIES_PARENT_BASE', 'Zobrazi» iba kategórie ni¾¹ie ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Mô¾ete vybra» nadradenú kategóriu a budú zobrazené iba jej podradené kategórie.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Skry» kategórie, ktoré nie sú súèas»ou stromu kategórií');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ak chcete skry» kategórie, ktoré sú èás»ou iného stromu kategórií, musíte pou¾i» toto nastavenie. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Zobrazi» mediálne súbory (obrázky) ostatných pou¾ívateµov');
 @define('CHARSET_NATIVE', 'Národná');
 @define('INSTALL_CHARSET', 'Výber znakovej sady - Charset');
 @define('INSTALL_CHARSET_DESC', 'Tu mô¾ete vybra» medzi UTF-8 alebo národnou (ISO, EUC, ...) znakovou sadou. Niektoré jazyky majú iba UTF-8 preklady, tak¾e nastavenie znakovej sady na národnú nemá úèinok. UTF-8 je odporúèané pre nové in¹talácie. Nemente toto nastavenie, pokiaµ ste u¾ napísali èlánky s diakritikou - mô¾e to spôsobi» poru¹enie textu. O tomto probléme si mô¾ete preèíta» viac na adrese https://ophian.github.io/hc/en/i18n.html .');
@@ -810,7 +813,6 @@ $i18n_filename_to = array (
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API Interface u¾ nie je súèas»ou Serendipity kvôli bezpeènostným problémom s touto API a nízkemu poètu jeho pou¾ívateµov. Preto musíte nain¹talova» doplnok XML-RPC, ak chcete XML-RPC API pou¾íva». URL, ktorá sa pou¾ije vo Va¹ej aplikácii sa nezmení - hneï po in¹talácii doplnku mô¾ete API pou¾íva».');
 @define('PERM_READ', 'Právo na èítanie');
 @define('PERM_WRITE', 'Právo na zápis');
-
 @define('PERM_DENIED', 'Prístup odmietnutý.');
 @define('INSTALL_ACL', 'Aplikova» práva na èítanie pre kategórie');
 @define('INSTALL_ACL_DESC', 'Ak je zapnuté, nastavenia u¾ívateµských skupín, ktoré nastavíte pre kategórie, budú aplikované keï si prihlásení u¾ívatelia prezerajú Vá¹ weblog. Ak je vypnuté, práva na èítanie nie sú aplikované a pozitívnym efektom je mierne zrýchlenie Vá¹ho weblogu. Ak nepotrebujete práva na èítanie pre rôznych pou¾ívateµov, nechajte toto nastavenie vypnuté.');

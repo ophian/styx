@@ -753,6 +753,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Marcatura');
 @define('PLUGIN_GROUP_STATISTICS', 'Statistiche');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Accesso all configurazione personale');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Cambio dei livelli utente');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Cambio "impedisci la creazione delle notizie"');
@@ -781,15 +783,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Amministrazione files media di altri utenti');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Visualizzazione files media');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Sincronizzazione miniature');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Visualizza files media di altri utenti');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Amministrazione commenti');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Amministrazione modelli');
+
 @define('INSTALL_BLOG_EMAIL', 'Indirizzo E-Mail del Blog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Questo configura l\'indirizzo E-Mail utilizzato dal campo "From" delle tue mail in uscita. Assicurati che questo indirizo sia riconosciuto dal mailserver utilizzato dal tuo host - molti mailservers rifiutano messaggi che hanno indirizzi From sconosciuti.');
 @define('CATEGORIES_PARENT_BASE', 'Visualizza solo categorie qui sotto ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Puoi scegliere una gategoria padre in modo che siano visualizzate solo le categorie figlie.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Nascondi le categorie che non sono parte dell\'albero delle categorie');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Se vuoi nascondere le categorie che fanno parte di un different albero di categorie, devi abilitare questo. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Visualizza files media di altri utenti');
 @define('CHARSET_NATIVE', 'Nativo');
 @define('INSTALL_CHARSET', 'Selezione insieme di caratteri');
 @define('INSTALL_CHARSET_DESC', 'Qui puoi scegliere fra insieme di carateri UTF-8 oppure nativo (ISO, EUC, ...). Alcune lingue hanno solo traduzioni UTF-8 così che l\'impostazione a "Native" dell\'insieme dei caratteri non avrà effetti. UTF-8 è consigliato per le nuove installazioni. Non cambiare questa impostazione se hai già creato notizie con caratteri speciali - ciò può portare a caratteri alterati. Per approfondire questo argomento vedi https://ophian.github.io/hc/en/i18n.html.');
@@ -798,7 +801,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'L\'interfaccia API XML-RPC a Serendipity non è più inclusa a causa di continui problemi di sicurezza con questa API e perchè non è molto utilizzata. Perciò devi installare il Plugin XML-RPC per utilizzare l\'API XML-RPC. L\'URL da utilizzare nelle tue applicazioni NON cambierà - non appena hai installato il plugin, sarain in grado di utilizzare l\'API.');
 @define('PERM_READ', 'Permessi di lettura');
 @define('PERM_WRITE', 'Permessi di scrittura');
-
 @define('PERM_DENIED', 'Permesso negato.');
 @define('INSTALL_ACL', 'Applica i permessi di lettura per le categorie');
 @define('INSTALL_ACL_DESC', 'Se abilitato, le impostazioni dei permessi di utente/gruppo che hai impostato per le categorie saranno applicati quando utenti loggati accedono al tuo blog. Se disabilitato, i permessi di lettura delle categorie NON sono applicati, ma l\'effetto positivo è una leggera velocizzazione del tuo blog. Così se non ti servono permessi di lettura multi-utente per il tuo blog, disabilita questa impostazione.');

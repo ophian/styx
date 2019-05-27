@@ -752,6 +752,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'ضد اسپم');
 @define('PLUGIN_GROUP_MARKUP', 'برچسب');
 @define('PLUGIN_GROUP_STATISTICS', 'آمار');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: دسترسی به تنظیمات شخصی');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: تغییر سطح دسترسی');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: تغییر "ممنوع بودن ارسال پست"');
@@ -780,15 +782,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: مدیریت رسانه های کاربران دیگر');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: مشاهده فایل های رسانه');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: همگام کردن عکس های کوچک');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: مشاهده فایل های رسانه کاربران دیگر');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: مدیریت نظر ها');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: مدیریت پوسته ها');
+
 @define('INSTALL_BLOG_EMAIL', 'آدرس ایمیل وبلاگ');
 @define('INSTALL_BLOG_EMAIL_DESC', 'این ایمیل در قسمت "From" در ایمیل های ارسالی از سرور استفاده می شود. از وجود این ایمیل در سرورتان اطمینان حاصل کنید - بسیاری از سرور های ایمیل، ایمیل های بدون فرستنده معتبر را رد می کنند.');
 @define('CATEGORIES_PARENT_BASE', 'فقط موضوعات زیر را نمایش بده...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'شما می توانید یک موضوع "پدر" را انتخاب کنید، در این صورت، فقط موضوعات "فرزند" نمایش داده می شوند.');
 @define('CATEGORIES_HIDE_PARALLEL', 'مخفی کردن موضوعاتی که در درخت موضوعات قرار ندارند');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'اگر می خواهید موضوعاتی که قسمتی از یک درخت دیگرند را مخفی کنید، این گزینه را فعال سازید. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: مشاهده فایل های رسانه کاربران دیگر');
 @define('CHARSET_NATIVE', 'طبیعی');
 @define('INSTALL_CHARSET', 'انتخاب نوع حروف');
 @define('INSTALL_CHARSET_DESC', 'در اینجا می توانید نوع حروف را بین UTF-8 یا کاراکتر های طبیعی (ISO, EUC, ...) تغییر دهید. بسیاری از زبان ها، فقط به UTF-8 ترجمه شده اند که کاراکتر های "طبیعی" تاثیری روی آنها نمی گذارد. ما به شما UTF-8 را پیشنهاد می کنیم. در صورتی که قبلا ارسالی داشته اید، این گزینه را تغییر ندهید - احتمال مخدوش شدن حروف وجود دارد. در لینک زیر می توانید اطلاعات بیشتری کسب کنید https://ophian.github.io/hc/en/i18n.html .');
@@ -797,7 +800,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'افزونه XML-RPC API برای سرندیپیتی به دلیل مشکلات امنیتی، پشتیبانی نمی شود، ضمن اینکه کاربران کمی نیز از آن استفاده می کردند. به هر حال، برای استفاده از XML-RPC API باید افزونه XML-RPC را نصب کنید. آدرس استفاده شده در برنامه تغییر نخواهد کرد - تا زمانی که شما افزونه را نصب دارید، می توانید از API استفاده کنید.');
 @define('PERM_READ', 'دسترسی خواندن');
 @define('PERM_WRITE', 'دسترسی نوشتن');
-
 @define('PERM_DENIED', 'دسترسی وجود ندارد.');
 @define('INSTALL_ACL', 'اعمال کردن دسترسی خواندن برای موضوع ها');
 @define('INSTALL_ACL_DESC', 'در صورت فعال بودن این گزینه، در صورتی که کاربران عضو شده، وارد سیستم شوند، دسترسی کاربران گروه ها اعمال می شود. در صورت غیر فعال بودن، دسترسی خواندن موضوعات اعمال نمی شود، اما کمی سرعت وبلاگ را زیاد می کند. پس اگر به وبلاگ چند کاربره با دسترسی محدود در خواندن نیازی ندارید، این گزینه را غیر فعال کنید.');

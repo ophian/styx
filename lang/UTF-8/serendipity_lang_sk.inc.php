@@ -765,6 +765,8 @@ $i18n_filename_to = array (
 @define('PLUGIN_GROUP_ANTISPAM', 'Antispam');
 @define('PLUGIN_GROUP_MARKUP', 'Markup - textové značky');
 @define('PLUGIN_GROUP_STATISTICS', 'Štatistiky');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'ersonalConfiguration: Prístup k osobnej konfigurácii');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Zmena úrovne používateľa (level)');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Zmena "zákazu nových článkov"');
@@ -793,15 +795,16 @@ $i18n_filename_to = array (
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Správa mediálnych súborov (obrázkov) ostatných používateľov');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: Prehliadanie mediálnych súborov (obrázkov)');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Synchronizácia náhľadov');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Zobraziť mediálne súbory (obrázky) ostatných používateľov');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Správa komentárov');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Správa šablón (templates)');
+
 @define('INSTALL_BLOG_EMAIL', 'E-Mail pre weblog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Tu je nastavená e-mailová adresa, ktorá je použitá v poli "From"- (od) pre odchádzajúce e-maily. Nastavte túto adresu tak, aby byla rozpoznanaá mailovým serverom Vášho poskytovateľa - veľa mailových serverov odmieta poštu, ktorá má neznámu From-addresu (adr. odosielateľa).');
 @define('CATEGORIES_PARENT_BASE', 'Zobraziť iba kategórie nižšie ...');
 @define('CATEGORIES_PARENT_BASE_DESC', 'Môžete vybrať nadradenú kategóriu a budú zobrazené iba jej podradené kategórie.');
 @define('CATEGORIES_HIDE_PARALLEL', 'Skryť kategórie, ktoré nie sú súčasťou stromu kategórií');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'Ak chcete skryť kategórie, ktoré sú čásťou iného stromu kategórií, musíte použiť toto nastavenie. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: Zobraziť mediálne súbory (obrázky) ostatných používateľov');
 @define('CHARSET_NATIVE', 'Národná');
 @define('INSTALL_CHARSET', 'Výber znakovej sady - Charset');
 @define('INSTALL_CHARSET_DESC', 'Tu môžete vybrať medzi UTF-8 alebo národnou (ISO, EUC, ...) znakovou sadou. Niektoré jazyky majú iba UTF-8 preklady, takže nastavenie znakovej sady na národnú nemá účinok. UTF-8 je odporúčané pre nové inštalácie. Nemente toto nastavenie, pokiaľ ste už napísali články s diakritikou - môže to spôsobiť porušenie textu. O tomto probléme si môžete prečítať viac na adrese https://ophian.github.io/hc/en/i18n.html .');
@@ -810,7 +813,6 @@ $i18n_filename_to = array (
 @define('XMLRPC_NO_LONGER_BUNDLED', 'XML-RPC API Interface už nie je súčasťou Serendipity kvôli bezpečnostným problémom s touto API a nízkemu počtu jeho používateľov. Preto musíte nainštalovať doplnok XML-RPC, ak chcete XML-RPC API používať. URL, ktorá sa použije vo Vašej aplikácii sa nezmení - hneď po inštalácii doplnku môžete API používať.');
 @define('PERM_READ', 'Právo na čítanie');
 @define('PERM_WRITE', 'Právo na zápis');
-
 @define('PERM_DENIED', 'Prístup odmietnutý.');
 @define('INSTALL_ACL', 'Aplikovať práva na čítanie pre kategórie');
 @define('INSTALL_ACL_DESC', 'Ak je zapnuté, nastavenia užívateľských skupín, ktoré nastavíte pre kategórie, budú aplikované keď si prihlásení užívatelia prezerajú Váš weblog. Ak je vypnuté, práva na čítanie nie sú aplikované a pozitívnym efektom je mierne zrýchlenie Vášho weblogu. Ak nepotrebujete práva na čítanie pre rôznych používateľov, nechajte toto nastavenie vypnuté.');

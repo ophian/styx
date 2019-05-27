@@ -755,6 +755,8 @@
 @define('PLUGIN_GROUP_ANTISPAM', 'مقاومة السبام');
 @define('PLUGIN_GROUP_MARKUP', 'مؤشر عليها');
 @define('PLUGIN_GROUP_STATISTICS', 'إحصائيات');
+
+ // GROUP PERMISSIONS   no translate first part until ':', since config variable!
 @define('PERMISSION_PERSONALCONFIGURATION', 'personalConfiguration: Access personal configuration');
 @define('PERMISSION_PERSONALCONFIGURATIONUSERLEVEL', 'personalConfigurationUserlevel: Change userlevels');
 @define('PERMISSION_PERSONALCONFIGURATIONNOCREATE', 'personalConfigurationNoCreate: Change "forbid creating entries"');
@@ -783,15 +785,16 @@
 @define('PERMISSION_ADMINIMAGESMAINTAINOTHERS', 'adminImagesMaintainOthers: Administrate other user\'s media files');
 @define('PERMISSION_ADMINIMAGESVIEW', 'adminImagesView: View media files');
 @define('PERMISSION_ADMINIMAGESSYNC', 'adminImagesSync: Sync thumbnails');
+@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: View other user\'s media files');
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrate comments');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrate templates');
+
 @define('INSTALL_BLOG_EMAIL', 'عنوان بريد المجلة');
 @define('INSTALL_BLOG_EMAIL_DESC', 'هذا إعداد البريد الإلكتروني الذي سوف تصل عليه الرسائل في حال قام الزائر بمراسلة إدارة المجلة. يجب عليك أن تتأكد من أن هذا البريد صحيح و إن كان من قبل استضافتك أن يكون معرف في إدارة بريد الاستضافة ، حيث من الممكن لو لم يكن بريد معرف أن يرفض صدور المراسلات من المجلة');
 @define('CATEGORIES_PARENT_BASE', 'فقط أعرض الأقسام في الأسفل');
 @define('CATEGORIES_PARENT_BASE_DESC', 'You can choose a parent category so that only the child categories are shown.');
 @define('CATEGORIES_HIDE_PARALLEL', 'أخفاء الأقسام التي ليست من ضمن شجرة التصنيف');
 @define('CATEGORIES_HIDE_PARALLEL_DESC', 'If you want to hide categories that are part of a different category tree, you need to enable this. This feature made most sense in the past, when used in conjunction with a "multi-Blog" like system using the "Properties/Templates of categories" plugin. However, this is no longer the case, since this plugin in its version greater than/equal to v.1.50 can calculate hidden categories independently and better. So you should only use this option if you have a specific use case outside of said categorytemplates plugin.');
-@define('PERMISSION_ADMINIMAGESVIEWOTHERS', 'adminImagesViewOthers: View other user\'s media files');
 @define('CHARSET_NATIVE', 'محلي');
 @define('INSTALL_CHARSET', 'ترميز الأحرف');
 @define('INSTALL_CHARSET_DESC', ' هنا يمكن لك  أن تغير بين الترميز العالمي UTF-8 و الترميز المحلي للغتك مثل ترميز (ISO, EUC, ...)  ، بعض اللغات لديها فقط ترجمة ترميز UTF-8  لذلك باختياريك ترميز لغتك المحلية لن يكون له أثر على أداء مدونتك ، نقترح استخدام UTF-8 للتركيب الجديد. أحذر . . .أحذر . . . أحذر . . .  لا تقم بتغيير الترميز إذا كنت كتبت مواضيع من قبل. لأن ما كتبته بترميز لغة أخرى سوف يصبح على شكل طلاسم. أتجه إلى هذا الموقع https://ophian.github.io/hc/en/i18n.html   للاطلاع على المزيد من المعلومات');
@@ -800,7 +803,6 @@
 @define('XMLRPC_NO_LONGER_BUNDLED', 'The XML-RPC API Interface to Serendipity is no longer bundled because of ongoing security issues with this API and not many people using it. Thus you need to install the XML-RPC Plugin to use the XML-RPC API. The URL to use in your applications will NOT change - as soon as you have installed the plugin, you will again be able to use the API.');
 @define('PERM_READ', 'قراءة التصريح');
 @define('PERM_WRITE', 'كتابة التصريح');
-
 @define('PERM_DENIED', 'تجاهل التصريح');
 @define('INSTALL_ACL', 'طبق تصريح القراءة لى الأقسام');
 @define('INSTALL_ACL_DESC', 'If enabled, the usergroup permission settings you setup for categories will be applied when logged-in users view your blog. If disabled, the read-permissions of the categories are NOT applied, but the positive effect is a little speedup on your blog. So if you don\'t need multi-user read permissions for your blog, disable this setting.');
