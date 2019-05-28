@@ -59,8 +59,13 @@ serendipity_plugin_api::hook_event('backend_frontpage_display', $output);
 $data['backend_frontpage_display'] = isset($output['more']) ? $output['probe'] . $output['more'] : '';
 $output = array(); // re-new array for the autoupdate empty check below
 
-// make sure it is the Administrator only
-if (serendipity_checkPermission('siteConfiguration') && serendipity_checkPermission('adminUsersMaintainOthers') && $serendipity['serendipityUserlevel'] == USERLEVEL_ADMIN) {
+// Make sure it is the Administrator alike Group only to access it!
+// If you have an "Editor in Chief" user which you want to have access on site Auto-Upgrades you can do the following for example as ADMINISTRATOR.
+// Either: Add a new SPECIAL group with 'siteAutoUpgrades' [x] AND 'Hidden group / Non-Author' [x] and, afterwards in USERS, assign it to this single special user
+//             which you want to be able to have upgrade permission and which also MUST have "Editor in CHIEF" group permission;
+// Or copy the CHIEF group to a CHIEF+ group including 'siteAutoUpgrades' [x] and assign this SINGULARLY to the SPECIAL user.
+// Do not change the CHIEF group itself, for security! The first example is the recommended approach for that case!
+if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_checkPermission('siteAutoUpgrades')) && serendipity_checkPermission('adminUsersGroups'))) {
     $data['usedVersion']  = $serendipity['version'];
     $data['updateCheck']  = $serendipity['updateCheck'];
     $data['curVersion']   = serendipity_getCurrentVersion();

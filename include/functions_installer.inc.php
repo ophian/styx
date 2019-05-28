@@ -301,7 +301,7 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
  * @param   string      Path to the s9y configuration template file
  * @param   array       An array of config areas/sections that shall be returned from the template
  * @param   array       Restrict the return of template variables to items containing a specific flag
- * @return  array        An array with configuration items, keys and values
+ * @return  array       An array with configuration items, keys and values
  */
 function serendipity_parseTemplate($filename, $areas = null, $onlyFlags=null) {
     global $serendipity;
@@ -914,6 +914,8 @@ function serendipity_updateConfiguration() {
             } elseif ($item['permission'] == 'blogConfiguration' && serendipity_checkPermission('blogConfiguration')) {
                 $authorid = 0;
             } elseif ($item['permission'] == 'siteConfiguration' && serendipity_checkPermission('siteConfiguration')) {
+                $authorid = 0;
+            } elseif ($item['permission'] == 'siteAutoUpgrades' && serendipity_checkPermission('siteAutoUpgrades')) {
                 $authorid = 0;
             } else {
                 $authorid = $serendipity['authorid'];

@@ -103,10 +103,15 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
         } else {
             $data['perms'][$perm]['permission_name'] = $perm;
         }
-        if (!serendipity_checkPermission($perm) && $perm != 'hiddenGroup') {
+        // excludes hiddenGroup and siteAutoUpgrades per ADMINISTRATOR from possible permission denied ..
+        if (!serendipity_checkPermission($perm) && $perm != 'hiddenGroup' && $perm != 'siteAutoUpgrades') {
             $data['perms'][$perm]['permission'] = false;
         } else {
             $data['perms'][$perm]['permission'] = true;
+        }
+        // Now that THIS is done .. we keep siteAutoUpgrades non-editable for CHIEFs and Others
+        if ($perm == 'siteAutoUpgrades' && $serendipity['serendipityUserlevel'] <= USERLEVEL_CHIEF) {
+            $data['perms'][$perm]['permission'] = false; // sets "[siteAutoUpgrades]: No"
         }
     }
 

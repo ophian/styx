@@ -1401,6 +1401,8 @@ function serendipity_getPermissionNames() {
             => array(USERLEVEL_ADMIN, USERLEVEL_CHIEF),
         'siteConfiguration'
             => array(USERLEVEL_ADMIN),
+        'siteAutoUpgrades'
+            => array(USERLEVEL_ADMIN),
         'blogConfiguration'
             => array(USERLEVEL_ADMIN, USERLEVEL_CHIEF),
 
@@ -1606,9 +1608,25 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
                                       ORDER BY  g.name", false, 'assoc');
     }
     if (is_array($groups)) {
+        // exclude hidden groups for certain case USERLEVEL_CHIEF and hiddengroup has a 'siteAutoUpgrades' flag permission
+        $hgroup = serendipity_db_query("SELECT id FROM {$serendipity['dbPrefix']}groupconfig WHERE property = 'hiddenGroup' AND value = 'true'", true, 'assoc');
+
         foreach($groups AS $k => $v) {
+            // build the USERLEVEL_constant names
             if ('USERLEVEL_' == substr($v['confvalue'], 0, 10)) {
                 $groups[$k]['confvalue'] = $groups[$k]['name'] = constant($v['confvalue']);
+            }
+            // Check CHIEF against hiddenGroup
+            if (!$apply_ACL_user && $serendipity['serendipityUserlevel'] == USERLEVEL_CHIEF) {
+                if (!isset($hgroup[0]) && isset($hgroup['id']) && $v['id'] == $hgroup['id']) {
+                    unset($groups[$k]);
+                } else if (isset($hgroup[0]) && is_array($hgroup[0])) {
+                    foreach($hgroup AS $hg) {
+                        if (isset($hg['id']) && $v['id'] == $hg['id']) {
+                            unset($groups[$k]);
+                        }
+                    }
+                }
             }
         }
         // sort natural by name - start mattering if having additional groups
@@ -1820,7 +1838,7 @@ function &serendipity_getAllPermissionNames() {
 /**
  * Checks if two users are members of the same group
  *
- * This function will retrieve all group memberships of a  foreign user ($checkuser) and yourself ($myself).
+ * This function will retrieve all group memberships of a foreign user ($checkuser) and yourself ($myself).
  * Then it will check if there is any group membership that those two users have in common.
  * It can be used for detecting if a different author should be allowed to access your entries,
  * because he's in the same group, for example.
@@ -1894,8 +1912,8 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
         } else {
             $value = 'false';
         }
-
-        if ($isNewPriv == false && !serendipity_checkPermission($perm) && $perm != 'hiddenGroup') {
+        // excludes hiddenGroup and siteAutoUpgrades per ADMINISTRATOR from possible permission denied ..
+        if ($isNewPriv == false && !serendipity_checkPermission($perm) && $perm != 'hiddenGroup' && $perm != 'siteAutoUpgrades') {
             if (!isset($storage[$perm])) {
                 $value = 'false';
             } else {

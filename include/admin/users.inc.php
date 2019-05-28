@@ -219,8 +219,9 @@ if ($serendipity['GET']['adminAction'] != 'delete') {
     }
 }
 
-if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission('adminUsersDelete')) ||
-    ((isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new')  && serendipity_checkPermission('adminUsersCreateNew'))) {
+// the edit user form
+if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission('adminUsersDelete'))
+|| ((isset($_POST['NEW']) || $serendipity['GET']['adminAction'] == 'new') && serendipity_checkPermission('adminUsersCreateNew'))) {
     $data['adminAction'] = $serendipity['GET']['adminAction'];
     $data['show_form'] = true;
     $data['formToken'] = serendipity_setFormToken();
@@ -231,8 +232,8 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
         if ($user[0]['userlevel'] >= $serendipity['serendipityUserlevel'] && $user[0]['authorid'] != $serendipity['authorid'] && !serendipity_checkPermission('adminUsersMaintainOthers')) {
             $data['no_create_permission'] = true;
             $from = array();
-        } elseif (serendipity_checkPermission('adminUsersMaintainOthers') ||
-                (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
+        } elseif (serendipity_checkPermission('adminUsersMaintainOthers')
+        ||       (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
             $data['create_permission'] = true;
             $from = &$user[0];
             unset($from['password']);
@@ -246,8 +247,10 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_USERTEMPLATE);
     // config array is build by 'include/tpl/config_personal.inc.php' array, which sets 'var' => 'password' and which then is the $item name. Normally these are 'pass' named input fields for login passwords.
+
     if (!empty($serendipity['GET']['userid'])) {
-        $from['groups'] = serendipity_getGroups($serendipity['GET']['userid']);
+        // unset special group for siteAutoUpgraders is done in serendipity_getAllGroups()
+        $from['groups'] = serendipity_getGroups($serendipity['GET']['userid']); // prints all groups the user is in (= selected)
     } else {
         $from['groups'] = array();
     }
@@ -259,8 +262,8 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
     $user = serendipity_fetchUsers($serendipity['GET']['userid']);
     $group_intersect = serendipity_intersectGroup($user[0]['authorid']);
 
-    if (serendipity_checkPermission('adminUsersMaintainOthers') ||
-                (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
+    if (serendipity_checkPermission('adminUsersMaintainOthers')
+    || (serendipity_checkPermission('adminUsersMaintainSame') && $group_intersect)) {
         $data['delete'] = true;
         $data['userid'] = (int)$serendipity['GET']['userid'];
         $data['realname'] = $user[0]['realname'];
