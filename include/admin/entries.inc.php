@@ -31,7 +31,6 @@ $data['is_doDelete'] = false;
 $data['is_delete'] = false;
 $data['is_multidelete'] = false;
 
-
 if (!empty($serendipity['GET']['editSubmit'])) {
     $serendipity['GET']['adminAction'] = 'edit'; // does this change smarty.get vars?
 }
