@@ -41,7 +41,7 @@
 
     <form class="configure_plugin option_list" method="post" name="serendipityPluginConfigure">
         {$formToken}
-        {$config}
+        {$CONFIG}
     </form>
     {if $has_config_groups > 0}
     </section>

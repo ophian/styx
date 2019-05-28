@@ -71,6 +71,7 @@ if (empty($serendipity['updateReleaseFileUrl'])) {
     $serendipity['updateReleaseFileUrl'] = 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE';
 }
 
+// A pre parsed and rendered template, analogue to 'ENTRIES' etc
 $data['CONFIG'] = serendipity_printConfigTemplate(serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE), $serendipity, false, true);
 
 if (!is_object($serendipity['smarty'])) {

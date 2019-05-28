@@ -70,7 +70,7 @@
         {$formToken}
         {if $adminAction == 'edit'}{if isset($create_permission) AND $create_permission}<input name="serendipity[user]" type="hidden" value="{$from.authorid}">{/if}{/if}
         <h2>{if $adminAction == 'edit'}{if isset($no_create_permission) AND $no_create_permission}{$CONST.CREATE_NOT_AUTHORIZED}: {$CONST.EDIT}{else}{if $create_permission}{$CONST.EDIT}{else}{$CONST.CREATE_NOT_AUTHORIZED}: {$CONST.EDIT}{/if}{/if}{else}{$CONST.CREATE}{/if}</h2>
-        {$config}
+        {$CONFIG}
         <div class="form_buttons">
         {if $adminAction == 'edit'}
             <input name="SAVE_EDIT" type="submit" value="{$CONST.SAVE}">

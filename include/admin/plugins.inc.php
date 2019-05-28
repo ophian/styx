@@ -148,7 +148,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     }
 
     $data['license'] = $license;
-    $data['config'] = serendipity_plugin_config($plugin, $bag, $name, $desc, $config_names, true, true, true, true, 'plugin', $config_groups);
+
+    // A pre parsed and rendered template, analogue to 'ENTRIES' etc
+    $data['CONFIG'] = serendipity_plugin_config($plugin, $bag, $name, $desc, $config_names, true, true, true, true, 'plugin', $config_groups);
 
 } elseif ($serendipity['GET']['adminAction'] == 'addnew') {
 

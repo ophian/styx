@@ -12,7 +12,7 @@
 {/if}
 <form action="?serendipity[adminModule]=personal&amp;serendipity[adminAction]=save" method="post">
     {$formToken}
-    {$config}
+    {$CONFIG}
     <div class="form_buttons">
         <input name="SAVE" type="submit" value="{$CONST.SAVE}">
     </div>
