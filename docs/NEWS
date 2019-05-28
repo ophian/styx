@@ -40,7 +40,21 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
-  * Restrict the (dashboard) autoupdate method to the Administrator only
+  * Add a NEW administrative group permission flag: 'siteAutoUpgrades'.
+
+    For the case you have a MULTIUSER system, and there you have an "Editor
+    in Chief" user which you want to also access site Auto-Upgrades, you can
+    do the following for example as the ADMINISTRATOR.
+    Either:
+      - ADD a new SPECIAL group with 'siteAutoUpgrades' [x] permission AND
+        'Hidden group / Non-Author' [x] and assign it ADDITIONALLY to this
+        single special user afterwards in the USERS administration section;
+      - OR copy the CHIEF group to a CHIEF+ group including 'siteAutoUpgrades' [x]
+        and assign this group SINGULARLY to the SPECIAL user.
+    The first is the recommended approach!
+    Do not change the CHIEFEDITOR group itself, for security!
+
+  * Restrict the (dashboard) auto-update method to the Administrator only.
 
   * Fix wrong USERLEVEL_EDITOR_DESC and USERLEVEL_CHIEF_DESC constant translations
     for [cs, cz, sk] languages.
