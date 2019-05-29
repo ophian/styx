@@ -666,7 +666,7 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
                                $query_join
                                $where
                                $query_group
-                      ORDER BY a.realname ASC";
+                      ORDER BY a.userlevel DESC, a.realname ASC";
     } else {
 
         if ($group === 'hidden') {
