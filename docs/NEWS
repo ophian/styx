@@ -40,6 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Improve (all) Users list order by userlevel DESC, realname ASC
+
   * Add new group related, buttonized informational messages (per lang constants)
     for the ADMIN / Editor in CHIEF based differing administration.
 
