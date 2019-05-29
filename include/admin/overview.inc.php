@@ -65,6 +65,8 @@ $output = array(); // re-new array for the autoupdate empty check below
 //             which you want to be able to have upgrade permission and which also MUST have "Editor in CHIEF" group permission;
 // Or copy the CHIEF group to a CHIEF+ group including 'siteAutoUpgrades' [x] and assign this SINGULARLY to the SPECIAL user.
 // Do not change the CHIEF group itself, for security! The first example is the recommended approach for that case!
+// Do not give that Group more rights than a CHIEF already has, except the two noted above. In special, this means to keep:
+//    adminPluginsMaintainOthers, adminUsersMaintainOthers and siteConfiguration assigned to the ADMINISTRATOR only!!
 if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_checkPermission('siteAutoUpgrades')) && serendipity_checkPermission('adminUsersGroups'))) {
     $data['usedVersion']  = $serendipity['version'];
     $data['updateCheck']  = $serendipity['updateCheck'];
