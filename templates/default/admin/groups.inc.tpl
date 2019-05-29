@@ -44,7 +44,17 @@
 
 {if (isset($edit) AND $edit) OR (isset($new) AND $new)}
 
-    <h3>{if isset($edit) AND $edit}{$CONST.EDIT}{else}{$CONST.CREATE}{/if}</h3>
+    <h3>{if isset($edit) AND $edit}{$CONST.EDIT}{else}{$CONST.CREATE}{/if}
+    {if $alevel || $clevel}<button class="toggle_info button_link group_info" type="button" data-href="#group_administration_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.MORE}</span></button>{/if}
+    </h3>
+
+    {if $alevel || $clevel}
+    <div id="group_administration_info" class="group_administration_info additional_info">
+        <span class="msg_hint">
+        {if $alevel}{$CONST.GROUP_ADMIN_INFO_DESC}{else}{$CONST.GROUP_CHIEF_INFO_DESC}{/if}
+        </span>
+    </div>
+    {/if}
 
     <form id="serendipity_admin_groups" class="configuration_group option_list" action="?serendipity[adminModule]=groups" method="post">
         {$formToken}

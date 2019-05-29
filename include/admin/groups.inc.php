@@ -73,6 +73,8 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
         $data['edit'] = true;
     }
     $data['formToken'] = serendipity_setFormToken();
+    $data['alevel'] = $serendipity['serendipityUserlevel'] == USERLEVEL_ADMIN ? true: false;
+    $data['clevel'] = $serendipity['serendipityUserlevel'] == USERLEVEL_CHIEF ? true: false;
 
     if ($serendipity['GET']['adminAction'] == 'edit') {
         $group = serendipity_fetchGroup($serendipity['GET']['group']);
