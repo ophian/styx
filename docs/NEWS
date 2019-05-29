@@ -40,6 +40,9 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Add new group related, buttonized informational messages (per lang constants)
+    for the ADMIN / Editor in CHIEF based differing administration.
+
   * Add a NEW administrative group permission flag: 'siteAutoUpgrades'.
 
     For the case you have a MULTIUSER system, and there you have an "Editor
