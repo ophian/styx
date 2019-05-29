@@ -791,6 +791,9 @@
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: 管理回复');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: 管理主题');
 
+@define('GROUP_ADMIN_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights, might implement security risks. There are at least 3 permission flags [<em>adminPluginsMaintainOthers</em>, <em>adminUsersMaintainOthers</em> and <em>siteConfiguration</em>] which should stick to the ADMINISTRATOR <b>only</b>! Otherwise, vital conditions of your blog are endangered. Compare and understand what are the main differences between you, the ADMIN, and between "Editors in CHIEF" and normal "USERs". The [<em>siteAutoUpgrades</em>] permission flag is for a special cased and assigned CHIEF only. Read in the ChangeLog, the Styx Sites Help Center or the german Book on how to use it!');
+@define('GROUP_CHIEF_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights to normal USERs, might implement security risks. You should deeply check which permission flag should be allowed/removed, compared to a standard USER! Otherwise, vital conditions of certain areas are endangered. Compare and understand what are the main differences between you, the "Editor in CHIEF" and normal "USERs". Read in the Styx Sites Help Center or the german Book for more information!');
+
 @define('INSTALL_BLOG_EMAIL', '网站的电子邮件');
 @define('INSTALL_BLOG_EMAIL_DESC', '这会设定你的电子邮件，任何日志内寄出的邮件将会显示这个电子邮件地址。记得这个电子邮件必须用在你的主机内，很多主机会拒绝接收不明的邮件。');
 @define('CATEGORIES_PARENT_BASE', '只显示以下类别...');

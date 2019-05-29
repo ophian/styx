@@ -808,6 +808,9 @@
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrar comentarios');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrar plantillas');
 
+@define('GROUP_ADMIN_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights, might implement security risks. There are at least 3 permission flags [<em>adminPluginsMaintainOthers</em>, <em>adminUsersMaintainOthers</em> and <em>siteConfiguration</em>] which should stick to the ADMINISTRATOR <b>only</b>! Otherwise, vital conditions of your blog are endangered. Compare and understand what are the main differences between you, the ADMIN, and between "Editors in CHIEF" and normal "USERs". The [<em>siteAutoUpgrades</em>] permission flag is for a special cased and assigned CHIEF only. Read in the ChangeLog, the Styx Sites Help Center or the german Book on how to use it!');
+@define('GROUP_CHIEF_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights to normal USERs, might implement security risks. You should deeply check which permission flag should be allowed/removed, compared to a standard USER! Otherwise, vital conditions of certain areas are endangered. Compare and understand what are the main differences between you, the "Editor in CHIEF" and normal "USERs". Read in the Styx Sites Help Center or the german Book for more information!');
+
 @define('INSTALL_BLOG_EMAIL', 'Correo electrónico del Blog');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Aquí se configura la dirección de correo electrónico que se utiliza como "De:" en los correos salientes. Asegúrate de definir esta variable con una dirección que sea reconocida por el servidor de correo de tu hosts - muchos servidores de correo rechazan los mensajes que tienen una dirección "De:" desconocida.');
 @define('CATEGORIES_PARENT_BASE', 'Sólo mostrar categorías bajo...');

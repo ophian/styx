@@ -787,6 +787,9 @@
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: 덧글 관리');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: 템플릿 관리');
 
+@define('GROUP_ADMIN_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights, might implement security risks. There are at least 3 permission flags [<em>adminPluginsMaintainOthers</em>, <em>adminUsersMaintainOthers</em> and <em>siteConfiguration</em>] which should stick to the ADMINISTRATOR <b>only</b>! Otherwise, vital conditions of your blog are endangered. Compare and understand what are the main differences between you, the ADMIN, and between "Editors in CHIEF" and normal "USERs". The [<em>siteAutoUpgrades</em>] permission flag is for a special cased and assigned CHIEF only. Read in the ChangeLog, the Styx Sites Help Center or the german Book on how to use it!');
+@define('GROUP_CHIEF_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights to normal USERs, might implement security risks. You should deeply check which permission flag should be allowed/removed, compared to a standard USER! Otherwise, vital conditions of certain areas are endangered. Compare and understand what are the main differences between you, the "Editor in CHIEF" and normal "USERs". Read in the Styx Sites Help Center or the german Book for more information!');
+
 @define('INSTALL_BLOG_EMAIL', '블로그의 전자우편 주소');
 @define('INSTALL_BLOG_EMAIL_DESC', '발송하는 전자우편의 "보낸 사람" 부분에 나타날 전자우편 주소를 설정합니다. 호스트의 메일 서버에서 인식하는 주소로 반드시 설정하십시오. 상당수의 메일 서버는 보낸 사람 주소를 알 수 없는 전자우편을 거부합니다.');
 @define('CATEGORIES_PARENT_BASE', '하위 범주만 보이기');

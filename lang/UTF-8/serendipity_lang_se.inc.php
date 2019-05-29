@@ -786,6 +786,9 @@
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: Administrera kommentarer');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: Administrera mallar');
 
+@define('GROUP_ADMIN_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights, might implement security risks. There are at least 3 permission flags [<em>adminPluginsMaintainOthers</em>, <em>adminUsersMaintainOthers</em> and <em>siteConfiguration</em>] which should stick to the ADMINISTRATOR <b>only</b>! Otherwise, vital conditions of your blog are endangered. Compare and understand what are the main differences between you, the ADMIN, and between "Editors in CHIEF" and normal "USERs". The [<em>siteAutoUpgrades</em>] permission flag is for a special cased and assigned CHIEF only. Read in the ChangeLog, the Styx Sites Help Center or the german Book on how to use it!');
+@define('GROUP_CHIEF_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights to normal USERs, might implement security risks. You should deeply check which permission flag should be allowed/removed, compared to a standard USER! Otherwise, vital conditions of certain areas are endangered. Compare and understand what are the main differences between you, the "Editor in CHIEF" and normal "USERs". Read in the Styx Sites Help Center or the german Book for more information!');
+
 @define('INSTALL_BLOG_EMAIL', 'Bloggens e-postadress');
 @define('INSTALL_BLOG_EMAIL_DESC', 'Ställer in den e-postadress som används som avsändare i utgående meddelanden. Försäkra dig om att använda en adress som e-postservern på din värddator känner igen - många e-postservrar avfärdar meddelanden som har en okänd avsändaradress.');
 @define('CATEGORIES_PARENT_BASE', 'Visa endast kategorier under...');

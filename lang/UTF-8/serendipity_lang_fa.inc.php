@@ -787,6 +787,9 @@
 @define('PERMISSION_ADMINCOMMENTS', 'adminComments: مدیریت نظر ها');
 @define('PERMISSION_ADMINTEMPLATES', 'adminTemplates: مدیریت پوسته ها');
 
+@define('GROUP_ADMIN_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights, might implement security risks. There are at least 3 permission flags [<em>adminPluginsMaintainOthers</em>, <em>adminUsersMaintainOthers</em> and <em>siteConfiguration</em>] which should stick to the ADMINISTRATOR <b>only</b>! Otherwise, vital conditions of your blog are endangered. Compare and understand what are the main differences between you, the ADMIN, and between "Editors in CHIEF" and normal "USERs". The [<em>siteAutoUpgrades</em>] permission flag is for a special cased and assigned CHIEF only. Read in the ChangeLog, the Styx Sites Help Center or the german Book on how to use it!');
+@define('GROUP_CHIEF_INFO_DESC', '<b>Keep in mind:</b> Changing or giving certain rights to normal USERs, might implement security risks. You should deeply check which permission flag should be allowed/removed, compared to a standard USER! Otherwise, vital conditions of certain areas are endangered. Compare and understand what are the main differences between you, the "Editor in CHIEF" and normal "USERs". Read in the Styx Sites Help Center or the german Book for more information!');
+
 @define('INSTALL_BLOG_EMAIL', 'آدرس ایمیل وبلاگ');
 @define('INSTALL_BLOG_EMAIL_DESC', 'این ایمیل در قسمت "From" در ایمیل های ارسالی از سرور استفاده می شود. از وجود این ایمیل در سرورتان اطمینان حاصل کنید - بسیاری از سرور های ایمیل، ایمیل های بدون فرستنده معتبر را رد می کنند.');
 @define('CATEGORIES_PARENT_BASE', 'فقط موضوعات زیر را نمایش بده...');
