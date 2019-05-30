@@ -44,7 +44,7 @@ Version 2.8.0 RC1 ()
 
   * Fix CREATE NEW group action message for passed-over name variable
 
-  * Improve Users list for readability and visual difference
+  * Improve Users and group list for readability and visual difference
 
   * Improve Users list order by userlevel before sorting natural by realname
 
