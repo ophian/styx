@@ -46,8 +46,8 @@ Version 2.8.0 RC1 ()
 
   * Improve (all) Users list order by userlevel DESC, realname ASC
 
-  * Add new group related, buttonized informational messages (per lang constants)
-    for the ADMIN / Editor in CHIEF based differing administration.
+  * Add new group related, buttoned informational messages (per lang constants)
+    for the ADMIN / Editor in CHIEF based differing group administration.
 
   * Add a NEW administrative group permission flag: 'siteAutoUpgrades'.
 
