@@ -70,7 +70,7 @@
         </div>
 
         <div class="clearfix even form_select">
-            <label for="group_members">{$CONST.USERCONF_GROUPS}</label>
+            <label for="group_members">{$CONST.GROUPCONF_GROUPS}</label>
             <select id="group_members" name="serendipity[members][]" multiple size="5">
                 {foreach $allusers AS $user}
 
