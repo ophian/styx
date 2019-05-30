@@ -32,6 +32,7 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
         $perms = serendipity_getAllPermissionNames();
         serendipity_updateGroupConfig($serendipity['POST']['group'], $perms, $serendipity['POST'], false, $_forbidden_plugins, $_forbidden_hooks);
         $data['save_new'] = true;
+        $data['name'] = $serendipity['POST']['name'];
         $data['group_id'] = $serendipity['POST']['group'];
     } else {
         $data['group_taken'] = true;
