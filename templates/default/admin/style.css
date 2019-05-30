@@ -954,6 +954,16 @@ button[type="submit"]:focus {
     text-shadow: #050505 0 1px 1px;
 }
 
+.icon-user.admin {
+    color: #ff4136;
+}
+.icon-user.chief {
+    color: #0074d9;
+}
+.icon-user.user {
+    color: gray;
+}
+
 .comment_data dd .button_link,
 .toggle_info,
 .toggle_info:visited,
@@ -1720,6 +1730,10 @@ summary {
 
 .user_level {
     display: block;
+}
+ul.edit_actions li > .user_level {
+    display: none;
+    visibility: hidden;
 }
 
 #image_directory_create_form .form_field input,
@@ -3875,6 +3889,14 @@ img.mfp-img {
 
     .user_level {
         display: inline;
+    }
+    .user_name .user_level {
+        display: none;
+        visibility: hidden;
+    }
+    ul.edit_actions li > .user_level {
+        display: initial;
+        visibility: initial;
     }
 
     .entryproperties_access_groups,
