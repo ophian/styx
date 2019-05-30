@@ -44,7 +44,7 @@ Version 2.8.0 RC1 ()
 
   * Improve Users list for readability and visual difference
 
-  * Improve (all) Users list order by userlevel DESC, realname ASC
+  * Improve Users list order by userlevel before sorting natural by realname
 
   * Add new group related, buttoned informational messages (per lang constants)
     for the ADMIN / Editor in CHIEF based differing group administration.
