@@ -50,7 +50,7 @@
     {foreach $users AS $user}
         {if isset($user.isEditable) AND $user.isEditable}
         <li class="clearfix {cycle values="odd,even"}">
-            <span class="user_name"><span class="icon-user {if $user.userlevel == '255'}admin{elseif $user.userlevel == '1'}chief{else}user{/if}" aria-hidden="true"></span> {$user.realname|escape} <span class="user_level">({$user.userlevel_name|escape})</span></span>
+            <span class="user_name"><span class="icon-user {if $user.userlevel == '255'}admin{elseif $user.userlevel == '1'}chief{else}editor{/if}" aria-hidden="true"></span> {$user.realname|escape} <span class="user_level">({$user.userlevel_name|escape})</span></span>
 
             <ul class="plainList clearfix edit_actions">
                 <li><span class="user_level">({$user.userlevel_name|escape})</span></li>{* hidden on small mobiles and vice versa *}

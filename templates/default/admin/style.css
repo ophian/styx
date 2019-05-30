@@ -954,13 +954,13 @@ button[type="submit"]:focus {
     text-shadow: #050505 0 1px 1px;
 }
 
-.icon-user.admin {
+.icon-user.admin, .icon-users.admin {
     color: #b10dc9;
 }
-.icon-user.chief {
+.icon-user.chief, .icon-users.chief {
     color: #0074d9;
 }
-.icon-user.user {
+.icon-user.editor, .icon-users.editor {
     color: gray;
 }
 
