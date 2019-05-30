@@ -716,12 +716,12 @@
 @define('USERCONF_GROUPS', 'Csoporttagság');
 @define('USERCONF_GROUPS_DESC', 'Ez a felhasználó a következő csoportok tagja. Több csoportba is tartozhat.');
 @define('MANAGE_GROUPS', 'Csoportok kezelése');
-@define('DELETED_GROUP', 'A csoport törölve: #%d %s.');
-@define('CREATED_GROUP', 'Az új csoportot létrehoztuk: %s');
-@define('MODIFIED_GROUP', 'A következő csoport tulajdonságait megváltoztattuk %s');
+@define('DELETED_GROUP', 'A csoport törölve: #%d \'%s\'.');
+@define('CREATED_GROUP', 'Az új csoportot létrehoztuk: #%d \'%s\'');
+@define('MODIFIED_GROUP', 'A következő csoport tulajdonságait megváltoztattuk \'%s\'');
 @define('GROUP', 'Csoport');
 @define('CREATE_NEW_GROUP', 'Új csoport létrehozása');
-@define('DELETE_GROUP', 'A következő csoport törlésére készülsz: #%d %s. Biztos vagy benne?');
+@define('DELETE_GROUP', 'A következő csoport törlésére készülsz: #%d \'%s\'. Biztos vagy benne?');
 @define('USERLEVEL_OBSOLETE', 'Megjegyzés: A felhasználó szintű attribútumok a visszafele kompatibilitás, néhány modul és az azonosítás néhány esete miatt szükségesek. A felhasználók jogosultsága a csoporttagságon keresztül állítható be!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner azonosító');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'A hírcsatorna azonosítója, amelyet publikálni szeretnél');

@@ -708,12 +708,12 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_GROUPS', 'Членство в групи');
 @define('USERCONF_GROUPS_DESC', 'Този потребител е член на следните групи. Възможни са няколко членства.');
 @define('MANAGE_GROUPS', 'Управление на групи');
-@define('DELETED_GROUP', 'Група №&#160;%d %s е изтрита.');
-@define('CREATED_GROUP', 'Създадена е нова група %s');
-@define('MODIFIED_GROUP', 'Свойствата на групата %s са променени');
+@define('DELETED_GROUP', 'Група №&#160;%d \'%s\' е изтрита.');
+@define('CREATED_GROUP', 'Създадена е нова група №&#160;%d \'%s\'');
+@define('MODIFIED_GROUP', 'Свойствата на групата \'%s\' са променени');
 @define('GROUP', 'Група');
 @define('CREATE_NEW_GROUP', 'Създаване на нова група');
-@define('DELETE_GROUP', 'На път сте да изтриете група №&#160;%d %s. Сигурни ли сте?');
+@define('DELETE_GROUP', 'На път сте да изтриете група №&#160;%d \'%s\'. Сигурни ли сте?');
 @define('USERLEVEL_OBSOLETE', 'БЕЛЕЖКА: Атрибутът за потребителско ниво се използва само за обратна съвместимост с приставки и удостоверяване. Привилегиите на потребителите сега се управлява чрез членство в групи!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'Идентификатор на FeedBurner');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Идентификаторът на емисията, която искате да публикувате');

@@ -719,12 +719,12 @@
 @define('USERCONF_GROUPS', 'குறிப்பாளர் குழு');
 @define('USERCONF_GROUPS_DESC', 'இக்குறிப்பாளர் இந்த குழுக்களில் உறுப்பினர்.');
 @define('MANAGE_GROUPS', 'குறிப்பாளர் குழுக்கள்');
-@define('DELETED_GROUP', 'Group #%d %s deleted.');
-@define('CREATED_GROUP', 'A new group %s has been created');
-@define('MODIFIED_GROUP', 'The properties of group %s have been changed');
+@define('DELETED_GROUP', 'Group #%d \'%s\' deleted.');
+@define('CREATED_GROUP', 'A new group #%d \'%s\' has been created');
+@define('MODIFIED_GROUP', 'The properties of group \'%s\' have been changed');
 @define('GROUP', 'Group');
 @define('CREATE_NEW_GROUP', 'Create new group');
-@define('DELETE_GROUP', 'You are about to delete group #%d %s. Are you serious?');
+@define('DELETE_GROUP', 'You are about to delete group #%d \'%s\'. Are you serious?');
 @define('USERLEVEL_OBSOLETE', 'NOTICE: The userlevel attribute is now only used for backward compatibility to plugins and fallback authorisation. User privileges are now handled by group memberships!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'The ID of the feed you wish to publish');

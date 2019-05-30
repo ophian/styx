@@ -731,12 +731,12 @@ $i18n_filename_to = array (
 @define('USERCONF_GROUPS', 'Èlenstvo v skupinách');
 @define('USERCONF_GROUPS_DESC', 'Tento pou¾ívateµ je èlenom nasledujúcich skupín. Ælenstvo vo viacerých skupinách je mo¾né.');
 @define('MANAGE_GROUPS', 'Správa skupín');
-@define('DELETED_GROUP', 'Skupina #%d %s zmazaná.');
-@define('CREATED_GROUP', 'Nová skupina %s bola vytvorená');
-@define('MODIFIED_GROUP', 'Nastavenia skupiny %s boli zmenené');
+@define('DELETED_GROUP', 'Skupina #%d \'%s\' zmazaná.');
+@define('CREATED_GROUP', 'Nová skupina #%d \'%s\' bola vytvorená');
+@define('MODIFIED_GROUP', 'Nastavenia skupiny \'%s\' boli zmenené');
 @define('GROUP', 'Skupina');
 @define('CREATE_NEW_GROUP', 'Vytvori» novú skupinu');
-@define('DELETE_GROUP', 'Chystáte sa zmaza» skupinu #%d %s. Naozaj zmaza»?');
+@define('DELETE_GROUP', 'Chystáte sa zmaza» skupinu #%d \'%s\'. Naozaj zmaza»?');
 @define('USERLEVEL_OBSOLETE', 'UPOZORNENIE: Atribút úroveò prístupu pou¾ívateµa (userlevel) je teraz pou¾ívaný iba kvôli spätnej kompatibilite s doplnkami a autorizáciou. U¾ívateµské práva sa odteraz riadia pomocou èlenských skupín!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID feedu, ktorý chcete publikova»');

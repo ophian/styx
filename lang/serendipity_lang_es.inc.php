@@ -734,12 +734,12 @@
 @define('USERCONF_GROUPS', 'Membresías');
 @define('USERCONF_GROUPS_DESC', 'Este usuario es miembro de los siguientes grupos. Múltiples membresías son posibles.');
 @define('MANAGE_GROUPS', 'Administración de grupos');
-@define('DELETED_GROUP', 'Grupo #%d %s eliminado.');
-@define('CREATED_GROUP', 'Un nuevo grupo %s ha sido creado');
-@define('MODIFIED_GROUP', 'Las propiedades del grupo %s han sido modificado');
+@define('DELETED_GROUP', 'Grupo #%d \'%s\' eliminado.');
+@define('CREATED_GROUP', 'Un nuevo grupo #%d \'%s\' ha sido creado');
+@define('MODIFIED_GROUP', 'Las propiedades del grupo \'%s\' han sido modificado');
 @define('GROUP', 'Grupo');
 @define('CREATE_NEW_GROUP', 'Crear nuevo grupo');
-@define('DELETE_GROUP', 'Estás apunto de eliminar el grupo #%d %s. ¿Estás seguro?');
+@define('DELETE_GROUP', 'Estás apunto de eliminar el grupo #%d \'%s\'. ¿Estás seguro?');
 @define('USERLEVEL_OBSOLETE', 'AVISO: El atributo de nivel de acceso es ahora utilizado sólo con propósitos de compatibilidad con versiones anteriores de extensiones y autorización. ¡Los privilegios de usuarios son ahora manejados por membresías!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'ID FeedBurner');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'El ID del feed que deseas publicar');

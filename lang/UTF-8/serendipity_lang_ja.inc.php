@@ -717,7 +717,7 @@
 @define('USERCONF_GROUPS_DESC', 'このユーザーは次のグループのメンバーです。複数の会員は可能です。');
 @define('MANAGE_GROUPS', 'グループ管理');
 @define('DELETED_GROUP', 'グループ #%d の「%s」を削除しました。');
-@define('CREATED_GROUP', '新規グループ「%s」を作成しました。');
+@define('CREATED_GROUP', '新規グループ#%d の「%s」を作成しました。');
 @define('MODIFIED_GROUP', 'グループ「%s」のプロパティを変更しました。');
 @define('GROUP', 'グループ');
 @define('CREATE_NEW_GROUP', '新規グループを作成する');

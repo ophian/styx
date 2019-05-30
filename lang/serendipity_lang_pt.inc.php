@@ -720,12 +720,12 @@
 @define('USERCONF_GROUPS', 'Inscrições de grupos');
 @define('USERCONF_GROUPS_DESC', 'Este usuário pertence ao(s) seguintes grupos. É possível usar múltiplos usuários.');
 @define('MANAGE_GROUPS', 'Gerenciar grupos');
-@define('DELETED_GROUP', 'Grupo #%d %s apagado.');
-@define('CREATED_GROUP', 'Um novo grupo %s foi criado');
-@define('MODIFIED_GROUP', 'As propriedades do grupo %s foram mudadas');
+@define('DELETED_GROUP', 'Grupo #%d \'%s\' apagado.');
+@define('CREATED_GROUP', 'Um novo grupo #%d \'%s\' foi criado');
+@define('MODIFIED_GROUP', 'As propriedades do grupo \'%s\' foram mudadas');
 @define('GROUP', 'Grupo');
 @define('CREATE_NEW_GROUP', 'Criar novo grupo');
-@define('DELETE_GROUP', 'Você está prestes a apagar o grupo #%d %s. Realmente quer fazer isso?');
+@define('DELETE_GROUP', 'Você está prestes a apagar o grupo #%d \'%s\'. Realmente quer fazer isso?');
 @define('USERLEVEL_OBSOLETE', 'NOTÍCIA: Os atributos de permissões e autorização dos usuários estão sendo usados apenas por motivo de compatibilidade com os plugins. Os privilégios, a partir de agora, são geridos através das permissões dos grupos!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'O ID do "feed" que você deseja publicar');

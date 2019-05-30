@@ -716,12 +716,12 @@
 @define('USERCONF_GROUPS', 'Hópar og meðlimir');
 @define('USERCONF_GROUPS_DESC', 'Þessi notandi er meðlimur eftirfarandi hópa. Það er hægt að vera meðlimur fleiri en eins hóps.');
 @define('MANAGE_GROUPS', 'Vinna með hópa');
-@define('DELETED_GROUP', 'Hópur #%d %s eytt.');
-@define('CREATED_GROUP', 'Nýr hópur %s hefur verið búinn til');
-@define('MODIFIED_GROUP', 'Eiginleikum hóps %s hefur verið breytt');
+@define('DELETED_GROUP', 'Hópur #%d \'%s\' eytt.');
+@define('CREATED_GROUP', 'Nýr hópur #%d \'%s\' hefur verið búinn til');
+@define('MODIFIED_GROUP', 'Eiginleikum hóps \'%s\' hefur verið breytt');
 @define('GROUP', 'Hópur');
 @define('CREATE_NEW_GROUP', 'Búa til nýjan hóp');
-@define('DELETE_GROUP', 'Þú ert að fara að eyða hóp #%d %s. Ertu viss?');
+@define('DELETE_GROUP', 'Þú ert að fara að eyða hóp #%d \'%s\'. Ertu viss?');
 @define('USERLEVEL_OBSOLETE', 'TILKYNNING: Stjórnstigsbreytan er nú einungis notuð fyrir afturvirkan stuðning við viðbætur og varakerfisauðkenningu. Notendaréttindum er nú stjórnað af hvaða hóp notandi tilheyrir!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID þess straums sem þú vilt birta');

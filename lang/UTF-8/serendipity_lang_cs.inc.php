@@ -731,12 +731,12 @@ $i18n_filename_to = array (
 @define('USERCONF_GROUPS', '?lenstv? ve skupin?ch');
 @define('USERCONF_GROUPS_DESC', 'Tento u?ivatel je ?len n?sleduj?c?ch skupin. ?lenstv? ve v?ce skupin?ch je mo?n?.');
 @define('MANAGE_GROUPS', 'Upravuj skupiny');
-@define('DELETED_GROUP', 'Skupina #%d %s smaz?na.');
-@define('CREATED_GROUP', 'Nov? skupina %s byla vytvo?ena');
-@define('MODIFIED_GROUP', 'Vlastnosti skupiny %s byly zm?n?ny');
+@define('DELETED_GROUP', 'Skupina #%d \'%s\' smaz?na.');
+@define('CREATED_GROUP', 'Nov? skupina #%d \'%s\' byla vytvo?ena');
+@define('MODIFIED_GROUP', 'Vlastnosti skupiny \'%s\' byly zm?n?ny');
 @define('GROUP', 'Skupina');
 @define('CREATE_NEW_GROUP', 'Vytvo?it novou skupinu');
-@define('DELETE_GROUP', 'Chyst?te se smazat skupinu #%d %s. Mysl?te to v?n??');
+@define('DELETE_GROUP', 'Chyst?te se smazat skupinu #%d \'%s\'. Mysl?te to v?n??');
 @define('USERLEVEL_OBSOLETE', 'UPOZORN?N?: Atribut ?rove? u?ivatele (userlevel) je nyn? pou??v?n jen kv?li zp?tn? kompatibilit? s pluginy a autorizaci. U?ivatelsk? pr?va jsou nyn? ??zena pomoc? ?lensk?ch skupin!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID feedu, kter? chcete publikovat');

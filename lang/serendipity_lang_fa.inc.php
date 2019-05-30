@@ -717,12 +717,12 @@
 @define('USERCONF_GROUPS', 'گروه ها');
 @define('USERCONF_GROUPS_DESC', 'این کاربر در گروه های زیر عضو است. امکان عضویت در چند گروه مجاز می باشد.');
 @define('MANAGE_GROUPS', 'مدیریت گروه ها');
-@define('DELETED_GROUP', 'گروه #%d %s حذف شد.');
-@define('CREATED_GROUP', 'گروه جدید %s ایجاد شد');
-@define('MODIFIED_GROUP', 'مشخصات گروه %s تغییر کرد');
+@define('DELETED_GROUP', 'گروه #%d \'%s\' حذف شد.');
+@define('CREATED_GROUP', 'گروه جدید #%d \'%s\' ایجاد شد');
+@define('MODIFIED_GROUP', 'مشخصات گروه \'%s\' تغییر کرد');
 @define('GROUP', 'گروه');
 @define('CREATE_NEW_GROUP', 'ایجاد گروه جدید');
-@define('DELETE_GROUP', 'شما قصد حذف گروه #%d %s را دارید. آیا اطمینان دارید؟');
+@define('DELETE_GROUP', 'شما قصد حذف گروه #%d \'%s\' را دارید. آیا اطمینان دارید؟');
 @define('USERLEVEL_OBSOLETE', 'توجه: اکنون مدیریت دسترسی کاربران فقط برای سازگاری با نسخ قدیمی پشتیبانی می شود. اکنون دسترسی کاربران با گروه ها مدیریت می شود!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'هویت FeedBurner');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'هویتی که می خواهید برای این تغذیه منتشر شود');

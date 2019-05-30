@@ -717,12 +717,12 @@
 @define('USERCONF_GROUPS', 'Groepslidmaatschap');
 @define('USERCONF_GROUPS_DESC', 'Deze gebruiker is lid van de volgende groepen. Lid zijn van meerdere groepen is mogelijk.');
 @define('MANAGE_GROUPS', 'Beheer groepen');
-@define('DELETED_GROUP', 'Groep #%d %s is verwijderd.');
-@define('CREATED_GROUP', 'Nieuwe groep %s is aangemaakt');
-@define('MODIFIED_GROUP', 'De eigenschappen van groep %s zijn veranderd');
+@define('DELETED_GROUP', 'Groep #%d \'%s\' is verwijderd.');
+@define('CREATED_GROUP', 'Nieuwe groep #%d \'%s\' is aangemaakt');
+@define('MODIFIED_GROUP', 'De eigenschappen van groep \'%s\' zijn veranderd');
 @define('GROUP', 'Groep');
 @define('CREATE_NEW_GROUP', 'Creëer een nieuwe groep');
-@define('DELETE_GROUP', 'U staat op het punt om groep #%d %s te verwijderen. Weet u zeker dat u deze groep wilt verwijderen?');
+@define('DELETE_GROUP', 'U staat op het punt om groep #%d \'%s\' te verwijderen. Weet u zeker dat u deze groep wilt verwijderen?');
 @define('USERLEVEL_OBSOLETE', 'OPMERKING: Het attribuut userlevel wordt alleen nog maar gebruikt om compatibiliteitsproblemen met plugins en autorisatie te voorkomen. Gebruikersprivileges worden nu afgehandeld door het groepslidmaatschap!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner-ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Het ID van de toevoer die u wilt publiceren');

@@ -721,12 +721,12 @@
 @define('USERCONF_GROUPS', 'דÌדזÚÉ ÇבÇÚÖÇÁ');
 @define('USERCONF_GROUPS_DESC', 'וÐÇ ÇבÚÖז בÏםÉ ÚÖזםÉ Ýם וÐו ÇבדÌדזÚÇÊ. ÊÚÏÏ ÇבÚÖזםו Ýם דÌדזÚÇÊ דÎÊבÝÉ דד‗ה');
 @define('MANAGE_GROUPS', 'ÇÏÇÑÉ ÇבדÌדזÚÇÊ');
-@define('DELETED_GROUP', 'Êד ÍÐÝוÇ #%d %s ÇבדÌדזÚÉ');
-@define('CREATED_GROUP', 'Êד ÇהÔÇÁוÇ %s ÇבדÌדזÚÉ ÇבÌÏםÏÉ');
-@define('MODIFIED_GROUP', 'Êד ÊÛםםÑוÇ %s ÎÕÇÆÕ ÇבדÌדזÚÉ');
+@define('DELETED_GROUP', 'Êד ÍÐÝוÇ #%d \'%s\' ÇבדÌדזÚÉ');
+@define('CREATED_GROUP', 'Êד ÇהÔÇÁוÇ #%d \'%s\' ÇבדÌדזÚÉ ÇבÌÏםÏÉ');
+@define('MODIFIED_GROUP', 'Êד ÊÛםםÑוÇ \'%s\' ÎÕÇÆÕ ÇבדÌדזÚÉ');
 @define('GROUP', 'ÇבדÌדזÚÇÊ');
 @define('CREATE_NEW_GROUP', 'ÇהÔÇÁ דÌדזÚÉ ÌÏםÏÉ');
-@define('DELETE_GROUP', 'וב ÇהÊ דÊÃ‗Ï דה ÍÐÝ ÇבדÌדזÚÉ  #%d %s');
+@define('DELETE_GROUP', 'וב ÇהÊ דÊÃ‗Ï דה ÍÐÝ ÇבדÌדזÚÉ #%d \'%s\'');
 @define('USERLEVEL_OBSOLETE', 'דבÇÍÙÉ: ÎÇÕםÉ דÓÊזל ÇבדÓÊÎÏד ÇבÂה ÊÊהÇÓÞ דÚ דבÝÇÊ ÇבÍË זÇבÕבÇÍםÇÊ.ז דםÒÇÊ ÇבדÓÊÎÏד ÇבÂה םÊד דÚÇבÌÊוÇ דÚ ÚÖזםÉ ÇבדÌדזÚÉ ! ! ! ');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'The ID of the feed you wish to publish');

@@ -717,12 +717,12 @@
 @define('USERCONF_GROUPS', 'Gruppe medlemsskab');
 @define('USERCONF_GROUPS_DESC', 'Brugeren er medlem af følgende grupper. Det er muligt at være medlem af flere grupper.');
 @define('MANAGE_GROUPS', 'Håndter grupper');
-@define('DELETED_GROUP', 'Gruppe #%d %s slettet.');
-@define('CREATED_GROUP', 'En nye gruppe %s er blevet oprettet');
-@define('MODIFIED_GROUP', 'Egenskaberne for gruppen %s er blevet ændret');
+@define('DELETED_GROUP', 'Gruppe #%d \'%s\' slettet.');
+@define('CREATED_GROUP', 'En nye gruppe #%d \'%s\' er blevet oprettet');
+@define('MODIFIED_GROUP', 'Egenskaberne for gruppen \'%s\' er blevet ændret');
 @define('GROUP', 'Group');
 @define('CREATE_NEW_GROUP', 'Opret ny gruppe');
-@define('DELETE_GROUP', 'Slet gruppe  #%d %s. Er du sikker?');
+@define('DELETE_GROUP', 'Slet gruppe #%d \'%s\'. Er du sikker?');
 @define('USERLEVEL_OBSOLETE', 'BEMÆRK: Brugerniveau indstillingen anvendes nu kun til bagud kompatibilitet. Bruger privilegier angives nu ved hjælp af gruppe medlemskaber!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID på det feed du ønsker at offentliggøre');

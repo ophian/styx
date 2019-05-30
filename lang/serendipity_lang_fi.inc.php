@@ -715,12 +715,12 @@
 @define('USERCONF_GROUPS', 'Ryhmäjäsenyydet');
 @define('USERCONF_GROUPS_DESC', 'Käyttäjä on jäsen seuraavissa ryhmissä. Sama käyttäjä voi kuulua useampaan ryhmään.');
 @define('MANAGE_GROUPS', 'Ryhmien ylläpito');
-@define('DELETED_GROUP', 'Ryhmä #%d %s poistettu.');
-@define('CREATED_GROUP', 'Luotiin uusi %s ryhmä');
-@define('MODIFIED_GROUP', 'Ryhmän %s ominaisuudet muutettiin');
+@define('DELETED_GROUP', 'Ryhmä #%d \'%s\' poistettu.');
+@define('CREATED_GROUP', 'Luotiin uusi #%d \'%s\' ryhmä');
+@define('MODIFIED_GROUP', 'Ryhmän \'%s\' ominaisuudet muutettiin');
 @define('GROUP', 'Ryhmä');
 @define('CREATE_NEW_GROUP', 'Luo uusi ryhmä');
-@define('DELETE_GROUP', 'Olet aikeissa poistaa ryhmän #%d %s. Oletko varma?');
+@define('DELETE_GROUP', 'Olet aikeissa poistaa ryhmän #%d \'%s\'. Oletko varma?');
 @define('USERLEVEL_OBSOLETE', 'HUOM: Käyttäjätasoa käytetään ainoastaan yhteensopivuuden takaamiseksi, viimeisessä hädässä ja joissakin laajennoksissa. Käyttöoikeudet määritetään ryhmillä!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Julkistettavan kanavan ID');

@@ -721,12 +721,12 @@
 @define('USERCONF_GROUPS', 'مجموعة الاعضاء');
 @define('USERCONF_GROUPS_DESC', 'هذا العضو لدية عضوية في هذه المجموعات. تعدد العضويه في مجموعات مختلفة ممكن');
 @define('MANAGE_GROUPS', 'ادارة المجموعات');
-@define('DELETED_GROUP', 'تم حذفها #%d %s المجموعة');
-@define('CREATED_GROUP', 'تم انشاءها %s المجموعة الجديدة');
-@define('MODIFIED_GROUP', 'تم تغييرها %s خصائص المجموعة');
+@define('DELETED_GROUP', 'تم حذفها #%d \'%s\' المجموعة');
+@define('CREATED_GROUP', 'تم انشاءها #%d \'%s\' المجموعة الجديدة');
+@define('MODIFIED_GROUP', 'تم تغييرها \'%s\' خصائص المجموعة');
 @define('GROUP', 'المجموعات');
 @define('CREATE_NEW_GROUP', 'انشاء مجموعة جديدة');
-@define('DELETE_GROUP', 'هل انت متأكد من حذف المجموعة  #%d %s');
+@define('DELETE_GROUP', 'هل انت متأكد من حذف المجموعة #%d \'%s\'');
 @define('USERLEVEL_OBSOLETE', 'ملاحظة: خاصية مستوى المستخدم الآن تتناسق مع ملفات الحث والصلاحيات.و ميزات المستخدم الآن يتم معالجتها مع عضوية المجموعة ! ! ! ');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'The ID of the feed you wish to publish');

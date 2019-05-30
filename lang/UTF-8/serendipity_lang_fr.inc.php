@@ -721,12 +721,12 @@
 @define('USERCONF_GROUPS', 'Appartenance de groupe');
 @define('USERCONF_GROUPS_DESC', 'Cet utilisateur appartient aux groupes suivants. Des appartenances multiples sont possibles.');
 @define('MANAGE_GROUPS', 'Administrer les groupes');
-@define('DELETED_GROUP', 'Groupe #%d %s effacé.');
-@define('CREATED_GROUP', 'Un nouveau groupe intitulé %s a été créé');
-@define('MODIFIED_GROUP', 'Les propriétés du groupe %s ont été modifiées');
+@define('DELETED_GROUP', 'Groupe #%d \'%s\' effacé.');
+@define('CREATED_GROUP', 'Un nouveau groupe intitulé #%d \'%s\' a été créé');
+@define('MODIFIED_GROUP', 'Les propriétés du groupe \'%s\' ont été modifiées');
 @define('GROUP', 'Groupe');
 @define('CREATE_NEW_GROUP', 'Créer un nouveau groupe');
-@define('DELETE_GROUP', 'Vous êtes sur le point d\'effacer le groupe  #%d %s. Êtes-vous sûr ?');
+@define('DELETE_GROUP', 'Vous êtes sur le point d\'effacer le groupe #%d \'%s\'. Êtes-vous sûr ?');
 @define('USERLEVEL_OBSOLETE', 'NOTICE : l\'attribut "niveau d\'accès" n\'est plus utilisé que pour assurer la compatibilité descendante des plugins et comme système d\'autorisation de secours. Les niveaux d\'autorisation sont maintenant gérés par l\appartenance à un ou plusieurs groupes d\'utilisateurs !');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'Identifiant FeedBurner');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'L\'identifiant du fil que vous voulez publier');

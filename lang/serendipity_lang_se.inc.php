@@ -716,12 +716,12 @@
 @define('USERCONF_GROUPS', 'Gruppmedlemskap');
 @define('USERCONF_GROUPS_DESC', 'Denna användare är medlem av följande grupper. Flera medlemskap är möjliga.');
 @define('MANAGE_GROUPS', 'Hantera grupper');
-@define('DELETED_GROUP', 'Grupp #%d %s borttagen.');
-@define('CREATED_GROUP', 'En ny grupp %s har skapats');
-@define('MODIFIED_GROUP', 'Grupp %s egenskaper har ändrats');
+@define('DELETED_GROUP', 'Grupp #%d \'%s\' borttagen.');
+@define('CREATED_GROUP', 'En ny grupp #%d \'%s\' har skapats');
+@define('MODIFIED_GROUP', 'Grupp \'%s\' egenskaper har ändrats');
 @define('GROUP', 'Grupp');
 @define('CREATE_NEW_GROUP', 'Skapa ny grupp');
-@define('DELETE_GROUP', 'Du håller på att ta bort grupp #%d %s. Är du säker?');
+@define('DELETE_GROUP', 'Du håller på att ta bort grupp #%d \'%s\'. Är du säker?');
 @define('USERLEVEL_OBSOLETE', 'NOTERA: Användarnivåattributet används nu endast för bakåtkompatibilitet med insticksmoduler och reservauktorisering. Användarprivilegier hanteras nu genom gruppmedlemskap!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner-ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID för matningen som du vill publicera');

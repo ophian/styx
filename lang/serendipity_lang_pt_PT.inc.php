@@ -729,12 +729,12 @@
 @define('USERCONF_GROUPS', 'Inscrições em grupos');
 @define('USERCONF_GROUPS_DESC', 'Este utilizador é membro dos seguintes grupos. Inscrições múltiplas são possíveis.');
 @define('MANAGE_GROUPS', 'Gestão de grupos');
-@define('DELETED_GROUP', 'O grupo #%d %s foi apagado.');
-@define('CREATED_GROUP', 'Um novo grupo %s foi criado');
-@define('MODIFIED_GROUP', 'As propriedades do grupo %s foram mudadas');
+@define('DELETED_GROUP', 'O grupo #%d \'%s\' foi apagado.');
+@define('CREATED_GROUP', 'Um novo grupo #%d \'%s\' foi criado');
+@define('MODIFIED_GROUP', 'As propriedades do grupo \'%s\' foram mudadas');
 @define('GROUP', 'Grupo');
 @define('CREATE_NEW_GROUP', 'Criar novo grupo');
-@define('DELETE_GROUP', 'Está prestes a apagar o grupo #%d %s. Tem a certeza?');
+@define('DELETE_GROUP', 'Está prestes a apagar o grupo #%d \'%s\'. Tem a certeza?');
 @define('USERLEVEL_OBSOLETE', 'AVISO: O atributo de nível de utilizador é agora só usado para compatibilidade com plugins ou como método de autorização substituto. Privilégios de utilizador são geridos por inscrição em grupos!'); //Verify
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'ID do FeedBurner');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'O ID do feed que deseja publicar');

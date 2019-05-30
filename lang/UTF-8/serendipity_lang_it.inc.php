@@ -718,12 +718,12 @@
 @define('USERCONF_GROUPS', 'Appartenenza di Gruppo');
 @define('USERCONF_GROUPS_DESC', 'Questo utente è embro dei seguenti gruppi. Appartenenze di gruppo multiple sono possibili.');
 @define('MANAGE_GROUPS', 'Gestione Gruppi');
-@define('DELETED_GROUP', 'Gruppo #%d %s cancellato.');
-@define('CREATED_GROUP', 'Il nuovo gruppo %s è stato creato');
-@define('MODIFIED_GROUP', 'Le proprietà del gruppo %s sono state cambiate');
+@define('DELETED_GROUP', 'Gruppo #%d \'%s\' cancellato.');
+@define('CREATED_GROUP', 'Il nuovo gruppo #%d \'%s\' è stato creato');
+@define('MODIFIED_GROUP', 'Le proprietà del gruppo \'%s\' sono state cambiate');
 @define('GROUP', 'Gruppo');
 @define('CREATE_NEW_GROUP', 'Crea un nuovo gruppo');
-@define('DELETE_GROUP', 'Stai per cancellare il gruppo #%d %s. Sei sicuro?');
+@define('DELETE_GROUP', 'Stai per cancellare il gruppo #%d \'%s\'. Sei sicuro?');
 @define('USERLEVEL_OBSOLETE', 'NOTA: L\'attributo \'userlevel\' è adesso utilizzato solo per compatibilità a ritroso con i plugins e alle autorizzazioni fallback. I privilegi utente sono adesso gestiti dalle appartenenze di gruppo!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'Identificativo FeedBurner');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'L\'identificativo del feed che vuoi pubblicare');

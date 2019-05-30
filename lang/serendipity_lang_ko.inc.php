@@ -719,7 +719,7 @@
 @define('USERCONF_GROUPS_DESC', '이 사용자는 다음 그룹에 속해 있습니다. 여러 그룹에 속할 수 있습니다.');
 @define('MANAGE_GROUPS', '그룹 관리');
 @define('DELETED_GROUP', '%d번 그룹 %s(이)가 삭제되었습니다.');
-@define('CREATED_GROUP', '새 그룹 %s(이)가 생성되었습니다.');
+@define('CREATED_GROUP', '%d번 새 그룹 %s(이)가 생성되었습니다.');
 @define('MODIFIED_GROUP', '그룹 %s의 설정이 바뀌었습니다.');
 @define('GROUP', '그룹');
 @define('CREATE_NEW_GROUP', '새 그룹 생성하기');

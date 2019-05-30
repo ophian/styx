@@ -717,12 +717,12 @@
 @define('USERCONF_GROUPS', 'Group Memberships');
 @define('USERCONF_GROUPS_DESC', 'This user is a member of the following groups. Multiple memberships are possible.');
 @define('MANAGE_GROUPS', 'Manage groups');
-@define('DELETED_GROUP', 'Group #%d %s deleted.');
-@define('CREATED_GROUP', 'A new group %s has been created');
-@define('MODIFIED_GROUP', 'The properties of group %s have been changed');
+@define('DELETED_GROUP', 'Group #%d \'%s\' deleted.');
+@define('CREATED_GROUP', 'A new group #%d \'%s\' has been created');
+@define('MODIFIED_GROUP', 'The properties of group \'%s\' have been changed');
 @define('GROUP', 'Group');
 @define('CREATE_NEW_GROUP', 'Create new group');
-@define('DELETE_GROUP', 'You are about to delete group #%d %s. Are you serious?');
+@define('DELETE_GROUP', 'You are about to delete group #%d \'%s\'. Are you serious?');
 @define('USERLEVEL_OBSOLETE', 'NOTICE: The userlevel attribute is now only used for backward compatibility to plugins and fallback authorisation. User privileges are now handled by group memberships!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'The ID of the feed you wish to publish');

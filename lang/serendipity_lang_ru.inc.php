@@ -720,12 +720,12 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_GROUPS', 'Принадлежность к Группам');
 @define('USERCONF_GROUPS_DESC', 'Этот пользователь принадлежит к следующим группам. Принадлежность к разным группам одновременно допустима.');
 @define('MANAGE_GROUPS', 'Редактировать группы');
-@define('DELETED_GROUP', 'Группа #%d %s удалена.');
-@define('CREATED_GROUP', 'Новая группа %s была создана');
-@define('MODIFIED_GROUP', 'Настройки группы %s были изменены');
+@define('DELETED_GROUP', 'Группа #%d \'%s\' удалена.');
+@define('CREATED_GROUP', 'Новая группа #%d \'%s\' была создана');
+@define('MODIFIED_GROUP', 'Настройки группы \'%s\' были изменены');
 @define('GROUP', 'Группа');
 @define('CREATE_NEW_GROUP', 'Создать новую группу');
-@define('DELETE_GROUP', 'Вы собираетесь удалить группу #%d %s. Вы уверены?');
+@define('DELETE_GROUP', 'Вы собираетесь удалить группу #%d \'%s\'. Вы уверены?');
 @define('USERLEVEL_OBSOLETE', 'Замечание: атрибут уровень пользователя используется теперь только для обратной совместимости со старыми плагинами и старой схемой авторизации. Права пользователей тепрь определяются принадлежностью к группам!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID Feed который вы хотите добавить');

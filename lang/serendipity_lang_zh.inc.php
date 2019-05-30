@@ -721,12 +721,12 @@
 @define('USERCONF_GROUPS', '会员群组');
 @define('USERCONF_GROUPS_DESC', '此会员下面的群组组员。会员可以加入多个群组。');
 @define('MANAGE_GROUPS', '管理群组');
-@define('DELETED_GROUP', '群组 #%d %s 已删除');
-@define('CREATED_GROUP', '新群组 %s 已新增');
-@define('MODIFIED_GROUP', '群组 %s 的设定已被改变');
+@define('DELETED_GROUP', '群组 #%d \'%s\' 已删除');
+@define('CREATED_GROUP', '新群组 #%d \'%s\' 已新增');
+@define('MODIFIED_GROUP', '群组 \'%s\' 的设定已被改变');
 @define('GROUP', '群组');
 @define('CREATE_NEW_GROUP', '新增群组');
-@define('DELETE_GROUP', '确定要删除群组 #%d %s ');
+@define('DELETE_GROUP', '确定要删除群组 #%d \'%s\'');
 @define('USERLEVEL_OBSOLETE', '注意: 会员权限的属性只是为了区分回复的兼容和外挂授权。系统现在使用了新的会员权限。');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', '你要发布文章的 ID');

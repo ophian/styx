@@ -721,12 +721,12 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('USERCONF_GROUPS', 'Przynależność do grupy');
 @define('USERCONF_GROUPS_DESC', 'Ten użytkownik należy do następujących grup. Przynależność do kilku grup jednocześnie jest możliwa.');
 @define('MANAGE_GROUPS', 'Grupy');
-@define('DELETED_GROUP', 'Grupa #%d %s usunięta');
-@define('CREATED_GROUP', 'Nowa grupa %s została stworzona');
-@define('MODIFIED_GROUP', 'Ustawienia grupy %s zostały zmienione');
+@define('DELETED_GROUP', 'Grupa #%d \'%s\' usunięta');
+@define('CREATED_GROUP', 'Nowa grupa #%d \'%s\' została stworzona');
+@define('MODIFIED_GROUP', 'Ustawienia grupy \'%s\' zostały zmienione');
 @define('GROUP', 'Grupa');
 @define('CREATE_NEW_GROUP', 'Stwórz nową grupę');
-@define('DELETE_GROUP', 'Masz zamiar skasować grupę #%d %s. Na pewno?');
+@define('DELETE_GROUP', 'Masz zamiar skasować grupę #%d \'%s\'. Na pewno?');
 @define('USERLEVEL_OBSOLETE', 'UWAGA: to ustawienie jest obecnie używane tylko dla celów kompatybilności ze starszymi wersjami wtyczek i silnika. Obecnie poziom dostępu regulują reguły grup użytkowników!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID (w serwisie FeedBurner) feeda, który chcesz publikować');

@@ -721,12 +721,12 @@
 @define('USERCONF_GROUPS', 'Kullanıcı Grupları');
 @define('USERCONF_GROUPS_DESC', 'Bu kullanıcının üye olduğu kullanıcı grubu. Çoklu kullanıcı grubu üyeliği mümkün.');
 @define('MANAGE_GROUPS', 'Grupları Yönet');
-@define('DELETED_GROUP', 'Grup #%d %s silindi.');
-@define('CREATED_GROUP', 'Yeni bir grup: %s oluşturuldu');
-@define('MODIFIED_GROUP', 'Şu kullanıcı grubunun özellikleri değiştirildi: %s ');
+@define('DELETED_GROUP', 'Grup #%d \'%s\' silindi.');
+@define('CREATED_GROUP', 'Yeni bir grup: #%d \'%s\' oluşturuldu');
+@define('MODIFIED_GROUP', 'Şu kullanıcı grubunun özellikleri değiştirildi: \'%s\'');
 @define('GROUP', 'Kullanıcı Grubu');
 @define('CREATE_NEW_GROUP', 'Yeni Grup oluştur');
-@define('DELETE_GROUP', 'Silmek istediğiniz kullanıcı grubu: #%d %s. Silinsin mi?');
+@define('DELETE_GROUP', 'Silmek istediğiniz kullanıcı grubu: #%d \'%s\'. Silinsin mi?');
 @define('USERLEVEL_OBSOLETE', 'NOT: Kullanıcı seviyesi tanımlamaları sadece geçmişe ve eklentilere uyumluluk amaçlıdır. Kullanıcı izinlerinin gelen düzenleme yeri Kullanıcı Gruplarıdır!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Yayınlamayı istediğiniz Beslemenin ID Numarası ');

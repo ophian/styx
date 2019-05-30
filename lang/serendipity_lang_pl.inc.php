@@ -721,12 +721,12 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('USERCONF_GROUPS', 'Przynale¿no¶æ do grupy');
 @define('USERCONF_GROUPS_DESC', 'Ten u¿ytkownik nale¿y do nastêpuj±cych grup. Przynale¿no¶æ do kilku grup jednocze¶nie jest mo¿liwa.');
 @define('MANAGE_GROUPS', 'Grupy');
-@define('DELETED_GROUP', 'Grupa #%d %s usuniêta');
-@define('CREATED_GROUP', 'Nowa grupa %s zosta³a stworzona');
-@define('MODIFIED_GROUP', 'Ustawienia grupy %s zosta³y zmienione');
+@define('DELETED_GROUP', 'Grupa #%d \'%s\' usuniêta');
+@define('CREATED_GROUP', 'Nowa grupa #%d \'%s\' zosta³a stworzona');
+@define('MODIFIED_GROUP', 'Ustawienia grupy \'%s\' zosta³y zmienione');
 @define('GROUP', 'Grupa');
 @define('CREATE_NEW_GROUP', 'Stwórz now± grupê');
-@define('DELETE_GROUP', 'Masz zamiar skasowaæ grupê #%d %s. Na pewno?');
+@define('DELETE_GROUP', 'Masz zamiar skasowaæ grupê #%d \'%s\'. Na pewno?');
 @define('USERLEVEL_OBSOLETE', 'UWAGA: to ustawienie jest obecnie u¿ywane tylko dla celów kompatybilno¶ci ze starszymi wersjami wtyczek i silnika. Obecnie poziom dostêpu reguluj± regu³y grup u¿ytkowników!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID (w serwisie FeedBurner) feeda, który chcesz publikowaæ');
