@@ -717,6 +717,7 @@
 @define('REPLY', 'Rispondi');
 @define('USERCONF_GROUPS', 'Appartenenza di Gruppo');
 @define('USERCONF_GROUPS_DESC', 'Questo utente è embro dei seguenti gruppi. Appartenenze di gruppo multiple sono possibili.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Gestione Gruppi');
 @define('DELETED_GROUP', 'Gruppo #%d \'%s\' cancellato.');
 @define('CREATED_GROUP', 'Il nuovo gruppo #%d \'%s\' è stato creato');

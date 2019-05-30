@@ -719,6 +719,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('REPLY', 'Ответить');
 @define('USERCONF_GROUPS', 'Принадлежность к Группам');
 @define('USERCONF_GROUPS_DESC', 'Этот пользователь принадлежит к следующим группам. Принадлежность к разным группам одновременно допустима.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Редактировать группы');
 @define('DELETED_GROUP', 'Группа #%d \'%s\' удалена.');
 @define('CREATED_GROUP', 'Новая группа #%d \'%s\' была создана');

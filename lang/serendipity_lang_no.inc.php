@@ -717,6 +717,7 @@
 @define('REPLY', 'Svar');
 @define('USERCONF_GROUPS', 'Group Memberships');
 @define('USERCONF_GROUPS_DESC', 'This user is a member of the following groups. Multiple memberships are possible.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Manage groups');
 @define('DELETED_GROUP', 'Group #%d \'%s\' deleted.');
 @define('CREATED_GROUP', 'A new group #%d \'%s\' has been created');

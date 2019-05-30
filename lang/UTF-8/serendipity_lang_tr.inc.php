@@ -720,6 +720,7 @@
 @define('REPLY', 'Yanıtla');
 @define('USERCONF_GROUPS', 'Kullanıcı Grupları');
 @define('USERCONF_GROUPS_DESC', 'Bu kullanıcının üye olduğu kullanıcı grubu. Çoklu kullanıcı grubu üyeliği mümkün.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Grupları Yönet');
 @define('DELETED_GROUP', 'Grup #%d \'%s\' silindi.');
 @define('CREATED_GROUP', 'Yeni bir grup: #%d \'%s\' oluşturuldu');

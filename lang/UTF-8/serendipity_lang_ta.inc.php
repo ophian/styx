@@ -718,6 +718,7 @@
 @define('REPLY', 'Reply');
 @define('USERCONF_GROUPS', 'குறிப்பாளர் குழு');
 @define('USERCONF_GROUPS_DESC', 'இக்குறிப்பாளர் இந்த குழுக்களில் உறுப்பினர்.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'குறிப்பாளர் குழுக்கள்');
 @define('DELETED_GROUP', 'Group #%d \'%s\' deleted.');
 @define('CREATED_GROUP', 'A new group #%d \'%s\' has been created');

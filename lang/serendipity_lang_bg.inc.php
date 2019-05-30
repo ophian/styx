@@ -707,6 +707,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('REPLY', 'Отговор');
 @define('USERCONF_GROUPS', 'Членство в групи');
 @define('USERCONF_GROUPS_DESC', 'Този потребител е член на следните групи. Възможни са няколко членства.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Управление на групи');
 @define('DELETED_GROUP', 'Група №&#160;%d \'%s\' е изтрита.');
 @define('CREATED_GROUP', 'Създадена е нова група №&#160;%d \'%s\'');

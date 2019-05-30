@@ -720,6 +720,7 @@
 @define('REPLY', 'Répondre');
 @define('USERCONF_GROUPS', 'Appartenance de groupe');
 @define('USERCONF_GROUPS_DESC', 'Cet utilisateur appartient aux groupes suivants. Des appartenances multiples sont possibles.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Administrer les groupes');
 @define('DELETED_GROUP', 'Groupe #%d \'%s\' effacé.');
 @define('CREATED_GROUP', 'Un nouveau groupe intitulé #%d \'%s\' a été créé');

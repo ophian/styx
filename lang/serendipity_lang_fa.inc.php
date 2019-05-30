@@ -716,6 +716,7 @@
 @define('REPLY', 'پاسخ');
 @define('USERCONF_GROUPS', 'گروه ها');
 @define('USERCONF_GROUPS_DESC', 'این کاربر در گروه های زیر عضو است. امکان عضویت در چند گروه مجاز می باشد.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'مدیریت گروه ها');
 @define('DELETED_GROUP', 'گروه #%d \'%s\' حذف شد.');
 @define('CREATED_GROUP', 'گروه جدید #%d \'%s\' ایجاد شد');

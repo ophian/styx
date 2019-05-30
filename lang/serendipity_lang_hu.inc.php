@@ -715,6 +715,7 @@
 @define('REPLY', 'Válasz');
 @define('USERCONF_GROUPS', 'Csoporttagság');
 @define('USERCONF_GROUPS_DESC', 'Ez a felhasználó a következõ csoportok tagja. Több csoportba is tartozhat.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Csoportok kezelése');
 @define('DELETED_GROUP', 'A csoport törölve: #%d \'%s\'.');
 @define('CREATED_GROUP', 'Az új csoportot létrehoztuk: #%d \'%s\'');

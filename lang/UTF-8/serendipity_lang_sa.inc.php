@@ -720,6 +720,7 @@
 @define('REPLY', 'رد');
 @define('USERCONF_GROUPS', 'مجموعة الاعضاء');
 @define('USERCONF_GROUPS_DESC', 'هذا العضو لدية عضوية في هذه المجموعات. تعدد العضويه في مجموعات مختلفة ممكن');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'ادارة المجموعات');
 @define('DELETED_GROUP', 'تم حذفها #%d \'%s\' المجموعة');
 @define('CREATED_GROUP', 'تم انشاءها #%d \'%s\' المجموعة الجديدة');

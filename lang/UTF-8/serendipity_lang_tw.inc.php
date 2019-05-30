@@ -719,6 +719,7 @@ $i18n_unknown = 'tw';
 @define('REPLY', '回覆');
 @define('USERCONF_GROUPS', '會員群組');
 @define('USERCONF_GROUPS_DESC', '此會員是下面的群組組員。會員可以加入多個群組。');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', '管理群組');
 @define('DELETED_GROUP', '群組 #%d \'%s\' 已刪除。');
 @define('CREATED_GROUP', '新群組 #%d \'%s\' 已新增');

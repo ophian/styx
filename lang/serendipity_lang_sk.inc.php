@@ -730,6 +730,7 @@ $i18n_filename_to = array (
 @define('REPLY', 'Odpoveï');
 @define('USERCONF_GROUPS', 'Èlenstvo v skupinách');
 @define('USERCONF_GROUPS_DESC', 'Tento pou¾ívateµ je èlenom nasledujúcich skupín. Ælenstvo vo viacerých skupinách je mo¾né.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Správa skupín');
 @define('DELETED_GROUP', 'Skupina #%d \'%s\' zmazaná.');
 @define('CREATED_GROUP', 'Nová skupina #%d \'%s\' bola vytvorená');

@@ -720,6 +720,7 @@
 @define('REPLY', '回复');
 @define('USERCONF_GROUPS', '会员群组');
 @define('USERCONF_GROUPS_DESC', '此会员下面的群组组员。会员可以加入多个群组。');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', '管理群组');
 @define('DELETED_GROUP', '群组 #%d \'%s\' 已删除');
 @define('CREATED_GROUP', '新群组 #%d \'%s\' 已新增');

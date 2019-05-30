@@ -715,6 +715,7 @@
 @define('REPLY', '返信');
 @define('USERCONF_GROUPS', 'グループメンバー');
 @define('USERCONF_GROUPS_DESC', 'このユーザーは次のグループのメンバーです。複数の会員は可能です。');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'グループ管理');
 @define('DELETED_GROUP', 'グループ #%d の「%s」を削除しました。');
 @define('CREATED_GROUP', '新規グループ#%d の「%s」を作成しました。');

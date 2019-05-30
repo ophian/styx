@@ -720,6 +720,7 @@
 @define('REPLY', 'ÑÏ');
 @define('USERCONF_GROUPS', 'דÌדזÚÉ ÇבÇÚÖÇÁ');
 @define('USERCONF_GROUPS_DESC', 'וÐÇ ÇבÚÖז בÏםÉ ÚÖזםÉ Ýם וÐו ÇבדÌדזÚÇÊ. ÊÚÏÏ ÇבÚÖזםו Ýם דÌדזÚÇÊ דÎÊבÝÉ דד‗ה');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'ÇÏÇÑÉ ÇבדÌדזÚÇÊ');
 @define('DELETED_GROUP', 'Êד ÍÐÝוÇ #%d \'%s\' ÇבדÌדזÚÉ');
 @define('CREATED_GROUP', 'Êד ÇהÔÇÁוÇ #%d \'%s\' ÇבדÌדזÚÉ ÇבÌÏםÏÉ');

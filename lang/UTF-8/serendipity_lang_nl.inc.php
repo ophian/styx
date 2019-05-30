@@ -716,6 +716,7 @@
 @define('REPLY', 'Beantwoorden');
 @define('USERCONF_GROUPS', 'Groepslidmaatschap');
 @define('USERCONF_GROUPS_DESC', 'Deze gebruiker is lid van de volgende groepen. Lid zijn van meerdere groepen is mogelijk.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Beheer groepen');
 @define('DELETED_GROUP', 'Groep #%d \'%s\' is verwijderd.');
 @define('CREATED_GROUP', 'Nieuwe groep #%d \'%s\' is aangemaakt');

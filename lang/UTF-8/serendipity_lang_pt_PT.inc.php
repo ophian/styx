@@ -728,6 +728,7 @@
 @define('REPLY', 'Responder');
 @define('USERCONF_GROUPS', 'Inscrições em grupos');
 @define('USERCONF_GROUPS_DESC', 'Este utilizador é membro dos seguintes grupos. Inscrições múltiplas são possíveis.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Gestão de grupos');
 @define('DELETED_GROUP', 'O grupo #%d \'%s\' foi apagado.');
 @define('CREATED_GROUP', 'Um novo grupo #%d \'%s\' foi criado');

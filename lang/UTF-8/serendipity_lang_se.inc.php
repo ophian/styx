@@ -715,6 +715,7 @@
 @define('REPLY', 'Svara');
 @define('USERCONF_GROUPS', 'Gruppmedlemskap');
 @define('USERCONF_GROUPS_DESC', 'Denna användare är medlem av följande grupper. Flera medlemskap är möjliga.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Hantera grupper');
 @define('DELETED_GROUP', 'Grupp #%d \'%s\' borttagen.');
 @define('CREATED_GROUP', 'En ny grupp #%d \'%s\' har skapats');

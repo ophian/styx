@@ -715,6 +715,7 @@
 @define('REPLY', 'Antwort');
 @define('USERCONF_GROUPS', 'Gruppenzugehörigkeit');
 @define('USERCONF_GROUPS_DESC', 'Dieser Benutzer ist Mitglied folgender Gruppen (mehrere Zugehörigkeiten möglich).');
+@define('GROUPCONF_GROUPS', 'Aktivierbare Mitglieder dieser Gruppe');
 @define('MANAGE_GROUPS', 'Gruppenverwaltung');
 @define('DELETED_GROUP', 'Gruppe #%d \'%s\' gelöscht.');
 @define('CREATED_GROUP', 'Neue Gruppe #%d \'%s\' wurde angelegt');

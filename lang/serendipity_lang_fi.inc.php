@@ -714,6 +714,7 @@
 @define('REPLY', 'Reply');
 @define('USERCONF_GROUPS', 'Ryhmäjäsenyydet');
 @define('USERCONF_GROUPS_DESC', 'Käyttäjä on jäsen seuraavissa ryhmissä. Sama käyttäjä voi kuulua useampaan ryhmään.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Ryhmien ylläpito');
 @define('DELETED_GROUP', 'Ryhmä #%d \'%s\' poistettu.');
 @define('CREATED_GROUP', 'Luotiin uusi #%d \'%s\' ryhmä');

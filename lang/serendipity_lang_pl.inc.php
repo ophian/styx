@@ -720,6 +720,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('REPLY', 'Odpowiedz');
 @define('USERCONF_GROUPS', 'Przynale¿no¶æ do grupy');
 @define('USERCONF_GROUPS_DESC', 'Ten u¿ytkownik nale¿y do nastêpuj±cych grup. Przynale¿no¶æ do kilku grup jednocze¶nie jest mo¿liwa.');
+@define('GROUPCONF_GROUPS', 'Selectable members of this group');
 @define('MANAGE_GROUPS', 'Grupy');
 @define('DELETED_GROUP', 'Grupa #%d \'%s\' usuniêta');
 @define('CREATED_GROUP', 'Nowa grupa #%d \'%s\' zosta³a stworzona');
