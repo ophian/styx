@@ -61,10 +61,10 @@ $output = array(); // re-new array for the autoupdate empty check below
 
 // Make sure it is the Administrator alike Group only to access it!
 // If you have an "Editor in Chief" user which you want to have access on site Auto-Upgrades you can do the following for example as ADMINISTRATOR.
-// Either: Add a new SPECIAL group with 'siteAutoUpgrades' [x] AND 'Hidden group / Non-Author' [x] and, afterwards in USERS, assign it to this single special user
+// Either: Add a new SPECIAL group with 'siteAutoUpgrades' [x] AND 'Hidden group / Non-Author' [x] and, afterwards in USERS, assign it to this single "special" user
 //             which you want to be able to have upgrade permission and which also MUST have "Editor in CHIEF" group permission;
-// Or copy the CHIEF group to a CHIEF+ group including 'siteAutoUpgrades' [x] and assign this SINGULARLY to the SPECIAL user.
-// Do not change the CHIEF group itself, for security! The first example is the recommended approach for that case!
+// Or copy the CHIEF group to a CHIEF+ group including 'siteAutoUpgrades' [x] and assign this (including the origin CHIEF group - SINGULARLY to the "special" user of request.
+// Do not change the CHIEF group itself, for security! Although the 2cd does look more straightforward, the 1st is the recommended and easier approach for that case!
 // Do not give that Group more rights than a CHIEF already has, except the two noted above. In special, this means to keep:
 //    adminPluginsMaintainOthers, adminUsersMaintainOthers and siteConfiguration assigned to the ADMINISTRATOR only!!
 if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_checkPermission('siteAutoUpgrades')) && serendipity_checkPermission('adminUsersGroups'))) {

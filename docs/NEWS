@@ -57,10 +57,12 @@ Version 2.8.0 RC1 ()
     Either:
       - ADD a new SPECIAL group with 'siteAutoUpgrades' [x] permission AND
         'Hidden group / Non-Author' [x] and assign it ADDITIONALLY to this
-        single special user afterwards in the USERS administration section;
+        single "special" user afterwards in the USERS administration section;
       - OR copy the CHIEF group to a CHIEF+ group including 'siteAutoUpgrades' [x]
-        and assign this group SINGULARLY to the SPECIAL user.
-    The first is the recommended approach!
+        and assign this group - including the CHIEFDITOR group - SINGULARLY to
+        the "special" user of request.
+    Although the second does look more straightforward, the first is the
+    recommended and easier approach!
     Do not change the CHIEFEDITOR group itself, for security!
 
   * Restrict the (dashboard) auto-update method to the Administrator only.
