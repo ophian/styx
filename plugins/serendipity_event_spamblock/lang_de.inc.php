@@ -25,7 +25,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_CAPTCHAS', 'Sie haben nicht die richtige Spamschutz-Zeichenfolge eingetragen, die in der Grafik dargestellt wurde. Bitte sehen Sie sich dieses Bild erneut an und tragen Sie die korrekte Zeichenfolge ein.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_NOTTF', 'Captchas können auf Ihrem Server nicht dargestellt werden. Sie benötigen GDLib und die freetype Bibliotheken, sowie die richtigen .TTF Dateien.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL', 'Captchas nach wie vielen Tagen erzwingen');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL', 'Captchas nach X Tagen erzwingen');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL_DESC', 'Captchas können abhängig vom Alter des Artikels eingeblendet werden. Tragen Sie das Minimalalter eines Artikels in Tagen ein, ab dem Captchas erforderlich werden sollen. Falls auf 0 gesetzt, sind Captchas immer erforderlich.');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION', 'Kommentarmoderation nach X Tagen erzwingen');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_DESC', 'Eingehende Artikelkommentare können, abhängig vom Alter des Artikels, automatisch auf "Moderation" gestellt werden, folgend "auto-moderiert" genannt. Tragen Sie hier das Minimalalter eines Artikels in Tagen ein, ab dem jeder Kommentar zunächst automatisch in die Moderations-Warteschlange gestellt wird. 0 bedeutet, dass "auto-moderiert" nicht verwendet wird.');
