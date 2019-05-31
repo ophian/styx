@@ -40,6 +40,9 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
+  * Re-allow MediaLibrary media purge if Standard Users GROUP has correct
+    adminImagesDelete permission.
+
   * Use new lang constant for the group members label
 
   * Fix CREATE NEW group action message for passed-over name variable
