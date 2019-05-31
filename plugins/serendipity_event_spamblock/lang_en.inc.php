@@ -26,7 +26,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_CAPTCHAS', 'You did not enter the correct string displayed in the Spam-prevention image box. Please look at the image and enter the values displayed there.');
 @define('PLUGIN_EVENT_SPAMBLOCK_ERROR_NOTTF', 'Captchas disabled on your server. You need GDLib and freetype libraries compiled to PHP, and need the .TTF files residing in your directory.');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL', 'Force Captchas after how many days');
+@define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL', 'Force Captchas after X days');
 @define('PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_TTL_DESC', 'Captchas can be enforced depending on the age of your articles. Enter the amount of days after which entering a correct Captcha is necessary. If set to 0, Captchas will always be used.');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION', 'Force comment moderation after X days');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_DESC', 'You can automatically set all incoming comments for entries to state "moderation". Enter the age of an entry in days, after which it should be set "auto-moderated". 0 means no "auto-moderation".');
