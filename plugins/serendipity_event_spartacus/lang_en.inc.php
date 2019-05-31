@@ -49,11 +49,11 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CONNECT', 'FTP Error: Unable to connect to FTP.');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_MKDIR', 'FTP Error: Unable to create directory (%s).');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CHMOD', 'FTP Error: Unable to change privilegies of directory (%s).');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_ERROR_CHMOD', 'FTP Error: Unable to change privileges of directory (%s).');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_SUCCESS', 'FTP: Directory (%s) successfully created.');
 
-@define('PLUGIN_EVENT_SPARTACUS_FTP_USE', 'Use directory creating using ftp in safe_mode?');
-@define('PLUGIN_EVENT_SPARTACUS_FTP_USE_DESC', 'If you are running PHP in safe_mode, some restrictions are applied. And these restrictions have the result that if you create a directory using an ordinary way, you cannot upload in this directory. But if you create a directory using ftp, you can. So if you have safe_mode = on, this is the only way how to use SPARTACUS and Media uploads successfully.');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_USE', 'Use directory creating using FTP in safe_mode?');
+@define('PLUGIN_EVENT_SPARTACUS_FTP_USE_DESC', 'If you are running PHP in safe_mode, some restrictions are applied. And these restrictions have the result that if you create a directory using an ordinary way, you cannot upload in this directory. But if you create a directory using FTP, you can. So if you have safe_mode = on, this is the only way how to use SPARTACUS and Media uploads successfully.');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_SERVER', 'FTP server address');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_USERNAME', 'FTP username');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_PASS', 'FTP password');
@@ -61,8 +61,8 @@
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR_DESC', 'When you connect to the FTP, you do not necessarily enter into the serendipity directory. So here it is necessary to write the path from the FTP login place to the serendipity directory.');
 
 @define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'Custom location for mirror');
-@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'This option normally is for advanced users only. When the pre-configurable mirrors are down or malfunctioning, you can enter your own server name (like https://mirror.org/serendipity/). The server needs to maintain the XML files at URL level, and have subdirectories like "additional_plugins" and "additional_themes". Only enter mirrors that you fully trust to be safe and which are a full duplicate of the files hosted in the Serendipity repository. You can enter multiple mirrors, separated by "|".');
-@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD', 'PLEASE NOTE: Styx orders plugins from the above set Styx GitHub repository location. Additional THEMES are still fetched by their origin s9y GitHub repository location. This may change in future. If you ever need to only use the selectable mirrors, you have to remove the custom URL on each submit of this configuration page, or add "none" instead (w/o quotes).');
+@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'This option (normally) is for advanced users only. When the selectable mirror(s) are down or malfunctioning, you can enter your own server name (like https://mirror.org/styx/). The server needs to maintain the XML files at URL level, and have subdirectories like "additional_plugins" and "additional_themes". Only enter mirrors that you fully trust to be safe and which are a full duplicate of the files hosted in the Serendipity repository. You can enter multiple mirrors, separated by "|".');
+@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD', 'PLEASE NOTE: Styx orders PLUGINS from the above set (Styx) GitHub repository location. Additional THEMES are still fetched by their ORIGIN s9y GitHub repository location. This does change in future. If you ever need to switch back and to only use the selectable mirror(s) again, you have to remove the custom set URL on each submit of this configuration page, or add "none" instead (w/o quotes).');
 
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB', 'This plugin supports the Serendipity Cronjob plugin. Go and install it if you want scheduled execution.');
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB_WHEN', 'Execute regular cronjob to check for plugin updates, and mail those to the configured blog\'s mail address (%s)?');
