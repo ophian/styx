@@ -106,8 +106,9 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_TRACKBACKURL_DESC', 'Einen API Kommentar (Trackback/Pingback) nur dann zulassen, wenn Ihre URL auch auf der Zielseite genannt wird.');
 @define('PLUGIN_EVENT_SPAMBLOCK_REASON_TRACKBACKURL', 'API-Kommentar - Blog URL nicht gefunden.');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATION_TREAT', 'Was soll mit auto-moderierten Kommentaren passieren?');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_TREAT', 'Behandlung von auto-moderierten Track-/Pingbacks');
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT', 'Track-/Pingback-Moderation nach X Tagen erzwingen');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_TREAT', 'Zuweisung nach der Auto-Moderation?');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_TREAT_DESC', 'Nachträgliche Behandlung von auto-moderierten Track-/Pingbacks');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT', 'Auto-Moderation nach X Tagen erzwingen');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEMODERATIONT_DESC', 'Alle eingehenden Trackbacks/Pingbacks zu einem Artikel können, abhängig vom Alter des Artikels, automatisch auf "Moderation" gestellt werden, folgend "auto-moderiert" genannt. Tragen Sie hier das Minimalalter eines Artikels in Tagen ein, ab dem jedes Trackback/Pingback zunächst automatisch in die Moderations-Warteschlange gestellt wird. 0 bedeutet, dass "auto-moderiert" nicht verwendet wird.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_CSRF', 'Direktkommentare verbieten? (XSRF-Schutz)');
