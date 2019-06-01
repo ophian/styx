@@ -40,8 +40,8 @@ Version 2.8.0 RC1 ()
     moment and probably have to wait until Styx will release the next major version
     3.0.
 
-  * Re-allow MediaLibrary media purge if Standard Users GROUP has correct
-    adminImagesDelete permission.
+  * Re-allow MediaLibrary media purge issue, since 2.1-beta1 on Feb 4, 2016,
+    if "Standard User" GROUP has correct adminImagesDelete permission.
 
   * Use new lang constant for the group members label
 
