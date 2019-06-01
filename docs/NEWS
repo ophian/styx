@@ -1,6 +1,9 @@
-Version 2.8.0 RC1 ()
+Version 2.9.0 (2019-06-01) - Give Peace a Chance - 1969
  ------------------------------------------------------------------------
 
+  * Due to the template focussed Styx 2.8.0 version was somehow delayed in
+    April and then overrun by a flood of Core improvements and fixes, the
+    version was abandoned in favor of 2.9.0.
 
   * [NOTE] A word about (server) Distribution politics for the ImageMagick
            graphics package and new exciting image formats.
