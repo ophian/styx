@@ -154,7 +154,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_SAVE_DESC', 'Schreibe die zu löschenden spamblocklog Einträge in die heutige Debug Log Datei. (Siehe Wartung ... Serendipity Logfiles.) Da dies sehr groß werden kann, sollte dies nur für echte Debugging Zwecke erfolgen!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_LOGMSG_DONE', 'Geschrieben in Debug Logger!');
 
-@define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC', 'Zeitfenster für Kommentare innerhalb von X Tagen');
+@define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC', 'Zeitfenster für erlaubte Kommentare');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_DESC', 'Die (Form) Kommentarfunktion eines Artikels kann global für einen begrenzten Zeitraum von X Tagen seit dem Artikeldatum erlaubt werden, um zu vermeiden, dass ältere Beiträge ihres Blogs mit Kommentaren geflutet werden. Der default Wert ist "0" und erlaubt (User) Kommentare zu jedem vorhandenen Artikel ohne Altersbegrenzung (sofern nicht anderweitig restringiert).');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_TREAT', 'Trackbacks nur im Zeitfenster erlauben?');
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_TREAT_DESC', '"Ja" wird valide Trackbacks/Pingbacks, die nach diesem Zeitfenster für Blog Einträge eintreffen, blockieren und abweisen. (Andere Optionen können dies möglicherweise beeinflussen.)');
