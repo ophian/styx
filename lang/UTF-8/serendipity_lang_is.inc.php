@@ -15,7 +15,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Stjórnborð Serendipity');
+@define('SERENDIPITY_ADMIN_SUITE', 'Stjórnborð Serendipity Styx');
 @define('HAVE_TO_BE_LOGGED_ON', 'Þú þarft að vera skráður inn til að skoða þessa síðu');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Þú virðist hafa slegið inn rangt notandanafn eða lykilorð');
 @define('APPEARANCE', 'Útlit');
@@ -576,7 +576,7 @@
 @define('STATUS', 'Staða eftir innflutning');
 @define('IMPORT_GENERIC_RSS', 'Almennur RSS innflutningur');
 @define('ACTIVATE_AUTODISCOVERY', 'Senda tilvísanir á hlekki sem fyrirfinnast í færslunni');
-@define('WELCOME_TO_ADMIN', 'Velkomin(n) í stjórnborð Serendipity.');
+@define('WELCOME_TO_ADMIN', 'Velkomin(n) í stjórnborð Serendipity Styx.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Vinsamlegast auðkenndu þig.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Knúið af Serendipity %s og PHP %s');
 @define('INSTALL_USEGZIP', 'Nota gzip til að þjappa síðum');

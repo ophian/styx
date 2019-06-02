@@ -15,7 +15,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', ',');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Administration');
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Administration');
 @define('HAVE_TO_BE_LOGGED_ON', 'Du måste vara inloggad för att se den här sidan');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Du verkar ha fel användarnamn eller lösenord');
 @define('APPEARANCE', 'Utseende');
@@ -576,7 +576,7 @@
 @define('STATUS', 'Status efter import');
 @define('IMPORT_GENERIC_RSS', 'Generell RSS-import');
 @define('ACTIVATE_AUTODISCOVERY', 'Skicka trackbacks till länkar funna i artikeln');
-@define('WELCOME_TO_ADMIN', 'Välkommen till Serendipitys administrationssidor.');
+@define('WELCOME_TO_ADMIN', 'Välkommen till Serendipity Styx administrationssidor.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Ange dina inloggningsuppgifter nedan.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Driven av Serendipity %s och PHP %s');
 @define('INSTALL_USEGZIP', 'Använd gzip-komprimerade sidor');

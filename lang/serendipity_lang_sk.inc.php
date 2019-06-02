@@ -27,7 +27,7 @@ $i18n_filename_to = array (
 @define('NUMBER_FORMAT_THOUSANDS', ' ');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Administrátorská oblas»');
+@define('SERENDIPITY_ADMIN_SUITE', 'Administrátorská Serendipity Styx oblas»');
 @define('HAVE_TO_BE_LOGGED_ON', 'Na zobrazenie tejto stránky musíte by» prihlásený');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Nespsrávne meno alebo heslo.');
 @define('APPEARANCE', 'Vzhµad');
@@ -588,7 +588,7 @@ $i18n_filename_to = array (
 @define('STATUS', 'Stav po importe');
 @define('IMPORT_GENERIC_RSS', 'Základný RSS import');
 @define('ACTIVATE_AUTODISCOVERY', 'Odosla» odozvy na odkazy obsiahnuté v èlánku');
-@define('WELCOME_TO_ADMIN', 'Vitajte v administrácii Serendipity.');
+@define('WELCOME_TO_ADMIN', 'Vitajte v administrácii Serendipity Styx.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Zadajte prosím prihlasovacie údaje.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Vytvorené pomocou Serendipity %s a PHP %s');
 @define('INSTALL_USEGZIP', 'Pou¾i» kompresiu gzip');

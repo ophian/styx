@@ -15,7 +15,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Adminisztrációs Készlet');
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Adminisztrációs Készlet');
 @define('HAVE_TO_BE_LOGGED_ON', 'Az oldal megtekintéséhez előbb be kell jelentkezned');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Úgy tűnik, hogy hibás felhasználó-nevet vagy jelszót adtál meg');
 @define('APPEARANCE', 'Kinézet');
@@ -576,7 +576,7 @@
 @define('STATUS', 'Importálás utáni státusz');
 @define('IMPORT_GENERIC_RSS', 'Általános RSS import');
 @define('ACTIVATE_AUTODISCOVERY', 'Visszahivatkozás küldése a bejegyzésekben található hivatkozásokra.');
-@define('WELCOME_TO_ADMIN', 'Üdvözlöm a Serendipity adminisztrátori felületén.');
+@define('WELCOME_TO_ADMIN', 'Üdvözlöm a Serendipity Styx adminisztrátori felületén.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Add meg az azonosításhoz szükséges adataidat.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s');
 @define('INSTALL_USEGZIP', 'Gzip tömörített oldalak használata');

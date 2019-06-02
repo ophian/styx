@@ -14,7 +14,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', ',');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Administration Suite');
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Administration Suite');
 @define('HAVE_TO_BE_LOGGED_ON', 'You have to be logged in to view this page');
 @define('WRONG_USERNAME_OR_PASSWORD', 'You appear to have entered an invalid username or password');
 @define('APPEARANCE', 'Appearance');
@@ -575,7 +575,7 @@
 @define('STATUS', 'Status after import');
 @define('IMPORT_GENERIC_RSS', 'Generic RSS import');
 @define('ACTIVATE_AUTODISCOVERY', 'Send Trackbacks to links found in the entry');
-@define('WELCOME_TO_ADMIN', 'Welcome to the Serendipity Administration Suite.');
+@define('WELCOME_TO_ADMIN', 'Welcome to the Serendipity Styx Administration Suite.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Please enter your credentials below.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s');
 @define('INSTALL_USEGZIP', 'Use gzip compressed pages');

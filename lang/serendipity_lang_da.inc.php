@@ -14,7 +14,7 @@
 @define('WYSIWYG_LANG', 'da_DK');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Administrationssuite');
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Administrationssuite');
 @define('HAVE_TO_BE_LOGGED_ON', 'Du skal være logget ind for at kunne se denne side');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Du har indtastet et forkert brugernavn eller adgangskode');
 @define('APPEARANCE', 'Udseende');
@@ -574,7 +574,7 @@
 @define('STATUS', 'Status efter import');
 @define('IMPORT_GENERIC_RSS', 'Almindelig RSS import');
 @define('ACTIVATE_AUTODISCOVERY', 'Send Trackbacks til links fundet i artikler');
-@define('WELCOME_TO_ADMIN', 'Velkommen til Serendipity Administrations suiten.');
+@define('WELCOME_TO_ADMIN', 'Velkommen til Serendipity Styx Administrations suiten.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Indtast venligst dine adgangsoplysninger herunder.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Drives af Serendipity %s og PHP %s');
 @define('INSTALL_USEGZIP', 'Benyt gzip komprimerede sider');

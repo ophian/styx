@@ -17,7 +17,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', ',');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity智能博客系统'); // 后台管理页
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx 智能博客系统'); // 后台管理页
 @define('HAVE_TO_BE_LOGGED_ON', '请先登入');
 @define('WRONG_USERNAME_OR_PASSWORD', '输入的帐号或密码有误');
 @define('APPEARANCE', '主要配置');
@@ -579,7 +579,7 @@
 @define('STATUS', '导出后的状态');
 @define('IMPORT_GENERIC_RSS', '一般 RSS 导入');
 @define('ACTIVATE_AUTODISCOVERY', '传送文章内引用的连接');
-@define('WELCOME_TO_ADMIN', '欢迎登陆Serendipity智能博客系统');
+@define('WELCOME_TO_ADMIN', '欢迎登陆 Serendipity Styx 智能博客系统');
 @define('PLEASE_ENTER_CREDENTIALS', '请输入正确的登陆帐号');
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s');
 @define('INSTALL_USEGZIP', '使用 gzip 压缩网页');

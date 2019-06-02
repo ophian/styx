@@ -18,7 +18,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', ',');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Administration de Serendipity');
+@define('SERENDIPITY_ADMIN_SUITE', 'Administration de Serendipity Styx');
 @define('HAVE_TO_BE_LOGGED_ON', 'Vous devez être authentifié pour accéder à cette page');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Vous avez entré un nom d\'utilisateur ou un mot de passe erroné');
 @define('APPEARANCE', 'Apparence');
@@ -578,7 +578,7 @@
 @define('STATUS', 'Statut après importation');
 @define('IMPORT_GENERIC_RSS', 'Importation générique de fils RSS');
 @define('ACTIVATE_AUTODISCOVERY', 'Envoyer des traçages aux liens trouvés dans le billet');
-@define('WELCOME_TO_ADMIN', 'Bienvenue dans l\'interface d\'administration de Serendipity');
+@define('WELCOME_TO_ADMIN', 'Bienvenue dans l\'interface d\'administration de Serendipity Styx.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Entrez vos données d\'authentification ci-dessous.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Propulsé par Serendipity %s et PHP %s');
 @define('INSTALL_USEGZIP', 'Utiliser la compression gzip des pages');

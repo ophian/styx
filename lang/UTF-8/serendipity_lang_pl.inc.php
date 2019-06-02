@@ -16,7 +16,7 @@
 $i18n_filename_from = array(' ', 'a', 'A', 'ą', 'Ą', 'b', 'B', 'c', 'C', 'ć', 'Ć', 'd', 'D', 'e', 'E', 'ę', 'Ę', 'f', 'F', 'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L', 'ł', 'Ł', 'm', 'M', 'n', 'N', 'ń', 'Ń', 'o', 'O', 'ó', 'Ó', 'p', 'P', 'q', 'Q', 'r', 'R', 's', 'S', 'ś', 'Ś', 't', 'T', 'u', 'U', 'v', 'V', 'w', 'W', 'x', 'X', 'y', 'Y', 'z', 'Z', 'ź', 'Ź', 'ż', 'Ż');
 $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C', 'd', 'D', 'e', 'E', 'e', 'E', 'f', 'F', 'g', 'G', 'h', 'H', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L', 'l', 'L', 'm', 'M', 'n', 'N', 'n', 'N', 'o', 'O', 'o', 'O', 'p', 'P', 'q', 'Q', 'r', 'R', 's', 'S', 's', 'S', 't', 'T', 'u', 'U', 'v', 'V', 'w', 'W', 'x', 'X', 'y', 'Y', 'z', 'Z', 'z', 'Z', 'z', 'Z');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Panel Administracyjny Serendipity');
+@define('SERENDIPITY_ADMIN_SUITE', 'Panel Administracyjny Serendipity Styx');
 @define('HAVE_TO_BE_LOGGED_ON', 'Musisz się wpierw zalogować by móc obejrzeć tę stronę');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Wprowadzono błędną nazwę użytkownika lub hasło.');
 @define('APPEARANCE', 'Wygląd');
@@ -578,7 +578,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('STATUS', 'Status wpisu po imporcie');
 @define('IMPORT_GENERIC_RSS', 'Import RSS');
 @define('ACTIVATE_AUTODISCOVERY', 'Wyślij Ślady (Trackbacki) do linków znalezionych we wpisie/wpisach');
-@define('WELCOME_TO_ADMIN', 'Witaj w Panelu Administracyjnym Serendipity.');
+@define('WELCOME_TO_ADMIN', 'Witaj w Panelu Administracyjnym Serendipity Styx.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Wprowadź swój login i hasło w polach poniżej.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Napędzane przez Serendipity %s i PHP %s');
 @define('INSTALL_USEGZIP', 'Użyj kompresji gzip');

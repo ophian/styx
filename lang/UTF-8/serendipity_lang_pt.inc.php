@@ -12,7 +12,7 @@
 @define('WYSIWYG_LANG', 'pt_BR');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Painel de Administração do Serendipity');
+@define('SERENDIPITY_ADMIN_SUITE', 'Painel de Administração do Serendipity Styx');
 @define('HAVE_TO_BE_LOGGED_ON', 'Você deve entrar no sistema para ver esta página');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Você deve ter fornecido nome de usuário ou senha inválidos');
 @define('APPEARANCE', 'Aparência');
@@ -576,7 +576,7 @@
 @define('STATUS', 'Situação após importação');
 @define('IMPORT_GENERIC_RSS', 'Importação de RSS genérico');
 @define('ACTIVATE_AUTODISCOVERY', 'Enviar Trackbacks de ligações encontradas na entrada');
-@define('WELCOME_TO_ADMIN', 'Bem vindo a suite de administração do Serendipity.');
+@define('WELCOME_TO_ADMIN', 'Bem vindo a suite de administração do Serendipity Styx.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Por Favor insira suas credenciais abaixo.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Desenvolvido por Serendipity %s e PHP %s');
 @define('INSTALL_USEGZIP', 'Use páginas compactadas (gzip)');

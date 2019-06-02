@@ -15,7 +15,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity ylläpitovalikko');
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx ylläpitovalikko');
 @define('HAVE_TO_BE_LOGGED_ON', 'Sinun täytyy kirjautua tätä toiminta varten');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Väärä käyttäjätunnus tai salasana');
 @define('APPEARANCE', 'Ulkoasu');
@@ -574,7 +574,7 @@
 @define('STATUS', 'Tuonnin jälkeinen tilanne');
 @define('IMPORT_GENERIC_RSS', 'Yleinen RSS tuonti');
 @define('ACTIVATE_AUTODISCOVERY', 'Lähetä paluuviitteet merkintöjen paluuviestiosoitteisiin.');
-@define('WELCOME_TO_ADMIN', 'Tervetuloa Serendipityn ylläpitoon.');
+@define('WELCOME_TO_ADMIN', 'Tervetuloa Serendipityn Styx ylläpitoon.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Kirjoita tunnistustietosi allaoleviin laatikoihin.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Ohjelmistona Serendipity %s ja PHP %s');
 @define('INSTALL_USEGZIP', 'Käytä gzip pakattuja sivuja');

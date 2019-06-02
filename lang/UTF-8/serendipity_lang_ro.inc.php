@@ -16,7 +16,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', ',');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Administrare Serendipity');
+@define('SERENDIPITY_ADMIN_SUITE', 'Administrare Serendipity Styx');
 @define('HAVE_TO_BE_LOGGED_ON', 'Trebuie să fii autentificat pentru a accesa această pagină');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Ai introdus un utilizator sau parolă greşită');
 @define('APPEARANCE', 'Aspect');
@@ -577,7 +577,7 @@
 @define('STATUS', 'Stare după import');
 @define('IMPORT_GENERIC_RSS', 'Import RSS generic');
 @define('ACTIVATE_AUTODISCOVERY', 'Trimite Referinţe legăturilor găsite în acestă însemnare');
-@define('WELCOME_TO_ADMIN', 'Bun venit în Suita de Administrare Serendipity.');
+@define('WELCOME_TO_ADMIN', 'Bun venit în Suita de Administrare Serendipity Styx.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Introdu te rog credenţialele tale mai jos.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Bazat pe Serendipity %s şi PHP %s');
 @define('INSTALL_USEGZIP', 'Foloseşte pagini comprimate cu gzip');

@@ -23,7 +23,7 @@
  * password -> contraseña
  * file -> fichero¿? (se podría utilizar archivo para referirse a las entradas pasadas)
  */
-@define('SERENDIPITY_ADMIN_SUITE', 'Suite de Administración de Serendipity');
+@define('SERENDIPITY_ADMIN_SUITE', 'Suite de Administración de Serendipity Styx');
 @define('HAVE_TO_BE_LOGGED_ON', 'Debes identificarte para ver esta página');
 @define('APPEARANCE', 'Apariencia');
 @define('MANAGE_STYLES', 'Gestión de estilos');
@@ -592,7 +592,7 @@
 @define('STATUS', 'Estado después de importar');
 @define('IMPORT_GENERIC_RSS', 'Importar RSS genérico');
 @define('ACTIVATE_AUTODISCOVERY', 'Enviar referencias a los enlaces encontrados en la entrada');
-@define('WELCOME_TO_ADMIN', 'Bienvenido a la Suite de Administración de Serendipity.');
+@define('WELCOME_TO_ADMIN', 'Bienvenido a la Suite de Administración de Serendipity Styx.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Por favor introduce tus credenciales abajo.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Basado en Serendipity %s y PHP %s');
 @define('INSTALL_USEGZIP', 'Usar páginas comprimidas con gzip');

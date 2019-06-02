@@ -16,7 +16,7 @@
 $i18n_filename_from = array(' ', 'а', 'А', 'б', 'Б', 'в', 'В', 'г', 'Г', 'д', 'Д', 'е', 'Е', 'Ж', 'ж', 'з', 'З', 'и', 'И', 'й', 'Й', 'к', 'К', 'л', 'Л', 'м', 'М', 'н', 'Н', 'о', 'О', 'п', 'П', 'р', 'Р', 'с', 'С', 'т', 'Т', 'у', 'У', 'ф', 'Ф', 'х', 'Х', 'ц', 'Ц', 'ч', 'Ч', 'ш', 'Ш', 'щ', 'Щ', 'ъ', 'Ъ', 'ь', 'Ь', 'ю', 'Ю', 'я', 'Я');
 $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D', 'e', 'E', 'Zh', 'zh', 'z', 'Z', 'i', 'I', 'j', 'J', 'k', 'K', 'l', 'L', 'm', 'M', 'n', 'N', 'o', 'O', 'p', 'P', 'r', 'R', 's', 'S', 't', 'T', 'u', 'U', 'f', 'F', 'h', 'H', 'c', 'C', 'ch', 'Ch', 'sh', 'Sh', 'sht', 'Sht', 'a', 'A', 'y', 'Y', 'ju', 'Ju', 'ja', 'Ja');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Администриране на Serendipity');
+@define('SERENDIPITY_ADMIN_SUITE', 'Администриране на Serendipity Styx');
 @define('HAVE_TO_BE_LOGGED_ON', 'Трябва да влезете, за да видите тази страница:');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Въвели сте грешно име или парола');
 @define('APPEARANCE', 'Изглед');
@@ -565,7 +565,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('STATUS', 'Състояние след внасяне');
 @define('IMPORT_GENERIC_RSS', 'Общо внасяне на RSS');
 @define('ACTIVATE_AUTODISCOVERY', 'Изпращане на проследявания към препратките, откривани в статиите');
-@define('WELCOME_TO_ADMIN', 'Добре дошли в администраторския комплект на Serendipity.');
+@define('WELCOME_TO_ADMIN', 'Добре дошли в администраторския комплект на Serendipity Styx.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Моля, въведете удостоверението си по-долу.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Задвижван от Serendipity %s и PHP %s');
 @define('INSTALL_USEGZIP', 'Използване на компресия gzip за страници');

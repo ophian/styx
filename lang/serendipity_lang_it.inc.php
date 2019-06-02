@@ -16,7 +16,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Amministrazione di Serendipity');
+@define('SERENDIPITY_ADMIN_SUITE', 'Amministrazione di Serendipity Styx');
 @define('HAVE_TO_BE_LOGGED_ON', 'Devi fare login per vedere questa pagina');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Sembra che tu abbia inserito nome utente o password non validi');
 @define('APPEARANCE', 'Aspetto');
@@ -574,7 +574,7 @@
 @define('STATUS', 'Stato dopo l\'importazione');
 @define('IMPORT_GENERIC_RSS', 'Importazione RSS generica');
 @define('ACTIVATE_AUTODISCOVERY', 'Manda trackbacks ai collegamenti trovati nella notizia');
-@define('WELCOME_TO_ADMIN', 'Benvenuti nella Suite di Amministrazione di Serendipity.');
+@define('WELCOME_TO_ADMIN', 'Benvenuti nella Suite di Amministrazione di Serendipity Styx.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Inserisci le tue credenziali qui sotto.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Fornito da Serendipity %s e PHP %s');
 @define('INSTALL_USEGZIP', 'Usa pagine compresse con gzip');

@@ -17,7 +17,7 @@
 @define('LANG_DIRECTION', 'ltr');
 $i18n_unknown = 'tw';
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity 管理介面');
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx 管理介面');
 @define('HAVE_TO_BE_LOGGED_ON', '請先登入');
 @define('WRONG_USERNAME_OR_PASSWORD', '您輸入了錯誤的帳號或密碼');
 @define('APPEARANCE', '外觀配置');
@@ -579,7 +579,7 @@ $i18n_unknown = 'tw';
 @define('STATUS', '輸入後的狀態');
 @define('IMPORT_GENERIC_RSS', '一般 RSS 輸入');
 @define('ACTIVATE_AUTODISCOVERY', '傳送在文章內找到的引用連結');
-@define('WELCOME_TO_ADMIN', '歡迎到 Serendipity 管理介面.');
+@define('WELCOME_TO_ADMIN', '歡迎到 Serendipity Styx 管理介面.');
 @define('PLEASE_ENTER_CREDENTIALS', '請輸入您的資料.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s');
 @define('INSTALL_USEGZIP', '使用 gzip 壓縮網頁');

@@ -17,7 +17,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Beheer');
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Beheer');
 @define('HAVE_TO_BE_LOGGED_ON', 'U moet ingelogd zijn om deze pagina te kunnen bekijken');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Waarschijnlijk heeft u een ongeldige gebruikersnaam of wachtwoord ingevoerd.');
 @define('APPEARANCE', 'Uiterlijk');
@@ -577,7 +577,7 @@
 @define('STATUS', 'Status na importeren');
 @define('IMPORT_GENERIC_RSS', 'Generische RSS-import');
 @define('ACTIVATE_AUTODISCOVERY', 'Verstuur trackbacks naar hyperlinks gevonden in dit artikel');
-@define('WELCOME_TO_ADMIN', 'Welkom bij Serendipity Beheer.');
+@define('WELCOME_TO_ADMIN', 'Welkom bij Serendipity Styx Beheer.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Voer hieronder uw gegevens in.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Aangedreven door Serendipity %s en PHP %s');
 @define('INSTALL_USEGZIP', 'Maak gebruik van gzip-gecomprimeerde pagina\'s');

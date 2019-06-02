@@ -12,7 +12,7 @@
 @define('WYSIWYG_LANG', 'no_NO');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Administrasjonssuite');
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Administrasjonssuite');
 @define('HAVE_TO_BE_LOGGED_ON', 'Du må være logget inn for å kunne se denne siden');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Du har tastet inn feil brukernavn eller passord');
 @define('APPEARANCE', 'Utseende');
@@ -575,7 +575,7 @@
 @define('STATUS', 'Status after import'); // Translate
 @define('IMPORT_GENERIC_RSS', 'Generic RSS import'); // Translate
 @define('ACTIVATE_AUTODISCOVERY', 'Send Trackbacks to links found in the entry'); // Translate
-@define('WELCOME_TO_ADMIN', 'Welcome to the Serendipity Administration Suite.'); // Translate
+@define('WELCOME_TO_ADMIN', 'Welcome to the Serendipity Styx Administration Suite.'); // Translate
 @define('PLEASE_ENTER_CREDENTIALS', 'Please enter your credentials below.'); // Translate
 @define('ADMIN_FOOTER_POWERED_BY', 'Powered by Serendipity %s and PHP %s'); // Translate
 @define('INSTALL_USEGZIP', 'Use gzip compressed pages'); // Translate

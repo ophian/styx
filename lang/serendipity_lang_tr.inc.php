@@ -16,7 +16,7 @@
 @define('NUMBER_FORMAT_THOUSANDS', ',');
 @define('LANG_DIRECTION', 'ltr');
 
-@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Site Yönetimi');
+@define('SERENDIPITY_ADMIN_SUITE', 'Serendipity Styx Site Yönetimi');
 @define('HAVE_TO_BE_LOGGED_ON', 'Bu sayfayı görmek için kayıtlı olmalısınız');
 @define('WRONG_USERNAME_OR_PASSWORD', 'Hatalı kullanıcı adı veya şifre girdiniz.');
 @define('APPEARANCE', 'Görünüm');
@@ -578,7 +578,7 @@
 @define('STATUS', 'İthalattan sonraki durum');
 @define('IMPORT_GENERIC_RSS', 'Genel RSS ithali');
 @define('ACTIVATE_AUTODISCOVERY', 'Bu yazıda mevcut linklere iz bırak');
-@define('WELCOME_TO_ADMIN', ' Serendipity Yönetim Arabirimine Hoşgeldiniz.');
+@define('WELCOME_TO_ADMIN', ' Serendipity Styx Yönetim Arabirimine Hoşgeldiniz.');
 @define('PLEASE_ENTER_CREDENTIALS', 'Yönetim için arabirime buradan girebilirsiniz.');
 @define('ADMIN_FOOTER_POWERED_BY', 'Serendipity yazılımı %s ve PHP %s altyapısı kullanıldı.');
 @define('INSTALL_USEGZIP', 'gzip kullanarak sayfaları sıkıştır');
