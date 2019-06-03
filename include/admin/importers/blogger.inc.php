@@ -135,7 +135,7 @@ class Serendipity_Import_Blogger extends Serendipity_Import
         }
 
         // Save this so we can return it to its original value at the end of this method.
-        $noautodiscovery = isset($serendipity['noautodiscovery']) ? $serendipity['noautodiscovery'] : false;
+        $noautodiscovery = $serendipity['noautodiscovery'] ?? false;
 
         if ($this->data['autodiscovery'] == 'false') {
             $serendipity['noautodiscovery'] = 1;

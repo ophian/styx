@@ -439,7 +439,7 @@ class Serendipity_Import_Serendipity extends Serendipity_Import
         #global $serendipity;
 
         // Save this so we can return it to its original value at the end of this method.
-        #$noautodiscovery = isset($serendipity['noautodiscovery']) ? $serendipity['noautodiscovery'] : false;
+        #$noautodiscovery = $serendipity['noautodiscovery'] ?? false;
 
         #if (!isset($this->data['autodiscovery']) || $this->data['autodiscovery'] == 'false') {
         #    $serendipity['noautodiscovery'] = 1;
