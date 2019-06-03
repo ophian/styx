@@ -1251,8 +1251,8 @@ class serendipity_event_spamblock extends serendipity_event
                                 $mtbcase = false;
                                 // non valid multi trackback case
                                 if ($addData['type'] == 'TRACKBACK') {
-                                    $trackback_ip = isset($trackback_ip) ? $trackback_ip : preg_replace('/[^0-9.]/', '', gethostbyname($parts['host']));
-                                    $sender_ip    = isset($sender_ip) ? $sender_ip : preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']);
+                                    $trackback_ip = $trackback_ip ?? preg_replace('/[^0-9.]/', '', gethostbyname($parts['host']));
+                                    $sender_ip    = $sender_ip ?? preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']);
                                     $mtbcase      = $trackback_ip != $sender_ip; // Is host IP and sender IP matching (IP validation)?
                                 }
                                 // we could now even extend this special trackback case to send all follow-up-siblings to state 'moderate' (and/or after n $row['counter'])

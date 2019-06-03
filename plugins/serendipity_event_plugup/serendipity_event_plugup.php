@@ -21,9 +21,9 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('author',         'Ian');
         $propbag->add('version',        '1.11');
         $propbag->add('requirements',   array(
-            'serendipity' => '2.1.0',
+            'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
-            'php'         => '5.3.0'
+            'php'         => '7.0.0'
         ));
         $propbag->add('groups', array('BACKEND_ADMIN','BACKEND_DASHBOARD'));
         $propbag->add('event_hooks',    array(
@@ -148,8 +148,8 @@ class serendipity_event_plugup extends serendipity_plugin
                             $num    = $this->plug_cache($ts);
                             #echo 'set cookies ' . $ts; // OK
                         } else {
-                            $event  = (int)isset($serendipity['COOKIE']['plugsEvent']) ? $serendipity['COOKIE']['plugsEvent'] :  0;
-                            $plugin = (int)isset($serendipity['COOKIE']['plugsPlugin']) ? $serendipity['COOKIE']['plugsPlugin'] :  0;
+                            $event  = (int) $serendipity['COOKIE']['plugsEvent'] ??  0;
+                            $plugin = (int) $serendipity['COOKIE']['plugsPlugin'] ??  0;
                             $num    = (int)($event+$plugin);
                             #echo $event . ' + ' . $plugin . ' = ' .$num; // OK
                         }

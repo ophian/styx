@@ -21,9 +21,9 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('author',        'Garvin Hicking, Ian');
         $propbag->add('version',       '1.65');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.27',
-            'php'         => '5.1.0'
+            'serendipity' => '2.7.0',
+            'smarty'      => '3.1.0',
+            'php'         => '7.0.0'
         ));
         $propbag->add('event_hooks',    array(
             'frontend_fetchentries'                             => true,
@@ -813,7 +813,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 case 'backend_sidebar_entries_event_display_buildcache':
                     if ($is_cache) {
                         $per_fetch = 25;
-                        $page = (isset($serendipity['GET']['page']) ? $serendipity['GET']['page'] : 1);
+                        $page = $serendipity['GET']['page'] ?? 1;
                         $from = (($page-1)*$per_fetch);
                         $to   = ($page*$per_fetch);
                         printf('<h2>' . PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_FETCHNO, $from, $to);
