@@ -1920,6 +1920,7 @@ ul.edit_actions li > .user_level {
 
 #edit_entry_category label {
     vertical-align: top;
+    line-height: 1;
 }
 #category_filter.compact > .button_link {
     float: right;
