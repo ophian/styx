@@ -54,7 +54,7 @@ function serendipity_smarty_backend_upgraderResultDiagnose($params, $smarty) {
 // codebase to only allow upgrading, no bypassing and thus causing instabilities.
 // This variable can also be set as $serendipity['UpgraderShowAbort'] inside serendipity_config_local.inc.php to prevent
 // your setting being changed when updating serendipity in first place.
-$showAbort  = (isset($serendipity['UpgraderShowAbort']) ? $serendipity['UpgraderShowAbort'] : true);
+$showAbort  = $serendipity['UpgraderShowAbort'] ?? true;
 $data['showAbort'] = $showAbort;
 
 $abortLoc   = $serendipity['serendipityHTTPPath'] . 'serendipity_admin.php?serendipity[action]=ignore';

@@ -1988,12 +1988,12 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                                   $start,
                                   $perPage,
                                   $totalImages, // Passed by ref
-                                  (isset($serendipity['GET']['sortorder']['order']) ? $serendipity['GET']['sortorder']['order'] : false),
-                                  (isset($serendipity['GET']['sortorder']['ordermode']) ? $serendipity['GET']['sortorder']['ordermode'] : false),
-                                  (isset($serendipity['GET']['only_path']) ? $serendipity['GET']['only_path'] : ''),
+                                  $serendipity['GET']['sortorder']['order'] ?? false,
+                                  $serendipity['GET']['sortorder']['ordermode'] ?? false,
+                                  $serendipity['GET']['only_path'] ?? '',
                                   null,
-                                  (isset($serendipity['GET']['keywords']) ? $serendipity['GET']['keywords'] : ''),
-                                  (isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : null),
+                                  $serendipity['GET']['keywords'] ?? '',
+                                  $serendipity['GET']['filter'] ?? null,
                                   $hideSubdirFiles
     );
 
@@ -2077,7 +2077,7 @@ function serendipity_generateImageSelectorParems($format = 'url') {
     $sortParams   = array('perpage', 'order', 'ordermode');
     $importParams = array('adminModule', 'htmltarget', 'filename_only', 'textarea', 'subpage',  'keywords', 'noBanner', 'noSidebar', 'noFooter', 'showUpload','showMediaToolbar');
     $extraParems  = '';
-    $filterParams = isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : array();
+    $filterParams = $serendipity['GET']['filter'] ?? array();
 
     $standaloneFilterParams = array('only_path');
     $parems = array();
@@ -2877,7 +2877,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
 
                 case 'COPYRIGHT':
                     if (!isset($default_iptc_val)) {
-                        $default_iptc_val = isset($serendipity['serendipityUser']) ? $serendipity['serendipityUser'] : null;
+                        $default_iptc_val = $serendipity['serendipityUser'] ?? null;
                     }
 
                 case 'TITLE':
@@ -3316,12 +3316,12 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'token'             => serendipity_setFormToken(),
         'form_hidden'       => $form_hidden,
         'blimit_path'       => empty($smarty_vars['limit_path']) ? '' : basename($smarty_vars['limit_path']),
-        'only_path'         => isset($serendipity['GET']['only_path']) ? $serendipity['GET']['only_path'] : '',
-        'sortorder'         => isset($serendipity['GET']['sortorder']) ? $serendipity['GET']['sortorder'] : '',
-        'keywords_selected' => isset($serendipity['GET']['keywords']) ? $serendipity['GET']['keywords'] : '',
-        'filter'            => isset($serendipity['GET']['filter']) ? $serendipity['GET']['filter'] : null,/* NIL or array() ?? (media_toolbar.tpl) */
+        'only_path'         => $serendipity['GET']['only_path'] ?? '',
+        'sortorder'         => $serendipity['GET']['sortorder'] ?? '',
+        'keywords_selected' => $serendipity['GET']['keywords'] ?? '',
+        'filter'            => $serendipity['GET']['filter'] ?? null,/* NIL or array() ?? (media_toolbar.tpl) */
         'sort_order'        => $order_fields,
-        'simpleFilters'     => $displayGallery ? false : (isset($serendipity['simpleFilters']) ? $serendipity['simpleFilters'] : true),
+        'simpleFilters'     => $displayGallery ? false : ($serendipity['simpleFilters'] ?? true),
         'metaActionBar'     => ($serendipity['GET']['adminAction'] != 'properties' && empty($serendipity['GET']['fid'])),
         'hideSubdirFiles'   => empty($serendipity['GET']['hideSubdirFiles']) ? 'yes' : $serendipity['GET']['hideSubdirFiles'],
         'authors'           => serendipity_fetchUsers(),
@@ -4587,17 +4587,17 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
         $serendipity['thumbPerPage'] = 2;
     }
     $smarty_vars = array(
-        'textarea' => isset($serendipity['GET']['textarea']) ? $serendipity['GET']['textarea'] : false,
-        'htmltarget' => isset($serendipity['GET']['htmltarget']) ? $serendipity['GET']['htmltarget'] : '',
-        'filename_only' => isset($serendipity['GET']['filename_only']) ? $serendipity['GET']['filename_only'] : false,
+        'textarea'      => $serendipity['GET']['textarea'] ?? false,
+        'htmltarget'    => $serendipity['GET']['htmltarget'] ?? '',
+        'filename_only' => $serendipity['GET']['filename_only'] ?? false,
     );
 
     $output .= serendipity_displayImageList(
-        isset($serendipity['GET']['page']) ? $serendipity['GET']['page'] : 1,
+        $serendipity['GET']['page'] ?? 1,
         $serendipity['thumbPerPage'],
         isset($serendipity['GET']['showMediaToolbar']) ? serendipity_db_bool($serendipity['GET']['showMediaToolbar']) : true,
         NULL,
-        isset($serendipity['GET']['showUpload']) ? $serendipity['GET']['showUpload'] : false,
+        $serendipity['GET']['showUpload'] ?? false,
         NULL,
         $smarty_vars
     );

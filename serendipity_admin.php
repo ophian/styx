@@ -84,13 +84,13 @@ $no_footer  = (isset($serendipity['GET']['noFooter'])  || isset($serendipity['PO
 
 $use_installer = (!isset($serendipity['serendipityPath']) || IS_installed === false || IS_up2date === false );
 
-$post_action = isset($serendipity['POST']['action']) ? $serendipity['POST']['action'] : ''; // see ($$) poll_admin_vars
+$post_action = $serendipity['POST']['action'] ?? ''; // see ($$) poll_admin_vars
 $admin_section = LOGIN;
 $main_content = '';
 
 if (!$use_installer && $is_logged_in) {
     if (!isset($serendipity['GET']['adminModule'])) {
-        $serendipity['GET']['adminModule'] = (isset($serendipity['POST']['adminModule']) ? $serendipity['POST']['adminModule'] : '');
+        $serendipity['GET']['adminModule'] = $serendipity['POST']['adminModule'] ?? '';
     }
 
     ob_start();

@@ -15,7 +15,7 @@ $uri_addData = array(
     'startpage' => false,
     'uriargs'   => implode('/', serendipity_getUriArguments($uri, true)),
     'view'      => $serendipity['view'],
-    'viewtype'  => isset($serendipity['viewtype']) ? $serendipity['viewtype'] : ''
+    'viewtype'  => $serendipity['viewtype'] ?? ''
 );
 
 if ((empty($uri_addData['uriargs']) || trim($uri_addData['uriargs']) == $serendipity['indexFile']) && empty($serendipity['GET']['subpage'])) {
@@ -62,7 +62,7 @@ switch (@$serendipity['GET']['action']) {
 
             serendipity_printEntries($entry, 1);
         } else {
-            $range = isset($serendipity['range']) ? $serendipity['range'] : null;
+            $range = $serendipity['range'] ?? null;
             serendipity_printEntries(serendipity_fetchEntries($range, true, $serendipity['fetchLimit']));
         }
         break;
@@ -105,7 +105,7 @@ switch (@$serendipity['GET']['action']) {
             array(
                 'content_message'        => sprintf(YOUR_SEARCH_RETURNED_BLAHBLAH, '<span class="searchterm">' . $serendipity['GET']['searchTerm'] . '</span>', '<span class="searchresults">' . serendipity_getTotalEntries() . '</span>'),
                 'searchresult_results'   => true,
-                'searchresult_fullentry' => isset($serendipity['GET']['fullentry']) ? $serendipity['GET']['fullentry'] : ''
+                'searchresult_fullentry' => $serendipity['GET']['fullentry'] ?? ''
             )
         );
 

@@ -169,7 +169,7 @@ if ($type == 'trackback') {
                        WHERE e.id = '" . $id . "'";
             $ca    = serendipity_db_query($query, true);
             serendipity_plugin_api::hook_event('frontend_display:html:per_entry', $id);
-            $_opentopublic = isset($serendipity['commentaire']['opentopublic']) ? $serendipity['commentaire']['opentopublic'] : 0;
+            $_opentopublic = $serendipity['commentaire']['opentopublic'] ?? 0;
             if ($_opentopublic > 0) {
                 $ftstamp = ((time() + 24*60*60) - $_opentopublic);
                 if ($ca['timestamp'] < $ftstamp) {
@@ -194,7 +194,7 @@ if ($type == 'trackback') {
         $comment['comment']   = trim((string)$serendipity['POST']['comment']);
         $comment['name']      = $serendipity['POST']['name'];
         $comment['email']     = $serendipity['POST']['email'];
-        $comment['subscribe'] = isset($serendipity['POST']['subscribe']) ? $serendipity['POST']['subscribe'] : '';
+        $comment['subscribe'] = $serendipity['POST']['subscribe'] ?? '';
         $comment['parent_id'] = $serendipity['POST']['replyTo'];
         if (!empty($comment['comment'])) {
             if (serendipity_saveComment($id, $comment, 'NORMAL')) {

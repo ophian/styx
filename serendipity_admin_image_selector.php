@@ -15,11 +15,11 @@ if ($_SESSION['serendipityAuthedUser'] !== true && $serendipity['GET']['step'] !
 }
 
 if (!isset($serendipity['GET']['adminModule'])) {
-    $serendipity['GET']['adminModule'] = isset($serendipity['POST']['adminModule']) ? $serendipity['POST']['adminModule'] : '';
+    $serendipity['GET']['adminModule'] = $serendipity['POST']['adminModule'] ?? '';
 }
 
 if (!isset($serendipity['GET']['step'])) {
-    $serendipity['GET']['step'] = isset($serendipity['POST']['step']) ? $serendipity['POST']['step'] : '';
+    $serendipity['GET']['step'] = $serendipity['POST']['step'] ?? '';
 }
 
 if (empty($serendipity['GET']['step']) && isset($serendipity['GET']['adminAction'])) {
@@ -52,12 +52,12 @@ if ($serendipity['GET']['step'] === 'tree') {
 
 $media = array(
     'body_id'    => $body_id,
-    'only_path'  => isset($serendipity['GET']['only_path']) ? $serendipity['GET']['only_path'] : null,
+    'only_path'  => $serendipity['GET']['only_path'] ?? null,
     'css'        => serendipity_rewriteURL('serendipity_admin.css'),
     'css_tree'   => serendipity_getTemplateFile('treeview/tree.css'),
     'css_front'  => serendipity_rewriteURL('serendipity.css'),
     'token_url'  => serendipity_setFormToken('url'),
-    'imgID'      => isset($serendipity['GET']['image']) ? (int)$serendipity['GET']['image'] : 0,
+    'imgID'      => (int) $serendipity['GET']['image'] ?? 0,
     'from'       => empty($serendipity['GET']['from']) ? $serendipity['baseURL'] : $serendipity['GET']['from'],/* see media_showitems.tpl back to blog anchors */
     'GET_STRING' => serendipity_build_query($import_vars, 'serendipity', '&'),
     'paths'      => serendipity_getMediaPaths()
@@ -295,7 +295,7 @@ switch ($serendipity['GET']['step']) {
 
 
         $media['external'] = serendipity_displayImageList(
-            (isset($serendipity['GET']['page']) ? $serendipity['GET']['page'] : 1),
+            $serendipity['GET']['page'] ?? 1,
             $serendipity['thumbPerPage2'],
             ($serendipity['showMediaToolbar'] ? true : false),
             '?serendipity[step]=1' . $add_url . '&amp;serendipity[textarea]='. (isset($serendipity['GET']['textarea']) ? serendipity_specialchars($serendipity['GET']['textarea']) : ''),

@@ -143,7 +143,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     $template_vars['entry']                   =& $entry;
     $template_vars['targetURL']               =  $targetURL;
     $template_vars['cat_count']               =  count($cats)+1;
-    $template_vars['wysiwyg']                 =  isset($serendipity['wysiwyg']) ? $serendipity['wysiwyg'] : false;
+    $template_vars['wysiwyg']                 =  $serendipity['wysiwyg'] ?? false;
     $template_vars['serendipityRightPublish'] =  $_SESSION['serendipityRightPublish'];
     $template_vars['wysiwyg_blocks']          =  array(
                                                     'body'      => 'serendipity[body]',

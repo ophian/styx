@@ -1366,7 +1366,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                 }
 
                 // check spamblock force.open.to.public in seconds of days
-                $_opentopublic = isset($serendipity['commentaire']['opentopublic']) ? $serendipity['commentaire']['opentopublic'] : 0;
+                $_opentopublic = $serendipity['commentaire']['opentopublic'] ?? 0;
                 if ($_opentopublic > 0) {
                     $ftstamp = ($current_timestamp - $_opentopublic);
                     if ($entry['timestamp'] < $ftstamp) {

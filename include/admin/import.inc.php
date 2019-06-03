@@ -237,7 +237,7 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
             $fields = $importer->getInputFields();
             foreach($fields AS &$field) {
                 // mute possible uninitialized parameters
-                $field['guessedInput'] = @serendipity_guessInput($field['type'], 'serendipity[import]['. $field['name'] .']', (isset($serendipity['POST']['import'][$field['name']]) ? $serendipity['POST']['import'][$field['name']] : $field['default']), $field['default']);
+                $field['guessedInput'] = @serendipity_guessInput($field['type'], 'serendipity[import]['. $field['name'] .']', ($serendipity['POST']['import'][$field['name']] ?? $field['default']), $field['default']);
             }
             $data['fields'] = $fields;
             $data['notes'] = $importer->getImportNotes();

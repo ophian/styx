@@ -423,7 +423,7 @@ switch ($serendipity['GET']['adminAction']) {
                 $uploadFileCounter=-1;
                 foreach($uploadfiles AS $uploadfile) {
                     $uploadFileCounter++;
-                    $target_filename = isset($serendipity['POST']['target_filename'][$idx]) ? $serendipity['POST']['target_filename'][$idx] : null;
+                    $target_filename = $serendipity['POST']['target_filename'][$idx] ?? null;
                     $uploadtmp  = $_FILES['serendipity']['tmp_name']['userfile'][$idx];
                     if (is_array($uploadtmp)) {
                         $uploadtmp = $uploadtmp[$uploadFileCounter];
@@ -685,8 +685,8 @@ switch ($serendipity['GET']['adminAction']) {
         usort($folders, 'serendipity_sortPath');
         $data['case_directoryCreate'] = true;
         $data['formtoken'] = serendipity_setFormToken();
-        $data['folders']   = $folders;
-        $data['dir'] = isset($serendipity['GET']['dir']) ? $serendipity['GET']['dir'] : null;
+        $data['folders'] = $folders;
+        $data['dir'] = $serendipity['GET']['dir'] ?? null;
         break;
 
     case 'directorySelect':
@@ -887,8 +887,8 @@ if (! isset($data['showML'])) {
     }
 }
 
-$data['get']['fid']       = isset($serendipity['GET']['fid']) ? $serendipity['GET']['fid'] : null; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipity['GET'] by runtime
-$data['get']['only_path'] = isset($serendipity['GET']['only_path']) ? $serendipity['GET']['only_path'] : '';
+$data['get']['fid']       = $serendipity['GET']['fid'] ?? null; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipity['GET'] by runtime
+$data['get']['only_path'] = $serendipity['GET']['only_path'] ?? '';
 
 echo serendipity_smarty_showTemplate('admin/images.inc.tpl', $data);
 

@@ -56,17 +56,17 @@ switch($serendipity['GET']['adminAction']) {
 
         if (!$preview_only) {
             $entry = array(
-                       'id'                 => isset($serendipity['POST']['id']) ? $serendipity['POST']['id'] : null,
-                       'title'              => isset($serendipity['POST']['title']) ? $serendipity['POST']['title'] : '',
-                       'timestamp'          => isset($serendipity['POST']['timestamp']) ? $serendipity['POST']['timestamp'] : '',
-                       'body'               => isset($serendipity['POST']['body']) ? $serendipity['POST']['body'] : '',
-                       'extended'           => isset($serendipity['POST']['extended']) ? $serendipity['POST']['extended'] : '',
-                       'categories'         => isset($serendipity['POST']['categories']) ? $serendipity['POST']['categories'] : '',
-                       'isdraft'            => isset($serendipity['POST']['isdraft']) ? $serendipity['POST']['isdraft'] : false,
-                       'allow_comments'     => isset($serendipity['POST']['allow_comments']) ? $serendipity['POST']['allow_comments'] : 'false',
-                       'moderate_comments'  => isset($serendipity['POST']['moderate_comments']) ? $serendipity['POST']['moderate_comments'] : '',
+                       'id'                 => $serendipity['POST']['id'] ?? null,
+                       'title'              => $serendipity['POST']['title'] ?? '',
+                       'timestamp'          => $serendipity['POST']['timestamp'] ?? '',
+                       'body'               => $serendipity['POST']['body'] ?? '',
+                       'extended'           => $serendipity['POST']['extended'] ?? '',
+                       'categories'         => $serendipity['POST']['categories'] ?? '',
+                       'isdraft'            => $serendipity['POST']['isdraft'] ?? false,
+                       'allow_comments'     => $serendipity['POST']['allow_comments'] ?? 'false',
+                       'moderate_comments'  => $serendipity['POST']['moderate_comments'] ?? '',
                        'exflag'             => !empty($serendipity['POST']['extended']) ? true : false,
-                       'had_categories'     => isset($serendipity['POST']['had_categories']) ? $serendipity['POST']['had_categories'] : false
+                       'had_categories'     => $serendipity['POST']['had_categories'] ?? false
                        // Messing with other attributes causes problems when entry is saved
                        // Attributes need to explicitly matched/addressed in serendipity_updertEntry!
 
@@ -365,7 +365,7 @@ switch($serendipity['GET']['adminAction']) {
         $data['page']       = $page;
 
         $data['totalEntries']  = serendipity_getTotalEntries();
-        $data['simpleFilters'] = isset($serendipity['simpleFilters']) ? $serendipity['simpleFilters'] : true;
+        $data['simpleFilters'] = $serendipity['simpleFilters'] ?? true;
 
         if (is_array($entries)) {
             $data['is_entries'] = true;

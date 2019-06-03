@@ -381,7 +381,7 @@ function serveEntry($matches) {
 
         if (!empty($comment['comment'])) {
             if (serendipity_saveComment($serendipity['POST']['entry_id'], $comment, 'NORMAL')) {
-                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (strstr($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . (isset($serendipity['csuccess']) ? $serendipity['csuccess'] : 'true');
+                $sc_url = ($_SERVER['HTTPS'] == 'on' ? 'https://' : 'http://') . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . (strstr($_SERVER['REQUEST_URI'], '?') ? '&' : '?') . 'serendipity[csuccess]=' . ($serendipity['csuccess'] ?? 'true');
                 if (serendipity_isResponseClean($sc_url)) {
                     header('Status: 302 Found');
                     header('Location: ' . $sc_url);

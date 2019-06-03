@@ -1506,7 +1506,7 @@ function serendipity_checkPermission($permName, $authorid = null, $returnMyGroup
     }
 
     if ($authorid === null) {
-        $authorid = isset($serendipity['authorid']) ? $serendipity['authorid'] : null;
+        $authorid = $serendipity['authorid'] ?? null;
     }
 
     if (!isset($group[$authorid])) {

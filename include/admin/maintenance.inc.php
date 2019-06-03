@@ -27,9 +27,9 @@ if ($serendipity['GET']['adminAction'] == 'cleartemp' || $serendipity['GET']['ad
 
 $usedSuffixes = @serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
 
-$data['dbUtf8mb4_ready']     = isset($serendipity['dbUtf8mb4_ready']) ? $serendipity['dbUtf8mb4_ready'] : null;
-$data['dbUtf8mb4']           = isset($serendipity['dbUtf8mb4']) ? $serendipity['dbUtf8mb4'] : null;
-$data['dbUtf8mb4_converted'] = isset($serendipity['dbUtf8mb4_converted']) ? $serendipity['dbUtf8mb4_converted'] : null;
+$data['dbUtf8mb4_ready']     = $serendipity['dbUtf8mb4_ready'] ?? null;
+$data['dbUtf8mb4']           = $serendipity['dbUtf8mb4'] ?? null;
+$data['dbUtf8mb4_converted'] = $serendipity['dbUtf8mb4_converted'] ?? null;
 $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];

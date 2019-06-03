@@ -455,11 +455,11 @@ if (IS_up2date === false && !defined('IN_upgrader')) {
 
 // We don't care who tells us what to do
 if (!isset($serendipity['GET']['action'])) {
-    $serendipity['GET']['action'] = (isset($serendipity['POST']['action']) ? $serendipity['POST']['action'] : '');
+    $serendipity['GET']['action'] = $serendipity['POST']['action'] ?? '';
 }
 
 if (!isset($serendipity['GET']['adminAction'])) {
-    $serendipity['GET']['adminAction'] = (isset($serendipity['POST']['adminAction']) ? $serendipity['POST']['adminAction'] : '');
+    $serendipity['GET']['adminAction'] = $serendipity['POST']['adminAction'] ?? '';
 }
 
 // Make sure this variable is always properly sanitized, though it should have gone through routing taking care before. Previously in compat.inc.php, but there LANG_CHARSET was not defined.

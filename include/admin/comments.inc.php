@@ -68,7 +68,7 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     $comment['comment']   = trim($serendipity['POST']['comment']);
     $comment['name']      = $serendipity['POST']['name'];
     $comment['email']     = $serendipity['POST']['email'];
-    $comment['subscribe'] = isset($serendipity['POST']['subscribe']) ? $serendipity['POST']['subscribe'] : false;
+    $comment['subscribe'] = $serendipity['POST']['subscribe'] ?? false;
     $comment['parent_id'] = $_replyTo;
 
     if (!empty($comment['comment'])) {
@@ -270,9 +270,9 @@ foreach($filters AS $filter) {
 }
 
 // init default
-$serendipity['GET']['filter']['show'] = isset($serendipity['GET']['filter']['show']) ? $serendipity['GET']['filter']['show'] : '';
-$serendipity['GET']['filter']['type'] = isset($serendipity['GET']['filter']['type']) ? $serendipity['GET']['filter']['type'] : '';
-$serendipity['GET']['page']           = isset($serendipity['GET']['page'])           ? $serendipity['GET']['page']           : 0;
+$serendipity['GET']['filter']['show'] = $serendipity['GET']['filter']['show'] ?? '';
+$serendipity['GET']['filter']['type'] = $serendipity['GET']['filter']['type'] ?? '';
+$serendipity['GET']['page']           = $serendipity['GET']['page'] ?? 0;
 
 if ($serendipity['GET']['filter']['show'] == 'approved') {
     $and          .= "AND status = 'approved'";
