@@ -189,7 +189,7 @@ switch($serendipity['GET']['adminAction']) {
 
         if (!$preview_only) {
             include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
-            $errors = isset($errors) ? $errors : null; // set null to check again at end of file
+            $errors = $errors ?? null; // set null to check again at end of file
             $entryForm = serendipity_printEntryForm(
                 '?',
                 array(
@@ -408,7 +408,7 @@ switch($serendipity['GET']['adminAction']) {
                     'preview'       => ((serendipity_db_bool($ey['isdraft']) || (!$serendipity['showFutureEntries'] && $ey['timestamp'] >= serendipity_serverOffsetHour())) ? true : false),
                     'archive_link'  => serendipity_archiveURL($ey['id'], $ey['title'], 'serendipityHTTPPath', true, array('timestamp' => $ey['timestamp'])),
                     'preview_link'  => '?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=preview&amp;' . serendipity_setFormToken('url') . '&amp;serendipity[id]=' . $ey['id'],
-                    'lang'          => isset($ey['multilingual_lang']) ? $ey['multilingual_lang'] : 'all'
+                    'lang'          => ($ey['multilingual_lang'] ?? 'all')
                 );
                 serendipity_plugin_api::hook_event('backend_view_entry', $smartentry);
                 $smartentries[] = $smartentry;
@@ -477,13 +477,13 @@ switch($serendipity['GET']['adminAction']) {
             'serendipity[adminModule]' => 'entries',
             'serendipity[adminAction]' => 'save'
             ),
-            (isset($entry) ? $entry : array())
+            ($entry ?? array())
         );
         break;
 }
 
 $data['entryForm'] = $entryForm;
-$data['errors'] = isset($errors) ? $errors : false;
+$data['errors'] = $errors ?? false;
 $data['get'] = $serendipity['GET']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipity['GET'] by runtime
 // make sure we've got these
 if (!isset($data['urltoken']))  $data['urltoken']  = serendipity_setFormToken('url');

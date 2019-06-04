@@ -1330,7 +1330,7 @@ function serendipity_getPostAuthSessionLanguage() {
         if ($serendipity['expose_s9y']) serendipity_header('X-Serendipity-InterfaceLangSource: Database');
         $lang = $serendipity['lang'];
     } else {
-        $lang = (isset($_SESSION['serendipityLanguage'])) ? $_SESSION['serendipityLanguage'] : $serendipity['lang'];
+        $lang = $_SESSION['serendipityLanguage'] ?? $serendipity['lang'];
     }
 
     if (!isset($serendipity['languages'][$lang])) {
@@ -2413,7 +2413,7 @@ function &serendipity_loadThemeOptions(&$template_config, $okey = '', $bc_bool =
     foreach($template_config AS $key => $item) {
         if (!isset($item['var'])) continue;
         if (!isset($template_vars[$item['var']])) {
-            $template_vars[$item['var']] = isset($item['default']) ? $item['default'] : null;
+            $template_vars[$item['var']] = $item['default'] ?? null;
         }
     }
     if ($bc_bool) {
@@ -2463,8 +2463,8 @@ function serendipity_loadGlobalThemeOptions(&$template_config, &$template_loaded
 
         for ($i = 0; $i < $template_loaded_config['amount']; $i++) {
             $navlinks[] = array(
-                'title' => isset($template_loaded_config['navlink' . $i . 'text']) ? $template_loaded_config['navlink' . $i . 'text'] : null,
-                'href'  => isset($template_loaded_config['navlink' . $i . 'url'])  ? $template_loaded_config['navlink' . $i . 'url']  : null
+                'title' => ($template_loaded_config['navlink' . $i . 'text'] ?? null),
+                'href'  => ($template_loaded_config['navlink' . $i . 'url']  ?? null)
             );
 
             $template_config[] = array(

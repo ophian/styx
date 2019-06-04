@@ -966,17 +966,17 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
     if ($_setTo_moderation && $serendipity['serendipityAuthedUser'] && serendipity_checkPermission('adminEntriesMaintainOthers')) {
         $_setTo_moderation = false;
     }
-    $title         = serendipity_db_escape_string(isset($commentInfo['title']) ? $commentInfo['title'] : '');
+    $title         = serendipity_db_escape_string($commentInfo['title'] ?? '');
     $comments      = $commentInfo['comment'];
-    $ip            = serendipity_db_escape_string(isset($commentInfo['ip']) ? $commentInfo['ip'] : $_SERVER['REMOTE_ADDR']);
+    $ip            = serendipity_db_escape_string($commentInfo['ip'] ?? $_SERVER['REMOTE_ADDR']);
     $commentsFixed = serendipity_db_escape_string($commentInfo['comment']);
     $name          = serendipity_db_escape_string($commentInfo['name']);
     $url           = serendipity_db_escape_string($commentInfo['url']);
     $email         = serendipity_db_escape_string($commentInfo['email']);
     $parentid      = (isset($commentInfo['parent_id']) && is_numeric($commentInfo['parent_id'])) ? $commentInfo['parent_id'] : 0;
-    $status        = serendipity_db_escape_string(isset($commentInfo['status']) ? $commentInfo['status'] : ($_setTo_moderation ? 'pending' : 'approved'));
-    $t             = serendipity_db_escape_string(isset($commentInfo['time']) ? $commentInfo['time'] : time());
-    $referer       = substr((isset($_SESSION['HTTP_REFERER']) ? serendipity_db_escape_string($_SESSION['HTTP_REFERER']) : ''), 0, 200);
+    $status        = serendipity_db_escape_string($commentInfo['status'] ?? ($_setTo_moderation ? 'pending' : 'approved'));
+    $t             = serendipity_db_escape_string($commentInfo['time'] ?? time());
+    $referer       = substr(serendipity_db_escape_string($_SESSION['HTTP_REFERER'] ?? ''), 0, 200);
 
     $query = "SELECT a.email, e.title, a.mail_comments, a.mail_trackbacks
                 FROM {$serendipity['dbPrefix']}entries AS e

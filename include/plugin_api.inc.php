@@ -687,7 +687,7 @@ class serendipity_plugin_api
         if (isset($pluginlist[$pluginFile]) && is_array($pluginlist[$pluginFile]) && !preg_match('@plugin_internal\.inc\.php@', $pluginFile)) {
             $data = $pluginlist[$pluginFile];
             if ((int) filemtime($pluginFile) == (int) $data['last_modified']) {
-                $data['stackable'] = isset($data['stackable']) ? serendipity_db_bool($data['stackable']) : false;
+                $data['stackable'] = serendipity_db_bool($data['stackable'] ?? false);
                 $plugin = $data; // avoid Notice: Only variable references should be returned by reference (? while $pluginFile is in $data ?)
                 return $plugin;
             }
@@ -747,7 +747,7 @@ class serendipity_plugin_api
                 'description'     => $bag->get('description'),
                 'author'          => $bag->get('author'),
                 'version'         => $bag->get('version'),
-                'upgrade_version' => isset($class_data['upgrade_version']) ? $class_data['upgrade_version'] : $bag->get('version'),
+                'upgrade_version' => ($class_data['upgrade_version'] ?? $bag->get('version')),
                 'requirements'    => serialize($bag->get('requirements')),
                 'website'         => $bag->get('website'),
                 'plugin_class'    => $class_data['name'],

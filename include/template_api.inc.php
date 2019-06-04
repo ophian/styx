@@ -111,7 +111,7 @@ class serendipity_smarty_emulator
      */
     public function registerPlugin($obj, $type, $name, $callback = null, $cacheable = true, $cache_attr = null)
     {
-        $smarty = isset($obj->smarty) ? $obj->smarty : $obj;
+        $smarty = $obj->smarty ?? $obj;
         if (isset($smarty->registered_plugins[ $type ][ $name ])) {
             #throw new SmartyException("Plugin tag \"{$name}\" already registered");
             $this->trigger_error("Plugin tag '{$name}' already registered\n");
@@ -266,7 +266,8 @@ class serendipity_smarty_emulator
             $this->_normalizeTemplateConfig($isConfig);
         }
         if ($index !== null) {
-            return isset($dir[ $index ]) ? $dir[ $index ] : null;
+            $d = $dir[$index] ?? null;
+            return $d;
         }
         return $dir;
     }

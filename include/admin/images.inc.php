@@ -165,9 +165,9 @@ switch ($serendipity['GET']['adminAction']) {
             serendipity_prepareMedia($file);
             $file['props'] =& serendipity_fetchMediaProperties((int)$media_id);
             serendipity_plugin_api::hook_event('media_getproperties_cached', $file['props']['base_metadata'], $file['realfile']);
-            $file['prop_imagecomment'] = serendipity_specialchars((isset($file['props']['base_property']['COMMENT1']) ? $file['props']['base_property']['COMMENT1'] : ''));
-            $file['prop_alt']          = serendipity_specialchars((isset($file['props']['base_property']['ALT'])      ? $file['props']['base_property']['ALT']      : ''));
-            $file['prop_title']        = serendipity_specialchars((isset($file['props']['base_property']['TITLE'])    ? $file['props']['base_property']['TITLE']    : ''));
+            $file['prop_imagecomment'] = serendipity_specialchars($file['props']['base_property']['COMMENT1'] ?? '');
+            $file['prop_alt']          = serendipity_specialchars($file['props']['base_property']['ALT']      ?? '');
+            $file['prop_title']        = serendipity_specialchars($file['props']['base_property']['TITLE']    ?? '');
             unset($file['props']); // we don't need this bloat, except the three above
             unset($file['thumb_header']); // img (encoded) header data will make json_encode() fail and return nothing
             unset($file['header']);
@@ -305,7 +305,7 @@ switch ($serendipity['GET']['adminAction']) {
 
         $new_media = array();
 
-        $_imageurl = isset($serendipity['POST']['imageurl']) ? serendipity_specialchars($serendipity['POST']['imageurl']) : '';
+        $_imageurl = serendipity_specialchars($serendipity['POST']['imageurl'] ?? '');
 
         // First find out whether to fetch a download hotlink or accept an upload file
         $pattern = '~^(?:ht|f)tps?://[a-z0-9.-_\/](?:(?!.{3}+\?|#|\+).)+\.(?:jpe?g|png|gif)~Ui'; // each protocol, a negative look behind to not match malicious URIs and the 4 most common img extensions
@@ -744,7 +744,7 @@ switch ($serendipity['GET']['adminAction']) {
             'maxImgHeight'      => $serendipity['maxImgHeight'],
             'maxImgWidth'       => $serendipity['maxImgWidth'],
             'extraParems'       => serendipity_generateImageSelectorParems(),
-            'manage'            => isset($serendipity['GET']['showMediaToolbar']) ? serendipity_db_bool($serendipity['GET']['showMediaToolbar']) : true,
+            'manage'            => serendipity_db_bool($serendipity['GET']['showMediaToolbar'] ?? true),
             'multiperm'         => serendipity_checkPermission('adminImagesDirectories')
         );
         // ToDo later: merge $data and $media

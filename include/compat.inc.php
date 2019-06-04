@@ -438,7 +438,7 @@ function serendipity_detectLang($use_include = false) {
     global $serendipity;
 
     $supported_languages = array_keys($serendipity['languages']);
-    $possible_languages = explode(',', (isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? $_SERVER['HTTP_ACCEPT_LANGUAGE'] : ''));
+    $possible_languages  = explode(',', ($_SERVER['HTTP_ACCEPT_LANGUAGE'] ?? ''));
     if (is_array($possible_languages)) {
         $charset = serendipity_getCharset();
 
@@ -450,9 +450,9 @@ function serendipity_detectLang($use_include = false) {
                     $serendipity['autolang'] = $preferred_language;
                 }
                 return $preferred_language;
-            } // endif
-        } // endforeach
-    } // endif
+            }
+        }
+    }
 
     return $serendipity['lang'];
 }

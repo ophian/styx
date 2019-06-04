@@ -40,7 +40,7 @@ if (isset($_POST['DELETE_YES']) && serendipity_checkFormToken()) {
             $data['delete_no_user'] = true;
         }
         $data['user'] = $serendipity['POST']['user'];
-        $data['realname'] = isset($_POST['realname']) ? $_POST['realname'] : '';
+        $data['realname'] = $_POST['realname'] ?? '';
     }
 }
 

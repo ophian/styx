@@ -21,8 +21,8 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
     {
         if (is_array($array)) {
             for ($i = 0, $ii = count($array); $i < $ii; $i++) {
-                $array[$i]['down'] = (isset($array[$i]['down']) ? $array[$i]['down'] : false);
-                $array[$i]['up']   = (isset($array[$i]['up']) ? $array[$i]['up'] : false);
+                $array[$i]['down'] = $array[$i]['down'] ?? false;
+                $array[$i]['up']   = $array[$i]['up'] ?? false;
                 for ($j = ($i + 1); $j < $ii; $j++) {
                     if ($array[$j][$parent_id] == $array[$i][$parent_id]) {
                         $array[$i]['down'] = true;
