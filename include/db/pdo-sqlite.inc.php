@@ -326,7 +326,7 @@ function serendipity_db_probe($hash, &$errs) {
         return false;
     }
 
-    $dbName = (isset($hash['sqlitedbName']) ? $hash['sqlitedbName'] : $hash['dbName']);
+    $dbName = $hash['sqlitedbName'] ?? $hash['dbName'];
     if (defined('S9Y_DATA_PATH')) {
         // Shared installations!
         $dbfile = S9Y_DATA_PATH . $dbName . '.db';

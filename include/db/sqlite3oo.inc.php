@@ -322,7 +322,7 @@ function serendipity_db_probe($hash, &$errs)
 {
     global $serendipity;
 
-    $dbName = (isset($hash['sqlitedbName']) ? $hash['sqlitedbName'] : $hash['dbName']);
+    $dbName = $hash['sqlitedbName'] ?? $hash['dbName'];
 
     if (!class_exists('SQLite3')) {
         $errs[] = 'SQLite extension not installed. Available on PHP 5.4+.';

@@ -297,7 +297,7 @@ function serendipity_db_probe($hash, &$errs)
 {
     global $serendipity;
 
-    $dbName = (isset($hash['sqlitedbName']) ? $hash['sqlitedbName'] : $hash['dbName']);
+    $dbName = $hash['sqlitedbName'] ?? $hash['dbName'];
 
     if (!function_exists('sqlite_open')) {
         $errs[] = 'SQLite extension not installed. Run "pear install sqlite" on your webserver or contact your systems administrator regarding this problem.';
