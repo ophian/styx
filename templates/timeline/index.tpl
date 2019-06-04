@@ -220,7 +220,7 @@
         </div>
     </div>
     <div class="footer-container">
-        {if $FooterSidebarElements > 0}
+        {if $footerSidebarElements > 0}
         <div class="footer">
             <div class="container">
                 <div class="row">

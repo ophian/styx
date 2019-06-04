@@ -223,8 +223,8 @@ $template_config = array(
 );
 
 // register footer sidebar with Smarty
-$FooterSidebarElements = serendipity_plugin_api::count_plugins('footer');
-$serendipity['smarty']->assignByRef('FooterSidebarElements', $FooterSidebarElements);
+$footerSidebarElements = serendipity_plugin_api::count_plugins('footer');
+$serendipity['smarty']->assignByRef('footerSidebarElements', $footerSidebarElements);
 
 $top = $serendipity['smarty_vars']['template_option'] ?? '';
 #$template_config_groups = NULL; // disabled, since used below
