@@ -227,12 +227,12 @@ class Serendipity_Import_Blogger extends Serendipity_Import
                 // Check to make sure the related entry has been added to s9y
                 if (array_key_exists($cEntryId, $entryList)) {
                     // Add to s9y
-                    $sComment = array(    'entry_id ' => $entryList[$cEntryId][0],
+                    $sComment = array(  'entry_id ' => $entryList[$cEntryId][0],
                                         'parent_id' => 0,
                                         'timestamp' => strtotime($bEntry->published),
-                                        'author'    => (string) $bEntry->author->name,
-                                        'email'     => (string) $bEntry->author->email,
-                                        'url'       => (string) (isset($bEntry->author->uri)) ? $bEntry->author->uri : '',
+                                        'author'    => (string)  $bEntry->author->name,
+                                        'email'     => (string)  $bEntry->author->email,
+                                        'url'       => (string) ($bEntry->author->uri ?? ''),
                                         'ip'        => '',
                                         'status'    => 'approved',
                                         'body'      => $this->strtr((string) $bEntry->content),
