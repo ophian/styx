@@ -671,9 +671,6 @@ function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=n
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
         return;
-    } catch (Exception $e) {
-        // Executed only in PHP 5.x, will not be reached in PHP 7
-        return;
     }
 
     $debugSPL = false; // dev debug only
@@ -759,9 +756,6 @@ function serendipity_cleanUpDirectories_SPL( $path=null ) {
         return true;
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
-        return;
-    } catch (Exception $e) {
-        // Executed only in PHP 5.x, will not be reached in PHP 7
         return;
     }
 }

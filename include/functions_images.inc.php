@@ -1615,10 +1615,6 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
         // Executed only in PHP 7, will not match in PHP 5.x
         echo 'Could not create thumbnail: ',  $t->getMessage(), "\n";
         return false;
-    } catch (Exception $e) {
-        // Executed only in PHP 5.x, will not be reached in PHP 7
-        echo 'Could not create thumbnail: ',  $e->getMessage(), "\n";
-        return false;
     }
     $width  = imagesx($in);
     $height = imagesy($in);
@@ -3801,11 +3797,6 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVE_ERROR, $newDir) . "</span>\n";
         #echo ': '.$t->getMessage();
         return false;
-    } catch (Exception $e) {
-        // Executed only in PHP 5.x, will not be reached in PHP 7
-        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVE_ERROR, $newDir) . "</span>\n";
-        #echo ': '.$e->getMessage();
-        return false;
     }
 
     // make it easy and just fetch the items in real need
@@ -4017,9 +4008,6 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             } catch (Throwable $t) {
                 // Executed only in PHP 7, will not match in PHP 5.x
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (2)</span>\n";
-            } catch (Exception $e) {
-                // Executed only in PHP 5.x, will not be reached in PHP 7
-                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . " (2)</span>\n";
             }
 
             // do we still need this? YES, it is definitely false, so we would not need the ternary - should already be done, maybe just paranoid :g
@@ -4038,9 +4026,6 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                     } catch (Throwable $t) {
                         // Executed only in PHP 7, will not match in PHP 5.x
                         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (3)</span>\n";
-                    } catch (Exception $e) {
-                        // Executed only in PHP 5.x, will not be reached in PHP 7
-                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . " (3)</span>\n";
                     }
                 }
             }
@@ -4128,9 +4113,6 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (5)</span>\n";
-    } catch (Exception $e) {
-        // Executed only in PHP 5.x, will not be reached in PHP 7
-        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . " (5)</span>\n";
     }
 
     foreach($renameValues AS $renameData) {
@@ -4146,11 +4128,6 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
                 // reset already updated image table
                 serendipity_updateImageInDatabase(array('path' => $oldDir), $item_id);
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (6)</span>\n";
-            } catch (Exception $e) {
-                // Executed only in PHP 5.x, will not be reached in PHP 7
-                // reset already updated image table
-                serendipity_updateImageInDatabase(array('path' => $oldDir), $item_id);
-                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$e->getMessage() . " (6)</span>\n";
             }
         }
     }

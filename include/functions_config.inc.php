@@ -690,11 +690,6 @@ function serendipity_setAuthorToken() {
         // If you get this message, the CSPRNG failed hard.
         #trigger_error('Create author token failed: Could not generate a random string. Is our OS secure?');
         $string = sha1(uniqid(mt_srand(), true));
-    } catch (Exception $e) {
-        // Executed only in PHP 5.x, will not be reached in PHP 7
-        // If you get this message, the CSPRNG failed hard.
-        #trigger_error('Create author token failed: Could not generate a random string. Is our OS secure?');
-        $string = sha1(uniqid(mt_srand(), true));
     }
     $hash = bin2hex($string);
     serendipity_setCookie('author_token', $hash);
