@@ -8,6 +8,7 @@ archives/*
 *~
 DEADJOE
 plugins/additional_plugins*
+templates/previews.sh
 /.settings
 /.buildpath
 /.project
