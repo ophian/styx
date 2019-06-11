@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Update backend modernizr library to 3.6.0 including webp
+
   * Create WebP images for the backend themes previews
 
   * Raise required PHP version to 7.0 until further
