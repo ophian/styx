@@ -1,7 +1,7 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Create webp images for the backend previews
+  * Create WebP images for the backend themes previews
 
   * Raise required PHP version to 7.0 until further
 
