@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Removed totally outdated "Engine: Yes" theme info stack check.
+    Engines are set by names since 2014.
+
   * Allow Styx backend templates/themes "gallery" using WebP formated
     preview and fullsize images, which drastically reduces page loads
     by ~28% of (each) size. If a WebP image isn't available in the theme
