@@ -1,6 +1,15 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Allow Styx backend templates/themes "gallery" using WebP formated
+    preview and fullsize images, which drastically reduces page loads
+    by ~28% of (each) size. If a WebP image isn't available in the theme
+    or the browser used does not support it, it has a fallback to the
+    origin preview.png and/or preview_fullsize.jpg files. The fallback
+    even distinguishes for the case that the preview_fullsize.jpg is less
+    in size than the smaller preview.png file, which is possible with the
+    png file format. Browser support, see https://caniuse.com/webp
+
   * Update backend modernizr library to 3.6.0 including webp
 
   * Create WebP images for the backend themes previews
