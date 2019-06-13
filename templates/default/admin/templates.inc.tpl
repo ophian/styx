@@ -8,7 +8,7 @@
 {if isset($adminAction) AND ($adminAction == 'configure' OR $adminAction == 'editConfiguration')}
     <section id="template_options">
         <h2>{$CONST.STYLE_OPTIONS} ({$cur_template})</h2>
-    {if $has_config}
+    {if NOT empty($has_config)}
         {if $adminAction == 'configure'}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}: {$save_time}</span>
         {/if}
@@ -32,15 +32,21 @@
 
             <div class="clearfix equal_heights template_wrap">
                 <div class="template_preview">
-            {if NOT empty($cur_tpl.fullsize_preview) OR $cur_tpl.preview}
+            {if NOT empty($cur_tpl.fullsize_preview) OR NOT empty($cur_tpl.preview)}
                 {if NOT empty($cur_tpl.fullsize_preview)}
 
-                    <a class="media_fullsize" href="{$cur_tpl.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl.info.name}">
-                        <img src="{$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                    <a class="media_fullsize" href="{$cur_tpl.fullsize_preview_webp|default:$cur_tpl.fullsize_preview}" data-fallback="{$cur_tpl.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl.info.name}">
+                        <picture>
+                          <source type="image/webp" srcset="{$cur_tpl.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                          <img src="{$cur_tpl.preview|default:$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                        </picture>
                     </a>
                 {else}
 
-                    <img src="{$cur_tpl.preview}" alt="{$CONST.PREVIEW}" >
+                    <picture>
+                      <source type="image/webp" srcset="{$cur_tpl.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                      <img src="{$cur_tpl.preview|default:$cur_tpl.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                    </picture>
                 {/if}
             {/if}
 
@@ -76,7 +82,6 @@
         </article>
 
     {if $cur_template_backend}
-
         <article class="clearfix current_backend_template">
             <h3 title="{$cur_tpl_backend.info.name}">{$CONST.BACKEND}: {$cur_tpl_backend.info.name|truncate:27:"&hellip;"}</h3>
 
@@ -85,12 +90,18 @@
             {if NOT empty($cur_tpl_backend.fullsize_backend_preview) OR NOT empty($cur_tpl_backend.preview_backend)}
                 {if $cur_tpl_backend.fullsize_backend_preview}
 
-                    <a class="media_fullsize" href="{$cur_tpl_backend.fullsize_backend_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl_backend.info.name}">
-                        <img src="{$cur_tpl_backend.fullsize_backend_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                    <a class="media_fullsize" href="{$cur_tpl_backend.fullsize_backend_preview_webp|default:$cur_tpl_backend.fullsize_backend_preview}" data-fallback="{$cur_tpl_backend.fullsize_backend_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$cur_tpl_backend.info.name}">
+                        <picture>
+                          <source type="image/webp" srcset="{$cur_tpl_backend.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                          <img src="{$cur_tpl_backend.preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                        </picture>
                     </a>
                 {else}
 
-                    <img src="{$cur_tpl_backend.preview_backend}" alt="{$CONST.PREVIEW}" >
+                        <picture>
+                          <source type="image/webp" srcset="{$cur_tpl_backend.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                          <img src="{$cur_tpl_backend.preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                        </picture>
                 {/if}
             {/if}
 
@@ -112,7 +123,6 @@
     {/if}
 
         {function name=templateBlock}
-
             <li>
                 <article class="clearfix">
                     <h3 title="{$template.info.name}">{$template.info.name|truncate:27:"&hellip;"}</h3>
@@ -121,12 +131,18 @@
                     {if NOT empty($template.fullsize_preview) OR NOT empty($template.preview)}
                         {if NOT empty($template.fullsize_preview)}
 
-                            <a class="media_fullsize" href="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
-                                <img src="{$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                            <a class="media_fullsize" href="{$template.fullsize_preview_webp|default:$template.fullsize_preview}" data-fallback="{$template.fullsize_preview}" title="{$CONST.MEDIA_FULLSIZE}: {$template.info.name}">
+                                <picture>
+                                  <source type="image/webp" srcset="{$template.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                                  <img src="{$template.preview|default:$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                                </picture>
                             </a>
                         {else}
 
-                            <img src="{$template.preview}" alt="{$CONST.PREVIEW}" >
+                            <picture>
+                              <source type="image/webp" srcset="{$template.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                              <img src="{$template.preview|default:$template.fullsize_preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                            </picture>
                         {/if}
                     {/if}
 
@@ -189,4 +205,10 @@
         {/foreach}
         </ul>
     </section>
+    {* change the link url for old browsers not supporting WebP images *}
+    <script>
+        Modernizr.on('webp', function(result) {
+          if (!result) { $('.media_fullsize').on( "mouseenter mouseleave", function() { $(this).attr('href', $(this).data('fallback')); }); }
+        });
+    </script>
 {/if}

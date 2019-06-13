@@ -190,28 +190,58 @@ foreach($stack AS $theme => $info) {
     $data['templates'][$theme]['info'] = $info;
 
     foreach(array('', '_backend') AS $backendId) {
-
+        // LOCAL front- and backend themes
         if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg")) {
-            $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg";
-        } elseif (!empty($info["preview{$backendId}_fullsizeURL"])) { // preview{$backendId}_fullsizeURL is not actually set in Spartacus yet
-            if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $theme ."{$backendId}.jpg")) {
-                $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme ."{$backendId}.jpg";
+            if (empty($backendId) && @file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.png')) {
+                $png = true;
+                if (false === (@filesize($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.png') <= @filesize($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.jpg'))) {
+                    $png = false;
+                }
+                if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.webp')) {
+                    $data['templates'][$theme]['preview_webp'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview.webp';
+                }
+                if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.webp')) {
+                    $data['templates'][$theme]['fullsize_preview_webp'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.webp';
+                }
+                // check the normal backend theme for a special backend image fullsize webp file, else the fullsize jpg is used (i.e. current backend is Styx, but default backend needs this set - or vice versa) 
+                if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview_backend_fullsize.webp')) {
+                    $data['templates'][$theme]["fullsize_backend_preview_webp"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_backend_fullsize.webp';
+                }
+                $data['templates'][$theme]['preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . ($png ? '/preview.png' : '/preview_fullsize.jpg');
+                $data['templates'][$theme]['fullsize_preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.jpg';
             } else {
-                $data['templates'][$theme]["fullsize${backendId}_preview"] = $info["preview{$backendId}_fullsizeURL"];
+                // check the backend theme for the jpg fallback case URL
+                $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg";
+            }
+        } // now the REMOTE TEMPLATES list for the better cached image case, which are build and placed by Spartacus buildTemplateList()
+        elseif (!empty($info["preview{$backendId}_fullsizeURL"])) { // preview{$backendId}_fullsizeURL is not actually set in Spartacus yet, so enable additional_themes fetch in there
+            if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $theme . "${backendId}.webp")) {
+                $data['templates'][$theme]["fullsize${backendId}_preview_webp"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.webp";
+                if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $theme . "${backendId}.jpg")) {
+                    $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.jpg";
+                }
+            } elseif (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $theme . "${backendId}.png")) {
+                $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.jpg";
+            } elseif (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $theme . "${backendId}.jpg")) {
+                $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme . "${backendId}.jpg";
+            } else {
+                $data['templates'][$theme]["fullsize${backendId}_preview"] = $info["preview${backendId}_fullsizeURL"];
             }
         }
 
-        $previewType = '.png';
-        if ($backendId) {
-            $previewType = '.jpg';
-        }
+        if (!empty($backendId)) {
+            $previewType = '.png';
+            if ($backendId) {
+                $previewType = '.jpg';
+            }
 
-        if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . "/preview${backendId}${previewType}")) {
-            $data['templates'][$theme]["preview${backendId}"] = $serendipity['templatePath'] . $theme . "/preview${backendId}${previewType}";
-        } elseif (!empty($info['previewURL'])) {
-            $data['templates'][$theme]["preview${backendId}"] = @$info["previewURL${backendId}"];
+            if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . "/preview${backendId}${previewType}")) {
+                $data['templates'][$theme]["preview${backendId}"] = $serendipity['templatePath'] . $theme . "/preview${backendId}${previewType}";
+            } elseif (!empty($info['previewURL'])) {
+                $data['templates'][$theme]["preview${backendId}"] = @$info["previewURL${backendId}"];
+           }
         }
-
+        // this is Spartacus only "blog.s9y.org" templates case
         if (!empty($info['demoURL'])) {
             $data['templates'][$theme]['demoURL'] = $info['demoURL'];
         }
