@@ -183,10 +183,6 @@ foreach($themes AS $theme) {
 ksort($stack);
 
 foreach($stack AS $theme => $info) {
-    /* Sorry, but we don't display engines */
-    if (isset($info['engine']) && strtolower($info['engine']) == 'yes') {
-        continue;
-    }
     $data['templates'][$theme]['info'] = $info;
 
     foreach(array('', '_backend') AS $backendId) {
