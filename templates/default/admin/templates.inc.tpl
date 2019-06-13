@@ -98,10 +98,10 @@
                     </a>
                 {else}
 
-                        <picture>
-                          <source type="image/webp" srcset="{$cur_tpl_backend.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                          <img src="{$cur_tpl_backend.preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
-                        </picture>
+                    <picture>
+                      <source type="image/webp" srcset="{$cur_tpl_backend.preview_webp|default:''}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                      <img src="{$cur_tpl_backend.preview}" class="template_preview_img" alt="{$CONST.PREVIEW}">
+                    </picture>
                 {/if}
             {/if}
 
