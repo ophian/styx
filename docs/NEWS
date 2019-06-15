@@ -20,6 +20,18 @@ Version 3.0-Dev ()
   * Raise required PHP version to 7.0 until further
 
 
+Version 2.9.1-dev ()
+ ------------------------------------------------------------------------
+
+  * Add theme checks for old and unsupported themes with "Engines: Yes"
+    (i.e. wp-compat) preview image files, adding a WebP image once if
+    no preview.png file is available and that hints to remove the theme
+    via maintenance (WebP able browsers only).
+    Second, checks for loading performance and size (png vs jpg).
+    With Styx major next 3.0 revisions these themes will probably be
+    auto-converted. Upgraders, please check them yourself until then.
+
+
 Version 2.9.0 (2019-06-01) - Give Peace a Chance - 1969
  ------------------------------------------------------------------------
 
