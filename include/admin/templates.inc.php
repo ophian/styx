@@ -183,9 +183,37 @@ foreach($themes AS $theme) {
 ksort($stack);
 
 foreach($stack AS $theme => $info) {
-    /* Sorry, but we don't display engines */
     if (isset($info['engine']) && strtolower($info['engine']) == 'yes') {
-        continue;
+        if (@file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.png')) {
+            if (@file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.webp')) {
+                $data['templates'][$theme]['preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview.webp';
+            } else {
+                // Create image
+                $im = imagecreatetruecolor(431, 323);
+                // Set some colors
+                $white = imagecolorallocate($im, 255, 255, 255);
+                $grey = imagecolorallocate($im, 128, 128, 128);
+                $black = imagecolorallocate($im, 9, 6, 3);
+                // Fill with background color
+                imagefilledrectangle($im, 0, 0, 431, 323, $white);
+                // Add text by lines
+                $text = "Outdated theme";
+                $text2 = "Please clear via Maintenance Theme Spot!";
+                // Use existing font we know about
+                $font = $serendipity['serendipityPath'] . '/plugins/serendipity_event_spamblock/Vera.ttf';
+                // Write the text to image
+                imagettftext($im, 16, 0, 131, 116, $grey, $font, $text);
+                imagettftext($im, 16, 0, 130, 115, $black, $font, $text);
+                imagettftext($im, 12, 0, 34, 151, $grey, $font, $text2);
+                imagettftext($im, 12, 0, 33, 150, $black, $font, $text2);
+                // Save the image in WebP format
+                imagewebp($im, $serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.webp');
+                // Free up memory
+                imagedestroy($im);
+                // load and push to array
+                $data['templates'][$theme]['preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview.webp';
+            }
+        }
     }
     $data['templates'][$theme]['info'] = $info;
 
@@ -193,6 +221,12 @@ foreach($stack AS $theme => $info) {
 
         if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg")) {
             $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg";
+            if ((false === (@filesize($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.png') <= @filesize($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.jpg')))
+            || (serendipity_getimagesize($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . '/preview.png')[0] <= '110')) {
+                // First, spares load, Second is rare old template case where old, too small preview images survived (alike 100x100 px) - temporary for Styx 2.9.x blogs only!
+                $data['templates'][$theme]['preview'] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . '/preview_fullsize.jpg';
+                // May be an upcoming upgrade task for 3.0, see sample upgrader_themeImagePreviewConversion()
+            }
         } elseif (!empty($info["preview{$backendId}_fullsizeURL"])) { // preview{$backendId}_fullsizeURL is not actually set in Spartacus yet
             if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $theme ."{$backendId}.jpg")) {
                 $data['templates'][$theme]["fullsize${backendId}_preview"]  = $serendipity['baseURL'] . 'templates_c/template_cache/'. $theme ."{$backendId}.jpg";
