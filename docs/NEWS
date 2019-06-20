@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Refactor MediaLibrary by adding a ImageMagick CLI interface solution.
+    Improves ImageMagick Q16/Q8 binary handlers for resizing, quality etc.
+
   * Removed totally outdated "Engine: Yes" theme info stack check.
     Engines are set by names since 2014.
 
