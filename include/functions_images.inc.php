@@ -730,7 +730,7 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
             "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
             "-depth 8 -strip \"$target\"";
 
-    } else if (\IMAGETYPE_GIF == $type) {
+    } else if (image_type_to_mime_type(IMAGETYPE_GIF) == $type) {
         $cmd =
             "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
             "-depth 8 -strip \"$target\"";
