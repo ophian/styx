@@ -642,6 +642,112 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
 }
 
 /**
+ * Get valid source image formats
+ *
+ * @return array
+ */
+function getSupportedFormats($extend=false) {
+    if ($extend) {
+        return ['BMP', 'PNG', 'JPG', 'JPEG', 'GIF', 'WEBP'];
+    }
+    return ['PNG', 'JPG', 'JPEG', 'GIF'];
+}
+
+/**
+ * Pass ImageMagick variables to command-CLI-interface [cmd] and process the image resize for a single image file
+ *
+ * @param string $type      Mime/string type name the image shall be formatted too
+ * @param string $source    Source file fullpath
+ * @param string $target    Target file fullpath
+ * @param array  $args      [0] ImageMagick executor command (remember, "magick" shall be used for IM 7 only, but always a copy named "convert" is created too, so we can stick to convert until this is reverted.)
+                            [1],[2],[3] Convert setting/operator commands [-antialias, -sharp, -unsharp, -flatten, -scale, -resize, -crop, size adjustments, etc]
+ *                          [4] Quality of image operation (normally 100, 75 for thumb downsizing)
+ *                          [4] The same color image displayed on two different workstations may look different due to differences in the display monitor.
+ *                              Use gamma correction to adjust for this color difference. Reasonable values extend from 0.8 to 2.3.
+ *                              Gamma less than 1.0 darkens the image and gamma greater than 1.0 lightens it. Gamma argument of image operation: -1 is disabled. 2 use defaults.
+ *                              Large adjustments to image gamma may result in the loss of some image information if the pixel quantum size is only eight bits (quantum range 0 to 255).
+ *                              Gamma adjusts the image's channel values pixel-by-pixel according to a power law, namely, pow(pixel,1/gamma) or pixel^(1/gamma), where pixel is the
+ *                              normalized or 0 to 1 color value.
+ *
+ * @return mixed            boolean on fail, else array with result and $cmd string (for debug)
+ */
+function serendipity_passToCMD($type=null, $source='', $target='', $args=array()) {
+    global $serendipity;
+
+    if ($type === null
+    || (!in_array($type, ['pdfthumb', 'mkthumb']) && !in_array(strtoupper(explode('/', $type)[1]), getSupportedFormats(true)))
+    || !serendipity_checkPermission('adminImagesMaintainOthers')) {
+        return;
+    }
+
+    $out = array();
+    $res = 0;
+    if (!isset($args[0])) $args[0] = '/usr/local/bin/convert';
+    if (!isset($args[1])) $args[1] = array();
+    if (!isset($args[3])) $args[3] = array();
+    if (!isset($args[4])) $args[4] = 100;
+    if (!isset($args[5])) $args[5] = -1;
+    if ( isset($args[2]) && 0 < count($args[2])) {
+        $do = implode(' ', $args[1]) . ' ' . implode(' ', $args[2]) . ' | "' .
+            $args[0] . '" ' . implode(' ', $args[3]); // this is a fully operational string containing infile, settings/operators and the outfile; while [1] is just some kind of preset in this case.
+    } else {
+        $do = implode(' ', $args[1]) . ' ' . implode(' ', $args[3]); // else [2] is just an arguments (sizing) string for settings/operators
+    }
+
+    $do = str_replace('  ', ' ', $do);
+
+    // Do resizing images right:
+    // @see https://www.imagemagick.org/Usage/resize/#resize_gamma, for 16bit (Q16 binary) workspace and optional gamma correction.
+    // Images are typically stored using a non-linear "sRGB" colorspace, or with gamma correction.
+    // But "resize" (like most other image processing operators) is a mathematically linear processor, that assumes that image values directly represent a linear color brightness.
+    // The colorspace "sRGB" basically contains a gamma correction of roughly 2.2. As of version 6.7.5 ImageMagick follows the standard convention and defines the default colorspace of
+    // images (at least for most image file formats) to be sRGB. This means we simply need to use the "-gamma/-level" (colorspace) to transform the image to a linear space before doing the resize. 
+    $gamma['linear'] = $gamma['standard'] = '';
+    if (isset($args[5]) && $args[5] != -1) {
+        $gamma['linear']   = '-gamma 0.454545'; // (0.45455 is 1/2.2 POW)
+        $gamma['standard'] = '-gamma 2.2';
+        // For example, using a value of gamma=2 is the same as taking the square root of the image.
+    }
+
+    $cmd = null;
+
+    if ($type == 'pdfthumb') {
+        $cmd =
+            "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
+            "-depth 8 -strip \"$target\"";
+    } else if ($type == 'mkthumb') {
+        $cmd =
+            "\"{$args[0]}\" \"$source\" {$do} " .
+            "-depth 8 -quality {$args[4]} -strip \"$target\"";
+    }
+    if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
+        $cmd =
+            "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} -filter Lanczos {$do} ${gamma['standard']} " .
+            "-depth 8 -quality {$args[4]} -sampling-factor 1x1 -strip \"$target\"";
+
+    } else if (image_type_to_mime_type(IMAGETYPE_PNG) == $type) {
+        $cmd =
+            "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
+            "-depth 8 -strip \"$target\"";
+
+    } else if (\IMAGETYPE_GIF == $type) {
+        $cmd =
+            "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
+            "-depth 8 -strip \"$target\"";
+    }
+
+    if (is_null($cmd)) {
+        return false;
+    } else {
+        @exec($cmd, $out, $res);
+    }
+
+    if (0 != $res) return false; // failure
+
+    return array($res, $cmd);
+}
+
+/**
  * Create a thumbnail for an image
  *
  * LONG
@@ -730,41 +836,33 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
             //          http://magick.imagemagick.org/script/command-line-processing.php#setting
             // The here used -flatten and -scale are Sequence Operators, while -antialias is a Setting and -resize is an Operator.
             if ($fdim['mime'] == 'application/pdf') {
-                $cmd = escapeshellcmd($serendipity['convert']) . ' '. serendipity_escapeshellarg($infile . '[0]') . ' -antialias -flatten -scale ' . serendipity_escapeshellarg($newSize) .' '. serendipity_escapeshellarg($outfile . '.png');
+                $pass = array($serendipity['convert'], array('-antialias -flatten -scale'), array(), array('"'.$newSize.'"'), 75, 2);
+                $result = serendipity_passToCMD('pdfthumb', $infile[0], $outfile . '.png', $pass);
+                // The [0] after the pdf path is used to choose which page we want to convert, starting from 0.
+
                 $isPDF = true;
-                if ($debug) { $serendipity['logger']->debug("PDF thumbnail creation: $cmd"); }
+                if ($debug) { $serendipity['logger']->debug("PDF thumbnail creation: ${result[1]}"); }
             } else {
                 if (!$force_resize && serendipity_ini_bool(ini_get('safe_mode')) === false) {
                     $newSize .= '>'; // tell ImageMagick to not enlarge small images. This only works if safe_mode is off (safe_mode turns > in to \>)
                 }
 
-                $bang = '';
-                if (empty($serendipity['imagemagick_nobang'])) {
-                    // force the first run image geometry exactly to given sizes, if there were rounding differences (@see https://github.com/s9y/Serendipity/commit/94881ba and comments)
-                    $bang = (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') ? '\!' : '!'; // escape by OS
-                    // escapeshellarg() adds single quotes around a string and quotes/escapes any existing single quotes
-                    // allowing you to pass a string directly to a shell function and having it be treated as a single safe argument.
-                    // On Windows, escapeshellarg() instead replaces percent signs, exclamation marks (delayed variable substitution) and double quotes with spaces and adds double quotes around the string.
-                    // see follow-on workaround for the bang on WIN OS.
-                }
+                // force the first run image geometry exactly to given sizes, if there were rounding differences (@see https://github.com/s9y/Serendipity/commit/94881ba and comments)
+                $bang = empty($serendipity['imagemagick_nobang']) ? '!' : '';
                 $newSize .= $bang;
 
-                $_itp = !empty($serendipity['imagemagick_thumb_parameters']) ? ' '. $serendipity['imagemagick_thumb_parameters'] : '';
+                $_imtp = !empty($serendipity['imagemagick_thumb_parameters']) ? ' '. $serendipity['imagemagick_thumb_parameters'] : '';
 
-                if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-                    $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . $_itp . ' -antialias -resize ' . str_replace('\ "', '!"', serendipity_escapeshellarg($newSize)) . ' ' . serendipity_escapeshellarg($outfile);
-                } else {
-                    $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . $_itp . ' -antialias -resize ' . serendipity_escapeshellarg($newSize) . ' ' . serendipity_escapeshellarg($outfile);
-                }
+                $pass = array($serendipity['convert'], array("-antialias -resize $_imtp"), array(), array('"'.$newSize.'"'), 75, -1);
+                $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
+
                 $isPDF = false;
-                if ($debug) { $serendipity['logger']->debug("Image thumbnail creation: $cmd"); }
+                if ($debug) { $serendipity['logger']->debug("Image thumbnail creation: ${result[1]}"); }
             }
 
-            exec($cmd, $output, $result);
-
-            if ($result != 0) {
+            if ($result[0] != 0) {
                 if (!$isPDF) {
-                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, @$output[0], $result) ."</span>\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], @$output[0], $result[0]) ."</span>\n";
                 } else {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> PDF thumbnail creation using ImageMagick and Ghostscript failed!' . "</span>\n";
                 }
@@ -813,18 +911,19 @@ function serendipity_scaleImg($id, $width, $height) {
             $result = 0;
         }
     } else {
-        $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . ' -scale ' . serendipity_escapeshellarg($width . 'x' . $height) . ' ' . serendipity_escapeshellarg($outfile);
-        if ($debug) { $serendipity['logger']->debug("Scale File command: $cmd"); }
-        exec($cmd, $output, $result);
-        if ($result != 0) {
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, $output[0], $result) ."</span>\n";
+        $pass = array($serendipity['convert'], array('-scale'), array(), array("\"{$width}x{$height}\""), 100, 2);
+        $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
+        if ($debug) { $serendipity['logger']->debug("Scale File command: ${result[1]}"); }
+        if ($result[0] != 0) {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], $output[0], $result[0]) ."</span>\n";
             return false;
         }
         unset($output);
     }
 
-    if ($result == 0) {
+    if ($result[0] == 0) {
         serendipity_updateImageInDatabase(array('dimensions_width' => $width, 'dimensions_height' => $height, 'size' => @filesize($outfile)), $id);
+        // here we need a forced reload for the image list browser cache! ToDo!
         return true;
     }
     return false;
@@ -869,20 +968,22 @@ function serendipity_rotateImg($id, $degrees) {
         $degrees = (360 - $degrees); */
 
         /* Resize main image */
-        $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infile) . ' -rotate ' . serendipity_escapeshellarg($degrees) . ' ' . serendipity_escapeshellarg($outfile);
-        if ($debug) { $serendipity['logger']->debug("Resize main file command: $cmd"); }
-        exec($cmd, $output, $result);
-        if ($result != 0) {
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, $output[0], $result) ."</span>\n";
+        $pass = array($serendipity['convert'], array('-rotate'), array(), array('"'.$degrees.'"'), 100, 2);
+        $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
+        if ($debug) { $serendipity['logger']->debug("Resize main file command: ${result[1]}"); }
+
+        if ($result[0] != 0) {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], $output[0], $result[0]) ."</span>\n";
         }
         unset($output, $result);
 
         /* Resize thumbnail */
-        $cmd = escapeshellcmd($serendipity['convert']) . ' ' . serendipity_escapeshellarg($infileThumb) . ' -rotate ' . serendipity_escapeshellarg($degrees) . ' ' . serendipity_escapeshellarg($outfileThumb);
-        if ($debug) { $serendipity['logger']->debug("Resize thumb file command: $cmd"); }
-        exec($cmd, $output, $result);
-        if ($result != 0) {
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $cmd, $output[0], $result) ."</span>\n";
+        $pass = array($serendipity['convert'], array('-rotate'), array(), array('"'.$degrees.'"'), 100, 2);
+        $result = serendipity_passToCMD($file['mime'], $infileThumb, $outfileThumb, $pass);
+        if ($debug) { $serendipity['logger']->debug("Resize thumb file command: ${result[1]}"); }
+
+        if ($result[0] != 0) {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], $output[0], $result[0]) ."</span>\n";
         }
         unset($output, $result);
 
@@ -891,6 +992,7 @@ function serendipity_rotateImg($id, $degrees) {
     $fdim = @getimagesize($outfile);
 
     serendipity_updateImageInDatabase(array('dimensions_width' => $fdim[0], 'dimensions_height' => $fdim[1]), $id);
+    // here we need a forced reload for the image list browser cache! ToDo!
 
     return true;
 }
@@ -1838,7 +1940,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         $nTimeStart = microtime_float();
         $nCount = 0;
 
-        if ($debug) { $serendipity['logger']->debug("$logtag Image-Sync has perm: " . serendipity_checkPermission('adminImagesSync') . ", Onthefly Sync: {$serendipity['onTheFlySynch']}, Hash: " . ($serendipity['current_image_hash']!=$serendipity['last_image_hash']?"uneven, cleanup":"even, skip cleanup")); }
+        if ($debug) { $serendipity['logger']->debug("$logtag Image-Sync has perm: " . serendipity_checkPermission('adminImagesSync') . ", Onthefly Sync: {$serendipity['onTheFlySynch']}, Hash: " . ($serendipity['current_image_hash'] != ($serendipity['last_image_hash'] ? "uneven, cleanup" : "even, skip cleanup"))); }
 
         if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync')
         && isset($serendipity['last_image_hash']) && $serendipity['current_image_hash'] != $serendipity['last_image_hash']) {
