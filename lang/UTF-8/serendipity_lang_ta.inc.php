@@ -216,6 +216,7 @@
 @define('FILE_UPLOADED', 'கணிபொறிக்ககோப்பு %s சேர்க்கப்பட்டது %s');
 @define('WORD_OR', 'அல்லது');
 @define('SCALING_IMAGE', 'Scaling %s to %s x %s px');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Keep proportions');
 @define('REALLY_SCALE_IMAGE', 'Really scale the image? This operation cannot be undone!');
 @define('TOGGLE_ALL', 'புலப்பாட்டை மாற்றுக');

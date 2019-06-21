@@ -229,6 +229,7 @@ $i18n_filename_to = array (
 @define('FILE_UPLOADED', 'Súbor %s bol úspešne nahraný ako %s.');
 @define('WORD_OR', 'alebo');
 @define('SCALING_IMAGE', 'Zmena rozmerov %s na %s x %s px');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Zachovať pomer strán');
 @define('REALLY_SCALE_IMAGE', 'Naozaj chcete zmeniť rozmery? Návrat nie je možný!');
 @define('TOGGLE_ALL', 'Vybrať všetko');

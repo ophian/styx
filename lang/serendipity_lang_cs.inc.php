@@ -231,6 +231,7 @@ $i18n_filename_to = array (
 @define('FILE_UPLOADED', 'Soubor %s je úspìšnì nahrán.');
 @define('WORD_OR', 'nebo');
 @define('SCALING_IMAGE', 'Zmìna %s na %s x %s px');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Zachovat proporce');
 @define('REALLY_SCALE_IMAGE', 'Opravdu zmìnit rozmìr? Nelze vrátit!');
 @define('TOGGLE_ALL', 'Otevøít vše');

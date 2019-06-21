@@ -217,6 +217,7 @@
 @define('FILE_UPLOADED', 'Fişierul %s a fost încărcat cu succes ca %s');
 @define('WORD_OR', 'Sau');
 @define('SCALING_IMAGE', 'Scalare %s la %s x %s px');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Păstrează proporţiile');
 @define('REALLY_SCALE_IMAGE', 'Chiar vrei să redimensionezi imaginea? Operaţia este ireversibilă!');
 @define('TOGGLE_ALL', 'Alternează deschide toate');

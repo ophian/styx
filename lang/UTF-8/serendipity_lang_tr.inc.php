@@ -218,6 +218,7 @@
 @define('FILE_UPLOADED', 'Dosya %s başarıyla %s klasörüne yüklendi');
 @define('WORD_OR', 'ya da');
 @define('SCALING_IMAGE', 'Ölçekle %s ölçüsünden %s x %s px ölçüsüne ');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Orantıları koru');
 @define('REALLY_SCALE_IMAGE', 'Resmi ölçeklemeyi istiyormusunuz? Bu işlem geri alınamaz!');
 @define('TOGGLE_ALL', 'Tümünü Aç - Kapa');

@@ -216,6 +216,7 @@
 @define('FILE_UPLOADED', 'Skrá %s vistuð sem %s');
 @define('WORD_OR', 'Eða');
 @define('SCALING_IMAGE', 'Breyti stærð %s í %s x %s px');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Halda hlutföllum');
 @define('REALLY_SCALE_IMAGE', 'Ertu viss að þú viljir breyta stærð myndarinnar? Það er ekki hægt að breyta til baka!');
 @define('TOGGLE_ALL', 'Virkja stækka allt');

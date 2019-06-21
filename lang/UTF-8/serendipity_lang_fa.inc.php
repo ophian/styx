@@ -217,6 +217,7 @@
 @define('FILE_UPLOADED', 'فایل %s با موفقیت با نام %s بالاگذاری شد');
 @define('WORD_OR', 'یا');
 @define('SCALING_IMAGE', 'تغییر اندازه تصویر %s به %s x %s پیکسل');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'حفظ تناسب');
 @define('REALLY_SCALE_IMAGE', 'آیا از تغییر اندازه تصاویر اطمینان دارید؟ این عمل قابل بازگشت نیست!');
 @define('TOGGLE_ALL', 'باز کردن همه');

@@ -216,6 +216,7 @@
 @define('FILE_UPLOADED', 'Filen %s uppladdad som %s');
 @define('WORD_OR', 'Eller');
 @define('SCALING_IMAGE', 'Skalar %s till %s x %s px');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Behåll proportioner');
 @define('REALLY_SCALE_IMAGE', 'Vill du verkligen ändra storlek? Detta kan inte ångras!');
 @define('TOGGLE_ALL', 'Visa/dölj alla');

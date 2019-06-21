@@ -218,6 +218,7 @@
 @define('FILE_UPLOADED', 'Het bestand %s is succesvol geüpload als %s');
 @define('WORD_OR', 'Of');
 @define('SCALING_IMAGE', 'Grootte aanpassen van %s naar %s x %s px');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Behoud verhoudingen');
 @define('REALLY_SCALE_IMAGE', 'Wilt u de afbeelding echt aanpassen? Dit kan niet ongedaan gemaakt worden!');
 @define('TOGGLE_ALL', 'Alles uit- of inklappen');

@@ -203,6 +203,7 @@
 @define('FILE_UPLOADED', 'El fichero %s fue transferido correctamente: %s');
 @define('WORD_OR', 'O...');
 @define('SCALING_IMAGE', 'Escalando %s a %s x %s px');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Mantener las proporciones');
 @define('REALLY_SCALE_IMAGE', '¿Realmente deseas escalar la imagen? ¡No se podrá deshacer esta acción!');
 @define('TOGGLE_ALL', 'Mostrar/Ocultar todo');

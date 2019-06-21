@@ -203,6 +203,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('FILE_UPLOADED', 'Файлът %s е успешно качен като %s');
 @define('WORD_OR', 'Или');
 @define('SCALING_IMAGE', 'Променяне на размера на %s до %s&#215;%s пиксела');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Запазване на пропорциите');
 @define('REALLY_SCALE_IMAGE', 'Сигурни ли сте, че искате да промените размера? После изображението не може да бъде възстановено!');
 @define('TOGGLE_ALL', 'Показване на всички');

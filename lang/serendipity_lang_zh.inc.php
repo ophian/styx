@@ -219,6 +219,7 @@
 @define('FILE_UPLOADED', '文件 %s 上传为 %s');
 @define('WORD_OR', '或');
 @define('SCALING_IMAGE', '缩放 %s 到 %s x %s 像素');
+@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', '维持比例');
 @define('REALLY_SCALE_IMAGE', '确定要缩放图片吗? 这个动作不能恢复！');
 @define('TOGGLE_ALL', '切换展开');
