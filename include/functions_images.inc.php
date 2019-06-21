@@ -898,7 +898,6 @@ function serendipity_scaleImg($id, $width, $height) {
         return false;
     }
 
-    $admin = '';
     if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
         // A non-admin user SHALL NOT change private files from other users.
         return;
@@ -949,7 +948,6 @@ function serendipity_rotateImg($id, $degrees) {
         return false;
     }
 
-    $admin = '';
     if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
         // A non-admin user SHALL NOT change private files from other users.
         return false;
