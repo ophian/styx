@@ -836,12 +836,12 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
             //          http://magick.imagemagick.org/script/command-line-processing.php#setting
             // The here used -flatten and -scale are Sequence Operators, while -antialias is a Setting and -resize is an Operator.
             if ($fdim['mime'] == 'application/pdf') {
-                $pass = array($serendipity['convert'], array('-antialias -flatten -scale'), array(), array('"'.$newSize.'"'), 75, 2);
+                $pass = [ $serendipity['convert'], ['-antialias -flatten -scale'], [], ['"'.$newSize.'"'], 75, 2 ];
                 $result = serendipity_passToCMD('pdfthumb', $infile[0], $outfile . '.png', $pass);
                 // The [0] after the pdf path is used to choose which page we want to convert, starting from 0.
 
                 $isPDF = true;
-                if ($debug) { $serendipity['logger']->debug("PDF thumbnail creation: ${result[1]}"); }
+                if ($debug) { $serendipity['logger']->debug("CLI PDF thumbnail creation: ${result[1]}"); }
             } else {
                 if (!$force_resize && serendipity_ini_bool(ini_get('safe_mode')) === false) {
                     $newSize .= '>'; // tell ImageMagick to not enlarge small images. This only works if safe_mode is off (safe_mode turns > in to \>)
@@ -853,11 +853,11 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
 
                 $_imtp = !empty($serendipity['imagemagick_thumb_parameters']) ? ' '. $serendipity['imagemagick_thumb_parameters'] : '';
 
-                $pass = array($serendipity['convert'], array("-antialias -resize $_imtp"), array(), array('"'.$newSize.'"'), 75, -1);
+                $pass = [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], 75, -1 ];
                 $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
 
                 $isPDF = false;
-                if ($debug) { $serendipity['logger']->debug("Image thumbnail creation: ${result[1]}"); }
+                if ($debug) { $serendipity['logger']->debug("CLI Image thumbnail creation: ${result[1]}"); }
             }
 
             if ($result[0] != 0) {
@@ -911,9 +911,9 @@ function serendipity_scaleImg($id, $width, $height) {
             $result = 0;
         }
     } else {
-        $pass = array($serendipity['convert'], array('-scale'), array(), array("\"{$width}x{$height}\""), 100, 2);
+        $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}\""], 100, 2 ];
         $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
-        if ($debug) { $serendipity['logger']->debug("Scale File command: ${result[1]}"); }
+        if ($debug) { $serendipity['logger']->debug("CLI Scale File command: ${result[1]}"); }
         if ($result[0] != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], $output[0], $result[0]) ."</span>\n";
             return false;
@@ -967,10 +967,11 @@ function serendipity_rotateImg($id, $degrees) {
         -> Styx 2.5 disabled, since that seems to be a workaround for a very very old bug
         $degrees = (360 - $degrees); */
 
+        $pass = [ $serendipity['convert'], ['-rotate'], [], ['"'.$degrees.'"'], 100, 2 ];
+
         /* Resize main image */
-        $pass = array($serendipity['convert'], array('-rotate'), array(), array('"'.$degrees.'"'), 100, 2);
         $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
-        if ($debug) { $serendipity['logger']->debug("Resize main file command: ${result[1]}"); }
+        if ($debug) { $serendipity['logger']->debug("CLI Resize main file command: ${result[1]}"); }
 
         if ($result[0] != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], $output[0], $result[0]) ."</span>\n";
@@ -978,9 +979,8 @@ function serendipity_rotateImg($id, $degrees) {
         unset($output, $result);
 
         /* Resize thumbnail */
-        $pass = array($serendipity['convert'], array('-rotate'), array(), array('"'.$degrees.'"'), 100, 2);
         $result = serendipity_passToCMD($file['mime'], $infileThumb, $outfileThumb, $pass);
-        if ($debug) { $serendipity['logger']->debug("Resize thumb file command: ${result[1]}"); }
+        if ($debug) { $serendipity['logger']->debug("CLI Resize thumb file command: ${result[1]}"); }
 
         if ($result[0] != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], $output[0], $result[0]) ."</span>\n";
