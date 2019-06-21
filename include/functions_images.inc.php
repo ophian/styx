@@ -923,7 +923,6 @@ function serendipity_scaleImg($id, $width, $height) {
 
     if ($result[0] == 0) {
         serendipity_updateImageInDatabase(array('dimensions_width' => $width, 'dimensions_height' => $height, 'size' => @filesize($outfile)), $id);
-        // here we need a forced reload for the image list browser cache! ToDo!
         return true;
     }
     return false;
@@ -992,7 +991,6 @@ function serendipity_rotateImg($id, $degrees) {
     $fdim = @getimagesize($outfile);
 
     serendipity_updateImageInDatabase(array('dimensions_width' => $fdim[0], 'dimensions_height' => $fdim[1]), $id);
-    // here we need a forced reload for the image list browser cache! ToDo!
 
     return true;
 }
