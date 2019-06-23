@@ -190,7 +190,7 @@
 @define('RESIZING', 'Anpassen der Bildgröße');
 @define('RESIZE_DONE', 'Fertig (%s Bildgrößen angepaßt).');
 @define('DELETE_IMAGE_FAIL' , 'Kann das Bild namens <b>%s</b> nicht löschen');
-@define('DELETE_THUMBNAIL', 'Vorschaubilder zu <b>%s</b> gelöscht');
+@define('DELETE_THUMBNAIL', 'Vorschaubild: <b>%s</b> gelöscht');
 @define('FILE_NOT_FOUND', 'Die Datei namens <b>%s</b> kann nicht gefunden werden, vielleicht wurde diese schon gelöscht?');
 @define('ABORT_NOW', 'Abbrechen');
 @define('REMOTE_FILE_NOT_FOUND', 'Die Datei konnte auf dem Server nicht gefunden werden. Sind Sie sicher, dass die URL <b>%s</b> korrekt ist?');
