@@ -122,7 +122,7 @@ switch ($serendipity['GET']['adminAction']) {
             $id = (int)$id;
             if ($id > 0) {
                 $image = serendipity_fetchImageFromDatabase($id);
-                $messages[] = serendipity_deleteImage((int)$id);
+                $messages[] = serendipity_deleteImage($id);
                 $messages[] = sprintf('<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . RIP_ENTRY . "</span>\n", $image['id'] . ' - ' . serendipity_specialchars($image['realname']));
             }
         }
@@ -471,7 +471,7 @@ switch ($serendipity['GET']['adminAction']) {
                     $realname = $tfile;
                     if (file_exists($target)) {
                         $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . $target . ' - ' . ERROR_FILE_EXISTS_ALREADY . "</span>\n";
-                        $realname   = serendipity_imageAppend($tfile, $target, $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$idx]);
+                        $realname   = serendipity_imageAppend($tfile, $target, $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$idx]); // tfile & target referenced
                     }
 
                     // Accept file
