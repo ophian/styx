@@ -144,7 +144,7 @@ switch ($serendipity['GET']['adminAction']) {
             $serendipity['adminFile'] = 'serendipity_admin.php';
         }
         $abortLoc = $serendipity['serendipityHTTPPath'] . $serendipity['adminFile'] . '?serendipity[adminModule]=images';
-        $newLoc   = $abortLoc . '&serendipity[adminAction]=doDelete&serendipity[fid]=' . (int)$serendipity['GET']['fid'] . '&' . serendipity_setFormToken('url');
+        $newLoc   = $abortLoc . '&serendipity[adminAction]=doDelete&serendipity[fid]=' . $serendipity['GET']['fid'] . '&' . serendipity_setFormToken('url');
         $data['file']     = $file['name'] . '.' . $file['extension'];
         $data['abortLoc'] = $abortLoc;
         $data['newLoc']   = $newLoc;
@@ -380,8 +380,9 @@ switch ($serendipity['GET']['adminAction']) {
                                     'thumbSize' => $serendipity['thumbSize'],
                                     'thumb'     => $serendipity['thumbSuffix']
                                 ));
-                                serendipity_plugin_api::hook_event('backend_media_makethumb', $thumbs, $target);
+                                serendipity_plugin_api::hook_event('backend_media_makethumb', $thumbs, $target); // addData target added to support the responsiveimage event plugin
 
+                                // is one run only
                                 foreach($thumbs AS $thumb) {
                                     // Create thumbnail
                                     if ($created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$tindex], $thumb['thumbSize'], $thumb['thumb'])) {
@@ -486,6 +487,7 @@ switch ($serendipity['GET']['adminAction']) {
                         ));
                         serendipity_plugin_api::hook_event('backend_media_makethumb', $thumbs, $target);
 
+                        // is one run only
                         foreach($thumbs AS $thumb) {
                             // Create thumbnail
                             if ($created_thumbnail = serendipity_makeThumbnail($tfile, $serendipity['POST']['target_directory'][$idx], $thumb['thumbSize'], $thumb['thumb'])) {
@@ -501,6 +503,7 @@ switch ($serendipity['GET']['adminAction']) {
                             'target'            => $target,
                             'created_thumbnail' => $created_thumbnail
                         );
+
                     } else {
                         // necessary for the ajax-uploader to show upload errors
                         header("Internal Server Error", true, 500);
@@ -811,7 +814,7 @@ switch ($serendipity['GET']['adminAction']) {
             }
             $data['is_done'] = true;
         }
-        // fall back
+        // fall back to ML
         $serendipity['GET']['fid'] = null; // reset to nil after done, to be able to get the tools metaActionBar on showML via $media.metaActionBar
         $data['showML'] = showMediaLibrary();
         break;
@@ -849,9 +852,9 @@ switch ($serendipity['GET']['adminAction']) {
             break;
         }
 
-        serendipity_prepareMedia($file);
+        serendipity_prepareMedia($file); // adds: is_image
 
-        $media['file']['props'] =& serendipity_fetchMediaProperties((int)$serendipity['GET']['fid']);
+        $media['file']['props'] =& serendipity_fetchMediaProperties($serendipity['GET']['fid']);
         serendipity_plugin_api::hook_event('media_getproperties_cached', $media['file']['props']['base_metadata'], $media['file']['realfile']);
 
         if ($file['is_image']) {
