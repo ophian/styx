@@ -3145,7 +3145,7 @@ function serendipity_parsePropertyForm() {
     serendipity_checkPropertyAccess($serendipity['POST']['mediaProperties'], $serendipity['POST']['mediaKeywords'], 'write');
 
     foreach($serendipity['POST']['mediaProperties'] AS $id => $media) {
-        serendipity_insertMediaProperty('base_property', '', $media['image_id'], $media);
+        serendipity_insertMediaProperty('base_property', 'ALL', $media['image_id'], $media);
 
         $s9y_img = $media['internal'];
         $s9y_img['image_id'] = $media['image_id'];
