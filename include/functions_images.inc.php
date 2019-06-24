@@ -3088,7 +3088,6 @@ function serendipity_mediaTypeCast($key, $val, $invert = false) {
  * Inserts media properties
  *
  * @param   string  Property_group
- * @return array    array('image_id') holding the last created thumbnail for immediate processing
  *
  */
 function serendipity_insertMediaProperty($property_group, $property_subgroup, $image_id, &$media, $use_cast = true) {
