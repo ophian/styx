@@ -1,13 +1,6 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Fixed an old bug in serendipity_insertMediaProperty() property_subgroup
-    parameter to remove DB mediaproperties table field items before inserting
-    them again.
-    In view of Styx having fixed the sql layer files for error purposes, this
-    now showed up as valid errors in serendipity_insertMediaProperty(), since
-    possible DB items were not (properly) removed before inserting them (again).
-
   * Refactor MediaLibrary by adding a ImageMagick CLI interface solution.
     Improves ImageMagick Q16/Q8 binary handlers for resizing, quality etc.
 
@@ -32,6 +25,13 @@ Version 3.0-Dev ()
 
 Version 2.9.1-dev ()
  ------------------------------------------------------------------------
+
+  * Fixed an old bug in serendipity_insertMediaProperty() property_subgroup
+    parameter to remove DB mediaproperties table field items before inserting
+    them again.
+    In view of Styx having fixed the sql layer files for error purposes, this
+    now showed up as valid errors in serendipity_insertMediaProperty(), since
+    possible DB items were not (properly) removed before inserting them (again).
 
   * Add theme checks for old and unsupported themes with "Engines: Yes"
     (i.e. wp-compat) preview image files, adding a WebP image once if
