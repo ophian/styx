@@ -340,54 +340,64 @@ function serendipity_deleteImage($id) {
 
     $dThumb   = array();
     $messages = '';
-    $file = serendipity_fetchImageFromDatabase($id);
 
-    if (!is_array($file)) {
-        $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", $id);
+    $_file = serendipity_fetchImageFromDatabase($id);
+
+    if ($serendipity['useWebPFormat']) {
+        // get a possible image variations id
+        $vfile = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}images AS i WHERE path = '.v/' AND name = '{$_file['name']}' AND extension = 'webp'", true, 'assoc');
+        $files = is_array($vfile) ? [ $_file, $vfile ] : [ $_file ];
+    } else {
+        $files = [ $_file ];
+    }
+
+    if (!is_array($files)) {
+        $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span>AAAA ' . FILE_NOT_FOUND . "</span>\n", $id);
         //return false;
     } else {
+        foreach ($files AS $file) {
+            $dFile = $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
 
-        $dFile  = $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
+            $dThumb = array(array(
+                'fthumb' => $file['thumbnail_name']
+            ));
 
-        $dThumb = array(array(
-            'fthumb' => $file['thumbnail_name']
-        ));
+            if (!serendipity_checkPermission('adminImagesDelete')) {
+                return;
+            }
 
-        if (!serendipity_checkPermission('adminImagesDelete')) {
-            return;
-        }
+            if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
+                // A non-admin user SHALL NOT be able to delete private files from other users.
+                return;
+            }
 
-        if (!serendipity_checkPermission('adminImagesMaintainOthers') && $file['authorid'] != '0' && $file['authorid'] != $serendipity['authorid']) {
-            // A non-admin user SHALL NOT be able to delete private files from other users.
-            return;
-        }
-
-        if (!$file['hotlink']) {
-            if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
-                if (@unlink($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
-                    $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", $dFile);
-                } else {
-                    $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", $dFile);
-                }
-
-                serendipity_plugin_api::hook_event('backend_media_delete', $dThumb);
-                foreach($dThumb AS $thumb) {
-                    $dfnThumb = $file['path'] . $file['name'] . (!empty($thumb['fthumb']) ? '.' . $thumb['fthumb'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
-                    $dfThumb  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dfnThumb;
-
-                    if (@unlink($dfThumb)) {
-                        $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", $dfnThumb);
+            if (!$file['hotlink']) {
+                if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
+                    if (@unlink($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
+                        $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", $dFile);
+                    } else {
+                        $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", $dFile);
                     }
+
+                    serendipity_plugin_api::hook_event('backend_media_delete', $dThumb);
+                    foreach($dThumb AS $thumb) {
+                        $dfnThumb = $file['path'] . $file['name'] . (!empty($thumb['fthumb']) ? '.' . $thumb['fthumb'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
+                        $dfThumb  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dfnThumb;
+
+                        if (@unlink($dfThumb)) {
+                            $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", $dfnThumb);
+                        }
+                    }
+                } else {
+                    $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span>XXX ' . FILE_NOT_FOUND . "</span>\n", $dFile);
                 }
             } else {
-                $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", $dFile);
+                $messages .= sprintf('<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ' . DELETE_HOTLINK_FILE . "</span>\n", $file['name']);
             }
-        } else {
-            $messages .= sprintf('<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ' . DELETE_HOTLINK_FILE . "</span>\n", $file['name']);
-        }
 
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}images WHERE id = ". (int)$id);
-        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}mediaproperties WHERE mediaid = ". (int)$id);
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}images WHERE id = ". (int)$id);
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}mediaproperties WHERE mediaid = ". (int)$id);
+        }
     }
 
     return $messages;
