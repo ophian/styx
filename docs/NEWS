@@ -1,6 +1,38 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add EXPERIMENTAL WebP image file support to the MediaLibrary.
+    Valid image file upload formats like PNG/JPG/GIF etc - as well as their
+    thumbnail files - are automatically converted to a WebP image variation,
+    stored in a special directory underneath the current relative path.
+    These WebP image variations are NOT stored in the images database table
+    and are currently used only to vastly improve the MediaLibrary using these
+    much smaller image files. An example upload image named "fjord.png" has a
+    MIME-Type: image/png and a DIMENSION of 550x368 pixels. Its SIZE is 366 KB.
+    The png thumbnail variation of 400x268 pixels is at ~188 KB in size.
+    The WebP generated dependents are at 33 KB and 16 KB, without any visual
+    quality loss. If your browser supports webp images, they are still out-
+    lined as *.png files, but shown and fetched as *.webp filed images.
+
+    You can imagine what this means for performance and page loads!
+    The CURRENT DEVELOPMENT caveat is, that this only works with ImageMagick
+    (see in your Serendipity configurations) and this as least as an IM 6.9.10.x
+    version (see the notes in the Styx 2.9.0 changelog below) and therefore has
+    to get manually enabled by adding:
+        $serendipity['useWebPFormat'] = true;
+    to your serendipity_config_local.inc.php file (see user variables section).
+
+    The CONCEPT of image OBJECTS (the file you upload and its dependent thumb-
+    nail file "variation") and additional image VARIATIONS (like webp), is to
+    support things like image (media) sourcesets and the HTML5 <picture> element
+    tag. Instead of having one image that is scaled up or down based on the view-
+    port width, multiple images can be designed to more nicely fill the browsers
+    viewport. The <picture> element holds two different tags: one or more <source>
+    tags and one <img> tag as a fallback.
+    The Clients browser decides which file to pick up.
+    This is enhanceable by adding different @media screen sourcesets to the <source>
+    tag(s) to support special sized media loads on different client devices.
+
   * Fix a MediaLibrary bug within the Smarty link assignment for non-internal
     images.
 
