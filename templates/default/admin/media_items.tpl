@@ -1,7 +1,7 @@
 {foreach $media.files AS $file}
     {if NOT $media.manage}
         {* ML got called for inserting media *}
-            {if $file.is_image AND isset($file.full_thumb) AND $file.full_thumb}
+            {if $file.is_image AND isset($file.full_thumb_path) AND $file.full_thumb_path}
                 {if NOT empty($media.textarea) OR NOT empty($media.htmltarget)}
                 {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
                 {else}
@@ -10,7 +10,8 @@
                     {/if}
                 {/if}
 
-                {$img_src="{$file.full_thumbHTTP}"}
+                {$img_src_webp="{$file.full_thumb_webp|default:''}"}
+                {$img_src="{$file.full_thumb}"}
                 {$img_title="{$file.path}{$file.name}"}
                 {$img_alt="{$file.realname}"}
 
@@ -22,9 +23,12 @@
                         {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
                     {/if}
                 {/if}
-                    {$img_src="{$file.path}"}
-                    {$img_title="{$file.path}"}
-                    {$img_alt="{$file.realname}"}
+
+                {* $link_webp="{$file.full_file_webp|default:''}" NOT actually a NEED here, isn't it .. *}
+                {* $img_src_webp="{$file.full_thumb_webp|default:''}" NOT actually a NEED here, isn't it .. *}
+                {$img_src="{$file.path}"}
+                {$img_title="{$file.path}"}
+                {$img_alt="{$file.realname}"}
             {else}
                 {if NOT empty($media.textarea)}
                     {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
@@ -33,24 +37,30 @@
                         {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
                     {/if}
                 {/if}
-                    {$img_src="{$file.mimeicon}"}
-                    {$img_title="{$file.path}{$file.name}({$file.mime})"}
-                    {$img_alt="{$file.mime}"}
+
+                {$img_src="{$file.mimeicon}"}
+                {$img_title="{$file.path}{$file.name}({$file.mime})"}
+                {$img_alt="{$file.mime}"}
             {/if}
     {else}
-        {if $file.is_image AND isset($file.full_thumb) AND $file.full_thumb}
+        {if $file.is_image AND isset($file.full_thumb_path) AND $file.full_thumb_path}
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
+            {$link_webp="{$file.full_file_webp|default:''}"}
             {$img_src="{$file.show_thumb}"}
+            {$img_src_webp="{$file.full_thumb_webp|default:''}"}
             {$img_title="{$file.path}{$file.name}"}
             {$img_alt="{$file.realname}"}
         {elseif $file.is_image AND $file.hotlink}
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
+            {$link_webp="{$file.full_file_webp|default:''}"}
             {$img_src="{$file.path}"}
             {$img_title="{$file.path}"}
             {$img_alt="{$file.realname}"}
         {else}
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
+            {$link_webp="{$file.full_file_webp|default:''}"}
             {$img_src="{$file.mimeicon}"}
+            {$img_src_webp="{$file.full_thumb_webp|default:''}"}
             {$img_title="{$file.path}{$file.name}({$file.mime})"}
             {$img_alt="{$file.mime}"}
         {/if}
@@ -78,13 +88,19 @@
                 <div class="clearfix equal_heights media_file_wrap">
                     <div class="media_file_preview">
                         {if isset($link)}
-                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
-                            <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
+                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link_webp|default:$link}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
+                            <picture>
+                                <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
+                                <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
+                            </picture>
                         </a>
                         {else}
                         {if $file.is_image}
-                        <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties -->
-                        {if $file.mime|truncate:6:'' == 'image/' AND $file.extension|count_characters > $CONST.PATHINFO_EXTENSION}
+                        <picture>
+                            <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
+                            <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties -->
+                        </picture>
+                        {if $file.mime|truncate:6:'' == 'image/' AND ($file.extension|count_characters > $CONST.PATHINFO_EXTENSION)}
                         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR_SOMETHING}
                             <p>{$CONST.MEDIA_EXTENSION_FAILURE|sprintf:$file.realname:$file.mime:$file.extension:($file.extension|count_characters):$CONST.PATHINFO_EXTENSION}</p>
                             {$CONST.MEDIA_EXTENSION_FAILURE_REPAIR}
@@ -165,7 +181,7 @@
                     {foreach $imagesNoSync AS $special}
                     {if $file.name == $special.pfilename}
 
-                    <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{$CONST.PUBLISHED}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
+                    <li class="special"><a class="media_fullsize media_prop button_link" href="{$special.url}" title="{if $special.extension == 'webp'}{$CONST.VARIATION|default:'Image variation'}{else}{$CONST.PUBLISHED}{/if}: {$special.basename}, {$special.width}x{$special.height}px" data-pwidth="{$special.width}" data-pheight="{$special.height}"><span class="icon-image-of" aria-hidden="true">&#x22b7;</span><span class="visuallyhidden"> Image Of</span></a></li>
                     {/if}
                     {/foreach}
                     {/if}
