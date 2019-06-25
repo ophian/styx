@@ -3085,6 +3085,31 @@ function serendipity_mediaTypeCast($key, $val, $invert = false) {
 }
 
 /**
+ * Update single media properties. Mainly used for renaming media filenames.
+ *
+ * @param   int     Media ID
+ * @param   string  Property_fields to check for
+ * @param   string  The SET value
+ *
+ */
+function serendipity_updateSingleMediaProperty($image_id, $property_fields, $setval) {
+    global $serendipity;
+
+    $AND = '';
+    if (is_array($property_fields)) {
+        foreach ($property_fields AS $field => $val) {
+            $AND .= ' AND ' . $field . ' = "' . $val .'"';
+        }
+    } else {
+        return;
+    }
+    $q = "UPDATE {$serendipity['dbPrefix']}mediaproperties
+             SET value = '" . serendipity_db_escape_string($setval) . "'
+           WHERE mediaid = " . (int)$image_id . $AND;
+    serendipity_db_query($q);
+}
+
+/**
  * Inserts media properties
  *
  * @param   string  Property_group
@@ -4060,19 +4085,17 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
-            // renaming filenames has to update mediaproperties if set
-            $q = "UPDATE {$serendipity['dbPrefix']}mediaproperties
-                     SET value = '" . serendipity_db_escape_string($newName . (empty($file['extension']) ? '' : '.' . $file['extension'])) . "'
-                   WHERE mediaid = " . (int)$item_id . ' AND property = "realname" AND value = "' . $file['realname'] . '"';
-            serendipity_db_query($q);
-            $q = "UPDATE {$serendipity['dbPrefix']}mediaproperties
-                     SET value = '" . serendipity_db_escape_string($newName) . "'
-                   WHERE mediaid = " . (int)$item_id . ' AND property = "name" AND value = "' . $file['name'] .'"';
-            serendipity_db_query($q);
-            $q = "UPDATE {$serendipity['dbPrefix']}mediaproperties
-                     SET value = '" . serendipity_db_escape_string($newName . (empty($file['extension']) ? '' : '.' . $file['extension'])) . "'
-                   WHERE mediaid = " . (int)$item_id . ' AND property = "TITLE" AND value = "' . $file['realname'] .'"';
-            serendipity_db_query($q);
+            // renaming filenames has to update mediaproperties, if set (.. although no DB needs for the webp variation files!)
+            serendipity_updateSingleMediaProperty(  $item_id,
+                    array('property' => 'realname', 'property_group' => 'base_property', 'property_subgroup' => 'internal', 'value' => $file['realname']),
+                    $newName . (empty($file['extension']) ? '' : '.' . $file['extension']));
+            serendipity_updateSingleMediaProperty(  $item_id,
+                    array('property' => 'name', 'property_group' => 'base_property', 'property_subgroup' => 'internal', 'value' => $file['name']),
+                    $newName);
+            serendipity_updateSingleMediaProperty(  $item_id,
+                    array('property' => 'TITLE', 'property_group' => 'base_property', 'value' => $file['realname']),
+                    $newName . (empty($file['extension']) ? '' : '.' . $file['extension'])); // TITLE is either '', 'ALL', or 'internal'
+                    // And keep in mind that field names are case-insensitive.. but in this case there should be no confusion, since the only other value I found is: 'Title' with a subgroup 'XMP' is in group 'base_metadata'.
 
             serendipity_updateImageInDatabase(array('thumbnail_name' => $renameValues[0]['thumb'], 'realname' => $newName . (empty($file['extension']) ? '' : '.' . $file['extension']), 'name' => $newName), $item_id);
 
