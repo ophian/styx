@@ -11,7 +11,10 @@
         {serendipity_hookPlugin hook="frontend_image_selector" eventData=$media.file hookAll=true}
         <h1 id="media_selection_title">{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
 
-        <img src="{$media.file.imgsrc}" alt="">
+        <picture>
+            <source type="image/webp" srcset="{$media.file.full_thumb_webp|default:''}" class="ml_preview_img" alt="{$media.file.name}">
+            <img src="{$media.file.imgsrc}" alt="{$media.file.name}">
+        </picture>
 
         <form id="imageForm" name="serendipity[selForm]" action="#" method="GET">
             {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_hiddenfields' eventData=$media.file}
@@ -24,6 +27,7 @@
             <input name="indexFile" type="hidden" value="{$serendipityIndexFile}">
             <input name="imgName" type="hidden" value="{$media.file.full_file}">
             <input name="thumbName" type="hidden" value="{$media.file.show_thumb}">
+            <input name="webPthumbName" type="hidden" value="{$media.file.full_thumb_webp|default:''}">
             <input name="hotlink" type="hidden" value="{$media.file.hotlink}">
         {if $media.htmltarget}
             <input name="serendipity[htmltarget]" type="hidden" value="{$media.htmltarget|escape}">
@@ -136,6 +140,9 @@
             <div class="form_buttons">
                 <input class="button_link go_back" type="button" value="{$CONST.BACK}">
                 <input class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA}" onclick="serendipity.rememberMediaOptions(); {$media.file.origfinishJSFunction}">
+            {if NOT empty($media.file.full_thumb_webp)}
+                <input class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT|default:'Use &lt;picture&gt; element'}" data-submit="enhanced" onclick="serendipity.rememberMediaOptions(); {$media.file.origfinishJSFunction}">
+            {/if}
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_submit' eventData=$media.file}
             </div>
         {/if}{* else fast_select end *}
