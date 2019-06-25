@@ -1,5 +1,8 @@
 Version 2.9.1-dev ()
 
+  * Fix a MediaLibrary bug within the Smarty link assignment for non-internal
+    images.
+
   * Fixed an old bug in serendipity_insertMediaProperty() property_subgroup
     parameter to remove DB mediaproperties table field items before inserting
     them again.
