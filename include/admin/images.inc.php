@@ -481,6 +481,19 @@ switch ($serendipity['GET']['adminAction']) {
                         @umask(0000);
                         @chmod($target, 0664);
 
+                        // Create a target copy variation in WebP image format
+                        if (file_exists($target) && $serendipity['useWebPFormat']) {
+                            $variat = serendipity_makeImageVariationPath($target, 'webp');
+                            $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target));
+                            if (is_array($result)) {
+                                $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) created!</span>'."\n";
+                                if (is_object(@$serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: CLI Image WebP format creation success ${result[2]} from $target " . DONE); }
+                            } else {
+                                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> WebP image format copy creation failed!</span>'."\n";
+                                if (is_object(@$serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: CLI Image WebP format creation failed"); }
+                            }
+                        }
+
                         $thumbs = array(array(
                             'thumbSize' => $serendipity['thumbSize'],
                             'thumb'     => $serendipity['thumbSuffix']

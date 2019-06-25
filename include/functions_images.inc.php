@@ -642,6 +642,48 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
 }
 
 /**
+ * Convert an uploaded thumb or single file to the WebP image VARIATION image format with ImageMagick
+ * Create CMD string settings and pass to serendipity_passToCMD()
+ * NOTE: An image upload source is the origin file object. Thumb prefixed previews AND media sized "previews" are origin sub-variations.
+ *       A Webp image is an extra origin variant of the source and is "on top" the variation(s). We STORE them in a (preserved key) current dir/.v directory!
+ * WHY USING A HIDDEN DIRECTORY for storage of image variations:
+ *       Hidden files offer a convenient mechanism for associating arbitrary metadata with a directory location while remaining largely independent of file system or OS mechanics.
+ *       Hidden files are just hidden enough to discourage most users from accidentally invalidating that metadata by moving or removing them while remaining standard enough
+ *       to be universally available and flexible enough to support a wide range of use cases. In this directory-case excellent for storing additional image variations that are used for output only.
+ *       Styx handlers:
+ *          Fetching a sub variations shall not get the Webp formatted origin variation.
+ *          ML fetching of $images shall only get the origin, the Webp origin variation and the thumbnail sub variation. Others shall not be included.
+ *          Media scaled images for the source-sets live in ML since they are variations, but NOT in the database NOR in the display images build list.
+ *          So we have core files: Origin, Thumb and WebP and possible other sub variations of origin, which are media scaled images and special plugin images, eg. quickblog.
+ *
+ * @param string $source    Source file fullpath
+ * @param string $outpath   Target file path
+ * @param string $outfile   Target file name
+ * @param string $mime      Output of mime_content_type($target)
+ * @param int    $quality   Held for future purposes
+ *
+ * @return mixed
+ */
+function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $quality=100) {
+    if (in_array(strtoupper(explode('/', $mime)[1]), getSupportedFormats())) {
+        global $serendipity;
+
+        $_tmppath = dirname($outpath . '/.v/' . $outfile);
+        if (!is_dir($_tmppath)) {
+            @mkdir($_tmppath);
+        }
+        $thumb = (false !== strpos($outfile, $serendipity['thumbSuffix'])) ? "{$serendipity['thumbSuffix']} " : ' ';
+        $_outfile = $_tmppath . '/' . $outfile; // store in a ("preserved key .v") current dir/.v directory!
+        if (!file_exists($_outfile)) {
+            echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
+            $pass = [ $serendipity['convert'], [], [], [], 100, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
+            return serendipity_passToCMD('format-webp', $infile, $_outfile, $pass);
+        }
+    }
+    return false;
+}
+
+/**
  * Get valid source image formats
  *
  * @return array
@@ -651,6 +693,24 @@ function getSupportedFormats($extend=false) {
         return ['BMP', 'PNG', 'JPG', 'JPEG', 'GIF', 'WEBP'];
     }
     return ['PNG', 'JPG', 'JPEG', 'GIF'];
+}
+
+/**
+ * Make image variation storage path for targets. Split the origin file to path and replace the file basename with the new image format name.
+ *
+ * @param string $file  origin fullpath file
+ * @param string $ext   new extension
+ *
+ * @return array
+ */
+function serendipity_makeImageVariationPath($orgfile, $ext) {
+    $newfile = [];
+    [ 'basename' => $basename, 'dirname' => $dirname, 'extension' => $extension ] = pathinfo($orgfile);
+    $newname = str_replace($extension, $ext, $basename);
+    $newfile['filepath'] = $dirname;
+    $newfile['filename'] = $newname;
+
+    return $newfile;
 }
 
 /**
@@ -674,7 +734,7 @@ function getSupportedFormats($extend=false) {
 function serendipity_passToCMD($type=null, $source='', $target='', $args=array()) {
 
     if ($type === null
-    || (!in_array($type, ['pdfthumb', 'mkthumb']) && !in_array(strtoupper(explode('/', $type)[1]), getSupportedFormats(true)))
+    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-webp']) && !in_array(strtoupper(explode('/', $type)[1]), getSupportedFormats(true)))
     || !serendipity_checkPermission('adminImagesMaintainOthers')) {
         return false;
     }
@@ -718,6 +778,10 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
                 "-depth 8 -quality {$args[4]} -strip \"$target\"";
 
+    } else if ($type == 'format-webp') {
+        $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
+                "-strip \"$target\"";
+
     }
     // main file scaling (scale, resize, rotate, ...)
     if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
@@ -732,6 +796,9 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
                 "-depth 8 -strip \"$target\"";
 
+    } else if (image_type_to_mime_type(IMAGETYPE_WEBP) == $type) {
+        $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
+                "-depth 8 -strip \"$target\"";
     }
 
     if (is_null($cmd)) {
@@ -743,7 +810,7 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
 
     if (0 != $res) return false; // failure
 
-    return array($res, $cmd);
+    return array($res, $out, $cmd);
 }
 
 /**
