@@ -303,7 +303,7 @@
                 imgID = v['id'];
                 imgWidth = v['thumbWidth'];
                 imgHeight = v['thumbHeight'];
-                imgName = v['full_thumbHTTP'];
+                imgName = v['full_thumb'];
                 ilink = v['full_file'];
                 title = v['prop_title'];
                 imgalt = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
