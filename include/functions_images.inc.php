@@ -1083,21 +1083,21 @@ function serendipity_rotateImg($id, $degrees) {
 
         /* Resize main image */
         $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Resize main file command: ${result[1]}"); }
+        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Resize main file command: ${result[2]}"); }
 
         if ($result[0] != 0) {
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], $output[0], $result[0]) ."</span>\n";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
         }
-        unset($output, $result);
+        unset($result);
 
         /* Resize thumbnail */
         $result = serendipity_passToCMD($file['mime'], $infileThumb, $outfileThumb, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Resize thumb file command: ${result[1]}"); }
+        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Resize thumb file command: ${result[2]}"); }
 
         if ($result[0] != 0) {
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], $output[0], $result[0]) ."</span>\n";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
         }
-        unset($output, $result);
+        unset($result);
 
     }
 
