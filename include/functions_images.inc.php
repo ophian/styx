@@ -3404,9 +3404,13 @@ function serendipity_prepareMedia(&$file, $url = '') {
     }
 
     $sThumbSource = serendipity_getThumbNailPath($file['path'], $file['name'], $file['extension'], $file['thumbnail_name']);
+    $sThumbSource_webp = serendipity_getThumbNailPath($file['path'].'.v/', $file['name'], 'webp', $file['thumbnail_name']);
     if (! $file['hotlink']) {
-        $file['full_thumb']     = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource;
-        $file['full_thumbHTTP'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $sThumbSource;
+        $file['full_thumb_path'] = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource;
+        $file['full_thumb'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $sThumbSource;
+        if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource_webp)) {
+            $file['full_thumb_webp'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] . $sThumbSource_webp;
+        }
     }
 
     $file['url'] = $url;
@@ -3420,18 +3424,21 @@ function serendipity_prepareMedia(&$file, $url = '') {
     } else {
         $file['full_file']  = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
         $file['full_path_file'] = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
-        $file['show_thumb'] = $file['full_thumbHTTP'];
+        $file['show_thumb'] = $file['full_thumb'];
+        if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp')) {
+            $file['full_file_webp'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
+        }
         if (!isset($file['imgsrc'])) {
             $file['imgsrc'] = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
         }
     }
 
     // Detect PDF thumbs
-    if (isset($file['full_thumb']) && file_exists($file['full_thumb'] . '.png')) {
-        $file['full_thumb']     .= '.png';
-        $file['full_thumbHTTP'] .= '.png';
-        $file['show_thumb']     .= '.png';
-        $sThumbSource           .= '.png';
+    if (isset($file['full_thumb_path']) && file_exists($file['full_thumb_path'] . '.png')) {
+        $file['full_thumb_path'] .= '.png';
+        $file['full_thumb']      .= '.png';
+        $file['show_thumb']      .= '.png';
+        $sThumbSource            .= '.png';
     }
 
     if (empty($file['realname'])) {
@@ -3442,7 +3449,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
     $file['links'] = array('imagelinkurl' => $file['full_file']);
 
     $file['is_image']  = serendipity_isImage($file);
-    $file['dim']       = $file['is_image'] ? @getimagesize($file['full_thumb'], $file['thumb_header']) : null;
+    $file['dim']       = $file['is_image'] ? @getimagesize($file['full_thumb_path'], $file['thumb_header']) : null;
     $file['dim_orig']  = $file['is_image'] ? @getimagesize($file['full_path_file'], $file['header']) : null;
 
     if ($file['is_image']) {
@@ -3472,10 +3479,10 @@ function serendipity_prepareMedia(&$file, $url = '') {
     }
 
     /* If it is an image, and the thumbnail exists */
-    if ($file['is_image'] && isset($file['full_thumb']) && file_exists($file['full_thumb'])) {
+    if ($file['is_image'] && isset($file['full_thumb_path']) && file_exists($file['full_thumb_path'])) {
         $file['thumbWidth']  = $file['dim'][0];
         $file['thumbHeight'] = $file['dim'][1];
-        $file['thumbSize']   = @filesize($file['full_thumb']);
+        $file['thumbSize']   = @filesize($file['full_thumb_path']);
     } elseif ($file['is_image'] && $file['hotlink']) {
         $sizes = serendipity_calculate_aspect_size($file['dimensions_width'], $file['dimensions_height'], $serendipity['thumbSize'], $serendipity['thumbConstraint']);
         $file['thumbWidth']  = $sizes[0];
