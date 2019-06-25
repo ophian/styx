@@ -19,7 +19,7 @@
                     {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
                 {else}
                     {if $file.url}
-                        {$link="{$file.$url}&amp;serendipity[image]={$file.id}"}
+                        {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
                     {/if}
                 {/if}
                     {$img_src="{$file.path}"}
@@ -30,7 +30,7 @@
                     {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
                 {else}
                     {if $file.url}
-                        {$link="{$file.$url}&amp;serendipity[image]={$file.id}"}
+                        {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
                     {/if}
                 {/if}
                     {$img_src="{$file.mimeicon}"}
