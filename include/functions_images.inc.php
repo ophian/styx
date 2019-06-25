@@ -907,7 +907,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 $result = serendipity_passToCMD('pdfthumb', $infile[0], $outfile . '.png', $pass);
                 // The [0] after the pdf path is used to choose which page we want to convert, starting from 0.
 
-                if ($debug) { $serendipity['logger']->debug("ImageMagick CLI PDF thumbnail creation: ${result[1]}"); }
+                if ($debug) { $serendipity['logger']->debug("ImageMagick CLI PDF thumbnail creation: ${result[2]}"); }
 
             } else {
                 $isPDF = false;
@@ -921,15 +921,44 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
 
                 $_imtp = !empty($serendipity['imagemagick_thumb_parameters']) ? ' '. $serendipity['imagemagick_thumb_parameters'] : '';
 
-                $pass = [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], 75, -1 ];
-                $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
+                // check a special case for the fullpath WebP file to thumbnail resizing
+                if (false !== strpos($outfile, '.' . $serendipity['thumbSuffix'] . '.webp')) {
+                    $fdim['mime'] = 'image/webp';
+                }
 
-                if ($debug) { $serendipity['logger']->debug("CLI Image thumbnail creation: ${result[1]}"); }
+                // avoid the file resizing loop in special case; which is example.serendipityThumb.ext (png,jpg,webp..)
+                if (!file_exists($outfile)) {
+                    $pass = [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], 75, -1 ];
+                    $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
+
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image thumbnail creation: ${result[2]}"); }
+                }
+
+                // Create a copy of the thumb in WebP image format
+                if (file_exists($outfile) && $serendipity['useWebPFormat']) {
+                    $newfile = serendipity_makeImageVariationPath($outfile, 'webp');
+                    // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
+                    // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthb->resize to thumb, which overwrites the first.
+                    $webpthb = $newfile['filepath']. '/.v/' . $newfile['filename'];
+                    $result = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile));
+                    if (is_array($result)) {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation success ${result[2]} " . DONE); }
+                        // The resizing to same name(!)
+                        $result = serendipity_passToCMD('image/webp', $webpthb, $webpthb, $pass);
+                        if (is_array($result)) {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format resize success ${result[2]} " . DONE); }
+                        } else {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format resize failed! Perhaps a wrong path: '$webpthb' ?"); }
+                        }
+                    } else {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation failed OR already exists."); }
+                    }
+                }
             }
 
             if ($result[0] != 0) {
                 if (!$isPDF) {
-                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], @$output[0], $result[0]) ."</span>\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], @$result[1][0], $result[0]) ."</span>\n";
                 } else {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> PDF thumbnail creation using ImageMagick and Ghostscript failed!' . "</span>\n";
                 }
@@ -937,7 +966,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
             } else {
                 touch($outfile);
             }
-            unset($output, $result);
+            unset($result);
         }
     }
     return $r;
