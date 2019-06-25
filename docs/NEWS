@@ -33,9 +33,6 @@ Version 3.0-Dev ()
     This is enhanceable by adding different @media screen sourcesets to the <source>
     tag(s) to support special sized media loads on different client devices.
 
-  * Fix a MediaLibrary bug within the Smarty link assignment for non-internal
-    images.
-
   * Add new image API function serendipity_updateSingleMediaProperty() for
     updating single changed media properties (see rename real files examples).
 
@@ -63,6 +60,9 @@ Version 3.0-Dev ()
 
 Version 2.9.1-dev ()
  ------------------------------------------------------------------------
+
+  * Fix a MediaLibrary bug within the Smarty link assignment for non-internal
+    images.
 
   * Fixed an old bug in serendipity_insertMediaProperty() property_subgroup
     parameter to remove DB mediaproperties table field items before inserting
