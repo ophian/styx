@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix a MediaLibrary bug within the Smarty link assignment for non-internal
+    images.
+
   * Add new image API function serendipity_updateSingleMediaProperty() for
     updating single changed media properties (see rename real files examples).
 
