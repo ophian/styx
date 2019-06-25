@@ -4019,6 +4019,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
 
     $real_oldDir = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . rtrim($oldDir, '/');
     $real_newDir = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . rtrim($newDir, '/');
+    // nothing to do for a possible web case!
 
     if (!is_dir($real_oldDir)) {
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_NOT_EXISTS . "</span>\n"; // const has no arg for  , rtrim($oldDir, '/')
@@ -4141,12 +4142,22 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // We don't need to care about $parts['extension'], since you can't change the EXT by the JS file rename event
         $file_new = $file['path'] . $newName;
         $file_old = $file['path'] . $file['name'];
+        // webp case
+        $file_new_webp = $file['path'] . '.v/' . $newName;
+        $file_old_webp = $file['path'] . '.v/' . $file['name'];
 
         // build full thumb file names
         $_file_newthumb = $file['path'] . $newName . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
         $_file_oldthumb = $file['path'] . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
+        // webp case
+        $_file_newthumbWebp = $file['path'] . '.v/' . $newName . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.webp';
+        $_file_oldthumbWebp = $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.webp';
+        // file case
         $newThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_newthumb;
         $oldThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumb;
+        // webp case
+        $newThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_newthumbWebp;
+        $oldThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumbWebp;
 
     } else {
         if ($debug) { $serendipity['logger']->debug("$logtag 1 newDir=$newDir"); }
@@ -4159,16 +4170,31 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // We don't need to care about $parts['extension'], since you can't change the EXT via the bulkmove event
         $file_new = $_newDir . $file['name'];
         $file_old = $file['path'] . $file['name'];
-
+        // webp case
+        $file_new_webp = $_newDir . '.v/' . $file['name'];
+        $file_old_webp = $file['path'] . '.v/' . $file['name'];
     }
 
     // build full origin and new file path names for both events
     $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_new . (empty($file['extension']) ? '' : '.' . $file['extension']);
     $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_old . (empty($file['extension']) ? '' : '.' . $file['extension']);
+    // webp case and the valid(!) paranoid case to remove and re-add the extension
+    $file_new_webp = pathinfo($file_new_webp, PATHINFO_FILENAME);
+    $file_old_webp = pathinfo($file_old_webp, PATHINFO_FILENAME);
+
+    // check if the hidden dir path part is not already applied
+    if (!preg_match('@\.v\/@', $file_new_webp)) {
+        $file_new_webp = '.v/' . $file_new_webp;
+        $file_old_webp = '.v/' . $file_old_webp;
+    }
+    $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_new_webp . '.webp';
+    $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_old_webp . '.webp';
 
     if ($debug) {
         $serendipity['logger']->debug("$logtag oldfile=$oldfile");
         $serendipity['logger']->debug("$logtag newfile=$newfile");
+        $serendipity['logger']->debug("$logtag oldfilewebp=$oldfilewebp");
+        $serendipity['logger']->debug("$logtag newfilewebp=$newfilewebp");
     }
 
     // check files existence for both events
@@ -4187,25 +4213,33 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
 
         // Case re-name event, keeping a possible moved directory name for a single file
         if ($oldDir === null) {
-            // Move the origin file
+            // Rename/Move the origin file
             @rename($oldfile, $newfile);
+            // Rename/Move the .v/ stored webp file
+            @rename($oldfilewebp, $newfilewebp);
             // do not re-name again, if an item has no thumb name (eg. *.zip object file case) and old thumb eventually exists (possible missing PDF preview image on WinOS with IM)
             if (($newThumb != $newfile) && file_exists($oldThumb)) {
                 // the thumb file
                 @rename($oldThumb, $newThumb); // Keep both rename() errors disabled, since we have to avoid any output in renaming cases
+                // webp thumb case
+                if (($newThumbWebp != $newfilewebp) && file_exists($oldThumbWebp)) {
+                    @rename($oldThumbWebp, $newThumbWebp);
+                }
             }
-
+# ToDo & check: fill with webp types... for staticpages should be oldfilewebp and newfilewebp only... the rest would be done in staticpage plugin
             // hook into staticpage for the renaming regex replacements
-            $renameValues = array(array(
-                'from'    => $oldfile,
-                'to'      => $newfile,
-                'thumb'   => $fileThumbSuffix,
-                'fthumb'  => $file['thumbnail_name'],
-                'oldDir'  => $oldDir,
-                'newDir'  => $newDir,
-                'type'    => $type,
-                'item_id' => $item_id,
-                'file'    => $file
+            $renameValues  = array(array(
+                'fromwebp' => $oldfilewebp,
+                'towebp'   => $newfilewebp,
+                'from'     => $oldfile,
+                'to'       => $newfile,
+                'thumb'    => $fileThumbSuffix,
+                'fthumb'   => $file['thumbnail_name'],
+                'oldDir'   => $oldDir,
+                'newDir'   => $newDir,
+                'type'     => $type,
+                'item_id'  => $item_id,
+                'file'     => $file
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
@@ -4332,6 +4366,9 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     // Move thumbs - Rebuild full origin and new file path names by the new picked file array
     $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
     $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
+    // webp case
+    $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . '.v/' . $_file['name'] . '.webp';
+    $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . '.v/' . $_file['name'] . '.webp';
 
     // we need to KEEP the old files thumbnail_name (for the staticpage hook only in this case), for the case the global serendipity thumbSuffix has changed! A general conversion need to be done somewhere else.
     $fileThumbSuffix = !empty($_file['thumbnail_name']) ? $_file['thumbnail_name'] : $serendipity['thumbSuffix'];
@@ -4351,17 +4388,32 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     ));
     serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
+    $reserr = false;
     // Move the origin file
     try {
         rename($oldfile, $newfile);
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (5)</span>\n";
+        $reserr = true;
+    }
+    // webp case
+    if (!$reserr && file_exists($oldfilewebp) && !file_exists($newfilewebp)) {
+        $_tmppath = dirname($newfilewebp);
+        if (!is_dir($_tmppath)) {
+            @mkdir($_tmppath);
+        }
+        rename($oldfilewebp, $newfilewebp);
     }
 
     foreach($renameValues AS $renameData) {
+        $reset = false;
         $thisOldThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (!empty($renameData['fthumb']) ? '.' . $renameData['fthumb'] : '') . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
         $thisNewThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . $_file['name'] . (!empty($_file['thumbnail_name']) ? '.' . $_file['thumbnail_name'] : '') . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
+        // webp thumb case
+        $thisOldThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . '.v/' . $_file['name'] . (!empty($renameData['fthumb']) ? '.' . $renameData['fthumb'] : '') . '.webp';;
+        $thisNewThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . '.v/' . $_file['name'] . (!empty($_file['thumbnail_name']) ? '.' . $_file['thumbnail_name'] : '') . '.webp';;
+
         // Check for existent old thumb files first, to not need to disable rename by @rename(), then move the thumb file and catch any wrong renaming
         if (($thisNewThumb != $newfile) && file_exists($thisOldThumb)) {
             // Move the thumb file and catch any wrong renaming
@@ -4372,6 +4424,10 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
                 // reset already updated image table
                 serendipity_updateImageInDatabase(array('path' => $oldDir), $item_id);
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (6)</span>\n";
+                $reset = true;
+            }
+            if (!$reset && file_exists($thisOldThumbWebp) && !file_exists($thisNewThumbWebp)) {
+                rename($thisOldThumbWebp, $thisNewThumbWebp);
             }
         }
     }
