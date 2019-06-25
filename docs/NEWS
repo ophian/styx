@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add new image API function serendipity_updateSingleMediaProperty() for
+    updating single changed media properties (see rename real files examples).
+
   * Refactor MediaLibrary by adding a ImageMagick CLI interface solution.
     Improves ImageMagick Q16/Q8 binary handlers for resizing, quality etc.
 
