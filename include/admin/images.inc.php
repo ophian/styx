@@ -45,6 +45,8 @@ $data['case_scale'] = $data['case_scaleSelect'] = false;
 $data['showMLbutton'] = $data['case_default'] = false;
 $data['closed'] = false;
 
+$mediaExcludeDirs = array('CVS' => true, '.svn' => true, '_vti_cnf' => true, '.git' => true, '.v' => true);
+
 switch ($serendipity['GET']['adminAction']) {
 
     case 'doSync':
@@ -612,7 +614,16 @@ switch ($serendipity['GET']['adminAction']) {
         $write_groups = serendipity_ACLGet(0, 'directory', 'write', $use_dir);
 
         if (!empty($serendipity['POST']['update_children'])) {
-            $dir_list = serendipity_traversePath($serendipity['serendipityPath'] . $serendipity['uploadPath'], $use_dir, true, NULL, 1, NULL, 'write', NULL);
+            $dir_list = serendipity_traversePath(
+                $serendipity['serendipityPath'] . $serendipity['uploadPath'],
+                $use_dir,
+                true,
+                NULL,
+                1,
+                NULL,
+                'write',
+                $mediaExcludeDirs
+            );
             foreach($dir_list AS $f => $dir) {
                 // Apply parent ACL to children.
                 serendipity_ACLGrant(0, 'directory', 'read', $serendipity['POST']['read_authors'], $dir['relpath']);
@@ -693,7 +704,8 @@ switch ($serendipity['GET']['adminAction']) {
             NULL,
             1,
             NULL,
-            'write'
+            'write',
+            $mediaExcludeDirs
         );
         usort($folders, 'serendipity_sortPath');
         $data['case_directoryCreate'] = true;
@@ -714,7 +726,8 @@ switch ($serendipity['GET']['adminAction']) {
             NULL,
             1,
             NULL,
-            'write'
+            'write',
+            $mediaExcludeDirs
         );
         usort($folders, 'serendipity_sortPath');
         $data['case_directorySelect'] = true;
@@ -736,7 +749,8 @@ switch ($serendipity['GET']['adminAction']) {
             NULL,
             1,
             NULL,
-            'write'
+            'write',
+            $mediaExcludeDirs
         );
         usort($folders, 'serendipity_sortPath');
 

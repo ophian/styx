@@ -1970,7 +1970,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
     if ($manage && $limit_path == NULL) {
         ## SYNC START ##
-        $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true); // _vti_cnf to exclude possible added servers frontpage extensions
+        $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true); // removed ", '.v' => true", which allows to place an existing .v/ dir stored Webp image variation in the aFilesNoSync array! See media_items.tpl special.pfilename button.
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
         $paths        = array();
         $aFilesOnDisk = array();
@@ -1991,7 +1991,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                 array_push($paths, $sFile);
             } else {
                 if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a file."); }
-                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.')) {
+                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v\/@', $sFile['relpath']) && preg_match('@[\.webp]$@', $sFile['relpath']) )) {
                     if ($sFile['relpath'] != '.empty' && @!in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync'])) {
                         if ($debug) { $serendipity['logger']->debug("$logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);
@@ -2010,7 +2010,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                             'mime'      => $fdim['mime'],
                         ); // store this in a cache file to use later (we use $serendipity['aFilesNoSync'] for this currently)
                     }
-                    // This is a sized serendipity thumbnail or ranged "~outside" ML (see imageselectorplus event plugin), skip it!
+                    // This is a special sized serendipity thumbnail, OR an item ranged "~outside" ML (see imageselectorplus event plugin), OR a hidden .v/ dir stored Webp image file variation; skip it!
                     continue;
                 }
                 // Store the file in our array, remove any ending slashes
@@ -2037,12 +2037,12 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync')
         && isset($serendipity['last_image_hash']) && $serendipity['current_image_hash'] != $serendipity['last_image_hash']) {
             $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
-                                                  FROM {$serendipity['dbPrefix']}images", false, 'assoc');
+                                                  FROM {$serendipity['dbPrefix']}images WHERE path != '.v/'", false, 'assoc');//exclude variations
 
             if ($debug) { $serendipity['logger']->debug("$logtag Got images: " . print_r($aResultSet, 1)); }
 
             if (is_array($aResultSet)) {
-                $msgdelfile = array();
+                $msgdelfile = [];
                 foreach($aResultSet AS $sKey => $sFile) {
                     serendipity_plugin_api::hook_event('backend_thumbnail_filename_select', $sFile); // unknown usage anywhere -> $sFile['thumbnail_filename']
                     $sThumbNailFile = '';
@@ -2098,8 +2098,9 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
             $nCount = 0;
             foreach($aUnmatchedOnDisk AS $sFile) {
-                if (preg_match('@\.' . $serendipity['thumbSuffix'] . '\.@', $sFile)) {
-                    if ($debug) { $serendipity['logger']->debug("$logtag Skipping thumbnailed file $sFile"); }
+                if (preg_match('@\.' . $serendipity['thumbSuffix'] . '\.@', $sFile) || preg_match('@\.v\/@', $sFile)) {
+                    // this means from now on these image variations are not added to the database any more!
+                    if ($debug) { $serendipity['logger']->debug("$logtag Skipping special cased hidden directory AND/OR thumbnail file $sFile"); }
                     continue;
                 } else {
                     if ($debug) { $serendipity['logger']->debug("$logtag Checking $sFile"); }
@@ -2118,7 +2119,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                        $sDirectory = substr($sFile, 0, $nPos);
                     }
                     if ($debug) { $serendipity['logger']->debug("$logtag Inserting image $sFileName from $sDirectory" . print_r($aImageData, 1) . "\ninto database"); }
-                    # TODO: Check if the thumbnail generation goes fine with Marty's code
+
                     serendipity_makeThumbnail($sFileName, $sDirectory);
                     serendipity_insertImageInDatabase($sFileName, $sDirectory);
                     ++$nCount;
@@ -2436,8 +2437,9 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
 function serendipity_traversePath($basedir, $dir='', $onlyDirs = true, $pattern = NULL, $depth = 1, $max_depth = NULL, $apply_ACL = false, $aExcludeDirs = NULL) {
 
     if ($aExcludeDirs === null) {
-        // add _vti_cnf to exclude possible added servers frontpage extensions - deprecated and remove in future  since that is OLD!
+        // add _vti_cnf to exclude possible added servers frontpage extensions - deprecated and remove in future since that is OLD!
         // add CKEditors .thumb dir to exclude, since no hook
+        // do not use as auto excludes for media directory restrictions .v/ case, since that disables ML webp case
         $aExcludeDirs = array('CVS' => true, '.svn' => true, '.thumbs' => true, '_vti_cnf' => true, '.git' => true);
     }
 
@@ -4807,7 +4809,7 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
 function &serendipity_getMediaPaths() {
     global $serendipity;
 
-    $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true); // add _vti_cnf to exclude possible added servers frontpage extensions
+    $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true, '.v' => true);
     serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
 
     $paths        = array();
