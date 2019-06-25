@@ -112,7 +112,10 @@ if (!$use_installer && $is_logged_in) {
             if (!serendipity_checkPermission('adminImages')) {
                 break;
             }
-
+            // temporary dev variable for non-used WebP support
+            if (empty($serendipity['useWebPFormat'])) {
+                $serendipity['useWebPFormat'] = false;
+            }
             include S9Y_INCLUDE_PATH . 'include/admin/images.inc.php';
             $admin_section = MEDIA;
             break;
