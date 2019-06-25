@@ -3227,7 +3227,7 @@ function serendipity_updateSingleMediaProperty($image_id, $property_fields, $set
 }
 
 /**
- * Inserts media properties
+ * Inserts or updates media properties
  *
  * @param   string  Property_group
  *
@@ -3259,11 +3259,11 @@ function serendipity_insertMediaProperty($property_group, $property_subgroup, $i
                 $q = sprintf("INSERT INTO {$serendipity['dbPrefix']}mediaproperties
                                           (mediaid, property_group, property_subgroup, property, value)
                                    VALUES (%d, '%s', '%s', '%s', '%s')",
-                             $image_id,
-                             serendipity_db_escape_string($property_group),
-                             serendipity_db_escape_string($use_property_subgroup),
-                             serendipity_db_escape_string($insert_key),
-                             serendipity_db_escape_string($insert_val));
+                                            $image_id,
+                                            serendipity_db_escape_string($property_group),
+                                            serendipity_db_escape_string($use_property_subgroup),
+                                            serendipity_db_escape_string($insert_key),
+                                            serendipity_db_escape_string($insert_val));
                 serendipity_db_query($q);
             }
         }
@@ -4328,7 +4328,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
 
 /**
  * RENAME a real media dirfilename [not a hotlinked, which is DB referenced only] and forward to staticpages.
- * Used solely by serendipity_parsePropertyForm() base_properties, when changing the file selected path via mediaproperties form.
+ * Used solely by serendipity_parsePropertyForm() base_properties, when changing the file selected path via the mediaproperties form.
  *
  * @see SPLIT serendipity_moveMediaDirectory() part 3
  *
@@ -4672,7 +4672,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             }
 
             if ($debug) {
-                $serendipity['logger']->debug("$logtag transported file " . print_r($_file, 1));
+                $serendipity['logger']->debug("$logtag transported file " . print_r($_file, 1)); // OK! checks that $_file['id'] == s9ymdb ID
                 $serendipity['logger']->debug("$logtag AFTER regexed entry BODY $oldLink = $newLink");
                 $serendipity['logger']->debug("$logtag AFTER regexed entry BODY newLinkHTTPPath = $newLinkHTTPPath");
                 $serendipity['logger']->debug("$logtag AFTER regexed entry BODY linkpattern = $link_pattern");
