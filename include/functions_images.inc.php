@@ -995,7 +995,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
  */
 function serendipity_scaleImg($id, $width, $height) {
     global $serendipity;
-    static $debug = false; // ad hoc, case-by-case debugging
+    static $debug = true; // ad hoc, case-by-case debugging
 
     $debug = is_object(@$serendipity['logger']) && $debug; // ad hoc debug + enabled logger
 
@@ -1010,6 +1010,7 @@ function serendipity_scaleImg($id, $width, $height) {
     }
 
     $infile = $outfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
+    $owebp  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
 
     if ($serendipity['magick'] !== true) {
         if (serendipity_resize_image_gd($infile, $outfile, $width, $height)) {
@@ -1018,12 +1019,20 @@ function serendipity_scaleImg($id, $width, $height) {
     } else {
         $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}\""], 100, 2 ];
         $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale File command: ${result[1]}"); }
+        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale File command: ${result[2]}"); }
         if ($result[0] != 0) {
-            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[1], $output[0], $result[0]) ."</span>\n";
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
             return false;
+        } else {
+            if (file_exists($owebp)) {
+                $reswebp = serendipity_passToCMD('image/webp', $owebp, $owebp, $pass);
+                if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: ${reswebp[2]}"); }
+                if ($reswebp[0] != 0) {
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $reswebp[2], $reswebp[1][0], $reswebp[0]) ."</span>\n";
+                }
+            }
         }
-        unset($output);
+        unset($result[1][0], $reswebp);
     }
 
     if ($result[0] == 0) {
