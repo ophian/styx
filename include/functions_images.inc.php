@@ -2261,7 +2261,8 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         'linkPrevious'  => $linkPrevious,
         'linkLast'      => $linkLast,
         'extraParems'   => $extraParems,
-        'totalImages'   => $totalImages
+        'totalImages'   => $totalImages,
+        'supportsWebP'  => $serendipity['useWebPFormat']
     ));
 
     return serendipity_showMedia(

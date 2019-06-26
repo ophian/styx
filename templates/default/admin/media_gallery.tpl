@@ -78,6 +78,9 @@
             <input name="serendipity[align]" type="hidden" value="left">
             <input name="serendipity[mediaTextarea]" type="hidden" value="{$media.textarea}">
             <input class="state_submit" name="gallery_insert" type="submit" value="{$CONST.ADD_MEDIA}">
+            {if $media.supportsWebP}
+                <input class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT|default:'Use &lt;picture&gt; element'}" data-submit="enhanced">
+            {/if}
         </div>
 
     </form>
