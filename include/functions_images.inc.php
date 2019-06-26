@@ -3411,6 +3411,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['full_thumb'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $sThumbSource;
         if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource_webp)) {
             $file['full_thumb_webp'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] . $sThumbSource_webp;
+            $file['thumbSizeWebp']   = @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource_webp);
         }
     }
 
@@ -3428,6 +3429,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['show_thumb'] = $file['full_thumb'];
         if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp')) {
             $file['full_file_webp'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
+            $file['sizeWebp']       = @filesize($serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp');
         }
         if (!isset($file['imgsrc'])) {
             $file['imgsrc'] = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
@@ -3507,6 +3509,13 @@ function serendipity_prepareMedia(&$file, $url = '') {
     $file['nice_size']    = number_format(round($file['size']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     if (isset($file['thumbSize'])) {
         $file['nice_thumbsize'] = number_format(round($file['thumbSize']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+    }
+
+    if (isset($file['sizeWebp'])) {
+        $file['nice_size_webp'] = number_format(round($file['sizeWebp']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+    }
+    if (isset($file['thumbSizeWebp'])) {
+        $file['nice_thumbsize_webp'] = number_format(round($file['thumbSizeWebp']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
 
     return true;
