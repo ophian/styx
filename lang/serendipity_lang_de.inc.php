@@ -1199,10 +1199,8 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die
 
 @define('MEDIA_RENAME_ERROR_RELOAD', 'Wenn Sie diese Nachricht sehen gab es wahrscheinlich eine Fehlermeldung und etwas konnte nicht durchgeführt werden. Damit Sie eventuell erfolgte Teilveränderungen aber wieder rückgängig machen können, wird die aktuelle Mediatheks-Seite nicht neu geladen. Somit kann dieselbe Aktion mit dem alten Namen direkt wiederholt werden, damit die Änderungen wieder auf dem alten Stand sind. Andererseits werden bereits erfolgte Teilveränderungen erst sichtbar, wenn Sie die aktuelle Seite der Mediathek von Hand neu laden! Es ist eine Frage welcher Option Sie Priorität einräumen. Empfohlen ist Ersteres, auch wenn die Fehlermeldung sich vermutlich ähnlich wiederholt, um erst dann der Ursache der eigentlichen Fehlermeldung nachzuspüren. Kopieren Sie sich die Fehlermeldung für das anschließende Debugging!');
 
-@define('THUMBFILE_SIZE', 'Vorschau Dateigröße');
+@define('THUMBFILE_SIZE', 'Vorschaubildgröße');
 @define('PATH', 'Pfad');
-
-@define('PATH', 'Path');
 
 @define('MEDIA_EXTENSION_FAILURE', 'Die hochgeladene Datei "<b>%s</b>" wurde als eine Mime-Ursprungsdatei "<b>%s</b>" identifiziert und in der Datenbank der Mediathek als "<b>%s</b>" Extension gespeichert. Dieser Extensions-Name hat eine Länge von "%s", und ist damit <b>größer</b> als die zulässige maximale Extensionslänge von "%s" für Bild-Dateien. Vielleicht ist es nicht das richtige Format für <b>Internet</b>-Bilddateien ("bmp", "gif", "jpg", "jpeg", "png", "tiff", "webp")?');
 @define('MEDIA_EXTENSION_FAILURE_REPAIR', 'Bitte ändern Sie die Datei manuell in Ihrem "uploads/" Dateisystem und führen anschließend eine Synchronisation zur Erneuerung der Vorschaubilder im Backend-Bereich "Wartung" durch, um sie als gültiges Bild zur Verfügung zu stellen. Das Löschen der Datei über die Mediathek und das erneute Hochladen einer korrigierten Datei reicht ebenfalls, zerschießt aber in zunehmendem Maße den inkrementellen ID-Zähler der Datenbank und wird daher nicht unbedingt empfohlen.');
