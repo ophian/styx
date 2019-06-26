@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Prepare wysiwyg CKEditor ACF allowance for upcoming picture element
+    and source tag usage.
+
   * Add EXPERIMENTAL WebP image file support to the MediaLibrary.
     Valid image file upload formats like PNG/JPG/GIF etc - as well as their
     thumbnail files - are automatically converted to a WebP image variation,
