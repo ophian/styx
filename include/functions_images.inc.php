@@ -655,14 +655,14 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
  * Convert an uploaded thumb or single file to the WebP image VARIATION image format with ImageMagick
  * Create CMD string settings and pass to serendipity_passToCMD()
  * NOTE: An image upload source is the origin file object. Thumb prefixed previews AND media sized "previews" are origin sub-variations.
- *       A Webp image is an extra origin variant of the source and is "on top" the variation(s). We STORE them in a (preserved key) current dir/.v directory!
+ *       A WebP image is an extra origin variant of the source and is "on top" the variation(s). We STORE them in a (preserved key) current dir/.v directory!
  * WHY USING A HIDDEN DIRECTORY for storage of image variations:
  *       Hidden files offer a convenient mechanism for associating arbitrary metadata with a directory location while remaining largely independent of file system or OS mechanics.
  *       Hidden files are just hidden enough to discourage most users from accidentally invalidating that metadata by moving or removing them while remaining standard enough
  *       to be universally available and flexible enough to support a wide range of use cases. In this directory-case excellent for storing additional image variations that are used for output only.
  *       Styx handlers:
- *          Fetching a sub variations shall not get the Webp formatted origin variation.
- *          ML fetching of $images shall only get the origin, the Webp origin variation and the thumbnail sub variation. Others shall not be included.
+ *          Fetching a sub variations shall not get the WebP formatted origin variation.
+ *          ML fetching of $images shall only get the origin, the WebP origin variation and the thumbnail sub variation. Others shall not be included.
  *          Media scaled images for the source-sets live in ML since they are variations, but NOT in the database NOR in the display images build list.
  *          So we have core files: Origin, Thumb and WebP and possible other sub variations of origin, which are media scaled images and special plugin images, eg. quickblog.
  *
