@@ -18,10 +18,16 @@
                     <div class="media_file_preview media_file_pregal">
                     {if $file.hotlink}
                         <img src="{$file.path}" title="{$file.name}" alt="{$file.realname}">
-                    {elseif empty($file.full_thumbHTTP)}
-                        <img src="{$file.full_file}" title="{$file.name}" alt="{$file.diskname}">
+                    {elseif empty($file.full_thumb)}
+                        <picture>
+                            <source type="image/webp" srcset="{$file.full_file_webp|default:''}" class="ml_preview_img" alt="{$file.diskname}">
+                            <img src="{$file.full_file}" title="{$file.name}" alt="{$file.diskname}">
+                        </picture>
                     {else}
-                        <img src="{$file.full_thumbHTTP}" title="{$file.name}" alt="{$file.diskname}">
+                        <picture>
+                            <source type="image/webp" srcset="{$file.full_thumb_webp|default:''}" class="ml_preview_img" alt="{$file.diskname}">
+                            <img src="{$file.full_thumb}" title="{$file.name}" alt="{$file.diskname}">
+                        </picture>
                     {/if}
                     </div>
                 </div>
