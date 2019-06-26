@@ -63,11 +63,12 @@ CKEDITOR.editorConfig = function( config ) {
           - Allowed <div> is a need for Media Library inserts - which tells ACF to not touch the code!
           - Allowed <p> custom classes - to easier style certain paragraphs!
           - Allowed <ul> listing for styles and classes and <span> to make life a bit easier!
+          - Allowed <a> link tag attributes and classes for having to add data-* attributes (see picture element) - which tells ACF to not touch the code!
           - Reset <img[height,width]> Media Library image inserts to avoid ACF OFF removement of height attributes. (Dependency in ckeditor_s9y_plugin.js)
           - Allow <pre[*attributes](*classes)> for custom attributes/classes in code blocks
     */
     // protect
-    config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);p(*);ul{*}(*);span[*]{*}(*);picture;source[*]{*}(*);img[height,width];pre[*](*);';
+    config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);p(*);ul{*}(*);a[*](*);span[*]{*}(*);picture;source[*]{*}(*);img[height,width];pre[*](*);';
     // Do not use auto paragraphs, added to these allowed tags (only!). Please regard that this was marked deprecated by CKE 4.4.5, but is a need for (our use of) extraAllowedContent - check this again by future versions!
     config.autoParagraph = false; // defaults(true)
 
