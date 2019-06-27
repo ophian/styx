@@ -182,6 +182,7 @@ switch ($serendipity['GET']['adminAction']) {
         $media = array_merge($serendipity['POST'], $media);
         $jsmedia = json_encode($media); // image header(s) let the encoder fail to return nothing (see above)
 
+        $media['supportsWebP'] = $serendipity['useWebPFormat'] ?? false; // for the galleryinsert template
         $media['fast_select'] = true;
 
         $media = array_merge($serendipity['GET'], $media);
