@@ -28,6 +28,7 @@
             <input name="imgName" type="hidden" value="{$media.file.full_file}">
             <input name="thumbName" type="hidden" value="{$media.file.show_thumb}">
             <input name="webPthumbName" type="hidden" value="{$media.file.full_thumb_webp|default:''}">
+            <input name="webPfileName" type="hidden" value="{$media.file.full_file_webp|default:''}">
             <input name="hotlink" type="hidden" value="{$media.file.hotlink}">
         {if $media.htmltarget}
             <input name="serendipity[htmltarget]" type="hidden" value="{$media.htmltarget|escape}">
@@ -141,7 +142,7 @@
                 <input class="button_link go_back" type="button" value="{$CONST.BACK}">
                 <input class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA}" onclick="serendipity.rememberMediaOptions(); {$media.file.origfinishJSFunction}">
             {if $media.supportsWebP AND NOT empty($media.file.full_thumb_webp)}
-                <input class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT|default:'Use &lt;picture&gt; element'}" data-submit="enhanced" onclick="serendipity.rememberMediaOptions(); {$media.file.origfinishJSFunction}">
+                <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT|default:'Use &lt;picture&gt; element'}" data-submit="enhanced" onclick="serendipity.rememberMediaOptions(); mediaPictureSubmit(); {$media.file.origfinishJSFunction}">
             {/if}
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_submit' eventData=$media.file}
             </div>
