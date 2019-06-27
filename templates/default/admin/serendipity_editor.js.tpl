@@ -279,11 +279,17 @@
         serendipity.wrapSelection($('#'+escapedElement), str, '');
     }
 
+    var pictureSubmit = false; // global scope
+    mediaPictureSubmit = function(event) {
+        pictureSubmit = true; // local scope
+    }
+
     // Inserting media db gallery images including s9y-specific container markup
     serendipity.serendipity_imageGallerySelector_done = function(textarea, g) {
         var gallery = '';
 
         if (g['files'][0]) {
+            var img    = '';
             var float  = g['align'];
             var orient = g['orient'];
             var dc     = g['defcols'];
@@ -296,21 +302,32 @@
             gallery += start;
 
             $.each(g['files'], function(k, v) {
+                pic_el = (v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
                 imgID = v['id'];
                 imgWidth = v['thumbWidth'];
                 imgHeight = v['thumbHeight'];
                 imgName = v['full_thumb'];
-                ilink = v['full_file'];
+                ilink = pic_el ? v['full_file_webp'] : v['full_file'];
+                ilinkfb = v['full_file']; // fallback case
                 title = v['prop_title'];
                 imgalt = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
+                iftwebp = v['full_thumb_webp'];
+                iffwebp = v['full_file_webp'];
                 hotlink = v['hotlink'];
                 if (hotlink) {
                     imgName = v['realfile'];
                 }
 
-                var img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">';
+                if (pictureSubmit && pic_el) {
+                    img = '<!-- s9ymdb:'+ imgID +' --><picture>'
+                    + '<source type="image/webp" class="serendipity_image_'+ float +'" srcset="' + iftwebp + '" class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ imgalt +'">'
+                    + '<img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">'
+                    + '</picture>';
+                } else {
+                    img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">';
+                }
                 if (g['isLink'] == 'yes') {
-                    img = '<a class="serendipity_image_link" '+ (title != '' ? 'title="'+ title +'"' : '') +' href="'+ ilink +'">'+ img +'</a>';
+                    img = '<a class="serendipity_image_link" '+ (title != '' ? 'title="'+ title +'"' : '') +' href="'+ ilink +'" data-fallback="'+ ilinkfb +'">'+ img +'</a>';
                 }
 
                 if (v['prop_imagecomment'] != '') {
@@ -351,6 +368,8 @@
         img           = f['imgName'].value;
         var imgWidth  = f['imgWidth'].value;
         var imgHeight = f['imgHeight'].value;
+        var imgWebPTh = f['webPthumbName'].value;
+        var imgWebPal = f['webPfileName'].value;
         if (f['serendipity[linkThumbnail]'] && f['serendipity[linkThumbnail]'][0].checked == true) {
             img       = f['thumbName'].value;
             imgWidth  = f['imgThumbWidth'].value;
@@ -399,14 +418,21 @@
         if (floating == "") {
             floating = "center";
         }
-        img = "<!-- s9ymdb:" + imgID + " --><img class=\"serendipity_image_"+ floating +"\" width=\"" + imgWidth + "\" height=\"" + imgHeight + '"  src="' + img + "\" " + (title != '' ? 'title="' + title + '"' : '') + " alt=\"" + alt + "\">";
+        if (pictureSubmit) {
+            img = '<!-- s9ymdb:'+ imgID +' --><picture>'
+            + '<source type="image/webp" srcset="' + imgWebPTh + '" class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ alt +'">'
+            + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">'
+            + '</picture>';
+        } else {
+            img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">';
+        }
 
         if ($(':input[name="serendipity[isLink]"]:checked').val() == "yes") {
             // wrap the img in a link to the image. TODO: The label in the media_chooser.tpl explains it wrong
             var targetval = $('#select_image_target').val();
 
             var prepend   = '';
-            var ilink     = f['serendipity[url]'].value;
+            var ilink     = (pictureSubmit && imgWebPal != '') ? imgWebPal + ' data-fallback="'+ f['serendipity[url]'].value +'"' : f['serendipity[url]'].value;
             var itarget = '';
 
             switch (targetval) {
