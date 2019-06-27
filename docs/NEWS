@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add EXPERIMENTAL frontend WebP and picture element support via entries
+    MediaLibrary to textarea builds.
+
   * Prepare wysiwyg CKEditor ACF allowance for upcoming picture element
     and source tag usage.
 
