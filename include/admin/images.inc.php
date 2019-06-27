@@ -179,6 +179,9 @@ switch ($serendipity['GET']['adminAction']) {
         $media['files'] = $files;
         unset($files);
 
+        // Send information that the "picture" submit was requested and to add the mediaPictureSubmit() call
+        $media['addMediaPictureSubmitFnc'] = ($_POST['picturerequest'] == '1') ? true : false;
+
         $media = array_merge($serendipity['POST'], $media);
         $jsmedia = json_encode($media); // image header(s) let the encoder fail to return nothing (see above)
 
