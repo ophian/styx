@@ -39,6 +39,20 @@ function serendipity_plugin_api_frontend_header($event_name, &$bag, &$eventData,
     <script>jQuery.noConflict();</script>
 <?php
         }
+        // check Styx backend WebP support and an is-set frontend theme (modern) modernizr object with WebP module support returning a non supporting browser
+        if (isset($serendipity['useWebPFormat']) && $serendipity['useWebPFormat']) {
+?>
+    <script>
+        if (typeof Modernizr == 'object') {
+            if (Modernizr.on) {
+              Modernizr.on('webp', function(result) {
+                if (!result) { $('a.serendipity_image_link').on( "mouseenter mouseleave", function() { $(this).attr('href', $(this).data('fallback')); }); }
+              });
+            }
+        }
+    </script>
+<?php
+        }
     }
 }
 
