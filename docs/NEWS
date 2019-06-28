@@ -7,7 +7,7 @@ Version 3.0-Dev ()
     client browser.
     If you want to support old lame browsers in your theme, please include
     a modern 3.x modernizer build with webp module check into your themes
-    index.tp header load. @See: https://modernizr.com/download
+    index.tpl head load. @See: https://modernizr.com/download
 
   * Add EXPERIMENTAL frontend WebP and picture element support via entries
     MediaLibrary to textarea builds.
