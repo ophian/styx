@@ -11,7 +11,7 @@
 {else}
     <meta name="robots" content="noindex,follow">
 {/if}
-{if $view == 'entry'}
+{if $view == 'entry' AND isset($entry)}
     <link rel="canonical" href="{$entry.rdf_ident}">
 {/if}
 {if in_array($view, ['start', 'entries'])}

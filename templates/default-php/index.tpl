@@ -11,7 +11,7 @@
 <?php else: ?>
     <meta name="robots" content="noindex,follow">
 <?php endif; ?>
-<?php if ($GLOBALS['tpl']['view'] == 'entry'): ?>
+<?php if ($GLOBALS['tpl']['view'] == 'entry' && isset($GLOBALS['tpl']['entry'])): ?>
     <link rel="canonical" href="{$entry.rdf_ident}">
 <?php endif; ?>
 <?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries'])): ?>
