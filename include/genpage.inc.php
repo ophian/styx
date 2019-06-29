@@ -126,7 +126,6 @@ switch (@$serendipity['GET']['action']) {
         serendipity_printArchives();
         break;
 
-
     case 'custom':
         if ($serendipity['smarty_custom_vars']) {
             $serendipity['smarty']->assign($serendipity['smarty_custom_vars']);
