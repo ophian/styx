@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Improve backend entries list by adding restricted group enhancing
+    category icon information.
+
   * Add frontend theme javascript modernizr link fallback scriptlet to
     check for Styx backend WebP support and an is-set frontend theme (modern)
     modernizr object with WebP module support, returning a non supporting
