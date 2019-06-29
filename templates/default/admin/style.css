@@ -2688,6 +2688,7 @@ h3 .media_file_actions {
 #entries_list .entry_info span {
     margin: 0 1em .75em 0;
 }
+#entries_list .entry_meta .icon-users,
 #entries_list .entry_info span .icon-info-circled {
     margin: 0;
 }
