@@ -190,7 +190,7 @@
                         <span class="entry_meta">{$CONST.POSTED_BY} {$entry.author|escape}
                         {if count($entry.cats)} {$CONST.IN}
                           {foreach $entry.cats AS $cat}
-                            <a href="{$cat.link}">{$cat.category_name|escape}</a>{if (count($entry.cats) > 1) AND !$cat@last}, {/if}
+                            <a href="{$cat.link}">{$cat.category_name|escape}</a>{if NOT empty($cat.grouped)}{foreach $cat.groupname AS $gshortname} <span class="icon-users {$gshortname}" aria-hidden="true" title="read and view restriction to group {$gshortname}"></span>{/foreach}{/if}{if (count($entry.cats) > 1) AND !$cat@last}, {/if}
                           {/foreach}
                         {/if}
                         </span>

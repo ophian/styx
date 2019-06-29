@@ -386,13 +386,35 @@ switch($serendipity['GET']['adminAction']) {
             $data['linkLast']     = $qString . '&amp;serendipity[page]='; // is done in tpl per $totalPages
 
             $smartentries = array();
+            $allgroups    = serendipity_getAllGroups();
+
             foreach($entries AS $ey) {
                 $entry_cats = array();
                 if (count($ey['categories'])) {
                     foreach($ey['categories'] AS $cat) {
-                        $cat['link'] = serendipity_categoryURL($cat);
-                        $entry_cats[] = $cat;
+                        // fetch ACL read and view permission for each category to know about possible frontend restrictions when a category is made to read by certain groups only
+                        $aclreadgroups = serendipity_ACLGet($cat['categoryid'], 'category', 'read'); // is always $aclreadgroups[0], when not is specific categoryid being group restricted
+                        if (!isset($aclreadgroups[0])) {
+                            foreach(array_keys($aclreadgroups) AS $categoryid) {
+                                $restrictedcategories[] = $categoryid;
+                            }
+                            if (!empty($restrictedcategories) && is_array($restrictedcategories)) {
+                                $cat['groupname'] = array();
+                                foreach($restrictedcategories AS $aclcatkey) {
+                                    foreach($allgroups AS $group) {
+                                        if ($group['confkey'] == $aclcatkey) {
+                                            $cat['groupname'][] = $group['shortname'] ?? 'user'; // eg 'admin' or 'chief' or 'sample'
+                                        }
+                                    }
+                                }
+                                if (isset($cat['groupname'][0])) {
+                                    $cat['grouped'] = true;
+                                }
+                            }
+                        }
                     }
+                    $cat['link']  = serendipity_categoryURL($cat);
+                    $entry_cats[] = $cat;
                 }
 
                 $smartentry = array(
