@@ -658,12 +658,12 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
  * @return typed image
  */
 function serendipity_imageCreateFromAny($filepath) {
-	if (function_exists("exif_imagetype")) {
+    if (function_exists("exif_imagetype")) {
         $type = exif_imagetype($filepath);
     } else {
         $type = getImageSize($filepath)[2];
-	}
-	// default fallback so that $type is defined
+    }
+    // default fallback so that $type is defined
     if (!is_int($type)) {
         $type = IMAGETYPE_JPEG;
     }
