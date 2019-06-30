@@ -1,6 +1,16 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add EXPERIMENTAL WebP image file support to the MediaLibrary for PHP 7
+    with GD image library enabled WebP support. See all my related notes
+    previously.
+    Create and run GD to WebP format for upload images and their webp ext-
+    sion variations. As mentioned before, you NEED to set the global
+    $serendipity['useWebPFormat'] variable manually and use all of this
+    with care.
+    Currently there hasn't been any other MediaLibrary GD action task
+    created yet. This is NEW image file upload only!
+
   * Improve backend entries list by adding restricted group enhancing
     category icon information.
 
