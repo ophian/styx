@@ -1136,7 +1136,7 @@ function serendipity_scaleImg($id, $width, $height) {
 
     if ($serendipity['magick'] !== true) {
         if (serendipity_resize_image_gd($infile, $outfile, $width, $height)) {
-            $result = 0;
+            $result[0] = 0;
             // do on same file for the Webp variation
             if (file_exists($owebp)) {
                 $reswebp = serendipity_resize_image_gd($owebp, $owebp, $width, $height);
