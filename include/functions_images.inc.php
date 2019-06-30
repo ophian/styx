@@ -1137,6 +1137,14 @@ function serendipity_scaleImg($id, $width, $height) {
     if ($serendipity['magick'] !== true) {
         if (serendipity_resize_image_gd($infile, $outfile, $width, $height)) {
             $result = 0;
+            // do on same file for the Webp variation
+            if (file_exists($owebp)) {
+                $reswebp = serendipity_resize_image_gd($owebp, $owebp, $width, $height);
+                if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: ${reswebp[2]}"); }
+                if ($reswebp[0] != 0) {
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $reswebp[2], $reswebp[1][0], $reswebp[0]) ."</span>\n";
+                }
+            }
         }
     } else {
         $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}\""], 100, 2 ];
@@ -1146,6 +1154,7 @@ function serendipity_scaleImg($id, $width, $height) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
             return false;
         } else {
+            // do on same file for the Webp variation
             if (file_exists($owebp)) {
                 $reswebp = serendipity_passToCMD('image/webp', $owebp, $owebp, $pass);
                 if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: ${reswebp[2]}"); }
