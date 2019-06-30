@@ -652,6 +652,72 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
 }
 
 /**
+ * Helper function for creating WebP formatted images with the PHP GD library
+ * @see serendipity_imageGDWebPConversion()
+ *
+ * @return typed image
+ */
+function serendipity_imageCreateFromAny($filepath) {
+	if (function_exists("exif_imagetype")) {
+        $type = exif_imagetype($filepath);
+    } else {
+        $type = getImageSize($filepath)[2];
+	}
+	// default fallback so that $type is defined
+    if (!is_int($type)) {
+        $type = IMAGETYPE_JPEG;
+    }
+
+    $allowedTypes = array(
+        1,  // [] gif
+        2,  // [] jpg
+        3,  // [] png
+        6   // [] bmp
+        );
+    if (!in_array($type, $allowedTypes)) {
+        return false;
+    }
+    switch ($type) {
+        case 1:
+            $im = imagecreatefromgif($filepath);
+            break;
+        case 2:
+            $im = imagecreatefromjpeg($filepath);
+            break;
+        case 3:
+            $im = imagecreatefrompng($filepath);
+            break;
+        case 6:
+            $im = imagecreatefrombmp($filepath);
+            break;
+    }
+    return $im;
+}
+
+/**
+ * Convert JPG, PNG, GIF, BMP formatted images to the WebP image format with PHP build-in GD image library
+ *
+ * @return converted outfile
+ */
+function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
+    $im = serendipity_imageCreateFromAny($infile);
+    if (!$im) {
+        return false;
+    }
+
+    try {
+        imagewebp($im, $outfile, $quality);
+    } catch (Throwable $t) {
+        echo 'Could not create webp image with GD: ',  $t->getMessage(), "\n";
+        imagedestroy($im);
+        return false;
+    }
+    imagedestroy($im);
+
+    return $outfile;
+}
+
+/**
  * Convert an uploaded thumb or single file to the WebP image VARIATION image format with ImageMagick
  * Create CMD string settings and pass to serendipity_passToCMD()
  * NOTE: An image upload source is the origin file object. Thumb prefixed previews AND media sized "previews" are origin sub-variations.
@@ -1733,28 +1799,34 @@ function serendipity_functions_gd($infilename) {
     $func = array();
     $inf  = pathinfo(strtolower($infilename));
     switch ($inf['extension']) {
-    case 'gif':
-        $func['load'] = 'imagecreatefromgif';
-        $func['save'] = 'imagegif';
-        $func['qual'] = 100;
-        break;
+        case 'gif':
+            $func['load'] = 'imagecreatefromgif';
+            $func['save'] = 'imagegif';
+            $func['qual'] = 100;
+            break;
 
-    case 'jpeg':
-    case 'jpg':
-    case 'jfif':
-        $func['load'] = 'imagecreatefromjpeg';
-        $func['save'] = 'imagejpeg';
-        $func['qual'] = 100;
-        break;
+        case 'jpeg':
+        case 'jpg':
+        case 'jfif':
+            $func['load'] = 'imagecreatefromjpeg';
+            $func['save'] = 'imagejpeg';
+            $func['qual'] = 100;
+            break;
 
-    case 'png':
-        $func['load'] = 'imagecreatefrompng';
-        $func['save'] = 'imagepng';
-        $func['qual'] = 9;
-        break;
+        case 'png':
+            $func['load'] = 'imagecreatefrompng';
+            $func['save'] = 'imagepng';
+            $func['qual'] = 9;
+            break;
 
-    default:
-        return false;
+        case 'webp':
+            $func['load'] = 'imagecreatefromwebp';
+            $func['save'] = 'imagewebp';
+            $func['qual'] = 75;
+            break;
+
+        default:
+            return false;
     }
 
     /* If our loader does not exist, we are doomed */
