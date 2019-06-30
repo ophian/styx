@@ -989,7 +989,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 $r    = serendipity_resize_image_gd($infile, $outfile, $calc[0], $calc[1]);
                 // Create a copy in WebP image format
                 if (file_exists($outfile) && $serendipity['useWebPFormat']) {
-                    // The WebP GD part 1. makeVariationPath(), 2. convertToWebPFormat(), 3. resize_image_gd()
+                    // The WebP GD part in 3 steps: 1. makeVariationPath(), 2. convertToWebPFormat(), 3. resize_image_gd()
                     $newgdfile = serendipity_makeImageVariationPath($outfile, 'webp');
                     // first we create it!
                     $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile));
