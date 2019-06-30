@@ -978,7 +978,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                         // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthbgd->resize to thumb, which overwrites the first.
                         $webpthbgd = $newgdfile['filepath']. '/.v/' . $newgdfile['filename'];
-                        if (serendipity_resize_image_gd($webpthbgd, $webpthbgd, $calc[0], $calc[1])) {
+                        if (serendipity_resize_image_gd($webpthbgd, $webpthbgd, $size['width'], $size['height'])) {
                             if (is_array($result)) {
                                 if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib " . DONE); }
                             } else {
@@ -986,7 +986,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                             }
                         }
                     } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format creation failed OR already exists."); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format creation failed OR already exists."); }
                     }
                 }
             } else {
