@@ -655,6 +655,8 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
  * Helper function for creating WebP formatted images with the PHP GD library
  * @see serendipity_imageGDWebPConversion()
  *
+ * @param string $infile   The fullpath file format from string
+ *
  * @return typed image
  */
 function serendipity_imageCreateFromAny($filepath) {
@@ -697,6 +699,10 @@ function serendipity_imageCreateFromAny($filepath) {
 /**
  * Convert JPG, PNG, GIF, BMP formatted images to the WebP image format with PHP build-in GD image library
  *
+ * @param string $infile    The fullpath file format from string
+ * @param string $outfile   The fullpath file format to string
+ * @param int    $quality   The quality of sizing/formatting
+ *
  * @return converted outfile
  */
 function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
@@ -708,7 +714,7 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
     try {
         imagewebp($im, $outfile, $quality);
     } catch (Throwable $t) {
-        echo 'Could not create webp image with GD: ',  $t->getMessage(), "\n";
+        echo 'Could not create WebP image with GD: ',  $t->getMessage(), "\n";
         imagedestroy($im);
         return false;
     }
