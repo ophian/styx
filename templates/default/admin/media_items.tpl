@@ -140,11 +140,11 @@
                                 {if isset($file.nice_thumbsize) AND NOT $file.hotlink}
                                 <li><b>{$CONST.THUMBFILE_SIZE}:</b> {$file.nice_thumbsize} KB</li>
                                 {/if}
-                                {if $file.is_image AND NOT empty($file.nice_size_webp)}
-                                <li><b>{$CONST.VARIATION_IMAGE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
+                                {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
+                                <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.IMAGE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
                                 {/if}
-                                {if NOT empty($file.nice_thumbsize_webp) AND NOT $file.hotlink}
-                                <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.IMAGE_SIZE}"}:</b> {$file.nice_thumbsize_webp} KB</li>
+                                {if $file.is_image AND NOT empty($file.nice_thumbsize_webp)}
+                                <li><b>{$CONST.VARIATION_IMAGE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE}"}:</b> {$file.nice_thumbsize_webp} KB</li>
                                 {/if}
                                 <li><b>{$CONST.PATH}:</b> "{$file.path}"</li>
                                 <li><b>{$CONST.DATE}:</b> {$file.date|formatTime:DATE_FORMAT_SHORT}</li>
