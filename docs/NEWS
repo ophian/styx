@@ -5,7 +5,7 @@ Version 3.0-Dev ()
     In special for the latter action (with both iamge libraries) it still
     lacks a user information about too sticky list image views, not always
     showing the current "rotated" image state after the action was processed.
-    It most time it just looks as have being failed, since there is no visual
+    It most times just looks as have being failed, since there is no visual
     change. YOU need to FORCE a MediaLibrary browser reload!
 
   * Add EXPERIMENTAL WebP image file support to the MediaLibrary for PHP 7
