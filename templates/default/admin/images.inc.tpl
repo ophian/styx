@@ -276,7 +276,6 @@
             <input name="serendipity[fid]" type="hidden" value="{$get.fid}">
             {if isset($smarty.get.serendipity.page)}<input name="serendipity[page]" type="hidden" value="{$smarty.get.serendipity.page}">{/if}
 
-
             <fieldset>
                 <span class="wrap_legend"><legend>{$CONST.NEWSIZE}</legend></span>
 
