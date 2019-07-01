@@ -389,7 +389,7 @@ function serendipity_deleteImage($id) {
                         }
                     }
                 } else {
-                    $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span>XXX ' . FILE_NOT_FOUND . "</span>\n", $dFile);
+                    $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", $dFile);
                 }
             } else {
                 $messages .= sprintf('<span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> ' . DELETE_HOTLINK_FILE . "</span>\n", $file['name']);
@@ -5041,8 +5041,8 @@ function &serendipity_getMediaPaths() {
     $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true, '.v' => true);
     serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
 
-    $paths        = array();
-    $aResultSet   = serendipity_traversePath(
+    $paths      = array();
+    $aResultSet = serendipity_traversePath(
         $serendipity['serendipityPath'] . $serendipity['uploadPath'],
         '',
         false,
