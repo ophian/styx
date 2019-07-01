@@ -1207,6 +1207,11 @@ function serendipity_rotateImg($id, $degrees) {
 
     $infile = $outfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
     $infileThumb = $outfileThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
+    // WebP case
+    $infile_webp = $outfile_webp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
+    $infile_webpThumb = $outfile_webpThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.webp';
+
+    $turn = (preg_match('@-@', $degrees)) ? '<-' : '->';
 
     if ($serendipity['magick'] !== true) {
         serendipity_rotate_image_gd($infile, $outfile, $degrees);
@@ -1220,7 +1225,7 @@ function serendipity_rotateImg($id, $degrees) {
 
         /* Resize main image */
         $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Resize main file command: ${result[2]}"); }
+        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate main file command: Rotate $turn ${degrees} degrees, file: ${result[2]}"); }
 
         if ($result[0] != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
@@ -1229,7 +1234,25 @@ function serendipity_rotateImg($id, $degrees) {
 
         /* Resize thumbnail */
         $result = serendipity_passToCMD($file['mime'], $infileThumb, $outfileThumb, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Resize thumb file command: ${result[2]}"); }
+        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate thumb file command: Rotate $turn ${degrees} degrees, file: ${result[2]}"); }
+
+        if ($result[0] != 0) {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
+        }
+        unset($result);
+
+        /* Resize main WebP image */
+        $result = serendipity_passToCMD($file['mime'], $infile_webp, $outfile_webp, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate main WebP file command: Rotate $turn ${degrees} degrees, file: ${result[2]}"); }
+
+        if ($result[0] != 0) {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
+        }
+        unset($result);
+
+        /* Resize WebP thumbnail */
+        $result = serendipity_passToCMD($file['mime'], $infile_webpThumb, $outfile_webpThumb, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate WebP thumb file command: Rotate $turn ${degrees} degrees, file: ${result[2]}"); }
 
         if ($result[0] != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
@@ -1244,7 +1267,6 @@ function serendipity_rotateImg($id, $degrees) {
 
     return true;
 }
-
 /**
  * Creates thumbnails for all images in the upload dir
  *
