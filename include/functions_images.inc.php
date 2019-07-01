@@ -2146,7 +2146,10 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         foreach($aResultSet AS $sKey => $sFile) {
             if ($sFile['directory']) {
                 if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a directory."); }
-                array_push($paths, $sFile);
+                // remove the hidden .v/ directory from media.path select lists, since we need it for handlers but not for user directory select lists
+                if (!preg_match('@\.v\/@', $sFile['relpath'])) {
+                    array_push($paths, $sFile);
+                }
             } else {
                 if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a file."); }
                 if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v\/@', $sFile['relpath']) && preg_match('@[\.webp]$@', $sFile['relpath']) )) {
