@@ -1137,14 +1137,18 @@ function serendipity_scaleImg($id, $width, $height) {
     if ($serendipity['magick'] !== true) {
         if (serendipity_resize_image_gd($infile, $outfile, $width, $height)) {
             $result[0] = 0;
+            if ($debug) { $serendipity['logger']->debug("GD Library Scale File command: ${outfile}, with serendipity_resize_image_gd()."); }
+            if ($result[0] != 0) {
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, 'serendipity_resize_image_gd()', "Creating ${outfile} image", 'failed') ."</span>\n";
+            }
             // do on same file for the Webp variation
             if (file_exists($owebp)) {
                 if ($reswebp = serendipity_resize_image_gd($owebp, $owebp, $width, $height)) {
                     $reswebp[0] = 0;
-                    if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: with serendipity_resize_image_gd()."); }
+                    if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: ${owebp}, with serendipity_resize_image_gd()."); }
                 }
                 if ($reswebp[0] != 0) {
-                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, 'serendipity_resize_image_gd()', 'Creating WebP image', 'false') ."</span>\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, 'serendipity_resize_image_gd()', "Creating WebP ${owebp} image", 'failed') ."</span>\n";
                 }
             }
         }
