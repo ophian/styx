@@ -1139,10 +1139,12 @@ function serendipity_scaleImg($id, $width, $height) {
             $result[0] = 0;
             // do on same file for the Webp variation
             if (file_exists($owebp)) {
-                $reswebp = serendipity_resize_image_gd($owebp, $owebp, $width, $height);
-                if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: ${reswebp[2]}"); }
+                if ($reswebp = serendipity_resize_image_gd($owebp, $owebp, $width, $height)) {
+                    $reswebp[0] = 0;
+                    if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: with serendipity_resize_image_gd()."); }
+                }
                 if ($reswebp[0] != 0) {
-                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $reswebp[2], $reswebp[1][0], $reswebp[0]) ."</span>\n";
+                    echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, 'serendipity_resize_image_gd()', 'Creating WebP image', 'false') ."</span>\n";
                 }
             }
         }
