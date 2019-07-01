@@ -1214,8 +1214,26 @@ function serendipity_rotateImg($id, $degrees) {
     $turn = (preg_match('@-@', $degrees)) ? '<-' : '->';
 
     if ($serendipity['magick'] !== true) {
-        serendipity_rotate_image_gd($infile, $outfile, $degrees);
-        serendipity_rotate_image_gd($infileThumb, $outfileThumb, $degrees);
+        if (serendipity_rotate_image_gd($infile, $outfile, $degrees)) {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate $turn ${degrees} degrees, file: ${outfile}"); }
+        } else {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: ${turn} ${degrees} degrees, file: ${outfile}."); }
+        }
+        if (serendipity_rotate_image_gd($infileThumb, $outfileThumb, $degrees)) {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate $turn ${degrees} degrees, file: ${outfileThumb}"); }
+        } else {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: ${turn} ${degrees} degrees, file: ${outfileThumb}."); }
+        }
+        if (serendipity_rotate_image_gd($infile_webp, $outfile_webp, $degrees)) {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate $turn ${degrees} degrees, file: ${outfile_webp}"); }
+        } else {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_webp}."); }
+        }
+        if (serendipity_rotate_image_gd($infile_webpThumb, $outfile_webpThumb, $degrees)) {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate $turn ${degrees} degrees, file: ${outfile_webpThumb}"); }
+        } else {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_webpThumb}."); }
+        }
     } else {
         /* Why can't we just all agree on the rotation direction?
         -> Styx 2.5 disabled, since that seems to be a workaround for a very very old bug
