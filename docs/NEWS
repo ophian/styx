@@ -15,8 +15,6 @@ Version 3.0-Dev ()
     sion variations. As mentioned before, you NEED to set the global
     $serendipity['useWebPFormat'] variable manually and use all of this
     with care.
-    Currently there hasn't been any other MediaLibrary GD action task
-    created yet. This is NEW image file upload only!
 
   * Improve backend entries list by adding restricted group enhancing
     category icon information.
