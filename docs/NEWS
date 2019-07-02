@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix serendipity_makeThumbnail() bug not returning the newsize sizes for
+    messaging.
+
   * Added GD library image WebP scale/resize and rotate actions.
     In special for the latter action (with both iamge libraries) it still
     lacks a user information about too sticky list image views, not always
