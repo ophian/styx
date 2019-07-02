@@ -2059,7 +2059,7 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
     $out = null;
     $in  = null;
 
-    return array($newwidth, $newheight);
+    return array((float)$newwidth, $newheight);
 }
 
 /**
