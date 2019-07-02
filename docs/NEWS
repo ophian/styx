@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove GD GIF to WebP conversion support, since that fails with animated
+    gifs (at least for the moment).
+
   * Fix serendipity_makeThumbnail() bug not returning the newsize sizes for
     messaging.
 
