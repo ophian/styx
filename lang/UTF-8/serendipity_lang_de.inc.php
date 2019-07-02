@@ -54,7 +54,7 @@
 @define('NEW_ENTRY', 'Neuer Eintrag');
 @define('EDIT_ENTRIES', 'Einträge bearbeiten');
 @define('CATEGORIES', 'Kategorien');
-@define('IMAGESYNC_WARNING', 'ACHTUNG:<br>Das kann jetzt lange dauern, wenn für viele Bilder noch keine Vorschau existiert.');
+@define('IMAGESYNC_WARNING', 'ACHTUNG:<br>Je nach Menge kann dies länger dauern, wenn für viele Bilder noch keine Vorschau existiert.');
 @define('CREATE_THUMBS', 'Vorschauen erneuern');
 @define('MANAGE_IMAGES', 'Bilder verwalten');
 @define('NAME', 'Name');
@@ -260,7 +260,7 @@
 @define('SYNC_OPTION_SIZECHECKTHUMBS', 'Behalte vorhandene Vorschaubilder nur, wenn diese die richtige Größe haben');
 @define('SYNC_OPTION_DELETETHUMBS', 'Erneuere alle (<em>*.%s</em>) Vorschaubilder');
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Konvertiere alte Vorschaubild-Namen');
-@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'ACHTUNG: Diese Option wird erst aktiv, wenn es tatsächlich etwas zu konvertieren gibt.<br>Sie konvertiert Vorschaubild-Namen, die nicht dem augenblicklichen Namens-Schema: <em>*.%s</em> entsprechen, in der Datenbank, ihrem Speicherort und bereits in Einträgen genutzt, durch das aktuelle Namens-Schema. Dies kann unter Umständen lange dauern! Es <b>macht nichts, wenn Sie diese Konvertierung nicht vornehmen</b> und das alte Schema einfach so belassen, doch wenn Sie sie - über die "Alle Erneuern" Option neu bilden lassen müssen oder wollen, so muss die Konvertierung zuerst geschehen.');
+@define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'ACHTUNG: Diese Option wird erst aktiv, wenn es tatsächlich etwas zu konvertieren gibt.<br>Sie konvertiert Vorschaubild-Namen, die nicht dem augenblicklichen Namens-Schema: <em>*.%s</em> entsprechen, in der Datenbank, ihrem Speicherort und bereits in Einträgen genutzt, durch das aktuelle Namens-Schema. Dies kann unter Umständen etwas dauern! Es <b>macht nichts, wenn Sie diese Konvertierung nicht vornehmen</b> und das alte Schema einfach so belassen, doch wenn Sie sie - über die "Alle Erneuern" Option neu bilden lassen müssen oder wollen, so muss die Konvertierung zuerst geschehen.');
 @define('SYNC_DONE', 'Fertig (%s Bilder synchronisiert).');
 @define('SORT_ORDER', 'Sortierung');
 @define('SORT_ORDER_NAME', 'Dateiname');
