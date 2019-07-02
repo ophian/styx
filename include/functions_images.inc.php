@@ -2021,10 +2021,15 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
 
     try {
         // if an image exist that can not be loaded (invalid GIF for example), the page shall still be rendered
-        $in = $func['load']($infilename);
+        $in = @$func['load']($infilename);
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
-        echo 'Could not create thumbnail: ',  $t->getMessage(), "\n";
+        echo 'Could not create thumbnail resource: ',  $t->getMessage(), "\n";
+        return false;
+    }
+
+    // imagecreatefromwebp() imagesx() expects parameter 1 to be resource, bool given when animated gifs
+    if (is_bool($in)) {
         return false;
     }
 
