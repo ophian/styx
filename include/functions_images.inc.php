@@ -971,7 +971,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     // first we create it!
                     $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile));
                     if ($result[0] === true) {
-                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                         // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthbgd->resize to thumb, which overwrites the first.
                         $webpthbgd = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
@@ -997,7 +997,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     // first we create it!
                     $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile));
                     if ($result[0] === true) {
-                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                         // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthbgd->resize to thumb, which overwrites the first.
                         $webpthbgd = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
@@ -1884,16 +1884,18 @@ function serendipity_syncThumbs($deleteThumbs = false) {
             }
 
             // Do the database update, if needed
-            if (sizeof($update) != 0) {
+            if (sizeof($update) != 0 && !preg_match('@\/\.v\/@', $files[$x])) {
                 $_list .= $_br . sprintf(FOUND_FILE . " (<em>Update in database</em>)", $files[$x]);
                 serendipity_updateImageInDatabase($update, $rs['id']);
                 $i++;
             }
 
         } else {
-            $_list .= $_br . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]);
-            serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, filemtime($ffull));
-            $i++;
+            if (!preg_match('@\.v\/@', $fdir)) {
+                $_list .= $_br . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]);
+                serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, filemtime($ffull));
+                $i++;
+            }
         }
         if (!empty($_list)) {
             $_list .= "\n</div>\n"; // This is the first (x=1) closing div for the last loop $x case (the first displayed item) AS WELL AS looped by (x=2; etc) all filled messages in is_readable($fthumb) added by case FOUND FILE (do database action)
