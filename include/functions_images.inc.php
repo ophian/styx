@@ -669,8 +669,8 @@ function serendipity_imageCreateFromAny($filepath) {
         $type = IMAGETYPE_JPEG;
     }
 
+#        1,  // [] gif/* mute for GD "Fatal error: Paletter image not supported by webp" */
     $allowedTypes = array(
-        1,  // [] gif
         2,  // [] jpg
         3,  // [] png
         6   // [] bmp
@@ -2054,7 +2054,7 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
     imagecopyresampled($out, $in, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
     @umask(0000);
     touch($outfilename); // safe_mode requirement
-    $func['save']($out, $outfilename, $func['qual']);
+    @$func['save']($out, $outfilename, $func['qual']); // mute possible expectations, eg animated gifs with GD
     @chmod($outfilename, 0664);
     $out = null;
     $in  = null;
