@@ -75,7 +75,7 @@ switch ($serendipity['GET']['adminAction']) {
                 case 'convert':
                     $deleteThumbs = 'convert';
                     break;
-           }
+            }
         }
 
         // guard clause - and force a strict check, since we want (bool)true to not touch this part!
