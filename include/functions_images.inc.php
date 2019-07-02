@@ -1738,6 +1738,21 @@ function serendipity_convertThumbs() {
 }
 
 /**
+ * Unlink/Delete a thumb files variation for ML maintenance synchronization
+ *
+ * @param  string $originThumbFile The fullpath thumb file of the image object
+ * @access private
+ * @return
+ */
+function serendipity_syncUnlinkVariation($originThumbFile) {
+    $webpfile = array();
+    $webpfile = serendipity_makeImageVariationPath($originThumbFile, 'webp');
+    if (file_exists($webpfile['filepath'] . '/.v/' . $webpfile['filename'])) {
+        return @unlink($webpfile['filepath'] . '/.v/' . $webpfile['filename']);
+    }
+}
+
+/**
  * Check all existing thumbnails if they are the right size, insert missing thumbnails
  *
  * LONG
@@ -1792,6 +1807,8 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         if (is_readable($fthumb)) {
             if ($deleteThumbs === true) {
                 if (@unlink($fthumb)) {
+                    // Silently delete an already generated .v/webpfthumb.webp variation file too
+                    serendipity_syncUnlinkVariation($fthumb);
                     $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
                     $_br = "<br>\n";
                     $i++;
@@ -1802,6 +1819,8 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                 if (isset($tdim['noimage'])) {
                     // Delete it so it can be regenerated
                     if (@unlink($fthumb)) {
+                        // Silently delete an already generated .v/webpfthumb.webp variation file too
+                        serendipity_syncUnlinkVariation($fthumb);
                         $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
                         $_br = "<br>\n";
                         $i++;
@@ -1814,6 +1833,8 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                         // This thumbnail is incorrect; delete it so
                         // it can be regenerated
                         if (@unlink($fthumb)) {
+                            // Silently delete an already generated .v/webpfthumb.webp variation file too
+                            serendipity_syncUnlinkVariation($fthumb);
                             $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
                             $_br = "<br>\n";
                             $i++;
