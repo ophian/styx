@@ -656,7 +656,6 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
  * @see serendipity_imageGDWebPConversion()
  *
  * @param string $infile   The fullpath file format from string
- *
  * @return typed image
  */
 function serendipity_imageCreateFromAny($filepath) {
@@ -702,8 +701,7 @@ function serendipity_imageCreateFromAny($filepath) {
  * @param string $infile    The fullpath file format from string
  * @param string $outfile   The fullpath file format to string
  * @param int    $quality   The quality of sizing/formatting
- *
- * @return converted outfile
+ * @return string converted outfile
  */
 function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
     $im = serendipity_imageCreateFromAny($infile);
@@ -726,8 +724,10 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
 /**
  * Convert an uploaded thumb or single file to the WebP image VARIATION image format with ImageMagick
  * Create CMD string settings and pass to serendipity_passToCMD()
+ *
  * NOTE: An image upload source is the origin file object. Thumb prefixed previews AND media sized "previews" are origin sub-variations.
  *       A WebP image is an extra origin variant of the source and is "on top" the variation(s). We STORE them in a (preserved key) current dir/.v directory!
+ *
  * WHY USING A HIDDEN DIRECTORY for storage of image variations:
  *       Hidden files offer a convenient mechanism for associating arbitrary metadata with a directory location while remaining largely independent of file system or OS mechanics.
  *       Hidden files are just hidden enough to discourage most users from accidentally invalidating that metadata by moving or removing them while remaining standard enough
@@ -743,7 +743,6 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
  * @param string $outfile   Target file name
  * @param string $mime      Output of mime_content_type($target)
  * @param int    $quality   Held for future purposes
- *
  * @return mixed
  */
 function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $quality=100) {
@@ -788,7 +787,6 @@ function getSupportedFormats($extend=false) {
  *
  * @param string $file  origin fullpath file
  * @param string $ext   new extension
- *
  * @return array
  */
 function serendipity_makeImageVariationPath($orgfile, $ext) {
@@ -816,7 +814,6 @@ function serendipity_makeImageVariationPath($orgfile, $ext) {
  *                              Large adjustments to image gamma may result in the loss of some image information if the pixel quantum size is only eight bits (quantum range 0 to 255).
  *                              Gamma adjusts the image's channel values pixel-by-pixel according to a power law, namely, pow(pixel,1/gamma) or pixel^(1/gamma), where pixel is the
  *                              normalized or 0 to 1 color value.
- *
  * @return mixed            boolean on fail, else array with result and $cmd string (for debug)
  */
 function serendipity_passToCMD($type=null, $source='', $target='', $args=array()) {
@@ -1281,6 +1278,7 @@ function serendipity_rotateImg($id, $degrees) {
 
     return true;
 }
+
 /**
  * Creates thumbnails for all images in the upload dir
  *
@@ -2014,8 +2012,8 @@ function serendipity_rotate_image_gd($infilename, $outfilename, $degrees)
  * @return  int         New height (can be autodetected)
  * @return  array       New image size
  */
-function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newheight=null)
-{
+function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newheight=null) {
+
     $func = serendipity_functions_gd($infilename);
     if (!is_array($func)) {
         return false;
@@ -2029,6 +2027,7 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
         echo 'Could not create thumbnail: ',  $t->getMessage(), "\n";
         return false;
     }
+
     $width  = imagesx($in);
     $height = imagesy($in);
 
@@ -2645,7 +2644,6 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
 /**
  * Recursively walk a directory tree
  *
- *
  * @access public
  * @param   string      The core directory
  * @param   string      The subdirectory
@@ -3035,7 +3033,6 @@ function serendipity_directoryACL(&$paths, $type = 'read') {
  * @param  string   File extension
  * @param  string   Thumbnail suffix
  * @return array    Thumbnail path
- *
  */
 function serendipity_getThumbNailPath($sRelativePath, $sName, $sExtension, $sThumbName) {
     $aTempArray = array('path'      => $sRelativePath,
@@ -3056,14 +3053,13 @@ function serendipity_getThumbNailPath($sRelativePath, $sName, $sExtension, $sThu
     return $sThumbNailPath;
 }
 
- /**
+/**
  * Given a relative path to an image, construct an array containing all
  * relevant information about that image in the file structure.
  *
  * @author MTG
  * @param  string   Relative Path
  * @return array    Data about image
- *
  */
 function &serendipity_getImageData($sRelativePath) {
     global $serendipity;
@@ -3113,7 +3109,6 @@ function &serendipity_getImageData($sRelativePath) {
  * @param  int      How many keyword checkboxes to display next to each other?
  * @param  boolean  Can existing data be modified?
  * @return string   Generated HTML
- *
  */
 function serendipity_showPropertyForm(&$new_media, $keywordsPerBlock = 3, $is_edit = true) {
     global $serendipity;
@@ -3182,7 +3177,6 @@ function serendipity_showPropertyForm(&$new_media, $keywordsPerBlock = 3, $is_ed
  * @param  int      How many keyword checkboxes to display next to each other?
  * @param  boolean  Can existing data be modified?
  * @return boolean
- *
  */
 function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props, $keywordsPerBlock, $is_edit) {
     global $serendipity;
@@ -3368,7 +3362,6 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
  * @param  string   The value
  * @param  string   Invert?
  * @return array    array('image_id') holding the last created thumbnail for immediate processing
- *
  */
 function serendipity_mediaTypeCast($key, $val, $invert = false) {
     if (stristr($key, 'date') !== FALSE) {
@@ -3411,7 +3404,6 @@ function serendipity_mediaTypeCast($key, $val, $invert = false) {
  * @param   int     Media ID
  * @param   string  Property_fields to check for
  * @param   string  The SET value
- *
  */
 function serendipity_updateSingleMediaProperty($image_id, $property_fields, $setval) {
     global $serendipity;
@@ -3434,7 +3426,11 @@ function serendipity_updateSingleMediaProperty($image_id, $property_fields, $set
  * Inserts or updates media properties
  *
  * @param   string  Property_group
- *
+ * @param   string  Property_Subgroup
+ * @param   int     Image ID
+ * @param   array   Referenced Media properties
+ * @param   bool    Media Type Cast
+ * @param   string  Property_group
  */
 function serendipity_insertMediaProperty($property_group, $property_subgroup, $image_id, &$media, $use_cast = true) {
     global $serendipity;
@@ -3478,7 +3474,6 @@ function serendipity_insertMediaProperty($property_group, $property_subgroup, $i
  * Inserts the submitted properties of uploaded media items
  *
  * @return array    array('image_id') holding the last created thumbnail for immediate processing
- *
  */
 function serendipity_parsePropertyForm() {
     global $serendipity;
@@ -3530,7 +3525,6 @@ function serendipity_parsePropertyForm() {
  *
  * @param  int      The media item id
  * @return array    Array of image metadata
- *
  */
 function &serendipity_fetchMediaProperties($id) {
     global $serendipity;
@@ -3567,7 +3561,6 @@ function &serendipity_fetchMediaProperties($id) {
  * @param  array    Array of additional image metadata
  * @param  string   ACL toggle type ('read', 'write')
  * @return array    Stripped Array of image metadata
- *
  */
 function serendipity_checkPropertyAccess(&$new_media, &$additional, $mode = 'read') {
     global $serendipity;
@@ -3597,7 +3590,6 @@ function serendipity_checkPropertyAccess(&$new_media, &$additional, $mode = 'rea
  * @param  array    Array of image metadata
  * @param  string   URL for maintenance tasks, set when using the ML for inserting images
  * @return bool
- *
  */
 function serendipity_prepareMedia(&$file, $url = '') {
     global $serendipity;
@@ -3735,7 +3727,6 @@ function serendipity_prepareMedia(&$file, $url = '') {
  * @param  boolean  Enclose within a table cell?
  * @param  array    Additional Smarty variables
  * @return string   Generated HTML
- *
  */
 function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lineBreak = 3, $enclose = true, $smarty_vars = array()) {
     global $serendipity;
@@ -3819,7 +3810,6 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
  * @param  string   The content
  * @param  string   The type of the content
  * @return string   The converted content
- *
  */
 function serendipity_metaFieldConvert(&$item, $type) {
     switch($type) {
@@ -3946,7 +3936,6 @@ function serendipity_getMediaRaw($filename) {
  *
  * @param  string   Filename
  * @return array    The raw media header data
- *
  */
 function &serendipity_getMetaData($file, &$info) {
     global $serendipity;
@@ -4125,7 +4114,6 @@ function &serendipity_getMetaData($file, &$info) {
  * @param  string   The directory of the (duplicate) filename
  * @param  boolean  Show new filename?
  * @return string   The new filename
- *
  */
 function serendipity_imageAppend(&$tfile, &$target, $dir, $echo = true) {
     static $safe_bail = 20;
@@ -4165,7 +4153,6 @@ function serendipity_imageAppend(&$tfile, &$target, $dir, $echo = true) {
  *
  * @param  string   The filename
  * @return boolean  TRUE when file is okay, FALSE when it is beyond limits
- *
  */
 function serendipity_checkMediaSize($file) {
     global $serendipity;
@@ -4965,7 +4952,6 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
  * @param  string   An item id of a file
  * @param  array    Result of serendipity_fetchImageFromDatabase($id)
  * @return boolean
- *
  */
 function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_id = null, $file = null) {
     global $serendipity;
@@ -5099,7 +5085,6 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
  * Gets all available media directories
  *
  * @return array
- *
  */
 function &serendipity_getMediaPaths() {
     global $serendipity;
