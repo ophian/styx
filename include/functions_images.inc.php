@@ -710,7 +710,7 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
     if (!$im) {
         return false;
     }
-
+    @ini_set('memory_limit', '1024M');
     try {
         imagewebp($im, $outfile, $quality);
     } catch (Throwable $t) {
