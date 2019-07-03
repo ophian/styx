@@ -746,8 +746,9 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
  * @return mixed
  */
 function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $quality=100) {
+    global $serendipity;
+
     if (in_array(strtoupper(explode('/', $mime)[1]), getSupportedFormats())) {
-        global $serendipity;
 
         $_tmppath = dirname($outpath . '/.v/' . $outfile);
         if (!is_dir($_tmppath)) {
