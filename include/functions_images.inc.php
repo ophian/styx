@@ -1983,8 +1983,8 @@ function serendipity_functions_gd($infilename) {
  * @param   int         Degrees to rotate
  * @return  array       New width/height of the image
  */
-function serendipity_rotate_image_gd($infilename, $outfilename, $degrees)
-{
+function serendipity_rotate_image_gd($infilename, $outfilename, $degrees) {
+
     $func = serendipity_functions_gd($infilename);
     if (!is_array($func)) {
         return false;
