@@ -54,6 +54,7 @@
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
             {$link_webp="{$file.full_file_webp|default:''}"}
             {$img_src="{$file.path}"}
+            {$img_src_webp=""}{* YES, empty! Else it uses the predefined item *}
             {$img_title="{$file.path}"}
             {$img_alt="{$file.realname}"}
         {else}
