@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix 'is_image' wrong file 'location' assignment for hotlink cases
+
   * Remove GD GIF to WebP conversion support, since that fails with animated
     gifs (at least for the moment).
 
