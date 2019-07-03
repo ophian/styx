@@ -2562,7 +2562,7 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
     $file['displaymime'] = $file['mime'];
 
     // Strip HTTP path out of imgsrc
-    $file['location'] = $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', @$file['imgsrc']);
+    $file['location'] = !$file['hotlink'] ? $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', @$file['imgsrc']) : '';
 
     // File is PDF -> Thumb is PNG
     // Detect PDF thumbs
@@ -3711,7 +3711,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
     if ($file['hotlink']) {
         $file['nice_hotlink'] = wordwrap($file['path'], 45, '<br />', 1);
     }
-    $file['nice_size']    = number_format(round($file['size']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+    $file['nice_size'] = number_format(round($file['size']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     if (isset($file['thumbSize'])) {
         $file['nice_thumbsize'] = number_format(round($file['thumbSize']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
