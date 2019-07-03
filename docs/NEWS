@@ -1,6 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix SQL check for maintenance Image Sync option 4: "convert" thumb prefix
+    name to not fetch hotlinks and pdfs without ghostscript converted preview
+    thumbs.
+
   * Fix 'is_image' wrong file 'location' assignment for hotlink cases
 
   * Remove GD GIF to WebP conversion support, since that fails with animated
