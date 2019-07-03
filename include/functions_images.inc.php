@@ -742,10 +742,11 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
  * @param string $outpath   Target file path
  * @param string $outfile   Target file name
  * @param string $mime      Output of mime_content_type($target)
+ * @param bool   $mute      To message OR not. Is default false for a single request, true for bulk like syncronization traversals
  * @param int    $quality   Held for future purposes
  * @return mixed
  */
-function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $quality=100) {
+function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mute=false, $quality=100) {
     global $serendipity;
 
     if (in_array(strtoupper(explode('/', $mime)[1]), getSupportedFormats())) {
@@ -757,7 +758,7 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $qu
         $thumb = (false !== strpos($outfile, $serendipity['thumbSuffix'])) ? "{$serendipity['thumbSuffix']} " : ' ';
         $_outfile = $_tmppath . '/' . $outfile; // store in a ("preserved key .v") current dir/.v directory!
         if (!file_exists($_outfile)) {
-            echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
+            if ($mute === false) echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
             // make a distinction switch between IM / GD libraries
             if ($serendipity['magick'] !== true) {
                 $out = serendipity_imageGDWebPConversion($infile, $_outfile);
@@ -911,9 +912,10 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
  * @param   string      Name of the thumbnail
  * @param   bool        Store thumbnail in temporary place?
  * @param   bool        Force enlarging of small images?
+ * @param   bool        Suppress serendipity_convertToWebPFormat() message, if it is a bulk (synchronization) traversal request
  * @return  array       The result size of the thumbnail
  */
-function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumbname = false, $is_temporary = false, $force_resize = false) {
+function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumbname = false, $is_temporary = false, $force_resize = false, $mute = false) {
     global $serendipity;
     static $debug = false; // ad hoc, case-by-case debugging
 
@@ -970,7 +972,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     // The WebP GD part in 3 steps: 1. makeVariationPath(), 2. convertToWebPFormat(), 3. resize_image_gd()
                     $newgdfile = serendipity_makeImageVariationPath($outfile, 'webp');
                     // first we create it!
-                    $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile));
+                    $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
                     if ($result[0] === true) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
@@ -996,7 +998,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     // The WebP GD part in 3 steps: 1. makeVariationPath(), 2. convertToWebPFormat(), 3. resize_image_gd()
                     $newgdfile = serendipity_makeImageVariationPath($outfile, 'webp');
                     // first we create it!
-                    $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile));
+                    $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
                     if ($result[0] === true) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
@@ -1070,7 +1072,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                     // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthb->resize to thumb, which overwrites the first.
                     $webpthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
-                    $result = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile));
+                    $result = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($result)) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation success ${result[2]} " . DONE); }
                         // The resizing to same name(!)
@@ -1320,7 +1322,7 @@ function serendipity_generateThumbs() {
 
             // create a sized thumbnail
             if (!file_exists($oldThumb) && !file_exists($newThumb) && ($fdim[0] > $serendipity['thumbSize'] || $fdim[1] > $serendipity['thumbSize'])) {
-                $returnsize = serendipity_makeThumbnail($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), $file['path']);
+                $returnsize = serendipity_makeThumbnail($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), $file['path'], false, false, false, false, true); // suppress "trying to webp" message
                 if ($returnsize !== false && is_array($returnsize)) {
                     $_list .= '<li>' . sprintf(RESIZE_BLAHBLAH, '<b>' . $sThumb . '</b>') . ': ' . $returnsize[0] . 'x' . $returnsize[1] . "</li>\n";
                     if (!file_exists($newThumb)) {
@@ -3713,7 +3715,6 @@ function serendipity_prepareMedia(&$file, $url = '') {
     if (isset($file['thumbSize'])) {
         $file['nice_thumbsize'] = number_format(round($file['thumbSize']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
-
     if (isset($file['sizeWebp'])) {
         $file['nice_size_webp'] = number_format(round($file['sizeWebp']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
