@@ -1,6 +1,11 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add an EXPERIMENTAL WebP image "upgrade" task in the Maintenance Image
+    Synchronizer section, which can be processed once by an ACL approved
+    user. This runs an image list iteration by a given range of 25 image
+    items each to hopefully not exhaust memory errors.
+
   * Fix SQL check for maintenance Image Sync option 4: "convert" thumb prefix
     name to not fetch empty thumbnail field names.
 
