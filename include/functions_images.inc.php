@@ -808,7 +808,7 @@ function serendipity_makeImageVariationPath($orgfile, $ext) {
  * @param string $source    Source file fullpath
  * @param string $target    Target file fullpath
  * @param array  $args      [0] ImageMagick executor command (remember, "magick" shall be used for IM 7 only, but always a copy named "convert" is created too, so we can stick to convert until this is reverted.)
-                            [1],[2],[3] Convert setting/operator commands [-antialias, -sharp, -unsharp, -flatten, -scale, -resize, -crop, size adjustments, etc]
+ *                          [1],[2],[3] Convert setting/operator commands [-antialias, -sharp, -unsharp, -flatten, -scale, -resize, -crop, size adjustments, etc]
  *                          [4] Quality of image operation (normally 100, 75 for thumb downsizing)
  *                          [4] The same color image displayed on two different workstations may look different due to differences in the display monitor.
  *                              Use gamma correction to adjust for this color difference. Reasonable values extend from 0.8 to 2.3.
@@ -1284,6 +1284,8 @@ function serendipity_rotateImg($id, $degrees) {
 
 /**
  * Force an image WebP Variation file format conversion on all supported files by range
+ *
+ * @return int num $items converted
  */
 function serendipity_generateVariations() {
     global $serendipity;
