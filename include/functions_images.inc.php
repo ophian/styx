@@ -344,7 +344,7 @@ function serendipity_deleteImage($id) {
     $_file = serendipity_fetchImageFromDatabase($id);
 
     if ($serendipity['useWebPFormat']) {
-        // get a possible image variations id
+        // get a possible image variations id (should only be if that was development or somethings has went wrong)
         $vfile = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}images AS i WHERE path = '.v/' AND name = '{$_file['name']}' AND extension = 'webp'", true, 'assoc');
         $files = is_array($vfile) ? [ $_file, $vfile ] : [ $_file ];
     } else {
@@ -420,7 +420,7 @@ function serendipity_fetchImages($reverse = false, $images = '', $odir = '') {
     $images = array();
 
     if (empty($serendipity['uniqueThumbSuffixes'])) {
-        $usedSuffixes    = serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images", false, 'num');
+        $usedSuffixes    = serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images WHERE thumbnail_name != ''", false, 'num');
         $thumbSuffixes   = is_array($usedSuffixes) ? call_user_func_array('array_merge', $usedSuffixes) : array();
         $thumbSuffixes[] = $serendipity['thumbSuffix']; // might be set to 'styxThumb' for new version
         $thumbSuffixes[] = 'serendipityThumb'; // might be the old suffix name - which should usually be inside usedSuffixes, but if not, hardcode it here to make sure!
@@ -2306,7 +2306,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync')
         && isset($serendipity['last_image_hash']) && $serendipity['current_image_hash'] != $serendipity['last_image_hash']) {
             $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
-                                                  FROM {$serendipity['dbPrefix']}images WHERE path != '.v/'", false, 'assoc');//exclude variations
+                                                  FROM {$serendipity['dbPrefix']}images WHERE path != '.v/'", false, 'assoc'); // exclude possible variations (.v/ path should only be if that was development or somethings has went wrong)
 
             if ($debug) { $serendipity['logger']->debug("$logtag Got images: " . print_r($aResultSet, 1)); }
 
