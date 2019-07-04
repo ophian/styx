@@ -6,6 +6,9 @@ Version 3.0-Dev ()
     user. This runs an image list iteration by a given range of 25 image
     items each to hopefully not exhaust memory errors.
 
+  * Hide Maintenance Image Synchronizer section (thumb) suffix task, when
+    there is nothing to task about.
+
   * Fix SQL check for maintenance Image Sync option 4: "convert" thumb prefix
     name to not fetch empty thumbnail field names.
 
