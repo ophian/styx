@@ -67,11 +67,20 @@
                         <label for="deletethumbs">{$CONST.SYNC_OPTION_DELETETHUMBS|sprintf:$thumbsuffix}</label>
                     </div>
 
+                    {if $suffixTask}
                     <div class="form_radio">
                         <input id="convertthumbs" name="serendipity[deleteThumbs]" type="radio" value="convert"{if !$suffixTask} disabled="disabled"{/if}>
                         <label for="convertthumbs">{$CONST.SYNC_OPTION_CONVERTTHUMBS}</label>
                         <button class="toggle_info button_link" type="button" data-href="#iconvert_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
                     </div>
+                    {/if}
+
+                    {if $variationTask}
+                    <div class="form_radio">
+                        <input id="makeVariations" name="serendipity[deleteThumbs]" type="radio" value="build"{if !$variationTask} disabled="disabled"{/if}>
+                        <label for="makeVariations">{$CONST.SYNC_OPTION_BUILDVARIATIONS|default:'Build Image WebP Format variations'}/label>
+                    </div>
+                    {/if}
 
                     <div id="iconvert_info" class="comment_status additional_info">
                         <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.SYNC_OPTION_CONVERTTHUMBS_INFO|sprintf:$thumbsuffix}

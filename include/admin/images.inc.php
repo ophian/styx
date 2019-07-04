@@ -75,6 +75,9 @@ switch ($serendipity['GET']['adminAction']) {
                 case 'convert':
                     $deleteThumbs = 'convert';
                     break;
+                case 'build':
+                    $deleteThumbs = 'variation';
+                    break;
             }
         }
 
@@ -83,6 +86,14 @@ switch ($serendipity['GET']['adminAction']) {
             $i = serendipity_convertThumbs();
             $data['print_SYNC_DONE'] = sprintf(SYNC_DONE, $i);
             $data['convertThumbs'] = true;
+            flush();
+            break; // stop here
+        }
+        // guard clause - ditto
+        if ($deleteThumbs === 'variation') {
+            $i = serendipity_generateVariations();
+            $data['print_VARIATIONBUILDS_DONE'] = sprintf(SYNC_DONE, $i . ' WebP');
+            $data['buildVariation'] = true;
             flush();
             break; // stop here
         }

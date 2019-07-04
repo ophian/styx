@@ -7,13 +7,20 @@
     {if !$perm_adminImagesSync}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
     {else}
+        {if empty($convertThumbs) AND empty($buildVariation)}
         <h2>{$CONST.SYNCING}</h2>
 
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_SYNC_DONE}</span>
-        {if empty($convertThumbs)}
+        {/if}
+        {if NOT empty($convertThumbs)}
         <h2>{$CONST.RESIZING}</h2>
 
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_RESIZE_DONE}</span>
+        {/if}
+        {if NOT empty($buildVariation)}
+        <h2>{$CONST.VARIATIONS|default:'Build Variations'}</h2>
+
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_VARIATIONBUILDS_DONE|default:'Variations build done! You don\'t need to run this again.'}</span>
         {/if}
     {/if}
 {/if}

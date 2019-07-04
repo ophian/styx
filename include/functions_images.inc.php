@@ -1283,6 +1283,44 @@ function serendipity_rotateImg($id, $degrees) {
 }
 
 /**
+ * Force an image WebP Variation file format conversion on all supported files by range
+ */
+function serendipity_generateVariations() {
+    global $serendipity;
+
+    if (empty($serendipity['useWebPFormat'])) {
+        return;
+    }
+    $count = serendipity_db_query("SELECT count(*) FROM {$serendipity['dbPrefix']}images WHERE extension IN ('jpg', 'jpeg', 'png')", true, 'num');
+    $i = 0;
+    $iteration = 1;
+    echo "<ul class=\"plainList\">\n";
+    foreach(range(0, $count[0], 25) AS $part) {
+        echo "<li>Image list iteration part: <b>$iteration</b> of <b>".($count[0]-$part)."</b> items in total</li>\n";
+        // we cannot use a filter extension != webp and have to sort them out latterly
+        $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC');
+        if (is_array($files) && !empty($files)) {
+            foreach($files AS $f => $file) {
+                if (!in_array($file['extension'], ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) continue;
+                $infile  = $outfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
+                $newfile = serendipity_makeImageVariationPath($outfile, 'webp');
+                $result  = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
+                if ($result !== false && is_array($result)) {
+                    ++$i;
+                }
+            }
+        }
+        echo '<li>Iteration <b>' . $iteration . '</b> ' . DONE . ". <b>$i</b> items have been successfully created.<br>\n</li>\n";
+        ++$iteration;
+        flush();
+    }
+    $serendipity['upgrade_variation_done'] = true;
+    serendipity_set_config_var('upgrade_variation_done', 'true', 0);
+    echo "</ul>\n";
+    return $i;
+}
+
+/**
  * Creates thumbnails for all images in the upload dir
  *
  * @access public
