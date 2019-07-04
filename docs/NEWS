@@ -2,8 +2,7 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
   * Fix SQL check for maintenance Image Sync option 4: "convert" thumb prefix
-    name to not fetch hotlinks and pdfs without ghostscript converted preview
-    thumbs.
+    name to not fetch empty thumbnail field names.
 
   * Fix 'is_image' wrong file 'location' assignment for hotlink cases
 
