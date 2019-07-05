@@ -140,18 +140,18 @@
                                 <li><b>{$CONST.THUMBNAIL_SHORT}:</b> {$file.dim.0}x{$file.dim.1}</li>
                                 {/if}
 
-                                <li><b>{if $file.is_image}{$CONST.IMAGE_SIZE}{else}{$CONST.SORT_ORDER_SIZE}{/if}:</b> {$file.nice_size} KB</li>
+                                <li><b>{if $file.is_image}{$CONST.FILE_SIZE}{else}{$CONST.SORT_ORDER_SIZE}{/if}:</b> {$file.nice_size} KB</li>
                                 {if isset($file.nice_thumbsize) AND NOT $file.hotlink}
 
                                 <li><b>{$CONST.THUMBFILE_SIZE}:</b> {$file.nice_thumbsize} KB</li>
                                 {/if}
                                 {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
 
-                                <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.IMAGE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
+                                <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.FILE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
                                 {/if}
                                 {if $file.is_image AND NOT empty($file.nice_thumbsize_webp)}
 
-                                <li><b>{$CONST.VARIATION_IMAGE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE}"}:</b> {$file.nice_thumbsize_webp} KB</li>
+                                <li><b>{$CONST.VARIATION_FILE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE}"}:</b> {$file.nice_thumbsize_webp} KB</li>
                                 {/if}
 
                                 <li><b>{$CONST.PATH}:</b> "{$file.path}"</li>
@@ -221,18 +221,18 @@
                             <li><b>{$CONST.MEDIA_HOTLINKED}:</b> {$file.nice_hotlink}</li>
                         {elseif $file.is_image}
 
-                            <li><b>{$CONST.ORIGINAL_SHORT}:</b> {$file.dimensions_width}x{$file.dimensions_height} px</li>
-                            <li><b>{$CONST.THUMBNAIL_SHORT}:</b> {$file.dim.0}x{$file.dim.1} px</li>
+                            <li><b>{$CONST.IMAGE_SIZE}:</b> {$file.dimensions_width}x{$file.dimensions_height} px</li>
+                            <li><b>{$CONST.THUMBNAIL_SIZE}:</b> {$file.dim.0}x{$file.dim.1} px</li>
                         {/if}
 
-                            <li><b>{$CONST.IMAGE_SIZE}:</b> {$file.nice_size} KB</li>
+                            <li><b>{$CONST.FILE_SIZE}:</b> {$file.nice_size} KB</li>
                         {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
 
-                            <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.IMAGE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
+                            <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.FILE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
                         {/if}
                         {if $file.is_image AND NOT empty($file.nice_thumbsize_webp)}
 
-                            <li><b>{$CONST.VARIATION_IMAGE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE|truncate:15}"}:</b> {$file.nice_thumbsize_webp} KB</li>
+                            <li><b>{$CONST.VARIATION_FILE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE|truncate:15}"}:</b> {$file.nice_thumbsize_webp} KB</li>
                         {/if}
 
                         </ul>
