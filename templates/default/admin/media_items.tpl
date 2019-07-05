@@ -97,11 +97,13 @@
                         </a>
                         {else}
                         {if $file.is_image}
+
                         <picture>
                             <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
                             <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties -->
                         </picture>
                         {if $file.mime|truncate:6:'' == 'image/' AND ($file.extension|count_characters > $CONST.PATHINFO_EXTENSION)}
+
                         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR_SOMETHING}
                             <p>{$CONST.MEDIA_EXTENSION_FAILURE|sprintf:$file.realname:$file.mime:$file.extension:($file.extension|count_characters):$CONST.PATHINFO_EXTENSION}</p>
                             {$CONST.MEDIA_EXTENSION_FAILURE_REPAIR}
@@ -109,14 +111,15 @@
                         {/if}
                         {else}
                         {if {$file.mime|regex_replace:"/\/.*$/":""} == 'video' AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}{* * *}
+
                         <video width="320" height="240" controls>
                             <source src="{$file.full_file}"  type="video/{$file.extension}"><!-- media/properties video -->
                         </video>
                         {else}
-                         <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties non image file -->
-                        {/if}
-                        {/if}
-                        {/if}
+
+                        <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties non image file -->
+                        {/if}{/if}{/if}
+
                         <footer id="media_file_meta_{$file.id}" class="media_file_meta additional_info">
                             <ul class="plainList">
                             {if $file.hotlink}
@@ -139,14 +142,18 @@
 
                                 <li><b>{if $file.is_image}{$CONST.IMAGE_SIZE}{else}{$CONST.SORT_ORDER_SIZE}{/if}:</b> {$file.nice_size} KB</li>
                                 {if isset($file.nice_thumbsize) AND NOT $file.hotlink}
+
                                 <li><b>{$CONST.THUMBFILE_SIZE}:</b> {$file.nice_thumbsize} KB</li>
                                 {/if}
                                 {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
+
                                 <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.IMAGE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
                                 {/if}
                                 {if $file.is_image AND NOT empty($file.nice_thumbsize_webp)}
+
                                 <li><b>{$CONST.VARIATION_IMAGE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE}"}:</b> {$file.nice_thumbsize_webp} KB</li>
                                 {/if}
+
                                 <li><b>{$CONST.PATH}:</b> "{$file.path}"</li>
                                 <li><b>{$CONST.DATE}:</b> {$file.date|formatTime:DATE_FORMAT_SHORT}</li>
                             {/if}
