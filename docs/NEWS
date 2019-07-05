@@ -21,7 +21,7 @@ Version 3.0-Dev ()
     messaging.
 
   * Added GD library image WebP scale/resize and rotate actions.
-    In special for the latter action (with both iamge libraries) it still
+    In special for the latter action (with both image libraries) it still
     lacks a user information about too sticky list image views, not always
     showing the current "rotated" image state after the action was processed.
     It most times just looks as have being failed, since there is no visual
@@ -30,7 +30,7 @@ Version 3.0-Dev ()
   * Add EXPERIMENTAL WebP image file support to the MediaLibrary for PHP 7
     with GD image library enabled WebP support. See all my related notes
     previously.
-    Create and run GD to WebP format for upload images and their webp ext-
+    Create and run GD to WebP format for upload images and their WebP ext-
     sion variations. As mentioned before, you NEED to set the global
     $serendipity['useWebPFormat'] variable manually and use all of this
     with care.
