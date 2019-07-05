@@ -113,6 +113,7 @@
 @define('YOU_CHOSE', 'U koos voor %s');
 @define('IMAGE_ROTATE_LEFT', 'Roteer de afbeelding 90 graden tegen de klok in');
 @define('IMAGE_ROTATE_RIGHT', 'Roteer de afbeelding 90 graden met de klok mee');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Grootte van de afbeelding');
 @define('IMAGE_AS_A_LINK', 'Verwijzing');
 @define('POWERED_BY', 'Aangedreven door');
@@ -282,6 +283,7 @@
 @define('SORT_ORDER_DATE', 'Uploaddatum');
 @define('SORT_ORDER_ASC', 'Oplopend');
 @define('SORT_ORDER_DESC', 'Aflopend');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Mini');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Tekstopmaak toepassen op %s');

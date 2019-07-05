@@ -113,6 +113,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('YOU_CHOSE', 'Wybrano %s');
 @define('IMAGE_ROTATE_LEFT', 'Obróæ obrazek 90 stopni w lewo');
 @define('IMAGE_ROTATE_RIGHT', 'Obróæ obrazek 90 stopni w prawo');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Rozmiar obrazka');
 @define('IMAGE_AS_A_LINK', 'Linkowanie obrazka');
 @define('POWERED_BY', 'Powered by');
@@ -282,6 +283,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SORT_ORDER_DATE', 'Data uploadu');
 @define('SORT_ORDER_ASC', 'Rosn±co');
 @define('SORT_ORDER_DESC', 'Malej±co');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Miniatura');
 @define('ORIGINAL_SHORT', 'Orygina³');
 @define('APPLY_MARKUP_TO', 'Zastosuj znacznik do %s');

@@ -106,6 +106,7 @@
 @define('THE_NUGGET', 'HTML-indholdet af din nugget');
 @define('SYNDICATE_THIS_BLOG', 'Syndiker denne blog');
 @define('YOU_CHOSE', 'Du valgte %s');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Billedestørrelse');
 @define('IMAGE_AS_A_LINK', 'Billedeindsættelse');
 @define('POWERED_BY', 'Drives af');
@@ -265,6 +266,7 @@
 @define('SORT_ORDER_DATE', 'Upload-dato');
 @define('SORT_ORDER_ASC', 'Stigende');
 @define('SORT_ORDER_DESC', 'Faldende');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Mini');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Formater %s');

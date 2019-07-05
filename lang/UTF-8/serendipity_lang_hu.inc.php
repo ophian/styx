@@ -111,6 +111,7 @@
 @define('YOU_CHOSE', 'Ezt választottad: %s');
 @define('IMAGE_ROTATE_LEFT', 'A kép 90 fokos elforgatása az óramutató járásával ellentétes irányba');
 @define('IMAGE_ROTATE_RIGHT', 'A kép 90 fokos elforgatása az óramutató járásával megegyező irányba');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Képméret');
 @define('IMAGE_AS_A_LINK', 'Kép beszúrása');
 @define('POWERED_BY', 'Powered by');
@@ -280,6 +281,7 @@
 @define('SORT_ORDER_DATE', 'Feltöltés dátuma');
 @define('SORT_ORDER_ASC', 'Növekvő');
 @define('SORT_ORDER_DESC', 'Csökkenő');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Mini');
 @define('ORIGINAL_SHORT', 'Eredeti');
 @define('APPLY_MARKUP_TO', 'Jelölés használata erre: %s');

@@ -113,6 +113,7 @@
 @define('YOU_CHOSE', 'Seçiminiz %s');
 @define('IMAGE_ROTATE_LEFT', 'Resmi akrep yönünde 90 derece döndür');
 @define('IMAGE_ROTATE_RIGHT', 'Resmi saat yönünde 90 derece döndür');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Resim boyutu');
 @define('IMAGE_AS_A_LINK', 'Resim ekleme');
 @define('POWERED_BY', 'Gerçekleştiren');
@@ -282,6 +283,7 @@
 @define('SORT_ORDER_DATE', 'Yükleme tarihi');
 @define('SORT_ORDER_ASC', 'Artan');
 @define('SORT_ORDER_DESC', 'Azalan');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Küçükresim');
 @define('ORIGINAL_SHORT', 'köken.');
 @define('APPLY_MARKUP_TO', 'Etiket uygula %s');

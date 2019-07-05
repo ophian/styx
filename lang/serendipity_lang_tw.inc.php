@@ -113,6 +113,7 @@ $i18n_unknown = 'tw';
 @define('YOU_CHOSE', '您選擇 %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', '圖片大小');
 @define('IMAGE_AS_A_LINK', '輸入圖片');
 @define('POWERED_BY', 'Powered by');
@@ -283,6 +284,7 @@ $i18n_unknown = 'tw';
 @define('SORT_ORDER_DATE', '上傳日期');
 @define('SORT_ORDER_ASC', '遞增排序');
 @define('SORT_ORDER_DESC', '遞減排序');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', '縮圖');
 @define('ORIGINAL_SHORT', '原始');
 @define('APPLY_MARKUP_TO', '套用標記到 %s');

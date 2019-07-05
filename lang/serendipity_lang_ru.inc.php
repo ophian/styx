@@ -113,6 +113,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('YOU_CHOSE', 'Вы выбрали %s');
 @define('IMAGE_ROTATE_LEFT', 'Повернуть изображение на 90 градусов против часовой стрелки');
 @define('IMAGE_ROTATE_RIGHT', 'Повернуть изображение на 90 градусов по часовой стрелке');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Размер изображения');
 @define('IMAGE_AS_A_LINK', 'Вставка изображения');
 @define('POWERED_BY', 'Сделано с помощью');
@@ -283,6 +284,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SORT_ORDER_DATE', 'По дате загрузки');
 @define('SORT_ORDER_ASC', 'По возрастанию');
 @define('SORT_ORDER_DESC', 'По убыванию');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Тамбнэйл');
 @define('ORIGINAL_SHORT', 'Оригинал');
 @define('APPLY_MARKUP_TO', 'Apply markup to %s');

@@ -111,6 +111,7 @@
 @define('YOU_CHOSE', 'Þú valdir %s');
 @define('IMAGE_ROTATE_LEFT', 'Snúa mynd 90 gráður rangsælis');
 @define('IMAGE_ROTATE_RIGHT', 'Snúa mynd 90 gráður réttsælis');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Stærð myndar');
 @define('IMAGE_AS_A_LINK', 'Innsetning myndar');
 @define('POWERED_BY', 'Knúið af');
@@ -280,6 +281,7 @@
 @define('SORT_ORDER_DATE', 'Dagsetning vistunar');
 @define('SORT_ORDER_ASC', 'Upp á við');
 @define('SORT_ORDER_DESC', 'Niður á við');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Sýnishorni');
 @define('ORIGINAL_SHORT', 'Upphafl.');
 @define('APPLY_MARKUP_TO', 'Virkja textabreytingar á %s');

@@ -108,6 +108,7 @@
 @define('THE_NUGGET', 'Der HTML-Klotz!');
 @define('SYNDICATE_THIS_BLOG', 'Blog abonnieren');
 @define('YOU_CHOSE', 'Sie haben sich für %s entschieden');
+@define('FILE_SIZE', 'Dateigröße');// keep short!
 @define('IMAGE_SIZE', 'Bildgröße');
 @define('IMAGE_ROTATE_LEFT', 'Bild um 90 Grad gegen den Uhrzeigersinn drehen');
 @define('IMAGE_ROTATE_RIGHT', 'Bild um 90 Grad im Uhrzeigersinn drehen');
@@ -271,6 +272,7 @@
 @define('SORT_ORDER_DATE', 'Upload-Datum');
 @define('SORT_ORDER_ASC', 'Aufsteigend');
 @define('SORT_ORDER_DESC', 'Absteigend');
+@define('THUMBNAIL_SIZE', 'Vorschaugröße');
 @define('THUMBNAIL_SHORT', 'Vorschaubild');
 @define('ORIGINAL_SHORT', 'Originalbild');
 @define('APPLY_MARKUP_TO', 'Textformatierung auf %s anwenden');
@@ -1200,7 +1202,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die
 
 @define('MEDIA_RENAME_ERROR_RELOAD', 'Wenn Sie diese Nachricht sehen gab es wahrscheinlich eine Fehlermeldung und etwas konnte nicht durchgeführt werden. Damit Sie eventuell erfolgte Teilveränderungen aber wieder rückgängig machen können, wird die aktuelle Mediatheks-Seite nicht neu geladen. Somit kann dieselbe Aktion mit dem alten Namen direkt wiederholt werden, damit die Änderungen wieder auf dem alten Stand sind. Andererseits werden bereits erfolgte Teilveränderungen erst sichtbar, wenn Sie die aktuelle Seite der Mediathek von Hand neu laden! Es ist eine Frage welcher Option Sie Priorität einräumen. Empfohlen ist Ersteres, auch wenn die Fehlermeldung sich vermutlich ähnlich wiederholt, um erst dann der Ursache der eigentlichen Fehlermeldung nachzuspüren. Kopieren Sie sich die Fehlermeldung für das anschließende Debugging!');
 
-@define('THUMBFILE_SIZE', 'Vorschaubildgröße');
+@define('THUMBFILE_SIZE', 'Vorschau-Dateigröße');
 @define('PATH', 'Pfad');
 
 @define('MEDIA_EXTENSION_FAILURE', 'Die hochgeladene Datei "<b>%s</b>" wurde als eine Mime-Ursprungsdatei "<b>%s</b>" identifiziert und in der Datenbank der Mediathek als "<b>%s</b>" Extension gespeichert. Dieser Extensions-Name hat eine Länge von "%s", und ist damit <b>größer</b> als die zulässige maximale Extensionslänge von "%s" für Bild-Dateien. Vielleicht ist es nicht das richtige Format für <b>Internet</b>-Bilddateien ("bmp", "gif", "jpg", "jpeg", "png", "tiff", "webp")?');

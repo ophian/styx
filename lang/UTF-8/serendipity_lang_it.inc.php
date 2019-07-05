@@ -110,6 +110,7 @@
 @define('THE_NUGGET', 'La pillola di HTML!');
 @define('SYNDICATE_THIS_BLOG', 'Diffondi Questo Blog');
 @define('YOU_CHOSE', 'Hai scelto %s');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Dimensioni dell\'immagine');
 @define('IMAGE_AS_A_LINK', 'Inserimento immagine');
 @define('POWERED_BY', 'Powered by');
@@ -268,6 +269,7 @@
 @define('SORT_ORDER_DATE', 'Data di upload');
 @define('SORT_ORDER_ASC', 'Crescente');
 @define('SORT_ORDER_DESC', 'Decrescente');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Mini');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Applica markup a %s');

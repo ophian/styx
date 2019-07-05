@@ -108,6 +108,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('THE_NUGGET', 'Блок на HTML!');
 @define('SYNDICATE_THIS_BLOG', 'Емисия новини от този блог');
 @define('YOU_CHOSE', 'Вие избрахте %s');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Големина на изображение');
 @define('IMAGE_AS_A_LINK', 'Вмъкване на изображение');
 @define('POWERED_BY', 'Направен от');
@@ -266,6 +267,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SORT_ORDER_DATE', 'Дата на качване');
 @define('SORT_ORDER_ASC', 'Намаляване');
 @define('SORT_ORDER_DESC', 'Увеличаване');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Мини');
 @define('ORIGINAL_SHORT', 'Ориг.');
 @define('APPLY_MARKUP_TO', 'Прилагане на markup към %s');

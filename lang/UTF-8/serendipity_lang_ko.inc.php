@@ -113,6 +113,7 @@
 @define('YOU_CHOSE', '%s(을)를 골랐습니다');
 @define('IMAGE_ROTATE_LEFT', '시계 반대방향으로 90도 회전하기');
 @define('IMAGE_ROTATE_RIGHT', '시계 방향으로 90도 회전하기');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', '그림 크기');
 @define('IMAGE_AS_A_LINK', '그림 삽입');
 @define('POWERED_BY', '제작 도구');
@@ -282,6 +283,7 @@
 @define('SORT_ORDER_DATE', '업로드 시간');
 @define('SORT_ORDER_ASC', '오름차순');
 @define('SORT_ORDER_DESC', '내림차순');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', '작은 그림');
 @define('ORIGINAL_SHORT', '원본 그림');
 @define('APPLY_MARKUP_TO', '%s에 마크업 적용');

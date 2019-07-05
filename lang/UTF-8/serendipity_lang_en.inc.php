@@ -110,6 +110,7 @@
 @define('YOU_CHOSE', 'You chose %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Image size');
 @define('IMAGE_AS_A_LINK', 'Image insertion');
 @define('POWERED_BY', 'Powered by');
@@ -279,6 +280,7 @@
 @define('SORT_ORDER_DATE', 'Upload date');
 @define('SORT_ORDER_ASC', 'Ascending');
 @define('SORT_ORDER_DESC', 'Descending');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Thumb');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Apply markup to %s');

@@ -112,6 +112,7 @@
 @define('YOU_CHOSE', '«Œ Ì«—ﬂ %s');
 @define('IMAGE_ROTATE_LEFT', '«œ— «·’Ê—… 90 œ—Ã… »√ Ã«Â ⁄ﬁ«—» «·”«⁄…');
 @define('IMAGE_ROTATE_RIGHT', '«œ— «·’Ê—… 90 œ—Ã… »√ Ã«Â ⁄ﬁ«—» «·”«⁄…');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'ÕÃ„ «·’Ê—…');
 @define('IMAGE_AS_A_LINK', '«œŒ«· ’Ê—…');
 @define('POWERED_BY', '»Ê«”ÿ…');
@@ -282,6 +283,7 @@
 @define('SORT_ORDER_DATE', ' «—ÌŒ «·—›⁄');
 @define('SORT_ORDER_ASC', ' — Ì»  ’«⁄œÌ');
 @define('SORT_ORDER_DESC', ' — Ì»  ‰«“·Ì');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', '’Ê—… „’€—…');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', '÷⁄ ≈‘«—… ≈·Ï %s');

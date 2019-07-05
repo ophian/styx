@@ -112,6 +112,7 @@
 @define('YOU_CHOSE', 'اختيارك %s');
 @define('IMAGE_ROTATE_LEFT', 'ادر الصورة 90 درجة بأتجاه عقارب الساعة');
 @define('IMAGE_ROTATE_RIGHT', 'ادر الصورة 90 درجة بأتجاه عقارب الساعة');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'حجم الصورة');
 @define('IMAGE_AS_A_LINK', 'ادخال صورة');
 @define('POWERED_BY', 'بواسطة');
@@ -282,6 +283,7 @@
 @define('SORT_ORDER_DATE', 'تاريخ الرفع');
 @define('SORT_ORDER_ASC', 'ترتيب تصاعدي');
 @define('SORT_ORDER_DESC', 'ترتيب تنازلي');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'صورة مصغرة');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'ضع إشارة إلى %s');

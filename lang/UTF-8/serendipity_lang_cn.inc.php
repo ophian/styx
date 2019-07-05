@@ -113,6 +113,7 @@
 @define('YOU_CHOSE', '你选择 %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', '图片大小');
 @define('IMAGE_AS_A_LINK', '输入图片');
 @define('POWERED_BY', '网站信息');
@@ -283,6 +284,7 @@
 @define('SORT_ORDER_DATE', '上传日期');
 @define('SORT_ORDER_ASC', '递增排序');
 @define('SORT_ORDER_DESC', '递减排序');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', '缩图');
 @define('ORIGINAL_SHORT', '原始');
 @define('APPLY_MARKUP_TO', '套用标记到 %s');

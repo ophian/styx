@@ -111,6 +111,7 @@
 @define('YOU_CHOSE', 'Du valde %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotera bilden 90 grader motsols');
 @define('IMAGE_ROTATE_RIGHT', 'Rotera bilden 90 grader medsols');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Bildstorlek');
 @define('IMAGE_AS_A_LINK', 'Infoga bild');
 @define('POWERED_BY', 'Baseras på');
@@ -280,6 +281,7 @@
 @define('SORT_ORDER_DATE', 'Uppladdningsdatum');
 @define('SORT_ORDER_ASC', 'Stigande');
 @define('SORT_ORDER_DESC', 'Fallande');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Mini');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Applicera textdekoration på %s');

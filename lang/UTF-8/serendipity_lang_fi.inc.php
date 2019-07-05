@@ -111,6 +111,7 @@
 @define('YOU_CHOSE', 'Valitsit %s');
 @define('IMAGE_ROTATE_LEFT', 'Käännä kuvaa 90 astetta vastapäivään');
 @define('IMAGE_ROTATE_RIGHT', 'Käännä kuvaa 90 astetta myötäpäivään');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Kuvan koko');
 @define('IMAGE_AS_A_LINK', 'Kuvan lisäys');
 @define('POWERED_BY', 'Ohjelmistona');
@@ -280,6 +281,7 @@
 @define('SORT_ORDER_DATE', 'Tuontipäiväys');
 @define('SORT_ORDER_ASC', 'Nouseva');
 @define('SORT_ORDER_DESC', 'Laskeva');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Pienoiskuva');
 @define('ORIGINAL_SHORT', 'Alkup.');
 @define('APPLY_MARKUP_TO', 'Käytä notaatiota kohdassa %s');

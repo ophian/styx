@@ -112,6 +112,7 @@
 @define('YOU_CHOSE', 'شما %s را انتخاب کردید');
 @define('IMAGE_ROTATE_LEFT', 'عکس را 90 درجه بر خلاف حرکت عقربه های ساعت بچرخان');
 @define('IMAGE_ROTATE_RIGHT', 'عکس را 90 درجه در جهت حرکت عقربه های ساعت بچرخان');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'اندازه عکس');
 @define('IMAGE_AS_A_LINK', 'وارد کردن عکس');
 @define('POWERED_BY', 'قدرتمند شده توسط');
@@ -281,6 +282,7 @@
 @define('SORT_ORDER_DATE', 'تاریخ بالاگذاری');
 @define('SORT_ORDER_ASC', 'صعودی');
 @define('SORT_ORDER_DESC', 'نزولی');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'عکس کوچک');
 @define('ORIGINAL_SHORT', 'اصلی');
 @define('APPLY_MARKUP_TO', 'اعمال کردن markup به %s');

@@ -111,6 +111,7 @@
 @define('THE_NUGGET', 'Contenu du bloc HTML');
 @define('SYNDICATE_THIS_BLOG', 'Syndiquer ce Blog');
 @define('YOU_CHOSE', 'Vous avez choisi %s');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Taille de l\'image');
 @define('IMAGE_AS_A_LINK', 'Insérer l\'image');
 @define('POWERED_BY', 'propulsé par');
@@ -270,6 +271,7 @@
 @define('SORT_ORDER_DATE', 'Date de l\'upload');
 @define('SORT_ORDER_ASC', 'Croissant');
 @define('SORT_ORDER_DESC', 'Décroissant');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Miniature');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Appliquer la transformation des balises à %s');

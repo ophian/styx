@@ -111,6 +111,7 @@
 @define('YOU_CHOSE', 'あなたは %s を選択しました。');
 @define('IMAGE_ROTATE_LEFT', '左回り(時計と反対回り)に 90 度回転する');
 @define('IMAGE_ROTATE_RIGHT', '右回り(時計回り)に 90 度回転する');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', '画像サイズ');
 @define('IMAGE_AS_A_LINK', '画像の挿入');
 @define('POWERED_BY', 'Powered by');
@@ -280,6 +281,7 @@
 @define('SORT_ORDER_DATE', 'アップロード日付');
 @define('SORT_ORDER_ASC', '昇順');
 @define('SORT_ORDER_DESC', '降順');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'サムネイル');
 @define('ORIGINAL_SHORT', 'オリジナル');
 @define('APPLY_MARKUP_TO', '%s へのマークアップを適用します。');

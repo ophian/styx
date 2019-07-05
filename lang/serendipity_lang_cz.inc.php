@@ -126,6 +126,7 @@ $i18n_filename_to = array (
 @define('YOU_CHOSE', 'Vybral jste %s');
 @define('IMAGE_ROTATE_LEFT', 'Otoèit o 90 stupòù doleva');
 @define('IMAGE_ROTATE_RIGHT', 'Otoèit o 90 stupòù doprava');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Obrázek o rozmìru');
 @define('IMAGE_AS_A_LINK', 'Vlo¾ení obrázku');
 @define('POWERED_BY', 'Vytvoøeno pomocí');
@@ -297,6 +298,7 @@ $i18n_filename_to = array (
 @define('SORT_ORDER_DATE', 'Datum nahrání');
 @define('SORT_ORDER_ASC', 'Vzestupnì');
 @define('SORT_ORDER_DESC', 'Sestupnì');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Náhl.');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Zapnout znaèkování %s');

@@ -112,6 +112,7 @@
 @define('YOU_CHOSE', 'Ai ales %s');
 @define('IMAGE_ROTATE_LEFT', 'Roteşte imaginea 90 grade în sens invers acelor de ceas');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate imaginea 90 grade în sensul acelor de ceas');
+@define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Mărime imagine');
 @define('IMAGE_AS_A_LINK', 'Inserţie imagine');
 @define('POWERED_BY', 'Bazat pe');
@@ -281,6 +282,7 @@
 @define('SORT_ORDER_DATE', 'Data încărcării');
 @define('SORT_ORDER_ASC', 'Crescător');
 @define('SORT_ORDER_DESC', 'Descrescător');
+@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
 @define('THUMBNAIL_SHORT', 'Mini');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Aplică selecţia pentru %s');
