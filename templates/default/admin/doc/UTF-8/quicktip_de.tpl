@@ -2,7 +2,7 @@
             <ol class="plainList quick_info">
                 <li>
                     <b>I. Was ist das hier?</b><br>
-                    <span><em>Dies ist das &#187;<b>Backend</b>&#171;; Der Platz der Administration.<br>Dieses ist der Öffentlichkeit nicht zugänglich, welche nur auf das &#187;<b>Frontend</b>&#171;, das veröffentliche <u>Blog</u>, gestaltet durch ihr <u>Theme</u> zugreifen kann.</em></span>
+                    <span><em>Dies ist das &#187;<b>Backend</b>&#171;; Der Platz der Administration.<br>Dieses ist der Öffentlichkeit nicht zugänglich, welche nur auf das &#187;<b>Frontend</b>&#171;, das veröffentlichte <u>Blog</u>, gestaltet durch ihr <u>Theme</u> zugreifen kann.</em></span>
                 </li>
                 <li>
                     <b>II. Die Übersicht konfigurieren?</b><br>
