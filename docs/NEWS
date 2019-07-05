@@ -15,7 +15,7 @@ Version 3.0-Dev ()
   * Fix 'is_image' wrong file 'location' assignment for hotlink cases
 
   * Remove GD GIF to WebP conversion support, since that fails with animated
-    gifs (at least for the moment).
+    GIFs (at least for the moment).
 
   * Fix serendipity_makeThumbnail() bug not returning the newsize sizes for
     messaging.
@@ -28,18 +28,18 @@ Version 3.0-Dev ()
     change. YOU need to FORCE a MediaLibrary browser reload!
 
   * Add EXPERIMENTAL WebP image file support to the MediaLibrary for PHP 7
-    with GD image library enabled WebP support. See all my related notes
+    with GD image library enabled WebP support. See all related notes
     previously.
     Create and run GD to WebP format for upload images and their WebP ext-
     sion variations. As mentioned before, you NEED to set the global
     $serendipity['useWebPFormat'] variable manually and use all of this
-    with care.
+    with a little more care than usually.
 
   * Improve backend entries list by adding restricted group enhancing
     category icon information.
 
   * Add frontend theme javascript modernizr link fallback scriptlet to
-    check for Styx backend WebP support and an is-set frontend theme (modern)
+    check for Styx backend WebP support and an is-Set frontend theme (modern)
     modernizr object with WebP module support, returning a non supporting
     client browser.
     If you want to support old lame browsers in your theme, please include
