@@ -1,6 +1,52 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * The improved IMAGE media upload and conversion handlers have some
+    interesting highlights to know about:
+    Giving you an example JPG comparison image file with:
+            MIME-Type: image/jpeg
+            Image size: 1435x732
+        Serendipity Styx 2.9.0 with ImageMagick 7, results in:
+            File size: 1.351,06 KB
+            Thumb size: 400x204
+            Thumb File size: 88,29 KB (jpg)
+
+        Serendipity Styx 3.0-Dev with ImageMagick 7, results in:
+            File size: 1.351,06 KB
+            Thumb size: 400x204
+            Thumb-file size: 7,92 KB (jpg)
+        In additional WebP file format Variations:
+            Image size: 1435x732
+            WebP-File size: 478,08 KB
+            Thumb size: 400x204
+            WebP-Thumb size: 3,06 KB
+
+        With 3.0-Dev using the GD library this results in:
+            File size: 1,351.06 KB
+            Thumb size: 55.29 KB (jpg)
+        In additional WebP file format Variations:
+            WebP-File size: 49.25 KB
+            WebP-Thumb size: 2.78 KB
+
+    These are the results of a fresh upload. Further UP-sizing an image
+    with the MediaLibrary image scale option may result in unexpected sizes,
+    since the NEW Styx ImageMagick Q16/Q8 bit handlers with gamma correction
+    do help a lot to improve sizing an image DOWN, but "can" do as well blow
+    up a media file in case of sizing it UP, all depending on the origin files
+    quality and compression, its colors and levels, and its subject complexity.
+
+    So YOU will have to play with it to get the right feeling for (re)sizing.
+    But as you can see, the uploading result is already better uploading
+    a file with 3.0 as it ever was with 2.x, without refer to the additional
+    WebP format improvements. Sometimes the GD lib even beats ImageMagick,
+    since GD is set to use a "quality 75" setting while ImageMagick currently
+    uses "auto", but the second is the far better library.
+
+    The major ImageMagick 7 library upgrade takes the rest of making image
+    file manipulations a very exiting thing to do in Serendipity Styx.
+    The goal to achieve is to always use the best available file format for
+    performance and page loads.
+
   * Extend the MediaLibrary Synchronizer for the new WebP image format to
     regenerate, keep, pre-delete and rebuild the image thumbs with their
     format Variation dependents.
