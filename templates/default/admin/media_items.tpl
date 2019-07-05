@@ -226,6 +226,15 @@
                         {/if}
 
                             <li><b>{$CONST.IMAGE_SIZE}:</b> {$file.nice_size} KB</li>
+                        {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
+
+                            <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.IMAGE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
+                        {/if}
+                        {if $file.is_image AND NOT empty($file.nice_thumbsize_webp)}
+
+                            <li><b>{$CONST.VARIATION_IMAGE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE|truncate:15}"}:</b> {$file.nice_thumbsize_webp} KB</li>
+                        {/if}
+
                         </ul>
                     </div>
                 </header>
