@@ -214,7 +214,7 @@
                     <div>
                         <span class="block_level"><b>MIME-{$CONST.TYPE}:</b> {$file.mime}{if $file.realname != $file.diskname}, {$file.diskname}{/if}</span>
                         <span class="block_level"><b>{$CONST.SORT_ORDER_EXTENSION}:</b> {$file.extension}</span>
-                        <ul class="media_file_meta plainList">
+                        <ul class="media_file_meta dimensions plainList">
                             <li><b>{$CONST.SORT_ORDER_DATE}:</b> {if $file.authorid != 0}{$CONST.POSTED_BY} {$file.authorname} {/if}{$CONST.ON} {$file.date|formatTime:DATE_FORMAT_SHORT}</li>
                         {if $file.hotlink}
 
@@ -225,6 +225,9 @@
                             <li><b>{$CONST.THUMBNAIL_SIZE}:</b> {$file.dim.0}x{$file.dim.1} px</li>
                         {/if}
 
+                        </ul>
+
+                        <ul class="media_file_meta filesizes plainList">
                             <li><b>{$CONST.FILE_SIZE}:</b> {$file.nice_size} KB</li>
                         {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
 
