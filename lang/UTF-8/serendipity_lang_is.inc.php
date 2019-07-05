@@ -281,7 +281,7 @@
 @define('SORT_ORDER_DATE', 'Dagsetning vistunar');
 @define('SORT_ORDER_ASC', 'Upp á við');
 @define('SORT_ORDER_DESC', 'Niður á við');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Sýnishorni');
 @define('ORIGINAL_SHORT', 'Upphafl.');
 @define('APPLY_MARKUP_TO', 'Virkja textabreytingar á %s');

@@ -298,7 +298,7 @@ $i18n_filename_to = array (
 @define('SORT_ORDER_DATE', 'Datum nahr?n?');
 @define('SORT_ORDER_ASC', 'Vzestupn?');
 @define('SORT_ORDER_DESC', 'Sestupn?');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'N?hl.');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Zapnout zna?kov?n? %s');

@@ -267,7 +267,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SORT_ORDER_DATE', 'Дата на качване');
 @define('SORT_ORDER_ASC', 'Намаляване');
 @define('SORT_ORDER_DESC', 'Увеличаване');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Мини');
 @define('ORIGINAL_SHORT', 'Ориг.');
 @define('APPLY_MARKUP_TO', 'Прилагане на markup към %s');

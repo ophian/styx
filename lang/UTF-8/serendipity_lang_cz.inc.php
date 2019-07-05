@@ -298,7 +298,7 @@ $i18n_filename_to = array (
 @define('SORT_ORDER_DATE', 'Datum nahrání');
 @define('SORT_ORDER_ASC', 'Vzestupně');
 @define('SORT_ORDER_DESC', 'Sestupně');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Náhl.');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Zapnout značkování %s');

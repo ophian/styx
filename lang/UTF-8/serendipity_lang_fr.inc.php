@@ -271,7 +271,7 @@
 @define('SORT_ORDER_DATE', 'Date de l\'upload');
 @define('SORT_ORDER_ASC', 'Croissant');
 @define('SORT_ORDER_DESC', 'Décroissant');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Miniature');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Appliquer la transformation des balises à %s');

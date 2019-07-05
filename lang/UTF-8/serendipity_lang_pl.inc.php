@@ -283,7 +283,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SORT_ORDER_DATE', 'Data uploadu');
 @define('SORT_ORDER_ASC', 'Rosnąco');
 @define('SORT_ORDER_DESC', 'Malejąco');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Miniatura');
 @define('ORIGINAL_SHORT', 'Oryginał');
 @define('APPLY_MARKUP_TO', 'Zastosuj znacznik do %s');

@@ -282,7 +282,7 @@
 @define('SORT_ORDER_DATE', 'تاریخ بالاگذاری');
 @define('SORT_ORDER_ASC', 'صعودی');
 @define('SORT_ORDER_DESC', 'نزولی');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'عکس کوچک');
 @define('ORIGINAL_SHORT', 'اصلی');
 @define('APPLY_MARKUP_TO', 'اعمال کردن markup به %s');

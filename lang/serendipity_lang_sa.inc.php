@@ -283,7 +283,7 @@
 @define('SORT_ORDER_DATE', ' «—ÌŒ «·—›⁄');
 @define('SORT_ORDER_ASC', ' — Ì»  ’«⁄œÌ');
 @define('SORT_ORDER_DESC', ' — Ì»  ‰«“·Ì');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', '’Ê—… „’€—…');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', '÷⁄ ≈‘«—… ≈·Ï %s');

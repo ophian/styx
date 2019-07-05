@@ -283,7 +283,7 @@
 @define('SORT_ORDER_DATE', 'Uploaddatum');
 @define('SORT_ORDER_ASC', 'Oplopend');
 @define('SORT_ORDER_DESC', 'Aflopend');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Mini');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Tekstopmaak toepassen op %s');

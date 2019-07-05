@@ -282,7 +282,7 @@
 @define('SORT_ORDER_DATE', 'Data încărcării');
 @define('SORT_ORDER_ASC', 'Crescător');
 @define('SORT_ORDER_DESC', 'Descrescător');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Mini');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Aplică selecţia pentru %s');

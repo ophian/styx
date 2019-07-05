@@ -280,7 +280,7 @@
 @define('SORT_ORDER_DATE', 'Upload date');
 @define('SORT_ORDER_ASC', 'Ascending');
 @define('SORT_ORDER_DESC', 'Descending');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Thumb');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Apply markup to %s');

@@ -281,7 +281,7 @@
 @define('SORT_ORDER_DATE', 'பெட்டகத்தில் சேர்த்த நாள்');
 @define('SORT_ORDER_ASC', 'ஏறுமுகம்');
 @define('SORT_ORDER_DESC', 'இறங்குமுகம்');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Thumb');
 @define('ORIGINAL_SHORT', 'Origin');
 @define('APPLY_MARKUP_TO', 'Apply markup to %s');

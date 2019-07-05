@@ -284,7 +284,7 @@ $i18n_unknown = 'tw';
 @define('SORT_ORDER_DATE', '上傳日期');
 @define('SORT_ORDER_ASC', '遞增排序');
 @define('SORT_ORDER_DESC', '遞減排序');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', '縮圖');
 @define('ORIGINAL_SHORT', '原始');
 @define('APPLY_MARKUP_TO', '套用標記到 %s');

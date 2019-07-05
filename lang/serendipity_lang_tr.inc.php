@@ -283,7 +283,7 @@
 @define('SORT_ORDER_DATE', 'Yükleme tarihi');
 @define('SORT_ORDER_ASC', 'Artan');
 @define('SORT_ORDER_DESC', 'Azalan');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Küçükresim');
 @define('ORIGINAL_SHORT', 'köken.');
 @define('APPLY_MARKUP_TO', 'Etiket uygula %s');

@@ -283,7 +283,7 @@
 @define('SORT_ORDER_DATE', '업로드 시간');
 @define('SORT_ORDER_ASC', '오름차순');
 @define('SORT_ORDER_DESC', '내림차순');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', '작은 그림');
 @define('ORIGINAL_SHORT', '원본 그림');
 @define('APPLY_MARKUP_TO', '%s에 마크업 적용');

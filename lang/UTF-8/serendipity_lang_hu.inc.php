@@ -281,7 +281,7 @@
 @define('SORT_ORDER_DATE', 'Feltöltés dátuma');
 @define('SORT_ORDER_ASC', 'Növekvő');
 @define('SORT_ORDER_DESC', 'Csökkenő');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', 'Mini');
 @define('ORIGINAL_SHORT', 'Eredeti');
 @define('APPLY_MARKUP_TO', 'Jelölés használata erre: %s');

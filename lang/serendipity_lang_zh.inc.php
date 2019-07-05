@@ -284,7 +284,7 @@
 @define('SORT_ORDER_DATE', '上传日期');
 @define('SORT_ORDER_ASC', '递增排序');
 @define('SORT_ORDER_DESC', '递减排序');
-@define('THUMBNAIL_SIZE', 'Thumbsize'); // keep short
+@define('THUMBNAIL_SIZE', 'Thumb size'); // keep short
 @define('THUMBNAIL_SHORT', '缩图');
 @define('ORIGINAL_SHORT', '原始');
 @define('APPLY_MARKUP_TO', '套用标记到 %s');
