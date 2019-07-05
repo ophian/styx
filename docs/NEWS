@@ -1,6 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Extend the MediaLibrary Synchronizer for the new WebP image format to
+    regenerate, keep, pre-delete and rebuild the image thumbs with their
+    format Variation dependents.
+
   * Add an EXPERIMENTAL WebP image "upgrade" task in the Maintenance Image
     Synchronizer section, which can be processed once by an ACL approved
     user. This runs an image list iteration by a given range of 25 image
