@@ -5,7 +5,7 @@
     {$media.token}
     <input name="serendipity[action]" type="hidden" value="admin">
     <input name="serendipity[adminModule]" type="hidden" value="images">
-    <input name="serendipity[adminAction]" type="hidden" value="add">
+    <input name="serendipity[adminAction]" type="hidden" value="changeProperties">
     <input name="serendipity[adminSubAction]" type="hidden" value="properties">
     {$media.editform_hidden}
 {/if}
