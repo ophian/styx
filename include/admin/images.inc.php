@@ -43,7 +43,7 @@ $data['case_directoryCreate'] = $data['case_directorySelect'] = false;
 $data['case_rotateCW'] = $data['case_rotateCCW'] = false;
 $data['case_scale'] = $data['case_scaleSelect'] = false;
 $data['showMLbutton'] = $data['case_default'] = false;
-$data['closed'] = false;
+$data['case_changeProp'] = $data['closed'] = false;
 
 $mediaExcludeDirs = array('CVS' => true, '.svn' => true, '_vti_cnf' => true, '.git' => true, '.v' => true);
 
@@ -293,6 +293,24 @@ switch ($serendipity['GET']['adminAction']) {
         serendipity_moveMediaDirectory(null, $serendipity['GET']['newname'], 'file', $serendipity['GET']['fid'], $file);
         break;
 
+    case 'changeProperties':
+        if (!serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesAdd')) {
+            return;
+        }
+
+        $data['case_changeProp'] = true;
+        $messages = array();
+        if (isset($serendipity['POST']['adminSubAction']) && $serendipity['POST']['adminSubAction'] == 'properties') {
+            // properties default on save
+            serendipity_restoreVar($serendipity['COOKIE']['serendipity_only_path'], $serendipity['GET']['only_path']); // restore last set directory path, see true parameter
+            $properties        = serendipity_parsePropertyForm();
+            $image_id          = $properties['image_id'];
+            $data['showML']    = showMediaLibrary(true);
+            $propdone          = sprintf(MEDIA_PROPERTIES_DONE, $image_id);
+            $data['messages']  = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> '.DONE.'! ' . $propdone . "</span>\n";
+        }
+        break;
+
     case 'properties':
         $data['case_properties'] = true;
         $new_media = array(array('image_id' => $serendipity['GET']['fid']));
@@ -304,25 +322,12 @@ switch ($serendipity['GET']['adminAction']) {
             return;
         }
         $data['case_add'] = true;
-        $messages = array();
-        if (isset($serendipity['POST']['adminSubAction']) && $serendipity['POST']['adminSubAction'] == 'properties') {
-            serendipity_restoreVar($serendipity['COOKIE']['serendipity_only_path'], $serendipity['GET']['only_path']); // restore last set directory path, see true parameter
-            $properties        = serendipity_parsePropertyForm();
-            $image_id          = $properties['image_id'];
-            $created_thumbnail = true; //??
-            $data['showML']    = showMediaLibrary(true); // in this case we do not need the location.href (removed)
-            $propdone          = sprintf(MEDIA_PROPERTIES_DONE, $image_id);
-            $data['messages']  = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> '.DONE.'! ' . $propdone . "</span>\n";
-            break;
-        }
 
+        $new_media  = array();
+        $messages   = array();
+        $authorid   = 0; // Only use access-control based on media directories, not images themselves
         $messages[] = '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . ADDING_IMAGE . "</span>\n";
-
-        $authorid = 0; // Only use access-control based on media directories, not images themselves
-
-        $new_media = array();
-
-        $_imageurl = serendipity_specialchars($serendipity['POST']['imageurl'] ?? '');
+        $_imageurl  = serendipity_specialchars($serendipity['POST']['imageurl'] ?? '');
 
         // First find out whether to fetch a download hotlink or accept an upload file
         $pattern = '~^(?:ht|f)tps?://[a-z0-9.-_\/](?:(?!.{3}+\?|#|\+).)+\.(?:jpe?g|png|gif)~Ui'; // each protocol, a negative look behind to not match malicious URIs and the 4 most common img extensions

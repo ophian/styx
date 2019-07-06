@@ -52,7 +52,7 @@
     {if isset($showML)}{$showML}{/if}
 {/if}
 {* A $case_rename can not respond to reload page while in JS - serendipity.rename() ajax will reload and set message events by script *}
-{if $case_add}
+{if $case_add OR $case_changeProp}
     {if isset($showML)}{$showML}{/if}
 {/if}
 {if $case_directoryDoDelete}
