@@ -3524,7 +3524,7 @@ function serendipity_insertMediaProperty($property_group, $property_subgroup, $i
  * Inserts the submitted properties of uploaded media items
  * Consequently this should only be a single file submit without having to push an array key - but we just keep it prepared to provide a valid structure
  *
- * @return array    array('image_id') holding the last created/changed meda (thumbnail) id for immediate processing
+ * @return array    array('image_id') holding the last created/changed media (thumbnail) id for immediate processing
  */
 function serendipity_parsePropertyForm() {
     global $serendipity;
