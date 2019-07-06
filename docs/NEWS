@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Refactor MediaLibrary media properties form action to its own image action
+    switch 'changeProperties'.
+
   * Refactor MediaLibrary single media properties array POST items
 
   * The improved IMAGE media upload and conversion handlers have some
