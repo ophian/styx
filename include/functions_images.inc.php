@@ -5033,7 +5033,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
 
     if ($debug) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START moveMediaDirectory SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
 
-    // case 'dir' via images.inc case 'directoryEdit', which is ML Directories form, via ML case 'directorySelect'
+    // [Manage directories] case 'dir' via images.inc case 'directoryEdit', which is ML Directories form, via ML case 'directorySelect'
     if ($type == 'dir') {
 
         //   MEDIADIRFORM existing directory renames need a trailing slash in here and later on in serendipity_moveMediaInEntriesDB()
