@@ -266,8 +266,8 @@
 
                     <div class="form_select">
                         <label for="newDir{$file@key}">{$CONST.FILTER_DIRECTORY}</label>
-                        <input type="hidden" name="serendipity[oldDir][{$file@key}]" value="{$file.path|escape}">
-                        <select id="newDir{$file@key}" name="serendipity[newDir][{$file@key}]">
+                        <input type="hidden" name="serendipity[mediaDirectory][{$file@key}][oldDir]" value="{$file.path|escape}">
+                        <select id="newDir{$file@key}" name="serendipity[mediaDirectory][{$file@key}][newDir]">
                             <option{if empty($file.path)} selected="selected"{/if} value="">{$CONST.BASE_DIRECTORY}</option>
                         {foreach $media.paths AS $folder}
 

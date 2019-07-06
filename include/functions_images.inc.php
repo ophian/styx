@@ -3522,8 +3522,9 @@ function serendipity_insertMediaProperty($property_group, $property_subgroup, $i
 
 /**
  * Inserts the submitted properties of uploaded media items
+ * Consequently this should only be a single file submit without having to push an array key - but we just keep it prepared to provide a valid structure
  *
- * @return array    array('image_id') holding the last created thumbnail for immediate processing
+ * @return array    array('image_id') holding the last created/changed meda (thumbnail) id for immediate processing
  */
 function serendipity_parsePropertyForm() {
     global $serendipity;
@@ -3548,15 +3549,20 @@ function serendipity_parsePropertyForm() {
         );
         serendipity_insertMediaProperty('base_hidden', '', $media['image_id'], $s9y_img['hidden']);
 
-        if (isset($serendipity['POST']['oldDir'][$id]) && $serendipity['POST']['oldDir'][$id] != $serendipity['POST']['newDir'][$id]) {
+    }
+
+    // check media properties form sub case changing the medias directory place. Having a key for all these is just for dummy structure purposes
+    if (is_array($serendipity['POST']['mediaDirectory']) && $serendipity['POST']['mediaDirectory'][0]['oldDir'] != $serendipity['POST']['mediaDirectory'][0]['newDir']) {
+        foreach($serendipity['POST']['mediaDirectory'] AS $id => $filedir) {
             serendipity_moveMediaDirectory(
-                serendipity_uploadSecure($serendipity['POST']['oldDir'][$id]),
-                serendipity_uploadSecure($serendipity['POST']['newDir'][$id]),
+                serendipity_uploadSecure($filedir['oldDir']),
+                serendipity_uploadSecure($filedir['newDir']),
                 'filedir',
-                $media['image_id']);
+                $serendipity['POST']['mediaProperties'][$id]['image_id']);
         }
     }
 
+    // check media properties form sub case changing the media keywords
     if (is_array($serendipity['POST']['mediaKeywords'])) {
         foreach($serendipity['POST']['mediaKeywords'] AS $id => $keywords) {
             serendipity_insertMediaProperty('base_keyword', '', $serendipity['POST']['mediaProperties'][$id]['image_id'], $keywords);
@@ -5059,7 +5065,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
             }
         }
 
-    // Used solely by this API serendipity_parsePropertyForm() base_properties only, when changing the file selected path within mediaproperties form
+    // Used solely by this APIs serendipity_parsePropertyForm() base_properties only, when changing the file selected path within mediaproperties form
     } elseif ($type == 'filedir') {
 
         $pick = serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug);
