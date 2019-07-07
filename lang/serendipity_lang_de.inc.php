@@ -1048,7 +1048,7 @@
 @define('INSTALLER_CLI_TOOLNAME', 'CLI-Tool');
 @define('INSTALLER_CLI_TOOLSTATUS', 'Ausführbar?');
 @define('VIDEO', 'Video');
-@define('RESET_STATUS', 'Reset status');
+@define('RESET_STATUS', 'Status entfernen');
 @define('RESET_FILTERS', 'Filter entfernen');
 @define('UPDATE_FAILMSG', 'Update-Check für neue Serendipity-Version fehlgeschlagen. Das kann passieren wenn die URL %s nicht erreichbar ist, der Server ausgehende Verbindungen verhindert oder es andere Verbindungsprobleme gibt.');
 @define('UPDATE_FAILACTION', 'Automatischen Update-Check deaktivieren');
