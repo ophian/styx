@@ -91,7 +91,7 @@
 @define('NEWSIZE', '«бгё«” «бћѕнѕ: ');
 @define('RESIZE_BLAHBLAH', ' џнн— «бгё«нн” %s');
 @define('ORIGINAL_SIZE', '«бЌћг «б«’бн <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'нгяд бя  џнн— ён«”«  «б’ж—… - «д яд   —нѕ  џнн— ён«”«  «б’ж—… »√Ўж«б г д«”»… - яб г« Џбня еж «ѕќб «бён«” «бћѕнѕ Ён «Ќѕ «б’дѕжёнд Ћг √÷џЎ “— Tab -- ”жЁ  ЏЎня « г« нян«р «бЌћг «бгд«”» ббён«” «бћѕнѕ - б–бя «б’ж—… ”жЁ  ” г— »‘ябе« «б√’бн ж б«  Ёёѕ ‘яб  ж«“де«.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'нгяд бя  џнн— ён«”«  «б’ж—… - «д яд   —нѕ  џнн— ён«”«  «б’ж—… »√Ўж«б г д«”»… - яб г« Џбня еж «ѕќб «бён«” «бћѕнѕ Ён «Ќѕ «б’дѕжёнд Ћг √÷џЎ “— Tab -- ”жЁ  ЏЎня « г« нян«р «бЌћг «бгд«”» ббён«” «бћѕнѕ - б–бя «б’ж—… ”жЁ  ” г— »‘ябе« «б√’бн ж б«  Ёёѕ ‘яб  ж«“де«.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file. And this increases with each further scaling!');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Calendar');
 @define('QUICKSEARCH', '»ЌЋ ”—нЏ');
 @define('SEARCH_FOR_ENTRY', '«»ЌЋ Џд √н гЏЎн« ');

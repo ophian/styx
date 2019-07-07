@@ -90,7 +90,7 @@
 @define('NEWSIZE', 'Új méret: ');
 @define('RESIZE_BLAHBLAH', 'Átméretezés %s');
 @define('ORIGINAL_SIZE', 'Eredeti méret: <i>%sx%s</i> képpont');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Itt módosíthatja a kép méretét. Ha arányosan szeretné a képet átméretezni, elég az egyik dobozban módosítani a számot,majd megnyomni a TAB billentyűt -- az új méret automatikusan kerül meghatározásra, így a kép nem lesz aránytalan.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Itt módosíthatja a kép méretét. Ha arányosan szeretné a képet átméretezni, elég az egyik dobozban módosítani a számot,majd megnyomni a TAB billentyűt -- az új méret automatikusan kerül meghatározásra, így a kép nem lesz aránytalan.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file. And this increases with each further scaling!');
 @define('QUICKJUMP_CALENDAR', 'Gyors naptárra ugrás');
 @define('QUICKSEARCH', 'Gyorskeresés');
 @define('SEARCH_FOR_ENTRY', 'Bejegyzés keresése');

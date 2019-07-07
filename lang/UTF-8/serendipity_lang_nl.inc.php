@@ -92,7 +92,7 @@
 @define('NEWSIZE', 'Nieuwe grootte: ');
 @define('RESIZE_BLAHBLAH', 'Vergroten/Verkleinen %s');
 @define('ORIGINAL_SIZE', 'Originele grootte: <i>%sx%s</i> pixels');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier kunt u de grootte van de afbeelding aanpassen. Als u de afbeeldingsverhoudingen wilt behouden, voer dan in één van de velden een waarde in en druk op de TAB-toets -- Het programma zal dan zelf de andere grootte berekenen zodat de verhoudingen hetzelfde blijven.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier kunt u de grootte van de afbeelding aanpassen. Als u de afbeeldingsverhoudingen wilt behouden, voer dan in één van de velden een waarde in en druk op de TAB-toets -- Het programma zal dan zelf de andere grootte berekenen zodat de verhoudingen hetzelfde blijven.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file. And this increases with each further scaling!');
 @define('QUICKJUMP_CALENDAR', 'Quickjump Kalender');
 @define('QUICKSEARCH', 'Zoeken');
 @define('SEARCH_FOR_ENTRY', 'Zoek naar een artikel');

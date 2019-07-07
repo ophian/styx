@@ -105,7 +105,7 @@ $i18n_filename_to = array (
 @define('NEWSIZE', 'Nový rozmìr: ');
 @define('RESIZE_BLAHBLAH', 'Zmìnit rozmìr %s');
 @define('ORIGINAL_SIZE', 'Pùvodní rozmìr: <i>%sx%s</i> pixelù');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Zde mù¾ete zadat nový rozmìr obrázku. Pokud chcete zachovat proporce, zadejte jen jednu hodnotu a stisknìte klávesu TAB, nový rozmìr bude dopoèítán automaticky.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Zde mù¾ete zadat nový rozmìr obrázku. Pokud chcete zachovat proporce, zadejte jen jednu hodnotu a stisknìte klávesu TAB, nový rozmìr bude dopoèítán automaticky.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file. And this increases with each further scaling!');
 @define('QUICKJUMP_CALENDAR', 'Vyhledávací kalendáø');
 @define('QUICKSEARCH', 'Rychlé hledání');
 @define('SEARCH_FOR_ENTRY', 'Hledání záznamu');

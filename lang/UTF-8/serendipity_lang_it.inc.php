@@ -91,7 +91,7 @@
 @define('NEWSIZE', 'Nuove dimensioni: ');
 @define('RESIZE_BLAHBLAH', 'Ridimensiona %s');
 @define('ORIGINAL_SIZE', 'Dimensione originale: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Qui puoi definire le nuove dimensioni dell\'immagine. Se vuoi mantenere le proporzioni inserisci un solo valore e premi TAB, calcolerò automaticamente le nuove dimensioni in modo da non modificare le proporzioni.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file!');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Qui puoi definire le nuove dimensioni dell\'immagine. Se vuoi mantenere le proporzioni inserisci un solo valore e premi TAB, calcolerò automaticamente le nuove dimensioni in modo da non modificare le proporzioni.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file. And this increases with each further scaling!');
 @define('QUICKJUMP_CALENDAR', 'Calendario di accesso veloce');
 @define('QUICKSEARCH', 'Ricerca veloce');
 @define('SEARCH_FOR_ENTRY', 'Cerca una notizia');
