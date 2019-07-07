@@ -187,7 +187,7 @@
                             {$entry.timestamp|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}{if $entry.timestamp <= ($entry.last_modified - 1800)} <span class="icon-info-circled" aria-hidden="true" title="{$CONST.LAST_UPDATED}: {$entry.last_modified|formatTime:"{$CONST.DATE_FORMAT_SHORT}"}"></span><span class="visuallyhidden"> {$CONST.LAST_UPDATED}</span>{/if}
                         </span>
 
-                        <span class="entry_meta">{$CONST.POSTED_BY} {$entry.author|escape}
+                        <span class="entry_meta"><span class="icon-edit" aria-hidden="true" title="{$CONST.POSTED_BY}"></span>: {$entry.author|escape}
                         {if count($entry.cats)} {$CONST.IN}
                           {foreach $entry.cats AS $cat}
                             <a href="{$cat.link}">{$cat.category_name|escape}</a>{if NOT empty($cat.grouped)}{foreach $cat.groupname AS $gshortname} <span class="icon-users {$gshortname}" aria-hidden="true" title="read and view restriction to group {$gshortname}"></span>{/foreach}{/if}{if (count($entry.cats) > 1) AND !$cat@last}, {/if}

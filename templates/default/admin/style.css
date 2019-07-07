@@ -2696,9 +2696,13 @@ h3 .media_file_actions {
 #entries_list .entry_info span {
     margin: 0 1em .75em 0;
 }
+#entries_list .entry_meta .icon-edit,
 #entries_list .entry_meta .icon-users,
 #entries_list .entry_info span .icon-info-circled {
     margin: 0;
+}
+#entries_list .entry_meta .icon-edit {
+    color: #3e5f81;
 }
 #entries_list .status_lang span {
     margin: 0 0 .2em 0;
