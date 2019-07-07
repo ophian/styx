@@ -624,7 +624,7 @@ switch ($serendipity['GET']['adminAction']) {
             $oldDir  = serendipity_uploadSecure($serendipity['POST']['oldDir']);
 
             if ($oldDir != $newDir) {
-                //is this possible? Ian: YES! Change an already set directory.
+                // is this possible? Ian: YES! Change an already set directory.
                 ob_start();
                 serendipity_moveMediaDirectory($oldDir, $newDir);
                 $data['messages'] = ob_get_contents();
