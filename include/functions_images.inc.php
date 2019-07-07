@@ -2073,7 +2073,7 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
         return false;
     }
 
-    // imagecreatefromwebp() imagesx() expects parameter 1 to be resource, bool given when animated gifs
+    // imagecreatefromwebp() -> imagesx() expects parameter 1 to be resource, bool given when is animated gif for example
     if (is_bool($in)) {
         return false;
     }
@@ -2096,7 +2096,7 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
     $out = imagecreatetruecolor($newwidth, $newheight);
 
     /* Attempt to copy transparency information, this really only works for PNG */
-    if (function_exists('imagesavealpha')) {
+    if (function_exists('imagesavealpha') && $func['save'] == 'imagepng') {
         imagealphablending($out, false);
         imagesavealpha($out, true);
     }
@@ -2104,7 +2104,7 @@ function serendipity_resize_image_gd($infilename, $outfilename, $newwidth, $newh
     imagecopyresampled($out, $in, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
     @umask(0000);
     touch($outfilename); // safe_mode requirement
-    @$func['save']($out, $outfilename, $func['qual']); // mute possible expectations, eg animated gifs with GD
+    @$func['save']($out, $outfilename, $func['qual']); // mute possible expectations, eg. animated gifs with GD
     @chmod($outfilename, 0664);
     $out = null;
     $in  = null;
