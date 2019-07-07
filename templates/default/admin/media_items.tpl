@@ -245,7 +245,7 @@
                 <input type="hidden" name="serendipity[mediaProperties][{$file@key}][image_id]" value="{$file.image_id}">
 
                 <section class="media_file_props">
-                    <h4>{$CONST.MEDIA_PROP}</h4>
+                    <h4>{$CONST.MEDIA_PROP} <span class="ucc-pinned-to" title="Pinned"></span></h4>
                 {foreach $file.base_property AS $prop_content}
 
                     <div class="form_{if $prop_content.type == 'textarea'}area{else}field{/if}">
