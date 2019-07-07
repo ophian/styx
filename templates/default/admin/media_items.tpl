@@ -100,7 +100,7 @@
 
                         <picture>
                             <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
-                            <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties -->
+                            <img src="{$img_src}" title="{if NOT $media.enclose}{$CONST.THUMBNAIL_SHORT}: {/if}{$img_title}" alt="{$img_alt}"><!-- media/properties -->
                         </picture>
                         {if $file.mime|truncate:6:'' == 'image/' AND ($file.extension|count_characters > $CONST.PATHINFO_EXTENSION)}
 
