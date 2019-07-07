@@ -215,7 +215,7 @@
                         <span class="block_level"><b>MIME-{$CONST.TYPE}:</b> {$file.mime}{if $file.realname != $file.diskname}, {$file.diskname}{/if}</span>
                         <span class="block_level"><b>{$CONST.SORT_ORDER_EXTENSION}:</b> {$file.extension}</span>
                         <ul class="media_file_meta dimensions plainList">
-                            <li><b>{$CONST.SORT_ORDER_DATE}:</b> {if $file.authorid != 0}{$CONST.POSTED_BY} {$file.authorname} {/if}{$CONST.ON} {$file.date|formatTime:DATE_FORMAT_SHORT}</li>
+                            <li><b>{$CONST.SORT_ORDER_DATE}:</b> {if $file.authorid != 0}{$CONST.POSTED_BY} {$file.authorname} {/if}<span class="icon-clock" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.ON} </span>
                         {if $file.hotlink}
 
                             <li><b>{$CONST.MEDIA_HOTLINKED}:</b> {$file.nice_hotlink}</li>
