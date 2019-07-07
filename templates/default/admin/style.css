@@ -2212,6 +2212,14 @@ form > .button_link:first-of-type,
 #mediaPropertyForm header b {
     display: inline-flex;
 }
+#mediaPropertyForm .form_field #mediaPropertyDPI0 {
+    min-width: 3.25em;
+    width: 3.25em;
+}
+#mediaPropertyForm .form_field #mediaPropertyTITLE4 {
+    max-width: 40em;
+    width: 100%;
+}
 
 h3 .media_file_actions {
     position: relative;
