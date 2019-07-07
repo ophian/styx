@@ -308,8 +308,11 @@
             </div>
         </form>
 
-        <div id="serendipityScaleImg" data-imgwidth="{$scaleOriginSize.width}" data-imgheight="{$scaleOriginSize.height}">
-            <img src="{$file}" name="serendipityScaleImg" alt="{$CONST.PREVIEW}">
+        <div id="serendipityScaleImg" data-imgwidth="{$scaleOriginSize.width}" data-imgheight="{$scaleOriginSize.height}" title="{$scaleFileName}, {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height|strip_tags}, scaled for browser preview">
+            <picture>
+                <source type="image/webp" srcset="{$file_webp|default:''}" name="serendipityScaleImg" alt="{$CONST.PREVIEW}">
+                <img src="{$file}" name="serendipityScaleImg" alt="{$CONST.PREVIEW}">
+            </picture>
         </div>
     </div>
 {/if}
