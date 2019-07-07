@@ -2828,6 +2828,9 @@ h3 button.toggle_info.button_link.group_info {
     color: #3e5f81;
     cursor: help;
 }
+.entry_info .status_timestamp .icon-info-circled {
+    color: #718395;
+}
 
 .show_config_option {
     text-decoration: none;
