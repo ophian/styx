@@ -1418,7 +1418,7 @@ function serendipity_guessMime($extension) {
         case 'jpg':
         case 'jpeg':
             $mime = 'image/jpeg';
-        break;
+            break;
 
         case 'aiff':
         case 'aif':
@@ -1427,11 +1427,11 @@ function serendipity_guessMime($extension) {
 
         case 'gif':
             $mime = 'image/gif';
-        break;
+            break;
 
         case 'png':
             $mime = 'image/png';
-        break;
+            break;
 
         case 'pdf':
             $mime = 'application/pdf';
