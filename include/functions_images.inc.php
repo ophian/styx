@@ -991,7 +991,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 }
             } else {
                 // The caller wants a thumbnail constrained in the dimension set by config
-                $calc = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $size, $serendipity['thumbConstraint']);
+                $calc = serendipity_calculateAspectSize($fdim[0], $fdim[1], $size, $serendipity['thumbConstraint']);
                 $r    = serendipity_resizeImageGD($infile, $outfile, $calc[0], $calc[1]);
                 // Create a copy in WebP image format
                 if (file_exists($outfile) && $serendipity['useWebPFormat']) {
@@ -1024,7 +1024,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     return array(0, 0); // do not create any thumb, if image is smaller than defined sizes
                 }
             } else {
-                $calc = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $size, $serendipity['thumbConstraint']);
+                $calc = serendipity_calculateAspectSize($fdim[0], $fdim[1], $size, $serendipity['thumbConstraint']);
                 $r    = array(0 => $calc[0], 'width' => $calc[0], 1 => $calc[1], 'height' => $calc[1]);
             }
 
@@ -1868,7 +1868,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                     }
                 } else {
                     // Calculate correct thumbnail size from original image
-                    $expect = serendipity_calculate_aspect_size($fdim[0], $fdim[1], $serendipity['thumbSize'], $serendipity['thumbConstraint']);
+                    $expect = serendipity_calculateAspectSize($fdim[0], $fdim[1], $serendipity['thumbSize'], $serendipity['thumbConstraint']);
                     // Check actual thumbnail size
                     if ($tdim[0] != $expect[0] || $tdim[1] != $expect[1]) {
                         // This thumbnail is incorrect; delete it so
@@ -2082,13 +2082,13 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
     $height = imagesy($in);
 
     if (is_null($newheight)) {
-        $newsizes  = serendipity_calculate_aspect_size($width, $height, $newwidth, 'width');
+        $newsizes  = serendipity_calculateAspectSize($width, $height, $newwidth, 'width');
         $newwidth  = $newsizes[0];
         $newheight = $newsizes[1];
     }
 
     if (is_null($newwidth)) {
-        $newsizes  = serendipity_calculate_aspect_size($width, $height, $newheight, 'height');
+        $newsizes  = serendipity_calculateAspectSize($width, $height, $newheight, 'height');
         $newwidth  = $newsizes[0];
         $newheight = $newsizes[1];
     }
@@ -2113,6 +2113,16 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
 }
 
 /**
+ * Deprecation compatibility wrapper for Plugins (imageselectorplus)
+ *
+ * @access public
+ * @return  serendipity_calculateAspectSize()
+ */
+function serendipity_calculate_aspect_size($width, $height, $size, $constraint = null) {
+    return serendipity_calculateAspectSize($width, $height, $size, $constraint);
+}
+
+/**
  * Calculate new size for an image, considering aspect ratio and constraint
  *
  * @access public
@@ -2123,7 +2133,7 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
  *                  'smallest'; defaults to original behavior, 'largest')
  * @return  array   An array with the scaled width and height
  */
-function serendipity_calculate_aspect_size($width, $height, $size, $constraint = null) {
+function serendipity_calculateAspectSize($width, $height, $size, $constraint = null) {
 
     // Allow for future constraints (idea: 'percent')
     $known_constraints = array('width', 'height', 'largest', 'smallest');
@@ -3741,7 +3751,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['thumbHeight'] = $file['dim'][1];
         $file['thumbSize']   = @filesize($file['full_path_thumb']);
     } elseif ($file['is_image'] && $file['hotlink']) {
-        $sizes = serendipity_calculate_aspect_size($file['dimensions_width'], $file['dimensions_height'], $serendipity['thumbSize'], $serendipity['thumbConstraint']);
+        $sizes = serendipity_calculateAspectSize($file['dimensions_width'], $file['dimensions_height'], $serendipity['thumbSize'], $serendipity['thumbConstraint']);
         $file['thumbWidth']  = $sizes[0];
         $file['thumbHeight'] = $sizes[1];
         $file['thumbSize']   = 0;
