@@ -1962,7 +1962,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
  * @param   string      Filename to operate on
  * @return string       Name of GD function to execute
  */
-function serendipity_functions_gd($infilename) {
+function serendipity_functionsGD($infilename) {
     if (!function_exists('imagecopyresampled')) {
         return false;
     }
@@ -2028,7 +2028,7 @@ function serendipity_functions_gd($infilename) {
  */
 function serendipity_rotateImageGD($infilename, $outfilename, $degrees) {
 
-    $func = serendipity_functions_gd($infilename);
+    $func = serendipity_functionsGD($infilename);
     if (!is_array($func)) {
         return false;
     }
@@ -2059,7 +2059,7 @@ function serendipity_rotateImageGD($infilename, $outfilename, $degrees) {
  */
 function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newheight=null) {
 
-    $func = serendipity_functions_gd($infilename);
+    $func = serendipity_functionsGD($infilename);
     if (!is_array($func)) {
         return false;
     }
