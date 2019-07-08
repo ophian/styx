@@ -3,6 +3,7 @@ Version 3.0-Dev ()
 
   * Rename old image functions to follow the camelCase principle in the images
     API:
+        serendipity_functions_gd()    => serendipity_functionsGD()
         serendipity_rotate_image_gd() => serendipity_rotateImageGD()
         serendipity_resize_image_gd() => serendipity_resizeImageGD()
         serendipity_calculate_aspect_size() => serendipity_calculateAspectSize()
