@@ -1,6 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Rename old GD functions to follow the camelCase principle in the images API:
+        serendipity_rotate_image_gd() => serendipity_rotateImageGD()
+        serendipity_resize_image_gd() => serendipity_resizeImageGD()
+
   * Disable overcomplicated MediaLibrary upload "Go Properties" set metaActionBar
 
   * Allow new picture element variation approach on scaleSelect page
