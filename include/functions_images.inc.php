@@ -2069,7 +2069,7 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
         $in = @$func['load']($infilename);
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
-        echo 'Could not create thumbnail resource: ',  $t->getMessage(), "\n";
+        echo 'serendipity_resizeImageGD(): Could not create thumbnail resource: ',  $t->getMessage(), "\n";
         return false;
     }
 
