@@ -231,6 +231,10 @@
 
                         <ul class="media_file_meta filesizes plainList">
                             <li><b>{$CONST.FILE_SIZE}:</b> {$file.nice_size} KB</li>
+                        {if isset($file.nice_thumbsize) AND NOT $file.hotlink}
+
+                            <li><b>{$CONST.THUMBFILE_SIZE}:</b> {$file.nice_thumbsize} KB</li>
+                        {/if}
                         {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
 
                             <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.FILE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
