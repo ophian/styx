@@ -140,6 +140,7 @@
                                 <li><b>{$CONST.THUMBNAIL_SHORT}:</b> {$file.dim.0}x{$file.dim.1}</li>
                                 {/if}
 
+                                <li class="halflinespacer">&nbsp;</li>
                                 <li><b>{if $file.is_image}{$CONST.FILE_SIZE}{else}{$CONST.SORT_ORDER_SIZE}{/if}:</b> {$file.nice_size} KB</li>
                                 {if isset($file.nice_thumbsize) AND NOT $file.hotlink}
 
@@ -154,6 +155,7 @@
                                 <li><b>{$CONST.VARIATION_FILE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE}"}:</b> {$file.nice_thumbsize_webp} KB</li>
                                 {/if}
 
+                                <li class="halflinespacer">&nbsp;</li>
                                 <li><b>{$CONST.PATH}:</b> "{$file.path}"</li>
                                 <li><b>{$CONST.DATE}:</b> {$file.date|formatTime:DATE_FORMAT_SHORT}</li>
                             {/if}

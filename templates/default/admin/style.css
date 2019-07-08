@@ -421,6 +421,9 @@ progress {
     margin-left: 0;
     padding-left: 0;
 }
+.plainList .halflinespacer {
+    line-height: .5;
+}
 
 
 /* ICON FONT: http://fortawesome.github.com/Font-Awesome/ */
