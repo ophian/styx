@@ -557,6 +557,7 @@ switch ($serendipity['GET']['adminAction']) {
         }
 
         if (isset($_REQUEST['go_properties'])) {
+            $serendipity['GET']['adminAction'] = 'properties'; // sets metaActionBar false in serendipity_showMedia() build $media array
             echo serendipity_showPropertyForm($new_media);
         } else {
             $hidden = array(
