@@ -864,7 +864,7 @@ function serendipity_makeImageVariationPath($orgfile, $ext) {
 function serendipity_passToCMD($type=null, $source='', $target='', $args=array()) {
 
     if ($type === null
-    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-webp']) && !in_array(strtoupper(explode('/', $type)[1]), getSupportedFormats(true)))
+    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp']) && !in_array(strtoupper(explode('/', $type)[1]), getSupportedFormats(true)))
     || !serendipity_checkPermission('adminImagesMaintainOthers')) {
         return false;
     }
@@ -912,7 +912,12 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
                 "-strip \"$target\"";
 
+    } else if (in_array($type, ['format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
+        $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
+                "\"$target\"";
+
     }
+
     // main file scaling (scale, resize, rotate, ...)
     if (image_type_to_mime_type(IMAGETYPE_JPEG) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} -filter Lanczos {$do} ${gamma['standard']} " .
