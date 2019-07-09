@@ -425,7 +425,6 @@ progress {
     line-height: .5;
 }
 
-
 /* ICON FONT: http://fortawesome.github.com/Font-Awesome/ */
 @font-face {
   font-family: 'fontello';
@@ -2223,6 +2222,20 @@ form > .button_link:first-of-type,
     max-width: 40em;
     width: 100%;
 }
+.media_properties_selects {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    padding: 0.375em 0.75em 0.625em; }
+    .media_properties_selects legend {
+      padding: 0 .5em;
+      font-weight: bold;
+      font-variant: all-petite-caps; }
+    .media_properties_selects select {
+      margin-left: -.5em; }
+#media_select_props .msg_hint {
+    background-color: aliceblue;
+    font-size: .9125em;
+    color: #444; }
 
 h3 .media_file_actions {
     position: relative;
