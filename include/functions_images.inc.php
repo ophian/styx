@@ -4284,7 +4284,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
-        echo 'Please use the API workflow via serendipity_moveMediaDirectory()!';
+        echo 'P1: Please use the API workflow via serendipity_moveMediaDirectory()!';
         return false;
     }
 
@@ -4396,7 +4396,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
-        echo 'Please use the API workflow via serendipity_moveMediaDirectory()!';
+        echo 'P2: Please use the API workflow via serendipity_moveMediaDirectory()!';
         return false;
     }
 
@@ -4620,7 +4620,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
-        echo 'Please use the API workflow via serendipity_moveMediaDirectory()!';
+        echo 'P3: Please use the API workflow via serendipity_moveMediaDirectory()!';
         return false;
     }
 
@@ -4738,7 +4738,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
     if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
-        echo 'Please use the API workflow via serendipity_moveMediaDirectory()!';
+        echo 'P4: Please use the API workflow via serendipity_moveMediaDirectory()!';
         return false;
     }
 
