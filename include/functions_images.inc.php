@@ -4938,6 +4938,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
 /**
  * RENAME a MEDIA dir or filename in existing entries
  * @see SPLIT serendipity_moveMediaDirectory() part 4
+ * @see Special case from outside via serendipity_convertImageFormat() -> serendipity_formatRealFile()
  *
  * @access public
  * @param   string  Old directory name or empty
@@ -4958,7 +4959,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         $serendipity['logger']->debug("IN serendipity_moveMediaInEntriesDB");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
     }
-    if (is_array($trace) && $trace[1]['function'] != 'serendipity_moveMediaDirectory') {
+    if (is_array($trace) && !in_array($trace[1]['function'], ['serendipity_moveMediaDirectory', 'serendipity_formatRealFile'])) {
         echo 'P4: Please use the API workflow via serendipity_moveMediaDirectory()!';
         return false;
     }
@@ -5077,13 +5078,27 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         // here we need to match THUMBS too, so we do not want the extension, see detailed SELECT regex note
         if ($type == 'file' && $oldDir === null) {
             $_ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']); // this is more exact in every case [YES!]
-            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . (($_file['extension']) ? '.'.$_file['extension'] : '');
+            // special case format change
+            if ($trace[1]['function'] == 'serendipity_formatRealFile' && isset($_file['newformat'])) {
+                $_temp = $_file['extension'];
+                $_file['extension'] = null;
+            }
+            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
             $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
             $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type] _ispNewFile=$_ispNewFile");
         } else {
             $_ispOldFile = $ispOldFile;
-            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . (($_file['extension']) ? '.'.$_file['extension'] : '');
+            // special case format change
+            if ($trace[1]['function'] == 'serendipity_formatRealFile' && isset($_file['newformat'])) {
+                $_temp = $_file['extension'];
+                $_file['extension'] = null;
+            }
+            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
             $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type(2)] _ispNewFile=$_ispNewFile");
+        }
+        if (isset($_temp) && isset($_file['newformat'])) {
+            // port the new format into the file extension
+            $_file['extension'] = $_file['newformat'];
         }
         // LAST paranoid check - WHILE FIXING WRONG ENTRIES LATER ON IS A HELL! :)
         // Get to know the length of file EXT
@@ -5100,8 +5115,15 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $serendipity['logger']->debug("$logtag REPLACE  newDirFile=$newDirFile");
         }
 
+        if (isset($_temp) && isset($_file['newformat'])) {
+            if ($_temp != $_file['extension']) {
+                // port the old extension back for the special cased media object links
+                $_file['extension'] = $_temp;
+            }
+        }
+
         // Check for special cased media object links
-        $oldLink = $_file['name'] . '.'.$_file['extension']; // basename of oldlink with extension
+        $oldLink = $_file['name'] . '.' . $_file['extension']; // basename of oldlink with extension
         $newLink = str_replace($_oldDirFile, $newDirFile, $oldLink);
         $newLinkHTTPPath = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_file['path'] . $newLink;
         $link_pattern = '<a class="block_level opens_window" href="' . $newLinkHTTPPath . '" title="' . $oldLink . '"><!-- s9ymdb:' . $_file['id'] . ' -->' . $oldLink . '</a>';
