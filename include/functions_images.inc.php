@@ -4852,13 +4852,10 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         }
         if ($debug) { $serendipity['logger']->debug("$logtag newDirFile=$newDirFile"); }
         if ($debug) { $serendipity['logger']->debug("$logtag ISP newDir=$newDir"); }
-        // for thumbs only - Rebuild full origin and new file path names by the newly "$pick"ed file array
-        $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
-        $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
 
         // here we need to match THUMBS too, so we do not want the extension, see detailed SELECT regex note
         if ($type == 'file' && $oldDir === null) {
-            $_ispOldFile = $oldfile; // this is more exact in every case [YES!]
+            $_ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']); // this is more exact in every case [YES!]
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . (($_file['extension']) ? '.'.$_file['extension'] : '');
             $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
             $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type] _ispNewFile=$_ispNewFile");
