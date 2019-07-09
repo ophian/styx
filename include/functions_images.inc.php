@@ -696,6 +696,49 @@ function serendipity_imageCreateFromAny($filepath) {
 }
 
 /**
+ * Convert supported images to a new file image format
+ * and link to/run all relevant follow-up actions, which are:
+ *  1. real file change,
+ *  2. real file thumb change,
+ *  3. database changes,
+ *  4. entry changes,
+ *  5. ep cache changes,
+ *  6. staticpage changes
+ *
+ * @param array  $file      The files current database properties
+ * @param string $oldMime   The files current mime format
+ * @param string $newMime   The files new mime format
+ * @return bool
+ */
+function serendipity_convertImageFormat($file, $oldMime, $newMime) {
+    switch ($newMime) {
+        case 'image/jpg':
+        case 'image/jpeg':
+            $new['extension'] = image_type_to_extension(IMAGETYPE_JPEG, false); // this and the others are without the dot and returned lowercased
+            break;
+        case 'image/png':
+            $new['extension'] = image_type_to_extension(IMAGETYPE_PNG, false);
+            break;
+        case 'image/gif':
+            $new['extension'] = image_type_to_extension(IMAGETYPE_GIF, false);
+            break;
+        case 'image/webp':
+            $new['extension'] = image_type_to_extension(IMAGETYPE_WEBP, false);
+            break;
+        default:
+            return false;
+            break;
+    }
+
+    // pass over old file and new file, relative to serendipity['uploadsDir']
+    $oldfile = $file['path'] . $file['name'] . '.' . $file['extension'];
+    $newfile = $file['path'] . $file['name'] . '.' . $new['extension']; // pass over with extensions DOT!
+
+    return serendipity_formatRealFile($oldfile, $newfile, $new['extension'], $file['id'], $file);
+
+}
+
+/**
  * Convert JPG, PNG, GIF, BMP formatted images to the WebP image format with PHP build-in GD image library
  *
  * @param string $infile    The fullpath file format from string
@@ -4712,6 +4755,133 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVED, $thisnew . $thisExt) . "</span>\n";
     }
     return $_file;
+}
+
+/**
+ * FORMAT a real media file to a convenient supported format and pass change in related entries
+ * NOTE: We use the $oldDir / $newDir notation here to keep some sort of usage consistency and since the dir / file distinction does not exist on Unix..
+ *
+ * @access public
+ * @param   string  Old relative directory/file name
+ * @param   string  New relative directory/file name
+ * @param   string  The new extension format name
+ * @param   string  An item ID of the current file
+ * @param   array   Result of serendipity_fetchImageFromDatabase($id) for the current file properties
+ * @return  boolean
+ */
+function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) {
+    global $serendipity;
+    static $debug = false; // ad hoc, case-by-case debugging
+
+    $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
+    if ($debug) {
+        $logtag = 'formatRealFile:';
+        $serendipity['logger']->debug("IN serendipity_formatRealFile");
+        $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
+    }
+    if (is_array($trace) && $trace[1]['function'] != 'serendipity_convertImageFormat') {
+        echo 'Please use the API workflow via serendipity_convertImageFormat()!';
+        return false;
+    }
+
+    // format: "origin", "thumb" names, relative to Serendipity "uploads/" root path, eg. "a/b/c/"
+    // We don't care about variations since they are done once and have no other relation to its parents than a small sized footprint - doing that again ist too much of a hassle
+
+    $infile  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir;
+    $outfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir;
+    $infileThumb   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . '.' . $file['thumbnail_name'] . '.' . $file['extension'];
+    $outfileThumb  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . '.' . $file['thumbnail_name'] . '.' . $format;
+    $outfileRealName = str_replace($file['extension'], $format, $file['realname']);
+
+    if (!file_exists($outfile)) {
+        // pass to GD
+        if ($serendipity['magick'] !== true) {
+            $out     = serendipityFormatImageGD($infile, $outfile, $format);
+            $result  = array(true, $out, 'with GD');
+            $call    = 'serendipityFormatImageGD()';
+            if (is_array($out)) {
+                if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: GD Image '${format}' format creation: ${result[2]}"); }
+            } else {
+                $result = 0;
+            }
+        }
+        // pass to IM
+        else {
+            $_format = "format-$format";
+            $pass    = [ $serendipity['convert'], [], [], [], 100, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
+            $result  = serendipity_passToCMD($_format, $infile, $outfile, $pass);
+            $call    = 'serendipity_passToCMD()';
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI Image '${format}' format creation: ${result[2]}"); }
+        }
+
+        if (!is_array($result)) {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $call, "Creating ${outfile} image", 'failed') ."</span>\n";
+        }
+
+        // GD
+        if ($result[0] === true) {
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: Image '${format}' format creation success ${result[2]} " . DONE); }
+            unset($result);
+            @unlink($infile); // delete the old origin format
+            // 2cd run: The thumb conversion to new format
+            $out     = serendipityFormatImageGD($infileThumb, $outfileThumb, $format);
+            $result  = array(true, $out, 'with GD');
+            if ($result[0] === true) {
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: Image '${format}' format success ${result[2]} " . DONE); }
+                @unlink($infileThumb); // delete the old thumb format
+            }
+            unset($result);
+            $uID = serendipity_updateImageInDatabase(array('extension' => $format, 'mime' => serendipity_guessMime($format), 'size' => (int)@filesize($outfile), 'date' => (int)@filemtime($outfile), 'realname' => $outfileRealName), $item_id);
+        }
+        // IM
+        else if (is_array($result)) {
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI - Image '${format}' format creation success ${result[2]} " . DONE); }
+            unset($result);
+            @unlink($infile); // delete the old origin format
+            // 2cd run: The thumb conversion to new format
+            $result  = serendipity_passToCMD($_format, $infileThumb, $outfileThumb, $pass);
+            if (is_array($result)) {
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - Image '${format}' format resize success ${result[2]} " . DONE); }
+                @unlink($infileThumb); // delete the old thumb format
+            } else {
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - Image '${format}' format resize failed! Perhaps a wrong path: '${outfileThumb}' ?"); }
+            }
+            unset($result);
+            $uID = serendipity_updateImageInDatabase(array('extension' => $format, 'mime' => serendipity_guessMime($format), 'size' => (int)@filesize($outfile), 'date' => (int)@filemtime($outfile), 'realname' => $outfileRealName), $item_id);
+        }
+        // FAILED
+        else {
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: Image '${format}' format creation failed OR already exists."); }
+        }
+
+        // renaming filenames has to update mediaproperties, if set
+        serendipity_updateSingleMediaProperty(  $item_id,
+                array('property' => 'realname', 'property_group' => 'base_property', 'property_subgroup' => 'internal', 'value' => $file['realname']),
+                $file['realname'] . '.' . $format);
+        serendipity_updateSingleMediaProperty(  $item_id,
+                array('property' => 'TITLE', 'property_group' => 'base_property', 'value' => $file['realname']),
+                $file['realname'] . '.' . $format); // TITLE is either '', 'ALL', or 'internal'
+                // And keep in mind that field names are case-insensitive.. but in this case there should be no confusion, since the only other value I found is: 'Title' with a subgroup 'XMP' is in group 'base_metadata'.
+
+        // check if serendipity_updateImageInDatabase() has run with success
+        if (isset($uID) && $uID > 0) {
+            $file['newformat'] = $format;
+            // replace newfilename occurrences in entries oldDir is build inside that function
+            if (false === serendipity_moveMediaInEntriesDB(null, $newDir, 'file', null, $file, $debug)) {
+                return false;
+            }
+        }
+
+    } else {
+        if (file_exists($outfile)) {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_EXISTS . "</span>\n";
+        } else {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . "</span>\n";
+        }
+        return false;
+    }
+    return true;
+
 }
 
 /**
