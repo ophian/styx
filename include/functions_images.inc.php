@@ -963,6 +963,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
     if (isset($fdim['noimage'])) {
         $r = array(0, 0);
     } else {
+        // GD
         if ($serendipity['magick'] !== true) {
             if (is_array($size)) {
                 // The caller wants a thumbnail with a specific size
@@ -1016,7 +1017,9 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     }
                 }
             }
-        } else {
+        }
+        // IM
+        else {
             if (is_array($size)) {
                 if ($fdim[0] > $size['width'] && $fdim[1] > $size['height']) {
                     $r = array(0 => $size['width'], 'width' => $size['width'], 1 => $size['height'], 'height' => $size['height']);
