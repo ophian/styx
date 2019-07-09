@@ -1,6 +1,14 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add EXPERIMENTAL support for image file format changes to the MediaLibrary.
+    This is added to the media properties form page and supports "JPEG", "PNG",
+    "GIF" and "WebP" format changes. This has nothing to do with the WebP
+    variation file support added before and is only applied to the ORIGIN image
+    and its thumbnail file.
+    Existing variation files are not supposed to change when changing the image
+    format.
+
   * Rename old image functions to follow the camelCase principle in the images
     API:
         serendipity_functions_gd()    => serendipity_functionsGD()
