@@ -3943,6 +3943,14 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'sortParams'        => array('perpage', 'order', 'ordermode')
     );
 
+    // temporary approach to push convenient supported images formats to $media array for media properties page
+    if (!$enclose && $file[0]['is_image']) {
+        $media['formats'] = [   0 => ['mime' => 'image/jpeg', 'extension' => 'jpeg'],
+                                1 => ['mime' => 'image/png',  'extension' => 'png' ],
+                                2 => ['mime' => 'image/gif',  'extension' => 'gif' ],
+                                3 => ['mime' => 'image/web',  'extension' => 'webp'] ];
+    }
+
     $media = array_merge($media, $smarty_vars);
     $media['files'] =& $file;
 
