@@ -118,7 +118,7 @@
                         {else}
 
                         <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties non image file -->
-                        {/if}{/if}{/if}
+                        {/if}{/if}{* is image end *}{/if}{* is link end *}
 
                         <footer id="media_file_meta_{$file.id}" class="media_file_meta additional_info">
                             <ul class="plainList">
@@ -270,7 +270,9 @@
                 {/foreach}
                 {if NOT $file.hotlink}
 
-                    <div class="form_select">
+                    <fieldset class="media_properties_selects">
+                      <legend> {$CONST.EITHEROR|default:'Either / Or'} &nbsp;<span class="media_file_properties actions"><a class="media_show_info button_link" href="#media_select_props" title="Media properties select actions"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> Media properties selections info</span></a></span> </legend>
+                      <div class="form_select">
                         <label for="newDir{$file@key}">{$CONST.FILTER_DIRECTORY}</label>
                         <input type="hidden" name="serendipity[mediaDirectory][{$file@key}][oldDir]" value="{$file.path|escape}">
                         <select id="newDir{$file@key}" name="serendipity[mediaDirectory][{$file@key}][newDir]">
@@ -281,7 +283,23 @@
                         {/foreach}
 
                         </select>
-                    </div>
+                      </div>
+                    {if $file.is_image AND $media.resetperm}
+
+                      <div class="form_select">
+                        <label for="newFormat{$file@key}">{$CONST.FORMATS|default:'Image format'}</label>
+                        <input type="hidden" name="serendipity[mediaFormat][{$file@key}][oldMime]" value="{$file.mime}">
+                        <select id="newFormat{$file@key}" name="serendipity[mediaFormat][{$file@key}][newMime]">
+                        {foreach $media.formats AS $format}
+
+                            <option{if ($file.mime == $format.mime)} selected="selected"{/if} value="{$format.mime}">{$format.extension}</option>
+                        {/foreach}
+
+                        </select>
+                      </div>
+                      <div id="media_select_props" class="media_select_props additional_info"><span class="msg_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_PROPERTIES_SELECT_INFO_DESC|default:'If a files selection change is necessary: Either use the directory <b>OR</b> the Image format selection change per submit.<br>You cannot change both at the same time! This will also not work if a filename with this new format already exists. Make sure to have this checked before!'}</span></div>
+                    </fieldset>
+                    {/if}
                 {/if}
 
                 </section>
