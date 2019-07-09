@@ -5243,12 +5243,12 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 }
 
 /**
- * Moves a media directory and or file. A wrapper for
+ * Moves/handles a media directory and / or file. A wrapper for
  *
  * 1. case type 'dir' via 'directoryEdit':
  *              serendipity_renameDirAccess($oldDir, $newDir)
- * 2. case type 'file' as a single file id via (looped bulkmove) 'multicheck':
- *                     as a single file id via 'rename':
+ * 2. case type 'file' as a single file ID via (looped bulkmove) 'multicheck':
+ *                     as a single file ID via 'rename':
  *              serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file)
  * 3. case type 'filedir' via this API serendipity_parsePropertyForm() as base_properties only, when changing the file selected path within mediaproperties form:
  *              serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id)
@@ -5256,11 +5256,11 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
  * and LASTLY to update the entries in the database
  *              serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick, $file)
  *
- * @param  string   The old directory.
+ * @param  string   The old directory / file.
  *                  This can be NULL or (an empty / a) STRING for re-name/multiCheck move comparison events
- * @param  string   The new directory
- * @param  string   The type of what to remove (dir|file|filedir)
- * @param  string   An item id of a file
+ * @param  string   The new directory / file
+ * @param  string   The type of what to remove/handle (dir|file|filedir)
+ * @param  string   An item ID of a file
  * @param  array    Result of serendipity_fetchImageFromDatabase($id)
  * @return boolean
  */
