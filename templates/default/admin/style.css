@@ -2233,7 +2233,7 @@ form > .button_link:first-of-type,
     .media_properties_selects select {
       margin-left: -.5em; }
 #media_select_props .msg_hint {
-    background-color: aliceblue;
+    background-color: #f0f8ff;
     font-size: .9125em;
     color: #444; }
 
