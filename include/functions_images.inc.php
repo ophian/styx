@@ -2069,6 +2069,52 @@ function serendipity_functionsGD($infilename) {
 }
 
 /**
+ * Format an image (GDlib) to another image format
+ *
+ * @access public
+ * @param   string      Source Filename to format
+ * @param   string      Target file
+ * @param   int         Extension to format to
+ * @return  array       width/height of the new image
+ */
+function serendipityFormatImageGD($infilename, $outfilename, $format) {
+
+    $ifunc = serendipity_functionsGD($infilename);
+    $ofunc = serendipity_functionsGD($outfilename);
+    if (!is_array($ifunc) || !is_array($ofunc)) {
+        return false;
+    }
+
+    $in = $ifunc['load']($infilename);
+    switch($format) {
+        case 'jpg':
+            $out = imagejpeg($in, $outfilename);
+            break;
+        case 'png':
+            $out = imagepng($in, $outfilename);
+            break;
+        case 'gif':
+            $out = imagegif($in, $outfilename);
+            break;
+        case 'webp':
+            $out = imagewebp($in, $outfilename);
+            break;
+        default:
+            break;
+   }
+
+    $ofunc['save']($out, $outfilename, $ofunc['qual']);
+
+    $newwidth  = imagesx($out);
+    $newheight = imagesy($out);
+
+    $out       = null;
+    $in        = null;
+
+    return array($newwidth, $newheight);
+}
+
+/**
  * Rotate an image (GDlib)
  *
  * @access public
