@@ -301,6 +301,19 @@ switch ($serendipity['GET']['adminAction']) {
         $data['case_changeProp'] = true;
         $messages = array();
         if (isset($serendipity['POST']['adminSubAction']) && $serendipity['POST']['adminSubAction'] == 'properties') {
+            if (@$serendipity['POST']['mediaFormat'][0]['oldMime'] != @$serendipity['POST']['mediaFormat'][0]['newMime']
+            &&  @$serendipity['POST']['mediaDirectory'][0]['oldPath'] != @$serendipity['POST']['mediaDirectory'][0]['newPath']) {
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SELECTION . "Changing both selection in media properties not allowed. Go back and try again!</span>\n";
+                break;
+            }
+            // PROPERTIES CHANGE SUB CASE: image format convert/rename extension
+            if (@$serendipity['POST']['mediaFormat'][0]['oldMime'] != @$serendipity['POST']['mediaFormat'][0]['newMime']
+            && serendipity_checkPermission('adminImagesDelete') && serendipity_checkPermission('adminImagesMaintainOthers')) {
+                // fetch file
+                $file = serendipity_fetchImageFromDatabase((int)$serendipity['POST']['mediaProperties'][0]['image_id']);
+                // convert file format and all relevant follow-up actions, which are real file change, real file thumb change, database changes, entry changes, ep cache changes, staticpage changes
+                serendipity_convertImageFormat($file, $serendipity['POST']['mediaFormat'][0]['oldMime'], $serendipity['POST']['mediaFormat'][0]['newMime']);
+            }
             // properties default on save
             serendipity_restoreVar($serendipity['COOKIE']['serendipity_only_path'], $serendipity['GET']['only_path']); // restore last set directory path, see true parameter
             $properties        = serendipity_parsePropertyForm();
