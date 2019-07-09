@@ -1173,7 +1173,7 @@ function serendipity_scaleImg($id, $width, $height) {
     }
 
     if ($result[0] == 0) {
-        serendipity_updateImageInDatabase(array('dimensions_width' => $width, 'dimensions_height' => $height, 'size' => @filesize($outfile)), $id);
+        serendipity_updateImageInDatabase(array('dimensions_width' => (int)$width, 'dimensions_height' => (int)$height, 'size' => (int)@filesize($outfile)), $id);
         return true;
     }
     return false;
@@ -1277,7 +1277,7 @@ function serendipity_rotateImg($id, $degrees) {
 
     $fdim = @getimagesize($outfile);
 
-    serendipity_updateImageInDatabase(array('dimensions_width' => $fdim[0], 'dimensions_height' => $fdim[1]), $id);
+    serendipity_updateImageInDatabase(array('dimensions_width' => (int)$fdim[0], 'dimensions_height' => (int)$fdim[1]), $id);
 
     return true;
 }
@@ -1907,17 +1907,17 @@ function serendipity_syncThumbs($deleteThumbs = false) {
             $update = array();
             // Is the width correct?
             if (isset($fdim[0]) && $rs['dimensions_width'] != $fdim[0]) {
-                $update['dimensions_width'] = $fdim[0];
+                $update['dimensions_width'] = (int)$fdim[0];
             }
 
             // Is the height correct?
             if (isset($fdim[1]) && $rs['dimensions_height'] != $fdim[1]) {
-                $update['dimensions_height'] = $fdim[1];
+                $update['dimensions_height'] = (int)$fdim[1];
             }
 
             // Is the image size correct?
             if ($rs['size'] != filesize($ffull)) {
-                $update['size'] = filesize($ffull);
+                $update['size'] = (int)@filesize($ffull);
             }
 
             // Does it exist and is an image and has the thumbnail suffix changed?
@@ -1936,7 +1936,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         } else {
             if (!preg_match('@\.v\/@', $fdir)) {
                 $_list .= $_br . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]);
-                serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, filemtime($ffull));
+                serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, (int)@filemtime($ffull));
                 $i++;
             }
         }
