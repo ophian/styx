@@ -1,6 +1,13 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Changed the MediaLibrary stylesheet to not hide media thumbnail parts,
+    from portrait-orientation sizes or squared images, that overflow the
+    equal height box size. Now they are shown in their correct thumb size,
+    but are given a scrollbar in case, which is better to have than to forget
+    about it. This also seems appropriate for the case the Administrator
+    changes the default image preview size in the Image Configuration Panel.
+
   * Add EXPERIMENTAL support for image file format changes to the MediaLibrary.
     This is added to the media properties form page and supports "JPEG", "PNG",
     "GIF" and "WebP" format changes. This has nothing to do with the WebP
