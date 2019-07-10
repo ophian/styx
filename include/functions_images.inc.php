@@ -5092,7 +5092,10 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 $_file['extension'] = null;
             }
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
-            $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
+            // [non-format] rename action
+            if (!isset($_temp) && !isset($_file['newformat'])) {
+                $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
+            }
             $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type] _ispNewFile=$_ispNewFile");
         } else {
             $_ispOldFile = $ispOldFile;
