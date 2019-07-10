@@ -5191,12 +5191,10 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             }
 
             if ($debug) {
-                $serendipity['logger']->debug("$logtag transported file " . print_r($_file, 1)); // OK! checks that $_file['id'] == s9ymdb ID
-                $serendipity['logger']->debug("$logtag AFTER regexed entry BODY $oldLink = $newLink");
-                $serendipity['logger']->debug("$logtag AFTER regexed entry BODY newLinkHTTPPath = $newLinkHTTPPath");
-                $serendipity['logger']->debug("$logtag AFTER regexed entry BODY linkpattern = $link_pattern");
-                $serendipity['logger']->debug("$logtag AFTER regexed entry BODY linkreplace = $link_replace");
-                $serendipity['logger']->debug("$logtag THE NEW regexed entry BODY = {$entry['body']}");
+                $which = $type == 'filedir' ? 'NEW (\'filedir\')' : 'OLD (\'file\')';
+                $serendipity['logger']->debug("$logtag transported $which file " . print_r($_file, 1)); // OK! checks that $_file['id'] == s9ymdb ID
+                $serendipity['logger']->debug("&nbsp;");
+                $serendipity['logger']->debug("$logtag THE NEW regexed entries entry BODY = {$entry['body']}");
             }
         }
 
