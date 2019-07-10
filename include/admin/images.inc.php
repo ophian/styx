@@ -303,7 +303,7 @@ switch ($serendipity['GET']['adminAction']) {
         if (isset($serendipity['POST']['adminSubAction']) && $serendipity['POST']['adminSubAction'] == 'properties') {
             if ($serendipity['POST']['mediaFormat'][0]['oldMime'] != $serendipity['POST']['mediaFormat'][0]['newMime']
             &&  $serendipity['POST']['mediaDirectory'][0]['oldDir'] != $serendipity['POST']['mediaDirectory'][0]['newDir']) {
-                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SELECTION . "Changing both selection in media properties not allowed. Go back and try again!</span>\n";
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SELECTION . "</span>\n";
                 break;
             }
             // PROPERTIES CHANGE SUB CASE: image format convert/rename extension
