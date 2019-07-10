@@ -3125,8 +3125,18 @@ label .perm_name,
     position: relative;
     min-height: 12em;
     height: 17.5em;
+}
+.js .template_preview {
     overflow: hidden;
 }
+.js .media_pane .media_file_preview {
+    min-width: 20em;
+    width: auto;
+    overflow: auto;
+    display: inline-flex;
+    flex-direction: column;
+}
+
 /* gallery pane start */
 .js .media_gallery  {
     flex: auto;
