@@ -81,6 +81,7 @@
 @define('IMAGE', 'Kép');
 @define('ERROR_FILE_NOT_EXISTS', 'Hiba: a régi fájlnév nem létezik!');
 @define('ERROR_FILE_EXISTS', 'Hiba: az új fájlnév már létezik, válassz másikat!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Hiba: valami nem stimmel.');
 @define('ADDING_IMAGE', 'Kép hozzáadása...');
 @define('THUMB_CREATED_DONE', 'Elõnézeti %s kép létrehozva.<br>Kész.');

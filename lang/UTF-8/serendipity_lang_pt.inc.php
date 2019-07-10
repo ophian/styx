@@ -78,6 +78,7 @@
 @define('IMAGE', 'Imagem');
 @define('ERROR_FILE_NOT_EXISTS', 'Erro: O nome de arquivo antigo não existe!');
 @define('ERROR_FILE_EXISTS', 'Erro: O novo nome de arquivo já existe, escolha outro!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Erro: Problema desconhecido.');
 @define('ADDING_IMAGE', 'Adicionando imagem...');
 @define('THUMB_CREATED_DONE', 'Miniatura %s criada.<br>Pronto.');

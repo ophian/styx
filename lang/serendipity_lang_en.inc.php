@@ -81,6 +81,7 @@
 @define('IMAGE', 'Image');
 @define('ERROR_FILE_NOT_EXISTS', 'Error: Old filename does not exist!');
 @define('ERROR_FILE_EXISTS', 'Error: New filename already used, pick another!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Error: Something is wrong.');
 @define('ADDING_IMAGE', 'Adding image...');
 @define('THUMB_CREATED_DONE', 'Thumbnail %s created.<br>Done.');

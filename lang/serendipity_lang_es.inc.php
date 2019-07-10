@@ -87,6 +87,7 @@
 @define('IMAGE', 'Imagen');
 @define('ERROR_FILE_NOT_EXISTS', 'Error: ¡El fichero antiguo no existe!');
 @define('ERROR_FILE_EXISTS', 'Error: ¡Un fichero con ese nombre ya existe, selecciona otro!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Error: Algo está mal.');
 @define('ADDING_IMAGE', 'Añadiendo imagen...');
 @define('THUMB_CREATED_DONE', 'Miniatura %s creada.<br>Hecho.');

@@ -83,6 +83,7 @@
 @define('IMAGE', '그림');
 @define('ERROR_FILE_NOT_EXISTS', '오류: 예전 파일 이름이 존재하지 않습니다.');
 @define('ERROR_FILE_EXISTS', '오류: 새 파일 이름이 이미 사용중이므로 다른 이름으로 지으십시오.');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', '오류: 무언가 잘못되었습니다.');
 @define('ADDING_IMAGE', '그림 추가중...');
 @define('THUMB_CREATED_DONE', '작은 그림이 %s 생성되었습니다.<br>완료.');

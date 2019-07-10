@@ -82,6 +82,7 @@
 @define('IMAGE', 'Image');
 @define('ERROR_FILE_NOT_EXISTS', 'Œÿ√: ·„ Ì „ √œŒ«· «·„·› «·ﬁœÌ„');
 @define('ERROR_FILE_EXISTS', 'Œÿ√ : √”„ «·„·› ÌÊÃœ „‰ ﬁ»· √Œ — √”„« √Œ—');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Œÿ√: ›Ì Œÿ√ „«');
 @define('ADDING_IMAGE', '«÷«›… ’Ê—…...');
 @define('THUMB_CREATED_DONE', '«·’Ê—… %s «·„’€—…<br>Ã«Â“…');

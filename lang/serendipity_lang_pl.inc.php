@@ -83,6 +83,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('IMAGE', 'Obrazek');
 @define('ERROR_FILE_NOT_EXISTS', 'B³±d: Stara nazwa pliku nie istnieje!');
 @define('ERROR_FILE_EXISTS', 'B³±d: Nowa nazwa pliku jest ju¿ w u¿yciu, wybierz inn±!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'B³±d: Co¶ jest nie tak.');
 @define('ADDING_IMAGE', 'Dodawanie obrazka...');
 @define('THUMB_CREATED_DONE', 'Miniaturka %s stworzona.<br>Zrobione.');

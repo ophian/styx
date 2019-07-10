@@ -82,6 +82,7 @@
 @define('IMAGE', 'عکس');
 @define('ERROR_FILE_NOT_EXISTS', 'خطا: فایل های قدیمی وجود ندارند!');
 @define('ERROR_FILE_EXISTS', 'خطا: فایلی با این نام وجود دارد، نام دیگری انتخاب کنید!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'خطا: مشکلی وجود دارد.');
 @define('ADDING_IMAGE', 'افزودن عکس...');
 @define('THUMB_CREATED_DONE', 'عکس های کوچک ساخته شدند.<br>%s انجام شد.');

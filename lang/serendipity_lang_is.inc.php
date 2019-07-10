@@ -81,6 +81,7 @@
 @define('IMAGE', 'Mynd');
 @define('ERROR_FILE_NOT_EXISTS', 'Villa: Gamla skráarnafnið er ekki til!');
 @define('ERROR_FILE_EXISTS', 'Villa: Nýja skráarnafnið er þegar í notkun, veldu annað!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Villa: Eitthvað er að.');
 @define('ADDING_IMAGE', 'Bæti við mynd...');
 @define('THUMB_CREATED_DONE', 'Sýnishorn %s búið til.<br>Lokið.');

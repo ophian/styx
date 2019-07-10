@@ -81,6 +81,7 @@
 @define('IMAGE', 'Bild');
 @define('ERROR_FILE_NOT_EXISTS', 'Fel: Det gamla filnamnet finns inte!');
 @define('ERROR_FILE_EXISTS', 'Fel: Filnamnet finns redan, välj ett annat!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Fel: Någonting är fel.');
 @define('ADDING_IMAGE', 'Lägger till bild...');
 @define('THUMB_CREATED_DONE', 'Miniatyr %s skapad.<br>Klar.');

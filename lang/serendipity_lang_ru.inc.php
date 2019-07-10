@@ -83,6 +83,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('IMAGE', 'Изображение');
 @define('ERROR_FILE_NOT_EXISTS', 'Ошибка: Старое имя файла не существует!');
 @define('ERROR_FILE_EXISTS', 'Ошибка: Новое имя файла уже используется, пожалуйста выберите другое!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Ошибка: Что-то не так...');
 @define('ADDING_IMAGE', 'Добавление изображения...');
 @define('THUMB_CREATED_DONE', 'Тамбнэйл %s успешно,<br> создан.');

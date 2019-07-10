@@ -81,6 +81,7 @@
 @define('IMAGE', '画像');
 @define('ERROR_FILE_NOT_EXISTS', 'エラー: 古いファイル名が存在しません!');
 @define('ERROR_FILE_EXISTS', 'エラー: 既に新しいファイル名が使用されています。別の名前を指定してください!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'エラー: 何かが間違っています。');
 @define('ADDING_IMAGE', '画像を追加しています...');
 @define('THUMB_CREATED_DONE', 'サムネイルを作成しました。<br>%s 終了します。');

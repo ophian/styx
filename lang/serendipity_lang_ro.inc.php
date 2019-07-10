@@ -82,6 +82,7 @@
 @define('IMAGE', 'Imagine');
 @define('ERROR_FILE_NOT_EXISTS', 'Eroare: Vechiul fişier nu există!');
 @define('ERROR_FILE_EXISTS', 'Eroare: Noul nume de fişier este deja folosit, alege altul!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Eroare: Ceva nu e în regulă.');
 @define('ADDING_IMAGE', 'Adaug imagine...');
 @define('THUMB_CREATED_DONE', 'Miniatură %s creată.<br>Gata.');

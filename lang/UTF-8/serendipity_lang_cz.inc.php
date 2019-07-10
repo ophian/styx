@@ -96,6 +96,7 @@ $i18n_filename_to = array (
 @define('IMAGE', 'Obrázek');
 @define('ERROR_FILE_NOT_EXISTS', 'Chyba: Jméno souboru neexistuje!');
 @define('ERROR_FILE_EXISTS', 'Chyba: Toto jméno souboru je už použito, zvolte jiné!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Chyba: Něco je špatně.');
 @define('ADDING_IMAGE', 'Přidání obrázku...');
 @define('THUMB_CREATED_DONE', 'Náhled %s je vytvořen.<br>Hotovo.');

@@ -83,6 +83,7 @@ $i18n_unknown = 'tw';
 @define('IMAGE', '圖片');
 @define('ERROR_FILE_NOT_EXISTS', '錯誤: 檔案不存在!');
 @define('ERROR_FILE_EXISTS', '錯誤: 檔案名稱已被使用, 請重新輸入!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', '錯誤: 有錯誤.');
 @define('ADDING_IMAGE', '新增圖片...');
 @define('THUMB_CREATED_DONE', '縮圖建立.<br>%s 完成.');

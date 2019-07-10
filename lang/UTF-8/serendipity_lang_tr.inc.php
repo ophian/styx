@@ -83,6 +83,7 @@
 @define('IMAGE', 'Resim');
 @define('ERROR_FILE_NOT_EXISTS', 'Hata: Eski dosya adı bulunamadı!');
 @define('ERROR_FILE_EXISTS', 'Hata: Yeni dosya adı zaten kullanımda, başka bir ad seçin!');
+@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
 @define('ERROR_SOMETHING', 'Hata: Bir şeyler yanlış.');
 @define('ADDING_IMAGE', 'Resim ekleme...');
 @define('THUMB_CREATED_DONE', 'Küçükresim %s oluşturma işlemi.<br>Tamamlandı.');
