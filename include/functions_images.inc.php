@@ -4817,7 +4817,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
 }
 
 /**
- * FORMAT a real media file to a convenient supported format and pass change in related entries
+ * FORMAT a real media file to a convenient supported format and pass changes to related entries
  * NOTE: We use the $oldDir / $newDir notation here to keep some sort of usage consistency and since the dir / file distinction does not exist on Unix..
  *
  * @access public
@@ -4859,7 +4859,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
             $result  = array(true, $out, 'with GD');
             $call    = 'serendipityFormatImageGD()';
             if (is_array($out)) {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: GD Image '${format}' format creation: ${result[2]}"); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: New GD Image '${format}' format creation: ${result[2]}"); }
             } else {
                 $result = 0;
             }
@@ -4870,7 +4870,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
             $pass    = [ $serendipity['convert'], [], [], [], 100, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
             $result  = serendipity_passToCMD($_format, $infile, $outfile, $pass);
             $call    = 'serendipity_passToCMD()';
-            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI Image '${format}' format creation: ${result[2]}"); }
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI - New Image '${format}' format creation: ${result[2]}"); }
         }
 
         if (!is_array($result)) {
@@ -4879,14 +4879,14 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
 
         // GD
         if ($result[0] === true) {
-            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: Image '${format}' format creation success ${result[2]} " . DONE); }
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: New Image '${format}' format creation success ${result[2]} " . DONE); }
             unset($result);
             @unlink($infile); // delete the old origin format
             // 2cd run: The thumb conversion to new format
             $out     = serendipityFormatImageGD($infileThumb, $outfileThumb, $format);
             $result  = array(true, $out, 'with GD');
             if ($result[0] === true) {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: Image '${format}' format success ${result[2]} " . DONE); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: New Image '${format}' format success ${result[2]} " . DONE); }
                 @unlink($infileThumb); // delete the old thumb format
             }
             unset($result);
@@ -4894,23 +4894,23 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
         }
         // IM
         else if (is_array($result)) {
-            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI - Image '${format}' format creation success ${result[2]} " . DONE); }
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI - New Image '${format}' format creation success ${result[2]} " . DONE); }
             unset($result);
             @unlink($infile); // delete the old origin format
             // 2cd run: The thumb conversion to new format
             $result  = serendipity_passToCMD($_format, $infileThumb, $outfileThumb, $pass);
             if (is_array($result)) {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - Image '${format}' format resize success ${result[2]} " . DONE); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '${format}' format resize success ${result[2]} " . DONE); }
                 @unlink($infileThumb); // delete the old thumb format
             } else {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - Image '${format}' format resize failed! Perhaps a wrong path: '${outfileThumb}' ?"); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '${format}' format resize failed! Perhaps a wrong path: '${outfileThumb}' ?"); }
             }
             unset($result);
             $uID = serendipity_updateImageInDatabase(array('extension' => $format, 'mime' => serendipity_guessMime($format), 'size' => (int)@filesize($outfile), 'date' => (int)@filemtime($outfile), 'realname' => $outfileRealName), $item_id);
         }
         // FAILED
         else {
-            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: Image '${format}' format creation failed OR already exists."); }
+            if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: New Image '${format}' format creation failed OR already exists."); }
         }
 
         // renaming filenames has to update mediaproperties, if set
