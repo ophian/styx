@@ -2081,14 +2081,16 @@ function serendipityFormatImageGD($infilename, $outfilename, $format) {
 
     $ifunc = serendipity_functionsGD($infilename);
     $ofunc = serendipity_functionsGD($outfilename);
-    if (!is_array($ifunc) || !is_array($ofunc)) {
+    if (!is_array($ifunc) || !is_array($ofunc) || empty($format)) {
         return false;
     }
 
-    $in = $ifunc['load']($infilename);
+    $in = $ifunc['load']($infilename); // this is the resource
+
     switch($format) {
         case 'jpg':
-            $out = imagejpeg($in, $outfilename);
+        case 'jpeg':
+            $out = imagejpeg($in, $outfilename); // these just give back booleans
             break;
         case 'png':
             $out = imagepng($in, $outfilename);
@@ -2101,12 +2103,12 @@ function serendipityFormatImageGD($infilename, $outfilename, $format) {
             break;
         default:
             break;
-   }
+    }
 
-    $ofunc['save']($out, $outfilename, $ofunc['qual']);
+    $ofunc['save']($in, $outfilename, $ofunc['qual']);
 
-    $newwidth  = imagesx($out);
-    $newheight = imagesy($out);
+    $newwidth  = imagesx($in);
+    $newheight = imagesy($in);
 
     $out       = null;
     $in        = null;
