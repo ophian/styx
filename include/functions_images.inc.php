@@ -3951,7 +3951,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
                                 1 => ['mime' => 'image/png',  'extension' => 'png' ],
                                 2 => ['mime' => 'image/gif',  'extension' => 'gif' ] ];
         if ($serendipity['useWebPFormat']) {
-            $media['formats'] = array_merge($media['formats'], [ 3 => ['mime' => 'image/web',  'extension' => 'webp'] ]);
+            $media['formats'] = array_merge($media['formats'], [ 3 => ['mime' => 'image/webp',  'extension' => 'webp'] ]);
         }
     }
 
