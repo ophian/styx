@@ -5085,7 +5085,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 
         // here we need to match THUMBS too, so we do not want the extension, see detailed SELECT regex note
         if ($type == 'file' && $oldDir === null) {
-            $_ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']); // this is more exact in every case [YES!]
+            $_ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file['path'] . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']); // this is more exact in every case [YES!]
             // special case format change
             if ($trace[1]['function'] == 'serendipity_formatRealFile' && isset($_file['newformat'])) {
                 $_temp = $_file['extension'];
