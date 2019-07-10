@@ -3949,8 +3949,10 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
     if (!$enclose && $file[0]['is_image']) {
         $media['formats'] = [   0 => ['mime' => 'image/jpeg', 'extension' => 'jpeg'],
                                 1 => ['mime' => 'image/png',  'extension' => 'png' ],
-                                2 => ['mime' => 'image/gif',  'extension' => 'gif' ],
-                                3 => ['mime' => 'image/web',  'extension' => 'webp'] ];
+                                2 => ['mime' => 'image/gif',  'extension' => 'gif' ] ];
+        if ($serendipity['useWebPFormat']) {
+            $media['formats'] = array_merge($media['formats'], [ 3 => ['mime' => 'image/web',  'extension' => 'webp'] ]);
+        }
     }
 
     $media = array_merge($media, $smarty_vars);
