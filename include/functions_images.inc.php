@@ -2038,7 +2038,7 @@ function serendipity_functionsGD($infilename) {
         case 'png':
             $func['load'] = 'imagecreatefrompng';
             $func['save'] = 'imagepng';
-            $func['qual'] = 9;
+            $func['qual'] = 9; // Compression levels: 0-9, so this equals 100%
             break;
 
         case 'webp':
