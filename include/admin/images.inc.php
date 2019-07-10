@@ -307,7 +307,7 @@ switch ($serendipity['GET']['adminAction']) {
                 break;
             }
             // PROPERTIES CHANGE SUB CASE: image format convert/rename extension
-            if (@$serendipity['POST']['mediaFormat'][0]['oldMime'] != @$serendipity['POST']['mediaFormat'][0]['newMime']
+            if ($serendipity['POST']['mediaFormat'][0]['oldMime'] != $serendipity['POST']['mediaFormat'][0]['newMime']
             && serendipity_checkPermission('adminImagesDelete') && serendipity_checkPermission('adminImagesMaintainOthers')) {
                 // fetch file
                 $file = serendipity_fetchImageFromDatabase((int)$serendipity['POST']['mediaProperties'][0]['image_id']);
