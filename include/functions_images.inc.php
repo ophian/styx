@@ -2077,7 +2077,7 @@ function serendipity_functionsGD($infilename) {
  * @param   int         Extension to format to
  * @return  array       width/height of the new image
  */
-function serendipityFormatImageGD($infilename, $outfilename, $format) {
+function serendipity_formatImageGD($infilename, $outfilename, $format) {
 
     $ifunc = serendipity_functionsGD($infilename);
     $ofunc = serendipity_functionsGD($outfilename);
@@ -4857,9 +4857,9 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
     if (!file_exists($outfile)) {
         // pass to GD
         if ($serendipity['magick'] !== true) {
-            $out     = serendipityFormatImageGD($infile, $outfile, $format);
+            $out     = serendipity_formatImageGD($infile, $outfile, $format);
             $result  = array(true, $out, 'with GD');
-            $call    = 'serendipityFormatImageGD()';
+            $call    = 'serendipity_formatImageGD()';
             if (is_array($out)) {
                 if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: New GD Image '${format}' format creation: ${result[2]}"); }
             } else {
@@ -4885,7 +4885,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
             unset($result);
             @unlink($infile); // delete the old origin format
             // 2cd run: The thumb conversion to new format
-            $out     = serendipityFormatImageGD($infileThumb, $outfileThumb, $format);
+            $out     = serendipity_formatImageGD($infileThumb, $outfileThumb, $format);
             $result  = array(true, $out, 'with GD');
             if ($result[0] === true) {
                 if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: New Image '${format}' format success ${result[2]} " . DONE); }
