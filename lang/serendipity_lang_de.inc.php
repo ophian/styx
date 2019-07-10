@@ -80,7 +80,7 @@
 @define('IMAGE', 'Bild');
 @define('ERROR_FILE_NOT_EXISTS', 'Fehler: Alte Datei existiert nicht!');
 @define('ERROR_FILE_EXISTS', 'Fehler: Neuer Dateiname existiert schon, bitte einen anderen wählen.');
-@define('ERROR_SELECTION', 'Error: Changing both selection in media properties at the same time is not allowed. Go back and try again!');
+@define('ERROR_SELECTION', 'Fehler: Änderungen beider Auswahlfelder über die Medien-Eigenschaften zur selben Zeit ist nicht erlaubt. Gehen Sie zurück und probieren Sie es erneut!');
 @define('ERROR_SOMETHING', 'Fehler: Irgend etwas stimmt nicht.');
 @define('ADDING_IMAGE', 'Bild hinzufügen ...');
 @define('THUMB_CREATED_DONE', 'Vorschau %s erstellt.<br>Fertig.');
