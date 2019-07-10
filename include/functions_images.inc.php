@@ -1656,6 +1656,10 @@ function serendipity_guessMime($extension) {
             $mime = 'image/x-icon';
             break;
 
+        case 'webp':
+            $mime = 'image/webp';
+            break;
+
         default:
             $mime = 'application/octet-stream';
             break;
