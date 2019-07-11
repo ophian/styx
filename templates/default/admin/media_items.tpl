@@ -290,14 +290,14 @@
                         <label for="newFormat{$file@key}">{$CONST.FORMATS|default:'Image format'}</label>
                         <input type="hidden" name="serendipity[mediaFormat][{$file@key}][oldMime]" value="{$file.mime}">
                         <select id="newFormat{$file@key}" name="serendipity[mediaFormat][{$file@key}][newMime]">
-                        {foreach $media.formats AS $format}
+                        {foreach $media.formats AS $format}{if $format.mime == 'image/webp'}{assign "specialwebp" true}{/if}
 
                             <option{if ($file.mime == $format.mime)} selected="selected"{/if} value="{$format.mime}">{$format.extension}</option>
                         {/foreach}
 
                         </select>
                       </div>
-                      <div id="media_select_props" class="media_select_props additional_info"><span class="msg_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_PROPERTIES_SELECT_INFO_DESC|default:'If a files selection change is necessary: Either use the directory <b>OR</b> the Image format selection change per submit.<br>You cannot change both at the same time! This will also not work if a filename with this new format already exists. Make sure to have this checked before!'}<br>{$CONST.MEDIA_PROPERTIES_FORMAT_WEBP|default:'<b>CAREFULLY NOTE FOR THE WEBP CASE:</b><br>ORIGIN files WebP format variations probably already exist and are not affected by this change. This action here turns your ORIGIN file and Thumbnail into the WebP format, but uses a quality level of 100 when using the "GD Lib", to avoid any quality loss. (<em>On the other hand the ImageMagick Library is set to "auto" here.</em>) For this very reason you should not use it for <b>GD</b> cases where your existing file format has already been optimized for the Web. In this case WebP formatting will probably just blow up the files filesize.'}</span></div>
+                      <div id="media_select_props" class="media_select_props additional_info"><span class="msg_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_PROPERTIES_SELECT_INFO_DESC|default:'If a files selection change is necessary: Either use the directory <b>OR</b> the Image format selection change per submit.<br>You cannot change both at the same time! This will also not work if a filename with this new format already exists. Make sure to have this checked before!'}{if NOT empty($specialwebp)}<br>{$CONST.MEDIA_PROPERTIES_FORMAT_WEBP|default:'<b>CAREFULLY NOTE FOR THE WEBP CASE:</b><br>ORIGIN files WebP format variations probably already exist and are not affected by this change. This action here turns your ORIGIN file and Thumbnail into the WebP format, but uses a quality level of 100 when using the "GD Lib", to avoid any quality loss. (<em>On the other hand the ImageMagick Library is set to "auto" here.</em>) For this very reason you should not use it for <b>GD</b> cases where your existing file format has already been optimized for the Web. In this case WebP formatting will probably just blow up the files filesize.'}{/if}</span></div>
                     </fieldset>
                     {/if}
                 {/if}
