@@ -374,6 +374,8 @@ function serendipity_deleteImage($id) {
             if (!$file['hotlink']) {
                 if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
                     if (@unlink($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
+                        // Silently delete an already generated .v/origin.webp variation file too
+                        serendipity_syncUnlinkVariation($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile);
                         $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", $dFile);
                     } else {
                         $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETE_FILE_FAIL . "</span>\n", $dFile);
@@ -385,6 +387,8 @@ function serendipity_deleteImage($id) {
                         $dfThumb  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dfnThumb;
 
                         if (@unlink($dfThumb)) {
+                            // Silently delete an already generated .v/originthumb.webp variation file too
+                            serendipity_syncUnlinkVariation($dfThumb);
                             $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", $dfnThumb);
                         }
                     }
