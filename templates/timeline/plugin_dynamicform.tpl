@@ -65,8 +65,7 @@
                                 <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND $selectset != 'true'} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">&#8727;</span>{/if}</legend>
                                     <select name="{$field.id}" class="form-control">
-{* CHANGE 'PLEASE SELECT' TO LANGUAGE CONSTANT *}
-                                        {if $selectset != 'true'}<option value="" disabled selected style="display: none;">{$CONST.PLEASESELECT|default:'Please select'}...</option>{/if}
+                                        {if $selectset != 'true'}<option value="" disabled selected style="display: none;">{$CONST.PLEASESELECT}...</option>{/if}
                                         {foreach $field.options AS $option}
                                             <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} >{$option.name}</option>
                                         {/foreach}
