@@ -3,7 +3,7 @@ Version 3.0-Dev ()
 
   * Changed the MediaLibrary stylesheet to not hide media thumbnail parts,
     from portrait-orientation sizes, or squared images, or even non-thumbed
-    external hotlink files, that overflow the equal height box size.
+    external hotlink files, that overflow the equal height inner box size.
     Now they are shown in their correct thumb size, but are given a scrollbar
     in case, which is better to have than to forget about it.
     This also seems appropriate for the case the Administrator changes the
@@ -17,7 +17,7 @@ Version 3.0-Dev ()
     Existing variation files are not supposed to change when changing the image
     format.
     The GD Lib settings were tweaked to avoid a WebP format quality loss for this
-    case, which may make usage of to-WebP format changes obsolete.
+    case, which may make usage of to-WebP format changes obsolete here.
     Read the INFO NOTES on place in the media properties form.
 
   * Rename old image functions to follow the camelCase principle in the images
