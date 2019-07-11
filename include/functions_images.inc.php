@@ -1838,9 +1838,10 @@ function serendipity_convertThumbs() {
 }
 
 /**
- * Unlink/Delete a thumb files variation for ML maintenance synchronization
+ * Unlink/Delete a (thumb) files variation for ML maintenance synchronization
+ * and/or serendipity_deleteImage()
  *
- * @param  string $originThumbFile The fullpath thumb file of the image object
+ * @param  string $origin/Thumb/File The fullpath (thumb) file of the image object
  * @access private
  * @return
  */
