@@ -2014,14 +2014,16 @@ function serendipity_syncThumbs($deleteThumbs = false) {
  * Wrapper for GDLib functions
  *
  * @access public
- * @param   string      Filename to operate on
+ * @param  string       Filename to operate on
+ * @param  int          Possible WebP format Quality change
  * @return string       Name of GD function to execute
  */
-function serendipity_functionsGD($infilename) {
+function serendipity_functionsGD($infilename, $q=null) {
     if (!function_exists('imagecopyresampled')) {
         return false;
     }
 
+    $qual = is_null($q) ? 75 : 100;
     $func = array();
     $inf  = pathinfo(strtolower($infilename));
     switch ($inf['extension']) {
@@ -2048,7 +2050,7 @@ function serendipity_functionsGD($infilename) {
         case 'webp':
             $func['load'] = 'imagecreatefromwebp';
             $func['save'] = 'imagewebp';
-            $func['qual'] = 75;
+            $func['qual'] = $qual; // variations shall still use the default 75 quality level, since formats of ORIGINs is better with a Q 100, to not have a (increasing) loss.
             break;
 
         default:
@@ -2083,8 +2085,8 @@ function serendipity_functionsGD($infilename) {
  */
 function serendipity_formatImageGD($infilename, $outfilename, $format) {
 
-    $ifunc = serendipity_functionsGD($infilename);
-    $ofunc = serendipity_functionsGD($outfilename);
+    $ifunc = serendipity_functionsGD($infilename, 100);  // Currently this effects WebP formats only, and makes the format to WebP conversion inadvisable, where the infile has already been optimized for the Web.
+    $ofunc = serendipity_functionsGD($outfilename, 100); // Ditto
     if (!is_array($ifunc) || !is_array($ofunc) || empty($format)) {
         return false;
     }
