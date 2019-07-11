@@ -16,6 +16,9 @@ Version 3.0-Dev ()
     and its thumbnail file.
     Existing variation files are not supposed to change when changing the image
     format.
+    The GD Lib settings were tweaked to avoid a WebP format quality loss for this
+    case, which may make usage of to-WebP format changes obsolete.
+    Read the INFO NOTES on place in the media properties form.
 
   * Rename old image functions to follow the camelCase principle in the images
     API:
