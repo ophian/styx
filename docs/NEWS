@@ -12,6 +12,7 @@ Version 3.0-Dev ()
     in case, which is better to have than to forget about it.
     This also seems appropriate for the case the Administrator changes the
     default image preview size in the Image Configuration Panel.
+    The only exception for this is the Styx Media Gallery selection preview.
 
   * Add EXPERIMENTAL support for image file format changes to the MediaLibrary.
     This is added to the media properties form page and supports "JPEG", "PNG",
