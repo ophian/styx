@@ -1,7 +1,7 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Add support on IMAGE DELETE to delete the image WebP file variations too
+  * Add silent support on IMAGE DELETE to purge image WebP file variations too
 
   * Changed the MediaLibrary stylesheet to not hide media thumbnail parts,
     from portrait-orientation sizes, or squared images, or even non-thumbed
