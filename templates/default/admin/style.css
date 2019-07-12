@@ -3133,6 +3133,11 @@ label .perm_name,
     overflow: auto;
 }
 
+#grid-selector {
+    display: none;
+    visibility: hidden;
+}
+
 /* gallery pane start */
 .js .media_gallery  {
     flex: auto;
@@ -4003,6 +4008,105 @@ img.mfp-img {
 
     .media_file h3 {
         width: 16em;
+    }
+
+    #grid-selector {
+        display: block;
+        visibility: visible;
+        float: right;
+        margin-top: -3em;
+    }
+    #grid-selector > div {
+        margin: 0 0 0 .5em;
+    }
+    .mediaGrid {
+        display: inline-flex;
+        flex-wrap: wrap;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: auto;
+    }
+    .mediaGrid-cell {
+        flex: 1;
+        height: .75em;
+        border: 1px solid #bbb;
+        box-shadow: 1px 2px 3px #777;
+        width: 1.5em;
+    }
+    .mediaGrid-cell.tic {
+        background-color: #3C3C3CCC;
+    }
+    .mediaGrid-cell.tac {
+        background-color: #3e5f81;
+    }
+
+    .media_pane > .media_file {
+        flex: 1;
+    }
+    .media_pane > .media_file.mlDefCol {
+        margin: 0 2% 1em 0;
+        width: 48%;
+    }
+    .media_pane > .media_file.mlMidCol {
+        margin: 0 0 1em 0;
+        width: 32%;
+    }
+    .media_pane > .media_file.mlMaxCol {
+        margin: 0 -2% 1em 0;
+        width: 24%;
+    }
+    .media_pane > .media_file.mlMidCol:nth-of-type(2n) {
+        margin: 0 0 1em 0;
+    }
+    .js .media_pane .media_file.mlMidCol .media_file_preview {
+        position: relative;
+        min-height: 10.5em;
+        height: 10.5em;
+        overflow: auto;
+    }
+    .js .media_pane .media_file.mlMaxCol .media_file_preview {
+        position: relative;
+        min-height: 7.5em;
+        height: 7.5em;
+        overflow: hidden;
+    }
+    .media_pane > .media_file.mlMidCol .media_file_actions.plainList,
+    .media_pane > .media_file.mlMaxCol .media_file_actions.plainList {
+        margin: 0;
+        padding: 0;
+    }
+    .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,
+    .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
+        border-radius: 4px;
+        background-clip: padding-box;
+        border: 1px solid #DDD;
+        box-shadow: 1px 2px 3px #DDD;
+        line-height: normal;
+        outline: 0;
+        padding: .25em .45em;
+        text-decoration: none;
+        width: auto;
+    }
+    .media_pane > .media_file.mlMidCol .button_link,
+    .media_pane > .media_file.mlMidCol a.button_link,
+    .media_pane > .media_file.mlMaxCol .button_link,
+    .media_pane > .media_file.mlMaxCol a.button_link {
+        border-radius: initial;
+        background-clip: initial;
+        border: 0 none;
+        line-height: normal;
+        outline: 0;
+        padding: 0;
+        width: initial;
+    }
+    .media_pane > .media_file.mlMidCol ul.media_file_actions.actions > li {
+        margin: 0;
+        padding: .45em;
+    }
+    .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
+        margin: 0;
+        padding: .175em;
     }
 
     #maintenance {
