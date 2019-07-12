@@ -4061,8 +4061,8 @@ img.mfp-img {
     }
     .js .media_pane .media_file.mlMidCol .media_file_preview {
         position: relative;
-        min-height: 10.5em;
-        height: 10.5em;
+        min-height: 12.75em;
+        height: 12.75em;
         overflow: auto;
     }
     .js .media_pane .media_file.mlMaxCol .media_file_preview {
@@ -4107,6 +4107,12 @@ img.mfp-img {
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
         margin: 0;
         padding: .175em;
+    }
+    .media_pane > .media_file.mlMidCol .media_file_meta ul li {
+        font-size: 90%;
+    }
+    .media_pane > .media_file.mlMaxCol .media_file_meta ul li {
+        font-size: 70%;
     }
 
     #maintenance {
