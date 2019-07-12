@@ -3130,11 +3130,7 @@ label .perm_name,
     overflow: hidden;
 }
 .js .media_pane .media_file_preview {
-    min-width: 20em;
-    width: auto;
     overflow: auto;
-    display: inline-flex;
-    flex-direction: column;
 }
 
 /* gallery pane start */
@@ -3172,6 +3168,7 @@ label .perm_name,
 .js .media_gallery .media_file_pregal {
     min-height: 5.5em;
     height: 5.5em;
+    overflow: hidden;
 }
 #gallery_orientation .gallery_strict_columns_head {
     margin-left: 1rem;
