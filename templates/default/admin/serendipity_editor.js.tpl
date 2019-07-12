@@ -1969,3 +1969,21 @@ serendipity_imageSelector_done = function(textarea) {
 serendipity_imageSelector_addToElement = function(str, id) {
     return serendipity.serendipity_imageSelector_addToElement(str, id);
 }
+
+function hasClass(element, className) {
+    return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
+}
+
+function changeMediaGrid(col) {
+  var x = document.getElementsByClassName('media_file'),
+      classes = ['mlMaxCol', 'mlMidCol', 'mlDefCol'];
+
+  for (i = 0; i < x.length; i++) {
+    for (var c = 0, j = classes.length; c < j; c++) {
+      if (hasClass(x[i], classes[c])) {
+        x[i].classList.remove(classes[c]);
+        x[i].classList.add(col);
+      }
+    }
+  }
+}
