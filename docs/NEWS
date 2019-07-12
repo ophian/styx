@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Bugfix entries gallery insert empty 'multiSelect'ion catch to back-message.
+
   * Add silent support on IMAGE DELETE to purge image WebP file variations too
 
   * Changed the MediaLibrary stylesheet to not hide media thumbnail parts,
