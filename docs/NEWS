@@ -1,7 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Bugfix entries gallery insert empty 'multiSelect'ion catch to back-message.
+  * Add EXPERIMENTAL on-the-fly change Media Grid Columns to the MediaLibrary
+
+  * Bugfix entries gallery insert empty 'multiSelect'ion catch to back-message
 
   * Add silent support on IMAGE DELETE to purge image WebP file variations too
 
