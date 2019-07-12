@@ -4063,7 +4063,7 @@ img.mfp-img {
         position: relative;
         min-height: 12.75em;
         height: 12.75em;
-        overflow: auto;
+        overflow: hidden;
     }
     .js .media_pane .media_file.mlMaxCol .media_file_preview {
         position: relative;
@@ -4087,6 +4087,10 @@ img.mfp-img {
         padding: .25em .45em;
         text-decoration: none;
         width: auto;
+        margin-top: .25em;
+    }
+    .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
+        margin-top: 1em;
     }
     .media_pane > .media_file.mlMidCol .button_link,
     .media_pane > .media_file.mlMidCol a.button_link,
