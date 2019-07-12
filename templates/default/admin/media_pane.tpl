@@ -42,17 +42,17 @@
         </div>
         <hr>
         <div class="form_select">
-                <label for="newDir">{$CONST.FILTER_DIRECTORY}</label>
-                <input type="hidden" name="serendipity[oldDir]" value="">
-                <select id="newDir" name="serendipity[newDir]">
-                    <option value=""></option>
-                    <option value="uploadRoot">{$CONST.BASE_DIRECTORY}</option>
-                {foreach $media.paths AS $folderFoot}
+            <label for="newDir">{$CONST.FILTER_DIRECTORY}</label>
+            <input type="hidden" name="serendipity[oldDir]" value="">
+            <select id="newDir" name="serendipity[newDir]">
+                <option value=""></option>
+                <option value="uploadRoot">{$CONST.BASE_DIRECTORY}</option>
+            {foreach $media.paths AS $folderFoot}
 
-                    <option value="{$folderFoot.relpath}">{'&nbsp;'|str_repeat:($folderFoot.depth*2)}{$folderFoot.name}</option>{* * *}
-                {/foreach}
+                <option value="{$folderFoot.relpath}">{'&nbsp;'|str_repeat:($folderFoot.depth*2)}{$folderFoot.name}</option>{* * *}
+            {/foreach}
 
-                </select>
+            </select>
         </div>
         <div class="form_buttons">
             <input class="state_submit" name="toggle_move" type="submit" value="{$CONST.MOVE}">
