@@ -1769,18 +1769,3 @@ addLoadEvent = function(func) {
         }
     }
 }
-
-// Several plugins use this in the global scope. Those API functions are
-// vital, so they reference to our new serendipity scope. This global
-// scope is deprecated and subject to removal in the future.
-serendipity_imageSelector_addToBody = function(block, textarea) {
-    return serendipity.serendipity_imageSelector_addToBody(block, textarea);
-}
-
-serendipity_imageSelector_done = function(textarea) {
-    return serendipity.serendipity_imageSelector_done(textarea);
-}
-
-serendipity_imageSelector_addToElement = function(str, id) {
-    return serendipity.serendipity_imageSelector_addToElement(str, id);
-}
