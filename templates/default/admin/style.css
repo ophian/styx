@@ -4089,10 +4089,11 @@ img.mfp-img {
         box-shadow: 1px 2px 3px #DDD;
         line-height: normal;
         outline: 0;
-        padding: .25em .45em;
+        padding: .15em .15em;
         text-decoration: none;
         width: auto;
         margin-top: .25em;
+        display: inline-flex;
     }
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
         margin-top: 1em;
@@ -4111,11 +4112,11 @@ img.mfp-img {
     }
     .media_pane > .media_file.mlMidCol ul.media_file_actions.actions > li {
         margin: 0;
-        padding: .45em;
+        padding: .375em;
     }
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
         margin: 0;
-        padding: .175em;
+        padding: .15em;
     }
     .media_pane > .media_file.mlMidCol .media_file_meta ul li {
         font-size: 90%;
@@ -4521,6 +4522,20 @@ img.mfp-img {
     }
 }
 
+@media only screen and (min-width: 960px) {
+    .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,
+    .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
+        padding: .25em .45em;
+        display: initial;
+    }
+    .media_pane > .media_file.mlMidCol ul.media_file_actions.actions > li {
+        padding: .45em;
+    }
+    .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
+        padding: .175em;
+    }
+}
+
 @media only screen and (min-width: 1024px) {
     #login .form_field input {
         width: auto;
@@ -4678,6 +4693,18 @@ img.mfp-img {
     #login {
         margin: 4em auto 8em;
     }
+
+    .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,
+    .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
+        padding: .15em .15em;
+        display: inline-flex;
+    }
+    .media_pane > .media_file.mlMidCol ul.media_file_actions.actions > li {
+        padding: .375em;
+    }
+    .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
+        padding: .15em;
+    }
 }
 
 /* LARGER SCREENS */
@@ -4709,6 +4736,17 @@ img.mfp-img {
     .actions li,
     .actions_extra {
         margin: 0 .4em .5em 0;
+    }
+    .media_pane > .media_file.mlMidCol ul.media_file_actions.plainList,
+    .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
+        padding: .25em .45em;
+        display: initial;
+    }
+    .media_pane > .media_file.mlMidCol ul.media_file_actions.actions > li {
+        padding: .45em;
+    }
+    .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
+        padding: .175em;
     }
 }
 
