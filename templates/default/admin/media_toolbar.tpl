@@ -5,16 +5,16 @@
     <h2>{$CONST.MEDIA_LIBRARY}</h2>
 
     <div id="grid-selector">
-        <div id="col-def-selector" class="mediaGrid" title="2-column grid" onclick="changeMediaGrid('mlDefCol')">
+        <div id="col-def-selector" class="mediaGrid" title="2-column grid" onclick="serendipity.changeMediaGrid('mlDefCol')">
           <div class="mediaGrid-cell tic"></div>
           <div class="mediaGrid-cell tac"></div>
         </div>
-        <div id="col-mid-selector" class="mediaGrid" title="3-column grid" onclick="changeMediaGrid('mlMidCol')">
+        <div id="col-mid-selector" class="mediaGrid" title="3-column grid" onclick="serendipity.changeMediaGrid('mlMidCol')">
           <div class="mediaGrid-cell tac"></div>
           <div class="mediaGrid-cell tic"></div>
           <div class="mediaGrid-cell tac"></div>
         </div>
-        <div id="col-max-selector" class="mediaGrid" title="4-column grid" onclick="changeMediaGrid('mlMaxCol')">
+        <div id="col-max-selector" class="mediaGrid" title="4-column grid" onclick="serendipity.changeMediaGrid('mlMaxCol')">
           <div class="mediaGrid-cell tic"></div>
           <div class="mediaGrid-cell tac"></div>
           <div class="mediaGrid-cell tic"></div>

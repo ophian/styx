@@ -279,6 +279,26 @@
         serendipity.wrapSelection($('#'+escapedElement), str, '');
     }
 
+    // helper
+    serendipity.hasClass = function(element, className) {
+        return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
+    }
+
+    // Changes the MediaLibrary Media Grid from default 2, to mid 3, or max 4 columns
+    serendipity.changeMediaGrid = function(col) {
+        var x = document.getElementsByClassName('media_file'),
+            classes = ['mlMaxCol', 'mlMidCol', 'mlDefCol'];
+
+        for (i = 0; i < x.length; i++) {
+            for (var c = 0, j = classes.length; c < j; c++) {
+                if (serendipity.hasClass(x[i], classes[c])) {
+                    x[i].classList.remove(classes[c]);
+                    x[i].classList.add(col);
+                }
+            }
+        }
+    }
+
     var pictureSubmit = false; // global scope
     mediaPictureSubmit = function(event) {
         pictureSubmit = true; // local scope
@@ -1966,22 +1986,4 @@ serendipity_imageSelector_done = function(textarea) {
 
 serendipity_imageSelector_addToElement = function(str, id) {
     return serendipity.serendipity_imageSelector_addToElement(str, id);
-}
-
-function hasClass(element, className) {
-    return element.className && new RegExp("(^|\\s)" + className + "(\\s|$)").test(element.className);
-}
-
-function changeMediaGrid(col) {
-  var x = document.getElementsByClassName('media_file'),
-      classes = ['mlMaxCol', 'mlMidCol', 'mlDefCol'];
-
-  for (i = 0; i < x.length; i++) {
-    for (var c = 0, j = classes.length; c < j; c++) {
-      if (hasClass(x[i], classes[c])) {
-        x[i].classList.remove(classes[c]);
-        x[i].classList.add(col);
-      }
-    }
-  }
 }
