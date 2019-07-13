@@ -4059,17 +4059,22 @@ img.mfp-img {
     .media_pane > .media_file.mlMidCol:nth-of-type(2n) {
         margin: 0 0 1em 0;
     }
-    .js .media_pane .media_file.mlMidCol .media_file_preview {
-        position: relative;
-        min-height: 12.75em;
-        height: 12.75em;
-        overflow: hidden;
-    }
+    .js .media_pane .media_file.mlMidCol .media_file_preview,
     .js .media_pane .media_file.mlMaxCol .media_file_preview {
         position: relative;
+        overflow: hidden;
+    }
+    .js .media_pane .media_file.mlMidCol .media_file_preview {
+        min-height: 12.75em;
+        height: 12.75em;
+    }
+    .js .media_pane .media_file.mlMaxCol .media_file_preview {
         min-height: 7.5em;
         height: 7.5em;
-        overflow: hidden;
+    }
+    .media_pane > .media_file.mlMidCol header h3,
+    .media_pane > .media_file.mlMaxCol header h3 {
+        font-size: 95%;
     }
     .media_pane > .media_file.mlMidCol .media_file_actions.plainList,
     .media_pane > .media_file.mlMaxCol .media_file_actions.plainList {
