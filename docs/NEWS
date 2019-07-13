@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Removed non-scoped javascript deprecated image wrapper methods.
+    All supported additional plugins were checked.
+
   * Enhance MediaLibrary sort row interval for the new on-the-fly Media Grid
     Handler, so it supports valid media fetch interval divisions for the Mid
     and Max grids.
