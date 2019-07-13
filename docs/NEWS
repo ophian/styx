@@ -1,6 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Enhance MediaLibrary sort row intervall for the new on-the-fly Media Grid
+    Handler, so it supports valid media fetch intervall divisions for the Mid
+    and Max grids.
+
   * Add EXPERIMENTAL on-the-fly change Media Grid Columns to the MediaLibrary.
     To make this a valid and nice request you may have to set up the Media Sort
     Files per Page option.
