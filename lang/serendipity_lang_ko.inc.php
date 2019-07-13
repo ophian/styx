@@ -877,7 +877,7 @@
 @define('PLUGIN_AVAILABLE_COUNT', '총 플러그인 수: %d개.');
 
 @define('SYNDICATION_RFC2616', '엄격한 RFC2616 RSS 피드 준수 사용하기');
-@define('SYNDICATION_RFC2616_DESC', 'RFC2616을 강제하지 않을 경우 조건부 GET 요청을 세렌디피티가 받으면 마지막 요청 이후에 수정된 글을 보내게 됩니다. 그러므로 이 설정을 끄면 방문자들은 마지막 요청 이후 작성된 모든 글을 받게 되어 대부분 좋게 받아들입니다. 하지만 Planet과 같은 일부 에이전트의 경우 이렇게 되면 RFC2616을 위반하기 때문에 이상하게 작동합니다. 이 설정을 켜면 RFC 준수를 하게 되지만 RSS 피드 구독자들이 휴가를 간 동안 놓치는 글이 생길 수 있습니다. 결국 Planet과 같은 곳이나 블로그를 직접 구독하는 사람들 중 한 쪽은 문제가 발생할 것입니다. 어느 한 쪽에서 불만이 있을 경우 이 설정을 변경해 보기 바랍니다. 참조할 내용: <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=1461728&amp;group_id=75065&amp;atid=542822" target="_blank" rel="nofollow">소스포지</a>');
+@define('SYNDICATION_RFC2616_DESC', 'RFC2616을 강제하지 않을 경우 조건부 GET 요청을 세렌디피티가 받으면 마지막 요청 이후에 수정된 글을 보내게 됩니다. 그러므로 이 설정을 끄면 방문자들은 마지막 요청 이후 작성된 모든 글을 받게 되어 대부분 좋게 받아들입니다. 하지만 Planet과 같은 일부 에이전트의 경우 이렇게 되면 RFC2616을 위반하기 때문에 이상하게 작동합니다. 이 설정을 켜면 RFC 준수를 하게 되지만 RSS 피드 구독자들이 휴가를 간 동안 놓치는 글이 생길 수 있습니다. 결국 Planet과 같은 곳이나 블로그를 직접 구독하는 사람들 중 한 쪽은 문제가 발생할 것입니다. 어느 한 쪽에서 불만이 있을 경우 이 설정을 변경해 보기 바랍니다.');
 @define('MEDIA_PROPERTY_DATE', '관계된(작성된) 날짜');
 @define('MEDIA_PROPERTY_RUN_LENGTH', '실행 길이');
 @define('FILENAME_REASSIGNED', '자동으로 새로운 파일 이름을 붙였습니다: %s');

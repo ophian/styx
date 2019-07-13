@@ -876,7 +876,7 @@
 @define('PLUGIN_AVAILABLE_COUNT', 'Összesen: %d modul.');
 
 @define('SYNDICATION_RFC2616', 'RFC2616 formátumú RSS hírcsatorna kompatibilitás beállítása');
-@define('SYNDICATION_RFC2616_DESC', 'Ha a RFC2616 formátum kompatibilitást NEM engedélyezed, akkor a aki lekéri a hírcsatornát, mindig az utolsó lekérés óta frissült elemeket kapja vissza, ami alapvetõen jó mûködés. Van néhány RSS kliens viszont, mint például a Planet, amelyek furcsán viselkednek ilyenkor, ami nem RFC2616 kompatibilis.  Így ha ezt engedélyezed, kompatibilis leszel a szabvánnyal, de néhány olvasó lemaradhat bizonyos hírekrõl. Itt olvashatsz errõl többet: <a href="https://sourceforge.net/tracker/index.php?func=detail&amp;aid=1461728&amp;group_id=75065&amp;atid=542822" target="_blank" rel="nofollow">SourceForge</a>');
+@define('SYNDICATION_RFC2616_DESC', 'Ha a RFC2616 formátum kompatibilitást NEM engedélyezed, akkor a aki lekéri a hírcsatornát, mindig az utolsó lekérés óta frissült elemeket kapja vissza, ami alapvetõen jó mûködés. Van néhány RSS kliens viszont, mint például a Planet, amelyek furcsán viselkednek ilyenkor, ami nem RFC2616 kompatibilis.  Így ha ezt engedélyezed, kompatibilis leszel a szabvánnyal, de néhány olvasó lemaradhat bizonyos hírekrõl.');
 @define('MEDIA_PROPERTY_DATE', 'Hozzárndelt dátum');
 @define('MEDIA_PROPERTY_RUN_LENGTH', 'Run-Length');
 @define('FILENAME_REASSIGNED', 'Az automatikusan létrehozott új fájlnév: %s');
