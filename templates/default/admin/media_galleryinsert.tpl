@@ -6,7 +6,7 @@
     {if $media.fast_select AND is_array($media.files) AND isset($jsmedia)}
     <script>
     {if $media.supportsWebP AND $media.addMediaPictureSubmitFnc}
-        mediaPictureSubmit();
+        serendipity.mediaPictureSubmit();
         {* console.log('mediaSubmitter true'); *}
     {/if}
         serendipity.serendipity_imageGallerySelector_done('{$media.mediaTextarea|escape}', {$jsmedia});

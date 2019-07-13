@@ -300,7 +300,7 @@
     }
 
     var pictureSubmit = false; // global scope
-    mediaPictureSubmit = function(event) {
+    serendipity.mediaPictureSubmit = function(event) {
         pictureSubmit = true; // local scope
     }
 
