@@ -4010,13 +4010,13 @@ img.mfp-img {
         width: 16em;
     }
 
-    #grid-selector {
+    .js #grid-selector {
         display: block;
         visibility: visible;
         float: right;
         margin-top: -3em;
     }
-    #grid-selector > div {
+    .js #grid-selector > div {
         margin: 0 0 0 .5em;
     }
     .mediaGrid {
