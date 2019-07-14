@@ -4125,6 +4125,9 @@ img.mfp-img {
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
         margin-top: 1em;
     }
+    #template_select .theme_file.tmMaxCol .button_link {
+        padding: .25em;
+    }
     #template_select .theme_file.tmMidCol .button_link {
         font-size: .875em;
     }
