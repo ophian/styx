@@ -303,6 +303,21 @@
         }
     }
 
+    // Changes the Theme List Media Grid from default 2, to mid 3, or max 4 columns
+    serendipity.changeThemeGrid = function(col) {
+        var x = document.getElementsByClassName('theme_file'),
+            classes = ['tmMaxCol', 'tmMidCol', 'tmDefCol'];
+
+        for (i = 0; i < x.length; i++) {
+            for (var c = 0, j = classes.length; c < j; c++) {
+                if (serendipity.hasClass(x[i], classes[c])) {
+                    x[i].classList.remove(classes[c]);
+                    x[i].classList.add(col);
+                }
+            }
+        }
+    }
+
     var pictureSubmit = false; // global scope
     serendipity.mediaPictureSubmit = function(event) {
         pictureSubmit = true; // local scope
