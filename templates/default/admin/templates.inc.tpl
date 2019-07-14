@@ -1,17 +1,23 @@
 {if isset($adminAction) AND $adminAction == 'install'}
+
     <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$install_template|string_format:"{$CONST.TEMPLATE_SET}"}</span>
 {/if}
 {if isset($deprecated) AND $deprecated}
+
     <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.WARNING_TEMPLATE_DEPRECATED}</span>
 {/if}
 
 {if isset($adminAction) AND ($adminAction == 'configure' OR $adminAction == 'editConfiguration')}
+
     <section id="template_options">
         <h2>{$CONST.STYLE_OPTIONS} ({$cur_template})</h2>
     {if NOT empty($has_config)}
+
         {if $adminAction == 'configure'}
+
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}: {$save_time}</span>
         {/if}
+
         <form class="theme_options option_list" method="post" action="serendipity_admin.php">
             <input name="serendipity[adminModule]" type="hidden" value="templates">
             <input name="serendipity[adminAction]" type="hidden" value="configure">
@@ -19,13 +25,34 @@
             {$configuration}
         </form>
     {else}
+
         <p>{$CONST.STYLE_OPTIONS_NONE}</p>
         <a class="button_link" href="?serendipity[adminModule]=templates" title="{$CONST.BACK}">{$CONST.BACK}</a>
     {/if}
+
     </section>
 {else}
+
     <section id="template_select" class="clearfix">
-        <h2>{$CONST.CURRENT_TEMPLATE}</h2>
+        <h2>{$CONST.CURRENT_TEMPLATE}{* since the #template_select container is already flexed, there is no other way than having the grid-selector float in the h2 format. Current frontend and backend templates are 2 items only so they don't need to switch the grid. *}
+            <div id="grid-selector" class="theme-grid-selector">
+                <div id="col-def-selector" class="mediaGrid" title="2-column grid" onclick="serendipity.changeThemeGrid('tmDefCol')">
+                  <div class="mediaGrid-cell tic"></div>
+                  <div class="mediaGrid-cell tac"></div>
+                </div>
+                <div id="col-mid-selector" class="mediaGrid" title="3-column grid" onclick="serendipity.changeThemeGrid('tmMidCol')">
+                  <div class="mediaGrid-cell tac"></div>
+                  <div class="mediaGrid-cell tic"></div>
+                  <div class="mediaGrid-cell tac"></div>
+                </div>
+                <div id="col-max-selector" class="mediaGrid" title="4-column grid" onclick="serendipity.changeThemeGrid('tmMaxCol')">
+                  <div class="mediaGrid-cell tic"></div>
+                  <div class="mediaGrid-cell tac"></div>
+                  <div class="mediaGrid-cell tic"></div>
+                  <div class="mediaGrid-cell tac"></div>
+                </div>
+            </div>
+        </h2>
 
         <article class="clearfix current_template">
             <h3 title="{$cur_tpl.info.name}">{$CONST.FRONTEND}: {$cur_tpl.info.name|truncate:25:"&hellip;"}</h3>
@@ -123,7 +150,7 @@
     {/if}
 
         {function name=templateBlock}
-            <li>
+            <li class="theme_file tmDefCol">
                 <article class="clearfix">
                     <h3 title="{$template.info.name}">{$template.info.name|truncate:27:"&hellip;"}</h3>
                     <div class="clearfix equal_heights template_wrap">
