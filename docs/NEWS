@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add EXPERIMENTAL on-the-fly change Grid Columns to the Theme List
+
   * Removed non-scoped javascript deprecated image wrapper methods.
     All supported additional plugins were counter checked.
 
