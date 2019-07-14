@@ -4,7 +4,7 @@
 
     <h2>{$CONST.MEDIA_LIBRARY}</h2>
 
-    <div id="grid-selector">
+    <div id="grid-selector" class="media-grid-selector">
         <div id="col-def-selector" class="mediaGrid" title="2-column grid" onclick="serendipity.changeMediaGrid('mlDefCol')">
           <div class="mediaGrid-cell tic"></div>
           <div class="mediaGrid-cell tac"></div>
