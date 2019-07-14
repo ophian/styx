@@ -4014,7 +4014,12 @@ img.mfp-img {
         display: block;
         visibility: visible;
         float: right;
+    }
+    .js #grid-selector.media-grid-selector {
         margin-top: -3em;
+    }
+    .js #grid-selector.theme-grid-selector {
+        font-size: initial;
     }
     .js #grid-selector > div {
         margin: 0 0 0 .5em;
@@ -4041,6 +4046,7 @@ img.mfp-img {
         background-color: #3e5f81;
     }
 
+    #template_select .theme_file,
     .media_pane > .media_file {
         flex: 0 0 auto;
     }
@@ -4048,34 +4054,57 @@ img.mfp-img {
         margin: 0 2% 1em 0;
         width: 48%;
     }
+    #template_select ul li.theme_file.tmMidCol,
     .media_pane > .media_file.mlMidCol {
         margin: 0 0 1em 0;
         width: 32%;
     }
+    #template_select ul li.theme_file.tmMaxCol,
+    .media_pane > .media_file.mlMaxCol {
+        width: 24%;
+    }
     .media_pane > .media_file.mlMaxCol {
         margin: 0 -2% 1em 0;
-        width: 24%;
+    }
+    #template_select ul li.theme_file.tmMaxCol {
+        margin: 0;
     }
     .media_pane > .media_file.mlMidCol:nth-of-type(2n) {
         margin: 0 0 1em 0;
     }
+    #template_select .theme_file.tmMidCol .template_preview,
+    #template_select .theme_file.tmMaxCol .template_preview,
     .js .media_pane .media_file.mlMidCol .media_file_preview,
     .js .media_pane .media_file.mlMaxCol .media_file_preview {
         position: relative;
         overflow: hidden;
     }
+    /* article element size 279.8 x 279.8 */
+    .js #template_select ul li.theme_file.tmMidCol article .template_preview {
+        min-height: 12.454em;
+        height: 12.454em;
+    }
     .js .media_pane .media_file.mlMidCol .media_file_preview {
         min-height: 12.75em;
         height: 12.75em;
+    }
+    /* article element size 205.35 x 205.35 */
+    .js #template_select ul li.theme_file.tmMaxCol article .template_preview {
+        min-height: 7.801em;
+        height: 7.801em;
     }
     .js .media_pane .media_file.mlMaxCol .media_file_preview {
         min-height: 7.5em;
         height: 7.5em;
     }
+    #template_select .theme_file.tmMidCol h3,
+    #template_select .theme_file.tmMaxCol h3,
     .media_pane > .media_file.mlMidCol header h3,
     .media_pane > .media_file.mlMaxCol header h3 {
         font-size: 95%;
     }
+    #template_select .theme_file .xxx,
+    #template_select .theme_file .xxx,
     .media_pane > .media_file.mlMidCol .media_file_actions.plainList,
     .media_pane > .media_file.mlMaxCol .media_file_actions.plainList {
         margin: 0;
@@ -4098,10 +4127,14 @@ img.mfp-img {
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.plainList {
         margin-top: 1em;
     }
+    #template_select .theme_file.tmMidCol .button_link {
+        font-size: .875em;
+    }
+    #template_select .theme_file.tmMaxCol .button_link {
+        font-size: small;
+    }
     .media_pane > .media_file.mlMidCol .button_link,
-    .media_pane > .media_file.mlMidCol a.button_link,
-    .media_pane > .media_file.mlMaxCol .button_link,
-    .media_pane > .media_file.mlMaxCol a.button_link {
+    .media_pane > .media_file.mlMaxCol .button_link {
         border-radius: initial;
         background-clip: initial;
         border: 0 none;
@@ -4118,8 +4151,18 @@ img.mfp-img {
         margin: 0;
         padding: .15em;
     }
+    #template_select .theme_file.tmMidCol .template_info  dl dd,
+    #template_select .theme_file.tmMidCol .template_info  dl dt,
     .media_pane > .media_file.mlMidCol .media_file_meta ul li {
         font-size: 90%;
+    }
+    #template_select .theme_file.tmMaxCol .template_info,
+    #template_select .theme_file.tmMaxCol .template_info {
+        padding: .25em .25em;
+    }
+    #template_select .theme_file.tmMaxCol .template_info  dl dd,
+    #template_select .theme_file.tmMaxCol .template_info  dl dt {
+        font-size: .75em;
     }
     .media_pane > .media_file.mlMaxCol .media_file_meta ul li {
         font-size: 70%;
