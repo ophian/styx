@@ -1234,7 +1234,7 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
                     if ($scaleThumbVariation && file_exists($owebpTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
                         $nz = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['thumbConstraint']);
-                        $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$nz[0]}x{$nz[1]}\""], 100, 2 ];
+                        $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$nz[0]}x{$nz[1]}\""], 75, -1 ];
                         $r = serendipity_passToCMD('image/webp', $owebpTH, $owebpTH, $pass);
                         if (is_array($r) && $r[0] == 0 && $debug) {
                             $serendipity['logger']->debug("ImageMagick CLI Scale WebP Thumb File command: ${owebpTH}, with {$width}x{$height}.");
