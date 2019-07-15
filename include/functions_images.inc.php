@@ -1190,44 +1190,44 @@ function serendipity_scaleImg($id, $width, $height) {
     $owebp  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
 
     if ($serendipity['magick'] !== true) {
-        if (serendipity_resizeImageGD($infile, $outfile, $width, $height)) {
-            $result[0] = 0;
-            if ($debug) { $serendipity['logger']->debug("GD Library Scale File command: ${outfile}, with serendipity_resizeImageGD()."); }
-            if ($result[0] != 0) {
-                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, 'serendipity_resizeImageGD()', "Creating ${outfile} image", 'failed') ."</span>\n";
-            }
-            // do on same file for the Webp variation
+        $result = serendipity_resizeImageGD($infile, $outfile, $width, $height);
+        if (is_array($result)) {
+            $result[0] = 0; // ! keep for ending serendipity_updateImageInDatabase check. GD returns slightly different than IM!
+            if ($debug) { $serendipity['logger']->debug("GD Library Scale File command: ${outfile}, with ${result[0]}x${result[1]} via serendipity_resizeImageGD()."); }
+            // do on SAME FILE for the WebP-Format variation
             if (file_exists($owebp)) {
-                if ($reswebp = serendipity_resizeImageGD($owebp, $owebp, $width, $height)) {
-                    $reswebp[0] = 0;
-                    if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: ${owebp}, with serendipity_resizeImageGD()."); }
-                }
-                if ($reswebp[0] != 0) {
+                $reswebp = serendipity_resizeImageGD($owebp, $owebp, $width, $height);
+                if (is_array($reswebp)) {
+                    if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: ${owebp}, with ${reswebp[0]}x${reswebp[1]} via serendipity_resizeImageGD()."); }
+                } else {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, 'serendipity_resizeImageGD()', "Creating WebP ${owebp} image", 'failed') ."</span>\n";
                 }
             }
+        } else {
+            echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, 'serendipity_resizeImageGD()', "Creating ${outfile} image", 'failed') ."</span>\n";
         }
     } else {
         $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}\""], 100, 2 ];
         $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
-        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale File command: ${result[2]}"); }
-        if ($result[0] != 0) {
+        if ($result != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
             return false;
         } else {
-            // do on same file for the Webp variation
+            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale File command: ${result[2]}, with {$width}x{$height}."); }
+            // do on SAME FILE for the WebP-Format variation
             if (file_exists($owebp)) {
                 $reswebp = serendipity_passToCMD('image/webp', $owebp, $owebp, $pass);
-                if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: ${reswebp[2]}"); }
-                if ($reswebp[0] != 0) {
+                if ($reswebp != 0) {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $reswebp[2], $reswebp[1][0], $reswebp[0]) ."</span>\n";
+                } else {
+                    if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: ${reswebp[2]}, with {$width}x{$height}."); }
                 }
             }
         }
         unset($result[1][0], $reswebp);
     }
 
-    if ($result[0] == 0) {
+    if (isset($result[0] && $result[0] == 0) {
         serendipity_updateImageInDatabase(array('dimensions_width' => (int)$width, 'dimensions_height' => (int)$height, 'size' => (int)@filesize($outfile)), $id);
         return true;
     }
