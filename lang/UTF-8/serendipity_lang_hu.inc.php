@@ -219,7 +219,7 @@
 @define('FILE_UPLOADED', 'A %s fájlt sikeresen feltöltettem %s néven');
 @define('WORD_OR', 'Vagy');
 @define('SCALING_IMAGE', 'Átméretezem %s-t %s x %s képpontra');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Arányok megőrzése');
 @define('REALLY_SCALE_IMAGE', 'Biztos, hogy átméretezed? Nem lehet visszafordítani a folyamatot!');
 @define('TOGGLE_ALL', 'Minden kibontása');

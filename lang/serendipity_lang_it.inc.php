@@ -207,7 +207,7 @@
 @define('FILE_UPLOADED', 'File %s inviato con successo come %s');
 @define('WORD_OR', 'O');
 @define('SCALING_IMAGE', 'Ridimensionamento di %s a %s x %s px');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Mantieni le proporzioni');
 @define('REALLY_SCALE_IMAGE', 'Vuoi veramente riscalare questa immagine? Questa operazione non può essere annullata!');
 @define('TOGGLE_ALL', 'Espandi tutto');

@@ -219,7 +219,7 @@
 @define('FILE_UPLOADED', 'ファイル %s を %s としてアップロードすることに成功しました。');
 @define('WORD_OR', 'Or');
 @define('SCALING_IMAGE', '%s を %s×%s ピクセルに変換します。');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', '比率を維持する');
 @define('REALLY_SCALE_IMAGE', '本当に画像を変換しますか? この操作は取り消すことができません!');
 @define('TOGGLE_ALL', 'すべて展開に切り替え');

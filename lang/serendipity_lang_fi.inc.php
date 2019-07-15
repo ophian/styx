@@ -219,7 +219,7 @@
 @define('FILE_UPLOADED', 'Tiedosto %s tuotu nimelle %s');
 @define('WORD_OR', 'Tai');
 @define('SCALING_IMAGE', 'Skaalataan %s %s x %s px');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Säilytä suhteet');
 @define('REALLY_SCALE_IMAGE', 'Skaalataanko kuva? Tätä operaatiota ei voi peruuttaa!');
 @define('TOGGLE_ALL', 'Näytä kaikki');

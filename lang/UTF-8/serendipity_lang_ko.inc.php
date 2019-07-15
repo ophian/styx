@@ -221,7 +221,7 @@
 @define('FILE_UPLOADED', '파일 %s(이)가 %s(으)로 성공적으로 업로드되었습니다');
 @define('WORD_OR', '또는');
 @define('SCALING_IMAGE', '%s(을)를 %s x %s 픽셀 크기로 조절');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', '비율 유지');
 @define('REALLY_SCALE_IMAGE', '크기 조절을 정말로 하겠습니까? 나중에 되돌릴 수 없습니다.');
 @define('TOGGLE_ALL', '모두 보기 선택');

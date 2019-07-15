@@ -221,7 +221,7 @@
 @define('FILE_UPLOADED', 'الملف %s تم رفعة بنجاج بـ %s');
 @define('WORD_OR', 'Or');
 @define('SCALING_IMAGE', 'Scaling %s to %s x %s px');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'المحافظة على تناسب المقاسات');
 @define('REALLY_SCALE_IMAGE', 'هل انت متأكد من تغيير حجم الصورة ! ! أنتبه ! ! لا يوجد تراجع بعد تغيير المقاسات');
 @define('TOGGLE_ALL', 'أضغط هنا لعرض جميع الخيارات');

@@ -201,7 +201,7 @@
 @define('FILE_UPLOADED', 'Datei \'%s\' erfolgreich als \'%s\' hochgeladen');
 @define('WORD_OR', 'Oder');
 @define('SCALING_IMAGE', 'Ändere Größe von %s nach %s x %s Pixel');
-@define('FORCE_RELOAD', 'Öffnen Sie die Mediathek erneut und erzwingen Sie einen Neuaufbau Ihres Browsercaches [Ctrl]+[F5], um das skalierte Bild sehen zu können.');
+@define('FORCE_RELOAD', 'Bei bestimmten Bildcharakteristiken kann es vorkommen, dass noch das alte Bild im Browsercache vorhanden ist. Öffnen Sie dann die Mediathek erneut und erzwingen Sie einen Neuaufbau Ihres Browsercaches [Ctrl]+[F5], um das skalierte Bild sehen zu können.');
 @define('KEEP_PROPORTIONS', 'Proportionen beibehalten');
 @define('REALLY_SCALE_IMAGE', 'Bildgröße wirklich verändern? Diese Änderung kann nicht rückgängig gemacht werden!');
 @define('TOGGLE_ALL', 'Alle Optionen ein-/ausblenden');

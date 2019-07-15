@@ -222,7 +222,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('FILE_UPLOADED', 'Файл %s успешно загружен на сервер как %s');
 @define('WORD_OR', 'Или');
 @define('SCALING_IMAGE', 'Изменение размеров %s на %s x %s точек');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Сохранить пропорции');
 @define('REALLY_SCALE_IMAGE', 'Вы уверены, что хотите изменить размеры изображения? Эта операция необратима!');
 @define('TOGGLE_ALL', 'Раскрыть все разделы');

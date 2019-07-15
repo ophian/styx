@@ -221,7 +221,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('FILE_UPLOADED', 'Plik %s prawid³owo za³adowany na serwer jako %s');
 @define('WORD_OR', 'lub');
 @define('SCALING_IMAGE', 'Skalujê %s do %s x %s px');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Zachowaj proporcje');
 @define('REALLY_SCALE_IMAGE', 'Na pewno przeskalowaæ obrazek? Ta operacja jest nieodwracalna!');
 @define('TOGGLE_ALL', 'Rozwiñ/zwiñ wszystkie');

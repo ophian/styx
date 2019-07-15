@@ -205,7 +205,7 @@
 @define('FILE_UPLOADED', 'Filen %s er blevet uploadet: %s');
 @define('WORD_OR', 'eller');
 @define('SCALING_IMAGE', 'Ændre størrelsen på %s til %s x %s px');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Bevar forholdet');
 @define('REALLY_SCALE_IMAGE', 'Er du sikker på du vil ændre størrelsen på dette billede? Der er ingen vej tilbage!');
 @define('TOGGLE_ALL', 'Vis/Skjul alle');

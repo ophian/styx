@@ -232,7 +232,7 @@ $i18n_filename_to = array (
 @define('FILE_UPLOADED', 'Súbor %s bol úspe¹ne nahraný ako %s.');
 @define('WORD_OR', 'alebo');
 @define('SCALING_IMAGE', 'Zmena rozmerov %s na %s x %s px');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Zachova» pomer strán');
 @define('REALLY_SCALE_IMAGE', 'Naozaj chcete zmeni» rozmery? Návrat nie je mo¾ný!');
 @define('TOGGLE_ALL', 'Vybra» v¹etko');

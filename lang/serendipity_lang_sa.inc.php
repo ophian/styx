@@ -221,7 +221,7 @@
 @define('FILE_UPLOADED', 'Çáãáİ %s Êã ÑİÚÉ ÈäÌÇÌ ÈÜ %s');
 @define('WORD_OR', 'Or');
 @define('SCALING_IMAGE', 'Scaling %s to %s x %s px');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'ÇáãÍÇİÙÉ Úáì ÊäÇÓÈ ÇáãŞÇÓÇÊ');
 @define('REALLY_SCALE_IMAGE', 'åá ÇäÊ ãÊÃßÏ ãä ÊÛííÑ ÍÌã ÇáÕæÑÉ ! ! ÃäÊÈå ! ! áÇ íæÌÏ ÊÑÇÌÚ ÈÚÏ ÊÛííÑ ÇáãŞÇÓÇÊ');
 @define('TOGGLE_ALL', 'ÃÖÛØ åäÇ áÚÑÖ ÌãíÚ ÇáÎíÇÑÇÊ');

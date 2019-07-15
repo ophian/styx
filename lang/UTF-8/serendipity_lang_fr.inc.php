@@ -209,7 +209,7 @@
 @define('FILE_UPLOADED', 'Le fichier %s a été uploadé avec succès sous %s');
 @define('WORD_OR', 'Ou');
 @define('SCALING_IMAGE', 'Redimensionnement %s en %s x %s px');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', 'Conserver les proportions');
 @define('REALLY_SCALE_IMAGE', 'Réellement redimensionner cette image ? Attention : cette opération est irréversible !');
 @define('TOGGLE_ALL', 'Afficher/Ne pas afficher les détails');

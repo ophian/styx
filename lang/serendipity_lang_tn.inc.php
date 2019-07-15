@@ -222,7 +222,7 @@ $i18n_unknown = 'tw';
 @define('FILE_UPLOADED', '檔案 %s 上傳為 %s');
 @define('WORD_OR', '或');
 @define('SCALING_IMAGE', '縮放 %s 到 %s x %s px');
-@define('FORCE_RELOAD', 'Check into MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
+@define('FORCE_RELOAD', 'With certain image characteristics it can occasionally happen that the old image is still present in the browser cache. If so, check into the MediaLibrary again and force a hard reload of your browser [Ctrl]+[F5], to actually see the scaled image.');
 @define('KEEP_PROPORTIONS', '維持比例');
 @define('REALLY_SCALE_IMAGE', '確定要縮放圖片嗎? 這個動作不能復原!');
 @define('TOGGLE_ALL', '切換展開');
