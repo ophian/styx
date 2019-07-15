@@ -1203,7 +1203,8 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
                     if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: ${owebp}, with ${reswebp[0]}x${reswebp[1]} via serendipity_resizeImageGD()."); }
                     if ($scaleThumbVariation && file_exists($owebpTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
-                        $r = serendipity_resizeImageGD($owebpTH, $owebpTH, $width, $height);
+                        $nz = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['thumbConstraint']);
+                        $r  = serendipity_resizeImageGD($owebpTH, $owebpTH, $nz[0], $nz[1]);
                         if (is_array($r) && $debug) {
                             $serendipity['logger']->debug("GD Library Scale WebP Thumb File command: ${owebpTH}, with ${r[0]}x${r[1]} via serendipity_resizeImageGD().");
                         }
@@ -1232,6 +1233,8 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
                     if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: ${reswebp[2]}, with {$width}x{$height}."); }
                     if ($scaleThumbVariation && file_exists($owebpTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
+                        $nz = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['thumbConstraint']);
+                        $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$nz[0]}x{$nz[1]}\""], 100, 2 ];
                         $r = serendipity_passToCMD('image/webp', $owebpTH, $owebpTH, $pass);
                         if (is_array($r) && $r[0] == 0 && $debug) {
                             $serendipity['logger']->debug("ImageMagick CLI Scale WebP Thumb File command: ${owebpTH}, with {$width}x{$height}.");
