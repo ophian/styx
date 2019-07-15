@@ -302,6 +302,11 @@
                 <label for="resize_keepprops">{$CONST.KEEP_PROPORTIONS}</label>
             </div>
 
+            <div class="form_check">
+                <input id="resize_scalethumbvariation" name="serendipity[scaleThumbVariation]" type="checkbox">
+                <label for="resize_scalethumbvariation">{$CONST.SCALE_THUMB_VARIATION} <button class="toggle_info button_link" type="button" data-href="#media_scale_selection"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button></label>
+            </div>
+
             <div class="form_buttons">
                 <a class="button_link" href="javascript: window.history.go(-1);">{$CONST.BACK}</a>
                 <input class="image_scale state_submit" name="scale" type="submit" value="{$CONST.IMAGE_RESIZE}">

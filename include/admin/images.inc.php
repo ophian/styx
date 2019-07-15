@@ -877,7 +877,7 @@ switch ($serendipity['GET']['adminAction']) {
                 (int)$serendipity['GET']['width'],
                 (int)$serendipity['GET']['height']
             );
-            $scaleImg = serendipity_scaleImg($serendipity['GET']['fid'], (int)$serendipity['GET']['width'], (int)$serendipity['GET']['height']);
+            $scaleImg = serendipity_scaleImg($serendipity['GET']['fid'], (int)$serendipity['GET']['width'], (int)$serendipity['GET']['height'], (bool)($serendipity['GET']['scaleThumbVariation'] ?? false));
             if (!empty($scaleImg) && is_string($scaleImg)) {
                 $data['scaleImgError'] = $scaleImg;
             }
