@@ -1,7 +1,7 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Allow additiobal WebP-Format Thumbnail scaling when scaling an image,
+  * Allow additional WebP-Format Thumbnail scaling when scaling an image,
     which is not a default setting for certain reasons. See scaling image
     info notes!
 
