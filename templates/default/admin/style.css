@@ -4423,11 +4423,8 @@ img.mfp-img {
     }
 
     #serendipityScaleImg {
+        margin-top: 1.25em;
         overflow: hidden;
-    }
-
-    #serendipityScaleImg {
-        margin-top: 2.25em;
     }
 
     .configure_plugin fieldset .form_radio,
@@ -4778,6 +4775,10 @@ img.mfp-img {
     #adv_opts > fieldset > span > legend {
         width: 93%;
     }
+    #serendipityScaleImg {
+        margin-top: 0;
+    }
+
     .actions li,
     .actions_extra {
         margin: 0 .4em .5em 0;
