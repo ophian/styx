@@ -87,7 +87,8 @@
 @define('NEWSIZE', 'Novo tamanho: ');
 @define('RESIZE_BLAHBLAH', 'Redimensionar %s');
 @define('ORIGINAL_SIZE', 'Tamanho original: <i>%sx%s</i> pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Aqui você pode ajustar o novo tamanho das imagens. Se pretende manter as proporções, preencha apenas um valor e pressione a tecla TAB que automaticamente será calculado o novo tamanho de modo que as proporções não fiquem bagunçadas.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file. And this increases with each further scaling!');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Aqui você pode ajustar o novo tamanho das imagens. Se pretende manter as proporções, preencha apenas um valor e pressione a tecla TAB que automaticamente será calculado o novo tamanho de modo que as proporções não fiquem bagunçadas.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file. And this increases with each further scaling!<br><b>VARIATION:</b> Since we assume you <b>keep</b> the files proportion, a scaled image WebP format variation change will be applied to the Origin files variation only and <b>NOT</b> to the WebP variation thumbnail, which will probably blow up its filesize. If you really need an image scale with an <b>other</b> proportion <b>and</b> an additional changed WebP thumb dimension size, please set the "variation thumb" checkbox checked.');
+@define('SCALE_THUMB_VARIATION', 'Force scaled WebP thumb variation change');
 @define('QUICKJUMP_CALENDAR', 'Calendário de acesso rápido');
 @define('QUICKSEARCH', 'Pesquisa rápida');
 @define('SEARCH_FOR_ENTRY', 'Procure por um artigo');

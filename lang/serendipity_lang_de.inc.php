@@ -89,7 +89,8 @@
 @define('NEWSIZE', 'Neue Größe ');
 @define('RESIZE_BLAHBLAH', 'Größe von %s ändern');
 @define('ORIGINAL_SIZE', 'Originalgröße: <i>%sx%s</i> Pixel');
-@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier können Sie die Bildgröße ändern. Um die Proportionen beizubehalten, einfach einen der beiden Werte eingeben, anschließend die TAB-Taste oder die Maus drücken, und Sie erhalten die Voreinstellung mit den korrekten Proportionen.<br><b>ACHTUNG:</b> Dies ist kein "high end" Skaldierungs Werkzeug, abgestimmt auf die spezifischen Bedürfnisse eines jeden Bildes.<br>Verglichen mit dem Ausgangsbild, bringt jede Skaldierung zwangsläufig einen kleineren oder größeren Qualitätsverlust mit sich. Und dies potenziert sich mit jeder weiteren Skaldierung!');
+@define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier können Sie die Bildgröße ändern. Um die Proportionen beizubehalten, einfach einen der beiden Werte eingeben, anschließend die TAB-Taste oder die Maus drücken, und Sie erhalten die Voreinstellung mit den korrekten Proportionen.<br><b>ACHTUNG:</b> Dies ist kein "high end" Skaldierungs Werkzeug, abgestimmt auf die spezifischen Bedürfnisse eines jeden Bildes.<br>Verglichen mit dem Ausgangsbild, bringt jede Skaldierung zwangsläufig einen kleineren oder größeren Qualitätsverlust mit sich. Und dies potenziert sich mit jeder weiteren Skaldierung!<br><b>VARIATION:</b> Since we assume you <b>keep</b> the files proportion, a scaled image WebP format variation change will be applied to the Origin files variation only and <b>NOT</b> to the WebP variation thumbnail, which will probably blow up its filesize. If you really need an image scale with an <b>other</b> proportion <b>and</b> an additional changed WebP thumb dimension size, please set the "variation thumb" checkbox checked.');
+@define('SCALE_THUMB_VARIATION', 'Force scaled WebP thumb variation change');
 @define('DATE_FORMAT_1', 'd.m.Y');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Kalender');
 @define('QUICKSEARCH', 'Suche');
