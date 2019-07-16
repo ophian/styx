@@ -5,6 +5,9 @@ Version 2.9.1-dev ()
 
   * Fix 'is_image' wrong file 'location' assignment for hotlink cases
 
+  * Fix serendipity_makeThumbnail() bug not returning the newsize sizes for
+    messaging.
+
   * Fix a MediaLibrary bug within the Smarty link assignment for non-internal
     images.
 
