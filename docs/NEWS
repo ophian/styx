@@ -119,9 +119,6 @@ Version 3.0-Dev ()
   * Hide Maintenance Image Synchronizer section (thumb) suffix task, when
     there is nothing to task about.
 
-  * Fix SQL check for maintenance Image Sync option 4: "convert" thumb prefix
-    name to not fetch empty thumbnail field names.
-
   * Remove GD GIF to WebP conversion support, since that fails with animated
     GIFs (at least for the moment).
 
@@ -216,6 +213,9 @@ Version 3.0-Dev ()
 
 Version 2.9.1-dev ()
  ------------------------------------------------------------------------
+
+  * Fix SQL check for maintenance Image Sync option 4: "convert" thumb prefix
+    name to not fetch empty thumbnail field names.
 
   * Fix 'is_image' wrong file 'location' assignment for hotlink cases
 
