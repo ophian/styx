@@ -3,6 +3,8 @@ Version 2.9.1-dev ()
   * Fix SQL check for maintenance Image Sync option 4: "convert" thumb prefix
     name to not fetch empty thumbnail field names.
 
+  * Fix 'is_image' wrong file 'location' assignment for hotlink cases
+
   * Fix a MediaLibrary bug within the Smarty link assignment for non-internal
     images.
 
