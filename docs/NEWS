@@ -127,9 +127,6 @@ Version 3.0-Dev ()
   * Remove GD GIF to WebP conversion support, since that fails with animated
     GIFs (at least for the moment).
 
-  * Fix serendipity_makeThumbnail() bug not returning the newsize sizes for
-    messaging.
-
   * Added GD library image WebP scale/resize and rotate actions.
     In special for the latter action (with both image libraries) it still
     lacks a user information about too sticky list image views, not always
@@ -221,6 +218,9 @@ Version 3.0-Dev ()
 
 Version 2.9.1-dev ()
  ------------------------------------------------------------------------
+
+  * Fix serendipity_makeThumbnail() bug not returning the newsize sizes for
+    messaging.
 
   * Fix a MediaLibrary bug within the Smarty link assignment for non-internal
     images.
