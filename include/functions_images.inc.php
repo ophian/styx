@@ -1126,14 +1126,14 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
                     // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthb->resize to thumb, which overwrites the first.
                     $webpthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
-                    $result = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute);
-                    if (is_array($result) && $result[0] == 0) {
-                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation success ${result[2]} " . DONE); }
-                        unset($result);
+                    $reswebp = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute);
+                    if (is_array($reswebp) && $reswebp[0] == 0) {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation success ${reswebp[2]} " . DONE); }
+                        unset($reswebp);
                         // The resizing to same name(!)
-                        $result = serendipity_passToCMD('image/webp', $webpthb, $webpthb, $pass);
-                        if (is_array($result) && $result[0] == 0) {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format resize success ${result[2]} " . DONE); }
+                        $reswebp = serendipity_passToCMD('image/webp', $webpthb, $webpthb, $pass);
+                        if (is_array($reswebp) && $reswebp[0] == 0) {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format resize success ${reswebp[2]} " . DONE); }
                         } else {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format resize failed! Perhaps a wrong path: '$webpthb' ?"); }
                         }
@@ -1151,7 +1151,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 }
                 $r = false; // return failure
             } else {
-                touch($outfile);
+                touch($outfile); // since we may have touched existing files. GD does it in serendipity_resizeImageGD().
             }
             unset($result);
         }
@@ -4536,7 +4536,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         return false;
     }
 
-    $parts = pathinfo($newDir);
+    #$parts = pathinfo($newDir); // we don't need this here, since we don't care about extension, don't we?!
 
     // build or rename: "new", "thumb" and "old file" names, relative to Serendipity "uploads/" root path, eg. "a/b/c/"
 
