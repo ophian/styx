@@ -673,7 +673,7 @@ function serendipity_imageCreateFromAny($filepath) {
         $type = IMAGETYPE_JPEG;
     }
 
-#        1,  // [] gif/* mute for GD "Fatal error: Paletter image not supported by webp" */
+#        1,  // [] gif/* [muted for GD "Fatal error: Paletter image not supported by webp"] */
     $allowedTypes = array(
         2,  // [] jpg
         3,  // [] png
@@ -748,7 +748,7 @@ function serendipity_convertImageFormat($file, $oldMime, $newMime) {
  * @param string $infile    The fullpath file format from string
  * @param string $outfile   The fullpath file format to string
  * @param int    $quality   The quality of sizing/formatting
- * @return string converted outfile
+ * @return mixed            bool false or string converted outfile
  */
 function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
     $im = serendipity_imageCreateFromAny($infile);
@@ -805,11 +805,13 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
         $thumb = (false !== strpos($outfile, $serendipity['thumbSuffix'])) ? "{$serendipity['thumbSuffix']} " : ' ';
         $_outfile = $_tmppath . '/' . $outfile; // store in a ("preserved key .v") current dir/.v directory!
         if (!file_exists($_outfile)) {
-            if ($mute === false) echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
+            if ($mute === false) {
+                echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
+            }
             // make a distinction switch between IM / GD libraries
             if ($serendipity['magick'] !== true) {
                 $out = serendipity_imageGDWebPConversion($infile, $_outfile);
-                return array(0, $out, 'with GD');
+                return (false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD');
             } else {
                 $pass = [ $serendipity['convert'], [], [], [], 100, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
                 return serendipity_passToCMD('format-webp', $infile, $_outfile, $pass);
@@ -1027,15 +1029,14 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($result) && $result[0] == 0) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
-                        unset($result);
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                        // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthbgd->resize to thumb, which overwrites the first.
-                        $webpthbgd = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
-                        $result    = serendipity_resizeImageGD($webpthbgd, $webpthbgd, $size['width'], $size['height']);
-                        if (is_array($result) && $result[0] == 0) {
+                        // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthbGD->resize to thumb, which overwrites the first.
+                        $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
+                        $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, $size['width'], $size['height']);
+                        if (false !== $newsize && is_array($newsize)) {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib " . DONE); }
                         } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbgd' ?"); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbGD' ?"); }
                         }
                     } else {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format creation failed OR already exists."); }
@@ -1053,15 +1054,14 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     $result = serendipity_convertToWebPFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($result) && $result[0] == 0) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
-                        unset($result);
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                        // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthbgd->resize to thumb, which overwrites the first.
-                        $webpthbgd = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
-                        $result    = serendipity_resizeImageGD($webpthbgd, $webpthbgd, $calc[0], $calc[1]);
-                        if (is_array($result) && $result[0] == 0) {
+                        // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthbGD->resize to thumb, which overwrites the first.
+                        $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
+                        $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, $calc[0], $calc[1]);
+                        if (false !== $newsize && is_array($newsize)) {
                             if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize success with GD lib " . DONE); }
                         } else {
-                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbgd' ?"); }
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format resize failed! Perhaps a wrong path: '$webpthbGD' ?"); }
                         }
                     } else {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format creation failed OR already exists."); }
@@ -1192,21 +1192,21 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
     $owebpTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.' . $file['thumbnail_name'] . '.webp';
 
     if ($serendipity['magick'] !== true) {
-        $result = serendipity_resizeImageGD($infile, $outfile, $width, $height);
-        if (is_array($result)) {
-            $result[0] = 0; // ! keep for ending serendipity_updateImageInDatabase check. GD returns slightly different than IM!
-            if ($debug) { $serendipity['logger']->debug("GD Library Scale File command: ${outfile}, with ${result[0]}x${result[1]} via serendipity_resizeImageGD()."); }
+        $r = serendipity_resizeImageGD($infile, $outfile, $width, $height);
+        if (false !== $r && is_array($r)) {
+            $result[0] = 0; // ! define success and keep for ending serendipity_updateImageInDatabase check. GD returns slightly different than IM!
+            if ($debug) { $serendipity['logger']->debug("GD Library Scale File command: ${outfile}, with ${r[0]}x${r[1]} via serendipity_resizeImageGD()."); }
             // do on SAME FILE for the WebP-Format variation
             if (file_exists($owebp)) {
-                $reswebp = serendipity_resizeImageGD($owebp, $owebp, $width, $height);
-                if (is_array($reswebp) && $reswebp[0] == 0) {
-                    if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: ${owebp}, with ${reswebp[0]}x${reswebp[1]} via serendipity_resizeImageGD()."); }
+                $rws = serendipity_resizeImageGD($owebp, $owebp, $width, $height);
+                if (false !== $rws && is_array($rws)) {
+                    if ($debug) { $serendipity['logger']->debug("GD Library Scale WebP File command: ${owebp}, with ${rws[0]}x${rws[1]} via serendipity_resizeImageGD()."); }
                     if ($scaleThumbVariation && file_exists($owebpTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
                         $nz = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['thumbConstraint']);
-                        $r  = serendipity_resizeImageGD($owebpTH, $owebpTH, $nz[0], $nz[1]);
-                        if (is_array($r) && $debug) {
-                            $serendipity['logger']->debug("GD Library Scale WebP Thumb File command: ${owebpTH}, with ${r[0]}x${r[1]} via serendipity_resizeImageGD().");
+                        $rs = serendipity_resizeImageGD($owebpTH, $owebpTH, $nz[0], $nz[1]);
+                        if (false !== $rs && is_array($rs) && $debug) {
+                            $serendipity['logger']->debug("GD Library Scale WebP Thumb File command: ${owebpTH}, with ${rs[0]}x${rs[1]} via serendipity_resizeImageGD().");
                         }
                     }
                 } else {
@@ -1217,7 +1217,7 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, 'serendipity_resizeImageGD()', "Creating ${outfile} image", 'failed') ."</span>\n";
         }
     } else {
-        $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}\""], 100, 2 ];
+        $pass   = [ $serendipity['convert'], ['-scale'], [], ["\"{$width}x{$height}\""], 100, 2 ];
         $result = serendipity_passToCMD($file['mime'], $infile, $outfile, $pass);
         if ($result[0] != 0) {
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], $result[1][0], $result[0]) ."</span>\n";
@@ -1233,11 +1233,11 @@ function serendipity_scaleImg($id, $width, $height, $scaleThumbVariation=false) 
                     if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Scale WebP File command: ${reswebp[2]}, with {$width}x{$height}."); }
                     if ($scaleThumbVariation && file_exists($owebpTH)) {
                         // if particularly wished, (silently) force scale Thumb Variation too
-                        $nz = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['thumbConstraint']);
+                        $nz   = serendipity_calculateAspectSize($width, $height, $serendipity['thumbSize'], $serendipity['thumbConstraint']);
                         $pass = [ $serendipity['convert'], ['-scale'], [], ["\"{$nz[0]}x{$nz[1]}\""], 75, -1 ];
-                        $r = serendipity_passToCMD('image/webp', $owebpTH, $owebpTH, $pass);
-                        if (is_array($r) && $r[0] == 0 && $debug) {
-                            $serendipity['logger']->debug("ImageMagick CLI Scale WebP Thumb File command: ${owebpTH}, with {$width}x{$height}.");
+                        $resT = serendipity_passToCMD('image/webp', $owebpTH, $owebpTH, $pass);
+                        if (is_array($resT) && $resT[0] == 0 && $debug) {
+                            $serendipity['logger']->debug("ImageMagick CLI Scale WebP Thumb File command: ${owebpTH}, with {$nz[0]}x{$nz[1]}.");
                         }
                     }
                 }
