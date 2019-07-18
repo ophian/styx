@@ -1,6 +1,11 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix a strange issue with the WYSIWYG-CKEditor and selecting a single image
+    <picture>-Element-Submit without being an "is-link" for an entry. For the
+    moment this rare case issue, which somehow removes the <picture> element,
+    is resolved by adding a surrounding div container.
+
   * Fix backend pluginmanager non-POSTED 'authorid' update_plugin_owner update
     on moving plugins.
 
