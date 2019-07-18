@@ -465,9 +465,10 @@
         if ($(':input[name="serendipity[isLink]"]:checked').val() == "yes") {
             // wrap the img in a link to the image. TODO: The label in the media_chooser.tpl explains it wrong
             var targetval = $('#select_image_target').val();
+            var fallback  = (pictureSubmit && imgWebPal != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
 
             var prepend   = '';
-            var ilink     = (pictureSubmit && imgWebPal != '') ? imgWebPal + ' data-fallback="'+ f['serendipity[url]'].value +'"' : f['serendipity[url]'].value;
+            var ilink     = (pictureSubmit && imgWebPal != '') ? imgWebPal : f['serendipity[url]'].value;
             var itarget = '';
 
             switch (targetval) {
@@ -489,7 +490,7 @@
                     break;
             }
 
-            var img = prepend + "<a class=\"serendipity_image_link\" " + (title != '' ? 'title="' + title + '"' : '') + " href='" + ilink + "'" + itarget + ">" + img + "</a>";
+            var img = prepend + "<a class=\"serendipity_image_link\" " + (title != '' ? 'title="' + title + '"' : '') + " href=\"" + ilink + "\"" + itarget + fallback +">" + img + "</a>";
         }
 
         if ($('#serendipity_imagecomment').val() != '') {
