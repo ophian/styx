@@ -511,6 +511,10 @@
             parent.self = window.parent.parent.$.magnificPopup;
             parent.self.opener = window.parent.parent;
         }
+        if (pictureSubmit && imgWebPal != '' && $(':input[name="serendipity[isLink]"]:checked').val() == "no") {
+            img = '<div>' + img + '</div>';
+            //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed when landing in your textarea
+        }
         parent.self.opener.serendipity.serendipity_imageSelector_addToBody(img, textarea);
         parent.self.close();
     }
