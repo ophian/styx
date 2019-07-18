@@ -394,6 +394,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     if (isset($_POST['SAVE']) && serendipity_checkFormToken()) {
         $pos = 0;
         foreach($serendipity['POST']['plugin'] AS $plugin) {
+            if (!isset($plugin['authorid'])) {
+                $plugin['authorid'] = 0;
+            }
             serendipity_db_query("UPDATE {$serendipity['dbPrefix']}plugins
                                      SET sort_order = " .  $pos . "
                                    WHERE name='" . serendipity_db_escape_string($plugin['id']) . "'");
