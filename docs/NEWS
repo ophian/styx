@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix backend pluginmanager non-POSTED 'authorid' update_plugin_owner update
+    on moving plugins.
+
   * Removed old ChangeLog entries below the Styx 2.1 Development to the
     NEWS_OLD file.
 
