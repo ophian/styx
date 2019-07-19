@@ -4786,6 +4786,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         'to'      => $newfile,
         'thumb'   => $fileThumbSuffix,
         'fthumb'  => $_file['thumbnail_name'],
+        'haswebp' => file_exists($oldfilewebp),
         'oldDir'  => $oldDir,
         'newDir'  => $newDir,
         'type'    => $type,
@@ -4793,7 +4794,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         'file'    => $_file,
         'name'    => $_file['name']
     ));
-    serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
+    serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // this is media properties moving image (path)
 
     $reserr = false;
     // Move the origin file
