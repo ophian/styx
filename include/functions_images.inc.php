@@ -704,10 +704,9 @@ function serendipity_imageCreateFromAny($filepath) {
  * and link to/run all relevant follow-up actions, which are:
  *  1. real file change,
  *  2. real file thumb change,
- *  3. database changes,
- *  4. entry changes,
- *  5. ep cache changes,
- *  6. staticpage changes
+ *  3. database entry changes,
+ *  4. database ep cache changes,
+ *  5. database staticpage changes
  *
  * @param array  $file      The files current database properties
  * @param string $oldMime   The files current mime format
@@ -1030,7 +1029,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     if (is_array($result) && $result[0] == 0) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                        // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthbGD->resize to thumb, which overwrites the first.
+                        // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthbGD->resize to thumb, which overwrites the first.
                         $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, $size['width'], $size['height']);
                         if (false !== $newsize && is_array($newsize)) {
@@ -1055,7 +1054,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     if (is_array($result) && $result[0] == 0) {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image WebP format creation success ${result[2]} " . DONE); }
                         // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                        // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthbGD->resize to thumb, which overwrites the first.
+                        // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthbGD->resize to thumb, which overwrites the first.
                         $webpthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
                         $newsize   = serendipity_resizeImageGD($webpthbGD, $webpthbGD, $calc[0], $calc[1]);
                         if (false !== $newsize && is_array($newsize)) {
@@ -1124,7 +1123,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 if (file_exists($outfile) && $serendipity['useWebPFormat']) {
                     $newfile = serendipity_makeImageVariationPath($outfile, 'webp');
                     // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
-                    // split it up like done here: 1. $outfile->convert to webp and then 2. $webpthb->resize to thumb, which overwrites the first.
+                    // split it up like done here: 1. $outfile->convert to WebP and then 2. $webpthb->resize to thumb, which overwrites the first.
                     $webpthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
                     $reswebp = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute);
                     if (is_array($reswebp) && $reswebp[0] == 0) {
@@ -2849,7 +2848,7 @@ function serendipity_traversePath($basedir, $dir='', $onlyDirs = true, $pattern 
     if ($aExcludeDirs === null) {
         // add _vti_cnf to exclude possible added servers frontpage extensions - deprecated and remove in future since that is OLD!
         // add CKEditors .thumb dir to exclude, since no hook
-        // do not use as auto excludes for media directory restrictions .v/ case, since that disables ML webp case
+        // do not use as auto excludes for media directory restrictions .v/ case, since that disables ML WebP case
         $aExcludeDirs = array('CVS' => true, '.svn' => true, '.thumbs' => true, '_vti_cnf' => true, '.git' => true);
     }
 
@@ -4549,20 +4548,20 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // We don't need to care about $parts['extension'], since you can't change the EXT by the JS file rename event
         $file_new = $file['path'] . $newName;
         $file_old = $file['path'] . $file['name'];
-        // webp case
+        // WebP case
         $file_new_webp = $file['path'] . '.v/' . $newName;
         $file_old_webp = $file['path'] . '.v/' . $file['name'];
 
         // build full thumb file names
         $_file_newthumb = $file['path'] . $newName . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
         $_file_oldthumb = $file['path'] . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
-        // webp case
+        // WebP case
         $_file_newthumbWebp = $file['path'] . '.v/' . $newName . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.webp';
         $_file_oldthumbWebp = $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.webp';
         // file case
         $newThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_newthumb;
         $oldThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumb;
-        // webp case
+        // WebP case
         $newThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_newthumbWebp;
         $oldThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumbWebp;
 
@@ -4577,7 +4576,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // We don't need to care about $parts['extension'], since you can't change the EXT via the bulkmove event
         $file_new = $_newDir . $file['name'];
         $file_old = $file['path'] . $file['name'];
-        // webp case
+        // WebP case
         $file_new_webp = $_newDir . '.v/' . $file['name'];
         $file_old_webp = $file['path'] . '.v/' . $file['name'];
     }
@@ -4585,7 +4584,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     // build full origin and new file path names for both events
     $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_new . (empty($file['extension']) ? '' : '.' . $file['extension']);
     $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_old . (empty($file['extension']) ? '' : '.' . $file['extension']);
-    // webp case and the valid(!) paranoid case to remove and re-add the extension
+    // WebP case and the valid(!) paranoid case to remove and re-add the extension
     $file_new_webp = pathinfo($file_new_webp, PATHINFO_FILENAME);
     $file_old_webp = pathinfo($file_old_webp, PATHINFO_FILENAME);
 
@@ -4622,18 +4621,18 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         if ($oldDir === null) {
             // Rename/Move the origin file
             @rename($oldfile, $newfile);
-            // Rename/Move the .v/ stored webp file
+            // Rename/Move the .v/ stored WebP file
             @rename($oldfilewebp, $newfilewebp);
             // do not re-name again, if an item has no thumb name (eg. *.zip object file case) and old thumb eventually exists (possible missing PDF preview image on WinOS with IM)
             if (($newThumb != $newfile) && file_exists($oldThumb)) {
                 // the thumb file
                 @rename($oldThumb, $newThumb); // Keep both rename() errors disabled, since we have to avoid any output in renaming cases
-                // webp thumb case
+                // WebP thumb case
                 if (($newThumbWebp != $newfilewebp) && file_exists($oldThumbWebp)) {
                     @rename($oldThumbWebp, $newThumbWebp);
                 }
             }
-# ToDo & check: fill with webp types... for staticpages should be oldfilewebp and newfilewebp only... the rest would be done in staticpage plugin
+# ToDo & check: fill with WebP types... for staticpages should be oldfilewebp and newfilewebp only... the rest would be done in staticpage plugin
             // hook into staticpage for the renaming regex replacements
             $renameValues  = array(array(
                 'fromwebp' => $oldfilewebp,
@@ -4650,7 +4649,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
-            // renaming filenames has to update mediaproperties, if set (.. although no DB needs for the webp variation files!)
+            // renaming filenames has to update mediaproperties, if set (.. although no DB needs for the WebP variation files!)
             serendipity_updateSingleMediaProperty(  $item_id,
                     array('property' => 'realname', 'property_group' => 'base_property', 'property_subgroup' => 'internal', 'value' => $file['realname']),
                     $newName . (empty($file['extension']) ? '' : '.' . $file['extension']));
@@ -4773,7 +4772,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     // Move thumbs - Rebuild full origin and new file path names by the new picked file array
     $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
     $newfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
-    // webp case
+    // WebP case
     $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . '.v/' . $_file['name'] . '.webp';
     $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . '.v/' . $_file['name'] . '.webp';
 
@@ -4805,7 +4804,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (5)</span>\n";
         $reserr = true;
     }
-    // webp case
+    // WebP case
     if (!$reserr && file_exists($oldfilewebp) && !file_exists($newfilewebp)) {
         $_tmppath = dirname($newfilewebp);
         if (!is_dir($_tmppath)) {
@@ -4818,7 +4817,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         $reset = false;
         $thisOldThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . $_file['name'] . (!empty($renameData['fthumb']) ? '.' . $renameData['fthumb'] : '') . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
         $thisNewThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . $_file['name'] . (!empty($_file['thumbnail_name']) ? '.' . $_file['thumbnail_name'] : '') . (empty($_file['extension']) ? '' : '.' . $_file['extension']);
-        // webp thumb case
+        // WebP thumb case
         $thisOldThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDir . '.v/' . $_file['name'] . (!empty($renameData['fthumb']) ? '.' . $renameData['fthumb'] : '') . '.webp';;
         $thisNewThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDir . '.v/' . $_file['name'] . (!empty($_file['thumbnail_name']) ? '.' . $_file['thumbnail_name'] : '') . '.webp';;
 
