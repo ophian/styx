@@ -1392,6 +1392,7 @@ function serendipity_generateVariations() {
     $serendipity['upgrade_variation_done'] = true;
     serendipity_set_config_var('upgrade_variation_done', 'true', 0);
     echo "</ul>\n";
+
     return $i;
 }
 
@@ -1852,6 +1853,7 @@ function serendipity_convertThumbs() {
         $msg = str_replace('.', '', sprintf(MEDIA_FILE_RENAME_ENTRY, $s));
         echo "<span class=\"msg_success\"><span class=\"icon-ok-circled\"></span> $msg (staticpages).</span>\n";
     }
+
     return $i;
 }
 
@@ -5049,11 +5051,12 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 
     // Please note: IMAGESELECTORPLUS plugin quickblog option is either quickblog:FullPath or quickblog:|?(none|plugin|js|_blank)|FullPath
     // SELECTing the entries uses a more detailed approach to be as precise as possible, thus we need to reset these vars for the preg_replace later on in some cases
+    // We do not need to extra SELECT check for image variations sine they do exist only if the normal image strings exist
     if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
         $q = "SELECT id, body, extended
                 FROM {$serendipity['dbPrefix']}entries
-               WHERE body     REGEXP '(src=|srcset=|href=|data-fallback=|window.open.|<!--quickblog:)(\'|\"|\\\|?(plugin|none|js|_blank)?\\\|?)(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . "|" . serendipity_db_escape_String($ispOldFile) . ")'
-                  OR extended REGEXP '(src=|srcset=|href=|data-fallback=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . ")'";
+               WHERE body     REGEXP '(src=|href=|data-fallback=|window.open.|<!--quickblog:)(\'|\"|\\\|?(plugin|none|js|_blank)?\\\|?)(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . "|" . serendipity_db_escape_String($ispOldFile) . ")'
+                  OR extended REGEXP '(src=|href=|data-fallback=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . ")'";
     } else {
         $q = "SELECT id, body, extended
                 FROM {$serendipity['dbPrefix']}entries
@@ -5064,7 +5067,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     $entries = serendipity_db_query($q, false, 'assoc');
 
     if ($debug) {
-        $serendipity['logger']->debug("$logtag SQL QUERY: \n$q");
+        $serendipity['logger']->debug("$logtag ENTRIES SQL QUERY: \n$q");
         $did = array(); // init for NULL cases
         if (is_array($entries)) {
             foreach($entries AS $d) { $did[] = $d['id']; }
