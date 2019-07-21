@@ -5085,7 +5085,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     }
 
     if ($type != 'filedir') {
-        // type filedir staticpage hook changes were already done in _RealFileDir ~4816~ haswebp
+        // type filedir staticpage hook changes were already done in _renameRealFileDir ~4790~ haswebp
         if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
             $sq = "SELECT id, content, pre_content
                      FROM {$serendipity['dbPrefix']}staticpages
