@@ -4490,6 +4490,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVED, $newDir) . "</span>\n";
 
     // hook into staticpage for the renaming regex replacements (no need to special care about thumb name, since this is simple dir renaming!)
+    // we cannot give anything here which couldn't be done there too - about variations dir path settings
     $renameValues = array(array(
         'from'    => null,
         'to'      => null,
@@ -4502,7 +4503,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
         'file'    => null
     ));
     // Changing a ML directory via directoryEdit needs to run through staticpage entries too!
-    serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
+    serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // this is type dir, renamimg media directories
 
     if ($debug) {
         $serendipity['logger']->debug(print_r($renameValues,1));
@@ -5084,8 +5085,8 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         $serendipity['logger']->debug("$logtag Change IMAGESELECTORPLUS ispOldFile=$ispOldFile");
     }
 
-    if ($type != 'filedir') {
-        // type filedir staticpage hook changes were already done in _renameRealFileDir ~4790~ haswebp
+    if ($type != 'filedir' && $type != 'dir') {
+        // type filedir staticpage hook changes were already done in _renameRealFileDir ~4790~ haswebp AND ~4494~ type case 'dir'
         if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
             $sq = "SELECT id, content, pre_content
                      FROM {$serendipity['dbPrefix']}staticpages
