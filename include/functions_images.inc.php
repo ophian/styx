@@ -795,7 +795,7 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
 function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mute=false, $quality=100) {
     global $serendipity;
 
-    if (in_array(strtoupper(explode('/', $mime)[1]), getSupportedFormats())) {
+    if (in_array(strtoupper(explode('/', $mime)[1]), serendipity_getSupportedFormats())) {
 
         $_tmppath = dirname($outpath . '/.v/' . $outfile);
         if (!is_dir($_tmppath)) {
@@ -825,7 +825,7 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
  *
  * @return array
  */
-function getSupportedFormats($extend=false) {
+function serendipity_getSupportedFormats($extend=false) {
     if ($extend) {
         return ['BMP', 'PNG', 'JPG', 'JPEG', 'GIF', 'WEBP'];
     }
@@ -869,7 +869,7 @@ function serendipity_makeImageVariationPath($orgfile, $ext) {
 function serendipity_passToCMD($type=null, $source='', $target='', $args=array()) {
 
     if ($type === null
-    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp']) && !in_array(strtoupper(explode('/', $type)[1]), getSupportedFormats(true)))
+    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp']) && !in_array(strtoupper(explode('/', $type)[1]), serendipity_getSupportedFormats(true)))
     || !serendipity_checkPermission('adminImagesMaintainOthers')) {
         return false;
     }
