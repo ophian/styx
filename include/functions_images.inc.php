@@ -5162,8 +5162,12 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $_oldDirFileWebP = $_file['path'] . '.v/' . $_file['name'];
         } else { // cases 'filedir' and 'dir'
             $_oldDirFile = (FALSE !== strrpos($oldDirFile, '.'.$_file['extension'], -($lex+1))) ? str_replace('.'.$_file['extension'], '', $oldDirFile) : $oldDirFile;
-            $list_oldDirFile = pathinfo($_oldDirFile); // since old $file array may be empty
-            $_oldDirFileWebP = ($list_oldDirFile['dirname'] != '.' ? $list_oldDirFile['dirname'] . '/.v/' : '.v/') . $list_oldDirFile['basename']; // checks relative path parts
+            if ($type == 'dir') {
+                $_oldDirFileWebP = $_oldDirFile . '.v/' . $_file['name'];
+            } else {
+                $list_oldDirFile = pathinfo($_oldDirFile); // since old $file array may be empty
+                $_oldDirFileWebP = ($list_oldDirFile['dirname'] != '.' ? $list_oldDirFile['dirname'] . '/.v/' : '.v/') . $list_oldDirFile['basename']; // checks relative path parts
+            }
         }
         // Prepare variations for replace w/o thumb and extension to match all possible occurrences
         $oldDirFileWebP = $_oldDirFileWebP;
