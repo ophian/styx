@@ -5136,7 +5136,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 $_temp = $_file['extension'];
                 $_file['extension'] = null;
             }
-            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
+            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file['path'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
             // [non-format] rename action
             if (!isset($_temp) && !isset($_file['newformat'])) {
                 $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
