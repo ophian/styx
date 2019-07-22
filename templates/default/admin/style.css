@@ -4046,6 +4046,11 @@ img.mfp-img {
         background-color: #3e5f81;
     }
 
+    .media_file.mlMidCol header,
+    .media_file.mlMaxCol header {
+        overflow: hidden;
+    }
+
     #template_select .theme_file,
     .media_pane > .media_file {
         flex: 0 0 auto;
