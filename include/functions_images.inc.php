@@ -2414,7 +2414,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                             'pfilename' => str_replace('.quickblog', '', $path_parts['filename']),
                             'extension' => $path_parts['extension'],
                             'filesize'  => @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sFile['relpath']),
-                            'url'       => $serendipity['baseURL'] . $serendipity['uploadPath'] . $sFile['relpath'],
+                            'url'       => $serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $sFile['relpath'],
                             'fdim'      => $fdim,
                             'width'     => $fdim[0],
                             'height'    => $fdim[1],
@@ -3803,7 +3803,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['full_thumb']      = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $sThumbSource;
 
         if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource_webp)) {
-            $file['full_thumb_webp'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadPath'] . $sThumbSource_webp;
+            $file['full_thumb_webp'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $sThumbSource_webp;
             $file['thumbSizeWebp']   = @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource_webp);
         }
     }
