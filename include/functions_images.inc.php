@@ -3818,12 +3818,12 @@ function serendipity_prepareMedia(&$file, $url = '') {
         }
     } else {
         $file['full_file']      = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
-        $file['full_path_file'] = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
+        $file['full_path_file'] = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
         $file['show_thumb']     = $file['full_thumb'];
 
-        if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp')) {
+        if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp')) {
             $file['full_file_webp'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
-            $file['sizeWebp']       = @filesize($serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp');
+            $file['sizeWebp']       = @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp');
         }
         if (!isset($file['imgsrc'])) {
             $file['imgsrc'] = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
@@ -5034,7 +5034,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $oldDirThumb = $oldDir . $_file['name'] . '.' . $_file['thumbnail_name'] . (!empty($_file['extension']) ? '.'.$_file['extension'] : '');
         }
 
-        $ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile;
+        $ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDirFile;
         if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
             $joinThumbs = "|" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirThumb) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirThumb);
         } else {
@@ -5046,7 +5046,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     } elseif ($type == 'dir') {
         // since this is case 'dir', we do not have a filename and have to rename replacement File vars to oldDir and newDir values for the update preg_replace match
         $oldDirFile = $oldDir;
-        $ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile . (($_file['extension']) ? '.'.$_file['extension'] : '');
+        $ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDirFile . (($_file['extension']) ? '.'.$_file['extension'] : '');
         $joinThumbs = ''; // we don't need to join Thumbs in special, since this is the 'dir' type case only! (Fixes matching and the counter!)
     }
 
@@ -5133,7 +5133,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 $_temp = $_file['extension'];
                 $_file['extension'] = null;
             }
-            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
+            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
             // [non-format] rename action
             if (!isset($_temp) && !isset($_file['newformat'])) {
                 $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
@@ -5146,7 +5146,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 $_temp = $_file['extension'];
                 $_file['extension'] = null;
             }
-            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
+            $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
             $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type(2)] _ispNewFile=$_ispNewFile");
         }
         if (isset($_temp) && isset($_file['newformat'])) {
