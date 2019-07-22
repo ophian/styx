@@ -4596,8 +4596,10 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         $file_new_webp = '.v/' . $file_new_webp;
         $file_old_webp = '.v/' . $file_old_webp;
     }
-    $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_new_webp . '.webp';
-    $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_old_webp . '.webp';
+    $relnewfilewebp = $file['path'] . $file_new_webp;
+    $reloldfilewebp = $file['path'] . $file_old_webp;
+    $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $relnewfilewebp . '.webp';
+    $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $reloldfilewebp . '.webp';
 
     if ($debug) {
         $serendipity['logger']->debug("$logtag oldfile=$oldfile");
@@ -4635,11 +4637,12 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                     @rename($oldThumbWebp, $newThumbWebp);
                 }
             }
-# ToDo & check: fill with WebP types... for staticpages should be oldfilewebp and newfilewebp only... the rest would be done in staticpage plugin
+
             // hook into staticpage for the renaming regex replacements
             $renameValues  = array(array(
-                'fromwebp' => $oldfilewebp,
-                'towebp'   => $newfilewebp,
+                'haswebp'  => file_exists($newfilewebp),
+                'fromwebp' => $reloldfilewebp,
+                'towebp'   => $relnewfilewebp,
                 'from'     => $oldfile,
                 'to'       => $newfile,
                 'thumb'    => $fileThumbSuffix,
@@ -4650,7 +4653,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 'item_id'  => $item_id,
                 'file'     => $file
             ));
-            serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
+            serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // rename real file name type 'file'
 
             // renaming filenames has to update mediaproperties, if set (.. although no DB needs for the WebP variation files!)
             serendipity_updateSingleMediaProperty(  $item_id,
