@@ -80,7 +80,7 @@
             <input class="state_submit" name="gallery_insert" type="submit" value="{$CONST.ADD_MEDIA}">
             {if $media.supportsWebP}
                 <input type="hidden" name="picturerequest" id="picturerequest">
-                <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT|default:'Use &lt;picture&gt; element'}" data-submit="enhanced" name="serendipity[formatPicture]" onClick="document.formMultiSelect.picturerequest.value = 1;">
+                <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT}" data-submit="enhanced" name="serendipity[formatPicture]" onClick="document.formMultiSelect.picturerequest.value = 1;">
             {/if}
         </div>
 
