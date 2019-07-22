@@ -500,6 +500,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Не была послана обратная ссылка: невозможно создать соединение к %s через порт %d');
 @define('MEDIA', 'Медиа-файлы');
 @define('MEDIA_LIBRARY', 'Библиотека файлов');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Добавить медиа-файл');
 @define('ENTER_MEDIA_URL', 'Введите URL файла,<br>который нужно скачать:');
 @define('ENTER_MEDIA_UPLOAD', 'Выберите файл, который<br>вы хотите загрузить на сервер:');

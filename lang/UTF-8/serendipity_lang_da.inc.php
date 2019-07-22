@@ -484,6 +484,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Intet trackback sendt: Kunne ikke åbne forbindelse til %s på port %d');
 @define('MEDIA', 'Media');
 @define('MEDIA_LIBRARY', 'Mediabibliotek');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Tilføj media');
 @define('ENTER_MEDIA_URL', 'Indtast en URL til filen du vil hente');
 @define('ENTER_MEDIA_UPLOAD', 'Vælg en fil du ønsker at uploade:');

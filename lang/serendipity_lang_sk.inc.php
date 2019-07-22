@@ -509,6 +509,7 @@ $i18n_filename_to = array (
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Odozva nebola odoslaná: nepodarilo sa spoji» s %s na porte %d');
 @define('MEDIA', 'Médiá');
 @define('MEDIA_LIBRARY', 'Kni¾nica médií');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Prida»');
 @define('ENTER_MEDIA_URL', 'Vlo¾te URL súboru na pridanie:');
 @define('ENTER_MEDIA_UPLOAD', 'Vyberte súbor pre nahranie:');

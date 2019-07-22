@@ -499,6 +499,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('TRACKBACK_COULD_NOT_CONNECT', '¦lad nie zosta³ wys³any: nie mogê po³±czyæ siê z %s u¿ywaj±c portu %d');
 @define('MEDIA', 'Media');
 @define('MEDIA_LIBRARY', 'Biblioteka mediów');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Dodaj');
 @define('ENTER_MEDIA_URL', 'Wprowad¼ URL pliku dostêpnego w sieci:');
 @define('ENTER_MEDIA_UPLOAD', 'Wybierz plik do uploadu:');

@@ -485,6 +485,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Nessun Trackback inviato: Impossibile connettersi a %s sulla porta %d');
 @define('MEDIA', 'Media');
 @define('MEDIA_LIBRARY', 'Libreria media');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Aggiungi media');
 @define('ENTER_MEDIA_URL', 'Inserisci l\'URL di un file da scaricare:');
 @define('ENTER_MEDIA_UPLOAD', 'Seleziona un file da inviare:');

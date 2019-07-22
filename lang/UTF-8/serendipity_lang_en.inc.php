@@ -496,6 +496,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'No Trackback sent: Could not open connection to %s on port %d');
 @define('MEDIA', 'Media');
 @define('MEDIA_LIBRARY', 'Media library');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Add media');
 @define('ENTER_MEDIA_URL', 'Enter an URL of a file to fetch:');
 @define('ENTER_MEDIA_UPLOAD', 'Select a file you wish to upload:');

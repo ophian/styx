@@ -488,6 +488,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Nenhum trackback enviado: Não foi possível abrir conexão para %s na porta %d');
 @define('MEDIA', 'Média');
 @define('MEDIA_LIBRARY', 'Biblioteca de multimédia');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Adicionar média');
 @define('ENTER_MEDIA_URL', 'Introduza a URL de um ficheiro para ir buscá-lo:');
 @define('ENTER_MEDIA_UPLOAD', 'Seleccione o ficheiro que deseja transferir:');

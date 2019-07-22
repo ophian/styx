@@ -293,6 +293,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Не е изпратено проследяване: Не може да бъде установена връзка с %s на порт %d');
 @define('MEDIA', 'Медиа');
 @define('MEDIA_LIBRARY', 'Медийна библиотека');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Добавяне на медиа');
 @define('ENTER_MEDIA_URL', 'Въведете URL на файл за изтегляне:');
 @define('ENTER_MEDIA_UPLOAD', 'Изберете файл, който искате да качите:');

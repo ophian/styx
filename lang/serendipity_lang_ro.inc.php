@@ -498,6 +498,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Nu am trimis referinţa: Nu am putut deschide o conexiune la %s pe portul %d');
 @define('MEDIA', 'Media');
 @define('MEDIA_LIBRARY', 'Librărie Media');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Adaugă conţinut media');
 @define('ENTER_MEDIA_URL', 'Introdu adresa unui fişier pentru a-l aduce aici:');
 @define('ENTER_MEDIA_UPLOAD', 'Alege fişierul pe care vrei să-l încarci:');

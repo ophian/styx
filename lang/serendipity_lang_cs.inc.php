@@ -511,6 +511,7 @@ $i18n_filename_to = array (
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Odezva nebyla odeslána: nepodaøilo se spojení s %s na portu %d');
 @define('MEDIA', 'Média');
 @define('MEDIA_LIBRARY', 'Knihovna médií');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Pøidat');
 @define('ENTER_MEDIA_URL', 'Vložte URL pøidávaného souboru:');
 @define('ENTER_MEDIA_UPLOAD', 'Vyberte soubor pro nahrání:');

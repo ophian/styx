@@ -487,6 +487,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Kein Trackback: Konnte Verbindung zu %s auf Port %d nicht herstellen.');
 @define('MEDIA', 'Medien');
 @define('MEDIA_LIBRARY', 'Mediathek');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Medien hinzufügen');
 @define('ENTER_MEDIA_URL', 'URL zum Download angeben:');
 @define('ENTER_MEDIA_UPLOAD', 'Datei zum Hochladen angeben:');

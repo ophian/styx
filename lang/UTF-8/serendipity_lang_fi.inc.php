@@ -496,6 +496,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Ei paluuviitettä: Yhteyttä %s:n porttiin %d ei saatu');
 @define('MEDIA', 'Media');
 @define('MEDIA_LIBRARY', 'Mediakirjasto');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Lisää media');
 @define('ENTER_MEDIA_URL', 'Lisättävän tiedoston URL:');
 @define('ENTER_MEDIA_UPLOAD', 'Valitse tiedosto, jonka haluat tuoda:');

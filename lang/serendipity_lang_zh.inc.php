@@ -499,6 +499,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', '没有送出引用: 无法开启路径到 %s 用连接到 %d');
 @define('MEDIA', '媒体管理');
 @define('MEDIA_LIBRARY', '媒体图库');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', '新增媒体');
 @define('ENTER_MEDIA_URL', '请输入文件地址:');
 @define('ENTER_MEDIA_UPLOAD', '请选择要上传的文件:');

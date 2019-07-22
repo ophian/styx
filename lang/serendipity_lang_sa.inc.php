@@ -499,6 +499,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'No Trackback sent: Could not open connection to %s on port %d');
 @define('MEDIA', 'דבÝַÊ ַבדםֿםַ');
 @define('MEDIA_LIBRARY', 'דßÊָֹ ַבז׃ֶַ״ ַבדÊÚֹֿֿ');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'ַײַÝֹ ז׃ֶַ״ דÊÚֹֿֿ');
 @define('ENTER_MEDIA_URL', 'ֳֿ־ב ַָׁ״ ַבדבÝ ַבד״בזָ:');
 @define('ENTER_MEDIA_UPLOAD', 'ַ־Êׁ ַבדבÝ ַב׀ם Êׁםֿ ׁÝÚֹ:');

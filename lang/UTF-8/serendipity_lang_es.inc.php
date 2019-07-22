@@ -496,6 +496,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'No se ha enviado la referencia: No se pudo establecer conexión con %s en el puerto %d');
 @define('MEDIA', 'Medios');
 @define('MEDIA_LIBRARY', 'Biblioteca de medios');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Añadir medio');
 @define('ENTER_MEDIA_URL', 'Introduce una URL para obtener el fichero:');
 @define('ENTER_MEDIA_UPLOAD', 'Selecciona el fichero que quieres transferir:');

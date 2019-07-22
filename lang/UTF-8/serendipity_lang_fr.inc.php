@@ -489,6 +489,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Pas de rétrolien envoyé : la connexion n\'a pas pu être établie à %s sur le port %d');
 @define('MEDIA', 'Média');
 @define('MEDIA_LIBRARY', 'Médiathèque');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Ajouter Média');
 @define('ENTER_MEDIA_URL', 'Entrez un lien d\'un fichier à télécharger :');
 @define('ENTER_MEDIA_UPLOAD', 'Sélectionnez un fichier à uploader :');

@@ -497,6 +497,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Nem sikerült visszahivatkozást küldeni: nem sikerült a csatlakozás ide: %s ezen a porton: %d');
 @define('MEDIA', 'Média');
 @define('MEDIA_LIBRARY', 'Média könyvtár');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Média hozzáadása');
 @define('ENTER_MEDIA_URL', 'Add meg a letöltendõ fájlra mutató hivatkozást:');
 @define('ENTER_MEDIA_UPLOAD', 'Válassza ki a feltöltendõ fájlt:');

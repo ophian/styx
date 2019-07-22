@@ -499,6 +499,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Gönderilen iz bulunamadı:  %s port %d numarasındaki bağlantı açılamadı');
 @define('MEDIA', 'Medya');
 @define('MEDIA_LIBRARY', 'Medya Kütüphanesi');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Medya Ekle');
 @define('ENTER_MEDIA_URL', 'Dosya getirme işlemi için bir URL adresi gir:');
 @define('ENTER_MEDIA_UPLOAD', 'Yüklemek istediğiniz dosyayı seçin:');

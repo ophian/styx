@@ -498,6 +498,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'هیچ دنبالکی ارسال نشد: توانایی ایجاد اتصال به %s روی پورت %d نمی باشد');
 @define('MEDIA', 'رسانه');
 @define('MEDIA_LIBRARY', 'کتابخانه رسانه');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'افزودن رسانه');
 @define('ENTER_MEDIA_URL', 'URL فایلی را برای دریافت وارد کنید:');
 @define('ENTER_MEDIA_UPLOAD', 'فایلی را برای بالاگذاری مشخص کنید:');

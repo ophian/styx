@@ -499,6 +499,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', '트랙백이 보내지지 않음: %s애서 %d번 포트를 열 수 없었음');
 @define('MEDIA', '미디어');
 @define('MEDIA_LIBRARY', '미디어 보관함');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', '미디어 추가');
 @define('ENTER_MEDIA_URL', '불러올 파일의 인터넷 주소를 입력:');
 @define('ENTER_MEDIA_UPLOAD', '업로드할 파일 선택:');

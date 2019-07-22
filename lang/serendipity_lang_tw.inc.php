@@ -499,6 +499,7 @@ $i18n_unknown = 'tw';
 @define('TRACKBACK_COULD_NOT_CONNECT', '沒有送出引用: 無法開啟線路到 %s 用連接埠 %d');
 @define('MEDIA', '媒體');
 @define('MEDIA_LIBRARY', '媒體存庫');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', '新增媒體');
 @define('ENTER_MEDIA_URL', '請輸入檔案的 URL:');
 @define('ENTER_MEDIA_UPLOAD', '請選擇要上傳的檔案:');

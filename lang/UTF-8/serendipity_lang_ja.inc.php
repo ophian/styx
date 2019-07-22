@@ -497,6 +497,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'トラックバックを送信しませんでした: %s のポート番号 %s に接続できませんでした。');
 @define('MEDIA', 'メディア');
 @define('MEDIA_LIBRARY', 'メディアライブラリ');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'メディア追加');
 @define('ENTER_MEDIA_URL', '取得するファイルの URL の入力:');
 @define('ENTER_MEDIA_UPLOAD', 'アップロードしたいファイルの選択:');

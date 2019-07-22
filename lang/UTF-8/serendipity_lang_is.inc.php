@@ -497,6 +497,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Engin tilvísun send: Náði ekki sambandi við %s á porti %d');
 @define('MEDIA', 'Gögn');
 @define('MEDIA_LIBRARY', 'Gagnasafn');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Bæta við gögnum');
 @define('ENTER_MEDIA_URL', 'Sláðu inn slóð skráarinnar til að sækja:');
 @define('ENTER_MEDIA_UPLOAD', 'Veldu skrána sem þú vilt vista:');

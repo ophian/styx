@@ -499,6 +499,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'No Trackback sent: Could not open connection to %s on port %d');
 @define('MEDIA', 'ملفات الميديا');
 @define('MEDIA_LIBRARY', 'مكتبة الوسائط المتعددة');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'اضافة وسائط متعددة');
 @define('ENTER_MEDIA_URL', 'أدخل رابط الملف المطلوب:');
 @define('ENTER_MEDIA_UPLOAD', 'اختر الملف الذي تريد رفعة:');

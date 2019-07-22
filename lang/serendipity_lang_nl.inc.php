@@ -499,6 +499,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Er is geen trackback verzonden: Kan geen verbinding maken met %s via poort %d');
 @define('MEDIA', 'Media');
 @define('MEDIA_LIBRARY', 'Mediabibliotheek');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Voeg media toe');
 @define('ENTER_MEDIA_URL', 'Voer de URL van een op te halen bestand in:');
 @define('ENTER_MEDIA_UPLOAD', 'Selecteer een bestand dat u wilt uploaden:');

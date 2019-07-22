@@ -497,6 +497,7 @@
 @define('TRACKBACK_COULD_NOT_CONNECT', 'Ingen trackback skickad: Kunde inte öppna anslutning till %s på port %d');
 @define('MEDIA', 'Media');
 @define('MEDIA_LIBRARY', 'Mediebibliotek');
+@define('ADD_MEDIA_PICTELEMENT', 'Use &lt;picture&gt; element');
 @define('ADD_MEDIA', 'Lägg till media');
 @define('ENTER_MEDIA_URL', 'Ange en URL till en fil att hämta:');
 @define('ENTER_MEDIA_UPLOAD', 'Välj en fil du vill ladda upp:');
