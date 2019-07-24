@@ -4574,7 +4574,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         $newDir = ($newDir == 'uploadRoot/') ? '' : $newDir; // Take care: remove temporary 'uploadRoot/' string, in case of moving a subdir file into "uploads/" root directory by bulkmove
         #if ($debug) { $serendipity['logger']->debug("$logtag PREPARED BULKMOVE newDir=$newDir"); }
         $_newDir = str_replace($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), '', $newDir);
-        if ($debug) { $serendipity['logger']->debug("$logtag PREPARED          _newDir=$_newDir"); }
+        if ($debug) { $serendipity['logger']->debug("$logtag PREPARED         _newDir=$_newDir"); }
 
         // We don't need to care about $parts['extension'], since you can't change the EXT via the bulkmove event
         $file_new = $_newDir . $file['name'];
@@ -4590,13 +4590,14 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     // WebP case and the valid(!) paranoid case to remove and re-add the extension
     $file_new_webp = pathinfo($file_new_webp, PATHINFO_FILENAME);
     $file_old_webp = pathinfo($file_old_webp, PATHINFO_FILENAME);
+    $file_rel_path = ($newDir == $file_new_webp) ? $file['path'] : $newDir; // distinguish between rename and re-move actions. covering newDir variable changes
 
     // check if the hidden dir path part is not already applied
     if (!preg_match('@\.v\/@', $file_new_webp)) {
         $file_new_webp = '.v/' . $file_new_webp;
         $file_old_webp = '.v/' . $file_old_webp;
     }
-    $relnewfilewebp = $newDir . $file_new_webp;
+    $relnewfilewebp = $file_rel_path . $file_new_webp;
     $reloldfilewebp = $file['path'] . $file_old_webp;
     $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $relnewfilewebp . '.webp';
     $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $reloldfilewebp . '.webp';
@@ -4656,7 +4657,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 'item_id'  => $item_id,
                 'file'     => $file,
                 'debug'    => $debug,
-                'dbginfo'  => 'CASE IS RENAME of $oldfilewebp _renameRealFileName:: ~4644'
+                'dbginfo'  => 'CASE IS RENAME of $oldfilewebp _renameRealFileName:: ~4646'
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // rename real file name type 'file'
 
@@ -4682,7 +4683,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // Do not allow an empty string OR NOT set newDir for the build call so we do not conflict with rename calls, which are single files only and is done above
         // BULKMOVE vars oldfile and newfile are fullpath based w/o EXT, see above
         elseif (!empty($newfile)) {
-            $is_bulkmove = true;
+            $serendipity['ml_type_file_is_bulkmove_event'] = $is_bulkmove = true;
 
             // Hook into staticpage for the renaming regex replacements and include some more since also use below for rename action
             // YES. We simply just assume the origins paths are the relative variations paths w/o the hidden dir!
@@ -4700,7 +4701,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 'haswebp'  => file_exists($oldfilewebp),
                 'file'     => $file,
                 'debug'    => $debug,
-                'dbginfo'  => "CASE IS BULKMOVE of $oldfilewebp _renameRealFileName:: ~4687"
+                'dbginfo'  => "CASE IS BULKMOVE of $oldfilewebp _renameRealFileName:: ~4690"
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // eg. for staticpage entries path regex replacements
 
@@ -5159,7 +5160,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         }
         if ($debug) {
             $serendipity['logger']->debug("$logtag PREPARED IMAGESELECTORPLUS newDir=$newDir");
-            $serendipity['logger']->debug("$logtag PREPARED ISP/+ENTRIES newDirFile=$newDirFile");
+            $serendipity['logger']->debug("$logtag PREPARED ISP/+ENTRIES newDirFile= $newDirFile");
         }
 
         // here we need to match THUMBS too, so we do not want the extension, see detailed SELECT regex note
@@ -5200,7 +5201,19 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         if ($type == 'file') {
             $_oldDirFile = ('.'.substr($oldDirFile, -$lex) != '.'.$_file['extension']) ? $oldDirFile : $_file['path'] . $_file['name'];
             $_oldDirFileWebP = $_file['path'] . '.v/' . $_file['name'];
-            $_newDirFileWebP = $_file['path'] . '.v/' . $newDir; // YES, this is the new file name!
+            // distinguish if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a filedir case, isn't it?!)
+            if (empty($serendipity['ml_type_file_is_bulkmove_event'])) {
+                $_newDirFileWebP = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NO NOT in case bulkmove!!
+                $serendipity['logger']->debug("$logtag RENAME case (1) RENAME VS BULKMOVE: newDir=$newDir is the new variation filename");
+            } else if ($serendipity['ml_type_file_is_bulkmove_event']) {
+                $_newDirFileWebP = $newDir. '.v/' . $_file['name']; // Yes, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
+                $serendipity['logger']->debug("$logtag RE-MOVE case (2) BULKMOVE VS RENAME: newDir=$newDir is the new variation directory location == ${newDir}.v/${_file['name']}");
+                unset($serendipity['ml_type_file_is_bulkmove_event']);
+            } else {
+                echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> Building _newDirFileWebP variable for Bulkmove vs Rename mismatch.</span>'."\n";
+                if (isset($serendipity['ml_type_file_is_bulkmove_event'])) unset($serendipity['ml_type_file_is_bulkmove_event']);
+                return false;
+            }
         } else { // cases 'filedir' and 'dir'
             $_oldDirFile = (FALSE !== strrpos($oldDirFile, '.'.$_file['extension'], -($lex+1))) ? str_replace('.'.$_file['extension'], '', $oldDirFile) : $oldDirFile;
             if ($type == 'dir') {
