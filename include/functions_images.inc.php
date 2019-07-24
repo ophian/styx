@@ -4569,12 +4569,12 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         $oldThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumbWebp;
 
     } else {
-        #if ($debug) { $serendipity['logger']->debug("$logtag RTRIMed newDir=$newDir"); }
+        #if ($debug) { $serendipity['logger']->debug("$logtag RTRIM             newDir=$newDir"); }
         // case bulkmove event (newDir is passed inclusive the path! and normally w/o the filename, but we better check this though)
         $newDir = ($newDir == 'uploadRoot/') ? '' : $newDir; // Take care: remove temporary 'uploadRoot/' string, in case of moving a subdir file into "uploads/" root directory by bulkmove
         #if ($debug) { $serendipity['logger']->debug("$logtag PREPARED BULKMOVE newDir=$newDir"); }
         $_newDir = str_replace($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), '', $newDir);
-        if ($debug) { $serendipity['logger']->debug("$logtag PREPARED _newDir=$_newDir"); }
+        if ($debug) { $serendipity['logger']->debug("$logtag PREPARED          _newDir=$_newDir"); }
 
         // We don't need to care about $parts['extension'], since you can't change the EXT via the bulkmove event
         $file_new = $_newDir . $file['name'];
@@ -4602,8 +4602,8 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $reloldfilewebp . '.webp';
 
     if ($debug) {
-        $serendipity['logger']->debug("$logtag PREPARED oldfile=$oldfile");
-        $serendipity['logger']->debug("$logtag PREPARED newfile=$newfile");
+        $serendipity['logger']->debug("$logtag PREPARED oldfile=    $oldfile");
+        $serendipity['logger']->debug("$logtag PREPARED newfile=    $newfile");
         $serendipity['logger']->debug("$logtag PREPARED oldfilewebp=$oldfilewebp");
         $serendipity['logger']->debug("$logtag PREPARED newfilewebp=$newfilewebp");
     }
@@ -4741,7 +4741,10 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                         $varFromWebPThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromwebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
                         $varToWebPThumb   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['towebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
                         @rename($varFromWebPThumb, $varToWebPThumb);
-                        if ($debug) { $serendipity['logger']->debug("$logtag BULKMOVE VARIATION THUMB $varFromWebPThumb => $varToWebPThumb"); }
+                        if ($debug) {
+                            $serendipity['logger']->debug("$logtag BULKMOVE VARIATION THUMB  $varFromWebPThumb => $varToWebPThumb");
+                            $serendipity['logger']->debug(" - - - "); // spacer
+                        }
                     }
                 }
             }
@@ -5109,11 +5112,12 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         }
         if (!empty($did)) {
             $serendipity['logger']->debug("$logtag FOUND Entry ID: " . implode(', ', $did));
+            $serendipity['logger']->debug(" - - - "); // spacer
+            $serendipity['logger']->debug("$logtag CHANGE IMAGESELECTORPLUS ispOldFile=$ispOldFile");
         } else {
             $serendipity['logger']->debug("$logtag Found NO ENTRIES to change");
+            $serendipity['logger']->debug(" - - - "); // spacer
         }
-        $serendipity['logger']->debug(" - - - "); // spacer
-        $serendipity['logger']->debug("$logtag CHANGE IMAGESELECTORPLUS ispOldFile=$ispOldFile");
     }
 
     if ($type != 'filedir' && $type != 'dir') {
