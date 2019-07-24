@@ -5203,7 +5203,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $_oldDirFileWebP = $_file['path'] . '.v/' . $_file['name'];
             // distinguish if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a filedir case, isn't it?!)
             if (empty($serendipity['ml_type_file_is_bulkmove_event'])) {
-                $_newDirFileWebP = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NO NOT in case bulkmove!!
+                $_newDirFileWebP = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NOT in case bulkmove!!
                 $serendipity['logger']->debug("$logtag RENAME case (1) RENAME VS BULKMOVE: newDir=$newDir is the new variation filename");
             } else if ($serendipity['ml_type_file_is_bulkmove_event']) {
                 $_newDirFileWebP = $newDir. '.v/' . $_file['name']; // Yes, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
