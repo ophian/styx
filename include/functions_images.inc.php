@@ -5121,26 +5121,8 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         }
     }
 
-    if ($type != 'filedir' && $type != 'dir') {
-        // type filedir staticpage hook changes were already done in _renameRealFileDir ~4790~ haswebp AND ~4494~ type case 'dir'
-        if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
-            $sq = "SELECT id, content, pre_content
-                     FROM {$serendipity['dbPrefix']}staticpages
-                    WHERE content     REGEXP '(src=|href=|data-fallback=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . ")'
-                       OR pre_content REGEXP '(src=|href=|data-fallback=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . ")'";
-        } else {
-            $sq = "SELECT id, content, pre_content
-                     FROM {$serendipity['dbPrefix']}staticpages
-                    WHERE (content || pre_content LIKE '%" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "%')
-                       OR (content || pre_content LIKE '%" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "%')" . $stapa_joinThumbs . "";
-        }
-        $spages = serendipity_db_query($sq, false, 'assoc');
-
-        if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-SELECT staticpages DB::sp:\n$sq"); }
-    } else $spages = array();
-
-    // prepare preg/replace variables for both entry and/or staticpage cases
-    if ((is_array($entries) && !empty($entries)) || (is_array($spages) && !empty($spages))) {
+    // prepare preg/replace variables for entry related cases
+    if (is_array($entries) && !empty($entries)) {
 
         // Prepare the REPLACE $newDirFile string for filetypes
         if ($type == 'filedir' || $type == 'file') {
@@ -5314,46 +5296,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 } // no need for else thrown mysql/i error message
             }
 
-            if ($debug) {
-                #$which = $type == 'filedir' ? 'NEW (\'filedir\')' : 'OLD (\'file\')';
-                #$serendipity['logger']->debug("$logtag transported $which file " . print_r($_file, 1)); // OK! checks that $_file['id'] == s9ymdb ID
-                #$serendipity['logger']->debug(" - - - "); // line spacer
-                #$serendipity['logger']->debug("$logtag The NEW regexed ENTRIES entry BODY = {$entry['body']}");
-                #$serendipity['logger']->debug("$logtag The NEW regexed ENTRIES entry EXTENDED = {$entry['extended']}");
-            }
-        }
-
-        // SAME FOR STATICPAGES (w/o isp) - down here for case there were NO ENTRY items done before
-        if (is_array($spages) && !empty($spages)) {
-            if ($debug) {
-                $serendipity['logger']->debug("$logtag STATICPAGE REPLACE _oldDirFile=$_oldDirFile");
-                $serendipity['logger']->debug("$logtag STATICPAGE REPLACE  newDirFile=$newDirFile");
-                $serendipity['logger']->debug("$logtag STATICPAGE REPLACE oldDirFileWebP=$oldDirFileWebP");
-                $serendipity['logger']->debug("$logtag STATICPAGE REPLACE newDirFileWebP=$newDirFileWebP");
-            }
-            $spmdbitems = 0;
-            foreach($spages AS $spage) {
-                if ($debug) { $serendipity['logger']->debug("$logtag STATICPAGE REPLACE content before replace=${spage['content']}"); }
-                $spage['content']     = preg_replace('@(src=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $spage['content']);
-                $spage['content']     = preg_replace('@(srcset=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFileWebP, $spage['content']);
-                if ($debug) { $serendipity['logger']->debug("$logtag STATICPAGE REPLACE content after replace=${spage['content']}"); }
-                $spage['pre_content'] = preg_replace('@(src=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $spage['pre_content']);
-                $spage['pre_content'] = preg_replace('@(srcset=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFileWebP, $spage['pre_content']);
-                $spage['content']     = str_replace($link_pattern, $link_replace, $spage['content']);
-                $spage['pre_content'] = str_replace($link_pattern, $link_replace, $spage['pre_content']);
-
-                $pq = "UPDATE {$serendipity['dbPrefix']}staticpages
-                          SET content = '" . serendipity_db_escape_string($spage['content']) . "' ,
-                              pre_content = '" . serendipity_db_escape_string($spage['pre_content']) . "'
-                        WHERE id =  " . serendipity_db_escape_string($spage['id']);
-
-                if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-UPDATE staticpages DB: ID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] UPDATE " .DONE); }
-                serendipity_db_query($pq);
-                // count the staticpage entry media items changed
-                $spmdbitems++;
-            }
-            if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-UPDATE staticpages DB: ID:{$spage['id']} UPDATE renamed $spmdbitems items "); }
-        }
+        } // if (is_array($entries) && !empty($entries)) end
 
         // spawn the messages
         if ($oldDir !== null) {
@@ -5365,9 +5308,6 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             }
             if (is_array($entries) && !empty($entries) && count($entries) > 0) {
                 echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_FILE_RENAME_ENTRY, count($entries)) . "</span>\n";
-            }
-            if (is_array($spages) && !empty($spages) && count($spages) > 0 && $spmdbitems > 0) {
-                echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_FILE_RENAME_ENTRY, count($spages) . ' (staticpages)') . "</span>\n";
             }
         }
     } // entries OR staticpages end
