@@ -4596,7 +4596,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         $file_new_webp = '.v/' . $file_new_webp;
         $file_old_webp = '.v/' . $file_old_webp;
     }
-    $relnewfilewebp = $file['path'] . $file_new_webp;
+    $relnewfilewebp = $newDir . $file_new_webp;
     $reloldfilewebp = $file['path'] . $file_old_webp;
     $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $relnewfilewebp . '.webp';
     $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $reloldfilewebp . '.webp';
@@ -4622,6 +4622,8 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // we need to KEEP the old files thumbnail_name, for the case the global serendipity thumbSuffix has changed! A general conversion needs to be done somewhere else.
         $fileThumbSuffix = !empty($file['thumbnail_name']) ? $file['thumbnail_name'] : $serendipity['thumbSuffix'];
 
+        $is_bulkmove = false;
+
         // Case re-name event, keeping a possible moved directory name for a single file
         if ($oldDir === null) {
             // Rename/Move the origin file
@@ -4639,19 +4641,22 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             }
 
             // hook into staticpage for the renaming regex replacements
+            // YES. We simply just assume the origins paths are the relative variation path w/o the hidden dir!
             $renameValues  = array(array(
                 'haswebp'  => file_exists($newfilewebp),
                 'fromwebp' => $reloldfilewebp,
                 'towebp'   => $relnewfilewebp,
-                'from'     => $oldfile,
-                'to'       => $newfile,
+                'from'     => str_replace('.v/', '', $reloldfilewebp),
+                'to'       => str_replace('.v/', '', $relnewfilewebp),
                 'thumb'    => $fileThumbSuffix,
                 'fthumb'   => $file['thumbnail_name'],
                 'oldDir'   => $oldDir,
                 'newDir'   => $newDir,
                 'type'     => $type,
                 'item_id'  => $item_id,
-                'file'     => $file
+                'file'     => $file,
+                'debug'    => $debug,
+                'dbginfo'  => 'CASE IS RENAME of $oldfilewebp _renameRealFileName:: ~4644'
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // rename real file name type 'file'
 
@@ -4677,18 +4682,25 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         // Do not allow an empty string OR NOT set newDir for the build call so we do not conflict with rename calls, which are single files only and is done above
         // BULKMOVE vars oldfile and newfile are fullpath based w/o EXT, see above
         elseif (!empty($newfile)) {
+            $is_bulkmove = true;
 
-            // hook into staticpage for the renaming regex replacements
+            // hook into staticpage for the renaming regex replacements and include some more since also use below for rename action
+            // YES. We simply just assume the origins paths are the relative variation path w/o the hidden dir!
             $renameValues = array(array(
-                'from'    => $oldfile,
-                'to'      => $newfile,
-                'thumb'   => $fileThumbSuffix,
-                'fthumb'  => $file['thumbnail_name'],
-                'oldDir'  => $oldDir,
-                'newDir'  => $newDir,
-                'type'    => $type,
-                'item_id' => $item_id,
-                'file'    => $file
+                'fromwebp' => $reloldfilewebp,
+                'towebp'   => $relnewfilewebp,
+                'from'     => str_replace('.v/', '', $reloldfilewebp),
+                'to'       => str_replace('.v/', '', $relnewfilewebp),
+                'oldDir'   => $oldDir,
+                'newDir'   => $newDir,
+                'thumb'    => $fileThumbSuffix,
+                'fthumb'   => $file['thumbnail_name'],
+                'type'     => $type,
+                'item_id'  => $item_id,
+                'haswebp'  => file_exists($oldfilewebp),
+                'file'     => $file,
+                'debug'    => $debug,
+                'dbginfo'  => "CASE IS BULKMOVE of $oldfilewebp _renameRealFileName:: ~4687"
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // eg. for staticpage entries path regex replacements
 
@@ -4716,6 +4728,20 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                     } catch (Throwable $t) {
                         // Executed only in PHP 7, will not match in PHP 5.x
                         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (3)</span>\n";
+                    }
+                    //  check the origin filedir has moved in bulkmove
+                    if ($is_bulkmove && file_exists($newfile)) {
+                        // build variations path
+                        // WebP origin variation case
+                        $varFromWebPOrigin = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromwebp'] . '.webp';
+                        $varToWebPOrigin   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['towebp'] . '.webp';
+                        @rename($varFromWebPOrigin, $varToWebPOrigin);
+                        if ($debug) { $serendipity['logger']->debug("$logtag BULKMOVE VARIATION ORIGIN $varFromWebPOrigin => $varToWebPOrigin"); }
+                        // WebP thumb variation case
+                        $varFromWebPThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromwebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
+                        $varToWebPThumb   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['towebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
+                        @rename($varFromWebPThumb, $varToWebPThumb);
+                        if ($debug) { $serendipity['logger']->debug("$logtag BULKMOVE VARIATION THUMB $varFromWebPThumb => $varToWebPThumb"); }
                     }
                 }
             }
