@@ -1809,7 +1809,7 @@ function serendipity_convertThumbs() {
                 }
             }
 
-                // SAME FOR STATICPAGES
+            // SAME FOR STATICPAGES [deprecated]
             if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
                 $sq = "SELECT id, content, pre_content
                          FROM {$serendipity['dbPrefix']}staticpages
@@ -5312,9 +5312,9 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         }
     } // entries OR staticpages end
     else {
-        if (($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') && $serendipity['production'] && (is_string($entries) || is_string($spages))) {
+        if (($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') && $serendipity['production'] && is_string($entries)) {
             // NOTE: keep "error" somewhere in echoed string since that is the matching JS condition
-            echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> DB ERROR: ' . (!empty($entries) ? $entries : $spages) . "</span>\n";
+            echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> DB ERROR: ' . @$entries . "</span>\n";
         }
     }
 }
