@@ -5097,7 +5097,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     $entries = serendipity_db_query($q, false, 'assoc');
 
     if ($debug) {
-        $serendipity['logger']->debug("$logtag ENTRIES SELECT SQL: \n$q");
+        $serendipity['logger']->debug("$logtag ENTRIES SELECT SQL: \n              $q");
         $serendipity['logger']->debug(" - - - "); // spacer
         $did = array(); // init for NULL cases
         if (is_array($entries)) {
