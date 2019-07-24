@@ -4640,8 +4640,8 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 }
             }
 
-            // hook into staticpage for the renaming regex replacements
-            // YES. We simply just assume the origins paths are the relative variation path w/o the hidden dir!
+            // Hook into staticpage for the renaming regex replacements
+            // YES. We simply just assume the origins paths are the relative variations paths w/o the hidden dir!
             $renameValues  = array(array(
                 'haswebp'  => file_exists($newfilewebp),
                 'fromwebp' => $reloldfilewebp,
@@ -4684,8 +4684,8 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         elseif (!empty($newfile)) {
             $is_bulkmove = true;
 
-            // hook into staticpage for the renaming regex replacements and include some more since also use below for rename action
-            // YES. We simply just assume the origins paths are the relative variation path w/o the hidden dir!
+            // Hook into staticpage for the renaming regex replacements and include some more since also use below for rename action
+            // YES. We simply just assume the origins paths are the relative variations paths w/o the hidden dir!
             $renameValues = array(array(
                 'fromwebp' => $reloldfilewebp,
                 'towebp'   => $relnewfilewebp,
