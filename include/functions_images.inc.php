@@ -373,7 +373,7 @@ function serendipity_deleteImage($id) {
 
             if (!$file['hotlink']) {
                 if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
-                    if (@unlink($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
+                    if (unlink($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
                         // Silently delete an already generated .v/origin.webp variation file too
                         serendipity_syncUnlinkVariation($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile);
                         $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", $dFile);
@@ -386,7 +386,7 @@ function serendipity_deleteImage($id) {
                         $dfnThumb = $file['path'] . $file['name'] . (!empty($thumb['fthumb']) ? '.' . $thumb['fthumb'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
                         $dfThumb  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dfnThumb;
 
-                        if (@unlink($dfThumb)) {
+                        if (unlink($dfThumb)) {
                             // Silently delete an already generated .v/originthumb.webp variation file too
                             serendipity_syncUnlinkVariation($dfThumb);
                             $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", $dfnThumb);
@@ -513,7 +513,7 @@ function serendipity_insertHotlinkedImageInDatabase($filename, $url, $authorid =
         $width    = $fdim[0];
         $height   = $fdim[1];
         $mime     = $fdim['mime'];
-        @unlink($tempfile);
+        unlink($tempfile);
     }
 
     $query = sprintf(
@@ -1869,7 +1869,7 @@ function serendipity_syncUnlinkVariation($originThumbFile) {
     $webpfile = array();
     $webpfile = serendipity_makeImageVariationPath($originThumbFile, 'webp');
     if (file_exists($webpfile['filepath'] . '/.v/' . $webpfile['filename'])) {
-        return @unlink($webpfile['filepath'] . '/.v/' . $webpfile['filename']);
+        return unlink($webpfile['filepath'] . '/.v/' . $webpfile['filename']);
     }
 }
 
@@ -1927,7 +1927,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         // If we're supposed to delete thumbs, this is the easiest place. Leave messages plain unstiled.
         if (is_readable($fthumb)) {
             if ($deleteThumbs === true) {
-                if (@unlink($fthumb)) {
+                if (unlink($fthumb)) {
                     // Silently delete an already generated .v/webpfthumb.webp variation file too
                     serendipity_syncUnlinkVariation($fthumb);
                     $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
@@ -1939,7 +1939,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                 $tdim = @serendipity_getimagesize($fthumb);
                 if (isset($tdim['noimage'])) {
                     // Delete it so it can be regenerated
-                    if (@unlink($fthumb)) {
+                    if (unlink($fthumb)) {
                         // Silently delete an already generated .v/webpfthumb.webp variation file too
                         serendipity_syncUnlinkVariation($fthumb);
                         $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
@@ -1953,7 +1953,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                     if ($tdim[0] != $expect[0] || $tdim[1] != $expect[1]) {
                         // This thumbnail is incorrect; delete it so
                         // it can be regenerated
-                        if (@unlink($fthumb)) {
+                        if (unlink($fthumb)) {
                             // Silently delete an already generated .v/webpfthumb.webp variation file too
                             serendipity_syncUnlinkVariation($fthumb);
                             $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
@@ -2804,7 +2804,7 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
             if ($forceDelete) {
                 echo '<ul class="plainList">'."\n";
                 foreach($filestack AS $f => $file) {
-                    if ($serious && @unlink($basedir . $file)) {
+                    if ($serious && unlink($basedir . $file)) {
                         printf('<li><span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . DONE . "</span></li>\n", $file);
                     } else {
                         printf('<li><span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . DELETING_FILE . ' ' . ERROR . "</span></li>\n", $file);
@@ -4950,7 +4950,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
             if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: New Image '${format}' format creation success \"${result[2]}\" " . DONE); }
             unset($result);
             unset($out);
-            @unlink($infile); // delete the old origin format
+            unlink($infile); // delete the old origin format
             // 2cd run: The thumb conversion to new format
             $out = serendipity_formatImageGD($infileThumb, $outfileThumb, $format);
             if (is_array($out)) {
@@ -4958,7 +4958,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
             }
             if (is_array($result) && $result[0] == 0) {
                 if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: New Image '${format}' format success \"${result[2]}\" " . DONE); }
-                @unlink($infileThumb); // delete the old thumb format
+                unlink($infileThumb); // delete the old thumb format
             }
             unset($result);
             $uID = serendipity_updateImageInDatabase(array('extension' => $format, 'mime' => serendipity_guessMime($format), 'size' => (int)@filesize($outfile), 'date' => (int)@filemtime($outfile), 'realname' => $outfileRealName), $item_id);
@@ -4967,12 +4967,12 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
         else if (is_array($result) && $result[0] == 0) {
             if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: ImageMagick CLI - New Image '${format}' format creation success ${result[2]} " . DONE); }
             unset($result);
-            @unlink($infile); // delete the old origin format
+            unlink($infile); // delete the old origin format
             // 2cd run: The thumb conversion to new format
             $result  = serendipity_passToCMD($_format, $infileThumb, $outfileThumb, $pass);
             if (is_array($result) && $result[0] == 0) {
                 if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '${format}' format resize success \"${result[2]}\" " . DONE); }
-                @unlink($infileThumb); // delete the old thumb format
+                unlink($infileThumb); // delete the old thumb format
             } else {
                 if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '${format}' format resize failed! Perhaps a wrong path: '${outfileThumb}' ?"); }
             }
