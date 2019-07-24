@@ -5219,8 +5219,8 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $serendipity['logger']->debug(" - - - "); // spacer
             $serendipity['logger']->debug("$logtag REPLACE type=$type");
             $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS _ispOldFile=$_ispOldFile to _ispNewFile=$_ispNewFile");
-            $serendipity['logger']->debug("$logtag REPLACE ENTRIES _oldDirFile=$_oldDirFile");
-            $serendipity['logger']->debug("$logtag REPLACE ENTRIES  newDirFile=$newDirFile");
+            $serendipity['logger']->debug("$logtag REPLACE ENTRIES  _oldDirFile=    $_oldDirFile");
+            $serendipity['logger']->debug("$logtag REPLACE ENTRIES   newDirFile=    $newDirFile");
             $serendipity['logger']->debug("$logtag REPLACE VARIATION oldDirFileWebP=$oldDirFileWebP");
             $serendipity['logger']->debug("$logtag REPLACE VARIATION newDirFileWebP=$newDirFileWebP");
         }
