@@ -5192,7 +5192,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 $serendipity['logger']->debug("$logtag RE-MOVE case (2) BULKMOVE VS RENAME: newDir=$newDir is the new variation directory location == ${newDir}.v/${_file['name']}");
                 unset($serendipity['ml_type_file_is_bulkmove_event']);
             } else {
-                echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> Building _newDirFileWebP variable for Bulkmove vs Rename mismatch.</span>'."\n";
+                echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> Building _newDirFileWebP variable for Bulkmove vs Rename mismatch failed.</span>'."\n";
                 if (isset($serendipity['ml_type_file_is_bulkmove_event'])) unset($serendipity['ml_type_file_is_bulkmove_event']);
                 return false;
             }
