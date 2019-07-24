@@ -3133,7 +3133,8 @@ label .perm_name,
     overflow: auto;
 }
 
-#grid-selector {
+#grid-selector,
+#grid-selector.media-grid-selector.poor {
     display: none;
     visibility: hidden;
 }
