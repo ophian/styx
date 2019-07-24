@@ -5154,7 +5154,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $newDirFile = rtrim($newDir, '/');
         }
         if ($debug) {
-            $serendipity['logger']->debug("$logtag PREPARED IMAGESELECTORPLUS newDir=$newDir"); }
+            $serendipity['logger']->debug("$logtag PREPARED IMAGESELECTORPLUS newDir=$newDir");
             $serendipity['logger']->debug("$logtag PREPARED ISP/+ENTRIES newDirFile=$newDirFile");
         }
 
