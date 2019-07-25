@@ -5253,6 +5253,10 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                           SET body = '" . serendipity_db_escape_string($entry['body']) . "' ,
                           extended = '" . serendipity_db_escape_string($entry['extended']) . "'
                         WHERE   id = $id";
+                if ($debug) {
+                    #$serendipity['logger']->debug("$logtag The NEW regexed ENTRIES entry BODY::ID:$id\n{$entry['body']}");
+                    #$serendipity['logger']->debug("$logtag The NEW regexed ENTRIES entry EXTENDED::ID:$id\n{$entry['extended']}");
+                }
                 serendipity_db_query($uq);
 
                 // SAME FOR ENTRIES ENTRYPROPERTIES CACHE for ep_cache_body (we do not need to care about SELECTing ISP items, since that is already a result of $entries array)
@@ -5265,15 +5269,17 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                     $eps1['value'] = preg_replace('@(srcset=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFileWebP, $eps1['value']);
                     $eps1['value'] = preg_replace('@(<!--quickblog:)(\\|?(plugin|none|js|_blank)?\\|?)(' . preg_quote($_ispOldFile) . ')@', '\1\2' . $_ispNewFile, $eps1['value']);
                     $eps1['value'] = str_replace($link_pattern, $link_replace, $eps1['value']);
+
                     $uepq1 = "UPDATE {$serendipity['dbPrefix']}entryproperties
                                  SET value = '" . serendipity_db_escape_string($eps1['value']) . "'
                                WHERE entryid =  " . serendipity_db_escape_string($eps1['entryid']) . "
                                  AND property = 'ep_cache_body'";
                     if ($debug) {
-                        $serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_body):ID:$id\n$epq1");
-                        $serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps1['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_body) SUB-UPDATE " .DONE);
+                        #$serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_body):ID:$id\n$epq1");
+                        #$serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps1['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_body) SUB-UPDATE " .DONE);
                     }
                     serendipity_db_query($uepq1);
+
                 } // no need for else thrown mysql/i error message
                 // SAME FOR ENTRIES ENTRYPROPERTIES CACHE for ep_cache_extended
                 $epq2 = "SELECT entryid, value
@@ -5284,15 +5290,17 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                     $eps2['value'] = preg_replace('@(src=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $eps2['value']);
                     $eps2['value'] = preg_replace('@(srcset=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFileWebP, $eps2['value']);
                     $eps2['value'] = str_replace($link_pattern, $link_replace, $eps2['value']);
+
                     $uepq2 = "UPDATE {$serendipity['dbPrefix']}entryproperties
                                  SET value = '" . serendipity_db_escape_string($eps2['value']) . "'
                                WHERE entryid =  " . serendipity_db_escape_string($eps2['entryid']) . "
                                AND property = 'ep_cache_extended'";
                     if ($debug) {
-                        $serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_extended):ID:$id\n$epq2");
-                        $serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps2['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_extended) SUB-UPDATE " .DONE);
+                        #$serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_extended):ID:$id\n$epq2");
+                        #$serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps2['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_extended) SUB-UPDATE " .DONE);
                     }
                     serendipity_db_query($uepq2);
+
                 } // no need for else thrown mysql/i error message
             }
 
