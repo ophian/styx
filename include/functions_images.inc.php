@@ -4952,7 +4952,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
         }
 
         // GD
-        if (is_array($result) && $result[0] == 0) {
+        if (is_array($result) && $result[0] == 0 && $serendipity['magick'] !== true) {
             if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: New Image '${format}' format creation success '${result[2]}' " . DONE); }
             unset($result);
             unset($out);
