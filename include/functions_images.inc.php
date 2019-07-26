@@ -5057,6 +5057,11 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     // get the correct $file properties, which is either array or null by type, and are the origin or already updated properties (which then is $pick in case of filedir typed directory renaming actions)
     $_file = ($type == 'filedir' && $pick !== null) ? $pick : $file;
 
+    if ($debug) {
+        $which = $type == 'filedir' ? 'NEW (\'filedir\')' : 'OLD (\'file\')';
+        $serendipity['logger']->debug("$logtag TRANSPORTED $which type _file array " . print_r($_file, 1));
+    }
+
     // Prepare the SELECT query for filetypes
     if ($type == 'filedir' || $type == 'file') {
 
