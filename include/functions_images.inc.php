@@ -1733,6 +1733,8 @@ function serendipity_convertThumbs() {
 
     // Open directory
     $basedir = $serendipity['serendipityPath'] . $serendipity['uploadPath'];
+    $hook_sp = class_exists('serendipity_event_staticpage') ? true : false;
+
     // rename in filepath
     foreach($ofiles AS $oldthumbnail) {
         foreach($serendipity['uniqueThumbSuffixes'] AS $othumb) {
@@ -1809,33 +1811,35 @@ function serendipity_convertThumbs() {
                 }
             }
 
-            // SAME FOR STATICPAGES [deprecated]
-            if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
-                $sq = "SELECT id, content, pre_content
-                         FROM {$serendipity['dbPrefix']}staticpages
-                        WHERE content     REGEXP '(src=|srcset=|href=|data-fallback=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ")'
-                           OR pre_content REGEXP '(src=|srcset=|href=|data-fallback=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ")'";
-            } else {
-                $sq = "SELECT id, content, pre_content
-                         FROM {$serendipity['dbPrefix']}staticpages
-                       WHERE (content || pre_content LIKE '%" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "%')
-                          OR (content || pre_content LIKE '%" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "%')";
-            }
-            if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-SELECT staticpages DB::sp:\n$sq"); }
-            $spages = serendipity_db_query($sq, false, 'assoc');
-            if (is_array($spages)) {
-                foreach($spages AS $spage) {
-                    $spage['content']     = preg_replace('@(src=|srcset=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newThumbnail, $entry['content']);
-                    $spage['pre_content'] = preg_replace('@(src=|srcset=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newThumbnail, $entry['pre_content']);
-                    $pq = "UPDATE {$serendipity['dbPrefix']}staticpages
-                              SET content = '" . serendipity_db_escape_string($spage['content']) . "' ,
-                                  pre_content = '" . serendipity_db_escape_string($spage['pre_content']) . "'
-                            WHERE id =  " . serendipity_db_escape_string($spage['id']);
-                    if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-UPDATE staticpages DB:\nID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] UPDATE " .DONE); }
-                    serendipity_db_query($pq);
-                    // count the staticpage entries changed
-                    if ($_tmpStaticpID != $spage['id']) $s++;
-                    $_tmpStaticpID = $spage['id'];
+            if ($hook_sp) {
+                // SAME FOR STATICPAGES [non-hooked]
+                if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
+                    $sq = "SELECT id, content, pre_content
+                             FROM {$serendipity['dbPrefix']}staticpages
+                            WHERE content     REGEXP '(src=|srcset=|href=|data-fallback=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ")'
+                               OR pre_content REGEXP '(src=|srcset=|href=|data-fallback=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ")'";
+                } else {
+                    $sq = "SELECT id, content, pre_content
+                             FROM {$serendipity['dbPrefix']}staticpages
+                           WHERE (content || pre_content LIKE '%" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "%')
+                              OR (content || pre_content LIKE '%" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "%')";
+                }
+                if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-SELECT staticpages DB::sp:\n$sq"); }
+                $spages = serendipity_db_query($sq, false, 'assoc');
+                if (is_array($spages)) {
+                    foreach($spages AS $spage) {
+                        $spage['content']     = preg_replace('@(src=|srcset=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newThumbnail, $entry['content']);
+                        $spage['pre_content'] = preg_replace('@(src=|srcset=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newThumbnail, $entry['pre_content']);
+                        $pq = "UPDATE {$serendipity['dbPrefix']}staticpages
+                                  SET content = '" . serendipity_db_escape_string($spage['content']) . "' ,
+                                      pre_content = '" . serendipity_db_escape_string($spage['pre_content']) . "'
+                                WHERE id =  " . serendipity_db_escape_string($spage['id']);
+                        if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-UPDATE staticpages DB:\nID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] UPDATE " .DONE); }
+                        serendipity_db_query($pq);
+                        // count the staticpage entries changed
+                        if ($_tmpStaticpID != $spage['id']) $s++;
+                        $_tmpStaticpID = $spage['id'];
+                    }
                 }
             }
         }
