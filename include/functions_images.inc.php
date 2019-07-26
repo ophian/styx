@@ -4977,10 +4977,10 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
             // 2cd run: The thumb conversion to new format
             $result  = serendipity_passToCMD($_format, $infileThumb, $outfileThumb, $pass);
             if (is_array($result) && $result[0] == 0) {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '${format}' format resize success '${result[2]}' " . DONE); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '${format}' format RESIZE success '${result[2]}' " . DONE); }
                 unlink($infileThumb); // delete the old thumb format
             } else {
-                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '${format}' format resize failed! Perhaps a wrong path: \"${outfileThumb}\" ?"); }
+                if ($debug) { $serendipity['logger']->debug("ML_NEWTHUMBFORMAT: ImageMagick CLI - New Image '${format}' format RESIZE failed! Perhaps a wrong path: \"${outfileThumb}\" ?"); }
             }
             unset($result);
             $uID = serendipity_updateImageInDatabase(array('extension' => $format, 'mime' => serendipity_guessMime($format), 'size' => (int)@filesize($outfile), 'date' => (int)@filemtime($outfile), 'realname' => $outfileRealName), $item_id);
