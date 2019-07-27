@@ -5059,7 +5059,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 
     if ($debug) {
         $which = $type == 'filedir' ? 'NEW (\'filedir\')' : 'OLD (\'file\')';
-        $serendipity['logger']->debug("$logtag TRANSPORTED $which type _file array " . print_r($_file, 1));
+        $serendipity['logger']->debug("$logtag TRANSPORTED $which type _file " . print_r($_file, 1));
     }
 
     // Prepare the SELECT query for filetypes
