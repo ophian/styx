@@ -4990,17 +4990,39 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
             if ($debug) { $serendipity['logger']->debug("ML_NEWORIGINFORMAT: New Image '${format}' format creation failed OR already exists."); }
         }
 
-        // renaming filenames has to update mediaproperties, if set
-        serendipity_updateSingleMediaProperty(  $item_id,
-                array('property' => 'realname', 'property_group' => 'base_property', 'property_subgroup' => 'internal', 'value' => $file['realname']),
-                $file['realname'] . '.' . $format);
-        serendipity_updateSingleMediaProperty(  $item_id,
-                array('property' => 'TITLE', 'property_group' => 'base_property', 'value' => $file['realname']),
-                $file['realname'] . '.' . $format); // TITLE is either '', 'ALL', or 'internal'
-                // And keep in mind that field names are case-insensitive.. but in this case there should be no confusion, since the only other value I found is: 'Title' with a subgroup 'XMP' is in group 'base_metadata'.
+        // new formatRealFile:: WHAT have we done so far?
+        /*
+            1. Change the origin file format
+            2. Change the thumb file format
+            3. Delete both old origin files.
+                    We did not touch WebP-Variation files since they have their own format, and which do not really care about changed parents!
+                    The only thing we could outreach here, is a file size change, but since format changes have probably a LOSS (at least for the first time,
+                    likewise jpg -> png) this should not be carried to the variations!
+            4. Update in images database
+        */
+
+        // WHAT do we need to do is :
+        /*
+            1. pass this change to staticpage
+            2. change mediaProperties database
+            3. change file in entries via serendipity_moveMediaInEntriesDB()
+            4. change file in ep cached entries via serendipity_moveMediaInEntriesDB()
+        */
 
         // check if serendipity_updateImageInDatabase() has run with success
         if (isset($uID) && $uID > 0) {
+
+            //hold for 1
+
+            // renaming filenames has to update mediaproperties, if set
+            serendipity_updateSingleMediaProperty(  $item_id,
+                    array('property' => 'realname', 'property_group' => 'base_property', 'property_subgroup' => 'internal', 'value' => $file['realname']),
+                    $file['realname'] . '.' . $format);
+            serendipity_updateSingleMediaProperty(  $item_id,
+                    array('property' => 'TITLE', 'property_group' => 'base_property', 'value' => $file['realname']),
+                    $file['realname'] . '.' . $format); // TITLE is either '', 'ALL', or 'internal'
+                    // And keep in mind that field names are case-insensitive.. but in this case there should be no confusion, since the only other value I found is: 'Title' with a subgroup 'XMP' is in group 'base_metadata'.
+
             $file['newformat'] = $format;
             // replace newfilename occurrences in entries oldDir is build inside that function
             if (false === serendipity_moveMediaInEntriesDB(null, $newDir, 'file', null, $file, $debug)) {
@@ -5156,13 +5178,19 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $serendipity['logger']->debug("$logtag PREPARED ISP/+ENTRIES newDirFile= $newDirFile");
         }
 
-        // here we need to match THUMBS too, so we do not want the extension, see detailed SELECT regex note
+        // here we need to match THUMBS too, so we do NOT want the extension, see detailed SELECT regex note
         if ($type == 'file' && $oldDir === null) {
             $_ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file['path'] . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']); // this is more exact in every case [YES!]
             // special case format change
             if ($trace[1]['function'] == 'serendipity_formatRealFile' && isset($_file['newformat'])) {
+            if ($debug) $serendipity['logger']->debug("$logtag FORMAT CHANGE by {$trace[1]['function']}: Set _file extension var to NIL for newformat= {$_file['newformat']}");
                 $_temp = $_file['extension'];
                 $_file['extension'] = null;
+                // Normally we don't have to care about THUMBs since we don't care about EXTensions.
+                // The special new FORMAT case constrains us to care about the complete thumb url string for the preg_replace. (Relative to uploads/, full in preg_replace.)
+                $format_oldthumbnail = $_file['path'] . $_file['name'] . '.' . $_file['thumbnail_name'] . '.' . $_temp;
+                $format_newthumbnail = $_file['path'] . $_file['name'] . '.' . $_file['thumbnail_name'] . '.' . $_file['newformat'];
+                if ($debug) $serendipity['logger']->debug("$logtag FORMAT REPLACE THUMBNAIL build: format_oldthumbnail=$format_oldthumbnail to format_newthumbnail=$format_newthumbnail");
             }
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file['path'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
             // [non-format] rename action
@@ -5183,25 +5211,30 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
             $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type(2)] _ispNewFile=$_ispNewFile");
         }
+
         if (isset($_temp) && isset($_file['newformat'])) {
             // port the new format into the file extension
-            $_file['extension'] = $_file['newformat'];
+            $_file['extension'] = $_file['newformat']; // also resets the null cases which were only applied for the $_isp... builds above
         }
-        // LAST paranoid check - WHILE FIXING WRONG ENTRIES LATER ON IS A HELL! :)
+
+        // LAST paranoid checks - WHILE FIXING WRONG ENTRIES LATER ON IS A HELL! :)
         // Get to know the length of file EXT
         $lex = strlen($_file['extension']);
         //  to check the oldDirFile string backwards with a flexible substr offset ending with a "dot extension"
         if ($type == 'file') {
             $_oldDirFile = ('.'.substr($oldDirFile, -$lex) != '.'.$_file['extension']) ? $oldDirFile : $_file['path'] . $_file['name'];
             $_oldDirFileWebP = $_file['path'] . '.v/' . $_file['name'];
-            // distinguish if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a filedir case, isn't it?!)
-            if (empty($serendipity['ml_type_file_is_bulkmove_event'])) {
+            // distinguish if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a 'filedir' type case, isn't it?!)
+            if (empty($serendipity['ml_type_file_is_bulkmove_event']) && !isset($file['newformat'])) {
                 $_newDirFileWebP = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NOT in case bulkmove!!
                 $serendipity['logger']->debug("$logtag RENAME case (1) RENAME VS BULKMOVE: newDir=$newDir is the new variation filename");
-            } else if ($serendipity['ml_type_file_is_bulkmove_event']) {
-                $_newDirFileWebP = $newDir. '.v/' . $_file['name']; // Yes, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
+            } else if (!empty($serendipity['ml_type_file_is_bulkmove_event'])) {
+                $_newDirFileWebP = $newDir . '.v/' . $_file['name']; // Yes, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
                 $serendipity['logger']->debug("$logtag RE-MOVE case (2) BULKMOVE VS RENAME: newDir=$newDir is the new variation directory location == ${newDir}.v/${_file['name']}");
                 unset($serendipity['ml_type_file_is_bulkmove_event']);
+            } else if (empty($serendipity['ml_type_file_is_bulkmove_event']) && isset($file['newformat'])) {
+                $_newDirFileWebP = $_file['path'] . '.v/' . $_file['name']; // Actually there is no need to set this variable, since not used when a format change applies! (Just done to clear things up!)
+                $serendipity['logger']->debug("$logtag Format case (3): _newDirFileWebP=${_file['path']}.v/${_file['name']} w/o real application!");
             } else {
                 echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> Building _newDirFileWebP variable for Bulkmove vs Rename mismatch failed.</span>'."\n";
                 if (isset($serendipity['ml_type_file_is_bulkmove_event'])) unset($serendipity['ml_type_file_is_bulkmove_event']);
@@ -5217,9 +5250,11 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             }
             $_newDirFileWebP = $newDir . '.v/' . $_file['name'];
         }
-        // Prepare variations for replace w/o thumb and extension to match all possible occurrences
-        $oldDirFileWebP = $_oldDirFileWebP;
-        $newDirFileWebP = $_newDirFileWebP;
+        if (!isset($file['newformat'])) {
+            // Prepare variations for replace w/o thumb and extension to match all possible occurrences
+            $oldDirFileWebP = $_oldDirFileWebP;
+            $newDirFileWebP = $_newDirFileWebP;
+        }
 
         if ($debug) {
             $serendipity['logger']->debug(" - - - "); // spacer
@@ -5227,8 +5262,10 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS _ispOldFile=$_ispOldFile to _ispNewFile=$_ispNewFile");
             $serendipity['logger']->debug("$logtag REPLACE ENTRIES  _oldDirFile=    $_oldDirFile");
             $serendipity['logger']->debug("$logtag REPLACE ENTRIES   newDirFile=    $newDirFile");
-            $serendipity['logger']->debug("$logtag REPLACE VARIATION oldDirFileWebP=$oldDirFileWebP");
-            $serendipity['logger']->debug("$logtag REPLACE VARIATION newDirFileWebP=$newDirFileWebP");
+            if (!empty($newDirFileWebP)) {
+                $serendipity['logger']->debug("$logtag REPLACE VARIATION oldDirFileWebP=$oldDirFileWebP");
+                $serendipity['logger']->debug("$logtag REPLACE VARIATION newDirFileWebP=$newDirFileWebP");
+            }
             $serendipity['logger']->debug(" - - - "); // spacer
         }
 
@@ -5236,11 +5273,12 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             if ($_temp != $_file['extension']) {
                 // port the old extension back for the special cased media object links
                 $_file['extension'] = $_temp;
+                unset($_temp);
             }
         }
 
         // Check for special cased media object links
-        $oldLink = $_file['name'] . '.' . $_file['extension']; // basename of oldlink with extension
+        $oldLink = $_file['name'] . '.' . $_file['extension']; // basename of oldlink, including EXTension
         $newLink = str_replace($_oldDirFile, $newDirFile, $oldLink);
         $newLinkHTTPPath = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_file['path'] . $newLink;
         $link_pattern = '<a class="block_level opens_window" href="' . $newLinkHTTPPath . '" title="' . $oldLink . '"><!-- s9ymdb:' . $_file['id'] . ' -->' . $oldLink . '</a>';
@@ -5248,15 +5286,25 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 
         if (is_array($entries) && !empty($entries)) {
 
-            // What we really need here, is oldDirFile w/o EXT to newDirFile w/o EXT, while in need to match the media FILE and the media THUMB
+            // What we really need here, is oldDirFile w/o EXT to newDirFile w/o EXT, while in need to match the media FILE and the media THUMB,
+            // match the special cased new Format (thumbnail) case
             // and the full ispOldFile path to the full ispNewFile path for IMAGESELECTORPLUS inserts.
             foreach($entries AS $entry) {
                 $id = serendipity_db_escape_string($entry['id']);
                 $entry['body']     = preg_replace('@(src=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $entry['body']);
+            if (!isset($file['newformat'])) {
                 $entry['body']     = preg_replace('@(srcset=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFileWebP, $entry['body']);
+            } else if (isset($format_oldthumbnail) && isset($format_newthumbnail)) {
+                $entry['body']     = preg_replace('@(srcset=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_newthumbnail, $entry['body']);
+            }
                 $entry['body']     = preg_replace('@(<!--quickblog:)(\\|?(plugin|none|js|_blank)?\\|?)(' . preg_quote($_ispOldFile) . ')@', '\1\2' . $_ispNewFile, $entry['body']);
+
                 $entry['extended'] = preg_replace('@(src=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $_oldDirFile) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFile, $entry['extended']);
+            if (!isset($file['newformat'])) {
                 $entry['extended'] = preg_replace('@(srcset=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFileWebP) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newDirFileWebP, $entry['extended']);
+            } else if (isset($format_oldthumbnail) && isset($format_newthumbnail)) {
+                $entry['extended'] = preg_replace('@(src=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_newthumbnail, $entry['extended']);
+            }
                 $entry['body']     = str_replace($link_pattern, $link_replace, $entry['body']);
                 $entry['extended'] = str_replace($link_pattern, $link_replace, $entry['extended']);
 
@@ -5329,7 +5377,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_FILE_RENAME_ENTRY, count($entries)) . "</span>\n";
             }
         }
-    } // entries OR staticpages end
+    } // entries end
     else {
         if (($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') && $serendipity['production'] && is_string($entries)) {
             // NOTE: keep "error" somewhere in echoed string since that is the matching JS condition
