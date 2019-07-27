@@ -5012,7 +5012,26 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
         // check if serendipity_updateImageInDatabase() has run with success
         if (isset($uID) && $uID > 0) {
 
-            //hold for 1
+            // Hook into STATICPAGE for the FORMAT renaming regex replacements, like samples in serendipity_renameRealFileName(), serendipity_renameRealFileDir()
+            $renameValues   = array(array(
+                'from'      => $oldDir,
+                'to'        => $newDir,
+                'fromThumb' => str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $infileThumb),
+                'toThumb'   => str_replace($serendipity['serendipityPath'] . $serendipity['uploadPath'], '', $outfileThumb),
+                'haswebp'   => false,
+                'chgformat' => true,
+                'oldDir'    => $oldDir,
+                'newDir'    => $newDir,
+                'format'    => $format,
+                'thumb'     => $file['thumbnail_name'],
+                'fthumb'    => $file['thumbnail_name'],
+                'type'      => 'filedir',/* Does not matter if filedir or file type case! */
+                'item_id'   => $item_id,
+                'file'      => $file,
+                'debug'     => $debug,
+                'dbginfo'   => $trace[0]['function'] . ': Port format values to staticpage changes ~5042.'
+            ));
+            serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
             // renaming filenames has to update mediaproperties, if set
             serendipity_updateSingleMediaProperty(  $item_id,
@@ -5224,18 +5243,19 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
         if ($type == 'file') {
             $_oldDirFile = ('.'.substr($oldDirFile, -$lex) != '.'.$_file['extension']) ? $oldDirFile : $_file['path'] . $_file['name'];
             $_oldDirFileWebP = $_file['path'] . '.v/' . $_file['name'];
-            // distinguish if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a 'filedir' type case, isn't it?!)
+            // DISTINGUISH if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a 'filedir' type case, isn't it?!)
             if (empty($serendipity['ml_type_file_is_bulkmove_event']) && !isset($file['newformat'])) {
                 $_newDirFileWebP = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NOT in case bulkmove!!
                 $serendipity['logger']->debug("$logtag RENAME case (1) RENAME VS BULKMOVE: newDir=$newDir is the new variation filename");
             } else if (!empty($serendipity['ml_type_file_is_bulkmove_event'])) {
-                $_newDirFileWebP = $newDir . '.v/' . $_file['name']; // Yes, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
+                $_newDirFileWebP = $newDir . '.v/' . $_file['name']; // YES, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
                 $serendipity['logger']->debug("$logtag RE-MOVE case (2) BULKMOVE VS RENAME: newDir=$newDir is the new variation directory location == ${newDir}.v/${_file['name']}");
                 unset($serendipity['ml_type_file_is_bulkmove_event']);
             } else if (empty($serendipity['ml_type_file_is_bulkmove_event']) && isset($file['newformat'])) {
                 $_newDirFileWebP = $_file['path'] . '.v/' . $_file['name']; // Actually there is no need to set this variable, since not used when a format change applies! (Just done to clear things up!)
                 $serendipity['logger']->debug("$logtag Format case (3): _newDirFileWebP=${_file['path']}.v/${_file['name']} w/o real file application!");
             } else {
+                // unknown fallback cse
                 echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> Building _newDirFileWebP variable for Bulkmove vs Rename mismatch failed.</span>'."\n";
                 if (isset($serendipity['ml_type_file_is_bulkmove_event'])) unset($serendipity['ml_type_file_is_bulkmove_event']);
                 return false;
