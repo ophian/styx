@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Extend database entries replace matches for media properties format changes
+
   * Fix serendipity_formatRealFile() result set handles for correct IMAGE libs
 
   * Fix a strange issue with the WYSIWYG-CKEditor and selecting a single image
