@@ -5023,14 +5023,12 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
                 'oldDir'    => $oldDir,
                 'newDir'    => $newDir,
                 'format'    => $format,
-                'thumb'     => $file['thumbnail_name'],
-                'fthumb'    => $file['thumbnail_name'],
-                'type'      => 'filedir',/* Does not matter if filedir or file type case! */
+                'type'      => 'filedir',
                 'item_id'   => $item_id,
                 'file'      => $file,
                 'debug'     => $debug,
                 'dbginfo'   => $trace[0]['function'] . ': Port format values to staticpage changes ~5042.'
-            ));
+            ));/* Does not matter if filedir or file type case is used ! */
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
             // renaming filenames has to update mediaproperties, if set
