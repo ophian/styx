@@ -46,7 +46,7 @@ function serendipity_plugin_api_frontend_header($event_name, &$bag, &$eventData,
         if (typeof Modernizr == 'object') {
             if (Modernizr.on) {
               Modernizr.on('webp', function(result) {
-                if (!result) { $('a.serendipity_image_link').on( "mouseenter mouseleave", function() { $(this).attr('href', $(this).data('fallback')); }); }
+                if (!result) { (function($) { $('a.serendipity_image_link').on( "mouseenter mouseleave", function() { $(this).attr('href', $(this).data('fallback')); }); }) };
               });
             }
         }
