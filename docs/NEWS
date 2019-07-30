@@ -10,9 +10,6 @@ Version 3.0-Dev ()
     moment this rare case issue, which somehow removes the <picture> element,
     is resolved by adding a surrounding div container.
 
-  * Fix backend pluginmanager non-POSTED 'authorid' update_plugin_owner update
-    on moving plugins.
-
   * Removed old ChangeLog entries below the Styx 2.1 Development to the
     NEWS_OLD file.
 
@@ -225,6 +222,9 @@ Version 3.0-Dev ()
 
 Version 2.9.1-dev ()
  ------------------------------------------------------------------------
+
+  * Fix backend pluginmanager non-POSTED 'authorid' update_plugin_owner update
+    on moving plugins.
 
   * Fix SQL check for maintenance Image Sync option 4: "convert" thumb prefix
     name to not fetch empty thumbnail field names.
