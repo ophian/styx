@@ -4312,11 +4312,11 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $_ispOldFile = $oldfile; // this is more exact in every case [YES!]
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . (($_file['extension']) ? '.'.$_file['extension'] : '');
             $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
-            $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type] _ispNewFile=$_ispNewFile");
+            if ($debug) { $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type] _ispNewFile=$_ispNewFile"); }
         } else {
             $_ispOldFile = $ispOldFile;
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadHTTPPath'] . $newDirFile . (($_file['extension']) ? '.'.$_file['extension'] : '');
-            $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type(2)] _ispNewFile=$_ispNewFile");
+            if ($debug) { $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type(2)] _ispNewFile=$_ispNewFile"); }
         }
         // LAST paranoid check - WHILE FIXING WRONG ENTRIES LATER ON IS A HELL! :)
         // Get to know the length of file EXT
