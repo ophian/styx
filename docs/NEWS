@@ -1,7 +1,7 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Fix some remaing unchecked images API debug logger object treats
+  * Fix some remaining unchecked images API debug logger object treats
 
   * Extend database entries replace matches for media properties format changes
 
