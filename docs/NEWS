@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix some remaing unchecked images API debug logger object treats
+
   * Extend database entries replace matches for media properties format changes
 
   * Fix serendipity_formatRealFile() result set handles for correct IMAGE libs
@@ -222,6 +224,8 @@ Version 3.0-Dev ()
 
 Version 2.9.1-dev ()
  ------------------------------------------------------------------------
+
+  * Fix some unchecked images API debug logger object treats
 
   * Fix backend pluginmanager non-POSTED 'authorid' update_plugin_owner update
     on moving plugins.
