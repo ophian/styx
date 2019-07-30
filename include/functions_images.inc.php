@@ -5200,14 +5200,14 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $_ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file['path'] . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']); // this is more exact in every case [YES!]
             // special case format change
             if ($trace[1]['function'] == 'serendipity_formatRealFile' && isset($_file['newformat'])) {
-            if ($debug) $serendipity['logger']->debug("$logtag FORMAT CHANGE by {$trace[1]['function']}: Set _file extension var to NIL for newformat= {$_file['newformat']}");
+            if ($debug) { $serendipity['logger']->debug("$logtag FORMAT CHANGE by {$trace[1]['function']}: Set _file extension var to NIL for newformat= {$_file['newformat']}"); }
                 $_temp = $_file['extension'];
                 $_file['extension'] = null;
                 // Normally we don't have to care about THUMBs since we don't care about EXTensions.
                 // The special new FORMAT case constrains us to care about the complete thumb url string for the preg_replace. (Relative to uploads/, full in preg_replace.)
                 $format_oldthumbnail = $_file['path'] . $_file['name'] . '.' . $_file['thumbnail_name'] . '.' . $_temp;
                 $format_newthumbnail = $_file['path'] . $_file['name'] . '.' . $_file['thumbnail_name'] . '.' . $_file['newformat'];
-                if ($debug) $serendipity['logger']->debug("$logtag FORMAT REPLACE THUMBNAIL build: format_oldthumbnail=$format_oldthumbnail to format_newthumbnail=$format_newthumbnail");
+                if ($debug) { $serendipity['logger']->debug("$logtag FORMAT REPLACE THUMBNAIL build: format_oldthumbnail=$format_oldthumbnail to format_newthumbnail=$format_newthumbnail"); }
             }
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file['path'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
             // [non-format] rename action
@@ -5226,7 +5226,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 $_file['extension'] = null;
             }
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
-            $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type(2)] _ispNewFile=$_ispNewFile");
+            if ($debug) { $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type(2)] _ispNewFile=$_ispNewFile"); }
         }
 
         if (isset($_temp) && isset($_file['newformat'])) {
@@ -5244,14 +5244,14 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             // DISTINGUISH if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a 'filedir' type case, isn't it?!)
             if (empty($serendipity['ml_type_file_is_bulkmove_event']) && !isset($file['newformat'])) {
                 $_newDirFileWebP = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NOT in case bulkmove!!
-                $serendipity['logger']->debug("$logtag RENAME case (1) RENAME VS BULKMOVE: newDir=$newDir is the new variation filename");
+                if ($debug) { $serendipity['logger']->debug("$logtag RENAME case (1) RENAME VS BULKMOVE: newDir=$newDir is the new variation filename"); }
             } else if (!empty($serendipity['ml_type_file_is_bulkmove_event'])) {
                 $_newDirFileWebP = $newDir . '.v/' . $_file['name']; // YES, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
-                $serendipity['logger']->debug("$logtag RE-MOVE case (2) BULKMOVE VS RENAME: newDir=$newDir is the new variation directory location == ${newDir}.v/${_file['name']}");
+                if ($debug) { $serendipity['logger']->debug("$logtag RE-MOVE case (2) BULKMOVE VS RENAME: newDir=$newDir is the new variation directory location == ${newDir}.v/${_file['name']}"); }
                 unset($serendipity['ml_type_file_is_bulkmove_event']);
             } else if (empty($serendipity['ml_type_file_is_bulkmove_event']) && isset($file['newformat'])) {
                 $_newDirFileWebP = $_file['path'] . '.v/' . $_file['name']; // Actually there is no need to set this variable, since not used when a format change applies! (Just done to clear things up!)
-                $serendipity['logger']->debug("$logtag Format case (3): _newDirFileWebP=${_file['path']}.v/${_file['name']} w/o real file application!");
+                if ($debug) { $serendipity['logger']->debug("$logtag Format case (3): _newDirFileWebP=${_file['path']}.v/${_file['name']} w/o real file application!"); }
             } else {
                 // unknown fallback cse
                 echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> Building _newDirFileWebP variable for Bulkmove vs Rename mismatch failed.</span>'."\n";
