@@ -1,5 +1,8 @@
 Version 2.9.1-dev ()
 
+  * Fix backend pluginmanager non-POSTED 'authorid' update_plugin_owner update
+    on moving plugins.
+
   * Fix SQL check for maintenance Image Sync option 4: "convert" thumb prefix
     name to not fetch empty thumbnail field names.
 
