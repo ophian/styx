@@ -18,16 +18,16 @@
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_RESIZE_DONE}</span>
         {/if}
         {if NOT empty($buildVariation)}
-        <h2>{$CONST.VARIATIONS|default:'Build Variations'}</h2>
+        <h2>{$CONST.SYNC_BUILD_VARIATIONS}</h2>
 
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_VARIATIONBUILDS_DONE|default:'Variations build done! You don\'t need to run this again.'}</span>
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_VARIATIONBUILDS_DONE}</span>
         {/if}
     {/if}
 {/if}
 {if NOT empty($purgedVariations)}
-    <h2>{$CONST.VARIATIONS|default:'Purged Variation files'}</h2>
+    <h2>{$CONST.SYNC_PURGED_VARIATIONS}</h2>
 
-    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_VARIATIONPURGE_DONE|default:'All Variations purged done!'}</span>
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_VARIATIONPURGE_DONE}</span>
 {/if}
 {if $case_delete}
     <h2>{$CONST.MEDIA_DELETE}</h2>

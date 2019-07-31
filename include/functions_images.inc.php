@@ -1371,7 +1371,7 @@ function serendipity_generateVariations() {
     $iteration = 1;
     echo "<ul class=\"plainList\">\n";
     foreach(range(0, $count[0], 25) AS $part) {
-        echo "<li>Image list iteration part: <b>$iteration</b> of <b>".($count[0]-$part)."</b> items in total</li>\n";
+        echo "<li>" . sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_PART, $iteration, ($count[0]-$part)) . "</li>\n";
         // we cannot use a filter extension != webp and have to sort them out latterly
         $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC');
         if (is_array($files) && !empty($files)) {
@@ -1385,7 +1385,7 @@ function serendipity_generateVariations() {
                 }
             }
         }
-        echo '<li>Iteration <b>' . $iteration . '</b> ' . DONE . ". <b>$i</b> items have been successfully created.<br>\n</li>\n";
+        echo '<li>' , sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_DONE, $iteration, DONE, $i) , "<br>\n</li>\n";
         ++$iteration;
         flush();
     }
@@ -1416,7 +1416,7 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
                         new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
                                 RecursiveIteratorIterator::CHILD_FIRST);
     echo "<section id=\"fileListing\">\n";
-    echo "<h3>WebP-Variations Image list iteration for purge request:</h3>\n";
+    echo "<h3>" . SYNC_WEBP_ITERATION_LIST_TITLE . "</h3>\n";
 
     echo "<ul class=\"plainList\">\n";
     foreach($iterator AS $dir) {
