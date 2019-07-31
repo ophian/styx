@@ -1224,6 +1224,14 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('MEDIA_EXTENSION_FAILURE', 'The uploaded file "<b>%s</b>" was identified as a mime originating "<b>%s</b>" file, with a media library database stored extension name of "<b>%s</b>". This extension name has a length format of "%s", being <b>greater</b> than the allowed max extension length of "%s" for image files. Maybe it is not in the right format for <b>web based</b> image files ("bmp", "gif", "jpg", "jpeg", "png", "tiff", "webp")?');
 @define('MEDIA_EXTENSION_FAILURE_REPAIR', 'Please change the file manually in your "uploads/" file system and run a sync for thumbnail creation in the backends "Maintenance" section afterwards, to make it available as a valid image. Deleting the file via the MediaLibrary and additionally uploading a corrected file version will do too, but it shatters the incremental ID counter of the database and is therefore not necessarily recommended.');
 
+@define('SYNC_OPTION_BUILDVARIATIONS', 'Build Image WebP-Format variations');
+@define('SYNC_OPTION_PURGEVARIATIONS', 'Purge all Image WebP-Format variations');
+@define('SYNC_BUILD_VARIATIONS', 'Build WebP-Variations');
+@define('SYNC_PURGED_VARIATIONS', 'Purged WebP-Variation files');
+@define('SYNC_WEBP_ITERATION_LIST_TITLE', 'WebP-Variations Image list iteration for purge request:');
+@define('SYNC_IMAGE_LIST_ITERATION_RANGE_PART', 'Image list iteration part: <b>%s</b> of <b>"%s"</b> items in total');
+@define('SYNC_IMAGE_LIST_ITERATION_RANGE_DONE', 'Iteration <b>%s</b> %s. <b>%s</b> items have been successfully created.');
+
 @define('PLEASESELECT', 'Please select');
 @define('EITHEROR', 'Either / Or');
 @define('FORMATS', 'Image format');
