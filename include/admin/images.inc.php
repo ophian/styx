@@ -63,6 +63,7 @@ switch ($serendipity['GET']['adminAction']) {
         }
         @ignore_user_abort();
 
+        // Keep in mind: this does not always actually mean "delete"...
         $deleteThumbs = false;
         if (isset($serendipity['POST']['deleteThumbs'])) {
             switch ($serendipity['POST']['deleteThumbs']) {
@@ -77,6 +78,9 @@ switch ($serendipity['GET']['adminAction']) {
                     break;
                 case 'build':
                     $deleteThumbs = 'variation';
+                    break;
+                case 'cleanup':
+                    $deleteThumbs = 'purge'; // delete all variations
                     break;
             }
         }
@@ -97,6 +101,13 @@ switch ($serendipity['GET']['adminAction']) {
             flush();
             break; // stop here
         }
+        // guard clause - ditto
+        if ($deleteThumbs === 'purge') {
+            $i = serendipity_purgeVariations($serendipity['serendipityPath'] . $serendipity['uploadPath']);
+            $data['purgeVariation'] = true;
+            flush();
+            break; // stop here
+        }
 
         // this is: Maintenance ML cleanup for sync
         $i = serendipity_syncThumbs($deleteThumbs);
@@ -107,6 +118,19 @@ switch ($serendipity['GET']['adminAction']) {
         $i = serendipity_generateThumbs();
         $data['print_RESIZE_DONE'] = sprintf(RESIZE_DONE, $i);
         flush();
+        break;
+
+    case 'doSyncPurgeWebP':
+        if (!serendipity_checkFormToken() || !serendipity_checkPermission('adminImagesDelete')) {
+            break;
+        }
+        $i = serendipity_purgeVariations($serendipity['serendipityPath'] . $serendipity['uploadPath'], true);
+        if ($i > 0){
+            $serendipity['upgrade_variation_done'] = false;
+            serendipity_set_config_var('upgrade_variation_done', 'false', 0);
+        }
+        $data['print_VARIATIONPURGE_DONE'] = sprintf(SYNC_DONE, $i . ' WebP');
+        $data['purgedVariations'] = true;
         break;
 
     case 'doDelete':
