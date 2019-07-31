@@ -1414,7 +1414,7 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
     $wpurges  = array();
     $iterator = new RecursiveIteratorIterator(
                         new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
-                                RecursiveIteratorIterator::CHILD_FIRST );
+                                RecursiveIteratorIterator::CHILD_FIRST);
     echo "<section id=\"fileListing\">\n";
     echo "<h3>WebP-Variations Image list iteration for purge request:</h3>\n";
 
