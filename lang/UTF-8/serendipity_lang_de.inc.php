@@ -1212,13 +1212,13 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('MEDIA_EXTENSION_FAILURE', 'Die hochgeladene Datei "<b>%s</b>" wurde als eine Mime-Ursprungsdatei "<b>%s</b>" identifiziert und in der Datenbank der Mediathek als "<b>%s</b>" Extension gespeichert. Dieser Extensions-Name hat eine Länge von "%s", und ist damit <b>größer</b> als die zulässige maximale Extensionslänge von "%s" für Bild-Dateien. Vielleicht ist es nicht das richtige Format für <b>Internet</b>-Bilddateien ("bmp", "gif", "jpg", "jpeg", "png", "tiff", "webp")?');
 @define('MEDIA_EXTENSION_FAILURE_REPAIR', 'Bitte ändern Sie die Datei manuell in Ihrem "uploads/" Dateisystem und führen anschließend eine Synchronisation zur Erneuerung der Vorschaubilder im Backend-Bereich "Wartung" durch, um sie als gültiges Bild zur Verfügung zu stellen. Das Löschen der Datei über die Mediathek und das erneute Hochladen einer korrigierten Datei reicht ebenfalls, zerschießt aber in zunehmendem Maße den inkrementellen ID-Zähler der Datenbank und wird daher nicht unbedingt empfohlen.');
 
-@define('SYNC_OPTION_BUILDVARIATIONS', 'Build Image WebP-Format variations');
-@define('SYNC_OPTION_PURGEVARIATIONS', 'Purge all Image WebP-Format variations');
-@define('SYNC_BUILD_VARIATIONS', 'Build WebP-Variations');
-@define('SYNC_PURGED_VARIATIONS', 'Purged WebP-Variation files');
-@define('SYNC_WEBP_ITERATION_LIST_TITLE', 'WebP-Variations Image list iteration for purge request:');
-@define('SYNC_IMAGE_LIST_ITERATION_RANGE_PART', 'Image list iteration part: <b>%s</b> of <b>"%s"</b> items in total');
-@define('SYNC_IMAGE_LIST_ITERATION_RANGE_DONE', 'Iteration <b>%s</b> %s. <b>%s</b> items have been successfully created.');
+@define('SYNC_OPTION_BUILDVARIATIONS', 'Erstelle alle Bild-WebP-Format-Variationen');
+@define('SYNC_OPTION_PURGEVARIATIONS', 'Lösche alle Bild-WebP-Format-Variationen');
+@define('SYNC_BUILD_VARIATIONS', 'WebP-Variations-Dateien erstellt');
+@define('SYNC_PURGED_VARIATIONS', 'WebP-Variations-Dateien gelöscht');
+@define('SYNC_WEBP_ITERATION_LIST_TITLE', 'Liste der Medien für den WebP-Variations Lösch-Request:');
+@define('SYNC_IMAGE_LIST_ITERATION_RANGE_PART', 'Durchlauf der Medienliste Part: <b>%s</b> von <b>"%s"</b> Medienabschnitten insgesamt');
+@define('SYNC_IMAGE_LIST_ITERATION_RANGE_DONE', 'Durchlauf <b>%s</b> %s. <b>%s</b> Medien wurden erfolgreich erstellt.');
 
 @define('PLEASESELECT', 'Bitte auswählen');
 @define('EITHEROR', 'Entweder / Oder');
