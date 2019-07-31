@@ -78,7 +78,7 @@
                     {if $variationTask}
                     <div class="form_radio">
                         <input id="makeVariations" name="serendipity[deleteThumbs]" type="radio" value="build"{if !$variationTask} disabled="disabled"{/if}>
-                        <label for="makeVariations">{$CONST.SYNC_OPTION_BUILDVARIATIONS|default:'Build Image WebP Format variations'}/label>
+                        <label for="makeVariations">{$CONST.SYNC_OPTION_BUILDVARIATIONS|default:'Build Image WebP Format variations'}</label>
                     </div>
                     {/if}
 
