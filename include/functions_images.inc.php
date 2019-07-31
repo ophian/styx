@@ -1397,6 +1397,68 @@ function serendipity_generateVariations() {
 }
 
 /**
+ * Delete all image WebP Variation files in the physical Media Library
+ *
+ * @return int num $items to purge/purged
+ */
+function serendipity_purgeVariations($path = null, $doPurge = false) {
+    global $serendipity;
+
+    if (empty($serendipity['useWebPFormat']) || empty($path)) {
+        return;
+    }
+    if ($doPurge && !serendipity_checkPermission('adminImagesDirectories')) {
+        return;
+    }
+    $path = rtrim($path, '/');
+    $i=0;
+    $wpurges = array();
+    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST );
+    echo "<section id=\"fileListing\">\n";
+    echo "<h3>WebP-Variations Image list iteration for purge request:</h3>\n";
+
+    echo "<ul class=\"plainList\">\n";
+    foreach ( $iterator as $dir ) {
+        if ($dir->isDir()) {
+            if ($dir->getFilename() == '.v') {
+                // this now are all .v/ directories
+                $files = array();
+                $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS), RecursiveIteratorIterator::SELF_FIRST);
+                foreach($files AS $fileinfo) {
+                    if ($fileinfo->getExtension() == 'webp') {
+                        if (!$doPurge) {
+                            print('<li>' . $fileinfo->__toString() . '</li>' . PHP_EOL); // OK
+                            $wpurges[] = $fileinfo->__toString();
+                        } else {
+                            unlink($fileinfo->__toString());
+                        }
+                        ++$i;
+                    }
+                }
+            }
+        } else {
+            // void
+        }
+    }
+    echo "</ul>\n";
+
+    if (!empty($wpurges) && !$doPurge) {
+        $data['purge_webp_list'] = true;
+        $token = serendipity_setFormToken('url');
+        echo '<form id="purge_webp_images" method="get">
+                <div class="form_buttons">
+                  <a class="button_link icon_link" href="serendipity_admin.php?serendipity[adminModule]=maintenance">'.BACK.'</a>
+                  <a class="button_link state_submit icon_link" href="serendipity_admin.php?'.$token.'&amp;serendipity[adminModule]=media&amp;serendipity[adminAction]=doSyncPurgeWebP">'.DUMP_IT.'</a>
+                </div>
+              </form>
+';
+    }
+
+    echo "</section>\n";
+    return $i;
+}
+
+/**
  * Creates thumbnails for all images in the upload dir
  *
  * @access public
