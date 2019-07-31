@@ -80,6 +80,11 @@
                         <input id="makeVariations" name="serendipity[deleteThumbs]" type="radio" value="build"{if !$variationTask} disabled="disabled"{/if}>
                         <label for="makeVariations">{$CONST.SYNC_OPTION_BUILDVARIATIONS|default:'Build Image WebP Format variations'}</label>
                     </div>
+                    {else}
+                    <div class="form_radio">
+                        <input id="makeVariations" name="serendipity[deleteThumbs]" type="radio" value="cleanup">
+                        <label for="makeVariations">{$CONST.SYNC_OPTION_PURGEVARIATIONS|default:'Purge all Image WebP Format variations'}</label>
+                    </div>
                     {/if}
 
                     <div id="iconvert_info" class="comment_status additional_info">

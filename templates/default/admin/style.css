@@ -424,6 +424,9 @@ progress {
 .plainList .halflinespacer {
     line-height: .5;
 }
+#fileListing .plainList {
+    font-size: smaller;
+}
 
 /* ICON FONT: http://fortawesome.github.com/Font-Awesome/ */
 @font-face {

@@ -7,7 +7,7 @@
     {if !$perm_adminImagesSync}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.PERM_DENIED}</span>
     {else}
-        {if empty($convertThumbs) AND empty($buildVariation)}
+        {if empty($convertThumbs) AND empty($buildVariation) AND empty($purgeVariation)}
         <h2>{$CONST.SYNCING}</h2>
 
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_SYNC_DONE}</span>
@@ -23,6 +23,11 @@
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_VARIATIONBUILDS_DONE|default:'Variations build done! You don\'t need to run this again.'}</span>
         {/if}
     {/if}
+{/if}
+{if NOT empty($purgedVariations)}
+    <h2>{$CONST.VARIATIONS|default:'Purged Variation files'}</h2>
+
+    <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_VARIATIONPURGE_DONE|default:'All Variations purged done!'}</span>
 {/if}
 {if $case_delete}
     <h2>{$CONST.MEDIA_DELETE}</h2>
