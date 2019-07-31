@@ -1399,7 +1399,7 @@ function serendipity_generateVariations() {
 /**
  * Delete all image WebP Variation files in the physical Media Library
  *
- * @return int num $items to purge/purged
+ * @return int num $i(tems) to purge/purged
  */
 function serendipity_purgeVariations($path = null, $doPurge = false) {
     global $serendipity;
@@ -1413,7 +1413,9 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
     $path = rtrim($path, '/');
     $i=0;
     $wpurges = array();
-    $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS), RecursiveIteratorIterator::CHILD_FIRST );
+    $iterator = new RecursiveIteratorIterator(
+                        new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
+                                RecursiveIteratorIterator::CHILD_FIRST );
     echo "<section id=\"fileListing\">\n";
     echo "<h3>WebP-Variations Image list iteration for purge request:</h3>\n";
 
@@ -1423,7 +1425,9 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
             if ($dir->getFilename() == '.v') {
                 // this now are all .v/ directories
                 $files = array();
-                $files = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS), RecursiveIteratorIterator::SELF_FIRST);
+                $files = new RecursiveIteratorIterator(
+                                new RecursiveDirectoryIterator($dir),
+                                        RecursiveIteratorIterator::SELF_FIRST);
                 foreach($files AS $fileinfo) {
                     if ($fileinfo->getExtension() == 'webp') {
                         if (!$doPurge) {
@@ -1443,7 +1447,6 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
     echo "</ul>\n";
 
     if (!empty($wpurges) && !$doPurge) {
-        $data['purge_webp_list'] = true;
         $token = serendipity_setFormToken('url');
         echo '<form id="purge_webp_images" method="get">
                 <div class="form_buttons">
