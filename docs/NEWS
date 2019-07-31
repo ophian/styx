@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add counterpart function to the "Build WebP Image Variations" Maintenance
+    MediaLibrary Synchronizer, to delete all WebP-Format Variations at once.
+
   * Fix some remaining unchecked images API debug logger object treats
 
   * Extend database entries replace matches for media properties format changes
