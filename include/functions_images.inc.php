@@ -1410,9 +1410,8 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
     if ($doPurge && !serendipity_checkPermission('adminImagesDirectories')) {
         return;
     }
-    $path = rtrim($path, '/');
-    $i=0;
-    $wpurges = array();
+    $path     = rtrim($path, '/');
+    $wpurges  = array();
     $iterator = new RecursiveIteratorIterator(
                         new RecursiveDirectoryIterator($path, RecursiveDirectoryIterator::SKIP_DOTS),
                                 RecursiveIteratorIterator::CHILD_FIRST );
@@ -1420,7 +1419,7 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
     echo "<h3>WebP-Variations Image list iteration for purge request:</h3>\n";
 
     echo "<ul class=\"plainList\">\n";
-    foreach ( $iterator as $dir ) {
+    foreach($iterator AS $dir) {
         if ($dir->isDir()) {
             if ($dir->getFilename() == '.v') {
                 // this now are all .v/ directories
@@ -1430,13 +1429,12 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
                                         RecursiveIteratorIterator::SELF_FIRST);
                 foreach($files AS $fileinfo) {
                     if ($fileinfo->getExtension() == 'webp') {
+                        $wpurges[] = $fileinfo->__toString();
                         if (!$doPurge) {
                             print('<li>' . $fileinfo->__toString() . '</li>' . PHP_EOL); // OK
-                            $wpurges[] = $fileinfo->__toString();
                         } else {
                             unlink($fileinfo->__toString());
                         }
-                        ++$i;
                     }
                 }
             }
@@ -1458,7 +1456,7 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
     }
 
     echo "</section>\n";
-    return $i;
+    return count($wpurges);
 }
 
 /**
