@@ -1,6 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add full MediaActions re-naming/re-moving WebP-Variation replacement Support
+    for all database stored entries and related tables like staticpages, caches,
+    properties, etc. Keep your Plugins updated!
+
   * Add counterpart function to the "Build WebP Image Variations" Maintenance
     MediaLibrary Synchronizer, to delete all WebP-Format Variations at once.
 
