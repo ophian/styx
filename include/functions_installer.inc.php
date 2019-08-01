@@ -938,7 +938,7 @@ function serendipity_updateConfiguration() {
     // check and set image Libraries WebP file Support w/o notice
     $setWebP = serendipity_checkWebPSupport();
     if ($setWebP) {
-        serendipity_set_config_var('has_webp_support', 'true', 0);
+        serendipity_set_config_var('hasWebPSupport', 'true', 0);
         $serendipity['useWebPFormat'] = true;
     }
 
