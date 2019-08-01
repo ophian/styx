@@ -290,7 +290,7 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
                 return serendipity_get_user_var($optname, $serendipity['authorid'], $default);
             }
 
-            return $default;
+        return $default;
     }
 }
 
@@ -585,12 +585,12 @@ function serendipity_parse_sql_inserts($filename) {
     if ($fp) {
         while (!@feof($fp)) {
             $line = trim(fgets($fp, 65536));
-                if (preg_match('#^insert\s*into.*;$#i', $line)) {
-                    array_push($queries, $line);
-                }
+            if (preg_match('#^insert\s*into.*;$#i', $line)) {
+                array_push($queries, $line);
             }
         }
-        fclose($fp);
+    }
+    fclose($fp);
 
     return $queries;
 }
