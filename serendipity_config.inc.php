@@ -489,7 +489,7 @@ if (!isset($serendipity['useInternalCache'])) {
 }
 
 if (!isset($serendipity['useWebPFormat'])) {
-    $serendipity['useWebPFormat'] = serendipity_get_config_var('hasWebPSupport', 'true');
+    $serendipity['useWebPFormat'] = serendipity_get_config_var('hasWebPSupport', 'false');
 }
 
 // You can set parameters which ImageMagick should use to generate the thumbnails
