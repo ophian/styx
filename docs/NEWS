@@ -1,6 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add auto-installer check for Image Libraries WebP-file-format Support.
+    From now on you don't need to manually set this global
+    $serendipity['useWebPFormat'] variable (see notes below) on fresh installs.
+
   * Add full MediaActions re-naming/re-moving WebP-Variation replacement Support
     for all database stored entries and related tables like staticpages, caches,
     properties, etc. Keep your Plugins updated!
