@@ -935,6 +935,13 @@ function serendipity_updateConfiguration() {
         }
     }
 
+    // check and set image Libraries WebP file Support w/o notice
+    $setWebP = serendipity_checkWebPSupport();
+    if ($setWebP) {
+        serendipity_set_config_var('has_webp_support', 'true', 0);
+        $serendipity['useWebPFormat'] = true;
+    }
+
     if (IS_installed === false || serendipity_checkPermission('siteConfiguration')) {
         return serendipity_updateLocalConfig($_POST['dbName'],
                                              $_POST['dbPrefix'],
@@ -1013,6 +1020,36 @@ function serendipity_removeFiles($files = null) {
             rename($source, $target);
         }
     }
+}
+
+/**
+ * Check image libraries for PHP WebP-Format file support by used library
+ * @return bool
+ */
+function serendipity_checkWebPSupport($msg=false) {
+    global $serendipity;
+    if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
+        if (!function_exists('gd_info')) return false;
+        $gd = gd_info();
+        $webpSupport = isset($gd['WebP Support']) ? $gd['WebP Support'] : false;
+        if ($webpSupport === false && $msg) {
+            print "<b>WebP-Support</b>: Your current PHP GD Version is ' {$gd['GD Version']}' and has no WebP Support, please upgrade!<br>\n";
+        }
+    } else {
+        @exec($serendipity['convert'] . " -version", $out, $result);
+        if ($result[0] == 0) {
+            @preg_match('/ImageMagick ([0-9]+\.[0-9]+\.[0-9]+)/', $out[0], $v);
+            if (version_compare($v[1], '6.9.9') <= 0) {
+                if ($msg) {
+                    print "<b>WebP-Support</b>: Your current ImageMagick Version {$v[1]} is '6.9.9' or older, please upgrade!<br>\n";
+                }
+                return false;
+            } else {
+                $webpSupport = true;
+            }
+        }
+    }
+    return $webpSupport;
 }
 
 /**
