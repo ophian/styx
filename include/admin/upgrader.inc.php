@@ -479,6 +479,11 @@ $tasks = array(
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.0.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'The PHP recommended version for Serendipity Styx 2.8.0 is <b>PHP 7.3</b>.x. This Styx Series <b>2</b> will end here and only get security fixes as minor point releases for a short time. PLEASE NOTE: The <b>next</b> regular Serendipity Styx <b>major</b> upgrade to <b>3.0</b> requires at least <b>PHP 7.2</b> as the minimum.'),
 
+            array(  'version'   => '3.0-alpha2',
+                    'function'  => 'serendipity_checkWebPSupport',
+                    'title'     => 'Check Image Libraries for WebP file support',
+                    'desc'      => 'Sets a global variable if the PHP build-in GD-library or the used ImageMagick version were build with WebP file support. If so, and you already had it set by hand, please remove your temporary set $serendipity[\'useWebPFormat\'] variable in your serendipity_config_local.inc.php file.'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
