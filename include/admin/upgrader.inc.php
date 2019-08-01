@@ -481,6 +481,7 @@ $tasks = array(
 
             array(  'version'   => '3.0-alpha2',
                     'function'  => 'serendipity_checkWebPSupport',
+                    'arguments' => array(true),
                     'title'     => 'Check Image Libraries for WebP file support',
                     'desc'      => 'Sets a global variable if the PHP build-in GD-library or the used ImageMagick version were build with WebP file support. If so, and you already had it set by hand, please remove your temporary set $serendipity[\'useWebPFormat\'] variable in your serendipity_config_local.inc.php file.'),
 
