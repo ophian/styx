@@ -488,6 +488,10 @@ if (!isset($serendipity['useInternalCache'])) {
     $serendipity['useInternalCache'] = false;
 }
 
+if (!isset($serendipity['useWebPFormat'])) {
+    $serendipity['useWebPFormat'] = serendipity_get_config_var('hasWebPSupport', 'true');
+}
+
 // You can set parameters which ImageMagick should use to generate the thumbnails
 // by default, thumbs will get a little more brightness and saturation (modulate)
 // an unsharp-mask (unsharp)
