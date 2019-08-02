@@ -1,6 +1,11 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+---- Alpha2
+
+  * Upraise Development Alpha version to 3.0-alpha2, to allow upgrade tasks
+    and document WebP development features have more or less finalized.
+
   * Add new global $serendipity['http_accept_webp'] Variable
 
   * Add auto-installer check for Image Libraries WebP-file-format Support.
