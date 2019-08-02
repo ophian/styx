@@ -1,14 +1,14 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+---- Alpha2
+
   * Extend Maintenance task serendipity_generateVariations() with missing
     creating webp thumbs variations. Now we are able to delete and rebuild,
     or media variation builds for upgraders.
 
   * Fix range array for Maintenance task serendipity_generateVariations()
     in case less than particular range of 25 media items.
-
----- Alpha2
 
   * Upraise Development Alpha version to 3.0-alpha2, to allow upgrade tasks
     and document WebP development features have more or less finalized.
