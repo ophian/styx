@@ -1036,10 +1036,6 @@ function serendipity_checkWebPSupport($set=false, $msg=false) {
         if (!function_exists('gd_info')) return false;
         $gd = gd_info();
         $webpSupport = isset($gd['WebP Support']) ? $gd['WebP Support'] : false;
-        if ($set) {
-            serendipity_set_config_var('hasWebPSupport', 'true', 0);
-            $serendipity['useWebPFormat'] = true;
-        }
         if ($webpSupport === false && $msg) {
             print "<b>WebP-Support</b>: Your current PHP GD Version is ' {$gd['GD Version']}' and has no WebP Support, please upgrade!<br>\n";
         }
@@ -1054,12 +1050,12 @@ function serendipity_checkWebPSupport($set=false, $msg=false) {
                 return false;
             } else {
                 $webpSupport = true;
-                if ($set) {
-                    serendipity_set_config_var('hasWebPSupport', 'true', 0);
-                    $serendipity['useWebPFormat'] = true;
-                }
             }
         }
+    }
+    if ($webpSupport && $set) {
+        serendipity_set_config_var('hasWebPSupport', 'true', 0);
+        $serendipity['useWebPFormat'] = true;
     }
     return $webpSupport;
 }
