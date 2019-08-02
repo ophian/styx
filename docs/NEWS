@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add new global $serendipity['http_accept_webp'] Variable
+
   * Add auto-installer check for Image Libraries WebP-file-format Support.
     From now on you don't need to manually set this global
     $serendipity['useWebPFormat'] variable (see notes below) on fresh installs.
