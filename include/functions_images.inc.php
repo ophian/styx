@@ -4656,12 +4656,14 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     $oldfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file_old . (empty($file['extension']) ? '' : '.' . $file['extension']);
     // WebP case and the valid(!) paranoid case to remove and re-add the extension
     $file_new_webp = pathinfo($file_new_webp, PATHINFO_FILENAME);
-    $file_old_webp = pathinfo($file_old_webp, PATHINFO_FILENAME);
+    #$file_old_webp = pathinfo($file_old_webp, PATHINFO_FILENAME); // disabled, for the case an "example.png.jpg" file was uploaded and now renamed to "example.jpg"
     $file_rel_path = ($newDir == $file_new_webp) ? $file['path'] : $newDir; // distinguish between rename and re-move actions. covering newDir variable changes
 
     // check if the hidden dir path part is not already applied
     if (!preg_match('@\.v\/@', $file_new_webp)) {
         $file_new_webp = '.v/' . $file_new_webp;
+    }
+    if (!preg_match('@\.v\/@', $file_old_webp)) {
         $file_old_webp = '.v/' . $file_old_webp;
     }
     $relnewfilewebp = $file_rel_path . $file_new_webp;
