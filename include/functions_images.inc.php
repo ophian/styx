@@ -1378,11 +1378,11 @@ function serendipity_generateVariations() {
         if (is_array($files) && !empty($files)) {
             foreach($files AS $f => $file) {
                 if (!in_array($file['extension'], ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) continue;
-                $infile  = $outfile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
+                $infile    = $outfile   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
-                $newfile = serendipity_makeImageVariationPath($outfile, 'webp');
+                $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
                 $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
-                $result  = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
+                $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
                 if ($result !== false && is_array($result) && $result[0] == 0) {
                     serendipity_convertToWebPFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true);
                     ++$i;
