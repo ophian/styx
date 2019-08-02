@@ -1370,7 +1370,8 @@ function serendipity_generateVariations() {
     $i = 0;
     $iteration = 1;
     echo "<ul class=\"plainList\">\n";
-    foreach(range(0, $count[0], 25) AS $part) {
+    $parts = ($count[0] > 25) ? range(0, $count[0], 25) : $count;
+    foreach($parts AS $part) {
         echo "<li>" . sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_PART, $iteration, ($count[0]-$part)) . "</li>\n";
         // we cannot use a filter extension != webp and have to sort them out latterly
         $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC');
