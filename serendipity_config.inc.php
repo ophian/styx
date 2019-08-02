@@ -488,6 +488,11 @@ if (!isset($serendipity['useInternalCache'])) {
     $serendipity['useInternalCache'] = false;
 }
 
+// Does the clients browser accept webp?
+if (!isset($serendipity['http_accept_webp'])) {
+    $serendipity['http_accept_webp'] = (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') >= 0) ? true : false;
+}
+
 if (!isset($serendipity['useWebPFormat'])) {
     $serendipity['useWebPFormat'] = serendipity_get_config_var('hasWebPSupport', 'false');
 }
