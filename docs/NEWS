@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix range array for Maintenance task serendipity_generateVariations()
+    in case less than particular range of 25 media items.
+
 ---- Alpha2
 
   * Upraise Development Alpha version to 3.0-alpha2, to allow upgrade tasks
