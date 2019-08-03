@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix spamblock plugin for non-GD captchas with upcoming PHP 7.4
+
 ---- Alpha2
 
   * Extend Maintenance task serendipity_generateVariations() with missing
