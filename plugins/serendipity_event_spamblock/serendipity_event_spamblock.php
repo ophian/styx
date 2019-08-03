@@ -21,11 +21,11 @@ class serendipity_event_spamblock extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Sebastian Nohn, Grischa Brockhaus, Ian Styx');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.3.2',
+            'serendipity' => '2.3.1',
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.21');
+        $propbag->add('version',       '2.22');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
