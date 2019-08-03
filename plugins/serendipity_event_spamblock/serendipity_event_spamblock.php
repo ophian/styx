@@ -21,9 +21,9 @@ class serendipity_event_spamblock extends serendipity_event
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Sebastian Nohn, Grischa Brockhaus, Ian Styx');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.3.1',
+            'serendipity' => '2.3.2',
             'smarty'      => '3.1.0',
-            'php'         => '5.3.0'
+            'php'         => '7.0.0'
         ));
         $propbag->add('version',       '2.21');
         $propbag->add('event_hooks',    array(
@@ -1320,7 +1320,7 @@ class serendipity_event_spamblock extends serendipity_event
                     if (serendipity_userLoggedIn() && $this->inGroup()) {
                         return true;
                     }
-                    $_show_captcha = $show_captcha ? $show_captcha : ($captchas && (@$serendipity['GET']['subpage'] == 'adduser' || @$serendipity['POST']['subpage'] == 'adduser'));
+                    $_show_captcha = $show_captcha ?? ($captchas && (@$serendipity['GET']['subpage'] == 'adduser' || @$serendipity['POST']['subpage'] == 'adduser'));
 
                     if ($_show_captcha) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_captcha">'."\n";
@@ -1798,7 +1798,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
         $parts = explode('_', (string)$eventData);
         if (!empty($parts[1])) {
-            $param = (int)$parts[1];
+            $param = (int)$parts[1]; // get the sessions random data string
         } else {
             $param = null;
         }
@@ -1857,7 +1857,6 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                 );
 
                 $pos_x = $pos_x + $size + 2;
-
             }
 
             if ($_captchas === 'scramble') {
@@ -1874,7 +1873,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             imagedestroy($image);
         } else {
             header('Content-Type: image/png');
-            $output_char = strtolower($_SESSION['spamblock']['captcha']{$parts[1] - 1});
+            $output_char = strtolower($_SESSION['spamblock']['captcha'][$param - 1]);
             $cap = $serendipity['serendipityPath'] . 'plugins/serendipity_event_spamblock/captcha_' . $output_char . '.png';
             if (!file_exists($cap)) {
                 $cap = S9Y_INCLUDE_PATH . 'plugins/serendipity_event_spamblock/captcha_' . $output_char . '.png';
