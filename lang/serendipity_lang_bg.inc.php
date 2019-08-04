@@ -87,6 +87,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('ADDING_IMAGE', 'Добавяне на изображение...');
 @define('THUMB_CREATED_DONE', 'Миниатюрата %s е направена.<br>Готово.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Грешка: Този файл вече съществува!');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Продължаване');
 @define('NEWSIZE', 'Нов размер: ');
 @define('RESIZE_BLAHBLAH', 'Промяна на размерите на %s');

@@ -89,6 +89,7 @@
 @define('THUMB_CREATED_DONE', '缩图建立，<br>%s 完成！');
 @define('ERROR_FILE_EXISTS_ALREADY', '错误: 文件已存在');
 @define('ERROR_UNKNOWN_NOUPLOAD', '发生错误, 文件没有上传，可能因为你的文件超过限制的大小， 请询问你的主机商或修改你的 php.ini 文件属性。');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', '继续');
 @define('NEWSIZE', '大小: ');
 @define('RESIZE_BLAHBLAH', '重设大小 %s');

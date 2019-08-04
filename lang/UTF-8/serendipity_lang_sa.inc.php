@@ -88,6 +88,7 @@
 @define('THUMB_CREATED_DONE', 'الصورة المصغرة<br>%s جاهزة');
 @define('ERROR_FILE_EXISTS_ALREADY', 'خطأ! الملف موجود مسبقاً');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'حصل خطأ غير معروف! ! ! لم يتمل رفع الملف – من الممكن أن يكون الملف أكبر من حجم الملف لمصرح برفعه ! ! ! أفحص ISP أو قم بتحرير ملف php.ini كي تسمح برفع الملفات الكبيرة');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'أكمل!');
 @define('NEWSIZE', 'المقاس الجديد: ');
 @define('RESIZE_BLAHBLAH', 'تغيير المقاييس %s');

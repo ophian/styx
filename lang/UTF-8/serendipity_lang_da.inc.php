@@ -84,6 +84,7 @@
 @define('ADDING_IMAGE', 'Tilføjet billede...');
 @define('THUMB_CREATED_DONE', 'Minibillede %s er oprettet.<br>Done.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fejl: Filen findes allerede på din maskine!');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Begynd!');
 @define('NEWSIZE', 'Ny størrelse: ');
 @define('RESIZE_BLAHBLAH', 'Ændre størrelse på %s');

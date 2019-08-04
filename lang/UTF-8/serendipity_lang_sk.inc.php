@@ -100,6 +100,7 @@ $i18n_filename_to = array (
 @define('THUMB_CREATED_DONE', 'Náhľad %s vytvorený.<br>Hotové.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Chyba: Súbor už na serveri existuje!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Neznáma chyba, súbor sa nenahral. Možným dôvodom je, že veľkosť súboru prekračuje maximálnu veľkosť povolenú serverom. Spojte sa s vaším providerom alebo upravte súbor php.ini a povolte väčšiu veľkosť.');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Vykonať!');
 @define('NEWSIZE', 'Nový rozmer: ');
 @define('RESIZE_BLAHBLAH', 'Zmeniť rozmery %s');

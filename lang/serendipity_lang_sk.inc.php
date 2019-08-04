@@ -100,6 +100,7 @@ $i18n_filename_to = array (
 @define('THUMB_CREATED_DONE', 'Náhµad %s vytvorený.<br>Hotové.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Chyba: Súbor u¾ na serveri existuje!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Neznáma chyba, súbor sa nenahral. Mo¾ným dôvodom je, ¾e veµkos» súboru prekraèuje maximálnu veµkos» povolenú serverom. Spojte sa s va¹ím providerom alebo upravte súbor php.ini a povolte väè¹iu veµkos».');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Vykona»!');
 @define('NEWSIZE', 'Nový rozmer: ');
 @define('RESIZE_BLAHBLAH', 'Zmeni» rozmery %s');

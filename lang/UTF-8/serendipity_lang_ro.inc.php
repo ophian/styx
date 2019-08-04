@@ -88,6 +88,7 @@
 @define('THUMB_CREATED_DONE', 'Miniatură %s creată.<br>Gata.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Eroare: Fişierul există deja pe calculatorul tău!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Am dat peste o eroare necunoscută, nu am încărcat fişierul. Poate că mărimea fişierului este mai mare decât maximul admis de server. Ia legătură cu ISP-ul tău sau editează fişierul php.ini pentru a permite imagini mai mari.');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Du-te!');
 @define('NEWSIZE', 'Noua mărime: ');
 @define('RESIZE_BLAHBLAH', 'Redimensionează %s');

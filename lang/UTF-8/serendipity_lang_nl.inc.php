@@ -89,6 +89,7 @@
 @define('THUMB_CREATED_DONE', 'Miniatuur %s gemaakt.<br>Gedaan.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fout: Bestand bestaat al!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Er is een onbekende fout opgetreden, het bestand is niet verzonden. Misschien is het bestand groter dan uw server toestaat. Controleer dit bij uw provider of bewerk uw php.ini zodat deze grotere bestanden toelaat.');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Uitvoeren!');
 @define('NEWSIZE', 'Nieuwe grootte: ');
 @define('RESIZE_BLAHBLAH', 'Vergroten/Verkleinen %s');

@@ -89,6 +89,7 @@ $i18n_unknown = 'tw';
 @define('THUMB_CREATED_DONE', '縮圖建立.<br>%s 完成.');
 @define('ERROR_FILE_EXISTS_ALREADY', '錯誤: 檔案已存在!');
 @define('ERROR_UNKNOWN_NOUPLOAD', '未知的錯誤發生, 檔案還沒上傳. 也許你的檔案大於限制的大小. 請詢問您的 ISP 或修改您的 php.ini 檔.');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', '繼續!');
 @define('NEWSIZE', '新大小: ');
 @define('RESIZE_BLAHBLAH', '重設大小 %s');

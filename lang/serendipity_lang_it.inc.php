@@ -88,6 +88,7 @@
 @define('THUMB_CREATED_DONE', 'Miniatura %s creata.<br>Fatto.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Errore: Il file esiste già sulla tua macchina!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Errore sconosciuto, file non inviato. Forse le dimensioni sono superiori al massimo consentito dall\'installazione del server. Chiedi al tuo provider o modifica php.ini per consentire upload più corposi.');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Vai!');
 @define('NEWSIZE', 'Nuove dimensioni: ');
 @define('RESIZE_BLAHBLAH', 'Ridimensiona %s');

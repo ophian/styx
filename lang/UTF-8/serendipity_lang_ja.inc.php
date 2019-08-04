@@ -87,6 +87,7 @@
 @define('THUMB_CREATED_DONE', 'サムネイルを作成しました。<br>%s 終了します。');
 @define('ERROR_FILE_EXISTS_ALREADY', 'エラー: ファイルはマシン上に既に存在します!');
 @define('ERROR_UNKNOWN_NOUPLOAD', '未知のエラーが生じました。ファイルはアップロードしませんでした。おそらくファイルサイズがサーバーのインストールで許可された最大サイズを超えたと思われます。ISP に確認するか、php.ini ファイルで許可されたアップロード可能な最大ファイルサイズを編集してください。');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Go!');
 @define('NEWSIZE', '新規サイズ: ');
 @define('RESIZE_BLAHBLAH', 'リサイズ %s');

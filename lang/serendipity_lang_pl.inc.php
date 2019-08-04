@@ -89,6 +89,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('THUMB_CREATED_DONE', 'Miniaturka %s stworzona.<br>Zrobione.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'B³±d: Plik znajduje siê ju¿ na Twoim serwerze!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Wyst±pi³ nieznany b³±d, plik nie zosta³ za³adowany. Byæ mo¿e konfiguracja serwera nie zezwala na przesy³anie tak du¿ych plików. Sprawd¼ to u swojego ISP lub wyedytuj odpowiednio plik php.ini (je¶li masz dostêp do konfiguracji serwera) by zezwoliæ na przesy³anie wiêkszych plików.');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Start!');
 @define('NEWSIZE', 'Nowy rozmiar: ');
 @define('RESIZE_BLAHBLAH', 'Zmieñ rozmiar: %s');

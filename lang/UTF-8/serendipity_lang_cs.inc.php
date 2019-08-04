@@ -102,6 +102,7 @@ $i18n_filename_to = array (
 @define('THUMB_CREATED_DONE', 'N?hled %s je vytvo?en.<br>Hotovo.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Chyba: Soubor u? ve va?em po??ta?i existuje!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Nezn?m? chyba, soubor nebyl nahr?n. Je mo?n?, ?e d?lka souboru p?ekra?uje maximum, povolen? serverem. Spojte se s va??m ISP nebo editujte soubor php.ini a povolte v?t?? velikost.');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'Prov?st!');
 @define('NEWSIZE', 'Nov? rozm?r: ');
 @define('RESIZE_BLAHBLAH', 'Zm?nit rozm?r %s');

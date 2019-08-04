@@ -88,6 +88,7 @@
 @define('THUMB_CREATED_DONE', 'عکس های کوچک ساخته شدند.<br>%s انجام شد.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'خطا: این فایل قبلا در سیستم وجود داشته است!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'خطای ناشناخته، فایلی بالاگذاری نشد. ممکن است که حجم فایل شما بیشتر از ماکزیمم حجم اجازه داده شده باشد. لطفا ISP یا فایل php.ini خود را چک کنید.');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'برو!');
 @define('NEWSIZE', 'سایز جدید: ');
 @define('RESIZE_BLAHBLAH', 'تغییر اندازه %s');

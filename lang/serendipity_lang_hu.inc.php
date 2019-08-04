@@ -87,6 +87,7 @@
 @define('THUMB_CREATED_DONE', 'Elõnézeti %s kép létrehozva.<br>Kész.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Hiba: A fájl már létezik a gépeden!');
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ismeretlen hiba történt, a fájl nincs feltöltve. Talán a fájl mérete nagyobb mint a szerveren beállított megengedett maximum érték. Ezt a beállítást a szerver üzemeltetõje tudja megváltoztatni.');
+@define('NOT_AVAILABLE', 'N/A'); // short!
 @define('GO', 'OK');
 @define('NEWSIZE', 'Új méret: ');
 @define('RESIZE_BLAHBLAH', 'Átméretezés %s');
