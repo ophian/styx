@@ -88,8 +88,15 @@
                             {if isset($cur_tpl.info.custom_admin_interface)}<dt class="template_admin">{$CONST.CUSTOM_ADMIN_INTERFACE}:</dt>
                             <dd>{$cur_tpl.info.custom_admin_interface}</dd>
                             {/if}{if isset($cur_tpl.info.engine)}<dt class="template_description">Engine:</dt>
-                            <dd>{$cur_tpl.info.engine}</dd>
-                            {/if}{if !empty($cur_tpl.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
+                            <dd>{$cur_tpl.info.engine}</dd>{/if}
+
+                            <dt class="template_responsive">{$CONST.RESPONSIVE|default:'Responsive'}:</dt>
+                            <dd>{if !empty($cur_tpl.info.responsive)}{$cur_tpl.info.responsive}{else}{$CONST.NOT_AVAILABLE}{/if}</dd>
+                            <dt class="template_mobile">{$CONST.MOBILE|default:'Mobile'}:</dt>
+                            <dd>{if !empty($cur_tpl.info.mobile)}{$cur_tpl.info.mobile}{else}{$CONST.NOT_AVAILABLE}{/if}</dd>
+                            <dt>&nbsp;</dt>
+
+                            {if !empty($cur_tpl.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
                             <dd>{$cur_tpl.info.summary}</dd>
                             {/if}{if !empty($cur_tpl.info.description)}<dt class="template_description">{$CONST.DESCRIPTION}:</dt>
                             <dd>{$cur_tpl.info.description}</dd>
@@ -184,8 +191,15 @@
                                     {if isset($template.info.custom_admin_interface)}<dt class="template_admin">{$CONST.CUSTOM_ADMIN_INTERFACE}:</dt>
                                     <dd>{if $template.info.custom_admin_interface}{$template.info.custom_admin_interface}{else}{$CONST.NO}{/if}</dd>
                                     {/if}{if isset($template.info.engine)}<dt class="template_description">Engine:</dt>
-                                    <dd>{$template.info.engine}</dd>
-                                    {/if}{if !empty($template.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
+                                    <dd>{$template.info.engine}</dd>{/if}
+
+                                    <dt class="template_responsive">{$CONST.RESPONSIVE|default:'Responsive'}:</dt>
+                                    <dd>{if !empty($template.info.responsive)}{$template.info.responsive}{else}{$CONST.NOT_AVAILABLE}{/if}</dd>
+                                    <dt class="template_mobile">{$CONST.MOBILE|default:'Mobile'}:</dt>
+                                    <dd>{if !empty($template.info.mobile)}{$template.info.mobile}{else}{$CONST.NOT_AVAILABLE}{/if}</dd>
+                                    <dt>&nbsp;</dt>
+
+                                    {if !empty($template.info.summary)}<dt class="template_summary">{$CONST.SUMMARY}:</dt>
                                     <dd>{$template.info.summary}</dd>
                                     {/if}{if !empty($template.info.description)}<dt class="template_description">{$CONST.DESCRIPTION}:</dt>
                                     <dd>{$template.info.description}</dd>
