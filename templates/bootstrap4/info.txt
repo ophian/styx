@@ -4,5 +4,7 @@ Date: 2019-03-25
 Require Serendipity: 2.1
 Backend: No
 Recommended: Yes
+Responsive: Yes
+Mobile: Yes
 
 Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)

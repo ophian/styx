@@ -2,6 +2,8 @@ Name: PHP Engine (Dev)
 Author: Garvin Hicking, Ian
 Date: 2019-05-18
 Require Serendipity Styx: 2.1
+Responsive: Yes
+Mobile: Yes
 
 Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
 Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
