@@ -85,7 +85,7 @@
 @define('ADDING_IMAGE', 'Bild hinzufügen ...');
 @define('THUMB_CREATED_DONE', 'Vorschau %s erstellt.<br>Fertig.');
 @define('ERROR_FILE_EXISTS_ALREADY', 'Fehler: Diese Datei existiert schon auf dem Server!');
-@define('NOT_AVAILABLE', 'N/A'); // short!
+@define('NOT_AVAILABLE', 'Unbekannt'); // short!
 @define('GO', 'Los!');
 @define('NEWSIZE', 'Neue Größe ');
 @define('RESIZE_BLAHBLAH', 'Größe von %s ändern');
