@@ -4035,19 +4035,23 @@ img.mfp-img {
         margin: 0;
         padding: 0;
         height: auto;
+        border: 1px solid #ddd;
+        border-radius: 3px;
     }
     .mediaGrid-cell {
         flex: 0 0 auto;
-        height: .75em;
-        border: 1px solid #bbb;
-        box-shadow: 1px 2px 3px #777;
+        height: .6em;
+        box-shadow: 1px 2px 3px #ccc;
         width: 1.5em;
     }
     .mediaGrid-cell.tic {
-        background-color: #3C3C3CCC;
+        background-color: #eff3f6;
+        border-right: 1px solid #ddd;
+        background-image: linear-gradient(-180deg,#fafbfc,#eff3f6 90%);
     }
     .mediaGrid-cell.tac {
-        background-color: #3e5f81;
+        background-color: #fff;
+        border-right: 1px solid #ddd;
     }
 
     .media_file.mlMidCol header,
