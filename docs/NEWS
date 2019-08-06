@@ -1,6 +1,11 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove some elder core themes to additional_themes. Adapt the maintenance
+    core themes array to now allow removing these themes:
+        'blue', 'carl_contest', 'competition', 'contest',
+        'default-rtl', 'default-xml', 'idea', 'kubrick'.
+
   * Extend theme info properties with a responsive and a mobile flag to get
     rid or extend "Recommended" in future.
     Already use these new properties with the main core themes.
