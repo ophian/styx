@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add htmlarea CKE config new figure/figcaption elements to the ACF
+    extraAllowedContent string to support this for display and saving!
+
   * Add new picture element to the frontends style_fallback stylesheet to get
     around some odd issues with commented image floats.
 
