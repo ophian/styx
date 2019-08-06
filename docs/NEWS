@@ -1,5 +1,7 @@
 Version 2.9.1-dev ()
 
+  * Fix MediaLibrary media rename allowance for non-images like media objects
+
   * Fix some unchecked images API debug logger object treats
 
   * Fix backend pluginmanager non-POSTED 'authorid' update_plugin_owner update
