@@ -12,9 +12,8 @@ include S9Y_INCLUDE_PATH . 'include/admin/import.inc.php';
 $data['importMenu'] = ob_get_contents();
 ob_end_clean();
 
-$keepthemes = [ '2k11', '2styx', 'blue','bootstrap4', 'bulletproof', 'carl_contest', 'clean-blog',
-            'competition', 'contest', 'default', 'default-php', 'default-rtl', 'default-xml',
-            'idea', 'kubrick', 'next', 'skeleton', 'timeline' ];
+$keepthemes = [ '2k11', '2styx', 'bootstrap4', 'bulletproof', 'clean-blog',
+                'default', 'default-php', 'next', 'skeleton', 'timeline' ];
 $keepevplugins = [ 'bbcode', 'changelog', 'emoticate', 'entryproperties', 'mailer', 'modemaintain',
             'nl2br', 'plugup', 's9ymarkup', 'spamblock', 'spartacus', 'xhtmlcleanup' ];
 $keepsbplugins = [ 'archives', 'authors', 'calendar', 'categories', 'comments', 'entrylinks',
