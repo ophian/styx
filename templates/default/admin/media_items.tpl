@@ -171,7 +171,7 @@
                 <ul class="media_file_actions actions plainList clearfix">
                     <li><a class="media_show_info button_link" href="#media_file_meta_{$file.id}" title="{$CONST.SHOW_METADATA}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.SHOW_METADATA}</span></a></li>
                 {if $file.is_editable}
-                    {if $file.is_image AND NOT $file.hotlink AND $media.resetperm}
+                    {if NOT $file.hotlink AND $media.resetperm}
 
                     <li><button class="media_rename button_link" type="button" title="{$CONST.MEDIA_RENAME}" data-fileid="{$file.id}" data-filename="{$file.name|escape:javascript}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_RENAME}</span></button></li>
                     {/if}
