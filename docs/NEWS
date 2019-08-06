@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add new picture element to the frontends style_fallback stylesheet to get
+    around some odd issues with commented image floats.
+
   * Remove some elder core themes to additional_themes. Adapt the maintenance
     core themes array to now allow removing these themes:
         'blue', 'carl_contest', 'competition', 'contest',
