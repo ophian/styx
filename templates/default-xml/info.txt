@@ -1,7 +1,0 @@
-Name: XML Engine (Dev)
-Author: Garvin Hicking, Ian
-Date: 2018-09-05
-Require Serendipity: 2.0.99
-
-Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
-Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
