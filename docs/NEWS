@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix MediaLibrary media rename allowance for non-images like media objects
+
   * Remove some elder core themes to additional_themes. Adapt the maintenance
     core themes array to now allow removing these themes:
         'blue', 'carl_contest', 'competition', 'contest',
