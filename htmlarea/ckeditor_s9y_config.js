@@ -1,6 +1,6 @@
 /**
  * @fileOverview The Serendipity CKEDITOR custom config file:
- *               ckeditor_s9y_config.js, v. 1.22, last modified 2019-06-26 by Ian Styx
+ *               ckeditor_s9y_config.js, v. 1.23, last modified 2019-08-06 by Ian Styx
  */
 
 /**
@@ -60,6 +60,7 @@ CKEDITOR.editorConfig = function( config ) {
         Set placeholder tag cases - elements [attributes]{styles}(classes) to protect ACF removements.
           - Allowed <mediainsert>, <gallery>, <media> tags (imageselectorplus galleries) - which tells ACF to not touch the code!
           - Allowed <picture> element and the <source> tag for viewport client access - which tells ACF to not touch the code!
+          - Allowed <figure> styles and classes, <figcaption> classes for image comments
           - Allowed <div> is a need for Media Library inserts - which tells ACF to not touch the code!
           - Allowed <p> custom classes - to easier style certain paragraphs!
           - Allowed <ul> listing for styles and classes and <span> to make life a bit easier!
@@ -68,7 +69,7 @@ CKEDITOR.editorConfig = function( config ) {
           - Allow <pre[*attributes](*classes)> for custom attributes/classes in code blocks
     */
     // protect
-    config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);p(*);ul{*}(*);a[*](*);span[*]{*}(*);picture;source[*]{*}(*);img[height,width];pre[*](*);';
+    config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);script[*]{*}(*);audio[*]{*}(*);div[*]{*}(*);p(*);ul{*}(*);a[*](*);span[*]{*}(*);figure{*}(*);figcaption(*);picture;source[*]{*}(*);img[height,width];pre[*](*);';
     // Do not use auto paragraphs, added to these allowed tags (only!). Please regard that this was marked deprecated by CKE 4.4.5, but is a need for (our use of) extraAllowedContent - check this again by future versions!
     config.autoParagraph = false; // defaults(true)
 
