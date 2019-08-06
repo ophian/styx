@@ -11,6 +11,10 @@ input[type="button"], input[type="checkbox"] {
     width: auto;
 }
 
+picture {
+    display: block;
+}
+
 #serendipity_error_top {
     position: relative;
     top: 0;
