@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add default figure/figcaption stylings to the style_default stylesheet
+
   * Add new picture element to the frontends style_fallback stylesheet to get
     around some odd issues with commented image floats.
 
