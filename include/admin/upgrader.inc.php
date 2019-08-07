@@ -490,6 +490,11 @@ $tasks = array(
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.3.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'The recommended and required PHP version for Serendipity Styx 3.0-alpha3+ will probably be <b>PHP 7.3</b>.x. Make sure to upgrade until then.'),
 
+            array(  'version'   => '3.0-alpha3',
+                    'type'      => 'CONFIGURATION_NOTICE',
+                    'title'     => '<b>CONFIGURATION_NOTICE:</b> "Build WebP Image Variations" Maintenance MediaLibrary Synchronizer task available',
+                    'desc'      => 'Maybe you haven\'t_noticed yet: In the Maintenance MediaLibrary Synchronizer task box you are able to automatically run a WebP-Variation format upgrade task for your existing MediaLibrary images once. After that you\'ll have the counterpart function available, that lets you delete all WebP-Variations. And so forth.'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
