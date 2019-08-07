@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix 2k11/next theme styles for "flexed" <hr/> element lines and in-bound
+    galleries display(s) under certain conditions.
+
   * Remove long deprecated and with PHP7.4 removed get/set magic_quotes_runtime
     calls in bundled Pear libs (HTTP/Request2, Cache/Lite).
 
