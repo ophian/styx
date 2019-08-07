@@ -1032,7 +1032,8 @@ details summary {
 
 .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
   border: 1px solid #aaa;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  display: inline-table; }
 
 .serendipity_imageComment_center, .serendipity_imageComment_left, .serendipity_imageComment_right {
   height: auto;
