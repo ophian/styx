@@ -769,6 +769,11 @@ pre .geshi {
     border: 1px solid #aaa;
 }
 
+.serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
+  border: 1px solid #aaa;
+  box-sizing: border-box;
+  display: inline-table; }
+
 .plain-images .serendipity_imageComment_txt {
     background: #ddd;
 }
