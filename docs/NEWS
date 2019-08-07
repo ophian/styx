@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove long deprecated and with PHP7.4 removed get/set magic_quotes_runtime
+    calls in bundled Pear libs (HTTP/Request2, Cache/Lite).
+
   * Add new picture element to the frontends style_fallback stylesheet to get
     around some odd issues with commented image floats.
 
