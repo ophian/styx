@@ -1,5 +1,8 @@
 Version 2.9.1-dev ()
 
+  * Fix 2k11/next theme styles for "flexed" <hr/> element lines and in-bound
+    galleries display(s) under certain conditions.
+
   * Add default figure/figcaption stylings to the style_default stylesheet
 
   * Add htmlarea CKE config new figure/figcaption elements to the ACF
