@@ -11,6 +11,20 @@ input[type="button"], input[type="checkbox"] {
     width: auto;
 }
 
+figure {
+	text-align: center;
+	border: solid 1px #ccc;
+	border-radius: 2px;
+	background: rgba(0,0,0,0.05);
+	padding: 10px;
+	margin: 10px 20px;
+	display: inline-block;
+}
+
+figure > figcaption {
+	text-align: center;
+}
+
 #serendipity_error_top {
     position: relative;
     top: 0;
