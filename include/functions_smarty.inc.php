@@ -345,8 +345,8 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
     $old_var['skip_smarty_hooks']     = $serendipity['skip_smarty_hooks'] ?? null;
     $serendipity['skip_smarty_hooks'] = $params['skip_smarty_hooks'];
 
-    $old_var['skip_smarty_hook']     = $serendipity['skip_smarty_hook'] ?? null;
-    $serendipity['skip_smarty_hook'] = $params['skip_smarty_hook'];
+    $old_var['skip_smarty_hook']      = $serendipity['skip_smarty_hook'] ?? null;
+    $serendipity['skip_smarty_hook']  = $params['skip_smarty_hook'];
 
     foreach($restore_var_GET_keys AS $key) {
         if (!empty($params[$key])) {
@@ -845,7 +845,7 @@ function &serendipity_smarty_printComments($params, $template) {
     }
 
     $params['limit'] = isset($params['limit']) ? (int)$params['limit'] : null;
-    $params['order'] = isset($params['order']) ?? '';
+    $params['order'] = $params['order'] ?? '';
 
     $comments = serendipity_fetchComments($params['entry'], $params['limit'], 'co.id ' . $params['order']);
 
