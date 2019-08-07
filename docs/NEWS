@@ -1,8 +1,6 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Add default figure/figcaption stylings to the style_default stylesheet
-
   * Add new picture element to the frontends style_fallback stylesheet to get
     around some odd issues with commented image floats.
 
@@ -266,6 +264,8 @@ Version 3.0-Dev ()
 
 Version 2.9.1-dev ()
  ------------------------------------------------------------------------
+
+  * Add default figure/figcaption stylings to the style_default stylesheet
 
   * Add htmlarea CKE config new figure/figcaption elements to the ACF
     extraAllowedContent string to support this for display and saving!
