@@ -175,7 +175,8 @@ $stack = array();
 serendipity_plugin_api::hook_event('backend_templates_fetchlist', $stack);
 $themes = serendipity_fetchTemplates();
 $data['templates'] = array();
-$data['recommended_templates'] = array();
+$core_templates = ['2k11', '2styx', 'bootstrap4', 'bulletproof', 'clean-blog', 'default', 'default-php', 'next', 'skeleton', 'timeline'];
+$data['core_templates'] = array();
 
 foreach($themes AS $theme) {
     $stack[$theme] = serendipity_fetchTemplateInfo($theme);
@@ -249,8 +250,8 @@ foreach($stack AS $theme => $info) {
         $data['templates'][$theme]['unmetRequirements'] = sprintf(UNMET_REQUIREMENTS, implode(', ', $unmetRequirements));
     }
 
-    if (!empty($info['recommended'])) {
-        $data['recommended_templates'][$theme] = $data['templates'][$theme];
+    if (in_array($theme, $core_templates)) {
+        $data['core_templates'][$theme] = $data['templates'][$theme];
         if ($theme != $serendipity['template'] && $theme != $serendipity['template_backend']) {
             unset($data['templates'][$theme]);
         }
@@ -262,12 +263,12 @@ $data['cur_tpl_backend'] = $data['templates'][$serendipity['template_backend']];
 $data['urltoken']        = serendipity_setFormToken('url');
 
 unset($data['templates'][$serendipity['template']]);
-if ($serendipity['template'] != $serendipity['template_backend'] && isset($data['recommended_templates'][$serendipity['template_backend']]) && isset($data['templates'][$serendipity['template_backend']])) {
+if ($serendipity['template'] != $serendipity['template_backend'] && isset($data['core_templates'][$serendipity['template_backend']]) && isset($data['templates'][$serendipity['template_backend']])) {
     // when we could not unset a template because it is a backend template, and when that template is also a recommended template, then it will now
     // be in recommended and in the normal template list. We just detected that and have to remove it
     unset($data['templates'][$serendipity['template_backend']]);
 }
-unset($data['recommended_templates'][$serendipity['template']]);
+unset($data['core_templates'][$serendipity['template']]);
 
 echo serendipity_smarty_showTemplate('admin/templates.inc.tpl', $data);
 

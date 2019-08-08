@@ -230,9 +230,9 @@
             </li>
         {/function}
 
-        <h2>{$CONST.RECOMMENDED}</h2>
+        <h2>{$CONST.CORE_THEMES}</h2>
         <ul class="plainList">
-        {foreach $recommended_templates AS $template}
+        {foreach $core_templates AS $template}
             {if $template@key == $cur_template_backend AND isset($cur_tpl_backend.info.modul) AND $cur_tpl_backend.info.modul|lower == 'backend'}{continue}{/if}
             {templateBlock template=$template key=$template@key}
         {/foreach}
