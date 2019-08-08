@@ -1182,6 +1182,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('HTML_COMMENTS', 'Allow HTML comments');
 @define('HTML_COMMENTS_DESC', 'If the WYSIWYG option in personal preferences is set true, you may additionally allow tag-restricted HTML comments and "pre/code" tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
 
+@define('CORE_THEMES', 'Styx Core Themes');
 @define('THEMEMANAGER', 'Theme Manager Clearance Spot');
 @define('THEMEMANAGER_ZOMB_OK', 'Well done! Old themes purged!');
 @define('THEMEMANAGER_LOCALTHEMES', 'Check old local themes');
