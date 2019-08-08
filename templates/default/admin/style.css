@@ -3351,6 +3351,11 @@ input[name="serendipity[filter][fileCategory]"] {
   top: 0;
   padding: 0 8px;
   box-sizing: border-box; }
+  .mfp-container figure{
+    text-align: initial;
+    border: initial;
+    background: initial;
+    padding: initial; }
 
 .mfp-container:before {
   content: '';
