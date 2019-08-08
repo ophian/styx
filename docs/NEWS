@@ -16,8 +16,8 @@ Version 3.0-Dev ()
         'blue', 'carl_contest', 'competition', 'contest',
         'default-rtl', 'default-xml', 'idea', 'kubrick'.
 
-  * Extend theme info properties with a responsive and a mobile flag to get
-    rid or extend "Recommended" in future.
+  * Extend theme info properties with a "Responsive" and a "Mobile" parameter
+    flag to get rid or extend "Recommended" in future.
     Already use these new properties with the main core themes.
 
   * Fix spamblock plugin for non-GD captchas with upcoming PHP 7.4
