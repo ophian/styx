@@ -3,7 +3,6 @@ Author: Tom Sommer, Ian Styx
 Date: 2019-05-18
 Require Serendipity: 2.0
 Backend: Yes
-Recommended: Yes
 Responsive: Yes
 Mobile: Yes
 

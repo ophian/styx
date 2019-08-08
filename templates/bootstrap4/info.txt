@@ -3,7 +3,6 @@ Author: Matthias Mees
 Date: 2019-03-25
 Require Serendipity: 2.1
 Backend: No
-Recommended: Yes
 Responsive: Yes
 Mobile: Yes
 

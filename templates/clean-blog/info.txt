@@ -3,6 +3,5 @@ Author: S9y theme by Don Chambers. Original bootstrap theme by Iron Summit Media
 Date: 2019-03-25
 Require Serendipity: 2.0
 Backend: No
-Recommended: Yes
 Responsive: Yes
 Mobile: Yes
