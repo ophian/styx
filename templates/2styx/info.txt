@@ -1,5 +1,5 @@
 Name: Styx
-Author: Ian
+Author: Ian Styx
 Date: 2019-02-03
 Require Serendipity: 2.0
 Backend: Yes
