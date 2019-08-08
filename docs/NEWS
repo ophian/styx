@@ -1,6 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove theme "Recommended" parameter option. This now is replaced and
+    declared by/as a "Core Themes" block in the backends theme list.
+    Please remove the "Recommended" info parameter option in custom themes.
+
   * Remove long deprecated and with PHP7.4 removed get/set magic_quotes_runtime
     calls in bundled Pear libs (HTTP/Request2, Cache/Lite).
 
