@@ -1201,7 +1201,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('THEMEMANAGER_ZOMB_OK', 'Well done! Old themes purged!');
 @define('THEMEMANAGER_LOCALTHEMES', 'Check old local themes');
 @define('THEMEMANAGER_SUBMIT', 'Purge selected themes');
-@define('THEMEMANAGER_INFO', 'Multi-select and purge old theme zombies. Make me happy and delete this old crap! :) If you ever need it again just load it with Spartacus, to get the last maintained fresh version. On the other hand, don\'t do this when having changed anything within such theme without having a backup!');
+@define('THEMEMANAGER_INFO', 'Multi-select and purge old theme zombies. Make Styx happy and delete this old crap! :) If you ever need it again just load it with Spartacus, to get the last maintained fresh version. On the other hand, don\'t do this when having changed anything within such theme without having a backup!');
 
 @define('GALLERY_ORIENTATION', 'Gallery Orientation');
 @define('GALLERY_ORIENTATION_PERCOL', 'Thumb item order per <b>column</b>, arranged vertical (recommended). No size restriction!');
