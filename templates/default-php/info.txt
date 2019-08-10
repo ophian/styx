@@ -1,7 +1,7 @@
 Name: PHP Engine (Dev)
 Author: Garvin Hicking, Ian Styx
 Date: 2019-05-18
-Require Serendipity Styx: 2.1
+Require Serendipity: 2.1
 Responsive: Yes
 Mobile: Yes
 
