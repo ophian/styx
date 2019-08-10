@@ -239,9 +239,9 @@ foreach($stack AS $theme => $info) {
            }
         }
         // this is Spartacus only "blog.s9y.org" templates case
-        if (!empty($info['demoURL'])) {
-            $data['templates'][$theme]['demoURL'] = $info['demoURL'];
-        }
+        #if (!empty($info['demoURL'])) {
+        #    $data['templates'][$theme]['demoURL'] = $info['demoURL'];
+        #}
     }
 
     $unmetRequirements = array();
