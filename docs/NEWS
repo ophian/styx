@@ -2,9 +2,9 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
   * Partly Sync [s9y] - Add voku/simple-cache for internal (entries SQL query)
-    cache as a new bundled-lib to replace the old PEAR Cache/Lite library, which
-    is now removed. This new approach will allow to cache with memcached and redis
-    Memory caches, instead of just only in the filesystem. See:
+    cache as a new bundled-lib to replace the old PEAR Cache/Lite library.
+    This new approach will allow to cache with memcached and redis Memory
+    caches, instead of just only in the filesystem. See:
         Configuration :: General Settings : Enable caching (EXPERIMENTAL)
     option.
 
