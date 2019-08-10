@@ -888,6 +888,7 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
         serendipity_plugin_api::hook_event('backend_approvecomment', $rs);
     }
 
+    serendipity_cleanCache();
     if ($flip) {
         if ($moderate) return -1; // comment set to pending
         if (!$moderate) return 1; // comment set to approved
@@ -1126,6 +1127,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         fclose($fp);
     }
 
+    serendipity_cleanCache();
     return $cid;
 }
 
