@@ -5,7 +5,7 @@ Version 3.0-Dev ()
     cache as a new bundled-lib to replace the old PEAR Cache/Lite library, which
     is now removed. This new approach will allow to cache with memcached and redis
     Memory caches, instead of just only in the filesystem. See:
-        Configuration::General Setting: Enable caching (EXPERIMENTAL)
+        Configuration :: General Settings : Enable caching (EXPERIMENTAL)
     option.
 
     This moves the cache methods into functions.inc.php, resulting in this API:
