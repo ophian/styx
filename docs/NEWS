@@ -1,6 +1,22 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Partly Sync [s9y] - Add voku/simple-cache for internal (entries SQL query)
+    cache as a new bundled-lib to replace the old PEAR Cache/Lite library, which
+    is now removed. This new approach will allow to cache with memcached and redis
+    Memory caches, instead of just only in the filesystem. See:
+        Configuration::General Setting: Enable caching (EXPERIMENTAL)
+    option.
+
+    This moves the cache methods into functions.inc.php, resulting in this API:
+      + serendipity_setupCache() (used internally)
+      + serendipity_cleanCache()
+      + serendipity_cacheItem($key, $item, $ttl = 3600)
+      + serendipity_getCacheItem($key)
+
+    Real databases like Maria/MySQL/PostgreSQL internally have their own and
+    probably much more efficient caching mechanisms.
+
   * Remove theme "Recommended" parameter option. This now is replaced and
     declared by/as a "Core Themes" block in the backends theme list.
     Please remove the "Recommended" info parameter option in custom themes.
