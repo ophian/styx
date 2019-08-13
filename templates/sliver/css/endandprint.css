@@ -1,0 +1,124 @@
+
+/* ==|== non-semantic helper classes ========================================
+   Please define your styles before this section.
+   ========================================================================== */
+
+/* For image replacement */
+.ir { border: 0; font: 0/0 a; text-shadow: none; color: transparent; background-color: transparent; }
+
+/* Hide from both screenreaders and browsers: h5bp.com/u */
+.hidden { display: none !important; visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
+.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible { visibility: hidden; }
+
+/* Contain floats: h5bp.com/q */
+.clearfix:before, .clearfix:after { content: ""; display: table; }
+.clearfix:after { clear: both; }
+.clearfix { *zoom: 1; }
+
+/* ==|== media queries ======================================================
+   EXAMPLE Media Query for Responsive Design.
+   This example overrides the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+@media only screen and (min-width: 35em) {
+    /* Style adjustments for viewports that meet the condition */
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+@media (max-width: 1330px) {
+    #blog { margin-bottom: 1em; }
+    #blog.twobar-left,
+    #blog.twobar-right { max-width: 80%; }
+}
+
+@media (max-width: 1200px) {
+    #blog { margin-bottom: 1em; }
+    #blog.twobar-left,
+    #blog.twobar-right { max-width: 75%; }
+}
+
+@media (max-width: 926px) {
+    #blog {
+        margin-bottom: 1em;
+        box-shadow: 1px 2px 3px #CCC;
+    }
+    #blog.twobar-left,
+    #blog.twobar-right { margin-left: 0; max-width: 100%; }
+    #sidebar_middle:not(.sbjs),
+    #sidebar_left.sbmoveright { margin-left: 0; }
+    .serendipity_entry p, .serendipity_image_left, .serendipity_image_right { clear: both; }
+    .serendipity_image_left, .serendipity_image_right { float: none; }
+    a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".gif"] {
+        background: none transparent;
+    }
+}
+
+@media (max-width: 602px) {
+    #blog {
+        margin-bottom: 1em;
+        box-shadow: 1px 2px 3px #CCC;
+    }
+    #blog.twobar-left,
+    #blog.twobar-right { margin-left: 0; max-width: 100%; }
+    #sidebar_middle, #sidebar_right, #sidebar_left {
+        margin-left: 0;
+        margin-right: 1%;
+        width: 49%;
+    }
+    .serendipity_imageComment_left,
+    .serendipity_imageComment_right,
+    .serendipity_imageComment_center {
+        width: 100% !important; /* overwrite dix inline styles to downsize responsive */
+    }
+}
+
+
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+  *, *:before, *:after { background: transparent !important; color: #000 !important; box-shadow: none !important; text-shadow: none !important; }
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  /*a[href]:after { content: " (" attr(href) ")"; }*/
+  a[href]:after { content: ""; } /* sliver does not want to print links */
+  /*abbr[title]:after { content: " (" attr(title) ")"; }*/
+  abbr[title]:after { content: ""; } /* sliver does not want to print links */
+  a[href^="#"]:after, a[href^="javascript:"]:after { content: ""; }/* Do not show links that are fragment identifiers, or use the `javascript:` pseudo protocol */
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; } /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+  body { margin: 0; }
+  pre { white-space: pre; white-space: pre-wrap; white-space: pre-line; white-space: -pre-wrap; white-space: -o-pre-wrap; white-space: -moz-pre-wrap; white-space: -hp-pre-wrap; border: 0 none; }
+  #wrapper { overflow: visible; min-width:auto; width: auto; margin: 0; float: none; border: 0; font-size: 100%; }
+  #sitenav,#header,#footer,
+  #sidebar_top,#sidebar_left,#sidebar_middle,#sidebar_right,#sidebar_footer,
+  #center,.serendipity_entryFooter,.serendipity_section_commentform,.serendipity_karmaVoting ,.serendipity_findmore { display: none; }
+  #blog, #blogone, #blog.onebar-left, #blog.twobar-left, #blog.onebar-right, #blog.twobar-right,
+  #content { border: 0 none; min-width: auto; width: auto; float: none; overflow: visible; margin: 0; padding:0 0 10px 0; }
+  #footer { float: none; }
+  .serendipity_Entry_Date,.serendipity_commentBody { overflow: visible; }
+  .serendipity_entryFooter a{/*padding: 0 10px;*/}
+}
