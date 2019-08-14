@@ -1,7 +1,7 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Add Sliver to core themes
+  * Add Sliver, The Dude and Pure 2019 to core themes
 
   * Partly Sync [s9y] - Add voku/simple-cache for internal (entries SQL query)
     cache as a new bundled-lib to replace the old PEAR Cache/Lite library.
