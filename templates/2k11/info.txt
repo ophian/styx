@@ -1,4 +1,4 @@
-Name: 2k11 [ Standard ]
+Name: 2k11
 Author: Matthias Mees, Veit Lehmann
 Date: 2019-05-14
 Require Serendipity: 2.0

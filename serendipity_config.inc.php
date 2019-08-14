@@ -152,7 +152,7 @@ $serendipity['use_iframe'] = true;
 $serendipity['autolang'] = 'en';
 
 // Name of folder for the default theme, which is called the Standard Theme
-$serendipity['defaultTemplate'] = '2k11';
+$serendipity['defaultTemplate'] = 'pure';
 
 // Default backend theme
 if (!isset($serendipity['template_backend'])) {
