@@ -1,10 +1,10 @@
 Name: Pure [ Standard ]
 Author: Ian Styx
-Date: 2019-08-14
+Date: 2019-08-10
 Require Serendipity: 2.7
 Backend: No
 Responsive: Yes
 Mobile: Yes
 
-Summary: Full page modern Grid/Flexing theme. Not made for no-sidebars in desktop modes.
+Summary: Full page modern Grid/Flexing theme.
 Description: The Holy Grail of modern theme structures. Fully responsive, incremental font sizing <u>and</u> mobile friendly!
