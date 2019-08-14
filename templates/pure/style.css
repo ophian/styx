@@ -856,15 +856,57 @@ ul.staticpage_result li {
     }
 }
 @media only screen and (min-width: 1024px) {
+    #content.stretch-wide {
+        width: 49em !important;
+    }
     .newsbox legend {
         margin-left: 86%;
     }
 }
+@media only screen and (min-width: 1140px) {
+    #content.stretch-wide {
+        width: 52em !important;
+    }
+}
 @media only screen and (min-width: 1200px) {
+    #content.stretch-wide {
+        width: 54em !important;
+    }
     .newsbox legend {
         margin-left: 90%;
     }
 }
+@media only screen and (min-width: 1280px) {
+    #content.stretch-wide {
+        width: 56em !important;
+    }
+}
+@media only screen and (min-width: 1320px) {
+    #content.stretch-wide {
+        width: 60em !important;
+    }
+}
+@media only screen and (min-width: 1400px) {
+    #content.stretch-wide {
+        width: 65em !important;
+    }
+}
+@media only screen and (min-width: 1460px) {
+    #content.stretch-wide {
+        width: 70em !important;
+    }
+}
+@media only screen and (min-width: 1620px) {
+    #content.stretch-wide {
+        width: 80em !important;
+    }
+}
+@media only screen and (min-width: 1800px) {
+    #content.stretch-wide {
+        width: 90em !important;
+    }
+}
+/* extend streching content with further bigger sizes if you need it */
 
 /** Comments **/
 

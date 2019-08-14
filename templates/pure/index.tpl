@@ -72,7 +72,7 @@
     </aside>
 {/if}
 
-    <main id="content">
+    <main id="content" class="stretch{if $leftSidebarElements == 0 OR $rightSidebarElements == 0}-wide{/if}">
         {$CONTENT}
     </main>
 {if $rightSidebarElements > 0}
