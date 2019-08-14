@@ -535,13 +535,13 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
         }
         return false;
     } else {
-         // ENCRYPT
-         // $data comes as serialized RAW, while being a login credential array ...
-         // openssl_en/decrypt uses (date(BINARY), method(string from openssl_get_cipher_methods()), key(BINARY), options(INT by constants), iv(BINARY), tag(NULL returns BINARY), aad(BINARY), tag_length(INT=16))
-         // GCM runs CTR internally which requires a 16-byte counter. The IV provides 12 of those, the other 4 are an actual block-wise counter. Changing this can therefore only be detrimental to security, never better.
-         // CTR/GCM simply performs these calculations to re-generate a 12 byte IV from the given bytes
-         // The 16-byte counter is 128 bits - see block-size used, is 128 bits
-         if (function_exists('random_bytes') && function_exists('openssl_encrypt')) {
+        // ENCRYPT
+        // $data comes as serialized RAW, while being a login credential array ...
+        // openssl_en/decrypt uses (date(BINARY), method(string from openssl_get_cipher_methods()), key(BINARY), options(INT by constants), iv(BINARY), tag(NULL returns BINARY), aad(BINARY), tag_length(INT=16))
+        // GCM runs CTR internally which requires a 16-byte counter. The IV provides 12 of those, the other 4 are an actual block-wise counter. Changing this can therefore only be detrimental to security, never better.
+        // CTR/GCM simply performs these calculations to re-generate a 12 byte IV from the given bytes
+        // The 16-byte counter is 128 bits - see block-size used, is 128 bits
+        if (function_exists('random_bytes') && function_exists('openssl_encrypt')) {
             $tag  = null;
             $iv   = random_bytes(12); // 96 bits - (Setting of IV length for AEAD mode, the expected length is 12 bytes! No matter if GCM 128 or 256 - see upper AES and IV notes!)
             $key  = random_bytes(31); // varchar(64) field -2 = 62
