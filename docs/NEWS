@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Change Standard Core theme to Pure 2019
+
   * Add Sliver, The Dude and Pure 2019 to core themes
 
   * Partly Sync [s9y] - Add voku/simple-cache for internal (entries SQL query)
