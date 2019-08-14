@@ -458,6 +458,11 @@ $dead_files_270 = array(
     'templates/default/admin/entries_overview.inc.tpl'
 );
 
+/* A list of old or removed directories for 3.0.0 */
+$dead_dirs_300 = array(
+    $serendipity['serendipityPath'] . 'bundled-libs/paragonie/random_compat'
+);
+
 /**
  * recursive directory call to purge files and directories
  *

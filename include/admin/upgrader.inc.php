@@ -500,6 +500,13 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> New core delivered themes were added',
                     'desc'      => 'Sliver, a responsive variant of Bulletproof, "The Big Ease" Dude and Pure (2019) were newly added to core themes. The Pure theme is the new Styx Standard theme.'),
 
+            array(  'version'   => '3.0-alpha3',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'function'  => 'recursive_directory_iterator',
+                    'arguments' => array($dead_dirs_300),
+                    'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Styx removed the PHP5 random_bytes polyfill, which is now part of PHP7.',
+                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_300) . '</pre>'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
