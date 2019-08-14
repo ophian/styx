@@ -495,6 +495,11 @@ $tasks = array(
                     'title'     => '<b>CONFIGURATION_NOTICE:</b> "Build WebP Image Variations" Maintenance MediaLibrary Synchronizer task available',
                     'desc'      => 'Maybe you haven\'t_noticed yet: In the Maintenance MediaLibrary Synchronizer task box you are able to automatically run a WebP-Variation format upgrade task for your existing MediaLibrary images once. After that you\'ll have the counterpart function available, that lets you delete all WebP-Variations. And so forth.'),
 
+            array(  'version'   => '3.0-alpha3',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> New core delivered themes were added',
+                    'desc'      => 'Sliver, a responsive variant of Bulletproof, "The Big Ease" Dude and Pure (2019) were newly added to core themes. The Pure theme is the new Styx Standard theme.'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
