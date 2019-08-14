@@ -1,0 +1,10 @@
+Name: The Dude
+Author: Ian Styx
+Date: 2019-03-18
+Require Serendipity: 2.7
+Backend: No
+Responsive: Yes
+Mobile: Yes
+
+Summary: Full screen 2-sidebar modern grid/flexible system theme, with a browsers content size up to 96 percent; Without any default javascript, ie. for sizing, or global navigation.
+Description: Responsive <u>and</u> fully mobile friendly!
