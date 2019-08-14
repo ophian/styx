@@ -13,7 +13,7 @@ define('S9Y_I_WARNING', 0);
 define('S9Y_I_SUCCESS', 1);
 
 if (empty($_SESSION['install_token'])) {
-    $_SESSION['install_token'] = (PHP_MAJOR_VERSION < 7) ? sha1(uniqid('', true)) : bin2hex(random_bytes(32)); // = strlen 20=40 like sha1 0R 32=64
+    $_SESSION['install_token'] = bin2hex(random_bytes(32)); // = strlen 20=40 like sha1 0R 32=64
 }
 
 // smartification needs to pull everything first for installation and db purposes
