@@ -13,7 +13,8 @@ $data['importMenu'] = ob_get_contents();
 ob_end_clean();
 
 $keepthemes = [ '2k11', '2styx', 'bootstrap4', 'bulletproof', 'clean-blog',
-                'default', 'default-php', 'next', 'skeleton', 'sliver', 'timeline' ];
+                'default', 'default-php', 'dude', 'next', 'pure', 'skeleton',
+                'sliver', 'timeline' ];
 $keepevplugins = [ 'bbcode', 'changelog', 'emoticate', 'entryproperties', 'mailer', 'modemaintain',
             'nl2br', 'plugup', 's9ymarkup', 'spamblock', 'spartacus', 'xhtmlcleanup' ];
 $keepsbplugins = [ 'archives', 'authors', 'calendar', 'categories', 'comments', 'entrylinks',
