@@ -460,7 +460,8 @@ $dead_files_270 = array(
 
 /* A list of old or removed directories for 3.0.0 */
 $dead_dirs_300 = array(
-    $serendipity['serendipityPath'] . 'bundled-libs/paragonie/random_compat'
+    $serendipity['serendipityPath'] . 'bundled-libs/paragonie/random_compat',
+    $serendipity['serendipityPath'] . 'bundled-libs/cryptor'
 );
 
 /**
