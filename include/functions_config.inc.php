@@ -6,9 +6,6 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
-// This library exposes the CSPRNG functions added in PHP 7 for use in PHP 5 projects. Their behavior should be identical.
-require_once S9Y_PEAR_PATH . 'paragonie/random_compat/lib/random.php'; // skips automatically on PHP7+
-
 /**
  * Adds a new author account
  *
