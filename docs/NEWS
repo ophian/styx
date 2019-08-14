@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Raise minimum PHP 7.1.3 requirement to installer and config, which removes
+    the login cryptor 'aes-256-ctr' fallback class.
+
   * Add upgrade task for PHP5 random_compat retirement
 
   * Remove PHP5 fallback for install(er) token generation
