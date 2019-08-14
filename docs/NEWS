@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove PHP5 fallback for install(er) token generation
+
   * Remove bundled random_bytes() and random_int() polyfill for PHP5
 
   * Change Standard Core theme to Pure (2019)
