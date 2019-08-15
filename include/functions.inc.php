@@ -61,11 +61,7 @@ if (version_compare(PHP_VERSION, '7.3') < 0 && !function_exists('is_countable'))
  */
 function serendipity_request_object($url = '', $method = 'get', $options = array()) {
     require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
-    // The OpenSSL extension of PHP below version 5.6 does not try to use the distribution-default values for CA file / CA path
-    // when explicit ones are not provided. Thus failing, we need to reset using ssl_verify_pear.
-    if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-        $options['ssl_verify_peer'] = false;
-    }
+
     switch($method) {
         case 'get':
             $req = new HTTP_Request2($url, HTTP_Request2::METHOD_GET, $options);
@@ -118,6 +114,7 @@ function serendipity_request_object($url = '', $method = 'get', $options = array
  */
 function serendipity_request_url($uri, $method = 'GET', $contenttype = null, $data = null, $extra_options = null, $addData = null, $auth = null) {
     global $serendipity;
+
     require_once S9Y_PEAR_PATH . 'HTTP/Request2.php';
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
 
@@ -128,10 +125,7 @@ function serendipity_request_url($uri, $method = 'GET', $contenttype = null, $da
     }
     serendipity_plugin_api::hook_event('backend_http_request', $options, $addData);
     serendipity_request_start();
-    if (version_compare(PHP_VERSION, '5.6.0', '<')) {
-        // On earlier PHP versions, the certificate validation fails. We deactivate it on them to restore the functionality we had with HTTP/Request1
-        $options['ssl_verify_peer'] = false;
-    }
+
     switch(strtoupper($method)) {
         case 'GET':
             $http_method = HTTP_Request2::METHOD_GET;
