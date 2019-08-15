@@ -1448,7 +1448,8 @@ p > .serendipity_image_link {
     /* no OR one sidebar */
     body.grid-flex #content {
       margin: 1em 1em 0;
-      width: 98.5%; }
+      width: 98.5%;
+      min-width: 67vw; }
     /* no sidebars */
     body.grid-block #content {
       margin: 1em 1em 0;
@@ -1521,5 +1522,6 @@ p > .serendipity_image_link {
 @media screen and (min-width: 1400px) {
   body.grid-flex #content {
     width: 98.75%;
-    max-width: 99%; }
+    max-width: 99%;
+    min-width: 75.5vw;  }
 }
