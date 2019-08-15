@@ -17,7 +17,7 @@ Version 3.0-Dev ()
     DO NOT (!) just drop them over previous installs!
     Use the Maintenance :: "Theme Manager Clearance Spot" to fully clean up
     additional themes physically in the file system before.
-    BEFORE that, make a BACKUP COPY of personal or custom changes themes!
+    BEFORE that, make a BACKUP COPY of personal or custom changed themes!
 
   * Retire functions API REQUEST2 'ssl_verify_peer' PHP < 5.6 workaround
 
