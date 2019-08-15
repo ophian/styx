@@ -1,6 +1,24 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Upgrade Spartacus to support the NEW Styx additional_themes repository of
+    2019. To see this in action in your "Theme List", you need to enable the
+    2cd option: "Enable the use of Spartacus for fetching themes?"
+    in your Spartacus plugin configuration and reload your themes.
+
+    [HIGHLY NOTE]:
+      If you had this enabled before, you need to purge the stored cache files
+      in "templates_c/template_cache", to get the new ones (recommended!).
+      Styx will later on try to prepare an upgrade task for the upcoming
+      3.0-alpha3 revision.
+
+    All additional_themes were UPGRADED to HTML5; Fixed and basically upgraded
+    for Serendipity Styx 2.1+ revisions.
+    DO NOT (!) just drop them over previous installs!
+    Use the Maintenance :: "Theme Manager Clearance Spot" to fully clean up
+    additional themes physically in the file system before.
+    BEFORE that, make a BACKUP COPY of personal or custom changes themes!
+
   * Retire functions API REQUEST2 'ssl_verify_peer' PHP < 5.6 workaround
 
   * Retire PHP5 $HTTP_RAW_POST_DATA workaround for PHP7 php://input stream
