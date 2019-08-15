@@ -4,7 +4,6 @@
   TODO:
 
   - Perform Serendipity version checks to only install plugins available for version
-  - Allow fetching files from mirrors / different locations - don't use ViewCVS hack (revision 1.999 dumbness) (done for gitHub cases in v.2.40)
 
  ***********/
 
@@ -26,11 +25,11 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_SPARTACUS_NAME);
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Garvin Hicking, Ian');
-        $propbag->add('version',       '2.78');
+        $propbag->add('author',        'Garvin Hicking, Ian Styx');
+        $propbag->add('version',       '3.00');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.1.0',
-            'php'         => '5.3.0'
+            'serendipity' => '2.9.99',
+            'php'         => '7.0.0'
         ));
         $propbag->add('event_hooks',    array(
             'backend_plugins_fetchlist'         => true,
@@ -618,8 +617,7 @@ class serendipity_event_spartacus extends serendipity_event
         $mirrors = $this->getMirrors('xml', true);
         $custom  = $this->get_config('custommirror');
 
-        // we currently disable custom template mirrors with $type != 'template'
-        if (strlen($custom) > 2 && $custom != 'none' && $type != 'template') {
+        if (strlen($custom) > 2 && $custom != 'none') {
             $servers = explode('|', $custom);
             $cacheTimeout = 60*60*12; // XML file is cached for half a day
             $valid = false;
@@ -638,11 +636,7 @@ class serendipity_event_spartacus extends serendipity_event
             }
 
         } else {
-            if ($type == 'template') {
-                $mirror = 'https://raw.githubusercontent.com/s9y/additional_plugins/master'; // temporary fully hardcoded - stick to S9y Origin since this spares me ~50MB + .git repository
-            } else {
-                $mirror = $mirrors[$this->get_config('mirror_xml', 0)];
-            }
+            $mirror = $mirrors[$this->get_config('mirror_xml', 0)];
             if ($mirror == null) {
                 $mirror = $mirrors[0];
             }
@@ -887,12 +881,11 @@ class serendipity_event_spartacus extends serendipity_event
         $i = 0;
         $gitloc = '';
 
-        $mirror = 'https://raw.githubusercontent.com/s9y/'; // temporary hardcoded - stick to S9y Origin since this spares me ~50MB + .git repository
-        #$mirrors = $this->getMirrors('files', true);
-        #$mirror  = $mirrors[$this->get_config('mirror_files', 0)];
-        #if ($mirror == null) {
-        #    $mirror = $mirrors[0];
-        #}
+        $mirrors = $this->getMirrors('files', true);
+        $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
+        if ($mirror == null) {
+            $mirror = $mirrors[0];
+        }
 
         $custom  = $this->get_config('custommirror');
         $custom  = $custom != 'none' ? $custom : '';
@@ -955,10 +948,17 @@ class serendipity_event_spartacus extends serendipity_event
                 }
 
                 $plugname = $pluginstack[$i]['template'];
-                $pluginstack[$i]['demoURL'] = 'http://blog.s9y.org?user_template=additional_themes/' . $plugname;
-                $pluginstack[$i]['previewURL'] = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.png?revision=1.9999');
-                $preview_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.jpg?revision=1.9999');
-                if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.jpg')) {
+                #$pluginstack[$i]['demoURL'] = 'http://blog.s9y.org?user_template=additional_themes/' . $plugname;
+                $pluginstack[$i]['previewURL'] = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.png');
+
+                $preview_previewURL  = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.png');
+                $prvwebp_previewURL  = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview.webp');
+                $preview_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.jpg');
+                $prvwebp_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.webp');
+
+                if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.jpg')
+                ||  file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.webp')
+                ) {
                     $pluginstack[$i]['preview_fullsizeURL'] = $preview_fullsizeURL;
                 } else {
                     if ( ! file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname)) {
@@ -966,6 +966,22 @@ class serendipity_event_spartacus extends serendipity_event
                         if ($file) {
                             file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.jpg', $file);
                             $pluginstack[$i]['preview_fullsizeURL'] = $preview_fullsizeURL;
+
+                            $webp = @fopen($prvwebp_fullsizeURL, 'r');
+                            if ($webp) {
+                                file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.webp', $webp);
+                            }
+
+                            $ppf = @fopen($preview_previewURL, 'r');
+                            if ($ppf) {
+                                file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'_preview.png', $ppf);
+                            }
+
+                            $wpf = @fopen($prvwebp_previewURL, 'r');
+                            if ($wpf) {
+                                file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'_preview.webp', $wpf);
+                            }
+
                         } else {
                             // place an empty file, so we don't have to check the server on every load
                             file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname, $file);
@@ -989,7 +1005,7 @@ class serendipity_event_spartacus extends serendipity_event
     {
         global $serendipity;
         $gitloc  = '';
-        $cvshack = '?revision=1.9999';
+        $cvshack = '';//?revision=1.9999';
 
         switch($sub) {
             case 'plugins':
@@ -1059,14 +1075,10 @@ class serendipity_event_spartacus extends serendipity_event
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
         }
 
-        if ($sub == 'templates') {
-            $mirror = 'https://raw.githubusercontent.com/s9y/'; // temporary hardcoded - stick to S9y Origin since this spares me ~50MB + .git repository
-        } else {
-            $mirrors = $this->getMirrors('files', true);
-            $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
-            if ($mirror == null) {
-                $mirror = $mirrors[0];
-            }
+        $mirrors = $this->getMirrors('files', true);
+        $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
+        if ($mirror == null) {
+            $mirror = $mirrors[0];
         }
 
         $custom = $this->get_config('custommirror', '');
