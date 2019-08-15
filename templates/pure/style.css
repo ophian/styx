@@ -1446,6 +1446,9 @@ p > .serendipity_image_link {
       grid-template-columns: 280px 1fr 280px;
       grid-template-rows: auto 1fr auto; }
     /* no OR one sidebar */
+    /* chrome workaround */
+    body.grid-flex {
+      grid-template-rows: auto 1fr; }
     body.grid-flex #content {
       margin: 1em 1em 0;
       width: 98.5%;
