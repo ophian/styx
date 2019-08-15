@@ -12,8 +12,9 @@ Version 3.0-Dev ()
       Styx will later on try to prepare an upgrade task for the upcoming
       3.0-alpha3 revision.
 
-    All additional_themes were UPGRADED to HTML5; Fixed and basically upgraded
-    for Serendipity Styx 2.1+ revisions.
+    All additional_themes were UPGRADED to HTML5, were fixed and basically
+    upgraded for Serendipity Styx 2.1+ revisions.
+
     DO NOT (!) just drop them over previous installs!
     Use the Maintenance :: "Theme Manager Clearance Spot" to fully clean up
     additional themes physically in the file system before.
