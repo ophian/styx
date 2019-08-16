@@ -1,5 +1,7 @@
 Version 2.9.1-dev ()
 
+  * Improve Timeline theme for Smarty integer operation conditions
+
   * Fix 2k11/next theme styles for "flexed" <hr/> element lines and in-bound
     galleries display(s) under certain conditions.
 
