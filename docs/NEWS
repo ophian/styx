@@ -324,9 +324,9 @@ Version 3.0-Dev ()
 Version 2.9.1-dev ()
  ------------------------------------------------------------------------
 
-  * Fix stable Archive in the entries API, assigning wrong pagination values
-    so any Themes entry paginations got wrong start values for the current
-    page, and the page calculations for prev/next link pages.
+  * Fix optional stable Archive in the entries API, assigning wrong pagination
+    values, so that any Themes entry paginations got wrong start values for the
+    current page, and for the page calculations for prev/next link pages.
 
   * Improve Timeline theme for Smarty integer operation conditions
 
