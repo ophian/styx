@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add Core Notice upgrade task for the new themes repository, now making
+    the Serendipity Styx Edition fully independent.
+
   * Upgrade Spartacus to support the NEW Styx additional_themes repository of
     2019. To see this in action in your "Theme List", you need to enable the
     2cd option: "Enable the use of Spartacus for fetching themes?"
