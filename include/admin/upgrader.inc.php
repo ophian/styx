@@ -498,7 +498,7 @@ $tasks = array(
             array(  'version'   => '3.0-alpha3',
                     'type'      => 'TEMPLATE_NOTICE',
                     'title'     => '<b>TEMPLATE_NOTICE:</b> New core delivered themes were added',
-                    'desc'      => 'Sliver, a responsive variant of Bulletproof, "The Big Ease" Dude and Pure (2019) were newly added to core themes. The Pure theme is the new Styx Standard theme.'),
+                    'desc'      => 'Sliver, a responsive variant of Bulletproof, "The Big Ease" Dude and Pure (2019) were newly added to core themes. The Pure (2019) theme is the new Styx Standard theme.'),
 
             array(  'version'   => '3.0-alpha3',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
