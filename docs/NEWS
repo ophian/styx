@@ -1,12 +1,6 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Fix stable Archive in the entries API, assigning wrong pagination values
-    so any Themes entry paginations got wrong start values for the current
-    page, and the page calculations for prev/next link pages.
-
-  * Improve Timeline theme for Smarty integer operation conditions
-
   * Upgrade Spartacus to support the NEW Styx additional_themes repository of
     2019. To see this in action in your "Theme List", you need to enable the
     2cd option: "Enable the use of Spartacus for fetching themes?"
@@ -329,6 +323,12 @@ Version 3.0-Dev ()
 
 Version 2.9.1-dev ()
  ------------------------------------------------------------------------
+
+  * Fix stable Archive in the entries API, assigning wrong pagination values
+    so any Themes entry paginations got wrong start values for the current
+    page, and the page calculations for prev/next link pages.
+
+  * Improve Timeline theme for Smarty integer operation conditions
 
   * Fix 2k11/next theme styles for "flexed" <hr/> element lines and in-bound
     galleries display(s) under certain conditions.
