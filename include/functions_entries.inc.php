@@ -439,7 +439,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
                 if ($serendipity['GET']['page'] == $totalPages) {
                     $limit = serendipity_db_limit(0, $limit);
-                } else if ($serendipity['GET']['page'] == $totalPages - 1) {
+                } else if ($serendipity['GET']['page'] == ($totalPages - 1)) {
                     $limit = serendipity_db_limit($limit, ($totalEntries - (($totalPages -2) * $limit)) - $limit);
                 } else {
                     $limit = serendipity_db_limit(max(0, ($totalEntries - ($limit * $serendipity['GET']['page']))), $limit);
@@ -1025,6 +1025,7 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
         $fetchLimit = $serendipity['fetchLimit'];
     }
 
+    $archiveSortStable = serendipity_db_bool($serendipity['archiveSortStable']);
     $limit = (int)$fetchLimit;
     $totalPages = ceil($totalEntries / $limit);
 
@@ -1032,7 +1033,7 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
         $totalPages = 1;
     }
 
-    if (!isset($serendipity['GET']['page']) && serendipity_db_bool($serendipity['archiveSortStable']) && $serendipity['GET']['action'] != 'search') {
+    if (!isset($serendipity['GET']['page']) && $archiveSortStable && $serendipity['GET']['action'] != 'search') {
         $serendipity['GET']['page'] = $totalPages;
     } else if (!isset($serendipity['GET']['page'])) {
         $serendipity['GET']['page'] = 1;
@@ -1050,13 +1051,17 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
     $uriArguments[] = 'P%s';
     $serendipity['smarty']->assign('footer_totalEntries', $totalEntries);
     $serendipity['smarty']->assign('footer_totalPages', $totalPages);
-    if (serendipity_db_bool($serendipity['archiveSortStable']) && $serendipity['GET']['action'] != 'search') {
-        $serendipity['smarty']->assign('footer_currentPage', $totalPages - $serendipity['GET']['page']);
+    if ($archiveSortStable && $serendipity['GET']['action'] != 'search') {
+        $startPage = ($totalPages - $serendipity['GET']['page']);
+        $startPage = ($startPage == 0) ? 1 : ($startPage+1);
+        $serendipity['smarty']->assign('footer_currentPage', $startPage);
     } else {
         $serendipity['smarty']->assign('footer_currentPage', $serendipity['GET']['page']);
     }
+    $page = ($archiveSortStable && $serendipity['GET']['action'] != 'search') ? ($totalPages - ((int)$serendipity['GET']['page'] - 1)) : (int)$serendipity['GET']['page'];
+
     $serendipity['smarty']->assign('footer_pageLink', str_replace(array('%2A', '//P'), array('*', '/P'), serendipity_rewriteURL(implode('/', $uriArguments) . $suffix)));
-    $serendipity['smarty']->assign('footer_info', sprintf(PAGE_BROWSE_ENTRIES, ((serendipity_db_bool($serendipity['archiveSortStable']) && $serendipity['GET']['action'] != 'search') ?  ($totalPages - ((int)$serendipity['GET']['page'] +1)) : (int)$serendipity['GET']['page']), $totalPages, $totalEntries));
+    $serendipity['smarty']->assign('footer_info', sprintf(PAGE_BROWSE_ENTRIES, $page, $totalPages, $totalEntries));
 
     if ($serendipity['GET']['page'] < $totalPages) {
         $uriArguments = $serendipity['uriArguments'];
@@ -1065,7 +1070,7 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
         $_next = true;
     }
 
-    if (serendipity_db_bool($serendipity['archiveSortStable']) && $serendipity['GET']['action'] != 'search') {
+    if ($archiveSortStable && $serendipity['GET']['action'] != 'search') {
         $temp = $serendipity['smarty']->getTemplateVars('footer_prev_page');
         $serendipity['smarty']->assign('footer_prev_page', $serendipity['smarty']->getTemplateVars('footer_next_page'));
         $serendipity['smarty']->assign('footer_next_page', $temp);
