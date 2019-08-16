@@ -1,6 +1,6 @@
 Name: Timeline
 Author: Don Chambers
-Date: 2019-03-25
+Date: 2019-08-16
 Require Serendipity: 2.0
 Backend: No
 Responsive: Yes
