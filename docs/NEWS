@@ -1,6 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix stable Archive in the entries API, assigning wrong pagination values
+    so any Themes entry paginations got wrong start values for the current
+    page, and the page calculations for prev/next link pages.
+
   * Improve Timeline theme for Smarty mathematical conditions
 
   * Upgrade Spartacus to support the NEW Styx additional_themes repository of
