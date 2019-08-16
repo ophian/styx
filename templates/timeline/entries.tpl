@@ -283,10 +283,10 @@
             <p class="summary serendipity_center">{$footer_info}</p>
         {/if}
 
-        {if $footer_totalPages >1 }
+        {if $footer_totalPages > 1}
             <nav class="pagination">
                 {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
-                {if $footer_currentPage+3 > $footer_totalPages}
+                {if ($footer_currentPage+3) > $footer_totalPages}
                     {assign var="paginationStartPage" value="`$footer_totalPages-4`"}
                 {/if}
                 {if $paginationStartPage <= 0}
@@ -301,7 +301,7 @@
                 {if $paginationStartPage > 2}
                     &hellip;
                 {/if}
-                {section name=i start=$paginationStartPage loop=$footer_totalPages+1 max=5}
+                {section name=i start=$paginationStartPage loop=($footer_totalPages+1) max=5}
                     {if $smarty.section.i.index != $footer_currentPage}
                         <a class="btn btn-md btn-default btn-theme" href="{$smarty.section.i.index|string_format:$footer_pageLink}">{$smarty.section.i.index}</a>
                     {else}
