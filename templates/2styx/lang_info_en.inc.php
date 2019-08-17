@@ -5,7 +5,7 @@
  * Convert or save as ANSI (ISO-8859-1) or your native charset, analogue to the non-UTF-8 lang constant files.
  **/
 
-$info['theme_info_summary'] = 'The Styx Backend testing Theme';
+$info['theme_info_summary'] = 'The Styx Backend (example) default Theme';
 
 $info['theme_info_desc'] = '<u>Please Note&colon;</u> This theme has no existing frontend!<br>
 This example backend theme relegates to the Styx core backend templates in the "default/admin" subdirectory.

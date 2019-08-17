@@ -5,7 +5,7 @@
  * Convert or save as ANSI (ISO-8859-1) or your native charset
  **/
 
-$info['theme_info_summary'] = 'Das Styx Backend testing Theme';
+$info['theme_info_summary'] = 'Das Styx Backend (Beispiel) Default Theme';
 
 $info['theme_info_desc'] = '<u>ACHTUNG&colon;</u> Dieses Theme hat kein eigenes Frontend!<br>
 Dieses Backend Beispiel-Theme verweist auf die Styx Kern Backend Templates im "default/admin" Unterverzeichnis.
