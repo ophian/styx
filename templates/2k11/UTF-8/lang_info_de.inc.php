@@ -5,10 +5,10 @@
  * Convert or save as UTF-8 file without BOM.
  **/
 
-$info['theme_info_summary'] = 'Das vorherige Standard Frontend Theme bis Styx 3.0';
+$info['theme_info_summary'] = 'Das Standard Frontend Theme der Styx 2.0.x Revisions';
 
 $info['theme_info_desc'] = 'Dieses Theme definierte seit Serendipity 2.0 den Standard, der im Kern definiert und von Haus aus genutzt wurde.
-In Bezug auf die schier unendlichen Möglichkeiten von Serendipity, war es das wahrscheinlich am besten verknüpfte und verzahnte Theme,
+In Bezug auf die schier unendlichen Möglichkeiten von Serendipity, war es wahrscheinlich das am besten verknüpfte und verzahnte Theme,
 welches die meisten dieser Möglichkeiten in einfacher Weise innerhalb des eigenen Rahmens abdeckt, so dass man diese leicht durchschauen kann.<br>
 <br>
 <u><b>Eigenes Theme erstellen</b></u><br>

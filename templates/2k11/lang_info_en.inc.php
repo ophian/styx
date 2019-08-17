@@ -5,10 +5,10 @@
  * Convert or save as ANSI (ISO-8859-1) or your native charset, analogue to the non-UTF-8 lang constant files.
  **/
 
-$info['theme_info_summary'] = 'The previous Standard Frontend Theme until Styx 3.0';
+$info['theme_info_summary'] = 'The Standard Frontend Theme for Styx 2.0.x revisions';
 
 $info['theme_info_desc'] = 'Since Serendipity 2.0 this theme defined the frontend standard, defined and used by the core system.
-Regarding Serendipity Styx infinite possibilities, it probably was the currently best-concatenated and interlocked theme,
+Regarding Serendipity Styx infinite possibilities, it probably was the best-concatenated and interlocked theme,
 covering most of them as simple as possible in a wide frame, made easy to look through.<br>
 <br>
 <u><b>Theme building</b></u><br>
