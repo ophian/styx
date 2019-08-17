@@ -1,4 +1,4 @@
-{* Sliver v4 template: last modified 2019-09-13 v.4.60 - view README.md *}{if $is_embedded != true}
+{* Sliver v4 template: last modified 2019-08-13 v.4.60 - view README.md *}{if $is_embedded != true}
 <!DOCTYPE html>
 <html class="no-js" lang="{$lang}">
   <head>
