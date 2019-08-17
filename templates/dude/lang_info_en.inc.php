@@ -7,5 +7,5 @@
 
 $info['theme_info_summary'] = 'Full screen 2-sidebar modern grid/flexible system theme.';
 
-$info['theme_info_desc'] = 'Near full page, with a browsers content size up to 96 percent; Without any default javascript, ie. for responive sizing, or global navigation.
+$info['theme_info_desc'] = 'Near full page, with a browsers content size up to 96 percent; Without any default javascript, ie. for responsive sizing, or global navigation.
 But fully responsive <u>and</u> mobile friendly! A highly modern example of what is possible with the mighty of CSS. Easy to adapt and to customize.';
