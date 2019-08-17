@@ -6,5 +6,5 @@ Version: 4.60
 Responsive: Yes
 Mobile: Yes
 
-Summary: Silver (v.4.60) slivered left/right, up to 4 Sidebars responsive Coding-Theme for the Serendipity Styx Blog system (origin base&colon; "bulletproof")
-Description: Sidebars left, Sidebars right and no Sidebars via templates config. Additional middle, top and footer Sidebars via admin panels plugin section.
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
+Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
