@@ -7,12 +7,14 @@
 
 $info['theme_info_summary'] = 'The Serendipity Styx base template.';
 
-$info['theme_info_desc'] = 'A frontend theme newly revisited for Styx to make it a fully responsive (3-2-1) HTML5 theme,
+$info['theme_info_desc'] = 'A frontend theme, newly revisited for Styx to build it a fully responsive (3-2-1) HTML5 theme,
 without changing too much of the "old school" html(4) markup.<br>
-It works as a full styled fallback for the PHP and XML Engine and as a base file fallback pool for several other themes.<br><br>
-In difference to the Serendipity <b>standard</b> template(s) (earlier "bulletproof", later on "2k11") this theme is the ground system basement,
+It works as a full styled fallback for the PHP and XML Engine and as a base file fallback pool for several other themes.<br>
+<br>
+In difference to the Serendipity <b>standard</b> template(s) (earlier "bulletproof", later on "2k11", now "Pure &lsaquo; 2019 &rsaquo;") this theme is the ground system basement,
 unless special instructions (*) or internal reasons force differently, i.e. when something was searched for compile and not in your usual
-theme or the normal fallback theme cascade.<br><br>
+theme or the normal fallback theme cascade.<br>
+<br>
 <span class="footnote">[*] In mean, when no "Engine" (in info.txt) and no Serendipity stylesheet-file (style.css) is set, like for the "default-php" or "default-xml" themes.
 for the backend templates and a backup and error fallback theme.</span>';
 
