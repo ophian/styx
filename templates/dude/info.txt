@@ -6,5 +6,5 @@ Backend: No
 Responsive: Yes
 Mobile: Yes
 
-Summary: Full screen 2-sidebar modern grid/flexible system theme, with a browsers content size up to 96 percent; Without any default javascript, ie. for sizing, or global navigation.
-Description: Responsive <u>and</u> fully mobile friendly!
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
+Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
