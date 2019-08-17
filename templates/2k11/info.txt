@@ -1,10 +1,9 @@
 Name: 2k11
-Author: Matthias Mees, Veit Lehmann
-Date: 2019-05-14
+Author: Matthias Mees, Veit Lehmann, Ian Styx
+Date: 2019-08-16
 Require Serendipity: 2.0
 Responsive: Yes
 Mobile: Yes
 
 Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
 Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
-Backenddesc: THEME_INFO_BACKEND (dito)

@@ -5,18 +5,20 @@
  * Convert or save as UTF-8 file without BOM.
  **/
 
-$info['theme_info_summary'] = 'Das Styx Frontend Standard Theme';
+$info['theme_info_summary'] = 'Das vorherige Standard Frontend Theme bis Styx 3.0';
 
-$info['theme_info_desc'] = 'Dieses Theme definiert den augenblicklichen Standard, der im Serendipity Styx Kern definiert und benutzt wird.
-In Bezug auf die schier unendlichen Möglichkeiten von Serendipity, ist es das augenblicklich am besten verknüpfte und verzahnte Theme,
-welches die meisten dieser Möglichkeiten in einfacher Weise innerhalb des eigenen Rahmens abdeckt, so dass man es leicht durchschauen kann.
-<br><br>
+$info['theme_info_desc'] = 'Dieses Theme definierte seit Serendipity 2.0 den Standard, der im Kern definiert und von Haus aus genutzt wurde.
+In Bezug auf die schier unendlichen Möglichkeiten von Serendipity, war es das wahrscheinlich am besten verknüpfte und verzahnte Theme,
+welches die meisten dieser Möglichkeiten in einfacher Weise innerhalb des eigenen Rahmens abdeckt, so dass man diese leicht durchschauen kann.<br>
+<br>
 <u><b>Eigenes Theme erstellen</b></u><br>
 Kopieren Sie ein vorhandenes Theme oder fügen Sie einen neuen und eindeutigen Verzeichnisnamen in das Verzeichnis "templates/" ein, zB. "example".
-Fügen Sie eine <b>info.txt</b> Datei mit den Komponenten von 2k11 hinzu, um damit zu beginnen.
-Ändern Sie den Namen, zB. zu "mein Example" und fügen Sie das aktuelle Datum hinzu.<br>
+Fügen Sie eine/die <b>info.txt</b> Datei mit den Komponenten von 2k11 hinzu, um damit zu beginnen.
+Ändern Sie den Namen, zB. zu "mein Example" und fügen Sie das aktuelle Datum als YYYY-MM-DD hinzu.<br>
 Wenn Sie ihr neues Theme auf 2k11 zurückgreifen lassen wollen, geben Sie der info.txt Datei nun eine "Engine&colon; 2k11"-Zeile hinzu.
-Wenn Sie diese Zeile nicht nutzen, muss das eigene Theme entweder alle Template-Dateien selbst enthalten, oder ihr Theme wird auf das "Serendipity Default" Template zurückgreifen.<br><br>
+Wenn Sie diese Zeile nicht nutzen, muss das eigene Theme entweder alle Template-Dateien selbst enthalten, oder ihr Theme wird auf das "Serendipity Default" Template zurückgreifen.<br>
+<br>
 Setzen Sie ensprechende Zeilen "Require Serendipity&colon; 2.0" für eine Voraussetzung, "Backend&colon; Yes",
-wenn Sie ein eigenes Backend nutzen und "Recommended&colon; Yes", wenn Sie es zur empfohlenen Theme-Sektion hinzufügen wollen.<br><br>
+wenn Sie ein eigenes Backend nutzen und "Responsive&colon; Yes" und "Mobile&colon; Yes", wenn es den heutigen Anprüchen für responsives und mobiles Websitedesign genügt.<br>
+<br>
 Zurück in der Template-Liste, laden Sie die Seite neu und wählen Sie ihr neues Theme anhand des gegebenen Namens.';
