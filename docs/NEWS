@@ -2,7 +2,7 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
   * Changed [Default, Next and 2k11], and added Pure (2019) theme multilang
-    informations regarding the Standard Theme change.
+    info property informations regarding the Standard Theme change.
 
   * Add Core Notice upgrade task for the new themes repository, now making
     the Serendipity Styx Edition fully independent.
