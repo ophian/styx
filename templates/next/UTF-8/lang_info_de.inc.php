@@ -7,5 +7,5 @@
 
 $info['theme_info_summary'] = 'Ein "mobile first" agierendes "Nachfolge"-Template des 2k11 Frontends';
 
-$info['theme_info_desc'] = 'In Bezug auf die mehr oder weniger abgedeckten Möglichkeiten des augenblicklichen "Standard"-Themes "2k11", ist "Next" nur ein vereinfachtes Nachfolgemodell.
+$info['theme_info_desc'] = 'In Bezug auf die mehr oder weniger abgedeckten Möglichkeiten des vorherigen "Standard"-Themes "2k11", ist "Next" nur ein vereinfachtes Nachfolgemodell.
 Es ist nur <em>modernisiert</em> und <em>nachfolgend</em> im Sinne von Styling und Selektor Einstellungen.';
