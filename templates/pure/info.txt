@@ -1,4 +1,4 @@
-Name: Pure [ Standard ]
+Name: Pure [ Standard ] &lsaquo; 2019 &rsaquo;
 Author: Ian Styx
 Date: 2019-08-16
 Require Serendipity: 2.7
