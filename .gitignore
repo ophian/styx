@@ -17,3 +17,4 @@ templates/previews.sh
 *.git
 tests/phpunit.xml
 Thumbs.db
+desktop.ini
