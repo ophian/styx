@@ -330,7 +330,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('TRACKBACK_CHECKING', 'Проверка на <u>%s</u> за възможни проследявания...');
 @define('TRACKBACK_NO_DATA', 'Целта не съдържа данни');
 @define('TRACKBACK_SIZE', 'Целевият URI надвишава максималната големина на файл от %s байта.');
-@define('VIEWMODE_THREADED', 'Превключване към нишковиден изглед');
 @define('COMMENTS_VIEWMODE_THREADED', 'Нишковидно');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Последователно');
 @define('DISPLAY_COMMENTS_AS', 'Показване на коментарите:');

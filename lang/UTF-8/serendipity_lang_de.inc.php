@@ -524,7 +524,6 @@
 @define('TRACKBACK_CHECKING', 'Überprüfe <u>%s</u> auf mögliche Trackbacks ...');
 @define('TRACKBACK_NO_DATA', 'URI enthielt keine Daten');
 @define('TRACKBACK_SIZE', 'URI ist größer als die erlaubten %s Bytes.');
-@define('VIEWMODE_THREADED', 'Als Baumstruktur anzeigen');
 @define('COMMENTS_VIEWMODE_THREADED', 'Verschachtelt');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Linear');
 @define('DISPLAY_COMMENTS_AS', 'Ansicht der Kommentare: ');

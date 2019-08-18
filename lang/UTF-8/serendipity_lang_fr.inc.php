@@ -525,7 +525,6 @@
 @define('TRACKBACK_CHECKING', 'Vérifie <u>%s</u> pour des rétroliens éventuels...');
 @define('TRACKBACK_NO_DATA', 'L\'adresse cible ne contenait pas de données');
 @define('TRACKBACK_SIZE', 'L\'adresse cible dépasse la taille de %s octets.');
-@define('VIEWMODE_THREADED', 'Passer en mode vue groupée');
 @define('COMMENTS_VIEWMODE_THREADED', 'Vue groupée');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Vue non groupée');
 @define('DISPLAY_COMMENTS_AS', 'Afficher les commentaires en');

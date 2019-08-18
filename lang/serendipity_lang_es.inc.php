@@ -532,7 +532,6 @@
 @define('TRACKBACK_CHECKING', 'Comprobando <u>%s</u> para posibles referencias...');
 @define('TRACKBACK_NO_DATA', 'Destino no contenía datos');
 @define('TRACKBACK_SIZE', 'La URI de destino excedió el tamaño de fichero máximo de %s bytes.');
-@define('VIEWMODE_THREADED', 'Cambiar a vista por hilos');
 @define('COMMENTS_VIEWMODE_THREADED', 'Hilos');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Plano');
 @define('DISPLAY_COMMENTS_AS', 'Mostrar comentarios como');

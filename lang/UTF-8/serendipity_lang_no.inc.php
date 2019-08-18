@@ -521,7 +521,6 @@
 @define('TRACKBACK_CHECKING', 'Sjekker <u>%s</u> for mulige trackbacks...');
 @define('TRACKBACK_NO_DATA', 'Mål inneholdt ingen data');
 @define('TRACKBACK_SIZE', 'Mål-URI oversteg maksimum filstørrelse på %s bytes.');
-@define('VIEWMODE_THREADED', 'Bytt til trådet visning');
 @define('COMMENTS_VIEWMODE_THREADED', 'Trådet');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Lineær');
 @define('DISPLAY_COMMENTS_AS', 'Vis kommentarer som');

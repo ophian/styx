@@ -517,7 +517,6 @@
 @define('TRACKBACK_CHECKING', 'Checando <u>%s</u> por possíveis trackbacks...');
 @define('TRACKBACK_NO_DATA', 'O alvo não contém dados');
 @define('TRACKBACK_SIZE', 'URI alvo excedeu o tamanho máximo de %s bytes para um arquivo.');
-@define('VIEWMODE_THREADED', 'Alternar para exibição por discussão');
 @define('COMMENTS_VIEWMODE_THREADED', 'Discussão');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Seqüencial');
 @define('DISPLAY_COMMENTS_AS', 'Exibir comentários como');

@@ -520,7 +520,6 @@
 @define('TRACKBACK_CHECKING', 'Checker <u>%s</u> for mulige trackbacks...');
 @define('TRACKBACK_NO_DATA', 'Modstående side indeholdte inden data');
 @define('TRACKBACK_SIZE', 'Modstående URI overskred den maximale filstørrelse på %s bytes.');
-@define('VIEWMODE_THREADED', 'Skift til trådet visning');
 @define('COMMENTS_VIEWMODE_THREADED', 'Tråde');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Linear');
 @define('DISPLAY_COMMENTS_AS', 'Vis kommentarer som');
