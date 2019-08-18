@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add alpha-3 upgraders upgrade task for conditional template_cache cleanup
+
   * Fix some core and plugin occurrences of wrong set full path concat slashes
     and use the defined constant for the Smarty compile dir where appropriate.
 
