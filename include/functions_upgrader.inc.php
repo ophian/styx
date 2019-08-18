@@ -886,3 +886,23 @@ function serendipity_upgrader_move_syndication_config() {
         }
     }
 }
+
+/**
+ * Purge files in the template_cache directory per Upgrade task to allow fetching new preview images.
+ */
+function serendipity_purgeTemplatesCache($all=false) {
+    global $serendipity;
+
+    $path = $serendipity["serendipityPath"] . PATH_SMARTY_COMPILE . '/template_cache';
+    if ($all) {
+        // check Styx 3.0 current first items - the jpg file is there, all others are 3.0 dev + only
+        if (file_exists($path . '/1024px.jpg') && !file_exists($path . '/1024px_preview.png') && !file_exists($path . '/1024px.webp') && !file_exists($path . '/1024px_preview.webp')) {
+            return serendipity_removeDeadFiles_SPL($path);
+        }
+    } else {
+        //$files = scandir($path);
+        //futures
+    }
+    return false
+}
+

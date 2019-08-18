@@ -514,6 +514,12 @@ $tasks = array(
                     <p>Some, which had been worthy, because of well done structured design or laid groundwork, even got more than just a simple HTML5/CSS upgrade and are now able to act as references for theme copies, theme-dependency-childs, or easy to change to a custom user theme.</p>
                     Please, <b>carefully/b> read the regarding changelog entry for this matter and for preparations to make this available in Styx.'),
 
+            array(  'version'   => '3.0-alpha3',
+                    'function'  => 'serendipity_purgeTemplatesCache',
+                    'arguments' => array(true),
+                    'title'     => 'Automatic cleanup of "additional_themes" cached preview images',
+                    'desc'      => 'Run it, to further be able, to get a fresh build of all relevant images preview files for the themes list. (Recommended!)'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
