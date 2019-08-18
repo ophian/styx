@@ -271,8 +271,8 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('name',          PLUGIN_REMOTERSS_TITLE);
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian');
-        $propbag->add('version',       '1.25');
+        $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
+        $propbag->add('version',       '1.26');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.99',
             'smarty'      => '3.1.0',
@@ -509,7 +509,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         }
 
         if (trim($rssuri)) {
-            $feedcache = $serendipity['serendipityPath'] . 'templates_c/remoterss_cache_' . md5(preg_replace('@[^a-z0-9]*@i', '', $rssuri) . $this->get_config('template')) . '.dat';
+            $feedcache = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/remoterss_cache_' . md5(preg_replace('@[^a-z0-9]*@i', '', $rssuri) . $this->get_config('template')) . '.dat';
             if (!file_exists($feedcache) || filesize($feedcache) == 0 || filemtime($feedcache) < (time() - $cachetime)) {
                 $this->debug('Cachefile does not existing.');
                 if (!$this->urlcheck($rssuri)) {
@@ -643,7 +643,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                     // Touching the feedcache file will prevent loops of death when the RSS target is the same URI than our blog.
                     @touch($feedcache);
 
-                    require_once S9Y_PEAR_PATH . '/simplepie/SimplePie.php';
+                    require_once S9Y_PEAR_PATH . 'simplepie/SimplePie.php';
 
                     $this->debug('Running simplepie Parser');
 
