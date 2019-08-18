@@ -26,7 +26,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.00');
+        $propbag->add('version',       '3.01');
         $propbag->add('requirements',  array(
             'serendipity' => '2.9.99',
             'php'         => '7.0.0'
@@ -902,8 +902,8 @@ class serendipity_event_spartacus extends serendipity_event
 
         uksort($tree, "natcasesort");
 
-        if (! file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache')) {
-            mkdir($serendipity['serendipityPath'] . '/templates_c/template_cache');
+        if (! file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache')) {
+            mkdir($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache');
         }
 
         foreach($tree[0]['children'] AS $idx => $subtree) {
@@ -956,35 +956,35 @@ class serendipity_event_spartacus extends serendipity_event
                 $preview_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.jpg');
                 $prvwebp_fullsizeURL = $this->fixUrl($mirror . '/additional_themes/' . $gitloc . $plugname . '/preview_fullsize.webp');
 
-                if (file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.jpg')
-                ||  file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.webp')
+                if (file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.jpg')
+                ||  file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.webp')
                 ) {
                     $pluginstack[$i]['preview_fullsizeURL'] = $preview_fullsizeURL;
                 } else {
-                    if ( ! file_exists($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname)) {
+                    if ( ! file_exists($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname)) {
                         $file = @fopen($preview_fullsizeURL, 'r');
                         if ($file) {
-                            file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.jpg', $file);
+                            file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.jpg', $file);
                             $pluginstack[$i]['preview_fullsizeURL'] = $preview_fullsizeURL;
 
                             $webp = @fopen($prvwebp_fullsizeURL, 'r');
                             if ($webp) {
-                                file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'.webp', $webp);
+                                file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'.webp', $webp);
                             }
 
                             $ppf = @fopen($preview_previewURL, 'r');
                             if ($ppf) {
-                                file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'_preview.png', $ppf);
+                                file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'_preview.png', $ppf);
                             }
 
                             $wpf = @fopen($prvwebp_previewURL, 'r');
                             if ($wpf) {
-                                file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname .'_preview.webp', $wpf);
+                                file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname .'_preview.webp', $wpf);
                             }
 
                         } else {
                             // place an empty file, so we don't have to check the server on every load
-                            file_put_contents($serendipity['serendipityPath'] . '/templates_c/template_cache/'. $plugname, $file);
+                            file_put_contents($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/template_cache/'. $plugname, $file);
                         }
                     }
                 }
@@ -1018,7 +1018,7 @@ class serendipity_event_spartacus extends serendipity_event
                 break;
         }
 
-        $pdir = $this->fixUrl($serendipity['serendipityPath'] . '/' . $sub . '/');
+        $pdir = $this->fixUrl($serendipity['serendipityPath'] . $sub . '/');
         if (!is_writable($pdir)) {
             $this->outputMSG('error', sprintf(DIRECTORY_WRITE_ERROR, $pdir));
             return false;
