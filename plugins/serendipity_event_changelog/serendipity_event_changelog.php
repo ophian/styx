@@ -19,8 +19,8 @@ class serendipity_event_changelog extends serendipity_plugin
         $propbag->add('name',           PLUGIN_CHANGELOG_TITLE);
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
-        $propbag->add('author',        'Ian');
-        $propbag->add('version',       '1.33');
+        $propbag->add('author',        'Ian Styx');
+        $propbag->add('version',       '1.34');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -75,7 +75,7 @@ class serendipity_event_changelog extends serendipity_plugin
 
                         header('Content-language: en');
                         header('Content-type: text/html; charset=UTF-8');
-                        $files = glob($serendipity['serendipityPath'] . 'templates_c/logs/*.txt');
+                        $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt');
                         $files = array_combine($files, array_map("filemtime", $files));
                         $x = count($files);
                         // Whow, this took long to debug ...
@@ -120,7 +120,7 @@ class serendipity_event_changelog extends serendipity_plugin
         <span id="logview_info" class="comment_status additional_info"><?php echo sprintf(PLUGIN_CHANGELOG_TITLE_DESC, $serendipity['version']); ?></span>
 <?php
                     if (is_object(@$serendipity['logger'])) {
-                        $files = glob($serendipity['serendipityPath'] . 'templates_c/logs/*.txt');
+                        $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt');
                         // cleanup empty files automatically
                         foreach($files as $filename) {
                             if (filesize($filename) < 1) {
@@ -128,7 +128,7 @@ class serendipity_event_changelog extends serendipity_plugin
                             }
                         }
                         // do it again, Sam :)
-                        $files = glob($serendipity['serendipityPath'] . 'templates_c/logs/*.txt');
+                        $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt');
                         $files = array_combine($files, array_map("filemtime", $files));
                         array_pop($files);
                         #if (!empty($files)) print_r(array_keys($files));
