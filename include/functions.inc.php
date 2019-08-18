@@ -805,7 +805,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
     }
 
     if (isset($serendipity['dumpMail']) && $serendipity['dumpMail']) {
-        $fp = fopen($serendipity['serendipityPath'] . '/templates_c/mail.log', 'a');
+        $fp = fopen($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/mail.log', 'a');
         fwrite($fp, date('Y-m-d H:i') . "\n" . print_r($maildata, true));
         fclose($fp);
     }
@@ -1477,7 +1477,7 @@ function serendipity_initLog() {
         } else {
             $log_level = Psr\Log\LogLevel::ERROR;
         }
-        $serendipity['logger'] = new Katzgrau\KLogger\Logger($serendipity['serendipityPath'] . 'templates_c/logs', $log_level);
+        $serendipity['logger'] = new Katzgrau\KLogger\Logger($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs', $log_level);
     }
 }
 

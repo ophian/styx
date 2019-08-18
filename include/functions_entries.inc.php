@@ -835,7 +835,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
     static $log_queries = false;
 
     if ($log_queries) {
-        $fp = fopen($serendipity['serendipityPath'] . '/archives/queries.csv', 'a');
+        $fp = fopen($serendipity['serendipityPath'] . 'archives/queries.csv', 'a');
         fwrite($fp, date('Y-m-d H:i') . ';'
                     . $_SERVER['REMOTE_ADDR'] . ';'
                     . $term . "\n");

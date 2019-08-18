@@ -304,13 +304,13 @@ $tasks = array(
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_cleanUpDirectories_SPL',
-                    'arguments' => array($serendipity['serendipityPath'] . 'templates_c'),
+                    'arguments' => array($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE),
                     'title'     => 'Removal of empty directories in templates_c',
                     'desc'      => 'Purges empty Smarty (and other) directory leftovers.'),
 
             array(  'version'   => '2.1.0',
                     'function'  => 'serendipity_cleanUpOldCompilerFiles_SPL',
-                    'arguments' => array($serendipity['serendipityPath'] . 'templates_c'),
+                    'arguments' => array($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE),
                     'title'     => 'Removal of possible old Smarty2 compiler files leftovers in the root of templates_c',
                     'desc'      => ''),
 
