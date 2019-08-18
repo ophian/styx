@@ -48,6 +48,8 @@
 {elseif $is_showcomments}
     <div class="serendipity_commentsTitle">{$CONST.COMMENTS}</div>
     {serendipity_printComments entry=$entry_id}
+    {* NO popup viewmode possible without assigning/scoping entry array or assigning these variables singularly *}
+
     {if $is_comment_allowed}
         <div class="serendipity_commentsTitle">{$CONST.ADD_COMMENT}</div>
         {$COMMENTFORM}

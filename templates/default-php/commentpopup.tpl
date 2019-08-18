@@ -42,6 +42,8 @@
 
     <h3 class="popup_content serendipity_commentsTitle"><?= COMMENTS ?></h3>
 
+<?php /* NO popup viewmode possible without assigning/scoping entry array or assigning these variables singularly */ ?>
+
     <div id="serendipity_commentlist">
     <?= $GLOBALS['template']->call('printComments', array('entry' => $GLOBALS['tpl']['entry_id'])); ?>
     </div>
