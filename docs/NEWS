@@ -1,5 +1,8 @@
 Version 2.9.1-dev ()
 
+  * Fix some core and plugin occurrences of wrong set full path concat slashes
+    and use the defined constant for the Smarty compile dir where appropriate.
+
   * Fix stable Archive in the entries API, assigning wrong pagination values
     so any Themes entry paginations got wrong start values for the current
     page, and the page calculations for prev/next link pages.
