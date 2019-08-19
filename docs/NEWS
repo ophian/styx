@@ -1,4 +1,4 @@
-Version 2.9.1-dev ()
+Version 2.9.1 (2019-08-19)
 
   * Fix some core and plugin occurrences of wrong set full path concat slashes
     and use the defined constant for the Smarty compile dir where appropriate.
