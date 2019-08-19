@@ -39,8 +39,6 @@ $i18n_filename_to = array (
 @define('LOGOUT', 'Odhlásenie');
 @define('LOGGEDOUT', 'Odhlásený.');
 @define('CREATE', 'Vytvoriť');
-@define('SAVE', 'Uložiť');
-@define('NAME', 'Meno');
 @define('CREATE_NEW_CAT', 'Vytvoriť novú kategóriu');
 @define('I_WANT_THUMB', 'Chcem mať v článku náhľad.');
 @define('I_WANT_BIG_IMAGE', 'Chcem mať v článku veľký obrázok.');
@@ -963,7 +961,7 @@ $i18n_filename_to = array (
 @define('PLUGIN_DOCUMENTATION_LOCAL', 'Lokálna dokumentácia');
 @define('PLUGIN_DOCUMENTATION_CHANGELOG', 'História verzií');
 @define('SYNDICATION_PLUGIN_BIGIMG', 'Veľký obrázok');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Zobraziť (velký) obrázok na vrchu zoznamu kanálov v bočnom stĺpci, zadajte plnú alebo absolútnu URL adresu k súboru s obrázkom.');
+@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
 @define('SYNDICATION_PLUGIN_FEEDNAME', 'Zobrazené meno pre "kanál"');
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', 'Zadajte voliteľné meno pre kanál (ak je prázdne, tak je štandardne pomenovaný ako "kanál")');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', 'Zobrazované meno pre kanál s komentármi');
@@ -1074,7 +1072,6 @@ $i18n_filename_to = array (
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
 @define('SYNDICATE_THIS_BLOG', 'Subscribe');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
 @define('INSTALL_BACKENDPOPUP', 'Enable use of popup windows for the backend');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', 'stable');
@@ -1112,7 +1109,7 @@ $i18n_filename_to = array (
 @define('USERCONF_WYSIWYG_PRESET_NOCC_CKE', 'Force: CKEditor Full');
 
 @define('CATEGORY_PLUGIN_SHOWALL', 'Show a link to "All categories"?');
-@define('CATEGORY_PLUGIN_SHOWALL', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
+@define('CATEGORY_PLUGIN_SHOWALL_DESC', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
 @define('SERENDIPITY_PHPVERSION_FAIL', 'Serendipity requires a PHP version >= %2$s - you are running a lower version (%1$s) and need to upgrade your PHP version. Most providers offer you to switch to newer PHP versions through their admin panels or .htaccess directives.');
 @define('TOGGLE_VIEW', 'Switch category view mode');
 @define('PUBLISH_NOW', 'Publish this entry now (sets current time and date)');
