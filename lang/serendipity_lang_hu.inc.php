@@ -951,7 +951,7 @@
 @define('PLUGIN_DOCUMENTATION_LOCAL', 'Helyi dokumentáció');
 @define('PLUGIN_DOCUMENTATION_CHANGELOG', 'Verzió történet');
 @define('SYNDICATION_PLUGIN_BIGIMG', 'Nagy kép');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
+@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Megjelenít egy (nagy) képet az rss feed tetején, itt adhatod meg a teljes vagy abszolút útvonalat a képhez. Set to "none" to show a textlink (the old default)');
 @define('SYNDICATION_PLUGIN_FEEDNAME', 'Megjelenített név a "feed"-hez');
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', 'Add meg az egyedi nevet a feed-ekhez (alapértelmezetten "feed")');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', 'Megjelenített név a "hozzászólás" feed-hez');

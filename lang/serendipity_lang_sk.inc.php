@@ -961,7 +961,7 @@ $i18n_filename_to = array (
 @define('PLUGIN_DOCUMENTATION_LOCAL', 'Lokálna dokumentácia');
 @define('PLUGIN_DOCUMENTATION_CHANGELOG', 'História verzií');
 @define('SYNDICATION_PLUGIN_BIGIMG', 'Veµký obrázok');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
+@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Zobrazit (velký) obrázok na vrchu zoznamu kanálov v bocnom stlpci, zadajte plnú alebo absolútnu URL adresu k súboru s obrázkom. Set to "none" to show a textlink (the old default)');
 @define('SYNDICATION_PLUGIN_FEEDNAME', 'Zobrazené meno pre "kanál"');
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', 'Zadajte voliteµné meno pre kanál (ak je prázdne, tak je ¹tandardne pomenovaný ako "kanál")');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', 'Zobrazované meno pre kanál s komentármi');
