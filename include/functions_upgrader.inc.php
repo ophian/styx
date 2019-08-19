@@ -917,6 +917,7 @@ function serendipity_purgeTemplatesCache($themes=false) {
                     @unlink($path . '/' . $themename . '_preview.webp'); // the preview variation
                 }
             }
+            return true;
         }
     }
     return false;
