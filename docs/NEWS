@@ -1,7 +1,7 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Extend Zomby-Themes Maintenance task for Spartacus cached image previews
+  * Extend Thememanager Maintenance task for Spartacus cached image previews
 
   * Add alpha-3 upgraders upgrade task for conditional template_cache cleanup
 
