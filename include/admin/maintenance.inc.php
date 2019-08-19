@@ -174,6 +174,8 @@ switch($serendipity['GET']['adminAction']) {
                     if (!is_dir($themezombies[0])) {
                         $data['zombT'] = true;
                     }
+                    // purge spartacus theme template previews cache by theme
+                    serendipity_purgeTemplatesCache($themezombies);
                 }
         }
         break;

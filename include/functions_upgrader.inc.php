@@ -887,22 +887,38 @@ function serendipity_upgrader_move_syndication_config() {
     }
 }
 
+
 /**
  * Purge files in the template_cache directory per Upgrade task to allow fetching new preview images.
+ *       OR delete single theme previews per Maintenance Theme Clearance Spot request
+ * @param mixed     $themes     All themes is true, else array of themes, else default false
+ *
+ * @return bool
  */
-function serendipity_purgeTemplatesCache($all=false) {
+function serendipity_purgeTemplatesCache($themes=false) {
     global $serendipity;
 
     $path = $serendipity["serendipityPath"] . PATH_SMARTY_COMPILE . '/template_cache';
-    if ($all) {
+    if ($themes === true) {
         // check Styx 3.0 current first items - the jpg file is there, all others are 3.0 dev + only
         if (file_exists($path . '/1024px.jpg') && !file_exists($path . '/1024px_preview.png') && !file_exists($path . '/1024px.webp') && !file_exists($path . '/1024px_preview.webp')) {
             return serendipity_removeDeadFiles_SPL($path);
         }
     } else {
-        //$files = scandir($path);
-        //futures
+        $files = scandir($path);
+        if (is_array($themes) && !empty($themes)) {
+            foreach ($themes AS $theme) {
+                $themename = basename($theme);
+                if (in_array($themename . '.jpg', $files)) {
+                    @unlink($path . '/' . $themename); // possible old empty occurrences which were placed when no valid image was available
+                    @unlink($path . '/' . $themename . '.jpg'); // the fullsize
+                    @unlink($path . '/' . $themename . '.webp'); // the fullsize variation
+                    @unlink($path . '/' . $themename . '_preview.png'); // the preview
+                    @unlink($path . '/' . $themename . '_preview.webp'); // the preview variation
+                }
+            }
+        }
     }
-    return false
+    return false;
 }
 
