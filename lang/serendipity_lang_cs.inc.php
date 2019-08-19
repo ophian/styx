@@ -1197,7 +1197,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 
 @define('CORE_THEMES', 'Styx Core Themes');
 @define('THEMEMANAGER', 'Theme Manager Clearance Spot');
-@define('THEMEMANAGER_ZOMB_OK', 'Well done! Old themes purged!');
+@define('THEMEMANAGER_ZOMB_OK', 'Well done! Chosen themes purged!');
 @define('THEMEMANAGER_LOCALTHEMES', 'Check old local themes');
 @define('THEMEMANAGER_SUBMIT', 'Purge selected themes');
 @define('THEMEMANAGER_INFO', 'Multi-select and purge old theme zombies. Make Styx happy and delete this old crap! :) If you ever need it again just load it with Spartacus, to get the last maintained fresh version. On the other hand, don\'t do this when having changed anything within such theme without having a backup!');
