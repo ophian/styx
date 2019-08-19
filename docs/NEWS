@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Extend Zomby-Themes Maintenance task for Spartacus cached image previews
+
   * Add alpha-3 upgraders upgrade task for conditional template_cache cleanup
 
   * Changed [Default, Next and 2k11], and added Pure (2019), regarding the
