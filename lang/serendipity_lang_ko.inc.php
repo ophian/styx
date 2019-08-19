@@ -28,8 +28,6 @@
 @define('LOGOUT', '로그아웃');
 @define('LOGGEDOUT', '로그아웃 되었습니다.');
 @define('CREATE', '생성');
-@define('SAVE', '저장');
-@define('NAME', '이름');
 @define('CREATE_NEW_CAT', '새로운 범주 만들기');
 @define('I_WANT_THUMB', '글에 작은 그림으로 추가합니다.');
 @define('I_WANT_BIG_IMAGE', '글에 원본 그림으로 추가합니다.');
@@ -58,7 +56,7 @@
 @define('IMAGESYNC_WARNING', '경고:<br>작은 그림이 생성되지 않은 그림이 많이 있을 경우 오래 걸릴 수 있습니다.');
 @define('CREATE_THUMBS', '작은 그림 재생성');
 @define('MANAGE_IMAGES', '그림 관리');
-@define('NAME', '작성자 이름');
+@define('NAME', '이름');
 @define('EMAIL', '전자우편');
 @define('HOMEPAGE', '홈페이지 주소(URL)');
 @define('COMMENT', '덧글');
@@ -519,7 +517,7 @@
 @define('DELETE_SELECTED_COMMENTS', '선택한 덧글 삭제');
 @define('VIEW_COMMENT', '덧글 보기');
 @define('VIEW_ENTRY', '본문 보기');
-@define('DELETE_FILE_FAIL' , '파일 <b>%s</b> 삭제 실패');
+@define('DELETE_FILE_FAIL', '파일 <b>%s</b> 삭제 실패');
 @define('DELETE_THUMBNAIL', '작은 그림 <b>%s</b> 삭제됨');
 @define('DELETE_FILE', '파일 <b>%s</b> 삭제됨');
 @define('ABOUT_TO_DELETE_FILE', '<b>%s</b> 삭제를 하려고 합니다.<br>작성한 글에서 이 파일을 사용하고 있을 경우 링크나 그림이 깨질 수 있습니다.<br>계속 하겠습니까?<br><br>');
@@ -947,7 +945,7 @@
 @define('PLUGIN_DOCUMENTATION_LOCAL', '내부에 저장된 사용설명서(공식문서)');
 @define('PLUGIN_DOCUMENTATION_CHANGELOG', '버전 이력');
 @define('SYNDICATION_PLUGIN_BIGIMG', '대형 그림');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', '옆줄에 나타나는 피드 맨 위에 (대형) 그림을 표시합니다. 그림 파일에 대한 전체 또는 절대 경로를 입력합니다.');
+@define('SYNDICATION_PLUGIN_BIGIMG_DESC', '옆줄에 나타나는 피드 맨 위에 (대형) 그림을 표시합니다. 그림 파일에 대한 전체 또는 절대 경로를 입력합니다. "없음"으로 설정하면 문자 링크를 표시합니다(예전 기본 설정).');
 @define('SYNDICATION_PLUGIN_FEEDNAME', '피드에 표시할 이름');
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', '피드에 대한 사용자 정의 이름을 입력할 수 있습니다 (선택 사항이며, 비워둘 경우 "feed"로 자동 표시됨)');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', '덧글 피드에 표시할 이름');
@@ -1058,7 +1056,6 @@
 @define('SYNDICATION_PLUGIN_SUBTOME', '서브투미(subToMe)');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
 @define('SYNDICATE_THIS_BLOG', '구독하기');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', '옆줄에 나타나는 피드 맨 위에 (대형) 그림을 표시합니다. 그림 파일에 대한 전체 또는 절대 경로를 입력합니다. "없음"으로 설정하면 문자 링크를 표시합니다(예전 기본 설정).');
 @define('INSTALL_BACKENDPOPUP', '관리 페이지에서 팝업 창을 사용할 수 있게 함');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', '안정화 버전');

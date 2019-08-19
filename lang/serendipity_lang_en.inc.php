@@ -26,8 +26,6 @@
 @define('LOGOUT', 'Logout');
 @define('LOGGEDOUT', 'Logged out.');
 @define('CREATE', 'Create');
-@define('SAVE', 'Save');
-@define('NAME', 'Name');
 @define('CREATE_NEW_CAT', 'Create New Category');
 @define('I_WANT_THUMB', 'I want to use the thumbnail in my entry.');
 @define('I_WANT_BIG_IMAGE', 'I want to use the larger image in my entry.');
@@ -516,7 +514,7 @@
 @define('DELETE_SELECTED_COMMENTS', 'Delete selected comments');
 @define('VIEW_COMMENT', 'View comment');
 @define('VIEW_ENTRY', 'View entry');
-@define('DELETE_FILE_FAIL' , 'Unable to delete file <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Unable to delete file <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Deleted the image thumbnail entitled <b>%s</b>');
 @define('DELETE_FILE', 'Deleted the file entitled <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'You are about to delete <b>%s</b><br>If you are using this file in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
@@ -945,7 +943,7 @@
 @define('PLUGIN_DOCUMENTATION_LOCAL', 'Local Documentation');
 @define('PLUGIN_DOCUMENTATION_CHANGELOG', 'Version history');
 @define('SYNDICATION_PLUGIN_BIGIMG', 'Big Image');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file.');
+@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
 @define('SYNDICATION_PLUGIN_FEEDNAME', 'Displayed name for "feed"');
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', 'Enter an optional custom name for the feeds (defaults to "feed" when empty)');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', 'Displayed name for "comment" feed');
@@ -1058,7 +1056,6 @@
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
 @define('SYNDICATE_THIS_BLOG', 'Subscribe');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
 @define('INSTALL_BACKENDPOPUP', 'Enable use of popup windows for the backend');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', 'stable');
@@ -1096,7 +1093,7 @@
 @define('USERCONF_WYSIWYG_PRESET_NOCC_CKE', 'Force: CKEditor Full');
 
 @define('CATEGORY_PLUGIN_SHOWALL', 'Show a link to "All categories"?');
-@define('CATEGORY_PLUGIN_SHOWALL', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
+@define('CATEGORY_PLUGIN_SHOWALL_DESC', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
 @define('SERENDIPITY_PHPVERSION_FAIL', 'Serendipity requires a PHP version >= %2$s - you are running a lower version (%1$s) and need to upgrade your PHP version. Most providers offer you to switch to newer PHP versions through their admin panels or .htaccess directives.');
 @define('TOGGLE_VIEW', 'Switch category view mode');
 @define('PUBLISH_NOW', 'Publish this entry now (sets current time and date)');

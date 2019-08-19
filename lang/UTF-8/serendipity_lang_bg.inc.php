@@ -28,8 +28,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('LOGOUT', 'Излизане');
 @define('LOGGEDOUT', 'Вие сте излязъл.');
 @define('CREATE', 'Създаване');
-@define('SAVE', 'Запис');
-@define('NAME', 'Име');
 @define('CREATE_NEW_CAT', 'Създаване на нова категория');
 @define('I_WANT_THUMB', 'Използване на миниатюри съдържанието.');
 @define('I_WANT_BIG_IMAGE', 'Използване на големи изображения в съдържанието');
@@ -194,7 +192,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Готово (синхронизирани са %s изображения).');
-@define('DELETE_FILE_FAIL' , 'Не може да бъде изтрит файла <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Не може да бъде изтрит файла <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Изтрита е миниатюрата, озаглавена <b>%s</b>');
 @define('FILE_NOT_FOUND', 'Не може да бъде открит файлът, озаглавен <b>%s</b>. Може би вече е изтрит?');
 @define('ABORT_NOW', 'Прекъсване на действието сега');
@@ -938,7 +936,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLUGIN_DOCUMENTATION_LOCAL', 'Локална документация');
 @define('PLUGIN_DOCUMENTATION_CHANGELOG', 'История на версиите');
 @define('SYNDICATION_PLUGIN_BIGIMG', 'Голямо изображение');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Показване на (голямо) изображение над емисиите в страничния панел, въведете пълен или абсолютен URL към изображението.');
+@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
 @define('SYNDICATION_PLUGIN_FEEDNAME', 'Име на емисията');
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', 'Въведете име за емисиите (по подразбиране "feed", когато е празно)');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', 'Име на емисията на коментарите');
@@ -1049,7 +1047,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
 @define('SYNDICATE_THIS_BLOG', 'Subscribe');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
 @define('INSTALL_BACKENDPOPUP', 'Enable use of popup windows for the backend');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', 'stable');
@@ -1087,7 +1084,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_WYSIWYG_PRESET_NOCC_CKE', 'Force: CKEditor Full');
 
 @define('CATEGORY_PLUGIN_SHOWALL', 'Show a link to "All categories"?');
-@define('CATEGORY_PLUGIN_SHOWALL', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
+@define('CATEGORY_PLUGIN_SHOWALL_DESC', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
 @define('SERENDIPITY_PHPVERSION_FAIL', 'Serendipity requires a PHP version >= %2$s - you are running a lower version (%1$s) and need to upgrade your PHP version. Most providers offer you to switch to newer PHP versions through their admin panels or .htaccess directives.');
 @define('TOGGLE_VIEW', 'Switch category view mode');
 @define('PUBLISH_NOW', 'Publish this entry now (sets current time and date)');

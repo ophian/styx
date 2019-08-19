@@ -27,8 +27,6 @@
 @define('LOGOUT', 'Kilépés');
 @define('LOGGEDOUT', 'Kilépett.');
 @define('CREATE', 'Létrehozás');
-@define('SAVE', 'Mentés');
-@define('NAME', 'Név');
 @define('CREATE_NEW_CAT', 'Új Kategória Létrehozása');
 @define('I_WANT_THUMB', 'Kis előnézeti képeket szeretnék a bejegyzésben használni.');
 @define('I_WANT_BIG_IMAGE', 'Nagyobb képeket szeretnék a bejegyzésben használni.');
@@ -47,7 +45,7 @@
 @define('DESCRIPTION', 'Leírás');
 @define('PLACEMENT', 'Elhelyezés');
 @define('DELETE', 'Töröl');
-@define('SAVE', 'Ment');
+@define('SAVE', 'Mentés');
 @define('UP', 'FEL');
 @define('DOWN', 'LE');
 @define('ENTRIES', 'bejegyzések');
@@ -517,7 +515,7 @@
 @define('DELETE_SELECTED_COMMENTS', 'Kijelölt hozzászólások törlése');
 @define('VIEW_COMMENT', 'Hozzászólás megtekintése');
 @define('VIEW_ENTRY', 'Bejegyzés megtekintése');
-@define('DELETE_FILE_FAIL' , 'Nem sikerült a fájl törlése: <b>%s</b>');
+@define('DELETE_FILE_FAIL', 'Nem sikerült a fájl törlése: <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'A következő előnézeti kép törlése: <b>%s</b>');
 @define('DELETE_FILE', 'A következő fájlt töröltem: <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'A következő fájl törlésére készülsz: <b>%s</b><br>Ha van olyan bejegyzés ahol ezt használod, akkor így törött hivatkozások vagy hiányzó képek lesznek<br>Biztosan folytatod?<br><br>');
@@ -946,7 +944,7 @@
 @define('PLUGIN_DOCUMENTATION_LOCAL', 'Helyi dokumentáció');
 @define('PLUGIN_DOCUMENTATION_CHANGELOG', 'Verzió történet');
 @define('SYNDICATION_PLUGIN_BIGIMG', 'Nagy kép');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Megjelenít egy (nagy) képet az rss feed tetején, itt adhatod meg a teljes vagy abszolút útvonalat a képhez.');
+@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
 @define('SYNDICATION_PLUGIN_FEEDNAME', 'Megjelenített név a "feed"-hez');
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', 'Add meg az egyedi nevet a feed-ekhez (alapértelmezetten "feed")');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', 'Megjelenített név a "hozzászólás" feed-hez');
@@ -1058,7 +1056,6 @@
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
 @define('SYNDICATE_THIS_BLOG', 'Subscribe');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
 @define('INSTALL_BACKENDPOPUP', 'Enable use of popup windows for the backend');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', 'stable');
@@ -1096,7 +1093,7 @@
 @define('USERCONF_WYSIWYG_PRESET_NOCC_CKE', 'Force: CKEditor Full');
 
 @define('CATEGORY_PLUGIN_SHOWALL', 'Show a link to "All categories"?');
-@define('CATEGORY_PLUGIN_SHOWALL', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
+@define('CATEGORY_PLUGIN_SHOWALL_DESC', 'If enabled, a link for the visitor to display the Blog with no category restriction will be added.');
 @define('SERENDIPITY_PHPVERSION_FAIL', 'Serendipity requires a PHP version >= %2$s - you are running a lower version (%1$s) and need to upgrade your PHP version. Most providers offer you to switch to newer PHP versions through their admin panels or .htaccess directives.');
 @define('TOGGLE_VIEW', 'Switch category view mode');
 @define('PUBLISH_NOW', 'Publish this entry now (sets current time and date)');
