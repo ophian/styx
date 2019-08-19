@@ -332,7 +332,7 @@ Version 3.0-Dev ()
   * Raise required PHP version to 7.0 until further
 
 
-Version 2.9.1-dev ()
+Version 2.9.1 (2019-08-19)
  ------------------------------------------------------------------------
 
   * Fix some core and plugin occurrences of wrong set full path concat slashes
