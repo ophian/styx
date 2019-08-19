@@ -936,7 +936,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLUGIN_DOCUMENTATION_LOCAL', 'Локална документация');
 @define('PLUGIN_DOCUMENTATION_CHANGELOG', 'История на версиите');
 @define('SYNDICATION_PLUGIN_BIGIMG', 'Голямо изображение');
-@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Display a (big) image at the top of the feeds in sidebar, enter full or absolute URL to image file. Set to "none" to show a textlink (the old default)');
+@define('SYNDICATION_PLUGIN_BIGIMG_DESC', 'Показване на (голямо) изображение над емисиите в страничния панел, въведете пълен или абсолютен URL към изображението. Set to "none" to show a textlink (the old default)');
 @define('SYNDICATION_PLUGIN_FEEDNAME', 'Име на емисията');
 @define('SYNDICATION_PLUGIN_FEEDNAME_DESC', 'Въведете име за емисиите (по подразбиране "feed", когато е празно)');
 @define('SYNDICATION_PLUGIN_COMMENTNAME', 'Име на емисията на коментарите');
