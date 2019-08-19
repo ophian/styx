@@ -5,9 +5,9 @@
  *  @author Translator Name <yourmail@example.com>
  *  EN-Revision: Revision of lang_en.inc.php
  *
- *  @version 1.52
+ *  @version 1.65
  *  @author Ian
- *  @translated 2017/04/14
+ *  @translated 2019/08/19
  */
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_TITLE', 'Extended properties for entries');
@@ -27,6 +27,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_DONE', 'Entry caching completed.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_ABORTED', 'Entry caching ABORTED.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CACHE_TOTAL', ' (totaling %d entries)...');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_NL2BR', 'Disable automatic word wrap');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_NO_FRONTPAGE', 'Hide from article overview / Frontpage');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS', 'Use group-based restrictions');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_GROUPS_DESC', 'If enabled, you can define which users of a usergroup may be able to read entries. This option has a large impact on the performance of your article overview. Only enable this if you are really going to use this feature.');
