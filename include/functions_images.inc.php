@@ -1142,7 +1142,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 }
             }
 
-            if (is_array($result) && $result[0] != 0) {
+            if (isset($result) && is_array($result) && $result[0] != 0) {
                 if (!$isPDF) {
                     echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(IMAGICK_EXEC_ERROR, $result[2], @$result[1][0], $result[0]) ."</span>\n";
                 } else {
