@@ -2449,7 +2449,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
     if ($manage && $limit_path == NULL) {
         ## SYNC START ##
-        $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true); // removed ", '.v' => true", which allows to place an existing .v/ dir stored Webp image variation in the aFilesNoSync array! See media_items.tpl special.pfilename button.
+        $aExclude = array('CVS' => true, '.svn' => true, '.git' => true); // removed ", '.v' => true", which allows to place an existing .v/ dir stored Webp image variation in the aFilesNoSync array! See media_items.tpl special.pfilename button.
         serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
         $paths        = array();
         $aFilesOnDisk = array();
@@ -2919,10 +2919,9 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
 function serendipity_traversePath($basedir, $dir='', $onlyDirs = true, $pattern = NULL, $depth = 1, $max_depth = NULL, $apply_ACL = false, $aExcludeDirs = NULL) {
 
     if ($aExcludeDirs === null) {
-        // add _vti_cnf to exclude possible added servers frontpage extensions - deprecated and remove in future since that is OLD!
-        // add CKEditors .thumb dir to exclude, since no hook
+        // add possible historic CKEditors .thumb dir to exclude, since no hook
         // do not use as auto excludes for media directory restrictions .v/ case, since that disables ML WebP case
-        $aExcludeDirs = array('CVS' => true, '.svn' => true, '.thumbs' => true, '_vti_cnf' => true, '.git' => true);
+        $aExcludeDirs = array('CVS' => true, '.svn' => true, '.thumbs' => true, '.git' => true);
     }
 
     $odir = serendipity_dirSlash('end', $basedir) . serendipity_dirSlash('end', $dir);
@@ -5641,7 +5640,7 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
 function &serendipity_getMediaPaths() {
     global $serendipity;
 
-    $aExclude = array('CVS' => true, '.svn' => true, '_vti_cnf' => true, '.v' => true);
+    $aExclude = array('CVS' => true, '.svn' => true, '.git' => true, '.v' => true); // the last is about Variations
     serendipity_plugin_api::hook_event('backend_media_path_exclude_directories', $aExclude);
 
     $paths      = array();

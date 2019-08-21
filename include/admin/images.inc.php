@@ -45,7 +45,7 @@ $data['case_scale'] = $data['case_scaleSelect'] = false;
 $data['showMLbutton'] = $data['case_default'] = false;
 $data['case_changeProp'] = $data['closed'] = false;
 
-$mediaExcludeDirs = array('CVS' => true, '.svn' => true, '_vti_cnf' => true, '.git' => true, '.v' => true);
+$mediaExcludeDirs = array('CVS' => true, '.svn' => true, '.git' => true, '.v' => true); // the last is about Variations
 
 switch ($serendipity['GET']['adminAction']) {
 
