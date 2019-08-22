@@ -1024,7 +1024,7 @@
 @define('PUBLISH_ERROR', 'Fehler bei der Veröffentlichung:');
 @define('UPDATE_NOTIFICATION', 'Update-Hinweis');
 @define('NEW_VERSION_AVAILABLE', 'Neue Serendipity Version verfügbar: ');
-@define('MOVE', 'Bewegen');
+@define('MOVE', 'Verschieben');
 @define('MOVE_UP', 'Nach oben');
 @define('MOVE_DOWN', 'Nach unten');
 @define('INSTALL_NEW_SIDEBAR_PLUGIN', 'Seitenleisten-Plugin installieren');
