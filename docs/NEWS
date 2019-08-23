@@ -1,6 +1,13 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix stable Archive assigning wrong pagination values in entries API again,
+    which was working right, but had the issue of not setting navigation points,
+    like the "X page of N" header and possible navigation buttons, to follow the
+    stable archive principle of directional past/future switch, like in the
+    timeline theme, which definitely was doing right, but was totally confusing.
+    Now everything is much simpler and a page 51 is page 51 examplewise and so on.
+
   * Remove deprecated MS Frontpage extension excluding check in MediaLibraries
     uploads/ dir. Upgraders:
         Make sure you don't have any cadaveric '_vti_cnf' directories left!
