@@ -1051,17 +1051,16 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
     $uriArguments[] = 'P%s';
     $serendipity['smarty']->assign('footer_totalEntries', $totalEntries);
     $serendipity['smarty']->assign('footer_totalPages', $totalPages);
+
     if ($archiveSortStable && $serendipity['GET']['action'] != 'search') {
-        $startPage = ($totalPages - $serendipity['GET']['page']);
-        $startPage = ($startPage == 0) ? 1 : ($startPage+1);
-        $serendipity['smarty']->assign('footer_currentPage', $startPage);
+        $_startPage = $serendipity['GET']['page']; // take care this temp variable copy IS mandatory to get exact values!!
+        $serendipity['smarty']->assign('footer_currentPage', (($_startPage == 0) ? 1 : $_startPage));
     } else {
         $serendipity['smarty']->assign('footer_currentPage', $serendipity['GET']['page']);
     }
-    $page = ($archiveSortStable && $serendipity['GET']['action'] != 'search') ? ($totalPages - ((int)$serendipity['GET']['page'] - 1)) : (int)$serendipity['GET']['page'];
 
     $serendipity['smarty']->assign('footer_pageLink', str_replace(array('%2A', '//P'), array('*', '/P'), serendipity_rewriteURL(implode('/', $uriArguments) . $suffix)));
-    $serendipity['smarty']->assign('footer_info', sprintf(PAGE_BROWSE_ENTRIES, $page, $totalPages, $totalEntries));
+    $serendipity['smarty']->assign('footer_info', sprintf(PAGE_BROWSE_ENTRIES, (int)$serendipity['GET']['page'], $totalPages, $totalEntries));
 
     if ($serendipity['GET']['page'] < $totalPages) {
         $uriArguments = $serendipity['uriArguments'];
@@ -1071,9 +1070,19 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
     }
 
     if ($archiveSortStable && $serendipity['GET']['action'] != 'search') {
-        $temp = $serendipity['smarty']->getTemplateVars('footer_prev_page');
-        $serendipity['smarty']->assign('footer_prev_page', $serendipity['smarty']->getTemplateVars('footer_next_page'));
-        $serendipity['smarty']->assign('footer_next_page', $temp);
+        // Archive sort stable orders everything the other way round since it wants to pay tribute to search engines.
+        // Personally I don't believe they really care and already are smart enough to know where they are (page) and what the have (entries)! [< In terms of re-indexing. >]
+        // This is why Styx still prefers and sticks per default to the normal order, which is A HUMAN order!
+        // Now, back to archiveSortStable: As you can see in the browsers address bar, is
+        // Page 1 the most historic page when you started to blog, with the eldest entries you have; Page X will then be the most current page with the newest entries you blog has published.
+        // This is why we should switch prev/next navigation here, since the most current page would be ie. archives/P300.html, and going back in history is P300 -> P299 -> P298 etc.,
+        // which is the prev button and vice versa, so actually more like this behaviour [<< back P298 <- P299 <- P300 start ].
+        // And sadly this is one of the points where confusion either takes off OR helps to know what is going on.
+        $_temp = $serendipity['smarty']->getTemplateVars('footer_prev_page'); // take care this temp variable copy IS mandatory to get exact values!!
+        $serendipity['smarty']->assign('footer_prev_page', $_temp);
+        $serendipity['smarty']->assign('footer_next_page', $serendipity['smarty']->getTemplateVars('footer_next_page'));
+        // So you can either try to confuse a user, which has to learn that everything is the other way round,
+        // OR try to satisfy a sticky search engine index. I know which to prefer! :)
         $_prev = $_next = true;
     }
     // Assign Smarty defaults for pagination
