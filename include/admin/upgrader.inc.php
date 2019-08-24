@@ -484,6 +484,11 @@ $tasks = array(
                     'title'     => '<b>ENTRIES_NOTICE:</b> A bugfix for a special task cased entries timestamp was applied.',
                     'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page after having done the upgrade, to catch up, if you probably were hit by this issue.'),
 
+            array(  'version'   => '2.9.2',
+                    'type'      => 'CONFIGURATION_NOTICE',
+                    'title'     => '<b>CONFIGURATION_NOTICE:</b> An Upgrade configuration needs to be done for upcoming Styx 3.0 upgrades!',
+                    'desc'      => 'If you <strong>want</strong> or <strong>have to</strong> use elder than PHP 7.3 versions for a longer time, please read <a href="https://ophian.github.io/2019/08/19/Serendipity-Styx-2.9.1-released/" target="_blank">this blog entry</a>.<p>To not get in conflict with the upcoming next major 3.0 upgrades, you <strong>have to</strong> set up a <strong>new</strong> Update-RELEASE-file <strong>URL</strong> in your Backend Configuration Panel.<br>Open <strong>Configuration</strong> - <strong>General Settings</strong> - and see the option <strong>Update RELEASE-file URL</strong>. There you add this new URL, pointing to the branch RELEASE file and submit the form:<br><em>https://raw.githubusercontent.com/ophian/styx/styx2.9/docs/RELEASE</em></p><p>Now you will only get future update request notes if a new branch point release, like (next) 2.9.3 is prepared to supply.<br>If you then are ready for upcoming Styx 3.0 Next, you just change it back to the master branch at:<br><em>https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE</em></p>'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
