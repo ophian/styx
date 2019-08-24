@@ -239,11 +239,14 @@ switch($serendipity['GET']['adminAction']) {
 
     case 'editSelect':
         // An entries list quickie to easily de-select a stickied entry
-        if ($serendipity['GET']['action'] == 'admin' && isset($serendipity['GET']['properties']['is_sticky']) && serendipity_checkFormToken()) {
-            $quick_stick = serendipity_db_bool($serendipity['GET']['properties']['is_sticky']) ? 'true' : 'false';
-            serendipity_db_query("UPDATE {$serendipity['dbPrefix']}entryproperties SET value = " . $quick_stick . " WHERE entryid = " . (int)$serendipity['GET']['id'] . " AND property = 'ep_is_sticky'");
-            serendipity_db_query("UPDATE {$serendipity['dbPrefix']}entries SET last_modified = " . time() . " WHERE id = " . (int)$serendipity['GET']['id'] . ' AND timestamp = ' . serendipity_db_escape_string($serendipity['GET']['timestamp']));
-            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . ENTRY_SAVED . "</span>\n";
+        if ($serendipity['GET']['action'] == 'admin' && isset($serendipity['GET']['properties']['is_sticky']) && serendipity_checkFormToken() && ) {
+            if ($serendipity['GET']['properties']['is_sticky'] == 'false') {// && serendipity_ACLCheck($serendipity['authorid'], (int)$serendipity['GET']['id'], 'entry', 'write')) {
+                if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$serendipity['GET']['id'] . " AND property = 'ep_is_sticky'")) {
+                    echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . ENTRY_SAVED . "</span>\n";
+                }
+            }/* else {// see ACL preparation above, whenever entry ACL sets are made available in future
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . PERM_DENIED . "</span>\n";
+            }*/
         }
 
         $data['switched_output'] = false;
