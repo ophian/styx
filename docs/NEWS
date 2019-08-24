@@ -1,18 +1,6 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Fix and simplify the quick de-select(ion) of sticky set entries by entries
-    list, which oddly changed the timestamp. If you have already used this
-    feature, please re-check these entries for their date create history, which
-    we don't want to have changed for the correct order of frontend entries.
-
-  * Fix stable Archive assigning wrong pagination values in entries API again,
-    which was working right, but had the issue of not setting navigation points,
-    like the "X page of N" header and possible navigation buttons, to follow the
-    stable archive principle of directional past/future switch, like in the
-    timeline theme, which definitely was doing right, but was totally confusing.
-    Now everything is much simpler and a page 51 is page 51 example-wise and so on.
-
   * Remove deprecated MS Frontpage extension excluding check in MediaLibraries
     uploads/ dir. Upgraders:
         Make sure you don't have any cadaveric '_vti_cnf' directories left!
@@ -350,6 +338,18 @@ Version 3.0-Dev ()
 
 Version 2.9.2-dev ()
  ------------------------------------------------------------------------
+
+  * Fix and simplify the quick de-select(ion) of sticky set entries by entries
+    list, which oddly changed the timestamp. If you have already used this
+    feature, please re-check these entries for their date create history, which
+    we don't want to have changed for the correct order of frontend entries.
+
+  * Fix stable Archive assigning wrong pagination values in entries API again,
+    which was working right, but had the issue of not setting navigation points,
+    like the "X page of N" header and possible navigation buttons, to follow the
+    stable archive principle of directional past/future switch, like in the
+    timeline theme, which definitely was doing right, but was totally confusing.
+    Now everything is much simpler and a page 51 is page 51 example-wise and so on.
 
 
 Version 2.9.1 (2019-08-19)
