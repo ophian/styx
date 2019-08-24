@@ -1,6 +1,10 @@
 Version 2.9.2-dev ()
  ------------------------------------------------------------------------
 
+  * Please read the important core upgrade configuration notes for the 2.9 repo-
+    sitory branch versus upcoming Serendipity Styx 3.0 Next master branch at:
+      https://ophian.github.io/2019/08/19/Serendipity-Styx-2.9.1-released/
+
   * Fix and simplify the quick de-select(ion) of sticky set entries by entries
     list, which oddly changed the timestamp. If you have already used this
     feature, please re-check these entries for their date create history, which
