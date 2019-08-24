@@ -6,7 +6,7 @@ Version 3.0-Dev ()
     like the "X page of N" header and possible navigation buttons, to follow the
     stable archive principle of directional past/future switch, like in the
     timeline theme, which definitely was doing right, but was totally confusing.
-    Now everything is much simpler and a page 51 is page 51 examplewise and so on.
+    Now everything is much simpler and a page 51 is page 51 example-wise and so on.
 
   * Remove deprecated MS Frontpage extension excluding check in MediaLibraries
     uploads/ dir. Upgraders:
