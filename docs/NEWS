@@ -1,6 +1,13 @@
 Version 2.9.2-dev ()
  ------------------------------------------------------------------------
 
+  * Fix stable Archive assigning wrong pagination values in entries API again,
+    which was working right, but had the issue of not setting navigation points,
+    like the "X page of N" header and possible navigation buttons, to follow the
+    stable archive principle of directional past/future switch, like in the
+    timeline theme, which definitely was doing right, but was totally confusing.
+    Now everything is much simpler and a page 51 is page 51 example-wise and so on.
+
 
 Version 2.9.1 (2019-08-19)
  ------------------------------------------------------------------------
