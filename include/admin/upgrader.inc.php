@@ -479,6 +479,11 @@ $tasks = array(
                     'title'     => '<b>IMPORTANT_CORE_NOTICE:</b> Your current <b>PHP</b> ' . PHP_VERSION . ' version is: ' . ((version_compare(PHP_VERSION, '7.0.0') >= 0) ? 'OK' : 'outdated') . '.',
                     'desc'      => 'The PHP recommended version for Serendipity Styx 2.8.0 is <b>PHP 7.3</b>.x. This Styx Series <b>2</b> will end here and only get security fixes as minor point releases for a short time. PLEASE NOTE: The <b>next</b> regular Serendipity Styx <b>major</b> upgrade to <b>3.0</b> requires at least <b>PHP 7.2</b> as the minimum.'),
 
+            array(  'version'   => '2.9.2',
+                    'type'      => 'ENTRIES_NOTICE',
+                    'title'     => '<b>ENTRIES_NOTICE:</b> A bugfix for a special task cased entries timestamp was applied.',
+                    'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page after having done the upgrade, to catch up, if you probably were hit by this issue.'),
+
             array(  'version'   => '3.0-alpha2',
                     'function'  => 'serendipity_checkWebPSupport',
                     'arguments' => array(true),
