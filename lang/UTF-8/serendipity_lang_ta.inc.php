@@ -298,7 +298,7 @@
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Do you wish me to perform the above tasks?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'No, I will run them manually');
 @define('SERENDIPITY_UPGRADER_PROCEED_DOIT', 'Yes, please do so');
-@define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'It appears you do not need any upgrades run');
+@define('SERENDIPITY_UPGRADER_NO_UPGRADES', 'It appears you do not need to run any upgrade tasks');
 @define('SERENDIPITY_UPGRADER_CONSIDER_DONE', 'Consider Serendipity upgraded');
 @define('SERENDIPITY_UPGRADER_YOU_HAVE_IGNORED', 'You have ignored the upgrade stage of Serendipity, please make sure your database is correctly installed, and scheduled functions are run');
 @define('SERENDIPITY_UPGRADER_NOW_UPGRADED', 'Your Serendipity installation is now upgraded to version %s');
