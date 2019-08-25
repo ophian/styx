@@ -242,6 +242,7 @@ switch($serendipity['GET']['adminAction']) {
         if ($serendipity['GET']['action'] == 'admin' && isset($serendipity['GET']['properties']['is_sticky']) && serendipity_checkFormToken()) {
             if ($serendipity['GET']['properties']['is_sticky'] == 'false') {// && serendipity_ACLCheck($serendipity['authorid'], (int)$serendipity['GET']['id'], 'entry', 'write')) {
                 if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$serendipity['GET']['id'] . " AND property = 'ep_is_sticky'")) {
+                    ##actually no need for this##serendipity_db_query("UPDATE {$serendipity['dbPrefix']}entries SET last_modified = " . time() . " WHERE id = " . (int)$serendipity['GET']['id']);
                     echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . ENTRY_SAVED . "</span>\n";
                 }
             }/* else {// see ACL preparation above, whenever entry ACL sets are made available in future
