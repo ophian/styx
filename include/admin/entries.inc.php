@@ -239,7 +239,7 @@ switch($serendipity['GET']['adminAction']) {
 
     case 'editSelect':
         // An entries list quickie to easily de-select a stickied entry
-        if ($serendipity['GET']['action'] == 'admin' && isset($serendipity['GET']['properties']['is_sticky']) && serendipity_checkFormToken() && ) {
+        if ($serendipity['GET']['action'] == 'admin' && isset($serendipity['GET']['properties']['is_sticky']) && serendipity_checkFormToken()) {
             if ($serendipity['GET']['properties']['is_sticky'] == 'false') {// && serendipity_ACLCheck($serendipity['authorid'], (int)$serendipity['GET']['id'], 'entry', 'write')) {
                 if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$serendipity['GET']['id'] . " AND property = 'ep_is_sticky'")) {
                     echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . ENTRY_SAVED . "</span>\n";
