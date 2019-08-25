@@ -5,10 +5,15 @@ Version 2.9.2-dev ()
     sitory branch versus upcoming Serendipity Styx 3.0 Next master branch at:
       https://ophian.github.io/2019/08/19/Serendipity-Styx-2.9.1-released/
 
-  * Fix and simplify the quick de-select(ion) of sticky set entries by entries
-    list, which oddly changed the timestamp. If you have already used this
-    feature, please re-check these entries for their date create history, which
-    we don't want to have changed for the correct order of frontend entries.
+  * Fix and simplify the quick de-select(ion) of sticky-set entries by entries
+    list, which oddly did not properly delete the sticky attribute, and so an
+    un-stickied entry never fell back into the list ordered line.
+    If you have already used this feature, please re-check these entries for
+    their database ID (easy to get known by hovering over this entries task
+    buttons in the entries list) and run this command in a tool like phpMyAdmin
+    to unset the entries sticky attribute in the entryproperties database table.
+    [Change "PREFIX" and "X" to your needs]:
+      DELETE FROM PREFIX_entryproperties WHERE entryid = X AND property = 'ep_is_sticky'
 
   * Fix stable Archive assigning wrong pagination values in entries API again,
     which was working right, but had the issue of not setting navigation points,
