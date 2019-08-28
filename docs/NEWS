@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+---- Alpha3
+
   * Add urgent 2.9.2 upgrade tasks for back and forth treats (see 2.9.2 below)
 
   * Remove deprecated MS Frontpage extension excluding check in MediaLibraries
