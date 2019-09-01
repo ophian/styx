@@ -11,7 +11,7 @@ function get_langs($lang_dir='.') {
             if(!preg_match('/^serendipity_lang_(.+)\.inc\.php$/', $file, $matches)) {
                 continue;
             } else {
-                # $languages[] = strtolower($matches[1]);
+                # $languages[] = strtolower($matches[1]); // Don't normalize languages to lc. "serendipity_lang_pt_PT.inc.php" is mixed case and won't be found if languages are normalized to lowercase.
                 $languages[] = $matches[1];
             }
         }
