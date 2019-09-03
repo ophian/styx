@@ -67,7 +67,6 @@ switch($serendipity['GET']['adminAction']) {
                 $data['dbUtf8mb4_migrate'] = serendipity_db_migrate_index(false, $serendipity['dbPrefix']);
                 #echo '<pre>'.print_r($data['dbUtf8mb4_migrate'],1).'</pre>';
                 serendipity_set_config_var('dbUtf8mb4_converted', 'true');
-                
                 $data['dbUtf8mb4_executed'] = true;
             } else {
                 $data['dbUtf8mb4_migrate'] = serendipity_db_migrate_index(true, $serendipity['dbPrefix']);
