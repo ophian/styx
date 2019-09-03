@@ -1,6 +1,9 @@
 Version 2.9.2-dev ()
  ------------------------------------------------------------------------
 
+  * Fix backend sidebar Maintenance link permission for special cased user
+    which has siteAutoUpgrade permission to perform the 503 Maintenance Mode.
+
   * Please read the important core upgrade configuration notes for the 2.9 repo-
     sitory branch versus upcoming Serendipity Styx 3.0 Next master branch at:
       https://ophian.github.io/2019/08/19/Serendipity-Styx-2.9.1-released/
