@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix backend sidebar Maintenance link permission for special cased user
+    which has siteAutoUpgrade permission to perform the 503 Maintenance Mode.
+
 ---- Alpha3
 
   * Add urgent 2.9.2 upgrade tasks for back and forth treats (see 2.9.2 below)
