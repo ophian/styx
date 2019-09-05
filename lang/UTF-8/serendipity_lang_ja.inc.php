@@ -1158,6 +1158,7 @@
 @define('UTF8MB4_MIGRATION_TASK_RETURN', 'The migration task returned:');
 @define('UTF8MB4_MIGRATION_TASK_HAVE', 'The following SQL commands have been executed:');
 @define('UTF8MB4_MIGRATION_TASK_CAN', 'The following SQL commands can be executed:');
+@define('UTF8MB4_MIGRATION_TASK_DONE_SHORT', 'UTF-8-MB4 charset');
 @define('UTF8MB4_MIGRATION_TASK_DONE', 'Your Blog is using the UTF-8 charset with Multibyte-Extension.');
 @define('UTF8MB4_MIGRATION_INFO', 'When using Serendipity Styx 2.4+ with MySQLi and UTF-8 charsets (this is the default), the database tables and indexes can be migrated from UTF-8 to UTF-8 with Multibyte-Extension, to also support unicode characters outside the Basic Multilingual Plane (BMP), such as <b>Emojis</b>. Utf8mb4 is a superset of utf8.');
 @define('UTF8MB4_MIGRATION_BUTTON_CHECK', 'Simulate / Check');
