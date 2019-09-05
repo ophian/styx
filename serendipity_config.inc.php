@@ -210,8 +210,8 @@ $serendipity['charsets'] = array(
 @define('USERLEVEL_CHIEF', 1);
 @define('USERLEVEL_EDITOR', 0);
 
-@define('VIEWMODE_THREADED', 'threaded');
-@define('VIEWMODE_LINEAR', 'linear');
+@define('VIEWMODE_THREADED', 'threaded'); // static
+@define('VIEWMODE_LINEAR', 'linear'); // static
 
 if (!version_compare(PHP_VERSION, '7.1.3', '>=')) {
     $serendipity['lang'] = 'en';
