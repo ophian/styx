@@ -1,6 +1,6 @@
 Name: Pure [ Standard ] &lsaquo; 2019 &rsaquo;
 Author: Ian Styx
-Date: 2019-08-18
+Date: 2019-09-07
 Require Serendipity: 2.7
 Backend: No
 Responsive: Yes
