@@ -17,7 +17,8 @@ As an example it proves the ability that you can simply add a more or less empty
 With this in mind you are able to just change and add those files only, which are necessary to fill your needs.
 This example may change in future to hold some more real files for the backend generation.
 For the moment it solely includes an index template file, which removes relevant informations and assets when not logged in.<br>
-* 2017-08-21 - Newly fixes a UI breaking issue with the rtl (right-to-left) direction attribute in the &lt;html&gt; element.<br><br>
+* 2017-08-21 - Newly fixes a UI breaking issue with the rtl (right-to-left) direction attribute in the &lt;html&gt; element.<br>
+* 2019-09-08 - Removed the IE8/9 workarounds.<br><br>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>
 The template files in that directory build and create the look of the complete admin interface.
