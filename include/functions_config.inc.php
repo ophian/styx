@@ -318,7 +318,7 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
             $templateFile = $serendipity['templatePath'] . $directory . $file; // includes .ext(ension) !
             if (false !== strpos($templateFile, 'serendipity_editor.js') && file_exists($serendipity['serendipityPath'] . $templateFile . '.tpl')) {
                 // catch *.tpl files, used by the backend for serendipity_editor.js.tpl
-                return $serendipity['baseURL'] . 'index.php?/plugin/' . $file;
+                return $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/' . $file;
             }
 
             if (file_exists($serendipity['serendipityPath'] . $templateFile)) {
