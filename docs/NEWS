@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove 2styx backend themes outdated IE8/9 browser workaround
+
   * Allow fetching virtual backend files with nice URL, eg serendipity_editor.js
 
 ---- Alpha3
