@@ -164,6 +164,11 @@ p > img.serendipity_image_right {
 .serendipity_image_block  .serendipity_image_link {
     margin: .5em 0 0 0; /* no display here! */
 }
+/* already defined gallery image_blocks without col or row defines */
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
+    margin: .5em .5em 0 0;
+}
 /* Gallery-Margins: end */
 
 /* webkit (all) hack */
