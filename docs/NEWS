@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add WYSIWYG-Editor fallback styles to elder defined gallery image_blocks
+    without col or row defines.
+
   * Add sidebar comment widget styles to break long URLs overflows to [2k11,
     next] themes.
 
