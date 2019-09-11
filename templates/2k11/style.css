@@ -829,6 +829,10 @@ pre .geshi {
     text-align: center;
 }
 
+.plugin_comment_body {
+    overflow-wrap: break-word;
+}
+
 .next { text-align: right; }
 
 .serendipity_calendar abbr[title] { border: 0 none; }

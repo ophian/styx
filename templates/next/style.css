@@ -1087,6 +1087,9 @@ details summary {
   padding: 0.125rem;
   text-align: center; }
 
+.plugin_comment_body {
+    overflow-wrap: break-word; }
+
 .next {
   text-align: right; }
 .calendar-nav .next {
@@ -1526,4 +1529,4 @@ details summary {
 
   h2, h3 {
     page-break-after: avoid; }
- }
+}
