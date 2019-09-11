@@ -296,9 +296,9 @@ ul#serendipity_categories_list {
 .serendipity_image_block > span .serendipity_image_right {
     margin: 5px 0 0 0;
 }
-.serendipity_image_block:not(.col) > .serendipity_image_left,
-.serendipity_image_block:not(.col) > .serendipity_image_right {
-    margin: 10px 10px 0 0 !important; /* so that a direct child image behaves like a containerized image - and the top/right is 2x5px */
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
+    margin: 10px 10px 0 0; /* so that a direct child image behaves like a containerized image - and the top/right is 2x5px */
 }
 /* webkit (all) hack */
 .serendipity_image_block > .serendipity_imageComment_left .serendipity_image_link:not(*:root) {
