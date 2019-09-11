@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add sidebar comment widget styles to break long URLs overflows to [2k11,
+    next] themes.
+
   * Remove outdated IE8/9 browser workarounds for the 2styx backend theme
 
   * Allow fetching virtual backend files with nice URL, eg serendipity_editor.js
