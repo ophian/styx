@@ -955,7 +955,7 @@ table.serendipity_calendar td {
 }
 
 .serendipity_image_block {
-    max-width: 99%;
+    max-width: 100%;
 }
 
 /** Embedded images with the s9y image manager end **/
