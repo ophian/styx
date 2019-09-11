@@ -1349,7 +1349,11 @@ p > .serendipity_image_link {
     display: initial;
 }
 .serendipity_image_block {
-    width: 100%;
+    width: 100.2525%;
+}
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
+    margin: .5em 0 0 0;
 }
 /* overwrite fallback gallery comment container margins and some of this comment styles */
 .serendipity_image_block .serendipity_imageComment_left,
