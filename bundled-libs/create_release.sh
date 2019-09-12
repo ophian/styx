@@ -80,11 +80,11 @@ else
             echo ""
 
         echo "5. Adjusting special files..."
-            echo "   - $2/.htaccess [666]"
-            chmod 666 "$2/.htaccess"
+            #echo "   - $2/.htaccess [666]"
+            #chmod 666 "$2/.htaccess"
 
-            echo "   - $2/upgrade.sh [744]"
-            chmod 744 "$2/upgrade.sh"
+            #echo "   - $2/upgrade.sh [744]"
+            #chmod 744 "$2/upgrade.sh"
 
             echo "   - $2/bundled-libs/create_release.sh [766]"
             chmod 766 "$2/bundled-libs/create_release.sh"
