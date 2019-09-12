@@ -344,7 +344,7 @@ Version 3.0-Dev ()
   * Raise required PHP version to 7.0 until further
 
 
-Version 2.9.2-dev ()
+Version 2.9.2 (2019-09-12)
  ------------------------------------------------------------------------
 
   * Add WYSIWYG-Editor fallback styles to elder defined gallery image_blocks
