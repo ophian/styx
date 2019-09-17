@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Sync [s9y] Fixes not properly displaying plugin save errors (validation)
+
   * Remove outdated IE8/9 browser workarounds for the 2styx backend theme
 
   * Allow fetching virtual backend files with nice URL, eg serendipity_editor.js
