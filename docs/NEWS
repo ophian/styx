@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Sync [s9y] Only allows .txt and .log files for spamblock logging.
+    Thanks to Gary O'Leary-Steele (CVE TBD)
+
   * Sync [s9y] Fixes not properly displaying plugin save errors (validation)
 
   * Remove outdated IE8/9 browser workarounds for the 2styx backend theme
