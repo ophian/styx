@@ -1,11 +1,6 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Sync [s9y] Only allows .txt and .log files for spamblock logging.
-    Thanks to Gary O'Leary-Steele (CVE TBD)
-
-  * Sync [s9y] Fixes not properly displaying plugin save errors (validation)
-
   * Remove outdated IE8/9 browser workarounds for the 2styx backend theme
 
   * Allow fetching virtual backend files with nice URL, eg serendipity_editor.js
@@ -352,6 +347,10 @@ Version 3.0-Dev ()
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Sync [s9y] Only allows .txt and .log files for spamblock logging.
+    Thanks to Gary O'Leary-Steele (CVE TBD)
+
+  * Sync [s9y] Fixes not properly displaying plugin save errors (validation)
 
 
 Version 2.9.2 (2019-09-12)
