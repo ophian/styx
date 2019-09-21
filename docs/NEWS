@@ -1,6 +1,8 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix class selector typos in Skeleton theme
+
   * Sync [s9y] Only allows .txt and .log files for spamblock logging.
     Thanks to Gary O'Leary-Steele (CVE TBD)
 
