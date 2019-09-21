@@ -1,8 +1,6 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Fix class selector typos in Skeleton theme
-
   * Remove outdated IE8/9 browser workarounds for the 2styx backend theme
 
   * Allow fetching virtual backend files with nice URL, eg serendipity_editor.js
@@ -348,6 +346,8 @@ Version 3.0-Dev ()
 
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
+
+  * Fix class selector typos in Skeleton theme
 
   * Sync [s9y] Only allows .txt and .log files for spamblock logging.
     Thanks to Gary O'Leary-Steele (CVE TBD)
