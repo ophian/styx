@@ -90,7 +90,7 @@
                     <div class="media_file_preview">
                         {if isset($link)}
 
-                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link_webp|default:$link}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
+                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link_webp|default:$link}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if $img_src_webp} (WepP){/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                             <picture>
                                 <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
                                 <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
