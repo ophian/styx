@@ -718,6 +718,9 @@ form > button,
     list-style: none;
     padding: 0;
 }
+figure#category_icon_preview {
+    text-align: center;
+}
 
 .hilite_b,
 #diagnose caption {
@@ -3399,9 +3402,11 @@ input[name="serendipity[filter][fileCategory]"] {
   top: 0;
   padding: 0 8px;
   box-sizing: border-box; }
+  #category_icon_preview,
   .mfp-container figure {
     text-align: initial;
     border: initial;
+    border-radius: initial;
     background: initial;
     padding: initial; }
 

@@ -15,7 +15,7 @@ picture {
     display: block;
 }
 
-figure:not(#category_icon_preview) {
+figure {
 	text-align: center;
 	border: solid 1px #ccc;
 	border-radius: 2px;
