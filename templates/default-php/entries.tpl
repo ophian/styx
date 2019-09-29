@@ -19,7 +19,7 @@
             <span class="serendipity_entryIcon">
             <?php foreach($entry['categories'] AS $entry_category):?>
                 <?php if ($entry_category['category_icon']): ?>
-                    <a href="<?= $entry_category['category_link'] ?>"><img class="serendipity_entryIcon" title="<?= serendipity_specialchars($entry_category['category_name']) ?> <?= $entry_category['category_description'] ?>" alt="<?= serendipity_specialchars($entry_category['category_name']) ?>" src="<?= $entry_category['category_icon'] ?>"></a>
+                    <a href="<?= $entry_category['category_link'] ?>"><img class="serendipity_entryIcon" title="<?= serendipity_specialchars($entry_category['category_name']) ?> <?= $entry_category['category_description'] ?>" alt="<?= serendipity_specialchars($entry_category['category_name']) ?>" src="<?= serendipity_specialchars($entry_category['category_icon']) ?>"></a>
                 <?php endif; ?>
             <?php endforeach; ?>
             </span>

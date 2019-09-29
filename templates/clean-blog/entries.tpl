@@ -17,7 +17,7 @@
     {if $template_option.entrybody_detailed_only != true OR $entry.is_extended OR $is_single_entry OR $is_preview}
         <section id="entry">
             <div class="content serendipity_entry_body clearfix">
-                {if NOT empty($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon}"></a>{/if}{/foreach}{/if}
+                {if NOT empty($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon|escape}"></a>{/if}{/foreach}{/if}
                 {$entry.body}
                 {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
                     <a class="read_more" href="{$entry.link}#extended"><button class="btn btn-md btn-default pull-right">{$CONST.READ_MORE} <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
