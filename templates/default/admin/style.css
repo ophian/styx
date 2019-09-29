@@ -1165,6 +1165,10 @@ input[type=checkbox],
     margin: 0 0 .5em;
 }
 
+#category_icon_preview {
+    text-align: center;
+}
+
 .form_radio {
     float: left;
     margin-right: 1em;

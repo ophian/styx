@@ -11,7 +11,7 @@ input[type="button"], input[type="checkbox"] {
     width: auto;
 }
 
-figure {
+figure:not(#category_icon_preview) {
 	text-align: center;
 	border: solid 1px #ccc;
 	border-radius: 2px;
