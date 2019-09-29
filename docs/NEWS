@@ -1,6 +1,10 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Escape category icons to avoid malicious backend XSS. Thanks to hannob.
+
+  * Fix minor backend styles regression with global figure/figcaption styles
+
   * Fix class selector typos in Skeleton theme
 
   * Sync [s9y] Only allows .txt and .log files for spamblock logging.
