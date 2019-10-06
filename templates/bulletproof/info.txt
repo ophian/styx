@@ -1,5 +1,5 @@
 Name: Bulletproof
-Author: Bulletproof development team
+Author: Bulletproof development team, Ian Styx
 Date: 2019-05-18
 Require Serendipity: 1.7
 Engine: default
