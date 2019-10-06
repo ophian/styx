@@ -11,7 +11,7 @@ $info['theme_info_desc'] = 'Dieses Theme als v1.4 war über lange Jahre das Sere
 Es erlaubt die Einstellung von 4 verschiedenen Farbsätzen und verwendet verschiedene Benutzeroptionen,
 um bestimmte Teile des Frontends, wie Footer oder Formulare, kombinatorisch zu deaktivieren oder zu setzen/verschieben,
 ohne den eigentlich Code von Hand zu berühren.<br>
-Auch erfüllte es über lange Zeit seinen Zweck als Standard-Backend-Theme. Dies ist seit Serendipity 2.0 nicht mehr nutzbar.<br>
+Auch erfüllte es über lange Zeit seinen Zweck als Standard-Backend-Theme. Dies war seit Serendipity 2.0 nicht mehr nutzbar und wurde daraufhin komplett entfernt.<br>
 * 2017-04-19 - Removed dead cocomment option and scripting<br>
 * 2019-01-18 - Removed inline styles, fixed staticpages without articleformat, updated CSS for current Serendipity Styx versions.<br>
 * 2019-10-06 - Removed references to dead (s9y-bulletproof.com).';

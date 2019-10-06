@@ -9,7 +9,7 @@ $info['theme_info_summary'] = 'Advanced option theme in optional 3, 2, or 1 -col
 
 $info['theme_info_desc'] = 'This theme as v1.4 for long years was the Serendipity Standard theme since Serendipity v.1.2.
 It allows to set 4 different colorsets and uses various user options to differently disable or set/move certain parts of the frontend, like footers or forms, without touching code by hand.<br>
-Among these it was used as the default backend theme for a long time. This latter is no longer usable since Serendipity 2.0.<br>
+Among these it was used as the default backend theme for a long time. This latter was no longer usable since Serendipity 2.0 and therefore has been removed completely.<br>
 * 2017-04-19 - Removed dead cocomment option and scripting<br>
 * 2019-01-18 - Removed inline styles, fixed staticpages without articleformat, updated CSS for current Serendipity Styx versions.<br>
 * 2019-10-06 - Removed references to dead (s9y-bulletproof.com).';
