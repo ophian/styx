@@ -399,14 +399,14 @@
             <!-- or create your own template based on the bulletproof framework -->
             <!-- ************************************************************** -->
 
-            <div id="serendipity_bulletproof_button"><a href="http://s9y-bulletproof.com" title="Based on the s9y Bulletproof template framework"><img src="{$serendipityHTTPPath}templates/{$template}/img/bulletproof_button.png" alt="Based on the s9y Bulletproof template framework" width="100" height="28" /></a></div>
+            <div id="serendipity_bulletproof_button" title="Based on the s9y Bulletproof template framework"><img src="{$serendipityHTTPPath}templates/{$template}/img/bulletproof_button.png" alt="Based on the s9y Bulletproof template framework" width="100" height="28" /></div>
 
             <!-- ************************************************************** -->
             <!-- Feel free to insert your own "Template by" name and link below -->
             <!-- if you create a custom template based on bulletproof.          -->
             <!-- ************************************************************** -->
 
-            <div id="serendipity_credit_line">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> &ndash; Template by <a href="http://s9y-bulletproof.com">Bulletproof development team</a>.<br />{$template_option.colorset_data.attribution|escape}</div>
+            <div id="serendipity_credit_line">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> &ndash; Template by the Bulletproof development team.<br />{$template_option.colorset_data.attribution|escape}</div>
 
             {if $template_option.counter_code_toggle == 'true'}
                 <div class="counter_code">{$template_option.counter_code}</div>
