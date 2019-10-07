@@ -348,7 +348,7 @@ Version 3.0-Dev ()
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
-  * Sync [s9y] Better check global $_REQUEST HTTP Request-Var references
+  * Sync [s9y] Better check global $_REQUEST HTTP Request-Var references.
     Prevents PHP warnings (Issue 642) thanks to @hannob
 
   * Escape category icons to avoid malicious backend XSS. Thanks to hannob.
