@@ -1,9 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Remove outdated IE8/9 browser workarounds for the 2styx backend theme
 
-  * Allow fetching virtual backend files with nice URL, eg serendipity_editor.js
+  * Remove outdated IE8/9 browser workarounds for the 2styx Backend theme
+
+  * Allow fetching virtual Backend files with nice URL, eg serendipity_editor.js
 
 ---- Alpha3
 
@@ -13,7 +14,7 @@ Version 3.0-Dev ()
     uploads/ dir. Upgraders:
         Make sure you don't have any cadaveric '_vti_cnf' directories left!
 
-  * Extend Thememanager Maintenance task for Spartacus cached image previews
+  * Extend Theme manager Maintenance task for Spartacus cached image previews
 
   * Add alpha-3 upgraders upgrade task for conditional template_cache cleanup
 
