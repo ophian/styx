@@ -2,6 +2,9 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
 
+  * Sync [s9y] Better check global $_REQUEST HTTP Request-Var references
+    Prevents PHP warnings (Issue 642) thanks to @hannob
+
   * Remove outdated IE8/9 browser workarounds for the 2styx Backend theme
 
   * Allow fetching virtual Backend files with nice URL, eg serendipity_editor.js
