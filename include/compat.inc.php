@@ -370,23 +370,14 @@ if (ini_get('magic_quotes_gpc')) {
 }
 
 // Merge GET and POST and COOKIE into the global serendipity array - referenced
-if (isset($serendipity['GET']) && is_array($_GET['serendipity'])) {
+if (isset($_GET['serendipity']) && is_array($_GET['serendipity'])) {
     $serendipity['GET'] = &$_GET['serendipity'];
 } else {
     $serendipity['GET'] = array();
 }
-
-if (isset($serendipity['POST']) && is_array($_POST['serendipity'])) {
-    $serendipity['POST'] = &$_POST['serendipity'];
-} else {
-    $serendipity['POST'] = array();
-}
-
-if (isset($serendipity['COOKIE']) && is_array($_COOKIE['serendipity'])) {
-    $serendipity['COOKIE'] = &$_COOKIE['serendipity'];
-} else {
-    $serendipity['COOKIE'] = array();
-}
+// don't (!) do this pre-check/set on $_POST and $_COOKIE
+$serendipity['POST'] = &$_POST['serendipity'];
+$serendipity['COOKIE'] = &$_COOKIE['serendipity'];
 
 // Attempt to fix IIS compatibility
 if (empty($_SERVER['REQUEST_URI'])) {
