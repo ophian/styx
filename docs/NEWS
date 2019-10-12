@@ -1,6 +1,8 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * bbcode event plugin: Fix some missing list-style-type styles
+
   * Sync [s9y] Better check global $_GET HTTP Request-Var reference.
     Prevents PHP warnings (Issue 642) thanks to @hannob
 
