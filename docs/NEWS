@@ -2,8 +2,6 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
 
-  * bbcode event plugin: Fix some missing list-style-type styles
-
   * Remove outdated IE8/9 browser workarounds for the 2styx Backend theme
 
   * Allow fetching virtual Backend files with nice URL, eg serendipity_editor.js
@@ -349,6 +347,8 @@ Version 3.0-Dev ()
 
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
+
+  * bbcode event plugin: Fix some missing list-style-type styles
 
   * Sync [s9y] Better check global $_GET HTTP Request-Var reference.
     Prevents PHP warnings (Issue 642) thanks to @hannob
