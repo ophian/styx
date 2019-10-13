@@ -2,6 +2,9 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
 
+  * Partly Sync [s9y] -
+    Fix auto-generated imap_8bit encoded email line break issue for qmail (MTA).
+
   * Remove outdated IE8/9 browser workarounds for the 2styx Backend theme
 
   * Allow fetching virtual Backend files with nice URL, eg serendipity_editor.js
