@@ -57,7 +57,7 @@ CKEDITOR.editorConfig = function( config ) {
     */
 
     /** SECTION: Extra Allowed Content
-        Set placeholder tag cases - elements [attributes]{styles}(classes) to protect ACF removements.
+        Set placeholder tag cases - elements [attributes]{styles}(classes) to protect ACF suspensions.
           - Allowed <mediainsert>, <gallery>, <media> tags (imageselectorplus galleries) - which tells ACF to not touch the code!
           - Allowed <picture> element and the <source> tag for viewport client access - which tells ACF to not touch the code!
           - Allowed <figure> styles and classes, <figcaption> classes for image comments
@@ -65,7 +65,7 @@ CKEDITOR.editorConfig = function( config ) {
           - Allowed <p> custom classes - to easier style certain paragraphs!
           - Allowed <ul> listing for styles and classes and <span> to make life a bit easier!
           - Allowed <a> link tag attributes and classes for having to add data-* attributes (see picture element) - which tells ACF to not touch the code!
-          - Reset <img[height,width]> Media Library image inserts to avoid ACF OFF removement of height attributes. (Dependency in ckeditor_s9y_plugin.js)
+          - Reset <img[height,width]> Media Library image inserts to avoid ACF OFF suspension of height attributes. (Dependency in ckeditor_s9y_plugin.js)
           - Allow <pre[*attributes](*classes)> for custom attributes/classes in code blocks
     */
     // protect
