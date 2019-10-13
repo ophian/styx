@@ -342,7 +342,7 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
 
     if ($is_win_utf === null) {
         // Windows does not have UTF-8 locales.
-        $is_win_utf = (LANG_CHARSET == 'UTF-8' && strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false);
+        $is_win_utf = (LANG_CHARSET == 'UTF-8' && (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ? true : false));
     }
 
     if ($useDate) {
