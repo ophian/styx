@@ -814,7 +814,13 @@ switch ($serendipity['GET']['adminAction']) {
             return;
         }
 
+        # Don't_do that !! ?? Is there really is a weird case where this gets valid ?
+        // It tries to reset a COOKIE stored 'addmedia_directory' path var with an 'only_path' path variable, which basically is uses for a (total) different case,
+        // ( - see show media files in this path only(!) or including all files in relative sub directories (fall through) - )
+        // apart from the fact that it is not even available (and required/desired) as a $serendipity['GET']['only_path'] variable here(!), than only as a possible stored COOKIE variable.
+        // The restoreVar function on the other hand sets the contents of $source into the $target variable, but only if $target is not yet set!!! So actually nothing happens! :) Which is good!
         serendipity_restoreVar($serendipity['COOKIE']['addmedia_directory'], $serendipity['GET']['only_path']);
+
         $folders = serendipity_traversePath(
             $serendipity['serendipityPath'] . $serendipity['uploadPath'],
             '',

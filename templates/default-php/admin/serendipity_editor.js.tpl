@@ -803,9 +803,9 @@
         return true;
     }
 
-    // save in which directory the first uploaded files is stored (the default when only inserting one file)
+    // save in which directory the first uploaded files is stored (also the default when only inserting one file)
     serendipity.rememberUploadOptions = function() {
-        serendipity.SetCookie('addmedia_directory', $('#target_directory_2').val());
+        serendipity.SetCookie('addmedia_directory', $('#target_directory_1').val());
     }
 
     // Clones the upload form template
