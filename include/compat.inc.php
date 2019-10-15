@@ -377,11 +377,10 @@ if (ini_get('magic_quotes_gpc')) {
 // since using both is NOT by accident or BAD coding than a sensible finetuned reaction
 // on different states of the workflow! (See for example external_plugin redirections.)
 // IMHO: Playing around to unify this will probably bork some essential extended features!
-if (isset($_GET['serendipity']) && is_array($_GET['serendipity'])) {
-    $serendipity['GET'] = &$_GET['serendipity'];
-} else {
+if (!array_key_exists('serendipity', $_GET) || !is_array($_GET['serendipity'])) {
     $serendipity['GET'] = array();
 }
+$serendipity['GET'] = &$_GET['serendipity'];
 // We don't (!) need to do this pre-check/set on $_POST and $_COOKIE since they ARE set!
 $serendipity['POST'] = &$_POST['serendipity'];
 $serendipity['COOKIE'] = &$_COOKIE['serendipity'];
