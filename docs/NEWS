@@ -2,6 +2,8 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
 
+  * Bugfix MediaLibrary 'addmedia_directory' cookie assignment issue
+
   * Fixed a 3.0-Dev regression for MediaLibrary (js) multi file uploads
 
   * Partly Sync [s9y] -
