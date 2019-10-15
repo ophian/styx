@@ -845,7 +845,8 @@ switch ($serendipity['GET']['adminAction']) {
             'token'             => serendipity_setFormToken(),
             'form_hidden'       => $form_hidden,
             'folders'           => $folders,
-            'only_path'         => $serendipity['GET']['only_path'],
+/*            'only_path'         => $serendipity['COOKIE']['only_path'],*/
+            'addmedia_lastdir'  => $serendipity['COOKIE']['addmedia_directory'],
             'max_file_size'     => $serendipity['maxFileSize'],
             'maxImgHeight'      => $serendipity['maxImgHeight'],
             'maxImgWidth'       => $serendipity['maxImgWidth'],
@@ -856,7 +857,7 @@ switch ($serendipity['GET']['adminAction']) {
         // ToDo later: merge $data and $media
         $serendipity['smarty']->assign('media', $mediaFiles);
         $serendipity['smarty']->display(serendipity_getTemplateFile('admin/media_upload.tpl', 'serendipityPath')); // no need for a compile file
-        return;
+        break;
 
     case 'rotateCW':
         $file = serendipity_fetchImageFromDatabase($serendipity['GET']['fid']);

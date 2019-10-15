@@ -31,7 +31,7 @@
                         <select id="target_directory_1" class="uploadform_target_directory" name="serendipity[target_directory][1]">
                             <option value="">{$CONST.BASE_DIRECTORY}</option>
                             {foreach $media.folders AS $folder}
-                            <option{if $media.only_path == $folder.relpath} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)} {$folder.name}</option>
+                            <option{if $media.addmedia_lastdir == $folder.relpath} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)} {$folder.name}</option>
                             {/foreach}
                         </select>
                     </div>
@@ -72,7 +72,7 @@
                     <select id="imagetargetdirectory" class="uploadform_target_directory" name="serendipity[target_directory][]">
                         <option value="">{$CONST.BASE_DIRECTORY}</option>
                         {foreach $media.folders AS $folder}
-                        <option{if $media.only_path == $folder.relpath} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)} {$folder.name}</option>
+                        <option{if $media.addmedia_lastdir == $folder.relpath} selected{/if} value="{$folder.relpath}">{'&nbsp;'|str_repeat:($folder.depth*2)} {$folder.name}</option>
                         {/foreach}
                     </select>
                 </div>
