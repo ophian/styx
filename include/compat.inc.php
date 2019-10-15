@@ -370,12 +370,19 @@ if (ini_get('magic_quotes_gpc')) {
 }
 
 // Merge GET and POST and COOKIE into the global serendipity array - referenced
+// It is vital that also an empty array is mapped as a reference
+// because the s9y core actually sets new array key values sometimes in $_GET and
+// sometimes in $serendipity['GET'] (and POST/COOKIE).
+// It is IMHO not advised to unify $_GET & ['GET'] into $serendipity['GET'] generally,
+// since using both is NOT by accident or BAD coding than a sensible finetuned reaction
+// on different states of the workflow! (See for example external_plugin redirections.)
+// IMHO: Playing around to unify this will probably bork some essential extended features!
 if (isset($_GET['serendipity']) && is_array($_GET['serendipity'])) {
     $serendipity['GET'] = &$_GET['serendipity'];
 } else {
     $serendipity['GET'] = array();
 }
-// don't (!) do this pre-check/set on $_POST and $_COOKIE
+// We don't (!) need to do this pre-check/set on $_POST and $_COOKIE since they ARE set!
 $serendipity['POST'] = &$_POST['serendipity'];
 $serendipity['COOKIE'] = &$_COOKIE['serendipity'];
 
