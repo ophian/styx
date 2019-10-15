@@ -494,6 +494,11 @@ switch ($serendipity['GET']['adminAction']) {
                         continue;
                     }
 
+                    // fetch string|array conversion cases for multi file uploads
+                    $uploadtmp  = is_array($uploadtmp)  ? $uploadtmp[0]  : $uploadtmp;  // the servers tmp file
+                    $uploadfile = is_array($uploadfile) ? $uploadfile[0] : $uploadfile; // the name to bail out / upload
+                    $tfile      = is_array($tfile)      ? $tfile[0]      : $tfile;      // the (template) real blog file
+
                     $tfile = str_replace(' ', '_', basename($tfile)); // keep serendipity_uploadSecure(URL) whitespace convert behaviour, when using serendipity_makeFilename()
                     $tfile = serendipity_specialchars($tfile); // needed to prevent ability for uploader to inject javascript https://github.com/s9y/Serendipity/commit/f295a3b123bd7840ae65ccb2050ee93e5fbbcd93#diff-96c5729a7a3cb8af240c8d9fee9f023fR
                     $tfile = serendipity_uploadSecure(serendipity_makeFilename($tfile));
