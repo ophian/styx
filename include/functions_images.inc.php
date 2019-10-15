@@ -4047,7 +4047,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
     );
 
     // temporary approach to push convenient supported images formats into the $media array for media properties page
-    if (!$enclose && $file[0]['is_image']) {
+    if (!$enclose && isset($file[0]) && $file[0]['is_image']) {
         $media['formats'] = [   0 => ['mime' => 'image/jpeg', 'extension' => 'jpeg'],
                                 1 => ['mime' => 'image/png',  'extension' => 'png' ],
                                 2 => ['mime' => 'image/gif',  'extension' => 'gif' ] ];
