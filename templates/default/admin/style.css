@@ -4089,6 +4089,9 @@ img.mfp-img {
     .media_pane > .media_file.mlMaxCol {
         margin: 0 -2% 1em 0;
     }
+    .media_pane > .media_file.mlMaxCol:last-of-type {
+        margin: 0 0% 1em 0;
+    }
     #template_select ul li.theme_file.tmMaxCol {
         margin: 0;
     }
