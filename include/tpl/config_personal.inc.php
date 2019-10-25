@@ -85,17 +85,13 @@
                                           'type'        => 'list',
                                           'permission'  => 'personalConfiguration',
                                           'default'     => array(
-                                              'Default'  => USERCONF_WYSIWYG_PRESET_S9Y,
+                                              'Standard' => USERCONF_WYSIWYG_PRESET_STANDARD,
                                               'Basic'    => USERCONF_WYSIWYG_PRESET_BASIC,
                                               'Full'     => USERCONF_WYSIWYG_PRESET_FULL,
-                                              'Standard' => USERCONF_WYSIWYG_PRESET_STANDARD,
-                                              'CKE'      => USERCONF_WYSIWYG_PRESET_CKE,
                                               '----',
-                                              'NOCC-Default'  => USERCONF_WYSIWYG_PRESET_NOCC_S9Y,
+                                              'NOCC-Standard' => USERCONF_WYSIWYG_PRESET_NOCC_STANDARD,
                                               'NOCC-Basic'    => USERCONF_WYSIWYG_PRESET_NOCC_BASIC,
                                               'NOCC-Full'     => USERCONF_WYSIWYG_PRESET_NOCC_FULL,
-                                              'NOCC-Standard' => USERCONF_WYSIWYG_PRESET_NOCC_STANDARD,
-                                              'NOCC-CKE'      => USERCONF_WYSIWYG_PRESET_NOCC_CKE
                                               ),
                                           'flags'       => array('config')),
 

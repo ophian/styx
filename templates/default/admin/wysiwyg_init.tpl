@@ -70,7 +70,7 @@
 
         CKEDITOR.replace($('#'+serendipity.escapeBrackets('{$item}')).get(0), {
             extraPlugins : s9yplugins,
-            toolbar      : '{$wysiwygToolbar|default:"Default"}',
+            toolbar      : '{$wysiwygToolbar|default:"Standard"}',
             language     : '{$CONST.WYSIWYG_LANG|replace:'_':'-'}',
             wsc_lang     : '{$CONST.WYSIWYG_LANG}',
             scayt_sLang  : '{$CONST.WYSIWYG_LANG}',

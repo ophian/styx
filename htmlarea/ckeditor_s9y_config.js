@@ -1,6 +1,6 @@
 /**
  * @fileOverview The Serendipity CKEDITOR custom config file:
- *               ckeditor_s9y_config.js, v. 1.23, last modified 2019-08-06 by Ian Styx
+ *               ckeditor_s9y_config.js, v. 1.24, last modified 2019-10-25 by Ian Styx
  */
 
 /**
@@ -187,15 +187,13 @@ CKEDITOR.editorConfig = function( config ) {
 
     /** SECTION: Build Preset Toolbars
 
-        S9Y: Serendipity (default)
-        BASIC: Serendipity (simple)
-        STANDARD: Serendipity (normal)
-        FULL: Serendipity (extended)
-        CKE: CKEditor Full (preset)
+        STANDARD: Serendipity Styx (normal)
+        BASIC: Serendipity Styx (simple)
+        FULL: Serendipity Styx (extended)
 
         PLEASE NOTE:
         1. In order to work properly within all toolbars, please do not remove the eg. { name: 'insert', items: [ 'Image' ] }, group and Image button, since then the s9ymediabutton does not properly insert!
-           This ckeditor image widget is disabled/hidden by css (htmlarea/s9y_cketoolbar.css) and is only presented in the CKE PRESET toolbar.
+           This ckeditor image widget is disabled/hidden by css (htmlarea/s9y_cketoolbar.css) (and is only presented in the CKE PRESET toolbar).
         2. If you really configure your own toolbar, choose the named and selected toolbar which comes near to your idea and edit the one.
     */
 
@@ -204,7 +202,7 @@ CKEDITOR.editorConfig = function( config ) {
 //    console.log('is ckeditor_custom_config.js');
     */
 
-    // in case of Serendipity toolbar : "Basic"
+    // in case of Serendipity Styx toolbar : "Basic"
     config.toolbar_Basic = [
         { name: 'styles',      items : [ 'Format', ] },
         { name: 'basicstyles', items : [ 'Bold','Italic','Underline','Superscript' ] },
@@ -218,7 +216,7 @@ CKEDITOR.editorConfig = function( config ) {
     ];
 //    console.log(JSON.stringify(config.toolbar_Basic));
 
-    // in case of Serendipity toolbar : "Standard" (called 'Alternate' in toolbar selection, but rather is a normal Standard)
+    // in case of Serendipity Styx toolbar : "Standard"
     config.toolbar_Standard = [
         { name: 'basicstyles', items : [ 'Format','-','Bold','Italic','Underline','Strike','Subscript','Superscript','-','RemoveFormat' ] },
         { name: 'clipboard',   items : [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo'] },
@@ -237,7 +235,7 @@ CKEDITOR.editorConfig = function( config ) {
     ];
 //    console.log(JSON.stringify(config.toolbar_Standard));
 
-    // in case of Serendipity toolbar : "Full"
+    // in case of Serendipity Styx toolbar : "Full"
     // Breaks apart long paragraph group to better float (moved 'Source' and removed 'Font' buttons; 'Styles' and 'Preview' disabled overall).
     config.toolbar_Full = [
         { name: 'styles',      items : [ 'Styles','Format',/*'Font',*/'FontSize' ] },
@@ -262,32 +260,13 @@ CKEDITOR.editorConfig = function( config ) {
     ];
 //    console.log(JSON.stringify(config.toolbar_Full));
 
-    // in case of Serendipity toolbar : Default
-    config.toolbar_Default = [
-        { name: 'tools',        items: [ 'Maximize' ] },
-        { name: 'styles',       items: [ 'Format' ] },
-        { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic', 'RemoveFormat' ] },
-        { name: 'paragraph',   groups: [ 'list', 'indent', 'blocks', 'align' ], items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote' ] },
-        { name: 'links',        items: [ 'Link', 'Unlink', 'Anchor' ] },
-        { name: 's9yml',        items: s9ymediabuttons },
-        { name: 'insert',       items: [ 'Image', '-', 'Table', 'HorizontalRule', 'SpecialChar' ] },
-        { name: 'clipboard',   groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', '-', 'Undo', 'Redo' ] },
-        { name: 'editing',     groups: [ 'find', 'selection', 'spellchecker' ], items: [ 'Scayt' ] },
-        { name: 'mediaembed',   items: [ 'MediaEmbed' ] },
-        { name: 'others',       items: s9ypluginbuttons },
-        { name: 'document',    groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source' ] },
-        { name: 'about',        items: [ 'About' ] }
-    ];
-//    console.log(JSON.stringify(config.toolbar_s9y));
-
     /**
-     This is the 'CKE PRESET' toolbar select name with CKE 'Default' values, also acting as a fallback in order. Do not touch!
+     This is the 'CKE PRESET' toolbar with CKE 'Default' values, acting as a fallback in order. Do not touch!
      Note: There is another (internal) fallback toolbar in case of errors, which appearance looks like a re-arranged 4-liner toolbar,
            which will provide the 'others' group, but no additionally added plugins (like mediaembed and cheatsheet).
      This is the official Toolbar configuration generated automatically by the editor, based on config.toolbarGroups.
      It is more or like an untouched example for the full toolbar but underlies the same restrictions of disabled plugins or buttons.
     */
-    // in case of toolbar : PRESET CKE
     config.toolbar_CKE = [
         { name: 'document', groups: [ 'mode', 'document', 'doctools' ], items: [ 'Source', '-', 'Save', 'NewPage', 'Preview', 'Print', '-', 'Templates' ] },
         { name: 'clipboard', groups: [ 'clipboard', 'undo' ], items: [ 'Cut', 'Copy', 'Paste', 'PasteText', 'PasteFromWord', '-', 'Undo', 'Redo' ] },
