@@ -1089,16 +1089,12 @@
 @define('INSTALL_CAT_FEEDS_DESC', 'Customize how Serendipity feeds Feeds');
 @define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR', 'WYSIWYG 편집기의 도구 모음');
 @define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR_DESC', 'WYSIWYG 편집기에 표시할 수 있는 도구 모음 버튼의 목록을 설정합니다. 기본 설정 묶음(프리셋)을 추가적으로 변경하고자 할 경우 templates/XXX/admin/ckeditor_custom_config.js 파일을 만들면 됩니다. 보다 자세한 사항은 htmlarea/ckeditor_s9y_config.js 및 htmlarea/ckeditor_s9y_plugin.js 파일을 참고하기 바랍니다.');
-@define('USERCONF_WYSIWYG_PRESET_S9Y', '세렌디피티 (기본값)');
-@define('USERCONF_WYSIWYG_PRESET_BASIC', '간소화된 기능');
-@define('USERCONF_WYSIWYG_PRESET_FULL', '전체 기능');
-@define('USERCONF_WYSIWYG_PRESET_STANDARD', '대안 설정');
-@define('USERCONF_WYSIWYG_PRESET_CKE', 'CKEditor 전체 기능');
-@define('USERCONF_WYSIWYG_PRESET_NOCC_S9Y', '강제 사용: 세렌디피티');
-@define('USERCONF_WYSIWYG_PRESET_NOCC_BASIC', '강제 사용: 간소화된 기능');
-@define('USERCONF_WYSIWYG_PRESET_NOCC_FULL', '강제 사용: 전체 기능');
-@define('USERCONF_WYSIWYG_PRESET_NOCC_STANDARD', '강제 사용: 대안 설정');
-@define('USERCONF_WYSIWYG_PRESET_NOCC_CKE', '강제 사용: CKEditor 전체 기능');
+@define('USERCONF_WYSIWYG_PRESET_STANDARD', '표준');
+@define('USERCONF_WYSIWYG_PRESET_BASIC', '기본');
+@define('USERCONF_WYSIWYG_PRESET_FULL', '알찬');
+@define('USERCONF_WYSIWYG_PRESET_NOCC_STANDARD', '강제 사용: 표준');
+@define('USERCONF_WYSIWYG_PRESET_NOCC_BASIC', '강제 사용: 기본');
+@define('USERCONF_WYSIWYG_PRESET_NOCC_FULL', '강제 사용: 알찬');
 
 @define('CATEGORY_PLUGIN_SHOWALL', '"모든 범주"에 대한 링크 표시');
 @define('CATEGORY_PLUGIN_SHOWALL', '사용할 경우 범주 제한 없이 블로그를 보여주는 링크를 방문자가 볼 수 있게 추가합니다.');
