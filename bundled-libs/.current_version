@@ -1,7 +1,6 @@
 All (pear/customized) libs have more or less being touched for PHP5 constructors and PHP compat issues
 
 Cache_Lite              1.7.16 (CVS 1.7.16)
-Cryptor                 ???    (latest, 2017-11-19)
 Katzgrau/klogger        1.2.1  (latest, 2016-08-10)
 HTTP_Request2           2.3.0  (latest, 2016-06-22)
 Net_CheckIP2            1.1    (latest, 2016-06-22)
@@ -10,10 +9,9 @@ Net_Socket2             ???    (latest, 2016-06-22)
 Net_URL2                2.2.1  (latest, 2016-06-22)
 Net_SURBL               1.4    (latest, 2016-06-22)
 Onyx (customized)       1.0
-Paragonie/random_compat 2.0.11 (latest, 2018-01-22)
 PEAR                    1.10.1
-Psr/log                 ???    (latest, 2016-08-10)
+Psr/log                 1.1.1  (latest, 2019-10-25)
 SimplePie               1.5.1  (dev-1.5.2, 2018-03-27)
-Smarty                  3.1.31 (3.1.32-dev-43, 2018-03-25)
+Smarty                  3.1.33 (3.1.34-dev-7, 2018-10-30)
 XML_RPC                 1.4.0  (1.5.5)
 
