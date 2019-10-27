@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.45');
+        $propbag->add('version',       '2.46');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -424,7 +424,7 @@ p.wl_notopbottom {
                                 'menu', 'section',
                                 'address', 'article', 'aside', 'fieldset', 'footer',
                                 'form', 'header', 'hgroup', 'hr', 'main', 'nav', 'p');
-    var $nested_block_elements = array('div','table','blockquote','ul','ol','dl');
+    var $nested_block_elements = array('div','table','blockquote','ul','ol','dl','figure');
 
     var $singleton_block_elements = array('hr');
 
@@ -436,7 +436,7 @@ p.wl_notopbottom {
                                 'img', 'input', 'keygen', 'link', 'param', 'source',
                                 'track', 'wbr', '!--', 'iframe',
                                 'li','tr','th','col','colgroup',
-                                'thead', 'tbody', 'tfoot', 'caption', 'ins','del',
+                                'thead', 'tbody', 'tfoot', 'caption', 'figcaption', 'ins','del',
                                 'video','audio','title','desc','path','circle',
                                 'ellipse', 'rect', 'line', 'polyline', 'polygon', 'text',
                                 'image', 'g', 'defs'); //includes svg tags
