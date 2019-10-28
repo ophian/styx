@@ -1158,7 +1158,7 @@
 
 @define('IMAGE_LINK_TO_BIG', 'Verweise auf das große Bild');
 
-@define('UTF8MB4_MIGRATION_TITLE', 'UTF-8-MB4 Migration');
+@define('UTF8MB4_MIGRATION_TITLE', 'Datenbank: UTF-8-MB4 Migration');
 @define('UTF8MB4_MIGRATION_ERROR', 'Bei der UTF-8-Migration ist ein Fehler aufgetreten::<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Fahren Sie <b>nicht</b> fort, ohne den Fehler behoben zu haben!');
 @define('UTF8MB4_MIGRATION_TASK_RETURN', 'Die Migrationsaufgabe ergab:');
 @define('UTF8MB4_MIGRATION_TASK_HAVE', 'Folgende SQL-Kommandos wurden ausgeführt:');

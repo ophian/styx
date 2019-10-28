@@ -1179,7 +1179,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 
 @define('IMAGE_LINK_TO_BIG', 'Link to the larger image');
 
-@define('UTF8MB4_MIGRATION_TITLE', 'UTF-8-MB4 migration');
+@define('UTF8MB4_MIGRATION_TITLE', 'Database: UTF-8-MB4 migration');
 @define('UTF8MB4_MIGRATION_ERROR', 'An error occurred with the UTF-8 migration:<br>&nbsp;&nbsp;&nbsp;&nbsp;<em>%s</em><br>Do <b>not</b> continue without having solved the error!');
 @define('UTF8MB4_MIGRATION_TASK_RETURN', 'The migration task returned:');
 @define('UTF8MB4_MIGRATION_TASK_HAVE', 'The following SQL commands have been executed:');
