@@ -1182,7 +1182,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('CORE_THEMES', 'Styx Kern Themes');
 @define('THEMEMANAGER', 'Theme Altlastenmanager');
 @define('THEMEMANAGER_ZOMB_OK', 'Gut gemacht! Themes erfolgreich gelöscht!');
-@define('THEMEMANAGER_LOCALTHEMES', 'Untersuche lokale ältere Themes');
+@define('THEMEMANAGER_LOCALTHEMES', 'Suche heruntergeladene Themes');
 @define('THEMEMANAGER_SUBMIT', 'Lösche gewählte Themes');
 @define('THEMEMANAGER_INFO', 'Lösche alte Theme-Zombies (Multi-Auswahl). Machen Sie Styx glücklich und halten Sie Ihren Laden sauber! :) Wenn Sie jemals ein solches Theme wieder benötigen, laden Sie es einfach als frische Version über Spartacus. Anderseits, wenn Sie ein solches Template je selbst verändert haben, sollten Sie ohne vorheriges Backup auf die Löschung möglicherweise doch verzichten!');
 
@@ -1195,7 +1195,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 
 @define('PLUGINMANAGER', 'Plugin Altlastenmanager');
 @define('PLUGINMANAGER_ZOMB_OK', 'Gut gemacht! Plugin Zombies erfolgreich gelöscht!');
-@define('PLUGINMANAGER_LOCALPLUGINS', 'Untersuche auf lokale Plugin Zombies');
+@define('PLUGINMANAGER_LOCALPLUGINS', 'Suche nach Plugin Zombies');
 @define('PLUGINMANAGER_SUBMIT', 'Lösche Plugin Zombies');
 @define('PLUGINMANAGER_INFO', 'Oft liegen auf älteren Systemen noch Plugins herum, die niemals aktiviert wurden, bzw. als lokale Zombies in der Datenbank abgelegt und damit auch nie synchronisiert wurden. Solche Plugins tauchen beim Suchen nach neu zu installierenden Plugins in der angezeigten Liste als lokal schon vorhandene Plugins auf, obwohl möglicherweise eine neuere Version auf Spartacus zu finden wäre. Solche Plugin Zombies sollte man löschen, damit im Falle des Falles immer auf die neueste Version zugegriffen werden kann. Manchmal aber auch sind dies Developer Versionen die nur etwas in Vergessenheit geraten sind. Denken Sie also gut nach bevor Sie den Löschvorgang für markierte Plugins betätigen.');
 
