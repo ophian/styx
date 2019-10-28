@@ -1180,7 +1180,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('HTML_COMMENTS_DESC', 'Wenn die WYSIWYG-Editor-Option in den "Eigenen Einstellungen" erlaubt ist, können Sie hier zusätzlich "tag"-beschränkte HTML-Kommentare und "pre/code" HTML-Auszeichnungs-Bestandteile zulassen, die in Backend- und Frontend-Seiten als HTML verarbeitet, aber vom Editor nur im Backend bearbeitet werden. Bitte beachten Sie: Diese Option gibt auch alte Kommentare frei, um ihren eventuellen Markup Inhalt als HTML anzuzeigen. Überprüfen Sie diese also besser vor der Erlaubnis (!), damit Sie keine versehentlich genehmigten, aber unsichere (javascript oder links, etc) Kommentar Inhalte in Ihrer Datenbank gespeichert haben.');
 
 @define('CORE_THEMES', 'Styx Kern Themes');
-@define('THEMEMANAGER', 'Theme Manager Zentrale');
+@define('THEMEMANAGER', 'Theme Altlastenmanager');
 @define('THEMEMANAGER_ZOMB_OK', 'Gut gemacht! Themes erfolgreich gelöscht!');
 @define('THEMEMANAGER_LOCALTHEMES', 'Untersuche lokale ältere Themes');
 @define('THEMEMANAGER_SUBMIT', 'Lösche gewählte Themes');
@@ -1193,7 +1193,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 
 @define('ADDITIONAL_PROPERTIES_BY_PLUGIN', 'Zusätzliche Einstellungen durch Plugin: %s');
 
-@define('PLUGINMANAGER', 'Zombie Plugins Cleanup Manager');
+@define('PLUGINMANAGER', 'Plugin Altlastenmanager');
 @define('PLUGINMANAGER_ZOMB_OK', 'Gut gemacht! Plugin Zombies erfolgreich gelöscht!');
 @define('PLUGINMANAGER_LOCALPLUGINS', 'Untersuche auf lokale Plugin Zombies');
 @define('PLUGINMANAGER_SUBMIT', 'Lösche Plugin Zombies');

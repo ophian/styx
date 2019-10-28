@@ -1193,7 +1193,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('HTML_COMMENTS_DESC', 'If the WYSIWYG option in personal preferences is set true, you may additionally allow tag-restricted HTML comments and "pre/code" tag parts displayed in backend and frontend pages, but edited by Editor in backend only. Keep in mind: This options liberates old comments to display their content. So better check them up before (!), that you don\'t have accidentally approved spoofed content in your database stored comments.');
 
 @define('CORE_THEMES', 'Styx Core Themes');
-@define('THEMEMANAGER', 'Theme Manager Clearance Spot');
+@define('THEMEMANAGER', 'Theme Cleanup Manager');
 @define('THEMEMANAGER_ZOMB_OK', 'Well done! Chosen themes purged!');
 @define('THEMEMANAGER_LOCALTHEMES', 'Check old local themes');
 @define('THEMEMANAGER_SUBMIT', 'Purge selected themes');
@@ -1206,7 +1206,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 
 @define('ADDITIONAL_PROPERTIES_BY_PLUGIN', 'Additional properties by Plugin: %s');
 
-@define('PLUGINMANAGER', 'Zombie Plugins Cleanup Manager');
+@define('PLUGINMANAGER', 'Plugin Cleanup Manager');
 @define('PLUGINMANAGER_ZOMB_OK', 'Well done! Old plugin zombies purged!');
 @define('PLUGINMANAGER_LOCALPLUGINS', 'Check for local plugin zombies');
 @define('PLUGINMANAGER_SUBMIT', 'Purge plugin zombies');
