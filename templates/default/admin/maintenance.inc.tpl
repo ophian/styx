@@ -44,7 +44,7 @@
 
 {if 'adminImagesSync'|checkPermission}
     <section id="maintenance_thumbs" class="quick_list">
-        <h3>{$CONST.CREATE_THUMBS}</h3>
+        <h3>{$CONST.MEDIA_LIBRARY}: {$CONST.CREATE_THUMBS}</h3>
 
         <form method="POST" action="serendipity_admin.php?serendipity[adminModule]=media&amp;serendipity[adminAction]=doSync">
             <fieldset>
