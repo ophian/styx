@@ -78,6 +78,12 @@ switch($serendipity['GET']['adminAction']) {
         }
         break;
 
+    case 'imageorphans':
+        if (serendipity_checkPermission('siteConfiguration')) {
+            include_once S9Y_INCLUDE_PATH . 'include/admin/mlorphans_task.inc.php';
+        }
+        break;
+
     case 'checkplug':
         if (!serendipity_checkPermission('siteConfiguration')) {
             $data['pluginmanager_error'] = PERM_DENIED;
