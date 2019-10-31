@@ -2,6 +2,10 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
 
+  * Add new internal core maintenance (mlorphans) event plugin to allow to
+    research and even cleanup MediaLibrary image orphans. This applies to blogs
+    with more than 100 images only.
+
   * Simplify WYSIWYG-Editor Toolbar selection (the default is "Standard")
 
   * Add/Fix image upload feature to remember last selected directory
