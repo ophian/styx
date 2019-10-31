@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.23');
+        $propbag->add('version',       '2.24');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -75,7 +75,7 @@ class serendipity_event_spamblock extends serendipity_event
             'automagic_htaccess',
             'logtype',
             'logfile'));
-        $propbag->add('groups', array('ANTISPAM'));
+        $propbag->add('groups', array('ANTISPAM', 'BACKEND_ADMIN', 'BACKEND_FEATURES', 'BACKEND_MAINTAIN', 'MAINTENANCE'));
         $propbag->add('config_groups', array(
                 'Content Filter' => array(
                     'contentfilter_activate',
