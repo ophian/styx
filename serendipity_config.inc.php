@@ -156,7 +156,7 @@ $serendipity['defaultTemplate'] = 'pure';
 
 // Default backend theme
 if (!isset($serendipity['template_backend'])) {
-    $serendipity['template_backend'] = '2styx';
+    $serendipity['template_backend'] = 'styx';
 }
 
 // Available languages
