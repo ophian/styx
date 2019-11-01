@@ -461,7 +461,8 @@ $dead_files_270 = array(
 /* A list of old or removed directories for 3.0.0 */
 $dead_dirs_300 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/paragonie/random_compat',
-    $serendipity['serendipityPath'] . 'bundled-libs/cryptor'
+    $serendipity['serendipityPath'] . 'bundled-libs/cryptor',
+    $serendipity['serendipityPath'] . 'templates/2styx'
 );
 
 /**
@@ -478,7 +479,7 @@ function recursive_directory_iterator($dir = array()) {
 }
 
 /**
- * Fix pluginlist for upgrade cases
+ * Set/change config variables; Fix pluginlist for upgrade cases.
  *
  * @access private
  * @param  string   (reserved for future use)
@@ -523,11 +524,22 @@ function serendipity_fixPlugins($case) {
             return true;
             break;
 
+        case 'change_backend_name':
+            if ($serendipity['template_backend'] == '2styx') {
+                serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config
+                                         SET value = 'styx'
+                                       WHERE name = 'template_backend'
+                                         AND value = '2styx'");
+                recursive_directory_iterator($dead_dirs_300);
+            }
+            return true;
+            break;
+
         case 'spartacus_custom_reset':
-           serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config
-                                    SET value = ''
-                                  WHERE name LIKE '%custommirror'
-                                    AND value = 'https://raw.githubusercontent.com/ophian/additional_plugins/master/'");
+            serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config
+                                     SET value = ''
+                                   WHERE name LIKE '%custommirror'
+                                     AND value = 'https://raw.githubusercontent.com/ophian/additional_plugins/master/'");
             return true;
             break;
 

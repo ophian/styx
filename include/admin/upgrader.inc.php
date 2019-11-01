@@ -530,6 +530,12 @@ $tasks = array(
                     'title'     => 'Automatic cleanup of "additional_themes" cached preview images',
                     'desc'      => 'Run it, to further be able, to get a fresh build of all relevant images preview files for the themes list. (Recommended!)'),
 
+            array(  'version'   => '3.0-alpha4',
+                    'function'  => 'serendipity_fixPlugins',
+                    'arguments' => array('change_backend_name'),
+                    'title'     => 'Change Backend template name',
+                    'desc'      => 'Changes and removes the "2styx" backend template for the directory renaming change to "styx". If you have your own tweaks inside, back them up before you proceed!'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
