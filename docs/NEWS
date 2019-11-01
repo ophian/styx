@@ -2,6 +2,8 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
 
+  * Add alpha4 upgrade task for backend template rename
+
   * Rename default Standard Backend 'template_backend' to Styx (styx)
 
   * Add new internal core maintenance (mlorphans) event plugin to allow to
