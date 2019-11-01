@@ -2,6 +2,8 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
 
+  * Rename default Standard Backend 'template_backend' to Styx (styx)
+
   * Add new internal core maintenance (mlorphans) event plugin to allow to
     research and even cleanup MediaLibrary image orphans. This applies to blogs
     with more than 100 images only.
