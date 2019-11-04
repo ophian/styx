@@ -90,12 +90,19 @@
                     <div class="media_file_preview">
                         {if isset($link)}
 
-                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link_webp|default:$link}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if $img_src_webp} (WepP){/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
-                            <picture>
+                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link_webp|default:$link}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if isset($img_src_webp)} (WepP){/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
+                            <picture{if in_array($file.mediatype, ['video', 'binary']) AND in_array($file.extension, ['mp4', 'webm', 'ogv'])} class="media_mime_video_thumb"{/if}>
                                 <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
                                 <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                             </picture>
                         </a>
+                        {if in_array($file.mediatype, ['video', 'binary']) AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}
+                        <div class="media_video_controls">
+                            <video controls>
+                                <source src="{$file.full_file}" type="video/{$file.extension}"><!-- media/properties video -->
+                            </video>
+                        </div>
+                        {/if}
                         {else}
                         {if $file.is_image}
 
@@ -111,11 +118,13 @@
                         </span>
                         {/if}
                         {else}
-                        {if {$file.mime|regex_replace:"/\/.*$/":""} == 'video' AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}{* * *}
+                        {if in_array($file.mediatype, ['video', 'binary']) AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}
 
-                        <video width="320" height="240" controls>
-                            <source src="{$file.full_file}"  type="video/{$file.extension}"><!-- media/properties video -->
-                        </video>
+                        <div class="media_video_controls">
+                            <video controls>
+                                <source src="{$file.full_file}" type="video/{$file.extension}"><!-- media/properties video -->
+                            </video>
+                        </div>
                         {else}
 
                         <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties non image file -->

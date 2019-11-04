@@ -3144,6 +3144,19 @@ label .perm_name,
     display: none;
     visibility: hidden;
 }
+.js .media_video_controls {
+	margin-top: .25em;
+	margin-bottom: .25em;
+}
+.js img.media_mime_video_thumb,
+.js .media_mime_video_thumb img {
+    width: 2.5em;
+}
+.js .media_video_controls video {
+	width: auto;
+	height: auto;
+    max-width: 96%;
+}
 
 /* gallery pane start */
 .js .media_gallery  {
@@ -3790,6 +3803,15 @@ img.mfp-img {
     #serendipity_comments_list .pingback.actions {
         margin-top: 1.5em;
     }
+    .js .media_video_controls video {
+        max-width: 24em;
+    }
+    .js .mlMidCol .media_video_controls video {
+        max-width: 16em;
+    }
+    .js .mlMaxCol .media_video_controls video {
+        max-width: 12em;
+    }
 }
 
 @media only screen and (min-width: 480px) {
@@ -4432,6 +4454,16 @@ img.mfp-img {
         top: 2px;
     }
 
+    .js .media_video_controls video {
+        max-width: 20em;
+    }
+    .js .mlMidCol .media_video_controls video {
+        max-width: 14em;
+    }
+    .js .mlMaxCol .media_video_controls video {
+        max-width: 10em;
+    }
+
     .configuration_group .form_select,
     .configuration_group .form_multiselect,
     .configuration_group .form_field,
@@ -4587,6 +4619,16 @@ img.mfp-img {
 
     #keyword_list {
         padding-top: 2em;
+    }
+
+    .js .media_video_controls video {
+        max-width: 24em;
+    }
+    .js .mlMidCol .media_video_controls video {
+        max-width: 16em;
+    }
+    .js .mlMaxCol .media_video_controls video {
+        max-width: 14em;
     }
 }
 
@@ -4773,6 +4815,16 @@ img.mfp-img {
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
         padding: .15em;
     }
+
+    .js .media_video_controls video {
+        max-width: 20em;
+    }
+    .js .mlMidCol .media_video_controls video {
+        max-width: 14em;
+    }
+    .js .mlMaxCol .media_video_controls video {
+        max-width: 10em;
+    }
 }
 
 /* LARGER SCREENS */
@@ -4819,6 +4871,15 @@ img.mfp-img {
     }
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
         padding: .175em;
+    }
+    .js .media_video_controls video {
+        max-width: 24em;
+    }
+    .js .mlMidCol .media_video_controls video {
+        max-width: 16em;
+    }
+    .js .mlMaxCol .media_video_controls video {
+        max-width: 14em;
     }
 }
 
