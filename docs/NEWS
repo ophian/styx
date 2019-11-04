@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Rework media video/binary template markup to display videos as HTML5 media
+    player source objects in the MediaLibrary and the add_to_entry layers and
+    as well in WYSIWYG-Editor textareas.
 
 ---- Alpha4
 
