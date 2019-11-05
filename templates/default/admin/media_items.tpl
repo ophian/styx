@@ -91,7 +91,7 @@
                         {if isset($link)}
 
                         <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link_webp|default:$link}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if isset($img_src_webp)} (WepP){/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
-                            <picture{if in_array($file.mediatype, ['video', 'binary']) AND in_array($file.extension, ['mp4', 'webm', 'ogv'])} class="media_mime_video_thumb"{/if}>
+                            <picture{if in_array($file.mediatype, ['audio', 'video', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au', 'mp4', 'webm', 'ogv'])} class="media_mime_player_thumb"{/if}>
                                 <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
                                 <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                             </picture>
