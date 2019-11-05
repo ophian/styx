@@ -163,7 +163,7 @@
         {else}
         <script>
         {if in_array($media.file.mediatype, ['video', 'binary']) AND in_array($media.file.extension, ['mp4', 'webm', 'ogv'])}
-            block = '<!-- s9ymdb:{$media.file.id} --><video controls><source src="{$media.file.full_file}" type="video/{$media.file.extension}"></video>';
+            block = '<!-- s9ymdb:{$media.file.id} --><video src="{$media.file.full_file}" type="video/{$media.file.extension}" controls></video>';
         {else}
             block = '<a class="block_level opens_window" href="{$media.file.full_file}" title="{$media.file.realname|escape}"><!-- s9ymdb:{$media.file.id} -->{$media.file.realname|escape}</a>';
         {/if}
