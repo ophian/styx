@@ -3147,6 +3147,11 @@ label .perm_name,
 	margin-top: .25em;
 	margin-bottom: .25em;
 }
+.js .mlDefCol .media_controls audio {
+    width: max-content;
+    min-width: 18em;
+    display: inline-block;
+}
 .js img.media_mime_video_thumb,
 .js .media_mime_video_thumb img {
     width: 2.5em;
