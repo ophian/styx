@@ -164,6 +164,8 @@
         <script>
         {if in_array($media.file.mediatype, ['video', 'binary']) AND in_array($media.file.extension, ['mp4', 'webm', 'ogv'])}
             block = '<!-- s9ymdb:{$media.file.id} --><video src="{$media.file.full_file}" type="video/{$media.file.extension}" controls></video>';
+        {elseif in_array($media.file.mediatype, ['audio', 'binary']) AND in_array($media.file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au'])}
+            block = '<!-- s9ymdb:{$media.file.id} --><audio src="{$media.file.full_file}" preload="auto" type="audio/{$media.file.extension}" controls></audio>';
         {else}
             block = '<a class="block_level opens_window" href="{$media.file.full_file}" title="{$media.file.realname|escape}"><!-- s9ymdb:{$media.file.id} -->{$media.file.realname|escape}</a>';
         {/if}
