@@ -88,30 +88,38 @@
 
                 <div class="clearfix equal_heights media_file_wrap">
                     <div class="media_file_preview">
-                        {if isset($link)}
+                {if isset($link)}
+                    {if $link == $file.full_file AND isset($file.mimeicon) AND  in_array($file.mediatype, ['audio', 'video', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au', 'mp4', 'webm', 'ogv'])}
+
+                        <picture class="media_mime_player_thumb">
+                            <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
+                            <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
+                        </picture>
+                    {else}
 
                         <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link_webp|default:$link}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if isset($img_src_webp)} (WepP){/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
-                            <picture{if in_array($file.mediatype, ['audio', 'video', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au', 'mp4', 'webm', 'ogv'])} class="media_mime_player_thumb"{/if}>
+                            <picture>
                                 <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
                                 <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
                             </picture>
                         </a>
-                        {if in_array($file.mediatype, ['video', 'binary']) AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}
+                    {/if}
+                    {if in_array($file.mediatype, ['video', 'binary']) AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}
 
                         <div class="media_controls">
                             <video controls>
                                 <source src="{$file.full_file}" type="video/{$file.extension}"><!-- media/properties video -->
                             </video>
                         </div>
-                        {/if}
-                        {if in_array($file.mediatype, ['audio', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au'])}
+                    {/if}
+                    {if in_array($file.mediatype, ['audio', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au'])}
 
                         <div class="media_controls">
                             <audio src="{$file.full_file}" type="audio/{$file.extension}" controls></audio>
                         </div>
-                        {/if}
-                        {else}
-                        {if $file.is_image}
+                    {/if}
+                {else}
+                    {if $file.is_image}
 
                         <picture>
                             <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
@@ -124,7 +132,7 @@
                             {$CONST.MEDIA_EXTENSION_FAILURE_REPAIR}
                         </span>
                         {/if}
-                        {else}
+                    {else}
                         {if in_array($file.mediatype, ['video', 'binary']) AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}
 
                         <div class="media_controls">
@@ -140,7 +148,9 @@
                         {else}
 
                         <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/properties non image file -->
-                        {/if}{/if}{* is image end *}{/if}{* is link end *}
+                        {/if}
+                    {/if}{* is image end *}
+                {/if}{* is link end *}
 
 
                         <footer id="media_file_meta_{$file.id}" class="media_file_meta additional_info">
