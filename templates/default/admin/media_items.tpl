@@ -98,7 +98,7 @@
                         </a>
                         {if in_array($file.mediatype, ['video', 'binary']) AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}
 
-                        <div class="media_video_controls">
+                        <div class="media_controls">
                             <video controls>
                                 <source src="{$file.full_file}" type="video/{$file.extension}"><!-- media/properties video -->
                             </video>
@@ -106,7 +106,7 @@
                         {/if}
                         {if in_array($file.mediatype, ['audio', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au'])}
 
-                        <div class="media_video_controls">
+                        <div class="media_controls">
                             <audio src="{$file.full_file}" type="audio/{$file.extension}" controls></audio>
                         </div>
                         {/if}
@@ -127,14 +127,14 @@
                         {else}
                         {if in_array($file.mediatype, ['video', 'binary']) AND in_array($file.extension, ['mp4', 'webm', 'ogv'])}
 
-                        <div class="media_video_controls">
+                        <div class="media_controls">
                             <video controls>
                                 <source src="{$file.full_file}" type="video/{$file.extension}"><!-- media/properties video -->
                             </video>
                         </div>
                         {elseif in_array($file.mediatype, ['audio', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au'])}
 
-                        <div class="media_video_controls">
+                        <div class="media_controls">
                             <audio src="{$file.full_file}" type="audio/{$file.extension}" controls></audio>
                         </div>
                         {else}

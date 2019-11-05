@@ -3144,7 +3144,7 @@ label .perm_name,
     display: none;
     visibility: hidden;
 }
-.js .media_video_controls {
+.js .media_controls {
 	margin-top: .25em;
 	margin-bottom: .25em;
 }
@@ -3152,7 +3152,7 @@ label .perm_name,
 .js .media_mime_video_thumb img {
     width: 2.5em;
 }
-.js .media_video_controls video {
+.js .media_controls video {
 	width: auto;
 	height: auto;
     max-width: 96%;
@@ -3803,13 +3803,13 @@ img.mfp-img {
     #serendipity_comments_list .pingback.actions {
         margin-top: 1.5em;
     }
-    .js .media_video_controls video {
+    .js .media_controls video {
         max-width: 24em;
     }
-    .js .mlMidCol .media_video_controls video {
+    .js .mlMidCol .media_controls video {
         max-width: 16em;
     }
-    .js .mlMaxCol .media_video_controls video {
+    .js .mlMaxCol .media_controls video {
         max-width: 12em;
     }
 }
@@ -4454,13 +4454,13 @@ img.mfp-img {
         top: 2px;
     }
 
-    .js .media_video_controls video {
+    .js .media_controls video {
         max-width: 20em;
     }
-    .js .mlMidCol .media_video_controls video {
+    .js .mlMidCol .media_controls video {
         max-width: 14em;
     }
-    .js .mlMaxCol .media_video_controls video {
+    .js .mlMaxCol .media_controls video {
         max-width: 10em;
     }
 
@@ -4621,13 +4621,13 @@ img.mfp-img {
         padding-top: 2em;
     }
 
-    .js .media_video_controls video {
+    .js .media_controls video {
         max-width: 24em;
     }
-    .js .mlMidCol .media_video_controls video {
+    .js .mlMidCol .media_controls video {
         max-width: 16em;
     }
-    .js .mlMaxCol .media_video_controls video {
+    .js .mlMaxCol .media_controls video {
         max-width: 14em;
     }
 }
@@ -4816,13 +4816,13 @@ img.mfp-img {
         padding: .15em;
     }
 
-    .js .media_video_controls video {
+    .js .media_controls video {
         max-width: 20em;
     }
-    .js .mlMidCol .media_video_controls video {
+    .js .mlMidCol .media_controls video {
         max-width: 14em;
     }
-    .js .mlMaxCol .media_video_controls video {
+    .js .mlMaxCol .media_controls video {
         max-width: 10em;
     }
 }
@@ -4872,13 +4872,13 @@ img.mfp-img {
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
         padding: .175em;
     }
-    .js .media_video_controls video {
+    .js .media_controls video {
         max-width: 24em;
     }
-    .js .mlMidCol .media_video_controls video {
+    .js .mlMidCol .media_controls video {
         max-width: 16em;
     }
-    .js .mlMaxCol .media_video_controls video {
+    .js .mlMaxCol .media_controls video {
         max-width: 14em;
     }
 }
