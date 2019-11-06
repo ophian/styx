@@ -2622,7 +2622,12 @@ h3 .media_file_actions {
 .karmalog h4 {
     max-width: 50%;
 }
-
+#entries_list h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+    text-overflow: ellipsis;
+}
 #serendipity_comments_list h4 {
     max-width: 90%;
 }
