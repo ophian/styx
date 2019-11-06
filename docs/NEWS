@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Style backends entries list titles unbreakable and auto truncate, by
+    listening to small devices first.
+
   * Rework media template markup to display audio/videos as HTML5 media player
     objects in the MediaLibrary and the add_to_entry layers, as well as in
     WYSIWYG-Editor textareas.
