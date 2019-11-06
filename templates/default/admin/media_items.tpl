@@ -89,7 +89,7 @@
                 <div class="clearfix equal_heights media_file_wrap">
                     <div class="media_file_preview">
                 {if isset($link)}
-                    {if $link == $file.full_file AND isset($file.mimeicon) AND  in_array($file.mediatype, ['audio', 'video', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au', 'mp4', 'webm', 'ogv'])}
+                    {if $link == $file.full_file AND isset($file.mimeicon) AND in_array($file.mediatype, ['audio', 'video', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au', 'mp4', 'webm', 'ogv'])}
 
                         <picture class="media_mime_player_thumb">
                             <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt}">
