@@ -244,7 +244,7 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
                     <label> or </label>
                     <button type="submit" class="btn btn-info light"> by image ID </button>
                     <input class="invert_selection" name="toggle" type="button" value="' . INVERT_SELECTIONS . '">
-                    <button class="toggle_info button_link" type="button" data-href="#orphaned_array"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> ' . MORE . '</span> view array</button>
+                    <button class="toggle_info button_link toggle_button" type="button" data-href="#orphaned_array"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> ' . MORE . '</span> view array</button>
                 </div>
             </form>
         </div>

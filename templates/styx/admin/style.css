@@ -986,6 +986,10 @@ button[type="submit"]:focus {
     margin: 0 0 0 .4em;
     padding: 1px 3px;
 }
+.toggle_button {
+    margin: 0 0 .75em .5em;
+    padding: 4px 3px;
+}
 
 input[type="date"],
 input[type="datetime"],
