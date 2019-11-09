@@ -98,7 +98,7 @@
                     <div class="equal_heights">
                         <div class="plugin_features">
                             <h4>{$plug.name}</h4>
-                        {if $plug@total > 1 AND isset($plug.single_upgrade) AND $plug.single_upgrade}{* for plugin UPGRADE page and CKEDITOR plugin only to only UPGRADE SINGULARY! *}
+                        {if $plug@total > 1 AND isset($plug.single_upgrade) AND $plug.single_upgrade}{* for plugin UPGRADE page and CKEDITOR plugin only to only UPGRADE SINGULARLY! *}
                             <div class="single_hint"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>UPGRADE</strong> singularly, <strong>NOT</strong> via "{$CONST.UPDATE_ALL}"!</div>
                         {/if}
 

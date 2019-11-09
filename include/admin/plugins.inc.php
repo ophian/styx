@@ -308,7 +308,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $pluggroups['ALL'][] = $plugdata;
         } elseif (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE' && $plugdata['upgradeable']) {
             if ($plugdata['class_name'] == 'serendipity_event_ckeditor' && count($pluginstack) > 1) {
-                $plugdata['single_upgrade'] = true; // mark this a special plugin to only UPGRADE per item
+                $ov = implode('.', explode('.', $plugdata['version'], -1));         // check old lib version vs
+                $nv = implode('.', explode('.', $plugdata['upgrade_version'], -1)); // (possible) new lib version
+                if ($ol < $nv) {
+                    $plugdata['single_upgrade'] = true; // mark this a special plugin to only UPGRADE per item
+                }
             }
             $pluggroups['UPGRADE'][] = $plugdata;
         } elseif (is_array($plugdata['groups'])) {
