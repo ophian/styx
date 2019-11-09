@@ -310,7 +310,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if ($plugdata['class_name'] == 'serendipity_event_ckeditor' && count($pluginstack) > 1) {
                 $ov = implode('.', explode('.', $plugdata['version'], -1));         // check old lib version vs
                 $nv = implode('.', explode('.', $plugdata['upgrade_version'], -1)); // (possible) new lib version
-                if ($ol < $nv) {
+                if ($ov < $nv) {
                     $plugdata['single_upgrade'] = true; // mark this a special plugin to only UPGRADE per item
                 }
             }
