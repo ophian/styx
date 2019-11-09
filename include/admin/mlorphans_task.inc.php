@@ -255,9 +255,9 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
     echo "
 <script>
     // Inverts a selection of checkboxes
-    function changeCheckboxes(list, value){
-        for(var i = list.length - 1 ; i >=0 ; i--){
-            list[i].checked = (typeof value === 'boolean') ? value : !list[i].checked ;
+    function changeCheckboxes(list, value) {
+        for(var i = (list.length-1); i >= 0; i--) {
+            list[i].checked = (typeof value === 'boolean') ? value : !list[i].checked;
        }
     }
 
@@ -265,9 +265,9 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
     serendipity.invertSelection = function() {
         // image orphans for example
         var inputs = document.getElementsByClassName('multicheck');
-        var allCheckboxes = [] ;
-        for (var j = inputs.length-1 ; j >= 0 ; j--){
-            if (inputs[j].type === 'checkbox'){
+        var allCheckboxes = [];
+        for (var j = (inputs.length-1); j >= 0; j--) {
+            if (inputs[j].type === 'checkbox') {
                 allCheckboxes.push(inputs[j]);
             }
         }
