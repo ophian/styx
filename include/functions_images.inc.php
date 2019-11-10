@@ -509,7 +509,7 @@ function serendipity_insertHotlinkedImageInDatabase($filename, $url, $authorid =
 
     if ($tempfile && file_exists($tempfile)) {
         $filesize = @filesize($tempfile);
-        $fdim     = @serendipity_getimagesize($tempfile, '', $extension);
+        $fdim     = @serendipity_getImageSize($tempfile, '', $extension);
         $width    = $fdim[0];
         $height   = $fdim[1];
         $mime     = $fdim['mime'];
@@ -597,7 +597,7 @@ function serendipity_insertImageInDatabase($filename, $directory, $authorid = 0,
     $thumbpath = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $directory . $filebase . '.'. $serendipity['thumbSuffix'] . (empty($extension) ? '' : '.' . $extension);
     $thumbnail = (file_exists($thumbpath) ? $serendipity['thumbSuffix'] : '');
 
-    $fdim   = @serendipity_getimagesize($filepath, '', $extension);
+    $fdim   = @serendipity_getImageSize($filepath, '', $extension);
     $width  = $fdim[0];
     $height = $fdim[1];
     $mime   = $fdim['mime'];
@@ -1011,7 +1011,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
         $serendipity['logger']->debug("$logtag To: $outfile");
     }
 
-    $fdim = @serendipity_getimagesize($infile, '', $suf);
+    $fdim = @serendipity_getImageSize($infile, '', $suf);
     if (isset($fdim['noimage'])) {
         $r = array(0, 0);
     } else {
@@ -1990,7 +1990,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         }
 
         $ft_mime = serendipity_guessMime($f[1]);
-        $fdim    = @serendipity_getimagesize($ffull, $ft_mime);
+        $fdim    = @serendipity_getImageSize($ffull, $ft_mime);
 
         if (!empty($_list)) {
             $_list .= '<div class="media_sync_list">' . "\n";
@@ -2007,7 +2007,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                 }
             } else if ($deleteThumbs == 'checksize') {
                 // Find existing thumbnail dimensions - does look redundant, but IS necessary!
-                $tdim = @serendipity_getimagesize($fthumb);
+                $tdim = @serendipity_getImageSize($fthumb);
                 if (isset($tdim['noimage'])) {
                     // Delete it so it can be regenerated
                     if (unlink($fthumb)) {
@@ -2477,7 +2477,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                     if ($sFile['relpath'] != '.empty' && @!in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync'])) {
                         if ($debug) { $serendipity['logger']->debug("$logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);
-                        $fdim = @serendipity_getimagesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sFile['relpath'], '', $path_parts['extension']);
+                        $fdim = @serendipity_getImageSize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sFile['relpath'], '', $path_parts['extension']);
                         $aFilesNoSync[$sFile['relpath']] = array(
                             'dirname'   => $path_parts['dirname'],
                             'basename'  => $path_parts['basename'],
@@ -3042,7 +3042,7 @@ function serendipity_uploadSecure($var, $strip_paths = true, $append_slash = fal
  * @param   string      The file extension of an image
  * @return  array       The width/height of the file
  */
-function serendipity_getimagesize($file, $ft_mime = '', $suf = '') {
+function serendipity_getImageSize($file, $ft_mime = '', $suf = '') {
     if (empty($ft_mime) && !empty($suf)) {
         $ft_mime = serendipity_guessMime($suf);
     }
@@ -3339,7 +3339,7 @@ function &serendipity_getImageData($sRelativePath) {
 
     $sImagePath = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sRelativePath;
 
-    $aSizeData = @serendipity_getimagesize($sImagePath , '', $sExtension);
+    $aSizeData = @serendipity_getImageSize($sImagePath , '', $sExtension);
     $nWidth    = $aSizeData[0];
     $nHeight   = $aSizeData[1];
     $sMime     = $aSizeData['mime'];
@@ -4444,7 +4444,7 @@ function serendipity_checkMediaSize($file) {
     }
 
     if (!empty($serendipity['maxImgWidth']) || !empty($serendipity['maxImgHeight'])) {
-        $dim = serendipity_getimagesize($file);
+        $dim = serendipity_getImageSize($file);
         if (!is_array($dim) || !isset($dim[0])) {
             return true;
         }
