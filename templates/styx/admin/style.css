@@ -3166,7 +3166,8 @@ label .perm_name,
 }
 .js img.media_mime_player_thumb,
 .js .media_mime_player_thumb img {
-    width: 2.5em;
+    width: 32px;
+    width: 2em;
 }
 .js .media_controls video {
 	width: auto;
