@@ -91,9 +91,11 @@
                 {if isset($link)}
                     {if isset($file.mimeicon) AND in_array($file.mediatype, ['audio', 'video', 'binary']) AND in_array($file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au', 'mp4', 'webm', 'ogv'])}
 
-                        {if NOT $media.manage AND $media.viewperm}<a href="{$link}"{else}<div{/if} class="media_mime_player_thumb">
-                            <img src="{$img_src}" title="{$img_title}" alt="{$img_alt}"><!-- media/manage -->
-                        {if NOT $media.manage AND $media.viewperm}</a>{else}</div>{/if}
+                        {if NOT $media.manage AND $media.viewperm}<span class="media_player"><a href="{$link}"{else}<div{/if} class="media_mime_player_thumb">
+                            <img src="{$img_src}" title="media object: {$img_title} as player" alt="{$img_alt}"><!-- media/manage -->{if NOT $media.manage AND $media.viewperm}</a></span>
+                        <span class="media_or">- OR -</span>
+                        <span class="media_link media_mime_player_thumb"><a href="{$link}&amp;mediaobject[link]=1" title="{$file.diskname}"><img src="{$img_src}" title="media object: {$img_title} as link" alt="{$img_alt}"><!-- media/manage --></a></span>
+                        {else}</div>{/if}
                     {else}
 
                         <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{$link_webp|default:$link}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if isset($img_src_webp)} (WepP){/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
