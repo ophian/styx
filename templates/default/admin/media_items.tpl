@@ -67,11 +67,11 @@
         {/if}
     {/if}
     {* builds a ML objects link for step 1, to pass to media_choose.tpl file section: passthrough media.filename_only scripts - do not use "empty($link) AND" here, since that would require a reset before! Strictly build this link for media to textarea cases only. *}
-    {if (!$file.is_image OR $file.is_image == 0) AND $file.mediatype != 'image' AND $file.realfile AND !empty($media.textarea) AND !empty($media.htmltarget)}
+    {if (NOT $file.is_image OR $file.is_image == 0) AND $file.mediatype != 'image' AND $file.realfile AND NOT empty($media.textarea) AND NOT empty($media.htmltarget)}
         {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[fid]={$file.id}&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[htmltarget]={$media.htmltarget}"}
     {/if}
 
-            <article id="media_{$file.id}" class="media_file mlDefCol{if !empty($smarty.get.serendipity.adminAction) AND $smarty.get.serendipity.adminAction == 'properties'} mfile_prop{/if} {if $media.manage AND $media.multiperm}manage {/if}{cycle values="odd,even"}">
+            <article id="media_{$file.id}" class="media_file mlDefCol{if NOT empty($smarty.get.serendipity.adminAction) AND $smarty.get.serendipity.adminAction == 'properties'} mfile_prop{/if} {if $media.manage AND $media.multiperm}manage {/if}{cycle values="odd,even"}">
                 <header class="clearfix">
                     {if $media.manage AND $media.multiperm}
 
@@ -81,7 +81,7 @@
                     </div>
                     {/if}
 
-                    <h3 title="{$file.diskname}">{if $media.manage}{$file.diskname|truncate:38:"&hellip;":true}{else}{$file.diskname}{/if}{if !empty($file.orderkey)}: {$file.orderkey|escape}{/if}</h3>
+                    <h3 title="{$file.diskname}">{if $media.manage}{$file.diskname|truncate:38:"&hellip;":true}{else}{$file.diskname}{/if}{if NOT empty($file.orderkey)}: {$file.orderkey|escape}{/if}</h3>
                     {if $file.authorid != 0}<span class="author block_level">{$file.authorname}</span>{/if}
 
                 </header>
@@ -226,7 +226,7 @@
 
                     <li><a class="media_delete button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=delete&amp;serendipity[fid]={$file.id}" title="{$CONST.MEDIA_DELETE}" data-fileid="{$file.id}" data-filename="{$file.name|escape:javascript}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MEDIA_DELETE}</span></a></li>
                     {/if}
-                    {if !empty($imagesNoSync)}
+                    {if NOT empty($imagesNoSync)}
                     {foreach $imagesNoSync AS $special}
                     {if $file.name == $special.pfilename}
 
@@ -243,7 +243,7 @@
 
         {if NOT $media.enclose}
 
-            <article class="media_file{if !empty($smarty.get.serendipity.adminAction) AND $smarty.get.serendipity.adminAction == 'properties'} mfile_prop{/if} media_enclose_no">
+            <article class="media_file{if NOT empty($smarty.get.serendipity.adminAction) AND $smarty.get.serendipity.adminAction == 'properties'} mfile_prop{/if} media_enclose_no">
                 <header>
                     <h3>{$file.realname}</h3>
                     <div>
@@ -343,7 +343,7 @@
                     <ul class="clearfix plainList">
                     {foreach $file.base_keywords AS $keyword_cells}
                         {foreach $keyword_cells AS $keyword}
-                        {if !empty($keyword.name)}
+                        {if NOT empty($keyword.name)}
 
                         <li>
                             <input id="mediaKeyword{$keyword.name}{$file@key}" name="serendipity[mediaKeywords][{$file@key}][{$keyword.name}]" type="checkbox" value="true"{if $keyword.selected} checked="checked"{/if}>
