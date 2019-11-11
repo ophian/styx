@@ -1,47 +1,47 @@
 {foreach $media.files AS $file}
     {if NOT $media.manage}
         {* ML got called for inserting media *}
-            {if $file.is_image AND isset($file.full_path_thumb) AND $file.full_path_thumb}
-                {if NOT empty($media.textarea) OR NOT empty($media.htmltarget)}
-                {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
-                {else}
-                    {if $file.url}
-                        {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
-                    {/if}
-                {/if}
-
-                {$img_src_webp="{$file.full_thumb_webp|default:''}"}
-                {$img_src="{$file.full_thumb}"}
-                {$img_title="{$file.path}{$file.name}"}
-                {$img_alt="{$file.realname}"}
-
-            {elseif $file.is_image AND $file.hotlink}
-                {if NOT empty($media.textarea)}
-                    {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
-                {else}
-                    {if $file.url}
-                        {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
-                    {/if}
-                {/if}
-
-                {* $link_webp="{$file.full_file_webp|default:''}" NOT actually a NEED here, isn't it .. *}
-                {* $img_src_webp="{$file.full_thumb_webp|default:''}" NOT actually a NEED here, isn't it .. *}
-                {$img_src="{$file.path}"}
-                {$img_title="{$file.path}"}
-                {$img_alt="{$file.realname}"}
+        {if $file.is_image AND isset($file.full_path_thumb) AND $file.full_path_thumb}
+            {if NOT empty($media.textarea) OR NOT empty($media.htmltarget)}
+            {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
             {else}
-                {if NOT empty($media.textarea)}
-                    {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
-                {else}
-                    {if $file.url}
-                        {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
-                    {/if}
+                {if $file.url}
+                    {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
                 {/if}
-
-                {$img_src="{$file.mimeicon}"}
-                {$img_title="{$file.path}{$file.name}({$file.mime})"}
-                {$img_alt="{$file.mime}"}
             {/if}
+
+            {$img_src_webp="{$file.full_thumb_webp|default:''}"}
+            {$img_src="{$file.full_thumb}"}
+            {$img_title="{$file.path}{$file.name}"}
+            {$img_alt="{$file.realname}"}
+
+        {elseif $file.is_image AND $file.hotlink}
+            {if NOT empty($media.textarea)}
+                {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
+            {else}
+                {if $file.url}
+                    {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
+                {/if}
+            {/if}
+
+            {* $link_webp="{$file.full_file_webp|default:''}" NOT actually a NEED here, isn't it .. *}
+            {* $img_src_webp="{$file.full_thumb_webp|default:''}" NOT actually a NEED here, isn't it .. *}
+            {$img_src="{$file.path}"}
+            {$img_title="{$file.path}"}
+            {$img_alt="{$file.realname}"}
+        {else}
+            {if NOT empty($media.textarea)}
+                {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
+            {else}
+                {if $file.url}
+                    {$link="{$file.url}&amp;serendipity[image]={$file.id}"}
+                {/if}
+            {/if}
+
+            {$img_src="{$file.mimeicon}"}
+            {$img_title="{$file.path}{$file.name}({$file.mime})"}
+            {$img_alt="{$file.mime}"}
+        {/if}
     {else}
         {if $file.is_image AND isset($file.full_path_thumb) AND $file.full_path_thumb}
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
