@@ -462,7 +462,8 @@ $dead_files_270 = array(
 $dead_dirs_300 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/paragonie/random_compat',
     $serendipity['serendipityPath'] . 'bundled-libs/cryptor',
-    $serendipity['serendipityPath'] . 'templates/2styx'
+    $serendipity['serendipityPath'] . 'templates/2styx',
+    $serendipity['serendipityPath'] . 'templates_c/2styx'
 );
 
 /**
