@@ -3141,8 +3141,6 @@ label .perm_name,
 .js .media_pane .media_file_preview,
 .js .template_preview {
     position: relative;
-    min-height: 12em;
-    height: 17.5em;
 }
 .js .template_preview {
     overflow: hidden;
@@ -3918,6 +3916,12 @@ img.mfp-img {
     }
 }
 
+@media only screen and (min-width: 580px) {
+    .media_file {
+        width: 30em;
+    }
+}
+
 @media only screen and (min-width: 640px) {
     #banner .chop-title {
         width: 24em;
@@ -4470,6 +4474,12 @@ img.mfp-img {
     .media_choose .button_link {
         position: relative;
         top: 2px;
+    }
+
+    .js .media_pane .media_file_preview,
+    .js .template_preview {
+        min-height: 12em;
+        height: 17.5em;
     }
 
     .js .media_controls video {
