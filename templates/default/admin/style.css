@@ -3917,7 +3917,10 @@ img.mfp-img {
 }
 
 @media only screen and (min-width: 560px) {
-    .media_file {
+    .media_file,
+    .theme_file,
+    .current_template,
+    .current_backend_template  {
         width: 30em;
     }
 }
