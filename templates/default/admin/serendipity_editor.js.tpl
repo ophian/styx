@@ -344,7 +344,7 @@
                 imgName = v['full_thumb'];
                 ilink = pic_el ? v['full_file_webp'] : v['full_file'];
                 ilinkfb = v['full_file']; // fallback case
-                title = v['prop_title'];
+                title = v['prop_title'] != '' ? v['prop_title'] : v['realname'];
                 imgalt = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
                 iftwebp = v['full_thumb_webp'];
                 iffwebp = v['full_file_webp'];
@@ -356,10 +356,10 @@
                 if (pictureSubmit && pic_el) {
                     img = '<!-- s9ymdb:'+ imgID +' --><picture>'
                     + '<source type="image/webp" class="serendipity_image_'+ float +'" srcset="' + iftwebp + '" class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ imgalt +'">'
-                    + '<img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">'
+                    + '<img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ ((title != '' && g['isLink'] == 'no') ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">'
                     + '</picture>';
                 } else {
-                    img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">';
+                    img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ ((title != '' && g['isLink'] == 'no') ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">';
                 }
                 if (g['isLink'] == 'yes') {
                     img = '<a class="serendipity_image_link" '+ (title != '' ? 'title="'+ title +'"' : '') +' href="'+ ilink +'" data-fallback="'+ ilinkfb +'">'+ img +'</a>';
