@@ -163,11 +163,11 @@
         {else}
         <script>
         {if in_array($media.file.mediatype, ['video', 'binary']) AND in_array($media.file.extension, ['mp4', 'webm', 'ogv']) AND NOT isset($smarty.get.mediaobject.link)}
-            block = '<!-- s9ymdb:{$media.file.id} --><video src="{$media.file.full_file}" type="video/{$media.file.extension}" controls></video>';
+            block = '<div class="media_object_container"><!-- s9ymdb:{$media.file.id} --><video controls="" src="{$media.file.full_file}" title="Play: {$media.file.realname|escape}" type="video/{$media.file.extension}"></video></div>';
         {elseif in_array($media.file.mediatype, ['audio', 'binary']) AND in_array($media.file.extension, ['mp3', 'm4a', 'wav', 'ogg', 'aif', 'aiff', 'flac', 'au']) AND NOT isset($smarty.get.mediaobject.link)}
-            block = '<!-- s9ymdb:{$media.file.id} --><audio src="{$media.file.full_file}" preload="auto" type="audio/{$media.file.extension}" controls></audio>';
+            block = '<div class="media_object_container"><!-- s9ymdb:{$media.file.id} --><audio controls="" preload="auto" src="{$media.file.full_file}" title="Play: {$media.file.realname|escape}" type="audio/{$media.file.extension}"></audio></div>';
         {else}
-            block = '<a class="block_level opens_window" href="{$media.file.full_file}" title="{$media.file.realname|escape}"><!-- s9ymdb:{$media.file.id} -->{$media.file.realname|escape}</a>';
+            block = '<span class="media_object_container_link"><!-- s9ymdb:{$media.file.id} --><a class="block_level opens_window" href="{$media.file.full_file}" title="{$media.file.realname|escape}">{$media.file.realname|escape}</a></span>';
         {/if}
             {serendipity_hookPlugin hookAll=true hook='frontend_image_add_unknown' eventData=$media}
             if (parent.self.opener == undefined) {
