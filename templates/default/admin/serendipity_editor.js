@@ -401,7 +401,6 @@
         var src = '';
         var alt = '';
         var title = '';
-        var slte = true; // set link_title
 
         var f = document.forms['serendipity[selForm]'].elements;
 
@@ -454,6 +453,8 @@
             imgID = f['imgID'].value;
         }
 
+        var isLink   = $(':input[name="serendipity[isLink]"]:checked').val() == "yes"; // bool
+        var noLink   = $(':input[name="serendipity[isLink]"]:checked').val() == "no"; // bool
         var floating = $(':input[name="serendipity[align]"]:checked').val();
         if (floating == "") {
             floating = "center";
@@ -461,15 +462,13 @@
         if (pictureSubmit) {
             img = '<!-- s9ymdb:'+ imgID +' --><picture>'
             + '<source type="image/webp" srcset="' + imgWebPTh + '" class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ alt +'">'
-            + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">'
+            + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">'
             + '</picture>';
-            slte = false; // avoid set link_title
         } else {
-            img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">';
-            slte = false; // avoid set link_title
+            img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">';
         }
 
-        if ($(':input[name="serendipity[isLink]"]:checked').val() == "yes") {
+        if (isLink) {
             // wrap the img in a link to the image. TODO: The label in the media_chooser.tpl explains it wrong
             var targetval = $('#select_image_target').val();
             var fallback  = (pictureSubmit && imgWebPal != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
@@ -514,7 +513,7 @@
             parent.self = window.parent.parent.$.magnificPopup;
             parent.self.opener = window.parent.parent;
         }
-        if (pictureSubmit && imgWebPal != '' && $(':input[name="serendipity[isLink]"]:checked').val() == "no") {
+        if (pictureSubmit && imgWebPal != '' && noLink) {
             img = '<div>' + img + '</div>';
             //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed when landing in your textarea
         }
