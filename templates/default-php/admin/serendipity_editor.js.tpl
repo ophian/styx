@@ -397,10 +397,11 @@
         var src = '';
         var alt = '';
         var title = '';
+        var slte = true; // set link_title
 
         var f = document.forms['serendipity[selForm]'].elements;
 
-        img           = f['imgName'].value;
+            img       = f['imgName'].value;
         var imgWidth  = f['imgWidth'].value;
         var imgHeight = f['imgHeight'].value;
         var imgWebPTh = f['webPthumbName'].value;
@@ -458,8 +459,10 @@
             + '<source type="image/webp" srcset="' + imgWebPTh + '" class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ alt +'">'
             + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">'
             + '</picture>';
+            slte = false; // avoid set link_title
         } else {
             img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ (title != '' ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">';
+            slte = false; // avoid set link_title
         }
 
         if ($(':input[name="serendipity[isLink]"]:checked').val() == "yes") {
@@ -490,7 +493,7 @@
                     break;
             }
 
-            var img = prepend + "<a class=\"serendipity_image_link\" " + (title != '' ? 'title="' + title + '"' : '') + " href=\"" + ilink + "\"" + itarget + fallback +">" + img + "</a>";
+            var img = prepend + "<a class=\"serendipity_image_link\" " + ((title != '' && slte) ? 'title="' + title + '"' : '') + " href=\"" + ilink + "\"" + itarget + fallback +">" + img + "</a>";
         }
 
         if ($('#serendipity_imagecomment').val() != '') {
