@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix doubled title attribute when using linked images in entries
+
   * Style backends entries list titles unbreakable and auto truncate, by
     listening to small devices first.
 
