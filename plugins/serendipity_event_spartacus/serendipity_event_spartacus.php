@@ -26,7 +26,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.01');
+        $propbag->add('version',       '3.02');
         $propbag->add('requirements',  array(
             'serendipity' => '2.9.99',
             'php'         => '7.0.0'
@@ -180,7 +180,7 @@ class serendipity_event_spartacus extends serendipity_event
             case 'remote_url':
                 $propbag->add('type',        'string');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL);
-                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC . sprintf(PLUGIN_EVENT_SPARTACUS_CSPRNG, 'spartacus_', str_replace(array('/', '+', '='), '', base64_encode((function_exists('random_bytes') ? random_bytes(16) : openssl_random_pseudo_bytes(16))))));
+                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_URL_DESC . sprintf(PLUGIN_EVENT_SPARTACUS_CSPRNG, 'spartacus_', str_replace(array('/', '+', '='), '', base64_encode(random_bytes(16)))));
                 $propbag->add('default',     'spartacus_remote');
                 break;
 
