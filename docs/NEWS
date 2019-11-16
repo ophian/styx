@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove deprecated hotfix for freetag autocomplete scriptlets
+
   * Fix doubled title attribute when using linked images in entries.
     Also adds default image titles to gallery placed image/links.
 
