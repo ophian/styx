@@ -145,16 +145,13 @@ function serveJS($js_mode) {
 
     $out = '';
 
-    include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
-
-    // HOTFIX: The staticpage plugin spews out a 404 error in the genpage hook,
-    // because it assumes that all "normal" content pages could belong to it.
-    // We need to override the header at this point (again), so that the files
-    // will be properly parsed. Another (maybe better) idea would be to actually
-    // not include genpage.inc.php at this point and init Smarty differently,
-    // or to make sure the "genpage" event hook is not called at this point.
-    header('HTTP/1.0 200 OK');
-    header('Status: 200 OK');
+    // We only need this for frontend actions, eg. 2k11 pushing js into serendipity.js. The backend js does well without calling genpage here.
+    if (!defined('IN_serendipity_admin')) {
+        // Set action 'empty' will break genpage GET action loop to nothing,
+        // leaving it empty will unnecessarily run serendipity_printEntries().
+        $serendipity['GET']['action'] = 'empty';
+        include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
+    }
 
     if ($js_mode == 'serendipity_admin.js') {
         serendipity_plugin_api::hook_event('js_backend', $out);
