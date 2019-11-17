@@ -94,7 +94,7 @@ class serendipity_plugin_recententries extends serendipity_plugin {
                 $select_cats = array();
                 $select_cats['none'] = ALL_CATEGORIES;
                 $select_cats['_cur'] = PARENT_CATEGORY;
-                foreach($tmp_select_cats as $cidx => $tmp_select_cat) {
+                foreach($tmp_select_cats AS $cidx => $tmp_select_cat) {
                     $select_cat = explode('|||', $tmp_select_cat);
                     if (!empty($select_cat[0]) && !empty($select_cat[1])) {
                         $select_cats[$select_cat[0]] = $select_cat[1];
@@ -233,7 +233,7 @@ class serendipity_plugin_recententries extends serendipity_plugin {
 
         if (isset($entries) && is_array($entries)) {
             echo '<dl>' . "\n";
-            foreach ($entries as $k => $entry) {
+            foreach ($entries AS $k => $entry) {
                 if (!empty($entry['multilingual_title'])) {
                     $entry['title'] = $entry['multilingual_title'];
                 }
