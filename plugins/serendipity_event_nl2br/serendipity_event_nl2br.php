@@ -645,8 +645,8 @@ p.wl_notopbottom {
         return implode($text);
     }
 
-    /*
-     * sophisticated nl to p - blocktag stage
+    /**
+     * Sophisticated nl to p - blocktag stage
      * handles content with blocktags, apply nl2p to the block elements if tag allows it
      * works also for ommitted closing tags
      * @param: text
@@ -809,7 +809,7 @@ p.wl_notopbottom {
         return $content;
     }
 
-    /*
+    /**
      * Sophisticated nl to p for content which is already
      * purged from block elements by blocktag_nl2p
      * explode content along tags
@@ -827,7 +827,7 @@ p.wl_notopbottom {
      *
      * @param string text
      * @return string
-    */
+     */
     function nl2pblock($textstring)
     {
         // check for empty content
