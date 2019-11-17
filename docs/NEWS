@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Sync [s9y] - Tag parsing improvements to nl2br plugin "nl2p" option
+
   * Remove deprecated hotfix for freetag autocomplete scriptlets
 
   * Fix doubled title attribute when using linked images in entries.
