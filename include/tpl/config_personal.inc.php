@@ -113,7 +113,7 @@
                                           'title'       => USERCONF_DASHBOARD_DEFAULT_WIDGETS,
                                           'description' => USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC,
                                           'type'        => 'bool',
-                                          'default'     => true,
+                                          'default'     => false,
                                           'permission'  => 'personalConfiguration',
                                           'flags'       => array('config')),
 
