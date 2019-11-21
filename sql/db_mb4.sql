@@ -166,7 +166,7 @@ CREATE TABLE {PREFIX}referrers (
 CREATE INDEX referrers_idx ON {PREFIX}referrers (entry_id,day);
 
 #
-# Table structure for table 'serendipity_config'
+# Table structure for table '{PREFIX}config'
 #
 
 create table {PREFIX}config (
