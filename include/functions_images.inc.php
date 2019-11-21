@@ -1421,6 +1421,9 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
                                 RecursiveIteratorIterator::CHILD_FIRST);
     echo "<section id=\"fileListing\">\n";
     echo "<h3>" . SYNC_WEBP_ITERATION_LIST_TITLE . "</h3>\n";
+    if (iterator_count($iterator) < 2) {
+        echo '<em>' . NO_IMAGES_FOUND . '</em>';
+    }
 
     echo "<ul class=\"plainList\">\n";
     foreach($iterator AS $dir) {
