@@ -86,6 +86,9 @@ $serendipity['max_last_modified'] = 60 * 60 * 24 * 7;
 // that date. However it is still limited by the number below of maximum entries
 $serendipity['max_fetch_limit'] = 50;
 
+// Users may try to break database limits by very loooong page requests
+$serendipity['max_page_limit'] = 2500;
+
 // How many bytes are allowed for fetching trackbacks, so that no binary files get accidentally trackbacked?
 $serendipity['trackback_filelimit'] = 150 * 1024;
 
