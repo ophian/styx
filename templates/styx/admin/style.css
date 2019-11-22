@@ -4795,6 +4795,9 @@ img.mfp-img {
         float: right;
         margin: 0 0 0 0.5%;
     }
+    #content h2 {
+        margin-top: 1.25em;
+    }
 
     #preview {
         float: left;
