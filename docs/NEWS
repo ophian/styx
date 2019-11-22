@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add a hardcoded $serendipity['max_page_limit'] variable to avoid
+    break(-in) attempts.
+
   * Improve backend comment list title by truncate 36 for devices
 
   * Set personal config "default_widgets" option false on install
