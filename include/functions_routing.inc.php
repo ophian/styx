@@ -45,6 +45,10 @@ function locateHiddenVariables($_args) {
 
         if ($v[0] == 'P') { /* Page */
             $page = substr($v, 1);
+            // check for someone is willingly trying to break Serendipity by adding page orders > P2500.., which could result in breaking db limits - so we set a hard page limit
+            if ($page > $serendipity['max_page_limit']) {
+                return $_args;
+            }
             if (is_numeric($page)) {
                 $serendipity['GET']['page'] = $page;
                 unset($_args[$k]);
@@ -188,6 +192,10 @@ function serveSearch() {
 
         if ($v[0] == 'P') { /* Page */
             $page = substr($v, 1);
+            // check for someone is willingly trying to break Serendipity by adding page orders > P2500.., which could result in breaking db limits - so we set a hard page limit
+            if ($page > $serendipity['max_page_limit']) {
+                return $_args;
+            }
             if (is_numeric($page)) {
                 $serendipity['GET']['page'] = $page;
                 unset($_args[$k]);
