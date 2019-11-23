@@ -1,9 +1,6 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Add a hardcoded $serendipity['max_page_limit'] variable to avoid
-    break(-in) attempts.
-
   * Improve backend comment list title by truncate 36 for devices
 
   * Set personal config "default_widgets" option false on install
@@ -388,6 +385,9 @@ Version 3.0-Dev ()
 
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
+
+  * Add a hardcoded $serendipity['max_page_limit'] variable to avoid
+    break(-in) attempts.
 
   * Bugfix MediaLibrary 'addmedia_directory' cookie assignment issue
 
