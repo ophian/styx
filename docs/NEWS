@@ -1,6 +1,9 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Add a hardcoded $serendipity['max_page_limit'] variable to avoid
+    break(-in) attempts.
+
   * Bugfix MediaLibrary 'addmedia_directory' cookie assignment issue
 
   * bbcode event plugin: Fix some missing list-style-type styles
