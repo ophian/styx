@@ -1,6 +1,9 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix core CKE added procurator plugin for some s9ymdb tagged cases to
+    prevent {cke_protected} data.
+
   * Add a hardcoded $serendipity['max_page_limit'] variable to avoid
     break(-in) attempts.
 
