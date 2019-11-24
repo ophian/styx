@@ -1,9 +1,10 @@
 /**
- * @license Copyright (c) from 2013, Author: Ian. All rights reserved.
+ * @license Copyright (c) from 2013, Author: Ian Styx. All rights reserved.
  */
 
 /**
- * @fileOverview A Serendipity wysiwyg-mode-placeholder plugin: procurator, v. 1.4
+ * @fileOverview A Serendipity Styx WYSIWYG-mode-placeholder plugin: procurator, v. 1.5
+ * file lm 2019-11-24
  */
 
 (function (pluginName) {
@@ -129,11 +130,14 @@
                             //                                           <     <?     !--    {
                             var tagName          = realData.replace( /([%3C|%3C%3F|\!%2D%2D|%7B]?([a-z]+))%+(.*)$/, "$1"); // get the real tag name to set as real tag name title to object fakeElement.attributes
                                 tagName          = tagName.replace( '%3C', '' ).replace( '%3F', '' ); // tweak a little more, since this upper regex drives me crazy
+                            if ( tagName.substr( -6 ) == 's9ymdb' ) tagName = 'image'; // In some cases we even get tagged images here. Leave default s9ymdb tagged images untouched!
                             if ( tagName.substr( 0, 3) == '%7B' ) tagName = 'smarty'; // []{
                             if ( !tagName.match("script|mediainsert|quickblog|audio|smarty") ) tagName = 'unknown';
-                            var fakeWrapper      = new CKEDITOR.htmlParser.element( displayName ); // creates the new object
-                                fakeWrapper.name = tagName; // to give this to createFakeElement(), set name value to displayName, else it is the cke_protected script value
-                            elObject.value       = thisFakeElement(editor, fakeWrapper, realData, elObject);
+                            if (!tagName.match("icon")) {
+                                var fakeWrapper      = new CKEDITOR.htmlParser.element( displayName ); // creates the new object
+                                    fakeWrapper.name = tagName; // to give this to createFakeElement(), set name value to displayName, else it is the cke_protected script value
+                                elObject.value       = thisFakeElement(editor, fakeWrapper, realData, elObject);
+                            }
                         }
                         return elObject.value;
                     },
