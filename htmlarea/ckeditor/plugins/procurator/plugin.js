@@ -18,7 +18,7 @@
         var fakeElement = editor.createFakeParserElement( realElement, 'cke_procurator', 'iframe', false ), fakeStyle   = fakeElement.attributes.style || '';
             // set the needed [img object] attributes
             //fakeElement.attributes[ 'align' ] = 'right'; // '' is default, uncomment to default
-            fakeElement.attributes[ 'title' ] = 'Serendipity "' + realElement.name + '" tag placeholder';
+            fakeElement.attributes[ 'title' ] = "Serendipity '" + realElement.name + "' tag placeholder";
             fakeElement.attributes[ 'alt' ]   = realElement.name;
             fakeElement.attributes[ 'placeholder' ]   = realElement.name;
             //fakeElement.attributes[ 'data-cke-real-element-type' ] = "div";
