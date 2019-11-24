@@ -133,7 +133,7 @@
                             if ( tagName.substr( -6 ) == 's9ymdb' ) tagName = 'image'; // In some cases we even get tagged images here. Leave default s9ymdb tagged images untouched!
                             if ( tagName.substr( 0, 3) == '%7B' ) tagName = 'smarty'; // []{
                             if ( !tagName.match("script|mediainsert|quickblog|audio|smarty") ) tagName = 'unknown';
-                            if (!tagName.match("icon")) {
+                            if (!tagName.match("image")) {
                                 var fakeWrapper      = new CKEDITOR.htmlParser.element( displayName ); // creates the new object
                                     fakeWrapper.name = tagName; // to give this to createFakeElement(), set name value to displayName, else it is the cke_protected script value
                                 elObject.value       = thisFakeElement(editor, fakeWrapper, realData, elObject);
