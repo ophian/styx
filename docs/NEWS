@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix core CKE added procurator plugin for some s9ymdb tagged cases to
+    prevent {cke_protected} data.
+
   * Improve backend comment list title by truncate 36 for devices
 
   * Set personal config "default_widgets" option false on install
