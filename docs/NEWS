@@ -1,6 +1,11 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add cookie based backend entries Quick-Pin ability, to temporary pin
+    certain needed entries on top of your entries list (automatically for
+    1 month). Use the list filter search to set these few entries and be able
+    to unset them in the list again by the pin-point checkbox.
+
   * Improve backend comment list title by truncate 36 for devices
 
   * Set personal config "default_widgets" option false on install
