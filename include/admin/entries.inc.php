@@ -250,6 +250,17 @@ switch($serendipity['GET']['adminAction']) {
             }*/
         }
 
+        // check entries list link for pinned entries
+        $pinned_entries = [];
+        if (!empty($serendipity['GET']['pinned_entries']) && isset($serendipity['COOKIE']["entrylist_pin_entry_${serendipity['matched_entry_pin']}"])) {
+            $pinned = explode(',', $serendipity['GET']['pinned_entries']);
+            foreach ($pinned AS $kpin => $vpin) {
+                $fe = serendipity_fetchEntry('id', (int)$vpin, 1, 1);
+                $fe['is_pinned'] = true;
+                if (!empty($vpin)) $pinned_entries[] = $fe;
+            }
+        }
+
         $data['switched_output'] = false;
 
         $filter_import = array('author', 'category', 'isdraft');
@@ -371,6 +382,10 @@ switch($serendipity['GET']['adminAction']) {
         $data['totalEntries']  = serendipity_getTotalEntries();
         $data['simpleFilters'] = $serendipity['simpleFilters'] ?? true;
 
+        if (!empty($pinned_entries)) {
+            $entries = array_merge($pinned_entries, $entries);
+        }
+
         if (is_array($entries)) {
             $data['is_entries'] = true;
             $data['count'] = count($entries);
@@ -434,7 +449,8 @@ switch($serendipity['GET']['adminAction']) {
                     'preview'       => ((serendipity_db_bool($ey['isdraft']) || (!$serendipity['showFutureEntries'] && $ey['timestamp'] >= serendipity_serverOffsetHour())) ? true : false),
                     'archive_link'  => serendipity_archiveURL($ey['id'], $ey['title'], 'serendipityHTTPPath', true, array('timestamp' => $ey['timestamp'])),
                     'preview_link'  => '?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=preview&amp;' . serendipity_setFormToken('url') . '&amp;serendipity[id]=' . $ey['id'],
-                    'lang'          => ($ey['multilingual_lang'] ?? 'all')
+                    'lang'          => ($ey['multilingual_lang'] ?? 'all'),
+                    'is_pinned'     => ($ey['is_pinned'] ?? null)
                 );
                 serendipity_plugin_api::hook_event('backend_view_entry', $smartentry);
                 $smartentries[] = $smartentry;

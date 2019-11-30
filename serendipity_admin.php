@@ -93,6 +93,16 @@ if (!$use_installer && $is_logged_in) {
         $serendipity['GET']['adminModule'] = $serendipity['POST']['adminModule'] ?? '';
     }
 
+    // check for index sidebar whether any cookie stored pinned entries are set
+    $pinids = '';
+    foreach ($serendipity['COOKIE'] AS $cokey => $coval) {
+        if (preg_match('/^entrylist_pin_entry_(\d+)$/', $cokey, $m)) {
+            $pinids .= $m[1].',';
+            if (!isset($serendipity['matched_entry_pin'])) $serendipity['matched_entry_pin'] = $m[1]; // keep the first, for later Cookie check
+        } else unset($serendipity['matched_entry_pin']);
+    }
+    $serendipity['smarty']->assign('pin_entries', $pinids);
+
     ob_start();
     serendipity_checkXSRF();
 
