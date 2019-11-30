@@ -96,7 +96,7 @@
                     {if 'adminEntries'|checkPermission}
 
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=new">{$CONST.NEW_ENTRY}</a></li>
-                        <li><a href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect">{$CONST.EDIT_ENTRIES}</a></li>
+                        <li><a href="serendipity_admin.php?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[pinned_entries]={$pin_entries}">{$CONST.EDIT_ENTRIES}</a></li>
                     {/if}
                     {if 'adminCategories'|checkPermission}
 
