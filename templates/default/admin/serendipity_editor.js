@@ -41,6 +41,8 @@
     // Generic function to purge cookies
     serendipity.PurgeCookie = function(name) {
         if (serendipity.GetCookie(name) === null) return;
+            // check whether it is a (namespaced key) serendipity array
+            name = name.split('serendipity[').pop().split(']')[0];
         if (name.indexOf("[") != -1) {
             document.cookie = 'serendipity' + name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
         } else {
@@ -58,6 +60,19 @@
             if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
         }
         return null;
+    }
+
+    // (De-) Pin Filtered (List) Entries temporary
+    serendipity.PinFilter = function(el) {
+        if (localStorage !== null) {
+            if (localStorage.getItem('pin_entry_'+el) === null) {
+                localStorage.setItem('pin_entry_'+el, 'true');
+                serendipity.SetCookie('entrylist_pin_entry_'+el, 'true');
+            } else {
+                localStorage.removeItem('pin_entry_'+el);
+                serendipity.PurgeCookie('serendipity[entrylist_pin_entry_'+el+']');
+            }
+        }
     }
 
     /**
