@@ -2852,6 +2852,15 @@ h3 button.toggle_info.button_link.group_info {
 #entries_list .entry_info .entry_status {
     margin: 0 .4em .75em 0;
 }
+#entries_list .entry_info .status_pin,
+input.pinpoint {
+    margin: 0;
+    color: #222;
+    background: transparent;
+}
+#entries_list .entry_info .status_pin .ucc-pinned-to {
+    margin-right: .5em;
+}
 
 .status_timestamp {
     min-width: 11em;
