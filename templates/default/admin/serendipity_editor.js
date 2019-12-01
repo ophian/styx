@@ -66,7 +66,7 @@
     serendipity.PinFilter = function(el) {
         if (localStorage !== null) {
             if (localStorage.getItem('pin_entry_'+el) === null) {
-                localStorage.setItem('pin_entry_'+el, 'true');
+                localStorage.setItem('pin_entry_'+el, Date.now());
                 serendipity.SetCookie('entrylist_pin_entry_'+el, 'true');
             } else {
                 localStorage.removeItem('pin_entry_'+el);
