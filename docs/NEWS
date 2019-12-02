@@ -4,8 +4,9 @@ Version 3.0-Dev ()
   * Add cookie based backend entries Quick-Pin ability, to temporary pin
     certain needed entries on top of your entries list (automatically for
     30 days). Use the list filter search to set these few entries and be able
-    to unset them in the list again by the pin-point checkbox.
-    To extend the pinning time, unset/set from while to while.
+    to unset them in the list again by the pin-point checkbox. To extend the
+    pinning time, unset/set from while to while, see pin-icon appended tooltip
+    auto counter.
 
   * Improve backend comment list title by truncate 36 for devices
 
