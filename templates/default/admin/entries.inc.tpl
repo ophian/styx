@@ -208,6 +208,7 @@
                     {/if}
                     {if (isset($smarty.get.go) AND (NOT empty($smarty.get.serendipity.filter.body) OR (isset($smarty.post.serendipity.editSubmit) AND NOT empty($smarty.post.serendipity.id)))) OR isset($entry.is_pinned)}
                         <span class="entry_status status_pin"><span class="ucc-pinned-to" title="{$CONST.ENTRY_QUICKPIN}"></span><input class="pinpoint" name="serendipity[entryQuickPin][]" type="checkbox" value="{$entry.id}"{assign "pinstr" "entrylist_pin_entry_{$entry.id}"}{if isset($smarty.cookies.serendipity.$pinstr)} checked="checked"{/if} onClick="serendipity.PinFilter({$entry.id})"></span>
+                        <script> serendipity.GetPinExpireTime({$entry.id}) </script>
                     {else}
                         {if NOT empty($entry.info_more)}{$entry.info_more}{/if}{* Plugin eventData, ie. vgwort; No need in filter cases. *}
                     {/if}
