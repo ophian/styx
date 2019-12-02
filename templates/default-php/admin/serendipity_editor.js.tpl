@@ -71,6 +71,16 @@
         }
     }
 
+    serendipity.GetPinExpireTime = function(el) {
+        var exp = localStorage.getItem('pin_entry_'+el);
+        if (exp !== null) {
+                exp = Number(exp);
+            var now = Date.now();
+            var day = Math.floor(((((exp - now)/1000)/60)/60)/24); // sec/min/hrs/days
+            $('#entry_'+el+' .ucc-pinned-to').attr('title', function() { return $(this).attr("title") + '. Expires in '+(30+day)+' days.' }); // is like (30 + -2)
+        }
+    }
+
     /**
      * Based upon code written by chris wetherell
      * http://www.massless.org
