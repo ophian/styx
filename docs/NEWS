@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Sync [s9y] - Fix an old bug with backend Smarty template added hooked
+    plugin media file and spawnNuggets parameters.
+
   * Add cookie based backend entries Quick-Pin ability, to temporary pin
     certain needed entries on top of your entries list (automatically for
     30 days). Use the list filter search to set these few entries and be able
