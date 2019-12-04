@@ -464,7 +464,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'Innsendar athugasemdir þurfa að fá samþykki áður en þær verða birtar.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Þú hefur eftirfarandi valmöguleika fyrir hendi:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Athuga: Þessi athugasemd þarf samþykki áður en hún verður birt');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Athuga: Þessi athugasemd þarf samþykki áður en hún verður birt.');
 @define('DELETE_COMMENT', 'Eyða athugasemd');
 @define('APPROVE_COMMENT', 'Samþykkja athugasemd');
 @define('REQUIRES_REVIEW', 'Þarf yfirlesningu');

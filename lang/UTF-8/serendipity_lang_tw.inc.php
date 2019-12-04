@@ -466,7 +466,7 @@ $i18n_unknown = 'tw';
 
 @define('COMMENTS_WILL_BE_MODERATED', '發佈的迴響將需要管理員的審核.');
 @define('YOU_HAVE_THESE_OPTIONS', '您有以下選擇:');
-@define('THIS_COMMENT_NEEDS_REVIEW', '警告: 這個迴響須審核才會顯示');
+@define('THIS_COMMENT_NEEDS_REVIEW', '警告: 這個迴響須審核才會顯示!');
 @define('DELETE_COMMENT', '刪除迴響');
 @define('APPROVE_COMMENT', '認可迴響');
 @define('REQUIRES_REVIEW', '需要審核');

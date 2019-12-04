@@ -464,7 +464,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'A hozzászólások moderáláson esnek át megjelenés előtt.');
 @define('YOU_HAVE_THESE_OPTIONS', 'A következő opciók érhetők el:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Figyelem: Ezt a bejegyzést el kell fogadni mielőtt megjelenhetne');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Figyelem: Ezt a bejegyzést el kell fogadni mielőtt megjelenhetne.');
 @define('DELETE_COMMENT', 'Hozzászólás törlése');
 @define('APPROVE_COMMENT', 'Hozzászólás elfogadása');
 @define('REQUIRES_REVIEW', 'Szükséges az előzetes átnézés');

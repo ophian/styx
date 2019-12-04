@@ -465,7 +465,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'Comentariile adăugate vor fi trimise spre aprobare pentru a putea fi afişate.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Ai următoarele opţiuni:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Avertisment: Acest comentariu necesită aprobare pentru a putea fi afişat');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Avertisment: Acest comentariu necesită aprobare pentru a putea fi afişat.');
 @define('DELETE_COMMENT', 'Şterge comentariu');
 @define('APPROVE_COMMENT', 'Aprobă comentariu');
 @define('REQUIRES_REVIEW', 'Necesită aprobare');

@@ -467,7 +467,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 
 @define('COMMENTS_WILL_BE_MODERATED', 'Добавленные комментарии должны будут пройти модерацию прежде, чем будут показаны.');
 @define('YOU_HAVE_THESE_OPTIONS', 'У вас есть следующие варианты:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Внимание: этот комментарий нуждается в подтверждении автором записи, прежде чем он может быть показан');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Внимание: этот комментарий нуждается в подтверждении автором записи, прежде чем он может быть показан.');
 @define('DELETE_COMMENT', 'Удалить комментарий');
 @define('APPROVE_COMMENT', 'Подтвердить комментарий');
 @define('REQUIRES_REVIEW', 'Требует обзора (review)');

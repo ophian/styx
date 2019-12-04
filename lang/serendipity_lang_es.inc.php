@@ -463,7 +463,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ocurrió un error desconocido, fichero no importado. Quizás el tamaño del fichero es mayor que el tamaño máximo permitido por tu instalación. Verifica con tu ISP o edita tu fichero php.ini para permitir transferir ficheros de tamaño más grande.');
 @define('COMMENTS_WILL_BE_MODERATED', 'Los comentarios enviados serán sometidos a moderación antes de ser mostrados.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Tienes disponibles las siguientes opciones:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Aviso: Este comentario necesita aprobación antes de que se muestre');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Aviso: Este comentario necesita aprobación antes de que se muestre.');
 @define('DELETE_COMMENT', 'Borrar comentario');
 @define('APPROVE_COMMENT', 'Aprobar comentario');
 @define('REQUIRES_REVIEW', 'Requiere revisión');

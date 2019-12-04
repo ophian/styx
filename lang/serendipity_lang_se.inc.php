@@ -464,7 +464,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'Kommentarer måste godkännas innan de visas.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Du har följande alternativ:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Varning: Den här kommentaren måste först godkännas');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Varning: Den här kommentaren måste först godkännas.');
 @define('DELETE_COMMENT', 'Ta bort kommentar');
 @define('APPROVE_COMMENT', 'Godkänn kommentar');
 @define('REQUIRES_REVIEW', 'Kräver granskning');

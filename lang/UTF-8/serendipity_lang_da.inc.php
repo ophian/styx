@@ -452,7 +452,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Der skete en ukendt fejl, filen blev ikke uploaded. Måske er din filstørrelse større end den maximale størrelse tilladt af din serveropsætning. Spørg din webudbyder eller rediger din php.ini fil for at tillade uploads af større filer.');
 @define('COMMENTS_WILL_BE_MODERATED', 'Kommentarer til denne artikel skal modereres før de vil blive vist.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Du har følgende muligheder:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Advarsel: Denne kommentar kræver godkendelse førend den vil blive vist');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Advarsel: Denne kommentar kræver godkendelse førend den vil blive vist.');
 @define('DELETE_COMMENT', 'Slet kommentar');
 @define('APPROVE_COMMENT', 'Godkend kommentar');
 @define('REQUIRES_REVIEW', 'Kræver godkendelse');

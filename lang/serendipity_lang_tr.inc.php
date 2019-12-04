@@ -466,7 +466,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'Gönderilen yorumlar sayfada gösterilmeden önce kontrol edilsin mi?');
 @define('YOU_HAVE_THESE_OPTIONS', 'Şu seçenekler mümkün:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Dikkat: Bu görüş yayınlanmadan önce onaylanmalı');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Dikkat: Bu görüş yayınlanmadan önce onaylanmalı.');
 @define('DELETE_COMMENT', 'Görüşü Sil');
 @define('APPROVE_COMMENT', 'Görüşü onayla');
 @define('REQUIRES_REVIEW', 'Önizleme Gerekli');

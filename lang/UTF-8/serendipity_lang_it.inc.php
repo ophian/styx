@@ -452,7 +452,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'I commenti sottoposti sono soggetti a moderazione prima di essere mostrati.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Sono disponibili le seguenti opzioni:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Attenzione: Questo commento deve essere approvato prima di essere mostrato');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Attenzione: Questo commento deve essere approvato prima di essere mostrato.');
 @define('DELETE_COMMENT', 'Cancella commento');
 @define('APPROVE_COMMENT', 'Approva commento');
 @define('REQUIRES_REVIEW', 'Richiede revisione');

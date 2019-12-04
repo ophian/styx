@@ -485,7 +485,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('RSS_IMPORT_CATEGORY', 'Използване на тази категория за несъвпадащи внесени статии');
 @define('COMMENTS_WILL_BE_MODERATED', 'Добавяните коментари ще бъдат обект на модерация преди да бъдат показвани.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Имате на разположение следните възможности:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Внимание: Този коментар се нуждае от одобрение преди да бъде показан');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Внимание: Този коментар се нуждае от одобрение преди да бъде показан.');
 @define('DELETE_COMMENT', 'Изтриване на коментар');
 @define('APPROVE_COMMENT', 'Одобряване на коментар');
 @define('REQUIRES_REVIEW', 'Изискване на преглед');

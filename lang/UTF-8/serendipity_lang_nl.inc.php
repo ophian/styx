@@ -467,7 +467,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'Ingestuurde reacties zullen eerst worden gecontroleerd voor deze geplaatst worden.');
 @define('YOU_HAVE_THESE_OPTIONS', 'U heeft de volgende opties tot uw beschikking:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Waarschuwing: Deze reactie moet eerst worden goedgekeurd voor deze wordt weergegeven');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Waarschuwing: Deze reactie moet eerst worden goedgekeurd voor deze wordt weergegeven.');
 @define('DELETE_COMMENT', 'Verwijder reactie');
 @define('APPROVE_COMMENT', 'Keur reactie goed');
 @define('REQUIRES_REVIEW', 'Moet nagekeken worden');

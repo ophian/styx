@@ -478,7 +478,7 @@ $i18n_filename_to = array (
 
 @define('COMMENTS_WILL_BE_MODERATED', 'Odeslané komentáře budou před uveřejněním moderovány.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Máte k dispozici tyto volby:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Pozor: Tento komentář musí být před uveřejněním odsouhlasen');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Pozor: Tento komentář musí být před uveřejněním odsouhlasen.');
 @define('DELETE_COMMENT', 'Vymazat komentář');
 @define('APPROVE_COMMENT', 'Odsouhlasit komentář');
 @define('REQUIRES_REVIEW', 'Vyžádat přezkoumání');

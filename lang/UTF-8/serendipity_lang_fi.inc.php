@@ -463,7 +463,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'Kommentit tarkistetaan ennen julkaisua.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Voit:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Varoitus: Kommentti tarkistetaan ennen julkaisua');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Varoitus: Kommentti tarkistetaan ennen julkaisua.');
 @define('DELETE_COMMENT', 'Poista kommentti');
 @define('APPROVE_COMMENT', 'Hyväksy kommentti');
 @define('REQUIRES_REVIEW', 'Vaatii tarkistusta');

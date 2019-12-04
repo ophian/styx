@@ -448,7 +448,7 @@
 @define('ERROR_UNKNOWN_NOUPLOAD', 'Ocorreu um erro desconhecido, o arquivo não foi transferido. Talvez o tamanho do arquivo seja maior que o permitido pelo seu servidor. Verifique com o seu servidor de Internet, ou edite o php.ini para permitir transferência de arquivos de maior tamanho.');
 @define('COMMENTS_WILL_BE_MODERATED', 'Comentários enviados estarão sujeitos a moderação antes de serem exibidos.');
 @define('YOU_HAVE_THESE_OPTIONS', 'Você possui as seguintes opções disponíveis');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Atenção: Esse comentário precisa de aprovação antes que seja exibido');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Atenção: Esse comentário precisa de aprovação antes que seja exibido.');
 @define('DELETE_COMMENT', 'Excluir comentário');
 @define('APPROVE_COMMENT', 'Aprovar comentário');
 @define('REQUIRES_REVIEW', 'Requer revisão');

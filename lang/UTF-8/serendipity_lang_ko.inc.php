@@ -466,7 +466,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', '입력된 덧글은 표시가 되기 전에 검토를 거치게 됩니다.');
 @define('YOU_HAVE_THESE_OPTIONS', '다음과 같은 옵션을 사용할 수 있습니다:');
-@define('THIS_COMMENT_NEEDS_REVIEW', '경고: 이 덧글은 표시가 되기 전에 승인을 받아야 합니다');
+@define('THIS_COMMENT_NEEDS_REVIEW', '경고: 이 덧글은 표시가 되기 전에 승인을 받아야 합니다.');
 @define('DELETE_COMMENT', '덧글 삭제');
 @define('APPROVE_COMMENT', '덧글 승인');
 @define('REQUIRES_REVIEW', '검토 필요');

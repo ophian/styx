@@ -463,7 +463,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'Submitted comments will be subject to moderation before being displayed.');
 @define('YOU_HAVE_THESE_OPTIONS', 'You have the following options available:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Warning: This comment needs approval before it will be displayed');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Warning: This comment needs approval before it will be displayed.');
 @define('DELETE_COMMENT', 'Delete comment');
 @define('APPROVE_COMMENT', 'Approve comment');
 @define('REQUIRES_REVIEW', 'Requires review');

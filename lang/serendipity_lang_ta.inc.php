@@ -464,7 +464,7 @@
 
 @define('COMMENTS_WILL_BE_MODERATED', 'அன்பர் கருத்துகள் வலைக்குறிப்பில் தெரிவதற்க்குமுன் குறிப்பாளர் பார்வைக்குட்படும்.');
 @define('YOU_HAVE_THESE_OPTIONS', 'You have the following options available:');
-@define('THIS_COMMENT_NEEDS_REVIEW', 'Warning: This comment needs approval before it will be displayed');
+@define('THIS_COMMENT_NEEDS_REVIEW', 'Warning: This comment needs approval before it will be displayed.');
 @define('DELETE_COMMENT', 'கருத்தை நீக்குக');
 @define('APPROVE_COMMENT', 'கருத்தை அனுமதிக்க');
 @define('REQUIRES_REVIEW', 'Requires review');
