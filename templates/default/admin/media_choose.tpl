@@ -8,7 +8,7 @@
     <div class="clearfix">
 {if isset($media.file) && is_array($media.file)}
     {if $media.file.is_image}
-        {serendipity_hookPlugin hook="frontend_image_selector" eventData=$media.file hookAll=true}
+        {serendipity_hookPlugin hook="frontend_image_selector" data=$media.file hookAll=true}
         <h1 id="media_selection_title">{$CONST.YOU_CHOSE|sprintf:$media.file.realname}</h1>
 
         <picture>
@@ -17,7 +17,7 @@
         </picture>
 
         <form id="imageForm" name="serendipity[selForm]" action="#" method="GET">
-            {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_hiddenfields' eventData=$media.file}
+            {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_hiddenfields' data=$media.file}
             <input name="imgThumbWidth" type="hidden" value="{$media.file.thumbWidth}">
             <input name="imgThumbHeight" type="hidden" value="{$media.file.thumbHeight}">
             <input name="imgWidth" type="hidden" value="{$media.file.dimensions_width}">
@@ -38,7 +38,7 @@
         {/if}
         {if isset($media.file.fast_select) AND $media.file.fast_select}
             <script>
-                {serendipity_hookPlugin hookAll=true hook='frontend_image_add_filenameonly' eventData=$media.file}
+                {serendipity_hookPlugin hookAll=true hook='frontend_image_add_filenameonly' data=$media.file}
                 serendipity.serendipity_imageSelector_done('{$media.textarea|escape}');
             </script>
         {else}
@@ -56,7 +56,7 @@
                         <label for="radio_link_yes">{$CONST.I_WANT_BIG_IMAGE}</label>
                     </div>
                 </div>
-                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagesize' eventData=$media.file}
+                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagesize' data=$media.file}
             </fieldset>
             {if NOT $media.filename_only}
             <fieldset id="image_alignment">
@@ -78,7 +78,7 @@
                         <label for="image_align_right"><img src="{serendipity_getFile file='img/img_align_right.png'}" alt="{$CONST.ALIGN_RIGHT}"></label>
                     </div>
                 </div>
-                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagealign' eventData=$media.file}
+                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagealign' data=$media.file}
             </fieldset>
 
             <fieldset id="image_as_link">
@@ -100,7 +100,7 @@
                         {if $media.file.hotlink}
                             <input id="media_file_path" name="serendipity[url]" type="text" value="{$media.file.path}">
                         {else}
-                            {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_link_url' eventData=$media.file.links}
+                            {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_link_url' data=$media.file.links}
                             <input id="media_file_path" name="serendipity[url]" type="text" value="{$media.file.links.imagelinkurl}">
                         {/if}
                         </div>
@@ -114,7 +114,7 @@
                         <option value="plugin" {'target'|ifRemember:'plugin':false:'selected'}>{$CONST.MEDIA_ENTRY}</option>
                         <option value="_blank" {'target'|ifRemember:'_blank':false:'selected'}>{$CONST.MEDIA_TARGET_BLANK}</option>
                     </select>
-                    {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagelink2' eventData=$media.file}
+                    {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagelink2' data=$media.file}
                     <label for="select_image_target">{$CONST.MEDIA_TARGET}</label>
                 </div>
             </fieldset>
@@ -122,36 +122,36 @@
             <div id="image_comment" class="form_area">
                 <label for="serendipity_imagecomment">{$CONST.COMMENT}</label>
                 <textarea id="serendipity_imagecomment" name="serendipity[imagecomment]" rows="5">{$media.file.props.base_property.COMMENT1|escape|default:''}</textarea>
-                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagecomment' eventData=$media.file}
+                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagecomment' data=$media.file}
             </div>
 
             <div id="image_alttext" class="form_field">
                 <label for="serendipity_alt">{$CONST.MEDIA_ALT}</label>
                 <input id="serendipity_alt" name="serendipity[alt]" type="text" value="{$media.file.props.base_property.ALT|escape|default:''}">
-                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_alt' eventData=$media.file}
+                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_alt' data=$media.file}
             </div>
 
             <div id="image_title" class="form_field">
                 <label for="serendipity_title">{$CONST.MEDIA_TITLE}</label>
                 <input id="serendipity_title" name="serendipity[title]" type="text" value="{$media.file.props.base_property.TITLE|escape|default:''}">
-                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_title' eventData=$media.file}
+                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_title' data=$media.file}
             </div>
             {/if}
-            {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_more' eventData=$media.file}
+            {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_more' data=$media.file}
             <div class="form_buttons">
                 <input class="button_link go_back" type="button" value="{$CONST.BACK}">
                 <input class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA}" onclick="serendipity.rememberMediaOptions(); {$media.file.origfinishJSFunction}">
             {if $media.supportsWebP AND NOT empty($media.file.full_thumb_webp)}
                 <input id="picSubmit" class="input_button state_submit" type="submit" value="{$CONST.ADD_MEDIA_PICTELEMENT}" data-submit="enhanced" onclick="serendipity.rememberMediaOptions(); serendipity.mediaPictureSubmit(); {$media.file.origfinishJSFunction}">
             {/if}
-                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_submit' eventData=$media.file}
+                {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_submit' data=$media.file}
             </div>
         {/if}{* else fast_select end *}
         </form>
     {else}{* if $media.file.is_image end *}
         {if $media.filename_only}
         <script>
-            {serendipity_hookPlugin hookAll=true hook='frontend_image_add_filenameonly' eventData=$media}
+            {serendipity_hookPlugin hookAll=true hook='frontend_image_add_filenameonly' data=$media}
             if (parent.self.opener == undefined) {
                 // in iframes, there is no opener, and the magnific popup is wrapped
                 parent.self = window.parent.parent.$.magnificPopup;
@@ -169,7 +169,7 @@
         {else}
             block = '<span class="media_object_container_link"><!-- s9ymdb:{$media.file.id} --><a class="block_level opens_window" href="{$media.file.full_file}" title="{$media.file.realname|escape}">{$media.file.realname|escape}</a></span>';
         {/if}
-            {serendipity_hookPlugin hookAll=true hook='frontend_image_add_unknown' eventData=$media}
+            {serendipity_hookPlugin hookAll=true hook='frontend_image_add_unknown' data=$media}
             if (parent.self.opener == undefined) {
                 // in iframes, there is no opener, and the magnific popup is wrapped
                 parent.self = window.parent.parent.$.magnificPopup;

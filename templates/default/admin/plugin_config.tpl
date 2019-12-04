@@ -68,7 +68,7 @@
     <div>{$plugin_example}</div>
 {/if}
 {if isset($spawnNuggets) AND $spawnNuggets}
-    {serendipity_hookPlugin hook="backend_wysiwyg_nuggets" eventData=$ev hookAll=true}
+    {serendipity_hookPlugin hook="backend_wysiwyg_nuggets" data=$ev hookAll=true}
 
     {if $ev['skip_nuggets'] === false AND (!isset($init) OR $init !== false)}
 
