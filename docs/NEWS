@@ -1,6 +1,8 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix certain comment NL2BR parsing bugs with allowHtmlComment option cases
+
   * Sync [s9y] - Fix an old bug with backend Smarty template added hooked
     plugin media file and spawnNuggets parameters.
 
