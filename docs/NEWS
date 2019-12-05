@@ -1,7 +1,7 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * plugins: Sync [s9y] - [TASK] Updates serendipity_event_mailer
+  * Sync [s9y] - [TASK] Updates serendipity_event_mailer plugin
 
   * Add cookie based backend entries Quick-Pin ability, to temporary pin
     certain needed entries on top of your entries list (automatically for
