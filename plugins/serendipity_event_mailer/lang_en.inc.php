@@ -16,11 +16,15 @@
 @define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC', 'Remove HTML-Tags from the mail.');
 @define('PLUGIN_EVENT_MAILER_CONVERTP', 'Convert HTML-paragraphs to newlines?');
 @define('PLUGIN_EVENT_MAILER_CONVERTPDESC', 'Adds a newline after each HTML paragraph. This is very useful if you enable HTML removing, so that your paragraphs can be kept if not manually entered.');
-@define('PLUGIN_EVENT_MAILER_RECIPIENTS', 'Mail recipient (seperate multiple recipients with a space)');
+@define('PLUGIN_EVENT_MAILER_RECIPIENTS', 'Mail recipient (separate multiple recipients with a space)');
 @define('PLUGIN_EVENT_MAILER_NOTSENDDECISION', 'This entry was not sent via E-Mail because you decided to not send it.');
 @define('PLUGIN_EVENT_MAILER_SENDING', 'Sending');
 @define('PLUGIN_EVENT_MAILER_ISTOSENDIT', 'Send this entry via E-Mail');
 @define('PLUGIN_EVENT_MAILER_SENDTOALL', 'Send to all authors');
-@define('PLUGIN_EVENT_MAILER_STRIPTAGS', 'Keep images and hyperlinks when removing html?');
-@define('PLUGIN_EVENT_MAILER_STRIPTAGSDESC', 'Only applies when removing HTML-tags from the mail. If enabled, images and hyperlinks will be put inside the text, when disabled those placeholders will also be removed.');
+
+@define('PLUGIN_EVENT_MAILER_KEEPSTRIPTAGS', 'Keep images and hyperlinks when removing HTML?');
+@define('PLUGIN_EVENT_MAILER_KEEPSTRIPTAGSDESC', 'Only applies when removing HTML-tags from the mail. If enabled, images and hyperlinks will be put inside the text, when disabled those placeholders will also be removed.');
+@define('PLUGIN_EVENT_MAILER_FORCESEND', 'Forces sending an E-Mail on save');
+@define('PLUGIN_EVENT_MAILER_FORCESEND_DESC', 'By default, E-Mails are only sent when publishing an entry for the first time');
+@define('PLUGIN_EVENT_MAILER_MAILTEXT', 'Optional custom text to prepend to the E-Mail (like a greeting or explaining why this entry is being mailed)');
 
