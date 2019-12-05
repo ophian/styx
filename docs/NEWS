@@ -1,11 +1,6 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Fix certain comment NL2BR parsing bugs with allowHtmlComment option cases
-
-  * Sync [s9y] - Fix an old bug with backend Smarty template added hooked
-    plugin media file and spawnNuggets parameters.
-
   * Add cookie based backend entries Quick-Pin ability, to temporary pin
     certain needed entries on top of your entries list (automatically for
     30 days). Use the list filter search to set these few entries and be able
@@ -397,6 +392,11 @@ Version 3.0-Dev ()
 
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
+
+  * Fix certain comment NL2BR parsing bugs with allowHtmlComment option cases
+
+  * Sync [s9y] - Fix an old bug with backend Smarty template added hooked
+    plugin media file and spawnNuggets parameters.
 
   * Fix core CKE added procurator plugin for some s9ymdb tagged cases to
     prevent {cke_protected} data.
