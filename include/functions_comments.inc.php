@@ -213,13 +213,13 @@ function serendipity_sanitizeHtmlComments($str) {
 /**
  * Prepare a comment for output under different conditions using plain text nl2nr or nl2p option
  * and handle code parts in string (in case again). This does not care about using WYSIWYG or not,
- * since it is used for comment archives views.
+ * since it is used for comment archives (summary) views.
+ * This is plain fetch data from database w/o having passed via NL2BR
  */
 function serendipity_prepCommentNewline($string, $parsed=false) {
 
     // check for simple p-tag first - do not if true. This is/was a comment by ISOBR default.
     if (false === strpos($string, '</p>')) {
-        $string = nl2br($string);
         $parsed = true;
     }
     // then check code parts within pre tags for nl2br plugin comment(true) option
