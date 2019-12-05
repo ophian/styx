@@ -219,7 +219,7 @@ function serendipity_prepCommentNewline($string, $parsed=false) {
 
     // check for simple p-tag first - do not if true. This is/was a comment by ISOBR default.
     if (false === strpos($string, '</p>')) {
-        $string = nl2br($string);
+        $string = (false === strpos($string, '<br />')) ? $string : nl2br($string);
         $parsed = true;
     }
     // then check code parts within pre tags for nl2br plugin comment(true) option
