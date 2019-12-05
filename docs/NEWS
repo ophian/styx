@@ -1,6 +1,9 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Sync [s9y] - Fix an old bug with backend Smarty template added hooked
+    plugin media file and spawnNuggets parameters.
+
   * Fix core CKE added procurator plugin for some s9ymdb tagged cases to
     prevent {cke_protected} data.
 
