@@ -101,7 +101,9 @@ if (!$use_installer && $is_logged_in) {
             if (!isset($serendipity['matched_entry_pin'])) $serendipity['matched_entry_pin'] = $m[1]; // keep the first, for later Cookie check
         } else unset($serendipity['matched_entry_pin']);
     }
-    $serendipity['smarty']->assign('pin_entries', $pinids);
+    if (is_object($serendipity['smarty'])) {
+        $serendipity['smarty']->assign('pin_entries', $pinids);
+    }
 
     ob_start();
     serendipity_checkXSRF();
