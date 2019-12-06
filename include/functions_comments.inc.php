@@ -554,6 +554,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             }
 
             $_smartyComments[] = $comment;
+            // NOTE: There is no THREADed VIEW on comment summary pages. See commentByAuthors, this is hard called by VIEWMODE_LINEAR
             if (isset($comment['id']) && $comment['id'] && $parentid !== VIEWMODE_LINEAR ) {
                 serendipity_printComments($comments, $comment['id'], ($depth+1), ($trace . $i . '.'), $smarty_block, $smarty_file);
             }
