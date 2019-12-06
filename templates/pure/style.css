@@ -913,6 +913,30 @@ ul.staticpage_result li {
 ol.plainList > .comment {
     margin-bottom: 1.5em;
 }
+ol.plainList > .comment.commentlevel-1 {
+    margin-left: 1.3em;
+}
+ol.plainList > .comment.commentlevel-2 {
+    margin-left: 3em;
+}
+ol.plainList > .comment.commentlevel-3 {
+    margin-left: 4.5em;
+}
+ol.plainList > .comment.commentlevel-4 {
+    margin-left: 6em;
+}
+ol.plainList > .comment.commentlevel-5 {
+    margin-left: 7.5em;
+}
+ol.plainList > .comment.commentlevel-6 {
+    margin-left: 9em;
+}
+ol.plainList > .comment.commentlevel-7 {
+    margin-left: 10.5em;
+}
+ol.plainList > .comment.commentlevel-8 {
+    margin-left: 12em;
+}
 .comment.odd {
     background-color: #efefef;
 }
