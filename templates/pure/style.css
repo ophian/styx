@@ -940,7 +940,28 @@ ol.plainList > .comment.commentlevel-8 {
 ol.plainList > .comment.commentlevel-9 {
     margin-left: 13.5em;
 }
-/* commentlevel-9 is the last available threaded depth */
+ol.plainList > .comment.commentlevel-10 {
+    margin-left: 15em;
+}
+ol.plainList > .comment.commentlevel-11 {
+    margin-left: 16.5em;
+}
+ol.plainList > .comment.commentlevel-12 {
+    margin-left: 18em;
+}
+ol.plainList > .comment.commentlevel-13 {
+    margin-left: 19.5em;
+}
+ol.plainList > .comment.commentlevel-14 {
+    margin-left: 21em;
+}
+ol.plainList > .comment.commentlevel-15 {
+    margin-left: 22.5em;
+}
+ol.plainList > .comment.commentlevel-16 {
+    margin-left: 24em;
+}
+/* commentlevel-16 is the last available threaded depth see comments.tpl */
 
 .comment.odd {
     background-color: #efefef;
