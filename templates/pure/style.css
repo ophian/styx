@@ -961,7 +961,7 @@ ol.plainList > .comment.commentlevel-15 {
 ol.plainList > .comment.commentlevel-16 {
     margin-left: 24em;
 }
-/* commentlevel-16 is the last available threaded depth see comments.tpl */
+/* commentlevel-16 is the last available threaded depth - see comments.tpl */
 
 .comment.odd {
     background-color: #efefef;
