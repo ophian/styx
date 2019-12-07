@@ -937,6 +937,11 @@ ol.plainList > .comment.commentlevel-7 {
 ol.plainList > .comment.commentlevel-8 {
     margin-left: 12em;
 }
+ol.plainList > .comment.commentlevel-9 {
+    margin-left: 13.5em;
+}
+/* commentlevel-9 is the last available threaded depth */
+
 .comment.odd {
     background-color: #efefef;
 }
