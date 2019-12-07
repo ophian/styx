@@ -4492,6 +4492,11 @@ img.mfp-img {
         min-height: 12em;
         height: 17.5em;
     }
+    .js .media_pane .media_file_preview.media_file_pregal {
+        min-height: 5.5em;
+        height: 5.5em;
+        overflow: hidden
+    }
 
     .js .media_controls video {
         max-width: 20em;
