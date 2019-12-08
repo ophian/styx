@@ -1025,6 +1025,9 @@ ol.plainList > .comment.commentlevel-16 {
     font-size: 14px;
     font-size: .875rem;
 }
+.comment_content pre {
+    width: 100%;
+}
 .comment.odd > .comment_content {
     background-color: #fafafa;
 }
