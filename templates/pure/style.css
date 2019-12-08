@@ -999,6 +999,7 @@ ol.plainList > .comment.commentlevel-16 {
     font-family: "Lucida Sans Unicode","Lucida Grande",sans-serif;
     font-size: 15px;
     font-size: .938rem;
+    word-break: break-word;
 }
 .comment_content pre code {
     font-size: 14px;
