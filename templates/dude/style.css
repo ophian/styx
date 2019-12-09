@@ -870,7 +870,7 @@ table.serendipity_calendar td {
 
 /** End of Sidebar Styles **/
 
-/** Embedded images with the s9y image manager **/
+/** Embedded images with the Serendipity Styx image manager **/
 
 .serendipity_image_link {
     display: inline-block; }
@@ -958,7 +958,7 @@ table.serendipity_calendar td {
     max-width: 100%;
 }
 
-/** Embedded images with the s9y image manager end **/
+/** Embedded images with the Serendipity Styx image manager end **/
 
 
 /** Plugin Styles **/
