@@ -712,10 +712,10 @@ nav.pager ul {
     padding-right: .25em;
     font-size: .938rem;
 }
-.serendipity_entryFooter.listed_view .plainList li {
+.post_info.listed_view .plainList li {
     display: inline-block;
 }
-.serendipity_entryFooter.listed_view .plainList li:not(:first-of-type)::before {
+.post_info.listed_view .plainList li:not(:first-of-type)::before {
     content: " | ";
     padding-right: .25em;
 }
