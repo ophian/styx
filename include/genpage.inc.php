@@ -34,12 +34,14 @@ $serendipity['smarty']->assignByRef('rightSidebarElements', $rightSidebarElement
 $is_archives = false;
 $is_search_empty = false;
 
+/* Disabled again, since it borks search requests with blogs having a staticpage startpage and the follow-up pagination pages! To much to fiddle for such a simple change.
 // Allow search requests per post
 if (empty($serendipity['GET']['searchTerm']) && !empty($serendipity['POST']['searchTerm'])) {
     $serendipity['GET']['action'] = 'search';
     $serendipity['GET']['searchTerm'] = $serendipity['POST']['searchTerm'];
     $serendipity['uriArguments'][] = serendipity_specialchars($serendipity['POST']['searchTerm']);
 }
+*/
 
 // mute possible uninitialized GET action item to fallback to default
 switch (@$serendipity['GET']['action']) {
