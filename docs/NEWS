@@ -1,7 +1,7 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Disallow search requests per POST again, since having to many downsides
+  * Disallow search requests per POST again, since having too many downsides
 
   * Sync [s9y] - [TASK] Updates serendipity_event_mailer plugin
 
