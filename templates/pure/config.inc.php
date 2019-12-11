@@ -25,7 +25,7 @@ if (is_array($required_fieldlist)) {
 
     $serendipity['smarty']->assign('required_fields', $smarty_required_fields);
 }
-$serendipity['capabilities']['jquery_noConflictMode'] = false;
+$serendipity['capabilities']['jquery-noconflict'] = false;
 $template_config = array(
     array(
         'var' => 'date_format',
