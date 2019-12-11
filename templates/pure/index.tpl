@@ -40,8 +40,9 @@
     <nav id="navbar">
         <ul>{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}<li{if $navlink@last} class="last"{/if}>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}
             <li class="navsearch">
-                <form id="searchform" action="{$serendipityHTTPPath}" method="post">
+                <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
                 <div>
+                    <input type="hidden" name="serendipity[action]" value="search">
                     <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
                     <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.TWOK11_PLACE_SEARCH}" value="">
                     <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
@@ -54,8 +55,9 @@
 {else}
 
     <nav id="headsearch">
-        <form id="searchform" action="{$serendipityHTTPPath}" method="post">
+        <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
         <div>
+            <input type="hidden" name="serendipity[action]" value="search">
             <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
             <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.TWOK11_PLACE_SEARCH}" value="">
             <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
