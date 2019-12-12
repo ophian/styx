@@ -345,7 +345,8 @@ select[size], select[multiple], textarea {
  }
 
 blockquote {
-  /*needs a review*/
+  /*needs a review - something generic*/
+  font-style: oblique;
 }
 
 textarea {
@@ -680,6 +681,9 @@ nav.pager ul {
     display: inline-block;
     line-height: 1.6;
     width: 100%; }
+    .post_content blockquote {
+        border-left: 5px solid #ccc;
+        padding-left: 1em; }
 .serendipity_title {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: .938rem;
