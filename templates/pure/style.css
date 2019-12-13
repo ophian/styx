@@ -1612,6 +1612,8 @@ p > .serendipity_image_link {
   .grid-col .post table,
   .grid-col .post_content table {/* yes, since within the #extended id knot */
     max-width: initial; }
+  #navbar ul li.navsearch {
+    margin-right: 1em; }
 }
 
 @media screen and (min-width: 1400px) {
