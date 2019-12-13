@@ -347,6 +347,7 @@ select[size], select[multiple], textarea {
 blockquote {
   /*needs a review - something generic*/
   font-style: oblique;
+  display: inline-block;
 }
 
 textarea {
@@ -808,6 +809,9 @@ ul.staticpage_result li {
 .serendipity_staticpage .page_info {
     font-size: .875rem;
 }
+.page_content blockquote {
+    border-left: 5px solid #ccc;
+    padding-left: 1em; }
 
 .serendipity_freeTag {
     margin-bottom: 1em;
