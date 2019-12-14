@@ -56,6 +56,7 @@
 
             </ul>
             {if $view == 'entry'}{$entry.add_footer|default:''}{/if}
+
         </footer>
     {/if}
 

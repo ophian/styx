@@ -9,29 +9,37 @@
                 {else}
                     {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
                 {/if}
+
                 </div>
                 <ul class="meta{if isset($comment.type) AND $comment.type == 'TRACKBACK'} tb-meta{/if}">
                 {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
+
                     <li><strong>TRACKBACK</strong></li>
                 {/if}
+
                     <li><time>{$comment.timestamp|formatTime:'%H:%M'}</time></li>
                     <li><a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}" title="{$CONST.NEXT_PLINK_TITLE}">{$CONST.NEXT_PLINK_TEXT}</a></li>
                 {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
+
                     <li><a class="comment_source_ownerlink" href="{$comment.link_delete}" title="{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}">{$CONST.DELETE}</a></li>
                 {/if}
                 {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
+
                     <li>{$CONST.IN} {$CONST.TITLE}: <span class="comment_source_ctitle">{$comment.ctitle|truncate:42|wordwrap:15:"\n":true|escape}</span></li>
                 {else}
             {if NOT empty($template_option.refcomments)}
                 {if $comment.parent_id != '0'}
+
                     <li><a class="reply_origin" href="#c{$comment.parent_id}" title="{$CONST.NEXT_REPLYORIGIN}: {$CONST.COMMENT} #c{$comment.parent_id}">{$CONST.NEXT_REPLYORIGIN}</a></li>
                 {/if}
             {/if}
                 {if isset($comment.id) AND NOT empty($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
+
                     <li><a id="serendipity_reply_{$comment.id}" class="comment_reply" href="#serendipity_CommentForm" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id}'; {$comment_onchange|default:''}">{$CONST.REPLY}</a>
                     <div id="serendipity_replyform_{$comment.id}"></div></li>
                 {/if}
                 {/if}
+
                 </ul>
            </li>
 {foreachelse}
