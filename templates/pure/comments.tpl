@@ -32,11 +32,9 @@
                     <li><a class="reply_origin" href="#c{$comment.parent_id}" title="{$CONST.PURE_REPLYORIGIN}: {$CONST.COMMENT} #c{$comment.parent_id}">{$CONST.PURE_REPLYORIGIN}</a></li>
                 {/if}
                 {if isset($comment.id) AND NOT empty($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
-                    {if $comment.parent_id == 0}
 
                     <li><a id="serendipity_reply_{$comment.id}" class="comment_reply" href="#serendipity_CommentForm" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id}'; {$comment_onchange|default:''}">{$CONST.REPLY}</a>
                     <div id="serendipity_replyform_{$comment.id}" class="visuallyhidden"></div></li>
-                    {/if}
                 {/if}
                 {/if}
 
