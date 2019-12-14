@@ -1,8 +1,6 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Fix a comment subscription bug not deleting old saved sessions
-
   * Disallow search requests per POST again, since having too many downsides
 
   * Sync [s9y] - [TASK] Updates serendipity_event_mailer plugin
@@ -398,6 +396,8 @@ Version 3.0-Dev ()
 
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
+
+  * Fix a comment subscription bug not deleting old saved sessions
 
   * Fix certain comment NL2BR parsing bugs with allowHtmlComment option cases
 
