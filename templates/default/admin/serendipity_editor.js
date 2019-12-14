@@ -521,7 +521,7 @@
                     break;
             }
 
-            var img = prepend + "<a class=\"serendipity_image_link\" " + (title != '' ? 'title="' + title + '"' : '') + " href='" + ilink + "'" + itarget + fallback +">" + img + "</a>";
+            var img = prepend + "<a class=\"serendipity_image_link\" " + (title != '' ? 'title="' + title + '"' : '') + " href=\"" + ilink + "\"" + itarget + fallback +">" + img + "</a>";
         }
 
         if ($('#serendipity_imagecomment').val() != '') {
