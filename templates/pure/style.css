@@ -195,16 +195,15 @@ pre {
   background: #fefefe;
   border: 1px solid #ccc;
   margin: .5em auto;
-  padding: .5em;
-}
-pre code {
-  font-size: 16px;
-  font-size: 1rem;
-  white-space: pre;
-  white-space: pre-wrap !important;/* overwrite a possible white-space: pre via highlight.css */
-  overflow-x: auto;
-  padding: 1em 0;
-}
+  padding: .5em; }
+  pre code {
+    font-size: 16px;
+    font-size: 1rem;
+    white-space: pre;
+    white-space: pre-wrap !important;/* overwrite a possible white-space: pre via highlight.css */
+    overflow-x: auto;
+    padding: 1em 0; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
 
 a, a:visited {
   color: #3e5f81; }
