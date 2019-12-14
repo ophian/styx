@@ -18,7 +18,7 @@
                 {/if}
 
                     <li><time>{$comment.timestamp|formatTime:'%H:%M'}</time></li>
-                    <li><a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}" title="{$CONST.NEXT_PLINK_TITLE}">{$CONST.NEXT_PLINK_TEXT}</a></li>
+                    <li><a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}" title="{$CONST.PURE_PLINK_TITLE}">{$CONST.PURE_PLINK_TEXT}</a></li>
                 {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
 
                     <li><a class="comment_source_ownerlink" href="{$comment.link_delete}" title="{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}">{$CONST.DELETE}</a></li>
@@ -30,7 +30,7 @@
             {if NOT empty($template_option.refcomments)}
                 {if $comment.parent_id != '0'}
 
-                    <li><a class="reply_origin" href="#c{$comment.parent_id}" title="{$CONST.NEXT_REPLYORIGIN}: {$CONST.COMMENT} #c{$comment.parent_id}">{$CONST.NEXT_REPLYORIGIN}</a></li>
+                    <li><a class="reply_origin" href="#c{$comment.parent_id}" title="{$CONST.PURE_REPLYORIGIN}: {$CONST.COMMENT} #c{$comment.parent_id}">{$CONST.PURE_REPLYORIGIN}</a></li>
                 {/if}
             {/if}
                 {if isset($comment.id) AND NOT empty($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
