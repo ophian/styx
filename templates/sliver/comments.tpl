@@ -43,6 +43,7 @@
                     {else}
 
                         {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{if isset($comment.type) AND $comment.type == 'PINGBACK'}[PingBack]{else}{$comment.body}{/if}{/if}
+                        {$comment.preview_editstatus|default:''}
                     {/if}
 
                 </div>
