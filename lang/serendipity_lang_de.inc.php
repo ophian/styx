@@ -980,9 +980,9 @@
 @define('NAV_LINK_URL', 'URL des Navigationsleisten-Links');
 @define('MODERATE_SELECTED_COMMENTS', 'Markierte Kommentare freischalten');
 @define('WEBLOG', 'Weblog');
-@define('ACTIVE_COMMENT_SUBSCRIPTION', 'Subscribed');
-@define('PENDING_COMMENT_SUBSCRIPTION', 'Pending confirmation');
-@define('NO_COMMENT_SUBSCRIPTION', 'Not subscribed');
+@define('ACTIVE_COMMENT_SUBSCRIPTION', 'Abonniert');
+@define('PENDING_COMMENT_SUBSCRIPTION', 'Wartet auf Bestätigung');
+@define('NO_COMMENT_SUBSCRIPTION', 'Nicht abonniert');
 @define('SUMMARY', 'Zusammenfassung');
 
 // Next lines were translated on 2012/05/29
