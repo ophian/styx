@@ -5,6 +5,7 @@
         <div class="serendipity_commentBody">
 
             {if $comment.body == 'COMMENT_DELETED'}{$CONST.COMMENT_IS_DELETED}{else}{if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}{/if}
+            {$comment.preview_editstatus|default:''}
 
         </div>
         <div class="serendipity_comment_source">
