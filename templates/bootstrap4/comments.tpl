@@ -10,6 +10,7 @@
             <p class="alert alert-danger" role="alert">{$CONST.COMMENT_IS_DELETED}</p>
         {else}
             {$comment.body}
+            {$comment.preview_editstatus|default:''}
         {/if}
         </div>
     {if isset($comment.id) AND NOT empty($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
