@@ -15,6 +15,7 @@
             <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COMMENT_IS_DELETED}</p>
         {else}
             {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
+            {$comment.preview_editstatus|default:''}
         {/if}
         </div>
 
