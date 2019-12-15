@@ -8,6 +8,7 @@
             <p class="serendipity_msg_important">{$CONST.COMMENT_IS_DELETED}</p>
         {else}
             {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
+            {$comment.preview_editstatus|default:''}
         {/if}
         </div>
     {if isset($comment.id) AND NOT empty($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
