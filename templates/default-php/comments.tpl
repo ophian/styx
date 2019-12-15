@@ -7,6 +7,7 @@
             <?= COMMENT_IS_DELETED ?>
         <?php else: ?>
             <?= $comment['body'] ?><?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?> [&hellip;]<?php endif; ?>
+            <?= ($comment['preview_editstatus'] ?? '') ?>
         <?php endif; ?>
         </div>
         <div class="serendipity_comment_source">
