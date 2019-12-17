@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Sync [s9y] - Fixup trackback delete link for token [2k11, default, sliver]
+
   * Enable themes comment subscription info messages for logged-in Users
 
   * Disallow search requests per POST again, since having too many downsides
