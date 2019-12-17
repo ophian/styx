@@ -898,6 +898,9 @@ ul.staticpage_result li {
     font-size: 14px;
     font-size: .875rem;
 }
+.trackback details summary {
+    cursor: pointer;
+}
 .trackback_author {
     display: block;
     margin: .5em 0;
