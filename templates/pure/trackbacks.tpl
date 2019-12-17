@@ -15,6 +15,7 @@
                 <div class="clearfix">
                     {$trackback.body|strip_tags|escape:'htmlall'} [&hellip;]
                     <span class="trackback_author">{$CONST.RANGE_FROM} <strong>{$trackback.author|default:$CONST.ANONYMOUS}</strong> {$CONST.IN} <a href="{$trackback.url|strip_tags}">{$trackback.title}</a></span>
+                    {if NOT empty($entry.is_entry_owner)}<a href="{$trackback.link_delete}">{$CONST.TRACKBACK} {$CONST.DELETE}</a>{/if}
                 </div>
             </details>
         {/if}
