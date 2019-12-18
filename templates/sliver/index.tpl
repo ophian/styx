@@ -20,7 +20,7 @@
 
     <meta name="keywords" content="{$staticpage_custom.meta_keywords|escape}">
 {/if}
-{if $is_single_entry}
+{if $is_single_entry AND isset($entry.body)}
 
     <meta property="og:description" content="{$entry.body|strip_tags:false|strip|truncate:160:'...'}">
 {/if}
@@ -47,7 +47,7 @@
 
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Ubuntu:400,400italic,700,700italic">
 {/if}
-{if isset($view) AND $view == 'entry'}
+{if isset($view) AND $view == 'entry' AND isset($entry.rdf_ident)}
 
     <link rel="canonical" href="{$entry.rdf_ident}">
 {/if}
