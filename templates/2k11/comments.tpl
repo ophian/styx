@@ -1,7 +1,7 @@
 {foreach $comments AS $comment}{* COMMENT.ID defaults to 0, since this is a previewed, new and unsaved comment only as an example for uninitialized variables *}
 <article id="c{$comment.id|default:0}" class="serendipity_comment{if isset($entry) AND $entry.author == $comment.author AND $entry.email == $comment.clear_email} serendipity_comment_author_self{/if} {cycle values="odd,even"} {if $comment.depth > 8}commentlevel-9{else}commentlevel-{$comment.depth}{/if}">
     <header class="clearfix">
-        <h4{if NOT empty($comment.spice_twitter_name) AND NOT empty($comment.spice_twitter_followme)} class="short-heading"{/if}>{if $comment.url}<a href="{$comment.url}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}{if $comment.url}</a>{/if}{if NOT empty($comment.spice_twitter_name) AND NOT empty($comment.spice_twitter_followme)} (<a href="{$comment.spice_twitter_url}"{if NOT empty($comment.spice_twitter_nofollow)} rel="nofollow"{/if}>@{$comment.spice_twitter_name}</a>){/if} {$CONST.ON} <time datetime="{$comment.timestamp|serendipity_html5time}">{$comment.timestamp|formatTime:($template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY)}</time>{if isset($comment.meta)} | <time>{$comment.timestamp|formatTime:'%H:%M'}</time>{/if}:</h4>
+        <h4{if NOT empty($comment.spice_twitter_name) AND NOT empty($comment.spice_twitter_followme)} class="short-heading"{/if}>{if $comment.url}<a href="{$comment.url|escape:'htmlall'}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}{if $comment.url}</a>{/if}{if NOT empty($comment.spice_twitter_name) AND NOT empty($comment.spice_twitter_followme)} (<a href="{$comment.spice_twitter_url}"{if NOT empty($comment.spice_twitter_nofollow)} rel="nofollow"{/if}>@{$comment.spice_twitter_name}</a>){/if} {$CONST.ON} <time datetime="{$comment.timestamp|serendipity_html5time}">{$comment.timestamp|formatTime:($template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY)}</time>{if isset($comment.meta)} | <time>{$comment.timestamp|formatTime:'%H:%M'}</time>{/if}:</h4>
     {if NOT empty($comment.spice_twitter_name) AND NOT empty($comment.spice_twitter_followme)}
         <div class="twitter_follow"><a href="{$comment.spice_twitter_url}"{if $comment.spice_twitter_nofollow} rel="nofollow"{/if}><span class="visuallyhidden">@{$comment.spice_twitter_name}</span></a>
         {if $comment.spice_twitter_followme}{$comment.spice_twitter_followme}{/if}
@@ -27,7 +27,7 @@
         <strong>TRACKBACK</strong>
     {/if}
         <time>{$comment.timestamp|formatTime:'%H:%M'}</time>
-        | <a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}" title="{$CONST.TWOK11_PLINK_TITLE}">{$CONST.TWOK11_PLINK_TEXT}</a>
+        | <a class="comment_source_trace" href="#c{$comment.id|default:0}" title="{$CONST.TWOK11_PLINK_TITLE}">{$CONST.TWOK11_PLINK_TEXT}</a>
     {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
         | <a class="comment_source_ownerlink" href="{$comment.link_delete}" title="{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}">{$CONST.DELETE}</a>
     {/if}
