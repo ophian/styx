@@ -13,7 +13,7 @@
     {else if NOT isset($comment.meta)}
         {if isset($comment.type) AND $comment.type == 'TRACKBACK'}<strong>[TRACKBACK]</strong> {$CONST.TRACKED}:{/if}
 
-            <a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}">#{$comment.trace}</a>
+            <a class="comment_source_trace" href="#c{$comment.id|default:0}">#{$comment.trace}</a>
             <span class="comment_source_author">
                 {if isset($comment.type) AND $comment.type == 'TRACKBACK'}<strong>{$CONST.WEBLOG}:</strong>{/if}
 
@@ -26,7 +26,7 @@
             {/if}
 
             </span>
-        {if $comment.url}(<a class="comment_source_url" href="{$comment.url}" title="{$comment.url|escape}">{$CONST.HOMEPAGE}</a>){/if}
+        {if $comment.url}(<a class="comment_source_url" href="{$comment.url|escape:'htmlall'}" title="{$comment.url|escape}">{$CONST.HOMEPAGE}</a>){/if}
 
         {$CONST.ON} <span class="comment_source_date">{$comment.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT}</span>
         {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}(<a class="comment_source_ownerlink" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');">{$CONST.DELETE}</a>){/if}
