@@ -1,9 +1,0 @@
-Name: Serendipity default [ & fallback ]
-Author: Tom Sommer, Ian Styx
-Date: 2019-05-18
-Require Serendipity: 2.0
-Backend: Yes
-Recommended: Yes
-
-Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
-Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
