@@ -26,7 +26,7 @@
                     <span class="comment-author-details">
                         {if $comment.url}
 
-                            <a class="comment-author-url" href="{$comment.url}" title="{$comment.url|escape}" rel="external nofollow">{$comment.author|default:$CONST.ANONYMOUS}</a>
+                            <a class="comment-author-url" href="{$comment.url|escape:'htmlall'}" title="{$comment.url|escape}" rel="external nofollow">{$comment.author|default:$CONST.ANONYMOUS}</a>
                         {else}
 
                             {$comment.author|default:$CONST.ANONYMOUS}
@@ -50,7 +50,7 @@
                 <div class="comment-meta">
                 {if $smarty.get.serendipity.action != 'comments'}
 
-                    <a class="comment-source-trace btn btn-sm btn-default" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}">#{$comment.trace}</a>
+                    <a class="comment-source-trace btn btn-sm btn-default" href="#c{$comment.id|default:0}">#{$comment.trace}</a>
                 {/if}
                 {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
 
