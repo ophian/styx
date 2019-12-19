@@ -1,6 +1,6 @@
 Name: Skeleton
 Author: Matthias Mees
-Date: 2019-09-21
+Date: 2019-12-19
 Require Serendipity: 2.0
 Responsive: Yes
 Mobile: Yes
