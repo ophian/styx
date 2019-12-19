@@ -19,7 +19,7 @@
                 <h5 class="comment-author-heading">
                     <span class="comment-author-details">
                         {if $comment.url}
-                            <a class="comment-author-url" href="{$comment.url}" title="{$comment.url|escape}" rel="external nofollow">{$comment.author|default:$CONST.ANONYMOUS}</a>
+                            <a class="comment-author-url" href="{$comment.url|escape:'htmlall'}" title="{$comment.url|escape}" rel="external nofollow">{$comment.author|default:$CONST.ANONYMOUS}</a>
                         {else}
                             {$comment.author|default:$CONST.ANONYMOUS}
                         {/if}
@@ -35,7 +35,7 @@
                         {/if}
                 </div>
                 <div class="comment-meta">
-                    <a class="comment-source-trace btn btn-sm btn-default btn-theme" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}">#{$comment.trace}</a>
+                    <a class="comment-source-trace btn btn-sm btn-default btn-theme" href="#c{$comment.id|default:0}">#{$comment.trace}</a>
                     {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
                         <a class="comment-source-ownerlink comment-reply-link btn btn-sm btn-default btn-theme" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');" title="{$CONST.DELETE}"><i class="fas fa-lg fa-trash-alt"></i><span class="sr-only"> {$CONST.DELETE}</span></a>
                     {/if}

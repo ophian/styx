@@ -4,14 +4,14 @@
         <div class="serendipity_comment_source">
             <cite>
             {if $comment.url}
-                <a href="{$comment.url}" target="_blank">{$comment.author|default:$CONST.ANONYMOUS}</a>
+                <a href="{$comment.url|escape:'htmlall'}" target="_blank">{$comment.author|default:$CONST.ANONYMOUS}</a>
             {else}
                 {$comment.author|default:$CONST.ANONYMOUS}
             {/if}
             {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}
             </cite> {$CONST.SAYS}:<br>
             <div class="commentmetadata comment_source_author">
-                <a href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}" title="{$CONST.LINK_TO_COMMENT|sprintf:$comment.trace}">#{$comment.trace}</a>
+                <a href="#c{$comment.id|default:0}" title="{$CONST.LINK_TO_COMMENT|sprintf:$comment.trace}">#{$comment.trace}</a>
                 {$comment.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT}
                 {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
                     (<a href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');">{$CONST.DELETE}</a>)

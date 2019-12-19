@@ -1,7 +1,7 @@
 {foreach $comments AS $comment}
     <article id="c{$comment.id|default:0}" class="comment{if isset($entry) AND $entry.author == $comment.author AND $entry.email == $comment.clear_email} serendipity_comment_author_self{/if} {cycle values="odd,even"}{if $comment.depth > 8} commentlevel-9{else} commentlevel-{$comment.depth}{/if}">
         <header class="clearfix">
-            <h4>{if $comment.url}<a href="{$comment.url}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}{if $comment.url}</a>{/if}{if isset($comment.spice_twitter_name) AND $comment.spice_twitter_name AND NOT $comment.spice_twitter_followme} (<a href="{$comment.spice_twitter_url}"{if $comment.spice_twitter_nofollow} rel="nofollow"{/if}>@{$comment.spice_twitter_name}</a>){/if} {$CONST.ON} <time datetime="{$comment.timestamp|serendipity_html5time}">{$comment.timestamp|formatTime:($template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY)}</time>{if isset($comment.meta)} | <time>{$comment.timestamp|formatTime:'%H:%M'}</time>{/if}:</h4>
+            <h4>{if $comment.url}<a href="{$comment.url|escape:'htmlall'}">{/if}{$comment.author|default:$CONST.ANONYMOUS}{if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}{if $comment.url}</a>{/if}{if isset($comment.spice_twitter_name) AND $comment.spice_twitter_name AND NOT $comment.spice_twitter_followme} (<a href="{$comment.spice_twitter_url}"{if $comment.spice_twitter_nofollow} rel="nofollow"{/if}>@{$comment.spice_twitter_name}</a>){/if} {$CONST.ON} <time datetime="{$comment.timestamp|serendipity_html5time}">{$comment.timestamp|formatTime:($template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY)}</time>{if isset($comment.meta)} | <time>{$comment.timestamp|formatTime:'%H:%M'}</time>{/if}:</h4>
         {if isset($comment.spice_twitter_name) AND $comment.spice_twitter_name AND $comment.spice_twitter_followme}
             <div class="twitter_follow">
                 {$comment.spice_twitter_followme}
@@ -30,7 +30,7 @@
                 <li><strong>TRACKBACK</strong></li>
             {/if}
                 <li><time>{$comment.timestamp|formatTime:'%H:%M'}</time></li>
-                <li><a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}" title="{$CONST.NEXT_PLINK_TITLE}">{$CONST.NEXT_PLINK_TEXT}</a></li>
+                <li><a class="comment_source_trace" href="#c{$comment.id|default:0}" title="{$CONST.NEXT_PLINK_TITLE}">{$CONST.NEXT_PLINK_TEXT}</a></li>
             {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
                 <li><a class="comment_source_ownerlink" href="{$comment.link_delete}" title="{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}">{$CONST.DELETE}</a></li>
             {/if}

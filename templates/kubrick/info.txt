@@ -1,6 +1,6 @@
 Name: Kubrick
 Author: Tom Sommer
-Date: 2019-05-18
+Date: 2019-12-19
 Require Serendipity: 1.7
 
 Summary: A Kubrick 1.2.6 port. Additional old theme from 2004-08-12 with a default size of ~760 pixel content width.

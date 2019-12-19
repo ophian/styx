@@ -12,7 +12,7 @@
         {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
             <strong>[TRACKBACK]</strong> {$CONST.TRACKED}:
         {/if}
-            <a class="comment_source_trace" href="{$comment.url|escape:'htmlall'}#c{$comment.id|default:0}">#{$comment.trace}</a>
+            <a class="comment_source_trace" href="#c{$comment.id|default:0}">#{$comment.trace}</a>
             <span class="comment_source_author">
         {if isset($comment.type) AND $comment.type == 'TRACKBACK'}
             <strong>{$CONST.WEBLOG}:</strong>
@@ -29,7 +29,7 @@
         {/if}
             </span>
             {if $comment.url}
-                (<a class="comment_source_url" href="{$comment.url}" title="{$comment.url|escape}">{$CONST.HOMEPAGE}</a>)
+                (<a class="comment_source_url" href="{$comment.url|escape:'htmlall'}" title="{$comment.url|escape}">{$CONST.HOMEPAGE}</a>)
             {/if}
             {$CONST.ON}
             <span class="comment_source_date">{$comment.timestamp|formatTime:$CONST.DATE_FORMAT_SHORT}</span>
