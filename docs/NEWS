@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix jumbled themes comments conditional trace path
+
   * Sync [s9y] - Fixup trackback delete link for token [2k11, default, sliver]
 
   * Enable themes comment subscription info messages for logged-in Users
