@@ -19,7 +19,7 @@
   {if $is_commentform_showToolbar}
     <dt>&#160;</dt>
     <dd class="serendipity_commentsLabel">
-    <span class="checkbox"><input id="checkbox_remember" type="checkbox" name="serendipity[remember]" {$commentform_remember}/>&#160;<label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label></span>
+    <span class="checkbox"><input id="checkbox_remember" type="checkbox" name="serendipity[remember]"{$commentform_remember}/>&#160;<label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label></span>
     {if $is_allowSubscriptions}
     <span class="checkbox"><input id="checkbox_subscribe" type="checkbox" name="serendipity[subscribe]" {$commentform_subscribe}/>&#160;<label for="checkbox_subscribe">{$CONST.SUBSCRIBE_TO_THIS_ENTRY}</label></span>
     {/if}

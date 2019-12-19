@@ -36,7 +36,7 @@
         <tr>
             <td>&#160;</td>
             <td class="serendipity_commentsLabel toolbar">
-                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]" {$commentform_remember}>
+                <input id="checkbox_remember" type="checkbox" name="serendipity[remember]"{$commentform_remember}>
                 <label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label>
     {if $is_allowSubscriptions}
                 <br>

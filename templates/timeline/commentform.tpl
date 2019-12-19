@@ -30,7 +30,7 @@
         <div class="form-group">
             {if $is_commentform_showToolbar}
                 <div class="checkbox">
-                    <label class="checkbox-inline" for="checkbox_remember"><input id="checkbox_remember" name="serendipity[remember]" type="checkbox" {$commentform_remember}>{$CONST.REMEMBER_INFO}</label>
+                    <label class="checkbox-inline" for="checkbox_remember"><input id="checkbox_remember" name="serendipity[remember]" type="checkbox"{$commentform_remember}>{$CONST.REMEMBER_INFO}</label>
                 </div>
             {/if}
             {if $is_allowSubscriptions}

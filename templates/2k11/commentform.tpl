@@ -40,7 +40,7 @@
     <fieldset class="form_toolbar">
         <legend class="visuallyhidden">{$CONST.TWOK11_FORMOPTIONS}</legend>
         <div class="form_box">
-            <input id="checkbox_remember" name="serendipity[remember]" type="checkbox" {$commentform_remember}><label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label>
+            <input id="checkbox_remember" name="serendipity[remember]" type="checkbox"{$commentform_remember}><label for="checkbox_remember">{$CONST.REMEMBER_INFO}</label>
         </div>
   {if $is_allowSubscriptions}
         <div class="form_box">
