@@ -166,7 +166,7 @@ if (isset($serendipity['GET']['adminAction'])
         $ckescript = "
         <script>
             window.onload = function() {
-                var plugIN = (typeof CKECONFIG_CODE_ON === 'undefined' || !CKECONFIG_CODE_ON) ? '' : 'codesnippet';
+                var plugIN = (typeof CKECONFIG_CODE_ON === 'undefined' || !CKECONFIG_CODE_ON) ? 'emoji' : 'codesnippet,emoji';
                 CKEDITOR.replace( 'serendipity_commentform_comment',
                 {
                     toolbar : [['Undo', 'Redo'],['Format'],['Bold','Italic','Underline','Strike','Superscript','TextColor','-','NumberedList','BulletedList','Outdent','Blockquote'],['JustifyBlock','JustifyCenter'],['SpecialChar'],['Maximize'],['CodeSnippet'],['Source']],
