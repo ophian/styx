@@ -1,6 +1,8 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix jumbled themes comments conditional trace path
+
   * Fix a comment subscription bug not deleting old saved sessions
 
   * Fix certain comment NL2BR parsing bugs with allowHtmlComment option cases
