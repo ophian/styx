@@ -670,6 +670,10 @@ nav.pager ul {
     background: #d9edf7; /* light blue */
     border-color: #bce8f1;
     color: #3a87ad; }
+  .msg_notice.serendipity_subscription_on,
+  .msg_notice.serendipity_subscription_pending,
+  .msg_notice.serendipity_subscription_off {
+    margin-top: .5em; }
   .msg_question {
     background: #fcf8e3; /* light yellow */
     border-color: #fbeed5;
