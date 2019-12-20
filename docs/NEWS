@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Allow comments sanitizeHtmlComments() strikethrough <s> while being part
+    of the CKE admin form toolbar.
+
   * Add Emojis to (htmlcomments) CKE comment admin form
 
   * Sync [s9y] - Fixup trackback delete link for token [2k11, default, sliver]
