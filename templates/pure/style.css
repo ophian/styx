@@ -348,6 +348,7 @@ blockquote {
   font-style: oblique;
   display: inline-block;
 }
+ul,ol { list-style-position: outside; }
 
 textarea {
   min-height: 40px;
