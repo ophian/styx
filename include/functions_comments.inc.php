@@ -265,6 +265,20 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
             $comments = serendipity_fetchComments($id);
         }
     }
+    // Do not run on $comments(true) the Frontend entries case @L~1400
+    if (is_array($comments)) {
+        // this are all comments data of this entry. $_commentform_replyTo is the parent ID of this current answer.
+        // fetch all current possible comment ids for this current answer
+        foreach ($comments AS $comment) {
+            if (isset($data['id']) && $comment['id'] != $data['id']) {
+                $entry_comment_parents[] = $comment['id'];
+            }
+        }
+        if (isset($entry_comment_parents)) {
+            $entry_comment_parents[] = 0; // add a parent 0 ID
+            sort($entry_comment_parents);
+        }
+    }
 
     // First is Backend only, since it is either simple parentID OR 0 - the 2cd is the generated HTML selection dropdown for the Frontend
     $_commentform_replyTo = (defined('IN_serendipity_admin') && IN_serendipity_admin === true && isset($data['replyTo']))
@@ -279,6 +293,7 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
         'commentform_url'            => isset($data['url'])       ? serendipity_specialchars($data['url'])     : (isset($serendipity['COOKIE']['url'])      ? serendipity_specialchars($serendipity['COOKIE']['url']) : ''),
         'commentform_remember'       => isset($data['remember'])  ? ' checked="checked"'                       : (isset($serendipity['COOKIE']['remember']) ? ' checked="checked"' : ''),
         'commentform_replyTo'        => $_commentform_replyTo,
+        'commentform_changeReplyTo'  => !empty($entry_comment_parents) ? $entry_comment_parents : null,
         'commentform_subscribe'      => isset($data['subscribe']) ? ' checked="checked"' : '',
         'commentform_data'           => isset($data['comment'])   ? serendipity_specialchars($data['comment']) : '',
         'is_commentform_showToolbar' => $showToolbar,
@@ -531,6 +546,7 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
             if (isset($comment['type']) && $comment['type'] == 'NORMAL' && empty(trim($comment['comment']))) {
                 $comment['comment'] = '<span class="serendipity_msg_important msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection</span>';
             }
+
             $comment['body']    = $comment['comment'];
             $comment['pos']     = $i;
             $comment['trace']   = $trace . $i;
@@ -607,9 +623,9 @@ function serendipity_printCommentsByAuthor() {
     $entry_comments = array();
 
     if (is_array($c) && !empty($c)) {
-        // Since not passing via entries.tpl template file, $entries -> $entry (scoped) array are not available
+        // Since NOT passing via entries.tpl template file, $entries -> $entry (scoped) array are not available
         // in /comments/ to check for comments "_self", thus we quickly push the missing vars to $comments AS $comment.
-        // This certainly does work only, if spamblock (or others) not have set serendipity[plugin][hide_email] to true!
+        // This certainly does work only, if spamblock (or others) NOT have set serendipity[plugin][hide_email] to true!
         foreach($c AS &$co) {
             $e = serendipity_db_query("SELECT email, realname FROM {$serendipity['dbPrefix']}authors WHERE username='{$co['entryauthor']}'", false, 'assoc');
             $co['entry_author_email']    = $e[0]['email'];

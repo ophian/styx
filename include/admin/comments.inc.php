@@ -47,6 +47,10 @@ if (isset($serendipity['POST']['formAction']) && $serendipity['POST']['formActio
 
 /* We are asked to save the edited comment, and we are not in preview mode */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'doEdit' && !isset($serendipity['POST']['preview']) && $_id > 0 && serendipity_checkFormToken()) {
+    // re-assign this comments parent
+    if (!empty($serendipity['POST']['commentform']['replyToParents'])) {
+        $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParents']) ? (int)$serendipity['POST']['commentform']['replyToParents'] : $_replyTo;
+    }
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
                SET
                     author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
@@ -216,6 +220,7 @@ if (isset($serendipity['GET']['adminAction'])
         /* If we are not in preview, we need comment data from our database */
         if ($_id > 0 && !isset($serendipity['POST']['preview'])) {
             $comment = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}comments WHERE id = ". $_id);
+            $codata['id']         = $comment[0]['id'];
             $codata['name']       = $comment[0]['author'];
             $codata['email']      = $comment[0]['email'];
             $codata['url']        = $comment[0]['url'];
@@ -226,6 +231,7 @@ if (isset($serendipity['GET']['adminAction'])
 
         /* If we are in preview, we get comment data from our form */
         } elseif (isset($serendipity['POST']['preview'])) {
+            $codata['id']         = $serendipity['POST']['comment_id'];
             $codata['name']       = $serendipity['POST']['name'];
             $codata['email']      = $serendipity['POST']['email'];
             $codata['url']        = $serendipity['POST']['url'];
