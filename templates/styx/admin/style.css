@@ -1648,6 +1648,9 @@ summary {
 #serendipity_comment label {
     width: 15%;
 }
+.serendipity_commentForm.reassign #serendipity_comment label {
+    width: 38%;
+}
 
 .media_file_keywords li {
     float: left;
@@ -2799,6 +2802,26 @@ h3 button.toggle_info.button_link.group_info {
     margin: .5em;
 }
 
+select#serendipity_commentform_replyToParent {
+    max-width: 10em;
+    text-align-last: right;
+}
+#serendipity_commentform_replyToParent option {
+    direction: rtl;
+}
+#copa_info.comment_status {
+    float: none;
+    display: inline-block;
+    margin: .5em 0;
+}
+.serendipity_commentDirection.serendipity_comment_s9ymarkup,
+.serendipity_commentDirection.serendipity_comment_emoticate {
+    background: #eee;
+    border: 1px solid #aaa;
+    color: #777;
+    padding: .5em;
+}
+
 #maintenance_cleanup .comment_status,
 #maintenance_thememanager .comment_status,
 #maintenance_thumbs .comment_status {
@@ -3910,10 +3933,13 @@ img.mfp-img {
     #uploadform label {
         display: inline-block;
     }
-
     #uploadform .form_field input,
     #uploadform .form_select select {
         min-width: 16em;
+    }
+
+    .serendipity_commentForm.reassign #serendipity_comment label {
+        width: 53%;
     }
 
     .configuration_group .form_select select,
@@ -4633,6 +4659,15 @@ img.mfp-img {
     #media_pane_sort > .grouped > div {
         float: left;
         width: 33% ;
+    }
+
+    .serendipity_commentForm.reassign #serendipity_comment .form_field,
+    .serendipity_commentForm.reassign #serendipity_comment .form_select {
+        float: left;
+        width: 50% ;
+    }
+    .serendipity_commentForm.reassign #serendipity_comment label {
+        width: 100%;
     }
 
     #media_filter > div.keywords {/*simple filter*/
