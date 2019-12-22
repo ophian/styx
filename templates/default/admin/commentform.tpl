@@ -34,7 +34,7 @@ if (!window.CKEDITOR) {
 
         <div class="form_select">
             <label for="serendipity_commentform_replyToParent">{$CONST.IN_REPLY_TO} {$CONST.COMMENT} ID</label>
-            <select id="serendipity_commentform_replyToParent" name="serendipity[commentform][replyToParents]">
+            <select id="serendipity_commentform_replyToParent" name="serendipity[commentform][replyToParent]">
             {foreach $commentform_changeReplyTo AS $copa}
                 <option value="{$copa}"{if $commentform_replyTo == $copa} selected="selected"{/if}>c# {$copa}</option>
             {/foreach}
