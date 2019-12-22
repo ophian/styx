@@ -10,10 +10,11 @@ if (!window.CKEDITOR) {
 <h2>{$CONST.EDIT_THIS_CAT|sprintf:"{$CONST.COMMENT} #`$smarty.get.serendipity.id`"|replace:'"':''}</h2>
 {/if}
 
-<div id="serendipityCommentFormC" class="serendipity_commentForm">
+<div id="serendipityCommentFormC" class="serendipity_commentForm{if isset($commentform_changeReplyTo)} reassign{/if}">
     <div id="serendipity_replyform_0"></div>
     <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
         <div>
+            <input type="hidden" name="serendipity[comment_id]" value="{$smarty.get.serendipity.id}">
             <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
             <input type="hidden" name="serendipity[replyTo]" value="{$commentform_replyTo}">
         </div>
@@ -29,6 +30,20 @@ if (!window.CKEDITOR) {
             <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}</label>
             <input id="serendipity_commentform_url" name="serendipity[url]" type="url" value="{$commentform_url}">
         </div>
+        {if isset($commentform_changeReplyTo)}
+
+        <div class="form_select">
+            <label for="serendipity_commentform_replyToParent">{$CONST.IN_REPLY_TO} {$CONST.COMMENT} ID</label>
+            <select id="serendipity_commentform_replyToParent" name="serendipity[commentform][replyToParents]">
+            {foreach $commentform_changeReplyTo AS $copa}
+                <option value="{$copa}"{if $commentform_replyTo == $copa} selected="selected"{/if}>c# {$copa}</option>
+            {/foreach}
+            </select>
+            <button class="toggle_info button_link" type="button" data-href="#copa_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
+            <span id="copa_info" class="comment_status additional_info"><em>Be careful changing the replyTo comment.<br><strong>Know</strong> what you do! (Check the Link c# ID)</em></span>
+        </div>
+        {/if}
+
         <div class="form_tarea">
             <label for="serendipity_commentform_comment">{$CONST.COMMENT}</label>
             <textarea id="serendipity_commentform_comment" data-tarea="serendipity_commentform_comment" name="serendipity[comment]" rows="10">{$commentform_data}</textarea>
