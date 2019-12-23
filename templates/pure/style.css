@@ -670,10 +670,10 @@ nav.pager ul {
                 background: 0 0 }
             .c-menu--htx.is-active span::before {
                 top: 0;
-                transform: rotate(12deg) }
+                transform: rotate(13deg) }
             .c-menu--htx.is-active span::after {
                 bottom: 0;
-                transform: rotate(-12deg) }
+                transform: rotate(-13deg) }
             .c-menu--htx.is-active span::after,
             .c-menu--htx.is-active span::before {
                 transition-delay: 0s,.3s }
