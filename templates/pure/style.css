@@ -827,6 +827,9 @@ nav.pager ul {
 
 
 /** Entries **/
+#content p {
+    word-break: break-word;
+}
 .post_content {
     display: inline-block;
     line-height: 1.6;
