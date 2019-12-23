@@ -605,9 +605,7 @@ nav.pager ul {
     position: sticky;
     top: 0;
     z-index: 5;
-    left: calc(100% - 45px);
     width: 30px;
-    top: 5px;
     -webkit-tap-highlight-color: transparent;
 }
 #menutxt {
@@ -698,13 +696,9 @@ nav.pager ul {
     margin-left: 1em;
     vertical-align: text-bottom;
 }
-#menubar_mobile p a,
-#menubar_mobile p a:visited {
-    color: #ccdde7;
-}
 #menubar_mobile nav#menu {
     display: inline-block;
-    margin: .75em 1em 0 0;
+    margin: .75em 0 0 1em;
     color: #ccdde7;
 }
 @media screen and (min-width:640px) {
