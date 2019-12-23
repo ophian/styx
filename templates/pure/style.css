@@ -614,7 +614,7 @@ nav.pager ul {
     display: block;
     width: 30px;
     text-align: center;
-    margin-top: 2px;
+    margin-top: -8px;
     padding-bottom: .5rem;
 }
 #buttonname {
@@ -654,8 +654,8 @@ nav.pager ul {
         background-color: transparent }
         .c-menu span::before {
             top: -9px }
-        .c-menu span::after {
-            bottom: -9px }
+/*        .c-menu span::after {
+            bottom: -9px }*/
             .c-menu--htx span {
                 transition: background 0s .3s }
             .c-menu--htx span::after,
@@ -698,10 +698,10 @@ nav.pager ul {
 }
 #menubar_mobile nav#menu {
     display: inline-block;
-    margin: .75em 0 0 2.75em;
+    margin: .75em 0 0 1.25em;
     color: #ccdde7;
 }
-
+/* reset the mobile hamburger styles */
 @media screen and (min-width:640px) {
     #footer {
         display: initial;
