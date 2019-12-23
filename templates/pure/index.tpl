@@ -91,7 +91,6 @@
 {if $template_option.use_corenav === true}
 
     <footer id="menubar_mobile">
-        <p lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
         <nav id="menu" >
             <button class="c-menu c-menu--htx" aria-live="polite">
                 <span id="buttonname">Navigation zeigen</span>
