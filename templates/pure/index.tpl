@@ -37,34 +37,34 @@
         <h2><a class="homelink2" href="{$serendipityBaseURL}">{$head_subtitle|default:$blogDescription}</a></h2>
 {if $template_option.use_corenav === true}
 
-    <nav id="navbar">
-        <ul>{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}<li{if $navlink@last} class="last"{/if}>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}
-            <li class="navsearch">
-                <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
-                <div>
-                    <input type="hidden" name="serendipity[action]" value="search">
-                    <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
-                    <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.TWOK11_PLACE_SEARCH}" value="">
-                    <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
-                </div>
-                </form>
-                {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
-            </li>
-        </ul>
-    </nav>
+        <nav id="navbar">
+            <ul>{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}<li{if $navlink@last} class="last"{/if}>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}
+                <li class="navsearch">
+                    <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
+                    <div>
+                        <input type="hidden" name="serendipity[action]" value="search">
+                        <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
+                        <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.TWOK11_PLACE_SEARCH}" value="">
+                        <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
+                    </div>
+                    </form>
+                    {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
+                </li>
+            </ul>
+        </nav>
 {else}
 
-    <nav id="headsearch">
-        <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
-        <div>
-            <input type="hidden" name="serendipity[action]" value="search">
-            <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
-            <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.TWOK11_PLACE_SEARCH}" value="">
-            <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
-        </div>
-        </form>
-        {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
-    </nav>
+        <nav id="headsearch">
+            <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
+            <div>
+                <input type="hidden" name="serendipity[action]" value="search">
+                <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
+                <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.TWOK11_PLACE_SEARCH}" value="">
+                <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
+            </div>
+            </form>
+            {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
+        </nav>
 {/if}
     </header>
 {if $leftSidebarElements > 0}
@@ -88,7 +88,21 @@
         <p lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
     </footer>
 
+{if $template_option.use_corenav === true}
+
+    <footer id="menubar_mobile">
+        <p lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
+        <nav id="menu" >
+            <button class="c-menu c-menu--htx" aria-live="polite">
+                <span id="buttonname">Navigation zeigen</span>
+            </button>
+            <span id="menutxt" aria-hidden="true">{if $lang == 'de'}MEN&Uuml;{else}MENU{/if}</span>
+        </nav>
+    </footer>
+{/if}
+
     <script src="{serendipity_getFile file="pure.js"}"></script>
+
 {/if}
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
