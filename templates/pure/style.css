@@ -654,8 +654,8 @@ nav.pager ul {
         background-color: transparent }
         .c-menu span::before {
             top: -9px }
-/*        .c-menu span::after {
-            bottom: -9px }*/
+        .c-menu--htx.is-active span::after {
+            bottom: -9px }
             .c-menu--htx span {
                 transition: background 0s .3s }
             .c-menu--htx span::after,
@@ -670,10 +670,10 @@ nav.pager ul {
                 background: 0 0 }
             .c-menu--htx.is-active span::before {
                 top: 0;
-                transform: rotate(45deg) }
+                transform: rotate(12deg) }
             .c-menu--htx.is-active span::after {
                 bottom: 0;
-                transform: rotate(-45deg) }
+                transform: rotate(-12deg) }
             .c-menu--htx.is-active span::after,
             .c-menu--htx.is-active span::before {
                 transition-delay: 0s,.3s }
@@ -698,7 +698,7 @@ nav.pager ul {
 }
 #menubar_mobile nav#menu {
     display: inline-block;
-    margin: .75em 0 0 1.25em;
+    margin: .75em 0 0 2.25em;
     color: #ccdde7;
 }
 /* reset the mobile hamburger styles */
