@@ -30,7 +30,7 @@ Version 3.0-Dev ()
 
   * Declare Smarty stable 3.1.34 release
 
-  * Sync [s9y] - Tag parsing improvements to nl2br plugin "nl2p" option
+  * Sync [s9y] - Tag parsing improvements to NL2BR plugin "nl2p" option
 
   * Remove deprecated hotfix for freetag autocomplete scriptlets
 
