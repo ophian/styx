@@ -93,7 +93,7 @@
     <footer id="menubar_mobile">
         <nav id="menu" >
             <button class="c-menu c-menu--htx" aria-live="polite">
-                <span id="buttonname">Navigation zeigen</span>
+                <span id="buttonname">Show Navigation</span>
             </button>
             <span id="menutxt" aria-hidden="true">{if $lang == 'de'}MEN&Uuml;{else}MENU{/if}</span>
         </nav>
