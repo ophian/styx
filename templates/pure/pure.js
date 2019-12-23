@@ -1,3 +1,28 @@
+(function($) {
+    "use strict";
+
+    var toggle = document.querySelector(".c-menu");
+    toggleHandler(toggle);
+
+    function toggleHandler(toggle) {
+        toggle.addEventListener( "click", function(e) {
+            e.preventDefault();
+
+            (this.classList.contains("is-active") === true) ? this.classList.remove("is-active") : this.classList.add("is-active");
+
+            if ( this.classList.contains("is-active") === true ) {
+                $( "#serendipity_banner" ).slideDown(function() {
+                    document.getElementById("buttonname").textContent="Hide Navigation";
+                });
+            } else {
+                $( "#serendipity_banner" ).slideUp(function() {
+                    document.getElementById("buttonname").textContent="Show Navigation";
+                });
+            }
+        });
+    }
+})(jQuery);
+
 (function ($) {
     // SVG polyfill
     //svg4everybody();
