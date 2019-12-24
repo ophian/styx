@@ -605,14 +605,14 @@ nav.pager ul {
     position: sticky;
     top: 0;
     z-index: 5;
-    width: 30px;
+    width: 60px;
     -webkit-tap-highlight-color: transparent;
 }
 #menutxt {
     font-family: Arial;
     font-size: 10px;
     display: block;
-    width: 30px;
+    width: 60px;
     text-align: center;
     margin-top: -8px;
     padding-bottom: .5rem;
@@ -625,8 +625,8 @@ nav.pager ul {
         overflow: hidden;
         margin: 0;
         padding: 0;
-        width: 30px;
-        height: 27px;
+        width: 60px;
+        height: 26px;
         border: none;
         cursor: pointer;
         transition: background .3s }
@@ -679,12 +679,14 @@ nav.pager ul {
                 transition-delay: 0s,.3s }
 
 #menubar_mobile {
-    display: block;
+    display: grid;
     width: 100%;
     bottom: 0;
     position: -webkit-fixed;
     position: fixed;
     overflow: hidden;
+    align-items: center;
+    justify-content: center;
     background-color: #294564;
     box-shadow: 0 1px 4px rgba(0,0,0,.5);
     color: #ccdde7;
@@ -698,7 +700,8 @@ nav.pager ul {
 }
 #menubar_mobile nav#menu {
     display: inline-block;
-    margin: .75em 0 0 2.25em;
+    width: 100%;
+    margin: .5em auto 0;
     color: #ccdde7;
 }
 /* reset the mobile hamburger styles */
