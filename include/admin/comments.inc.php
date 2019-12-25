@@ -48,7 +48,7 @@ if (isset($serendipity['POST']['formAction']) && $serendipity['POST']['formActio
 /* We are asked to save the edited comment, and we are not in preview mode */
 if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'doEdit' && !isset($serendipity['POST']['preview']) && $_id > 0 && serendipity_checkFormToken()) {
     // re-assign this comments parent
-    if (!empty($serendipity['POST']['commentform']['replyToParent'])) {
+    if (isset($serendipity['POST']['commentform']['replyToParent']) && $serendipity['POST']['commentform']['replyToParent'] >= 0) {
         $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParent']) ? (int)$serendipity['POST']['commentform']['replyToParent'] : $_replyTo;
     }
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
