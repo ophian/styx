@@ -2803,6 +2803,13 @@ h3 button.toggle_info.button_link.group_info {
     margin: .5em;
 }
 
+.serendipity_commentBody blockquote,
+#serendipity_comments_list .comment_full blockquote {
+    border-left: 5px solid #ccc;
+    padding-left: 1em;
+    font-style: oblique;
+}
+
 select#serendipity_commentform_replyToParent {
     max-width: 10em;
     text-align-last: right;
