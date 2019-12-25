@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Style backend (htmlcomments) comment blockquote (previews)
+
   * Happy X-mas - Mobile Nav - for the Pure theme
 
   * Add NEW RE-assign comment(form) replyTO backend feature to fix false
