@@ -1035,7 +1035,7 @@ function serendipity_checkWebPSupport($set=false, $msg=false) {
     if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
         if (!function_exists('gd_info')) return false;
         $gd = gd_info();
-        $webpSupport = isset($gd['WebP Support']) ? $gd['WebP Support'] : false;
+        $webpSupport = $gd['WebP Support'] ?? false;
         if ($webpSupport === false && $msg) {
             print "<b>WebP-Support</b>: Your current PHP GD Version is ' {$gd['GD Version']}' and has no WebP Support, please upgrade!<br>\n";
         }
