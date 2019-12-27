@@ -38,7 +38,7 @@
         </div>
         {if $is_allowSubscriptions}
         <div class="form-check">
-            <input id="checkbox_subscribe" class="form-check-input" type="checkbox" name="serendipity[subscribe]" {$commentform_subscribe}> <label for="checkbox_subscribe" class="form-check-label">{$CONST.SUBSCRIBE_TO_THIS_ENTRY}</label>
+            <input id="checkbox_subscribe" class="form-check-input" type="checkbox" name="serendipity[subscribe]"{$commentform_subscribe}> <label for="checkbox_subscribe" class="form-check-label">{$CONST.SUBSCRIBE_TO_THIS_ENTRY}</label>
         </div>
         {/if}
     {/if}
