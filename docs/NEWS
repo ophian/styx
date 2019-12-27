@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove (disable) .htaccess in sliver theme causing 500 error on some systems
+
   * Style backend (htmlcomments) comment blockquote (previews)
 
   * Happy X-mas - Mobile Nav - for the Pure theme
