@@ -17,8 +17,8 @@ class serendipity_event_s9ymarkup extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_S9YMARKUP_NAME);
         $propbag->add('description',   PLUGIN_EVENT_S9YMARKUP_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.6');
+        $propbag->add('author',        'Serendipity Team, Ian Styx');
+        $propbag->add('version',       '1.7');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -95,7 +95,9 @@ class serendipity_event_s9ymarkup extends serendipity_event
                         &&  !@$eventData['properties']['ep_disable_markup_' . $this->instance]
                         &&  !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
-                            $eventData[$element] = $this->_s9y_markup($eventData[$element]);
+                            if (false === strpos($eventData[$element], '</p>') && false === strpos($eventData[$element], '<br />') && false === strpos($eventData[$element], '<code>')) {
+                                $eventData[$element] = $this->_s9y_markup($eventData[$element]);
+                            }
                         }
                     }
                     break;
@@ -120,7 +122,8 @@ class serendipity_event_s9ymarkup extends serendipity_event
     {
         $text = str_replace('\_', chr(1), $text);
         $text = preg_replace('/#([[:alnum:]]+?)#/','&\1;', $text);
-        $text = preg_replace('/\b\s_([\S ]+?)_\s\b/',' <u>\1</u> ', $text);
+        #$text = preg_replace('/\b\s_([\S ]+?)_\s\b/',' <u>\1</u> ', $text);
+        $text = preg_replace('/[\b\s\S]_([\S ]+?)_[\S\s\b]/',' <u>\1</u> ', $text);
         $text = str_replace(chr(1), '\_', $text);
 
         // bold
