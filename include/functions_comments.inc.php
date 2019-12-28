@@ -207,7 +207,7 @@ function serendipity_sanitizeHtmlComments($str) {
     // don't ever allow executable attributes, see HTML Injection Quick Reference (HIQR) https://mutantzombie.github.io/HIQR/hiqr.html
     $str = str_ireplace(array('javascript:', '<![CDATA[]]>', ']]>', '<--', '-->', 'onchange=', 'onmouseover=', 'onclick=', 'onerror=', 'onevent=', 'onfocus=', 'autofocus='), '', $str);
     // strip against allowed tags
-    return strip_tags($str, '<div><p><span><b><strong><center><br><br/><h1><h2><h3><h4><h5><h6><hr><blockquote><em><sup><ul><ol><li><pre><code>');
+    return strip_tags($str, '<div><p><span><b><strong><center><br><br/><h1><h2><h3><h4><h5><h6><hr><blockquote><em><u><s><sup><ul><ol><li><pre><code>');
 }
 
 /**
