@@ -14,8 +14,8 @@ Version 3.0-Dev ()
   * Add NEW RE-assign comment(form) replyTO backend feature to fix false
     hung-up threaded comments in threads.
 
-  * Allow comments sanitizeHtmlComments() strikethrough <s> while being part
-    of the CKE admin form toolbar.
+  * Allow comments sanitizeHtmlComments() strikethrough <s>, underline <u>,
+    while being part of the CKE admin form toolbar.
 
   * Add Emojis to (htmlcomments) CKE comment admin form
 
