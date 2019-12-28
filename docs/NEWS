@@ -1,6 +1,9 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Allow comments sanitizeHtmlComments() strikethrough <s>, underline <u>,
+    while being part of the CKE admin form toolbar.
+
   * Fix jumbled themes comments conditional trace path
 
   * Fix a comment subscription bug not deleting old saved sessions
