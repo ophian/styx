@@ -1,6 +1,10 @@
 Version 2.9.3-Dev ()
  ------------------------------------------------------------------------
 
+  * Plugin s9ymarkup: Improving fixes for underscores and check htmlcomments.
+    Do NOT use for others than comments, if internally using a markup plugin
+    or the WYSIWYG-Editor.
+
   * Allow comments sanitizeHtmlComments() strikethrough <s>, underline <u>,
     while being part of the CKE admin form toolbar.
 
