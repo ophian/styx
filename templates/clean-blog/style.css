@@ -484,8 +484,8 @@ img.comment_avatar {
 .serendipity_comment {
     margin-bottom: 1em;
 }
-.serendipity_comment_author_self h5 .pc-owner,
-.serendipity_comment_author_self header .pc-owner {
+.serendipity_comment.serendipity_comment_author_self  h4 .pc-owner,
+.comment_any.serendipity_comment_author_self  h5 .pc-owner {
     background: #3e5f81e6;
     padding: .1em .25em;
     border-radius: 3px;
