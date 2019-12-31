@@ -1,6 +1,13 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix an old mixup assignment of entry authors comments conditional variables
+    to highlight comments done by the logged-in entries owner/author.
+    This fix forced to use new and better variables to select this condition for
+    the comments.tpl (entry) and pcomments.tpl (summary) files in all themes.
+    Also some styles and style selectors regarding this issue were touched.
+    Copy themers: Please update your theme.
+
   * Remove (disable) .htaccess in sliver theme causing 500 error on some systems
 
   * Style backend (htmlcomments) comment blockquote (previews)
