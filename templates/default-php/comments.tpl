@@ -24,7 +24,7 @@
             <?php else: ?>
                 <?= $comment['author'] ? $comment['author'] : ANONYMOUS; ?>
             <?php endif; ?>
-            <?php if (isset($comment['entryauthor']) && $comment['entryauthor'] == $comment['author'] AND isset($GLOBALS['tpl']['entry']) AND $GLOBALS['tpl']['entry']['email'] == $comment['clear_email']): ?> <span class="pc-owner">Post author</span> <?php endif; ?>
+            <?php if (isset($comment['entryauthor']) && $comment['entryauthor'] == $comment['author'] AND $comment['authoremail'] == $comment['clear_email']): ?> <span class="pc-owner">Post author</span> <?php endif; ?>
          <?php if (isset($comment['type']) && $comment['type'] == 'TRACKBACK'): ?>
             <br />
             <?= IN ?> <?= TITLE ?>: <span class="comment_source_ctitle"><?= $comment['ctitle'] ?></span>
