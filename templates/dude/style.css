@@ -713,6 +713,7 @@ div.serendipity_date_summary {
     border: 1px solid #999;
     color: #efefef;
     font-style: normal;
+    font-weight: bold;
     text-shadow: 1px 1px 2px #222; }
 .comments_by_author_pagination {
     font-size: .875em;
