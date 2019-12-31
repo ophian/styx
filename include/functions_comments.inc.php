@@ -403,7 +403,7 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
               FROM
                     {$serendipity['dbPrefix']}comments AS co
                     LEFT JOIN {$serendipity['dbPrefix']}entries AS e ON (co.entry_id = e.id)
-                    LEFT JOIN {$serendipity['dbPrefix']}authors AS a ON (e.authorid = a.authorid AND e.author = a.realname)
+                    LEFT JOIN {$serendipity['dbPrefix']}authors AS a ON (e.authorid = a.authorid AND e.author = a.username)
                     {$cond['joins']}
               WHERE co.type LIKE '" . $type . "' AND co.entry_id > 0 $and
               $group
