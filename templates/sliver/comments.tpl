@@ -31,7 +31,7 @@
 
                             {$comment.author|default:$CONST.ANONYMOUS}
                         {/if}
-                    {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND isset($entry) AND $entry.email == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}
+                    {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND $comment.authoremail == $comment.clear_email} <span class="pc-owner">Post author</span> {/if}
 
                     </span>
                     <time class="comment-date" datetime="{$comment.timestamp|serendipity_html5time}">{if isset($template_option.comment_time_format) AND $template_option.comment_time_format == 'time'}{$comment.timestamp|formatTime:'%b %e. %Y'} {$CONST.AT} {$comment.timestamp|formatTime:'%I:%M %p'}{/if}</time>
