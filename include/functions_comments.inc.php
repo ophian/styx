@@ -382,6 +382,11 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
     $and .=  $where . $cond['and'];
     //echo $and;
 
+    // KEEP IN MIND:
+    // 1. entries author == loginname, but the authors realname is the one used for public !!
+    // 2. For comment summary pages the $entry array for $entry.email was not available by Smarty scope, so
+    //      - instead of workaround this issue in serendipity_printCommentsByAuthor() -
+    //      we just JOIN the REAL authors email for the post comment pc-owner selector right away into the comments array here.
     $query = "SELECT $distinct
                     co.id,
                     co.entry_id, co.timestamp, co.title AS ctitle, co.email, co.url, co.ip, co.body, co.type, co.subscribed,
@@ -390,13 +395,15 @@ function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = f
                     e.timestamp AS entrytimestamp,
                     e.id AS entryid,
                     e.authorid,
-                    e.author AS entryauthor,
+                    a.realname AS entryauthor,
+                    a.email AS authoremail,
                     co.id AS commentid,
                     co.parent_id AS parent_id,
                     co.status
               FROM
                     {$serendipity['dbPrefix']}comments AS co
                     LEFT JOIN {$serendipity['dbPrefix']}entries AS e ON (co.entry_id = e.id)
+                    LEFT JOIN {$serendipity['dbPrefix']}authors AS a ON (e.authorid = a.authorid AND e.author = a.realname)
                     {$cond['joins']}
               WHERE co.type LIKE '" . $type . "' AND co.entry_id > 0 $and
               $group
@@ -623,15 +630,6 @@ function serendipity_printCommentsByAuthor() {
     $entry_comments = array();
 
     if (is_array($c) && !empty($c)) {
-        // Since NOT passing via entries.tpl template file, $entries -> $entry (scoped) array are not available
-        // in /comments/ to check for comments "_self", thus we quickly push the missing vars to $comments AS $comment.
-        // This certainly does work only, if spamblock (or others) NOT have set serendipity[plugin][hide_email] to true!
-        foreach($c AS &$co) {
-            $e = serendipity_db_query("SELECT email, realname FROM {$serendipity['dbPrefix']}authors WHERE username='{$co['entryauthor']}'", false, 'assoc');
-            $co['entry_author_email']    = $e[0]['email'];
-            $co['entry_author_realname'] = $e[0]['realname'];
-        }
-
         foreach($c AS $i => $comment) {
             $comment['meta'] = 'no-';
             if (!isset($entry_comments[$comment['entry_id']])) {
