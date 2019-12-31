@@ -1270,7 +1270,7 @@ ol.plainList > .comment.commentlevel-16 {
 }
 .serendipity_comment_author_self h4 .pc-owner {
     background: #3e5f81e6;
-    padding: .1em .25em;
+    padding: .0075em .15em;
     border-radius: 3px;
     border: 1px solid #999;
     color: #efefef;
