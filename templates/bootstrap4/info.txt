@@ -1,6 +1,6 @@
 Name: Bootstrap 4
 Author: Matthias Mees
-Date: 2019-12-19
+Date: 2019-12-31
 Require Serendipity: 2.1
 Backend: No
 Responsive: Yes

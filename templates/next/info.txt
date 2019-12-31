@@ -1,6 +1,6 @@
 Name: Next
 Author: Matthias Mees, mm@yellowled.de, Ian Styx
-Date: 2019-12-19
+Date: 2019-12-31
 Require Serendipity: 2.0
 Backend: No
 Responsive: Yes
