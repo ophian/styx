@@ -962,6 +962,7 @@ img.comment_avatar {
     margin-bottom: 1em;
 }
 /* site wide used colors for the post comment owner */
+.serendipity_comment_author_self h4 .pc-owner,
 .serendipity_comment_author_self h5 .pc-owner,
 .serendipity_comment_author_self header .pc-owner {
     background: #3e5f81e6;
@@ -973,6 +974,7 @@ img.comment_avatar {
     font-weight: 600;
 }
 /* green-style (default) colorset - copy this ruleset as an example to style post comment owner by different colorsets */
+.serendipity_comment_author_self h4 .pc-owner,
 .serendipity_comment_author_self h5 .pc-owner,
 .serendipity_comment_author_self header .pc-owner {
     background: #e6e6e6e6;
