@@ -641,6 +641,9 @@ pre .geshi {
 #serendipity_comment_page #serendipity_comment {
     margin-bottom: 1rem;
 }
+#comments blockquote, #comments blockquote + cite {
+    margin: 0 1em 1em;
+}
 
 .comment_avatar {
     border: 1px solid #aaa;
