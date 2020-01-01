@@ -37,7 +37,7 @@ sub { bottom: -0.25em; }
 ul, ol, dd,
 nav ul, nav ol { margin: 0; padding: 0; }
 
-ol { list-style-position: inside; }
+ol { list-style-position: initial; }
 nav ul, nav ol { list-style: none; list-style-image: none; }
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
