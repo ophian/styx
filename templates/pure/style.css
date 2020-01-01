@@ -541,7 +541,7 @@ a.homelink2:visited {
     display: inline-block;
     border: 1px solid #55656e;
     border-radius: 3px; }
-    #navbar ul li:not(:last-of-type),#navbar ul li:not(.last), {
+    #navbar ul li:not(:last-of-type),#navbar ul li:not(.last) {
       margin-right: .5em; }
   #navbar a, #navbar span {
     padding: 4px 5px;
