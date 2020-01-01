@@ -660,6 +660,11 @@ pre .geshi {
     margin: 0 0 .625em .625em;
 }
 
+.comment_content ul {
+    list-style-position: outside;
+    margin-left: 1.5em;
+}
+
 #colophon p,
 .staticpage_metainfo p {
     border-top: 1px solid #ccc;
