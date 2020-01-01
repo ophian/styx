@@ -664,6 +664,17 @@ pre .geshi {
     list-style-position: outside;
     margin-left: 1.5em;
 }
+.serendipity_subscription_on,
+.serendipity_subscription_pending,
+.serendipity_subscription_off {
+    color: #b22222;
+    background-color: #f0f8ff;
+    padding: 1px 2px;
+}
+.serendipity_subscription_off {
+    display: none;
+    visibility: hidden;
+}
 
 #colophon p,
 .staticpage_metainfo p {
