@@ -818,6 +818,9 @@ nav.pager ul {
   .msg_notice.serendipity_subscription_pending,
   .msg_notice.serendipity_subscription_off {
     margin-top: .5em; }
+  .msg_notice.serendipity_subscription_off {
+    display: none;
+    visibility: hidden; }
   .msg_question {
     background: #fcf8e3; /* light yellow */
     border-color: #fbeed5;
