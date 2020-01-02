@@ -1224,3 +1224,5 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die
 
 @define('ENTRY_QUICKPIN', 'Setze als temporären Quick-Pin an den Anfang der Eintragsliste');
 
+@define('COMMENT_COPA_INFO', 'Be careful changing the replyTo comment.<br><strong>Know</strong> what you do! (Check the Link c# ID)');
+
