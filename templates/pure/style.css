@@ -539,10 +539,11 @@ a.homelink2:visited {
     background-color: #294564; }
   #navbar ul li {
     display: inline-block;
+    margin-right: .5em;
     border: 1px solid #55656e;
     border-radius: 3px; }
-    #navbar ul li:not(:last-of-type),#navbar ul li:not(.last) {
-      margin-right: .5em; }
+    #navbar ul li.last {
+      margin-right: 0; }
   #navbar a, #navbar span {
     padding: 4px 5px;
     padding: 0.25rem 0.3285rem;
