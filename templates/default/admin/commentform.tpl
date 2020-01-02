@@ -40,7 +40,7 @@ if (!window.CKEDITOR) {
             {/foreach}
             </select>
             <button class="toggle_info button_link" type="button" data-href="#copa_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
-            <span id="copa_info" class="comment_status additional_info"><em>Be careful changing the replyTo comment.<br><strong>Know</strong> what you do! (Check the Link c# ID)</em></span>
+            <span id="copa_info" class="comment_status additional_info"><em>{$CONST.COMMENT_COPA_INFO}</em></span>
         </div>
         {/if}
 
