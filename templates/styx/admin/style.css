@@ -2809,6 +2809,10 @@ h3 button.toggle_info.button_link.group_info {
     font-style: oblique;
 }
 
+.serendipity_commentBody .comment_avatar.avatar_left {
+    padding-right: .5em;
+}
+
 select#serendipity_commentform_replyToParent {
     max-width: 10em;
     text-align-last: right;
