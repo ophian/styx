@@ -1652,6 +1652,11 @@ summary {
     width: 38%;
 }
 
+.serendipity_commentForm #serendipity_emoticonchooser_comment {
+    display: flex;/*webkit fallback*/
+    display: ruby-base-container;
+}
+
 .media_file_keywords li {
     float: left;
     margin: 0 2% .5em 0;
