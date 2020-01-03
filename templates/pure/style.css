@@ -1692,7 +1692,7 @@ p > .serendipity_image_link {
   }
 }
 
-/* For TABLE SCREENS PLUS - sizing depends on default font + size and sidebar width */
+/* For TABLET SCREENS PLUS - sizing depends on default font + size and sidebar width */
 @media screen and (min-width: 1024px) {
   html {
     font-size: calc(.235rem + 1vw); /* sizes SMALL SCREENS text responsively from 14px to 15.95px; */
