@@ -811,8 +811,9 @@ nav.pager ul {
   .search_msg,
   .serendipity_search {
     background-color: lightgray; }
-  .content_msg, .serendipity_content_message {
-    background-color: aliceblue; }
+  .content_msg, .serendipity_content_message,
+  .serendipity_commentDirection {
+    background-color: #f0f8ff; }
   .msg_important, .serendipity_msg_important {
     background: #f2dede; /* light red */
     border-color: #eed3d7;
@@ -821,8 +822,7 @@ nav.pager ul {
     background: #dff0d8; /* light green */
     border-color: #d6e9c6;
     color: #468847; }
-  .msg_notice, .serendipity_msg_notice,
-  .serendipity_commentDirection {
+  .msg_notice, .serendipity_msg_notice {
     background: #d9edf7; /* light blue */
     border-color: #bce8f1;
     color: #3a87ad; }
