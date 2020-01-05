@@ -18,7 +18,7 @@ class serendipity_event_s9ymarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_S9YMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.8');
+        $propbag->add('version',       '1.9');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -122,8 +122,11 @@ class serendipity_event_s9ymarkup extends serendipity_event
     {
         $text = str_replace('\_', chr(1), $text);
         $text = preg_replace('/#([[:alnum:]]+?)#/','&\1;', $text);
-        #$text = preg_replace('/\b\s_([\S ]+?)_\s\b/',' <u>\1</u> ', $text);
-        $text = preg_replace('/[\b\s\S]_([\S ]+?)_[\S\s\b]/',' <u>\1</u> ', $text);
+        // The word boundary \b matches positions where one side is a word character (usually a letter, digit or underscore) and
+        // the other side is not a word character (for instance, it may be the beginning of the string or a space character).
+        // The small \s is for whitespace on both sides, while \S catches non-whitespace characters like linebreak, put to the
+        // right end only, to avoid parsing eg. serendipity_event_entrypaging or something like $template_option.use_corenav.
+        $text = preg_replace('/[\b\s]_([\S\s]+?)_[\s\b\S]/', ' <u>\1</u> ', $text);
         $text = str_replace(chr(1), '\_', $text);
 
         // bold
