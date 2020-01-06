@@ -95,7 +95,7 @@
             <button class="c-menu c-menu--htx" aria-live="polite">
                 <span id="buttonname">Show Navigation</span>
             </button>
-            <span id="menutxt" aria-hidden="true">{if $lang == 'de'}MEN&Uuml;{else}MENU{/if}</span>
+            <span id="menutxt" aria-hidden="true">{$CONST.NAV_MENU}</span>
         </nav>
     </footer>
 {/if}
