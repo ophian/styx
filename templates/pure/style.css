@@ -401,7 +401,7 @@ form button, input[type="button"], input[type="reset"], input[type="submit"] {
 .form_field, .form_select {
     margin: .5em auto;
 }
-.form_area {
+.form_tarea {
     margin-bottom: 1em;
 }
 .form_buttons {
@@ -1680,7 +1680,7 @@ p > .serendipity_image_link {
   .form_field input, .form_field select, .form_select input, .form_select select {
     max-width: 400px;
     max-width: 25rem; }
-  .form_area {
+  .form_tarea {
     max-width: 720px;
     max-width: 45rem; }
 }

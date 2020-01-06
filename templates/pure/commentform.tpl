@@ -29,7 +29,7 @@
                     {$commentform_replyTo}
                 </div>
 
-                <div class="form_area">
+                <div class="form_tarea">
                     <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)}&#8727;{/if}</label>
                     <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
                 </div>
