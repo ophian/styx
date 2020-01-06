@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fixup [skeleton, pure] themes form_tarea textarea selectors for consistency
+
   * Fix an old mixup assignment of entry authors comments conditional variables
     to highlight comments done by the logged-in entries owner/author.
     This fix forced to use new and better variables to select this condition for
