@@ -1,8 +1,23 @@
+1.13:
+----
+ * Better fixup an elementary condition check by 1.12
+
+1.12:
+----
+ * PHP Logic and Backend template isset initialization checks
+
+1.11:
+----
+ * Refresh and more consistency
+
+1.10:
+----
+ * Changes for consistent plugin usage - emoticate
+
 1.9:
 ----
  * changed fetching path in emoticons.inc.php file.
    Theme emoticons do not need a fallback into another theme.
-
 
 1.8:
 -----
