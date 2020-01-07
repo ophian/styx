@@ -447,7 +447,7 @@ function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $
         }
     }
 
-    $retval = $parent ? '' : '<select id="serendipity_replyTo" onchange="' . (!empty($serendipity['plugindata']['onchange']) ? $serendipity['plugindata']['onchange'] : '') . '" name="serendipity[replyTo]"><option value="0">[ ' . TOP_LEVEL . ' ]</option>';
+    $retval = $parent ? '' : '<select id="serendipity_replyTo" onchange="' . (!empty($serendipity['plugindata']['onchange']) ? $serendipity['plugindata']['onchange'] : '') . '" name="serendipity[replyTo]">'."\n".'<option value="0">[ ' . TOP_LEVEL . ' ]</option>'."\n";
 
     $i = 0;
     foreach($comments AS $comment) {
