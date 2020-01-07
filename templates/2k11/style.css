@@ -1006,7 +1006,7 @@ pre .geshi {
 
 .clearfix:before, .clearfix:after { content: ""; display: table; }
 .clearfix:after { clear: both; }
-.clearfix { zoom: 1; }
+.clearfix { *zoom: 1; }
 
 @media only screen and (min-width: 481px) {
     #serendipityQuickSearchTermField { max-width: 15em; }

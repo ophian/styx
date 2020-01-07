@@ -458,7 +458,7 @@ nav ul, nav ol {
   max-height: 0;
   overflow: hidden;
   position: absolute;
-  zoom: 1; }
+  *zoom: 1; }
 .nav-collapse.opened {
   max-height: 9999px; }
 
