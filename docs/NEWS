@@ -1,6 +1,11 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Allow new Rich Text Editor Emoji Panel (button) for the backend commentform,
+    also based on the global "Allow HTML comments" option.
+    Regard, that the included CodeSnippet currently relies on a CKEplus plugin
+    set option codesnippet true.
+
   * Changed commentform advice margin order of built-in emoticate Plugin, as well
     as for upcoming additional_plugins/emoticonchooser to/and remove these notes
     in case of the used Rich Text Editor.
