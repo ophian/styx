@@ -240,7 +240,7 @@ class serendipity_event_emoticate extends serendipity_event
                     break;
 
                 case 'frontend_comment':
-                    if (serendipity_db_bool($this->get_config('COMMENT', true)) && !($serendipity['allowHtmlComment'] && $serendipity['wysiwyg'])) {
+                    if (serendipity_db_bool($this->get_config('COMMENT', true)) && !$serendipity['allowHtmlComment']) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_emoticate">' . PLUGIN_EVENT_EMOTICATE_TRANSFORM . "</div>\n";
                     }
                     break;
