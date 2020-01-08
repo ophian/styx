@@ -1,6 +1,10 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Changed commentform advice margin order of built-in emoticate Plugin, as well
+    as for upcoming additional_plugins/emoticonchooser to/and remove these notes
+    in case of the used Rich Text Editor.
+
   * Add a new global templates/theme asset in "templates/_assets".
        - Rich Text Editor, based on a custom build CKE Basic preset.
     Enabled in the current Standard theme "pure" commentform template.
