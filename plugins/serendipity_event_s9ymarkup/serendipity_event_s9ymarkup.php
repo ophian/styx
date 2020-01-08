@@ -18,7 +18,7 @@ class serendipity_event_s9ymarkup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_S9YMARKUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.9');
+        $propbag->add('version',       '1.10');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -103,7 +103,7 @@ class serendipity_event_s9ymarkup extends serendipity_event
                     break;
 
                 case 'frontend_comment':
-                    if (serendipity_db_bool($this->get_config('COMMENT', true))) {
+                    if (serendipity_db_bool($this->get_config('COMMENT', true)) && !$serendipity['allowHtmlComment']) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_s9ymarkup">' . PLUGIN_EVENT_S9YMARKUP_TRANSFORM . '</div>';
                     }
                     break;
