@@ -1196,6 +1196,7 @@ function serendipity_smarty_init($vars = array()) {
                 'template'                  => $serendipity['template'],
                 'templatePath'              => $serendipity['templatePath'],
                 'template_backend'          => $serendipity['template_backend'],
+                'wysiwyg_comment'           => $serendipity['allowHtmlComment'] ?? false,
                 'wysiwygToolbar'            => $serendipity['wysiwygToolbar'] ?? false,
                 'wysiwyg_customPlugin'      => $wysiwyg_customPlugin,
                 'wysiwyg_customConfig'      => $wysiwyg_customConfig,
