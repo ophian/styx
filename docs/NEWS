@@ -2,7 +2,10 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
   * Add a new global templates/theme asset in "templates/_assets".
-       - Rich Text Editor based on a custom build CKE Basic preset.
+       - Rich Text Editor, based on a custom build CKE Basic preset.
+    Enabled in the current Standard theme "pure" commentform template.
+    This is automatically available when the global "Allow HTML comments"
+    configuration option is set.
 
   * Fixup [skeleton, pure] themes form_tarea textarea selectors for consistency
 
