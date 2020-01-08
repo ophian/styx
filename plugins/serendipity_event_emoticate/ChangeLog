@@ -1,3 +1,7 @@
+1.14:
+----
+ * Do not access the comment form message hook when using htmlcomments and wysiwyg
+
 1.13:
 ----
  * Better fixup an elementary condition check by 1.12

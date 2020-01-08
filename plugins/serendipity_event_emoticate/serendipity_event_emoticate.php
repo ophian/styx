@@ -18,7 +18,7 @@ class serendipity_event_emoticate extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_EMOTICATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.13');
+        $propbag->add('version',       '1.14');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -240,7 +240,7 @@ class serendipity_event_emoticate extends serendipity_event
                     break;
 
                 case 'frontend_comment':
-                    if (serendipity_db_bool($this->get_config('COMMENT', true))) {
+                    if (serendipity_db_bool($this->get_config('COMMENT', true)) && !($serendipity['allowHtmlComment'] && $serendipity['wysiwyg'])) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_emoticate">' . PLUGIN_EVENT_EMOTICATE_TRANSFORM . "</div>\n";
                     }
                     break;
