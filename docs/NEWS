@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add a new global templates/theme asset in "templates/_assets".
+       - Rich Text Editor based on a custom build CKE Basic preset.
+
   * Fixup [skeleton, pure] themes form_tarea textarea selectors for consistency
 
   * Fix an old mixup assignment of entry authors comments conditional variables
