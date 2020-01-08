@@ -101,6 +101,15 @@
 {/if}
 
     <script src="{serendipity_getFile file="pure.js"}"></script>
+{if $view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true')}
+    <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/ckeditor.js"></script>
+    <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/config.js"></script>
+    <script>
+        window.onload = function() {
+            CKEDITOR.replace( 'serendipity_commentform_comment', { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel'],['Undo', 'Redo']] });
+        }
+    </script>
+{/if}
 
 {/if}
 {$raw_data}
