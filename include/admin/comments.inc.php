@@ -436,7 +436,7 @@ if (is_array($sql)) {
             if (empty($comment['summary'])) {
                 $comment['summary'] .= '<span class="msg_error"><strong>Security Alert</strong>: Empty, since removed probably bad injection. Check with disabled HTML-comments mode and EDIT.</span>';
             } else {
-                $comment['summary'] .= '<span class="summary_stripped" title="Stripped by security! Review content in EDIT or VIEW mode">&hellip;<span class="icon-filter"></span></span>';
+                $comment['summary'] .= '<span class="summary_stripped" title="HTML - Stripped by security! Review content in EDIT or VIEW mode">&hellip;<span class="icon-code"></span></span>';
             }
         }
         serendipity_plugin_api::hook_event('backend_view_comment', $comment, '&amp;serendipity[page]='. $page . $searchString);
