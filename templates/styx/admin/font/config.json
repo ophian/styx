@@ -365,6 +365,12 @@
       "css": "arrows-cw",
       "code": 59447,
       "src": "fontawesome"
+    },
+    {
+      "uid": "7034e4d22866af82bef811f52fb1ba46",
+      "css": "code",
+      "code": 61729,
+      "src": "fontawesome"
     }
   ]
 }
