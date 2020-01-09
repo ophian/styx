@@ -1397,8 +1397,6 @@ h3.additional_properties {
 .summary_stripped {
     display: inline;
     color: #FF4136;
-    border: 1px dashed #AAA;
-    border-left-width: 0;
 }
 
 /* COMMON STYLES  */
