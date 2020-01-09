@@ -20,7 +20,7 @@ class serendipity_plugin_comments extends serendipity_plugin
         $propbag->add('description',   PLUGIN_COMMENTS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Judebert, G. Brockhaus, Ian Styx');
-        $propbag->add('version',       '1.17');
+        $propbag->add('version',       '1.18');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -217,13 +217,15 @@ class serendipity_plugin_comments extends serendipity_plugin
             }
             foreach ($sql AS $key => $row) {
                 if (function_exists('mb_strimwidth')) {
-                    $comment = mb_strimwidth(strip_tags($row['comment']), 0, $max_chars, " [...]", LANG_CHARSET);
+                    $comment = str_replace(array("<br />\n", "\r\n", '  '), ' ', trim(strip_tags($row['comment'])));
+                    $comment = mb_strimwidth($comment, 0, $max_chars, " [&hellip;]", LANG_CHARSET);
                 } else {
-                    $comments = wordwrap(strip_tags($row['comment']), $max_chars, '@@@', 1);
+                    $comments = str_replace(array("<br />\n", "\r\n", '  '), ' ', trim(strip_tags($row['comment'])));
+                    $comments = wordwrap(strip_tags($comments), $max_chars, '@@@', 1);
                     $aComment = explode('@@@', $comments);
                     $comment  = $aComment[0];
                     if (count($aComment) > 1) {
-                        $comment .= ' [...]';
+                        $comment .= ' [&hellip;]';
                     }
                 }
                 $isTrackBack = $row['comment_type'] == 'TRACKBACK' || $row['comment_type'] == 'PINGBACK';
