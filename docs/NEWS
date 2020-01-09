@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add new backend fontello icon build, to change summary_stripped icon in
+    comments list.
+
   * Allow new Rich Text Editor Emoji Panel (button) for the backend commentform,
     also based on the global "Allow HTML comments" option.
     Regard, that the included CodeSnippet currently relies on a CKEplus plugin
