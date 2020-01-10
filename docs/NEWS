@@ -21,7 +21,7 @@ Version 3.0-Dev ()
        - Rich Text Editor, based on a custom build CKE Basic preset.
     Enabled in the current Standard theme "pure" commentform template.
     This is automatically available when the global "Allow HTML comments"
-    configuration option is set.
+    configuration option is set. Invoke to exclude for theme manager cleanup.
 
   * Fixup [skeleton, pure] themes form_tarea textarea selectors for consistency
 
