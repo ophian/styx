@@ -440,7 +440,7 @@ Version 3.0-Dev ()
   * Raise required PHP version to 7.0 until further
 
 
-Version 2.9.3-Dev ()
+Version 2.9.3 (2020-01-10)
  ------------------------------------------------------------------------
 
   * Plugin s9ymarkup: Improving fixes for underscores and check htmlcomments.
