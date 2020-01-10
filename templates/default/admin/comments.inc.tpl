@@ -89,7 +89,7 @@
                     </div>
 
                     <div class="form_buttons">
-                        <input name="submit" type="submit" value="{$CONST.GO}">
+                        <input name="submit" type="submit" value="{$CONST.GO}"> <input class="reset_comment_filters state_cancel" name="comment_filters_reset" title="{$CONST.RESET_FILTERS}" type="submit" value="Reset">
                     </div>
                 </fieldset>
             </form>
@@ -204,5 +204,22 @@
                     <input name="serendipity[togglemoderate]" type="submit" value="{$CONST.APPROVE}">
                 </div>
             </form>
+
+            <script>
+                $(document).ready(function() {
+                    $('#filter_comments').find('.reset_comment_filters').addClass('reset_filter');
+                    $('.reset_filter').click(function() {
+                        $('#filter_author').attr('value', '');
+                        $('#filter_email').attr('value', '');
+                        $('#filter_url').attr('value', '');
+                        $('#filter_ip').attr('value', '');
+                        $('#filter_body').attr('value', '');
+                        $('#filter_referer').attr('value', '');
+                        $('#filter_perpage option:selected').removeAttr('selected');
+                        $('#filter_show option:selected').removeAttr('selected');
+                        $('#filter_type option:selected').removeAttr('selected');
+                    });
+                });
+            </script>
     {/if}
 {/if}
