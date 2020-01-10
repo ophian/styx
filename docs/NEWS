@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add backend comments list search filter RESET button event
+
   * Improve sidebar comment plugin stripping out markup so it does not differ
     any more between frontend entries list and single entry view.
 
