@@ -863,6 +863,7 @@ table.serendipity_calendar td {
             padding: 1px 2px; }
         .plugin_comment_body  {
             /*padding: .25em 0;*/
+            hyphens: auto; /* run before break-word */
             word-wrap: break-word;
             font-style: oblique;
             font-family: monospace; }
