@@ -1056,6 +1056,7 @@ ul.staticpage_result li {
 ol.plainList > .comment {
     margin-bottom: 1.5em;
 }
+/* VIEWMODE_THREADED in entry comments */
 ol.plainList > .comment.commentlevel-1 {
     margin-left: 1.5em;
 }
@@ -1171,13 +1172,73 @@ ol.plainList > .comment.commentlevel-16 {
         width: initial;
     }
 }
+
 .comment_content pre code {
     font-size: 14px;
     font-size: .875rem;
 }
 .comment_content pre {
     width: 100%;
+    min-width: auto;
 }
+.comment.commentlevel-9 pre:after,
+.comment.commentlevel-10 pre:after,
+.comment.commentlevel-11 pre:after,
+.comment.commentlevel-12 pre:after,
+.comment.commentlevel-13 pre:after,
+.comment.commentlevel-14 pre:after,
+.comment.commentlevel-15 pre:after,
+.comment.commentlevel-16 pre:after {
+    content: '.. c o d e ';
+}
+.comment.commentlevel-9 code,
+.comment.commentlevel-10 code,
+.comment.commentlevel-11 code,
+.comment.commentlevel-12 code,
+.comment.commentlevel-13 code,
+.comment.commentlevel-14 code,
+.comment.commentlevel-15 code,
+.comment.commentlevel-16 code {
+    display: none;
+}
+@media only screen and (min-width: 440px) {
+    .comment.commentlevel-9 pre:after,
+    .comment.commentlevel-10 pre:after,
+    .comment.commentlevel-11 pre:after,
+    .comment.commentlevel-12 pre:after,
+    .comment.commentlevel-13 pre:after,
+    .comment.commentlevel-14 pre:after,
+    .comment.commentlevel-15 pre:after,
+    .comment.commentlevel-16 pre:after {
+        content: '.. expand for c o d e ';
+    }
+}
+@media only screen and (min-width: 640px) {
+    .comment_content pre {
+        min-width: 20em;
+    }
+    .comment.commentlevel-9 pre:after,
+    .comment.commentlevel-10 pre:after,
+    .comment.commentlevel-11 pre:after,
+    .comment.commentlevel-12 pre:after,
+    .comment.commentlevel-13 pre:after,
+    .comment.commentlevel-14 pre:after,
+    .comment.commentlevel-15 pre:after,
+    .comment.commentlevel-16 pre:after {
+        content: initial;
+    }
+    .comment.commentlevel-9 code,
+    .comment.commentlevel-10 code,
+    .comment.commentlevel-11 code,
+    .comment.commentlevel-12 code,
+    .comment.commentlevel-13 code,
+    .comment.commentlevel-14 code,
+    .comment.commentlevel-15 code,
+    .comment.commentlevel-16 code {
+        display: initial;
+    }
+}
+
 .comment.odd > .comment_content {
     background-color: #fafafa;
 }
