@@ -1,6 +1,6 @@
 Name: Serendipity default [ & fallback ]
 Author: Tom Sommer, Ian Styx
-Date: 2019-12-31
+Date: 2020-01-11
 Require Serendipity: 2.0
 Backend: Yes
 Responsive: Yes
