@@ -1203,7 +1203,6 @@ ol.plainList > .comment.commentlevel-16 {
         display: initial;
     }
 }
-
 .comment.odd > .comment_content {
     background-color: #fafafa;
 }
@@ -1279,6 +1278,9 @@ ol.plainList > .comment.commentlevel-16 {
 .serendipity_comment h4 {
     margin: .25em auto .5em;
     line-height: 1.5;
+}
+.serendipity_comment blockquote {
+    margin-right: auto;
 }
 .serendipity_commentForm table {
     border-collapse: separate;
