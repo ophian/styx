@@ -673,6 +673,7 @@ div.serendipityPlug a {
     padding: 0.25em 0;
     hyphens: auto; /* run before break-word */
     word-break: break-all;
+    overflow-wrap: break-word; /* CSS3 Draft */
 }
 /* shoutbox */
 .serendipity_shoutbox_date {
