@@ -381,6 +381,7 @@ pre {
     white-space: pre; /*fallback*/
     white-space: pre-wrap;
     word-wrap: break-word;
+    overflow-wrap: break-word; /* CSS3 Draft */
     overflow: auto; }
 pre {
     font-family: Menlo,Consolas,Monaco,monospace;
@@ -699,7 +700,8 @@ div.serendipity_date_summary {
 .comments_permalink {
     overflow: hidden;      /* this is more or less for Chromium, */
     word-wrap: break-word; /* to explicit break a long bounded word in C/P/T comment pages, */
-    word-break: break-all; /* which does expand the flexing content width on certain screens */
+    overflow-wrap: break-word; /* CSS3 Draft */
+    word-break: break-all; /* which does expand the flexing content width on certain screens - overwites both others */
     margin-left: .5em;
 }
 
@@ -865,6 +867,7 @@ table.serendipity_calendar td {
             /*padding: .25em 0;*/
             hyphens: auto; /* run before break-word */
             word-wrap: break-word;
+            overflow-wrap: break-word; /* CSS3 Draft */
             font-style: oblique;
             font-family: monospace; }
         .svg-inline.fa-clone {
