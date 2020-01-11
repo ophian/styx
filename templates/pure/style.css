@@ -1155,7 +1155,21 @@ ol.plainList > .comment.commentlevel-16 {
 }
 .comment_content blockquote {
     border-left: 5px solid #ccc;
+    margin-left: 1em;
     padding-left: 1em;
+    min-width: 5em;
+    width: 92%;
+}
+@media only screen and (min-width: 540px) {
+    .comment_content blockquote {
+        margin-left: revert;
+        width: 86%;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .comment_content blockquote {
+        width: initial;
+    }
 }
 .comment_content pre code {
     font-size: 14px;
