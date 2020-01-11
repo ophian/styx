@@ -1466,17 +1466,14 @@ div.serendipityPlug a {
             font-weight: bold; }
         .plugin_comment_body  {
             padding: .25em 0;
+            hyphens: auto; /* run before break-word */
             word-wrap: break-word;
             font-style: oblique; }
         .svg-inline.fa-clone {
             vertical-align: text-bottom; }
 @media only screen and (min-width: 640px) {
     .plugin_comment_wrap {
-        font-size: inherit; /* for auto-sizing */
-    }
-}
-@media only screen and (min-width: 640px) {
-    .plugin_comment_wrap {
+        /* font-size: inherit; for auto-sizing */
         font-size: .875rem;/* auto-sizing and max will be 14px*/
     }
 }
