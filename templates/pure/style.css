@@ -1188,6 +1188,7 @@ ol.plainList > .comment.commentlevel-16 {
     width: auto;
     overflow: hidden;      /* this is more or less for Chromium, */
     word-wrap: break-word; /* to explicit break a long bounded word in C/P/T comment pages, */
+    overflow-wrap: break-word; /* CSS3 Draft */
     word-break: break-all; /* which does expand the flexing content width on certain screens */
 }
 
@@ -1468,6 +1469,7 @@ div.serendipityPlug a {
             padding: .25em 0;
             hyphens: auto; /* run before break-word */
             word-wrap: break-word;
+            overflow-wrap: break-word; /* CSS3 Draft */
             font-style: oblique; }
         .svg-inline.fa-clone {
             vertical-align: text-bottom; }
@@ -1699,8 +1701,9 @@ p > .serendipity_image_link {
   #serendipityRightSideBar > div.sidebar_widget:nth-of-type(1) > h3 {
     margin-top: 0; }
   #content .post {
-     word-wrap: break-word;  /* this is more or less for Chromium, to explicitly break loooong urls */
-     word-break: break-word; /* and words, which do expand the flexing content width on certain screens */
+    word-wrap: break-word;  /* this is more or less for Chromium, to explicitly break loooong urls */
+    overflow-wrap: break-word; /* CSS3 Draft */
+    word-break: break-word; /* and words, which do expand the flexing content width on certain screens */
   }
   .serendipity_Entry_Date:not(:last-of-type) {
     margin-bottom: 1.5em; }
