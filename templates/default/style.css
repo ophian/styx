@@ -671,6 +671,7 @@ div.serendipityPlug a {
 /* last comments */
 .plugin_comment_body {
     padding: 0.25em 0;
+    hyphens: auto; /* run before break-word */
     word-break: break-all;
 }
 /* shoutbox */
