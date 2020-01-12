@@ -2781,6 +2781,7 @@ input[name="serendipity[filter][fileCategory]"] {
   .mfp-container figure {
     text-align: initial;
     border: initial;
+    border-radius: initial;
     background: initial;
     padding: initial; }
 
