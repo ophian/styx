@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fixed backend commentlist summary strip for concatenated newline space, as
+    well as for frontend (plugin) sidebar comments again.
+
   * Add backend comments list search filter RESET button event
 
   * Improve sidebar comment plugin stripping out markup so it does not differ
