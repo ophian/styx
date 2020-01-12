@@ -405,7 +405,6 @@ if (is_array($sql)) {
 
         if (strlen($comment['fullBody']) > strlen($comment['summary']) ) {
             $comment['excerpt'] = true;
-
             // When summary is not the full body, strip any HTML tags from summary, as it might break and leave unclosed HTML.
             if ($serendipity['allowHtmlComment']) {
                 $_summary = htmlspecialchars(str_replace('  ', ' ', strip_tags($comment['summary'])), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false);
@@ -413,7 +412,7 @@ if (is_array($sql)) {
                 $comment['summary']  = $_summary;
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
             } else {
-                $comment['summary']  = str_replace(array("\r\n","\n\r","\n","\r",'  '), ' ', trim(strip_tags($comment['summary'])));
+                $comment['summary']  = str_replace(array('\r\n','\n\r','\n','\r','  '), ' ', trim(strip_tags($comment['summary']))); // keep in mind: for "newline" search pattern are single, for replace double quotes!
                 $comment['fullBody'] = nl2br(htmlspecialchars($comment['fullBody'], ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false));
             }
 
@@ -422,8 +421,8 @@ if (is_array($sql)) {
                 // excerpt allows to open up a non-stripped fullBody box, if summary was stripped before!
                 $comment['excerpt']  = ($comment['summary'] < strip_tags($comment['summary'])) ? true : false;
                 $comment['fullBody'] = $is_html ? $comment['fullBody'] : nl2br($comment['fullBody']);
-                // Strip any HTML tags from summary, as it might break and leave unclosed HTML. But we want a space where previously was a tag following a tagged lineending like for "<p>xxx</p>\n<p>xxx</p>".
-                $comment['summary'] = str_replace('  ', ' ', strip_tags(str_replace('<', ' <', trim($comment['summary']))));
+                // Strip any HTML tags from summary, as it might break and leave unclosed HTML. But we want a space where previously was a tag following a tagged newline, like for "<p>xxx</p>\n<p>xxx</p>".
+                $comment['summary'] = str_replace('  ', ' ', trim(strip_tags(str_replace('<', ' <', $comment['summary']))));
             } else {
                 $comment['excerpt']  = (strlen($comment['summary']) < strlen(nl2br(strip_tags($comment['summary'])))) ? true : false; // allows to open up a non stripped fullBody box, if summary was stripped before!
                 $comment['summary']  = htmlspecialchars(strip_tags($comment['summary']), ENT_COMPAT | ENT_HTML401 | ENT_SUBSTITUTE, LANG_CHARSET, false);
