@@ -20,7 +20,7 @@ class serendipity_plugin_comments extends serendipity_plugin
         $propbag->add('description',   PLUGIN_COMMENTS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Judebert, G. Brockhaus, Ian Styx');
-        $propbag->add('version',       '1.18');
+        $propbag->add('version',       '1.19');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -216,21 +216,21 @@ class serendipity_plugin_comments extends serendipity_plugin
                 }
             }
             foreach ($sql AS $key => $row) {
+                // Strip any HTML tags from comment. But we want a space where previously was a tag following a tagged newline like for "<p>xxx</p>\n<p>xxx</p>".
+                $comment = str_replace(array("\r\n","\n\r","\n","\r",'  '), ' ', trim(strip_tags(str_replace('<', ' <', $row['comment']))));
                 if (function_exists('mb_strimwidth')) {
-                    $comment = str_replace(array("<br />\n", "\r\n", '  '), ' ', trim(strip_tags($row['comment'])));
                     $comment = mb_strimwidth($comment, 0, $max_chars, " [&hellip;]", LANG_CHARSET);
                 } else {
-                    $comments = str_replace(array("<br />\n", "\r\n", '  '), ' ', trim(strip_tags($row['comment'])));
-                    $comments = wordwrap(strip_tags($comments), $max_chars, '@@@', 1);
+                    $comments = wordwrap($comment, $max_chars, '@@@', 1);
                     $aComment = explode('@@@', $comments);
                     $comment  = $aComment[0];
                     if (count($aComment) > 1) {
                         $comment .= ' [&hellip;]';
                     }
                 }
-                $isTrackBack = $row['comment_type'] == 'TRACKBACK' || $row['comment_type'] == 'PINGBACK';
+                $isTrackBack = ($row['comment_type'] == 'TRACKBACK' || $row['comment_type'] == 'PINGBACK');
 
-                if ($row['comment_url'] != '' && ( ($isTrackBack && ($showurls == 'trackbacks' || $showurls == 'all') || !$isTrackBack && ($showurls == 'comments' || $showurls == 'all')))) {
+                if ($row['comment_url'] != '' && ( ($isTrackBack && ($showurls == 'trackbacks' || $showurls == 'all') || !$isTrackBack && ($showurls == 'comments' || $showurls == 'all')) ) ) {
 
                     /* Fix invalid cases in protocol part */
                     $row['comment_url'] = preg_replace('@^http://@i','http://', $row['comment_url']);
@@ -289,8 +289,8 @@ class serendipity_plugin_comments extends serendipity_plugin
                     ' <a class="highlight" href="' . serendipity_archiveURL($row['entry_id'], $row['subject'], 'baseURL', true, array('timestamp' => $row['entrystamp'])) .'#c' . $row['comment_id'] . '" title="' . serendipity_specialchars($row['subject']) . '">'
                       . serendipity_specialchars($row['subject'])
                       . "</a></div>\n"
-                      . '<div class="plugin_comment_date">' . serendipity_specialchars(serendipity_strftime($dateformat, $row['stamp'])) . str_replace('[clone]', ' <span class="trackback_clone" title="Duplicate trackback summary of  [@'.serendipity_specialchars($row['cloneof']).']"><svg aria-hidden="true" focusable="false" data-icon="clone" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" class="svg-inline fa-clone"><path fill="currentColor" d="M464 0H144c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h48c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zm-80 464c0 8.82-7.18 16-16 16H48c-8.82 0-16-7.18-16-16V144c0-8.82 7.18-16 16-16h48v240c0 26.51 21.49 48 48 48h240v48zm96-96c0 8.82-7.18 16-16 16H144c-8.82 0-16-7.18-16-16V48c0-8.82 7.18-16 16-16h320c8.82 0 16 7.18 16 16v320z" class=""></path></svg></span>', $row['clone']) . "</div>\n"
-                      . '<div class="plugin_comment_body">' . strip_tags($entry['comment'], '<br><img><a>') . '</div>' . "\n"
+                      . '<div class="plugin_comment_date">' . serendipity_specialchars(serendipity_strftime($dateformat, $row['stamp'])) . str_replace('[clone]', ' <span class="trackback_clone" title="Duplicate trackback summary of [@'.serendipity_specialchars($row['cloneof']).']"><svg aria-hidden="true" focusable="false" data-icon="clone" role="img" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 512 512" class="svg-inline fa-clone"><path fill="currentColor" d="M464 0H144c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h320c26.51 0 48-21.49 48-48v-48h48c26.51 0 48-21.49 48-48V48c0-26.51-21.49-48-48-48zm-80 464c0 8.82-7.18 16-16 16H48c-8.82 0-16-7.18-16-16V144c0-8.82 7.18-16 16-16h48v240c0 26.51 21.49 48 48 48h240v48zm96-96c0 8.82-7.18 16-16 16H144c-8.82 0-16-7.18-16-16V48c0-8.82 7.18-16 16-16h320c8.82 0 16 7.18 16 16v320z" class=""></path></svg></span>', $row['clone']) . "</div>\n"
+                      . '<div class="plugin_comment_body">' . strip_tags($entry['comment'], '<img>') . '</div>' . "\n"
                 );
             }
         }
