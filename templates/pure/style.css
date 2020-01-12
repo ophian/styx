@@ -1203,7 +1203,7 @@ ol.plainList > .comment.commentlevel-16 {
         display: initial;
     }
 }
-/* mobile with 350x640 like Galasxy S5 */
+/* mobile with 350x640 like Galaxy S5 - DPR:3 */
 @media only screen and (min-width: 640px) and (orientation: landscape) {
     .comment_content pre {
         min-width: 16em;
