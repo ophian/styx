@@ -982,7 +982,7 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
 
     // If * wasn't already appended and if there are none or not enough
     // results, search again for entries containing the searchterm as a part
-    if (strpos($term, '*') === false && $serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite' && $serendipity['dbType'] != 'sqlite3oo') {
+    if (false === strpos($term, '*') && $serendipity['dbType'] != 'sqlite' && $serendipity['dbType'] != 'sqlite3' && $serendipity['dbType'] != 'pdo-sqlite' && $serendipity['dbType'] != 'sqlite3oo') {
         if (!is_array($search)) {
             return serendipity_searchEntries($term.'*', $orig_limit);
         } else {
@@ -1081,7 +1081,7 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
         $_temp = $serendipity['smarty']->getTemplateVars('footer_prev_page'); // take care this temp variable copy IS mandatory to get exact values!!
         $serendipity['smarty']->assign('footer_prev_page', $_temp);
         $serendipity['smarty']->assign('footer_next_page', $serendipity['smarty']->getTemplateVars('footer_next_page'));
-        // So you can either try to confuse a user, which has to learn that everything is the other way round,
+        // So you can either try to confuse a user, which has to learn that everything is the other way round, while some parts still follow a left to right principle,
         // OR try to satisfy a sticky search engine index. I know which to prefer! :)
         $_prev = $_next = true;
     }
