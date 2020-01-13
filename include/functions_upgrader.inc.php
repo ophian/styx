@@ -642,7 +642,6 @@ function serendipity_addDefaultGroups() {
     serendipity_addDefaultGroup(USERLEVEL_ADMIN_DESC,  USERLEVEL_ADMIN);
 }
 
-
 /**
  * baseURL is now defaultBaseURL in the database, so copy if not already set
  *
@@ -899,7 +898,6 @@ function serendipity_upgrader_move_syndication_config() {
         }
     }
 }
-
 
 /**
  * Purge files in the template_cache directory per Upgrade task to allow fetching new preview images.
