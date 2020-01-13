@@ -342,7 +342,7 @@ switch ($serendipity['GET']['adminAction']) {
             serendipity_restoreVar($serendipity['COOKIE']['serendipity_only_path'], $serendipity['GET']['only_path']); // restore last set directory path, see true parameter
             $properties        = serendipity_parsePropertyForm();
             $image_id          = $properties['image_id'];
-            $data['showML']    = showMediaLibrary(true);
+            $data['showML']    = showMediaLibrary(true); // the true drives us back to selected ...
             $propdone          = sprintf(MEDIA_PROPERTIES_DONE, $image_id);
             $data['messages']  = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> '.DONE.'! ' . $propdone . "</span>\n";
         }
@@ -834,6 +834,7 @@ switch ($serendipity['GET']['adminAction']) {
             }
         }
 
+        // Case upload form media file parameters
         $mediaFiles = array(
             'token'             => serendipity_setFormToken(),
             'form_hidden'       => $form_hidden,
