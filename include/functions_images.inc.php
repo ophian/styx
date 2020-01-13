@@ -1564,6 +1564,10 @@ function serendipity_guessMime($extension) {
             $mime = 'image/jpeg';
             break;
 
+        case 'jp2':
+            $mime = 'image/jp2';
+            break;
+
         case 'aiff':
         case 'aif':
             $mime = 'audio/x-aiff';
