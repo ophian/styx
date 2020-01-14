@@ -234,11 +234,11 @@ class serendipity_plugin_history extends serendipity_plugin
             $dateformat = '%a, %d.%m.%Y %H:%M';
         }
 
-        if ($xyears > 1) {
+        if ($xyears > 1 && $specialage == 'year') {
             for($y=1; $y < $xyears; $y++) {
-                $min_age = (365 * $y);
-                $max_age = (365 * $y);
-                $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
+                $age = (365 * $y);
+                if ($y > 1) $age = $age - 1;
+                $this->getHistoryEntries($age, $age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
             }
         } else {
             return $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
