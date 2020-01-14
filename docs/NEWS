@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Allow looped years for case "one year ago" in core delivered sidebar history
+    plugin.
+
   * Fixed backend commentlist summary strip for concatenated newline space, as
     well as for frontend (plugin) sidebar comments again.
 
