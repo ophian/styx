@@ -1608,8 +1608,7 @@ div.serendipityPlug a {
     figure.serendipity_imageComment_left,
     figure.serendipity_imageComment_center,
     figure.serendipity_imageComment_right {
-        width: auto; /* force overwrite */
-        display: contents; /* delivered inline styles */
+        display: contents; /* force overwrite delivered inline styles */
     }
 }
 /* Set back to a block element for big screens, since we don't want the commentbox to expand into space. This was tested with an image of 1000px width. Others may vary! */
