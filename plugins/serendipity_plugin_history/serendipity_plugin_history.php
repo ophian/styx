@@ -238,7 +238,7 @@ class serendipity_plugin_history extends serendipity_plugin
             for($y=1; $y < $xyears; $y++) {
                 $min_age = (365 * $y) + date('L', serendipity_serverOffsetHour());
                 $max_age = (365 * $y) + date('L', serendipity_serverOffsetHour());
-                return $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
+                $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
             }
         } else {
             return $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
