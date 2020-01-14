@@ -236,8 +236,10 @@ class serendipity_plugin_history extends serendipity_plugin
 
         if ($xyears > 1) {
             for($y=1; $y < $xyears; $y++) {
-                $min_age = (365 * $y);
-                $max_age = (365 * $y);
+                if ($y > 1) {
+                    $min_age = (365 * $y);
+                    $max_age = (365 * $y);
+                }
                 $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
             }
         } else {
