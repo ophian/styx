@@ -156,7 +156,7 @@ class serendipity_plugin_history extends serendipity_plugin
 
         // this is a fetch for the default range of TODAY; ie. you want to fetch one full year of entries, remove this "-($min_age*86400)" from second array item part or better install the plugin another time and set new min_/max_age days
         $e     = serendipity_fetchEntries(array(($mints-($max_age*86400)),
-                                            ($maxts-($min_age*86400))), );
+                                            ($maxts-($min_age*86400))), $full, $max_entries);
         $serendipity['fetchLimit'] = $oldLim;
         echo (empty($intro)) ? '' : '<div class="serendipity_history_intro">' . $intro . '</div>' . "\n";
 
