@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.9');
+        $propbag->add('version',       '1.10');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -236,8 +236,14 @@ class serendipity_plugin_history extends serendipity_plugin
 
         if ($xyears > 1 && $specialage == 'year') {
             for($y=1; $y < $xyears; $y++) {
-                $age = (365 * $y);
-                if ($y > 1) $age = $age - 1;
+                $age = $min_age > 365 ? (365 * $y) : $min_age;
+                $n = ($y/4);
+                // check it is a natural number
+                if (ctype_digit("$n")) {
+                    $age = ($age + $n); // leap years get added current iteration
+                } else {
+                    $age = ($age + ($n-1)); // while the 3 follow-up years need to have one day off again
+                }
                 $this->getHistoryEntries($age, $age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
             }
         } else {
