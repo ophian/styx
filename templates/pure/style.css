@@ -880,8 +880,14 @@ nav.pager ul {
     font-size: 14px;
     font-size: .875rem;
     text-align: right;
-    display: inherit;/*=block*/
+    display: inherit;
+    width: 100%;
     padding-right: 1em;
+}
+@media screen and (min-width: 1600px) {
+    .post_more {
+        margin-top: 2em;
+    }
 }
 .serendipity_image_block + .post_more {
     margin-top: 1em;
