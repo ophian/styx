@@ -32,3 +32,6 @@
 @define('PLUGIN_HISTORY_MYSELF', 'I\'ll define one');
 @define('PLUGIN_HISTORY_DISPLAYAUTHOR', 'Show author\'s name');
 
+@define('PLUGIN_HISTORY_MULTIYEARS', 'Number of looped years');
+@define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Set a new number of years to loop through, when having selected the timerange "one year ago". Default is 1. Set following "Min age" and "Max age" entries to exact 365 days.');
+

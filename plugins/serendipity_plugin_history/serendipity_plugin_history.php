@@ -19,8 +19,8 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('name',          PLUGIN_HISTORY_NAME);
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Jannis Hermanns');
-        $propbag->add('version',       '1.8');
+        $propbag->add('author',        'Jannis Hermanns, Ian Styx');
+        $propbag->add('version',       '1.9');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -32,6 +32,7 @@ class serendipity_plugin_history extends serendipity_plugin
                                              'outro',
                                              'maxlength',
                                              'specialage',
+                                             'multiyears',
                                              'min_age',
                                              'max_age',
                                              'max_entries',
@@ -80,6 +81,13 @@ class serendipity_plugin_history extends serendipity_plugin
                 $propbag->add('description', PLUGIN_HISTORY_SPECIALAGE_DESC);
                 $propbag->add('default', 'year');
                 $propbag->add('select_values', array('year'=>PLUGIN_HISTORY_OYA,'custom'=>PLUGIN_HISTORY_MYSELF));
+                break;
+
+            case 'multiyears':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_HISTORY_MULTIYEARS);
+                $propbag->add('description', PLUGIN_HISTORY_MULTIYEARS_DESC);
+                $propbag->add('default', '1');
                 break;
 
             case 'min_age':
@@ -137,49 +145,18 @@ class serendipity_plugin_history extends serendipity_plugin
         return true;
     }
 
-    function generate_content(&$title)
+    function getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor)
     {
         global $serendipity;
-
-        $title       = $this->get_config('title', $this->title);
-        $intro       = $this->get_config('intro');
-        $outro       = $this->get_config('outro');
-        $maxlength   = $this->get_config('maxlength');
-        $max_entries = $this->get_config('max_entries');
-        $min_age     = $this->get_config('min_age');
-        $max_age     = $this->get_config('max_age');
-        $specialage  = $this->get_config('specialage');
-        $displaydate = serendipity_db_bool($this->get_config('displaydate', 'true'));
-        $dateformat  = $this->get_config('dateformat');
-        $full        = serendipity_db_bool($this->get_config('full', 'false'));
-        $displayauthor = serendipity_db_bool($this->get_config('displayauthor', 'false'));
-
-        if (!is_numeric($min_age) || $min_age < 0 || $specialage == 'year') {
-            $min_age = 365 + date('L', serendipity_serverOffsetHour());
-        }
-
-        if (!is_numeric($max_age) || $max_age < 1 || $specialage == 'year') {
-            $max_age = 365 + date('L', serendipity_serverOffsetHour());
-        }
-
-        if (!is_numeric($max_entries) || $max_entries < 1) {
-            $max_entries = 5;
-        }
-
-        if (!is_numeric($maxlength) ||$maxlength <0)
-            $maxlength = 30;
-
-        if (strlen($dateformat) < 1) {
-            $dateformat = '%a, %d.%m.%Y %H:%M';
-        }
 
         $oldLim = $serendipity['fetchLimit'];
         $nowts = serendipity_serverOffsetHour();
         $maxts = mktime(23, 59, 59,  date('m', $nowts), date('d', $nowts), date('Y', $nowts)); // this is todays timestamp at last minute of day
         $mints = mktime(0, 0, 0, date('m', $nowts), date('d', $nowts), date('Y', $nowts)); // this is todays timestamp at start of day
-        // this is a fetch for the default range of TODAY; ie. you want to fetch one year, remove this "-($min_age*86400)" from second array item part or better install the plugin and set new min_/max_age days
+
+        // this is a fetch for the default range of TODAY; ie. you want to fetch one full year of entries, remove this "-($min_age*86400)" from second array item part or better install the plugin another time and set new min_/max_age days
         $e     = serendipity_fetchEntries(array(($mints-($max_age*86400)),
-                                            ($maxts-($min_age*86400))), $full, $max_entries);
+                                            ($maxts-($min_age*86400))), );
         $serendipity['fetchLimit'] = $oldLim;
         echo (empty($intro)) ? '' : '<div class="serendipity_history_intro">' . $intro . '</div>' . "\n";
 
@@ -218,6 +195,54 @@ class serendipity_plugin_history extends serendipity_plugin
             }
         }
         echo (empty($outro)) ? '' : '<div class="serendipity_history_outro">' . $outro . '</div>';
+    }
+
+    function generate_content(&$title)
+    {
+        global $serendipity;
+
+        $title       = $this->get_config('title', $this->title);
+        $intro       = $this->get_config('intro');
+        $outro       = $this->get_config('outro');
+        $maxlength   = $this->get_config('maxlength');
+        $max_entries = $this->get_config('max_entries');
+        $min_age     = $this->get_config('min_age');
+        $max_age     = $this->get_config('max_age');
+        $specialage  = $this->get_config('specialage');
+        $xyears      = (int)$this->get_config('multiyears', '1');
+        $displaydate = serendipity_db_bool($this->get_config('displaydate', 'true'));
+        $dateformat  = $this->get_config('dateformat');
+        $full        = serendipity_db_bool($this->get_config('full', 'false'));
+        $displayauthor = serendipity_db_bool($this->get_config('displayauthor', 'false'));
+
+        if (!is_numeric($min_age) || $min_age < 0 || $specialage == 'year') {
+            $min_age = 365 + date('L', serendipity_serverOffsetHour());
+        }
+
+        if (!is_numeric($max_age) || $max_age < 1 || $specialage == 'year') {
+            $max_age = 365 + date('L', serendipity_serverOffsetHour());
+        }
+
+        if (!is_numeric($max_entries) || $max_entries < 1) {
+            $max_entries = 5;
+        }
+
+        if (!is_numeric($maxlength) || $maxlength < 0)
+            $maxlength = 30;
+
+        if (strlen($dateformat) < 1) {
+            $dateformat = '%a, %d.%m.%Y %H:%M';
+        }
+
+        if ($xyears > 1) {
+            for($y=1; $y < $xyears; $y++) {
+                $min_age = (365 * $y) + date('L', serendipity_serverOffsetHour());
+                $max_age = (365 * $y) + date('L', serendipity_serverOffsetHour());
+                return $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
+            }
+        } else {
+            return $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
+        }
     }
 
 }
