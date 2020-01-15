@@ -275,7 +275,7 @@ function serendipity_gzCompression() {
  *
  * @access public
  * @param  int      The timestamp you want to convert into the current server timezone. Defaults to "now".
- * @param  boolean  A toggle to indicate, if the timezone offset should be ADDED or SUBSTRACTED from the timezone. Substracting is required to restore original time when posting an entry.
+ * @param  boolean  A toggle to indicate, if the timezone offset should be ADDED or SUBSTRACTED from the timezone. Subtracting is required to restore original time when posting an entry.
  * @return int      The final timestamp
  */
 function serendipity_serverOffsetHour($timestamp = null, $negative = false) {
