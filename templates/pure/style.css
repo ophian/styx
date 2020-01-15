@@ -1121,6 +1121,67 @@ ol.plainList > .comment.commentlevel-16 {
         margin-left: 24em;
     }
 }
+@media only screen and (min-width: 1024px) and (max-device-width: 1279px) {
+    /* VIEWMODE_THREADED in entry comments */
+    ol.plainList > .comment.commentlevel-1 {
+        margin-left: 0.75em;
+    }
+    ol.plainList > .comment.commentlevel-2 {
+        margin-left: 1.5em;
+    }
+    ol.plainList > .comment.commentlevel-3 {
+        margin-left: 2.25em;
+    }
+    ol.plainList > .comment.commentlevel-4 {
+        margin-left: 3em;
+    }
+    ol.plainList > .comment.commentlevel-5 {
+        margin-left: 3.75em;
+    }
+    ol.plainList > .comment.commentlevel-6 {
+        margin-left: 4.5em;
+    }
+    ol.plainList > .comment.commentlevel-7 {
+        margin-left: 5.25em;
+    }
+    ol.plainList > .comment.commentlevel-8 {
+        margin-left: 6em;
+    }
+    ol.plainList > .comment.commentlevel-9,
+    ol.plainList > .comment.commentlevel-10,
+    ol.plainList > .comment.commentlevel-11,
+    ol.plainList > .comment.commentlevel-12,
+    ol.plainList > .comment.commentlevel-13,
+    ol.plainList > .comment.commentlevel-14,
+    ol.plainList > .comment.commentlevel-15,
+    ol.plainList > .comment.commentlevel-16 {
+        margin-left: 6.75em;
+    }
+    /* commentlevel-16 is the last available threaded depth - see comments.tpl */
+    @media only screen and (min-width: 440px) {
+        ol.plainList > .comment.commentlevel-10 {
+            margin-left: 7.5em;
+        }
+        ol.plainList > .comment.commentlevel-11 {
+            margin-left: 8.25em;
+        }
+        ol.plainList > .comment.commentlevel-12 {
+            margin-left: 9em;
+        }
+        ol.plainList > .comment.commentlevel-13 {
+            margin-left: 9.75em;
+        }
+        ol.plainList > .comment.commentlevel-14 {
+            margin-left: 10.5em;
+        }
+        ol.plainList > .comment.commentlevel-15 {
+            margin-left: 11.25em;
+        }
+        ol.plainList > .comment.commentlevel-16 {
+            margin-left: 12em;
+        }
+    }
+}
 
 .comment.odd {
     background-color: #efefef;
