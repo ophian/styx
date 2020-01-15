@@ -928,10 +928,13 @@ table.serendipity_calendar td {
 
 /* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
 .serendipity_imageComment_left,
-.serendipity_imageComment_center,
 .serendipity_imageComment_right {
     width: auto;
     display: inline-block;
+}
+.serendipity_imageComment_center {
+    width: auto;
+    display: block;
 }
 /* Set this fluidable for a certain range, which forces to overrule delivered inline styles, but keeps smaller images with a commentbox together. */
 @media screen and (min-width: 1024px) {
