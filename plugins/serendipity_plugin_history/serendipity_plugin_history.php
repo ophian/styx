@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.10');
+        $propbag->add('version',       '1.11');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -158,7 +158,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $e     = serendipity_fetchEntries(array(($mints-($max_age*86400)),
                                             ($maxts-($min_age*86400))), $full, $max_entries);
         $serendipity['fetchLimit'] = $oldLim;
-        echo (empty($intro)) ? '' : '<div class="serendipity_history_intro">' . $intro . '</div>' . "\n";
+        echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
         if (!is_array($e)) {
             return false;
@@ -179,22 +179,23 @@ class serendipity_plugin_history extends serendipity_plugin
             $date   = (!$displaydate) ? '' : serendipity_strftime($dateformat,$e[$x]['timestamp']);
             $author = ($displayauthor) ? $e[$x]['author'] . ': ' : '';
 
-            echo '<div class="serendipity_history_info">';
+            echo '<div class="serendipity_history_info">'."\n";
 
             if ($displayauthor) {
-                echo '<span class="serendipity_history_author">' . $author . ' </span>';
+                echo '    <span class="serendipity_history_author">' . $author . "</span> ";
             }
             if ($displaydate) {
-                echo '<span class="serendipity_history_date">' . $date . ' </span>';
+                echo '    <span class="serendipity_history_date">' . $date . "</span> ";
             }
             $t = ($maxlength==0 || strlen($e[$x]['title']) <= $maxlength) ? $e[$x]['title']
                                                                         : (trim(serendipity_mb('substr', $e[$x]['title'], 0, $maxlength-3)).' [...]');
-            echo '<a href="' . $url . '" title="' . str_replace("'", "`", serendipity_specialchars($e[$x]['title'])) . '">"' . serendipity_specialchars($t) . '"</a></div>';
+            echo '    <a href="' . $url . '" title="' . str_replace("'", "`", serendipity_specialchars($e[$x]['title'])) . '">"' . serendipity_specialchars($t) . "</a>\n";
+            echo "</div>\n";
             if ($full) {
-                echo '<div class="serendipity_history_body">' . strip_tags($e[$x]['body']) . '</div>';
+                echo '<div class="serendipity_history_body">' . strip_tags($e[$x]['body']) . "</div>\n";
             }
         }
-        echo (empty($outro)) ? '' : '<div class="serendipity_history_outro">' . $outro . '</div>';
+        echo empty($outro) ? '' : '<div class="serendipity_history_outro">' . $outro . "</div>\n";
     }
 
     function generate_content(&$title)
@@ -235,6 +236,7 @@ class serendipity_plugin_history extends serendipity_plugin
         }
 // ToDo: extend to allow range again by max_age
         if ((int)$xyears > 1 && $specialage == 'year') {
+            echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
             // y start by 0 adds current day, else start is last year
             for($y=0; $y < $xyears; $y++) {
                 // $age = ($min_age > 365) ? (365 * $y) : $min_age;
@@ -247,8 +249,9 @@ class serendipity_plugin_history extends serendipity_plugin
                 } else {
                     $age = $age + floor($n);// round fractions down
                 }
-                $this->getHistoryEntries($age, $age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
+                $this->getHistoryEntries($age, $age, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor);
             }
+            echo '<div class="serendipity_history_outro">' . $outro . "</div>\n";
         } else {
             return $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
         }
