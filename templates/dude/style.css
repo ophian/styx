@@ -935,18 +935,14 @@ table.serendipity_calendar td {
 }
 /* Set this fluidable for a certain range, which forces to overrule delivered inline styles, but keeps smaller images with a commentbox together. */
 @media screen and (min-width: 1024px) {
-    figure.serendipity_imageComment_left,
-    figure.serendipity_imageComment_center,
-    figure.serendipity_imageComment_right {
+    figure.serendipity_imageComment_center {
         display: contents; /* force overwrite delivered inline styles */
     }
 }
 /* Set back to a block element for big screens, since we don't want the commentbox to expand into space. This was tested with an image of 1000px width. Others may vary! */
 @media screen and (min-width: 1595px) {
-    figure.serendipity_imageComment_left,
-    figure.serendipity_imageComment_center,
-    figure.serendipity_imageComment_right {
-        display: inline-block; /* must the be block on very big content width again ..*/
+    figure.serendipity_imageComment_center {
+        display: inline-block; /* must be "block" on very big content width again .. is done automatically by browser */
     }
 }
 
