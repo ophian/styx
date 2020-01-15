@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.11');
+        $propbag->add('version',       '1.12');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -145,14 +145,11 @@ class serendipity_plugin_history extends serendipity_plugin
         return true;
     }
 
-    function getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor)
+    function getHistoryEntries($maxts, $mints, $max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor)
     {
         global $serendipity;
 
         $oldLim = $serendipity['fetchLimit'];
-        $nowts = serendipity_serverOffsetHour();
-        $maxts = mktime(23, 59, 59,  date('m', $nowts), date('d', $nowts), date('Y', $nowts)); // this is todays timestamp at last minute of day
-        $mints = mktime(0, 0, 0, date('m', $nowts), date('d', $nowts), date('Y', $nowts)); // this is todays timestamp at start of day
 
         // this is a fetch for the default range of TODAY; ie. you want to fetch one full year of entries, remove this "-($min_age*86400)" from second array item part or better install the plugin another time and set new min_/max_age days
         $e     = serendipity_fetchEntries(array(($mints-($max_age*86400)),
@@ -216,6 +213,10 @@ class serendipity_plugin_history extends serendipity_plugin
         $full        = serendipity_db_bool($this->get_config('full', 'false'));
         $displayauthor = serendipity_db_bool($this->get_config('displayauthor', 'false'));
 
+        $nowts = serendipity_serverOffsetHour();
+        $maxts = mktime(23, 59, 59,  date('m', $nowts), date('d', $nowts), date('Y', $nowts)); // this is todays timestamp at last minute of day
+        $mints = mktime(0, 0, 0, date('m', $nowts), date('d', $nowts), date('Y', $nowts)); // this is todays timestamp at start of day
+
         if (!is_numeric($min_age) || $min_age < 0 || $specialage == 'year') {
             $min_age = 365 + date('L', serendipity_serverOffsetHour());
         }
@@ -249,11 +250,11 @@ class serendipity_plugin_history extends serendipity_plugin
                 } else {
                     $age = $age + floor($n);// round fractions down
                 }
-                $this->getHistoryEntries($age, $age, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor);
+                $this->getHistoryEntries($maxts, $mints, $age, $age, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor);
             }
             echo '<div class="serendipity_history_outro">' . $outro . "</div>\n";
         } else {
-            return $this->getHistoryEntries($max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
+            return $this->getHistoryEntries($maxts, $mints, $max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
         }
     }
 
