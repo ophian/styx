@@ -1261,7 +1261,7 @@ ol.plainList > .comment.commentlevel-16 {
 }
 @media only screen and (min-width: 640px) {
     .comment_content pre {
-        min-width: 20em;
+        min-width: 18em;
     }
     .comment.commentlevel-maxpart pre:after {
         content: initial;
@@ -1274,6 +1274,11 @@ ol.plainList > .comment.commentlevel-16 {
 @media only screen and (min-width: 640px) and (orientation: landscape) {
     .comment_content pre {
         min-width: 16em;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .comment_content pre {
+        min-width: 20em;
     }
 }
 .comment.odd > .comment_content {
