@@ -239,7 +239,7 @@ class serendipity_plugin_history extends serendipity_plugin
             echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
             // y start by 0 adds current day, else start is last year
             for($y=0; $y < $xyears; $y++) {
-                // $age = ($min_age > 365) ? (365 * $y) : $min_age;
+                $age = ($min_age > 365) ? (365 * $y) : $min_age;
                 $n   = ($y/4);
                 // for start with 0
                 if (preg_match('/^[0-9]+$/', $n)) {
