@@ -233,16 +233,19 @@ class serendipity_plugin_history extends serendipity_plugin
         if (strlen($dateformat) < 1) {
             $dateformat = '%a, %d.%m.%Y %H:%M';
         }
-
-        if ($xyears > 1 && $specialage == 'year') {
-            for($y=1; $y < $xyears; $y++) {
-                $age = $min_age > 365 ? (365 * $y) : $min_age;
-                $n = ($y/4);
-                // check it is a natural number
-                if (ctype_digit("$n")) {
-                    $age = ($age + $n); // leap years get added current iteration
+// ToDo: extend to allow range again by max_age
+        if ((int)$xyears > 1 && $specialage == 'year') {
+            // y start by 0 adds current day, else start is last year
+            for($y=0; $y < $xyears; $y++) {
+                // $age = ($min_age > 365) ? (365 * $y) : $min_age;
+                $n   = ($y/4);
+                // for start with 0
+                if (preg_match('/^[0-9]+$/', $n)) {
+                // for start with 1
+                #if (ctype_digit("$n")) {
+                    $age = $age + $n;
                 } else {
-                    $age = ($age + ($n-1)); // while the 3 follow-up years need to have one day off again
+                    $age = $age + floor($n);// round fractions down
                 }
                 $this->getHistoryEntries($age, $age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
             }
