@@ -1065,5 +1065,11 @@ img.serendipity_freeTag_xmlButton {
         text-transform: uppercase;
         color: #666; }
 
+.serendipity_recententries_entrydate.serendipitySideBarDate {
+    font-size: .75em;
+    margin: .25em 0 .5em;
+    color: #00f;
+}
+
 /** End Plugin Styles **/
 
