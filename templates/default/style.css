@@ -159,6 +159,13 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; overflow: 
 /* staticpages without articleformat */
 #content > .serendipity_staticpage header h2 {
     margin-top: 0; }
+hr {
+    height: 1px;
+    border: 0;
+    background: transparent;
+    border-top: 1px solid #aaa;
+    display: inline-block;
+    width: 100%; }
 p {
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
