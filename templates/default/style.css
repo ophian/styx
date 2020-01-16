@@ -725,21 +725,32 @@ div.serendipityPlug a {
     font-size: 8pt;
     text-align: center;
 }
-/* image parent comment box responsiveness for mobile screens */
+
+/* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
 .serendipity_imageComment_left,
 .serendipity_imageComment_center,
 .serendipity_imageComment_right {
-    width: auto !important; /* force overwrite delivered inline styles */
-    display: table;
+    width: auto;
+    display: block;
 }
-/* overwrite fallback plain image padding */
-.serendipity_image_center {
-    padding: .25em;
+/* Set this fluidable for a certain range, which forces to overrule delivered inline styles, but keeps smaller images with a commentbox together. */
+@media screen and (min-width: 1024px) {
+    figure.serendipity_imageComment_center {
+        display: contents; /* force overwrite delivered inline styles */
+    }
 }
-/* style to center */
+/* Set back to a block element for big screens, since we don't want the commentbox to expand into space. This was tested with an image of 1000px width. Others may vary! */
+@media screen and (min-width: 1595px) {
+    figure.serendipity_imageComment_center {
+        display: block; /* must be "block" on very big content width again .. to center */
+    }
+}
+
+/* style to center and overwrite fallback plain image padding */
 .serendipity_image_center {
     display: inherit;
     margin: 0 auto 1em auto;
+    padding: .25em;
 }
 /* overwrite fallback gallery comment container margins and some of this comment styles */
 .serendipity_image_block .serendipity_imageComment_left,
