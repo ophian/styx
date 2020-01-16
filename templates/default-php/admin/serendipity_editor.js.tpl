@@ -522,8 +522,10 @@
 
         if ($('#serendipity_imagecomment').val() != '') {
             var comment = f['serendipity[imagecomment]'].value;
+            var ccenter = (floating == 'center' && imgWidth <= 400) ? '; display: block' : ''; // this overwrites pure themes display: contents for bigger images
+            // in this #content image comment context for 1024px until 1594px wide screens. So it works for #content width 464px until ~1024px.
 
-            var img = '<figure class="serendipity_imageComment_' + floating + '" style="width: ' + imgWidth + 'px">'
+            var img = '<figure class="serendipity_imageComment_' + floating + '" style="width: ' + imgWidth + 'px' + ccenter + '">'
                   +     '<div class="serendipity_imageComment_img">' + img + '</div>'
                   +     '<figcaption class="serendipity_imageComment_txt">' + comment + '</figcaption>'
                   + '</figure>';
