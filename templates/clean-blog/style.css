@@ -265,6 +265,11 @@ ul a {
     font-size: 36px;
   }
 }
+@media (min-width: 1230px) {
+  .container {
+    width: 1200px;
+  }
+}
 .section-heading {
   font-size: 36px;
   margin-top: 60px;
