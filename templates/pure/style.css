@@ -1635,14 +1635,20 @@ div.serendipityPlug a {
 .content.staticpage_content p > .serendipity_imageComment_center,
 .content.staticpage_content p > .serendipity_image_right {
     margin: .25em auto; }
+.serendipity_image_left,
+.post p > .serendipity_image_left {
+    margin-left: 0;
+    margin-right: .5em; }
 .serendipity_imageComment_left {
     float: left;
-    margin-right: .5em;
-}
+    margin-right: .5em; }
+.serendipity_image_right,
+.post p > .serendipity_image_right {
+    margin-right: 0;
+    margin-left: .5em; }
 .serendipity_imageComment_right {
     float: right;
-    margin-left: .5em;
-}
+    margin-left: .5em; }
 .serendipity_imageComment_img,
 .serendipity_imageComment_img img {
     margin: 0;
