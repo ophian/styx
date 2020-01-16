@@ -1,6 +1,16 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix last remaining issue with figure comment containers for the PURE
+    Standard Theme, regarding small (Standard Thumbs-Width or less) image
+    widths between a certain screen range.
+    This fix automatically adds a new default style to those image comment
+    containers via the serendipity_editor.js file.
+    The THING left UPGRADERS have to do by hand is:
+      - Add an inline style "display: block" to all of these previously
+        set figure comment containers in your entries, which are 400px
+        wide or less.
+
   * Allow looped years for case "one year ago" in core delivered sidebar history
     plugin.
 
