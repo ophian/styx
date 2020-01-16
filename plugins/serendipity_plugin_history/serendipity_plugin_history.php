@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.12');
+        $propbag->add('version',       '1.13');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -32,9 +32,9 @@ class serendipity_plugin_history extends serendipity_plugin
                                              'outro',
                                              'maxlength',
                                              'specialage',
-                                             'multiyears',
                                              'min_age',
                                              'max_age',
+                                             'multiyears',
                                              'max_entries',
                                              'full',
                                              'amount',
@@ -83,13 +83,6 @@ class serendipity_plugin_history extends serendipity_plugin
                 $propbag->add('select_values', array('year'=>PLUGIN_HISTORY_OYA,'custom'=>PLUGIN_HISTORY_MYSELF));
                 break;
 
-            case 'multiyears':
-                $propbag->add('type', 'string');
-                $propbag->add('name', PLUGIN_HISTORY_MULTIYEARS);
-                $propbag->add('description', PLUGIN_HISTORY_MULTIYEARS_DESC);
-                $propbag->add('default', '1');
-                break;
-
             case 'min_age':
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_HISTORY_MIN_AGE);
@@ -102,6 +95,13 @@ class serendipity_plugin_history extends serendipity_plugin
                 $propbag->add('name', PLUGIN_HISTORY_MAX_AGE);
                 $propbag->add('description', PLUGIN_HISTORY_MAX_AGE_DESC);
                 $propbag->add('default', 365);
+                break;
+
+            case 'multiyears':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_HISTORY_MULTIYEARS);
+                $propbag->add('description', PLUGIN_HISTORY_MULTIYEARS_DESC);
+                $propbag->add('default', '1');
                 break;
 
             case 'max_entries':
@@ -152,7 +152,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $oldLim = $serendipity['fetchLimit'];
 
         // this is a fetch for the default range of TODAY; ie. you want to fetch one full year of entries, remove this "-($min_age*86400)" from second array item part or better install the plugin another time and set new min_/max_age days
-        $e     = serendipity_fetchEntries(array(($mints-($max_age*86400)),
+        $e = serendipity_fetchEntries(array(($mints-($max_age*86400)),
                                             ($maxts-($min_age*86400))), $full, $max_entries);
         $serendipity['fetchLimit'] = $oldLim;
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
@@ -173,8 +173,8 @@ class serendipity_plugin_history extends serendipity_plugin
                                           array('timestamp' => $e[$x]['timestamp'])
             );
 
-            $date   = (!$displaydate) ? '' : serendipity_strftime($dateformat,$e[$x]['timestamp']);
-            $author = ($displayauthor) ? $e[$x]['author'] . ': ' : '';
+            $date   = !$displaydate ? '' : serendipity_strftime($dateformat,$e[$x]['timestamp']);
+            $author = $displayauthor ? $e[$x]['author'] . ': ' : '';
 
             echo '<div class="serendipity_history_info">'."\n";
 
