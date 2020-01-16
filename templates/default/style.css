@@ -735,8 +735,11 @@ div.serendipityPlug a {
 
 /* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
 .serendipity_imageComment_left,
-.serendipity_imageComment_center,
 .serendipity_imageComment_right {
+    width: auto;
+    display: inline-block;
+}
+.serendipity_imageComment_center {
     width: auto;
     display: block;
 }
@@ -794,7 +797,7 @@ div.serendipityPlug a {
 @media screen and (min-width: 980px) {
     #mainpane {
         width: 100%;
-        display: table;
+        display: flex;
     }
     #content,
     #serendipityLeftSideBar,
