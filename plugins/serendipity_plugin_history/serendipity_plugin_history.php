@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.13');
+        $propbag->add('version',       '1.14');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -151,9 +151,29 @@ class serendipity_plugin_history extends serendipity_plugin
 
         $oldLim = $serendipity['fetchLimit'];
 
-        // this is a fetch for the default range of TODAY; ie. you want to fetch one full year of entries, remove this "-($min_age*86400)" from second array item part or better install the plugin another time and set new min_/max_age days
-        $e = serendipity_fetchEntries(array(($mints-($max_age*86400)),
-                                            ($maxts-($min_age*86400))), $full, $max_entries);
+        if (!is_array($max_age) && $min_age !== null) {
+            // this is a fetch for the default range of TODAY; ie. you want to fetch one full year of entries, remove this "-($min_age*86400)" from second array item part or better install the plugin another time and set new min_/max_age days
+            $e = serendipity_fetchEntries(array(($mints-($max_age*86400)),
+                                                ($maxts-($min_age*86400))), $full, $max_entries);
+        } else {
+            // this is looped years
+            foreach ($max_age AS $xt) {
+                $range[] = [($mints-($xt*86400)),($maxts-($xt*86400))];
+            }
+            $hyr = array(0 => 'hyears', 1 => $range);
+
+            $and = " WHERE (";
+            foreach ($hyr[1] AS $trex) {
+                $startts = serendipity_serverOffsetHour((int)$trex[0], true);
+                $endts   = serendipity_serverOffsetHour((int)$trex[1], true);
+                $and    .= " OR ( e.timestamp >= $startts AND e.timestamp <= $endts )";
+            }
+            $and .= ")";
+            $_and = str_replace('WHERE ( OR', 'WHERE (', $and);
+
+            $e = serendipity_fetchEntries(array(0 => 'hyears', 1 => $_and), $full, $max_entries);
+        }
+
         $serendipity['fetchLimit'] = $oldLim;
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
@@ -184,9 +204,10 @@ class serendipity_plugin_history extends serendipity_plugin
             if ($displaydate) {
                 echo '    <span class="serendipity_history_date">' . $date . "</span> ";
             }
-            $t = ($maxlength==0 || strlen($e[$x]['title']) <= $maxlength) ? $e[$x]['title']
-                                                                        : (trim(serendipity_mb('substr', $e[$x]['title'], 0, $maxlength-3)).' [...]');
-            echo '    <a href="' . $url . '" title="' . str_replace("'", "`", serendipity_specialchars($e[$x]['title'])) . '">"' . serendipity_specialchars($t) . "</a>\n";
+            $t = ($maxlength==0 || (strlen($e[$x]['title']) <= $maxlength))
+                    ? $e[$x]['title']
+                    : trim(serendipity_mb('substr', $e[$x]['title'], 0, $maxlength-3)).' [...]';
+            echo '    <a href="' . $url . '" title="' . str_replace("'", "`", serendipity_specialchars($e[$x]['title'])) . '">' . serendipity_specialchars($t) . "</a>\n";
             echo "</div>\n";
             if ($full) {
                 echo '<div class="serendipity_history_body">' . strip_tags($e[$x]['body']) . "</div>\n";
@@ -207,7 +228,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $min_age     = $this->get_config('min_age');
         $max_age     = $this->get_config('max_age');
         $specialage  = $this->get_config('specialage');
-        $xyears      = (int)$this->get_config('multiyears', '1');
+        $xyears      = $this->get_config('multiyears', '1');
         $displaydate = serendipity_db_bool($this->get_config('displaydate', 'true'));
         $dateformat  = $this->get_config('dateformat');
         $full        = serendipity_db_bool($this->get_config('full', 'false'));
@@ -235,9 +256,10 @@ class serendipity_plugin_history extends serendipity_plugin
         if (strlen($dateformat) < 1) {
             $dateformat = '%a, %d.%m.%Y %H:%M';
         }
-// ToDo: extend to allow range again by max_age
+
         if ((int)$xyears > 1 && $specialage == 'year') {
             echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
+            $multiage = array();
             // y start by 0 adds current day, else start is last year
             for($y=0; $y < $xyears; $y++) {
                 $age = ($min_age > 365) ? (365 * $y) : $min_age;
@@ -250,8 +272,9 @@ class serendipity_plugin_history extends serendipity_plugin
                 } else {
                     $age = $age + floor($n);// round fractions down
                 }
-                $this->getHistoryEntries($maxts, $mints, $age, $age, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor);
+                $multiage[] = $age;
             }
+            $this->getHistoryEntries($maxts, $mints, $multiage, null, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor);
             echo '<div class="serendipity_history_outro">' . $outro . "</div>\n";
         } else {
             return $this->getHistoryEntries($maxts, $mints, $max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
