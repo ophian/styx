@@ -166,10 +166,10 @@ class serendipity_plugin_history extends serendipity_plugin
             foreach ($hyr[1] AS $trex) {
                 $startts = serendipity_serverOffsetHour((int)$trex[0], true);
                 $endts   = serendipity_serverOffsetHour((int)$trex[1], true);
-                $and    .= " OR ( e.timestamp >= $startts AND e.timestamp <= $endts )";
+                $and    .= " AND ( e.timestamp >= $startts AND e.timestamp <= $endts )";
             }
             $and .= ")";
-            $_and = str_replace('WHERE ( OR', 'WHERE (', $and);
+            $_and = str_replace('WHERE ( AND', 'WHERE (', $and);
 
             $e = serendipity_fetchEntries(array(0 => 'hyears', 1 => $_and), $full, $max_entries);
         }
