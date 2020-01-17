@@ -279,7 +279,10 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
         $endts = serendipity_serverOffsetHour(mktime(0, 0, 0, $month, ($day == 0 ? 1 : $day), $year), true);
 
         $cond['and'] = " WHERE e.timestamp >= $startts AND e.timestamp <= $endts";
-    } elseif (is_array($range) && count($range) == 2) {
+    } elseif (is_array($range) && $range[0] == 'hyears') { // this is history plugin loop years
+        $cond['and'] = $range[1];
+        unset($range);
+    } elseif (is_array($range) && count($range) == 2) { // this is serve archives routing, being calendar or default, array($ts, $te)
         $startts = serendipity_serverOffsetHour((int)$range[0], true);
         $endts   = serendipity_serverOffsetHour((int)$range[1], true);
         $cond['and'] = " WHERE e.timestamp >= $startts AND e.timestamp <= $endts";
