@@ -281,7 +281,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
         $cond['and'] = " WHERE e.timestamp >= $startts AND e.timestamp <= $endts";
     } elseif (is_array($range) && $range[0] == 'hyears') { // this is history plugin loop years
-        $cond['and'] = $range[1];
+        $cond['and'] = " WHERE ( $range[1] )";
         unset($range);
         $db_limit = false;
     } elseif (is_array($range) && count($range) == 2) { // this is serve archives routing, being calendar or default, array($ts, $te)
