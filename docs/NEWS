@@ -1,6 +1,12 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * The history sidebar plugin now offers cached entries for looped year lists
+    - which clears the issue of not showing up on certain blog requests,
+      like categories/freetags, and
+    - now also enables to not send the intro/outro when no listed entries
+      are available.
+
   * Fix last remaining issue with figure comment containers for the PURE
     Standard Theme, regarding small (Standard Thumbs-Width or less) image
     widths between a certain screen range.
