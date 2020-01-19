@@ -13,7 +13,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE', '最大期');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC','Maximum age of entries (単位は日).');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', '最大エントリ');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', '表示するエントリの数');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', '表示するエントリの数. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', '完全なエントリ');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', 'リンクしたヘッドラインの変わりに完全なエントリを表示します。');
 @define('PLUGIN_HISTORY_INTRO', 'まえがき');

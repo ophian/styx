@@ -7,7 +7,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE', '时间上限');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC','最旧文章距离现在已发表的天数');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', '文章数量上限');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', '最多显示多少篇文章');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', '最多显示多少篇文章. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', '全文显示');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', '显示文章的全文，而不仅仅只是显示它的标题。');
 @define('PLUGIN_HISTORY_INTRO', '简介');

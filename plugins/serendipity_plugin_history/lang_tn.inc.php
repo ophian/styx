@@ -19,7 +19,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE', '最新的日期');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC','最新的文章日期 (天)。');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', '文章數量');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', '顯示的文章數量');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', '顯示的文章數量. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', '完整內容');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', '顯示文章的完整內容，或只顯示它的標題。');
 @define('PLUGIN_HISTORY_INTRO', '介紹');

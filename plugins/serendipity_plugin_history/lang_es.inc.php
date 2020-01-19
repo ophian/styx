@@ -13,7 +13,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE', 'Edad máxima');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC','Edad máxima de las entradas (en días).');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', 'Máximo número de entradas');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Número de entradas tope a mostrar');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Número de entradas tope a mostrar. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', 'Entradas completas');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Muestra las entradas completas en ves de sólo las cabeceras enlazadas.');
 @define('PLUGIN_HISTORY_INTRO', 'Introducción');

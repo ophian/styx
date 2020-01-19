@@ -12,7 +12,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE', 'Максимална възраст');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC','Максимална възраст на постингите в дни');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', 'Брой постинги');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Максимален брой на постингите за показване');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Максимален брой на постингите за показване. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', 'Цели постинги');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Показване на целите постинги вместо заглавията им като връзки');
 @define('PLUGIN_HISTORY_INTRO', 'Въведение');

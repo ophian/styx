@@ -1,4 +1,5 @@
 <?php
+
 # Translated by: Wesley Hwang-Chung <wesley96@gmail.com>
 # (c) 2005 http://www.tool-box.info/
 
@@ -9,7 +10,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE', '최대 나이');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC','글의 최대 나이 (일 단위)');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', '최대 글 수');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', '보여줄 글의 수');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', '보여줄 글의 수. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', '글 전체 보기');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', '제목만 링크하지 말고 글 전체 내용을 보여줌');
 @define('PLUGIN_HISTORY_INTRO', '소갯말');

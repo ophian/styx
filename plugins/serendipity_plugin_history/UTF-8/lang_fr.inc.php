@@ -20,7 +20,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE', 'Âge maximum');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC','Définit l\'âge maximum des billets (en jours).');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', 'Nombre billets');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Définit le nombre de billets à afficher');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Définit le nombre de billets à afficher. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', 'Billets complets');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Afficher les billets complets au lieu de liens vers la vue détaillée?');
 @define('PLUGIN_HISTORY_INTRO', 'Introduction');

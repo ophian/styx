@@ -13,7 +13,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE', 'Max age');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC','Maximum age of entries (in days).');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', 'Maximum entries');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Number of entries to display');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Number of entries to display. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL', 'Full entries');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Display full entries instead of linked headlines.');
 @define('PLUGIN_HISTORY_INTRO', 'Intro');
@@ -33,5 +33,5 @@
 @define('PLUGIN_HISTORY_DISPLAYAUTHOR', 'Show author\'s name');
 
 @define('PLUGIN_HISTORY_MULTIYEARS', 'Number of looped years');
-@define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Set a new number of years to loop through, when having selected the timerange "one year ago". Default is 1. Set upper "Min age" and "Max age" entries to exact 365 days.');
+@define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Set a new number of years to loop through, when having selected the timerange "one year ago". Default is 1 (the current year). Set upper "Min age" and "Max age" entries to exact 365 days.');
 

@@ -12,7 +12,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE', 'Höchstalter');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC','Höchstalter der Einträge (in Tagen).');
 @define('PLUGIN_HISTORY_MAX_ENTRIES', 'Maximale Anzahl der Einträge');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Wieviele Einträge sollen maximal angezeigt werden?');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC', 'Wieviele Einträge sollen maximal angezeigt werden? Im Falle eines definierten Zeitraumes mit "Anzahl der durchlaufenden Jahre" größer 1, beschränkt dies die tatsächlich dargestellte Maximal-Zahl der Einträge.');
 @define('PLUGIN_HISTORY_SHOWFULL', 'Ganze Einträge');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Nicht nur Überschriften, sondern ganze Einträge anzeigen.');
 @define('PLUGIN_HISTORY_INTRO', 'Intro');
@@ -34,5 +34,5 @@
 @define('PLUGIN_HISTORY_DISPLAYAUTHOR', 'Zeige den Namen des Authors');
 
 @define('PLUGIN_HISTORY_MULTIYEARS', 'Anzahl der durchlaufenden Jahre');
-@define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Setzen Sie die Anzahl der Jahre, die durchlaufen werden sollen, wenn Sie "Heute vor einem Jahr" als Zeitrahmen ausgewählt haben. Standard ist 1. Setzen Sie dafür die voranstehenden "Mindestalter" und "Höchstalter" Einträge auf exakt 365 Tage.');
+@define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Setzen Sie die Anzahl der Jahre, die durchlaufen werden sollen, wenn Sie "Heute vor einem Jahr" als Zeitrahmen ausgewählt haben. Standard ist 1 (das aktuelle Jahr). Setzen Sie dafür die voranstehenden "Mindestalter" und "Höchstalter" Einträge auf exakt 365 Tage.');
 

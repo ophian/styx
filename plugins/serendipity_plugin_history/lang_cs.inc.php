@@ -14,7 +14,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE',           'Maximální stáøí pøíspìvku');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC',      'Maximální stáøí pøíspìvku (ve dnech) pro zobrazení v panelu historie.');
 @define('PLUGIN_HISTORY_MAX_ENTRIES',       'Maximální poèet pøíspìvkù');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC',  'Maximální poèet pøíspìvkù, které se zobrazí.');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC',  'Maximální poèet pøíspìvkù, které se zobrazí. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL',          'Celé pøíspìvky');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC',     'Zobrazí celé pøíspìvky místo odkazù na nì.');
 @define('PLUGIN_HISTORY_INTRO',             'Intro');

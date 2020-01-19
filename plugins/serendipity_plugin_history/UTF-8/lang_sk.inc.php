@@ -13,7 +13,7 @@
 @define('PLUGIN_HISTORY_MAX_AGE',           'Maximálny vek článku');
 @define('PLUGIN_HISTORY_MAX_AGE_DESC',      'Maximálny vek článku (v dňoch) pre zobrazenie v paneli histórie.');
 @define('PLUGIN_HISTORY_MAX_ENTRIES',       'Maximálny počet článkov');
-@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC',  'Maximálny počet článkov, ktoré sa zobrazia.');
+@define('PLUGIN_HISTORY_MAX_ENTRIES_DESC',  'Maximálny počet článkov, ktoré sa zobrazia. In case of a defined time range with "Number of looped years" greater 1, this really limits the total maximum of Entries to display.');
 @define('PLUGIN_HISTORY_SHOWFULL',          'Celé články');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC',     'Zobrazí celé články namiesto odkazov na nich.');
 @define('PLUGIN_HISTORY_INTRO',             'Intro');
