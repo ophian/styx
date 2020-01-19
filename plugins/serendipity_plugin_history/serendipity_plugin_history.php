@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.16');
+        $propbag->add('version',       '1.17');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -168,8 +168,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 $endts   = serendipity_serverOffsetHour((int)$trex[1], true);
                 $and    .= " OR ( e.timestamp >= $startts AND e.timestamp <= $endts )";
             }
-            $and .= ")";
-            $_and = str_replace('WHERE ( OR', 'WHERE (', $and);
+            $_and = str_replace('WHERE ( OR', '', $and); // WHERE and () is done in function _fetchEntries for consistency and clarification
 
             $e = serendipity_fetchEntries(array(0 => 'hyears', 1 => $_and), $full, $max_entries);
         }
@@ -177,11 +176,11 @@ class serendipity_plugin_history extends serendipity_plugin
         $serendipity['fetchLimit'] = $oldLim;
 
         if (!is_array($e)) {
-            return false;
+            return;
         }
 
-        if ( ($e_c = count($e)) == 0 ) {
-            return false;
+        if (($e_c = count($e)) == 0) {
+            return;
         }
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
@@ -194,7 +193,7 @@ class serendipity_plugin_history extends serendipity_plugin
                                           array('timestamp' => $e[$x]['timestamp'])
             );
 
-            $date   = !$displaydate ? '' : serendipity_strftime($dateformat,$e[$x]['timestamp']);
+            $date   = !$displaydate ? '' : serendipity_strftime($dateformat, $e[$x]['timestamp']);
             $author = $displayauthor ? $e[$x]['author'] . ': ' : '';
 
             echo '<div class="serendipity_history_info">'."\n";
@@ -222,6 +221,7 @@ class serendipity_plugin_history extends serendipity_plugin
     {
         global $serendipity;
 
+        $cachefile   = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/history_daylist.dat';
         $title       = $this->get_config('title', $this->title);
         $intro       = $this->get_config('intro');
         $outro       = $this->get_config('outro');
@@ -261,26 +261,51 @@ class serendipity_plugin_history extends serendipity_plugin
         }
 
         if ((int)$xyears > 1 && $specialage == 'year') {
-            echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
-            $multiage = array();
-            // y start by 0 adds current day, else start is last year
-            for($y=0; $y < $xyears; $y++) {
-                $age = ($min_age > 365) ? (365 * $y) : $min_age;
-                $n   = ($y/4);
-                // for start with 0
-                if (preg_match('/^[0-9]+$/', $n)) {
-                // for start with 1
-                #if (ctype_digit("$n")) {
-                    $age = $age + $n;
-                } else {
-                    $age = $age + floor($n);// round fractions down
+            $timeout = ($maxts - $nowts); // the rest of the day
+            // get, read and echo possible cache file
+            if (file_exists($cachefile) && filemtime($cachefile) > time()-$timeout) {
+
+                $history = unserialize(file_get_contents($cachefile));
+                echo $history;
+
+            } else {
+
+                $multiage = array();
+                @unlink($cachefile);
+                ob_start();
+                if (!empty($intro)) {
+                    echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
                 }
-                $multiage[] = $age;
+                // y start by 0 adds current day, else start is last year
+                for($y=0; $y < $xyears; $y++) {
+                    $age = ($min_age > 365) ? (365 * $y) : $min_age;
+                    $n   = ($y/4);
+                    // for start with 0
+                    if (preg_match('/^[0-9]+$/', $n)) {
+                    // for start with 1
+                    #if (ctype_digit("$n")) {
+                        $age = $age + $n;
+                    } else {
+                        $age = $age + floor($n);// round fractions down
+                    }
+                    $multiage[] = $age;
+                }
+                $this->getHistoryEntries($maxts, $mints, $multiage, null, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor);
+                if (!empty($outro)) {
+                    echo '<div class="serendipity_history_outro">' . $outro . "</div>\n";
+                }
+                $history_daylist = ob_get_contents();
+                ob_end_clean();
+
+                // write to cache
+                if (!empty($history_daylist)) {
+                    $fp = fopen($cachefile, 'w');
+                    fwrite($fp, serialize($history_daylist));
+                    fclose($fp);
+                }
             }
-            $this->getHistoryEntries($maxts, $mints, $multiage, null, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor);
-            echo '<div class="serendipity_history_outro">' . $outro . "</div>\n";
         } else {
-            return $this->getHistoryEntries($maxts, $mints, $max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
+            $this->getHistoryEntries($maxts, $mints, $max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
         }
     }
 
