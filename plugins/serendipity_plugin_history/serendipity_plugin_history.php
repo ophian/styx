@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.14');
+        $propbag->add('version',       '1.15');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -166,16 +166,15 @@ class serendipity_plugin_history extends serendipity_plugin
             foreach ($hyr[1] AS $trex) {
                 $startts = serendipity_serverOffsetHour((int)$trex[0], true);
                 $endts   = serendipity_serverOffsetHour((int)$trex[1], true);
-                $and    .= " AND ( e.timestamp >= $startts AND e.timestamp <= $endts )";
+                $and    .= " OR ( e.timestamp >= $startts AND e.timestamp <= $endts )";
             }
             $and .= ")";
-            $_and = str_replace('WHERE ( AND', 'WHERE (', $and);
+            $_and = str_replace('WHERE ( OR', 'WHERE (', $and);
 
             $e = serendipity_fetchEntries(array(0 => 'hyears', 1 => $_and), $full, $max_entries);
         }
 
         $serendipity['fetchLimit'] = $oldLim;
-        echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
         if (!is_array($e)) {
             return false;
@@ -184,6 +183,8 @@ class serendipity_plugin_history extends serendipity_plugin
         if ( ($e_c = count($e)) == 0 ) {
             return false;
         }
+
+        echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
         for($x=0; $x < $e_c; $x++) {
             $url = serendipity_archiveURL($e[$x]['id'],
@@ -213,6 +214,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 echo '<div class="serendipity_history_body">' . strip_tags($e[$x]['body']) . "</div>\n";
             }
         }
+
         echo empty($outro) ? '' : '<div class="serendipity_history_outro">' . $outro . "</div>\n";
     }
 
@@ -250,8 +252,9 @@ class serendipity_plugin_history extends serendipity_plugin
             $max_entries = 5;
         }
 
-        if (!is_numeric($maxlength) || $maxlength < 0)
+        if (!is_numeric($maxlength) || $maxlength < 0) {
             $maxlength = 30;
+        }
 
         if (strlen($dateformat) < 1) {
             $dateformat = '%a, %d.%m.%Y %H:%M';
