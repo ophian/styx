@@ -257,7 +257,6 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     if ($limit != '') {
         $serendipity['fetchLimit'] = $limit;
     }
-    $db_limit = true;
 
     /* Attempt to grab range from $serendipity, if $range is not an array or null */
     if (!is_array($range) && !is_null($range) && isset($serendipity['range'])) {
@@ -283,7 +282,6 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     } elseif (is_array($range) && $range[0] == 'hyears') { // this is history plugin loop years
         $cond['and'] = $range[1];
         unset($range);
-        $db_limit = false;
     } elseif (is_array($range) && count($range) == 2) { // this is serve archives routing, being calendar or default, array($ts, $te)
         $startts = serendipity_serverOffsetHour((int)$range[0], true);
         $endts   = serendipity_serverOffsetHour((int)$range[1], true);
@@ -450,9 +448,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
                     $limit = serendipity_db_limit(max(0, ($totalEntries - ($limit * $serendipity['GET']['page']))), $limit);
                 }
             } else {
-                if ($db_limit) {
-                    $limit = serendipity_db_limit(($serendipity['GET']['page']-1) * $limit, $limit);
-                }
+                $limit = serendipity_db_limit(($serendipity['GET']['page']-1) * $limit, $limit);
             }
         }
 
