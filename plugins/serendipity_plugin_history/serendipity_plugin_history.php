@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.17');
+        $propbag->add('version',       '1.18');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -168,9 +168,9 @@ class serendipity_plugin_history extends serendipity_plugin
                 $endts   = serendipity_serverOffsetHour((int)$trex[1], true);
                 $and    .= " OR ( e.timestamp >= $startts AND e.timestamp <= $endts )";
             }
-            $_and = str_replace('WHERE ( OR', '', $and); // WHERE and () is done in function _fetchEntries for consistency and clarification
+            $and = str_replace('WHERE ( OR', '', $and); // WHERE and () is done in function _fetchEntries for consistency and clarification
 
-            $e = serendipity_fetchEntries(array(0 => 'hyears', 1 => $_and), $full, $max_entries);
+            $e = serendipity_fetchEntries(array(0 => 'hyears', 1 => $and), $full, $max_entries);
         }
 
         $serendipity['fetchLimit'] = $oldLim;
@@ -261,17 +261,18 @@ class serendipity_plugin_history extends serendipity_plugin
         }
 
         if ((int)$xyears > 1 && $specialage == 'year') {
+
             $timeout = ($maxts - $nowts); // the rest of the day
             // get, read and echo possible cache file
             if (file_exists($cachefile) && filemtime($cachefile) > time()-$timeout) {
 
                 $history = unserialize(file_get_contents($cachefile));
+                echo '<!-- cached f -->';
                 echo $history;
 
             } else {
 
                 $multiage = array();
-                @unlink($cachefile);
                 ob_start();
                 if (!empty($intro)) {
                     echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
@@ -286,7 +287,7 @@ class serendipity_plugin_history extends serendipity_plugin
                     #if (ctype_digit("$n")) {
                         $age = $age + $n;
                     } else {
-                        $age = $age + floor($n);// round fractions down
+                        $age = $age + floor($n); // round fractions down
                     }
                     $multiage[] = $age;
                 }
@@ -297,11 +298,16 @@ class serendipity_plugin_history extends serendipity_plugin
                 $history_daylist = ob_get_contents();
                 ob_end_clean();
 
-                // write to cache
+                @unlink($cachefile);
                 if (!empty($history_daylist)) {
+                    // write to cache
                     $fp = fopen($cachefile, 'w');
                     fwrite($fp, serialize($history_daylist));
                     fclose($fp);
+
+                    // echo on run
+                    echo '<!-- cached s -->';
+                    echo $history_daylist;
                 }
             }
         } else {
