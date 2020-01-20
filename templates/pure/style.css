@@ -1555,10 +1555,14 @@ div.serendipityPlug a {
 .serendipity_history_author {
     font-weight: bolder;
 }
-.serendipity_history_intro,
-.serendipity_history_info {
-    margin-bottom: 0.25em;
+.serendipity_history_intro {
+    margin-bottom: 1em;
 }
+.serendipity_history_outro {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
 .serendipity_history_body {
     margin-bottom: 1em;
 }
