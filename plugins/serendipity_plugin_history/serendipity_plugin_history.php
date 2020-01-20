@@ -300,13 +300,15 @@ class serendipity_plugin_history extends serendipity_plugin
 
                 @unlink($cachefile);
                 if (!empty($history_daylist)) {
-                    // write to cache
-                    $fp = fopen($cachefile, 'w');
-                    fwrite($fp, serialize($history_daylist));
-                    fclose($fp);
+                    if ($serendipity['view'] != 'categories') {
+                        // write to cache
+                        $fp = fopen($cachefile, 'w');
+                        fwrite($fp, serialize($history_daylist));
+                        fclose($fp);
+                    }
 
                     // echo on run
-                    echo '<!-- cached s -->';
+                    echo "<!-- cached s ${serendipity['view']} -->";
                     echo $history_daylist;
                 }
             }
