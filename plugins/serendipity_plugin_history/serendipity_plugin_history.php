@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.18');
+        $propbag->add('version',       '1.19');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -262,9 +262,8 @@ class serendipity_plugin_history extends serendipity_plugin
 
         if ((int)$xyears > 1 && $specialage == 'year') {
 
-            $timeout = ($maxts - $nowts); // the rest of the day
             // get, read and echo possible cache file
-            if (file_exists($cachefile) && filemtime($cachefile) > time()-$timeout) {
+            if (file_exists($cachefile) && ($maxts > $nowts)) {
 
                 $history = unserialize(file_get_contents($cachefile));
                 echo '<!-- cached f -->';
