@@ -261,7 +261,6 @@ class serendipity_plugin_history extends serendipity_plugin
         }
 
         if ((int)$xyears > 1 && $specialage == 'year') {
-
             // get, read and echo possible cache file
             if (file_exists($cachefile) && ($maxts > $nowts)) {
 
