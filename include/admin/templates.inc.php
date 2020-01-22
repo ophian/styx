@@ -131,7 +131,7 @@ if (is_array($template_config)) {
     serendipity_plugin_api::hook_event('backend_templates_configuration_top', $template_config);
     $data['has_config'] = true;
 
-    if ($serendipity['POST']['adminAction'] == 'configure' && serendipity_checkFormToken()) {
+    if (isset($serendipity['POST']['adminAction']) && $serendipity['POST']['adminAction'] == 'configure' && serendipity_checkFormToken()) {
         $storage = new template_option();
         $storage->import($template_config);
         foreach($serendipity['POST']['template'] AS $option => $value) {
