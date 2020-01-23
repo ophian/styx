@@ -521,11 +521,6 @@ function serendipity_makePermalink($format, $data, $type = 'entry') {
                 }
             }
 
-            // backend list of comments for building path - entries list entries already have their timestamp delivered
-            if (!isset($data['entry']['timestamp'])) {
-                $data['entry']['timestamp'] = time(); // Avoid trying to access array offset on value of type null
-            }
-
             $ts = serendipity_serverOffsetHour($data['entry']['timestamp']);
 
             $ftitle  = serendipity_makeFilename($data['title']);

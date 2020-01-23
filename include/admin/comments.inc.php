@@ -369,6 +369,7 @@ $data['c_type']          = $c_type;
 
 $i = 0;
 $comments = array();
+$cofakets = time();
 
 if (is_array($sql)) {
     foreach($sql AS $rs) {
@@ -386,7 +387,7 @@ if (is_array($sql)) {
             'referer'   => $rs['referer'],
             'url'       => $rs['url'],
             'ip'        => $rs['ip'],
-            'entry_url' => serendipity_archiveURL($rs['entry_id'], $rs['title']),
+            'entry_url' => serendipity_archiveURL($rs['entry_id'], $rs['title'], 'baseURL', true, array('timestamp' => $rs['timestamp'])),
             'email'     => $rs['email'],
             'author'    => (empty($rs['author']) ? ANONYMOUS : $rs['author']),
             'is_owner'  => ($rs['email'] === $serendipity['email'] && $rs['author'] === $serendipity['realname']),
@@ -394,7 +395,7 @@ if (is_array($sql)) {
             'subscribed'=> $rs['subscribed']
         );
 
-        $entrylink = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true) . '#c' . $comment['id'];
+        $entrylink = serendipity_archiveURL($comment['entry_id'], 'comments', 'serendipityHTTPPath', true, array('timestamp' => $cofakets)) . '#c' . $comment['id'];
         $comment['entrylink'] = $entrylink;
 
         if ($serendipity['allowHtmlComment']) {
