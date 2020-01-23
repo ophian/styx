@@ -698,7 +698,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     }
 
     // Make trackback URL
-    $url = serendipity_archiveURL($id, $title, 'baseURL');
+    $url = serendipity_archiveURL($id, $title, 'baseURL', true, array('timestamp' => time()));
     // Make sure that the trackback-URL does not point to https
     $url = str_replace('https://', 'http://', $url);
 
