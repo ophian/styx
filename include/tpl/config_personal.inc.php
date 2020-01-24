@@ -142,7 +142,6 @@
                                           'default'     => true,
                                           'flags'       => array('config')),
 
-
                                     array('var'         => 'enableBackendPopup',
                                           'title'       => INSTALL_BACKENDPOPUP,
                                           'description' => INSTALL_BACKENDPOPUP_DESC,
