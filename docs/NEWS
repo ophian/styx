@@ -1,6 +1,67 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * As having pointed out in "Version 2.1-beta1 Styx (September 3rd, 2016)"
+    changelog of this file, MariaDB/MySQL uses different utf8 charset
+    mappings of the Unicode character set.
+    Since the last available highest version was "utf8mb4_unicode_ci", we
+    do now even have "utf8mb4_unicode_520_ci" available.
+    For collation, probably the best 'overall' collation nowadays is the
+    versioned utf8mb4_unicode_520_ci. Serendipity Styx recommends to use:
+      "utf8mb4_unicode_520_ci"
+    as of 2019/2020.
+
+    NOW, WHAT IS IT:
+
+        For utf8_unicode_ci collations MySQL used version 4.0.0 of the
+        Unicode Collation Algorithm (UCA).
+        This was superseded by UCA version 4.1.0, and now UCA version
+        5.2.0 exists. We should keep up with standard requirements!
+
+    KNOW High Level Architecture:
+
+        https://stackoverflow.com/questions/37307146/
+        Difference between utf8mb4_unicode_ci and utf8mb4_unicode_520_ci
+        collations in MariaDB/MySQL?
+        Credits to StuiterSlurf and Kamil Kielczewski
+
+    MySQL collation names follow these conventions:
+    A collation name starts with the name of the character set with which
+    it is associated, followed by one or more suffixes indicating other
+    collation characteristics. For example, utf8_general_ci and latin_swedish_ci
+    are collations for the utf8 and latin1 character sets, respectively.
+
+    A language-specific collation includes a language name. For example,
+    utf8_turkish_ci and utf8_hungarian_ci sort characters for the utf8
+    character set using the rules of Turkish and Hungarian, respectively.
+
+    Case sensitivity for sorting is indicated by _ci (case insensitive),
+    _cs (case sensitive), or _bin (binary; character comparisons are
+    based on character binary code values). For example, latin1_general_ci
+    is case insensitive, latin1_general_cs is case sensitive, and
+    latin1_bin uses binary code values.
+
+    For Unicode, collation names may include a version number to indicate
+    the version of the Unicode Collation Algorithm (UCA) on which the
+    collation is based. UCA-based collations without a version number
+    in the name use the version-4.0.0 UCA weight keys. For example:
+
+    - utf8_unicode_ci (with no version named) is based on UCA 4.0.0 weight
+      keys >(http://www.unicode.org/Public/UCA/4.0.0/allkeys-4.0.0.txt).
+
+    - utf8_unicode_520_ci is based on UCA 5.2.0 weight keys
+      (http://www.unicode.org/Public/UCA/5.2.0/allkeys.txt).
+
+    To focus on details for utf8mb4_unicode_ci/utf8mb4_unicode_520_ci,
+    there are problems with sorting/comparing certain letters which have
+    a stroke for example. (This and other examples apply to languages like
+    polish, czech, greek, turkish, german (i.e. ß=ss), etc., just to name few.)
+    For these cases and languages, the sorting Algorithm does return different
+    ordered resultsets, depending the collation used, appending sort results
+    before, after, or at the same place as the normal letter.
+    Different coding system will get you different sorting results. No one of
+    this coding is better or worse - it depends of your needs.
+
   * Fix Mysql "simple" Install routine for utf8mb4 usage, while not having access
     to an "utf8" defined SQL_CHARSET and thus not setting the "dbUtf8mb4_converted"
     configuration var.
