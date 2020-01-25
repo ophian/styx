@@ -431,9 +431,9 @@ switch($serendipity['GET']['adminAction']) {
                                 }
                             }
                         }
+                        $cat['link']  = serendipity_categoryURL($cat);
+                        $entry_cats[] = $cat;
                     }
-                    $cat['link']  = serendipity_categoryURL($cat);
-                    $entry_cats[] = $cat;
                 }
 
                 $smartentry = array(
