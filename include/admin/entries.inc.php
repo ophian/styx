@@ -413,7 +413,7 @@ switch($serendipity['GET']['adminAction']) {
                     foreach($ey['categories'] AS $cat) {
                         // fetch ACL read and view permission for each category to know about possible frontend restrictions when a category is made to read by certain groups only
                         $aclreadgroups = serendipity_ACLGet($cat['categoryid'], 'category', 'read'); // is always $aclreadgroups[0], when not is specific categoryid being group restricted
-                        if (!isset($aclreadgroups[0])) {
+                        if (!is_bool($aclreadgroups) && !isset($aclreadgroups[0])) {
                             foreach(array_keys($aclreadgroups) AS $categoryid) {
                                 $restrictedcategories[] = $categoryid;
                             }
