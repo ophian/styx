@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix d96a121 backend entries list aclreadgroup generation for non applies
+    and a bug adding entries category links when having more than one.
+
   * As having pointed out in "Version 2.1-beta1 Styx (September 3rd, 2016)"
     changelog of this file, MariaDB/MySQL uses different utf8 charset
     mappings of the Unicode character set.
