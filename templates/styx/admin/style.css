@@ -2694,6 +2694,10 @@ h3 .media_file_actions {
 #serendipity_image_folders .edit_actions li {
     padding: 0;
 }
+.category_base_entries .catctlabel,
+#categories .edit_actions .catctlabel {
+    font-size: .8125em;
+}
 /* Categories + MediaLibrary directories - zebra to gradient replacement */
 #categories:not(.slist) li {
     margin-bottom: .5em;

@@ -156,7 +156,7 @@
     {if is_array($viewCats)}
 
     <h3>{$CONST.NO_CATEGORY}</h3>
-    <span class="category_base_entries"><em>{if isset($entriesnocat)}{if $entriesnocat.0 > 0}{$entriesnocat.0}{else}<span class="emptydim">0</span>{/if} {$CONST.ENTRIES} ({$entriesbyauthor}){/if}</em></span>
+    <span class="category_base_entries"><em>{if isset($entriesnocat)}{if $entriesnocat.0 > 0}<span class="catctlabel">{$entriesnocat.0}{else}<span class="emptydim catctlabel">0{/if} {$CONST.ENTRIES} ({$entriesbyauthor}){/if}</span></em></span>
 
     <ul id="categories" class="option_list{if NOT $threadedCat} slist{/if}">
     {foreach $viewCategories AS $category}
@@ -186,7 +186,7 @@
                 </details>
 
                 <ul class="plainList clearfix edit_actions">
-                    <li><em>{if isset($catentries[{$category.categoryid}])}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]={$category.categoryid}&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.CATEGORY} {$category.category_name|escape}">{$catentries[{$category.categoryid}]} {$CONST.ENTRIES}</a>{else}<span class="emptydim">0 {$CONST.ENTRIES}</span>{/if}</em></li>
+                    <li><em>{if isset($catentries[{$category.categoryid}])}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]={$category.categoryid}&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.CATEGORY} {$category.category_name|escape}"><span class="catctlabel">{$catentries[{$category.categoryid}]} {$CONST.ENTRIES}</span></a>{else}<span class="emptydim catctlabel">0 {$CONST.ENTRIES}</span>{/if}</em></li>
                     <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=edit&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.EDIT}: #{$category.categoryid} - {$category.category_name|escape}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
                     <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=newSub&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.CREATE_NEW_CAT}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_NEW_CAT}</span></a></li>
                     <li><a class="button_link" href="?serendipity[adminModule]=category&amp;serendipity[adminAction]=delete&amp;serendipity[cid]={$category.categoryid}" title="{$CONST.DELETE} {$category.category_name|escape}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
