@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add an "utf8mb4" Collation auto fix for the Mysql "simple" Install routine
+    fix to maintenance.
+
   * Fix d96a121 backend entries list aclreadgroup generation for non applies
     and a bug adding entries category links when having more than one.
 
