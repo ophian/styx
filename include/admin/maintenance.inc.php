@@ -27,9 +27,17 @@ if ($serendipity['GET']['adminAction'] == 'cleartemp' || $serendipity['GET']['ad
 
 $usedSuffixes = @serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images WHERE thumbnail_name != ''", false, 'num');
 
-$data['dbUtf8mb4_ready']     = $serendipity['dbUtf8mb4_ready'] ?? null;
-$data['dbUtf8mb4']           = $serendipity['dbUtf8mb4'] ?? null;
-$data['dbUtf8mb4_converted'] = $serendipity['dbUtf8mb4_converted'] ?? null;
+// UTF8MB4 - check for a possible previous bad install via simple install mode
+if ($serendipity['dbUtf8mb4'] === false && $serendipity['dbUtf8mb4_converted'] === null && $serendipity['dbType'] == 'mysqli'){
+    if ($serendipity['dbCharset'] == 'utf8mb4' && mysqli_character_set_name($serendipity['dbConn']) == 'utf8mb4') {
+        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET name='dbUtf8mb4_converted', value='true', authorid=0");
+        $serendipity['dbUtf8mb4'] = $serendipity['dbUtf8mb4_converted'] = true;
+        echo '<span class="msg_success"><strong>Maintenance:</strong> Automatically fixed a wrong set db utf8mb Collation once.</span>';
+    }
+}
+$data['dbUtf8mb4_ready']     = $serendipity['dbUtf8mb4_ready'] ?? null; // Smarty generic
+$data['dbUtf8mb4']           = $serendipity['dbUtf8mb4'] ?? null; // Smarty generic
+$data['dbUtf8mb4_converted'] = $serendipity['dbUtf8mb4_converted'] ?? null; // Smarty generic
 $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
