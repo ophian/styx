@@ -83,7 +83,7 @@ $data['urltoken'] = serendipity_setFormToken('url');
 $data['token'] = serendipity_setFormToken();
 
 if (!isset($serendipity['default_widgets'])) {
-    $serendipity['default_widgets'] = true;
+    $serendipity['default_widgets'] = false;
 }
 
 if ($serendipity['default_widgets']) {
