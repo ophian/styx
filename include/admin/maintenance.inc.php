@@ -32,7 +32,7 @@ if ($serendipity['dbUtf8mb4'] === false && $serendipity['dbUtf8mb4_converted'] =
     if ($serendipity['dbCharset'] == 'utf8mb4' && mysqli_character_set_name($serendipity['dbConn']) == 'utf8mb4') {
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET name='dbUtf8mb4_converted', value='true', authorid=0");
         $serendipity['dbUtf8mb4'] = $serendipity['dbUtf8mb4_converted'] = true;
-        echo '<span class="msg_success"><strong>Maintenance:</strong> Automatically fixed a wrong set db utf8mb Collation once.</span>';
+        echo '<span class="msg_success"><strong>Maintenance:</strong> Automatically fixed a missing database utf8mb4 Collation variable once.</span>';
     }
 }
 $data['dbUtf8mb4_ready']     = $serendipity['dbUtf8mb4_ready'] ?? null; // Smarty generic
