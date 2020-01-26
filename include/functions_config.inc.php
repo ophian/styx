@@ -431,7 +431,7 @@ function serendipity_login($use_external = true) {
     if (isset($serendipity['POST']['pass'])) $serendipity['POST']['pass'] = (string)$serendipity['POST']['pass'];
 
     // First try login via POST data. If true, the user information will be stored in a cookie (optionally)
-    if (serendipity_authenticate_author($serendipity['POST']['user'], $serendipity['POST']['pass'], false, $use_external)) {
+    if (isset($serendipity['POST']['user']) && isset($serendipity['POST']['pass']) && serendipity_authenticate_author($serendipity['POST']['user'], $serendipity['POST']['pass'], false, $use_external)) {
         if (empty($serendipity['POST']['auto'])) {
             serendipity_deleteCookie('author_information');
             serendipity_deleteCookie('author_information_iv');
@@ -460,7 +460,7 @@ function serendipity_login($use_external = true) {
         }
     }
 
-    $data = array('ext' => $use_external, 'mode' => 2, 'user' => $serendipity['POST']['user'], 'pass' => $serendipity['POST']['pass']);
+    $data = array('ext' => $use_external, 'mode' => 2, 'user' => ($serendipity['POST']['user'] ?? null), 'pass' => ($serendipity['POST']['pass'] ?? null));
     serendipity_plugin_api::hook_event('backend_loginfail', $data);
 }
 
