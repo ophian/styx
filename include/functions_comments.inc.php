@@ -1261,7 +1261,7 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
 function serendipity_mailSubscribers($entry_id, $poster, $posterMail, $title, $fromEmail = 'none@example.com', $cid = null, $body = null) {
     global $serendipity;
 
-    $entryURI = serendipity_archiveURL($entry_id, $title, 'baseURL') . ($cid > 0 ? '#c' . $cid : '');
+    $entryURI = serendipity_archiveURL($entry_id, $title, 'baseURL', true, array('timestamp' => time())) . ($cid > 0 ? '#c' . $cid : '');
     $subject =  sprintf(NEW_COMMENT_TO_SUBSCRIBED_ENTRY, $title);
 
     $pgsql_insert = '';
@@ -1354,7 +1354,7 @@ function serendipity_sendComment($comment_id, $to, $fromName, $fromEmail, $fromU
         $fromName = ANONYMOUS;
     }
 
-    $entryURI = serendipity_archiveURL($id, $title, 'baseURL');
+    $entryURI = serendipity_archiveURL($id, $title, 'baseURL', true, array('timestamp' => time()));
     $path     = ($type == 'TRACKBACK' || $type == 'PINGBACK') ? 'trackback' : 'comment';
 
     // Check for using Tokens
