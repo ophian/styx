@@ -106,7 +106,7 @@
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/config.js"></script>
     <script>
         window.onload = function() {
-            CKEDITOR.replace( 'serendipity_commentform_comment', { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel'],['Undo', 'Redo']] });
+            CKEDITOR.replace( 'serendipity_commentform_comment', { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']] });
         }
     </script>
 {/if}
