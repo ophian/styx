@@ -1,7 +1,7 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Add NEW simple basic Rich Text Editor for core approaches.
+  * Add NEW simple basic up-to-date Rich Text Editor for core approaches.
     If you want and need an extended version, please install the CKEplus event
     Plugin. This also does take more care of some Advanced Styx Features,
     most presumably hooked via additional Plugins.
