@@ -1129,25 +1129,6 @@ function serendipity_smarty_init($vars = array()) {
             }
         }
 
-        $wysiwyg_customPlugin = $wysiwyg_customConfig = null;
-
-        if (defined('IN_serendipity_admin') && isset($serendipity['wysiwyg']) && $serendipity['wysiwyg']) {
-
-            // check force internal toolbar config file
-            if (strpos($serendipity['wysiwygToolbar'], 'NOCC-') !== false) {
-                $serendipity['wysiwygToolbar'] = substr($serendipity['wysiwygToolbar'], 5);
-                $force_internal_toolbar = true;
-            }
-            // check ckeditor custom plugin file
-            $ccp = serendipity_getTemplateFile('admin/ckeditor_custom_plugin.js', 'serendipityHTTPPath', true);
-            $wysiwyg_customPlugin = (!empty($ccp) && !$force_internal_toolbar) ? $ccp : $serendipity['serendipityHTTPPath'] . 'htmlarea/ckeditor_s9y_plugin.js';
-
-            // check ckeditor custom config file
-            $ccc = serendipity_getTemplateFile('admin/ckeditor_custom_config.js', 'serendipityHTTPPath', true);
-            $wysiwyg_customConfig = (!empty($ccc) && !$force_internal_toolbar) ? $ccc : $serendipity['serendipityHTTPPath'] . 'htmlarea/ckeditor_s9y_config.js';
-
-        }
-
         $_force_backendpopups = explode(',', ($serendipity['enableBackendPopupGranular'] ?? 'links')); // 'links' container is the only one in need to be non mpf layered per default install for the quicktip doc
         $force_backendpopups  = array();
         foreach($_force_backendpopups AS $fbp_key => $fbp_val) {
@@ -1197,9 +1178,6 @@ function serendipity_smarty_init($vars = array()) {
                 'templatePath'              => $serendipity['templatePath'],
                 'template_backend'          => $serendipity['template_backend'],
                 'wysiwyg_comment'           => $serendipity['allowHtmlComment'] ?? false,
-                'wysiwygToolbar'            => $serendipity['wysiwygToolbar'] ?? false,
-                'wysiwyg_customPlugin'      => $wysiwyg_customPlugin,
-                'wysiwyg_customConfig'      => $wysiwyg_customConfig,
                 'use_autosave'              => (isset($serendipity['use_autosave']) && serendipity_db_bool($serendipity['use_autosave'])) ? 'true' : 'false',
 
                 'dateRange'                 => (!empty($serendipity['range']) ? $serendipity['range'] : array())
