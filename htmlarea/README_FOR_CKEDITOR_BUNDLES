@@ -1,3 +1,0 @@
-This includes the full release version. We removed all samples and dev directories and the build script.
-Do not update with a custom bundle by a build script, since that leads into issues.
-This is why composer updates were removed. Read the ckeditor_s9y_config.js file for more about custom enhancements.
