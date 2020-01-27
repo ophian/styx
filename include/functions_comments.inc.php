@@ -1139,8 +1139,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
             $message = sprintf(CONFIRMATION_MAIL_SUBSCRIPTION,
                                 $name,
                                 $row['title'],
-                                serendipity_archiveURL($id, $row['title'], 'baseURL'),
-                                $serendipity['baseURL'] . 'comment.php?optin=' . $dbhash);
+                                serendipity_archiveURL($id, $row['title'], 'baseURL', true, array('timestamp' => time())), $serendipity['baseURL'] . 'comment.php?optin=' . $dbhash);
 
             serendipity_sendMail($email, $subject, $message, $serendipity['blogMail']);
         }
