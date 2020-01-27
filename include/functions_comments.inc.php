@@ -889,6 +889,8 @@ function serendipity_approveComment($cid, $entry_id, $force = false, $moderate =
                                            AND entry_id = " . (int)$entry_id . "
                                       GROUP BY entry_id", true);
 
+    $counter_tb['counter'] = $counter_tb['counter'] ?? 0;
+
     $query = "UPDATE {$serendipity['dbPrefix']}entries
                  SET comments      = " . (int)$counter_comments['counter'] . ",
                      trackbacks    = " . (int)$counter_tb['counter'] . ",
