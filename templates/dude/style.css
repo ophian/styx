@@ -919,6 +919,9 @@ table.serendipity_calendar td {
     padding: 0;
     text-align: center;
 }
+.serendipity_imageComment_img img {
+    width: auto;
+}
 .serendipity_imageComment_txt {
     border-top: 1px solid #ddd;
     background-color: #efefef;
