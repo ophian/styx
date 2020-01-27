@@ -1,7 +1,7 @@
 {if $is_logged_in AND $comment_wysiwyg}
 <script>
 if (!window.CKEDITOR) {
-    document.write('<script src="{$serendipityHTTPPath|replace:'/':'\/'}htmlarea\/ckeditor\/ckeditor.js"><\/script>');
+    document.write('<script src="{$serendipityHTTPPath|replace:'/':'\/'}templates\/_assets\/ckebasic\/ckeditor.js"><\/script>');
 }
 </script>
 {/if}
