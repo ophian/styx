@@ -1088,14 +1088,6 @@
 @define('CONF_USE_AUTOSAVE_DESC', 'Wenn aktiviert, wird der Text von Blog-Einträgen regelmäßig automatisch im Session-Speicher des Browsers gesichert. Falls der Browser während des Schreibens abstürzt wird beim nächsten Erzeugen eines Eintrags der verlorene Text wiederhergestellt.');
 @define('INSTALL_CAT_FEEDS', 'Feed-Einstellungen');
 @define('INSTALL_CAT_FEEDS_DESC', 'Bestimmt, wie Serendipity Feeds bestückt');
-@define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR', 'WYSIWYG-Buttonleiste');
-@define('USERCONF_USE_CORE_WYSIWYG_TOOLBAR_DESC', 'Hier kann die Menge der verfügbaren Buttons im WYSIWYG-Editor mittels einer Voreinstellung gewählt werden. Falls darüber hinaus eigene Anpassungen (mittels einer individuellen JavaScript-Konfigurationsdatei in templates/XXX/admin/ckeditor_custom_config.js) benötigt werden befinden sich Hinweise hierzu in den Dateien htmlarea/ckeditor_s9y_config.js und htmlarea/ckeditor_s9y_plugin.js.');
-@define('USERCONF_WYSIWYG_PRESET_STANDARD', 'Standard');
-@define('USERCONF_WYSIWYG_PRESET_BASIC', 'Reduziert');
-@define('USERCONF_WYSIWYG_PRESET_FULL', 'Vollständig');
-@define('USERCONF_WYSIWYG_PRESET_NOCC_STANDARD', 'Erzwingen: Standard');
-@define('USERCONF_WYSIWYG_PRESET_NOCC_BASIC', 'Erzwingen: Reduziert');
-@define('USERCONF_WYSIWYG_PRESET_NOCC_FULL', 'Erzwingen: Vollständig');
 
 @define('CATEGORY_PLUGIN_SHOWALL', 'Zeige einen Link zu "Alle Kategorien"?');
 @define('CATEGORY_PLUGIN_SHOWALL_DESC', 'Falls aktiviert wird Besuchern ein Link angezeigt, um das Blog ohne Einschränkung der Kategorien darzustellen.');
