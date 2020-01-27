@@ -32,4 +32,14 @@ CKEDITOR.editorConfig = function( config ) {
 
 	// Dialog windows are also simplified.
 	config.removeDialogTabs = 'link:advanced';
+
+    // Add Styx specific styles
+    config.contentsCss = [ 'templates/_assets/ckebasic/contents.css', 'templates/_assets/wysiwyg-style.css' ];
+
+    // Plugin: Autogrow textareas configuration for Styx
+    config.autoGrow_minHeight = 120;
+    config.autoGrow_maxHeight = 420;
+    config.autoGrow_bottomSpace = 50;
+    config.autoGrow_onStartup = true;
+
 };
