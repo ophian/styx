@@ -79,22 +79,6 @@
                                           'permission'  => 'personalConfiguration',
                                           'flags'       => array('config')),
 
-                                    array('var'         => 'wysiwygToolbar',
-                                          'title'       => USERCONF_USE_CORE_WYSIWYG_TOOLBAR,
-                                          'description' => USERCONF_USE_CORE_WYSIWYG_TOOLBAR_DESC,
-                                          'type'        => 'list',
-                                          'permission'  => 'personalConfiguration',
-                                          'default'     => array(
-                                              'Standard' => USERCONF_WYSIWYG_PRESET_STANDARD,
-                                              'Basic'    => USERCONF_WYSIWYG_PRESET_BASIC,
-                                              'Full'     => USERCONF_WYSIWYG_PRESET_FULL,
-                                              '----',
-                                              'NOCC-Standard' => USERCONF_WYSIWYG_PRESET_NOCC_STANDARD,
-                                              'NOCC-Basic'    => USERCONF_WYSIWYG_PRESET_NOCC_BASIC,
-                                              'NOCC-Full'     => USERCONF_WYSIWYG_PRESET_NOCC_FULL,
-                                              ),
-                                          'flags'       => array('config')),
-
                                     array('var'         => 'mail_comments',
                                           'title'       => USERCONF_SENDCOMMENTS,
                                           'description' => USERCONF_SENDCOMMENTS_DESC,
