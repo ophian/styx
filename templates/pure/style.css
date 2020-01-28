@@ -448,8 +448,12 @@ body {
     color: #ccdde7;
     text-shadow: 1px 1px 1px rgba(0,0,0,.7);
 }
-#serendipity_banner h1, #serendipity_banner h2 {
+#serendipity_banner h1 {
     display: initial;
+}
+/* do not show on mobile head */
+#serendipity_banner h2 {
+    display: none;
 }
 #serendipity_banner h1 {
     padding-top: 1em;
