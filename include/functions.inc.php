@@ -1157,15 +1157,14 @@ function serendipity_displayTopUrlList($list, $limit, $use_links = true, $interv
         $limit = serendipity_db_limit_sql($limit);
     }
 
-    /* HACK */
-    if (preg_match('/^mysqli?/', $serendipity['dbType'])) {
-        /* Nonportable SQL due to MySQL date functions,
+    if ($serendipity['dbType'] == 'mysqli') {
+        /* Non portable SQL due to MySQL date functions,
          * but produces rolling 7 day totals, which is more
-         * interesting
+         * interesting - if has
          */
         $query = "SELECT scheme, host, SUM(count) AS total
                     FROM {$serendipity['dbPrefix']}$list
-                   WHERE day > date_sub(current_date, interval " . (int)$interval . " day)
+                   WHERE day > date_sub(current_date, interval " . (int)$interval . " day) OR 1
                 GROUP BY host
                 ORDER BY total DESC, host
                   $limit";
