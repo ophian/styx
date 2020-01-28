@@ -51,18 +51,20 @@ if (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminActio
     if (isset($serendipity['POST']['commentform']['replyToParent']) && $serendipity['POST']['commentform']['replyToParent'] >= 0) {
         $_replyTo = ($_replyTo != $serendipity['POST']['commentform']['replyToParent']) ? (int)$serendipity['POST']['commentform']['replyToParent'] : $_replyTo;
     }
-    $sql = "UPDATE {$serendipity['dbPrefix']}comments
-               SET
-                    author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
-                    email  = '" . serendipity_db_escape_string($serendipity['POST']['email'])   . "',
-                    url    = '" . serendipity_db_escape_string($serendipity['POST']['url'])     . "',
-                    " . ($_replyTo != $_id ? "parent_id = '" . serendipity_db_escape_string($_replyTo) . "'," : '') . "
-                    body   = '" . serendipity_db_escape_string($serendipity['POST']['comment']) . "'
-             WHERE id      = " . $_id . "
-               AND entry_id= " . (int)$serendipity['POST']['entry_id'];
-    serendipity_db_query($sql);
-    serendipity_plugin_api::hook_event('backend_updatecomment', $serendipity['POST'], $_id);
-    $msg .= COMMENT_EDITED."\n";
+    if (isset($serendipity['POST']) && $_id > 0) {
+        $sql = "UPDATE {$serendipity['dbPrefix']}comments
+                   SET
+                        author = '" . serendipity_db_escape_string($serendipity['POST']['name'])    . "',
+                        email  = '" . serendipity_db_escape_string($serendipity['POST']['email'])   . "',
+                        url    = '" . serendipity_db_escape_string($serendipity['POST']['url'])     . "',
+                        " . ($_replyTo != $_id ? "parent_id = '" . serendipity_db_escape_string($_replyTo) . "'," : '') . "
+                        body   = '" . serendipity_db_escape_string($serendipity['POST']['comment']) . "'
+                 WHERE id      = " . $_id . "
+                   AND entry_id= " . (int)$serendipity['POST']['entry_id'];
+        serendipity_db_query($sql);
+        serendipity_plugin_api::hook_event('backend_updatecomment', $serendipity['POST'], $_id);
+        $msg .= COMMENT_EDITED."\n";
+    }
 }
 
 /* Submit a new comment */
