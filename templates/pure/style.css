@@ -1682,6 +1682,15 @@ div.serendipityPlug a {
     width: auto;
     display: inline-block;
 }
+/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
+.post p .serendipity_image_left,
+.post p .serendipity_image_right {
+    max-width: 48%; }
+@media screen and (min-width: 768px) {
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right {
+        max-width: 100%; }
+}
 /* Set this fluidable for a certain range, which forces to overrule delivered inline styles, but keeps smaller images with a commentbox together. */
 @media screen and (min-width: 1024px) {
     figure.serendipity_imageComment_center {
