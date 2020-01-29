@@ -1,6 +1,11 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Set a new default .serendipity_image_block .serendipity_image_link style to
+    style_fallback.css for all themes.
+    This renews a new "Styx default" style part to .serendipity_image_link in
+    default theme and further on all themes following this scheme.
+
   * Fix mysql query statistics issue for possible empty weekly rolling total
     summary.
 
