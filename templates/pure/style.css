@@ -1689,12 +1689,12 @@ div.serendipityPlug a {
 .post p .serendipity_image_left,
 .post p .serendipity_image_right {
     max-width: 48%; }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1600px) {
     .post .serendipity_imageComment_left,
     .post .serendipity_imageComment_right,
     .post p .serendipity_image_left,
     .post p .serendipity_image_right {
-        max-width: 100%; }
+        max-width: initial; }
 }
 /* Set this fluidable for a certain range, which forces to overrule delivered inline styles, but keeps smaller images with a commentbox together. */
 @media screen and (min-width: 1024px) {
