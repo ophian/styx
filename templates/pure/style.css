@@ -384,6 +384,7 @@ form button, input[type="button"], input[type="reset"], input[type="submit"] {
 body {
     display: flex;
     flex-direction: column;
+    width: auto;
     min-height: 100vh;
     background-color: #f5f5f5;
 }
