@@ -1683,10 +1683,14 @@ div.serendipityPlug a {
     display: inline-block;
 }
 /* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
+.post .serendipity_imageComment_left,
+.post .serendipity_imageComment_right,
 .post p .serendipity_image_left,
 .post p .serendipity_image_right {
     max-width: 48%; }
 @media screen and (min-width: 768px) {
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
     .post p .serendipity_image_left,
     .post p .serendipity_image_right {
         max-width: 100%; }
