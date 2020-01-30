@@ -753,6 +753,19 @@ div.serendipityPlug a {
         display: block; /* must be "block" on very big content width again .. to center */
     }
 }
+/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
+.serendipity_imageComment_left,
+.serendipity_imageComment_right,
+p .serendipity_image_left,
+p .serendipity_image_right {
+    max-width: 48%; }
+@media screen and (min-width: 1366px) {
+    .serendipity_imageComment_left,
+    .serendipity_imageComment_right,
+    p .serendipity_image_left,
+    p .serendipity_image_right {
+        max-width: initial; }
+}
 
 /* style to center and overwrite fallback plain image padding */
 .serendipity_image_center {
