@@ -876,9 +876,6 @@ table.serendipity_calendar td {
 /** End of Sidebar Styles **/
 
 /** Embedded images with the Serendipity Styx image manager **/
-
-.serendipity_image_link {
-    display: initial; }
 .serendipity_entry p > .serendipity_image_left,
 .serendipity_entry p > .serendipity_imageComment_center,
 .serendipity_entry p > .serendipity_image_right {
@@ -944,8 +941,8 @@ table.serendipity_calendar td {
 .serendipity_entry_body .serendipity_imageComment_right,
 .serendipity_entry_body p .serendipity_image_left,
 .serendipity_entry_body p .serendipity_image_right {
-    max-width: 48%; }
-@media screen and (min-width: 1280px) {
+    max-width: 46%; }
+@media screen and (min-width: 1360px) {
     .serendipity_entry_body .serendipity_imageComment_left,
     .serendipity_entry_body .serendipity_imageComment_right,
     .serendipity_entry_body p .serendipity_image_left,
