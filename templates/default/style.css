@@ -145,8 +145,6 @@ pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; overflow: 
     -moz-border-radius: 3px;
     border-radius: 3px;
     padding: .625em; }
-.serendipity_image_link {
-    display: initial; }
 .serendipity_entry table {
     border-collapse: separate;
     border-spacing: 2px;
