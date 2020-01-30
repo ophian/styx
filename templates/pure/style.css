@@ -1567,7 +1567,6 @@ div.serendipityPlug a {
     margin-top: 1em;
     margin-bottom: 1em;
 }
-
 .serendipity_history_body {
     margin-bottom: 1em;
 }
@@ -1673,28 +1672,16 @@ div.serendipityPlug a {
     font-size: 10px;
     font-size: .625rem;
     text-align: center; }
-.serendipity_image_link {
-    display: inline-block; }
 
 /* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
 .serendipity_imageComment_left,
-.serendipity_imageComment_center,
 .serendipity_imageComment_right {
     width: auto;
     display: inline-block;
 }
-/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
-.post .serendipity_imageComment_left,
-.post .serendipity_imageComment_right,
-.post p .serendipity_image_left,
-.post p .serendipity_image_right {
-    max-width: 48%; }
-@media screen and (min-width: 1600px) {
-    .post .serendipity_imageComment_left,
-    .post .serendipity_imageComment_right,
-    .post p .serendipity_image_left,
-    .post p .serendipity_image_right {
-        max-width: initial; }
+.serendipity_imageComment_center {
+    width: auto;
+    display: block;
 }
 /* Set this fluidable for a certain range, which forces to overrule delivered inline styles, but keeps smaller images with a commentbox together. */
 @media screen and (min-width: 1024px) {
@@ -1708,6 +1695,19 @@ div.serendipityPlug a {
         display: block; /* must be "block" on very big content width again .. to center */
     }
 }
+/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
+.post .serendipity_imageComment_left,
+.post .serendipity_imageComment_right,
+.post p .serendipity_image_left,
+.post p .serendipity_image_right {
+    max-width: 46.75%; }
+@media screen and (min-width: 1600px) {
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right {
+        max-width: initial; }
+}
 
 /* overwrite fallback plain image padding */
 .serendipity_image_center {
@@ -1720,9 +1720,6 @@ div.serendipityPlug a {
 }
 p > .serendipity_image_center {
     margin: auto;
-}
-p > .serendipity_image_link {
-    display: initial;
 }
 .serendipity_image_block {
     width: 100.2525%;
@@ -1777,8 +1774,6 @@ p > .serendipity_image_link {
   .archive_year {
     width: 46%;
     vertical-align: top; }
-  .serendipity_imageComment_center {
-      display: block; }
 }
 
 /* For SMALL SCREENS + above */
