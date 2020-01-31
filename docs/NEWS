@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix 2k11 image comment grids to expand the image inside the container
+
   * Auto scale left and right oriented image floats in certain themes
     [default, pure, dude, next]
 
