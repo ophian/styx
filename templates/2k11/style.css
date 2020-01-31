@@ -787,6 +787,11 @@ pre .geshi {
     border: 1px solid #aaa;
 }
 
+/* Fix image comment grids */
+source.serendipity_image_left, source.serendipity_image_right {
+    display: contents;
+}
+
 .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
   border: 1px solid #aaa;
   box-sizing: border-box;
