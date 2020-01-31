@@ -1,5 +1,5 @@
 /**
- * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.10 on 2020-01-27
+ * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.11 on 2020-01-31
  */
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
@@ -57,10 +57,29 @@ p > img.serendipity_image_right {
     margin: 0 !important;
 }
 
-/* Fix image comment grids */
-source.serendipity_image_left,
-source.serendipity_image_right {
-    display: contents;
+/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
+.cke_editable .serendipity_imageComment_left,
+.cke_editable .serendipity_imageComment_right,
+.cke_editable p .serendipity_image_left,
+.cke_editable p .serendipity_image_right {
+  max-width: 46%; }
+  @media screen and (min-width: 1366px) {
+    .cke_editable .serendipity_imageComment_left,
+    .cke_editable .serendipity_imageComment_right,
+    .cke_editable p .serendipity_image_left,
+    .cke_editable p .serendipity_image_right {
+      max-width: initial; }
+  }
+
+.cke_editable figure.serendipity_imageComment_center {
+    width: auto;
+    display: contents !important; /* force overwrite delivered inline styles */
+}
+/* Set back to a block element for big screens, since we don't want the commentbox to expand into space. This was tested with an image of 1000px width. Others may vary! */
+@media screen and (min-width: 400px) {
+    .cke_editable figure.serendipity_imageComment_center {
+        display: block !important; /* must be "block" on very big content width again .. to center */
+    }
 }
 
 .serendipity_imageComment_txt {
@@ -72,37 +91,45 @@ source.serendipity_image_right {
     text-align: center;
 }
 
+/* inherit keeps inner margins, else set auto or initial */
+.serendipity_imageComment_img {
+    margin: auto; }
+
+/* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
 .serendipity_imageComment_center,
 .serendipity_imageComment_left,
 .serendipity_imageComment_right {
+    display: block;
     height: auto;
-    max-width: 100%;
-}
+    width: auto;
+ }
 
-.serendipity_imageComment_center {
-    margin: auto !important;
+/* Fix image comment grids - expand images to container */
+source.serendipity_image_left,
+source.serendipity_image_right {
+    display: contents;
 }
 
 .serendipity_image_left {
     float: left;
-    margin: 0 2em 1em 0;
+    margin: 0 1em .5em 0;
 }
 
 .serendipity_image_right {
     float: right;
-    margin: 0 0 1em 2em;
+    margin: 0 0 .5em 1em;
 }
 
 .serendipity_imageComment_left {
     display: inline;
     float: left;
-    margin: 0 2em 1em 0;
+    margin: 0 1em .5em 0;
 }
 
 .serendipity_imageComment_right {
     display: inline;
     float: right;
-    margin: 0 0 1em 2em;
+    margin: 0 0 .5em 1em;
 }
 
 /* Gallery-Container: This is used to enclose a gallery, using serendipity_image_left or _right floated images */
