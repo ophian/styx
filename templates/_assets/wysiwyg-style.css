@@ -57,6 +57,12 @@ p > img.serendipity_image_right {
     margin: 0 !important;
 }
 
+/* Fix image comment grids */
+source.serendipity_image_left,
+source.serendipity_image_right {
+    display: contents;
+}
+
 .serendipity_imageComment_txt {
     border-top: 0 none;
     color: #222;
