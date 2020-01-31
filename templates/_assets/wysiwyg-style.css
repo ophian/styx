@@ -79,7 +79,7 @@ p > img.serendipity_image_right {
 /* Awaiting a thumb size of 400px or more, inclusive the size of all given containers, like ckeditor, form, etc., we set this 5o 483px which expands thumbs to 400px.
    Set back to a block element for big screens, since we don't want the commentbox to expand into space. This was tested with an image of 1000px width. Others may vary! */
 @media screen and (min-width: 483px) {
-    figcaption.serendipity_imageComment_txt {
+    .serendipity_imageComment_txt {
         width: 100%;
         margin: 0 -2px;
     }
