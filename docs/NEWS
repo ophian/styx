@@ -2,7 +2,7 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
   * Auto scale left and right oriented image floats in certain themes
-    [default, pure, dude]
+    [default, pure, dude, next]
 
   * Set a new global default .serendipity_image_link and gallery related
     .serendipity_image_block .serendipity_image_link style to style_fallback.css
