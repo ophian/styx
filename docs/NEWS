@@ -4,7 +4,7 @@ Version 3.0-Dev ()
   * Fix Rich Text Editor inner Styx styles:
     - WYSIWYG-mode auto scale left and right oriented image floats
     - centered image comment grids for mobile screens
-    - margins for left and right oriented image floats.
+    - improving margins for left and right oriented image floats.
 
   * Fix 2k11 image comment grids to expand the image inside the container
 
