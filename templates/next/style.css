@@ -1006,10 +1006,18 @@ details summary {
   padding: 0 !important; }
 
 .serendipity_image_left, .serendipity_image_right, .serendipity_imageComment_left, .serendipity_imageComment_right {
-  margin: 16px 0;
-  margin: 1rem 0;
+  margin: auto;
   display: block;
   float: none; }
+
+.serendipity_image_left, .serendipity_imageComment_left {
+    margin: 4px 8px 4px 0;
+    margin: .25rem .5rem .25rem 0;
+    float: left; }
+.serendipity_image_right, .serendipity_imageComment_right {
+    margin: 4px 0 4px 8px;
+    margin: .25rem 0 .25rem .5rem;
+    float: right; }
 
 .serendipity_image_center, .serendipity_imageComment_center {
   margin: 16px auto;
@@ -1034,15 +1042,43 @@ details summary {
   box-sizing: border-box;
   display: inline-table; }
 
+/* inherit keeps inner margins, else set auto or initial */
+.serendipity_imageComment_img {
+  margin: inherit; }
+
 .serendipity_imageComment_center, .serendipity_imageComment_left, .serendipity_imageComment_right {
   height: auto;
   max-width: 100%; }
 
+/* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
+.serendipity_imageComment_left,
+.serendipity_imageComment_center,
+.serendipity_imageComment_right {
+  width: auto;
+  display: block; }
+
+source.serendipity_image_left, source.serendipity_image_right {
+    display: contents; }
+
+/* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
+.post .serendipity_imageComment_left,
+.post .serendipity_imageComment_right,
+.post p .serendipity_image_left,
+.post p .serendipity_image_right {
+  max-width: 46%; }
+  @media screen and (min-width: 1366px) {
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right {
+        max-width: initial; }
+  }
+
 /* overwrite fallback gallery comment container margins */
 .serendipity_image_block .serendipity_imageComment_left,
 .serendipity_image_block .serendipity_imageComment_right {
-    margin-top: 1rem;
-    margin-right: unset; }
+  margin-top: 1rem;
+  margin-right: unset; }
 
 .fluid-width-video-wrapper, video, audio {
   margin: 16px 0;
@@ -1345,31 +1381,26 @@ details summary {
   #archives .odd {
     clear: left; }
 
-  .serendipity_image_left, .serendipity_image_right, .serendipity_imageComment_img {
-    margin: 9px 0 0 0;
-    margin: .5rem 0 0 0; }
-    .serendipity_image_block .serendipity_image_link {
-        margin: 9px 0 0 0;
-        margin: .5rem 0 0 0; }
   .serendipity_image_center {
     margin: 9px auto 1rem auto;
     margin: .5rem auto 1rem auto; }
 
+  .serendipity_imageComment_img {
+    margin: auto; }
+
   .serendipity_image_left, .serendipity_imageComment_left {
     margin: 24px 16px 24px 0;
-    margin: 1.5rem 1rem 1.5rem 0;
-    float: left; }
+    margin: 1.5rem 1rem 1.5rem 0; }
     .clearfix .serendipity_image_left, .clearfix .serendipity_imageComment_left {
-      margin: 16px 16px 16px 0;
-      margin: 1rem 1rem 1rem 0; }
+      margin: 8px 16px 8px 0;
+      margin: .5rem 1rem .5rem 0; }
 
   .serendipity_image_right, .serendipity_imageComment_right {
     margin: 24px 0 24px 16px;
-    margin: 1.5rem 0 1.5rem 1rem;
-    float: right; }
+    margin: 1.5rem 0 1.5rem 1rem; }
     .clearfix .serendipity_image_right, .clearfix .serendipity_imageComment_right {
-      margin: 16px 0 16px 16px;
-      margin: 1rem 0 1rem 1rem; }
+      margin: 8px 0 8px 16px;
+      margin: .5rem 0 .5rem 1rem; }
 
   .serendipity_imageComment_left, .serendipity_imageComment_right {
     display: inline; }
