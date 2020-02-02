@@ -937,16 +937,16 @@ table.serendipity_calendar td {
     display: block;
 }
 /* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
-.serendipity_entry_body .serendipity_imageComment_left,
-.serendipity_entry_body .serendipity_imageComment_right,
-.serendipity_entry_body p .serendipity_image_left,
-.serendipity_entry_body p .serendipity_image_right {
+.serendipity_entry .serendipity_imageComment_left,
+.serendipity_entry .serendipity_imageComment_right,
+.serendipity_entry p .serendipity_image_left,
+.serendipity_entry p .serendipity_image_right {
     max-width: 46%; }
 @media screen and (min-width: 1360px) {
-    .serendipity_entry_body .serendipity_imageComment_left,
-    .serendipity_entry_body .serendipity_imageComment_right,
-    .serendipity_entry_body p .serendipity_image_left,
-    .serendipity_entry_body p .serendipity_image_right {
+    .serendipity_entry .serendipity_imageComment_left,
+    .serendipity_entry .serendipity_imageComment_right,
+    .serendipity_entry p .serendipity_image_left,
+    .serendipity_entry p .serendipity_image_right {
         max-width: initial; }
 }
 /* Set this fluidable for a certain range, which forces to overrule delivered inline styles, but keeps smaller images with a commentbox together. */
