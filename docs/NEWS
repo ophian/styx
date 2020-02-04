@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix global gallery styles row/col fallback display block for certain cases
+
   * Fix Rich Text Editor inner Styx styles:
     - WYSIWYG-mode auto scale left and right oriented image floats
     - centered image comment grids for mobile screens
