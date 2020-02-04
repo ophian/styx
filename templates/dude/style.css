@@ -876,6 +876,9 @@ table.serendipity_calendar td {
 /** End of Sidebar Styles **/
 
 /** Embedded images with the Serendipity Styx image manager **/
+.serendipity_image_block > div {
+    display: inline-block; }
+
 .serendipity_entry p > .serendipity_image_left,
 .serendipity_entry p > .serendipity_imageComment_center,
 .serendipity_entry p > .serendipity_image_right {
