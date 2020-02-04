@@ -402,6 +402,14 @@ a.homelink2:visited,
     margin: auto;
     margin-top: 1em;
 }
+@media screen and (min-width: 1024px) {
+    #content {
+        display: table;
+        min-width: 33.3em;
+        max-width: 100%; }
+    .serendipity_entry {
+        display: contents; }
+}
 .serendipity_entry_author_self {}
 .serendipity_entry_read_more {
     text-align: right;
@@ -690,6 +698,9 @@ div.serendipityPlug a {
 
 
 /** Embedded images with the Serendipity Styx image manager **/
+
+.serendipity_image_block > div {
+    display: inline-block; }
 
 .serendipity_imageComment_center,
 .serendipity_imageComment_left,
