@@ -818,7 +818,7 @@ nav.pager ul {
 @media screen and (min-width: 1024px) {
     #content {
         display: block;
-        min-width: 33em;
+        min-width: 33.3em;
         max-width: 100%; }
     .post_content {
         display: contents; }
