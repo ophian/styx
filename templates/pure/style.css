@@ -815,6 +815,14 @@ nav.pager ul {
     .post_content blockquote {
         border-left: 5px solid #ccc;
         padding-left: 1em; }
+@media screen and (min-width: 1024px) {
+    #content {
+        display: block;
+        min-width: 33em;
+        max-width: 100%; }
+    .post_content {
+        display: contents; }
+}
 .serendipity_title {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: .938rem;
