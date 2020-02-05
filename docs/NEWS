@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix webP srcset image missing selected full file name declaration
+
   * Fix global gallery styles row/col fallback display block for certain cases
 
   * Fix Rich Text Editor inner Styx styles:
