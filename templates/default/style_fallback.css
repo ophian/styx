@@ -12,7 +12,7 @@ input[type="button"], input[type="checkbox"] {
 }
 
 picture {
-    display: block;
+    display: inline-block;
 }
 
 figure {
@@ -234,6 +234,10 @@ ul#serendipity_categories_list {
 }
 /* MEDIUM SCREENS */
 @media only screen and (min-width: 552px) {
+    .serendipity_image_block.row > picture,
+    .serendipity_image_block.col > picture {
+        display: flex;
+    }
     .serendipity_image_block.col {
         column-count: 2;
         column-gap: .312rem;/*6*/
