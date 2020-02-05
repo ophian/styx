@@ -1724,11 +1724,12 @@ div.serendipityPlug a {
 /* style to center */
 .serendipity_image_center {
     display: block;
-    margin: 0 auto 1em auto;
-}
-p > .serendipity_image_center {
-    margin: auto;
-}
+    margin: 0 auto 1em auto; }
+    p > .serendipity_image_center {
+        margin: auto; }
+    picture > .serendipity_image_center {
+        display: inline-block; }
+
 .serendipity_image_block {
     width: 100.2525%;
 }
