@@ -151,7 +151,8 @@ ul#serendipity_categories_list {
 	list-style-type: none; }
 
 .serendipity_calendar {
-    width: 100%; }
+    width: 100%;
+}
 
 /* disable s9ymarkup, gravatar, spamblock markup and emoticate hooked text messages in contact-form template files, having at least this staticpage_plugin_contactform selector */
 .staticpage_plugin_contactform .serendipity_comment_emoticate,
@@ -163,7 +164,8 @@ ul#serendipity_categories_list {
 }
 
 .serendipity_image_link {
-    display: initial; }
+    display: initial;
+}
 /* Gallery-Container: default (fallback for no rows, no cols) */
 .serendipity_image_block,
 .serendipity_image_block .serendipity_image_link {
