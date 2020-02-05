@@ -12,7 +12,7 @@ input[type="button"], input[type="checkbox"] {
 }
 
 picture {
-    display: inline-block;
+    display: block;
 }
 
 figure {
