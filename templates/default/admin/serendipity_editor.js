@@ -432,12 +432,18 @@
             img       = f['imgName'].value;
         var imgWidth  = f['imgWidth'].value;
         var imgHeight = f['imgHeight'].value;
-        var imgWebPTh = f['webPthumbName'].value;
-        var imgWebPal = f['webPfileName'].value;
-        if (f['serendipity[linkThumbnail]'] && f['serendipity[linkThumbnail]'][0].checked == true) {
-            img       = f['thumbName'].value;
-            imgWidth  = f['imgThumbWidth'].value;
-            imgHeight = f['imgThumbHeight'].value;
+        var imgWebPth = f['webPthumbName'].value;
+        var imgWebPfu = f['webPfileName'].value;
+        var imgWebP   = '';
+        if (f['serendipity[linkThumbnail]']) {
+             if (f['serendipity[linkThumbnail]'][0].checked === true) {
+                img       = f['thumbName'].value;
+                imgWidth  = f['imgThumbWidth'].value;
+                imgHeight = f['imgThumbHeight'].value;
+                imgWebP   = (imgWebPth != '') ? imgWebPth : '';
+            } else {
+                imgWebP   = (imgWebPal != '') ? imgWebPal : '';
+            }
         }
 
         if (parent.self.opener == undefined) {
@@ -486,7 +492,7 @@
         }
         if (pictureSubmit) {
             img = '<!-- s9ymdb:'+ imgID +' --><picture>'
-            + '<source type="image/webp" srcset="' + imgWebPTh + '" class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ alt +'">'
+            + '<source type="image/webp" srcset="' + imgWebP + '" class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ alt +'">'
             + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">'
             + '</picture>';
         } else {

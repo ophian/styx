@@ -428,14 +428,19 @@
             img       = f['imgName'].value;
         var imgWidth  = f['imgWidth'].value;
         var imgHeight = f['imgHeight'].value;
-        var imgWebPTh = f['webPthumbName'].value;
-        var imgWebPal = f['webPfileName'].value;
-        if (f['serendipity[linkThumbnail]'] && f['serendipity[linkThumbnail]'][0].checked == true) {
-            img       = f['thumbName'].value;
-            imgWidth  = f['imgThumbWidth'].value;
-            imgHeight = f['imgThumbHeight'].value;
+        var imgWebPth = f['webPthumbName'].value;
+        var imgWebPfu = f['webPfileName'].value;
+        var imgWebP   = '';
+        if (f['serendipity[linkThumbnail]']) {
+             if (f['serendipity[linkThumbnail]'][0].checked === true) {
+                img       = f['thumbName'].value;
+                imgWidth  = f['imgThumbWidth'].value;
+                imgHeight = f['imgThumbHeight'].value;
+                imgWebP   = (imgWebPth != '') ? imgWebPth : '';
+            } else {
+                imgWebP   = (imgWebPfu != '') ? imgWebPfu : '';
+            }
         }
-
         if (parent.self.opener == undefined) {
             // in iframes, there is no opener, and the magnific popup is wrapped
             parent.self = window.parent.parent.$.magnificPopup;
@@ -482,7 +487,7 @@
         }
         if (pictureSubmit) {
             img = '<!-- s9ymdb:'+ imgID +' --><picture>'
-            + '<source type="image/webp" srcset="' + imgWebPTh + '" class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ alt +'">'
+            + '<source type="image/webp" srcset="' + imgWebP + '" class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ alt +'">'
             + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">'
             + '</picture>';
         } else {
@@ -492,10 +497,10 @@
         if (isLink) {
             // wrap the img in a link to the image. TODO: The label in the media_chooser.tpl explains it wrong
             var targetval = $('#select_image_target').val();
-            var fallback  = (pictureSubmit && imgWebPal != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
+            var fallback  = (pictureSubmit && imgWebPfu != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
 
             var prepend   = '';
-            var ilink     = (pictureSubmit && imgWebPal != '') ? imgWebPal : f['serendipity[url]'].value;
+            var ilink     = (pictureSubmit && imgWebPfu != '') ? imgWebPfu : f['serendipity[url]'].value;
             var itarget = '';
 
             switch (targetval) {
@@ -536,7 +541,7 @@
             parent.self = window.parent.parent.$.magnificPopup;
             parent.self.opener = window.parent.parent;
         }
-        if (pictureSubmit && imgWebPal != '' && noLink) {
+        if (pictureSubmit && imgWebPfu != '' && noLink) {
             img = '<div>' + img + '</div>';
             //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed when landing in your textarea
         }
