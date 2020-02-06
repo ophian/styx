@@ -101,7 +101,7 @@
 {/if}
 
     <script src="{serendipity_getFile file="pure.js"}"></script>
-{if $view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true')}
+{if $view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && NOT $entry.allow_comments === false}
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/ckeditor.js"></script>
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/config.js"></script>
     <script>
