@@ -1,5 +1,5 @@
 /**
- * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.11 on 2020-01-31
+ * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.12 on 2020-02-06
  */
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
@@ -10,6 +10,15 @@ embed, object { max-width: 100%; }
 
 img, video { height: auto; }
 
+picture {
+    display: block;
+}
+
+hr {
+    clear: both;
+    display: block;
+    margin-bottom: 1.5rem
+}
 p > a.serendipity_image_link {
     display; initial;
 }
@@ -63,13 +72,6 @@ p > img.serendipity_image_right {
 .cke_editable p .serendipity_image_left,
 .cke_editable p .serendipity_image_right {
   max-width: 46%; }
-  @media screen and (min-width: 1366px) {
-    .cke_editable .serendipity_imageComment_left,
-    .cke_editable .serendipity_imageComment_right,
-    .cke_editable p .serendipity_image_left,
-    .cke_editable p .serendipity_image_right {
-      max-width: initial; }
-  }
 
 .cke_editable .serendipity_imageComment_center {
     width: auto;
@@ -94,6 +96,11 @@ p > img.serendipity_image_right {
     text-align: center;
 }
 
+.serendipity_imageComment_img > .serendipity_image_link {
+    display: block;
+    margin: .25em auto;
+}
+
 /* inherit keeps inner margins, else set auto or initial */
 .serendipity_imageComment_img {
     margin: auto; }
@@ -105,8 +112,13 @@ p > img.serendipity_image_right {
     display: block;
     height: auto;
     width: auto;
- }
+}
 
+/* No 100% max as of certain grids */
+.serendipity_image_left,
+.serendipity_image_right {
+    max-width: 99.9%;
+}
 /* Fix image comment grids - expand images to container */
 source.serendipity_image_left,
 source.serendipity_image_right {
@@ -135,6 +147,9 @@ source.serendipity_image_right {
     margin: 0 0 .5em 1em;
 }
 
+.serendipity_image_link {
+    display: initial;
+}
 /* Gallery-Container: This is used to enclose a gallery, using serendipity_image_left or _right floated images */
 .serendipity_image_block.row {
     clear: both;
@@ -225,8 +240,14 @@ source.serendipity_image_right {
 .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
     margin: auto auto .187rem;
 }
-/* MEDIUM SCREENS 92% of 552px */
-@media only screen and (min-width: 508px) {
+/* MEDIUM SCREENS 92% of media screen 480px */
+@media only screen and (min-width: 455px) {
+    .serendipity_imageComment_img {
+        display: inline-block;
+    }
+    .serendipity_image_block.col picture {
+        display: inline-block;
+    }
     .serendipity_image_block.col {
         column-count: 2;
         column-gap: .312rem;/*6*/
@@ -237,9 +258,20 @@ source.serendipity_image_right {
     .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
         margin: auto auto .5em;
     }
+    source.serendipity_image_center {
+        margin: .25em;
+    }
 }
-/* DEFAULT SCREENS 92% of 768px */
-@media only screen and (min-width: 723px) {
+@media only screen and (min-width: 568px) {
+    .serendipity_image_block:not(.row) {
+        margin: 1rem auto 1rem; }
+}
+/* DEFAULT SCREENS 92% of media screen 768px */
+@media only screen and (min-width: 728px) {
+    .serendipity_image_block.col {
+        display: inline-block;
+        max-width: 100%;
+    }
     .serendipity_image_block.col {
         column-gap: .5rem;/*9*/
         column-fill: balance;
