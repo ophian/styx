@@ -807,7 +807,6 @@ nav.pager ul {
 /** Entries **/
 #content p {
     word-break: break-word;
-    overflow: auto; /*avoids nesting and overlaps*/
 }
 .post_content {
     display: inline-block;
@@ -822,7 +821,7 @@ nav.pager ul {
         min-width: 33.3em;
         max-width: 100%; }
     .post_content {
-        display: contents; }
+        display: flow-root; }
 }
 .serendipity_title {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
