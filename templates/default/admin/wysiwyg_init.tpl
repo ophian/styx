@@ -6,14 +6,14 @@
 {/if}
 <script>
     $('document').ready(function() {
-        CKEDITOR.plugins.add('styx_medialibrary_{$item}', {
+        CKEDITOR.plugins.add('styx_mediaLibrary_{$item}', {
             init: function( editor ) {
                 editor.addCommand( 'openML', {
                     exec : function( editor ) {
                         serendipity.openPopup('serendipity_admin.php?serendipity[adminModule]=media&serendipity[noBanner]=true&serendipity[noSidebar]=true&serendipity[noFooter]=true&serendipity[showMediaToolbar]=false&serendipity[showUpload]=true&serendipity[textarea]={$item}');
                     }
                 });
-                editor.ui.addButton('styx_medialibrary_{$item}', {
+                editor.ui.addButton('styx_mediaLibrary_{$item}', {
                     label: '{$CONST.MEDIA_LIBRARY}',
                     command: 'openML',
                     icon: '{serendipity_getFile file="admin/img/thumbnail.png"}'
@@ -33,7 +33,7 @@
             }
         });
 
-        styxmediabuttons.push('styx_medialibrary_{$item}');
+        styxmediabuttons.push('styx_mediaLibrary_{$item}');
         styxmediabuttons.push('styx_mediaGallery_{$item}');
 
         {foreach $buttons AS $button}
@@ -60,7 +60,7 @@
 
         {/foreach}
 
-        var styxplugins = styxcustomplugins.concat('styx_medialibrary_{$item}{foreach $buttons AS $button},{$button.id}{/foreach}');
+        var styxplugins = styxcustomplugins.concat('styx_mediaLibrary_{$item}{foreach $buttons AS $button},{$button.id}{/foreach}');
 
         CKEDITOR.replace($('#'+serendipity.escapeBrackets('{$item}')).get(0), {
             extraPlugins : styxplugins,
