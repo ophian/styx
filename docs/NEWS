@@ -22,7 +22,7 @@ Version 3.0-Dev ()
     .serendipity_image_block .serendipity_image_link style to style_fallback.css
     for all themes following this scheme.
 
-  * Fix mysql query statistics issue for possible empty weekly rolling total
+  * Fix MySQL query statistics issue for possible empty weekly rolling total
     summary.
 
   * Add NEW simple basic up-to-date Rich Text Editor for core approaches.
@@ -32,17 +32,17 @@ Version 3.0-Dev ()
 
   * Remove OLD htmlarea/ based Rich Text Editor
 
-  * Add an "utf8mb4" Collation auto fix for the Mysql "simple" Install routine
+  * Add an "utf8mb4" Collation auto fix for the MySQL "simple" Install routine
     fix to maintenance.
 
-  * Fix d96a121 backend entries list aclreadgroup generation for non applies
+  * Fix d96a121 backend entries list "aclreadgroup" generation for non applies
     and a bug adding entries category links when having more than one.
 
   * As having pointed out in "Version 2.1-beta1 Styx (September 3rd, 2016)"
     changelog of this file, MariaDB/MySQL uses different utf8 charset
     mappings of the Unicode character set.
     Since the last available highest version was "utf8mb4_unicode_ci", we
-    do now even have "utf8mb4_unicode_520_ci" available.
+    do now even have "utf8mb4_unicode_520_ci" available. Others are in pipe!
     For collation, probably the best 'overall' collation nowadays is the
     versioned utf8mb4_unicode_520_ci. Serendipity Styx recommends to use:
       "utf8mb4_unicode_520_ci"
