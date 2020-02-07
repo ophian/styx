@@ -1,5 +1,5 @@
 /**
- * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.12 on 2020-02-06
+ * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.13 on 2020-02-07
  */
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
@@ -25,6 +25,9 @@ p > a.serendipity_image_link {
 p > img.serendipity_image_left,
 p > img.serendipity_image_right {
     display: table-cell;
+}
+a > img {
+    outline: 0 none;
 }
 .cke_widget_wrapper {
     display: inline-block;
