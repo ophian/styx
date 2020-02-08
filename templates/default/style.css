@@ -393,7 +393,8 @@ a.homelink2:visited,
 .serendipity_title a:hover {
     color: #ff4136;
 }
-.serendipity_entry {
+.serendipity_entry,
+.staticpage_content {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     color: #333;
     font-size: 9.5pt;
@@ -407,7 +408,8 @@ a.homelink2:visited,
         display: table;
         min-width: 33.3em;
         max-width: 100%; }
-    .serendipity_entry {
+    .serendipity_entry,
+    .staticpage_content {
         display: contents; }
 }
 .serendipity_entry_author_self {}
@@ -430,7 +432,8 @@ a.homelink2:visited,
     text-align: right;
 }
 .serendipity_entryFooter,
-.serendipity_entries_footer {
+.serendipity_entries_footer,
+.staticpage_metainfo {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: .75em;
     text-align: center;
