@@ -942,12 +942,20 @@ table.serendipity_calendar td {
     display: block;
 }
 /* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
+.staticpage_content .serendipity_imageComment_left,
+.staticpage_content .serendipity_imageComment_right,
+.staticpage_content p .serendipity_image_left,
+.staticpage_content p .serendipity_image_right,
 .serendipity_entry .serendipity_imageComment_left,
 .serendipity_entry .serendipity_imageComment_right,
 .serendipity_entry p .serendipity_image_left,
 .serendipity_entry p .serendipity_image_right {
     max-width: 46%; }
 @media screen and (min-width: 1360px) {
+    .staticpage_content .serendipity_imageComment_left,
+    .staticpage_content .serendipity_imageComment_right,
+    .staticpage_content p .serendipity_image_left,
+    .staticpage_content p .serendipity_image_right,
     .serendipity_entry .serendipity_imageComment_left,
     .serendipity_entry .serendipity_imageComment_right,
     .serendipity_entry p .serendipity_image_left,
