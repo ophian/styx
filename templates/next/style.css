@@ -1066,13 +1066,43 @@ source.serendipity_image_left, source.serendipity_image_right {
 .post p .serendipity_image_left,
 .post p .serendipity_image_right {
   max-width: 46%; }
-  @media screen and (min-width: 1366px) {
+  @media screen and (min-width: 1024px) {
     .post .serendipity_imageComment_left,
     .post .serendipity_imageComment_right,
     .post p .serendipity_image_left,
     .post p .serendipity_image_right {
-        max-width: initial; }
+        max-width: calc(100%/1.5); }
   }
+  @media screen and (min-width: 1280px) {
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right {
+        max-width: 100%; }
+  }
+
+/* overwrite fallback plain image padding */
+source.serendipity_image_center {
+    border: 0;
+}
+/* style to center */
+.serendipity_image_center {
+    display: block;
+    margin: 0 auto 1em auto; }
+    p > .serendipity_image_center {
+        margin: auto; }
+    p > img.serendipity_image_center {
+        margin: 1rem auto; }
+    picture > .serendipity_image_center {
+        padding: 0;
+        display: inline-block; }
+    div > picture > .serendipity_image_center {
+        display: inherit; }
+    div > figure.serendipity_imageComment_center picture {
+        display: flex; }
+.serendipity_image_block {
+    width: 100%;
+}
 
 /* overwrite fallback gallery comment container margins */
 .serendipity_image_block .serendipity_imageComment_left,
