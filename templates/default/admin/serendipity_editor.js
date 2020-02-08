@@ -442,7 +442,7 @@
                 imgHeight = f['imgThumbHeight'].value;
                 imgWebP   = (imgWebPth != '') ? imgWebPth : '';
             } else {
-                imgWebP   = (imgWebPal != '') ? imgWebPal : '';
+                imgWebP   = (imgWebPfu != '') ? imgWebPfu : '';
             }
         }
 
@@ -502,10 +502,10 @@
         if (isLink) {
             // wrap the img in a link to the image. TODO: The label in the media_chooser.tpl explains it wrong
             var targetval = $('#select_image_target').val();
-            var fallback  = (pictureSubmit && imgWebPal != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
+            var fallback  = (pictureSubmit && imgWebPfu != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
 
             var prepend   = '';
-            var ilink     = (pictureSubmit && imgWebPal != '') ? imgWebPal : f['serendipity[url]'].value;
+            var ilink     = (pictureSubmit && imgWebPfu != '') ? imgWebPfu : f['serendipity[url]'].value;
             var itarget = '';
 
             switch (targetval) {
@@ -546,7 +546,7 @@
             parent.self = window.parent.parent.$.magnificPopup;
             parent.self.opener = window.parent.parent;
         }
-        if (pictureSubmit && imgWebPal != '' && noLink) {
+        if (pictureSubmit && imgWebPfu != '' && noLink) {
             img = '<div>' + img + '</div>';
             //console.log('nolink img = '+img); // if not inside a container of what ever "p, div, span..." the picture/source element is magically removed when landing in your textarea
         }
