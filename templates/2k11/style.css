@@ -732,6 +732,12 @@ pre .geshi {
     color: #3a87ad;
 }
 
+/* MEDIUM SCREENS */
+@media only screen and (min-width: 552px) {
+    .serendipity_image_block.col.c3 img {
+        max-width: 32.9322%;
+    }
+}
 /* If the basic styles for aligning images are changed, the changes
    must be ported to htmlarea/wysiwyg-style.css as well. */
 .serendipity_image_left,
@@ -788,14 +794,15 @@ pre .geshi {
 }
 
 /* Fix image comment grids */
-source.serendipity_image_left, source.serendipity_image_right {
+source.serendipity_image_left, source.serendipity_image_center, source.serendipity_image_right {
     display: contents;
 }
-
 .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
   border: 1px solid #aaa;
   box-sizing: border-box;
   display: inline-table; }
+  .serendipity_imageComment_img {
+    display: flex; }
 
 .plain-images .serendipity_imageComment_txt {
     background: #ddd;
