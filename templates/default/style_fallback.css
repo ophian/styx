@@ -272,7 +272,7 @@ ul#serendipity_categories_list {
         max-width: 24.75%;
     }
     .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
-        margin: auto auto .5em;
+        margin: auto 0.5px .5em;
         float: none;
     }
 }
@@ -302,6 +302,12 @@ ul#serendipity_categories_list {
     margin: auto auto .25em;
     float: unset;
 }
+.serendipity_image_block.col .serendipity_image_link,
+.serendipity_image_block.col .serendipity_image_left,
+.serendipity_image_block.col .serendipity_image_right {
+    margin: auto 0.5px .25em;
+}
+
 .serendipity_image_block.col .serendipity_image_link,
 .serendipity_image_block.col > .serendipity_image_left,
 .serendipity_image_block.col > .serendipity_image_right {
