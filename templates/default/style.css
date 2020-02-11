@@ -165,6 +165,7 @@ hr {
     display: inline-block;
     width: 100%; }
 p {
+    overflow-wrap: break-word;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hypens: auto;
@@ -785,7 +786,7 @@ div.serendipityPlug a {
         margin: auto; }
     picture > .serendipity_image_center {
         padding: 0;
-        display: inline-block; }
+        display: inherit; }
     div > picture > .serendipity_image_center {
         display: inherit; }
     div > figure.serendipity_imageComment_center picture {
@@ -800,7 +801,6 @@ div.serendipityPlug a {
     margin-top: auto;
     margin-right: unset;
     background-color: unset;
-    padding-top: 0;
 }
 .serendipity_entry_body > .serendipity_imageComment_center > .serendipity_imageComment_txt,
 .serendipity_entry_extended > .serendipity_imageComment_center > .serendipity_imageComment_txt {
