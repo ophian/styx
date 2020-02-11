@@ -11,10 +11,6 @@ input[type="button"], input[type="checkbox"] {
     width: auto;
 }
 
-picture {
-    display: block;
-}
-
 figure {
 	text-align: center;
 	border: solid 1px #ccc;
@@ -27,6 +23,14 @@ figure {
 
 figure > figcaption {
 	text-align: center;
+}
+
+picture {
+    display: block;
+}
+picture > source,
+picture > source.serendipity_image_left {
+    padding: 0 0;
 }
 
 #serendipity_error_top {
@@ -163,17 +167,19 @@ ul#serendipity_categories_list {
     visibility: hidden;
 }
 
-.serendipity_image_link {
-    display: initial;
+/* Gallery-Container: default mobile for cols - starting with img default size >= 400px will initiate their own */
+@media only screen and (max-width: 399px) {
+    .serendipity_image_block.col {
+        display: initial; }
 }
-/* Gallery-Container: default (fallback for no rows, no cols) */
+
+/* Gallery-Container: default (fallback for no rows, no cols - no initial width here) */
 .serendipity_image_block,
 .serendipity_image_block .serendipity_image_link {
     display: inline-block;
 }
-/* Gallery-Container: default (fallback for rows and cols) */
-.serendipity_image_block.row,
-.serendipity_image_block.col {
+/* Gallery-Container: default (fallback for rows) */
+.serendipity_image_block.row {
     display: inline-block;
 }
 
@@ -207,16 +213,16 @@ ul#serendipity_categories_list {
     min-width: 100px;
     max-width: 260px;
 }
-.serendipity_image_block.row  .serendipity_image_left,
-.serendipity_image_block.row  .serendipity_image_right {
-    max-width: 260px !important; /* Make sure nobody resizes an images in the editor - overwrite inline style width */
-    width: auto !important;
-}
 /* Workaround styles for older Chrome. Direct images manually wrapped inside a simple unstyled container - generic div preferred */
 .serendipity_image_block.row > div:not([id]):not([class]):not([style]),
 .serendipity_image_block.row > span:not([class]):not([style]) {
     min-width: 100px;
     max-width: 260px;
+}
+/* This is not possible automatically, but may be a customized set for rowed galleries */
+.serendipity_image_block.row > figure.serendipity_imageComment_center {
+    width: auto;
+    max-width: fit-content;
 }
 
 /* Gallery-Container: by columns, vertically ordered, screen sized 3:2:1 and 4:3:2 */
@@ -232,21 +238,42 @@ ul#serendipity_categories_list {
 .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
     margin: auto auto .187rem;
 }
+@media only screen and (min-width: 400px) {
+    .serendipity_image_block.col.c3 {
+        column-count: 2;
+        column-gap: .312rem;/*6*/
+    }
+}
 /* MEDIUM SCREENS */
 @media only screen and (min-width: 552px) {
-    .serendipity_image_block.row > picture,
-    .serendipity_image_block.col > picture {
+    .serendipity_image_block.col:not(.c3):not:(.c4) {
         display: flex;
+    }
+    .serendipity_image_block.row picture,
+    .serendipity_image_block.col picture {
+        display: initial;
+        width: auto;
+        max-width: initial;
+        margin: 0;
+        padding: 0;
     }
     .serendipity_image_block.col {
         column-count: 2;
         column-gap: .312rem;/*6*/
+        display: -webkit-inline-box;
     }
     .serendipity_image_block.col.c4 {
         column-count: 3;
     }
+    .serendipity_image_block.col.c3 img {
+        max-width: 33.3%;
+    }
+    .serendipity_image_block.col.c4 img {
+        max-width: 24.75%;
+    }
     .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
         margin: auto auto .5em;
+        float: none;
     }
 }
 /* DEFAULT SCREENS */
@@ -265,28 +292,27 @@ ul#serendipity_categories_list {
         column-count: 4;
     }
 }
-/* DEFAULT SCREEN COL4 */
-@media only screen and (min-width: 1024px) {
-    .serendipity_image_block.col.c4 {
-        column-count: 4;
-    }
-}
 
 .serendipity_image_block.col .serendipity_imageComment_left,
-.serendipity_image_block.col.c2 .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right,
-.serendipity_image_block.col.c2 .serendipity_imageComment_right,
 .serendipity_image_block.col .serendipity_image_link,
-.serendipity_image_block.col.c2 .serendipity_image_link,
-.serendipity_image_block.col > .serendipity_image_left,
-.serendipity_image_block.col.c2 > .serendipity_image_left,
-.serendipity_image_block.col > .serendipity_image_right,
-.serendipity_image_block.col.c2 > .serendipity_image_right {
-    display: table;
+.serendipity_image_block.col .serendipity_image_left,
+.serendipity_image_block.col .serendipity_image_right {
     vertical-align: middle;
-    margin: auto;
+    margin: auto auto .25em;
     float: unset;
 }
+.serendipity_image_block.col .serendipity_image_link,
+.serendipity_image_block.col > .serendipity_image_left,
+.serendipity_image_block.col > .serendipity_image_right {
+    display: unset;
+}
+.serendipity_image_block.col .serendipity_imageComment_left,
+.serendipity_image_block.col .serendipity_imageComment_right {
+    display: inline-block;
+    max-width: 100%;
+}
+
 /* Gallery-Size: end */
 
 /* Gallery-Margins: the default margins for all default level 1 gallery items (direct containers or direct items) */
@@ -306,23 +332,20 @@ ul#serendipity_categories_list {
 .serendipity_image_block > span .serendipity_image_right {
     margin: 5px 0 0 0;
 }
+/* exception */
+.serendipity_image_block > div > figure .serendipity_image_left {
+    margin: auto;
+}
+
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
     margin: 10px 10px 0 0; /* so that a direct child image behaves like a containerized image - and the top/right is 2x5px */
 }
-/* webkit (all) hack */
-.serendipity_image_block > .serendipity_imageComment_left .serendipity_image_link:not(*:root) {
-    display: table-row; /* A Chrome fix to automatically size the link (level 2) container without any additionally thrown space around the inner scaled image */
-}
 /* Some special care when inside a link or comment container, to not break the "auto" left and top margin by the justify-content (i.e. in Next and Default themes) */
-.serendipity_image_block .serendipity_imageComment_left,
-.serendipity_image_block .serendipity_imageComment_right {
-    margin-right: -2px;
-    border: 0 none !important;
-}
 .serendipity_image_block .serendipity_imageComment_left .serendipity_imageComment_img,
 .serendipity_image_block .serendipity_imageComment_right .serendipity_imageComment_img {
     border: 0 none !important;
+    display: inline-block;
 }
 /* Gallery-Margins: end */
 
