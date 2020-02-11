@@ -353,9 +353,9 @@
             var float  = g['align'];
             var orient = g['orient'];
             var dc     = g['defcols'];
+            if (orient != 'col') dc = 'null';
             var ac     = g['files'].length;
             var cc     = (g['orient'] == 'col' && ac < 3) ? ac : dc;
-            if (orient != 'col') dc = null;
             var start  = '<div class="serendipity_image_block '+ orient +' c'+ cc +'">';
             var end    = '</div>';
             // open the gallery block element
