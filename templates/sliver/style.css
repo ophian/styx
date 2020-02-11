@@ -1410,9 +1410,20 @@ ul#serendipity_categories_list input {
     padding: 0;
 }
 .comment-list-item {
-    border: 1px solid #AAA;
-    margin: 0 1em 1em -1em;
+    border: 1px dashed #aaaaaa2e;
+    margin: 0 3px 3px -33px;
     padding: 0;
+}
+@media screen and (min-width: 1024px) {
+  .comment-list-item {
+    margin: 0 7px 7px -21px; }
+}
+@media screen and (min-width: 1200px) {
+  .comment-list-item {
+    margin: 0 1em 1em -1em; }
+}
+a.comment-source-trace {
+    overflow-wrap: anywhere;
 }
 .comment-children {
     margin: 1em 0 0 0;
