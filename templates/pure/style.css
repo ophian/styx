@@ -224,6 +224,8 @@ pre, code, samp, kbd {
 hr {
   color: #fefefe;
   clear: both;
+  display: inline-block;
+  width: 100%;
 }
 
 q {
@@ -233,11 +235,13 @@ q {
   quotes: '„' '“' '‚' '‘'; }
 
 p {
+  overflow-wrap: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto; }
   p code, p samp, p kbd {
+    overflow-wrap: anywhere;
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
@@ -820,8 +824,6 @@ nav.pager ul {
         display: block;
         min-width: 33.3em;
         max-width: 100%; }
-    .post_content {
-        display: flow-root; }
 }
 .serendipity_title {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
@@ -952,6 +954,8 @@ ul.staticpage_result li {
 }
 .serendipity_staticpage .page_info {
     font-size: .875rem;
+    width: 100%;
+    display: inline-block;
 }
 .page_content blockquote {
     border-left: 5px solid #ccc;
@@ -1707,6 +1711,62 @@ div.serendipityPlug a {
 .post p .serendipity_image_left,
 .post p .serendipity_image_right {
     max-width: 46.75%; }
+
+@media screen and (min-width: 640px) {
+    .page .serendipity_imageComment_left,
+    .page .serendipity_imageComment_right,
+    .page p .serendipity_image_left,
+    .page p .serendipity_image_right,
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right {
+        max-width: 48%; }
+}
+@media screen and (min-width: 900px) {
+    .page .serendipity_imageComment_left,
+    .page .serendipity_imageComment_right,
+    .page p .serendipity_image_left,
+    .page p .serendipity_image_right,
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right {
+        max-width: 75%; }
+}
+@media screen and (min-width: 1024px) {
+.page .serendipity_imageComment_left,
+.page .serendipity_imageComment_right,
+.page p .serendipity_image_left,
+.page p .serendipity_image_right,
+.post .serendipity_imageComment_left,
+.post .serendipity_imageComment_right,
+.post p .serendipity_image_left,
+.post p .serendipity_image_right {
+    max-width: 46.75%; }
+}
+@media screen and (min-width: 1440px) {
+    .page .serendipity_imageComment_left,
+    .page .serendipity_imageComment_right,
+    .page p .serendipity_image_left,
+    .page p .serendipity_image_right,
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right {
+        max-width: 75%; }
+}
+@media screen and (min-width: 1520px) {
+    .page .serendipity_imageComment_left,
+    .page .serendipity_imageComment_right,
+    .page p .serendipity_image_left,
+    .page p .serendipity_image_right,
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right {
+        max-width: 87.25%; }
+}
 @media screen and (min-width: 1600px) {
     .page .serendipity_imageComment_left,
     .page .serendipity_imageComment_right,
@@ -1731,17 +1791,18 @@ div.serendipityPlug a {
         margin: auto; }
     picture > .serendipity_image_center {
         padding: 0;
-        display: inline-block; }
+        display: inherit; }
     div > picture > .serendipity_image_center {
         display: inherit; }
     div > figure.serendipity_imageComment_center picture {
         display: flex; }
 .serendipity_image_block {
-    width: 100.2525%;
+    width: 100%;
 }
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
     margin: .5em 0 0 0;
+    float: none;
 }
 /* overwrite fallback gallery comment container margins and some of this comment styles */
 .serendipity_image_block .serendipity_imageComment_left,
@@ -1749,7 +1810,6 @@ div.serendipityPlug a {
     margin-top: auto;
     margin-right: unset;
     background-color: unset;
-    padding-top: 0;
 }
 
 
