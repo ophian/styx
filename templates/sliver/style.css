@@ -1410,7 +1410,7 @@ ul#serendipity_categories_list input {
     padding: 0;
 }
 .comment-list-item {
-    border: 1px dashed #aaaaaa2e;
+    border: 1px dashed rgba(170, 170, 170, 0.2);/* transparent triple A hex */
     margin: 0 3px 3px -33px;
     padding: 0;
 }
