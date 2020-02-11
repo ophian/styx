@@ -218,11 +218,13 @@ q {
   quotes: '„' '“' '‚' '‘'; }
 
 p {
+  overflow-wrap: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   -ms-hyphens: auto;
   hyphens: auto; }
   p code, p samp, p kbd {
+    overflow-wrap: anywhere;
     -webkit-hyphens: none;
     -moz-hyphens: none;
     -ms-hyphens: none;
@@ -712,7 +714,7 @@ table {
   font-size: 0.875em; }
 
 pre {
-  min-width: 20em;
+  min-width: 11em;
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word; }
@@ -772,6 +774,8 @@ pre {
 /* comments styling add start */
 
 /* blog/comments/ shortcuts */
+h2.comments_permalink {
+    overflow-wrap: break-word; }
 article.post section.commentlevel-0 {
     margin-bottom: .25em; }
 article.post section .pc-owner {
@@ -783,6 +787,7 @@ article.post section .pc-owner {
     text-shadow: 1px 1px 2px #222; }
 
 #trackbacks article, #comments article {
+    overflow-wrap: break-word;
     background-color: #FFF;
     border: 2px solid #ACACAC;
     border-radius: 5px 5px 5px 5px;
@@ -1040,7 +1045,8 @@ details summary {
 .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_img {
   border: 1px solid #aaa;
   box-sizing: border-box;
-  display: inline-table; }
+  display: inline-flex;
+  /*padding: .25em;*/ }
 
 /* inherit keeps inner margins, else set auto or initial */
 .serendipity_imageComment_img {
@@ -1095,7 +1101,7 @@ source.serendipity_image_center {
         margin: 1rem auto; }
     picture > .serendipity_image_center {
         padding: 0;
-        display: inline-block; }
+        display: inherit; }
     div > picture > .serendipity_image_center {
         display: inherit; }
     div > figure.serendipity_imageComment_center picture {
