@@ -83,7 +83,7 @@
     .serendipity_imageComment_left,
     .serendipity_imageComment_right,
     .serendipity_imageComment_center {
-        width: 100% !important; /* overwrite dix inline styles to downsize responsive */
+        width: 100%;
     }
 }
 

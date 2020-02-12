@@ -41,7 +41,7 @@ html {
  */
 
 hr {
-    display: block;
+    display: flow-root;
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
@@ -961,6 +961,7 @@ ul.archives_row li {
     margin: 0;
     padding: 0;
     text-align: center;
+    display: flow-root;
 }
 .serendipity_imageComment_txt {
     border-top: 1px solid #DDDDDD;
@@ -2457,7 +2458,7 @@ pre {
     margin: 0 0 0 1.2em;
     overflow: auto;
     padding: .8em;
-    min-width: 20rem;
+    min-width: 5rem;
     width: auto;
     display: block;
 }
