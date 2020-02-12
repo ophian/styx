@@ -1798,6 +1798,8 @@ div.serendipityPlug a {
         display: flex; }
 .serendipity_image_block {
     width: 100%;
+    /* stop stretching */
+    /*max-width: 1600px;*/
 }
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
