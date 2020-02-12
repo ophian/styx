@@ -1005,10 +1005,6 @@ details summary {
 .emoticon {
   vertical-align: baseline !important; }
 
-@media only screen and (min-width: 552px) {
-  .serendipity_image_block.col.c3 img{
-    max-width: 32.9888%; }
-}
 .serendipity_image_left, .serendipity_image_right, .serendipity_image_center, .serendipity_imageComment_center, .serendipity_imageComment_left, .serendipity_imageComment_right {
   background: transparent;
   border: 0 none;
