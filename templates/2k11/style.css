@@ -210,6 +210,7 @@ a:link { -webkit-tap-highlight-color: #d52; }
 
 
 p {
+    overflow-wrap: break-word;
     -webkit-hyphens: auto;
     -moz-hyphens: auto;
     -ms-hypens: auto;
@@ -732,12 +733,6 @@ pre .geshi {
     color: #3a87ad;
 }
 
-/* MEDIUM SCREENS */
-@media only screen and (min-width: 552px) {
-    .serendipity_image_block.col.c3 img {
-        max-width: 32.9322%;
-    }
-}
 /* If the basic styles for aligning images are changed, the changes
    must be ported to htmlarea/wysiwyg-style.css as well. */
 .serendipity_image_left,
