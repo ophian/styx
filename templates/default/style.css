@@ -511,6 +511,13 @@ ul.staticpage_result li {
     width: 100%;
     max-width: 42em;
 }
+input#serendipity_commentform_name,
+select#serendipity_replyTo,
+textarea#serendipity_commentform_comment {
+    min-width: 9rem;
+    width: 100%;
+    max-width: min-content;
+}
 .serendipity_commentForm {
     font-size: 13px;
     color: #404040;
@@ -529,6 +536,13 @@ ul.staticpage_result li {
     padding: 0.25em;
     background-color: #FDFDFD;
     overflow: auto;
+}
+@media screen and (max-width: 639px) {
+  .serendipity_comment {
+    padding-left: calc(100% - 70%) !important; }
+  .serendipity_commentBody blockquote {
+    margin: .75rem;
+    font-style: oblique;}
 }
 .serendipity_comment_author_self .serendipity_comment_source .pc-owner,
 .serendipity_comment_author_self .comment_header .pc-owner {
@@ -702,9 +716,6 @@ div.serendipityPlug a {
 
 
 /** Embedded images with the Serendipity Styx image manager **/
-
-.serendipity_image_block > div {
-    display: inline-block; }
 
 .serendipity_imageComment_center,
 .serendipity_imageComment_left,
