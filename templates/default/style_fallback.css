@@ -167,15 +167,14 @@ ul#serendipity_categories_list {
     visibility: hidden;
 }
 
-/* Gallery-Container: default mobile for cols - starting with img default size >= 400px will initiate their own */
-@media only screen and (max-width: 399px) {
-    .serendipity_image_block.col {
-        display: initial; }
-}
-
 /* Gallery-Container: default (fallback for no rows, no cols - no initial width here) */
-.serendipity_image_block,
+.serendipity_image_block {
+    display: inline-block;
+}
 .serendipity_image_block .serendipity_image_link {
+    display: block; /* Chromium: Start a new block ! */
+}
+.serendipity_image_block:not(.col):not(.row) .serendipity_image_link {
     display: inline-block;
 }
 /* Gallery-Container: default (fallback for rows) */
@@ -225,6 +224,12 @@ ul#serendipity_categories_list {
     max-width: fit-content;
 }
 
+/* Gallery-Container: default mobile for cols - starting with img default size >= 400px will initiate their own */
+@media only screen and (max-width: 399px) {
+    .serendipity_image_block.col {
+        display: initial; }
+}
+
 /* Gallery-Container: by columns, vertically ordered, screen sized 3:2:1 and 4:3:2 */
 /* SMALL SCREENS */
 .serendipity_image_block.col {
@@ -244,6 +249,9 @@ ul#serendipity_categories_list {
         column-gap: .312rem;/*6*/
     }
 }
+.serendipity_image_block > div {
+    display: block;
+}
 /* MEDIUM SCREENS */
 @media only screen and (min-width: 552px) {
     .serendipity_image_block.col:not(.c3):not:(.c4) {
@@ -260,16 +268,14 @@ ul#serendipity_categories_list {
     .serendipity_image_block.col {
         column-count: 2;
         column-gap: .312rem;/*6*/
-        display: -webkit-inline-box;
+        display: inline-block;
+    }
+    .serendipity_image_block.col.c3 {
+        display: inline-block;
     }
     .serendipity_image_block.col.c4 {
         column-count: 3;
-    }
-    .serendipity_image_block.col.c3 img {
-        max-width: 33.3%;
-    }
-    .serendipity_image_block.col.c4 img {
-        max-width: 24.75%;
+        display: inline-block;
     }
     .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
         margin: auto 0.5px .5em;
@@ -308,11 +314,6 @@ ul#serendipity_categories_list {
     margin: auto 0.5px .25em;
 }
 
-.serendipity_image_block.col .serendipity_image_link,
-.serendipity_image_block.col > .serendipity_image_left,
-.serendipity_image_block.col > .serendipity_image_right {
-    display: unset;
-}
 .serendipity_image_block.col .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right {
     display: inline-block;
