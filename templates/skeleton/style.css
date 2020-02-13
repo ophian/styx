@@ -187,16 +187,8 @@ video,
 
 .serendipity_imageComment_center,
 .serendipity_imageComment_left,
-.serendipity_imageComment_right,
-.serendipity_imageComment_img,
-.serendipity_imageComment_img img {
+.serendipity_imageComment_right {
     text-align: center;
-}
-
-.serendipity_imageComment_img,
-.serendipity_imageComment_img img {
-    margin: 0;
-    padding: 0;
 }
 
 .serendipity_imageComment_txt {
