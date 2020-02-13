@@ -159,6 +159,8 @@ body.save_preview_body {
     background: #FFF;
     border-radius: 0;
     width: 100%; }
+#content.preview_preview_content {
+    width: 100%; }
 #content.preview_preview_content .serendipity_entryFooter {
     display: none;
     visibility: hidden; }
