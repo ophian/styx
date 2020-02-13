@@ -106,6 +106,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
         $ret =& serendipity_db_query($query);
         return $ret[0];
     } else {
+        if (empty($categoryid)) return;
         $query = "SELECT
                          c.authorid,
                          c.categoryid,
