@@ -1062,7 +1062,8 @@ table.serendipity_calendar td {
 .serendipity_image_center {
     display: inherit;
     padding: .25em;
-    margin: 0 auto 1em auto; }
+    margin: 0 auto 1em auto;
+    overflow: auto; }
     p > .serendipity_image_center {
         margin: auto; }
     picture > .serendipity_image_center {
