@@ -209,19 +209,19 @@ ul#serendipity_categories_list {
 .serendipity_image_block.row .serendipity_image_link,
 .serendipity_image_block.row > .serendipity_image_left,
 .serendipity_image_block.row > .serendipity_image_right {
-    min-width: 100px;
+    width: auto;
     max-width: 260px;
 }
-/* Workaround styles for older Chrome. Direct images manually wrapped inside a simple unstyled container - generic div preferred */
+/* Workaround styles for older Chrome. Direct images manually wrapped inside a simple non-styled container - generic div preferred */
 .serendipity_image_block.row > div:not([id]):not([class]):not([style]),
 .serendipity_image_block.row > span:not([class]):not([style]) {
-    min-width: 100px;
+    width: auto;
     max-width: 260px;
 }
-/* This is not possible automatically, but may be a customized set for rowed galleries */
+/* This is not possible automatically, but may be a customized "mid-flooted" set for rowed galleries */
 .serendipity_image_block.row > figure.serendipity_imageComment_center {
     width: auto;
-    max-width: fit-content;
+    max-width: 260px;
 }
 
 /* Gallery-Container: default mobile for cols - starting with img default size >= 400px will initiate their own */
