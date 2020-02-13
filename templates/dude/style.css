@@ -928,12 +928,6 @@ table.serendipity_calendar td {
     float: right;
     margin-left: .5em;
 }
-.serendipity_imageComment_img,
-.serendipity_imageComment_img img {
-    margin: 0;
-    padding: 0;
-    text-align: center;
-}
 .serendipity_imageComment_img img {
     width: auto;
 }
