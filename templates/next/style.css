@@ -900,6 +900,9 @@ article.post section .pc-owner {
 
 #serendipity_comment_page {
     margin: auto .5rem; }
+
+.comment_content {
+    overflow-wrap: break-word; }
 /* comments styling add end */
 
 /* comment_author styling start */
