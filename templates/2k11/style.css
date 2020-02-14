@@ -826,6 +826,11 @@ source.serendipity_image_left, source.serendipity_image_center, source.serendipi
     max-width: 100%;
 }
 
+@media only screen and (min-width: 552px) {
+  .serendipity_image_block.col {
+    display: block; }
+}
+
 .emoticon { vertical-align: baseline!important; }
 
 .serendipity_calendar {
