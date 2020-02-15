@@ -55,7 +55,7 @@
             {$CONTENT}
             </main>
 
-            <aside class="four columns" role="complementary">
+            <aside class="{if $view == 'entry' AND $entry_id}twelfe{else}four{/if} columns" role="complementary">
                 <section class="sidebar_widget sidebar_search">
                     <h3><label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label></h3>
 
