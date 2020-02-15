@@ -983,6 +983,13 @@ img.comment_avatar {
     border-color: #adadad;
 }
 
+/* reset bootstrap default sets for .row-ed galleries */
+.row.serendipity_image_block::before,
+.row.serendipity_image_block::after{
+    display: initial;
+    content: normal;
+}
+
 /* If the basic styles for aligning images are changed, the changes
    must be ported to templates/_assets/wysiwyg-style.css as well. */
 .serendipity_image_left,
