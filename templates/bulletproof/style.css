@@ -322,14 +322,6 @@ ul.archives_row li {
     margin: 0 0 5px 10px;
 }
 
-.serendipity_imageComment_img,
-.serendipity_imageComment_img img {
-    margin: 0;
-    padding: 0;
-    border: none;
-    text-align: center;
-}
-
 .serendipity_imageComment_txt {
     border-top: 1px solid #ddd;
     margin: 0;
