@@ -1,8 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Improve global preset styles for image fluids.
-    Changes go to [default, pure, dude, next, 2k11, sliver, bootstrap4] themes.
+  * Improve global preset styles for image fluids. Additional changes go
+    to [default, pure, dude, next, 2k11, sliver, bootstrap4, skeleton] themes.
 
   * Improve and fix new ckebasic core config init for staticpages and other
     normal backend nuggets.
@@ -19,7 +19,7 @@ Version 3.0-Dev ()
   * Fix 2k11 image comment grids to expand the image inside the container
 
   * Auto scale left and right oriented image floats in certain themes
-    [default, pure, dude, next]
+    [default, pure, dude, next, skeleton]
 
   * Set a new global default .serendipity_image_link and gallery related
     .serendipity_image_block .serendipity_image_link style to style_fallback.css
