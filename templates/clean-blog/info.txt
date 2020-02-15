@@ -1,6 +1,6 @@
 Name: Clean Blog
 Author: S9y theme by Don Chambers. Original bootstrap theme by Iron Summit Media Strategies, LLC.
-Date: 2020-01-16
+Date: 2020-02-15
 Require Serendipity: 2.0
 Backend: No
 Responsive: Yes
