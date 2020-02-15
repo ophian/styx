@@ -1097,6 +1097,14 @@ table.serendipity_calendar td {
     max-width: 100%;
 }
 
+.serendipity_image_block.col .serendipity_image_link .serendipity_image_left,
+.serendipity_image_block.col .serendipity_image_left {
+    margin: .25em auto; }
+@media screen and (min-width: 400px) {
+    .serendipity_image_block.col .serendipity_image_link .serendipity_image_left,
+    .serendipity_image_block.col .serendipity_image_left {
+        margin: auto; }
+}
 /** Embedded images with the Serendipity Styx image manager end **/
 
 
