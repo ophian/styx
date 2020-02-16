@@ -753,7 +753,7 @@ div.serendipityPlug a {
 .serendipity_imageComment_txt {
     border-top: 1px solid #DDD;
     background-color: #EFEFEF;
-    padding: .25em;
+    padding: .25rem;
     clear: both;
     font-size: 8pt;
     text-align: center;
@@ -790,24 +790,22 @@ div.serendipityPlug a {
     .serendipity_entry p .serendipity_image_right {
         max-width: 100%; }
 }
-/* overwrite fallback plain image padding and style to center */
+/* overwrite fallback plain image padding */
 .serendipity_image_center {
-    display: inherit;
     padding: .25em;
+}
+/* style to center */
+.serendipity_image_center {
+    display: block;
     margin: 0 auto 1em auto; }
-    p > .serendipity_image_center {
-        margin: auto; }
-    picture > .serendipity_image_center {
-        padding: 0;
-        display: inherit; }
-    div > picture > .serendipity_image_center {
-        display: inherit; }
-    div > figure.serendipity_imageComment_center picture {
-        display: flex; }
 .serendipity_image_block {
     width: 100%;
 }
-
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
+    margin: .5em 0 0 0;
+    float: none;
+}
 /* overwrite fallback gallery comment container margins and some of this comment styles */
 .serendipity_image_block .serendipity_imageComment_left,
 .serendipity_image_block .serendipity_imageComment_right {
@@ -815,15 +813,7 @@ div.serendipityPlug a {
     margin-right: unset;
     background-color: unset;
 }
-.serendipity_entry_body > .serendipity_imageComment_center > .serendipity_imageComment_txt,
-.serendipity_entry_extended > .serendipity_imageComment_center > .serendipity_imageComment_txt {
-    margin-top: .25em;
-}
-/* inside image blocks closely append .serendipity_imageComment_txt */
-.serendipity_image_block > .serendipity_imageComment_left > .serendipity_imageComment_txt,
-.serendipity_image_block > .serendipity_imageComment_right > .serendipity_imageComment_txt {
-    margin-top: -6px;
-}
+/** Embedded images with the Serendipity Styx image manager end **/
 
 
 /** Bigger screens **/
@@ -856,6 +846,7 @@ div.serendipityPlug a {
         width: 97%;
         float: unset;
         border-right: 0 none;
+        max-width: 100%;
     }
     #serendipityLeftSideBar,
     #serendipityRightSideBar {
@@ -897,5 +888,23 @@ div.serendipityPlug a {
     }
     .serendipity_entry table {
         display: inline-table;
+    }
+}
+@media screen and (min-width: 1440px) {
+    #serendipityLeftSideBar,
+    #serendipityRightSideBar {
+        max-width: 16em;
+    }
+}
+@media screen and (min-width: 1720px) {
+    #serendipityLeftSideBar,
+    #serendipityRightSideBar {
+        max-width: 18em;
+    }
+}
+@media screen and (min-width: 1920px) {
+    #serendipityLeftSideBar,
+    #serendipityRightSideBar {
+        max-width: 20em;
     }
 }
