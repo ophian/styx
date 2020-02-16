@@ -934,8 +934,10 @@ table.serendipity_calendar td {
 .serendipity_imageComment_txt {
     border-top: 1px solid #ddd;
     background-color: #efefef;
-    padding: .25em;
-    font-size: small;
+    font-style: italic;
+    padding: .25rem;
+    font-size: .75rem;
+    line-height: initial; }
 }
 
 /* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
@@ -1058,23 +1060,22 @@ table.serendipity_calendar td {
     .serendipity_entry p .serendipity_image_right {
         max-width: initial; }
 }
-/* overwrite fallback plain image padding and style to center */
+
+/* overwrite fallback plain image padding */
 .serendipity_image_center {
-    display: inherit;
     padding: .25em;
-    margin: 0 auto 1em auto;
-    overflow: auto; }
-    p > .serendipity_image_center {
-        margin: auto; }
-    picture > .serendipity_image_center {
-        padding: 0;
-        display: inherit; }
-    div > picture > .serendipity_image_center {
-        display: inherit; }
-    div > figure.serendipity_imageComment_center picture {
-        display: flex; }
+}
+/* style to center */
+.serendipity_image_center {
+    display: block;
+    margin: 0 auto 1em auto; }
 .serendipity_image_block {
     width: 100%;
+}
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
+    margin: .5em 0 0 0;
+    float: none;
 }
 /* overwrite fallback gallery comment container margins and some of this comment styles */
 .serendipity_image_block .serendipity_imageComment_left,
@@ -1082,28 +1083,6 @@ table.serendipity_calendar td {
     margin-top: auto;
     margin-right: unset;
     background-color: unset;
-}
-.serendipity_entry_body > .serendipity_imageComment_center > .serendipity_imageComment_txt,
-.serendipity_entry_extended > .serendipity_imageComment_center > .serendipity_imageComment_txt {
-    margin-top: .25em;
-}
-/* inside image blocks closely append .serendipity_imageComment_txt */
-.serendipity_image_block > .serendipity_imageComment_left > .serendipity_imageComment_txt,
-.serendipity_image_block > .serendipity_imageComment_right > .serendipity_imageComment_txt {
-    margin-top: -6px;
-}
-
-.serendipity_image_block {
-    max-width: 100%;
-}
-
-.serendipity_image_block.col .serendipity_image_link .serendipity_image_left,
-.serendipity_image_block.col .serendipity_image_left {
-    margin: .25em auto; }
-@media screen and (min-width: 400px) {
-    .serendipity_image_block.col .serendipity_image_link .serendipity_image_left,
-    .serendipity_image_block.col .serendipity_image_left {
-        margin: auto; }
 }
 /** Embedded images with the Serendipity Styx image manager end **/
 
