@@ -3,13 +3,12 @@
    Classes are declared on top of the file, so if you
    want to make changes in your own template, you
    should override the rules on the bottom of your
-   style.css template.
+   style.css or user.css template stylesheet file.
    IT IS NOT ADVISED TO CREATE YOUR OWN style_fallback.css FILE! */
 
 /* default sizing for specific form element */
 input[type="button"], input[type="checkbox"] {
-    width: auto;
-}
+    width: auto; }
 
 figure {
 	text-align: center;
@@ -18,23 +17,18 @@ figure {
 	background: rgba(0,0,0,0.05);
 	padding: 10px;
 	margin: 10px 20px;
-	display: inline-block;
-}
-
-figure > figcaption {
-	text-align: center;
-}
+	display: inline-block; }
+    figure > figcaption {
+	  text-align: center; }
 
 picture {
-    display: block;
-}
-picture > source,
-picture > source.serendipity_image_left {
-    padding: 0 0;
-}
+    display: block; }
+    picture > source,
+    picture > source.serendipity_image_left {
+      padding: 0 0; }
 
 #serendipity_error_top {
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     z-index: 999;
@@ -46,97 +40,25 @@ picture > source.serendipity_image_left {
     border-bottom: 1px solid #e4b9b9;
     background: #f2dede;
     color: #b94a48;
-    text-align: left;
-}
-
-/* Default image classes for left/right/usual layout */
-.serendipity_image_center {
-    border: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.serendipity_image_left {
-    float: left;
-    border: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
-
-.serendipity_image_right {
-    float: right;
-    border: 0px;
-    padding-left: 5px;
-    padding-right: 5px;
-}
+    text-align: left; }
 
 /* Default listing without spacers */
 .plainList {
     list-style: none;
     margin-left: 0;
-    padding-left: 0;
-}
+    padding-left: 0; }
 
 /* Messages: centered, important, success, notice */
 .serendipity_center {
     margin-left: auto;
     margin-right: auto;
-    text-align: center;
-}
-
-.serendipity_msg_important {
-    color: #ff4136; /* new red */
-}
-
-.serendipity_msg_success {
-    color: #2ecc40; /* new green */
-}
-
-.serendipity_msg_notice {
-    color: #6495ed; /* new cornflowerblue */
-}
-
-/* Embedded images with comments inside the s9y image manager */
-.serendipity_imageComment_center,
-.serendipity_imageComment_left,
-.serendipity_imageComment_right {
-    border: 1px solid #ddd;
-    background-color: #efefef;
-    margin: 3px;
-    padding: 3px;
-    text-align: center;
-    max-width: 100%;
-}
-
-.serendipity_imageComment_center {
-    clear: both;
-    margin: auto;
-}
-
-.serendipity_imageComment_left {
-    float: left;
-}
-
-.serendipity_imageComment_right {
-    float: right;
-}
-
-.serendipity_imageComment_img,
-.serendipity_imageComment_img img {
-    margin: 0px;
-    padding: 0px;
-    border: 0 none;
-    text-align: center;
-}
-
-.serendipity_imageComment_txt {
-    border-top: 1px solid #ddd;
-    margin: 0px;
-    padding: 3px;
-    clear: both;
-    font-size: 10px;
-    text-align: center;
-}
+    text-align: center; }
+    .serendipity_msg_important {
+      color: #ff4136; /* new red */ }
+    .serendipity_msg_success {
+      color: #2ecc40; /* new green */ }
+    .serendipity_msg_notice {
+      color: #6495ed; /* new cornflowerblue */ }
 
 /* this and that */
 table.archives_listing {
@@ -145,10 +67,10 @@ table.archives_listing {
     border-collapse: separate;
     border-spacing: 4px; }
     .archives_row td {
-        padding: 4px; }
-        td.archives_graph img {
-            height: 1em;
-            border: 1px solid #000; }
+      padding: 4px; }
+      td.archives_graph img {
+        height: 1em;
+        border: 1px solid #000; }
 
 ul#serendipity_categories_list {
 	margin: 0;
@@ -156,8 +78,73 @@ ul#serendipity_categories_list {
 	list-style-type: none; }
 
 .serendipity_calendar {
-    width: 100%;
-}
+    width: 100%; }
+
+/* Disables spamblock and other user notifications for the adduser plugin forms, since more or less needed for comment or contact forms only */
+#adduserform .serendipity_comment_emoticate,
+#adduserform .serendipity_comment_s9ymarkup,
+#adduserform .serendipity_comment_spamblock {
+    visibility: hidden;
+    display: none; }
+
+/*** Serendipity Styx default image handlers ***/
+
+/* Default image classes for left/right/center usual layouts */
+.serendipity_image_center {
+    border: 0;
+    padding-left: 5px;
+    padding-right: 5px; }
+    /* don't ever style picture source elements */
+    source.serendipity_image_center {
+      margin: auto;
+      padding: 0; }
+
+.serendipity_image_left {
+    float: left;
+    border: 0;
+    padding-left: 5px;
+    padding-right: 5px; }
+.serendipity_image_right {
+    float: right;
+    border: 0;
+    padding-left: 5px;
+    padding-right: 5px; }
+
+/* Embedded images with comments inside the styx image manager */
+.serendipity_imageComment_center,
+.serendipity_imageComment_left,
+.serendipity_imageComment_right {
+    border: 1px solid #ddd;
+    background-color: #efefef;
+    margin: 3px;
+    padding: 3px;
+    text-align: center;
+    max-width: 100%; }
+
+.serendipity_imageComment_center {
+    clear: both;
+    margin: auto; }
+
+.serendipity_imageComment_left {
+    float: left; }
+
+.serendipity_imageComment_right {
+    float: right; }
+
+.serendipity_imageComment_img,
+.serendipity_imageComment_img img {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    text-align: center; }
+
+.serendipity_imageComment_txt {
+    border-top: 1px solid #ddd;
+    margin: 0;
+    padding: 3px;
+    clear: both;
+    font-size: 10px;
+    text-align: center; }
 
 /* disable s9ymarkup, gravatar, spamblock markup and emoticate hooked text messages in contact-form template files, having at least this staticpage_plugin_contactform selector */
 .staticpage_plugin_contactform .serendipity_comment_emoticate,
@@ -165,23 +152,18 @@ ul#serendipity_categories_list {
 .staticpage_plugin_contactform .serendipity_comment_s9ymarkup,
 .staticpage_plugin_contactform .serendipity_comment_spamblock {
     display: none;
-    visibility: hidden;
-}
+    visibility: hidden; }
 
 /* Gallery-Container: default (fallback for no rows, no cols - no initial width here) */
 .serendipity_image_block {
-    display: inline-block;
-}
-.serendipity_image_block .serendipity_image_link {
-    display: block; /* Chromium: Start a new block ! */
-}
-.serendipity_image_block:not(.col):not(.row) .serendipity_image_link {
-    display: inline-block;
-}
-/* Gallery-Container: default (fallback for rows) */
-.serendipity_image_block.row {
-    display: inline-block;
-}
+    display: inline-block; }
+    .serendipity_image_block .serendipity_image_link {
+      display: block; /* Chromium: Start a new block ! */ }
+    .serendipity_image_block:not(.col):not(.row) .serendipity_image_link {
+      display: inline-block; }
+    /* Gallery-Container: default (fallback for rows) */
+    .serendipity_image_block.row {
+      display: inline-block; }
 
 /* Gallery-Container: per row order, flexed */
 /* This is used to enclose a gallery, using serendipity_image_left or _right floated images */
@@ -189,8 +171,7 @@ ul#serendipity_categories_list {
     clear: both;
     display: -webkit-flex;
     display: -ms-flexbox;
-    display: flex;
-}
+    display: flex; }
 
 /* Gallery-Size: This sizes the origin single-line image gallery to be used as a real multi-item image container */
 .serendipity_image_block.row {
@@ -201,29 +182,28 @@ ul#serendipity_categories_list {
     align-items: flex-start; /* the default is stretch, internally used by Chrome when flexing direct child images */
     justify-content: space-around; /* IE10+ CSS fallback, since -evenly not supported */
     justify-content: space-evenly;
-    margin-bottom: 1em;
-}
-
-/* The inline containers or items min/max size to scale gallery images to a affordable size */
-.serendipity_image_block.row .serendipity_imageComment_left,
-.serendipity_image_block.row .serendipity_imageComment_right,
-.serendipity_image_block.row .serendipity_image_link,
-.serendipity_image_block.row > .serendipity_image_left,
-.serendipity_image_block.row > .serendipity_image_right {
-    width: auto;
-    max-width: 260px;
-}
-/* Workaround styles for older Chrome. Direct images manually wrapped inside a simple non-styled container - generic div preferred */
-.serendipity_image_block.row > div:not([id]):not([class]):not([style]),
-.serendipity_image_block.row > span:not([class]):not([style]) {
-    width: auto;
-    max-width: 260px;
-}
-/* This is not possible automatically, but may be a customized "mid-flooted" set for rowed galleries */
-.serendipity_image_block.row > figure.serendipity_imageComment_center {
-    width: auto;
-    max-width: 260px;
-}
+    margin-bottom: 1em; }
+    /* The inline containers or items min/max size to scale gallery images to a affordable size */
+    .serendipity_image_block.row .serendipity_imageComment_left,
+    .serendipity_image_block.row .serendipity_imageComment_right,
+    .serendipity_image_block.row .serendipity_image_link,
+    .serendipity_image_block.row > .serendipity_image_left,
+    .serendipity_image_block.row > .serendipity_image_right {
+      width: auto;
+      max-width: 260px; }
+    /* Workaround styles for older Chrome. Direct images manually wrapped inside a simple non-styled container - generic div preferred */
+    .serendipity_image_block.row > div:not([id]):not([class]):not([style]),
+    .serendipity_image_block.row > span:not([class]):not([style]) {
+      width: auto;
+      max-width: 260px; }
+    /* Line up a row gallery (manually) commented image to nearly fit the max-width 260px image sizes */
+    .serendipity_image_block.row .serendipity_imageComment_left {
+      max-width: calc(260px - .5em);
+      margin: .25em 0 0; }
+    /* This is not possible automatically, but may be a customized "mid-flooted" set for rowed galleries */
+    .serendipity_image_block.row > figure.serendipity_imageComment_center {
+      width: auto;
+      max-width: 260px; }
 
 /* Gallery-Container: default mobile for cols - starting with img default size >= 400px will initiate their own */
 @media only screen and (max-width: 399px) {
@@ -236,68 +216,66 @@ ul#serendipity_categories_list {
 .serendipity_image_block.col {
     column-count: 1;
     column-gap: .187rem;/*3*/
-    justify-content: space-evenly;
-}
-.serendipity_image_block.col.c4 {
-    column-count: 2;
-}
+    justify-content: space-evenly; }
 .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
-    margin: auto auto .187rem;
-}
+    margin: auto auto .187rem; }
+
 @media only screen and (min-width: 400px) {
     .serendipity_image_block.col.c3 {
         column-count: 2;
+        column-gap: .312rem;/*6*/ }
+    .serendipity_image_block.col.c4 {
+        column-count: 2;
         column-gap: .312rem;/*6*/
-    }
+        column-fill: balance;
+        justify-content: normal; }
 }
 .serendipity_image_block > div {
-    display: block;
-}
+    display: block; }
+
 /* MEDIUM SCREENS */
 @media only screen and (min-width: 552px) {
-    .serendipity_image_block.col:not(.c3):not:(.c4) {
-        display: flex;
-    }
+    .serendipity_image_block.row picture,
+    .serendipity_image_block.col.not(.c3) picture {
+        display: inline; }
+    .serendipity_image_block.col.c4 picture {
+        display: inline-flex; }
     .serendipity_image_block.row picture,
     .serendipity_image_block.col picture {
-        display: initial;
         width: auto;
         max-width: initial;
         margin: 0;
-        padding: 0;
-    }
+        padding: 0; }
     .serendipity_image_block.col {
         column-count: 2;
         column-gap: .312rem;/*6*/
-        display: inline-block;
-    }
+        display: inline-block; }
+    .serendipity_image_block.col.c2 {
+        display: flex; }
     .serendipity_image_block.col.c3 {
-        display: inline-block;
-    }
+        display: inline-block; }
     .serendipity_image_block.col.c4 {
-        column-count: 3;
-        display: inline-block;
-    }
+        column-count: 3; }
     .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
         margin: auto 0.5px .5em;
-        float: none;
-    }
+        float: none; }
 }
+
 /* DEFAULT SCREENS */
 @media only screen and (min-width: 768px) {
     .serendipity_image_block.col {
         column-gap: .5rem;/*9*/
-        column-fill: balance;
-    }
+        column-fill: balance; }
     .serendipity_image_block.col.c2 {
-        column-count: 2;
-    }
+        column-count: 2; }
     .serendipity_image_block.col.c3 {
-        column-count: 3;
-    }
+        column-count: 3; }
     .serendipity_image_block.col.c4 {
-        column-count: 4;
-    }
+        column-count: 4; }
+    /* includes both [source|img] */
+    .serendipity_image_block.col.c3 .serendipity_image_left,
+    .serendipity_image_block.col.c4 .serendipity_image_left {
+        display: block; }
 }
 
 .serendipity_image_block.col .serendipity_imageComment_left,
@@ -307,62 +285,58 @@ ul#serendipity_categories_list {
 .serendipity_image_block.col .serendipity_image_right {
     vertical-align: middle;
     margin: auto auto .25em;
-    float: unset;
-}
+    float: unset; }
 .serendipity_image_block.col .serendipity_image_link,
 .serendipity_image_block.col .serendipity_image_left,
 .serendipity_image_block.col .serendipity_image_right {
-    margin: auto 0.5px .25em;
-}
+    margin: auto -1px .25em; }
 
+.serendipity_image_block > div.serendipity_imageComment_left .serendipity_image_left,
+.serendipity_image_block.col .serendipity_imageComment_left .serendipity_image_link,
+.serendipity_image_block.col .serendipity_imageComment_left .serendipity_image_left,
+.serendipity_image_block.col .serendipity_imageComment_right .serendipity_image_right {
+    margin: 0; }
+.serendipity_image_block:not(.row):not(.col) .serendipity_imageComment_left .serendipity_imageComment_img,
+.serendipity_image_block:not(.row):not(.col) .serendipity_imageComment_right .serendipity_imageComment_img {
+    display: flex; }
 .serendipity_image_block.col .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right {
     display: inline-block;
-    max-width: 100%;
-}
+    max-width: 100%; }
 
 /* Gallery-Size: end */
 
 /* Gallery-Margins: the default margins for all default level 1 gallery items (direct containers or direct items) */
+
 .serendipity_image_block > .serendipity_imageComment_left,
 .serendipity_image_block > .serendipity_imageComment_right,
 .serendipity_image_block > .serendipity_image_link,
 .serendipity_image_block > .serendipity_image_left,
 .serendipity_image_block > .serendipity_image_right {
-    margin: 5px 0 0 0;
-}
-/* same for manually helper containers */
+    margin: 5px 0 0 0; }
+/* same for manually added helper containers */
 .serendipity_image_block > div,
 .serendipity_image_block > span,
 .serendipity_image_block > div .serendipity_image_left,
 .serendipity_image_block > div .serendipity_image_right,
 .serendipity_image_block > span .serendipity_image_left,
 .serendipity_image_block > span .serendipity_image_right {
-    margin: 5px 0 0 0;
-}
-/* exception */
-.serendipity_image_block > div > figure .serendipity_image_left {
-    margin: auto;
-}
+    margin: 5px 0 0 0; }
+    /* exception */
+    .serendipity_image_block > div > figure .serendipity_image_left {
+      margin: auto; }
 
+/* so that a direct child image behaves like a containerized image - and the top/right is 2x5px */
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
-    margin: 10px 10px 0 0; /* so that a direct child image behaves like a containerized image - and the top/right is 2x5px */
+    margin: 10px 10px 0 0;
 }
 /* Some special care when inside a link or comment container, to not break the "auto" left and top margin by the justify-content (i.e. in Next and Default themes) */
 .serendipity_image_block .serendipity_imageComment_left .serendipity_imageComment_img,
 .serendipity_image_block .serendipity_imageComment_right .serendipity_imageComment_img {
     border: 0 none !important;
-    display: inline-block;
-}
-/* Gallery-Margins: end */
+    display: inline; }
 
-/* Disables spamblock and other user notifications for the adduser plugin forms, since more or less needed for comment or contact forms only */
-#adduserform .serendipity_comment_emoticate,
-#adduserform .serendipity_comment_s9ymarkup,
-#adduserform .serendipity_comment_spamblock {
-    visibility: hidden;
-    display: none;
-}
+/* Gallery-Margins: end */
 
 /* END OF style_fallback.css */
