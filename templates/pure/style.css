@@ -1370,6 +1370,7 @@ ol.plainList > .comment.commentlevel-16 {
     padding: 0.25em;
     overflow: auto;
 }
+
 .serendipity_comment h4 {
     margin: .25em auto .5em;
     line-height: 1.5;
@@ -1616,7 +1617,7 @@ div.serendipityPlug a {
 @media only screen and (min-width: 640px) {
     .plugin_comment_wrap {
         /* font-size: inherit; for auto-sizing */
-        font-size: .875rem;/* auto-sizing and max will be 14px*/
+        font-size: .875rem;/* auto-sizing and max will be 14px */
     }
 }
 
@@ -1674,7 +1675,7 @@ div.serendipityPlug a {
 .serendipity_imageComment_txt {
     border-top: 1px solid #ddd;
     background-color: #efefef;
-    padding: .25em;
+    padding: .25rem 0;
     clear: both;
     font-size: 10px;
     font-size: .625rem;
@@ -1782,18 +1783,9 @@ div.serendipityPlug a {
 .serendipity_image_center {
     display: block;
     margin: 0 auto 1em auto; }
-    p > .serendipity_image_center {
-        margin: auto; }
-    picture > .serendipity_image_center {
-        padding: 0;
-        display: inherit; }
-    div > picture > .serendipity_image_center {
-        display: inherit; }
-    div > figure.serendipity_imageComment_center picture {
-        display: flex; }
 .serendipity_image_block {
     width: 100%;
-    /* stop stretching */
+    /* stop stretching above a certain range? */
     /*max-width: 1600px;*/
 }
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
