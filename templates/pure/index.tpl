@@ -14,7 +14,7 @@
 {if $view == 'entry' AND isset($entry)}
     <link rel="canonical" href="{$entry.rdf_ident}">
 {/if}
-{if in_array($view, ['start', 'entries'])}
+{if in_array($view, ['start', 'entries'])}{* 'archives' *}
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
     <script src="{serendipity_getFile file="modernizr.min.js"}"></script>
@@ -101,7 +101,7 @@
 {/if}
 
     <script src="{serendipity_getFile file="pure.js"}"></script>
-{if $view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && NOT $entry.allow_comments === false}
+{if $view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)}
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/ckeditor.js"></script>
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/config.js"></script>
     <script>
