@@ -1059,6 +1059,8 @@ details summary {
   height: auto;
   max-width: 100%; }
 
+/** REMEMBER, figure styled image comment blocks live outside paragraphs ! **/
+
 /* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
 .serendipity_imageComment_left,
 .serendipity_imageComment_center,
@@ -1092,25 +1094,34 @@ source.serendipity_image_left, source.serendipity_image_right {
 
 /* overwrite fallback plain image padding */
 source.serendipity_image_center {
-    border: 0;
+    border: 0 none;
+}
+/* overwrite fallback plain image padding */
+.serendipity_image_center {
+    padding: .25em;
 }
 /* style to center */
 .serendipity_image_center {
     display: block;
     margin: 0 auto 1em auto; }
-    p > .serendipity_image_center {
-        margin: auto; }
-    p > img.serendipity_image_center {
-        margin: 1rem auto; }
-    picture > .serendipity_image_center {
-        padding: 0;
-        display: inherit; }
-    div > picture > .serendipity_image_center {
-        display: inherit; }
-    div > figure.serendipity_imageComment_center picture {
-        display: flex; }
 .serendipity_image_block {
     width: 100%;
+}
+.serendipity_image_block.col source,
+.serendipity_image_block.col img {
+    margin: 0;
+}
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
+    margin: .5em 0 0 0;
+    float: none;
+}
+/* overwrite fallback gallery comment container margins and some of this comment styles */
+.serendipity_image_block .serendipity_imageComment_left,
+.serendipity_image_block .serendipity_imageComment_right {
+    margin-top: auto;
+    margin-right: unset;
+    background-color: unset;
 }
 
 /* overwrite fallback gallery comment container margins */
@@ -1294,7 +1305,6 @@ source.serendipity_image_center {
     .serendipity_image_block .serendipity_imageComment_right {
         margin-top: auto; }
 }
-
 @media screen and (min-width: 768px) {
   html {
     padding: 16px 0;
@@ -1441,14 +1451,26 @@ source.serendipity_image_center {
       margin: 8px 0 8px 16px;
       margin: .5rem 0 .5rem 1rem; }
 
+  /* Overwrite: Fixing two cases in rowed gallery containers */
+  .serendipity_image_block.row > div:not([id]):not([class]):not([style]),
+  .serendipity_image_block.row > .serendipity_image_left,
+  .serendipity_image_block.row > .serendipity_image_right {
+      margin: .5em; }
+  /* Overwrite: Line up a row gallery (manually) commented image to nearly fit the max-width 260px image sizes */
+  .serendipity_image_block.row .serendipity_imageComment_left {
+    margin: .5em 0 0; }
+  .serendipity_image_block.row figure.serendipity_imageComment_left {
+    margin: auto; }
+
   .serendipity_imageComment_left, .serendipity_imageComment_right {
     display: inline; }
+  div.serendipity_imageComment_left, div.serendipity_imageComment_right {
+    display: grid; }
 
-  .serendipity_image_block .serendipity_image_link .serendipity_image_left,
-  .serendipity_image_block .serendipity_image_link .serendipity_image_right,
-  .serendipity_image_block .serendipity_imageComment_left,
-  .serendipity_image_block .serendipity_imageComment_right {
-    margin: 0; }
+  .serendipity_image_block.col.c3 source.serendipity_image_left,
+  .serendipity_image_block.col.c4 source.serendipity_image_left {
+      margin: 0;
+      border: 0 none; }
 
   #secondary, #tertiary {
     padding: 0 16px;
