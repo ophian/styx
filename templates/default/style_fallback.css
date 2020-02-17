@@ -94,6 +94,9 @@ ul#serendipity_categories_list {
     border: 0;
     padding-left: 5px;
     padding-right: 5px; }
+    p > img.serendipity_image_center {
+        margin: auto;
+        clear: both; }
     /* don't ever style picture source elements */
     source.serendipity_image_center {
       margin: auto;
