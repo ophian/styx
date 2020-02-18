@@ -27,7 +27,7 @@
         {if NOT empty($entry.categories)}
             <span class="visuallyhidden">{$CONST.CATEGORIES}: </span>{foreach $entry.categories AS $entry_category}<a href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
         {/if}
-        {if NOT empty($entry.categories) AND ($entry.has_comments OR $entry.has_disqus)} | {/if}
+        {if NOT empty($entry.categories) AND ($entry.has_comments OR NOT empty($entry.has_disqus))} | {/if}
 {if $entry.has_comments OR NOT empty($entry.has_disqus)}
     {if isset($entry.has_disqus) AND $entry.has_disqus}
             {$entry.comments}{if $entry.has_trackbacks}, <a href="{$entry.link}#trackbacks">{$entry.trackbacks} {$entry.label_trackbacks}</a>{/if}
