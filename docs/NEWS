@@ -1,9 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Improve global preset styles for image fluids. Additional changes go
-    to [default, pure, dude, next, 2k11, sliver, bootstrap4, skeleton, clean-blog]
-    themes.
+  * Improve global preset styles for image fluids. Additional changes go to
+    [default, pure, dude, next, 2k11, sliver, bootstrap4, skeleton, clean-blog,
+    timeline] themes.
 
   * Improve and fix new ckebasic core config init for staticpages and other
     normal backend nuggets.
