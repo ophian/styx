@@ -135,6 +135,11 @@ section.serendipity_plugin_comments.mb-3 {
 #serendipity_categories_list input {
     margin-right: .25rem }
 pre { width: auto }
+img.serendipity_entryIcon {
+    float: right; }
+hr {
+    width: 100%;
+    display: inline-block; }
 
 /* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
 .page_content .serendipity_imageComment_left,
