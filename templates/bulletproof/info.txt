@@ -1,6 +1,6 @@
 Name: Bulletproof
 Author: Bulletproof development team, Ian Styx
-Date: 2020-02-15
+Date: 2020-02-19
 Require Serendipity: 1.7
 Engine: default
 Responsive: Partly Yes

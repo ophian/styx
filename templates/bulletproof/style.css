@@ -59,6 +59,11 @@ pre {
 
 pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
 
+hr {
+    display: inline-block;
+    width: 100%;
+}
+
 #serendipity_comment_0 { /* a new unsaved comment preview only */
     border: 1px solid #ddd;
     -webkit-border-radius: 3px;
@@ -209,7 +214,7 @@ h4.staticpage_title {
 }
 .serendipity_entry p {
     margin-bottom: 1.5em;
-    display: inline-table;
+    display: block;
 }
 .serendipity_entry ul,
 .serendipity_entry ol { padding-left: 2.5em; }
@@ -286,17 +291,20 @@ ul.archives_row li {
     display: inline-block;
 }
 
+.serendipity_image_left {
+    padding-left: 0;
+    margin: 1em 1em 1em 0;
+}
+
 .serendipity_image_center {
     display: block;
-    margin: 0 auto;
+    margin: 0 auto 1em;
     padding: 0 5px;
-}
-.serendipity_image_left {
-    padding: 0 5px 0 0!important;
 }
 
 .serendipity_image_right {
-    padding: 0 0 0 5px!important;
+    padding-right: 0;
+    margin: 1em 0 1em 1em;
 }
 
 .serendipity_imageComment_center,
@@ -331,6 +339,41 @@ ul.archives_row li {
     text-align: center;
 }
 
+p > a.serendipity_image_link {
+    display: initial;
+}
+
+div> figure.serendipity_imageComment_center {
+    display: block;
+    margin: 0 auto 1em;
+}
+
+.serendipity_image_block.col.c2 picture {
+    display: inline-block; }
+@media screen and (min-width: 400px) {
+    .serendipity_image_block.col.c3 .serendipity_image_link,
+    .serendipity_image_block.col.c3 > picture {
+        display: inline-block;
+        overflow: auto;
+        margin: auto; }
+}
+@media screen and (min-width: 768px) {
+    .serendipity_image_block.col.c3 .serendipity_image_link,
+    .serendipity_image_block.col.c3 > picture  {
+        display: block; }
+    .serendipity_image_block.col.c3 .serendipity_image_link > picture {
+        display: inline-block; }
+    .serendipity_image_block.col.c3 .serendipity_image_link,
+    .serendipity_image_block.col.c3 picture {
+        overflow: hidden;
+        margin: auto; }
+}
+.serendipity_image_block.col.c4 {
+    display: inline-block;
+}
+source.serendipity_image_left, source.serendipity_image_right {
+    margin: 0;
+}
 
 /*** Calendar styles ***/
 table.serendipity_calendar {

@@ -12,4 +12,5 @@ It allows to set 4 different colorsets and uses various user options to differen
 Among these it was used as the default backend theme for a long time. This latter was no longer usable since Serendipity 2.0 and therefore has been removed completely.<br>
 * 2017-04-19 - Removed dead cocomment option and scripting<br>
 * 2019-01-18 - Removed inline styles, fixed staticpages without articleformat, updated CSS for current Serendipity Styx versions.<br>
-* 2019-10-06 - Removed references to dead (s9y-bulletproof.com).';
+* 2019-10-06 - Removed references to dead (s9y-bulletproof.com).<br>
+* 2020-02-19 - Some Upgrades for image responsive fluids, to work with Styx 3.0; Without making it mobile ready.';
