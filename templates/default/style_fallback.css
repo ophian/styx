@@ -28,7 +28,7 @@ picture {
       padding: 0 0; }
 
 #serendipity_error_top {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     z-index: 999;
@@ -185,7 +185,7 @@ ul#serendipity_categories_list {
     align-items: flex-start; /* the default is stretch, internally used by Chrome when flexing direct child images */
     justify-content: space-around; /* IE10+ CSS fallback, since -evenly not supported */
     justify-content: space-evenly;
-    margin-bottom: 1em; }
+    margin: auto auto 1em; }
     /* The inline containers or items min/max size to scale gallery images to a affordable size */
     .serendipity_image_block.row .serendipity_imageComment_left,
     .serendipity_image_block.row .serendipity_imageComment_right,
