@@ -1528,6 +1528,12 @@ a.comment-source-trace {
     padding: 2px 0;
     text-align: center;
 }
+.serendipity_image_block > .serendipity_imageComment_left {
+    margin: 5px 5px 0 0;
+}
+.serendipity_image_block.col.c4 {
+    display: inline-block;
+}
 .serendipity_msg_important,
 .serendipity_msg_success,
 .serendipity_msg_notice {
