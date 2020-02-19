@@ -22,8 +22,8 @@ body {
 }
 
 pre {
-    width: auto;
-    min-width: 20em;
+    width: 100%;
+    min-width: 5em;
     display: inline-block;
 }
 
@@ -67,6 +67,7 @@ hr {
 
 p {
     margin: 0 0 20px;
+    overflow-wrap: break-word;
 }
 
 .wrapper {
@@ -848,6 +849,10 @@ img.serendipity_freeTag_xmlButton {
     text-decoration: none;
 }
 
+button.btn.btn-sm.btn-default.btn-theme {
+    white-space: normal;
+}
+
 /*.archive-button-months-entries .badge {
     background-color: #4b920c;
 } COLORSET - */
@@ -868,6 +873,9 @@ img.serendipity_freeTag_xmlButton {
 .serendipity_plugin_comments .plugin_comment_date {
     font-size: 13px;
     margin-bottom: 5px;
+}
+.plugin_comment_body {
+    overflow-wrap: anywhere;
 }
 
 .alert,
@@ -983,13 +991,6 @@ img.comment_avatar {
     border-color: #adadad;
 }
 
-/* reset bootstrap default sets for .row-ed galleries */
-.row.serendipity_image_block::before,
-.row.serendipity_image_block::after{
-    display: initial;
-    content: normal;
-}
-
 .serendipity_image_left,
 .serendipity_image_right,
 .serendipity_image_center,
@@ -998,19 +999,16 @@ img.comment_avatar {
 .serendipity_imageComment_right {
     background: transparent;
     border: 0 none;
-    padding: 0!important;
     max-width: 100%;
 }
 .serendipity_image_left,
 .serendipity_imageComment_left {
     display: block;
-    float: left;
     margin: 0 1em 1em 0;
 }
 .serendipity_image_right,
 .serendipity_imageComment_right {
     display: block;
-    float: right;
     margin: 0 0 1em 1em;
 }
 .serendipity_image_center {
@@ -1020,10 +1018,6 @@ img.comment_avatar {
 .serendipity_imageComment_center {
     display: block;
     margin: 0 auto 1em auto;
-}
-.serendipity_imageComment_img img {
-    border: none!important;
-    margin: 0!important;
 }
 .serendipity_imageComment_txt {
     border: 0;
@@ -1042,6 +1036,128 @@ img.comment_avatar {
     height: auto;
     max-width: 100%;
 }
+
+img.serendipity_entryIcon {
+    float: right;
+}
+
+/* styx media gallery styles start */
+
+/* reset bootstrap default sets for .row-ed galleries */
+.row.serendipity_image_block::before,
+.row.serendipity_image_block::after{
+    display: initial;
+    content: normal;
+}
+.serendipity_image_block.col.c2 picture {
+    display: inline-block; }
+@media screen and (min-width: 400px) {
+    .serendipity_image_block.col.c3 .serendipity_image_link,
+    .serendipity_image_block.col.c3 > picture {
+        display: inline-block;
+        overflow: auto;
+        margin: auto; }
+}
+@media screen and (min-width: 768px) {
+    .serendipity_image_block.col.c3 .serendipity_image_link,
+    .serendipity_image_block.col.c3 > picture  {
+        display: block; }
+    .serendipity_image_block.col.c3 .serendipity_image_link > picture {
+        display: inline-block; }
+    .serendipity_image_block.col.c3 .serendipity_image_link,
+    .serendipity_image_block.col.c3 picture {
+        overflow: hidden;
+        margin: auto; }
+}
+.serendipity_image_block.col.c4 {
+    display: inline-block;
+}
+source.serendipity_image_left, source.serendipity_image_right {
+    margin: 0;
+}
+
+/* style to center */
+.serendipity_image_center {
+    display: block;
+    margin: 0 auto 1em auto; }
+    p > img.serendipity_image_center {
+    margin: 1rem auto; }
+.serendipity_image_block {
+    width: 100%;
+}
+.serendipity_image_block.col .serendipity_image_link {
+    margin: auto;
+}
+/* overwrite special row gallery comment container */
+.serendipity_image_block.row .serendipity_imageComment_left {
+    max-width: 260px; }
+    .serendipity_image_block.row .serendipity_imageComment_left .serendipity_imageComment_img {
+        padding: 0; }
+    .serendipity_image_block.row .serendipity_imageComment_left  .serendipity_imageComment_img img {
+      padding: 1px 0; }
+/* overwrite fallback gallery comment container margins and floats */
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
+.serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
+    margin: .5em 0 0 0;
+}
+/* overwrite fallback gallery comment container margins and some of this comment styles */
+.serendipity_image_block .serendipity_imageComment_left,
+.serendipity_image_block .serendipity_imageComment_right {
+    margin-top: auto;
+    margin-right: unset;
+    background-color: unset;
+}
+.serendipity_image_block.row .serendipity_image_link .serendipity_image_left {
+    margin: 0 auto;
+}
+/* keep in mind .row and .col have bootstrap presets which interfere our galleries */
+.serendipity_image_block.col {
+    padding: initial;
+}
+.serendipity_image_block.row {
+    margin-right: initial;
+    margin-left: initial;
+}
+.serendipity_image_block.col .serendipity_imageComment_left {
+    display: block;
+    margin: auto;
+}
+@media screen and (min-width: 552px) {
+  .serendipity_image_block.col .serendipity_imageComment_left .serendipity_imageComment_img,
+  .serendipity_image_block.col .serendipity_imageComment_left .serendipity_image_left {
+    padding: 0; }
+}
+/* same behaviour as .serendipity_image_block.col picture */
+.serendipity_image_block.col.c3 .serendipity_image_link {
+    margin: auto;
+}
+.serendipity_image_block.col .serendipity_image_link,
+.serendipity_image_block.col .serendipity_image_left,
+.serendipity_image_block.col .serendipity_image_right,
+.serendipity_image_block.col.c2 .serendipity_image_link .serendipity_image_left,
+.serendipity_image_block.col.c2 .serendipity_image_left {
+    margin: auto; }
+
+.serendipity_image_block .serendipity_imageComment_left .serendipity_imageComment_img,
+.serendipity_image_block .serendipity_imageComment_right .serendipity_imageComment_img {
+    border: 0 none !important;
+    display: inline-block; }
+
+.serendipity_imageComment_img, .serendipity_imageComment_img img {
+    display: inline-block; }
+
+@media only screen and (min-width: 552px) {
+  .serendipity_image_block.col.c3 .serendipity_image_link picture {
+    margin: auto;
+    display: inline-block; }
+}
+
+source.serendipity_image_left, source.serendipity_image_center, source.serendipity_image_right {
+    margin: 0;
+    border: 0 none;
+    display: inline-block; }
+
+/* styx media gallery styles end */
 
 .image-full-width {width: 100%}
 
