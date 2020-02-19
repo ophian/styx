@@ -125,7 +125,7 @@
                         {if $view != 'entry'}
                             <hr class="small">
                             {if $head_subtitle AND $view != 'plugin'}<span class="subheading">{$head_subtitle|default:$blogDescription}</span>{else}{$blogDescription}{/if}
-                        {else}
+                        {else if isset($entry)}
                             {if NOT empty($entry.properties.entry_subtitle)}<h2 class="subheading">{$entry.properties.entry_subtitle|escape}</h2>{/if}
                             <p class="meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-sm btn-default"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if NOT empty($entry.is_entry_owner) AND NOT $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
                         {/if}
