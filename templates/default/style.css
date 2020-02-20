@@ -797,7 +797,8 @@ div.serendipityPlug a {
 /* style to center */
 .serendipity_image_center {
     display: block;
-    margin: 0 auto 1em auto; }
+    margin: 0 auto 1em auto;
+}
 .serendipity_image_block {
     width: 100%;
 }
