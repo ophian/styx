@@ -813,7 +813,6 @@ nav.pager ul {
     word-break: break-word;
 }
 .post_content {
-    display: inline-block;
     line-height: 1.6;
     width: 100%; }
     .post_content blockquote {
@@ -1782,7 +1781,7 @@ div.serendipityPlug a {
 /* style to center */
 .serendipity_image_center {
     display: block;
-    margin: 0 auto 1em auto; }
+    margin: 0 auto 1em; }
 .serendipity_image_block {
     width: 100%;
     /* stop stretching above a certain range? */
@@ -1800,7 +1799,6 @@ div.serendipityPlug a {
     margin-right: unset;
     background-color: unset;
 }
-
 
 /** MEDIA QUERIES **/
 
