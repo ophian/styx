@@ -380,7 +380,7 @@
 
                 if (pictureSubmit && pic_el) {
                     img = '<!-- s9ymdb:'+ imgID +' --><picture>'
-                    + '<source type="image/webp" class="serendipity_image_'+ float +'" srcset="' + iftwebp + '" class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ imgalt +'">'
+                    + '<source type="image/webp" srcset="' + iftwebp + '">'
                     + '<img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ ((title != '' && g['isLink'] == 'no') ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">'
                     + '</picture>';
                 } else {
@@ -488,7 +488,7 @@
         }
         if (pictureSubmit) {
             img = '<!-- s9ymdb:'+ imgID +' --><picture>'
-            + '<source type="image/webp" srcset="' + imgWebP + '" class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" alt="'+ alt +'">'
+            + '<source type="image/webp" srcset="' + imgWebP + '">'
             + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">'
             + '</picture>';
         } else {
