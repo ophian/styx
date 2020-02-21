@@ -1,6 +1,15 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix up the stateless (picture ->) source element attributes, to only set
+    the "type" and the "srcset" in the serendipity_editor.js file when selecting
+    images by the picture submit button. This fixes many CSS styling issues we
+    had afterwards in themes.
+    Previous entry takes have to manually reset all these previously source set
+    attributes like "height", "width", "alt" and "class". Please check your
+    entries for this by hand (recommended), or delete the image or gallery parts
+    and run the media selector for insert again.
+
   * Improve global preset styles for image fluids. Additional changes go to
     [default, pure, dude, next, 2k11, sliver, bootstrap4, skeleton, clean-blog,
     timeline, bulletproof] themes and additional child's like [default-php].
