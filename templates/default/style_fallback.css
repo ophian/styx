@@ -21,12 +21,6 @@ figure {
     figure > figcaption {
 	  text-align: center; }
 
-picture {
-    display: block; }
-    picture > source,
-    picture > source.serendipity_image_left {
-      padding: 0 0; }
-
 #serendipity_error_top {
     position: relative;
     top: 0;
@@ -97,10 +91,6 @@ ul#serendipity_categories_list {
     p > img.serendipity_image_center {
         margin: auto;
         clear: both; }
-    /* don't ever style picture source elements */
-    source.serendipity_image_center {
-      margin: auto;
-      padding: 0; }
 
 .serendipity_image_left {
     float: left;
@@ -190,19 +180,12 @@ ul#serendipity_categories_list {
     .serendipity_image_block.row .serendipity_imageComment_left,
     .serendipity_image_block.row .serendipity_imageComment_right,
     .serendipity_image_block.row .serendipity_image_link,
-    .serendipity_image_block.row > .serendipity_image_left,
-    .serendipity_image_block.row > .serendipity_image_right {
-      width: auto;
-      max-width: 260px; }
-    /* Workaround styles for older Chrome. Direct images manually wrapped inside a simple non-styled container - generic div preferred */
-    .serendipity_image_block.row > div:not([id]):not([class]):not([style]),
-    .serendipity_image_block.row > span:not([class]):not([style]) {
-      width: auto;
+    .serendipity_image_block.row .serendipity_image_left,
+    .serendipity_image_block.row .serendipity_image_right {
       max-width: 260px; }
     /* Line up a row gallery (manually) commented image to nearly fit the max-width 260px image sizes */
     .serendipity_image_block.row .serendipity_imageComment_left {
-      max-width: calc(260px - .5em);
-      margin: .25em 0 0; }
+      max-width: calc(260px - .5em); }
     /* This is not possible automatically, but may be a customized "mid-flooted" set for rowed galleries */
     .serendipity_image_block.row > figure.serendipity_imageComment_center {
       width: auto;
@@ -217,11 +200,19 @@ ul#serendipity_categories_list {
 /* Gallery-Container: by columns, vertically ordered, screen sized 3:2:1 and 4:3:2 */
 /* SMALL SCREENS */
 .serendipity_image_block.col {
+    margin-bottom: .5em;
     column-count: 1;
     column-gap: .187rem;/*3*/
     justify-content: space-evenly; }
-.serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
-    margin: auto auto .187rem; }
+    .serendipity_image_block.col .serendipity_imageComment_left,
+    .serendipity_image_block.col .serendipity_imageComment_right,
+    .serendipity_image_block.col .serendipity_image_link,
+    .serendipity_image_block.col .serendipity_image_left,
+    .serendipity_image_block.col .serendipity_image_right {
+        margin: auto auto .3125em;
+        float: unset; }
+    .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
+        margin: auto auto .2667615em; /*3*/ }
 
 @media only screen and (min-width: 400px) {
     .serendipity_image_block.col.c3 {
@@ -234,21 +225,10 @@ ul#serendipity_categories_list {
         justify-content: normal; }
 }
 .serendipity_image_block > div {
-    display: block; }
+    display: inline-block; }
 
 /* MEDIUM SCREENS */
 @media only screen and (min-width: 552px) {
-    .serendipity_image_block.row picture,
-    .serendipity_image_block.col.not(.c3) picture {
-        display: inline; }
-    .serendipity_image_block.col.c4 picture {
-        display: inline-flex; }
-    .serendipity_image_block.row picture,
-    .serendipity_image_block.col picture {
-        width: auto;
-        max-width: initial;
-        margin: 0;
-        padding: 0; }
     .serendipity_image_block.col {
         column-count: 2;
         column-gap: .312rem;/*6*/
@@ -258,15 +238,17 @@ ul#serendipity_categories_list {
     .serendipity_image_block.col.c3 {
         display: inline-block; }
     .serendipity_image_block.col.c4 {
+        display: inline-block;
         column-count: 3; }
     .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
-        margin: auto 0.5px .5em;
+        margin: auto auto .25em;
         float: none; }
 }
 
 /* DEFAULT SCREENS */
 @media only screen and (min-width: 768px) {
     .serendipity_image_block.col {
+        margin-bottom: 1em;
         column-gap: .5rem;/*9*/
         column-fill: balance; }
     .serendipity_image_block.col.c2 {
@@ -275,30 +257,21 @@ ul#serendipity_categories_list {
         column-count: 3; }
     .serendipity_image_block.col.c4 {
         column-count: 4; }
-    /* includes both [source|img] */
-    .serendipity_image_block.col.c3 .serendipity_image_left,
     .serendipity_image_block.col.c4 .serendipity_image_left {
         display: block; }
+    .serendipity_image_block.col .serendipity_imageComment_left,
+    .serendipity_image_block.col .serendipity_imageComment_right,
+    .serendipity_image_block.col .serendipity_image_link,
+    .serendipity_image_block.col .serendipity_image_left,
+    .serendipity_image_block.col .serendipity_image_right {
+        margin: .25em auto; }
 }
-
-.serendipity_image_block.col .serendipity_imageComment_left,
-.serendipity_image_block.col .serendipity_imageComment_right,
-.serendipity_image_block.col .serendipity_image_link,
-.serendipity_image_block.col .serendipity_image_left,
-.serendipity_image_block.col .serendipity_image_right {
-    vertical-align: middle;
-    margin: auto auto .25em;
-    float: unset; }
-.serendipity_image_block.col .serendipity_image_link,
-.serendipity_image_block.col .serendipity_image_left,
-.serendipity_image_block.col .serendipity_image_right {
-    margin: auto -1px .25em; }
 
 .serendipity_image_block > div.serendipity_imageComment_left .serendipity_image_left,
 .serendipity_image_block.col .serendipity_imageComment_left .serendipity_image_link,
 .serendipity_image_block.col .serendipity_imageComment_left .serendipity_image_left,
 .serendipity_image_block.col .serendipity_imageComment_right .serendipity_image_right {
-    margin: 0; }
+    margin: auto; }
 .serendipity_image_block:not(.row):not(.col) .serendipity_imageComment_left .serendipity_imageComment_img,
 .serendipity_image_block:not(.row):not(.col) .serendipity_imageComment_right .serendipity_imageComment_img {
     display: flex; }
