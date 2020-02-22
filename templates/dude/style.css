@@ -398,7 +398,6 @@ pre code {
     overflow-x: auto; }
     code.hljs {
         word-break: break-all; }
-
 hr {
     height: 1px;
     border: 0;
@@ -406,7 +405,6 @@ hr {
     border-top: 1px solid #aaa;
     display: inline-block;
     width: 100%; }
-
 p {
     overflow-wrap: break-word;
     -webkit-hyphens: auto;
@@ -730,7 +728,8 @@ a.comment_source_trace {
 }
 
 .comment_content {
-    margin-bottom: 1em; }
+    margin-bottom: 1em;
+}
 .serendipity_comment_author_self .serendipity_comment_source .pc-owner,
 .serendipity_comment_author_self .comment_header .pc-owner {
     padding: .1em .25em;
@@ -740,14 +739,18 @@ a.comment_source_trace {
     color: #efefef;
     font-style: normal;
     font-weight: bold;
-    text-shadow: 1px 1px 2px #222; }
+    text-shadow: 1px 1px 2px #222;
+}
 .comments_by_author_pagination {
     font-size: .875em;
-    text-align: center; }
+    text-align: center;
+}
 .comments_by_author_pagination.top {
-    margin-top: 1em; }
+    margin-top: 1em;
+}
 .comments_by_author_pagination.bottom {
-    margin: 1.5em auto; }
+    margin: 1.5em auto;
+}
 
 /** End of Comment Form **/
 
@@ -900,17 +903,21 @@ table.serendipity_calendar td {
 /** End of Sidebar Styles **/
 
 /** Embedded images with the Serendipity Styx image manager **/
+
 .serendipity_image_block > div {
-    display: inline-block; }
+    display: inline-block;
+}
 
 .serendipity_entry p > .serendipity_image_left,
 .serendipity_entry p > .serendipity_imageComment_center,
 .serendipity_entry p > .serendipity_image_right {
-    margin: .25em auto; }
+    margin: .25em auto;
+}
 .content.staticpage_content p > .serendipity_image_left,
 .content.staticpage_content p > .serendipity_imageComment_center,
 .content.staticpage_content p > .serendipity_image_right {
-    margin: .25em auto; }
+    margin: .25em auto;
+}
 
 .serendipity_imageComment_center,
 .serendipity_imageComment_left,
@@ -946,7 +953,7 @@ table.serendipity_calendar td {
     font-style: italic;
     padding: .25rem;
     font-size: .75rem;
-    line-height: initial; }
+    line-height: initial;
 }
 
 /* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
@@ -970,7 +977,7 @@ table.serendipity_calendar td {
 .serendipity_entry p .serendipity_image_right {
     max-width: 46%; }
 
-@media screen and (min-width: 640px) {
+  @media screen and (min-width: 640px) {
     .staticpage_content .serendipity_imageComment_left,
     .staticpage_content .serendipity_imageComment_right,
     .staticpage_content p .serendipity_image_left,
@@ -980,52 +987,52 @@ table.serendipity_calendar td {
     .serendipity_entry p .serendipity_image_left,
     .serendipity_entry p .serendipity_image_right {
         max-width: 48%; }
-}
-@media screen and (min-width: 1024px) {
-.staticpage_content .serendipity_imageComment_left,
-.staticpage_content .serendipity_imageComment_right,
-.staticpage_content p .serendipity_image_left,
-.staticpage_content p .serendipity_image_right,
-.serendipity_entry .serendipity_imageComment_left,
-.serendipity_entry .serendipity_imageComment_right,
-.serendipity_entry p .serendipity_image_left,
-.serendipity_entry p .serendipity_image_right {
-    max-width: 46%; }
-}
-@media screen and (min-width: 1140px) {
-.staticpage_content .serendipity_imageComment_left,
-.staticpage_content .serendipity_imageComment_right,
-.staticpage_content p .serendipity_image_left,
-.staticpage_content p .serendipity_image_right,
-.serendipity_entry .serendipity_imageComment_left,
-.serendipity_entry .serendipity_imageComment_right,
-.serendipity_entry p .serendipity_image_left,
-.serendipity_entry p .serendipity_image_right {
-    max-width: 48%; }
-}
-@media screen and (min-width: 1220px) {
-.staticpage_content .serendipity_imageComment_left,
-.staticpage_content .serendipity_imageComment_right,
-.staticpage_content p .serendipity_image_left,
-.staticpage_content p .serendipity_image_right,
-.serendipity_entry .serendipity_imageComment_left,
-.serendipity_entry .serendipity_imageComment_right,
-.serendipity_entry p .serendipity_image_left,
-.serendipity_entry p .serendipity_image_right {
-    max-width: 50%; }
-}
-@media screen and (min-width: 1325px) {
-.staticpage_content .serendipity_imageComment_left,
-.staticpage_content .serendipity_imageComment_right,
-.staticpage_content p .serendipity_image_left,
-.staticpage_content p .serendipity_image_right,
-.serendipity_entry .serendipity_imageComment_left,
-.serendipity_entry .serendipity_imageComment_right,
-.serendipity_entry p .serendipity_image_left,
-.serendipity_entry p .serendipity_image_right {
-    max-width: 75%; }
-}
-@media screen and (min-width: 1440px) {
+  }
+  @media screen and (min-width: 1024px) {
+    .staticpage_content .serendipity_imageComment_left,
+    .staticpage_content .serendipity_imageComment_right,
+    .staticpage_content p .serendipity_image_left,
+    .staticpage_content p .serendipity_image_right,
+    .serendipity_entry .serendipity_imageComment_left,
+    .serendipity_entry .serendipity_imageComment_right,
+    .serendipity_entry p .serendipity_image_left,
+    .serendipity_entry p .serendipity_image_right {
+        max-width: 46%; }
+  }
+  @media screen and (min-width: 1140px) {
+    .staticpage_content .serendipity_imageComment_left,
+    .staticpage_content .serendipity_imageComment_right,
+    .staticpage_content p .serendipity_image_left,
+    .staticpage_content p .serendipity_image_right,
+    .serendipity_entry .serendipity_imageComment_left,
+    .serendipity_entry .serendipity_imageComment_right,
+    .serendipity_entry p .serendipity_image_left,
+    .serendipity_entry p .serendipity_image_right {
+        max-width: 48%; }
+  }
+  @media screen and (min-width: 1220px) {
+    .staticpage_content .serendipity_imageComment_left,
+    .staticpage_content .serendipity_imageComment_right,
+    .staticpage_content p .serendipity_image_left,
+    .staticpage_content p .serendipity_image_right,
+    .serendipity_entry .serendipity_imageComment_left,
+    .serendipity_entry .serendipity_imageComment_right,
+    .serendipity_entry p .serendipity_image_left,
+    .serendipity_entry p .serendipity_image_right {
+        max-width: 50%; }
+  }
+  @media screen and (min-width: 1325px) {
+    .staticpage_content .serendipity_imageComment_left,
+    .staticpage_content .serendipity_imageComment_right,
+    .staticpage_content p .serendipity_image_left,
+    .staticpage_content p .serendipity_image_right,
+    .serendipity_entry .serendipity_imageComment_left,
+    .serendipity_entry .serendipity_imageComment_right,
+    .serendipity_entry p .serendipity_image_left,
+    .serendipity_entry p .serendipity_image_right {
+        max-width: 75%; }
+  }
+  @media screen and (min-width: 1440px) {
     .staticpage_content .serendipity_imageComment_left,
     .staticpage_content .serendipity_imageComment_right,
     .staticpage_content p .serendipity_image_left,
@@ -1035,8 +1042,8 @@ table.serendipity_calendar td {
     .serendipity_entry p .serendipity_image_left,
     .serendipity_entry p .serendipity_image_right {
         max-width: 80%; }
-}
-@media screen and (min-width: 1520px) {
+  }
+  @media screen and (min-width: 1520px) {
     .staticpage_content .serendipity_imageComment_left,
     .staticpage_content .serendipity_imageComment_right,
     .staticpage_content p .serendipity_image_left,
@@ -1046,8 +1053,8 @@ table.serendipity_calendar td {
     .serendipity_entry p .serendipity_image_left,
     .serendipity_entry p .serendipity_image_right {
         max-width: 86%; }
-}
-@media screen and (min-width: 1600px) {
+  }
+  @media screen and (min-width: 1600px) {
     .staticpage_content .serendipity_imageComment_left,
     .staticpage_content .serendipity_imageComment_right,
     .staticpage_content p .serendipity_image_left,
@@ -1057,8 +1064,8 @@ table.serendipity_calendar td {
     .serendipity_entry p .serendipity_image_left,
     .serendipity_entry p .serendipity_image_right {
         max-width: 92%; }
-}
-@media screen and (min-width: 1800px) {
+  }
+  @media screen and (min-width: 1800px) {
     .staticpage_content .serendipity_imageComment_left,
     .staticpage_content .serendipity_imageComment_right,
     .staticpage_content p .serendipity_image_left,
@@ -1068,7 +1075,7 @@ table.serendipity_calendar td {
     .serendipity_entry p .serendipity_image_left,
     .serendipity_entry p .serendipity_image_right {
         max-width: initial; }
-}
+  }
 
 /* overwrite fallback plain image padding */
 .serendipity_image_center {
@@ -1077,7 +1084,8 @@ table.serendipity_calendar td {
 /* style to center */
 .serendipity_image_center {
     display: block;
-    margin: 0 auto 1em auto; }
+    margin: 0 auto 1em;
+}
 .serendipity_image_block {
     width: 100%;
 }
@@ -1093,6 +1101,7 @@ table.serendipity_calendar td {
     margin-right: unset;
     background-color: unset;
 }
+
 /** Embedded images with the Serendipity Styx image manager end **/
 
 
