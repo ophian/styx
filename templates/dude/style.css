@@ -696,15 +696,24 @@ a.comment_source_trace {
 .serendipity_commentForm table {
     border-collapse: separate;
     border-spacing: 2px; }
+    td.serendipity_commentsLabel,
+    td.serendipity_commentsValue {
+        display: table-row; }
     td.serendipity_commentsLabel {
         font-size: .75rem;
         font-weight: bold;
         vertical-align: top; }
+    .serendipity_commentForm table td:not([class]) {
+        display: initial; }
     td.serendipity_commentsValue input:not(type="button"),
     td.serendipity_commentsValue select,
     td.serendipity_commentsValue textarea {
         font-size: .75rem; }
-
+@media screen and (min-width: 360px) {
+    .serendipity_commentForm table td,
+    .serendipity_commentForm table td:not([class]) {
+        display: table-cell; }
+}
 .serendipity_commentsLabel.toolbar {
     font-weight: normal;
 }
