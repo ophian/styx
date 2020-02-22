@@ -185,7 +185,8 @@ ul#serendipity_categories_list {
       max-width: 260px; }
     /* Line up a row gallery (manually) commented image to nearly fit the max-width 260px image sizes */
     .serendipity_image_block.row .serendipity_imageComment_left{
-      max-width: calc(260px - 4px); }
+      max-width: 260px;
+      min-width: 250px; }
       .serendipity_image_block.row .serendipity_imageComment_left .serendipity_image_link,
       .serendipity_image_block.row .serendipity_imageComment_left .serendipity_image_left {
         max-width: 100%; }
