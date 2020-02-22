@@ -779,7 +779,7 @@ div.serendipityPlug a {
 .serendipity_entry p .serendipity_image_left,
 .serendipity_entry p .serendipity_image_right {
     max-width: 46%; }
-@media screen and (min-width: 1360px) {
+  @media screen and (min-width: 1360px) {
     .staticpage_content .serendipity_imageComment_left,
     .staticpage_content .serendipity_imageComment_right,
     .staticpage_content p .serendipity_image_left,
@@ -789,7 +789,7 @@ div.serendipityPlug a {
     .serendipity_entry p .serendipity_image_left,
     .serendipity_entry p .serendipity_image_right {
         max-width: 100%; }
-}
+  }
 /* overwrite fallback plain image padding */
 .serendipity_image_center {
     padding: .25em;
@@ -797,7 +797,7 @@ div.serendipityPlug a {
 /* style to center */
 .serendipity_image_center {
     display: block;
-    margin: 0 auto 1em auto;
+    margin: 0 auto 1em;
 }
 .serendipity_image_block {
     width: 100%;
@@ -814,6 +814,7 @@ div.serendipityPlug a {
     margin-right: unset;
     background-color: unset;
 }
+
 /** Embedded images with the Serendipity Styx image manager end **/
 
 
