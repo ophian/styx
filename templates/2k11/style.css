@@ -786,20 +786,10 @@ pre .geshi {
     border: 1px solid #aaa;
 }
 
-/* Fix image comment grids */
-source.serendipity_image_left, source.serendipity_image_center, source.serendipity_image_right {
-    margin: initial;
-    border: 0 none!important;
-}
-.serendipity_image_block.col > picture > source.serendipity_image_left,
-.serendipity_image_block.col .serendipity_image_link > picture > source.serendipity_image_left {
-    margin: 0;
-    border: 0 none;
-}
 /* style to center */
 .serendipity_image_center {
     display: block;
-    margin: 0 auto 1em auto; }
+    margin: 0 auto 1em; }
     p > img.serendipity_image_center {
       margin-bottom: 1em; }
     .serendipity_image_block {
@@ -808,7 +798,6 @@ source.serendipity_image_left, source.serendipity_image_center, source.serendipi
 .serendipity_image_block.col {
     display: inline-block;
 }
-.serendipity_image_block.col source,
 .serendipity_image_block.col img {
     margin: 0;
 }
