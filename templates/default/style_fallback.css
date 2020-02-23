@@ -204,6 +204,9 @@ ul#serendipity_categories_list {
 /* Gallery-Container: by columns, vertically ordered, screen sized 3:2:1 and 4:3:2 */
 /* SMALL SCREENS */
 .serendipity_image_block.col {
+    width: auto;
+    max-width: -webkit-fill-available;
+    max-width: fit-content;
     margin-bottom: .5em;
     column-count: 1;
     column-gap: .187rem;/*3*/
