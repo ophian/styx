@@ -35,13 +35,13 @@ p, .plugin_comment_body {
 @media (min-width:640px){
     .serendipity_image_left,
     .serendipity_imageComment_left{
-        margin: 1rem 1rem 1rem 0 }
+        margin: .5rem 1rem 1rem 0 }
     .serendipity_image_center,
     .serendipity_imageComment_center{
         margin: 1rem auto }
     .serendipity_image_right,
     .serendipity_imageComment_right{
-        margin: 1rem 0 1rem 1rem }
+        margin: .5rem 0 1rem 1rem }
 }
 .serendipity_imageComment_center,
 .serendipity_imageComment_img,
@@ -67,16 +67,6 @@ p, .plugin_comment_body {
     clear: both;
     font-size: .8125rem;
     text-align: center }
-@media (min-width:768px){
-    .serendipity_image_left,
-    .serendipity_imageComment_left{
-        float: left;
-        margin: 0 2rem 1rem 0 }
-    .serendipity_image_right,
-    .serendipity_imageComment_right{
-        float: right;
-        margin: 0 0 1rem 2rem }
-}
 .serendipity_commentDirection{
     background-color: #d1ecf1;
     border: 1px solid #bee5eb;
@@ -142,15 +132,17 @@ hr {
     display: inline-block; }
 
 /* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
-.page_content .serendipity_imageComment_left,
-.page_content .serendipity_imageComment_right,
-.page_content p .serendipity_image_left,
-.page_content p .serendipity_image_right,
-.post .serendipity_imageComment_left,
-.post .serendipity_imageComment_right,
-.post p .serendipity_image_left,
-.post p .serendipity_image_right {
-  max-width: 48%; }
+@media (min-width:280px){
+  .page_content .serendipity_imageComment_left,
+  .page_content .serendipity_imageComment_right,
+  .page_content p .serendipity_image_left,
+  .page_content p .serendipity_image_right,
+  .post .serendipity_imageComment_left,
+  .post .serendipity_imageComment_right,
+  .post p .serendipity_image_left,
+  .post p .serendipity_image_right {
+    max-width: 46%; }
+  }
   @media screen and (min-width: 1560px) {
     .page_content .serendipity_imageComment_left,
     .page_content .serendipity_imageComment_right,
@@ -162,10 +154,27 @@ hr {
     .post p .serendipity_image_right {
       max-width: 100%; }
 }
+@media (min-width:768px){
+    .serendipity_image_left,
+    .serendipity_imageComment_left{
+        float: left;
+        margin: .5rem 1rem 1rem 0 }
+    figure.serendipity_imageComment_left {
+        margin: auto .5rem auto 0; }
+    figure.serendipity_imageComment_right {
+        margin: auto 0 auto .5rem; }
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right {
+        max-width: 48%; }
+    .serendipity_image_right,
+    .serendipity_imageComment_right{
+        float: right;
+        margin: .5rem 0 1rem 1rem }
+}
 /* style to center */
 .serendipity_image_center {
     display: block;
-    margin: 0 auto 1em auto; }
+    margin: 0 auto 1em; }
     p > img.serendipity_image_center {
     margin: 1rem auto; }
 .serendipity_image_block {
@@ -214,7 +223,6 @@ hr {
   .serendipity_image_block.col .serendipity_imageComment_left .serendipity_image_left {
     padding: 0; }
 }
-/* same behaviour as .serendipity_image_block.col picture */
 .serendipity_image_block.col.c3 .serendipity_image_link {
     margin: auto;
 }
@@ -228,17 +236,6 @@ hr {
 .serendipity_image_block .serendipity_imageComment_left .serendipity_imageComment_img,
 .serendipity_image_block .serendipity_imageComment_right .serendipity_imageComment_img {
     border: 0 none !important;
-    display: inline-block; }
-
-@media only screen and (min-width: 552px) {
-  .serendipity_image_block.col.c3 .serendipity_image_link picture {
-    margin: auto;
-    display: inline-block; }
-}
-
-source.serendipity_image_left, source.serendipity_image_center, source.serendipity_image_right {
-    margin: 0;
-    border: 0 none;
     display: inline-block; }
 
 .comment_content.clearfix, .d-flex {
