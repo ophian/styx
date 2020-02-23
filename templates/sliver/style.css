@@ -41,12 +41,14 @@ html {
  */
 
 hr {
+    display: block;
     display: flow-root;
     height: 1px;
     border: 0;
     border-top: 1px solid #ccc;
     margin: 1em 0;
     padding: 0;
+    width: 100%;
 }
 
 /*
@@ -327,7 +329,7 @@ embed, object,
 img, video { height: auto; }
 
 #wrapper { width: 100% !important; }
-#blog img { max-width: 100%; overflow:hidden; position:relative; }
+#blog img { max-width: 100%; overflow:hidden; position: initial; }
 
 /* =============================================================================
    Screen styles
@@ -971,6 +973,23 @@ ul.archives_row li {
     padding: 1%;
     text-align: center;
 }
+/* style to center */
+.serendipity_image_center {
+    display: block;
+    margin: 0 auto 1em;
+}
+.serendipity_image_block {
+    width: 100%;
+}
+.serendipity_image_block.col .serendipity_imageComment_left,
+.serendipity_image_block.col .serendipity_imageComment_right,
+.serendipity_image_block.col .serendipity_image_link,
+.serendipity_image_block.col .serendipity_image_left,
+.serendipity_image_block.col .serendipity_image_right {
+    margin: auto;
+    overflow: auto;
+}
+
 table.serendipity_calendar {
     background-color: transparent;
     height: 150px;
@@ -1482,7 +1501,6 @@ a.comment-source-trace {
 .comments_by_author_pagination.bottom {
     margin-top: 2em;
 }
-
 #serendipity_smarty_entrypaging { display: inline-block; width: 100%; height: 34px; margin: 1rem auto; }
 #serendipity_smarty_entrypaging div { width: 32px; }
 .serendipity_smarty_entrypaging .arrow { fill: #333; }
@@ -1527,6 +1545,10 @@ a.comment-source-trace {
     font-size: 0.75em;
     padding: 2px 0;
     text-align: center;
+}
+.serendipity_image_block.col {
+    width: auto;
+    max-width: fit-content;
 }
 .serendipity_image_block > .serendipity_imageComment_left {
     margin: 5px 5px 0 0;

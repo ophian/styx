@@ -62,7 +62,6 @@
     #sidebar_middle:not(.sbjs),
     #sidebar_left.sbmoveright { margin-left: 0; }
     .serendipity_entry p, .serendipity_image_left, .serendipity_image_right { clear: both; }
-    .serendipity_image_left, .serendipity_image_right { float: none; }
     a[href$=".jpg"],a[href$=".jpeg"],a[href$=".png"],a[href$=".gif"] {
         background: none transparent;
     }
