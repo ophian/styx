@@ -1636,7 +1636,7 @@ a.comment-source-trace {
 
 #wrapper {
     background: none #FFF;
-    border-color: #AAA #383838;
+    border-color: #aaa #d0d0d0;
     border-style: none solid;
     border-width: 0 1px;
     /* rounded corners */
@@ -1653,6 +1653,10 @@ a.comment-source-trace {
     max-width: 96%;
     overflow: hidden;
     position: relative;
+}
+@media screen and (min-width: 768px) {
+  #wrapper {
+    border-color: #AAA #383838; }
 }
 
 #maingrid {
