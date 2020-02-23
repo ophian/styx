@@ -15,4 +15,4 @@ Auch erfüllte es über lange Zeit seinen Zweck als Standard-Backend-Theme. Dies w
 * 2017-04-19 - Removed dead cocomment option and scripting<br>
 * 2019-01-18 - Removed inline styles, fixed staticpages without articleformat, updated CSS for current Serendipity Styx versions.<br>
 * 2019-10-06 - Removed references to dead (s9y-bulletproof.com).<br>
-* 2020-02-19 - Some Upgrades for image responsive fluids, to work with Styx 3.0; Without making it auto scale and mobile ready.';
+* 2020-02-23 - Some Upgrades for image responsive fluids, to work with Styx 3.0; Without actually making it auto scale and mobile ready.';
