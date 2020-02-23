@@ -6,7 +6,7 @@ Version 3.0-Dev ()
     images by the picture submit button. This fixes many CSS styling issues we
     had afterwards in themes. All styles by the global fallback_style.css file
     and all themes are getting prepared to remove the mentioned css issue work-
-    arounds again.
+    arounds again. [Done for core themes!]
     Previous entry takes - using this 3.0-Dev version already - have to manually
     reset all these previously source set attributes like "height", "width",
     "alt" and "class". Please check your entries for this by hand (recommended),
