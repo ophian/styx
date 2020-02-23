@@ -7,10 +7,11 @@ Version 3.0-Dev ()
     had afterwards in themes. All styles by the global fallback_style.css file
     and all themes are getting prepared to remove the mentioned css issue work-
     arounds again.
-    Previous entry takes have to manually reset all these previously source set
-    attributes like "height", "width", "alt" and "class". Please check your
-    entries for this by hand (recommended), or delete the image or gallery parts
-    and run the media selector for insert again.
+    Previous entry takes - using this 3.0-Dev version already - have to manually
+    reset all these previously source set attributes like "height", "width",
+    "alt" and "class". Please check your entries for this by hand (recommended),
+    or delete the image or gallery parts and run the media selector for insert
+    again.
 
   * Improve global preset styles for image fluids. Additional changes go to
     [default, pure, dude, next, 2k11, sliver, bootstrap4, skeleton, clean-blog,
