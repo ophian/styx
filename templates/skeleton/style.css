@@ -5,6 +5,7 @@
 /* changes */
 code {white-space:pre-wrap;}
 a.button.read_more,a.button.trackback_url {display:inline-table;white-space:normal;}
+hr {width: 100%;}
 
 /* THEME-/S9Y-SPECIFIC STYLES */
 /* -------------------------- */
@@ -207,13 +208,7 @@ p > .serendipity_image_link .serendipity_image_right {
     width: auto;
     display: block;
 }
-source.serendipity_imageComment_center {
-    margin: 0;
-    padding: 0;
-}
-.post_content > figure.serendipity_imageComment_left picture > source.serendipity_image_left {
-    margin: 0 auto auto; }
-
+/*
 .serendipity_image_block.col.c2 .serendipity_image_link {
     margin: auto;
 }
@@ -223,7 +218,7 @@ source.serendipity_imageComment_center {
 }
 .serendipity_image_block > div.serendipity_imageComment_left .serendipity_image_left {
     margin: 1rem -5px auto auto;
-}
+}*/
 /* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
 .page_content .serendipity_imageComment_left,
 .page_content .serendipity_imageComment_right,
@@ -293,19 +288,23 @@ source.serendipity_imageComment_center {
 /* style to center */
 .serendipity_image_center {
     display: block;
-    margin: 0 auto 1em auto; }
+    margin: 0 auto 1em; }
     p > img.serendipity_image_center {
     margin: 1rem auto; }
 .serendipity_image_block {
     width: 100%;
 }
 .serendipity_image_block.col .serendipity_image_link {
-    margin: auto;
+    margin: auto auto .25em;
+}
+@media screen and (min-width: 400px) {
+  .serendipity_image_block:not(.col):not(.row) >  .serendipity_image_link,
+  .serendipity_image_block:not(.col):not(.row) > .serendipity_image_link .serendipity_image_left{
+    margin: 0 .125em auto; }
 }
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
 .serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
-    margin: .5em 0 0 0;
-    float: none;
+    margin: .5em .5em 0 0;
 }
 /* overwrite fallback gallery comment container margins and some of this comment styles */
 .serendipity_image_block .serendipity_imageComment_left,
@@ -314,7 +313,6 @@ source.serendipity_imageComment_center {
     margin-right: unset;
     background-color: unset;
 }
-/* same behaviour as .serendipity_image_block.col picture */
 .serendipity_image_block.col.c3 .serendipity_image_link {
     margin: auto;
 }

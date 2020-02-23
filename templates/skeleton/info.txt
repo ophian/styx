@@ -1,6 +1,6 @@
 Name: Skeleton
 Author: Matthias Mees, Ian Styx
-Date: 2020-02-17
+Date: 2020-02-23
 Require Serendipity: 2.0
 Responsive: Yes
 Mobile: Yes
