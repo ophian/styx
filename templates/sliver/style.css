@@ -1546,10 +1546,6 @@ a.comment-source-trace {
     padding: 2px 0;
     text-align: center;
 }
-.serendipity_image_block.col {
-    width: auto;
-    max-width: fit-content;
-}
 .serendipity_image_block > .serendipity_imageComment_left {
     margin: 5px 5px 0 0;
 }
