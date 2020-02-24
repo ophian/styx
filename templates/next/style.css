@@ -1081,7 +1081,7 @@ details summary {
     .post .serendipity_imageComment_right,
     .post p .serendipity_image_left,
     .post p .serendipity_image_right {
-        max-width: calc(100%/1.5); }
+        max-width: calc(100% / 1.5); }
   }
   @media screen and (min-width: 1280px) {
     .post .serendipity_imageComment_left,
