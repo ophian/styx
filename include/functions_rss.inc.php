@@ -49,12 +49,12 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
 
             $entry['feed_id'] = (isset($entry['entryid']) && !empty($entry['entryid']) ? $entry['entryid'] : $entry['id']);
 
-            // set feed guid only, if not already defined externaly
+            // set feed guid only, if not already defined externally
             if (empty($entry['feed_guid']))
                 $entry['feed_guid'] = serendipity_rss_getguid($entry, $options['comments']);
 
             $entry['feed_entryLink'] = serendipity_archiveURL($entry['feed_id'], $entry['title'], 'baseURL', true, array('timestamp' => $e_ts));
-            if ($options['comments'] == true) {
+            if ($options['comments'] === true) {
                 // Display username as part of the title for easier feed-readability
                 if ($entry['type'] == 'TRACKBACK' && !empty($entry['ctitle'])) {
                     $entry['author'] .= ' - ' . $entry['ctitle'];
@@ -90,6 +90,9 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             //$entry['body'] = preg_replace('@(href|src|srcset)=("|\')(' . preg_quote($serendipity['serendipityHTTPPath']) . ')(.*)("|\')(.*)>@imsU', '\1=\2' . $serendipity['baseURL'] . '\4\2\6>', $entry['body']);
             // clean up body for XML compliance and doubled whitespace between (img) attributes as best we can.
             $entry['body'] = str_replace('"  ', '" ', xhtml_cleanup($entry['body']));
+            if ($options['comments'] === true) {
+                $entry['body'] = str_replace(['&#160;', '  '], ' ', $entry['body']); // allowed to do, since stripped
+            }
 
             // extract author information
             if ((isset($entry['no_email']) && $entry['no_email']) || $options['showMail'] === FALSE) {
