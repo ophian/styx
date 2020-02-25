@@ -1,5 +1,5 @@
 /**
- * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.13 on 2020-02-07
+ * Adds custom Serendipity image float styles to CKEDITOR wysiwyg-mode v.1.13 on 2020-02-25 14:02
  */
 
 img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
@@ -9,10 +9,6 @@ audio, video,
 embed, object { max-width: 100%; }
 
 img, video { height: auto; }
-
-picture {
-    display: block;
-}
 
 hr {
     clear: both;
@@ -25,9 +21,6 @@ p > a.serendipity_image_link {
 p > img.serendipity_image_left,
 p > img.serendipity_image_right {
     display: table-cell;
-}
-a > img {
-    outline: 0 none;
 }
 .cke_widget_wrapper {
     display: inline-block;
@@ -55,18 +48,19 @@ a > img {
 
 .serendipity_image_center {
     display: block;
-    margin: 0 auto 1em auto;
+    margin: 0 auto 1em;
 }
 
 .serendipity_imageComment_center {
     clear: both;
     display: block;
-    margin: 0 auto 1em auto;
+    margin: 0 auto 1em;
 }
 
 .serendipity_imageComment_img img {
     border: none !important;
     margin: 0 !important;
+    outline: 0 none;
 }
 
 /* Auto scales 400px left and right oriented image thumbs with floated text - DOES NOT touch smaller defined images, which is perfect! */
@@ -74,7 +68,7 @@ a > img {
 .cke_editable .serendipity_imageComment_right,
 .cke_editable p .serendipity_image_left,
 .cke_editable p .serendipity_image_right {
-  max-width: 46%; }
+    max-width: 46%; }
 
 .cke_editable .serendipity_imageComment_center {
     width: auto;
@@ -99,15 +93,12 @@ a > img {
     text-align: center;
 }
 
-.serendipity_imageComment_img > .serendipity_image_link {
-    display: block;
-    margin: .25em auto;
-}
-
-/* inherit keeps inner margins, else set auto or initial */
 .serendipity_imageComment_img {
-    margin: auto; }
-
+    margin: 2px; }
+@media screen and (min-width: 768px) {
+  .serendipity_imageComment_img {
+    margin: 4px 2px auto; }
+}
 /* The image parent comment box responsiveness for mobile screens - touches all: old styled and new "figure" styled. */
 .serendipity_imageComment_center,
 .serendipity_imageComment_left,
@@ -121,11 +112,6 @@ a > img {
 .serendipity_image_left,
 .serendipity_image_right {
     max-width: 99.9%;
-}
-/* Fix image comment grids - expand images to container */
-source.serendipity_image_left,
-source.serendipity_image_right {
-    display: contents;
 }
 
 .serendipity_image_left {
@@ -150,10 +136,38 @@ source.serendipity_image_right {
     margin: 0 0 .5em 1em;
 }
 
+/* Gallery-Container: default (fallback for no rows, no cols - no initial width here) */
+.serendipity_image_block {
+    display: inline-block;
+    width: 100%;
+}
+.serendipity_image_block .serendipity_image_link {
+    display: block; /* Chromium: Start a new block ! */
+}
+.serendipity_imageComment_center .serendipity_imageComment_img {
+    padding-top: 4px;
+}
 .serendipity_image_link {
     display: initial;
 }
-/* Gallery-Container: This is used to enclose a gallery, using serendipity_image_left or _right floated images */
+.serendipity_imageComment_img > .serendipity_image_link {
+    display: inline-block;
+}
+/* reset inside */
+.serendipity_image_block .serendipity_imageComment_center .serendipity_imageComment_img {
+    padding: 0;
+}
+
+.serendipity_image_block:not(.col):not(.row) .serendipity_image_link {
+    display: inline-block;
+}
+/* Gallery-Container: default (fallback for rows) */
+.serendipity_image_block.row {
+    display: inline-block;
+}
+
+/* Gallery-Container: per row order, flexed */
+/* This is used to enclose a gallery, using serendipity_image_left or _right floated images */
 .serendipity_image_block.row {
     clear: both;
     display: -webkit-flex;
@@ -172,62 +186,34 @@ source.serendipity_image_right {
     justify-content: space-evenly;
     margin-bottom: 1em;
 }
-/* The inline containers or items min/max size to scale gallery images to an affordable size */
+
+/* The inline containers or items min/max size to scale gallery images to a affordable size */
 .serendipity_image_block.row .serendipity_imageComment_left,
 .serendipity_image_block.row .serendipity_imageComment_right,
 .serendipity_image_block.row .serendipity_image_link,
 .serendipity_image_block.row > .serendipity_image_left,
 .serendipity_image_block.row > .serendipity_image_right {
-    min-width: 100px;
+    width: auto;
     max-width: 260px;
+    margin: auto;
 }
-/* direct item styles forced */
-.serendipity_image_block.row > .serendipity_image_left,
-.serendipity_image_block.row > .serendipity_image_right {
-    max-width: 260px !important; /* since having to force the inline style */
-}
-/* Workaround styles for older Chrome. Direct images manually wrapped inside a simple unstyled container - generic div preferred */
+
+/* Workaround styles for older Chrome. Direct images manually wrapped inside a simple non-styled container - generic div preferred */
 .serendipity_image_block.row > div:not([id]):not([class]):not([style]),
 .serendipity_image_block.row > span:not([class]):not([style]) {
-    min-width: 100px;
+    width: auto;
     max-width: 260px;
 }
-/* Gallery-Size: end */
+/* This is not possible automatically, but may be a customized "mid-flooted" set for rowed galleries */
+.serendipity_image_block.row > figure.serendipity_imageComment_center {
+    width: auto;
+    max-width: 260px;
+}
 
-/* Gallery-Margins: the default margins for all default level 1 gallery items (direct containers or direct items) */
-.serendipity_image_block > .serendipity_imageComment_left,
-.serendipity_image_block > .serendipity_imageComment_right,
-.serendipity_image_block > .serendipity_image_link,
-.serendipity_image_block > .serendipity_image_left,
-.serendipity_image_block > .serendipity_image_right {
-    display: inline-block; /* the former inline does as well but this is better I assume */
-    margin: .5em 0 0 0;
-}
-/* same for manually helper containers */
-.serendipity_image_block > div,
-.serendipity_image_block > span,
-.serendipity_image_block > div .serendipity_image_left,
-.serendipity_image_block > div .serendipity_image_right,
-.serendipity_image_block > span .serendipity_image_left,
-.serendipity_image_block > span .serendipity_image_right {
-    display: inline-block; /* the former inline does as well but this is better I assume */
-    margin: .5em 0 0 0;
-}
-.serendipity_image_block > .serendipity_image_left,
-.serendipity_image_block > .serendipity_image_right,
-.serendipity_image_block  .serendipity_image_link {
-    margin: .5em 0 0 0; /* no display here! */
-}
-/* already defined gallery image_blocks without col or row defines */
-.serendipity_image_block:not(.col):not(.row) > .serendipity_image_left,
-.serendipity_image_block:not(.col):not(.row) > .serendipity_image_right {
-    margin: .5em .5em 0 0;
-}
-/* Gallery-Margins: end */
-
-/* webkit (all) hack */
-.serendipity_image_block.row > .serendipity_imageComment_left .serendipity_image_link:not(*:root) {
-    display: table-row; /* A Chrome fix to automatically size the link (level 2) container without any additionally thrown space around the inner scaled image */
+/* Gallery-Container: default mobile for cols - starting with img default size >= 400px will initiate their own */
+@media only screen and (max-width: 399px) {
+    .serendipity_image_block.col {
+        display: initial; }
 }
 
 /* Gallery-Container: by columns, vertically ordered, screen sized 3:2:1 and 4:3:2 */
@@ -243,38 +229,41 @@ source.serendipity_image_right {
 .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
     margin: auto auto .187rem;
 }
-/* MEDIUM SCREENS 92% of media screen 480px */
-@media only screen and (min-width: 455px) {
-    .serendipity_imageComment_img {
-        display: inline-block;
+@media only screen and (min-width: 400px) {
+    .serendipity_image_block.col.c3 {
+        column-count: 2;
+        column-gap: .312rem;/*6*/
+        width: auto;
     }
-    .serendipity_image_block.col picture {
-        display: inline-block;
+}
+.serendipity_image_block > div {
+    display: block;
+    margin: auto;
+}
+/* MEDIUM SCREENS */
+@media only screen and (min-width: 552px) {
+    .serendipity_image_block.col:not(.c3):not:(.c4) {
+        display: flex;
     }
     .serendipity_image_block.col {
         column-count: 2;
         column-gap: .312rem;/*6*/
+        display: block;
+    }
+    .serendipity_image_block.col.c3 {
+        display: inline-block;
     }
     .serendipity_image_block.col.c4 {
         column-count: 3;
+        display: inline-block;
     }
     .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
-        margin: auto auto .5em;
-    }
-    source.serendipity_image_center {
-        margin: .25em;
+        margin: auto 0.5px .5em;
+        float: none;
     }
 }
-@media only screen and (min-width: 568px) {
-    .serendipity_image_block:not(.row) {
-        margin: 1rem auto 1rem; }
-}
-/* DEFAULT SCREENS 92% of media screen 768px */
-@media only screen and (min-width: 728px) {
-    .serendipity_image_block.col {
-        display: inline-block;
-        max-width: 100%;
-    }
+/* DEFAULT SCREENS */
+@media only screen and (min-width: 768px) {
     .serendipity_image_block.col {
         column-gap: .5rem;/*9*/
         column-fill: balance;
@@ -289,25 +278,24 @@ source.serendipity_image_right {
         column-count: 4;
     }
 }
-/* DEFAULT SCREEN COL4 92% of 1024px */
-@media only screen and (min-width: 942px) {
-    .serendipity_image_block.col.c4 {
-        column-count: 4;
-    }
-}
 .serendipity_image_block.col .serendipity_imageComment_left,
-.serendipity_image_block.col.c2 .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right,
-.serendipity_image_block.col.c2 .serendipity_imageComment_right,
 .serendipity_image_block.col .serendipity_image_link,
-.serendipity_image_block.col.c2 .serendipity_image_link,
-.serendipity_image_block.col > .serendipity_image_left,
-.serendipity_image_block.col.c2 > .serendipity_image_left,
-.serendipity_image_block.col > .serendipity_image_right,
-.serendipity_image_block.col.c2 > .serendipity_image_right {
-    display: table;
+.serendipity_image_block.col .serendipity_image_left,
+.serendipity_image_block.col .serendipity_image_right {
     vertical-align: middle;
-    margin: auto;
+    margin: auto auto .25em;
     float: unset;
+}
+.serendipity_image_block.col .serendipity_image_link,
+.serendipity_image_block.col .serendipity_image_left,
+.serendipity_image_block.col .serendipity_image_right {
+    margin: auto 0.5px .25em;
+}
+
+.serendipity_image_block.col .serendipity_imageComment_left,
+.serendipity_image_block.col .serendipity_imageComment_right {
+    display: inline-block;
+    max-width: 100%;
 }
 /* Gallery-Columns: end */
