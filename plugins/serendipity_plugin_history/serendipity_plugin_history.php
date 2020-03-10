@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.21');
+        $propbag->add('version',       '1.22');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -275,13 +275,10 @@ class serendipity_plugin_history extends serendipity_plugin
             } else {
 
                 $multiage = array();
-                ob_start();
-                if (!empty($intro)) {
-                    echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
-                }
+                $ydays = (date('j') > 2 && date('L')) ? 366 : 365;
                 // y start by 0 adds current day, else start is last year
                 for($y=0; $y < $xyears; $y++) {
-                    $age = ($min_age > 365) ? (365 * $y) : $min_age;
+                    $age = ($min_age > $ydays) ? ($ydays * $y) : $min_age;
                     $n   = ($y/4);
                     // for start with 0
                     if (preg_match('/^[0-9]+$/', $n)) {
@@ -292,6 +289,10 @@ class serendipity_plugin_history extends serendipity_plugin
                         $age = $age + floor($n); // round fractions down
                     }
                     $multiage[] = $age;
+                }
+                ob_start();
+                if (!empty($intro)) {
+                    echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
                 }
                 $this->getHistoryEntries($maxts, $mints, $multiage, null, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor);
                 if (!empty($outro)) {
