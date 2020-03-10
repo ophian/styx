@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix history plugin gregorian calendar multiyears leap years
+
   * Fix up the stateless (picture ->) source element attributes, to only set
     the "type" and the "srcset" in the serendipity_editor.js file when selecting
     images by the picture submit button. This fixes many CSS styling issues we
