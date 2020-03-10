@@ -275,10 +275,10 @@ class serendipity_plugin_history extends serendipity_plugin
             } else {
 
                 $multiage = array();
-                $ydays = (date('j') > 2 && date('L')) ? 366 : 365;
+                $yeardays = date('L') ? 366 : 365;
                 // y start by 0 adds current day, else start is last year
                 for($y=0; $y < $xyears; $y++) {
-                    $age = ($min_age > $ydays) ? ($ydays * $y) : $min_age;
+                    $age = ($min_age > $yeardays) ? ($yeardays * $y) : $min_age;
                     $n   = ($y/4);
                     // for start with 0
                     if (preg_match('/^[0-9]+$/', $n)) {
