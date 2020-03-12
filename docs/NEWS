@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix media.base_properties property_subgroup 'ALL' keys assignment for
+    media_items.tpl fields.
+
   * Fix history plugin gregorian calendar multiyears leap years
 
   * Fix up the stateless (picture ->) source element attributes, to only set
