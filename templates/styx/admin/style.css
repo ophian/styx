@@ -4538,7 +4538,7 @@ img.mfp-img {
     .js .media_pane .media_file_preview,
     .js .template_preview {
         min-height: 12em;
-        height: 17.5em;
+        height: 18.75em;
     }
     .js .media_pane .media_file_preview.media_file_pregal {
         min-height: 5.5em;
