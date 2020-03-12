@@ -202,9 +202,9 @@ switch ($serendipity['GET']['adminAction']) {
             serendipity_prepareMedia($file);
             $file['props'] =& serendipity_fetchMediaProperties((int)$media_id);
             serendipity_plugin_api::hook_event('media_getproperties_cached', $file['props']['base_metadata'], $file['realfile']);
-            $file['prop_imagecomment'] = serendipity_specialchars($file['props']['base_property']['COMMENT1'] ?? '');
-            $file['prop_alt']          = serendipity_specialchars($file['props']['base_property']['ALT']      ?? '');
-            $file['prop_title']        = serendipity_specialchars($file['props']['base_property']['TITLE']    ?? '');
+            $file['prop_imagecomment'] = serendipity_specialchars(($file['props']['base_property']['COMMENT1'] ?? ''));
+            $file['prop_alt']          = serendipity_specialchars(($file['props']['base_property']['ALT']      ?? ''));
+            $file['prop_title']        = serendipity_specialchars(($file['props']['base_property']['TITLE']    ?? ''));
             unset($file['props']); // we don't need this bloat, except the three above
             unset($file['thumb_header']); // img (encoded) header data will make json_encode() fail and return nothing
             unset($file['header']);
