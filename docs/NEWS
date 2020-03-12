@@ -2,7 +2,9 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
   * Fix media.base_properties property_subgroup 'ALL' keys assignment for
-    media_items.tpl fields.
+    media_items.tpl fields. Regressional fixes in admin/media_choose.tpl and
+    frontend related media_showitem.tpl template themes
+    [default, default-php, 2k11].
 
   * Fix history plugin gregorian calendar multiyears leap years
 
