@@ -2,7 +2,9 @@ Version 2.9.4-Dev ()
  ------------------------------------------------------------------------
 
   * Fix media.base_properties property_subgroup 'ALL' keys assignment for
-    media_items.tpl fields.
+    media_items.tpl fields. Regressional fixes in admin/media_choose.tpl and
+    frontend related media_showitem.tpl template themes
+    [default, default-php, 2k11].
 
   * Fix Mysql "simple" Install routine for utf8mb4 usage, while not having access
     to an "utf8" defined SQL_CHARSET and thus not setting the "dbUtf8mb4_converted"
