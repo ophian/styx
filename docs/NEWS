@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Allow backend 4:3 format image thumbnails without scroll, ie. upload 768x1024
+    to 400x300 conversions.
+
   * Fix media.base_properties property_subgroup 'ALL' keys assignment for
     media_items.tpl fields. Regressional fixes in admin/media_choose.tpl and
     frontend related media_showitem.tpl template themes
