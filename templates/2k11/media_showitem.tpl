@@ -6,7 +6,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="{$lang}"> <!--<![endif]-->
 <head>
     <meta charset="{$head_charset}">
-    <title>{$media.file.props.base_property.TITLE|default:$media.file.realname}</title>
+    <title>{$media.file.props.base_property.ALL.TITLE|default:$media.file.realname}</title>
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {if $template_option.webfonts == 'droid'}
@@ -45,7 +45,7 @@
     <div class="clearfix col2r">
         <main id="content"{if $template_option.imgstyle != 'none'} class="{$template_option.imgstyle}"{/if}>
             <article class="clearfix serendipity_entry">
-                <h2>{$media.file.props.base_property.TITLE|default:$media.file.realname}</h2>
+                <h2>{$media.file.props.base_property.ALL.TITLE|default:''}</h2>
             {if NOT empty($perm_denied)}
                 <p class="msg_important">{$CONST.PERM_DENIED}</p>
             {else}
