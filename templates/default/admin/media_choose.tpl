@@ -121,19 +121,19 @@
 
             <div id="image_comment" class="form_area">
                 <label for="serendipity_imagecomment">{$CONST.COMMENT}</label>
-                <textarea id="serendipity_imagecomment" name="serendipity[imagecomment]" rows="5">{$media.file.props.base_property.COMMENT1|escape|default:''}</textarea>
+                <textarea id="serendipity_imagecomment" name="serendipity[imagecomment]" rows="5">{$media.file.props.base_property.ALL.COMMENT1|escape|default:''}</textarea>
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagecomment' data=$media.file}
             </div>
 
             <div id="image_alttext" class="form_field">
                 <label for="serendipity_alt">{$CONST.MEDIA_ALT}</label>
-                <input id="serendipity_alt" name="serendipity[alt]" type="text" value="{$media.file.props.base_property.ALT|escape|default:''}">
+                <input id="serendipity_alt" name="serendipity[alt]" type="text" value="{$media.file.props.base_property.ALL.ALT|escape|default:''}">
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_alt' data=$media.file}
             </div>
 
             <div id="image_title" class="form_field">
                 <label for="serendipity_title">{$CONST.MEDIA_TITLE}</label>
-                <input id="serendipity_title" name="serendipity[title]" type="text" value="{$media.file.props.base_property.TITLE|escape|default:''}">
+                <input id="serendipity_title" name="serendipity[title]" type="text" value="{$media.file.props.base_property.ALL.TITLE|escape|default:''}">
                 {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_title' data=$media.file}
             </div>
             {/if}
