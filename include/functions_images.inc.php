@@ -3513,7 +3513,7 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
         $propkey = serendipity_specialchars($parts[0]) . $idx; // Well, this was added in S9y history for securing key uniqueness and fixed by Styx 32ada49c. Although we don't have possible duplicates.
 
         $media['base_property'][$propkey] = array(
-            'label' => serendipity_specialchars(defined('MEDIA_PROPERTY_' . strtoupper($parts[0])) ? constant('MEDIA_PROPERTY_' . strtoupper($parts[0])) : $parts[0]),
+            'label' => serendipity_specialchars((defined('MEDIA_PROPERTY_' . strtoupper($parts[0])) ? constant('MEDIA_PROPERTY_' . strtoupper($parts[0])) : $parts[0])),
             'type'  => $type,
             'val'   => $val,
             'title' => serendipity_specialchars($parts[0])
