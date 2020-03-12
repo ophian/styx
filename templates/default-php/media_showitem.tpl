@@ -3,7 +3,7 @@
 <html lang="<?= $GLOBALS['tpl']['lang'] ?>">
 <head>
     <meta charset="<?= $GLOBALS['tpl']['head_charset'] ?>">
-    <title><?= (!empty($GLOBALS['tpl']['media']['file']['props']['base_property']['TITLE']) ? $GLOBALS['tpl']['media']['file']['props']['base_property']['TITLE'] : $GLOBALS['tpl']['media']['file']['realname']) ?></title>
+    <title><?= (!empty($GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE']) ? $GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE'] : $GLOBALS['tpl']['media']['file']['realname']) ?></title>
     <meta name="generator" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
@@ -24,7 +24,7 @@
 <div id="mainpane">
     <main id="content" <?php if ($GLOBALS['tpl']['template_option']['imgstyle'] != 'none'): ?> class="<?= $GLOBALS['tpl']['template_option']['imgstyle'] ?>"<?php endif; ?>>
         <article class="clearfix serendipity_entry">
-            <h2><?= (!empty($GLOBALS['tpl']['media']['file']['props']['base_property']['TITLE']) ? $GLOBALS['tpl']['media']['file']['props']['base_property']['TITLE'] : $GLOBALS['tpl']['media']['file']['realname']) ?></h2>
+            <h2><?= (!empty($GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE']) ? $GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE'] : '') ?></h2>
         <?php if (!empty($GLOBALS['tpl']['perm_denied'])): ?>
             <p class="msg_important"><?= PERM_DENIED ?></p>
         <?php else: ?>
