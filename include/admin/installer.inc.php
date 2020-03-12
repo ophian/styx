@@ -384,14 +384,17 @@ if ((int)$serendipity['GET']['step'] == 0) {
         serendipity_plugin_api::register_default_plugins();
         $data['register_default_plugins'] = true;
 
-        // INSTALLERS utf8mb4 migration logic goes here, right before serendipity_updateLocalConfig is called via serendipity_updateConfiguration()
-        if (defined('SQL_CHARSET') && SQL_CHARSET == 'utf8' && serendipity_db_bool($_POST['dbNames']) && $_POST['dbType'] == 'mysqli') {
-            /* Utilize utf8mb4 for the dbCharset variable, if the server supports that */
-            $mysql_version = mysqli_get_server_info($serendipity['dbConn']);
-            if (version_compare($mysql_version, '5.5.3', '>=')) {
-                serendipity_set_config_var('dbUtf8mb4_converted', 'true');
-                $serendipity['dbUtf8mb4_converted'] = true;
-                define('SQL_CHARSET_INIT', true);
+        // INSTALLERS utf8mb4 installation/migration logic goes here, right before serendipity_updateLocalConfig is called via serendipity_updateConfiguration()
+        if (defined('SQL_CHARSET')) {
+            /* Assume utf8mb4_unicode_520_ci OR utf8mb4_unicode_ci OR utf8mb4_general_ci OR a language mb4 server collation variant is set having still latin1 pointed out */
+            if (in_array(SQL_CHARSET, ['latin1', 'utf8']) && serendipity_db_bool($_POST['dbNames']) && $_POST['dbType'] == 'mysqli') {
+                /* Utilize utf8mb4 for the dbCharset variable, if the server supports that */
+                $mysql_version = mysqli_get_server_info($serendipity['dbConn']);
+                if (version_compare($mysql_version, '5.5.3', '>=')) {
+                    serendipity_set_config_var('dbUtf8mb4_converted', 'true');
+                    $serendipity['dbUtf8mb4_converted'] = true;
+                    define('SQL_CHARSET_INIT', true);
+                }
             }
         }
     }
