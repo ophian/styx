@@ -3508,9 +3508,9 @@ function serendipity_parseMediaProperties(&$dprops, &$keywords, &$media, &$props
         if (!$is_edit) {
             $type = 'readonly';
         }
-        $val = serendipity_mediaTypeCast($parts[0], @$props['base_property'][$parts[0]], true); // mute possible uninitialized items
+        $val = serendipity_mediaTypeCast($parts[0], $props['base_property']['ALL'][$parts[0]], true);
 
-        $propkey = serendipity_specialchars($parts[0]) . $idx;
+        $propkey = serendipity_specialchars($parts[0]) . $idx; // Well, this was added in S9y history for securing key uniqueness and fixed by Styx 32ada49c. Although we don't have possible duplicates.
 
         $media['base_property'][$propkey] = array(
             'label' => serendipity_specialchars(defined('MEDIA_PROPERTY_' . strtoupper($parts[0])) ? constant('MEDIA_PROPERTY_' . strtoupper($parts[0])) : $parts[0]),
