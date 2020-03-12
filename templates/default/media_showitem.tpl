@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="{$lang}">
 <head>
-    <title>{$media.file.props.base_property.TITLE|default:$media.file.realname}</title>
+    <title>{$media.file.props.base_property.ALL.TITLE|default:$media.file.realname}</title>
     <meta http-equiv="Content-Type" content="text/html; charset={$head_charset}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
@@ -32,7 +32,7 @@
     <div id="content">
         <div class="serendipity_Entry_Date">
             <h3 class="serendipity_date">{$media.file.realname}</h3>
-            <h4 class="serendipity_title"><a href="#">{$media.file.props.base_property.TITLE|default:''}</a></h4>
+            <h4 class="serendipity_title"><a href="#">{$media.file.props.base_property.ALL.TITLE|default:''}</a></h4>
 
             <div class="serendipity_entry">
                 <div class="serendipity_entry_body">
