@@ -125,10 +125,6 @@ Version 3.0-Dev ()
     Different coding system will get you different sorting results. No one of
     this coding is better or worse - it depends of your needs.
 
-  * Fix Mysql "simple" Install routine for utf8mb4 usage, while not having access
-    to an "utf8" defined SQL_CHARSET and thus not setting the "dbUtf8mb4_converted"
-    configuration var.
-
   * The history sidebar plugin now offers cached entries for looped year lists
     - which clears the issue of not showing up on certain blog requests,
       like categories/freetags, and
@@ -594,6 +590,10 @@ Version 3.0-Dev ()
 
 Version 2.9.4-Dev ()
  ------------------------------------------------------------------------
+
+  * Fix Mysql "simple" Install routine for utf8mb4 usage, while not having access
+    to an "utf8" defined SQL_CHARSET and thus not setting the "dbUtf8mb4_converted"
+    configuration var.
 
 
 Version 2.9.3 (2020-01-10)
