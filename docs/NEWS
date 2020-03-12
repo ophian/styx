@@ -1,6 +1,10 @@
 Version 2.9.4-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix Mysql "simple" Install routine for utf8mb4 usage, while not having access
+    to an "utf8" defined SQL_CHARSET and thus not setting the "dbUtf8mb4_converted"
+    configuration var.
+
 
 Version 2.9.3 (2020-01-10)
  ------------------------------------------------------------------------
