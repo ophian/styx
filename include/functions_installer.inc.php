@@ -1314,7 +1314,7 @@ function serendipity_getCurrentVersion() {
 
     serendipity_set_config_var('last_update_check_' . $serendipity['updateCheck'], time());
 
-    $updateURL = (string)$config_rv;
+    $updateURL = serendipity_specialchars(strip_tags((string)$config_rv));
     $context   = stream_context_create(array('http' => array('timeout' => 5.0)));
     $file      = @file_get_contents($updateURL, false, $context);
 
@@ -1329,6 +1329,7 @@ function serendipity_getCurrentVersion() {
     }
 
     if ($file) {
+        $file = serendipity_specialchars(strip_tags($file));
         if ($serendipity['updateCheck'] == 'stable') {
             if (preg_match('/^stable:(.+)\b/m', $file, $match)) {
                 serendipity_set_config_var('last_update_version_' . $serendipity['updateCheck'], $match[1]);
