@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * [Security] Secure upgrade URL and context against XSS [low severity]
+
   * Allow backend 4:3 format image thumbnails without scroll, ie. upload 768x1024
     to 400x300 conversions.
 
