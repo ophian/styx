@@ -307,7 +307,7 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
 
         if (!$simple_plugin_fallback) {
             // Frontend templates currently need to fall back to "default" (see "idea"), so that they get the output
-            // they desire. If templates are based on 2k11, they need to set "Engine: 2k11" in their info.txt file.
+            // they desire. If templates are based on "pure", they need to set "Engine: pure" in their info.txt file.
             $directories[] = 'default/';
             $directories[] = $serendipity['defaultTemplate'] .'/';
         }

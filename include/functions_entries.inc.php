@@ -1433,7 +1433,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
     $serendipity['smarty']->assignByRef('entries', $dategroup);
     $serendipity['smarty']->assign('is_preview', $preview);
 
-    // special case - else this would fetch 2k11 entries.tpl file
+    // special case - else this would fetch "default" themes entries.tpl file
     if ($smarty_block == 'ENTRIES' && $serendipity['template'] == 'default-php' && $preview) {
         $GLOBALS['tpl']['entries'] = $dategroup; // assign to
         ob_start();

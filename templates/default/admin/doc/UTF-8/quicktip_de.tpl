@@ -18,7 +18,7 @@
                 </li>
                 <li>
                     <b>V. Spezifische Konfigurationen?</b><br>
-                    <span><em>Die Einstellungen für das Autoupdate Plugin zum Beispiel werden an zwei Orten erteilt. In der Plugin Konfiguration und genereller in der &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Sektion. Globale Theme Einstellungen sind ebenfalls dort zu setzen, aber manche Themes haben noch erweiterte eigene Konfigurations-Einstellungen, wie das Standard Theme 2k11. Auch die Blog Sprache als weiteres Beispiel wird generell in &#187;{$CONST.CONFIGURATION}&#171;... und genauer für den Benutzer in &#187;{$CONST.PERSONAL_SETTINGS}&#171; eingestellt.</em></span>
+                    <span><em>Die Einstellungen für das Autoupdate Plugin zum Beispiel werden an zwei Orten erteilt. In der Plugin Konfiguration und genereller in der &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Sektion. Globale Theme Einstellungen sind ebenfalls dort zu setzen, aber manche Themes haben noch erweiterte eigene Konfigurations-Einstellungen, wie das Standard Theme "pure". Auch die Blog Sprache als weiteres Beispiel wird generell in &#187;{$CONST.CONFIGURATION}&#171;... und genauer für den Benutzer in &#187;{$CONST.PERSONAL_SETTINGS}&#171; eingestellt.</em></span>
                     <ul>
                         <li>
                             <b>Manuelle Einstellungen</b><br>

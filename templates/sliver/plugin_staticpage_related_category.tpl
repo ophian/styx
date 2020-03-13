@@ -53,8 +53,7 @@
 
 <div class="clearfix content serendipity_preface staticpage_related_category_entry_list">
 {* Standard - if you use it on a shared-s9y-installation you have to correct the path to staticpage-entries-listing.tpl
-   PLEASE NOTE: (for S9y 2.0 and up, the fallback template name is 2k11 instead of bulletproof)
-   The Serendipity fallback mode uses serendipity/templates/bulletproof/plugin_staticpage_related_category.tpl. That file overwrites this file here.
+   The Serendipity fallback mode uses serendipity/templates/default/plugin_staticpage_related_category.tpl. That file overwrites this file here.
    If you need to change anything, better copy this file to your template, to make the desired changes! *}
 {serendipity_fetchPrintEntries category=$staticpage_related_category_id template="../../plugins/serendipity_event_staticpage/staticpage-entries-listing.tpl" limit="5" noSticky="true"}
 

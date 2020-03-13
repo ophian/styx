@@ -18,7 +18,7 @@
                 </li>
                 <li>
                     <b>V. Specific Configurations?</b><br>
-                    <span><em>For example the configuration for the Autoupdate is done specifically in its plugin configuration and the more general behaviour is set in the &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Section. Global theme options are set near that too, but some themes have their own configuration page, like the standard theme 2k11. The blog language in example is set in &#187;{$CONST.CONFIGURATION}&#171;... and in &#187;{$CONST.PERSONAL_SETTINGS}&#171; for the user.</em></span>
+                    <span><em>For example the configuration for the Autoupdate is done specifically in its plugin configuration and the more general behaviour is set in the &#187;{$CONST.CONFIGURATION}</em> &#10140; <em>{$CONST.INSTALL_CAT_SETTINGS}&#171; Section. Global theme options are set near that too, but some themes have their own configuration page, like the standard theme "pure". The blog language in example is set in &#187;{$CONST.CONFIGURATION}&#171;... and in &#187;{$CONST.PERSONAL_SETTINGS}&#171; for the user.</em></span>
                     <ul>
                         <li>
                             <b>Manually controlled options</b><br>

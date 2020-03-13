@@ -149,7 +149,7 @@ function serveJS($js_mode) {
 
     $out = '';
 
-    // We only need this for frontend actions, eg. 2k11 pushing js into serendipity.js. The backend js does well without calling genpage here.
+    // We only need this for frontend actions, eg. "2k11" pushing js into serendipity.js. The backend js does well without calling genpage here.
     if (!defined('IN_serendipity_admin')) {
         // Set action 'empty' will break genpage GET action loop to nothing,
         // leaving it empty will unnecessarily run serendipity_printEntries().
