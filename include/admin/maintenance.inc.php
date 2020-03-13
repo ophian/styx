@@ -27,6 +27,14 @@ if ($serendipity['GET']['adminAction'] == 'cleartemp' || $serendipity['GET']['ad
 
 $usedSuffixes = @serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images WHERE hotlink != 1 AND (extension != 'pdf' AND thumbnail_name != '')", false, 'num');
 
+// UTF8MB4 - check for a possible previous bad install via simple install mode
+if ($serendipity['dbUtf8mb4'] === false && $serendipity['dbUtf8mb4_converted'] === null && $serendipity['dbType'] == 'mysqli'){
+    if ($serendipity['dbCharset'] == 'utf8mb4' && mysqli_character_set_name($serendipity['dbConn']) == 'utf8mb4') {
+        serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET name='dbUtf8mb4_converted', value='true', authorid=0");
+        $serendipity['dbUtf8mb4'] = $serendipity['dbUtf8mb4_converted'] = true;
+        echo '<span class="msg_success"><strong>Maintenance:</strong> Automatically fixed a missing database utf8mb4 Collation variable once.</span>';
+    }
+}
 $data['dbUtf8mb4_ready']     = isset($serendipity['dbUtf8mb4_ready']) ? $serendipity['dbUtf8mb4_ready'] : null;
 $data['dbUtf8mb4']           = isset($serendipity['dbUtf8mb4']) ? $serendipity['dbUtf8mb4'] : null;
 $data['dbUtf8mb4_converted'] = isset($serendipity['dbUtf8mb4_converted']) ? $serendipity['dbUtf8mb4_converted'] : null;
