@@ -363,7 +363,7 @@
 @define('INSTALL_CAT_DISPLAY', 'Utseende og innstillinger');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Tilpass hvordan Serendipity ser ut og føles');
 @define('INSTALL_WYSIWYG', 'Bruk WYSIWYG-editor');
-@define('INSTALL_WYSIWYG_DESC', 'Vil du benytte WYSIWYG-editoren? (Virker med IE5+, delvis i Mozilla 1.3+)');
+@define('INSTALL_WYSIWYG_DESC', 'Vil du benytte WYSIWYG-editoren?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'Tving gjennom XHTML 1.1');
 @define('INSTALL_XHTML11_DESC', 'Ønsker du å kreve overholdelse av XHTML 1.1 (kan skape problemer i 4.-generasjonsbrowsere)');
 @define('INSTALL_POPUP', 'Aktiver bruk av popup-vinduer');

@@ -405,7 +405,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_CAT_DISPLAY', '外觀及選項設定');
 @define('INSTALL_CAT_DISPLAY_DESC', '讓您設定 Serendipity 的外觀和其他設定');
 @define('INSTALL_WYSIWYG', '使用 WYSIWYG 編輯器');
-@define('INSTALL_WYSIWYG_DESC', '您要使用 WYSIWYG 編輯器嗎? (可在 IE5+ 使用, 某些部分可使用於 Mozilla 1.3+)');
+@define('INSTALL_WYSIWYG_DESC', '您要使用 WYSIWYG 編輯器嗎?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', '強制符合 XHTML 1.1 要求');
 @define('INSTALL_XHTML11_DESC', '您可以讓您的網誌強制符合 XHTML 1.1 的要求 (對舊的瀏覽器可能會有 後台/前台 的問題)');
 @define('INSTALL_POPUP', '使用彈出視窗');

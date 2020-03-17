@@ -404,7 +404,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_CAT_DISPLAY', 'Wygląd i Opcje');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Skonfiguruj wygląd i ustawienia Serendipity');
 @define('INSTALL_WYSIWYG', 'Użyj edytora WYSIWYG');
-@define('INSTALL_WYSIWYG_DESC', 'Chcesz użyć edytora WYSIWYG? (Działa w IE5+, częściowo w Mozilli 1.3+)');
+@define('INSTALL_WYSIWYG_DESC', 'Chcesz użyć edytora WYSIWYG?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'Wymuś kompatybilność z XHTML 1.1');
 @define('INSTALL_XHTML11_DESC', 'Czy chcesz wymusić kompatybilność ze standardem XHTML 1.1 (może powodować problemy ze starszymi przeglądarkami czwartej generacji)');
 @define('INSTALL_POPUP', 'Zezwól na użycie wyskakujących okien');

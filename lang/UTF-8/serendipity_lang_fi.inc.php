@@ -401,7 +401,7 @@
 @define('INSTALL_CAT_DISPLAY', 'Ulkoasuvalinnat');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Ulkoasuun vaikuttavat valinnat');
 @define('INSTALL_WYSIWYG', 'Käytä WYSIWYG muokkainta');
-@define('INSTALL_WYSIWYG_DESC', 'Haluatko käyttää WYSIWYG muokkainta? (Väittä toimivansa IE5+, ja osittain  Mozilla 1.3+)');
+@define('INSTALL_WYSIWYG_DESC', 'Haluatko käyttää WYSIWYG muokkainta?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'Pakoita XHTML 1.1 yhteensopivaksi');
 @define('INSTALL_XHTML11_DESC', 'Serendipityn tuottama koodi on XHTML 1.1 yhteensopivaa (saattaa kyykyttää 4 sukupolvea vanhemmat palvelimet/selaimet)');
 @define('INSTALL_POPUP', 'Käytä ponnahdusikkunoita');

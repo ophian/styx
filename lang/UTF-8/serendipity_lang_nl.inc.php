@@ -405,7 +405,7 @@
 @define('INSTALL_CAT_DISPLAY', 'Uiterlijk en opties');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Bepaal het gedrag en uiterlijk van Serendipity');
 @define('INSTALL_WYSIWYG', 'WYSIWYG-editor gebruiken?');
-@define('INSTALL_WYSIWYG_DESC', 'Wilt u de WYSIWYG editor gebruiken? (Werkt met IE5+ en gedeeltelijk met Mozilla 1.3+)');
+@define('INSTALL_WYSIWYG_DESC', 'Wilt u de WYSIWYG editor gebruiken?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'Forceer XHTML 1.1-compatibiliteit');
 @define('INSTALL_XHTML11_DESC', 'Wilt u XHTML 1.1-compatibiliteit forceren? (Dit kan problemen veroorzaken voor oudere browsers)');
 @define('INSTALL_POPUP', 'Gebruikmaken van pop-ups');

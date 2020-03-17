@@ -417,7 +417,7 @@ $i18n_filename_to = array (
 @define('INSTALL_CAT_DISPLAY', 'Vzhľad a nastavenia');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Úprava vzhľadu a správania Serendipity');
 @define('INSTALL_WYSIWYG', 'Používať WYSIWYG editor?');
-@define('INSTALL_WYSIWYG_DESC', 'Chcete používať WYSIWYG editor? (Pracuje v IE5+, čiastočne v Mozille 1.3+)');
+@define('INSTALL_WYSIWYG_DESC', 'Chcete používať WYSIWYG editor?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'Vynútiť kompatibilitu s XHTML 1.1?');
 @define('INSTALL_XHTML11_DESC', 'Chcete plnú kompatibilitu s XHTML 1.1? (môže spôsobiť problémy v starších prehliadačoch)');
 @define('INSTALL_POPUP', 'Zapnúť použitie vyskakovacích okien');

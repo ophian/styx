@@ -402,7 +402,7 @@
 @define('INSTALL_CAT_DISPLAY', 'Megjelenítési beállítások');
 @define('INSTALL_CAT_DISPLAY_DESC', 'A serendipity kinézetének beállításai');
 @define('INSTALL_WYSIWYG', 'A WYSIWYG szerkesztõ használata');
-@define('INSTALL_WYSIWYG_DESC', 'Szeretnéd használni a WYSIWYG szerkesztõt? (IE5+ alatt mûködik, valamint részben a Mozilla 1.3+ alkalmazásban)');
+@define('INSTALL_WYSIWYG_DESC', 'Szeretnéd használni a WYSIWYG szerkesztõt?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'Kényszerített XHTML 1.1 megfelelõség');
 @define('INSTALL_XHTML11_DESC', 'Az oldalak mindenképp megfeleljenek XHTML 1.1 szabványnak (problémát okozhat a régebbi 4-edik generációs böngészõk esetében)');
 @define('INSTALL_POPUP', 'Engedélyezed a felbukkanó (popup) ablakok használatát');

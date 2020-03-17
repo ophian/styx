@@ -405,7 +405,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_CAT_DISPLAY', 'Внешний вид и опции');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Изменить настройки интерфейса Serendipity');
 @define('INSTALL_WYSIWYG', 'Использовать WYSIWYG-редактор');
-@define('INSTALL_WYSIWYG_DESC', 'Желаете ли вы использовать WYSIWYG-редактор? (Работает в IE5+, частично в Mozilla 1.3+)');
+@define('INSTALL_WYSIWYG_DESC', 'Желаете ли вы использовать WYSIWYG-редактор?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'Следить за соответствием XHTML 1.1');
 @define('INSTALL_XHTML11_DESC', 'Вы хотите включить принудительное соответствие стандарту XHTML 1.1? (может вызвать проблемы на старых браузерах 4го поколения)');
 @define('INSTALL_POPUP', 'Разрешить использование выскакивающих окон');

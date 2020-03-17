@@ -402,7 +402,7 @@
 @define('INSTALL_CAT_DISPLAY', '外観とオプション');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Serendipity のルックアンドフィールをカスタマイズ');
 @define('INSTALL_WYSIWYG', 'WYSIWYG エディタを使う');
-@define('INSTALL_WYSIWYG_DESC', 'WYSIWYG エディタを使用しますか? (実行には IE5 以上か+、Mozilla 1.3 以上が必要です)');
+@define('INSTALL_WYSIWYG_DESC', 'WYSIWYG エディタを使用しますか?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', '強制的に XHTML 1.1 準拠');
 @define('INSTALL_XHTML11_DESC', '強制で XHTML 1.1 準拠にします (第 4 世代より古いブラウザーのフロントエンド・バックエンドの問題を起こすかもしれません。)');
 @define('INSTALL_POPUP', 'ポップアップ ウィンドウを有効にする');

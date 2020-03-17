@@ -402,7 +402,7 @@
 @define('INSTALL_CAT_DISPLAY', 'Útlit og valmöguleikar');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Stilltu tilfinningu og útlit Serendipity út á við');
 @define('INSTALL_WYSIWYG', 'Nota WYSIWYG ritilinn');
-@define('INSTALL_WYSIWYG_DESC', 'Viltu nota WYSIWYG ritilinn? (Virkar á IE5+, og að hluta til í Mozilla 1.3+)');
+@define('INSTALL_WYSIWYG_DESC', 'Viltu nota WYSIWYG ritilinn?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'Neyða XHTML 1.1 fylgni');
 @define('INSTALL_XHTML11_DESC', 'Viltu neyða XHTML 1.1 fylgni (getur valdið vandræðum fyrir bak- eða framvinnslu fyrir eldri fjórðukynslóðar vafra)');
 @define('INSTALL_POPUP', 'Virkja notkun innskotsglugga');

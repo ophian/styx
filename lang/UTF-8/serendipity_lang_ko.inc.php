@@ -404,7 +404,7 @@
 @define('INSTALL_CAT_DISPLAY', '외관 및 선택사항');
 @define('INSTALL_CAT_DISPLAY_DESC', '세렌디피티의 겉모습과 인상을 정합니다.');
 @define('INSTALL_WYSIWYG', 'WYSIWYG 편집기 사용');
-@define('INSTALL_WYSIWYG_DESC', 'WYSIWYG 편집기를 사용하겠습니까? (인터넷 익스플로러 5 이상에서 작동, 모질라 1.3 이상에서 부분 작동)');
+@define('INSTALL_WYSIWYG_DESC', 'WYSIWYG 편집기를 사용하겠습니까?<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'XHTML 1.1 규격을 강제로 따름');
 @define('INSTALL_XHTML11_DESC', 'XHTML 1.1 규격을 강제로 따르겠습니까? (오래된 4세대 브라우저에서 문제를 일으킬 수 있음)');
 @define('INSTALL_POPUP', '팝업 창을 사용함');

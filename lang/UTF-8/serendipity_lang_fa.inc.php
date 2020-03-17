@@ -403,7 +403,7 @@
 @define('INSTALL_CAT_DISPLAY', 'ظاهر و تنظیمات');
 @define('INSTALL_CAT_DISPLAY_DESC', 'تنظیم چگونگی نمایش سرندیپیتی');
 @define('INSTALL_WYSIWYG', 'استفاده از ویرایشگر WYSIWYG');
-@define('INSTALL_WYSIWYG_DESC', 'آیا می خواهید از ویراشگر WYSIWYG استفاده کنید؟ (در IE5+، و مقداری در Mozilla 1.3+ قابل مشاهده می باشد)');
+@define('INSTALL_WYSIWYG_DESC', 'آیا می خواهید از ویراشگر WYSIWYG استفا<br>For more comfort and quicker updates it is recommended to install the extended CKEditor Plus event Plugin!');
 @define('INSTALL_XHTML11', 'قبول کردن اجباری XHTML 1.1');
 @define('INSTALL_XHTML11_DESC', 'آیا تمایل دارید XHTML 1.1 را به صورت اجباری اعمال کنید (احتمال وجود اشکال در برخی از مرورگر های قدیمی وجود دارد)');
 @define('INSTALL_POPUP', 'توانایی استفاده از پنجره های بازشونده');
