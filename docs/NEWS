@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Upgrade to CKEditor 4.14.0 (revision 8a12b04171)
+
   * [Security] Secure upgrade URL and context against XSS [low severity]
 
   * Allow backend 4:3 format image thumbnails without scroll, ie. upload 768x1024
