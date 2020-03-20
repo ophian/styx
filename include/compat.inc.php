@@ -193,7 +193,7 @@ if (!function_exists('errorToExceptionHandler')) {
          * (bool) FALSE         rc/beta/alpha/cvs builds
          * (string) 'debug'     Developer build, specifically enabled.
          */
-        $debug_note = ($serendipity['production'] !== 'debug')
+        $debug_note = ($serendipity['production'] !== 'debug' && !in_array($type, ['Warning', 'Notice', 'Catchable']))
             ? "<br />\n".'For more details set $serendipity[\'production\'] = \'debug\' in serendipity_config_local.inc.php to receive a full stack-trace.'
             : '';
         $head = '';
@@ -220,7 +220,7 @@ if (!function_exists('errorToExceptionHandler')) {
             if (!$serendipity['dbConn'] || $exit) {
                 echo '<p>'.$head.'</p><p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . "</p>\n";
             } else {
-                if (false !== strpos($errStr, $debug_note)) echo $head . $debug_note."\n\n";
+                if (!empty($debug_note) && false !== strpos($errStr, $debug_note)) echo $head . $debug_note."\n\n";
                 // die into Exception, else echo to page top and resume
                 if (!in_array($type, ['Warning', 'Notice', 'Catchable'])) {
                     echo '<pre style="white-space: pre-line;">'."\n\n";
