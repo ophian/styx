@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Improve error reporting - do not show extra string debug note for certain
+    error types.
+
   * Upgrade to CKEditor 4.14.0 (revision 8a12b04171)
 
   * [Security] Secure upgrade URL and context against XSS [low severity]
