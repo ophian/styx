@@ -720,8 +720,8 @@ class serendipity_plugin_api
      * @param   string      The filename of the plugin
      * @param   object      The property bag object bundled with the plugin
      * @param   array       Previous/additional information about the plugin
-     * @param   string      The pluginlocation/type of a plugin (local|spartacus)
-     * @param   string      The plugintype/type of a plugin (event|sidebar|...)
+     * @param   string      The pluginlocation/type of a plugin (local|Spartacus)
+     * @param   string      The plugintype/type of a plugin (event|sidebar)
      * @return
      */
     static function &setPluginInfo(&$plugin, &$pluginFile, &$bag, &$class_data, $pluginlocation = 'local', $plugintype = '')
