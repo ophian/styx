@@ -1,6 +1,12 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix Spartacus Plugin Synchronisation, which sometimes signed certain
+    plugintype (event|sidebar) wrong for Spartacus/Plugin request actions.
+    This extends the Plugin API setPluginInfo() method with a new 6th type
+    parameter.
+    This all will make using Zarathustra tasks obsolete at the very end.
+
   * Improve error reporting - do not show extra string debug note for certain
     error types.
 
