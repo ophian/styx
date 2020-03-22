@@ -26,7 +26,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.02');
+        $propbag->add('version',       '3.03');
         $propbag->add('requirements',  array(
             'serendipity' => '2.9.99',
             'php'         => '7.0.0'
@@ -852,7 +852,7 @@ class serendipity_event_spartacus extends serendipity_event
 
                 $this->checkPlugin($pluginstack[$i], $plugins, $type);
 
-                serendipity_plugin_api::setPluginInfo($pluginstack[$i], $pluginstack[$i]['plugin_file'], $i, $i, 'Spartacus');
+                serendipity_plugin_api::setPluginInfo($pluginstack[$i], $pluginstack[$i]['plugin_file'], $i, $i, 'Spartacus', $type);
                 // Remove the temporary $i reference, as the array should be associative
                 $plugname = $pluginstack[$i]['true_name'];
                 $pluginstack[$plugname] = $pluginstack[$i];
