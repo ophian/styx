@@ -9,6 +9,23 @@ if (!serendipity_checkPermission('adminPlugins')) {
 }
 
 $data = array();
+$core_sidebar_plugins = [
+    'serendipity_plugin_archives',
+    'serendipity_plugin_authors',
+    'serendipity_plugin_calendar',
+    'serendipity_plugin_categories',
+    'serendipity_plugin_comments',
+    'serendipity_plugin_entrylinks',
+    'serendipity_plugin_eventwrapper',
+    'serendipity_plugin_history',
+    'serendipity_plugin_html_nugget',
+    'serendipity_plugin_plug',
+    'serendipity_plugin_quicksearch',
+    'serendipity_plugin_recententries',
+    'serendipity_plugin_remoterss',
+    'serendipity_plugin_superuser',
+    'serendipity_plugin_syndication'
+];
 
 include_once S9Y_INCLUDE_PATH . 'include/plugin_api.inc.php';
 include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
@@ -187,15 +204,16 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $classes = serendipity_plugin_api::enum_plugin_classes(($serendipity['GET']['type'] === 'event'));
 
     if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE') {
-        $classes = array_merge($classes, serendipity_plugin_api::enum_plugin_classes(!($serendipity['GET']['type'] === 'event')));
+        $classes = array_merge($classes, serendipity_plugin_api::enum_plugin_classes(!($serendipity['GET']['type'] === 'event'))); // normally fetches case 'sidebar'
         $data['type'] = 'both';
     }
     usort($classes, 'serendipity_pluginListSort');
 
     $counter = 0;
     foreach($classes AS $class_data) {
+        $_type      = in_array($class_data['name'], $core_sidebar_plugins) ? 'sidebar' : $serendipity['GET']['type'];
         $pluginFile =  serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
-        $plugin     =& serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $serendipity['GET']['type']);
+        $plugin     =& serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $_type);
 
         if (is_object($plugin)) {
             // Object is returned when a plugin could not be cached.
@@ -209,9 +227,13 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                     // remember temporary, in case the update is not done immediately
                     $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
                 }
+            } elseif (!isset($class_data['upgrade_version'])) {
+                $class_data['upgrade_version'] = '';
             }
 
-            $props = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $foreignPlugins);
+            $_ptype = $foreignPlugins['pluginstack'][$class_data['name']]['plugintype'] ?? $_type; // Gotcha! Now also matches core sidebar plugins!!
+            // 1st param $plugin object is returned if a plugin is NOT a core only plugin
+            $props  = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $_ptype);
 
             $counter++;
         } elseif (is_array($plugin)) {
@@ -242,7 +264,8 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $_installed            = in_array($class_data['true_name'], $plugins);
             $props['stackable']    = ($props['stackable'] === true && $_installed);
             $props['installable']  = !($props['stackable'] === false && $_installed);
-            $props['requirements'] = unserialize($props['requirements']);
+            $_prop_requirements    = (isset($props['requirements']) && is_array($props['requirements'])) ? serialize($props['requirements']) : null;
+            $props['requirements'] = isset($props['requirements']) ? unserialize($_prop_requirements) : '';
             if (isset($foreignPlugins['pluginstack'][$class_data['name']]['changelog'])) {
                 $props['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
             }
@@ -467,7 +490,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                     . '.<br>Input: ' . serendipity_specialchars(print_r($serendipity['GET'], true)) . ".<br><br>\n\n
                     This error can happen if a plugin was not properly downloaded (check your plugins directory if the requested plugin
                     was downloaded) or the inclusion of a file failed (permissions?)<br>\n";
-                echo "Backtrace:<br>\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br></span>";
+                echo "Backtrace:<br>\n" . nl2br(serendipity_specialchars(implode("\n", $serendipity['debug']['pluginload']))) . "<br></span>\n";
             }
             $bag = new serendipity_property_bag;
             $plugin->introspect($bag);

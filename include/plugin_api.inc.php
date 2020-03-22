@@ -667,7 +667,7 @@ class serendipity_plugin_api
      * @access public
      * @param   string      The filename of the plugin to get information about
      * @param   array       A referenced array that holds information about the plugin instance (self::load_plugin() response)
-     * @param   type        The type of the plugin (local|spartacus|...) - the type is either event or sidebar
+     * @param   type        The type of the plugin (local|Spartacus|...) - the type is either event or sidebar
      * @return  array       Information about the plugin
      */
     static function &getPluginInfo(&$pluginFile, &$class_data, $type)
@@ -720,10 +720,11 @@ class serendipity_plugin_api
      * @param   string      The filename of the plugin
      * @param   object      The property bag object bundled with the plugin
      * @param   array       Previous/additional information about the plugin
-     * @param   string      The location/type of a plugin (local|spartacus)
+     * @param   string      The pluginlocation/type of a plugin (local|spartacus)
+     * @param   string      The plugintype/type of a plugin (event|sidebar|...)
      * @return
      */
-    static function &setPluginInfo(&$plugin, &$pluginFile, &$bag, &$class_data, $pluginlocation = 'local')
+    static function &setPluginInfo(&$plugin, &$pluginFile, &$bag, &$class_data, $pluginlocation = 'local', $plugintype = '')
     {
         global $serendipity;
 
@@ -768,7 +769,7 @@ class serendipity_plugin_api
                 'pluginPath'      => $class_data['pluginPath'],
                 'plugin_file'     => $pluginFile,
                 'pluginlocation'  => $pluginlocation,
-                'plugintype'      => $serendipity['GET']['type'],
+                'plugintype'      => $plugintype,
                 'last_modified'   => $lastModified
             );
             $groups = $bag->get('groups');
