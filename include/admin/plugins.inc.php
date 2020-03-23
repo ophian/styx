@@ -211,6 +211,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
     $counter = 0;
     foreach($classes AS $class_data) {
+        // Essential 'UPGRADE' Synchro check against all local sidebar plugins which come by release, regardless their state, all others are verified against other arrays
         $_type      = in_array($class_data['name'], $core_sidebar_plugins) ? 'sidebar' : $serendipity['GET']['type'];
         $pluginFile =  serendipity_plugin_api::probePlugin($class_data['name'], $class_data['classname'], $class_data['pluginPath']);
         $plugin     =& serendipity_plugin_api::getPluginInfo($pluginFile, $class_data, $_type);
