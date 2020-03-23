@@ -1,6 +1,14 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix Spartacus Plugin Synchronisation for local sidebar plugin upgrades.
+    Now that the wrong locationtype was fixed (see before), the Synchronisation
+    could do its job, purging and creating the pluginlist items correctly.
+    This revealed missing another setPluginInfo() run for the local sidebar
+    list to checkout the 'upgrade_version' for being 'upgradeable'.
+    This runs once only on upgrades and/or opening the sidebar install list
+    for the very most local plugins.
+
   * Fix Spartacus Plugin Synchronisation, which sometimes signed certain
     plugintype (event|sidebar) wrong for Spartacus/Plugin request actions.
     This extends the Plugin API setPluginInfo() method with a new 6th type
