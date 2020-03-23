@@ -667,7 +667,7 @@ class serendipity_plugin_api
      * @access public
      * @param   string      The filename of the plugin to get information about
      * @param   array       A referenced array that holds information about the plugin instance (self::load_plugin() response)
-     * @param   type        The type of the plugin (local|Spartacus|...) - the type is either event or sidebar
+     * @param   type        The type of the plugin (event|sidebar) - the location is either (local|Spartacus)
      * @return  array       Information about the plugin
      */
     static function &getPluginInfo(&$pluginFile, &$class_data, $type)
