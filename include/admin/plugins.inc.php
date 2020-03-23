@@ -248,7 +248,13 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if (!isset($props['upgradeable'])) {
                 $props['upgradeable'] = false; // default define - Matches all plugins that are stackable/installable
             }
-            if (version_compare($props['version'], $props['upgrade_version'], '<')) {
+            if (version_compare($props['version'], $props['upgrade_version'], '<')
+                ||
+                (
+                    isset($foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'])
+                    && version_compare($props['version'], $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'], '<')
+                )
+            ) {
                 $props['upgradeable'] = true; // For the very most Spartacus::checkPlugin() already took care of false/true
                 $props['remote_path'] = $serendipity['spartacus_rawPluginPath'];
                 // since we merged sidebar and event plugins before, we can no longer rely on Spartacus' $foreignPlugins['baseURI']
@@ -258,8 +264,29 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 } else {
                     $baseURI = '&amp;serendipity[spartacus_fetch]=event';
                 }
+                // Check local sidebar plugins for a NEW remote upgrade_version
+                if ($props['upgrade_version'] == '' && $props['pluginlocation'] == 'local'
+                && (
+                    isset($foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'])
+                    && version_compare($props['version'], $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'], '<')
+                    )
+                ) {
+                    $props['upgrade_version'] = $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'];
+                    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
+                                             SET upgrade_version = '" . serendipity_db_escape_string($props['upgrade_version']) . "'
+                                           WHERE plugin_class    = '" . serendipity_db_escape_string($props['plugin_class']) . "'
+                                             AND pluginlocation  = 'local'");
+                }
                 if (!isset($props['customURI'])) $props['customURI'] = '';
                 $props['customURI'] .= $baseURI . $foreignPlugins['upgradeURI'];
+            }
+            // Check all other local sidebar plugins in array (runs once only!)
+            if ($props['upgrade_version'] == '' && $props['pluginlocation'] == 'local') {
+                $props['upgrade_version'] = $props['version'];
+                serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
+                                         SET upgrade_version = '" . serendipity_db_escape_string($props['upgrade_version']) . "'
+                                       WHERE plugin_class    = '" . serendipity_db_escape_string($props['plugin_class']) . "'
+                                         AND pluginlocation  = 'local'");
             }
 
             $_installed            = in_array($class_data['true_name'], $plugins);
