@@ -281,7 +281,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 $props['customURI'] .= $baseURI . $foreignPlugins['upgradeURI'];
             }
             // Check all other local sidebar plugins in array (runs once only!)
-            if ($props['upgrade_version'] == '' && $props['pluginlocation'] == 'local') {
+            if ($props['plugintype'] == 'sidebar' && $props['upgrade_version'] == '' && $props['pluginlocation'] == 'local') {
                 $props['upgrade_version'] = $props['version'];
                 serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
                                          SET upgrade_version = '" . serendipity_db_escape_string($props['upgrade_version']) . "'
