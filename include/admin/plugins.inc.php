@@ -265,7 +265,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                     $baseURI = '&amp;serendipity[spartacus_fetch]=event';
                 }
                 // Check local sidebar plugins for a NEW remote upgrade_version
-                if ($props['upgrade_version'] == '' && $props['pluginlocation'] == 'local'
+                if (($props['plugintype'] == 'sidebar' || $props['upgrade_version'] == '') && $props['pluginlocation'] == 'local'
                 && (
                     isset($foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'])
                     && version_compare($props['version'], $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'], '<')
