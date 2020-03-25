@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix spamblock [*]_htaccess table query to prevent failure on mysql >= 5.7
+
   * Fix Spartacus Plugin Synchronisation for local purged sidebar plugin cleanup
 
   * Fix Spartacus Plugin Synchronisation for local sidebar plugin upgrades.
