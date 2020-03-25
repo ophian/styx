@@ -298,7 +298,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                                          AND pluginlocation  = 'local'");
             }
             // remove from locals list, since what is left is a physically purged plugin
-            if (($key = array_search($props['class_name'], array_map(function($map){return $map['class_name'];}, $locals))) !== false) {
+            if (!empty($locals) && ($key = array_search($props['class_name'], array_map(function($map){return $map['class_name'];}, $locals))) !== false) {
                 unset($locals[$key]);
             }
 
