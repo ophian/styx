@@ -1509,6 +1509,7 @@ summary {
 .msg_error {
     background: #f2dede;
     border: 1px solid #e4b9b9;
+    border-left: 3px solid #b94a48;
     color: #b94a48;
 }
 .unmet_requirements.msg_error {
@@ -1527,18 +1528,21 @@ summary {
 .msg_success {
     background: #dff0d8;
     border: 1px solid #c1e2b3;
+    border-left: 3px solid #468847;
     color: #468847;
 }
 
 .msg_notice {
     background: #fcf8e3;
     border: 1px solid #fbeed5;
+    border-left: 3px solid #c09853;
     color: #c09853;
 }
 
 .msg_hint {
     background: #eee;
     border: 1px solid #aaa;
+    border-left: 3px solid #777;
     color: #777;
 }
 .msg_hint.focused {
