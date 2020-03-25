@@ -528,6 +528,10 @@ switch ($serendipity['GET']['adminAction']) {
 
                     // last chance to lower the upload file extension part
                     $info   = pathinfo($tfile);
+                    if (!isset($info['extension'])) {
+                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> File extension missing or failed!</span>'."\n";
+                        $info['extension'] = '';
+                    }
                     $tfile  = $info['filename'] . '.' . strtolower($info['extension']);
 
                     $target = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $serendipity['POST']['target_directory'][$idx] . $tfile;
