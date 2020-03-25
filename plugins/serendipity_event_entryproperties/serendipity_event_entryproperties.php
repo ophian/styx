@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.65');
+        $propbag->add('version',       '1.66');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -1033,8 +1033,8 @@ class serendipity_event_entryproperties extends serendipity_event
                      && (!isset($serendipity['GET']['action']) || $serendipity['GET']['action'] != 'read')
                      && $event == 'frontend_fetchentries' && $addData['source'] != 'search') {
                         $conds[] = " (ep_no_frontpage.property IS NULL OR ep_no_frontpage.value != 'true') ";
-                        $joins[] = " LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_no_frontpage
-                                                  ON (e.id = ep_no_frontpage.entryid AND ep_no_frontpage.property = 'ep_no_frontpage')";
+                        $joins[] = "\n                    LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_no_frontpage
+                           ON (e.id = ep_no_frontpage.entryid AND ep_no_frontpage.property = 'ep_no_frontpage')";
                     }
 
                     if (count($conds) > 0) {
@@ -1082,26 +1082,26 @@ class serendipity_event_entryproperties extends serendipity_event
                     }
 
                     if ($is_cache && (!isset($addData['noCache']) || !$addData['noCache'])) {
-                        $joins[] = " LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_cache_extended
-                                                  ON (e.id = ep_cache_extended.entryid AND ep_cache_extended.property = 'ep_cache_extended')";
-                        $joins[] = " LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_cache_body
-                                                  ON (e.id = ep_cache_body.entryid AND ep_cache_body.property = 'ep_cache_body')";
+                        $joins[] = "                    LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_cache_extended
+                           ON (e.id = ep_cache_extended.entryid AND ep_cache_extended.property = 'ep_cache_extended')";
+                        $joins[] = "                    LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_cache_body
+                           ON (e.id = ep_cache_body.entryid AND ep_cache_body.property = 'ep_cache_body')";
                     }
-                    $joins[] = " LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_access
-                                              ON (e.id = ep_access.entryid AND ep_access.property = 'ep_access')";
+                    $joins[] = "\n                    LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_access
+                           ON (e.id = ep_access.entryid AND ep_access.property = 'ep_access')";
                     if ($use_groups) {
-                        $joins[] = " LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_access_groups
-                                                  ON (e.id = ep_access_groups.entryid AND ep_access_groups.property = 'ep_access_groups')";
+                        $joins[] = "                    LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_access_groups
+                           ON (e.id = ep_access_groups.entryid AND ep_access_groups.property = 'ep_access_groups')";
                     }
 
                     if ($use_users) {
-                        $joins[] = " LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_access_users
-                                                  ON (e.id = ep_access_users.entryid AND ep_access_users.property = 'ep_access_users')";
+                        $joins[] = "                    LEFT OUTER JOIN {$serendipity['dbPrefix']}entryproperties ep_access_users
+                           ON (e.id = ep_access_users.entryid AND ep_access_users.property = 'ep_access_users')";
                     }
                     // $serendipity['skipSticky'] is not documented anywhere, is it for debugging?
                     if ((!isset($addData['noSticky']) || $addData['noSticky'] !== true) && !isset($serendipity['skipSticky'])) {
-                        $joins[] = " LEFT JOIN {$serendipity['dbPrefix']}entryproperties ep_sticky
-                                            ON (e.id = ep_sticky.entryid AND ep_sticky.property = 'ep_is_sticky')";
+                        $joins[] = "                    LEFT JOIN {$serendipity['dbPrefix']}entryproperties ep_sticky
+                           ON (e.id = ep_sticky.entryid AND ep_sticky.property = 'ep_is_sticky')";
                     }
 
                     $join = implode("\n", $joins);

@@ -1,3 +1,7 @@
+1.66:
+-----
+    * Better readable insertion of LEFT joined SQL table parts for the querystring
+
 1.65:
 -----
     * Check an uninitialized variable
