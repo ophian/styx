@@ -490,8 +490,10 @@ class serendipity_event_spamblock extends serendipity_event
         $rows = serendipity_db_query($q, false, 'assoc');
 
         $deny = array();
-        foreach($rows AS $row) {
-            $deny[] = $row['ip'];
+        if (is_array($rows)) {
+            foreach($rows AS $row) {
+                $deny[] = $row['ip'];
+            }
         }
 
         $hta = $serendipity['serendipityPath'] . '.htaccess';
