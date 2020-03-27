@@ -104,7 +104,12 @@ switch($serendipity['GET']['adminAction']) {
                                                 (b.upgrade_version IS NULL OR b.upgrade_version = '') AND a.upgrade_version < b.version
                                            WHERE a.class_name = b.class_name");
         if (!empty($extpluginzs) && is_array($extpluginzs)) {
-            foreach ($extpluginzs AS $pstack) $plugins[] = $pstack['path'];
+            // secured by check against installed plugins here!
+            foreach ($extpluginzs AS $pstack) {
+                if (empty($is_installed = serendipity_plugin_api::enum_plugins('*', false, $pstack['path']))) {
+                    $plugins[] = $pstack['path'];
+                }
+            }
 
             $dir = new DirectoryIterator($serendipity['serendipityPath'] . 'plugins');
             foreach ($dir AS $fileinfo) {
@@ -112,7 +117,7 @@ switch($serendipity['GET']['adminAction']) {
                     $dirname = str_replace(array('serendipity_event_', 'serendipity_plugin_'), '', $fileinfo->getFilename());
                     // exclude release plugin names
                     if (!in_array($dirname, $keepevplugins) && !in_array($dirname, $keepsbplugins)) {
-                        if (in_array($fileinfo->getFilename(), $plugins)) {
+                        if (!empty($plugins) && in_array($fileinfo->getFilename(), $plugins)) {
                             #echo $dirname."<br>\n";
                             $data['local_plugins'][$fileinfo->getFilename()] = $dirname;
                         }
