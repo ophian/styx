@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add safety check against installed plugins for the Zombie Plugin Manager
+    maintenance task.
+
   * Fix spamblock [*]_htaccess table query to prevent failure on mysql >= 5.7
 
   * Fix Spartacus Plugin Synchronisation for local purged sidebar plugin cleanup
