@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix linking media with 'As Picture Element' when linking elsewhere
+
   * Add safety check against installed plugins for the Zombie Plugin Manager
     maintenance task.
 
