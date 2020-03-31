@@ -500,7 +500,8 @@
             var fallback  = (pictureSubmit && imgWebPfu != '') ? ' data-fallback="'+ f['serendipity[url]'].value +'"' : '';
 
             var prepend   = '';
-            var ilink     = (pictureSubmit && imgWebPfu != '') ? ((f['imgName'].value != f['serendipity[url]'].value) ? f['serendipity[url]'].value : imgWebPfu) : f['serendipity[url]'].value;
+            // including check as-link usage targeting elsewhere
+            var ilink     = (pictureSubmit && imgWebPfu != '' && f['imgName'].value == f['serendipity[url]'].value) ? imgWebPfu : f['serendipity[url]'].value;
             var itarget = '';
 
             switch (targetval) {
