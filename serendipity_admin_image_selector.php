@@ -54,7 +54,6 @@ $media = array(
     'body_id'    => $body_id,
     'only_path'  => $serendipity['GET']['only_path'] ?? null,
     'css'        => serendipity_rewriteURL('serendipity_admin.css'),
-    'css_tree'   => serendipity_getTemplateFile('treeview/tree.css'),
     'css_front'  => serendipity_rewriteURL('serendipity.css'),
     'token_url'  => serendipity_setFormToken('url'),
     'imgID'      => $serendipity['GET']['image'] ?? 0,
