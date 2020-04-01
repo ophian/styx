@@ -57,7 +57,7 @@ $media = array(
     'css_tree'   => serendipity_getTemplateFile('treeview/tree.css'),
     'css_front'  => serendipity_rewriteURL('serendipity.css'),
     'token_url'  => serendipity_setFormToken('url'),
-    'imgID'      => (int) $serendipity['GET']['image'] ?? 0,
+    'imgID'      => $serendipity['GET']['image'] ?? 0,
     'from'       => empty($serendipity['GET']['from']) ? $serendipity['baseURL'] : $serendipity['GET']['from'],/* see media_showitems.tpl back to blog anchors */
     'GET_STRING' => serendipity_build_query($import_vars, 'serendipity', '&'),
     'paths'      => serendipity_getMediaPaths()
@@ -102,7 +102,7 @@ switch ($serendipity['GET']['step']) {
                     ob_end_clean();
                     if (isset($created_thumbnail) && isset($image_id)) {
                         $media['is_uploaded'] = true;
-                        $serendipity['GET']['image'] = $media['imgID'] = (int)$image_id; // $image_id is passed from images.inc.php
+                        $serendipity['GET']['image'] = (int)$media['imgID'] = (int)$image_id; // $image_id is passed from images.inc.php
                         break;
                     } else {
                         break 2;
