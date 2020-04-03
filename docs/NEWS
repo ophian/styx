@@ -1,6 +1,12 @@
 Version 2.9.4-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix Spartacus Plugin Synchronisation, which sometimes signed certain
+    plugintype (event|sidebar) wrong for Spartacus/Plugin request actions.
+    This extends the Plugin API setPluginInfo() method with a new 6th type
+    parameter.
+    This all will make using Zarathustra tasks obsolete at the very end.
+
   * Fix media.base_properties property_subgroup 'ALL' keys assignment for
     media_items.tpl fields. Regressional fixes in admin/media_choose.tpl and
     frontend related media_showitem.tpl template themes
