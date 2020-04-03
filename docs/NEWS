@@ -1,6 +1,8 @@
 Version 2.9.4-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix Spartacus Plugin Synchronisation for local purged sidebar plugin cleanup
+
   * Fix Spartacus Plugin Synchronisation for local sidebar plugin upgrades.
     Now that the wrong locationtype was fixed (see before), the Synchronisation
     could do its job, purging and creating the pluginlist items correctly.
