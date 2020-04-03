@@ -204,6 +204,15 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $plugins = serendipity_plugin_api::get_installed_plugins();
     $classes = serendipity_plugin_api::enum_plugin_classes(($serendipity['GET']['type'] === 'event'));
 
+    // Select local sidebar Plugins for purge cleanup
+    if ($serendipity['GET']['type'] === 'sidebar') {
+        $locs = serendipity_db_query("SELECT plugin_file, class_name FROM {$serendipity['dbPrefix']}pluginlist WHERE plugintype = 'sidebar' AND pluginlocation  = 'local'", false, 'assoc');
+        $locals = [];
+        foreach ($locs AS $loc) {
+            $locals[] = array('class_name' => $loc['class_name'], 'plugin_file' => $loc['plugin_file']);
+        }
+    }
+
     if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE') {
         $classes = array_merge($classes, serendipity_plugin_api::enum_plugin_classes(!($serendipity['GET']['type'] === 'event'))); // normally fetches case 'sidebar'
         $data['type'] = 'both';
@@ -291,6 +300,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                                        WHERE plugin_class    = '" . serendipity_db_escape_string($props['plugin_class']) . "'
                                          AND pluginlocation  = 'local'");
             }
+            // remove from locals list, since what is left is a physically purged plugin
+            if (!empty($locals) && ($key = array_search($props['class_name'], array_map(function($map){return $map['class_name'];}, $locals))) !== false) {
+                unset($locals[$key]);
+            }
 
             $_installed            = in_array($class_data['true_name'], $plugins);
             $props['stackable']    = ($props['stackable'] === true && $_installed);
@@ -343,6 +356,24 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         } else {
             // False is returned if a plugin could not be instantiated
             $errorstack[] = $class_data['true_name'];
+        }
+    }
+
+    if (!empty($locals)) {
+        $li_st = '';
+        foreach ($locals AS $removed) {
+            // Check up physically purged sidebar plugins - we don't want to have them in our db list
+            // But do we actually care about bundled plugins or plugin dependencies? No, not really, since purging is an expressed user action! ( But we better check the first, though! ;-) )
+            if (!file_exists($removed['plugin_file']) && false === strpos($removed['plugin_file'], 'serendipity_event_')) {
+                serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}pluginlist
+                                       WHERE plugin_file = '" . serendipity_db_escape_string($removed['plugin_file']) . "'
+                                         AND pluginlocation  = 'local'");
+                $li_st .= '<li> ' . sprintf(DELETE_FILE . '. ', $removed['class_name']) . "</li>\n";
+            }
+        }
+        if (!empty($li_st)) {
+            echo '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> '.sprintf(SERENDIPITY_UPGRADER_DATABASE_UPDATES, SIDEBAR_PLUGIN)."\n".'<ul style="margin:0 auto">'."\n";
+            echo $li_st. "\n</ul>\n</span>\n";
         }
     }
 
