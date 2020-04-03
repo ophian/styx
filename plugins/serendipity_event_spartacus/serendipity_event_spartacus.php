@@ -27,7 +27,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '2.80');
+        $propbag->add('version',       '2.81');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.0',
             'php'         => '5.3.0'
@@ -1201,7 +1201,7 @@ class serendipity_event_spartacus extends serendipity_event
                                     if (isset($avail[$method][$class_data['name']])) {
                                         $class_data['upgrade_version'] = $avail[$method][$class_data['name']]['upgrade_version'];
                                     }
-                                    $props = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $avail[$method]);
+                                    $props = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $method);
                                     #echo "<pre>" . print_r($props, true) . "</pre>";
                                 } elseif (is_array($plugin)) {
                                     // Array is returned if a plugin could be fetched from info cache
@@ -1264,7 +1264,7 @@ class serendipity_event_spartacus extends serendipity_event
                                     if (isset($avail[$method][$class_data['name']])) {
                                         $class_data['upgrade_version'] = $avail[$method][$class_data['name']]['upgrade_version'];
                                     }
-                                    $props = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $avail[$method]);
+                                    $props = serendipity_plugin_api::setPluginInfo($plugin, $pluginFile, $bag, $class_data, 'local', $method);
 
                                 } elseif (is_array($plugin)) {
                                     // Array is returned if a plugin could be fetched from info cache
