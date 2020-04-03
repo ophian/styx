@@ -254,6 +254,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         }
 
         if (is_array($props)) {
+            $local_upset = false;
             if (!isset($props['upgradeable'])) {
                 $props['upgradeable'] = false; // default define - Matches all plugins that are stackable/installable
             }
@@ -274,7 +275,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                     $baseURI = '&amp;serendipity[spartacus_fetch]=event';
                 }
                 // Check local sidebar plugins for a NEW remote upgrade_version
-                if (($props['plugintype'] == 'sidebar' || $props['upgrade_version'] == '') && $props['pluginlocation'] == 'local'
+                if (($props['plugintype'] == 'sidebar' || $props['upgrade_version'] == '' || $props['version'] == $props['upgrade_version']) && $props['pluginlocation'] == 'local'
                 && (
                     isset($foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'])
                     && version_compare($props['version'], $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'], '<')
@@ -285,12 +286,13 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                                              SET upgrade_version = '" . serendipity_db_escape_string($props['upgrade_version']) . "'
                                            WHERE plugin_class    = '" . serendipity_db_escape_string($props['plugin_class']) . "'
                                              AND pluginlocation  = 'local'");
+                    $local_upset = true;
                 }
                 if (!isset($props['customURI'])) $props['customURI'] = '';
                 $props['customURI'] .= $baseURI . $foreignPlugins['upgradeURI'];
             }
             // Check all other local sidebar|event plugins in array (runs once only!)
-            if ($props['upgrade_version'] == '' && $props['pluginlocation'] == 'local') {
+            if ($props['upgrade_version'] == '' && $props['pluginlocation'] == 'local' && !$local_upset) {
                 $props['upgrade_version'] = $props['version'];
                 serendipity_db_query("UPDATE {$serendipity['dbPrefix']}pluginlist
                                          SET upgrade_version = '" . serendipity_db_escape_string($props['upgrade_version']) . "'
