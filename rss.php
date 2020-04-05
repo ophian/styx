@@ -197,6 +197,7 @@ IMAGE;
 $metadata['additional_fields']['channel'] = '';
 $rssFields = array('feedManagingEditor' => 'managingEditor', 'feedWebmaster' => 'webMaster', 'feedTtl' => 'ttl', 'feedPubDate' => 'pubDate');
 $pubDateFallback = serendipity_get_config_var('last_template_change');
+
 foreach( $rssFields AS $configName => $field) {
     $fieldValue = serendipity_get_config_var($configName);
 
@@ -273,6 +274,7 @@ serendipity_printEntries_rss($entries, $version, $comments, $metadata['fullFeed'
 
 $namespace_hook   = 'frontend_display:unknown:namespace';
 $once_display_dat = '';
+
 switch($version) {
     case 'opml1.0':
         $namespace_hook = 'frontend_display:opml-1.0:namespace';
@@ -306,8 +308,8 @@ switch($version) {
 
 serendipity_plugin_api::hook_event($namespace_hook, $entries);
 
-$namespace_display_dat = isset($entries['display_dat']) ? $entries['display_dat'] : null;
-$channel_display_dat   = isset($entries['channel_dat']) ? $entries['channel_dat'] : null;
+$namespace_display_dat = $entries['display_dat'] ?? null;
+$channel_display_dat   = $entries['channel_dat'] ?? null;
 
 unset($entries['display_dat']);
 unset($entries['channel_dat']);
