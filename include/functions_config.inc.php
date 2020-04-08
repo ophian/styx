@@ -846,7 +846,9 @@ function serendipity_restoreVar(&$source, &$target) {
  * @access public
  * @param   string      The name of the cookie variable
  * @param   string      The contents of the cookie variable
- * @param   int         Cookie validity (unix timestamp)
+ * @param   boolean     Set the Secure flag
+ * @param   boolean     Cookie validity (unix timestamp) as int
+ * @param   boolean     Set the “sameSite” HttpOnly flag
  * @return null
  */
 function serendipity_setCookie($name, $value, $securebyprot = true, $custom_timeout = false, $httpOnly = true) {
@@ -860,7 +862,6 @@ function serendipity_setCookie($name, $value, $securebyprot = true, $custom_time
         }
     } else {
         $secure = false;
-        if ($httpOnly) $httpOnly = false;
     }
 
     // If HTTP-Hosts like "localhost" are used, current browsers reject cookies.
