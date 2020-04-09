@@ -12,7 +12,11 @@ if (!headers_sent() && php_sapi_name() !== 'cli') {
     if (session_id() == '') {
         $cookieParams = session_get_cookie_params();
         $cookieParams['secure'] = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ? true : false);
-        session_set_cookie_params($cookieParams['lifetime'], $cookieParams['path'], $cookieParams['domain'], $cookieParams['secure'], $cookieParams['httponly']);
+        $cookieParams['httponly'] = $cookieParams['secure'] === true ? false : true;
+        $cookieParams['samesite'] = 'Lax';
+        // Remember: 'lifetime' param in session_set_cookie_params() is, what 'expires' is in setcookie()
+        #session_set_cookie_params($cookieParams['lifetime'], $cookieParams['path'], $cookieParams['domain'], $cookieParams['secure'], $cookieParams['httponly']);
+        session_set_cookie_params($cookieParams); // use as $options array to support 6th param sameSite ! Requires PHP 7.3.0 ++ !!
         session_name('s9y_' . md5(dirname(__FILE__)));
         session_start();
     }
