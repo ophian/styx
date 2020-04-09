@@ -874,7 +874,17 @@ function serendipity_setCookie($name, $value, $securebyprot = true, $custom_time
         $custom_timeout = time() + 60*60*24*30;
     }
 
-    setcookie("serendipity[$name]", $value, $custom_timeout, $serendipity['serendipityHTTPPath'], $host, $secure, $httpOnly);
+    $options = [
+        'expires'   => $custom_timeout,
+        'path'      => $serendipity['serendipityHTTPPath'],
+        'domain'    => $host,
+        'secure'    => $secure,
+        'httponly'  => $httpOnly,
+        'samesite'  => 'Lax'
+    ];
+    #setcookie("serendipity[$name]", $value, $custom_timeout, $serendipity['serendipityHTTPPath'], $host, $secure, $httpOnly);
+    // As $options array for use with 6th param 'sameSite' ! Requires PHP 7.3.0 ++ !!
+    setcookie("serendipity[$name]", $value, $options);
     $_COOKIE[$name] = $value;
     $serendipity['COOKIE'][$name] = $value;
 }
