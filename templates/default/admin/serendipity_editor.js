@@ -32,9 +32,9 @@
         expire.setTime(today.getTime() + (60*60*24*30*1000));
         // get array like or simple string argument items
         if (name.indexOf("[") != -1) {
-            document.cookie = 'serendipity' + name + '=' + escape(value) + ';expires=' + expire.toGMTString();
+            document.cookie = 'serendipity' + name + '=' + escape(value) + ';expires=' + expire.toGMTString() + ';SameSite=Lax';
         } else {
-            document.cookie = 'serendipity[' + name + ']=' + escape(value) + ';expires=' + expire.toGMTString();
+            document.cookie = 'serendipity[' + name + ']=' + escape(value) + ';expires=' + expire.toGMTString() + ';SameSite=Lax';
         }
     }
 
