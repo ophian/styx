@@ -541,6 +541,12 @@ $tasks = array(
                     'title'     => 'Change Backend template name',
                     'desc'      => 'Changes and removes the "2styx" backend template for the directory renaming change to "styx". If you have your own tweaks inside, back them up before you proceed!'),
 
+            array(  'version'   => '3.0-beta1',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_300, array('internals'), true),
+                    'title'     => 'Removal of old dead files in v.3.0.0',
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_300) . '</pre>'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
