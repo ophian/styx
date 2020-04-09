@@ -1,6 +1,11 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Session and Cookies DO now SET the "sameSite" attribute to avoid (future)
+    internal Browsers changes to the “sameSite” attribute, and now yelling
+    about “sameSite” attribute set to “none” or an invalid value.
+    This raises the PHP requirement to PHP >= 7.3.0.
+
   * Fix linking media with 'As Picture Element' when linking elsewhere
 
   * Add safety check against installed plugins for the Zombie Plugin Manager
