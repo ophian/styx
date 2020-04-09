@@ -175,19 +175,19 @@ $(document).ready(function() {
         $('#dashboard_header').after("<span class=\"msg_error\"><span class=\"icon-attention-circled\"></span> {$CONST.JS_FAILURE|sprintf:$js_failure_file|escape:javascript}</span>");
     }
     if ($("#dashboard_ticker").hasClass('blend')) {
-        if ($.cookie('styx_tickerBlend')) {
+        if (Cookies.get('styx_tickerBlend')) {
             $("#dashboard_ticker").hide();
         } else {
             $("#dashboard_ticker").delay(5000).fadeOut( 2500, 'linear' );
-            $.cookie('styx_tickerBlend', true);
+            Cookies.set('styx_tickerBlend', true, { sameSite: 'lax' });
         }
     }
     if ($("#dashboard_plugup").hasClass('blend')) {
-        if ($.cookie('styx_plugupBlend')) {
+        if (Cookies.get('styx_plugupBlend')) {
             $("#dashboard_plugup").hide();
         } else {
             $("#dashboard_plugup").delay(5000).fadeOut( 2500, 'linear' );
-            $.cookie('styx_plugupBlend', true);
+            Cookies.set('styx_plugupBlend', true, { sameSite: 'lax' });
         }
     }
 });
