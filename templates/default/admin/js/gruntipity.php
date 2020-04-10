@@ -36,7 +36,7 @@ $files = array(
     'canvas-toBlob.js',
     'jquery.autoscroll.js',
     'jquery.sortable.js',
-    'jquery.cookie.js',
+    'js.cookie.min.js',
     'jquery.details.js',
     'accessifyhtml5.js'
 );
