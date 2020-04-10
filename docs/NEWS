@@ -1,9 +1,12 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
-  * Session and Cookies DO now SET the "sameSite" attribute to avoid (future)
-    internal Browsers changes to the “sameSite” attribute, and now yelling
-    about “sameSite” attribute set to “none” or an invalid value.
+  * PHP and JavaScript set Sessions and Cookies DO now SET the "sameSite"
+    attribute. Inbound JS Libraries were changed or replaced to support this.
+    This regards upcoming Browser changes [ Mozilla 76+, Chromium 80+, ..]
+    internally handling and changing the default “sameSite” attribute,
+    To avoid future Browser Revisions to reject old Cookies without, this for
+    now was hard set wherever possible.
     This raises the PHP requirement to PHP >= 7.3.0.
 
   * Fix linking media with 'As Picture Element' when linking elsewhere
