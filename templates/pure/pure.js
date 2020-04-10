@@ -2,7 +2,9 @@
     "use strict";
 
     var toggle = document.querySelector(".c-menu");
-    toggleHandler(toggle);
+    if (toggle.length) {
+        toggleHandler(toggle);
+    }
 
     function toggleHandler(toggle) {
         toggle.addEventListener( "click", function(e) {
