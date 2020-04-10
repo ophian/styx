@@ -15,6 +15,16 @@
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
     <script src="{serendipity_getFile file='admin/serendipity_editor.js'}"></script>
     <script src="{$head_link_script}"></script>
+{if $smarty.get.serendipity.adminModule == 'plugins'}
+{* Temporary solution for new a new feature in the DOM, Passive event listeners, making Chromium freak out. Next jQuery 4.0 will support it, see https://github.com/jquery/jquery/issues/2871#issuecomment-497963776 *}
+    <script>
+        jQuery.event.special.touchstart = {
+          setup: function( _, ns, handle ) {
+            this.addEventListener("touchstart", handle, { passive: true });
+          }
+        };
+    </script>
+{/if}
 {/if}
 </head>
 <body id="serendipity_admin_page">
