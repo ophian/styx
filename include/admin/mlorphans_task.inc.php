@@ -79,7 +79,10 @@ function unlink_orphaned_images($id, $path, $name, $thumb, $ext) {
 $im = array();
 $images  = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path FROM {$serendipity['dbPrefix']}images WHERE mime LIKE 'image/%' AND hotlink IS NULL ORDER BY id", false, 'assoc');
 $entries = serendipity_db_query("SELECT id, body, extended FROM {$serendipity['dbPrefix']}entries WHERE body LIKE '%<!-- s9ymdb:% -->%' OR extended LIKE '%<!-- s9ymdb:% -->%'", false, 'assoc');
-$spages  = serendipity_db_query("SELECT id, content, pre_content FROM {$serendipity['dbPrefix']}staticpages WHERE content LIKE '%<!-- s9ymdb:% -->%' OR pre_content LIKE '%<!-- s9ymdb:% -->%'", false, 'assoc');
+$spages  = array();
+if (class_exists('serendipity_event_staticpage')) {
+    $spages  = serendipity_db_query("SELECT id, content, pre_content FROM {$serendipity['dbPrefix']}staticpages WHERE content LIKE '%<!-- s9ymdb:% -->%' OR pre_content LIKE '%<!-- s9ymdb:% -->%'", false, 'assoc');
+}
 
 if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orphaned'])) {
     echo '<h3>' . sprintf(MLORPHAN_MTASK_ML_REAL_IMAGES, count($images)) . "</h3>\n";
