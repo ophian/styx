@@ -4,7 +4,7 @@ Version 3.0-Dev ()
   * PHP and JavaScript set Sessions and Cookies DO now SET the "sameSite"
     attribute. Inbound JS Libraries were changed or replaced to support this.
     This regards upcoming Browser changes [ Mozilla 76+, Chromium 80+, ..]
-    internally handling and changing the default “sameSite” attribute,
+    internally handling and changing the default “sameSite” attribute.
     To avoid future Browser Revisions to reject old Cookies without, this for
     now was hard set wherever possible.
     This raises the PHP requirement to PHP >= 7.3.0.
