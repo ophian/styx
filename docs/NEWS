@@ -605,7 +605,13 @@ Version 3.0-Dev ()
   * Raise required PHP version to 7.0 until further
 
 
-Version 2.9.4-Dev ()
+Version 2.9.5-Dev ()
+ ------------------------------------------------------------------------
+
+  * Silence some PHP 7.4 deprecation warnings using cache lite
+
+
+Version 2.9.4 (2020-04-03)
  ------------------------------------------------------------------------
 
   * Fix Spartacus Plugin Synchronisation for local purged sidebar plugin cleanup
