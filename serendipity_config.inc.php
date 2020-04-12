@@ -13,6 +13,7 @@ if (!headers_sent() && php_sapi_name() !== 'cli') {
         $cookieParams = session_get_cookie_params();
         $cookieParams['secure'] = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ? true : false);
         $cookieParams['httponly'] = $cookieParams['secure'] === true ? false : true;
+        $cookieParams['path'] = dirname($_SERVER['PHP_SELF']);
         $cookieParams['samesite'] = 'Lax';
         // Remember: 'lifetime' param in session_set_cookie_params() is, what 'expires' is in setcookie()
         #session_set_cookie_params($cookieParams['lifetime'], $cookieParams['path'], $cookieParams['domain'], $cookieParams['secure'], $cookieParams['httponly']);
