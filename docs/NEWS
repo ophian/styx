@@ -1093,7 +1093,7 @@ Version 2.9.0 (2019-06-01) - Give Peace a Chance - 1969
 
   * Add specific selectors to "default" themes entries_summary template
 
-  * Change default theme content/sidebar toogler to use the standard media
+  * Change default theme content/sidebar toggler to use the standard media
     screen size 1024px with. This is a need for engine and fallback themes.
 
   * Fix plugin_authors and plugin_categories to behave consistently for feed
