@@ -179,7 +179,7 @@ $(document).ready(function() {
             $("#dashboard_ticker").hide();
         } else {
             $("#dashboard_ticker").delay(5000).fadeOut( 2500, 'linear' );
-            Cookies.set('styx_tickerBlend', true, { sameSite: 'lax' });
+            Cookies.set('styx_tickerBlend', true, { path: '{$serendipityHTTPPath}', sameSite: 'lax' });
         }
     }
     if ($("#dashboard_plugup").hasClass('blend')) {
@@ -187,7 +187,7 @@ $(document).ready(function() {
             $("#dashboard_plugup").hide();
         } else {
             $("#dashboard_plugup").delay(5000).fadeOut( 2500, 'linear' );
-            Cookies.set('styx_plugupBlend', true, { sameSite: 'lax' });
+            Cookies.set('styx_plugupBlend', true, { path: '{$serendipityHTTPPath}', sameSite: 'lax' });
         }
     }
 });
