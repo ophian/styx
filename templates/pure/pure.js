@@ -2,7 +2,7 @@
     "use strict";
 
     var toggle = document.querySelector(".c-menu");
-    if (toggle.length) {
+    if (toggle != null) {
         toggleHandler(toggle);
     }
 
