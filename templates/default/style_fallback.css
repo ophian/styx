@@ -176,7 +176,12 @@ ul#serendipity_categories_list {
     justify-content: space-around; /* IE10+ CSS fallback, since -evenly not supported */
     justify-content: space-evenly;
     margin: auto auto 1em; }
-    /* The inline containers or items min/max size to scale gallery images to a affordable size */
+    /* Fit image flexible inside the link container to not overlap */
+    .serendipity_image_block.row .serendipity_image_link {
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex; }
+    /* The inline containers or items min/max size to scale gallery images to an affordable size */
     .serendipity_image_block.row .serendipity_imageComment_left,
     .serendipity_image_block.row .serendipity_imageComment_right,
     .serendipity_image_block.row .serendipity_image_link,
