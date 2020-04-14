@@ -98,7 +98,7 @@ class serendipity_plugin_comments extends serendipity_plugin
             case 'cssbreak':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_COMMENTS_CSSONLY);
-                $propbag->add('description', 'Example style: ".plugin_comment_body { word-wrap: break-word; }"');
+                $propbag->add('description', 'Example style: ".plugin_comment_body { overflow-wrap: break-word; }"');
                 $propbag->add('default',     'true');
                 break;
 
