@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Upgrade jQuery library to v.3.5.0
+
   * PHP and JavaScript set Sessions and Cookies DO now SET the "sameSite"
     attribute. Inbound JS Libraries were changed or replaced to support this.
     This regards upcoming Browser changes [ Mozilla 76+, Chromium 80+, ..]
