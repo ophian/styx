@@ -1,13 +1,11 @@
 {
     "repositories": [
         {
-            "type": "composer",
-            "url": "https://packages.zendframework.com/"
+            "type": "composer"
         }
     ],
     "require": {
         "php": ">=5.3.3",
-        "zendframework/zend-db": "2.*",
         "katzgrau/klogger": "1.2.*"
     },
     "config": {
