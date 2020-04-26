@@ -129,6 +129,7 @@ switch (@$serendipity['GET']['action']) {
         break;
 
     case 'custom':
+        $serendipity['smarty']->assign('ENTRIES', ''); // At here too, content.tpl Smarty ENTRIES block variable needs to be set empty, else we'd need |default:'' modifier everywhere
         if (isset($serendipity['smarty_custom_vars']) && is_array($serendipity['smarty_custom_vars'])) {
             $serendipity['smarty']->assign($serendipity['smarty_custom_vars']);
         }
