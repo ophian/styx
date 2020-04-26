@@ -460,6 +460,7 @@ $dead_files_270 = array(
 
 /* A list of Styx files, to be removed or renamed by 3.0.0 */
 $dead_files_300 = array(
+    'include/db/generic.inc.php',
     'templates/default/admin/js/jquery.cookie.js'
 );
 
@@ -467,6 +468,7 @@ $dead_files_300 = array(
 $dead_dirs_300 = array(
     $serendipity['serendipityPath'] . 'bundled-libs/paragonie/random_compat',
     $serendipity['serendipityPath'] . 'bundled-libs/cryptor',
+    $serendipity['serendipityPath'] . 'bundled-libs/zendframework',
     $serendipity['serendipityPath'] . 'htmlarea',
     $serendipity['serendipityPath'] . 'templates/2styx',
     $serendipity['serendipityPath'] . 'templates_c/2styx'

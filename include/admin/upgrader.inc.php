@@ -547,6 +547,12 @@ $tasks = array(
                     'title'     => 'Removal of old dead files in v.3.0.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_300) . '</pre>'),
 
+            array(  'version'   => '3.0-beta1',
+                    'function'  => 'recursive_directory_iterator',
+                    'arguments' => array($dead_dirs_300),
+                    'title'     => 'Styx removed the Zend DB framework.',
+                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_300) . '</pre>'),
+
 );
 
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
