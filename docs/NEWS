@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove experimental generic.inc DB driver and the Zend-db zendframework.
+
   * Upgrade jQuery library to v.3.5.0
 
   * PHP and JavaScript set Sessions and Cookies DO now SET the "sameSite"
