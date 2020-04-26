@@ -238,6 +238,7 @@ ul#serendipity_categories_list {
         justify-content: normal; }
 }
 .serendipity_image_block > div {
+    float: none;
     display: inline-block; }
 
 /* MEDIUM SCREENS */
