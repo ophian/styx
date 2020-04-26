@@ -14,7 +14,7 @@ Version 3.0-Dev ()
     now was hard set wherever possible.
     This raises the PHP requirement to PHP >= 7.3.0.
 
-  * Fix linking media with 'As Picture Element' when linking elsewhere
+  * Fix linking media with 'As Picture Element' button when linking elsewhere
 
   * Add safety check against installed plugins for the Zombie Plugin Manager
     maintenance task.
