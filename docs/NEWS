@@ -2,6 +2,7 @@ Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
   * Remove experimental generic.inc DB driver and the Zend-db zendframework.
+    Add a 3.0-beta1 removing upgrade task.
 
   * Upgrade jQuery library to v.3.5.0
 
