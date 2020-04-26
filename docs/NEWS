@@ -2137,7 +2137,7 @@ Version 2.4-beta1 (2017-10-09)
   * Fixed serendipity_fetchImages() list for changed/multi thumbSuffixes
     removals.
 
-  * Add new API function serendity_contains() for strpos iterations
+  * Add new API function serendipity_contains() for strpos iterations
 
   * Fix file and filedir renaming actions for the thumbnail SUFFIX name,
     to keep a previous set SUFFIX in case the global configs thumbSuffix
