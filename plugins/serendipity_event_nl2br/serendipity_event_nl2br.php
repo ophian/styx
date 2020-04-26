@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx, Stephan Brunker');
-        $propbag->add('version',       '2.46');
+        $propbag->add('version',       '2.47');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -300,9 +300,9 @@ class serendipity_event_nl2br extends serendipity_event
                                     // but with obligatory break because of the independent div-elements
 
                                     // rules for body <-> extended:
-                                    // no margins only if body ends with \n or no \n and extended starts without \n
+                                    // no margins only if body ends without \n and extended starts without \n
                                     // means: concatenate body and extended and there is no whiteline between them
-                                    if ($element == 'body' && isset($eventData['extended']) && !(strspn($text, "\n", -1) > 1) && strspn($eventData['extended'], "\n") ) {
+                                    if ($element == 'body' && isset($eventData['extended']) && !strspn($text,"\n",-1) && !strspn($eventData['extended'],"\n")) {
                                         $text = "\n" . $text;
                                     }
                                     elseif ($element == 'extended' && !strspn($text,"\n") && !(strspn($eventData['body'],"\n",-1) > 1)) {
@@ -562,7 +562,7 @@ p.wl_notopbottom {
                 }
                 // first space or closing tag in definition part
                 elseif (($text[$i] == ' ' || $text[$i] == '>') && $tagdef) {
-                    //check if it is a real tag
+                    // check if it is a real tag
                     $tag = substr($textstring,$tagdef,$i-$tagdef);
 
                     if (!(in_array($tag,$this->block_elements)
@@ -583,7 +583,7 @@ p.wl_notopbottom {
                             $text[$i] = '&gt;';
                         }
                     } else {
-                        //convert to lowercase
+                        // convert to lowercase
                         for ($j = $tagdef; $j <= $i; $j++) {
                             $text[$j] = strtolower($text[$j]);
                         }
@@ -683,7 +683,7 @@ p.wl_notopbottom {
 
         $textarray = array();
 
-        //explode content elements into array of tags and contents
+        // explode content elements into array of tags and contents
         $errorflag = false;
         foreach ($commentarray AS $text) {
             if (substr($text, 0, 4) == '<!--') {
@@ -718,7 +718,7 @@ p.wl_notopbottom {
             if ($tag && $this->is_starttag($textarray[$i])
                 && (in_array($tag, $this->block_elements) || in_array($tag, $this->nested_block_elements)))
             {
-                //merge previous content, apply nl2p if needed and concatenate
+                // merge previous content, apply nl2p if needed and concatenate
                 if (!$isolation_flag && ( empty($tagstack) || in_array($tagstack[0], $this->allowed_p_parents))) {
                     $content .= $this->nl2pblock(implode(array_slice($textarray,$start,$i-$start))) . "\n";
                 } else {
@@ -753,7 +753,7 @@ p.wl_notopbottom {
             elseif($tag && !$isolation_flag && $this->is_starttag($textarray[$i])
                 && (in_array($tag, $this->isolation_block_elements) || in_array($tag, $this->isolationtags) ) )
             {
-                //merge previous content, apply nl2p if needed and concatenate
+                // merge previous content, apply nl2p if needed and concatenate
                 if (empty($tagstack)) {
                     $content .= $this->nl2pblock(implode(array_slice($textarray,$start,$i-$start))) . "\n";
                 } elseif (in_array($tagstack[0], $this->allowed_p_parents)) {
@@ -768,7 +768,7 @@ p.wl_notopbottom {
                     $content .= $textarray[$i];
                 }
 
-                $isolation_flag = $tag; //isolation has to be started and ended with the same tag
+                $isolation_flag = $tag; // isolation has to be started and ended with the same tag
                 $start = $i+1;
             }
             // closing isolation tag
@@ -792,7 +792,7 @@ p.wl_notopbottom {
                         $content .= implode(array_slice($textarray,$start,$i-$start));
                     }
                 }
-                //closing tag
+                // closing tag
                 $content .= $textarray[$i];
 
                 $start = $i+1;
@@ -861,7 +861,7 @@ p.wl_notopbottom {
 
         // first stage: explode in tags
         for($i=0; $i<count($tagexplode); $i++) {
-            //get tag or false if none
+            // get tag or false if none
             $tag = $this->extract_tag($tagexplode[$i]);
             // start isolation
             if ($tag && $this->is_starttag($tagexplode[$i]) && in_array($tag,$this->isolation_inline_elements)) {
@@ -886,10 +886,10 @@ p.wl_notopbottom {
             // explode content in textlines
             } else {
                 $textline = explode("\n",$tagexplode[$i]);
-                //iterate through the paragraphs and build content
+                // iterate through the paragraphs and build content
                 for ($j=0; $j<count($textline); $j++) {
                     // whiteline \n\n found: make paragraph with buffer and this line
-                    if ( ($j < count($textline) - 1 && empty($textline[$j+1]) ) ) {
+                    if (($j < count($textline) - 1 && empty(trim($textline[$j+1])))) {
                         // p start tag, append buffer and empty buffer
                         if ($firstp && !$startnl) {
                             $content .= self::P_NOTOP . $buffer;
