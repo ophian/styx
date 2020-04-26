@@ -391,7 +391,8 @@ pre {
     font-family: Menlo,Consolas,Monaco,monospace;
     background: #f5f5f5;
     border: 1px solid #ddd;
-    padding: .5em; }
+    padding: .5em;
+    min-width: 10em; }
 /* overwrite possible white-space: pre in highlight.css */
 pre code {
     white-space: pre-wrap !important;
