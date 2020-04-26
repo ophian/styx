@@ -129,7 +129,7 @@ switch (@$serendipity['GET']['action']) {
         break;
 
     case 'custom':
-        if ($serendipity['smarty_custom_vars']) {
+        if (isset($serendipity['smarty_custom_vars']) && is_array($serendipity['smarty_custom_vars'])) {
             $serendipity['smarty']->assign($serendipity['smarty_custom_vars']);
         }
         break;
