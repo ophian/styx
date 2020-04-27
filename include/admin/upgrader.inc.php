@@ -527,7 +527,7 @@ $tasks = array(
                     'title'     => '<b>CONFIGURATION_NOTICE:</b> Serendipity Styx is complete! Now having its own "additional_templates" repository, available via Spartacus.',
                     'desc'      => 'All available themes were upgraded to HTML5, were fixed, improved and checked, and at least basically made working with Serendipity Styx Revisions.
                     <p>Some, which had been worthy, because of well done structured design or laid groundwork, even got more than just a simple HTML5/CSS upgrade and are now able to act as references for theme copies, theme-dependency-childs, or easy to change to a custom user theme.</p>
-                    Please, <b>carefully/b> read the regarding changelog entry for this matter and for preparations to make this available in Styx.'),
+                    Please, <b>carefully</b> read the regarding changelog entry for this matter and for preparations to make this available in Styx.'),
 
             array(  'version'   => '3.0-alpha3',
                     'function'  => 'serendipity_purgeTemplatesCache',
