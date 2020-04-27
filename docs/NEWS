@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix db utf8 maintenance migration task
+
   * Remove experimental generic.inc DB driver and the Zend-db zendframework.
     Add a 3.0-beta1 removing upgrade task.
 
