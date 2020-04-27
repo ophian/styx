@@ -246,7 +246,7 @@
 
         {/if}
 
-    {if $dbUtf8mb4_converted OR $dbUtf8mb4_ready}
+    {if $dbUtf8mb4_converted === true AND $dbUtf8mb4_ready === true}
         <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true" title="{$CONST.UTF8MB4_MIGRATION_TASK_DONE}"></span> <span title="{$CONST.UTF8MB4_MIGRATION_TASK_DONE}"> {$CONST.UTF8MB4_MIGRATION_TASK_DONE_SHORT}</span></span>
     {else}
         <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_INFO}</span>
