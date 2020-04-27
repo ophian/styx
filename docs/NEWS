@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fixup backend comments Pingback summary block
+
   * Fix db utf8 maintenance migration task
 
   * Remove experimental generic.inc DB driver and the Zend-db zendframework.
