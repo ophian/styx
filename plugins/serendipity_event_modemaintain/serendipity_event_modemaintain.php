@@ -195,9 +195,9 @@ class serendipity_event_modemaintain extends serendipity_plugin
                         return false;
                     }
                     $db['jspost'] = explode('/', $eventData);
-                    $refererurl = $serendipity['baseURL'] . "serendipity_admin.php?serendipity[adminModule]=maintenance";
+                    $refererurl   = $serendipity['baseURL'] . "serendipity_admin.php?serendipity[adminModule]=maintenance";
 
-                    // [0]=modemaintence; [1]=setmoma [boolean]
+                    // [0]=modemaintenance; [1]=setmoma [boolean]
                     if ($db['jspost'][0] == 'maintenance') {
                         $this->s9y_maintenance_mode(true);
                         header('Status: 302 Found');
