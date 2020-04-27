@@ -1332,9 +1332,8 @@ h3.additional_properties {
 /* hides the box when empty, without breaking depending styles */
 .comment_summary.ping {
     width: auto;
-    display: -moz-box;
-    display: -webkit-inline-box;
-    display: inline-block;
+    display: -webkit-box;
+    display: block;
 }
 /* additional comment html support start */
 .comment_full h4 {
