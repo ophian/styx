@@ -43,6 +43,7 @@ if ($serendipity['dbUtf8mb4'] === false && $serendipity['dbUtf8mb4_converted'] =
 $data['dbUtf8mb4_ready']     = $serendipity['dbUtf8mb4_ready'] ?? null; // Smarty generic
 $data['dbUtf8mb4']           = $serendipity['dbUtf8mb4'] ?? null; // Smarty generic
 $data['dbUtf8mb4_converted'] = $serendipity['dbUtf8mb4_converted'] ?? null; // Smarty generic
+// set this strait through for OK if conversion was done
 if ($data['dbUtf8mb4_converted'] === true && $data['dbUtf8mb4_ready'] === false) {
     $data['dbUtf8mb4_ready'] = true;
 }
