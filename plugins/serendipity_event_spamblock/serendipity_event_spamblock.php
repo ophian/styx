@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '5.3.0'
         ));
-        $propbag->add('version',       '2.21');
+        $propbag->add('version',       '2.22');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -486,12 +486,14 @@ class serendipity_event_spamblock extends serendipity_event
 
         // Limit number of banned IPs to prevent .htaccess growing too large. The query selects at max 20*$blocklist_chunksize entries from the last two days.
         $blocklist_chunksize = 177;
-        $q = "SELECT ip FROM {$serendipity['dbPrefix']}spamblock_htaccess WHERE timestamp > " . (time() - 86400*2) . " GROUP BY ip ORDER BY timestamp DESC LIMIT " . 20*$blocklist_chunksize;
+        $q = "SELECT ip FROM {$serendipity['dbPrefix']}spamblock_htaccess WHERE timestamp > " . (time() - 86400*2) . " GROUP BY ip ORDER BY timestamp, ip DESC LIMIT " . 20*$blocklist_chunksize;
         $rows = serendipity_db_query($q, false, 'assoc');
 
         $deny = array();
-        foreach($rows AS $row) {
-            $deny[] = $row['ip'];
+        if (is_array($rows)) {
+            foreach($rows AS $row) {
+                $deny[] = $row['ip'];
+            }
         }
 
         $hta = $serendipity['serendipityPath'] . '.htaccess';
@@ -1326,7 +1328,7 @@ class serendipity_event_spamblock extends serendipity_event
 
                     if ($_show_captcha) {
                         echo '<div class="serendipity_commentDirection serendipity_comment_captcha">'."\n";
-                        if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha'] != strtolower($_SESSION['spamblock']['captcha']))) {
+                        if (!isset($serendipity['POST']['preview']) || strtolower($serendipity['POST']['captcha'] != @strtolower($_SESSION['spamblock']['captcha']))) {
                             echo PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC . "<br />\n";
                             echo $this->show_captcha($use_gd);
                             echo '<br /><label for="captcha">'. PLUGIN_EVENT_SPAMBLOCK_CAPTCHAS_USERDESC3 . '</label>';
