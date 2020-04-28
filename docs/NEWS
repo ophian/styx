@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix user MD5 migration authentication hashtype for BCRYPT since Styx 2.5.0
+
   * Fix maintenance upgrade task for non-existing cached theme preview files
 
   * Remove experimental generic.inc DB driver and the Zend-db zendframework.
