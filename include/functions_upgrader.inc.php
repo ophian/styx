@@ -924,11 +924,11 @@ function serendipity_purgeTemplatesCache($themes=false) {
             return serendipity_removeDeadFiles_SPL($path);
         }
     } else {
-        $files = scandir($path);
+        $files = @scandir($path);
         if (is_array($themes) && !empty($themes)) {
             foreach ($themes AS $theme) {
                 $themename = basename($theme);
-                if (in_array($themename . '.jpg', $files)) {
+                if (is_array($files) && in_array($themename . '.jpg', $files)) {
                     @unlink($path . '/' . $themename); // possible old empty occurrences which were placed when no valid image was available
                     @unlink($path . '/' . $themename . '.jpg'); // the fullsize
                     @unlink($path . '/' . $themename . '.webp'); // the fullsize variation
