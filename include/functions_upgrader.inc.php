@@ -227,21 +227,21 @@ $dead_files_202 = array(
     'templates/default/dragdrop.js',
     'templates/default/imgedit.js',
     'templates/default/admin/admin_scripts.js',
-    'templates/default/admin/entries.tpl',
+/*    'templates/default/admin/entries.tpl',*/
     'templates/default/admin/header_spawn.js',
     'templates/default/admin/image_selector.js',
     'templates/default/admin/imgedit.css',
-    'templates/default/admin/index.tpl',
-    'templates/default/admin/media_choose.tpl',
+/*    'templates/default/admin/index.tpl',
+    'templates/default/admin/media_choose.tpl',*/
     'templates/default/admin/media_imgedit.tpl',
     'templates/default/admin/media_imgedit_done.tpl',
-    'templates/default/admin/media_items.tpl',
+/*    'templates/default/admin/media_items.tpl',
     'templates/default/admin/media_pane.tpl',
-    'templates/default/admin/media_properties.tpl',
+    'templates/default/admin/media_properties.tpl',*/
     'templates/default/admin/media_showitem.tpl',
-    'templates/default/admin/media_upload.tpl',
+/*    'templates/default/admin/media_upload.tpl',*/
     'templates/default/admin/pluginmanager.css',
-    'templates/default/admin/style.css',
+/*    'templates/default/admin/style.css',*/
     'templates/default/admin/img/accept.png',
     'templates/default/admin/img/admin_msg_error.png',
     'templates/default/admin/img/admin_msg_note.png',
