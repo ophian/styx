@@ -27,6 +27,11 @@ if ($serendipity['GET']['adminAction'] == 'cleartemp' || $serendipity['GET']['ad
 
 $usedSuffixes = @serendipity_db_query("SELECT DISTINCT(thumbnail_name) AS thumbSuffix FROM {$serendipity['dbPrefix']}images WHERE hotlink != 1 AND (extension != 'pdf' AND thumbnail_name != '')", false, 'num');
 
+// MYSQL - Conversion to proper use of mysqli
+if ($serendipity['dbType'] == 'mysql') {
+    serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET value = 'mysqli' WHERE name = 'dbType' AND value = 'mysql'");
+    $serendipity['dbType'] = 'mysqli';
+}
 // UTF8MB4 - check for a possible previous bad install via simple install mode
 if ($serendipity['dbUtf8mb4'] === false && $serendipity['dbUtf8mb4_converted'] === null && $serendipity['dbType'] == 'mysqli'){
     if ($serendipity['dbCharset'] == 'utf8mb4' && mysqli_character_set_name($serendipity['dbConn']) == 'utf8mb4') {
@@ -38,11 +43,17 @@ if ($serendipity['dbUtf8mb4'] === false && $serendipity['dbUtf8mb4_converted'] =
 $data['dbUtf8mb4_ready']     = isset($serendipity['dbUtf8mb4_ready']) ? $serendipity['dbUtf8mb4_ready'] : null;
 $data['dbUtf8mb4']           = isset($serendipity['dbUtf8mb4']) ? $serendipity['dbUtf8mb4'] : null;
 $data['dbUtf8mb4_converted'] = isset($serendipity['dbUtf8mb4_converted']) ? $serendipity['dbUtf8mb4_converted'] : null;
+// set this strait through for OK if conversion was done
+if ($data['dbUtf8mb4_converted'] === true && $data['dbUtf8mb4_ready'] === false) {
+    $data['dbUtf8mb4_ready'] = true;
+}
 $data['urltoken']            = serendipity_setFormToken('url');
 $data['formtoken']           = serendipity_setFormToken();
 $data['thumbsuffix']         = $serendipity['thumbSuffix'];
 $data['dbnotmysql']          = false;//($serendipity['dbType'] == 'mysql' || $serendipity['dbType'] == 'mysqli') ? false : true; // Remove completely, when new LIKE solution found guilty
-$data['dbUtf8mb4_ready']     = in_array($serendipity['dbType'], ['sqlite3', 'sqlite3oo', 'pdo-sqlite', 'postgres', 'pdo-postgres']); // we assume that postgres is at least >= version 9.4, with UTF8 full Unicode, 8-bit, 1-4 Bytes/Char support
+if ($data['dbUtf8mb4_ready'] !== true) {
+    $data['dbUtf8mb4_ready']     = in_array($serendipity['dbType'], ['sqlite3', 'sqlite3oo', 'pdo-sqlite', 'postgres', 'pdo-postgres']); // we assume that postgres is at least >= version 9.4, with UTF8 full Unicode, 8-bit, 1-4 Bytes/Char support
+}
 $data['suffixTask']          = (is_array($usedSuffixes) && count($usedSuffixes) > 1) ? true : false;
 $data['zombP']               = null;
 $data['zombT']               = null;
