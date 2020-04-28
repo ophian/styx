@@ -1,6 +1,8 @@
 Version 2.9.5-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix spamblock [*]_htaccess table query to prevent failure on mysql >= 5.7
+
   * Silence some PHP 7.4 deprecation warnings using cache lite
 
 
