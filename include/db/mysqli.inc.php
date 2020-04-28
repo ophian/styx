@@ -315,6 +315,14 @@ function serendipity_db_migrate_index($check = true, $prefix = null) {
     $single_max = 191;
     $sum_max    = 250;
 
+    // Avoid error alike WARNINGS with mysql 5.7++ or mariaDB 10.x (there can be more, depending installed plugins)
+    // Error in ALTER TABLE `styx_exits` DROP PRIMARY KEY, ADD PRIMARY KEY (`entry_id`, `day`, `host` (64), `path` (180)) Invalid default value for 'day'
+    // Error in ALTER TABLE `styx_exits` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci Invalid default value for 'day'
+    // Error in ALTER TABLE `styx_referrers` CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci Invalid default value for 'day'
+    $session_sql_mode      = serendipity_db_query("SELECT @@SESSION.sql_mode", true);
+    $no_zero_date_sql_mode = str_replace(array('NO_ZERO_DATE', ',,'), array('', ','), $session_sql_mode[0]);
+    $set_session_sql_mode  = serendipity_db_query("SET SESSION sql_mode = '$no_zero_date_sql_mode'");
+
     $checkindexes = array();
     $indextypes = array();
     foreach($indexes AS $index) {
