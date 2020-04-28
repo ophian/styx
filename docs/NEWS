@@ -1,6 +1,9 @@
 Version 2.9.5-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix DB utf8 maintenance migration task and set a strict mode session
+    tweak for table migration ALTERs.
+
   * Fix spamblock [*]_htaccess table query to prevent failure on mysql >= 5.7
 
   * Silence some PHP 7.4 deprecation warnings using cache lite
