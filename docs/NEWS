@@ -7,7 +7,8 @@ Version 3.0-Dev ()
 
   * Fixup backend comments Pingback summary block
 
-  * Fix db utf8 maintenance migration task
+  * Fix DB utf8 maintenance migration task and set a strict mode session
+    tweak for table migration ALTERs.
 
   * Remove experimental generic.inc DB driver and the Zend-db zendframework.
     Add a 3.0-beta1 removing upgrade task.
