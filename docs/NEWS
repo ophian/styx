@@ -1,6 +1,8 @@
 Version 2.9.5-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix user MD5 migration authentication hashtype for BCRYPT since Styx 2.5.0
+
   * Fixup Styx Smarty 2.4.0 dead files upgrade task for later reinclusion
 
   * Fixup Serendipity 2.0.2/2.1.0 upgrade task file removes for Styx 2.6.0
