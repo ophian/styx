@@ -1,6 +1,8 @@
 Version 2.9.5-Dev ()
  ------------------------------------------------------------------------
 
+  * Fixup backend comments Pingback summary block
+
   * Fix DB utf8 maintenance migration task and set a strict mode session
     tweak for table migration ALTERs.
 
