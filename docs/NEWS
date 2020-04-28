@@ -1,6 +1,8 @@
 Version 2.9.5-Dev ()
  ------------------------------------------------------------------------
 
+  * Fixup Serendipity 2.0.2/2.1.0 upgrade task file removes for Styx 2.6.0
+
   * Fixup backend comments Pingback summary block
 
   * Fix DB utf8 maintenance migration task and set a strict mode session
