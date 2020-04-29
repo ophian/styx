@@ -117,7 +117,8 @@ switch($serendipity['GET']['adminAction']) {
         if (!empty($extpluginzs) && is_array($extpluginzs)) {
             // secured by check against installed plugins here!
             foreach ($extpluginzs AS $pstack) {
-                if (empty($is_installed = serendipity_plugin_api::enum_plugins('*', false, $pstack['path']))) {
+                // returns array in case of found installed, else enum_plugins::serendipity_db_query returns bool
+                if (serendipity_plugin_api::enum_plugins('*', false, $pstack['path'])) {
                     $plugins[] = $pstack['path'];
                 }
             }
