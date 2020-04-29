@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Add PHP 7.4 fix to importer class instantiation
+
   * Fix maintenance Plugin Manager task check against installed instances
 
   * Fix maintenance media task to generate all image variations for old
