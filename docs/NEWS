@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix maintenance media task to generate all image variations for old
+    occurrences of uppercased media EXTensions.
+
   * Fix maintenance upgrade task for non-existing cached theme preview files
 
   * Remove experimental generic.inc DB driver and the Zend-db zendframework.
