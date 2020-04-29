@@ -223,7 +223,7 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
     } else {
 
         /* Init the importer with form data */
-        $importer = new $class($serendipity['POST']['import']);
+        $importer = new $class(($serendipity['POST']['import'] ?? ''));
 
         /* Yes sir, we are importing if we have valid data */
         if ($importer->validateData()) {
