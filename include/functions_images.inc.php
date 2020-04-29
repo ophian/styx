@@ -1377,7 +1377,7 @@ function serendipity_generateVariations() {
         $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC');
         if (is_array($files) && !empty($files)) {
             foreach($files AS $f => $file) {
-                if (!in_array($file['extension'], ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) continue;
+                if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) continue;
                 $infile    = $outfile   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
