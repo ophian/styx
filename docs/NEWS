@@ -1,6 +1,9 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix spamblock filter checks with certain regular expressions in the
+    comments list.
+
   * Add PHP 7.4 fix to importer class instantiation
 
   * Fix maintenance Plugin Manager task check against installed instances
