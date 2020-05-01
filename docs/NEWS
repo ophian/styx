@@ -1,6 +1,9 @@
 Version 2.9.5-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix spamblock filter checks with certain regular expressions in the
+    comments list.
+
   * Fix user MD5 migration authentication hashtype for BCRYPT since Styx 2.5.0
 
   * Fixup Styx Smarty 2.4.0 dead files upgrade task for later reinclusion
