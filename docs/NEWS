@@ -620,6 +620,8 @@ Version 3.0-Dev ()
 Version 2.9.5-Dev ()
  ------------------------------------------------------------------------
 
+  * Fixup 2.9.4 lopping through empty sidebar plugin purge selection
+
   * Fix spamblock filter checks with certain regular expressions in the
     comments list.
 
