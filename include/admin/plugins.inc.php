@@ -208,8 +208,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     if ($serendipity['GET']['type'] === 'sidebar') {
         $locs = serendipity_db_query("SELECT plugin_file, class_name FROM {$serendipity['dbPrefix']}pluginlist WHERE plugintype = 'sidebar' AND pluginlocation  = 'local'", false, 'assoc');
         $locals = [];
-        foreach ($locs AS $loc) {
-            $locals[] = array('class_name' => $loc['class_name'], 'plugin_file' => $loc['plugin_file']);
+        if (is_array($locs)) {
+            foreach ($locs AS $loc) {
+                $locals[] = array('class_name' => $loc['class_name'], 'plugin_file' => $loc['plugin_file']);
+            }
         }
     }
 
