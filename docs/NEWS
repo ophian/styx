@@ -1,4 +1,4 @@
-Version 2.9.5-Dev ()
+Version 2.9.5 (2020-05-02)
  ------------------------------------------------------------------------
 
   * Add old Smarty->register_* method wrappers for backward compatibility for
