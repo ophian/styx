@@ -245,6 +245,45 @@ class Serendipity_Smarty extends Smarty
         $this->assignByRef($tpl_var, $value);
     }
 
+    /**
+     * Wrapper for old Smarty 2 Registers custom function to be used in templates
+     *
+     * @param string $function      the name of the template function
+     * @param string $function_impl the name of the PHP function to register
+     * @param bool   $cacheable
+     * @param mixed  $cache_attrs
+     *
+     * @throws \SmartyException
+     */
+    public function register_function($function, $function_impl, $cacheable = true, $cache_attrs = null)
+    {
+        $this->registerPlugin('function', $function, $function_impl, $cacheable, $cache_attrs);
+    }
+
+    /**
+     * Wrapper for old Smarty 2 Registers modifier to be used in templates
+     *
+     * @param string $modifier      name of template modifier
+     * @param string $modifier_impl name of PHP function to register
+     *
+     * @throws \SmartyException
+     */
+    public function register_modifier($modifier, $modifier_impl)
+    {
+        $this->registerPlugin('modifier', $modifier, $modifier_impl);
+    }
+
+    /**
+     * Wrapper for old Smarty 2 Registers a resource to fetch a template
+     *
+     * @param string $type      name of resource
+     * @param array  $functions array of functions to handle resource
+     */
+    public function register_resource($type, $functions)
+    {
+        $this->registerResource($type, $functions);
+    }
+
     public static function test()
     {
         var_dump(get_called_class());
