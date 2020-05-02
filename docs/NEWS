@@ -1,6 +1,11 @@
 Version 2.9.5-Dev ()
  ------------------------------------------------------------------------
 
+  * Add old Smarty->register_* method wrappers for backward compatibility for
+    very lazy S9y upgraders with lots of very old plugins hanging around to
+    avoid getting lost in unguessable Exception errors.
+    This branch is the last Series that supports these and other compat methods.
+
   * Fixup 2.9.4 lopping through empty sidebar plugin purge selection
 
   * Fix spamblock filter checks with certain regular expressions in the
