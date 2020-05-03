@@ -4,11 +4,11 @@
 
 # Changelog 4.0.4 (2020-03-15)
 
-- use "symfony/var-exporter" for OpCache 
-   
+- use "symfony/var-exporter" for OpCache
+
    -> better performance, because we don't need to serialize the data
-   
-   -> but it's optional, because it required PHP >= 7.1 
+
+   -> but it's optional, because it required PHP >= 7.1
 
 # Changelog 4.0.3 (2019-11-18)
 
@@ -33,7 +33,7 @@
 # Changelog 4.0.0 (2019-02-24)
 
 - add "CacheAdapterAutoManager"
-- fix typos in "CachePsr16" 
+- fix typos in "CachePsr16"
 - "iCache->setItemToDate()" now accepts DateTimeInterface instead of DateTime
 
 
@@ -44,7 +44,7 @@
 
 # Changelog 3.2.1 (2018-12-20)
 
-- use phpcs fixer 
+- use phpcs fixer
 
 
 # Changelog 3.2.0 (2018-12-03)
