@@ -7,7 +7,7 @@
 
 @define('LANG_CHARSET', 'UTF-8');
 @define('SQL_CHARSET', 'utf8');
-@define('DATE_LOCALES', 'pt_BR.UTF-8, pt_BR.UTF8, pt_BR, portuguese brazilian, pt');
+@define('DATE_LOCALES', 'pt_BR.UTF-8, pt_BR.UTF8, pt_BR, portuguese brazilian, pt-br, pt');
 @define('DATE_FORMAT_ENTRY', '%A, %e de %B de %Y');
 @define('WYSIWYG_LANG', 'pt_BR');
 @define('LANG_DIRECTION', 'ltr');
