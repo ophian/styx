@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Fix frontend comments for very first comment preview
+
   * Update bundled-libs/voku/simple-cache to 4.0.5
     and add a Uncaught TypeError [...] patch.
 
