@@ -9,8 +9,8 @@
 /* vim: set sts=4 ts=4 expandtab : */
 
 @define('LANG_CHARSET', 'ISO-8859-15');
-@define('SQL_CHARSET', 'latin2');
-@define('DATE_LOCALES', 'es_ES.ISO8859-15, es_ES.ISO8859-1, spanish, sp, es, es_ES, es-ES, es_ES.ISO_8859-15, es_ES.ISO_8859-1');
+@define('SQL_CHARSET', 'latin1');
+@define('DATE_LOCALES', 'es_ES.ISO8859-15, es_ES.ISO8859-1, spanish, es, es_ES, es-ES');
 @define('DATE_FORMAT_ENTRY', '%A, %e de %B del %Y');
 @define('DATE_FORMAT_SHORT', '%d.%m.%Y %H:%M');
 @define('WYSIWYG_LANG', 'es_ES');
