@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Update bundled-libs/voku/simple-cache to 4.0.5
+
   * Trying to fixup lang files wrong set or "wrong" ordered DATE_LOCALES in
     [da, pl, es, nl, pt, pt_BR, sv]. Usage of non-standard *.ISO8859-1* and
     *.UTF8 fallback workarounds (without dash) are now set deprecated and will
