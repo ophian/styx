@@ -1,6 +1,12 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Trying to fixup lang files wrong set or "wrong" ordered DATE_LOCALES in
+    [da, pl, es, nl, pt, pt_BR, sv]. Usage of non-standard *.ISO8859-1* and
+    *.UTF8 fallback workarounds (without dash) are now set deprecated and will
+    be removed soon. The dutch lang constant now supports both, the nl_NL and
+    the nl_BE locales.
+
   * Add PHP 7.4 fix to importer class instantiation
 
   * Fix maintenance Plugin Manager task check against installed instances
