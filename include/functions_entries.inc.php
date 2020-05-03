@@ -1398,6 +1398,11 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                     }
                 }
 
+                // set Smarty single entry to have comments, if preview of new comment is the first
+                if (isset($serendipity['POST']['preview']) && !empty($serendipity['POST']['comment']) && $entry['comments'] == 0) {
+                    $entry['comments'] = 1;
+                }
+
                 $serendipity['smarty']->assign($comment_add_data);
                 if ($comments_open) {
                     serendipity_displayCommentForm(
