@@ -532,7 +532,7 @@ class Cache implements iCache
             // always cache the TTL time, maybe we need this later ...
             self::$STATIC_CACHE_EXPIRE[$storeKey] = ($ttl ? (int) $ttl + \time() : 0);
 
-            return $this->adapter->setExpired($storeKey, $serialized, $ttl);
+            return $this->adapter->setExpired($storeKey, $serialized, (int) $ttl);
         }
 
         return $this->adapter->set($storeKey, $serialized);
