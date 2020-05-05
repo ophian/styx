@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Upgrade jQuery library to v.3.5.1
+
   * Fix frontend comments for very first comment preview
 
   * Update bundled-libs/voku/simple-cache to 4.0.5
