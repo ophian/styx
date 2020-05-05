@@ -1857,7 +1857,7 @@ function serendipity_printArchives() {
     $group = array();
     if (is_array($entries)) {
         foreach($entries AS $entry) {
-            @$group[date('Ym', $entry['timestamp'])]++; // mute possible uninitialized items
+            @$group[date('Ym', $entry['timestamp'])]++; // mute possible empty items offset upcounting
         }
     }
 
