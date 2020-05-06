@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Remove S9y SQL upgrade ALTERations for version 0.2 to 1.5
+
   * Upgrade jQuery library to v.3.5.1
 
   * Fix frontend comments for very first comment preview
