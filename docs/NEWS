@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Removed S9y upgrade tasks from v0.5.1 to end of the 1.7 Series
+
   * Remove S9y SQL upgrade ALTERations for version 0.2 to 1.5
 
   * Upgrade jQuery library to v.3.5.1
