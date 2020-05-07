@@ -1,6 +1,8 @@
 Version 3.0-Dev ()
  ------------------------------------------------------------------------
 
+  * Removed S9y 2.0-alpha upgrade tasks pointing back prior 2.0
+
 ---- Beta1
 
   * Removed S9y upgrade tasks from v0.5.1 until end of the 1.7 Series
