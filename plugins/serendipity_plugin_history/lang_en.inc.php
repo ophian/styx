@@ -25,7 +25,7 @@
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Title-Length');
 @define('PLUGIN_HISTORY_MAXLENGTH_DESC', 'After how many characters to cut the titles (0 for full titles)?');
 @define('PLUGIN_HISTORY_SPECIALAGE', 'Ready-made age?');
-@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'If you want to define your own timerange instead of a ready-made, select \'I\'ll define one\' here and adjust the two settings below.');
+@define('PLUGIN_HISTORY_SPECIALAGE_DESC', 'If you want to define your own time range instead of a ready-made, select \'I\'ll define one\' here and adjust the two settings below.');
 @define('PLUGIN_HISTORY_SPECIALAGE_YEAR', 'Display items of exactly one year ago');
 @define('PLUGIN_HISTORY_CUSTOMAGE', 'Let me define the age');
 @define('PLUGIN_HISTORY_OYA', 'One year ago');
@@ -33,5 +33,5 @@
 @define('PLUGIN_HISTORY_DISPLAYAUTHOR', 'Show author\'s name');
 
 @define('PLUGIN_HISTORY_MULTIYEARS', 'Number of looped years');
-@define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Set a new number of years to loop through, when having selected the timerange "one year ago". Default is 1 (the current year). Set upper "Min age" and "Max age" entries to exact 365 days.');
+@define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Set a new number of years to loop through, when having selected the timerange "one year ago". Default is 1 (the current year). Set upper "Min age" and "Max age" entries to exact 365 days. In case of multi years, all history sidebar output - inclusive possible intro/outro - will be cached for performance reasons inside a "templates_c/plugin_history.dat" file for the rest of the day.');
 
