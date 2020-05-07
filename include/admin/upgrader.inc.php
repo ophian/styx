@@ -64,29 +64,6 @@ $data['upgradeLoc'] = $upgradeLoc;
 
 /* Functions which needs to be run if installed version is equal or lower */
 $tasks = array(
-            array(  'version'   => '2.0-alpha2',
-                    'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'arguments' => array($serendipity['serendipityPath'] . 'bundled-libs/Smarty', $dead_smarty_files, array('internals'), true),
-                    'title'     => 'Removal of obsolete and dead Smarty 2.6.x files',
-                    'desc'      => 'Smarty 3.x brought a new file structure. The following dead files will be removed from "bundled-libs/Smarty/libs".<br /><pre>' . implode(', ', $dead_smarty_files) . '</pre>'),
-
-            array(  'version'   => '2.0-alpha3',
-                    'function'  => 'serendipity_upgrader_rename_plugins',
-                    'title'     => 'Move internal plugins to "normal" plugin directory structure.',
-                    'desc'      => 'A list of internal plugins that previously lived in include/plugin_internal.inc.php were moved into the proper plugins/ subdirectory structure. This task will migrate any possible references to such plugins to the new format.'),
-
-            array(  'version'   => '2.0-alpha4',
-                    'function'  => 'serendipity_removeDeadFiles_SPL',
-                    'arguments' => array($serendipity['serendipityPath'] . 'htmlarea', $dead_htmlarea_files, array('internals'), true),
-                    'title'     => 'Removal of obsolete and dead htmlarea files',
-                    'desc'      => 'Serendipity 2.0 replaces old WYSIWYG-Editors in htmlarea directory with CKEDITOR. The following dead files will be removed from "/htmlarea".<br /><pre>' . implode(', ', $dead_htmlarea_files) . '</pre>'),
-
-            array(  'version'   => '2.0-alpha4',
-                    'function'  => 'recursive_directory_iterator',
-                    'arguments' => array($dead_htmlarea_dirs),
-                    'title'     => 'Removal of obsolete and dead htmlarea directories',
-                    'desc'      => 'Serendipity 2.0 replaces old WYSIWYG-Editors in htmlarea directory with CKEDITOR. The following dead directories will be completely removed from "/htmlarea".<br /><pre>' . implode(', ', $dead_htmlarea_dirs) . '</pre>'),
-
             array(  'version'   => '2.0-beta3',
                     'function'  => 'serendipity_upgrader_move_syndication_config',
                     'title'     => 'Export syndication plugin options',
