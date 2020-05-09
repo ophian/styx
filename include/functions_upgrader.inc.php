@@ -413,7 +413,8 @@ $dead_files_300 = array(
     'sql/db_update_1.2-alpha3_1.2_alpha4_sqlite.sql',
     'sql/db_update_1.5-alpha1_1.5-alpha2_mysql.sql',
     'sql/db_update_1.5-alpha1_1.5-alpha2_postgres.sql',
-    'sql/db_update_1.5-alpha1_1.5-alpha2_sqlite.sql'
+    'sql/db_update_1.5-alpha1_1.5-alpha2_sqlite.sql',
+    'templates/pure/modernizr.min.js'
 );
 
 /* A list of old or removed directories for 3.0.0 */
