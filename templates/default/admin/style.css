@@ -2663,6 +2663,9 @@ h3 .media_file_actions {
 .upload_form {
     padding: 0 0 0 .4em;
 }
+#serendipity_comments_list > li .comment_full {
+    padding-right: .4em;
+}
 
 .zebra_list .odd,
 .zebra_list .even,
