@@ -1844,7 +1844,7 @@ function serendipity_printArchives() {
        LEFT JOIN {$serendipity['dbPrefix']}entrycat ec
               ON e.id = ec.entryid
        LEFT JOIN {$serendipity['dbPrefix']}category c
-              ON ec.categoryid = c.categoryid" : "") . "
+              ON ec.categoryid = c.categoryid" : '') . "
            WHERE isdraft = 'false'"
                 . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND timestamp <= ' . serendipity_db_time() : '')
                 . (!empty($cat_sql) ? ' AND ' . $cat_sql : '')
