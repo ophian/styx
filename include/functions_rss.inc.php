@@ -75,7 +75,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 $ext = '';
             }
 
-            $addData = array('from' => 'functions_entries:printEntries_rss','rss_options' => $options);
+            $addData = array('from' => 'functions_entries:printEntries_rss', 'rss_options' => $options);
             serendipity_plugin_api::hook_event('frontend_display', $entry, $addData);
 
             // Do some relative -> absolute URI replacing magic. Replaces all HREF/SRC/SRCSET (<a>, <img>, ...) references to only the serendipity path with the full baseURL URI
