@@ -292,7 +292,8 @@ function serendipity_serverOffsetHour($timestamp = null, $negative = false) {
     }
 }
 
-/* Converts a date string (DD.MM.YYYY, YYYY-MM-DD, MM/DD/YYYY) into a unix timestamp
+/**
+ * Converts a date string (DD.MM.YYYY, YYYY-MM-DD, MM/DD/YYYY) into a unix timestamp
  *
  * @access public
  * @param  string  The input date
