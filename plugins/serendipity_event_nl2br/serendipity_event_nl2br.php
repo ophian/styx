@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx, Stephan Brunker');
-        $propbag->add('version',       '2.47');
+        $propbag->add('version',       '2.48');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -455,7 +455,7 @@ p.wl_notopbottom {
                                 'ellipse', 'rect', 'line', 'polyline', 'polygon', 'text',
                                 'image', 'g', 'defs'); //includes svg tags
     // paragraphs aren't allowed in these inline elements -> p closes these elements:
-    var $inline_elements = array('b', 'big', 'i', 'small', 'tt', 'abbr',
+    var $inline_elements = array('b', 'big', 'i', 'small', 'tt', 'u', 'abbr',
                                 'acronym', 'cite', 'code', 'dfn', 'em', 'kbd', 'strong',
                                 'samp', 'var', 'bdo', 'bdi', 'map', 'object',
                                 'q', 'script', 'span', 'sub', 'sup', 'button',
