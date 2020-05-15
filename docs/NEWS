@@ -1,6 +1,8 @@
 Version 3.0-rc1 (May, 12th 2020)
  ------------------------------------------------------------------------
 
+  * Fix pure theme entry images break out block sizes in footer
+
   * Fix pure theme toggle trackback hint information box
 
 ---- RC1
