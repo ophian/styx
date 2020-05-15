@@ -25,9 +25,9 @@
     }
 })(jQuery);
 
+/* toggle trackback hint information box */
 (function ($) {
-    // SVG polyfill
-    //svg4everybody();
+    $('#trackback_url').next(".trackback-hint").hide();
     $('#trackback_url').click(function(e) {
         e.preventDefault();
         $(this).next(".trackback-hint").show();
