@@ -1,6 +1,9 @@
 Version 3.0-rc1 (May, 12th 2020)
  ------------------------------------------------------------------------
 
+  * Fix maintenance media thumb convert task for the staticpage content array
+    plus additional minors.
+
   * Sync [S9y] nl2br: NL2P add missing 'u' inline element
 
   * Fix pure theme entry images break out block sizes in footer
