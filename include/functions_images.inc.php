@@ -1849,7 +1849,7 @@ function serendipity_convertThumbs() {
                     if ($debug) { $serendipity['logger']->debug("$logtag UPDATE entries DB::entries:\nID:{$entry['id']} {$serendipity['dbPrefix']}entries::[body|extended] update " .DONE); }
                     serendipity_db_query($uq);
                     // count the entries changed
-                    if ($_tmpEntryID != $entry['id']) $e++;
+                    if (isset($_tmpEntryID) && $_tmpEntryID != $entry['id']) $e++;
                     $_tmpEntryID = $entry['id'];
 
                     // SAME FOR ENTRYPROPERTIES CACHE for ep_cache_body
@@ -1911,7 +1911,7 @@ function serendipity_convertThumbs() {
                         if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-UPDATE staticpages DB:\nID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] UPDATE " .DONE); }
                         serendipity_db_query($pq);
                         // count the staticpage entries changed
-                        if ($_tmpStaticpID != $spage['id']) $s++;
+                        if (isset($_tmpStaticpID) && $_tmpStaticpID != $spage['id']) $s++;
                         $_tmpStaticpID = $spage['id'];
                     }
                 }
