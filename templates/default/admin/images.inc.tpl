@@ -15,7 +15,7 @@
         {if NOT empty($convertThumbs)}
         <h2>{$CONST.RESIZING}</h2>
 
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_RESIZE_DONE|default:0}</span>
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$print_RESIZE_DONE|default:$CONST.NOTHING_TODO}</span>
         {/if}
         {if NOT empty($buildVariation)}
         <h2>{$CONST.SYNC_BUILD_VARIATIONS}</h2>
