@@ -52,7 +52,7 @@
 @define('NEW_ENTRY', 'ÃäÔÇÁ ãæÖæÚ ÌÏíÏ');
 @define('EDIT_ENTRIES', 'ÊÍÑíÑ ÇáãæÇÖíÚ');
 @define('CATEGORIES', 'ÃŞÓÇã');
-@define('IMAGESYNC_WARNING', 'ÊÍĞíÑ:<br>íãßä Çä ÊÓÊÛÑŞ æŞÊ Øæíá ÌÏÇğ Çä ßÇä åäÇß ÕæÑ ÈÏæä ÇáÕæÑ ÇáãÕÛÑÉ áåÇ');
+@define('IMAGESYNC_WARNING', 'ÊÍĞíÑ:<br>íãßä Çä ÊÓÊÛÑŞ æŞÊ Øæíá ÌÏÇğ Çä ßÇä åäÇß ÕæÑ ÈÏæä ÇáÕæÑ ÇáãÕÛÑÉ áåÇ Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'ÃÚÏ ÈäÇÁ ÇáÕæÑ ÇáãÕÛÑÉ');
 @define('MANAGE_IMAGES', 'ÇÏÇÑÉ ÇáÕæÑ');
 @define('NAME', 'ÇáÃÓã');

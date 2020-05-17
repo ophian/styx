@@ -52,7 +52,7 @@
 @define('NEW_ENTRY', 'أنشاء موضوع جديد');
 @define('EDIT_ENTRIES', 'تحرير المواضيع');
 @define('CATEGORIES', 'أقسام');
-@define('IMAGESYNC_WARNING', 'تحذير:<br>يمكن ان تستغرق وقت طويل جداً ان كان هناك صور بدون الصور المصغرة لها');
+@define('IMAGESYNC_WARNING', 'تحذير:<br>يمكن ان تستغرق وقت طويل جداً ان كان هناك صور بدون الصور المصغرة لها Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'أعد بناء الصور المصغرة');
 @define('MANAGE_IMAGES', 'ادارة الصور');
 @define('NAME', 'الأسم');

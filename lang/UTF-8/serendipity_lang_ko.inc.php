@@ -53,7 +53,7 @@
 @define('NEW_ENTRY', '새로운 글');
 @define('EDIT_ENTRIES', '글 편집하기');
 @define('CATEGORIES', '범주');
-@define('IMAGESYNC_WARNING', '경고:<br>작은 그림이 생성되지 않은 그림이 많이 있을 경우 오래 걸릴 수 있습니다.');
+@define('IMAGESYNC_WARNING', '경고:<br>작은 그림이 생성되지 않은 그림이 많이 있을 경우 오래 걸릴 수 있습니다. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', '작은 그림 재생성');
 @define('MANAGE_IMAGES', '그림 관리');
 @define('NAME', '이름');

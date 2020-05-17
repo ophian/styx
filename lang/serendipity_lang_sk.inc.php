@@ -64,7 +64,7 @@ $i18n_filename_to = array (
 @define('NEW_ENTRY', 'Nový èlánok');
 @define('EDIT_ENTRIES', 'Editovat èlánky');
 @define('CATEGORIES', 'Kategórie');
-@define('IMAGESYNC_WARNING', 'POZOR:<br>Tento úkon mô¾e trva» dlh¹ie, ak máte veµa obrázkov bez náhµadov.');
+@define('IMAGESYNC_WARNING', 'POZOR:<br>Tento úkon mô¾e trva» dlh¹ie, ak máte veµa obrázkov bez náhµadov. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Vytvori» náhµady');
 @define('MANAGE_IMAGES', 'Správa obrázkov');
 @define('NAME', 'Meno');

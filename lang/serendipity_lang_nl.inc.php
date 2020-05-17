@@ -55,7 +55,7 @@
 @define('NEW_ENTRY', 'Nieuw artikel');
 @define('EDIT_ENTRIES', 'Bewerk artikelen');
 @define('CATEGORIES', 'Categorieën');
-@define('IMAGESYNC_WARNING', 'WAARSCHUWING:<br>Dit kan veel tijd in beslag nemen als er veel grote afbeeldingen zijn zonder miniatuur.');
+@define('IMAGESYNC_WARNING', 'WAARSCHUWING:<br>Dit kan veel tijd in beslag nemen als er veel grote afbeeldingen zijn zonder miniatuur. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Creëer nieuwe indexafbeeldingen');
 @define('MANAGE_IMAGES', 'Beheer afbeeldingen');
 @define('NAME', 'Naam');

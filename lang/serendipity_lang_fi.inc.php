@@ -52,7 +52,7 @@
 @define('NEW_ENTRY', 'Uusi merkintä');
 @define('EDIT_ENTRIES', 'Muokkaa merkintöjä');
 @define('CATEGORIES', 'Kategoriat');
-@define('IMAGESYNC_WARNING', 'HUOMAUTUS:<br>Tämä saattaa kestää kauan jos pienoiskuvattomia kuvia on paljon.');
+@define('IMAGESYNC_WARNING', 'HUOMAUTUS:<br>Tämä saattaa kestää kauan jos pienoiskuvattomia kuvia on paljon. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Luo pienoiskuvat uudelleen');
 @define('MANAGE_IMAGES', 'Kuvien hallinta');
 @define('NAME', 'Nimi');

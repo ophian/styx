@@ -51,7 +51,7 @@
 @define('NEW_ENTRY', 'புதிய குறிப்பு');
 @define('EDIT_ENTRIES', 'குறிப்பு மாற்றங்கள்');
 @define('CATEGORIES', 'பிரிவுகள்');
-@define('IMAGESYNC_WARNING', 'கவனிக்க:<br>வலைபொருள் சித்திரங்கள் எண்ணிக்கையைப் பொருத்து இச்செயலாக்கம் சில அல்லது பல நிமிடங்கள் ஆகலாம்.');
+@define('IMAGESYNC_WARNING', 'கவனிக்க:<br>வலைபொருள் சித்திரங்கள் எண்ணிக்கையைப் பொருத்து இச்செயலாக்கம் சில அல்லது பல நிமிடங்கள் ஆகலாம். Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'வலைபொருள் சித்திரங்களை சிறிதாக்குக');
 @define('MANAGE_IMAGES', 'வலைபொருள் சித்திரங்கள் நிர்வாகம்');
 @define('NAME', 'பெயர்');

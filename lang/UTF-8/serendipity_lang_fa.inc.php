@@ -53,7 +53,7 @@
 @define('NEW_ENTRY', 'ارسال جدید');
 @define('EDIT_ENTRIES', 'تغییر ارسال ها');
 @define('CATEGORIES', 'موضوعات');
-@define('IMAGESYNC_WARNING', 'توجه:<br>در صورتی که تعداد عکس هایی که نمونه عکس نداشته باشند زیاد باشد، این عمل طول خواهد کشید.');
+@define('IMAGESYNC_WARNING', 'توجه:<br>در صورتی که تعداد عکس هایی که نمونه عکس نداشته باشند زیاد باشد، این عمل طول خواهد کشید. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'دوباره سازی عکس های کوچک');
 @define('MANAGE_IMAGES', 'مدیریت عکس ها');
 @define('NAME', 'نام');

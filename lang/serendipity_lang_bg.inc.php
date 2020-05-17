@@ -53,7 +53,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NEW_ENTRY', 'Нова');
 @define('EDIT_ENTRIES', 'Редактиране');
 @define('CATEGORIES', 'Категории');
-@define('IMAGESYNC_WARNING', 'Внимание:<br> Възможно е операцията да продължи много време, ако има много изображения.');
+@define('IMAGESYNC_WARNING', 'Внимание:<br> Възможно е операцията да продължи много време, ако има много изображения. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Създаване на миниатюри');
 @define('MANAGE_IMAGES', 'Управление на изображения');
 @define('NAME', 'Име');

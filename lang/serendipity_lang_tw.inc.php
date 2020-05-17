@@ -54,7 +54,7 @@ $i18n_unknown = 'tw';
 @define('NEW_ENTRY', '新增文章');
 @define('EDIT_ENTRIES', '編輯文章');
 @define('CATEGORIES', '類別');
-@define('IMAGESYNC_WARNING', '警告:<br>這個可能需要長時間如果有很多不是縮圖的圖片.');
+@define('IMAGESYNC_WARNING', '警告:<br>這個可能需要長時間如果有很多不是縮圖的圖片. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', '重建縮圖');
 @define('MANAGE_IMAGES', '管理圖片');
 @define('NAME', '名稱');

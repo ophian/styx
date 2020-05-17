@@ -53,7 +53,7 @@
 @define('NEW_ENTRY', 'Nuova notizia');
 @define('EDIT_ENTRIES', 'Modifica notizie');
 @define('CATEGORIES', 'Categorie');
-@define('IMAGESYNC_WARNING', 'ATTENZIONE:<br>Potrebbe essere necessario molto tempo se molte immagini non hanno le miniature.');
+@define('IMAGESYNC_WARNING', 'ATTENZIONE:<br>Potrebbe essere necessario molto tempo se molte immagini non hanno le miniature. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Ricostruisci miniature');
 @define('MANAGE_IMAGES', 'Gestione immagini');
 @define('NAME', 'Nome');

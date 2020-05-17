@@ -2805,6 +2805,10 @@ h3 button.toggle_info.button_link.group_info {
     color: #fcfcfc;
 }
 
+#isync_info a {
+    color: #fffafa;
+}
+
 #entries_list .entry_info .entry_status,
 .comment_status {
     float: right;

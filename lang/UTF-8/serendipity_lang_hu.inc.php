@@ -52,7 +52,7 @@
 @define('NEW_ENTRY', 'Új bejegyzés');
 @define('EDIT_ENTRIES', 'Szerkesztés');
 @define('CATEGORIES', 'Kategóriák');
-@define('IMAGESYNC_WARNING', 'FIGYELEM:<br>Ez sokáig eltarthat, ha csak kevés képnek van előnézeti képe.');
+@define('IMAGESYNC_WARNING', 'FIGYELEM:<br>Ez sokáig eltarthat, ha csak kevés képnek van előnézeti képe. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Előnézeti képek újragenerálása');
 @define('MANAGE_IMAGES', 'Képek kezelése');
 @define('NAME', 'Név');

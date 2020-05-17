@@ -53,7 +53,7 @@
 @define('NEW_ENTRY', 'Yeni yazı');
 @define('EDIT_ENTRIES', 'Yazıları düzenle');
 @define('CATEGORIES', 'Konu başlıkları');
-@define('IMAGESYNC_WARNING', 'DİKKAT:<br>Bu işlem resim sayısı çoksa uzun zaman alacaktır.');
+@define('IMAGESYNC_WARNING', 'DİKKAT:<br>Bu işlem resim sayısı çoksa uzun zaman alacaktır. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Küçükresimleri yeniden oluştur');
 @define('MANAGE_IMAGES', 'Resimleri Yönet');
 @define('NAME', 'Ad');

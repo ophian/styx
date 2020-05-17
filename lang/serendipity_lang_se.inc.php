@@ -52,7 +52,7 @@
 @define('NEW_ENTRY', 'Ny artikel');
 @define('EDIT_ENTRIES', 'Redigera artiklar');
 @define('CATEGORIES', 'Kategorier');
-@define('IMAGESYNC_WARNING', 'VARNING:<br>Detta kan ta lång tid om det är många bilder utan miniatyrer.');
+@define('IMAGESYNC_WARNING', 'VARNING:<br>Detta kan ta lång tid om det är många bilder utan miniatyrer. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Bygg om miniatyrer');
 @define('MANAGE_IMAGES', 'Hantera bilder');
 @define('NAME', 'Namn');

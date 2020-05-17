@@ -52,7 +52,7 @@
 @define('NEW_ENTRY', 'Nýja færslu');
 @define('EDIT_ENTRIES', 'Breyta færslum');
 @define('CATEGORIES', 'Flokkar');
-@define('IMAGESYNC_WARNING', 'VARÚÐ:<br>Þetta gæti tekið langan tíma ef það eru margar myndir án sýnishorna.');
+@define('IMAGESYNC_WARNING', 'VARÚÐ:<br>Þetta gæti tekið langan tíma ef það eru margar myndir án sýnishorna. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Endurvinna sýnishorn');
 @define('MANAGE_IMAGES', 'Breyta myndum');
 @define('NAME', 'Nafn');

@@ -54,7 +54,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NEW_ENTRY', 'Новая запись');
 @define('EDIT_ENTRIES', 'Редактировать записи');
 @define('CATEGORIES', 'Категории');
-@define('IMAGESYNC_WARNING', 'ВНИМАНИЕ:<br>Эта операция может занять длительное время, если имеется много изображений без тамбнэйлов.');
+@define('IMAGESYNC_WARNING', 'ВНИМАНИЕ:<br>Эта операция может занять длительное время, если имеется много изображений без тамбнэйлов. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Создать тамбнэйлы заново');
 @define('MANAGE_IMAGES', 'Работа с изображениями');
 @define('NAME', 'Имя');

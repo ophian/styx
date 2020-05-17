@@ -53,7 +53,7 @@
 @define('NEW_ENTRY', 'Însemnare nouă');
 @define('EDIT_ENTRIES', 'Modifică însemnări');
 @define('CATEGORIES', 'Categorii');
-@define('IMAGESYNC_WARNING', 'ATENŢIE:<br>Poate să dureze mult dacă sunt multe imagini fără miniaturi.');
+@define('IMAGESYNC_WARNING', 'ATENŢIE:<br>Poate să dureze mult dacă sunt multe imagini fără miniaturi. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Refacere Miniaturi');
 @define('MANAGE_IMAGES', 'Administrare Imagini');
 @define('NAME', 'Nume');

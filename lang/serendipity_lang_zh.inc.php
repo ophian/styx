@@ -54,7 +54,7 @@
 @define('NEW_ENTRY', '新增文章');
 @define('EDIT_ENTRIES', '编辑文章');
 @define('CATEGORIES', '类别管理');
-@define('IMAGESYNC_WARNING', '警告:<br>如果有很多图片的话，可能需要很长时间。');
+@define('IMAGESYNC_WARNING', '警告:<br>如果有很多图片的话，可能需要很长时间。 Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', '重建细图');
 @define('MANAGE_IMAGES', '管理图片');
 @define('NAME', '名称');

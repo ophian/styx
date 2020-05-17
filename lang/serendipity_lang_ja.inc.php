@@ -52,7 +52,7 @@
 @define('NEW_ENTRY', '新規エントリーの追加');
 @define('EDIT_ENTRIES', 'エントリーの編集');
 @define('CATEGORIES', 'カテゴリの管理');
-@define('IMAGESYNC_WARNING', '警告:<br>サムネイルなしの画像が多い場合、長時間かかるかもしれません。');
+@define('IMAGESYNC_WARNING', '警告:<br>サムネイルなしの画像が多い場合、長時間かかるかもしれません。 Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'サムネイル再構築');
 @define('MANAGE_IMAGES', '画像管理');
 @define('NAME', '名前');
