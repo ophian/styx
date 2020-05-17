@@ -414,7 +414,7 @@
 @define('INSTALL_IMAGEMAGICKPATH', 'Pfad zur "convert" ImageMagick-Datei');
 @define('INSTALL_IMAGEMAGICKPATH_DESC', 'Voller Pfad und Name zur Image-Magick Datei');
 @define('INSTALL_THUMBSUFFIX', 'Vorschaubild-Endung');
-@define('INSTALL_THUMBSUFFIX_DESC', 'Vorschaubilder werden nach dem Schema originalname.Suffix.erweiterung benannt.');
+@define('INSTALL_THUMBSUFFIX_DESC', 'Vorschaubilder werden nach dem Schema originalname.Suffix.erweiterung (ext) benannt.');
 @define('INSTALL_THUMBWIDTH', 'Vorschaubildgröße');
 @define('INSTALL_THUMBWIDTH_DESC', 'Maximale Breite/Höhe der automatisch erzeugten Vorschaubildes');
 @define('INSTALL_THUMBDIM', 'Bestimmung der maximalen Vorschaubildgröße');
