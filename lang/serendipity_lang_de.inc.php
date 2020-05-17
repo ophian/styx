@@ -52,7 +52,7 @@
 @define('NEW_ENTRY', 'Neuer Eintrag');
 @define('EDIT_ENTRIES', 'Einträge bearbeiten');
 @define('CATEGORIES', 'Kategorien');
-@define('IMAGESYNC_WARNING', 'ACHTUNG:<br>Je nach Menge kann dies länger dauern, wenn für viele Bilder noch keine Vorschau existiert.');
+@define('IMAGESYNC_WARNING', 'ACHTUNG:<br>Je nach Menge kann dies länger dauern, zB. wenn für viele Bilder noch keine Vorschau existiert. Besonders bei Migrationen von alten Blogs sind hier weitere Vorüberlegungen und Kenntnisse nötig! Lesen Sie dazu <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">diese Hilfe Seite</a> sorgfältig durch.');
 @define('CREATE_THUMBS', 'Vorschauen erneuern');
 @define('MANAGE_IMAGES', 'Bilder verwalten');
 @define('NAME', 'Name');

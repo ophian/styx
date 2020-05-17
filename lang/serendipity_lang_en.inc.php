@@ -51,7 +51,7 @@
 @define('NEW_ENTRY', 'New Entry');
 @define('EDIT_ENTRIES', 'Edit Entries');
 @define('CATEGORIES', 'Categories');
-@define('IMAGESYNC_WARNING', 'WARNING:<br>This may take a longer time if there are many images without thumbnails.');
+@define('IMAGESYNC_WARNING', 'WARNING:<br>This may take a longer time, i.e. if there are many images without thumbnails. Particularly with migrations of old blogs, further preliminary considerations and knowledge are necessary! Read about it on <a href="https://ophian.github.io/hc/en/media-migration-tasks.html" target="_new">this help page</a>, carefully.');
 @define('CREATE_THUMBS', 'Rebuild Thumbs');
 @define('MANAGE_IMAGES', 'Manage Images');
 @define('NAME', 'Name');
