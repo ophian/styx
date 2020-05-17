@@ -1,4 +1,4 @@
-Version 3.0-rc1 (May, 12th 2020)
+Version 3.0-rc2 (Dev)
  ------------------------------------------------------------------------
 
   * Fix maintenance media thumb convert task for the staticpage content array
@@ -10,7 +10,7 @@ Version 3.0-rc1 (May, 12th 2020)
 
   * Fix pure theme toggle trackback hint information box
 
----- RC1
+---- RC1 (May, 12th 2020)
 
   * Removed S9y 2.0-alpha upgrade tasks pointing back prior 2.0
 
