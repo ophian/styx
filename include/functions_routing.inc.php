@@ -4,6 +4,9 @@ if (IN_serendipity !== true) {
     die ("Don't hack!");
 }
 
+/**
+ * The default URI starter route to index.php including uriArguments
+ */
 function serveIndex() {
     global $serendipity;
 
@@ -19,6 +22,9 @@ function serveIndex() {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
+/**
+ * The default 404 fallback if nothing to serve was found
+ */
 function serve404() {
     global $serendipity;
 
@@ -34,7 +40,9 @@ function serve404() {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
-/* Attempt to locate hidden variables within the URI */
+/**
+ * Helper function. Attempt to locate hidden variables within the URI
+ */
 function locateHiddenVariables($_args) {
     global $serendipity;
 
@@ -76,6 +84,9 @@ function locateHiddenVariables($_args) {
     return $_args;
 }
 
+/**
+ * The default URI route to comments.php
+ */
 function serveComments() {
     global $serendipity;
 
@@ -133,6 +144,9 @@ function serveComments() {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
+/**
+ * The default URI route to serve virtual javascripts
+ */
 function serveJS($js_mode) {
     global $serendipity;
 
@@ -165,6 +179,9 @@ function serveJS($js_mode) {
     echo $out;
 }
 
+/**
+ * The default URI route to serve virtual stylesheets
+ */
 function serveCSS($css_mode) {
     global $serendipity;
 
@@ -174,6 +191,9 @@ function serveCSS($css_mode) {
     include(S9Y_INCLUDE_PATH . 'serendipity.css.php');
 }
 
+/**
+ * The default URI route to serve search requests with uriArguments
+ */
 function serveSearch() {
     global $serendipity;
 
@@ -211,6 +231,9 @@ function serveSearch() {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
+/**
+ * The default URI route to serve author page/entry requests with uriArguments
+ */
 function serveAuthorPage($matches, $is_multiauth=false) {
     global $serendipity;
 
@@ -252,6 +275,9 @@ function serveAuthorPage($matches, $is_multiauth=false) {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
+/**
+ * The default URI route to serve category page/entry requests with uriArguments
+ */
 function serveCategory($matches, $is_multicat=false) {
     global $serendipity;
 
@@ -296,6 +322,9 @@ function serveCategory($matches, $is_multicat=false) {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
+/**
+ * The default URI route to serve virtual archive entry requests with uriArguments
+ */
 function serveArchive() {
     global $serendipity;
 
@@ -307,6 +336,9 @@ function serveArchive() {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
+/**
+ * The default URI route to redirect to the backend entry page by allowed shortcuts
+ */
 function gotoAdmin() {
     global $serendipity;
 
@@ -318,6 +350,9 @@ function gotoAdmin() {
     header("Location: {$base}serendipity_admin.php");
 }
 
+/**
+ * The default URI route to redirect plugin external_pages
+ */
 function servePlugin($matches) {
     global $serendipity;
 
@@ -330,6 +365,9 @@ function servePlugin($matches) {
     serendipity_plugin_api::hook_event('external_plugin', $matches[2]);
 }
 
+/**
+ * The default URI route to rss.php to serve feeds
+ */
 function serveFeed($matches) {
     global $serendipity;
 
@@ -360,6 +398,9 @@ function serveFeed($matches) {
     include(S9Y_INCLUDE_PATH . 'rss.php');
 }
 
+/**
+ * The default URI route to serve entry requests
+ */
 function serveEntry($matches) {
     global $serendipity;
 
@@ -423,6 +464,9 @@ function serveEntry($matches) {
     include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
 }
 
+/**
+ * The default URI route to serve archives requests
+ */
 function serveArchives() {
     global $serendipity;
 
