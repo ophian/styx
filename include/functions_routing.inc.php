@@ -232,7 +232,7 @@ function serveSearch() {
 }
 
 /**
- * The default URI route to serve author page/entry requests with uriArguments
+ * The default URI route to serve virtual author page/entry requests with uriArguments
  */
 function serveAuthorPage($matches, $is_multiauth=false) {
     global $serendipity;
@@ -276,7 +276,7 @@ function serveAuthorPage($matches, $is_multiauth=false) {
 }
 
 /**
- * The default URI route to serve category page/entry requests with uriArguments
+ * The default URI route to serve virtual category page/entry requests with uriArguments
  */
 function serveCategory($matches, $is_multicat=false) {
     global $serendipity;
@@ -351,7 +351,7 @@ function gotoAdmin() {
 }
 
 /**
- * The default URI route to redirect plugin external_pages
+ * The default URI route to redirect plugin external_plugin Args
  */
 function servePlugin($matches) {
     global $serendipity;
@@ -465,7 +465,7 @@ function serveEntry($matches) {
 }
 
 /**
- * The default URI route to serve archives requests
+ * The default URI route to serve virtual archives requests
  */
 function serveArchives() {
     global $serendipity;
