@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.24');
+        $propbag->add('version',       '1.25');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -166,7 +166,7 @@ class serendipity_plugin_history extends serendipity_plugin
             foreach ($hyr[1] AS $trex) {
                 $startts = serendipity_serverOffsetHour((int)$trex[0], true);
                 $endts   = serendipity_serverOffsetHour((int)$trex[1], true);
-                $and    .= " OR ( e.timestamp >= $startts AND e.timestamp <= $endts )";
+                $and    .= " OR ( e.timestamp >= $startts AND e.timestamp <= $endts )\n                           ";
             }
             $and = str_replace('WHERE ( OR', '', $and); // WHERE and () is done in function _fetchEntries for consistency and clarification
 
@@ -263,7 +263,7 @@ class serendipity_plugin_history extends serendipity_plugin
         if ((int)$xyears > 1 && $specialage == 'year') {
             $timeout = ($maxts - $nowts); // the rest of the day
             $cache   = (($timeout >= 0) && ($maxts > $nowts));
-            $date    = (date('d-m-Y', $nowts) == date('d-m-Y', @filemtime($cachefile)));
+            $date    = (date('d-m-Y', $nowts) == date('d-m-Y', (@filemtime($cachefile) + ($serendipity['serverOffsetHours'] * 60 * 60)))); // filemtime is Servers timezone or UTC/GMT
 
             // get, read and echo possible cache file
             if (file_exists($cachefile) && $date && $cache) {
