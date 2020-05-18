@@ -20,7 +20,7 @@ if (defined('S9Y_FRAMEWORK_RSS')) {
  * @access public
  * @see serendipity_fetchEntries(), rss.php
  * @param   array       A superarray of entries to output
- * @param   string      The version/type of a RSS/Atom feed to display (atom1_0, rss2_0 etc)
+ * @param   string      The version/type of a RSS/Atom feed to display (atom1.0, rss2.0 etc.)
  * @param   boolean     If true, this is a comments feed. If false, it's an Entry feed.
  * @param   boolean     Indicates if this feed is a fulltext feed (true) or only excerpt (false)
  * @param   boolean     Indicates if E-Mail addresses should be shown (true) or hidden (false)
@@ -90,8 +90,9 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             //$entry['body'] = preg_replace('@(href|src|srcset)=("|\')(' . preg_quote($serendipity['serendipityHTTPPath']) . ')(.*)("|\')(.*)>@imsU', '\1=\2' . $serendipity['baseURL'] . '\4\2\6>', $entry['body']);
             // clean up body for XML compliance and doubled whitespace between (img) attributes as best we can.
             $entry['body'] = str_replace('"  ', '" ', xhtml_cleanup($entry['body']));
-            if ($options['comments'] === true) {
+            if ($options['comments'] === true && $version == 'atom1.0') {
                 $entry['body'] = str_replace(['&#160;', '  '], ' ', $entry['body']); // allowed to do, since stripped
+                $entry['body'] = serendipity_entity_decode($entry['body'], ENT_COMPAT | ENT_HTML401, LANG_CHARSET);
             }
 
             // extract author information
