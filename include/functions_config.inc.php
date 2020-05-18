@@ -2132,13 +2132,14 @@ function serendipity_ACL_SQL(&$cond, $append_category = false, $type = 'category
                 break;
         }
 
-        $cond['joins'] .= " LEFT JOIN {$serendipity['dbPrefix']}authorgroups AS acl_a
-                                   ON acl_a.authorid = " . $read_id . "
-                            LEFT JOIN {$serendipity['dbPrefix']}access AS acl_acc
-                                   ON (    acl_acc.artifact_mode = '" . $mode . "'
-                                       AND acl_acc.artifact_type = '" . $type . "'
-                                       " . $sql_artifact . "
-                                      )";
+        $cond['joins'] .= "
+                    LEFT JOIN {$serendipity['dbPrefix']}authorgroups AS acl_a
+                           ON acl_a.authorid = " . $read_id . "
+                    LEFT JOIN {$serendipity['dbPrefix']}access AS acl_acc
+                           ON (    acl_acc.artifact_mode = '" . $mode . "'
+                               AND acl_acc.artifact_type = '" . $type . "'
+                               " . $sql_artifact . "
+                              )";
 
         if (empty($cond['and'])) {
             $cond['and'] .= ' WHERE ';
