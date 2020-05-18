@@ -246,9 +246,9 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
 
     if ($full === true) {
         $noCache = true; // So no entryproperties related to body/extended caching will be loaded
-        $body = ', e.body, e.extended';
+        $body = 'e.body, e.extended';
     } else {
-        $body = ', e.body'; // The $full @param indicates, if the full entry shall be fetched (body+extended: TRUE), or only the body (FALSE).
+        $body = 'e.body'; // The $full @param indicates, if the full entry shall be fetched (body+extended: TRUE), or only the body (FALSE).
     }
 
     if ($fetchDrafts === false) {
@@ -464,13 +464,13 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
         $cond['having'] = '';
     }
 
-    $query = "SELECT $select_key
-                     $body
+    $query = "SELECT $select_key,
+                    $body
                      {$serendipity['fullCountQuery']}
                      {$cond['group']}
                      {$cond['having']}
                      " . (!empty($cond['orderby']) ? "ORDER BY {$cond['orderby']}" : '') . "
-                     $limit";
+                    $limit";
 
     // DEBUG:
     // die($query);
