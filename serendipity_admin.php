@@ -270,6 +270,7 @@ if ($ajax) {
     $admin_vars['out']       = array();
     $admin_vars['no_create'] = $serendipity['no_create'];
     $admin_vars['title']     = $admin_section;
+    $admin_vars['message']   = $logwarn ?? null;
     // The Styx default page title of backend pages is "section | SERENDIPITY_ADMIN_SUITE | blog title"
     // If set to true (in serendipity_config_local.inc.php), the pages (tab) title will be
     // "blog title | section | SERENDIPITY_ADMIN_SUITE" instead
