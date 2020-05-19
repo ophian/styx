@@ -1,6 +1,8 @@
 Version 3.0-rc2 (Dev)
  ------------------------------------------------------------------------
 
+  * Allow mode_rewrite login shortcut: /styx replacing unused /entries
+
   * Fix atom1.0 comments feed having breaking characters
 
   * Fix maintenance media thumb convert task for the staticpage content array
