@@ -42,6 +42,19 @@ if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModul
     }
 }
 
+// avoid posting general configuration when in maintenance mode (!)
+if (isset($serendipity['POST']['adminModule']) && $serendipity['POST']['adminModule'] == 'installer') {
+    if ((serendipity_checkPermission('adminUsers') && @!serendipity_db_bool($serendipity['maintenance'])) || !serendipity_checkPermission('adminUsers')) {
+        //void
+    } else {
+        $offmesg = sprintf(PLUGIN_MODEMAINTAIN_WARNGLOBALCONFIGFORM, 'serendipity_admin.php?serendipity[adminModule]=maintenance');
+        $logwarn = sprintf('<span class="msg_error"><span class="icon-attention-circled"></span> %s</span>', $offmesg);
+        unset($serendipity['POST']);
+        unset($_POST);
+        $_POST['installAction'] = 'temporary_denied';
+    }
+}
+
 // If we are inside an iframe, halt the script
 if (serendipity_is_iframe() !== false) {
     include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
