@@ -1,4 +1,4 @@
-Version 3.0-rc2 (Dev)
+Version 3.0-rc2 (May, 19th 2020)
  ------------------------------------------------------------------------
 
   * Allow mode_rewrite login shortcut: /styx replacing unused /entries
