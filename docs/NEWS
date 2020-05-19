@@ -2,6 +2,7 @@ Version 3.0-rc2 (Dev)
  ------------------------------------------------------------------------
 
   * Allow mode_rewrite login shortcut: /styx replacing unused /entries
+    Save your global config once to make this work.
 
   * Fix atom1.0 comments feed having breaking characters
 
