@@ -1,6 +1,8 @@
 Version 3.0-rc3 ()
  ------------------------------------------------------------------------
 
+ * Check and deny sending global configuration form while in mode 503
+
 ---- RC2 (May, 19th 2020)
 
   * Allow mode_rewrite login shortcut: /styx replacing unused /entries
