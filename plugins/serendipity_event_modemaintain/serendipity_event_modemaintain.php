@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.22');
+        $propbag->add('version',       '1.23');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'

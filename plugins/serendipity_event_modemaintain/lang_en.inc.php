@@ -21,6 +21,7 @@
 @define('PLUGIN_MODEMAINTAIN_TITLE_AUTOLOGIN', 'To use and administrate the maintenance mode you need to log-off and log-in again with the "auto remember me" option set true.');
 
 @define('PLUGIN_MODEMAINTAIN_WARNLOGOFF', 'Hey, you are in <span class="fivezerothree">503</span>-Maintenance-Mode! - <b>Free</b> this Mode <a href="%s">here</a>, <b>before</b> Log-Off!');
+@define('PLUGIN_MODEMAINTAIN_WARNGLOBALCONFIGFORM', 'Hey, you are in <span class="fivezerothree">503</span>-Maintenance-Mode! - <b>Free</b> this Mode <a href="%s">here</a>, <b>before</b> you change and/or post the global configuration form!');
 
 @define('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE', 'Since long, or having possible frontend effects, this could be a valid task to use the Maintenance-Mode!');
 
