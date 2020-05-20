@@ -13,7 +13,7 @@ class serendipity_plugin_archives extends serendipity_plugin
         $propbag->add('name',          ARCHIVES);
         $propbag->add('description',   BROWSE_ARCHIVES);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Serendipity Team, Ian');
+        $propbag->add('author',        'Serendipity Team, Ian Styx');
         $propbag->add('version',       '1.4');
         $propbag->add('configuration', array('title', 'frequency', 'count', 'show_count', 'hide_zero_count'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));

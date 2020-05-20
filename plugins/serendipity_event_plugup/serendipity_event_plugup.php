@@ -18,7 +18,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('name',           PLUGIN_EVENT_PLUGUP_TITLE);
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
-        $propbag->add('author',         'Ian');
+        $propbag->add('author',         'Ian Styx');
         $propbag->add('version',        '1.11');
         $propbag->add('requirements',   array(
             'serendipity' => '2.7.0',

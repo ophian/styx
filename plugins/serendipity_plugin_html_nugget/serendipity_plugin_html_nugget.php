@@ -21,7 +21,7 @@ class serendipity_plugin_html_nugget extends serendipity_plugin
         $propbag->add('name',          HTML_NUGGET);
         $propbag->add('description',   $desc);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Serendipity Team, Ian');
+        $propbag->add('author',        'Serendipity Team, Ian Styx');
         $propbag->add('version',       '1.4');
         $propbag->add('configuration', array(
                                         'title',
