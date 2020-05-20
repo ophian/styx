@@ -14,7 +14,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus');
 @define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - Umožňuje stáhnout a instalovat rozšiřující moduly (pluginy) z internetu');
 @define('PLUGIN_EVENT_SPARTACUS_FETCH', 'Klikněte zde pro stáhnutí nových %s z internetové online databáze - Serendipity Online Repository');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'URL %s nelze otevřít. Server Serendipity nebo SourceForge.net možná neběží - omlouváme se, zkuste to později.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'URL %s nelze otevřít. Server github nebo mirror možná neběží - omlouváme se, zkuste to později. Try to reload (like Ctrl-F5) the page first.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'Pokus o otevření URL %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', 'Přijato %s bytů z výše uvedené URL. Ukládání souboru jako %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', 'Přijato %s bytů z již existujícího souboru na Vašem serveru. Ukládání souboru jako %s...');

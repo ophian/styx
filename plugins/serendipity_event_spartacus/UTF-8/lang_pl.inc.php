@@ -9,7 +9,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus');
 @define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - pozwala na pobieranie wtyczek z repoztoriów sieciowych');
 @define('PLUGIN_EVENT_SPARTACUS_FETCH', 'Kliknij tutaj by pobrać %s z Sieciowego Repozytorium Serendipity');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'URL %s nie mógł być otwarty. Być może serwer Serendipity lub SourceFroge.net aktualnie nie działa - w takim przypadku przepraszamy i prosimy spróbowac ponownie później.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'URL %s nie mógł być otwarty. Być może serwer github lub mirror aktualnie nie działa - w takim przypadku przepraszamy i prosimy spróbowac ponownie później. Try to reload (like Ctrl-F5) the page first.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'Próba otwarcia URLa %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', 'Pobrano %s bajtów z powyższego URLa. Zapisuję plik jako %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', 'Pobrano %s bajtów z już istniejącego pliku na Twoim serwerze. Zapisuję plik jako %s...');

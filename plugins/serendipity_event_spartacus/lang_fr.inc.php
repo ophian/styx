@@ -16,7 +16,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus');
 @define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - Vous permet de télécharger des plugins directement de notre dépôt officiel.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCH', 'Cliquez ici pour télécharger un nouveau %s du dépôt officiel de Serendipity');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'Impossible d\'accéder à l\'adresse %s. Peut-être que le serveur de Serendipity ou de SourceForge.net n\'est momentanément pas accessible. Merci de réessayer plus tard.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'Impossible d\'accéder à l\'adresse %s. Peut-être que le serveur de github ou de mirror n\'est momentanément pas accessible. Merci de réessayer plus tard. Try to reload (like Ctrl-F5) the page first.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'Essaie d\'accéder à l\'adresse %s...');
 
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', '%s octets lus à partir de l\'adresse ci-dessus. Enregistrement du fichier sous %s...');
