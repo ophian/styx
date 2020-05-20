@@ -75,7 +75,7 @@ class serendipity_event_s9ymarkup extends serendipity_event
         $propbag->add('type',        'boolean');
         $propbag->add('name',        constant($name));
         $propbag->add('description', sprintf(APPLY_MARKUP_TO, constant($name)));
-        $propbag->add('default', 'true');
+        $propbag->add('default',     'true');
         return true;
     }
 
@@ -90,7 +90,7 @@ class serendipity_event_s9ymarkup extends serendipity_event
             switch($event) {
 
                 case 'frontend_display':
-                    foreach ($this->markup_elements as $temp) {
+                    foreach ($this->markup_elements AS $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], true)) && isset($eventData[$temp['element']])
                         &&  !@$eventData['properties']['ep_disable_markup_' . $this->instance]
                         &&  !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
