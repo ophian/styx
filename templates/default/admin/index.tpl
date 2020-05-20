@@ -178,7 +178,9 @@
         </nav>
         {/if}
         <div id="content" class="clearfix">
-            {$admin_vars.main_content}
+
+{$admin_vars.main_content}
+
         </div>
     {/if}
 
