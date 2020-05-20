@@ -178,7 +178,6 @@
         </nav>
         {/if}
         <div id="content" class="clearfix">
-            {$admin_vars.message}
             {$admin_vars.main_content}
         </div>
     {/if}

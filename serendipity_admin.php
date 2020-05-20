@@ -241,6 +241,10 @@ if (!$use_installer && $is_logged_in) {
             break;
 
         default:
+            if (isset($warning)) {
+                echo $warning;
+                break;
+            }
             include S9Y_INCLUDE_PATH . 'include/admin/overview.inc.php';
             $admin_section = ADMIN_FRONTPAGE;
             break;
@@ -266,7 +270,6 @@ if ($ajax) {
     $admin_vars['out']       = array();
     $admin_vars['no_create'] = $serendipity['no_create'];
     $admin_vars['title']     = $admin_section;
-    $admin_vars['message']   = $warning ?? null;
     // The Styx default page title of backend pages is "section | SERENDIPITY_ADMIN_SUITE | blog title"
     // If set to true (in serendipity_config_local.inc.php), the pages (tab) title will be
     // "blog title | section | SERENDIPITY_ADMIN_SUITE" instead
