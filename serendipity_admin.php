@@ -43,16 +43,12 @@ if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModul
 }
 
 // avoid posting general configuration when in maintenance mode (!)
-if (isset($serendipity['POST']['adminModule']) && $serendipity['POST']['adminModule'] == 'installer') {
-    if ((serendipity_checkPermission('adminUsers') && @!serendipity_db_bool($serendipity['maintenance'])) || !serendipity_checkPermission('adminUsers')) {
-        //void
-    } else {
-        $offmesg = sprintf(PLUGIN_MODEMAINTAIN_WARNGLOBALCONFIGFORM, 'serendipity_admin.php?serendipity[adminModule]=maintenance');
-        $logwarn = sprintf('<span class="msg_error"><span class="icon-attention-circled"></span> %s</span>', $offmesg);
-        unset($serendipity['POST']);
-        unset($_POST);
-        $_POST['installAction'] = 'temporary_denied';
-    }
+if (isset($serendipity['POST']['adminModule']) && $serendipity['POST']['adminModule'] == 'installer' && isset($serendipity['maintenance']) && serendipity_db_bool($serendipity['maintenance'])) {
+    $offmesg = sprintf(PLUGIN_MODEMAINTAIN_WARNGLOBALCONFIGFORM, 'serendipity_admin.php?serendipity[adminModule]=maintenance');
+    $warning = sprintf('<span class="msg_error"><span class="icon-attention-circled"></span> %s</span>', $offmesg);
+    unset($serendipity['POST']);
+    unset($_POST);
+    $_POST['installAction'] = 'temporary_denied';
 }
 
 // If we are inside an iframe, halt the script
@@ -270,7 +266,7 @@ if ($ajax) {
     $admin_vars['out']       = array();
     $admin_vars['no_create'] = $serendipity['no_create'];
     $admin_vars['title']     = $admin_section;
-    $admin_vars['message']   = $logwarn ?? null;
+    $admin_vars['message']   = $warning ?? null;
     // The Styx default page title of backend pages is "section | SERENDIPITY_ADMIN_SUITE | blog title"
     // If set to true (in serendipity_config_local.inc.php), the pages (tab) title will be
     // "blog title | section | SERENDIPITY_ADMIN_SUITE" instead
