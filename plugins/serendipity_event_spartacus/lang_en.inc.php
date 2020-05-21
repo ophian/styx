@@ -9,7 +9,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus');
 @define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - Allows you to download plugins from our online repository');
 @define('PLUGIN_EVENT_SPARTACUS_FETCH', 'Click here to fetch a new %s from the Serendipity Online Repository');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'The URL %s could not be opened. Maybe the Serendipity or SourceForge.net Server is down - we are sorry, you need to try again later. Try to reload (like Ctrl-F5) the page first.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'The URL %s could not be opened. Maybe the Serendipity or SourceForge.net Server is down - we are sorry, you need to try again later. Try to reload (F5) the page first.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'Trying to open URL %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', 'Fetched %s bytes from the URL above. Saving file as %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', 'Fetched %s bytes from already existing file on your server. Saving file as %s...');

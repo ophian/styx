@@ -9,7 +9,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus');
 @define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - オンラインリポジトリからプラグインのダウンロードを可能にします。');
 @define('PLUGIN_EVENT_SPARTACUS_FETCH', '新しい%sを Serendipity オンラインリポジトリから取得する');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'URL %s にアクセスできませんでした。おそらく github か mirror のサーバーがダウンしています - すみませんが、あとで再度試してください。 Try to reload (like Ctrl-F5) the page first.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'URL %s にアクセスできませんでした。おそらく github か mirror のサーバーがダウンしています - すみませんが、あとで再度試してください。 Try to reload (F5) the page first.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'URL %s にアクセスを試みます...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', 'Fetched %s bytes from the URL above. Saving file as %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', 'Fetched %s bytes from already existing file on your server. Saving file as %s...');

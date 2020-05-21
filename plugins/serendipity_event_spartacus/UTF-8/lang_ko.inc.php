@@ -5,7 +5,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus(스파르타쿠스)');
 @define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem (세렌디피티 플러그인 접근 보관소 도구 및 개인화/통합화 시스템) - 온라인 보관소에서 플러그인을 다운로드받을 수 있게 함');
 @define('PLUGIN_EVENT_SPARTACUS_FETCH', '세렌디피티 온라인 보관소에서 새로운 %s(을)를 받으려면 여기를 누르십시오.');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', '인터넷 주소 %s 에 연결할 수 없습니다. github 또는 미러 서버가 실패한 것 같습니다. 죄송합니다. 나중에 다시 시도하십시오. Try to reload (like Ctrl-F5) the page first.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', '인터넷 주소 %s 에 연결할 수 없습니다. github 또는 미러 서버가 실패한 것 같습니다. 죄송합니다. 나중에 다시 시도하십시오. Try to reload (F5) the page first.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHING', '인터넷 주소 %s 에 접속 시도중...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', '위의 주소에서 %s 바이트를 받았습니다. 파일을 %s(으)로 저장하는 중...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', '서버에 이미 존재하는 파일에서 %s 바이트를 받았습니다.  파일을 %s(으)로 저장하는 중...');

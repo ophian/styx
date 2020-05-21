@@ -3,7 +3,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus插件下载、配置及协调系统');
 @define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - Spartacus允许您从网上插件库中下载插件');
 @define('PLUGIN_EVENT_SPARTACUS_FETCH', '点击这里从Serendipity网上插件库中下载一个新的插件 %s');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', '无法打开网址 %s 。也许在github网站服务器上的mirror处于瘫痪状态。很抱歉，你需要稍后重新尝试。 Try to reload (like Ctrl-F5) the page first.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', '无法打开网址 %s 。也许在github网站服务器上的mirror处于瘫痪状态。很抱歉，你需要稍后重新尝试。 Try to reload (F5) the page first.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHING', '正在尝试打开网址 %s ……');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', '从上述网址下载了 %s 个字节(bytes)。存储为文件 %s ……');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', '从本地服务器 中获取了 %s 个字节(bytes)。存储为文件 %s ……');

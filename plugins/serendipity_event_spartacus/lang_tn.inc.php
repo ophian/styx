@@ -15,7 +15,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus (外掛存庫)');
 @define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - 允許你從 Serendipity 的線上存庫下載外掛');
 @define('PLUGIN_EVENT_SPARTACUS_FETCH', '點這裡從 Serendipity 的外掛存庫安裝新 %s');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', '網址 %s 無法開啟。也許 github 或 mirror 的主機有問題 - 請稍後在試。 Try to reload (like Ctrl-F5) the page first.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', '網址 %s 無法開啟。也許 github 或 mirror 的主機有問題 - 請稍後在試。 Try to reload (F5) the page first.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHING', '打開網址 %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', '從上面的網址接收 %s 個位元組的資料。儲存成檔案 %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', '從主機內接收 %s 個位元組的資料。儲存成檔案 %s...');
