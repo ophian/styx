@@ -4,6 +4,7 @@
 <script src="{$serendipityHTTPPath}templates/_assets/ckebasic_plugin.js"></script>
 
 {/if}
+
 <script>
     $('document').ready(function() {
         CKEDITOR.plugins.add('styx_mediaLibrary_{$item}', {
