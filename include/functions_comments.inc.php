@@ -971,7 +971,7 @@ function serendipity_confirmMail($cid, $hash) {
  * @param   int     The ID of an entry
  * @param   array   An array that holds the input data from the visitor
  * @param   string  The type of a comment (normal/trackback)
- * @param   string  Where did a comment come from? (internal|trackback|plugin)
+ * @param   string  Where did a comment come from? (internal|trackback|plugin) [currently consistent informative only]
  * @param   string  Normally entry specific handle data. May change by Additional plugin data (spamblock plugin etc.)
  * @return  boolean Returns true if the comment could be added
  */
@@ -1219,7 +1219,7 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
         $isUin = true; // do not allow using existing author user names
     }
     $commentInfo['type'] = $type;
-    $commentInfo['source'] = $source;
+    $commentInfo['source'] = $source; // put into commentInfo array
 
     // Secure email addresses, only one [first] allowed to not mail to multiple recipients
     $mailparts = explode(',', $commentInfo['email']);
