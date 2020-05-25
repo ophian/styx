@@ -972,7 +972,7 @@ function serendipity_confirmMail($cid, $hash) {
  * @param   array   An array that holds the input data from the visitor
  * @param   string  The type of a comment (normal/trackback)
  * @param   string  Where did a comment come from? (internal|trackback|plugin)
- * @param   string  Additional plugin data (spamblock plugin etc.)
+ * @param   string  Normally entry specific handle data. May change by Additional plugin data (spamblock plugin etc.)
  * @return  boolean Returns true if the comment could be added
  */
 function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source = 'internal', $ca = array()) {
@@ -987,7 +987,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         $authorEmail = $serendipity['serendipityEmail'];
     }
 
-    $_setTo_moderation = serendipity_db_bool($ca['moderate_comments']);
+    $_setTo_moderation = isset($ca['moderate_comments']) ? serendipity_db_bool($ca['moderate_comments']) : true; // check empty $ca (i.e. xmlrpc) case
     // Hey - We just trust CHIEF and ADMIN USERLEVELs and set comments approved by default - spamblock already allowed registered authors
     if ($_setTo_moderation && $serendipity['serendipityAuthedUser'] && serendipity_checkPermission('adminEntriesMaintainOthers')) {
         $_setTo_moderation = false;
@@ -1216,7 +1216,7 @@ function serendipity_saveComment($id, $commentInfo, $type = 'NORMAL', $source = 
         if (!empty($user['realname'])) $allusers[] = $user['realname'];
     }
     if (in_array($commentInfo['name'], (array)$allusers) && !serendipity_userLoggedIn()) {
-        $isUin = true;
+        $isUin = true; // do not allow using existing author user names
     }
     $commentInfo['type'] = $type;
     $commentInfo['source'] = $source;
