@@ -1559,6 +1559,14 @@ function serendipity_generateThumbs() {
 function serendipity_guessMime($extension) {
     $mime = '';
     switch (strtolower($extension)) {
+        case 'avif':
+            $mime = 'image/avif';
+            break;
+
+        case 'avifs':
+            $mime = 'image/avif-sequence';
+            break;
+
         case 'jpg':
         case 'jpeg':
             $mime = 'image/jpeg';
