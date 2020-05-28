@@ -779,7 +779,7 @@ p.wl_notopbottom {
                 $start = $i+1;
                 // concatenate closing tag if it's standard html
                 if (in_array($tag, $this->isolation_block_elements)) {
-                    $content .= $textarray[$i];
+                    $content .= $textarray[$i] . "\n";
                 }
             }
             // closing blocktag or p parent - e.g. </table> or </td>
@@ -789,11 +789,11 @@ p.wl_notopbottom {
                     if (!$isolation_flag && in_array($tagstack[0], $this->allowed_p_parents)) {
                         $content .= $this->nl2pblock(implode(array_slice($textarray,$start,$i-$start))) . "\n";
                     } else {
-                        $content .= implode(array_slice($textarray,$start,$i-$start));
+                        $content .= implode(array_slice($textarray,$start,$i-$start)) . "\n";
                     }
                 }
                 // closing tag
-                $content .= $textarray[$i];
+                $content .= $textarray[$i] . "\n";
 
                 $start = $i+1;
                 array_shift($tagstack);
@@ -900,7 +900,7 @@ p.wl_notopbottom {
                         $buffer = '';
                         $bufferhastext = false;
                         // append textline
-                        $content .= $textline[$j];
+                        $content .= $textline[$j] . "\n";
 
                         // close open tags
                         foreach($tagstack as $ins_tag) {
