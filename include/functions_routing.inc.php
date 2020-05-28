@@ -145,12 +145,13 @@ function serveComments() {
 }
 
 /**
- * The default URI route to serve virtual javascripts
+ * The default URI route to serve virtual javascript
  */
 function serveJS($js_mode) {
     global $serendipity;
 
     $serendipity['view'] = 'js';
+
     if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
         header('Cache-Control: no-cache');
     } else {
