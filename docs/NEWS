@@ -3,7 +3,7 @@ Version 3.0-rc3 ()
 
   * Add new AV1 avif image and missing 7z compressed file formats to guessMime
 
-  * Fixup voku/simple-cache missing [S9y] Sync - Set directory opcache
+  * Fix missing voku/simple-cache [S9y] Sync - Set directory opcache
     fallback destination.
 
   * Rebuild ckeditor for backend source view dataProcessor filters
