@@ -387,7 +387,7 @@ switch ($serendipity['GET']['adminAction']) {
             $tfile = serendipity_uploadSecure(serendipity_makeFilename($tfile));
 
             if (serendipity_isActiveFile($tfile)) {
-                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_FORBIDDEN . " $tfile </span>\n";
+                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_FORBIDDEN . " <strong>$tfile</strong></span>\n";
                 break;
             }
 
@@ -504,7 +504,7 @@ switch ($serendipity['GET']['adminAction']) {
                     $tfile = serendipity_uploadSecure(serendipity_makeFilename($tfile));
 
                     if (serendipity_isActiveFile($tfile)) {
-                        $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_FORBIDDEN . " $tfile </span>\n";
+                        $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_FILE_FORBIDDEN . " <strong>$tfile</strong></span>\n";
                         continue;
                     }
 
