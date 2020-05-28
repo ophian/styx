@@ -1,6 +1,9 @@
 Version 3.0-rc3 ()
  ------------------------------------------------------------------------
 
+  * Fixup voku/simple-cache missing [S9y] Sync - Set directory opcache
+    fallback destination.
+
   * Rebuild ckeditor for backend source view dataProcessor filters
 
   * Check and deny sending global configuration form while in mode 503
