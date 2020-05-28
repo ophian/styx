@@ -55,7 +55,7 @@
                         element.attributes.style = element.attributes.style.replace( /(?:^|\s)height\s*:\s*(\d+)px;?/i , '' );
                         //element.attributes.height = height;
                         // Do not add to element attribute height, since then the height will be automatically (re-) added to style again by ckeditor or image js
-                        // The current result is now: img alt class src style{width}. That is the only working state to get arround this issue in a relative simple way!
+                        // The current result is now: img alt class src style{width}. That is the only working state to get around this issue in a relative simple way!
                         // Remember: Turning ACF OFF, will leave code alone, but still removes the height="" attribute! (workaround in extraAllowedContent added img[height]!)
                     }
                 }
