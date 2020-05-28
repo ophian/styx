@@ -1,6 +1,8 @@
 Version 3.0-rc3 ()
  ------------------------------------------------------------------------
 
+  * Add new AV1 avif image and missing 7z compressed file formats to guessMime
+
   * Fixup voku/simple-cache missing [S9y] Sync - Set directory opcache
     fallback destination.
 
