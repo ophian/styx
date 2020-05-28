@@ -1653,6 +1653,10 @@ function serendipity_guessMime($extension) {
             $mime = 'application/zip';
             break;
 
+        case '7z':
+            $mime = 'application/x-7z-compressed';
+            break;
+
         case 'tar':
             $mime = 'application/x-tar';
             break;
