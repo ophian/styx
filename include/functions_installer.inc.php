@@ -1026,10 +1026,6 @@ function serendipity_removeFiles($files = null) {
  * Check image libraries for PHP WebP-Format file support by used library
  * @return bool
  */
-/**
- * Check image libraries for PHP WebP-Format file support by used library
- * @return bool
- */
 function serendipity_checkWebPSupport($set=false, $msg=false) {
     global $serendipity;
     if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
