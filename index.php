@@ -9,7 +9,7 @@ header('Status: 200 OK');
 
 // Session are needed to also remember an autologin user on the frontend
 include('serendipity_config.inc.php');
-include_once('include/functions_routing.inc.php');
+include('include/functions_routing.inc.php');
 header('Content-Type: text/html; charset='. LANG_CHARSET);
 
 if ($serendipity['CacheControl']) {
