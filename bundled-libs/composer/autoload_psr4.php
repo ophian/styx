@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'voku\\cache\\' => array($vendorDir . '/voku/simple-cache/src/voku/cache'),
-    'Zend\\Db\\' => array($vendorDir . '/zendframework/zend-db/src'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
     'Katzgrau\\KLogger\\' => array($vendorDir . '/katzgrau/klogger/src'),
 );
