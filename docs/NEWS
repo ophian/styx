@@ -1,6 +1,8 @@
 Version 3.0.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Silence a possible 3.0 upgrade task administrator PHP message warning
+
   * Improve confusing [de] language maintenance imageSync webP convert message
 
   * Add pointer cursor to the MediaLibrary mediaGrid cells tasker
