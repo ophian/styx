@@ -1,6 +1,8 @@
 Version 3.0.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve confusing [de] language maintenance imageSync webP convert message
+
   * Add pointer cursor to the MediaLibrary mediaGrid cells tasker
 
 
