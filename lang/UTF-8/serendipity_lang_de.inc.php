@@ -1204,7 +1204,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('SYNC_BUILD_VARIATIONS', 'WebP-Variations-Dateien erstellt');
 @define('SYNC_PURGED_VARIATIONS', 'WebP-Variations-Dateien gelöscht');
 @define('SYNC_WEBP_ITERATION_LIST_TITLE', 'Liste der Medien für den WebP-Variations Lösch-Request:');
-@define('SYNC_IMAGE_LIST_ITERATION_RANGE_PART', 'Durchlauf der Medienliste Part: <b>%s</b> von <b>"%s"</b> Medienabschnitten insgesamt');
+@define('SYNC_IMAGE_LIST_ITERATION_RANGE_PART', 'Durchlauf der Medienliste; Abschnitt: <b>%s</b> von <b>"%s"</b> Medien insgesamt');
 @define('SYNC_IMAGE_LIST_ITERATION_RANGE_DONE', 'Durchlauf <b>%s</b> %s. <b>%s</b> Medien wurden erfolgreich erstellt.');
 
 @define('PLEASESELECT', 'Bitte auswählen');
