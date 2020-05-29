@@ -4166,6 +4166,7 @@ img.mfp-img {
         height: .6em;
         box-shadow: 1px 2px 3px #ccc;
         width: 1.5em;
+        cursor: pointer;
     }
     .mediaGrid-cell.tic {
         background-color: #eff3f6;
