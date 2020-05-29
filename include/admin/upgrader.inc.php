@@ -400,7 +400,7 @@ $tasks = array(
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_300) . '</pre>'),
 
 );
-
+// REMEMBER: Do not run the same recursive directory or file iterator fcn twice OR else split the list to run by explicit version string alpha/beta/rc. See Administrator Warning: Invalid argument supplied for foreach()...
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
 /* Fetch SQL files which needs to be run */
