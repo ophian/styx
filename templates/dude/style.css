@@ -687,7 +687,7 @@ div.serendipity_date_summary {
 }
 select#serendipity_replyTo {
     min-width: 20em;
-    width: 100%;
+    width: auto;
 }
 a.comment_source_trace {
     overflow-wrap: anywhere;
@@ -697,7 +697,7 @@ a.comment_source_trace {
     border-spacing: 2px; }
     td.serendipity_commentsLabel,
     td.serendipity_commentsValue {
-        display: table-row; }
+        display: grid; }
     td.serendipity_commentsLabel {
         font-size: .75rem;
         font-weight: bold;
@@ -708,13 +708,14 @@ a.comment_source_trace {
     td.serendipity_commentsValue select,
     td.serendipity_commentsValue textarea {
         font-size: .75rem; }
-@media screen and (min-width: 360px) {
+@media screen and (min-width: 550px) {
     .serendipity_commentForm table td,
     .serendipity_commentForm table td:not([class]) {
         display: table-cell; }
 }
 .serendipity_commentsLabel.toolbar {
     font-weight: normal;
+    display: table-row;
 }
 
 /* Comment summary pages and author styles */
