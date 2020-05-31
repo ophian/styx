@@ -405,7 +405,8 @@ Version 3.0.0 (May, 28th 2020)
       + serendipity_getCacheItem($key)
 
     Real databases like Maria/MySQL/PostgreSQL internally have their own and
-    probably much more efficient caching mechanisms.
+    probably much more efficient caching mechanisms, beside of Serendipity itself
+    uses a 5 min cache by default on certain database queries.
 
   * Remove theme "Recommended" parameter option. This now is replaced and
     declared by/as a "Core Themes" block in the backends theme list.
