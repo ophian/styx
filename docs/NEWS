@@ -1,6 +1,13 @@
 Version 3.0.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix Mobiles issue with a 2-sidebar "pure" theme, in combination with htmlcomments
+    and frontend used RichTextEditor commentforms, which somehow did prevent Androids
+    keyboard APP (Gboard) to stay open for commentfield edits.
+    This fix raised the "pure" 2020 theme to now use the modern CSS3 grid technique
+    for responsive layouts and requires visitor Browsers using viewport widths above
+    1023px to support this. All up-to-date Browsers do!
+
   * Silence a possible 3.0 upgrade task administrator PHP message warning
 
   * Improve confusing [de] language maintenance imageSync webP convert message
