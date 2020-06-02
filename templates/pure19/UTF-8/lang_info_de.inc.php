@@ -14,5 +14,5 @@ Ein "Heilige Gral" moderner Theme HTML5 Strukturen. Strukturell voll responsiv (
 <br>
 <u><b>Version 2019</b></u><br>
 Pure 2019 unterscheidet sich von Pure 2020 darin, dass es für die strukturelle Anordnung der Seitenleisten gegenüber dem Hauptbereich ein kleines Javascript einsetzt,
-dass aber unter Umständen [<em>2-sidebar Design + htmlcomments AN + Benutzung vom RichText CKE Editor im frontend commentform</em>] einen Fehler in der Android GboardTasttaur APP auslösen kann,
+dass aber unter Umständen [<em>2-sidebar Design + htmlcomments AN + Benutzung vom RichText CKE Editor im frontend commentform</em>] einen Fehler in der Android Tastatur APP (Gboard) auslösen kann,
 so dass auf solchen Smartphone Geräten kein Kommentar geschrieben werden kann.';

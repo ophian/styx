@@ -14,5 +14,5 @@ It is a "Holy Grail" of modern theme HTML5 structures. Fully responsive, with in
 <br>
 <u><b>Version 2019</b></u><br>
 This version differs in one thing from the new 2020 version, in that it uses a small javascript for the structural arrangement of the sidebars against the main area.
-Under certain circumstances [<em>2-sidebar Design + htmlcomments ON + using the RichText CKE editor in frontend commentform</em>] this can cause an error in the Android GboardTasttaur APP,
+Under certain circumstances [<em>2-sidebar Design + htmlcomments ON + using the RichText CKE editor in frontend commentform</em>] this can cause an error in the Android keyboard APP (Gboard),
 failing to appear, so that no comments can be written on these smartphone devices.';
