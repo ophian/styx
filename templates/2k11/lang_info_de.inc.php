@@ -18,7 +18,7 @@ Fügen Sie eine/die <b>info.txt</b> Datei mit den Komponenten von 2k11 hinzu, um 
 Wenn Sie ihr neues Theme auf 2k11 zurückgreifen lassen wollen, geben Sie der info.txt Datei nun eine "Engine&colon; 2k11"-Zeile hinzu.
 Wenn Sie diese Zeile nicht nutzen, muss das eigene Theme entweder alle Template-Dateien selbst enthalten, oder ihr Theme wird auf das "Serendipity Default" Template zurückgreifen.<br>
 <br>
-Setzen Sie ensprechende Zeilen "Require Serendipity&colon; 2.0" für eine Voraussetzung, "Backend&colon; Yes",
-wenn Sie ein eigenes Backend nutzen und "Responsive&colon; Yes" und "Mobile&colon; Yes", wenn es den heutigen Anprüchen für responsives und mobiles Websitedesign genügt.<br>
+Setzen Sie entsprechende Zeilen "Require Serendipity&colon; 2.0" für eine Voraussetzung, "Backend&colon; Yes",
+wenn Sie ein eigenes Backend nutzen und "Responsive&colon; Yes" und "Mobile&colon; Yes", wenn es den heutigen Ansprüchen für responsives und mobiles Websitedesign genügt.<br>
 <br>
 Zurück in der Template-Liste, laden Sie die Seite neu und wählen Sie ihr neues Theme anhand des gegebenen Namens.';
