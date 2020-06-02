@@ -14,7 +14,7 @@ It is a "Holy Grail" of modern theme HTML5 structures. Fully responsive, with in
 <br>
 <u><b>Theme building</b></u><br>
 Copy an existing theme or add a new and unique directory name to the "templates/" directory, eg. "glory".
-Add an <b>info.txt</b> file with the components of Pure (2019) to start with. Change the name, eg. to "Johns Glory" and add the current date as "yyyy-mm-dd".<br>
+Add an <b>info.txt</b> file with the components of Pure (2020) to start with. Change the name, eg. to "Johns Glory" and add the current date as "yyyy-mm-dd".<br>
 Give it an "Engine&colon; Pure" line if you want it to fall back to Pure, ie. for a custom CSS only theme.
 If not having this line, you either need all template files for yourself, or regard your theme to fall back to the "Serendipity default" theme templates.<br>
 <br>
