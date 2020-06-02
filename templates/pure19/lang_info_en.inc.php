@@ -8,17 +8,11 @@
 $info['theme_info_summary'] = 'The Standard Styx Frontend Theme (2019). A full page modern Grid/Flexing theme.';
 
 $info['theme_info_desc'] = 'This theme defines the current standard frontend for Styx 3.0, defined and used by the core system.
-Regarding Serendipity Styx infinite possibilities, it is one of the best-concatenated and interlocked themes,
+Regarding Serendipity Styx infinite possibilities, "pure" is one of the best-concatenated and interlocked themes,
 covering most of them as simple as possible in a wide frame, made easy to look through.<br>
 It is a "Holy Grail" of modern theme HTML5 structures. Fully responsive, with incremental font sizing <u>and</u> mobile friendly!<br>
 <br>
-<u><b>Theme building</b></u><br>
-Copy an existing theme or add a new and unique directory name to the "templates/" directory, eg. "glory".
-Add an <b>info.txt</b> file with the components of Pure (2019) to start with. Change the name, eg. to "Johns Glory" and add the current date as "yyyy-mm-dd".<br>
-Give it an "Engine&colon; Pure" line if you want it to fall back to Pure, ie. for a custom CSS only theme.
-If not having this line, you either need all template files for yourself, or regard your theme to fall back to the "Serendipity default" theme templates.<br>
-<br>
-Set additional lines "Require Serendipity&colon; 3.0", "Backend&colon; Yes",
-if having an extra backend and "Responsive&colon; Yes" and "Mobile&colon; Yes", when it covers todays standard of responsive and mobile Webdesign.<br>
-<br>
-Back in your template list, reload the list page and select the new created theme.';
+<u><b>Version 2019</b></u><br>
+This version differs in one thing from the new 2020 version, in that it uses a small javascript for the structural arrangement of the sidebars against the main area.
+Under certain circumstances [<em>2-sidebar Design + htmlcomments ON + using the RichText CKE editor in frontend commentform</em>] this can cause an error in the Android GboardTasttaur APP,
+failing to appear, so that no comments can be written on these smartphone devices.';
