@@ -65,22 +65,31 @@
             {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
         </nav>
 {/if}
-    </header>
-{if $leftSidebarElements > 0}
 
-    <aside id="serendipityLeftSideBar">
-        {serendipity_printSidebar side="left"}
-    </aside>
+    </header>
+{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}
+
+    <section class="grid">
 {/if}
 
-    <main id="content">
-        {$CONTENT}
-    </main>
-{if $rightSidebarElements > 0}
+        <main id="content">
+            {$CONTENT}
+        </main>
+    {if $leftSidebarElements > 0}
 
-    <aside id="serendipityRightSideBar">
-        {serendipity_printSidebar side="right"}
-    </aside>
+        <aside id="serendipityLeftSideBar">
+            {serendipity_printSidebar side="left"}
+        </aside>
+    {/if}
+    {if $rightSidebarElements > 0}
+
+        <aside id="serendipityRightSideBar">
+            {serendipity_printSidebar side="right"}
+        </aside>
+    {/if}
+{if $leftSidebarElements > 0 AND $rightSidebarElements > 0}
+
+    </section>
 {/if}
 
     <footer id="footer">

@@ -410,6 +410,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     background-color: #FFF;
+    width: 100%;
 }
 #footer {
     grid-column: span 3;
@@ -1874,7 +1875,6 @@ div.serendipityPlug a {
     margin: 0 auto; }
     /* two sidebars */
     body.grid-col {
-      grid-template-columns: 280px 1fr 280px;
       grid-template-rows: auto 1fr auto; }
     /* no OR one sidebar */
     /* chrome workaround */
@@ -1888,6 +1888,18 @@ div.serendipityPlug a {
     body.grid-block #content {
       margin: 1em 1em 0;
       width: auto; }
+  /* set section grid */
+  section.grid {
+    display: inline-grid;
+    grid-template-columns: 280px 1fr 280px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: "left content right"; }
+    section.grid aside:first-child {
+      grid-area: left; }
+    section.grid aside:last-child {
+      grid-area: right; }
+    section.grid main {
+      grid-area: content; }
   #serendipityLeftSideBar {
     margin: 1em auto 1em 1em; }
   #serendipityRightSideBar {
@@ -1895,6 +1907,7 @@ div.serendipityPlug a {
   #serendipityLeftSideBar,
   #serendipityRightSideBar {
     display: initial;
+    width: auto;
     margin: 1em 1em 0; }
   .grid-flex #serendipityLeftSideBar,
   .grid-flex #serendipityRightSideBar {
