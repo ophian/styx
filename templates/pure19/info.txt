@@ -1,0 +1,11 @@
+Name: Pure 2019
+Author: Ian Styx
+Date: 2020-05-09
+Require Serendipity: 2.7
+Engine: pure
+Backend: No
+Responsive: Yes
+Mobile: Yes
+
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
+Description: THEME_INFO_DESC (and LANG_CHARSET depending language files)
