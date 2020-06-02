@@ -7,6 +7,8 @@ Version 3.0.1-DEV ()
     This fix raised the "pure" 2020 theme to now use the modern CSS3 grid technique
     for responsive layouts and requires visitor Browsers using viewport widths above
     1023px to support this. All up-to-date Browsers do!
+    The previous pure version using a javascript DOM changer is now outsigned as a
+    child theme named "Pure 2019".
 
   * Silence a possible 3.0 upgrade task administrator PHP message warning
 
