@@ -1,6 +1,8 @@
 Version 3.0.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Allow RichTextEditor comment areas in the dude (theme)
+
   * Fix Mobiles issue with a 2-sidebar "pure" theme, in combination with htmlcomments
     and frontend used RichTextEditor commentforms, which somehow did prevent Androids
     keyboard APP (Gboard) to stay open for commentfield edits.
