@@ -33,9 +33,9 @@ CKEDITOR.editorConfig = function( config ) {
 	// Dialog windows are also simplified.
 	config.removeDialogTabs = 'link:advanced';
 
-    // Backend Only Area - check blog entries, staticpages and other backend related normal form area nuggets (ie. comment forms have different init need),
+    // BACKEND Only Area - check blog entries, staticpages and other backend related normal form area nuggets (ie. comment forms have different init need),
     // like contactform, commentspice, downloadmanager, FAQ, DSGVO / GDPR, guestbook, html nugget, quicknotes, and more.
-    if ($('#serendipityEntry').length > 0 || $('#sp_main_data').length > 0 || $('#backend_sp_simple').length > 0 || $('#serendipity_admin_page .form_area').length > 0) {
+    if (document.getElementById('serendipityEntry') != null || document.getElementById('sp_main_data') != null || document.getElementById('backend_sp_simple') != null || document.getElementById('serendipity_admin_page .form_area') != null) {
         console.log('STYX fired WYSIWYG: backend entries, staticpages or spawned nuggets');
         // Add Styx specific styles
         config.contentsCss = [ 'templates/_assets/ckebasic/contents.css', 'templates/_assets/wysiwyg-style.css' ];
