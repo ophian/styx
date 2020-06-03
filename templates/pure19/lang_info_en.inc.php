@@ -5,9 +5,9 @@
  * Convert or save as ANSI (ISO-8859-1) or your native charset, analogue to the non-UTF-8 lang constant files.
  **/
 
-$info['theme_info_summary'] = 'The Standard Styx Frontend Theme (2019). A full page modern Grid/Flexing theme.';
+$info['theme_info_summary'] = 'The (Standard) Styx Frontend Theme (2019). A full page modern Grid/Flexing theme.';
 
-$info['theme_info_desc'] = 'This theme defines the current standard frontend for Styx 3.0, defined and used by the core system.
+$info['theme_info_desc'] = 'This child-theme defined the (standard) frontend for Styx 3.0, defined and used by the core system.
 Regarding Serendipity Styx infinite possibilities, "pure" is one of the best-concatenated and interlocked themes,
 covering most of them as simple as possible in a wide frame, made easy to look through.<br>
 It is a "Holy Grail" of modern theme HTML5 structures. Fully responsive, with incremental font sizing <u>and</u> mobile friendly!<br>
