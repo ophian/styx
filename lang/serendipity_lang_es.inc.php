@@ -933,8 +933,8 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('PERM_SET_CHILD', 'Define los mismos permisos en todos los directorios hijos');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Extensiones prohibidas');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Eventos prohibidos');
-@define('PERMISSION_FORBIDDEN_ENABLE', '¿Activar la extensión ACL para grupos de usuarios?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Si la opción "Extensión ACL para grupos de usuarios" es activada en la configuración, puedes especificar que grupos de usuarios son capaces de ejecutar ciertas extensiones/eventos.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', '¿Activar la extensión ACL para grupos de usuarios?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Si la opción "Extensión ACL para grupos de usuarios" es activada en la configuración, puedes especificar que grupos de usuarios son capaces de ejecutar ciertas extensiones/eventos.');
 @define('DELETE_SELECTED_ENTRIES', 'Eliminar las entradas seleccionadas');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Sólo mostrar aquellos autores con al menos X artículos');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');

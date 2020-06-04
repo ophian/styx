@@ -911,8 +911,8 @@
 @define('PERM_SET_CHILD', '하위 디렉토리에 모두 동일한 권한 설정을 합니다');
 @define('PERMISSION_FORBIDDEN_PLUGINS', '사용 금지된 플러그인');
 @define('PERMISSION_FORBIDDEN_HOOKS', '사용 금지된 이벤트');
-@define('PERMISSION_FORBIDDEN_ENABLE', '사용자 그룹에 대한 플러그인 사용 권한 설정을 사용하기');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', '"사용자 그룹에 대한 플러그인 사용 권한 설정"을 사용할 경우 어떤 사용자 그룹이 어떤 플러그인이나 이벤트를 사용할 수 있을지 지정할 수 있게 됩니다.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', '사용자 그룹에 대한 플러그인 사용 권한 설정을 사용하기');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', '"사용자 그룹에 대한 플러그인 사용 권한 설정"을 사용할 경우 어떤 사용자 그룹이 어떤 플러그인이나 이벤트를 사용할 수 있을지 지정할 수 있게 됩니다.');
 @define('DELETE_SELECTED_ENTRIES', '선택한 글 삭제하기');
 @define('PLUGIN_AUTHORS_MINCOUNT', '최소 X개의 글을 쓴 작성자만 보여주기');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', '즐겨찾기');

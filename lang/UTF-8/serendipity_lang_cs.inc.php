@@ -921,8 +921,8 @@ $i18n_filename_to = array (
 @define('PERM_SET_CHILD', 'Nastavte shodná práva pro všechny podřízené adresáře');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Zakázané pluginy');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Zakázané události');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Povolit Plugin ACL pro uživatelské skupiny?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Jestliže je volba "Plugin ACL pro uživatelské skupiny" v konfiguraci povolena, můžete určit, které skupiny uživatelů mohou provádět určité pluginy/události.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Povolit Plugin ACL pro uživatelské skupiny?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Jestliže je volba "Plugin ACL pro uživatelské skupiny" v konfiguraci povolena, můžete určit, které skupiny uživatelů mohou provádět určité pluginy/události.');
 
 @define('DELETE_SELECTED_ENTRIES', 'Vymazat vybrané příspěvky');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Zobrazit pouze autory s více než X příspěvky');

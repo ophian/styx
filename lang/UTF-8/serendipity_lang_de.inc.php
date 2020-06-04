@@ -907,8 +907,8 @@
 @define('PERM_SET_CHILD', 'Identische Rechte auch auf alle Unterverzeichnisse anwenden');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Verbotene Plugins');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Verbotene Ereignisse');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Plugin-Rechte für Benutzergruppen aktivieren?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Falls Sie die globale Konfigurations-Option "Plugin-Rechte für Benutzergruppen" aktivieren, können Sie bei jeder Benutzergruppe definieren, welche Plugins/Ereignisse diese Gruppe ausführen darf.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Plugin-Rechte für Benutzergruppen aktivieren?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Falls Sie die globale Konfigurations-Option "Plugin-Rechte für Benutzergruppen" aktivieren, können Sie bei jeder Benutzergruppe definieren, welche Plugins/Ereignisse diese Gruppe ausführen darf.');
 @define('DELETE_SELECTED_ENTRIES', 'Markierte Einträge löschen');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Nur Autoren mit mindestens X Beiträgen anzeigen');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');

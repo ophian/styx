@@ -921,8 +921,8 @@ $i18n_filename_to = array (
 @define('PERM_SET_CHILD', 'Nastavi» rovnaké práva pre v¹etky podprieèinky');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Zakázané doplnky');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Zakázané udalosti');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Zapnú» Doplnok ACL pre pou¾ívateµské skupiny?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Ak je volba "Plugin ACL pre pou¾ívateµské skupiny" v nastaveniach zapnutá, mô¾ete urèi», ktoré skupiny u¾ívateµov môzu pou¾íva» urèité doplnky/udalosti.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Zapnú» Doplnok ACL pre pou¾ívateµské skupiny?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Ak je volba "Plugin ACL pre pou¾ívateµské skupiny" v nastaveniach zapnutá, mô¾ete urèi», ktoré skupiny u¾ívateµov môzu pou¾íva» urèité doplnky/udalosti.');
 
 @define('DELETE_SELECTED_ENTRIES', 'Zmaza» vybrané príspevky');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Zobrazi» iba autorov s viac ako X èlánkami');

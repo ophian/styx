@@ -911,8 +911,8 @@
 @define('PERM_SET_CHILD', 'این سطح دسترسی برای تمامی زیر شاخه ها هم تنظیم شود');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'افزونه ها ممنوع شده');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'واقعه های ممنوع شده');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'فعال کردن افزونه مدیریت دسترسی ها برای گروه های کاربری؟');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'اگر این گزینه فعال باشد، شما می توانید به گروه های کاربری امکان مشاهده و کار کردن با افزونه های مختلف را ارایه دهید.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'فعال کردن افزونه مدیریت دسترسی ها برای گروه های کاربری؟');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'اگر این گزینه فعال باشد، شما می توانید به گروه های کاربری امکان مشاهده و کار کردن با افزونه های مختلف را ارایه دهید.');
 @define('DELETE_SELECTED_ENTRIES', 'حذف مطالب انتخاب شده');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'به نویسندگان حداقل X مطلب نشان داده شود');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');

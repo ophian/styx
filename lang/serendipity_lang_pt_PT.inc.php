@@ -923,8 +923,8 @@
 @define('PERM_SET_CHILD', 'Configure as mesmas permissões para todos os subdirectórios recursivamente');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Plugins proibidos');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Eventos proibidos');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Activar Plugin ACL para grupos?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Se a opção "Plugin ACL para grupos" está activada na configuração, você pode especificar que grupos estão autorizados a executar certos plugins/eventos.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Activar Plugin ACL para grupos?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Se a opção "Plugin ACL para grupos" está activada na configuração, você pode especificar que grupos estão autorizados a executar certos plugins/eventos.');
 @define('DELETE_SELECTED_ENTRIES', 'Eliminar entradas seleccionadas');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Mostar apenas Autores com um mínimo de X artigos');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');

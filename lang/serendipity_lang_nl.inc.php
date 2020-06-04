@@ -912,8 +912,8 @@
 @define('PERM_SET_CHILD', 'Geef dezelfde toegangsrechten aan alle onderliggende mappen');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Verboden plugins');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Verboden evenementen');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Plugintoegangsrechten per groep aan zetten?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Als dit aan staat, kunt u per gebruikersgroep bepalen welke plugins/evenementen uitgevoerd mogen worden.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Plugintoegangsrechten per groep aan zetten?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Als dit aan staat, kunt u per gebruikersgroep bepalen welke plugins/evenementen uitgevoerd mogen worden.');
 @define('DELETE_SELECTED_ENTRIES', 'Geselecteerde artikelen verwijderen');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Toon alleen auteurs met minstens X artikelen');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');

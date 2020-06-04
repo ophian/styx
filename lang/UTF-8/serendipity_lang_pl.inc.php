@@ -911,8 +911,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('PERM_SET_CHILD', 'Ustaw te same uprawnienia na wszystkich podkatalogach');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Zabronione wtyczki');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Zabronione zdarzenia');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Włączyć ograniczenia wtyczek (Plugin ACL) dla grup użytkowników?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Jeśli opcja ograniczenia wtyczek jest włączona, możesz określić jakie wtyczki mogą być uruchamiane przez jakie grupy użytkowników.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Włączyć ograniczenia wtyczek (Plugin ACL) dla grup użytkowników?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Jeśli opcja ograniczenia wtyczek jest włączona, możesz określić jakie wtyczki mogą być uruchamiane przez jakie grupy użytkowników.');
 
 @define('DELETE_SELECTED_ENTRIES', 'Usuń wybrane wpisy');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Pokaż tylko autorów mających co najmniej X wpisów');

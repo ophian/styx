@@ -911,8 +911,8 @@
 @define('PERM_SET_CHILD', 'Sæt de samme rettigheder på alle underliggende biblioteker');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Forbidden plugins');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Forbidden events');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Aktiver plugin adgangskontrol for grupper?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Mulighed for at bestemme hvilke grupper der må anvende hvilke plugins.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Aktiver plugin adgangskontrol for grupper?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Mulighed for at bestemme hvilke grupper der må anvende hvilke plugins.');
 @define('DELETE_SELECTED_ENTRIES', 'Delete selected entries');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Show only authors with at least X articles');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');

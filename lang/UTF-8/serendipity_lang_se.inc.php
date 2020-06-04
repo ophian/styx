@@ -910,8 +910,8 @@
 @define('PERM_SET_CHILD', 'Ange samma behörigheter på alla undermappar');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Förbjudna insticksmoduler');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Förbjudna händelser');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Aktivera ACL för insticksmoduler och användargrupper?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Om aktiv så kan du specifiera vilka användargrupper som får tillgång till olika insticksmoduler/händelser.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Aktivera ACL för insticksmoduler och användargrupper?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Om aktiv så kan du specifiera vilka användargrupper som får tillgång till olika insticksmoduler/händelser.');
 @define('DELETE_SELECTED_ENTRIES', 'Ta bort valda artiklar');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Visa enbart författare med minst X skrivna artiklar');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');

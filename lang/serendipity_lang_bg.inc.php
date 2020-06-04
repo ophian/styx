@@ -901,8 +901,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PERM_SET_CHILD', 'Установяване на същите разрешения за всички поддиректории');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Забранени приставки');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Забранени събития');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Разрешаване на Plugin ACL за потребителски групи ?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Ако опцията "Plugin ACL за потребителски групи" е позволена, ще можете да указвате кои потребителски групи имат позволението да изпълняват дадени събитийни и странични приставки.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Разрешаване на Plugin ACL за потребителски групи ?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Ако опцията "Plugin ACL за потребителски групи" е позволена, ще можете да указвате кои потребителски групи имат позволението да изпълняват дадени събитийни и странични приставки.');
 @define('DELETE_SELECTED_ENTRIES', 'Изтриване на избраните статии');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Показване само на автори с най-малко X статии');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Bookmarklet');

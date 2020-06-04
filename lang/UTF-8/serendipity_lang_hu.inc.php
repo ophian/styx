@@ -910,8 +910,8 @@
 @define('PERM_SET_CHILD', 'Jogosultság örököltetése az almappákra is');
 @define('PERMISSION_FORBIDDEN_PLUGINS', 'Letiltott modulok');
 @define('PERMISSION_FORBIDDEN_HOOKS', 'Letiltott események');
-@define('PERMISSION_FORBIDDEN_ENABLE', 'Modulokra érvényes ACL (bővebb jogosultságkezelés) engedélyezése felhasználócsoportonként?');
-@define('PERMISSION_FORBIDDEN_ENABLE_DESC', 'Ha ezt engedélyezed, beállíthatod hogy mely felhasználói csoportok kezelhetnek modulokat/eseményeket.');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE', 'Modulokra érvényes ACL (bővebb jogosultságkezelés) engedélyezése felhasználócsoportonként?');
+@define('PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC', 'Ha ezt engedélyezed, beállíthatod hogy mely felhasználói csoportok kezelhetnek modulokat/eseményeket.');
 @define('DELETE_SELECTED_ENTRIES', 'Kijelölt bejegyzések törlése');
 @define('PLUGIN_AUTHORS_MINCOUNT', 'Csak a a legalább X bejegyzéssel rendelkező szerzők mutatása');
 @define('FURTHER_LINKS_S9Y_BOOKMARKLET', 'Könyvjelző hivatkozás');
