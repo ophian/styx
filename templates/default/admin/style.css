@@ -4357,6 +4357,9 @@ img.mfp-img {
         flex-wrap: wrap;
         justify-content: space-between;
     }
+    #template_select > ul {
+        width: 100%;
+    }
 
     #dashboard,
     .plugins_installable {
