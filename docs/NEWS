@@ -1,6 +1,8 @@
 Version 3.0.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve some lang constant defines for consistency
+
   * Improve themes backend styles for child or custom themes
 
   * Allow RichTextEditor comment areas in the dude (theme)
