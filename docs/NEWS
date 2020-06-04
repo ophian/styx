@@ -1,6 +1,8 @@
 Version 3.0.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve some backend styles
+
   * Allow RichTextEditor comment areas in the dude (theme)
 
   * Fix Mobiles issue with a 2-sidebar "pure" theme, in combination with htmlcomments
