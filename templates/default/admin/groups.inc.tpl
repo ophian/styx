@@ -83,7 +83,7 @@
         <ul>
         {$indent=''}{$in_indent=false}{* init defaults *}
         {foreach $perms AS $perm}
-            {if {$perm@key|truncate:2:''} == 'f_'}{continue}{/if}{* This are forbidden set event or sidebar plugins per PERMISSION_FORBIDDEN_ENABLE configuration option *}
+            {if {$perm@key|truncate:2:''} == 'f_'}{continue}{/if}{* This are forbidden set event or sidebar plugins per PERMISSION_FORBIDDEN_PLUGINACL_ENABLE configuration option *}
             {if !isset($section)}
                 {$section=$perm@key}
             {/if}
@@ -158,7 +158,7 @@
             </div>
         {else}
 
-            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PERMISSION_FORBIDDEN_ENABLE_DESC}</span>
+            <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC}</span>
         {/if}
 
             <div class="form_buttons">

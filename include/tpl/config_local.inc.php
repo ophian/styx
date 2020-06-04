@@ -416,8 +416,8 @@
                                           'permission'  => 'blogConfiguration'),
 
                                     array('var'         => 'enablePluginACL',
-                                          'title'       => PERMISSION_FORBIDDEN_ENABLE,
-                                          'description' => PERMISSION_FORBIDDEN_ENABLE_DESC,
+                                          'title'       => PERMISSION_FORBIDDEN_PLUGINACL_ENABLE,
+                                          'description' => PERMISSION_FORBIDDEN_PLUGINACL_ENABLE_DESC,
                                           'type'        => 'bool',
                                           'default'     => false,
                                           'permission'  => 'blogConfiguration'),
