@@ -579,7 +579,7 @@
 @define('IMPORT_WEBLOG_APP', 'Software Weblog');
 @define('IMPORT_NOTES', 'Note:');
 @define('EXPORT_FEED', 'Export linie completă RSS');
-@define('STATUS', 'Stare după import');
+@define('IMPORT_STATUS', 'Stare după import');
 @define('IMPORT_GENERIC_RSS', 'Import RSS generic');
 @define('ACTIVATE_AUTODISCOVERY', 'Trimite Referinţe legăturilor găsite în acestă însemnare');
 @define('WELCOME_TO_ADMIN', 'Bun venit în Suita de Administrare Serendipity Styx.');

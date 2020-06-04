@@ -580,7 +580,7 @@
 @define('IMPORT_DONE', 'Importeren succesvol uitgevoerd');
 @define('IMPORT_WEBLOG_APP', 'Weblogapplicatie');
 @define('EXPORT_FEED', 'Exporteer volledige verzamelpublicatie');
-@define('STATUS', 'Status na importeren');
+@define('IMPORT_STATUS', 'Status na importeren');
 @define('IMPORT_GENERIC_RSS', 'Generische RSS-import');
 @define('ACTIVATE_AUTODISCOVERY', 'Verstuur trackbacks naar hyperlinks gevonden in dit artikel');
 @define('WELCOME_TO_ADMIN', 'Welkom bij Serendipity Styx Beheer.');

@@ -578,7 +578,7 @@
 @define('IMPORT_WEBLOG_APP', 'Weblog アプリケーション');
 @define('IMPORT_NOTES', '注:');
 @define('EXPORT_FEED', 'フル RSS フィードをエクスポートする');
-@define('STATUS', 'インポート後の状況');
+@define('IMPORT_STATUS', 'インポート後の状況');
 @define('IMPORT_GENERIC_RSS', '一般的な RSS をインポートする');
 @define('ACTIVATE_AUTODISCOVERY', 'エントリーで見つたリンクにトラックバックを送る');
 @define('WELCOME_TO_ADMIN', 'ようこそ Serendipity Styx の管理スイートへ');

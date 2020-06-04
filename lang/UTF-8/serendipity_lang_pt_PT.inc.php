@@ -584,7 +584,7 @@
 @define('IMPORT_DONE', 'Importação completada com sucesso');
 @define('IMPORT_WEBLOG_APP', 'Aplicação do Weblog');
 @define('EXPORT_FEED', 'Exportar RSS feed completo'); // Verify
-@define('STATUS', 'Status depois da importação');
+@define('IMPORT_STATUS', 'Status depois da importação');
 @define('IMPORT_GENERIC_RSS', 'Importação de RSS genérica');
 @define('ACTIVATE_AUTODISCOVERY', 'Enviar Trackbacks de ligações encontradas na entrada'); // Verify
 @define('WELCOME_TO_ADMIN', 'Bem vindo à Suite Administrativa do Serendipity Styx.');

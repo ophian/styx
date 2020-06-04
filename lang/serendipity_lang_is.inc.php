@@ -578,7 +578,7 @@
 @define('IMPORT_WEBLOG_APP', 'Bloggkerfi');
 @define('IMPORT_NOTES', 'Athuga:');
 @define('EXPORT_FEED', 'Flytja út allan RSS straum');
-@define('STATUS', 'Staða eftir innflutning');
+@define('IMPORT_STATUS', 'Staða eftir innflutning');
 @define('IMPORT_GENERIC_RSS', 'Almennur RSS innflutningur');
 @define('ACTIVATE_AUTODISCOVERY', 'Senda tilvísanir á hlekki sem fyrirfinnast í færslunni');
 @define('WELCOME_TO_ADMIN', 'Velkomin(n) í stjórnborð Serendipity Styx.');

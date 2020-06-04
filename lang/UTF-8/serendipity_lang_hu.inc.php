@@ -578,7 +578,7 @@
 @define('IMPORT_WEBLOG_APP', 'Weblog program');
 @define('IMPORT_NOTES', 'Megjegyzés:');
 @define('EXPORT_FEED', 'Teljes RSS hírcsatorna exportja');
-@define('STATUS', 'Importálás utáni státusz');
+@define('IMPORT_STATUS', 'Importálás utáni státusz');
 @define('IMPORT_GENERIC_RSS', 'Általános RSS import');
 @define('ACTIVATE_AUTODISCOVERY', 'Visszahivatkozás küldése a bejegyzésekben található hivatkozásokra.');
 @define('WELCOME_TO_ADMIN', 'Üdvözlöm a Serendipity Styx adminisztrátori felületén.');

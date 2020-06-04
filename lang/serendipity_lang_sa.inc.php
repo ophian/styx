@@ -581,7 +581,7 @@
 @define('IMPORT_WEBLOG_APP', 'Ê״ָםÞַÊ ַבדּבֹ');
 @define('IMPORT_NOTES', 'דבַֽÙֹ:');
 @define('EXPORT_FEED', 'Export full RSS feed');
-@define('STATUS', 'ַבַֽבֹ ָÚֿ ַבַ׃Êםַֿׁ');
+@define('IMPORT_STATUS', 'ַבַֽבֹ ָÚֿ ַבַ׃Êםַֿׁ');
 @define('IMPORT_GENERIC_RSS', 'Generic RSS import');
 @define('ACTIVATE_AUTODISCOVERY', 'ֳׁ׃ב ַָׁ״ ÊÚÞָ בדַ וז דזּזֿ Ýם ו׀ַ ַבדזײזÚ');
 @define('WELCOME_TO_ADMIN', 'דַָֽׁ ָß Ýם בזֹֽ Êֽßד ַבדװׁÝ ַבÚַד בבדֿזהֹ');

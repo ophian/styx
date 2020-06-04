@@ -580,7 +580,7 @@
 @define('IMPORT_WEBLOG_APP', '블로그 소프트웨어');
 @define('IMPORT_NOTES', '주의:');
 @define('EXPORT_FEED', 'RSS 피드 전체로 내보내기');
-@define('STATUS', '불러들이기 후 상태');
+@define('IMPORT_STATUS', '불러들이기 후 상태');
 @define('IMPORT_GENERIC_RSS', '일반 RSS 불러들이기');
 @define('ACTIVATE_AUTODISCOVERY', '글 속에 발견된 링크로 트랙백을 보냄');
 @define('WELCOME_TO_ADMIN', '세렌디피티 관리 도구에 오신 것을 환영합니다.');

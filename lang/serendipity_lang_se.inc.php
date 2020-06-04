@@ -578,7 +578,7 @@
 @define('IMPORT_WEBLOG_APP', 'Webblogg-applikation');
 @define('IMPORT_NOTES', 'Anteckning:');
 @define('EXPORT_FEED', 'Exportera fullständig RSS-matning');
-@define('STATUS', 'Status efter import');
+@define('IMPORT_STATUS', 'Status efter import');
 @define('IMPORT_GENERIC_RSS', 'Generell RSS-import');
 @define('ACTIVATE_AUTODISCOVERY', 'Skicka trackbacks till länkar funna i artikeln');
 @define('WELCOME_TO_ADMIN', 'Välkommen till Serendipity Styx administrationssidor.');

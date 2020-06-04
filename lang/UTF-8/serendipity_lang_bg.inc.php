@@ -566,7 +566,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('IMPORT_DONE', 'Внасянето приключи успещно');
 @define('IMPORT_WEBLOG_APP', 'Софтуер за блог');
 @define('EXPORT_FEED', 'Изнасяне на пълна емисия на RSS');
-@define('STATUS', 'Състояние след внасяне');
+@define('IMPORT_STATUS', 'Състояние след внасяне');
 @define('IMPORT_GENERIC_RSS', 'Общо внасяне на RSS');
 @define('ACTIVATE_AUTODISCOVERY', 'Изпращане на проследявания към препратките, откривани в статиите');
 @define('WELCOME_TO_ADMIN', 'Добре дошли в администраторския комплект на Serendipity Styx.');

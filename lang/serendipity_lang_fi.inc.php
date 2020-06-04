@@ -576,7 +576,7 @@
 @define('IMPORT_DONE', 'Tuonti onnistui');
 @define('IMPORT_WEBLOG_APP', 'Blogisofta');
 @define('EXPORT_FEED', 'Näytä koko RSS-kanavan sisältö');
-@define('STATUS', 'Tuonnin jälkeinen tilanne');
+@define('IMPORT_STATUS', 'Tuonnin jälkeinen tilanne');
 @define('IMPORT_GENERIC_RSS', 'Yleinen RSS tuonti');
 @define('ACTIVATE_AUTODISCOVERY', 'Lähetä paluuviitteet merkintöjen paluuviestiosoitteisiin.');
 @define('WELCOME_TO_ADMIN', 'Tervetuloa Serendipityn Styx ylläpitoon.');

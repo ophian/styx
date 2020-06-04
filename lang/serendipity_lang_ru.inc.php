@@ -580,7 +580,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('IMPORT_DONE', 'Импорт данных успешно завершён');
 @define('IMPORT_WEBLOG_APP', 'Приложение');
 @define('EXPORT_FEED', 'Экспортировать полную RSS-ленту');
-@define('STATUS', 'Статус после импорта');
+@define('IMPORT_STATUS', 'Статус после импорта');
 @define('IMPORT_GENERIC_RSS', 'Обычный импорт RSS');
 @define('ACTIVATE_AUTODISCOVERY', 'Посылать обратные ссылки на гиперссылки, найденные в записи');
 @define('WELCOME_TO_ADMIN', 'Добро пожаловать в раздел администрирования Serendipity Styx.');

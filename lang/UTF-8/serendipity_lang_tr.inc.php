@@ -580,7 +580,7 @@
 @define('IMPORT_WEBLOG_APP', 'Weblog uygulaması');
 @define('IMPORT_NOTES', 'Not:');
 @define('EXPORT_FEED', 'Tüm RSS beslemelerini dışa aktar');
-@define('STATUS', 'İthalattan sonraki durum');
+@define('IMPORT_STATUS', 'İthalattan sonraki durum');
 @define('IMPORT_GENERIC_RSS', 'Genel RSS ithali');
 @define('ACTIVATE_AUTODISCOVERY', 'Bu yazıda mevcut linklere iz bırak');
 @define('WELCOME_TO_ADMIN', ' Serendipity Styx Yönetim Arabirimine Hoşgeldiniz.');

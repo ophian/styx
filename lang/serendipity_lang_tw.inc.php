@@ -581,7 +581,7 @@ $i18n_unknown = 'tw';
 @define('IMPORT_DONE', '完成輸入');
 @define('IMPORT_WEBLOG_APP', '網誌程式');
 @define('EXPORT_FEED', '輸出完整的 RSS');
-@define('STATUS', '輸入後的狀態');
+@define('IMPORT_STATUS', '輸入後的狀態');
 @define('IMPORT_GENERIC_RSS', '一般 RSS 輸入');
 @define('ACTIVATE_AUTODISCOVERY', '傳送在文章內找到的引用連結');
 @define('WELCOME_TO_ADMIN', '歡迎到 Serendipity Styx 管理介面.');

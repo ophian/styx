@@ -580,7 +580,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('IMPORT_WEBLOG_APP', 'System blogowy');
 @define('IMPORT_NOTES', 'Uwagi:');
 @define('EXPORT_FEED', 'Wyeksportuj pe³en feed RSS');
-@define('STATUS', 'Status wpisu po imporcie');
+@define('IMPORT_STATUS', 'Status wpisu po imporcie');
 @define('IMPORT_GENERIC_RSS', 'Import RSS');
 @define('ACTIVATE_AUTODISCOVERY', 'Wy¶lij ¦lady (Trackbacki) do linków znalezionych we wpisie/wpisach');
 @define('WELCOME_TO_ADMIN', 'Witaj w Panelu Administracyjnym Serendipity Styx.');

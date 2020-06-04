@@ -581,7 +581,7 @@
 @define('IMPORT_WEBLOG_APP', 'تطبيقات المجلة');
 @define('IMPORT_NOTES', 'ملاحظة:');
 @define('EXPORT_FEED', 'Export full RSS feed');
-@define('STATUS', 'الحالة بعد الاستيراد');
+@define('IMPORT_STATUS', 'الحالة بعد الاستيراد');
 @define('IMPORT_GENERIC_RSS', 'Generic RSS import');
 @define('ACTIVATE_AUTODISCOVERY', 'أرسل رابط تعقب لما هو موجود في هذا الموضوع');
 @define('WELCOME_TO_ADMIN', 'مرحبا بك في لوحة تحكم المشرف العام للمدونة');

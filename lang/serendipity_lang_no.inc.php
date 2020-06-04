@@ -577,7 +577,7 @@
 @define('IMPORT_DONE', 'Import successfully completed'); // Translate
 @define('IMPORT_WEBLOG_APP', 'Weblog application'); // Translate
 @define('EXPORT_FEED', 'Export full RSS feed'); // Translate
-@define('STATUS', 'Status after import'); // Translate
+@define('IMPORT_STATUS', 'Status after import'); // Translate
 @define('IMPORT_GENERIC_RSS', 'Generic RSS import'); // Translate
 @define('ACTIVATE_AUTODISCOVERY', 'Send Trackbacks to links found in the entry'); // Translate
 @define('WELCOME_TO_ADMIN', 'Welcome to the Serendipity Styx Administration Suite.'); // Translate

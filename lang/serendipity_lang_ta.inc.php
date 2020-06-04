@@ -578,7 +578,7 @@
 @define('IMPORT_WEBLOG_APP', 'Weblog application');
 @define('IMPORT_NOTES', 'Note:');
 @define('EXPORT_FEED', 'Export full RSS feed');
-@define('STATUS', 'Status after import');
+@define('IMPORT_STATUS', 'Status after import');
 @define('IMPORT_GENERIC_RSS', 'Generic RSS import');
 @define('ACTIVATE_AUTODISCOVERY', 'Send Trackbacks to links found in the entry');
 @define('WELCOME_TO_ADMIN', 'செரண்டிபிட்டி வலைக்குறிப்பு நிர்வாகத்திற்கு நல்வரவு.');

@@ -581,7 +581,7 @@
 @define('IMPORT_DONE', '导入成功');
 @define('IMPORT_WEBLOG_APP', '程序');
 @define('EXPORT_FEED', '输出 RSS feed');
-@define('STATUS', '导出后的状态');
+@define('IMPORT_STATUS', '导出后的状态');
 @define('IMPORT_GENERIC_RSS', '一般 RSS 导入');
 @define('ACTIVATE_AUTODISCOVERY', '传送文章内引用的连接');
 @define('WELCOME_TO_ADMIN', '欢迎登陆 Serendipity Styx 智能博客系统');

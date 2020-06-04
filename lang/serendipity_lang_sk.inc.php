@@ -590,7 +590,7 @@ $i18n_filename_to = array (
 @define('IMPORT_WEBLOG_APP', 'Weblogová aplikácia');
 @define('IMPORT_NOTES', 'Poznámka:');
 @define('EXPORT_FEED', 'Exportova» plný RSS kanál');
-@define('STATUS', 'Stav po importe');
+@define('IMPORT_STATUS', 'Stav po importe');
 @define('IMPORT_GENERIC_RSS', 'Základný RSS import');
 @define('ACTIVATE_AUTODISCOVERY', 'Odosla» odozvy na odkazy obsiahnuté v èlánku');
 @define('WELCOME_TO_ADMIN', 'Vitajte v administrácii Serendipity Styx.');

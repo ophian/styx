@@ -579,7 +579,7 @@
 @define('IMPORT_WEBLOG_APP', 'برنامه وبلاگ');
 @define('IMPORT_NOTES', 'توجه:');
 @define('EXPORT_FEED', 'صادر کردن RSS کامل');
-@define('STATUS', 'وضعیت بعد از واردات');
+@define('IMPORT_STATUS', 'وضعیت بعد از واردات');
 @define('IMPORT_GENERIC_RSS', 'وارد کردن RSS های عمومی');
 @define('ACTIVATE_AUTODISCOVERY', 'ارسال دنبالک به لینک های یافت شده در مطلب');
 @define('WELCOME_TO_ADMIN', 'به بخش مدیریت سرندیپیتی خوش آمدید.');

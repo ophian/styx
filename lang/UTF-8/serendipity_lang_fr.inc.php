@@ -579,7 +579,7 @@
 @define('IMPORT_DONE', 'Importation terminée avec succès');
 @define('IMPORT_WEBLOG_APP', 'Logiciel de Blog');
 @define('EXPORT_FEED', 'Exporter le fil RSS complet');
-@define('STATUS', 'Statut après importation');
+@define('IMPORT_STATUS', 'Statut après importation');
 @define('IMPORT_GENERIC_RSS', 'Importation générique de fils RSS');
 @define('ACTIVATE_AUTODISCOVERY', 'Envoyer des traçages aux liens trouvés dans le billet');
 @define('WELCOME_TO_ADMIN', 'Bienvenue dans l\'interface d\'administration de Serendipity Styx.');
