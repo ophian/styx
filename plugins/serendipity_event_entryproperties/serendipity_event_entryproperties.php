@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.66');
+        $propbag->add('version',       '1.67');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -692,8 +692,7 @@ class serendipity_event_entryproperties extends serendipity_event
                     break;
 
                 case 'css_backend':
-                    if ($serendipity['version'][0] > 1) {
-                        $eventData .= '
+                    $eventData .= '
 
 /* entryproperties plugin backend start */
 
@@ -782,7 +781,6 @@ class serendipity_event_entryproperties extends serendipity_event
 /* entryproperties plugin backend end */
 
 ';
-                    }
                     break;
 
                 case 'backend_maintenance':

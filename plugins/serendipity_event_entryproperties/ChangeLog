@@ -1,6 +1,10 @@
+1.67:
+-----
+    * Fixup an old S9y Series 1 variable conditioning leftover
+
 1.66:
 -----
-    * Better readable insertion of LEFT joined SQL table parts for the querystring
+    * Better readable insertion of LEFT joined SQL table parts for the query string
 
 1.65:
 -----
