@@ -18,7 +18,7 @@ class serendipity_event_emoticate extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_EMOTICATE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.14');
+        $propbag->add('version',       '1.15');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -80,12 +80,9 @@ class serendipity_event_emoticate extends serendipity_event
         }
 
         /* Hijack global variable $serendipity['custom_emoticons'] if it exists */
-        if ($serendipity['version'][0] > 1) {
-            // called in backend too, but uses frontend fallback. Advise to use the Plugin simple approach 4th parameter!
-            $hijack_file = serendipity_getTemplateFile('emoticons.inc.php', 'serendipityPath', true, true);
-        } else {
-            $hijack_file = serendipity_getTemplateFile('emoticons.inc.php', 'serendipityPath', true);
-        }
+        // called in backend too, but uses frontend fallback. Advise to use the Plugin simple approach 4th parameter!
+        $hijack_file = serendipity_getTemplateFile('emoticons.inc.php', 'serendipityPath', true, true);
+
         if (@file_exists($hijack_file)) {
             @include $hijack_file; // This file contains $serendipity['custom_emoticons'] and maybe $serendipity['custom_emoticons_regexp']
             if (isset($serendipity['custom_emoticons']) && is_array($serendipity['custom_emoticons'])) {
