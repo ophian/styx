@@ -484,7 +484,7 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
     foreach($config AS &$category) {
         foreach($category['items'] AS &$item) {
 
-            $value = isset($from[$item['var']]) ? $from[$item['var']] : '';
+            $value = $from[$item['var']] ?? '';
 
             /* Calculate value if we are not installed, how clever :) */
             if ($from == false) {
