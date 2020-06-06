@@ -660,14 +660,15 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
     } else {
 
         if ($group === 'hidden') {
-            $query_join .= "LEFT OUTER JOIN {$serendipity['dbPrefix']}groupconfig AS gc
-                                         ON (gc.property = 'hiddenGroup' AND gc.id = ag.groupid AND gc.value = 'true')";
+            $query_join .= "
+               LEFT OUTER JOIN {$serendipity['dbPrefix']}groupconfig AS gc
+                            ON (gc.property = 'hiddenGroup' AND gc.id = ag.groupid AND gc.value = 'true')";
             $where .= ' AND gc.id IS NULL ';
         } elseif (is_array($group)) {
-            foreach($group AS $idx => $groupid) {
-                $group[$idx] = (int)$groupid;
+            foreach($group AS $g) {
+                $in_groups[] = (int)($g['id'] ?? $g); // be nice to debug sessions
             }
-            $group_sql = implode(', ', $group);
+            $group_sql = implode(', ', $in_groups);
         } else {
             $group_sql = (int)$group;
         }
