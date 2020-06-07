@@ -434,6 +434,7 @@ $dead_dirs_300 = array(
  * @return void
  */
 function recursive_directory_iterator($dir = array()) {
+    if (null === $dir) return;
     reset($dir); // rewind the pointer for a possible extra call
     foreach($dir AS $path) {
         serendipity_removeDeadFiles_SPL($path);
