@@ -460,6 +460,9 @@ if ($serendipity['GET']['action'] == 'ignore') {
                 if (empty($task['arguments'])) {
                     call_user_func($task['function']);
                 } else {
+                    if (is_array($task['arguments'])) {
+                        reset($task['arguments']); // rewind the pointer for a possible extra call
+                    }
                     call_user_func_array($task['function'], $task['arguments']);
                 }
             } else {
