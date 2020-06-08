@@ -1037,7 +1037,7 @@ function serendipity_checkWebPSupport($set=false, $msg=false) {
         }
     } else {
         @exec($serendipity['convert'] . " -version", $out, $result);
-        if ($result[0] == 0) {
+        if ($result === 0 || $result[0] === 0) {
             @preg_match('/ImageMagick ([0-9]+\.[0-9]+\.[0-9]+)/', $out[0], $v);
             if (version_compare($v[1], '6.9.9') <= 0) {
                 if ($msg) {
