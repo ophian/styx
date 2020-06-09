@@ -1,6 +1,9 @@
 Version 3.0.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Add (and improve old) upgrade tasks for removed variables leftovers in the
+    configuration database table.
+
   * Improve some lang constant defines for consistency
 
   * Improve themes backend styles for child or custom themes
