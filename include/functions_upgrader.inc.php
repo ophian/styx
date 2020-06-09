@@ -759,15 +759,15 @@ function serendipity_upgrader_move_syndication_config() {
                             'field_pubDate'         => 'feedPubDate'
                     );
     foreach($optionsToPort AS $oldPluginOption => $newGeneralOption) {
-        $value = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE NAME LIKE 'serendipity_plugin_syndication%{$oldPluginOption}'", true);
+        $value = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%{$oldPluginOption}'", true);
         if (is_array($value)) {
             $value = $value[0];
         }
         serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}config(name, value) VALUES ('$newGeneralOption', '". serendipity_db_escape_string($value) ."')");
     }
 
-    $fbid = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE NAME LIKE 'serendipity_plugin_syndication%fb_id'");
-    $show_feedburner = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE NAME LIKE 'serendipity_plugin_syndication%show_feedburner'");
+    $fbid = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%fb_id'");
+    $show_feedburner = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%show_feedburner'");
     if ($show_feedburner == 'force') {
         if (!empty($fbid)) {
             $fburl = 'http://feeds.feedburner.com/' . $fbid;
