@@ -404,6 +404,18 @@ $tasks = array(
                     'title'     => 'Improve old 2014 2.0-beta1 export syndication plugin options for cleanup',
                     'desc'      => 'Serendipity 2.0 moved the more generic feed option from the syndication plugin into the core. They were set equivalent to their old configuration and the old ones will now be removed from the syndication config sets.'),
 
+            array(  'version'   => '3.0.1',
+                    'function'  => 'serendipity_cleanupConfigVars',
+                    'arguments' => array('eyecandy'),
+                    'title'     => 'Automatic database config cleanup for singular removed variables',
+                    'desc'      => 'Removing old javascript advanced variable "eyecandy" for/since Serendipity 2.0-beta1.'),
+
+            array(  'version'   => '3.0.1',
+                    'function'  => 'serendipity_cleanupConfigVars',
+                    'arguments' => array('wysiwygToolbar'),
+                    'title'     => 'Automatic database config cleanup for singular removed variables',
+                    'desc'      => 'Removing "wysiwygToolbar" variable for the Styx 3.0 upgrade.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
