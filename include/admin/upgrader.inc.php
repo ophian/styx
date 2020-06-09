@@ -399,6 +399,11 @@ $tasks = array(
                     'title'     => 'Styx removed the Zend DB framework.',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_300) . '</pre>'),
 
+            array(  'version'   => '3.0.1',
+                    'function'  => 'serendipity_upgrader_move_syndication_config',
+                    'title'     => 'Improve old 2014 2.0-beta1 export syndication plugin options for cleanup',
+                    'desc'      => 'Serendipity 2.0 moved the more generic feed option from the syndication plugin into the core. They were set equivalent to their old configuration and the old ones will now be removed from the syndication config sets.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
