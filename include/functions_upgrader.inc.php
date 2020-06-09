@@ -813,3 +813,12 @@ function serendipity_purgeTemplatesCache($themes=false) {
     return false;
 }
 
+/**
+ * Delete old config Plugin Variables that have completely been removed.
+ */
+function serendipity_cleanupConfigVars($name='') {
+        global $serendipity;
+
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name = '" . serendipity_db_escape_string($name) . "'");
+}
+
