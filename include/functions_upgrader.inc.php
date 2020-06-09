@@ -764,6 +764,7 @@ function serendipity_upgrader_move_syndication_config() {
             $value = $value[0];
         }
         serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}config(name, value) VALUES ('$newGeneralOption', '". serendipity_db_escape_string($value) ."')");
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%{$oldPluginOption}'");
     }
 
     $fbid = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%fb_id'");
@@ -774,6 +775,7 @@ function serendipity_upgrader_move_syndication_config() {
             serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}config(name, value) VALUES ('feedCustom', '" . serendipity_db_escape_string($fburl) ."')");
         }
     }
+    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%show_feedburner'");
 }
 
 /**
