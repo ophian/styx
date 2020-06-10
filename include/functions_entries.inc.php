@@ -1300,7 +1300,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             $entry['link_allow_comments']    = $serendipity['baseURL'] . 'comment.php?serendipity[switch]=enable&amp;serendipity[entry]=' . $entry['id'] . '&amp;' . $urltoken;
             $entry['link_deny_comments']     = $serendipity['baseURL'] . 'comment.php?serendipity[switch]=disable&amp;serendipity[entry]=' . $entry['id'] . '&amp;' . $urltoken;
             $entry['allow_comments']         = serendipity_db_bool($entry['allow_comments']);
-            $entry['moderate_comments']      = serendipity_db_bool($entry['moderate_comments'] ?? false);
+            $entry['moderate_comments']      = serendipity_db_bool(($entry['moderate_comments'] ?? false));
             $entry['viewmode']               = (isset($serendipity['GET']['cview']) && $serendipity['GET']['cview'] == VIEWMODE_LINEAR) ? VIEWMODE_LINEAR : VIEWMODE_THREADED;
             $entry['link_popup_comments']    = $serendipity['serendipityHTTPPath'] .'comment.php?serendipity[entry_id]='. $entry['id'] .'&amp;serendipity[type]=comments';
             $entry['link_popup_trackbacks']  = $serendipity['serendipityHTTPPath'] .'comment.php?serendipity[entry_id]='. $entry['id'] .'&amp;serendipity[type]=trackbacks';

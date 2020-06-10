@@ -149,7 +149,7 @@ class Serendipity_Import_b2evolution extends Serendipity_Import
             $entry = array('title'          => $this->decode($entries[$x]['post_title']),
                            'isdraft'        => ($entries[$x]['post_status'] == 'published') ? 'false' : 'true',
                            'allow_comments' => ($entries[$x]['post_comments'] == 'open' ) ? 'true' : 'false',
-                           'timestamp'      => strtotime($entries[$x]['post_issue_date'] ?? $entries[$x]['post_date']),
+                           'timestamp'      => strtotime(($entries[$x]['post_issue_date'] ?? $entries[$x]['post_date'])),
                            'body'           => $this->strtr($entries[$x]['post_content']));
 
             $entry['authorid'] = '';

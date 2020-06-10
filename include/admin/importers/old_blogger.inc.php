@@ -216,7 +216,7 @@ ENDPOST
                 $cbody   = '';
 
                 if (preg_match("/AUTHOR:(.*)/", $comment, $cauthor) && preg_match("/href=\"(.*)\"/", $cauthor[1], $curl)) {
-                    $curl    = trim($curl[1] ?? '');
+                    $curl    = trim(($curl[1] ?? ''));
                     $cauthor = trim(strip_tags($cauthor[1]));
                 }
 

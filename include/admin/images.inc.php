@@ -364,7 +364,7 @@ switch ($serendipity['GET']['adminAction']) {
         $messages   = array();
         $authorid   = 0; // Only use access-control based on media directories, not images themselves
         $messages[] = '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . ADDING_IMAGE . "</span>\n";
-        $_imageurl  = serendipity_specialchars($serendipity['POST']['imageurl'] ?? '');
+        $_imageurl  = serendipity_specialchars(($serendipity['POST']['imageurl'] ?? ''));
 
         // First find out whether to fetch a download hotlink or accept an upload file
         $pattern = '~^(?:ht|f)tps?://[a-z0-9.-_\/](?:(?!.{3}+\?|#|\+).)+\.(?:jpe?g|png|gif)~Ui'; // each protocol, a negative look behind to not match malicious URIs and the 4 most common img extensions
@@ -848,7 +848,7 @@ switch ($serendipity['GET']['adminAction']) {
             'maxImgHeight'      => $serendipity['maxImgHeight'],
             'maxImgWidth'       => $serendipity['maxImgWidth'],
             'extraParems'       => serendipity_generateImageSelectorParems(),
-            'manage'            => serendipity_db_bool($serendipity['GET']['showMediaToolbar'] ?? true),
+            'manage'            => serendipity_db_bool(($serendipity['GET']['showMediaToolbar'] ?? true)),
             'multiperm'         => serendipity_checkPermission('adminImagesDirectories')
         );
         // ToDo later: merge $data and $media

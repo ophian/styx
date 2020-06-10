@@ -5642,7 +5642,7 @@ function showMediaLibrary($addvar_check = false, $smarty_vars = array()) {
     $output .= serendipity_displayImageList(
         $serendipity['GET']['page'] ?? 1,
         $serendipity['thumbPerPage'],
-        serendipity_db_bool($serendipity['GET']['showMediaToolbar'] ?? true),
+        serendipity_db_bool(($serendipity['GET']['showMediaToolbar'] ?? true)),
         NULL,
         $serendipity['GET']['showUpload'] ?? false,
         NULL,
