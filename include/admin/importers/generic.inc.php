@@ -103,7 +103,7 @@ class Serendipity_Import_Generic extends Serendipity_Import
         if (!isset($item['pubdate']) && isset($item['pubDate'])) {
             $item['pubdate'] = $item['pubDate'];
         }
-        $entry['timestamp'] = $this->decode(strtotime($item['pubdate'] ?? $item['dc:date']));
+        $entry['timestamp'] = $this->decode(strtotime(($item['pubdate'] ?? $item['dc:date'])));
         if ($entry['timestamp'] == -1) {
             // strtotime does not seem to parse ISO 8601 dates
             if (preg_match('@^([0-9]{4})\-([0-9]{2})\-([0-9]{2})T([0-9]{2}):([0-9]{2}):([0-9]{2})[\-\+]([0-9]{2}):([0-9]{2})$@', isset($item['pubdate']) ? $item['pubdate'] : $item['dc:date'], $timematch)) {
