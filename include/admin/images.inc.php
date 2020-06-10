@@ -843,7 +843,7 @@ switch ($serendipity['GET']['adminAction']) {
             'token'             => serendipity_setFormToken(),
             'form_hidden'       => $form_hidden,
             'folders'           => $folders,
-            'addmedia_lastdir'  => isset($serendipity['COOKIE']['addmedia_directory']) ?? '',
+            'addmedia_lastdir'  => $serendipity['COOKIE']['addmedia_directory'] ?? '',
             'max_file_size'     => $serendipity['maxFileSize'],
             'maxImgHeight'      => $serendipity['maxImgHeight'],
             'maxImgWidth'       => $serendipity['maxImgWidth'],
