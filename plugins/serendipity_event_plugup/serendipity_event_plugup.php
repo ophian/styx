@@ -148,9 +148,9 @@ class serendipity_event_plugup extends serendipity_plugin
                             $num    = $this->plug_cache($ts);
                             #echo 'set cookies ' . $ts; // OK
                         } else {
-                            $event  = (int) $serendipity['COOKIE']['plugsEvent'] ??  0;
-                            $plugin = (int) $serendipity['COOKIE']['plugsPlugin'] ??  0;
-                            $num    = (int)($event+$plugin);
+                            $event  = (int) ($serendipity['COOKIE']['plugsEvent'] ??  0);
+                            $plugin = (int) ($serendipity['COOKIE']['plugsPlugin'] ??  0);
+                            $num    = (int) ($event+$plugin);
                             #echo $event . ' + ' . $plugin . ' = ' .$num; // OK
                         }
                     // We need to set (float) other (heigher sized) dashboard widget boxes to the right, eg. the feedly box, since all other boxes use float:left
