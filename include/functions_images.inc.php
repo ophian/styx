@@ -4053,7 +4053,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'only_path'         => $serendipity['GET']['only_path'] ?? '',
         'sortorder'         => $serendipity['GET']['sortorder'] ?? '',
         'keywords_selected' => $serendipity['GET']['keywords'] ?? '',
-        'filter'            => $serendipity['GET']['filter'] ?? null,/* NIL or array() ?? (media_toolbar.tpl) */
+        'filter'            => $serendipity['GET']['filter'] ?? null,/* NIL or array() (media_toolbar.tpl) */
         'sort_order'        => $order_fields,
         'simpleFilters'     => $displayGallery ? false : ($serendipity['simpleFilters'] ?? true),
         'metaActionBar'     => ($serendipity['GET']['adminAction'] != 'properties' && empty($serendipity['GET']['fid'])),
@@ -4767,7 +4767,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
 
             serendipity_updateImageInDatabase(array('thumbnail_name' => $renameValues[0]['thumb'], 'realname' => $newName . (empty($file['extension']) ? '' : '.' . $file['extension']), 'name' => $newName), $item_id);
 
-            // Forward user to overview (we don't want the user's back button to rename things again) ?? What does this do? Check!!!
+            // Forward user to overview (we don't want the user's back button to rename things again)
         }
 
         // Case Move or Bulkmove event
