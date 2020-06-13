@@ -1053,7 +1053,7 @@
 @define('RESET_FILTERS', 'Filter entfernen');
 @define('UPDATE_FAILMSG', 'Update-Check für neue Serendipity-Version fehlgeschlagen. Das kann passieren wenn die URL %s nicht erreichbar ist, der Server ausgehende Verbindungen verhindert oder es andere Verbindungsprobleme gibt.');
 @define('UPDATE_FAILACTION', 'Automatischen Update-Check deaktivieren');
-@define('UPDATE_NOTIFICATION_DESC', 'Sollen Update-Checks im Dashboard angezeigt werden, und wenn ja für welche Versionen?');
+@define('UPDATE_NOTIFICATION_DESC', 'Sollen Update-Checks auf der Backend Startseite angezeigt werden, und wenn ja für welche Versionen?');
 @define('FRONTEND', 'Frontend');
 @define('BACKEND', 'Backend');
 @define('MEDIA_UPLOAD_RESIZE', 'Vor dem Upload Größe anpassen');
@@ -1123,8 +1123,8 @@
 @define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein Präfix verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden einzigartigen ASCII-Namen ändern, aber nicht komplett entfernen. Dies gilt für alle Pfad-Präfix Definitionen.');
 
 @define('HIDE_SUBDIR_FILES', 'Ohne Dateien von Unterverzeichnissen');
-@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Dashboard Standard-Widgets anzeigen?');
-@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Zeige voreingestellte und fest eingebaute Dashboard widgets, wie gepeicherte Entwurfs-Einträge und letzte Kommentare.');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Backend-Startseite Standard-Widgets anzeigen?');
+@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Zeige voreingestellte und fest eingebaute Startseiten-Widgets, wie gepeicherte Entwurfs-Einträge und letzte Kommentare.');
 
 @define('UPDATE_NOTIFICATION_URL', 'Update-RELEASE-Datei URL');
 @define('UPDATE_NOTIFICATION_URL_DESC', 'Dies ist Styx! Bitte nur ändern, wenn Sie eine andere Ankündigungs-Datei für benutzerdefinierte System Downloads, in Kombination mit dem Serendipity Autoupdate Plugin, erstellen wollen. Die Standard-URL für die Original Serendipity RELEASE-Datei wäre dann: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE". Eine solche Datei enthält die Versionsnummern der aktuell freigegebenen (stable/beta) Veröffentlichung für das Autoupdate Plugin; zB. "stable:5.3.0".');
