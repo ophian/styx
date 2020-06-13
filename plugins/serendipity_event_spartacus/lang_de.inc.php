@@ -61,5 +61,5 @@
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR', 'FTP Serendipity Verzeichnis');
 @define('PLUGIN_EVENT_SPARTACUS_FTP_BASEDIR_DESC', 'Beim Login über FTP ist das Startverzeichnis nicht notwendigerweise das Serendipity-Verzeichnis. In diesem Fall ist es hier möglich, den Pfad vom FTP-Verzeichnis zum Serendipity-Verzeichnis anzugeben.');
 
-@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Bei Aufruf dieser Seite erneuerter String: "%s%s". Kopieren Sie diese "gehashte" Zeichenkette (ohne ""), um sie zusammen mit dem serendipity_event_plugup Plugin für einen "Dashboard"-Check-Plugin-Update Hinweis zu nutzen. Erlauben Sie dafür obige Fernabfrage Option. Solch eine Seite enthält, im Gegensatz zu der originalen "spartacus_remote" Zeichenkette, keine nennenswert zu schützende Information, außer der, dass ganz allgemein Plugin Updates vorliegen.)');
+@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Bei Aufruf dieser Seite erneuerter String: "%s%s". Kopieren Sie diese "gehashte" Zeichenkette (ohne ""), um sie zusammen mit dem serendipity_event_plugup Plugin für einen Plugin-Update Hinweis zu nutzen. Erlauben Sie dafür obige Fernabfrage Option. Solch eine Seite enthält, im Gegensatz zu der originalen "spartacus_remote" Zeichenkette, keine nennenswert zu schützende Information, außer der, dass ganz allgemein Plugin Updates vorliegen.)');
 
