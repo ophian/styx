@@ -1,6 +1,8 @@
 Version 3.0.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Add installer list required openSSL version (check)
+
   * Fixup installer list PHP version label to 7.3
 
   * Fix wrong cookie assignment condition for addmedia lastdir directory
