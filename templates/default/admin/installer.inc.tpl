@@ -104,6 +104,10 @@
                             <td>{$installerResultDiagnose_OPENSSL}</td>
                         </tr>
                         <tr>
+                            <td>OpenSSL version >= 1.1.1d</td>
+                            <td>{$installerResultDiagnose_OPENSSL_version|default:'-'}</td>
+                        </tr>
+                        <tr>
                             <td>mbstring extension</td>
                             <td>{$installerResultDiagnose_MBSTR}</td>
                         </tr>

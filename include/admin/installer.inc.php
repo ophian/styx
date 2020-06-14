@@ -188,6 +188,11 @@ if ((int)$serendipity['GET']['step'] == 0) {
 
     if (extension_loaded('openssl')) {
         $data['installerResultDiagnose_OPENSSL'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+        if (OPENSSL_VERSION_NUMBER >= 269488207) {
+            $data['installerResultDiagnose_OPENSSL_version'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
+        } else {
+            $data['installerResultDiagnose_OPENSSL_version'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
+        }
     } else {
         $data['installerResultDiagnose_OPENSSL'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
