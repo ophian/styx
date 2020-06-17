@@ -761,18 +761,17 @@ function serendipity_upgrader_move_syndication_config() {
     foreach($optionsToPort AS $oldPluginOption => $newGeneralOption) {
         $value = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%{$oldPluginOption}'", true);
         if (is_array($value)) {
-            $value = $value[0];
+            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}config (name, value) VALUES ('$newGeneralOption', '". serendipity_db_escape_string($value[0]) ."')");
         }
-        serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}config(name, value) VALUES ('$newGeneralOption', '". serendipity_db_escape_string($value) ."')");
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%{$oldPluginOption}'");
     }
 
-    $fbid = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%fb_id'");
+    $fbid = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%fb_id'", true);
     $show_feedburner = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%show_feedburner'");
     if ($show_feedburner == 'force') {
-        if (!empty($fbid)) {
-            $fburl = 'http://feeds.feedburner.com/' . $fbid;
-            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}config(name, value) VALUES ('feedCustom', '" . serendipity_db_escape_string($fburl) ."')");
+        if (!empty($fbid[0])) {
+            $fburl = 'http://feeds.feedburner.com/' . $fbid[0];
+            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}config (name, value) VALUES ('feedCustom', '" . serendipity_db_escape_string($fburl) ."')");
         }
     }
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%show_feedburner'");
