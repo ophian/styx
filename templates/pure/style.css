@@ -819,12 +819,6 @@ nav.pager ul {
     .post_content blockquote {
         border-left: 5px solid #ccc;
         padding-left: 1em; }
-@media screen and (min-width: 1024px) {
-    #content {
-        display: block;
-        min-width: 33.3em;
-        max-width: 100%; }
-}
 .serendipity_title {
     font-family: Verdana, Arial, Geneva, Helvetica, sans-serif;
     font-size: .938rem;
@@ -1733,15 +1727,15 @@ div.serendipityPlug a {
         max-width: 75%; }
 }
 @media screen and (min-width: 1024px) {
-.page .serendipity_imageComment_left,
-.page .serendipity_imageComment_right,
-.page p .serendipity_image_left,
-.page p .serendipity_image_right,
-.post .serendipity_imageComment_left,
-.post .serendipity_imageComment_right,
-.post p .serendipity_image_left,
-.post p .serendipity_image_right {
-    max-width: 46.75%; }
+    .page .serendipity_imageComment_left,
+    .page .serendipity_imageComment_right,
+    .page p .serendipity_image_left,
+    .page p .serendipity_image_right,
+    .post .serendipity_imageComment_left,
+    .post .serendipity_imageComment_right,
+    .post p .serendipity_image_left,
+    .post p .serendipity_image_right {
+        max-width: 46.75%; }
 }
 @media screen and (min-width: 1440px) {
     .page .serendipity_imageComment_left,
@@ -1870,20 +1864,33 @@ div.serendipityPlug a {
     font-size: calc(.235rem + 1vw); /* sizes SMALL SCREENS text responsively from 14px to 15.95px; */
   }
   body {
-    display: flex;
     width: 100%;
     margin: 0 auto; }
-    /* two sidebars */
+    /* two sidebars - 3 implicit cols */
     body.grid-col {
+      display: flex;
       grid-template-rows: initial; }
-    /* no OR one sidebar */
+    /* no OR one sidebar - flexible cols */
     /* chrome workaround */
     body.grid-flex {
-      grid-template-rows: auto 1fr; }
+      display: grid;
+      grid-gap: 1em;
+      grid-template-columns: auto auto auto;
+      grid-template-areas:  "hd hd hd"
+                            "lft main rht"
+                            "ft ft ft"; }
+    body.grid-flex #serendipity_banner {
+      grid-area: hd; }
+    body.grid-flex #serendipityLeftSideBar {
+      grid-area: lft; }
     body.grid-flex #content {
-      margin: 1em 1em 0;
-      width: 98.5%;
-      min-width: 67vw; }
+      margin: 0;
+      width: 100%;
+      grid-area: main; }
+    body.grid-flex #serendipityRightSideBar {
+      grid-area: rht; }
+    body.grid-flex #footer {
+      grid-area: ft; }
     /* no sidebars */
     body.grid-block #content {
       margin: 1em 1em 0;
@@ -1891,6 +1898,7 @@ div.serendipityPlug a {
   /* set section grid */
   section.grid {
     display: inline-grid;
+    grid-gap: 1em;
     grid-template-columns: 280px 1fr 280px;
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "left content right"; }
@@ -1900,15 +1908,18 @@ div.serendipityPlug a {
       grid-area: right; }
     section.grid main {
       grid-area: content; }
+    section.grid aside {
+      margin-top: 1em; }
+  #content {/* for all grids - keeps content flexible! */
+    min-width: 33.3em; }
   #serendipityLeftSideBar {
-    margin: 1em auto 1em 1em; }
+    margin-left: 1em; }
   #serendipityRightSideBar {
-    margin: 1em 1em 1em auto; }
+    margin-right: 1em; }
   #serendipityLeftSideBar,
   #serendipityRightSideBar {
     display: initial;
-    width: auto;
-    margin: 1em 1em 0; }
+    width: auto; }
   .grid-flex #serendipityLeftSideBar,
   .grid-flex #serendipityRightSideBar {
     width: 280px; }
@@ -1967,11 +1978,4 @@ div.serendipityPlug a {
     max-width: initial; }
   #navbar ul li.navsearch {
     margin-right: 1em; }
-}
-
-@media screen and (min-width: 1400px) {
-  body.grid-flex #content {
-    width: 98.75%;
-    max-width: 99%;
-    min-width: 75.5vw;  }
 }
