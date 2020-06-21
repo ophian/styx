@@ -1838,7 +1838,7 @@ function serendipity_printArchives() {
     }
 
     // check group and ACL permissions for the counter to exclude certain group restricted entries
-    if (empty($cat_get) && !isset($serendipity['enableACL']) || $serendipity['enableACL'] == true) {
+    if (empty($cat_get) && (!isset($serendipity['enableACL']) || $serendipity['enableACL'] == true)) {
         if (empty($distinct)) {
             $distinct = 'DISTINCT';
         }
