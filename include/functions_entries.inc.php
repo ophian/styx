@@ -1837,6 +1837,21 @@ function serendipity_printArchives() {
         $cond['joins'] = '';
     }
 
+    // check group and ACL permissions for the counter to exclude certain group restricted entries
+    if (empty($cat_get) && !isset($serendipity['enableACL']) || $serendipity['enableACL'] == true) {
+        if (empty($distinct)) {
+            $distinct = 'DISTINCT';
+        }
+        // Category joins are REQUIRED when the ACLs are enabled.
+        $cond['joins'] = "
+                    LEFT JOIN {$serendipity['dbPrefix']}entrycat ec
+                           ON e.id = ec.entryid
+                    LEFT JOIN {$serendipity['dbPrefix']}category c
+                           ON ec.categoryid = c.categoryid";
+        serendipity_ACL_SQL($cond);
+        $cond['and'] = str_replace('WHERE', 'AND', $cond['and']);
+    }
+
     $q = "SELECT $distinct e.timestamp
             FROM {$serendipity['dbPrefix']}entries e
             {$cond['joins']}
