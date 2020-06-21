@@ -14,7 +14,7 @@ class serendipity_plugin_archives extends serendipity_plugin
         $propbag->add('description',   BROWSE_ARCHIVES);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team, Ian Styx');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.5');
         $propbag->add('configuration', array('title', 'frequency', 'count', 'show_count', 'hide_zero_count'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -209,7 +209,7 @@ class serendipity_plugin_archives extends serendipity_plugin
                 echo '    <li><a href="' . $serendipity['GET']['subpage'] . '">' . RECENT. "</a></li>\n";
         } else
             // find category sub (month) view
-            if (isset($args) && isset($base_query) && $base_query == $args[count($args)-1]) {
+            if (!empty($args) && isset($base_query) && $base_query == $args[count($args)-1]) {
                 echo '    <li><a href="' . serendipity_rewriteURL(PATH_ARCHIVES . '/' . $base_query . '.html') . '">' . RECENT. "</a></li>\n";
         } else {
             // set blogs frontpage
