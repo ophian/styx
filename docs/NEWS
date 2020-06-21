@@ -1,6 +1,8 @@
 Version 3.0.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Extend the printArchives() counter to exclude group restricted entries
+
   * Fix undefined index fetching sub categories in plugin archives
 
   * Improve "dude" theme using a 8-column grid on desktop sizes,
