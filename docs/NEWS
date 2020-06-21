@@ -1,6 +1,8 @@
 Version 3.0.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix undefined index fetching sub categories in plugin archives
+
   * Improve "dude" theme using a 8-column grid on desktop sizes,
     replacing the floats.
 
