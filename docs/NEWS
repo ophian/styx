@@ -7,7 +7,7 @@ Version 3.0.2-DEV ()
 
   * Fix undefined index fetching sub categories in plugin archives
 
-  * Improve "dude" theme using a 8-column grid on desktop sizes,
+  * Improve "dude" theme using a 8-column CSS3 grid on desktop sizes,
     replacing the floats.
 
   * Fix "pure" (2020) standard theme regression for all lower 2-sidebar
