@@ -1,6 +1,8 @@
 Version 3.0.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Update minor CKEditor 4.14.1 assets release
+
   * Extend the printArchives() counter to exclude group restricted entries
 
   * Fix undefined index fetching sub categories in plugin archives
