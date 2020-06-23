@@ -96,7 +96,7 @@
         <p lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
     </footer>
 
-{if $template_option.use_corenav === true}
+{if $template_option.use_corenav === true || $template_option.use_corenav == ''}
 
     <footer id="menubar_mobile">
         <nav id="menu" >
