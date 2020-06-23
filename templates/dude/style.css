@@ -169,7 +169,7 @@ body.save_preview_body {
 .grid, .grid-col {
     width: 100%;
     margin: 0 auto;
-    height: 100%;
+    height: 100vh;
     display: block;
     background: initial;
 }
@@ -197,7 +197,6 @@ body.save_preview_body {
 #content {
     background-color: #eef3f7;
     width: 100%;
-    height: 100%;
 }
 
 #serendipityLeftSideBar {
@@ -218,6 +217,7 @@ body.save_preview_body {
 
 #content {
     padding: 0;
+    min-height: 184px;
 }
 
 #serendipityLeftSideBar,
@@ -234,6 +234,12 @@ body.save_preview_body {
     min-width: 10em;
 }
 
+@media only screen and (min-width: 768px) {
+    #content {
+      min-height: 596px;
+    }
+}
+
 /* Flex Column Layout - mainly 2 */
 @media only screen and (min-width: 860px) {
     #content, #serendipityLeftSideBar, #serendipityRightSideBar {
@@ -241,12 +247,13 @@ body.save_preview_body {
     }
     /* 1 or no sidebar */
     #wrap.grid {
-        background-color: #e3e9ee;
-        display: grid;
-        grid-template-columns: repeat(8, auto);
-        grid-template-areas:  "head head head head head head head head"
-                              "left main main main main main main right"
-                              "foot foot foot foot foot foot foot foot";
+      background-color: #e3e9ee;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas:  "head head head"
+                            "left main right"
+                            "foot foot foot";
+      grid-template-rows: minmax(8em,auto) repeat(auto-fill,100%) 0;
     }
     #wrap.grid #serendipity_banner {
       grid-area: head;
@@ -267,6 +274,7 @@ body.save_preview_body {
       left: initial;
       margin: 0;
       width: 100%;
+      min-height: 260px;
       grid-area: main;
     }
     #wrap.grid #serendipityRightSideBar {
