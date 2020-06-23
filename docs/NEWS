@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve "pure" (2020) theme for unconfigured explorations and for the
+    expanding grid on fresh installs without having any content yet.
 
 
 Version 3.0.2 (June, 22th 2020)
