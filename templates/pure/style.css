@@ -1875,10 +1875,11 @@ div.serendipityPlug a {
     body.grid-flex {
       display: grid;
       grid-gap: 1em;
-      grid-template-columns: auto auto auto;
+      grid-template-columns: auto 1fr auto;
       grid-template-areas:  "hd hd hd"
                             "lft main rht"
-                            "ft ft ft"; }
+                            "ft ft ft";
+      grid-template-rows: repeat(auto-fill, 100%); }
     body.grid-flex #serendipity_banner {
       grid-area: hd; }
     body.grid-flex #serendipityLeftSideBar {
@@ -1899,7 +1900,7 @@ div.serendipityPlug a {
   section.grid {
     display: inline-grid;
     grid-gap: 1em;
-    grid-template-columns: 280px 1fr 280px;
+    grid-template-columns: minmax(auto, 280px) 1fr minmax(auto, 280px);
     grid-template-rows: auto 1fr auto;
     grid-template-areas: "left content right"; }
     section.grid aside:first-child {
