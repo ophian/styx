@@ -17,7 +17,7 @@ Version 3.0.2 (June, 22th 2020)
 
   * Fix undefined index fetching sub categories in plugin archives
 
-  * Improve "dude" theme using a 8-column CSS3 grid on desktop sizes,
+  * Improve "dude" theme using a CSS3 grid on desktop sizes,
     replacing the floats.
 
   * Fix "pure" (2020) standard theme regression for all lower 2-sidebar
