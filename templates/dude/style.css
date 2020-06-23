@@ -253,7 +253,7 @@ body.save_preview_body {
       grid-template-areas:  "head head head"
                             "left main right"
                             "foot foot foot";
-      grid-template-rows: minmax(8em,auto) repeat(auto-fill,100%) 0;
+      grid-template-rows: 8em max-content auto;
     }
     #wrap.grid #serendipity_banner {
       grid-area: head;
@@ -266,6 +266,10 @@ body.save_preview_body {
       left: initial;
       float: initial;
       width: auto;
+    }
+    #wrap.grid #serendipityLeftSideBar,
+    #wrap.grid #serendipityRightSideBar {
+      max-width: 14em;
     }
     #wrap.grid #serendipityLeftSideBar {
       grid-area: left;
