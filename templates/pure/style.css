@@ -396,11 +396,9 @@ body {
     grid-column: span 3;
 }
 #content {
-    flex: 1;
     width: 100%;
     margin: 0 auto 0;
     padding: .5em 1em;
-    vertical-align: top;
     background-color: #FFF;
 }
 #serendipityLeftSideBar,
@@ -1843,6 +1841,10 @@ div.serendipityPlug a {
 
 /* For MIDDLE SCREENS above */
 @media screen and (min-width: 768px) {
+  body {
+    min-height: initial; }
+  #content {
+    min-height: 6em; }
   .form_field input, .form_field select, .form_select input, .form_select select {
     max-width: 400px;
     max-width: 25rem; }
@@ -1865,7 +1867,6 @@ div.serendipityPlug a {
   }
   body {
     width: 100%;
-    min-height: initial;
     margin: 0 auto; }
     /* two sidebars - 3 implicit cols */
     body.grid-col {
@@ -1921,6 +1922,7 @@ div.serendipityPlug a {
   #serendipityLeftSideBar,
   #serendipityRightSideBar {
     display: initial;
+    min-height: 67vh;
     width: auto; }
   .grid-flex #serendipityLeftSideBar,
   .grid-flex #serendipityRightSideBar {
