@@ -414,9 +414,9 @@ body {
 #footer {
     grid-column: span 3;
     text-align: center;
-    width: 100%;
-    display: none; /*default mobile status*/
-}
+    width: 100%; }
+    #footer p {
+      visibility: hidden; }
 
 #serendipityRightSideBar .sidebar_widget,
 #serendipityLeftSideBar .sidebar_widget {
@@ -687,8 +687,8 @@ nav.pager ul {
 }
 /* reset the mobile hamburger styles */
 @media screen and (min-width:640px) {
-    #footer {
-        display: initial;
+    #footer p {
+        visibility: visible;
     }
     #menubar_mobile {
         display: none;
