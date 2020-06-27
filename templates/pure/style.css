@@ -1881,7 +1881,7 @@ div.serendipityPlug a {
       grid-template-areas:  "hd hd hd"
                             "lft main rht"
                             "ft ft ft";
-      grid-template-rows: repeat(auto-fill, 100%); }
+      grid-template-rows: auto; }
     body.grid-flex #serendipity_banner {
       grid-area: hd; }
     body.grid-flex #serendipityLeftSideBar {
