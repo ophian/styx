@@ -295,6 +295,9 @@ body.save_preview_body {
         background-color: #e3e9ee;
         display: flow-root;
     }
+    #wrap.grid-col #content {
+        min-height: 82vh;
+    }
     #content {
         width: 75%;
         float: left;
@@ -328,7 +331,7 @@ body.save_preview_body {
         background-color: #666;
     }
     #wrap.grid-col {
-        width: 96%;
+        width: 96vw;/* 96% is not good enough for current FF */
         height: 100%;
         margin: 2% auto 0;
         background-color: #e3e9ee;
