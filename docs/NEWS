@@ -6,7 +6,7 @@ Version 3.1.0-DEV ()
   * Improve "dude" theme expanding grid for fresh installs without having
     any content yet.
 
-  * Improve "pure" (2020) theme for unconfigured explorations and for the
+  * Improve both "pure" themes for unconfigured explorations and for the
     expanding grid on fresh installs without having any content yet.
 
 
