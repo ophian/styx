@@ -22,7 +22,7 @@
                     <ul>
                         <li>
                             <b>Manuelle Einstellungen</b><br>
-                            <span><em>Durch die Nutzung der globalen &#187;&nbsp;$serendipity&nbsp;&#171; Variable gibt es des Weiteren die Möglichkeit <u>bestimmte</u> Standard Einstellungen zu überschreiben. Welche das sind, lesen Sie bitte <a href="https://ophian.github.io/hc/en/code-primer.html#docs-initializing-the-framework-serendipity_configincphp-and-serendipity_config_localincphp" target="_blank">hier</a>, in der Styx Dokumentation, nach. Nicht alle dort genannten Variablen sind wirklich <u>nur</u> auf diese Weise manuell zu setzen, da einige auch in den Konfigurationsoptionen zu finden sind. Allgemein sollten nur Nutzer mit ein wenig Erfahrung diese manuelle Erweiterungsmöglichkeit nutzen.</em></span>
+                            <span><em>Durch die Nutzung der globalen &#187;&nbsp;$serendipity&nbsp;&#171; Variable gibt es des Weiteren die Möglichkeit <u>bestimmte</u> Standard Einstellungen zu überschreiben. Welche das sind, lesen Sie bitte <a href="https://ophian.github.io/hc/en/code-primer.html#docs-initializing-the-framework-serendipity_configincphp-step-by-step-guide" target="_blank" rel="noopener">Help Center</a></em>.</span>, in der Styx Dokumentation, nach. Nicht alle dort genannten Variablen sind wirklich <u>nur</u> auf diese Weise manuell zu setzen, da einige auch in den Konfigurationsoptionen zu finden sind. Allgemein sollten nur Nutzer mit ein wenig Erfahrung diese manuelle Erweiterungsmöglichkeit nutzen.</em></span>
                         </li>
                     </ul>
                 </li>
@@ -35,6 +35,6 @@
                 </li>
                 <li>
                     <b>VII. Styx Ratgeber:</b><br>
-                    <span><em>Lesen Sie die wichtige Styx Upgrade Dokumentation und den &#187;hitchhikers "upgrade" guide&#171; für das Styx Backend im Styx Webseite <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank">Help Center</a></em>.</span>
+                    <span><em>Lesen Sie die wichtige Styx Upgrade Dokumentation und den &#187;hitchhikers "upgrade" guide&#171; für das Styx Backend im Styx Webseite <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a></em>.</span>
                 </li>
             </ol>

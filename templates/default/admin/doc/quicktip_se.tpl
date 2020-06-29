@@ -22,7 +22,7 @@
                     <ul>
                         <li>
                             <b>Manually controlled options</b><br>
-                            <span><em>Since using the global &#187;&nbsp;$serendipity&nbsp;&#171; variable, you can also overwrite <u>certain</u> standard options in your &#187;serendipity_config_local.inc.php&#171; file. For a comprehensive list, see <a href="https://ophian.github.io/hc/en/code-primer.html#docs-initializing-the-framework-serendipity_configincphp-and-serendipity_config_localincphp" target="_blank">here</a> in the Styx documentation. Not all mentioned variables in there may <u>only</u> be set manually, since some of them are found better in the global configurations. You should only use this potential with a little knowledge and experience of your blog.</em></span>
+                            <span><em>Since using the global &#187;&nbsp;$serendipity&nbsp;&#171; variable, you can also overwrite <u>certain</u> standard options in your &#187;serendipity_config_local.inc.php&#171; file. For a comprehensive list, see <a href="https://ophian.github.io/hc/en/code-primer.html#docs-initializing-the-framework-serendipity_configincphp-and-serendipity_config_localincphp" target="_blank" rel="noopener">here</a> in the Styx documentation. Not all mentioned variables in there may <u>only</u> be set manually, since some of them are found better in the global configurations. You should only use this potential with a little knowledge and experience of your blog.</em></span>
                         </li>
                     </ul>
                 </li>
@@ -35,6 +35,6 @@
                 </li>
                 <li>
                     <b>VII. Styx Guide:</b><br>
-                    <span><em>Read the important Styx Upgrade Documentation and the hitchhikers guide to the Styx Backend in the Serendipity Styx Website <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank">Help Center</a></em>.</span>
+                    <span><em>Read the important Styx Upgrade Documentation and the hitchhikers guide to the Styx Backend in the Serendipity Styx Website <a href="https://ophian.github.io/hc/en/installation.html#user-content-the-important-upgraders-howto---step-by-step-guide" target="_blank" rel="noopener">Help Center</a></em>.</span>
                 </li>
             </ol>

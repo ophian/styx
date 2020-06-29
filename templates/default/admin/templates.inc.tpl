@@ -211,7 +211,7 @@
                     </div>
 
                     <button class="template_show_info button_link" type="button" data-href="#template_info_{$key}" title="{$CONST.TEMPLATE_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TEMPLATE_INFO}</span></button>
-                    {if !empty($template.demoURL)}<a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>{/if}
+                    {if !empty($template.demoURL)}<a class="demo_link button_link" href="{$template.demoURL}" title="{$CONST.THEMES_PREVIEW_BLOG}" target="_blank" rel="noopener"><span class="icon-search" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.THEMES_PREVIEW_BLOG}</span></a>{/if}
                 {if !isset($template.unmetRequirements)}
                     {if isset($template.info.custom_admin_interface) AND $template.info.custom_admin_interface == $CONST.YES AND $cur_tpl_backend.info.name != $template.info.name}
 
