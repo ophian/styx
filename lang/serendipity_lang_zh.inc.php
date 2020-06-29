@@ -592,7 +592,7 @@
 @define('INSTALL_SHOWFUTURE', '显示未来文章');
 @define('INSTALL_SHOWFUTURE_DESC', '如果打开, 系统将会显示未来发表的文章，预设是设定未来文章隐藏，然后到发布日自动显示。');
 @define('INSTALL_DBPERSISTENT', '使用持续连接');
-@define('INSTALL_DBPERSISTENT_DESC', '对数据库使用持续连接, 详情参阅 <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">这里</a>，通常不建议使用。');
+@define('INSTALL_DBPERSISTENT_DESC', '对数据库使用持续连接, 详情参阅 <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">这里</a>，通常不建议使用。');
 @define('NO_IMAGES_FOUND', '找不到文件');
 @define('PERSONAL_SETTINGS', '个人设置');
 @define('REFERER', '来源');

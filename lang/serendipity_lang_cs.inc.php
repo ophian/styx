@@ -601,7 +601,7 @@ $i18n_filename_to = array (
 @define('INSTALL_SHOWFUTURE', 'Zobrazit budoucí záznamy');
 @define('INSTALL_SHOWFUTURE_DESC', 'Tato volba umožní zobrazení budoucích záznamù blogu. Defaultnì jsou skryté a budou zobrazeny až v èase jejich vydání.');
 @define('INSTALL_DBPERSISTENT', 'Použít trvalé pøipojení');
-@define('INSTALL_DBPERSISTENT_DESC', 'Umožnit trvalé pøipojení k databázi, více <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">zde</a>. Bìžnì to není doporuèeno');
+@define('INSTALL_DBPERSISTENT_DESC', 'Umožnit trvalé pøipojení k databázi, více <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">zde</a>. Bìžnì to není doporuèeno');
 @define('NO_IMAGES_FOUND', 'Žádné obrázky');
 @define('PERSONAL_SETTINGS', 'Osobní nastavení');
 @define('REFERER', 'Odbìratel');

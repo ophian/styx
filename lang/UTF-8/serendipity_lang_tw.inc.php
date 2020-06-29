@@ -592,7 +592,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_SHOWFUTURE', '顯示未來文章');
 @define('INSTALL_SHOWFUTURE_DESC', '如果開啟, 您的網誌將會顯示所有的未來文章. 預設的設定是將未來文章隱藏, 然後發佈日期到時自動顯示.');
 @define('INSTALL_DBPERSISTENT', '使用持續連線');
-@define('INSTALL_DBPERSISTENT_DESC', '對資料庫使用持續連線, 詳情請到 <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">這裡</a>. 通常並不建議使用');
+@define('INSTALL_DBPERSISTENT_DESC', '對資料庫使用持續連線, 詳情請到 <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">這裡</a>. 通常並不建議使用');
 @define('NO_IMAGES_FOUND', '找不到圖片');
 @define('PERSONAL_SETTINGS', '個人設定');
 @define('REFERER', '來源');

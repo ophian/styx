@@ -592,7 +592,7 @@
 @define('INSTALL_SHOWFUTURE', 'ÃÚÑÖ ÇבדזÇÖםÚ ÇבדÓÊÞÈבםÉ');
 @define('INSTALL_SHOWFUTURE_DESC', 'Çה Êד Êד‗םה וÐÇ ÝÅהו ÓזÝ םÚÑÖ דÓÊÞÈבÇ ÌדםÚ דזÇÖםÚ ÇבדÌבÉ. ÇבÎםÇÑ ÇבÇÝÊÑÇÖם וז ÅÎÝÇÁ ÇבדזÇÖםÚ ז ÊÚÑÖ ÝÞØ ÚהÏ ÊÇÑםÎ ÇבהÔÑ');
 @define('INSTALL_DBPERSISTENT', 'ÃÓÊÎÏÇד ÇבÇÊÈÇØ ÇבÍÇבם');
-@define('INSTALL_DBPERSISTENT_DESC', 'Êד‗ה ÇÓÊÎÏÇד ÇבÇÊÕÇב ÇבÏÇÆד בÞÇÚÏÉ ÇבÈםÇהÇÊ. םד‗ה‗ ÞÑÇÁÉ ÇבדÒםÏ והÇ <a href="http://php.net/manual/features.persistent-connections.php" target="_blank"> והÜÜÇ </a> םהÕÍ ÈוÐÇ ÇבÇÌÑÇÁ');
+@define('INSTALL_DBPERSISTENT_DESC', 'Êד‗ה ÇÓÊÎÏÇד ÇבÇÊÕÇב ÇבÏÇÆד בÞÇÚÏÉ ÇבÈםÇהÇÊ. םד‗ה‗ ÞÑÇÁÉ ÇבדÒםÏ והÇ <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank"> והÜÜÇ </a> םהÕÍ ÈוÐÇ ÇבÇÌÑÇÁ');
 @define('NO_IMAGES_FOUND', 'בד םÊד ÇבÚËזÑ Úבל ÇבÕזÑÉ');
 @define('PERSONAL_SETTINGS', 'ÇבÇÚÏÇÏÇÊ ÇבÔÎÕםÉ');
 @define('REFERER', 'םÔםÑ Åבל');

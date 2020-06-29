@@ -592,7 +592,7 @@
 @define('INSTALL_SHOWFUTURE', 'أعرض المواضيع المستقبلية');
 @define('INSTALL_SHOWFUTURE_DESC', 'ان تم تمكين هذا فإنه سوف يعرض مستقبلا جميع مواضيع المجلة. الخيار الافتراضي هو إخفاء المواضيع و تعرض فقط عند تاريخ النشر');
 @define('INSTALL_DBPERSISTENT', 'أستخدام الاتباط الحالي');
-@define('INSTALL_DBPERSISTENT_DESC', 'تمكن استخدام الاتصال الدائم لقاعدة البيانات. يمكنك قراءة المزيد هنا <a href="http://php.net/manual/features.persistent-connections.php" target="_blank"> هنــا </a> ينصح بهذا الاجراء');
+@define('INSTALL_DBPERSISTENT_DESC', 'تمكن استخدام الاتصال الدائم لقاعدة البيانات. يمكنك قراءة المزيد هنا <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank"> هنــا </a> ينصح بهذا الاجراء');
 @define('NO_IMAGES_FOUND', 'لم يتم العثور على الصورة');
 @define('PERSONAL_SETTINGS', 'الاعدادات الشخصية');
 @define('REFERER', 'يشير إلى');

@@ -589,7 +589,7 @@
 @define('INSTALL_SHOWFUTURE', 'Show future entries');
 @define('INSTALL_SHOWFUTURE_DESC', 'If enabled, this will show all entries in the future on your blog. Default is to hide those entries and only show them if the publish date has arrived.');
 @define('INSTALL_DBPERSISTENT', 'Use persistent connections');
-@define('INSTALL_DBPERSISTENT_DESC', 'Enable the usage of persistent database connections, read more <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">here</a>. This is normally not recommended');
+@define('INSTALL_DBPERSISTENT_DESC', 'Enable the usage of persistent database connections, read more <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">here</a>. This is normally not recommended');
 @define('NO_IMAGES_FOUND', 'வலைபொருள் ஏதுமில்லை');
 @define('PERSONAL_SETTINGS', 'உங்கள் நிலைகள்');
 @define('REFERER', 'மேற்கோள்');

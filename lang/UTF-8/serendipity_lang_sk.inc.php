@@ -601,7 +601,7 @@ $i18n_filename_to = array (
 @define('INSTALL_SHOWFUTURE', 'Zobraziť budúce články');
 @define('INSTALL_SHOWFUTURE_DESC', 'Toto nastavenie zapne zobrazenie budúcích článkov weblogu. Štandardne sú skryté a budú zobrazené až v čase ich vydania.');
 @define('INSTALL_DBPERSISTENT', 'Použiť trvalé pripojenie');
-@define('INSTALL_DBPERSISTENT_DESC', 'Zapnúť trvalé pripojenie do databázy, viac informácií nájdete <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">tu</a>. Nastavenie neodporúčame.');
+@define('INSTALL_DBPERSISTENT_DESC', 'Zapnúť trvalé pripojenie do databázy, viac informácií nájdete <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">tu</a>. Nastavenie neodporúčame.');
 @define('NO_IMAGES_FOUND', 'Žiadne obrázky');
 @define('PERSONAL_SETTINGS', 'Osobné nastavenia');
 @define('REFERER', 'Odkazujúca stránka');

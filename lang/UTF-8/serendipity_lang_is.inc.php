@@ -589,7 +589,7 @@
 @define('INSTALL_SHOWFUTURE', 'Sýna framtíðarfærslur');
 @define('INSTALL_SHOWFUTURE_DESC', 'Ef virkt, mun þetta sýna allar færslur sem þú sendir inn í framtíðinni á bloggið. Sjálfgefið er að fela þær þar til að birtingardagsetningin er komin.');
 @define('INSTALL_DBPERSISTENT', 'Viðhalda tengingum?');
-@define('INSTALL_DBPERSISTENT_DESC', 'Virkja notkun langlífra tenginga í gagnagrunn, lesa meira <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">hér</a>. Að jafnaði mælum við ekki með þessu');
+@define('INSTALL_DBPERSISTENT_DESC', 'Virkja notkun langlífra tenginga í gagnagrunn, lesa meira <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">hér</a>. Að jafnaði mælum við ekki með þessu');
 @define('NO_IMAGES_FOUND', 'Engar myndir fundust');
 @define('PERSONAL_SETTINGS', 'Persónulegar stillingar');
 @define('REFERER', 'Ávísari');

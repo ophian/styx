@@ -590,7 +590,7 @@
 @define('INSTALL_SHOWFUTURE', 'Arată însemnările cu data în viitor');
 @define('INSTALL_SHOWFUTURE_DESC', 'Dacă este activată, această opţiune va permite afişarea tuturor însemnărilor cu data în viitor în acest blog. Opţiunea implicită este să menţin însemnările cu data în viitor ascunse şi să le afişez doar când s-a ajuns la data publicării.');
 @define('INSTALL_DBPERSISTENT', 'Foloseşte conexiuni persistente');
-@define('INSTALL_DBPERSISTENT_DESC', 'Permite folosirea conexiunilor persistente la baza de date, citeşte mai multe <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">aici</a>. Nu recomandăm această opţiune');
+@define('INSTALL_DBPERSISTENT_DESC', 'Permite folosirea conexiunilor persistente la baza de date, citeşte mai multe <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">aici</a>. Nu recomandăm această opţiune');
 @define('NO_IMAGES_FOUND', 'Nu am găsit nici o imagine');
 @define('PERSONAL_SETTINGS', 'Opţiuni Personale');
 @define('REFERER', 'Referent');

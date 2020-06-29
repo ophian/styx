@@ -587,7 +587,7 @@
 @define('INSTALL_SHOWFUTURE', 'Vis fremtidige artikler');
 @define('INSTALL_SHOWFUTURE_DESC', 'Hvis aktiveret, dette vil vise alle fremtidige artikler på din blog. Som standard skjules disse artikler og vises først når udgivelsesdatoen er nået.');
 @define('INSTALL_DBPERSISTENT', 'Brug vedvarende forbindelser');
-@define('INSTALL_DBPERSISTENT_DESC', 'Aktiver brug af vedvarende database forbindelser, læs mere <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">her</a>. Dette anbefales normalt ikke');
+@define('INSTALL_DBPERSISTENT_DESC', 'Aktiver brug af vedvarende database forbindelser, læs mere <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">her</a>. Dette anbefales normalt ikke');
 @define('NO_IMAGES_FOUND', 'Ingen billeder fundet');
 @define('PERSONAL_SETTINGS', 'Personlige indstillinger');
 @define('REFERER', 'Henvisende side');

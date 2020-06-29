@@ -604,7 +604,7 @@
 @define('INSTALL_SHOWFUTURE', 'Mostrar entradas futuras');
 @define('INSTALL_SHOWFUTURE_DESC', 'Si se activa, mostrará todas las entradas con fecha futura en tu blog. La acción predeterminada es no mostrar esas entradas y sólo hacerlo cuando llegue la fecha de publicación.');
 @define('INSTALL_DBPERSISTENT', 'Usar conexiones persistentes');
-@define('INSTALL_DBPERSISTENT_DESC', 'Activar el uso de conexiones persistentes a la base de datos, lee más en <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">here</a>. Normalmente no se recomienda');
+@define('INSTALL_DBPERSISTENT_DESC', 'Activar el uso de conexiones persistentes a la base de datos, lee más en <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">here</a>. Normalmente no se recomienda');
 @define('NO_IMAGES_FOUND', 'No se encontraron imágenes');
 @define('PERSONAL_SETTINGS', 'Configuración personal');
 @define('REFERER', 'Referrer');

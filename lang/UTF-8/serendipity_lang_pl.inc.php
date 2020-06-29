@@ -591,7 +591,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_SHOWFUTURE', 'Pokazuj przyszłe wpisy');
 @define('INSTALL_SHOWFUTURE_DESC', 'Jeśli opcja zostanie włączona, będą pokazywane wszystkie przyszłe wpisy (wpisy z ustawioną datą przyszłą). Standardowo wpisy te są ukryte do czasu nadejścia czasu ich wyświetlenia.');
 @define('INSTALL_DBPERSISTENT', 'Używaj stałych połączeń z bazą danych');
-@define('INSTALL_DBPERSISTENT_DESC', 'Zezwól na używanie stałych połączeń z bazą danych, więcej <a href="http://pl.php.net/manual/pl/features.persistent-connections.php" target="_blank">tutaj</a>. Włączenie tej opcji nie jest zalecane.');
+@define('INSTALL_DBPERSISTENT_DESC', 'Zezwól na używanie stałych połączeń z bazą danych, więcej <a href="https://pl.php.net/manual/pl/features.persistent-connections.php" rel="noopener" target="_blank">tutaj</a>. Włączenie tej opcji nie jest zalecane.');
 @define('NO_IMAGES_FOUND', 'Nie znaleziono obrazków');
 @define('PERSONAL_SETTINGS', 'Ustawienie osobiste');
 @define('REFERER', 'Referrer');

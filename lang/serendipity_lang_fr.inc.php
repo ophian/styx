@@ -590,7 +590,7 @@
 @define('INSTALL_SHOWFUTURE', 'Afficher les billets futurs');
 @define('INSTALL_SHOWFUTURE_DESC', 'Si cette option est activée, les billets à paraître seront affichés dans votre blog. Par défaut, ces billets ne seront affichés qu\'à la date de publication définie.');
 @define('INSTALL_DBPERSISTENT', 'Utiliser les connexions permanentes');
-@define('INSTALL_DBPERSISTENT_DESC', 'Active l\'utilisation de connexions permanentes à la base de données. Pour plus d\'informations, consultez le <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">manuel de PHP</a>. Non recommandé en règle générale.');
+@define('INSTALL_DBPERSISTENT_DESC', 'Active l\'utilisation de connexions permanentes à la base de données. Pour plus d\'informations, consultez le <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">manuel de PHP</a>. Non recommandé en règle générale.');
 @define('NO_IMAGES_FOUND', 'Pas d\'images trouvées');
 @define('PERSONAL_SETTINGS', 'Réglages personnels');
 @define('REFERER', 'Page référante');

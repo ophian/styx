@@ -589,7 +589,7 @@
 @define('INSTALL_SHOWFUTURE', 'Jövőbeli bejegyzések mutatása');
 @define('INSTALL_SHOWFUTURE_DESC', 'Ha ez engedélyezve van, akkor a jövőbeni bejegyzések is láthatóak lesznek. Alapértelmezésben ezeket elrejtjük, és cask akkor kerülnek megmutatásra, ha eljön a publikálási dátum.');
 @define('INSTALL_DBPERSISTENT', 'Állandó kapcsolat használata');
-@define('INSTALL_DBPERSISTENT_DESC', 'Engedélyezd az állandó adatábziskapcsolat használatához. <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">Itt olvashatsz erről többet</a>. Normális esetben ez nem szükséges');
+@define('INSTALL_DBPERSISTENT_DESC', 'Engedélyezd az állandó adatábziskapcsolat használatához. <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">Itt olvashatsz erről többet</a>. Normális esetben ez nem szükséges');
 @define('NO_IMAGES_FOUND', 'Nem található kép');
 @define('PERSONAL_SETTINGS', 'Személyes beállítások');
 @define('REFERER', 'Hivatkozó');

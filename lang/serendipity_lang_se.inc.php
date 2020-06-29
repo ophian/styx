@@ -589,7 +589,7 @@
 @define('INSTALL_SHOWFUTURE', 'Visa framtida artiklar');
 @define('INSTALL_SHOWFUTURE_DESC', 'Är alternativet valt kommer postdaterade artiklar att visas i din blogg. Standardinställningen är att dölja dessa artiklar och inte visa dem innan publiceringsdatumet inträtt.');
 @define('INSTALL_DBPERSISTENT', 'Använd ihållande anslutning');
-@define('INSTALL_DBPERSISTENT_DESC', 'Slå på användning av ihållande <a href="http://se.php.net/manual/sv/features.persistent-connections.php" target="_blank">databasanslutningar</a>. Rekommenderas normalt inte');
+@define('INSTALL_DBPERSISTENT_DESC', 'Slå på användning av ihållande <a href="https://se.php.net/manual/sv/features.persistent-connections.php" rel="noopener" target="_blank">databasanslutningar</a>. Rekommenderas normalt inte');
 @define('NO_IMAGES_FOUND', 'Inga bilder hittades');
 @define('PERSONAL_SETTINGS', 'Personliga inställningar');
 @define('REFERER', 'Hänvisare');

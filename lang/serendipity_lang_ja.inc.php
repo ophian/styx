@@ -589,7 +589,7 @@
 @define('INSTALL_SHOWFUTURE', '未来のエントリーを表示する');
 @define('INSTALL_SHOWFUTURE_DESC', 'もし有効にしたならブログは未来を含むすべてのエントリーを表示するでしょう。デフォルトはそれらのエントリーを隠し、公開日が到来したらそれらを表示します。');
 @define('INSTALL_DBPERSISTENT', '持続的接続を使用する');
-@define('INSTALL_DBPERSISTENT_DESC', '持続的データベース接続の使用法を有効にします。詳しいことは <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">ここ</a> を参照してください。これは通常使用することを推奨しません。');
+@define('INSTALL_DBPERSISTENT_DESC', '持続的データベース接続の使用法を有効にします。詳しいことは <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">ここ</a> を参照してください。これは通常使用することを推奨しません。');
 @define('NO_IMAGES_FOUND', '画像が見つかりません。');
 @define('PERSONAL_SETTINGS', '個人設定');
 @define('REFERER', 'リファラー');

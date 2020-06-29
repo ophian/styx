@@ -595,7 +595,7 @@
 @define('INSTALL_SHOWFUTURE', 'Mostre entradas futuras'); // Verify
 @define('INSTALL_SHOWFUTURE_DESC', 'Se escolhido, isto mostrará todas as entradas futuras do seu blogue. Por omissão escondemos tais entradas e só são mostradas quando a data de publicação chega.');
 @define('INSTALL_DBPERSISTENT', 'Usar conexões persistentes');
-@define('INSTALL_DBPERSISTENT_DESC', 'Permitir a utilização de conexões permanentes à base de dados, ver leitura adicional em <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">aqui</a>. Isto normalmente não é recomendado.');
+@define('INSTALL_DBPERSISTENT_DESC', 'Permitir a utilização de conexões permanentes à base de dados, ver leitura adicional em <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">aqui</a>. Isto normalmente não é recomendado.');
 @define('NO_IMAGES_FOUND', 'Nenhuma das imagens foi encontrada');
 @define('PERSONAL_SETTINGS', 'Preferências pessoais');
 @define('REFERER', 'Referenciador');

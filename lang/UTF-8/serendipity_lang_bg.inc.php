@@ -577,7 +577,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_SHOWFUTURE', 'Показване на статии в бъдещето');
 @define('INSTALL_SHOWFUTURE_DESC', 'Ако е активирано, всички статии с време в бъдещето ще бъдат показвани. По подразбиране тези статии се скриват и се показват само когато времето на публикуване се премине.');
 @define('INSTALL_DBPERSISTENT', 'Използване на постоянни връзки');
-@define('INSTALL_DBPERSISTENT_DESC', 'Активиране на употребата на постоянни връзки към базата данни. Прочетете повече <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">тук</a>. Това обикновено не е препоръчително');
+@define('INSTALL_DBPERSISTENT_DESC', 'Активиране на употребата на постоянни връзки към базата данни. Прочетете повече <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">тук</a>. Това обикновено не е препоръчително');
 @define('NO_IMAGES_FOUND', 'Не са открити изображения');
 @define('PERSONAL_SETTINGS', 'Лични настройки');
 @define('REFERER', 'Насочваща страница');

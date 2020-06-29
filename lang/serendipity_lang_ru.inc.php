@@ -591,7 +591,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_SHOWFUTURE', 'Показывать записи с будущими датами');
 @define('INSTALL_SHOWFUTURE_DESC', 'Если включена, эта опция покажет все записи с будущими датами публикации. По умолчанию такие записи скрыты до тех пор, пока не наступит указанная дата публикации.');
 @define('INSTALL_DBPERSISTENT', 'Использовать persistent-соединения');
-@define('INSTALL_DBPERSISTENT_DESC', 'Разрешить использование persistent-соединений к базе данных, больше информации об этом можно получить <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">здесь</a>. Обычно, эта опция не рекомендуется');
+@define('INSTALL_DBPERSISTENT_DESC', 'Разрешить использование persistent-соединений к базе данных, больше информации об этом можно получить <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">здесь</a>. Обычно, эта опция не рекомендуется');
 @define('NO_IMAGES_FOUND', 'Не было найдено изображений');
 @define('PERSONAL_SETTINGS', 'Личные настройки');
 @define('REFERER', 'Referrer');

@@ -587,7 +587,7 @@
 @define('INSTALL_SHOWFUTURE', 'Näytä tulevat merkinnät');
 @define('INSTALL_SHOWFUTURE_DESC', 'Näytä merkinnät, joiden julkistuspäivä on tulevaisuudessa. Oletusarvoisesti näytetään vain nykyhetken merkinnät.');
 @define('INSTALL_DBPERSISTENT', 'Käytä pysyviä kantayhteyksiä.');
-@define('INSTALL_DBPERSISTENT_DESC', 'Lue <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">kuvaus täältä</a>. Ei suositella');
+@define('INSTALL_DBPERSISTENT_DESC', 'Lue <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">kuvaus täältä</a>. Ei suositella');
 @define('NO_IMAGES_FOUND', 'Ei kuvia');
 @define('PERSONAL_SETTINGS', 'Omat asetuksesi');
 @define('REFERER', 'Viittaaja');

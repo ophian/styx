@@ -588,7 +588,7 @@
 @define('INSTALL_SHOWFUTURE', 'Mostrar entradas futuras');
 @define('INSTALL_SHOWFUTURE_DESC', 'Habilitando esta escolha, todas as entradas no blog serão mostradas. O padrão é ocultar estas entradas e só mostra-las na data de publicação.');
 @define('INSTALL_DBPERSISTENT', 'Usar conexões persistentes');
-@define('INSTALL_DBPERSISTENT_DESC', 'Habilitar o uso de conexões persistentes na base de dados, leia mais em <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">here</a>. Normalmente não recomendamos isso!');
+@define('INSTALL_DBPERSISTENT_DESC', 'Habilitar o uso de conexões persistentes na base de dados, leia mais em <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">here</a>. Normalmente não recomendamos isso!');
 @define('NO_IMAGES_FOUND', 'Nenhuma imagem encontrada');
 @define('PERSONAL_SETTINGS', 'Preferências Pessoais');
 @define('REFERER', 'Referenciador');

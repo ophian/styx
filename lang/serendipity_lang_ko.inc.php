@@ -591,7 +591,7 @@
 @define('INSTALL_SHOWFUTURE', '미래에 작성한 글 보이기');
 @define('INSTALL_SHOWFUTURE_DESC', '이 기능을 사용할 경우 작성 날짜가 미래인 글도 모두 블로그에 표시하게 됩니다. 기본값은 이러한 글을 작성 날짜가 다다를 때까지 숨기는 것입니다.');
 @define('INSTALL_DBPERSISTENT', '지속적인 접속 사용');
-@define('INSTALL_DBPERSISTENT_DESC', '지속적으로 데이터페이스에 접속하는 기능을 사용합니다. <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">여기에서</a> 자세한 정보를 읽을 수 있습니다. 일반적으로 추천하지 않습니다.');
+@define('INSTALL_DBPERSISTENT_DESC', '지속적으로 데이터페이스에 접속하는 기능을 사용합니다. <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">여기에서</a> 자세한 정보를 읽을 수 있습니다. 일반적으로 추천하지 않습니다.');
 @define('NO_IMAGES_FOUND', '그림이 없습니다');
 @define('PERSONAL_SETTINGS', '개인 설정');
 @define('REFERER', '진입 경로');

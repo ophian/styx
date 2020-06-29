@@ -591,7 +591,7 @@
 @define('INSTALL_SHOWFUTURE', 'Sonraki kayıtları göster');
 @define('INSTALL_SHOWFUTURE_DESC', 'Eğer bu seçenek açıksa, sitenizdeki tüm kayıtlı yazılar bir anda gösterilecek. Öntanımlı olarak kapalı, yazılarınız tarih sırasına göre gösterimde.');
 @define('INSTALL_DBPERSISTENT', 'Kalıcı bağlantı kullan');
-@define('INSTALL_DBPERSISTENT_DESC', 'Kalıcı veritabanı bağlantısı kullanımını açar, daha fazla bilgi için <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">buraya</a> başvurun. Normalde önerilmeyen bir seçenektir');
+@define('INSTALL_DBPERSISTENT_DESC', 'Kalıcı veritabanı bağlantısı kullanımını açar, daha fazla bilgi için <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">buraya</a> başvurun. Normalde önerilmeyen bir seçenektir');
 @define('NO_IMAGES_FOUND', 'Hiç bir resim bulunamadı');
 @define('PERSONAL_SETTINGS', 'Kişisel Ayarlar');
 @define('REFERER', 'Ziyaretçi Gönderen');

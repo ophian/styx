@@ -587,7 +587,7 @@
 @define('INSTALL_SHOWFUTURE', 'Mostra notizie future');
 @define('INSTALL_SHOWFUTURE_DESC', 'Se abilitato, questo mostrerà tutte le notizie future sul tuo blog. Altrimenti quelle notizie rimangono nascoste e vengono mostrate solo quando arriva la data di pubblicazione.');
 @define('INSTALL_DBPERSISTENT', 'Usa connessioni persistenti');
-@define('INSTALL_DBPERSISTENT_DESC', 'Abilita l\'uso di connessioni al database consistenti, vedi <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">qui</a>. Normalmente non raccomandato');
+@define('INSTALL_DBPERSISTENT_DESC', 'Abilita l\'uso di connessioni al database consistenti, vedi <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">qui</a>. Normalmente non raccomandato');
 @define('NO_IMAGES_FOUND', 'Nessun immagine trovata');
 @define('PERSONAL_SETTINGS', 'Impostazioni Personali');
 @define('REFERER', 'Referente');

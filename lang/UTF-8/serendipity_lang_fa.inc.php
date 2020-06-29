@@ -590,7 +590,7 @@
 @define('INSTALL_SHOWFUTURE', 'نمایش پست های آینده');
 @define('INSTALL_SHOWFUTURE_DESC', 'در صورت فعال بودن، تمامی مقادیر آینده نیز در وبلاگ نمایش داده می شوند. پیش فرض، نمایش داده نشدن مقادیر آینده می باشد و مقادیری که تاریخ انتشارشان رسیده باشد نمایش داده خواهند شد.');
 @define('INSTALL_DBPERSISTENT', 'استفاده از اتصال های پایدار');
-@define('INSTALL_DBPERSISTENT_DESC', 'برای استفاده از اتصال پایدار این گزینه را فعال کنید، برای اطلاعات بیشتر <a href="http://php.net/manual/features.persistent-connections.php" target="_blank">اینجا</a> را مطالعه کنید. این گزینه در حالت عادی توصیه نمی شود');
+@define('INSTALL_DBPERSISTENT_DESC', 'برای استفاده از اتصال پایدار این گزینه را فعال کنید، برای اطلاعات بیشتر <a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">اینجا</a> را مطالعه کنید. این گزینه در حالت عادی توصیه نمی شود');
 @define('NO_IMAGES_FOUND', 'هیچ تصویری یافت نشد');
 @define('PERSONAL_SETTINGS', 'تنظیمات شخصی');
 @define('REFERER', 'بازدید کننده');

@@ -591,7 +591,7 @@
 @define('INSTALL_SHOWFUTURE', 'Toon toekomstige artikelen');
 @define('INSTALL_SHOWFUTURE_DESC', 'Als dit is ingeschakeld worden alle artikelen met een publicatiedatum in de toekomst weergeven. Standaard worden alleen artikelen weergegeven waarvan de publicatiedatum al bereikt werd.');
 @define('INSTALL_DBPERSISTENT', 'Gebruik altijd openstaande verbindingen');
-@define('INSTALL_DBPERSISTENT_DESC', 'Laat de verbinding met uw databank openstaan. Lees meer hierover op de (<a href="http://php.net/manual/features.persistent-connections.php" target="_blank">PHP-website</a>). Dit wordt niet aangeraden');
+@define('INSTALL_DBPERSISTENT_DESC', 'Laat de verbinding met uw databank openstaan. Lees meer hierover op de (<a href="https://php.net/manual/features.persistent-connections.php" rel="noopener" target="_blank">PHP-website</a>). Dit wordt niet aangeraden');
 @define('NO_IMAGES_FOUND', 'Geen afbeeldingen gevonden');
 @define('PERSONAL_SETTINGS', 'Persoonlijke instellingen');
 @define('REFERER', 'Verwijzer');
