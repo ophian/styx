@@ -515,7 +515,7 @@
                             + 'toolbar=no,menubar=no,location=no,resize=1,resizable=1,scrollbars=yes\'); return false;"';
                     break;
                 case '_blank':
-                    var itarget = ' target="_blank"';
+                    var itarget = ' rel="noopener" target="_blank"';
                     break;
                 case 'plugin':
                     var itarget = ' id="s9yisphref' + imgID + '" onclick="javascript:this.href = this.href + \'&amp;serendipity[from]=\' + self.location.href;"';
