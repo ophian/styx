@@ -504,7 +504,7 @@
 @define('ENTER_MEDIA_UPLOAD', '업로드할 파일 선택:');
 @define('SAVE_FILE_AS', '저장할 파일 이름 지정:');
 @define('STORE_IN_DIRECTORY', '저장할 디렉토리 지정: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>미디어 보관함에 파일 추가:</b><p>여기서 미디어 파일을 업로드하거나 인터넷에서 파일을 불러올 수 있습니다. 적당한 그림을 가지고 있지 않으면 생각이 떠오른 대로 <a href="https://images.google.com" target="_blank">구글에서 그림을 검색</a>해보면 유용하고 재미있습니다. 단, 대부분의 그림은 저작권이 설정되어 있으므로 사용하기 전에 허락을 받는 것에 유의하십시오.</p><p><b>방법 선택:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>미디어 보관함에 파일 추가:</b><p>여기서 미디어 파일을 업로드하거나 인터넷에서 파일을 불러올 수 있습니다. 적당한 그림을 가지고 있지 않으면 생각이 떠오른 대로 <a href="https://images.google.com" rel="noopener" target="_blank">구글에서 그림을 검색</a>해보면 유용하고 재미있습니다. 단, 대부분의 그림은 저작권이 설정되어 있으므로 사용하기 전에 허락을 받는 것에 유의하십시오.</p><p><b>방법 선택:</b></p><br>');
 @define('MEDIA_RENAME', '파일 이름 변경');
 @define('IMAGE_RESIZE', '그림 크기 조절');
 @define('MEDIA_DELETE', '파일 삭제');

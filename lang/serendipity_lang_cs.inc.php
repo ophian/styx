@@ -516,7 +516,7 @@ $i18n_filename_to = array (
 @define('ENTER_MEDIA_UPLOAD', 'Vyberte soubor pro nahrání:');
 @define('SAVE_FILE_AS', 'Uložit soubor jako:');
 @define('STORE_IN_DIRECTORY', 'Uložit do následujího adresáøe: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Pøidat soubor do schránky médií:</b><p>Zde mùžete ukládat mediální soubory, nebo urèit, kde je získat z WEBu! Pokud nemáte odpovídající obrázek, <a href="https://images.google.com" target="_blank">hledejte na Google</a> odpovìï na vaši potøebu, obvykle se zadaøí :).<p><b>Vyberte metodu:</b><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Pøidat soubor do schránky médií:</b><p>Zde mùžete ukládat mediální soubory, nebo urèit, kde je získat z WEBu! Pokud nemáte odpovídající obrázek, <a href="https://images.google.com" rel="noopener" target="_blank">hledejte na Google</a> odpovìï na vaši potøebu, obvykle se zadaøí :).<p><b>Vyberte metodu:</b><br>');
 @define('MEDIA_RENAME', 'Pøejmenovat soubor');
 @define('IMAGE_RESIZE', 'Zmìnit rozmìr obrázku');
 @define('MEDIA_DELETE', 'Vymazat soubor');

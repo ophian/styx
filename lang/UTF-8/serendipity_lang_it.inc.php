@@ -490,7 +490,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Seleziona un file da inviare:');
 @define('SAVE_FILE_AS', 'Salva il file come:');
 @define('STORE_IN_DIRECTORY', 'Salva il file nella directory: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Aggiungi un file al deposito di media:</b><p>Qui puoi inviare file media, o dirmi da dove prenderli in qualche parte del web! Se non hai l\'immagine giusta, <a href="https://images.google.com" target="_blank">cerca su Google</a> quella che preferisci, i risultati spesso sono utili e divertenti :)</p><p><b>Seleziona il metodo:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Aggiungi un file al deposito di media:</b><p>Qui puoi inviare file media, o dirmi da dove prenderli in qualche parte del web! Se non hai l\'immagine giusta, <a href="https://images.google.com" rel="noopener" target="_blank">cerca su Google</a> quella che preferisci, i risultati spesso sono utili e divertenti :)</p><p><b>Seleziona il metodo:</b></p><br>');
 @define('MEDIA_RENAME', 'Rinomina questo file');
 @define('IMAGE_RESIZE', 'Ridimensiona questa immagine');
 @define('MEDIA_DELETE', 'Cancella questo file');

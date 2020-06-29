@@ -502,7 +502,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Välj en fil du vill ladda upp:');
 @define('SAVE_FILE_AS', 'Spara filen som:');
 @define('STORE_IN_DIRECTORY', 'Lagra i följande katalog: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Lägg till en fil till ditt mediebibliotek:</b><p>Här kan du ladda upp mediefiler, eller be mig att hämta dem från en plats på webben! Om du inte har någon lämplig bild, <a href="https://images.google.com" target="_blank">leta efter bilder på Google</a> som passar dina tankar, resultaten är ofta användbara och roliga :) Men var försiktig, de flesta bilder är skyddade av upphovsrätten, så du måste fråga innan du använder dem.</p><p><b>Välj metod:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Lägg till en fil till ditt mediebibliotek:</b><p>Här kan du ladda upp mediefiler, eller be mig att hämta dem från en plats på webben! Om du inte har någon lämplig bild, <a href="https://images.google.com" rel="noopener" target="_blank">leta efter bilder på Google</a> som passar dina tankar, resultaten är ofta användbara och roliga :) Men var försiktig, de flesta bilder är skyddade av upphovsrätten, så du måste fråga innan du använder dem.</p><p><b>Välj metod:</b></p><br>');
 @define('MEDIA_RENAME', 'Döp om denna fil');
 @define('IMAGE_RESIZE', 'Ändra storlek denna bild');
 @define('MEDIA_DELETE', 'Ta bort denna fil');

@@ -527,7 +527,7 @@
 @define('COMMENTS_VIEWMODE_LINEAR', 'Vue non groupée');
 @define('DISPLAY_COMMENTS_AS', 'Afficher les commentaires en');
 @define('PAGE_BROWSE_ENTRIES', 'Page %s de %s sur %s billets au total');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Ajouter un fichier à votre médiathèquei :</b><p>Vous permet d\'uploader des fichiers, ou de me dire une adresse internet de laquelle je peux les télécharger. Si vous n\'avez pas d\'image appropriée, vous pouvez faire une <a href="https://images.google.com" target="_blank">recherche d\'images avec Google</a>, les résultats sont souvent intéressants et toujours très comiques :)</p><p><b>Choisissez une méthode :</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Ajouter un fichier à votre médiathèquei :</b><p>Vous permet d\'uploader des fichiers, ou de me dire une adresse internet de laquelle je peux les télécharger. Si vous n\'avez pas d\'image appropriée, vous pouvez faire une <a href="https://images.google.com" rel="noopener" target="_blank">recherche d\'images avec Google</a>, les résultats sont souvent intéressants et toujours très comiques :)</p><p><b>Choisissez une méthode :</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Afficher');
 @define('COMMENTS_FILTER_ALL', 'Tous');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Approuvés');

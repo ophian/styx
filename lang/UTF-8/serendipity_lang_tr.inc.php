@@ -504,7 +504,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Yüklemek istediğiniz dosyayı seçin:');
 @define('SAVE_FILE_AS', 'Bu dosyayı farklı kaydet:');
 @define('STORE_IN_DIRECTORY', 'Şu dizinin içine kaydedildi: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Medya deponuza bir dosya ekleyin:</b><p>Burada medya dosyalarınızı yükleyebilir, ya da webde herhangibir konumdan aktarabilirsiniz! İhtiyacınıza uygun resimlere sahip değilseniz, <a href="https://images.google.com" target="_blank">Google</a>da resim arayabilirsiniz, genelde sonuçlar eğlenceli ve kullanılabilirdir. :) Ama iyice emin olmalısınız, çoğu resim kopya korumalıdır,kullanmak için izin istemelisiniz.</p><p><b>Yöntem seçin:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Medya deponuza bir dosya ekleyin:</b><p>Burada medya dosyalarınızı yükleyebilir, ya da webde herhangibir konumdan aktarabilirsiniz! İhtiyacınıza uygun resimlere sahip değilseniz, <a href="https://images.google.com" rel="noopener" target="_blank">Google</a>da resim arayabilirsiniz, genelde sonuçlar eğlenceli ve kullanılabilirdir. :) Ama iyice emin olmalısınız, çoğu resim kopya korumalıdır,kullanmak için izin istemelisiniz.</p><p><b>Yöntem seçin:</b></p><br>');
 @define('MEDIA_RENAME', 'Dosyayı yeniden adlandır');
 @define('IMAGE_RESIZE', 'Resmi yeniden boyutlandır');
 @define('MEDIA_DELETE', 'Dosyayı sil');

@@ -502,7 +502,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'アップロードしたいファイルの選択:');
 @define('SAVE_FILE_AS', '保存するファイル名:');
 @define('STORE_IN_DIRECTORY', '次のディレクトリーの中に保存: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>メディアリポジトリにファイルを追加します:</b><p>ここでメディア ファイルをアップロードするか、ウェブ中のどこかからそれらを取得するように指示することができます! If you don\'t have an appropriate image, <a href="https://images.google.com" target="_blank">search for images on Google</a> matching your thoughts, the results are often useful and funny :)</p><p><b>選択方法:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>メディアリポジトリにファイルを追加します:</b><p>ここでメディア ファイルをアップロードするか、ウェブ中のどこかからそれらを取得するように指示することができます! If you don\'t have an appropriate image, <a href="https://images.google.com" rel="noopener" target="_blank">search for images on Google</a> matching your thoughts, the results are often useful and funny :)</p><p><b>選択方法:</b></p><br>');
 @define('MEDIA_RENAME', 'このファイルの名称を変更する');
 @define('IMAGE_RESIZE', 'この画像の大きさを変更する');
 @define('MEDIA_DELETE', 'このファイルを削除する');

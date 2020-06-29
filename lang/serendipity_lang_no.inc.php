@@ -525,7 +525,7 @@
 @define('DISPLAY_COMMENTS_AS', 'Vis kommentarer som');
 @define('SIDEBAR_PLUGINS', 'Sidebar-plugins');
 @define('EVENT_PLUGINS', 'Hendelses-lugins');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Legg til en fil til ditt mediabibliotek:</b><p>Her kan du laste opp mediafiler, eller be meg om å hente dem fra en adresse på nettet!  Hvis du ikke har et passende bilde, <a href="https://images.google.com" target="_blank">søk etter bilder på Google</a> som passer til tankene dine.  Resultatene er ofte nyttige og morsomme :)</p><p><b>Velg metode:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Legg til en fil til ditt mediabibliotek:</b><p>Her kan du laste opp mediafiler, eller be meg om å hente dem fra en adresse på nettet!  Hvis du ikke har et passende bilde, <a href="https://images.google.com" rel="noopener" target="_blank">søk etter bilder på Google</a> som passer til tankene dine.  Resultatene er ofte nyttige og morsomme :)</p><p><b>Velg metode:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Vis');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Only approved'); // Translate

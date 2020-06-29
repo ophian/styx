@@ -502,7 +502,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Veldu skrána sem þú vilt vista:');
 @define('SAVE_FILE_AS', 'Vista skrá sem:');
 @define('STORE_IN_DIRECTORY', 'Vista innan eftirfarandi möppu: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Bæta við skrá í gagnageymsluna þína:</b><p>Hér geturðu vistað gagnaskrár, eða sagt mér að sækja þær einhversstaðar annarsstaðar frá af vefnum! Ef þú ert ekki með mynd við hæfi, <a href="https://images.google.com" target="_blank">leitaðu að myndum á Google</a> sem á við það sem þú ert að hugsa. Niðurstöðurnar eru oft nytsamlegar og fyndnar :)</p><p><b>Veldu leið:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Bæta við skrá í gagnageymsluna þína:</b><p>Hér geturðu vistað gagnaskrár, eða sagt mér að sækja þær einhversstaðar annarsstaðar frá af vefnum! Ef þú ert ekki með mynd við hæfi, <a href="https://images.google.com" rel="noopener" target="_blank">leitaðu að myndum á Google</a> sem á við það sem þú ert að hugsa. Niðurstöðurnar eru oft nytsamlegar og fyndnar :)</p><p><b>Veldu leið:</b></p><br>');
 @define('MEDIA_RENAME', 'Endurnefna skrána');
 @define('IMAGE_RESIZE', 'Breyta stærð myndarinnar');
 @define('MEDIA_DELETE', 'Eyða þessari skrá');

@@ -501,7 +501,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Valitse tiedosto, jonka haluat tuoda:');
 @define('SAVE_FILE_AS', 'Talleta nimellä:');
 @define('STORE_IN_DIRECTORY', 'Talleta hakemistoon: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Lisää tiedoston media kirjastoosi:</b><p>Voit tuoda tiedostoja tai käskeä minua hakemaan ne webistä. Jos et keksi sopivaa kuvaa, kokeile, <a href="https://images.google.com" target="_blank">Googlea</a> mielikuvillasi, tulokset ovat yleensä käyttökelpoisia ja hauskoja :)</p><p><b>Valitse tapa:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Lisää tiedoston media kirjastoosi:</b><p>Voit tuoda tiedostoja tai käskeä minua hakemaan ne webistä. Jos et keksi sopivaa kuvaa, kokeile, <a href="https://images.google.com" rel="noopener" target="_blank">Googlea</a> mielikuvillasi, tulokset ovat yleensä käyttökelpoisia ja hauskoja :)</p><p><b>Valitse tapa:</b></p><br>');
 @define('MEDIA_RENAME', 'Uudelleennimeä tiedosto');
 @define('IMAGE_RESIZE', 'Muokkaa kuvan kokoa');
 @define('MEDIA_DELETE', 'Poista tiedosto');

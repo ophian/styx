@@ -525,7 +525,7 @@
 @define('COMMENTS_VIEWMODE_THREADED', 'Verschachtelt');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Linear');
 @define('DISPLAY_COMMENTS_AS', 'Ansicht der Kommentare: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Bild/Datei zur Sammlung hinzufügen:</b><p>Hier können Sie eine Datei (z.B. ein Bild) hochladen, oder mitteilen, von wo es geladen werden soll! Wenn das passende Bild fehlt, einfach bei Google danach suchen. Probieren Sie mal <a href="http://images.google.de" target="_blank">Googles Bildsuche</a>, die Resultate sind oft brauchbar, aber auf jeden Fall witzig :). Aber Vorsicht: Die meisten Bilder sind urheberrechtlich geschützt, also vorher fragen, um Ärger zu vermeiden.</p><p><b>Methode wählen:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Bild/Datei zur Sammlung hinzufügen:</b><p>Hier können Sie eine Datei (z.B. ein Bild) hochladen, oder mitteilen, von wo es geladen werden soll! Wenn das passende Bild fehlt, einfach bei Google danach suchen. Probieren Sie mal <a href="https://images.google.de" rel="noopener" target="_blank">Googles Bildsuche</a>, die Resultate sind oft brauchbar, aber auf jeden Fall witzig :). Aber Vorsicht: Die meisten Bilder sind urheberrechtlich geschützt, also vorher fragen, um Ärger zu vermeiden.</p><p><b>Methode wählen:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Zeige');
 @define('COMMENTS_FILTER_ALL', 'Alle');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Nur bewilligte');

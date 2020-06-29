@@ -541,7 +541,7 @@
 @define('ERROR_TEMPLATE_FILE', 'Incapaz de abrir el fichero plantilla, ¡por favor actualiza Serendipity!');
 @define('ADVANCED_OPTIONS', 'Opciones avanzadas');
 @define('EDIT_ENTRY', 'Editar entrada');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Añade un fichero a tu colección de medios:</b><p>Desde aquí puedes transferir un fichero de medios o puedes decirme que los coja de algún ¡lugar de la web! Si no tienes una imagen apropiada, <a href="https://images.google.com" target="_blank">busca imágenes en Google</a> que vaya con tu forma de pensar, los resultados son útiles y divertidos a veces :)</p><p><b>Selecciona el método:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Añade un fichero a tu colección de medios:</b><p>Desde aquí puedes transferir un fichero de medios o puedes decirme que los coja de algún ¡lugar de la web! Si no tienes una imagen apropiada, <a href="https://images.google.com" rel="noopener" target="_blank">busca imágenes en Google</a> que vaya con tu forma de pensar, los resultados son útiles y divertidos a veces :)</p><p><b>Selecciona el método:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Mostrar');
 @define('COMMENTS_FILTER_ALL', 'Todo');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Sólo lo aprobado');

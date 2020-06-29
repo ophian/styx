@@ -514,7 +514,7 @@ $i18n_filename_to = array (
 @define('ENTER_MEDIA_UPLOAD', 'Vyberte súbor pre nahranie:');
 @define('SAVE_FILE_AS', 'Ulo¾i» súbor ako:');
 @define('STORE_IN_DIRECTORY', 'Ulo¾i» do tohto prieèinka: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Prida» súbor do schránky médií:</b><p>Tu mô¾ete uklada» mediálne súbory, alebo urèi», kde ich stiahnu» z WEBu! Ak nemáte odpovedajúci obrázok, <a href="https://images.google.com" target="_blank">hµadajte obrázok na Google</a>, toto hµadanie je dos» èasto úspe¹né a zábavné :). Ale pozor, väè¹ina obrázkov je chránených autorskými právami, tak¾e potrebujete na ich pou¾itie súhlas autora.<p><b>Vyberte metódu:</b><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Prida» súbor do schránky médií:</b><p>Tu mô¾ete uklada» mediálne súbory, alebo urèi», kde ich stiahnu» z WEBu! Ak nemáte odpovedajúci obrázok, <a href="https://images.google.com" rel="noopener" target="_blank">hµadajte obrázok na Google</a>, toto hµadanie je dos» èasto úspe¹né a zábavné :). Ale pozor, väè¹ina obrázkov je chránených autorskými právami, tak¾e potrebujete na ich pou¾itie súhlas autora.<p><b>Vyberte metódu:</b><br>');
 @define('MEDIA_RENAME', 'Premenova» súbor');
 @define('IMAGE_RESIZE', 'Zmeni» rozmer obrázka');
 @define('MEDIA_DELETE', 'Vymaza» súbor');

@@ -504,7 +504,7 @@ $i18n_unknown = 'tw';
 @define('ENTER_MEDIA_UPLOAD', '請選擇要上傳的檔案:');
 @define('SAVE_FILE_AS', '儲存檔案:');
 @define('STORE_IN_DIRECTORY', '儲存到以下目錄: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>新增檔案到媒體存庫:</b><p>您可以在這上傳媒體檔, 或告訴系統到哪尋找! 如果您沒有想要的圖片, 您可以到 <a href="https://images.google.com" target="_blank">Google尋找圖片</a>.</p><p><b>選擇方式:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>新增檔案到媒體存庫:</b><p>您可以在這上傳媒體檔, 或告訴系統到哪尋找! 如果您沒有想要的圖片, 您可以到 <a href="https://images.google.com" rel="noopener" target="_blank">Google尋找圖片</a>.</p><p><b>選擇方式:</b></p><br>');
 @define('MEDIA_RENAME', '更改檔案名稱');
 @define('IMAGE_RESIZE', '更改圖片尺寸');
 @define('MEDIA_DELETE', '刪除這個檔案');

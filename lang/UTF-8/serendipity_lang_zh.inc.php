@@ -504,7 +504,7 @@
 @define('ENTER_MEDIA_UPLOAD', '请选择要上传的文件:');
 @define('SAVE_FILE_AS', '保存文件:');
 @define('STORE_IN_DIRECTORY', '保存到以下目录: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>新增文件到媒体目录:</b><p>你可以上传媒体文件, 或告诉系统到哪寻找。如果你没有想要的图片, 你可以到 <a href="https://images.google.com" target="_blank">Google搜索图片</a>.<p><b>选择方式:</b><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>新增文件到媒体目录:</b><p>你可以上传媒体文件, 或告诉系统到哪寻找。如果你没有想要的图片, 你可以到 <a href="https://images.google.com" rel="noopener" target="_blank">Google搜索图片</a>.<p><b>选择方式:</b><br>');
 @define('MEDIA_RENAME', '更改文件名称');
 @define('IMAGE_RESIZE', '更改图片尺寸');
 @define('MEDIA_DELETE', '删除这个文件');

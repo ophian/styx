@@ -503,7 +503,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Alege fişierul pe care vrei să-l încarci:');
 @define('SAVE_FILE_AS', 'Salvează fişierul ca:');
 @define('STORE_IN_DIRECTORY', 'Stochează în următorul director: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Adaugă un fişier librăriei tale multimedia:</b><p>Aici poţi încărca fişiere media de pe calculatorul tău, sau îmi poţi spune de unde să le iau de pe web! Dacă nu ai o imagine potrivită, <a href="https://images.google.com" target="_blank">caută imagini pe Google</a> care corespund gândurilor tale, rezultatele sunt în majoritatea cazurilor folositoare şi amuzante :) Dar atenţie, multe imagini sunt protejate de drepturile de autor, deci ar trebui să întrebi înainte să le foloseşti.</p><p><b>Alege metoda:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Adaugă un fişier librăriei tale multimedia:</b><p>Aici poţi încărca fişiere media de pe calculatorul tău, sau îmi poţi spune de unde să le iau de pe web! Dacă nu ai o imagine potrivită, <a href="https://images.google.com" rel="noopener" target="_blank">caută imagini pe Google</a> care corespund gândurilor tale, rezultatele sunt în majoritatea cazurilor folositoare şi amuzante :) Dar atenţie, multe imagini sunt protejate de drepturile de autor, deci ar trebui să întrebi înainte să le foloseşti.</p><p><b>Alege metoda:</b></p><br>');
 @define('MEDIA_RENAME', 'Redenumeşte acest fişier');
 @define('IMAGE_RESIZE', 'Redimenzionează această imagine');
 @define('MEDIA_DELETE', 'Şterge acest fişier');

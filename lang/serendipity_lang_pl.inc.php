@@ -504,7 +504,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('ENTER_MEDIA_UPLOAD', 'Wybierz plik do uploadu:');
 @define('SAVE_FILE_AS', 'Zapisz plik jako:');
 @define('STORE_IN_DIRECTORY', 'Zapisz w nastêpuj±cym katalogu: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Dodaj plik do zbioru mediów:</b><p>Tu mo¿esz uploadowaæ pliki z mediami lub wskazaæ jakie¶ pliki dostêpne w sieci! Je¶li nie masz odpowiedniego obrazka, <a href="https://images.google.com" target="_blank">znajd¼ w serwisie Google</a> obrazki, które byæ mo¿e bêd± Ci odpowiada³y. Rezultaty wyszukiwania s± czêsto przydatne i zabawne :) Ale uwa¿aj! Wiêkszo¶æ obrazków ma zastrze¿one prawa autorskie i powiniene¶ (powinna¶) zapytaæ siê o pozwolenie przed ich u¿yciem!</p><p><b>Wybierz metodê:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Dodaj plik do zbioru mediów:</b><p>Tu mo¿esz uploadowaæ pliki z mediami lub wskazaæ jakie¶ pliki dostêpne w sieci! Je¶li nie masz odpowiedniego obrazka, <a href="https://images.google.com" rel="noopener" target="_blank">znajd¼ w serwisie Google</a> obrazki, które byæ mo¿e bêd± Ci odpowiada³y. Rezultaty wyszukiwania s± czêsto przydatne i zabawne :) Ale uwa¿aj! Wiêkszo¶æ obrazków ma zastrze¿one prawa autorskie i powiniene¶ (powinna¶) zapytaæ siê o pozwolenie przed ich u¿yciem!</p><p><b>Wybierz metodê:</b></p><br>');
 @define('MEDIA_RENAME', 'Zmien nazwê pliku');
 @define('IMAGE_RESIZE', 'Zmieñ rozmiar obrazka');
 @define('MEDIA_DELETE', 'Usuñ ten plik');

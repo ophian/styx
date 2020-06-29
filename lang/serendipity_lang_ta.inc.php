@@ -502,7 +502,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Select a file you wish to upload:');
 @define('SAVE_FILE_AS', 'Save the file as:');
 @define('STORE_IN_DIRECTORY', 'Store inside the following directory: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>ஒர் வலைபொருளை உங்கள் வலைபொருள் பெட்டகத்தில் சேர்க்க:</b><br><b>சேர்ப்பு முறை:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Add a file to your media repository:</b><p>Here you can upload media files, or tell me to fetch them from somewhere in the web! If you do not have an appropriate image, <a href="https://images.google.com" target="_blank">search for images on Google</a> matching your thoughts, the results are often useful and funny :) But be careful, most images are copyrighted, so you should ask before using them.</p><p><b>Select method:</b></p><br>');
 @define('MEDIA_RENAME', 'Rename this file');
 @define('IMAGE_RESIZE', 'Resize this image');
 @define('MEDIA_DELETE', 'Delete this file');

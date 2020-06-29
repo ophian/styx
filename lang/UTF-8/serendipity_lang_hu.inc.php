@@ -502,7 +502,7 @@
 @define('ENTER_MEDIA_UPLOAD', 'Válassza ki a feltöltendő fájlt:');
 @define('SAVE_FILE_AS', 'Fájl mentése a következő néven:');
 @define('STORE_IN_DIRECTORY', 'Tárolás a következő könyvtárban: ');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Fájl hozzáadása a média tárolóhoz:</b><p>Itt tölthetsz fel médiafájlokat, vagy megmondhatod hogy honnan töltsem le őket! Ha nincs meg egy bizonyos kép, <a href="https://images.google.com" target="_blank">keress rá a Google-t használva</a> az elképzelésednek megfelelően. Az eredmények gyakran hasznosak és viccesek :) De vigyázz, a legtöbb kép szerzői jogvédelem alatt áll, így mielőtt használnád kérdezz rá.</p><p><b>Válassz a lehetőségek közül:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Fájl hozzáadása a média tárolóhoz:</b><p>Itt tölthetsz fel médiafájlokat, vagy megmondhatod hogy honnan töltsem le őket! Ha nincs meg egy bizonyos kép, <a href="https://images.google.com" rel="noopener" target="_blank">keress rá a Google-t használva</a> az elképzelésednek megfelelően. Az eredmények gyakran hasznosak és viccesek :) De vigyázz, a legtöbb kép szerzői jogvédelem alatt áll, így mielőtt használnád kérdezz rá.</p><p><b>Válassz a lehetőségek közül:</b></p><br>');
 @define('MEDIA_RENAME', 'Fájl átnevezése');
 @define('IMAGE_RESIZE', 'Kép átméretezése');
 @define('MEDIA_DELETE', 'Fájl törlése');

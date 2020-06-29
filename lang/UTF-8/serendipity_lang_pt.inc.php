@@ -525,7 +525,7 @@
 @define('CATEGORY_DELETED_ARTICLES_MOVED', 'Categoria #%s excluída. Os artigos antigos foram movidos para a categoria #%s');
 @define('INSTALL_TOP_AS_LINKS', 'Exibir maiores saídas/referências como links?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"não": Saídas e Referências são exibidas como puro texto para prevenir spam do Google. "sim": Saídas e Referências são exibidas como links. "padrão": Usa o valor definido na configuração global (recomendado).');
-@define('ADD_MEDIA_BLAHBLAH', '<b>Adiciona um arquivo para o seu repositório de mídia:</b><p>Aqui você pode transferir arquivos de mídia, ou oriente-me para pegá-lo em algum lugar na web! Se não possuir uma imagem apropriada, <a href="https://images.google.com" target="_blank">procure no Google</a> alguma imagem que tenha relação com o assunto, os resultados são geralmente úteis e divertidos :)</p><p><b>Selecione o método:</b></p><br>');
+@define('ADD_MEDIA_BLAHBLAH', '<b>Adiciona um arquivo para o seu repositório de mídia:</b><p>Aqui você pode transferir arquivos de mídia, ou oriente-me para pegá-lo em algum lugar na web! Se não possuir uma imagem apropriada, <a href="https://images.google.com" rel="noopener" target="_blank">procure no Google</a> alguma imagem que tenha relação com o assunto, os resultados são geralmente úteis e divertidos :)</p><p><b>Selecione o método:</b></p><br>');
 @define('COMMENTS_FILTER_SHOW', 'Mostrat');
 @define('COMMENTS_FILTER_ALL', 'Todos');
 @define('COMMENTS_FILTER_APPROVED_ONLY', 'Apenas os aprovados');
