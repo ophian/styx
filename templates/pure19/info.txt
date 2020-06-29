@@ -1,6 +1,6 @@
 Name: Pure 2019
 Author: Ian Styx
-Date: 2020-06-28
+Date: 2020-06-29
 Require Serendipity: 2.7
 Engine: pure
 Backend: No
