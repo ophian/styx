@@ -20,7 +20,7 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
         $propbag->add('description',   PLUGIN_ENTRYLINKS_BLAHBLAH);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking');
-        $propbag->add('version',       '1.04');
+        $propbag->add('version',       '1.05');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -118,7 +118,7 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
         $orderby  = $this->get_config('orderby', 'fullcount');
 
         if ($newwin) {
-            $target = ' target="_blank" ';
+            $target = ' target="_blank" rel="noopener"';
         }
 
         if (serendipity_db_bool($this->get_config('show_exits', 'true'))) {
@@ -150,7 +150,7 @@ class serendipity_plugin_entrylinks extends serendipity_plugin
                     $count = '<span class="serendipity_entrylinks_count">[' . $counter[$row['link']] . ']</span>';
                 }
                 $link_name = $wordwrap < 1? $row['name']: wordwrap($row['name'], $wordwrap, "<br />", 1);
-                $links .= '<li><a href="' . $row['link'] . '" ' . $target . '>' . $link_name . "</a> $count</li>";
+                $links .= '<li><a href="' . $row['link'] . '"' . $target . '>' . $link_name . "</a> $count</li>";
             }
             $links .= '</ul>';
 
