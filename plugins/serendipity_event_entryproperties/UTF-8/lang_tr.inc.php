@@ -35,5 +35,5 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Özel Alanlar');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Şablonunuza eklenmek üzere ek özel alanlar belirleme imkanı.Bu alanlar nerede kullanmak istiyorsanız orada gösterilecek şekilde eklenebilir. Tam olarak istediğiniz türden bir özelleştirme için entries.tpl şablon dosyanızı düzenleyin ve  Smarty etiketlerini HTML etiketleme yapısı içinde {$entry.properties.ep_MyCustomField} gibi yerleştirin. Not: her alanda ön ek ep_ şeklinde olmalıdır.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Buraya virgülle ayrılmış özel alanlarınızı listeleyebilirsiniz ve bunları her yazınız için kullanabilirsiniz. özel harf karakterleri ya da boşluk karakteri kullanmamaya özen gösterin - Örneğin:"Ozelalan1, Ozelalan2" şeklinde kullanın.' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Listelenen özel alanlar <a href="%s" target="_blank" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">eklenti yapılandırma</a> bölümünden değiştirilebilir.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Listelenen özel alanlar <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">eklenti yapılandırma</a> bölümünden değiştirilebilir.');
 

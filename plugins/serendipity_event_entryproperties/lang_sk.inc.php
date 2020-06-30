@@ -35,7 +35,7 @@ ytvárania stránky s prehµadom èlánkov. Zapnite toto nastavenie, iba ak ho naozaj
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Vlastné pole');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Pridané vlastné polia mô¾u by» pou¾ité vo Va¹ej vlastnej ¹ablóne na miestach, kde chcete zobrazova» údaje z týchto polí. Pre túto funkcio musíte upravi» ¹ablónu "entries.tpl" a v nej umiestni» Smarty tag {$entry.properties.ep_NazevMehoPolicka}. Pred názov ka¾dého poµa musí by» pridaná predpona ep_ . ');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Tu mô¾ete zada» zoznam polí, ktoré chcete pou¾i» vo svojich èlánkoch. Polia oddeµova» èiarkou. Mená polí nemô¾u obsahova» ¹peciálne znaky ani diakritiku. Príklad: "MojePole1, CiziPole2, UplneCiziPole3". ');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Zoznam dostupných voliteµných polí mô¾e by» zmenený v <a href="%s" target="_blank" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">nastaveniach doplnku</a>.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Zoznam dostupných voliteµných polí mô¾e by» zmenený v <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">nastaveniach doplnku</a>.');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Zakáza» pou¾itie transofrmácií textu (markup) pre tento èlánok:');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS', 'Roz¹írené databázové hµadanie');

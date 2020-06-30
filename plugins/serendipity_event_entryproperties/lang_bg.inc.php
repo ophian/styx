@@ -33,7 +33,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Допълнителни полета');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Допълнителните полета могат да се поставят в шаблона на вашата тема на места, където искате те да се показват. За това редактирайте вашия файл entries.tpl и поставете Smarty тагове подобно на следващите примери: {$entry.properties.ep_MyCustomField} на желаните места. Не трябва да изпускате префикса \'ep_\' преди името на полетата. ');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Тук можете да въведете списък от имена на полета, разделени със запетаи, които да използвате за извеждане на HTML за всяка статия. В имената са разрешени само латински букви и цифри (не и специални символи). Например: \'Customfield1\', \'Customfield2\'. ' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Списъкът на достъпните допълнителни полета може да бъде редактиран в <a href="%s" target="_blank" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">конфигурацията</a> на приставка serendipity_event_entryproperties.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Списъкът на достъпните допълнителни полета може да бъде редактиран в <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">конфигурацията</a> на приставка serendipity_event_entryproperties.');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Забранени текстови форматирания за тази статия:');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS', 'Използване на разширено търсене в базата данни');

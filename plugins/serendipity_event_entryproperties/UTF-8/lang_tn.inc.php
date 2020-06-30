@@ -41,5 +41,5 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', '自訂欄位');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', '您可以在模板裡面顯示額外的欄位。您必須編輯 entries.tpl 的模板檔案然後將 Smarty 標籤 {$entry.properties.ep_MyCustomField} 放入您要它顯示的 HTML 檔案裡面。 注意每個欄位的前置字元 ep_。');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', '這裡可以輸入每個以逗點分開的欄位名稱 - 不要用特殊字元或空格。範例："Customfield1, Customfield2". ' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', '每個自訂欄位可以在這裡改變 <a href="%s" target="_blank" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">外掛設定</a>。');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', '每個自訂欄位可以在這裡改變 <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">外掛設定</a>。');
 

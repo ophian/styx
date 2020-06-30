@@ -36,7 +36,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Vlastní pole');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Pøídavná vlastní pole mohou být pou¾ita ve Va¹í vlastní ¹ablonì v místech, kde chcete zobrazovat data z tìchto polí. Pro tuto funkci musíte editovat ¹ablonu "entries.tpl" a v ní umístit Smarty tag {$entry.properties.ep_NazevMehoPolicka}. Pred kazdym nazvem pole musi byt predpona ep_ . ');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Zde mù¾ete zadat seznam polí, které chcete pou¾ít u svých pøíspìvkù, oddìlených èárkou. Pro jména polí nepou¾ívejte speciální znaky ani diakritiku. Pøíklad: "MojePole1, CiziPole2, UplneCiziPole3". ');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Seznam dostupných volitelných polí mù¾e být zmìnìn v <a href="%s" target="_blank" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">konfiguraci pluginu</a>.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Seznam dostupných volitelných polí mù¾e být zmìnìn v <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">konfiguraci pluginu</a>.');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Zaka¾ pou¾ití vybraných znaèkovacích pluginù pro tento pøíspìvek:');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS', 'Roz¹íøené databázové hledání');

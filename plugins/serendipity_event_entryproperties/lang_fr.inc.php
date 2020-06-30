@@ -43,5 +43,5 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Variables sur mesure');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Des variables supplémentaires peuvent être utilisés dans les templates de votre thème pour qu\'ils soient affichés quand vous le désirez. Pour cela, modifiez le fichier template \'entries.tpl\' et placez des balises Smarty comme par ex. {$entry.properties.ep_MonChampsSurMesure} où vous voulez dans le code HTML. Notez que chaque variable doit commencer par \'ep_\'. ');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Ici vous pouvez définir une liste séprée par des virgules de noms de champs (variables) à remplir pour chaque billet. Attention, le nom de ces variables ne doit pas contenir de caractères spéciaux ni d\'espaces. Exemples: "Variable1, Variable2, ChouetteVariable". ' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'La liste des variables sur mesure peut être modifiée dans la <a href="%s" target="_blank" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">configuration du plugin</a>.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'La liste des variables sur mesure peut être modifiée dans la <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">configuration du plugin</a>.');
 

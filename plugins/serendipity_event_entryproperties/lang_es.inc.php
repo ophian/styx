@@ -35,5 +35,5 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Campos personalizados');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Campos personalizados adicionales pueden ser utilizados en tu plantilla en lugares donde quieres que aparezcan. Para ello, edita tu archivo plantilla entries.tpl y coloca etiquetas Smarty como {$entry.properties.ep_MyCustomField} en el HTML, en el lugar que desees. Nota el prefijo ep_ por cada campo.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Aquí puedes ingresar una lista de los nombres de los campos separados por coma que puedes utilizar por cada entrada - no utilices caracteres especiales o espacios en los nombres de campo. Por ejemplo: "Campopersonal1, Campopersonal2". ' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'La lista de campos personalizados disponibles puede ser cambiada en la <a href="%s" target="_blank" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">configuración de la extensión</a>.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'La lista de campos personalizados disponibles puede ser cambiada en la <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">configuración de la extensión</a>.');
 

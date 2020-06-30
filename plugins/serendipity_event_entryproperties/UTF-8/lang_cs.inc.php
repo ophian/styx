@@ -38,7 +38,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Vlastní pole');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Přídavná vlastní pole mohou být použita ve Vaší vlastní šabloně v místech, kde chcete zobrazovat data z těchto polí. Pro tuto funkci musíte editovat šablonu "entries.tpl" a v ní umístit Smarty tag {$entry.properties.ep_NazevMehoPolicka}. Pred kazdym nazvem pole musi byt predpona ep_ . ');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Zde můžete zadat seznam polí, které chcete použít u svých příspěvků, oddělených čárkou. Pro jména polí nepoužívejte speciální znaky ani diakritiku. Příklad: "MojePole1, CiziPole2, UplneCiziPole3". ');
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Seznam dostupných volitelných polí může být změněn v <a href="%s" target="_blank" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">konfiguraci pluginu</a>.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Seznam dostupných volitelných polí může být změněn v <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">konfiguraci pluginu</a>.');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Zakaž použití vybraných značkovacích pluginů pro tento příspěvek:');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_EXTJOINS', 'Rozšířené databázové hledání');

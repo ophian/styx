@@ -34,7 +34,7 @@
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS', 'Pola u¿ytkownika');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1', 'Dodatkowe pola mog± byc u¿yte w Twoim schemacie w miejscach, w których chcesz je pokazaæ. Aby uzyskaæ ten efekt wyedytuj plik entries.tpl swojego schematu i wstaw tagi Smarty {$entry.properties.ep_MyCustomField} w kodzie HTML gdzie uwa¿asz to za stosowne. Zwróæ uwagê na prefiks ep_ dla ka¿dego pola.');
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC2', 'Tu mo¿na wpisaæ nazwy (rozdzielone przecinkami) dodatkowych pól, które bêd± dostêpne przy edycji ka¿dego wpisu. Nie nalezy u¿ywaæ znaków specjalnych lub spacji dla nazw tych pól. Przyk³ad: "Customfield1, Customfield2". ' . PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC1);
-@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Lista dostêpnych pól uzytkownika mo¿e byæ zmieniona w module <a href="%s" target="_blank" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">konfiguracji wtyczki</a>.');
+@define('PLUGIN_EVENT_ENTRYPROPERTIES_CUSTOMFIELDS_DESC3', 'Lista dostêpnych pól uzytkownika mo¿e byæ zmieniona w module <a href="%s" target="_blank" rel="noopener" title="' . PLUGIN_EVENT_ENTRYPROPERTIES_TITLE . '">konfiguracji wtyczki</a>.');
 
 @define('PLUGIN_EVENT_ENTRYPROPERTIES_DISABLE_MARKUP', 'Wy³±cz wtyczki Znaczników dla tego wpisu:');
 
