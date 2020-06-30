@@ -17,7 +17,7 @@ class serendipity_event_bbcode extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_BBCODE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jez Hancock, Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '2.11');
+        $propbag->add('version',       '2.12');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -190,10 +190,10 @@ class serendipity_event_bbcode extends serendipity_event
               '/(?<!\\\\)\[email(?::\w+)?='  . $pattern_mail . '\](.*?)\[\/email(?::\w+)?\]/si'               => "<a href=\"mailto:\\1\" class=\"bb-email\">\\2</a>",
 
               // [url]
-              '/(?<!\\\\)\[(google|search)\]'   . $pattern_query . '\[\/(google|search)\]/si'                 => "<a href=\"http://www.google.com/search?q=\\2\" " . ($target ? "target=\"_blank\"" : "") . " class=\"bb-url\">\\2</a>",
-              '/(?<!\\\\)\[url(?::\w+)?\]www\.' . $pattern_url   . '\[\/url(?::\w+)?\]/si'                    => "<a href=\"http://www.\\1\" " . ($target ? "target=\"_blank\"" : "") . " class=\"bb-url\">\\1</a>",
-              '/(?<!\\\\)\[url(?::\w+)?\]'      . $pattern_url   . '\[\/url(?::\w+)?\]/si'                    => "<a href=\"\\1\" " . ($target ? "target=\"_blank\"" : "") . " class=\"bb-url\">\\1</a>",
-              '/(?<!\\\\)\[url(?::\w+)?='       . $pattern_url   . '?\](.*?)\[\/url(?::\w+)?\]/si'            => "<a href=\"\\1\" " . ($target ? "target=\"_blank\"" : "") . " class=\"bb-url\">\\2</a>",
+              '/(?<!\\\\)\[(google|search)\]'   . $pattern_query . '\[\/(google|search)\]/si'                 => "<a href=\"http://www.google.com/search?q=\\2\" " . ($target ? "target=\"_blank\" rel=\"noopener\"" : "") . " class=\"bb-url\">\\2</a>",
+              '/(?<!\\\\)\[url(?::\w+)?\]www\.' . $pattern_url   . '\[\/url(?::\w+)?\]/si'                    => "<a href=\"http://www.\\1\" " . ($target ? "target=\"_blank\" rel=\"noopener\"" : "") . " class=\"bb-url\">\\1</a>",
+              '/(?<!\\\\)\[url(?::\w+)?\]'      . $pattern_url   . '\[\/url(?::\w+)?\]/si'                    => "<a href=\"\\1\" " . ($target ? "target=\"_blank\" rel=\"noopener\"" : "") . " class=\"bb-url\">\\1</a>",
+              '/(?<!\\\\)\[url(?::\w+)?='       . $pattern_url   . '?\](.*?)\[\/url(?::\w+)?\]/si'            => "<a href=\"\\1\" " . ($target ? "target=\"_blank\" rel=\"noopener\"" : "") . " class=\"bb-url\">\\2</a>",
 
               // [img]
               '/(?<!\\\\)\[img(?::\w+)?\]' . $pattern_url . '\[\/img(?::\w+)?\]/si'                           => "<img src=\"\\1\" alt=\"\\1\" class=\"bb-image\" />",
