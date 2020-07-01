@@ -114,7 +114,8 @@
                         <option value="plugin" {'target'|ifRemember:'plugin':false:'selected'}>{$CONST.MEDIA_ENTRY}</option>
                         <option value="_blank" {'target'|ifRemember:'_blank':false:'selected'}>{$CONST.MEDIA_TARGET_BLANK}</option>
                     </select>
-                    {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagelink2' data=$media.file}
+                    {* Currently all 'frontend_image_selector_xxx' hooks are just dummies (used in the past) for the imageselectorplus event plugin. *}
+                    {serendipity_hookPlugin hookAll=true hook='frontend_image_selector_imagelink' data=$media.file}
                     <label for="select_image_target">{$CONST.MEDIA_TARGET}</label>
                 </div>
             </fieldset>
