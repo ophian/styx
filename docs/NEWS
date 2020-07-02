@@ -3,8 +3,8 @@ Version 3.1.0-DEV ()
 
   * Rename a (imageselectorplus plugin) unused imagelink hook for consistency
 
-  * Improve both "pure" themes max-width flexing in paragraph embedded images
-    for 1 or 0 sidebar case sizes.
+  * Improve both "pure" themes responsive max-width flexing in paragraph
+    embedded left/right placed images for 1 or 0 sidebar case sizes.
 
 
 Version 3.0.3 (June, 28th 2020)
