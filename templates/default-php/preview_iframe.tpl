@@ -50,7 +50,7 @@
                 <?php endif; ?>
 
                 <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> <?= ENTRY_SAVED ?>
-                <a href="<?= $GLOBALS['tpl']['entrylink'] ?>" target="_blank"><?= VIEW ?></a></span>
+                <a href="<?= $GLOBALS['tpl']['entrylink'] ?>" target="_blank" rel="noopener"><?= VIEW ?></a></span>
             <?php endif; ?>
         <?php endif; ?>
             </main>
