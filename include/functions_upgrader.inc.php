@@ -427,6 +427,11 @@ $dead_dirs_300 = array(
     $serendipity['serendipityPath'] . 'templates_c/2styx'
 );
 
+/* A list of old or removed directories for 3.1.0 */
+$dead_dirs_310 = array(
+    $serendipity['serendipityPath'] . 'cache'
+);
+
 /**
  * recursive directory call to purge files and directories
  *

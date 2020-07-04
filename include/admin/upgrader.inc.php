@@ -416,6 +416,12 @@ $tasks = array(
                     'title'     => 'Automatic database config cleanup for singular removed variables',
                     'desc'      => 'Removing "wysiwygToolbar" variable for the Styx 3.0 upgrade.'),
 
+            array(  'version'   => '3.1.0',
+                    'function'  => 'recursive_directory_iterator',
+                    'arguments' => array($dead_dirs_310),
+                    'title'     => 'Styx moved the Smarty (real) cache directory into archives.',
+                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_310) . '</pre>'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
