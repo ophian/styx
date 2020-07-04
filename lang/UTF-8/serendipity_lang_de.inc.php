@@ -1176,7 +1176,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('THEMEMANAGER_ZOMB_OK', 'Gut gemacht! Themes erfolgreich gelöscht!');
 @define('THEMEMANAGER_LOCALTHEMES', 'Suche heruntergeladene Themes');
 @define('THEMEMANAGER_SUBMIT', 'Lösche gewählte Themes');
-@define('THEMEMANAGER_INFO', 'Lösche alte Theme-Zombies (Multi-Auswahl). Machen Sie Styx glücklich und halten Sie Ihren Laden sauber! :) Wenn Sie jemals ein solches Theme wieder benötigen, laden Sie es einfach als frische Version über Spartacus. Anderseits, wenn Sie ein solches Template je selbst verändert haben, sollten Sie ohne vorheriges Backup auf die Löschung möglicherweise doch verzichten!');
+@define('THEMEMANAGER_INFO', 'Lösche alte Theme-Zombies (Multi-Auswahl). Machen Sie Styx glücklich und halten Sie Ihren Laden sauber! :) Wenn Sie jemals ein solches Theme wieder benötigen, laden Sie es einfach als frische Version über Spartacus. Anderseits, wenn Sie ein solches Template je selbst verändert haben, sollten Sie ohne vorheriges Backup auf die Löschung möglicherweise aber doch verzichten!');
 
 @define('GALLERY_ORIENTATION', 'Galerie Ausrichtung');
 @define('GALLERY_ORIENTATION_PERCOL', 'Reihenfolge per <b>Spalte</b>, vertikal angeordnet (empfohlen). Keine Größenbeschränkung!');
