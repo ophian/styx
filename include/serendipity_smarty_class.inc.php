@@ -158,6 +158,9 @@ class Serendipity_Smarty extends Smarty
             $this->setCompileDir($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE);
         }
 
+        // Set cache dir to archives path to get rid of roots cache dir
+        $this->setCacheDir($serendipity['serendipityPath'] . 'archives/cache');
+
         $this->setConfigDir(array(S9Y_TEMPLATE_USERDEFAULT));
 
         if ((!is_dir($this->getCompileDir()) || !is_writable($this->getCompileDir())) && IN_installer !== true) {
