@@ -77,7 +77,7 @@
                 exp = Number(exp);
             var now = Date.now();
             var day = Math.floor(((((exp - now)/1000)/60)/60)/24); // sec/min/hrs/days
-            $('#entry_'+el+' .ucc-pinned-to').attr('title', function() { return $(this).attr("title") + '. Expires in '+(30+day)+' days.' }); // is like (30 + -2)
+            $('#entry_'+el+' .ucc-pinned-to').attr('title', function() { return $(this).attr('title') + '. Expires in '+(30+day)+' days.' }); // is like (30 + -2)
         }
     }
 
@@ -609,14 +609,14 @@
             if ($('#'+id).children('*[selected="selected"]').length > 1) {
                 // when loading the page new for the preview and more than one category was
                 // selected, collapsing the category-selector would lose those categories
-                $('#'+id).attr("size", $('#'+id).children().size);
+                $('#'+id).attr('size', $('#'+id).children().length);
                 $('#toggle_' + id).find('> .icon-right-dir').removeClass('icon-right-dir').addClass('icon-down-dir');
                 return
             }
 
         }
 
-        if ($('#'+id).attr("multiple")) {
+        if ($('#'+id).attr('multiple')) {
             if ($('#'+id).children(':selected').filter('[value!="0"]').length > 1) {
                 // when collapsing, all multiple selection needs to be saved to be restoreable if the click was a mistake
                 var selected_categories = '';
@@ -625,13 +625,13 @@
                 });
                 categoryselector_stored_categories = selected_categories;
             }
-            $('#'+id).removeAttr("multiple");
-            $('#'+id).removeAttr("size");
+            $('#'+id).removeAttr('multiple');
+            $('#'+id).removeAttr('size');
             $('#toggle_' + id).find('> .icon-down-dir').removeClass('icon-down-dir').addClass('icon-right-dir');
 
         } else {
-            $('#'+id).attr("multiple", "");
-            $('#'+id).attr("size", $('#'+id).children().size);
+            $('#'+id).attr('multiple', '');
+            $('#'+id).attr('size', $('#'+id).children().length);
             $('#toggle_' + id).find('> .icon-right-dir').removeClass('icon-right-dir').addClass('icon-down-dir');
 
             var selected_categories = categoryselector_stored_categories;
