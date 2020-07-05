@@ -1840,7 +1840,7 @@ $(function() {
                                 $('.form_buttons').prepend(mlLink);
                                 $(mlLink).fadeIn();
                             }
-                            $('#uploadform .check_inputs').prop('checked', false);
+                            $('#uploadform .check_inputs').prop('disabled', false);
                         });
                     };
                     $('.uploadform_userfile').each(function() {
