@@ -259,10 +259,10 @@
                     });
                 });
                 $('.reset_sort').click(function() {
-                    $("#serendipity_sortorder_order option:selected").removeAttr("selected");
-                    $("#serendipity_sortorder_order option[value='i.date']").attr('selected', 'selected');
-                    $("#serendipity_sortorder_perpage option:selected").removeAttr("selected");
-                    $("#serendipity_sortorder_perpage option[value='8']").attr('selected', 'selected');
+                    $("#serendipity_sortorder_order option:selected").prop('selected', false);
+                    $("#serendipity_sortorder_order option[value='i.date']").prop('selected', true);
+                    $("#serendipity_sortorder_perpage option:selected").prop('selected', false);
+                    $("#serendipity_sortorder_perpage option[value='8']").prop('selected', true);
                 });
             });
         </script>

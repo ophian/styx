@@ -215,9 +215,9 @@
                         $('#filter_ip').attr('value', '');
                         $('#filter_body').attr('value', '');
                         $('#filter_referer').attr('value', '');
-                        $('#filter_perpage option:selected').removeAttr('selected');
-                        $('#filter_show option:selected').removeAttr('selected');
-                        $('#filter_type option:selected').removeAttr('selected');
+                        $('#filter_perpage option:selected').prop('selected', false);
+                        $('#filter_show option:selected').prop('selected', false);
+                        $('#filter_type option:selected').prop('selected', false);
                     });
                 });
             </script>

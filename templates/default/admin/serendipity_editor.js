@@ -643,7 +643,7 @@
                 selected_categories = selected_categories.split(',');
                 selected_categories.forEach(function(cat_id) {
                     if (cat_id) {
-                        $('#'+id).find('[value="'+ cat_id +'"]').attr('selected', 'selected');
+                        $('#'+id).find('[value="'+ cat_id +'"]').prop('selected', true);
                     }
                 });
             }
@@ -1537,7 +1537,7 @@ $(function() {
     // Selection for multicheck
     $('.multicheck').click(function() {
         var $el = $(this);
-        serendipity.highlightComment($el.attr('data-multixid'), $el.attr('checked'));
+        serendipity.highlightComment($el.attr('data-multixid'), $el.prop('checked', true));
     });
 
     // Invert checkboxes

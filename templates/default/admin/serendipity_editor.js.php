@@ -639,7 +639,7 @@
                 selected_categories = selected_categories.split(',');
                 selected_categories.forEach(function(cat_id) {
                     if (cat_id) {
-                        $('#'+id).find('[value="'+ cat_id +'"]').attr('selected', 'selected');
+                        $('#'+id).find('[value="'+ cat_id +'"]').prop('selected', true);
                     }
                 });
             }
@@ -1593,7 +1593,7 @@ $(function() {
     // Selection for multicheck
     $('.multicheck').click(function() {
         var $el = $(this);
-        serendipity.highlightComment($el.attr('data-multixid'), $el.attr('checked'));
+        serendipity.highlightComment($el.attr('data-multixid'), $el.prop('checked', true));
     });
 
     // Invert checkboxes
@@ -1797,7 +1797,7 @@ $(function() {
             $('#uploadform').submit(function(event) {
                 if (! $('#imageurl').val()) {
                     event.preventDefault();
-                    $('#uploadform .check_inputs').attr('disabled', true);
+                    $('#uploadform .check_inputs').prop('disabled', true);
                     var sendDataToML = function(data, progressContainer, progress) {
                         $.ajax({
                             type: 'post',
@@ -1840,7 +1840,7 @@ $(function() {
                                 $('.form_buttons').prepend(mlLink);
                                 $(mlLink).fadeIn();
                             }
-                            $('#uploadform .check_inputs').removeAttr('disabled');
+                            $('#uploadform .check_inputs').prop('checked', false);
                         });
                     };
                     $('.uploadform_userfile').each(function() {

@@ -132,15 +132,15 @@
             $('#sort_entries').find('.reset_entry_filters').addClass('reset_sort');
 
             $('.reset_filter').click(function() {
-                $('#filter_author option:selected').removeAttr('selected');
-                $('#filter_draft option:selected').removeAttr('selected');
-                $('#filter_category option:selected').removeAttr('selected');
+                $('#filter_author option:selected').prop('selected', false);
+                $('#filter_draft option:selected').prop('selected', false);
+                $('#filter_category option:selected').prop('selected', false);
                 $('#filter_content').attr('value', '');
             });
             $('.reset_sort').click(function() {
-                $('#sort_order option:selected').removeAttr('selected');
-                $('#sort_ordermode option:selected').removeAttr('selected');
-                $('#sort_perpage option:selected').removeAttr('selected');
+                $('#sort_order option:selected').prop('selected', false);
+                $('#sort_ordermode option:selected').prop('selected', false);
+                $('#sort_perpage option:selected').prop('selected', false);
             });
         });
     </script>
