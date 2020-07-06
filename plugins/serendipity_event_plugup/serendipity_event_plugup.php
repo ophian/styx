@@ -158,7 +158,7 @@ class serendipity_event_plugup extends serendipity_plugin
                     // We want the dashboard widgets to easily float into the 2-grid space available in height.
                     }
                     // we still have to unset these two plugin cookies in case of
-                    // - updates all done in serendipity_editor.js in serendipity.updateNext() for the javascript update all solution and
+                    // - updates all done in serendipity_styx.js in serendipity.updateNext() for the javascript update all solution and
                     // - try to unset them here in the 'backend_plugins_update' hook via the plugin API for Spartacus cases!
 ?>
 

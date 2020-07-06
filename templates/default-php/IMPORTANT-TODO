@@ -31,7 +31,7 @@ UNFINISHED:
 ...various other plugin tpl files that may reside in a theme,
 or in special cases are used in the backend for popups or includes
 (eg. see for linktrimmer, or amazonchooser template files, or the
-special admin/serendipity_editor.js(.php) template file, which
+special admin/serendipity_styx.js(.php) template file, which
 are already done).
 
 

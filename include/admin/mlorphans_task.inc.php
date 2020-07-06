@@ -264,7 +264,7 @@ if (empty($serendipity['POST']['multiCheck']) && empty($serendipity['POST']['orp
        }
     }
 
-    // Inverts a selection of checkboxes - overwrites a serendipity_editor.js function
+    // Inverts a selection of checkboxes - overwrites a serendipity_styx.js function
     serendipity.invertSelection = function() {
         // image orphans for example
         var inputs = document.getElementsByClassName('multicheck');
