@@ -1,6 +1,10 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * The backend serendipity_editor.js file(s) in backend templates were
+    renamed to be called serendipity_styx.js, which also implies being the
+    backend javascript.
+
   * Improved backend serendipity_editor.js files and all template filter resets
     with media/comments/entries filters to update jQuery method property changes
     for input fields 'checked', 'disabled', or 'selected' states.
