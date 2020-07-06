@@ -453,7 +453,7 @@ if (IS_up2date === false && !defined('IN_upgrader')) {
         $css_mode = 'serendipity_admin.css';
         return 1;
     }
-    if (preg_match('@/(serendipity_editor\.js$)@', $_SERVER['REQUEST_URI'], $matches)) {
+    if (preg_match('@/(serendipity_styx\.js$)@', $_SERVER['REQUEST_URI'], $matches)) {
         return 1;
     }
     if (serendipity_checkPermission('adminUsers')) {

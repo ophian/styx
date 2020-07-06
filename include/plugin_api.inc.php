@@ -79,10 +79,10 @@ function serendipity_plugin_api_core_event_hook($event, &$bag, &$eventData, &$ad
     switch($event) {
 
         case 'external_plugin':
-            if ($eventData == 'admin/serendipity_editor.js') {
+            if ($eventData == 'admin/serendipity_styx.js') {
                 header('Content-Type: application/javascript');
 
-                echo serendipity_smarty_showTemplate('admin/serendipity_editor.js.tpl', null, 'JS', 'include/plugin_api.inc.php:external_plugin');
+                echo serendipity_smarty_showTemplate('admin/serendipity_styx.js.tpl', null, 'JS', 'include/plugin_api.inc.php:external_plugin');
             }
             break;
 

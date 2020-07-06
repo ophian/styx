@@ -436,7 +436,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
      * Check matching backend routings
      */
     function match() {
-        if ($GLOBALS['matches'][2] == 'admin/serendipity_editor.js') {
+        if ($GLOBALS['matches'][2] == 'admin/serendipity_styx.js') {
             return false;
         } elseif ($GLOBALS['matches'][1] == 'serendipity_admin.js') {
             return false;
@@ -536,17 +536,17 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
      */
     function &fetch($resource_name, $cache_id = NULL, $compile_id = NULL, $display = false)
     {
-        if ($GLOBALS['matches'][2] == 'admin/serendipity_editor.js') {
+        if ($GLOBALS['matches'][2] == 'admin/serendipity_styx.js') {
             if (!is_object($serendipity['smarty'])) {
                 ob_start();
-                $tfile = $GLOBALS['serendipity']['serendipityPath'] . $GLOBALS['serendipity']['templatePath'] . 'default/admin/serendipity_editor.js.php';
-                echo "/* Dynamically fetched {$GLOBALS['serendipity']['templatePath']}default/admin/serendipity_editor.js.php on " . date('Y-m-d H:i') . ", called by: serendipity_smarty_emulator_xml class */\n";
+                $tfile = $GLOBALS['serendipity']['serendipityPath'] . $GLOBALS['serendipity']['templatePath'] . 'default/admin/serendipity_styx.js.php';
+                echo "/* Dynamically fetched {$GLOBALS['serendipity']['templatePath']}default/admin/serendipity_styx.js.php on " . date('Y-m-d H:i') . ", called by: serendipity_smarty_emulator_xml class */\n";
                 include $tfile;
                 $out = ob_get_contents();
                 ob_end_clean();
                 return $out;
             } else {
-                return file_get_contents(serendipity_getTemplateFile('admin/serendipity_editor.js.tpl', 'serendipityPath'));
+                return file_get_contents(serendipity_getTemplateFile('admin/serendipity_styx.js.tpl', 'serendipityPath'));
             }
             return false;
         }
