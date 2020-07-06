@@ -12,7 +12,7 @@
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
     <script src="templates/jquery.js"></script>
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
-    <script src="templates/default/admin/serendipity_editor.js"></script>
+    <script src="templates/default/admin/serendipity_styx.js"></script>
 </head>
 <body id="serendipity_admin_page">
     <header id="top">
