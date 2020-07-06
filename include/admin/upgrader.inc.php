@@ -422,6 +422,12 @@ $tasks = array(
                     'title'     => 'Styx moved the Smarty (real) cache directory into archives.',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_310) . '</pre>'),
 
+            array(  'version'   => '3.1.0',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_310, array('internals'), true),
+                    'title'     => 'Removal of old dead files in v.3.1.0',
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_310) . '</pre>'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 

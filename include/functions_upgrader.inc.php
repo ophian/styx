@@ -427,6 +427,14 @@ $dead_dirs_300 = array(
     $serendipity['serendipityPath'] . 'templates_c/2styx'
 );
 
+/* A list of Styx files, to be removed or renamed by 3.1.0 */
+$dead_files_310 = array(
+    'templates/default/admin/serendipity_editor.js',
+    'templates/default/admin/serendipity_editor.js.php',
+    'templates/default/admin/serendipity_editor.js.tpl',
+    'templates/default-php/admin/serendipity_editor.js.tpl'
+);
+
 /* A list of old or removed directories for 3.1.0 */
 $dead_dirs_310 = array(
     $serendipity['serendipityPath'] . 'cache'
