@@ -1592,7 +1592,7 @@ $(function() {
     // Selection for multicheck
     $('.multicheck').click(function() {
         var $el = $(this);
-        serendipity.highlightComment($el.attr('data-multixid'), $el.prop('checked', true));
+        serendipity.highlightComment($el.attr('data-multixid'), $el.prop('checked'));
     });
 
     // Invert checkboxes
