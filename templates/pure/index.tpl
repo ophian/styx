@@ -117,6 +117,17 @@
             CKEDITOR.replace( 'serendipity_commentform_comment', { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']] });
         }
     </script>
+    <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github.min.css">
+    <script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
+    <script>
+    jQuery(function($) {
+        // launch the codesnippet highlight
+        hljs.configure({
+          tabReplace: '    ', // 4 spaces
+        });
+        hljs.initHighlighting();
+    });
+    </script>
 {/if}
 
 {/if}
