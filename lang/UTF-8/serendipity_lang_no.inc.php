@@ -24,6 +24,7 @@
 @define('LOGOUT', 'Logg ut');
 @define('LOGGEDOUT', 'Logget ut.');
 @define('CREATE', 'Opprett');
+@define('SAVE', 'Lagre');
 @define('CREATE_NEW_CAT', 'Oppret ny kategori');
 @define('I_WANT_THUMB', 'Jeg vil bruke minibildet i min artikkel.');
 @define('I_WANT_BIG_IMAGE', 'Jeg vil bruke det originale bildet i min artikkel.');
