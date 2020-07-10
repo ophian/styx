@@ -1,6 +1,9 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Add highlight.js v.10.1.1 assets for ckebasic based codesnippets themes
+    [pure, pure19, dude].
+
   * Implement backend comments list comment full toggle all option
 
   * The backend serendipity_editor.js file(s) in backend templates were
