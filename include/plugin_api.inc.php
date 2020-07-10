@@ -39,7 +39,8 @@ function serendipity_plugin_api_frontend_header($event_name, &$bag, &$eventData,
     <script>jQuery.noConflict();</script>
 <?php
         }
-        // check Styx backend WebP support and an is-set frontend theme (modern) modernizr object with WebP module support returning a non supporting browser
+        // Check Styx backend WebP support and an is-set frontend theme (modern) modernizr object with WebP module support returning a non supporting browser
+        // Actually this is not used since modernizr was removed from pure standard theme
         if (isset($serendipity['useWebPFormat']) && $serendipity['useWebPFormat']) {
 ?>
     <script>
