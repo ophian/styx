@@ -1728,16 +1728,34 @@ $(function() {
     // Show extended comment
     $('.toggle_comment_full').click(function(e) {
         var $el = $(this);
-        if ($el.attr('href')) {
-            var $toggled = $($el.attr('href'));
+        if ($el.data('href') && $el.data('href').indexOf(',') > -1) {
+            var cArray = $el.data('href').split(',');
         } else {
-            var $toggled = $($el.data('href'));
+            if ($el.attr('href')) {
+                var $toggled = $($el.attr('href'));
+            } else {
+                var $toggled = $($el.data('href'));
+            }
         }
 
-        serendipity.toggle_collapsible($el, $toggled);
+        if (Array.isArray(cArray)) {
+            cArray.forEach(function(item){
+                $n = item.substring(1);
+                var $f = $('#c'+$n+'_full');
+                var $s = $('#c'+$n+'_summary');
+                serendipity.toggle_collapsible($el, $($el.data('href')));
 
-        $toggled.prev().toggleClass('additional_info');
-        e.preventDefault();
+                if ($f.toggleClass('additional_info')) {
+                    $s.toggleClass('additional_info');
+                }
+                e.preventDefault();
+            });
+        } else {
+            serendipity.toggle_collapsible($el, $toggled);
+
+            $toggled.prev().toggleClass('additional_info');
+            e.preventDefault();
+        }
     });
 
     // MediaDB-Filter-Buttons shall react instantly
