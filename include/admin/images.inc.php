@@ -946,7 +946,9 @@ switch ($serendipity['GET']['adminAction']) {
         $data['scaleOriginSize'] = array('width' => $s[0], 'height' => $s[1]);
         $data['formtoken']       = serendipity_setFormToken();
         $data['file']            = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] .($file['extension'] ? '.'. $file['extension'] : '');
-        $data['file_webp']       = $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
+        $data['file_webp']       = file_exists($serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp')
+            ? $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp'
+            : '';
         break;
 
     case 'choose':
