@@ -5,13 +5,14 @@ Version 3.1.0-DEV ()
     counted 25 item range parts. It could happen that the image API functions
     did not exactly fetch and count the observed image items properly for the
     range generator. This issue was fixed by adding a new by.extension WHERE
-    clause filter to the main serendipity_fetchImagesFromDatabase function.
+    clause filter to the main serendipity_fetchImagesFromDatabase API function.
     PLEASE NOTE:
     If you did run that before for old MediaLibrary items on a pre-3.0 upgrade
     blog, and afterwards encountered missing webP file variations in the Media
-    Library where you actually should have some, please delete them by Option #5
-    first and then re-run that option for generating all variation files (again).
-    REMEMBER, this is a highly resources (time and memory) consuming action!
+    Library where you actually should have some ('jgp' and 'png' image cases),
+    please delete them by Option #5 first and then re-run that option for
+    generating all variation files (again).
+    REMEMBER, by amount this may be a highly resources consuming action!
 
   * Fix MediaLibrary scaleImage preview for non-webP variation images (cases)
 
