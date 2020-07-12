@@ -111,12 +111,17 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         $cond['parts']['keywords'] = " AND (mk.property IN ('" . serendipity_db_implode("', '", $keywords, 'string') . "'))\n";
         $cond['joinparts']['keywords'] = true;
     }
+
     foreach($filter AS $f => $fval) {
-        if (! (isset($orderfields[$f]) || $f == 'fileCategory') || empty($fval)) {
+        if (! (isset($orderfields[$f]) || $f == 'fileCategory' || $f == 'by.extension') || empty($fval)) {
             continue;
         }
-
         if (is_array($fval)) {
+            // A serendipity_generateVariations() filter intrusion to help getting same result sets for the part range runs
+            if (!empty($filter['by.extension'])) {
+                $cond['parts']['filter'] = " AND (i.extension IN ('" . serendipity_db_implode("', '", $fval, 'string') . "'))\n";
+            }
+
             if (empty($fval['from']) || empty($fval['to'])) {
                 continue;
             }
@@ -1370,7 +1375,7 @@ function serendipity_generateVariations() {
         return;
     }
     if ($debug) {
-        $logtag = 'MAINTENANCE ML IMAGE-SYNC OPT N°5 - PART RUN ::';
+        $logtag = 'MAINTENANCE ML IMAGE-SYNC OPT #5 - PART RUN ::';
         $trace  = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START MS serendipity_generateVariations() SEPARATOR" . str_repeat(" >>> ", 10) . "\n");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
@@ -1382,8 +1387,8 @@ function serendipity_generateVariations() {
     $parts = ($count[0] > 25) ? range(0, $count[0], 25) : array(0);
     foreach($parts AS $part) {
         echo "<li>" . sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_PART, $iteration, ($count[0]-$part)) . "</li>\n";
-        // we cannot use a filter extension != webp and have to sort them out latterly
-        $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC');
+        // we use and set a filter extension for webp to get same results for the part range
+        $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC', '', '', '', array('by.extension' => array(0 => 'jpg', 1 => 'jpeg', 2 => 'png')));
         if ($debug) {
             $serendipity['logger']->debug("L_".__LINE__.":: $logtag FETCH PART $iteration DB FILES: ".print_r($files,1));
         }
