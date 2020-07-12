@@ -1,7 +1,7 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix Maintenance Image Sync option #5 issue, generating all webP files by
+  * Fix Maintenance Image Sync option #4 issue, generating all webP files by
     counted 25 item range parts. It could happen that the image API functions
     did not exactly fetch and count the observed image items properly for the
     range generator. This issue was fixed by adding a new by.extension WHERE
@@ -10,7 +10,7 @@ Version 3.1.0-DEV ()
     If you did run that before for old MediaLibrary items on a pre-3.0 upgrade
     blog, and afterwards encountered missing webP file variations in the Media
     Library where you actually should have some ('jgp' and 'png' image cases),
-    please delete them by Option #5 first and then re-run that option for
+    please delete them by Option #4 first and then re-run that option for
     generating all variation files (again).
     REMEMBER, by amount this may be a highly resources consuming action!
 
