@@ -12,7 +12,7 @@ Version 3.1.0-DEV ()
     Library where you actually should have some ('jgp' and 'png' image cases),
     please delete them by Option #4 first and then re-run that option for
     generating all variation files (again).
-    REMEMBER, by amount this may be a highly resources consuming action!
+    REMEMBER, by amount this may be a highly resource consuming action!
 
   * Fix MediaLibrary scaleImage preview for non-webP variation images (cases)
 
