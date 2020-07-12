@@ -7,11 +7,11 @@ Version 3.1.0-DEV ()
     range generator. This issue was fixed by adding a new by.extension WHERE
     clause filter to the main serendipity_fetchImagesFromDatabase function.
     PLEASE NOTE:
-    If you have run that before for old MediaLibrary items in an upgrade blog,
-    and afterwards encountered missing webP file variations where you actually
-    should have some, please delete them by Option N°5 first and then re-run
-    that option for generating all variation files (again).
-    Remember this is a time and memory consuming action!
+    If you did run that before for old MediaLibrary items on a pre-3.0 upgrade
+    blog, and afterwards encountered missing webP file variations in the Media
+    Library where you actually should have some, please delete them by Option #5
+    first and then re-run that option for generating all variation files (again).
+    REMEMBER, this is a highly resources (time and memory) consuming action!
 
   * Fix MediaLibrary scaleImage preview for non-webP variation images (cases)
 
