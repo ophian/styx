@@ -1375,7 +1375,7 @@ function serendipity_generateVariations() {
         return;
     }
     if ($debug) {
-        $logtag = 'MAINTENANCE ML IMAGE-SYNC OPT #5 - PART RUN ::';
+        $logtag = 'MAINTENANCE ML IMAGE-SYNC OPT #4 - PART RUN ::';
         $trace  = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START MS serendipity_generateVariations() SEPARATOR" . str_repeat(" >>> ", 10) . "\n");
         $serendipity['logger']->debug("TRACE: " . print_r($trace,1));
