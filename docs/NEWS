@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix atom feed reader cases with commments having specialchars
+
   * Fix Maintenance Image Sync option #4 issue, generating all webP files by
     counted 25 item range parts. It could happen that the image API functions
     did not exactly fetch and count the observed image items properly for the
