@@ -1389,29 +1389,19 @@ function serendipity_generateVariations() {
         echo "<li>" . sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_PART, $iteration, ($count[0]-$part)) . "</li>\n";
         // we use and set a filter extension for webp to get same results for the part range
         $files = serendipity_fetchImagesFromDatabase($part, 25, $total, array('path, name'), 'ASC', '', '', '', array('by.extension' => array(0 => 'jpg', 1 => 'jpeg', 2 => 'png')));
-        if ($debug) {
-            $serendipity['logger']->debug("L_".__LINE__.":: $logtag FETCH PART $iteration DB FILES: ".print_r($files,1));
-        }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag FETCH PART $iteration DB FILES: ".print_r($files,1)); }
         if (is_array($files) && !empty($files)) {
             foreach($files AS $f => $file) {
                 if (!in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png']) || $file['hotlink'] == 1) continue;
-                if ($debug) {
-                    $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,1));
-                }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag EACH FILE AFTER: ".print_r($file,1)); }
                 $infile    = $outfile   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 $infileTH  = $outfileTH = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['thumbnail_name']) ? '' : '.' . $file['thumbnail_name']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 $newfile   = serendipity_makeImageVariationPath($outfile, 'webp');
-                if ($debug) {
-                    $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,1));
-                }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILE WEBP: ".print_r($newfile,1)); }
                 $newfileTH = serendipity_makeImageVariationPath($outfileTH, 'webp');
-                if ($debug) {
-                    $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,1));
-                }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag NEW FILETHUMB WEBP: ".print_r($newfileTH,1)); }
                 $result    = serendipity_convertToWebPFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), true);
-                if ($debug) {
-                    $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,1));
-                }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag CONVERT TO WEBP: ".print_r($result,1)); }
                 if ($result !== false && is_array($result) && $result[0] == 0) {
                     serendipity_convertToWebPFormat($infileTH, $newfileTH['filepath'], $newfileTH['filename'], mime_content_type($outfileTH), true);
                     ++$i;
@@ -1419,9 +1409,7 @@ function serendipity_generateVariations() {
             }
         }
         echo '<li>' , sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_DONE, $iteration, DONE, $i) , "<br>\n</li>\n";
-        if ($debug) {
-            $serendipity['logger']->debug("L_".__LINE__.":: $logtag ".sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_DONE, $iteration, DONE, $i));
-        }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag ".sprintf(SYNC_IMAGE_LIST_ITERATION_RANGE_DONE, $iteration, DONE, $i)); }
         ++$iteration;
         flush();
     }
