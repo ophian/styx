@@ -62,7 +62,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 $entry['title'] = (!empty($entry['author']) ? $entry['author'] : ANONYMOUS) . ': ' . $entry['title'];
 
                 // No HTML allowed here:
-                $entry['body'] = strip_tags($entry['body']);
+                $entry['body'] = serendipity_specialchars(strip_tags($entry['body'])); // in stripped case use htmlspecialchars for atom!!
             }
 
             // Embed a link to extended entry, if existing
