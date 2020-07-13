@@ -997,7 +997,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
     if ($debug) {
         $logtag = 'ML_MAKETHUMBNAIL::';
         $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START ML serendipity_makeThumbnail SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
-        $serendipity['logger']->debug("$logtag From: $infile");
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag From: $infile");
     }
 
     if ($is_temporary) {
@@ -1012,9 +1012,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
 
     $serendipity['last_outfile'] = $outfile;
 
-    if ($debug) {
-        $serendipity['logger']->debug("$logtag To: $outfile");
-    }
+    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag To: $outfile"); }
 
     $fdim = @serendipity_getImageSize($infile, '', $suf);
     if (isset($fdim['noimage'])) {
@@ -1829,8 +1827,8 @@ function serendipity_convertThumbs() {
     $i = $e = $s = 0;
 
     if ($debug) {
-        $serendipity['logger']->debug("$logtag UniqueThumbSuffixes: ".print_r($serendipity['uniqueThumbSuffixes'],1));
-        $serendipity['logger']->debug("$logtag REVERSE THUMB FILES: ".print_r($ofiles,1));
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag UniqueThumbSuffixes: ".print_r($serendipity['uniqueThumbSuffixes'],1));
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag REVERSE THUMB FILES: ".print_r($ofiles,1));
     }
 
     if (empty($ofiles)) return $i;
@@ -1853,7 +1851,7 @@ function serendipity_convertThumbs() {
             $q = "UPDATE {$serendipity['dbPrefix']}images
                      SET thumbnail_name = '" . serendipity_db_escape_string($serendipity['thumbSuffix']) . "'
                    WHERE thumbnail_name = '" . serendipity_db_escape_string($othumb) . "'";
-            if ($debug) { $serendipity['logger']->debug("$logtag UPDATE images DB::images:\n$q"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag UPDATE images DB::images:\n$q"); }
             serendipity_db_query($q);
             if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
                 // SELECT-ing the entries by $oldthumbnail singularly
@@ -1867,7 +1865,7 @@ function serendipity_convertThumbs() {
                        WHERE (body || extended LIKE '%" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "%')
                           OR (body || extended LIKE '%" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "%')";
             }
-            if ($debug) { $serendipity['logger']->debug("$logtag SELECT entries DB::entries:\n$eq"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag SELECT entries DB::entries:\n$eq"); }
             $entries = serendipity_db_query($eq, false, 'assoc');
             if (is_array($entries)) {
                 foreach($entries AS $entry) {
@@ -1878,7 +1876,7 @@ function serendipity_convertThumbs() {
                               SET body = '" . serendipity_db_escape_string($entry['body']) . "' ,
                                   extended = '" . serendipity_db_escape_string($entry['extended']) . "'
                             WHERE id = $id";
-                    if ($debug) { $serendipity['logger']->debug("$logtag UPDATE entries DB::entries:\nID:{$entry['id']} {$serendipity['dbPrefix']}entries::[body|extended] update " .DONE); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag UPDATE entries DB::entries:\nID:{$entry['id']} {$serendipity['dbPrefix']}entries::[body|extended] update " .DONE); }
                     serendipity_db_query($uq);
                     // count the entries changed
                     if (isset($_tmpEntryID) && $_tmpEntryID != $entry['id']) $e++;
@@ -1888,7 +1886,7 @@ function serendipity_convertThumbs() {
                     $epq1 = "SELECT entryid, value
                                FROM {$serendipity['dbPrefix']}entryproperties
                               WHERE entryid = $id AND property = 'ep_cache_body'";
-                    if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_body):ID:{$entry['id']}\n$epq1"); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_body):ID:{$entry['id']}\n$epq1"); }
                     $eps1 = serendipity_db_query($epq1, false, 'assoc');
                     if (is_array($eps1)) {
                         $eps1['value'] = preg_replace('@(src=|srcset=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newThumbnail, $eps1['value']);
@@ -1896,14 +1894,14 @@ function serendipity_convertThumbs() {
                                      SET value = '" . serendipity_db_escape_string($eps1['value']) . "'
                                    WHERE entryid =  " . (int)$eps1['entryid'] . "
                                      AND property = 'ep_cache_body'";
-                        if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps1['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_body) SUB-UPDATE " .DONE); }
+                        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps1['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_body) SUB-UPDATE " .DONE); }
                         serendipity_db_query($uepq1);
                     }
                     // SAME FOR ENTRYPROPERTIES CACHE for ep_cache_extended
                     $epq2 = "SELECT entryid, value
                                FROM {$serendipity['dbPrefix']}entryproperties
                               WHERE entryid = $id AND property = 'ep_cache_extended'";
-                    if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_extended):ID:{$entry['id']}\n$epq2"); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_extended):ID:{$entry['id']}\n$epq2"); }
                     $eps2 = serendipity_db_query($epq2, false, 'assoc');
                     if (is_array($eps2)) {
                         $eps2['value'] = preg_replace('@(src=|srcset=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $newThumbnail, $eps2['value']);
@@ -1911,7 +1909,7 @@ function serendipity_convertThumbs() {
                                      SET value = '" . serendipity_db_escape_string($eps2['value']) . "'
                                    WHERE entryid =  " . (int)$eps2['entryid'] . "
                                      AND property = 'ep_cache_extended'";
-                        if ($debug) { $serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps2['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_extended) SUB-UPDATE " .DONE); }
+                        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag SUB-SELECT-UPDATE entryproperties DB:\nENTRY_ID:{$eps2['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_extended) SUB-UPDATE " .DONE); }
                         serendipity_db_query($uepq2);
                     }
                 }
@@ -1930,7 +1928,7 @@ function serendipity_convertThumbs() {
                            WHERE (content || pre_content LIKE '%" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "%')
                               OR (content || pre_content LIKE '%" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "%')";
                 }
-                if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-SELECT staticpages DB::sp:\n$sq"); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag ADDITIONAL-SELECT staticpages DB::sp:\n$sq"); }
                 $spages = serendipity_db_query($sq, false, 'assoc');
                 if (is_array($spages)) {
                     foreach($spages AS $spage) {
@@ -1940,7 +1938,7 @@ function serendipity_convertThumbs() {
                                   SET content = '" . serendipity_db_escape_string($spage['content']) . "' ,
                                       pre_content = '" . serendipity_db_escape_string($spage['pre_content']) . "'
                                 WHERE id =  " . serendipity_db_escape_string($spage['id']);
-                        if ($debug) { $serendipity['logger']->debug("$logtag ADDITIONAL-UPDATE staticpages DB:\nID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] UPDATE " .DONE); }
+                        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag ADDITIONAL-UPDATE staticpages DB:\nID:{$spage['id']} {$serendipity['dbPrefix']}staticpages::[content|pre_content] UPDATE " .DONE); }
                         serendipity_db_query($pq);
                         // count the staticpage entries changed
                         if (isset($_tmpStaticpID) && $_tmpStaticpID != $spage['id']) $s++;
@@ -2505,16 +2503,16 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         );
         foreach($aResultSet AS $sKey => $sFile) {
             if ($sFile['directory']) {
-                if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a directory."); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a directory."); }
                 // remove the hidden .v/ directory from media.path select lists, since we need it for handlers but not for user directory select lists
                 if (!preg_match('@\.v\/@', $sFile['relpath'])) {
                     array_push($paths, $sFile);
                 }
             } else {
-                if ($debug) { $serendipity['logger']->debug("$logtag {$sFile['relpath']} is a file."); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a file."); }
                 if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v\/@', $sFile['relpath']) && preg_match('@[\.webp]$@', $sFile['relpath']) )) {
                     if ($sFile['relpath'] != '.empty' && @!in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync'])) {
-                        if ($debug) { $serendipity['logger']->debug("$logtag Found aFilesNoSync = {$sFile['relpath']}."); }
+                        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);
                         $fdim = @serendipity_getImageSize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sFile['relpath'], '', $path_parts['extension']);
                         $aFilesNoSync[$sFile['relpath']] = array(
@@ -2542,7 +2540,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
         usort($paths, 'serendipity_sortPath');
 
-        if ($debug) { $serendipity['logger']->debug("$logtag Got real disc files: " . print_r($aFilesOnDisk, 1)); }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got real disc files: " . print_r($aFilesOnDisk, 1)); }
         $serendipity['current_image_hash'] = md5(serialize($aFilesOnDisk));
 
         // ML Cleanup START - is part of SYNC
@@ -2553,14 +2551,14 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         $nTimeStart = microtime_float();
         $nCount = 0;
 
-        if ($debug) { $serendipity['logger']->debug("$logtag Image-Sync has perm: " . serendipity_checkPermission('adminImagesSync') . ", Onthefly Sync: {$serendipity['onTheFlySynch']}, Hash: " . ($serendipity['current_image_hash'] != ($serendipity['last_image_hash'] ? "uneven, cleanup" : "even, skip cleanup"))); }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Image-Sync has perm: " . serendipity_checkPermission('adminImagesSync') . ", Onthefly Sync: {$serendipity['onTheFlySynch']}, Hash: " . ($serendipity['current_image_hash'] != ($serendipity['last_image_hash'] ? "uneven, cleanup" : "even, skip cleanup"))); }
 
         if ($serendipity['onTheFlySynch'] && serendipity_checkPermission('adminImagesSync')
         && isset($serendipity['last_image_hash']) && $serendipity['current_image_hash'] != $serendipity['last_image_hash']) {
             $aResultSet = serendipity_db_query("SELECT id, name, extension, thumbnail_name, path, hotlink
                                                   FROM {$serendipity['dbPrefix']}images WHERE path != '.v/'", false, 'assoc'); // exclude possible variations (.v/ path should only be if that was development or somethings has went wrong)
 
-            if ($debug) { $serendipity['logger']->debug("$logtag Got images: " . print_r($aResultSet, 1)); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got images: " . print_r($aResultSet, 1)); }
 
             if (is_array($aResultSet)) {
                 $msgdelfile = [];
@@ -2583,7 +2581,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                         $sFileName = $sFile['path'] . $sFile['name'] . (empty($sFile['extension']) ? '' : '.' . $sFile['extension']);
                     }
 
-                    if ($debug) { $serendipity['logger']->debug("$logtag File name is $sFileName, thumbnail is $sThumbNailFile"); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag File name is $sFileName, thumbnail is $sThumbNailFile"); }
 
                     unset($aResultSet[$sKey]);
 
@@ -2592,7 +2590,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                         unset($aFilesOnDisk[$sFileName]);
                     } else {
                         if (!$sFile['hotlink']) {
-                            if ($debug) { $serendipity['logger']->debug("$logtag Deleting Image {$sFile['id']}"); }
+                            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Deleting Image {$sFile['id']}"); }
 
                             $msgdelfile[] = serendipity_deleteImage($sFile['id']);
                             ++$nCount;
@@ -2609,22 +2607,22 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             }
 
             if ($nCount > 0) {
-                if ($debug) { $serendipity['logger']->debug("$logtag Cleaned up $nCount database entries"); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Cleaned up $nCount database entries"); }
             }
 
             serendipity_set_config_var('last_image_hash', $serendipity['current_image_hash'], 0);
             $aUnmatchedOnDisk = array_keys($aFilesOnDisk);
 
-            if ($debug) { $serendipity['logger']->debug("$logtag Got unmatched files: " . print_r($aUnmatchedOnDisk, 1)); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Got unmatched files: " . print_r($aUnmatchedOnDisk, 1)); }
 
             $nCount = 0;
             foreach($aUnmatchedOnDisk AS $sFile) {
                 if (preg_match('@\.' . $serendipity['thumbSuffix'] . '\.@', $sFile) || preg_match('@\.v\/@', $sFile)) {
                     // this means from now on these image variations are not added to the database any more!
-                    if ($debug) { $serendipity['logger']->debug("$logtag Skipping special cased hidden directory AND/OR thumbnail file $sFile"); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Skipping special cased hidden directory AND/OR thumbnail file $sFile"); }
                     continue;
                 } else {
-                    if ($debug) { $serendipity['logger']->debug("$logtag Checking $sFile"); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Checking $sFile"); }
                 }
 
                 // MTG: 21/01/06: put files which have just 'turned up' into the database
@@ -2639,7 +2637,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                        $sFileName  = substr($sFile, $nPos);
                        $sDirectory = substr($sFile, 0, $nPos);
                     }
-                    if ($debug) { $serendipity['logger']->debug("$logtag Inserting image $sFileName from $sDirectory" . print_r($aImageData, 1) . "\ninto database"); }
+                    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Inserting image $sFileName from $sDirectory" . print_r($aImageData, 1) . "\ninto database"); }
 
                     serendipity_makeThumbnail($sFileName, $sDirectory);
                     serendipity_insertImageInDatabase($sFileName, $sDirectory);
@@ -2648,10 +2646,10 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             }
 
             if ($nCount > 0) {
-                if ($debug) { $serendipity['logger']->debug("$logtag Inserted $nCount images into the database"); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Inserted $nCount images into the database"); }
             }
         } else {
-            if ($debug) { $serendipity['logger']->debug("$logtag Media Gallery database is up to date"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Media Gallery database is up to date"); }
         }
 
          /*
@@ -2664,14 +2662,14 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
     // Out of Sync Files
     if (!isset($aFilesNoSync)) $aFilesNoSync = array();
-    if ($debug) { $serendipity['logger']->debug("$logtag ".print_r($aFilesNoSync,1)); }
+    if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag ".print_r($aFilesNoSync,1)); }
     $serendipity['aFilesNoSync'] = $aFilesNoSync;
     $serendipity['smarty']->assign('imagesNoSync', $aFilesNoSync);
 
     ## Apply ACL afterwards:
     serendipity_directoryACL($paths, 'read');
 
-    // set filters (first part of serendipity_showMedia() remember filter settings for SetCookie ~1450)
+    // set filters (first part of serendipity_showMedia() remember filter settings for SetCookie ~1450(?))
     // set remember filter settings for SetCookie
     if (!isset($serendipity['GET']['filter'])) {
         serendipity_restoreVar($serendipity['COOKIE']['filter'], $serendipity['GET']['filter']);
@@ -4679,12 +4677,12 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         $oldThumbWebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file_oldthumbWebp;
 
     } else {
-        #if ($debug) { $serendipity['logger']->debug("$logtag RTRIM             newDir=$newDir"); }
+        #if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag RTRIM             newDir=$newDir"); }
         // case bulkmove event (newDir is passed inclusive the path! and normally w/o the filename, but we better check this though)
         $newDir = ($newDir == 'uploadRoot/') ? '' : $newDir; // Take care: remove temporary 'uploadRoot/' string, in case of moving a subdir file into "uploads/" root directory by bulkmove
-        #if ($debug) { $serendipity['logger']->debug("$logtag PREPARED BULKMOVE newDir=$newDir"); }
+        #if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED BULKMOVE newDir=$newDir"); }
         $_newDir = str_replace($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), '', $newDir);
-        if ($debug) { $serendipity['logger']->debug("$logtag PREPARED         _newDir=$_newDir"); }
+        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED         _newDir=$_newDir"); }
 
         // We don't need to care about $parts['extension'], since you can't change the EXT via the bulkmove event
         $file_new = $_newDir . $file['name'];
@@ -4715,10 +4713,10 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $reloldfilewebp . '.webp';
 
     if ($debug) {
-        $serendipity['logger']->debug("$logtag PREPARED oldfile=    $oldfile");
-        $serendipity['logger']->debug("$logtag PREPARED newfile=    $newfile");
-        $serendipity['logger']->debug("$logtag PREPARED oldfilewebp=$oldfilewebp");
-        $serendipity['logger']->debug("$logtag PREPARED newfilewebp=$newfilewebp");
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED oldfile=    $oldfile");
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED newfile=    $newfile");
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED oldfilewebp=$oldfilewebp");
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED newfilewebp=$newfilewebp");
     }
 
     // check files existence for both events
@@ -4769,7 +4767,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 'item_id'  => $item_id,
                 'file'     => $file,
                 'debug'    => $debug,
-                'dbginfo'  => 'CASE IS RENAME of $oldfilewebp _renameRealFileName:: ~4725+'
+                'dbginfo'  => 'CASE IS RENAME of $oldfilewebp _renameRealFileName:: ~4743+'
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // rename real file name type 'file'
 
@@ -4813,7 +4811,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 'haswebp'  => file_exists($oldfilewebp),
                 'file'     => $file,
                 'debug'    => $debug,
-                'dbginfo'  => "CASE IS BULKMOVE of $oldfilewebp _renameRealFileName:: ~4773++"
+                'dbginfo'  => "CASE IS BULKMOVE of $oldfilewebp _renameRealFileName:: ~4791++"
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // eg. for staticpage entries path regex replacements
 
@@ -4849,13 +4847,13 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                         $varFromWebPOrigin = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromwebp'] . '.webp';
                         $varToWebPOrigin   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['towebp'] . '.webp';
                         @rename($varFromWebPOrigin, $varToWebPOrigin);
-                        if ($debug) { $serendipity['logger']->debug("$logtag BULKMOVE VARIATION ORIGIN $varFromWebPOrigin => $varToWebPOrigin"); }
+                        if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag BULKMOVE VARIATION ORIGIN $varFromWebPOrigin => $varToWebPOrigin"); }
                         // WebP thumb variation case
                         $varFromWebPThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromwebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
                         $varToWebPThumb   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['towebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
                         @rename($varFromWebPThumb, $varToWebPThumb);
                         if ($debug) {
-                            $serendipity['logger']->debug("$logtag BULKMOVE VARIATION THUMB  $varFromWebPThumb => $varToWebPThumb");
+                            $serendipity['logger']->debug("L_".__LINE__.":: $logtag BULKMOVE VARIATION THUMB  $varFromWebPThumb => $varToWebPThumb");
                             $serendipity['logger']->debug(" - - - "); // spacer
                         }
                     }
@@ -4941,7 +4939,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         'file'    => $_file,
         'name'    => $_file['name'],
         'debug'   => $debug,
-        'dbginfo' => 'CASE RENAME DIR:: ~4890++'
+        'dbginfo' => 'CASE RENAME DIR:: ~4908++'
     ));
     serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // this is via media properties moving image (path)
 
@@ -5135,7 +5133,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
                 'item_id'   => $item_id,
                 'file'      => $file,
                 'debug'     => $debug,
-                'dbginfo'   => $trace[0]['function'] . ': Port format values to staticpage changes ~5092++.'
+                'dbginfo'   => $trace[0]['function'] . ': Port format values to staticpage changes ~5110++.'
             ));/* Does not matter if filedir or file type case is used! */
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
@@ -5206,7 +5204,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 
     if ($debug) {
         $which = $type == 'filedir' ? 'NEW (\'filedir\')' : 'OLD (\'file\')';
-        $serendipity['logger']->debug("$logtag TRANSPORTED $which type _file " . print_r($_file, 1));
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag TRANSPORTED $which type _file " . print_r($_file, 1));
     }
 
     // Prepare the SELECT query for filetypes
@@ -5259,7 +5257,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     $entries = serendipity_db_query($q, false, 'assoc');
 
     if ($debug) {
-        $serendipity['logger']->debug("$logtag ENTRIES SELECT SQL: \n              $q");
+        $serendipity['logger']->debug("L_".__LINE__.":: $logtag ENTRIES SELECT SQL: \n              $q");
         $serendipity['logger']->debug(" - - - "); // spacer
         $did = array(); // init for NULL cases
         if (is_array($entries)) {
@@ -5267,14 +5265,14 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             reset($entries);
         }
         if (is_string($entries) && !empty($entries)) {
-            $serendipity['logger']->debug("$logtag DB ERROR! Entries serendipity_db_query returned: $entries");
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag DB ERROR! Entries serendipity_db_query returned: $entries");
         }
         if (!empty($did)) {
-            $serendipity['logger']->debug("$logtag FOUND Entry ID: " . implode(', ', $did));
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag FOUND Entry ID: " . implode(', ', $did));
             $serendipity['logger']->debug(" - - - "); // spacer
-            $serendipity['logger']->debug("$logtag CHANGE IMAGESELECTORPLUS ispOldFile=$ispOldFile");
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag CHANGE IMAGESELECTORPLUS ispOldFile=$ispOldFile");
         } else {
-            $serendipity['logger']->debug("$logtag Found NO ENTRIES to change");
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag Found NO ENTRIES to change");
             $serendipity['logger']->debug(" - - - "); // spacer
         }
     }
@@ -5299,8 +5297,8 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $newDirFile = rtrim($newDir, '/');
         }
         if ($debug) {
-            $serendipity['logger']->debug("$logtag PREPARED IMAGESELECTORPLUS newDir=$newDir");
-            $serendipity['logger']->debug("$logtag PREPARED ISP/+ENTRIES newDirFile= $newDirFile");
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED IMAGESELECTORPLUS newDir=$newDir");
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag PREPARED ISP/+ENTRIES newDirFile= $newDirFile");
         }
 
         // here we need to match THUMBS too, so we do NOT want the extension, see detailed SELECT regex note
@@ -5308,14 +5306,14 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             $_ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file['path'] . $_file['name'] . (empty($_file['extension']) ? '' : '.' . $_file['extension']); // this is more exact in every case [YES!]
             // special case format change
             if ($trace[1]['function'] == 'serendipity_formatRealFile' && isset($_file['newformat'])) {
-            if ($debug) { $serendipity['logger']->debug("$logtag FORMAT CHANGE by {$trace[1]['function']}: Set _file extension var to NIL for newformat= {$_file['newformat']}"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag FORMAT CHANGE by {$trace[1]['function']}: Set _file extension var to NIL for newformat= {$_file['newformat']}"); }
                 $_temp = $_file['extension'];
                 $_file['extension'] = null;
                 // Normally we don't have to care about THUMBs since we don't care about EXTensions.
                 // The special new FORMAT case constrains us to care about the complete thumb url string for the preg_replace. (Relative to uploads/, full in preg_replace.)
                 $format_oldthumbnail = $_file['path'] . $_file['name'] . '.' . $_file['thumbnail_name'] . '.' . $_temp;
                 $format_newthumbnail = $_file['path'] . $_file['name'] . '.' . $_file['thumbnail_name'] . '.' . $_file['newformat'];
-                if ($debug) { $serendipity['logger']->debug("$logtag FORMAT REPLACE THUMBNAIL build: format_oldthumbnail=$format_oldthumbnail to format_newthumbnail=$format_newthumbnail"); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag FORMAT REPLACE THUMBNAIL build: format_oldthumbnail=$format_oldthumbnail to format_newthumbnail=$format_newthumbnail"); }
             }
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $_file['path'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
             // [non-format] rename action
@@ -5323,7 +5321,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 $newDirFile = $_file['path'] . $newDirFile; // newDirFile is missing a possible subdir path for the preg_replace (w/o EXT!)
             }
             if ($debug) {
-                $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type] _ispNewFile=$_ispNewFile");
+                $serendipity['logger']->debug("L_".__LINE__.":: $logtag REPLACE IMAGESELECTORPLUS[type=$type] _ispNewFile=$_ispNewFile");
                 $serendipity['logger']->debug(" - - - "); // spacer
             }
         } else {
@@ -5334,7 +5332,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 $_file['extension'] = null;
             }
             $_ispNewFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDirFile . ($_file['extension'] ? '.' . $_file['extension'] : '');
-            if ($debug) { $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS[type=$type(2)] _ispNewFile=$_ispNewFile"); }
+            if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag REPLACE IMAGESELECTORPLUS[type=$type(2)] _ispNewFile=$_ispNewFile"); }
         }
 
         if (isset($_temp) && isset($_file['newformat'])) {
@@ -5352,14 +5350,14 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
             // DISTINGUISH if it is a single type 'file' case rename OR a type 'file' case re-move (which is more like a 'filedir' type case, isn't it?!)
             if (empty($serendipity['ml_type_file_is_bulkmove_event']) && !isset($file['newformat'])) {
                 $_newDirFileWebP = $_file['path'] . '.v/' . $newDir; // YES, newDir is the new file name for the type 'file' case for rename! IS NOT in case bulkmove!!
-                if ($debug) { $serendipity['logger']->debug("$logtag RENAME case (1) RENAME VS BULKMOVE: newDir=$newDir is the new variation filename"); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag RENAME case (1) RENAME VS BULKMOVE: newDir=$newDir is the new variation filename"); }
             } else if (!empty($serendipity['ml_type_file_is_bulkmove_event'])) {
                 $_newDirFileWebP = $newDir . '.v/' . $_file['name']; // YES, this is a type 'file' case for re-move and so is newDir the new relative location directory path, while filename is not changed.
-                if ($debug) { $serendipity['logger']->debug("$logtag RE-MOVE case (2) BULKMOVE VS RENAME: newDir=$newDir is the new variation directory location == ${newDir}.v/${_file['name']}"); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag RE-MOVE case (2) BULKMOVE VS RENAME: newDir=$newDir is the new variation directory location == ${newDir}.v/${_file['name']}"); }
                 unset($serendipity['ml_type_file_is_bulkmove_event']);
             } else if (empty($serendipity['ml_type_file_is_bulkmove_event']) && isset($file['newformat'])) {
                 $_newDirFileWebP = $_file['path'] . '.v/' . $_file['name']; // Actually there is no need to set this variable, since not used when a format change applies! (Just done to clear things up!)
-                if ($debug) { $serendipity['logger']->debug("$logtag Format case (3): _newDirFileWebP=${_file['path']}.v/${_file['name']} w/o real file application!"); }
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Format case (3): _newDirFileWebP=${_file['path']}.v/${_file['name']} w/o real file application!"); }
             } else {
                 // unknown fallback cse
                 echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> Building _newDirFileWebP variable for Bulkmove vs Rename mismatch failed.</span>'."\n";
@@ -5384,13 +5382,13 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
 
         if ($debug) {
             $serendipity['logger']->debug(" - - - "); // spacer
-            $serendipity['logger']->debug("$logtag REPLACE ACTION type=$type");
-            $serendipity['logger']->debug("$logtag REPLACE IMAGESELECTORPLUS _ispOldFile=$_ispOldFile to _ispNewFile=$_ispNewFile");
-            $serendipity['logger']->debug("$logtag REPLACE ENTRIES  _oldDirFile=    $_oldDirFile");
-            $serendipity['logger']->debug("$logtag REPLACE ENTRIES   newDirFile=    $newDirFile");
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag REPLACE ACTION type=$type");
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag REPLACE IMAGESELECTORPLUS _ispOldFile=$_ispOldFile to _ispNewFile=$_ispNewFile");
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag REPLACE ENTRIES  _oldDirFile=    $_oldDirFile");
+            $serendipity['logger']->debug("L_".__LINE__.":: $logtag REPLACE ENTRIES   newDirFile=    $newDirFile");
             if (!empty($newDirFileWebP)) {
-                $serendipity['logger']->debug("$logtag REPLACE VARIATION oldDirFileWebP=$oldDirFileWebP");
-                $serendipity['logger']->debug("$logtag REPLACE VARIATION newDirFileWebP=$newDirFileWebP");
+                $serendipity['logger']->debug("L_".__LINE__.":: $logtag REPLACE VARIATION oldDirFileWebP=$oldDirFileWebP");
+                $serendipity['logger']->debug("L_".__LINE__.":: $logtag REPLACE VARIATION newDirFileWebP=$newDirFileWebP");
             }
             $serendipity['logger']->debug(" - - - "); // spacer
         }
@@ -5441,8 +5439,8 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                           extended = '" . serendipity_db_escape_string($entry['extended']) . "'
                         WHERE   id = $id";
                 if ($debug) {
-                    #$serendipity['logger']->debug("$logtag The NEW regexed ENTRIES entry BODY::ID:$id\n{$entry['body']}");
-                    #$serendipity['logger']->debug("$logtag The NEW regexed ENTRIES entry EXTENDED::ID:$id\n{$entry['extended']}");
+                    #$serendipity['logger']->debug("L_".__LINE__.":: $logtag The NEW regexed ENTRIES entry BODY::ID:$id\n{$entry['body']}");
+                    #$serendipity['logger']->debug("L_".__LINE__.":: $logtag The NEW regexed ENTRIES entry EXTENDED::ID:$id\n{$entry['extended']}");
                 }
                 serendipity_db_query($uq);
 
@@ -5466,8 +5464,8 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                                WHERE entryid =  " . serendipity_db_escape_string($eps1['entryid']) . "
                                  AND property = 'ep_cache_body'";
                     if ($debug) {
-                        #$serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_body):ID:$id\n$epq1");
-                        #$serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps1['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_body) SUB-UPDATE " .DONE);
+                        #$serendipity['logger']->debug("L_".__LINE__.":: $logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_body):ID:$id\n$epq1");
+                        #$serendipity['logger']->debug("L_".__LINE__.":: $logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps1['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_body) SUB-UPDATE " .DONE);
                     }
                     serendipity_db_query($uepq1);
 
@@ -5491,8 +5489,8 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                                WHERE entryid =  " . serendipity_db_escape_string($eps2['entryid']) . "
                                AND property = 'ep_cache_extended'";
                     if ($debug) {
-                        #$serendipity['logger']->debug("$logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_extended):ID:$id\n$epq2");
-                        #$serendipity['logger']->debug("$logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps2['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_extended) SUB-UPDATE " .DONE);
+                        #$serendipity['logger']->debug("L_".__LINE__.":: $logtag SUB-SELECT entryproperties DB::ep::value(ep_cache_extended):ID:$id\n$epq2");
+                        #$serendipity['logger']->debug("L_".__LINE__.":: $logtag SUB-SELECT-UPDATE entryproperties DB: ENTRY_ID:{$eps2['entryid']} {$serendipity['dbPrefix']}entryproperties::value(ep_cache_extended) SUB-UPDATE " .DONE);
                     }
                     serendipity_db_query($uepq2);
 
