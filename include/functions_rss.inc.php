@@ -61,8 +61,9 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 }
                 $entry['title'] = (!empty($entry['author']) ? $entry['author'] : ANONYMOUS) . ': ' . $entry['title'];
 
-                // No HTML allowed here:
-                $entry['body'] = serendipity_specialchars(strip_tags($entry['body'])); // in stripped case use htmlspecialchars for atom!!
+                // [old] No HTML allowed here:
+                #$entry['body'] = serendipity_specialchars(strip_tags($entry['body']), ENT_XHTML, LANG_CHARSET, false); // in stripped case use htmlspecialchars for atom!!
+                $entry['body'] = serendipity_specialchars($entry['body'], ENT_XHTML, LANG_CHARSET, false); // NO NEED to strip for atom, but make sure we don't do double encoding !!
             }
 
             // Embed a link to extended entry, if existing
