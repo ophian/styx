@@ -57,21 +57,24 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             if ($options['comments'] === true) {
                 // Display username as part of the title for easier feed-readability
                 if ($entry['type'] == 'TRACKBACK' && !empty($entry['ctitle'])) {
-                    $entry['author'] .= ' - ' . $entry['ctitle'];
+                    $entry['author'] .= ' - ' . ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['ctitle'], ENT_XHTML, LANG_CHARSET, false) : $entry['ctitle']);
                 }
-                $entry['title'] = (!empty($entry['author']) ? $entry['author'] : ANONYMOUS) . ': ' . $entry['title'];
+                $entry['title'] = (!empty($entry['author']) ? $entry['author'] : ANONYMOUS) . ': ' . ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title']);
 
-                // [old] No HTML allowed here:
-                #$entry['body'] = serendipity_specialchars(strip_tags($entry['body']), ENT_XHTML, LANG_CHARSET, false); // in stripped case use htmlspecialchars for atom!!
-                $entry['body'] = serendipity_specialchars($entry['body'], ENT_XHTML, LANG_CHARSET, false); // NO NEED to strip for atom, but make sure we don't do double encoding !!
+                if ($options['version'] == 'atom1.0') {
+                    $entry['body'] = serendipity_specialchars($entry['body'], ENT_XHTML, LANG_CHARSET, false); // NO NEED to strip for atom, but make sure we don't do double encoding !!
+                } else{
+                    // [old] RSS2 only - No HTML allowed here:
+                    $entry['body'] = strip_tags($entry['body']);
+                }
             }
 
             // Embed a link to extended entry, if existing
             if ($options['fullFeed']) {
-                $entry['body'] .= "\n" . $entry['extended'];
+                $entry['body'] .= "\n" . ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['extended'], ENT_XHTML, LANG_CHARSET, false) : $entry['extended']);
                 $ext = '';
             } elseif (isset($entry['exflag']) && $entry['exflag']) {
-                $ext = '<a class="block_level" href="' . $entry['feed_entryLink'] . '#extended">' . sprintf(VIEW_EXTENDED_ENTRY, serendipity_specialchars($entry['title'])) . '</a>';
+                $ext = '<a class="block_level" href="' . $entry['feed_entryLink'] . '#extended">' . sprintf(VIEW_EXTENDED_ENTRY, ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title'])) . '</a>';
             } else {
                 $ext = '';
             }
