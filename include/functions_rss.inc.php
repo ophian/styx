@@ -65,7 +65,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                     $entry['body'] = serendipity_specialchars($entry['body'], ENT_XHTML, LANG_CHARSET, false); // NO NEED to strip for atom, but make sure we don't do double encoding !!
                 } else{
                     // [old] RSS2 only - No HTML allowed here:
-                    $entry['body'] = strip_tags($entry['body']);
+                    $entry['body'] = strip_tags($entry['body']); // see c580fa35d3ab51cb79d41a2a00863ed52aa0a83c
                 }
             }
 
