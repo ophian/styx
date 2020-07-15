@@ -1132,7 +1132,7 @@
 @define('URL_NOT_FOUND', '[ 404 ] - The page you have requested could not be found. Continue reading here.'); // better keep en
 
 @define('CONFIG_ALLOW_LOCAL_URL', 'Erlaube, Daten über lokale URLs abzurufen');
-@define('CONFIG_ALLOW_LOCAL_URL_DESC', 'Standardmäßig ist es aus Sicherheitsgründen verboten, Daten über lokale URLs abzurufen, um Server Side Request Forgers (SSRF) zu vermeiden. Wenn Sie ein lokales Intranet verwenden, können Sie die Datenabfrage über diese Option explizit erlauben.');
+@define('CONFIG_ALLOW_LOCAL_URL_DESC', 'Standardmäßig ist es aus Sicherheitsgründen verboten, Daten über lokale URLs abzurufen, um Server-Side Request Forgery (SSRF) zu vermeiden. Wenn Sie ein lokales Intranet verwenden, können Sie die Datenabfrage über diese Option explizit erlauben.');
 @define('REMOTE_FILE_INVALID', 'Die angegebene URL "%s" scheint eine lokale zu sein und darf nicht abgerufen werden. Sie können dies explizit gestatten, in dem Sie in der Konfiguration die Option "Erlaube, Daten über lokale URLs abzurufen" setzen.');
 
 @define('INSTALLER_TOKEN_NOTE', 'Um eine abgesicherte Installation auszuführen, müssen Sie eine Datei namens "%s" mit dem String "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" in diesem Verzeichnis erstellen. Sobald diese Datei existiert, müssen Sie die Installation innerhalb der nächsten %s Minuten ausführen und dürfen ihren Browser nicht schließen. Sie müssen Cookies erlauben.');
