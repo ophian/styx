@@ -2653,7 +2653,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         }
 
          /*
-         $nTimeEnd = microtime_float ( );
+         $nTimeEnd = microtime_float();
          $nDifference = $nTimeEnd - $nTimeStart;
          echo "<p> total time taken was $nDifference </p>\n";
         */
