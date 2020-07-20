@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.7');
+        $propbag->add('version',       '2.8');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -159,7 +159,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $custom_feed = trim($this->get_config('feed_name'));
         $custom_comm = trim($this->get_config('comment_name'));
         $custom_img  = trim($this->get_config('big_img', 'img/subtome.png'));
-        if ($custom_img != 'none' && $custom_img != "feedburner") {
+        if ($custom_img != 'none' && $custom_img != 'feedburner') {
             $custom_img = serendipity_getTemplateFile($custom_img);
         }
         $subtome     = serendipity_db_bool($this->get_config('subToMe', 'false'));
@@ -168,12 +168,12 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $feed_format = $this->get_config('feed_format', 'rss');
 
         $useRss = true;
-        $useAtom = false;
-        if ($feed_format  == 'atom') {
+        $useAtom = $useBoth = false;
+        if ($feed_format == 'atom') {
             $useRss = false;
             $useAtom = true;
         } else if ($feed_format == 'rssatom') {
-            $useAtom = true;
+            $useAtom = $useBoth = true;
         }
 
         #$img = 'http://feeds.feedburner.com/~fc/'.$this->get_config('fb_id').'?bg=99CCFF&amp;fg=444444&amp;anim=0';
@@ -181,10 +181,10 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $icon = $small_icon;
         if (!empty($custom_img) && $custom_img != 'default' && $custom_img != 'none' && $custom_img != 'empty') {
             $icon = $custom_img;
-            if ($fbid != "" && $custom_img == 'feedburner') {
+            if ($fbid != '' && $custom_img == 'feedburner') {
                 $icon = "http://feeds.feedburner.com/~fc/$fbid?bg=99CCFF&amp;fg=444444&amp;anim=0";
             }
-            if ($fbid == "" && $custom_img == 'feedburner') {
+            if ($fbid == '' && $custom_img == 'feedburner') {
                 $icon = serendipity_getTemplateFile('img/subtome.png');
             }
         }
@@ -205,40 +205,66 @@ class serendipity_plugin_syndication extends serendipity_plugin
             $mainFeed = serendipity_get_config_var('feedCustom');
         } else {
             $mainFeed = serendipity_rewriteURL(PATH_FEEDS .'/index.rss2');
-            if ($fbid != "") {
+            if ($fbid != '') {
                 $mainFeed ='http://feeds.feedburner.com/' . $fbid;
             } else {
-                if ($useAtom && ! $useRss) {
+                if ($useAtom && !$useRss) {
                     $mainFeed = serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml');
                 }
             }
         }
 
-        $onclick = "";
+        $onclick = '';
         if ($subtome) {
             $onclick = $this->getOnclick($mainFeed);
         }
 
-        echo "\n".'<ul id="serendipity_syndication_list" class="plainList">';
-        echo $this->generateFeedButton($mainFeed, ($icon == $small_icon ?  ($useRss ? "RSS $FEED" : "Atom $FEED") : ""), $onclick, $icon, $icon == $small_icon);
+        echo "\n".'<ul id="serendipity_syndication_list" class="plainList">'."\n";
+        // case main entries feed either/or
+        echo $this->generateFeedButton( $mainFeed,
+                                        ($useRss ? "RSS $FEED" : "Atom $FEED"),
+                                        $onclick,
+                                        $icon,
+                                        ($icon == $small_icon));
 
-        if ($useRss && $useAtom) {
-            echo $this->generateFeedButton(serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml'), "Atom $FEED",
-                                            ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml')) : ""), $small_icon);
+        // case entries feed atom to add
+        if ($useBoth) {
+            echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml'),
+                                            "Atom $FEED",
+                                            ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml')) : ''),
+                                            $small_icon);
         }
 
         if (serendipity_db_bool($this->get_config('show_2.0c', 'false')) || serendipity_db_bool($this->get_config('show_comment_feed', 'false'))) {
-            if ($useRss) {
-                echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments.rss2'),
-                                                $COMMENTS . ($useAtom ? " (RSS)": ""),
-                                                ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments.rss2')) : ""),
+            // case comments feed both
+            if ($useBoth) {
+                echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2'),
+                                                $COMMENTS . ' (RSS)',
+                                                ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2')) : ''),
                                                 $small_icon);
-            }
-            if ($useAtom) {
-                echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments.atom10'),
-                                                $COMMENTS . ($useRss ? " (Atom)": ""),
-                                                ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments.atom10')) : ""),
+                echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10'),
+                                                $COMMENTS . ' (Atom)',
+                                                ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10')) : ''),
                                                 $small_icon);
+            } else {
+                // case comments feed rss2 only
+                if ($useRss) {
+                    $_GET['version'] = '2.0';
+                    echo 'rss single';
+                    echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2'),
+                                                    $COMMENTS . ' (RSS)',
+                                                    ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2')) : ''),
+                                                    $small_icon);
+                }
+                // case comments feed atom10 only
+                if ($useAtom) {
+                    $_GET['version'] = 'atom1.0';
+                    echo 'atom single';
+                    echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10'),
+                                                    $COMMENTS . ' (Atom)',
+                                                    ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10')) : ''),
+                                                    $small_icon);
+                }
             }
         }
         echo "</ul>\n";
@@ -248,17 +274,17 @@ class serendipity_plugin_syndication extends serendipity_plugin
     {
         $link = 'href="'.$feed.'"'. $onclick;
         $output = '<li>';
-        $class = "";
-        if ($onclick != "") {   # this might be not a good solution, but right now works to add the subtome-class only when subtome is on
+        $class = '';
+        if ($onclick != '') {   # this might be not a good solution, but right now works to add the subtome-class only when subtome is on
             $class = "subtome";
         }
         if ($small) {
-            $class .= " serendipity_xml_icon";
+            $class .= ' serendipity_xml_icon';
         }
         if ($icon) {
             $output .= '<a class="'. $class .'" ' . $link . '><img src="' . $icon . '" alt="XML" /></a>'."\n";
         }
-        if (! empty($label)) {
+        if (!empty($label)) {
             $output .= " <a $link>$label</a>\n";
         }
         return $output .= "</li>\n";
