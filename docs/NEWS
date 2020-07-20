@@ -1,6 +1,17 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup old issues in feeds and sidebar feed URLs inclusive labels in plugin
+    serendipity_plugin_syndication. If your Users have registered your blog
+    feeds by these sidebar URLs before, they could have found inconsistencies
+    or "false positives".
+    Make sure to give a hint of the new outsigned feed URLs, in special, if
+    using the comments feeds! These will be ***/feeds/comments/comments.rss2
+    or ***/feeds/comments/comments.atom10, while entry feeds listen on
+    ***/feeds/index.rss2 or ***/feeds/atom10.xml.
+    Other feed versions, like elder rss or elder atom versions are set deprecat-
+    ed and of historical nature.
+
   * Fix atom feed reader cases with commments having specialchars
 
   * Fix Maintenance Image Sync option #4 issue, generating all webP files by
