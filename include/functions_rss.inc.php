@@ -108,10 +108,10 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 $entry['email'] = $results[0]['email'];
             }
             // these silenced non-defined categories is case comments feeds only where no cats are available!
-            if (@!is_array($entry['categories'])) {
+            if (!isset($entry['categories']) || !is_array($entry['categories'])) {
                 $entry['categories'] = array(0 => array(
-                    'category_name'      => @$entry['category_name'],
-                    'feed_category_name' => serendipity_utf8_encode(serendipity_specialchars(@$entry['category_name'])),
+                    'category_name'      => $entry['category_name'] ?? '',
+                    'feed_category_name' => serendipity_utf8_encode(serendipity_specialchars(($entry['category_name'] ?? ''))),
                     'categoryURL'        => serendipity_categoryURL($entry, 'baseURL')
                 ));
             } else {
