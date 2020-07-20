@@ -12,7 +12,7 @@ Version 3.1.0-DEV ()
     Other feed versions, like elder rss or elder atom versions are set deprecat-
     ed and of historical nature.
 
-  * Fix atom feed reader cases with commments having specialchars
+  * Fix atom feed reader cases with comments having specialchars
 
   * Fix Maintenance Image Sync option #4 issue, generating all webP files by
     counted 25 item range parts. It could happen that the image API functions
