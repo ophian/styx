@@ -83,6 +83,10 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 $ext = '';
             }
 
+            if ($options['comments'] === false && $version == 'atom1.0') {
+                $entry['body'] = str_replace('&nbsp;', ' ', $entry['body']);
+            }
+
             $addData = array('from' => 'functions_entries:printEntries_rss', 'rss_options' => $options);
             serendipity_plugin_api::hook_event('frontend_display', $entry, $addData);
 
