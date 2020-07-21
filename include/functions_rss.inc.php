@@ -59,6 +59,10 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 if ($entry['type'] == 'TRACKBACK' && !empty($entry['ctitle'])) {
                     $entry['author'] .= ' - ' . ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['ctitle'], ENT_XHTML, LANG_CHARSET, false) : $entry['ctitle']);
                 }
+                if ($options['version'] == 'atom1.0') {
+                    $entry['title'] = str_replace(['&nbsp;', '&#160;', '  '], [' '], $entry['title']);
+                    $entry['title'] = str_replace(' & ', ' + ', $entry['title']); // this weird hotfix is necessary to avoid broken entities (?wherever?) breaking the xml! An entry title is not stored by htmlspecialchars().
+                }
                 $entry['title'] = (!empty($entry['author']) ? $entry['author'] : ANONYMOUS) . ': ' . ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title']);
 
                 if ($options['version'] == 'atom1.0') {
@@ -92,11 +96,14 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             }
             $entry['body'] = preg_replace($pattern, '\1=\2' . $serendipity['baseURL'] . '\3', $entry['body']);
             //$entry['body'] = preg_replace('@(href|src|srcset)=("|\')(' . preg_quote($serendipity['serendipityHTTPPath']) . ')(.*)("|\')(.*)>@imsU', '\1=\2' . $serendipity['baseURL'] . '\4\2\6>', $entry['body']);
+
             // clean up body for XML compliance and doubled whitespace between (img) attributes as best we can.
             $entry['body'] = str_replace('"  ', '" ', xhtml_cleanup($entry['body']));
             if ($options['comments'] === true && $version == 'atom1.0') {
-                $entry['body'] = str_replace(['&#160;', '  '], ' ', $entry['body']); // allowed to do, since stripped
+                // Remember: A comment body is DB stored by using htmlspecialchars() !!
+                $entry['body'] = str_replace(['&nbsp;', '&#160;', '  '], [' '], $entry['body']); // allowed to do, since stripped
                 $entry['body'] = serendipity_entity_decode($entry['body'], ENT_COMPAT | ENT_HTML401, LANG_CHARSET);
+                $entry['body'] = str_replace('&', '+', $entry['body']); // fix serendipity_entity_decode
             }
 
             // extract author information
