@@ -1,6 +1,9 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Support diverse multilingual blog post elements by manually added (pseudo)
+    [lang] attributes for hyphenations.
+
   * Fixup old issues in feeds and sidebar feed URLs inclusive labels in plugin
     serendipity_plugin_syndication. If your Users have registered your blog
     feeds by these sidebar URLs before, they could have found inconsistencies
