@@ -1278,7 +1278,7 @@ $(function() {
         }
 
         // Inline notification, we might want to make this reuseable
-        $('<span id="msg_entrystatus" class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span><?= ENTRY_STATUS ?>: ' + newState + ' <a class="remove_msg" href="#msg_entrystatus"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden"><?= HIDE ?></span></a></span>').insertBefore('#edit_entry_title');
+        $('<span id="msg_entrystatus" class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> <?= ENTRY_STATUS ?>: ' + newState + ' <a class="remove_msg" href="#msg_entrystatus"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden"><?= HIDE ?></span></a></span>').insertBefore('#edit_entry_title');
         // Remove entrystatus msg
         $('.remove_msg').click(function(e) {
             e.preventDefault();
