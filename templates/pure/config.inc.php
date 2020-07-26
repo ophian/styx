@@ -28,6 +28,13 @@ if (is_array($required_fieldlist)) {
 $serendipity['capabilities']['jquery-noconflict'] = false;
 $template_config = array(
     array(
+       'var' => 'use_highlight',
+       'name' => USE_HIGHLIGHT,
+       'description' => USE_HIGHLIGHT_DESC,
+       'type' => 'boolean',
+       'default' => false,
+    ),
+    array(
         'var' => 'date_format',
         'name' => GENERAL_PLUGIN_DATEFORMAT . " (http://php.net/strftime)",
         'type' => 'select',
