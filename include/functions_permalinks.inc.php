@@ -624,7 +624,7 @@ function serendipity_makePermalinkRegex($format, $type = 'entry') {
  */
 function serendipity_archiveURL($id, $title, $key = 'baseURL', $checkrewrite = true, $entryData = null) {
     global $serendipity;
-    $path = serendipity_makePermalink($serendipity['permalinkStructure'], array('id'=> $id, 'title' => $title, 'entry' => $entryData));
+    $path = serendipity_makePermalink($serendipity['permalinkStructure'], array('id' => $id, 'title' => $title, 'entry' => $entryData));
     if ($checkrewrite) {
         $path = serendipity_rewriteURL($path, $key);
     }
