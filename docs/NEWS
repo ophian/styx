@@ -3,7 +3,7 @@ Version 3.1.0-DEV ()
 
   * Fixup history sidebar plugin for several multiyear conditions
 
-  * Extend pure 2020 standard theme per config option to use the codehighlight
+  * Extend standard [pure 2020] theme per config option to use the codehighlight
     javascript within entries.
 
   * Add Rich Text Editor support for diverse multilingual blog post elements
