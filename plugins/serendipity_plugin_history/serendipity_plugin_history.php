@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.25');
+        $propbag->add('version',       '1.26');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -192,6 +192,7 @@ class serendipity_plugin_history extends serendipity_plugin
                                           true,
                                           array('timestamp' => $e[$x]['timestamp'])
             );
+            $e[$x]['title'] = !empty($e[$x]['title']) ? $e[$x]['title'] : 'unknown'; // fixes empty titles for the link
 
             $date   = !$displaydate ? '' : serendipity_strftime($dateformat, $e[$x]['timestamp']);
             $author = $displayauthor ? $e[$x]['author'] . ': ' : '';
@@ -301,7 +302,9 @@ class serendipity_plugin_history extends serendipity_plugin
                 $history_daylist = ob_get_contents();
                 ob_end_clean();
 
-                @unlink($cachefile);
+                if ($serendipity['view'] != 'categories') {
+                    @unlink($cachefile);
+                }
                 if (!empty($history_daylist)) {
                     if ($serendipity['view'] != 'categories') {
                         // write to cache
