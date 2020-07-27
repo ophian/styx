@@ -7,7 +7,7 @@ Version 3.1.0-DEV ()
     javascript within entries.
 
   * Add Rich Text Editor support for diverse multilingual blog post elements
-    by manually added (pseudo) [lang] attributes for hyphenations.
+    by manually added (pseudo) [lang] attributes for multi lang hyphenations.
 
   * Fixup old issues in feeds and sidebar feed URLs inclusive labels in plugin
     serendipity_plugin_syndication. If your Users have registered your blog
