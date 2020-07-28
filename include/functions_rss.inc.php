@@ -143,7 +143,9 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
 
             // 2. gmdate
             $entry['feed_timestamp']     = gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour($entry['timestamp']));
-            $entry['feed_last_modified'] = gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour(@$entry['last_modified'])); // mute possible uninitialized item
+            $entry['feed_last_modified'] = !empty($entry['last_modified'])
+                                                ? gmdate('Y-m-d\TH:i:s\Z', serendipity_serverOffsetHour($entry['last_modified']))
+                                                : $entry['feed_timestamp'];
             $entry['feed_timestamp_r']   = date('r', $entry['timestamp']);
 
             // 3. UTF8 encoding
