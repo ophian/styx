@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix Atom feed_last_modified date being either modified OR feed_timestamp
+
   * Fixup history sidebar plugin for several multiyear conditions
 
   * Extend standard [pure 2020] theme per config option to use the codehighlight
