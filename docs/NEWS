@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix Atom feed to void parsing HTML comments through nl2br::frontend_display
+
   * Fix Atom feed_last_modified date being either modified OR feed_timestamp
 
   * Fixup history sidebar plugin for several multiyear conditions
