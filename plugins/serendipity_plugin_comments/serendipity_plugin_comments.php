@@ -20,7 +20,7 @@ class serendipity_plugin_comments extends serendipity_plugin
         $propbag->add('description',   PLUGIN_COMMENTS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Judebert, G. Brockhaus, Ian Styx');
-        $propbag->add('version',       '1.21');
+        $propbag->add('version',       '1.22');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -257,22 +257,21 @@ class serendipity_plugin_comments extends serendipity_plugin
                     if (function_exists('mb_strimwidth') && function_exists('mb_strrpos') && function_exists('mb_substr')) {
                         $pos = 0;
                         $parts = array();
-                        $enc = LANG_CHARSET;
-                        $comment_len = mb_strlen($comment, $enc);
+                        $comment_len = mb_strlen($comment, LANG_CHARSET);
                         # iterate over the (truncated) comment and wrap each line at $wordwrap
                         while ($pos < $comment_len) {
                             # do we still need to wrap this line or is it shorter than $wordwrap?
                             if ($comment_len - $pos > $wordwrap) {
                                 # location of first space
-                                $spacepos = mb_strrpos(mb_substr($comment, $pos, $wordwrap, $enc), ' ', $enc);
+                                $spacepos = mb_strrpos(mb_substr($comment, $pos, $wordwrap, LANG_CHARSET), ' ', 0, LANG_CHARSET);
                                 # wrap at word boundary if we have at least one space
-                                $part = ( $spacepos > 0 ) ? mb_substr($comment, $pos, $spacepos, $enc) : mb_strimwidth($comment, $pos, $wordwrap, '', $enc);;
+                                $part = ( $spacepos > 0 ) ? mb_substr($comment, $pos, $spacepos, LANG_CHARSET) : mb_strimwidth($comment, $pos, $wordwrap, '', LANG_CHARSET);
                             } else {
                                 # wrap "hard", i.e. truncate words that are too long
-                                $part = mb_substr($comment, $pos, $wordwrap, $enc);
+                                $part = mb_substr($comment, $pos, $wordwrap, LANG_CHARSET);
                             }
                             # forward the pointer
-                            $pos += mb_strlen($part, $enc);
+                            $pos += mb_strlen($part, LANG_CHARSET);
                             # remove leading spaces
                             $part = ltrim($part);
                             # re-assemble the lines, i.e. add our current line
