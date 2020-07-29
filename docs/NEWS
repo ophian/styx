@@ -1,6 +1,9 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Sync [S9y] and fixup sidebar comments "Fix (non-cssbreak) wordwrap at word
+    boundaries...".
+
   * Replace plugin sidebar comments starting comment quote with an alias
 
   * Fix Atom feed to void parsing HTML comments through nl2br::frontend_display
