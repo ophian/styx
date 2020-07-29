@@ -20,7 +20,7 @@ class serendipity_plugin_comments extends serendipity_plugin
         $propbag->add('description',   PLUGIN_COMMENTS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Garvin Hicking, Tadashi Jokagi, Judebert, G. Brockhaus, Ian Styx');
-        $propbag->add('version',       '1.19');
+        $propbag->add('version',       '1.20');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -216,6 +216,7 @@ class serendipity_plugin_comments extends serendipity_plugin
                 }
             }
             foreach ($sql AS $key => $row) {
+                $row['comment'] = preg_replace('/^<blockquote(.*?)>(.*)<\/blockquote>/si', '[&hellip;]', $row['comment']);
                 // Strip any HTML tags from comment. But we want a space where previously was a tag following a tagged newline like for "<p>xxx</p>\n<p>xxx</p>".
                 $comment = str_replace(array("\r\n","\n\r","\n","\r",'  '), ' ', trim(strip_tags(str_replace('<', ' <', $row['comment']))));
                 if (function_exists('mb_strimwidth')) {
