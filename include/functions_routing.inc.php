@@ -359,10 +359,6 @@ function servePlugin($matches) {
 
     $serendipity['view'] = 'plugin';
 
-    if (strpos($matches[2], 'admin/') !== false) {
-        include(S9Y_INCLUDE_PATH . 'include/genpage.inc.php');
-    }
-
     serendipity_plugin_api::hook_event('external_plugin', $matches[2]);
 }
 
