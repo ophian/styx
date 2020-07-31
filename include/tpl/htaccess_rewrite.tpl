@@ -30,7 +30,6 @@ RewriteRule ^{PAT_COMMENTS} {indexFile}?url=/{PATH_COMMENTS}/$1 [L,QSA]
 RewriteRule ^{PAT_CSS}$ {indexFile}?url=/$1 [L,QSA]
 RewriteRule ^{PAT_JS}$ {indexFile}?url=/$1 [L,QSA] 
 RewriteRule ^index\.(html?|php.+) {indexFile}?url=index.html [L,QSA]
-RewriteRule ^htmlarea/(.*) htmlarea/$1 [L,QSA]
 RewriteRule (.*\.html?) {indexFile}?url=/$1 [L,QSA]
 </IfModule>
 
