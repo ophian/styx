@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix serendipity embed case URL_NOT_FOUND possible wrong routing check
+
   * Remove htmlarea htaccess redirector which directory was removed with Series 3
 
   * Sync [S9y] and fixup sidebar comments "Fix (non-cssbreak) wordwrap at word
