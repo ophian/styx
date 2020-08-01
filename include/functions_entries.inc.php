@@ -104,7 +104,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
                    WHERE category_name = '" . serendipity_db_escape_string($categoryname) . "'";
 
         $ret =& serendipity_db_query($query);
-        return isset($ret[0]) ?? null;
+        return $ret[0] ?? null;
     } else {
         if (empty($categoryid)) return;
         $query = "SELECT
@@ -119,7 +119,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
                    WHERE categoryid = " . (int)$categoryid;
 
         $ret =& serendipity_db_query($query);
-        return isset($ret[0]) ?? null;
+        return $ret[0] ?? null;
     }
 }
 
