@@ -417,6 +417,7 @@ switch($serendipity['GET']['adminAction']) {
                             foreach(array_keys($aclreadgroups) AS $categoryid) {
                                 $restrictedcategories[] = $categoryid;
                             }
+                            $restrictedcategories = array_unique($restrictedcategories); // unset doubles
                             if (!empty($restrictedcategories) && is_array($restrictedcategories)) {
                                 $cat['groupname'] = array();
                                 foreach($restrictedcategories AS $aclcatkey) {
