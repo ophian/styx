@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix PEAR Cache Lite crc32() filling up starting cache data hash with spaces
+
   * Fixup backend categories listed entries restrictedcategories icons array
 
   * Fix serendipity embed case URL_NOT_FOUND possible wrong routing check
