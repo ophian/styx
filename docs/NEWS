@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix internal (EXPERIMENTAL) caching set for the fetchEntries() SQL query
+
   * Fix PEAR Cache Lite crc32() filling up starting cache data hash with spaces
 
   * Fixup backend categories listed entries restrictedcategories icons array
