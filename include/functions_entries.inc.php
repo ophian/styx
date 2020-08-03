@@ -515,8 +515,8 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
                     . '||' . ($serendipity['plugindata']['smartyvars']['uriargs'] ?? '')
                 );
 
-        serendipity_cacheItem(serialize($ret), $key, 'fetchEntries');
-        serendipity_cacheItem($serendipity['fullCountQuery'], $key . '_fullCountQuery', 'fetchEntries');
+        serendipity_cacheItem($key, serialize($ret));
+        serendipity_cacheItem($key . '_fullCountQuery', $serendipity['fullCountQuery']);
     }
 
     return $ret;
