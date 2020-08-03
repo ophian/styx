@@ -715,7 +715,6 @@ class Cache_Lite
     */
     function _setFileName($id, $group)
     {
-
         if ($this->_fileNameProtection) {
             $suffix = 'cache_'.md5($group).'_'.md5($id);
         } else {
@@ -852,7 +851,7 @@ class Cache_Lite
     * Make a control key with the string containing datas
     *
     * @param string $data data
-    * @param string $controlType type of control 'md5', 'crc32' or 'strlen'
+    * @param string $controlType type of control 'md5', 'crc32' or 'strlen' - for the both latter fill up with whitespaces or 0
     * @return string control key
     * @access private
     */
@@ -862,9 +861,9 @@ class Cache_Lite
         case 'md5':
             return md5($data);
         case 'crc32':
-            return sprintf('% 32d', crc32($data));
+            return sprintf('%032d', crc32($data));
         case 'strlen':
-            return sprintf('% 32d', strlen($data));
+            return sprintf('%032d', strlen($data));
         default:
             return $this->raiseError('Unknown controlType ! (available values are only \'md5\', \'crc32\', \'strlen\')', -5);
         }
