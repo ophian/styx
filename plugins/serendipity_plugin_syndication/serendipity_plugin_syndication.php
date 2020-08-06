@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.8');
+        $propbag->add('version',       '2.9');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -250,7 +250,6 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 // case comments feed rss2 only
                 if ($useRss) {
                     $_GET['version'] = '2.0';
-                    echo 'rss single';
                     echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2'),
                                                     $COMMENTS . ' (RSS)',
                                                     ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2')) : ''),
@@ -259,7 +258,6 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 // case comments feed atom10 only
                 if ($useAtom) {
                     $_GET['version'] = 'atom1.0';
-                    echo 'atom single';
                     echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10'),
                                                     $COMMENTS . ' (Atom)',
                                                     ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10')) : ''),
