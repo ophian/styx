@@ -16,9 +16,9 @@
 @define('PLUGIN_HISTORY_SHOWFULL', 'Ganze Einträge');
 @define('PLUGIN_HISTORY_SHOWFULL_DESC', 'Nicht nur Überschriften, sondern ganze Einträge anzeigen.');
 @define('PLUGIN_HISTORY_INTRO', 'Intro');
-@define('PLUGIN_HISTORY_INTRO_DESC', 'Text, der vor den Einträgen angezeigt werden soll');
+@define('PLUGIN_HISTORY_INTRO_DESC', 'Kurzes Vorwort, wie: \'Ein Jahr vorher sagte ich:\'');
 @define('PLUGIN_HISTORY_OUTRO', 'Outro');
-@define('PLUGIN_HISTORY_OUTRO_DESC', 'Text, der hinter den Einträgen angezeigt werden soll');
+@define('PLUGIN_HISTORY_OUTRO_DESC', 'Kurzes Sclusswort, wie: \'Schön, nicht wahr..?\'');
 @define('PLUGIN_HISTORY_DISPLAYDATE', 'Datum anzeigen');
 @define('PLUGIN_HISTORY_DISPLAYDATE_DESC', 'Vor jedem Eintrag das Datum anzeigen?');
 @define('PLUGIN_HISTORY_MAXLENGTH', 'Überschriftenlänge');
