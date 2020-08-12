@@ -63,7 +63,7 @@ if (!isset($serendipity['production'])) {
     $serendipity['production'] = ! preg_match('@\-(alpha|beta|cvs|rc).*@', $serendipity['version']);
 }
 
-// Set error reporting
+// Set error reporting - watch out non-production settings down below
 error_reporting(E_ALL & ~(E_NOTICE|E_STRICT|E_DEPRECATED)); // is 22519 with 5.4+
 
 if ($serendipity['production'] !== true) {
@@ -84,14 +84,14 @@ $serendipity['allowDateManipulation'] = true;
 
 // How much time is allowed to pass since the publishing of an entry, so that a comment to that entry
 // will update it's LastModified stamp? If the time is passed, a comment to an old entry will no longer
-// push an article as being updated.
+// push an article as being updated. This is for RSS-Feed caching update guidance. Default 1 week.
 $serendipity['max_last_modified'] = 60 * 60 * 24 * 7;
 
 // Clients can send a If-Modified Header to the RSS Feed (Conditional Get) and receive all articles beyond
 // that date. However it is still limited by the number below of maximum entries
 $serendipity['max_fetch_limit'] = 50;
 
-// Users may try to break database limits by very loooong page requests
+// Users may try to break database limits by very loooong page requests. We assume this is enough!
 $serendipity['max_page_limit'] = 2500;
 
 // How many bytes are allowed for fetching trackbacks, so that no binary files get accidentally trackbacked?
@@ -101,9 +101,9 @@ $serendipity['trackback_filelimit'] = 150 * 1024;
 $serendipity['cors'] = false;
 
 // Init default and ensure that these limits do not contain strings
-$serendipity['fetchLimit']    = !isset($serendipity['fetchLimit'])    ? 15 : (int)$serendipity['fetchLimit'];
-$serendipity['CBAfetchLimit'] = !isset($serendipity['CBAfetchLimit']) ? 10 : (int)$serendipity['CBAfetchLimit'];
-$serendipity['RSSfetchLimit'] = !isset($serendipity['RSSfetchLimit']) ? 15 : (int)$serendipity['RSSfetchLimit'];
+$serendipity['fetchLimit']    = (int) $serendipity['fetchLimit']    ?? 15;
+$serendipity['CBAfetchLimit'] = (int) $serendipity['CBAfetchLimit'] ?? 10;
+$serendipity['RSSfetchLimit'] = (int) $serendipity['RSSfetchLimit'] ?? 15;
 
 if (!isset($serendipity['mediaProperties'])) {
     $serendipity['mediaProperties'] = 'DPI;COPYRIGHT;TITLE;COMMENT1:MULTI;COMMENT2:MULTI;ALT';
