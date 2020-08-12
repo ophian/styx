@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.26');
+        $propbag->add('version',       '1.27');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -176,11 +176,12 @@ class serendipity_plugin_history extends serendipity_plugin
         $serendipity['fetchLimit'] = $oldLim;
 
         if (!is_array($e)) {
-            return;
+            return false;
         }
 
-        if (($e_c = count($e)) == 0) {
-            return;
+        $ect = count($e);
+        if ($ect == 0) {
+            return false;
         }
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
@@ -263,11 +264,11 @@ class serendipity_plugin_history extends serendipity_plugin
 
         if ((int)$xyears > 1 && $specialage == 'year') {
             $timeout = ($maxts - $nowts); // the rest of the day
-            $cache   = (($timeout >= 0) && ($maxts > $nowts));
-            $date    = (date('d-m-Y', $nowts) == date('d-m-Y', (@filemtime($cachefile) + ($serendipity['serverOffsetHours'] * 60 * 60)))); // filemtime is Servers timezone or UTC/GMT
+            $ucache  = (($timeout >= 0) && ($maxts > $nowts));
+            $ecache  = file_exists($cachefile);
 
             // get, read and echo possible cache file
-            if (file_exists($cachefile) && $date && $cache) {
+            if ($ecache && $cache) {
 
                 $history = unserialize(file_get_contents($cachefile));
                 echo "<!-- cached f $timeout $cache -->";
@@ -292,26 +293,26 @@ class serendipity_plugin_history extends serendipity_plugin
                 }
 
                 ob_start();
-                if (!empty($intro)) {
-                    echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
-                }
-                $this->getHistoryEntries($maxts, $mints, $multiage, null, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor);
-                if (!empty($outro)) {
-                    echo '<div class="serendipity_history_outro">' . $outro . "</div>\n";
-                }
-                $history_daylist = ob_get_contents();
+                    $fallback = false;
+                    if (!empty($intro)) {
+                        echo '<div class="serendipity_history_intro">' . $intro . "</div>\n";
+                    }
+                    if (false === $this->getHistoryEntries($maxts, $mints, $multiage, null, $full, $max_entries, $maxlength, null, null, $displaydate, $dateformat, $displayauthor)) {
+                        $fallback = true;
+                    }
+                    if (!empty($outro)) {
+                        echo '<div class="serendipity_history_outro">' . $outro . "</div>\n";
+                    }
+                    if ($fallback === false) {
+                        $history_daylist = ob_get_contents();
+                    }
                 ob_end_clean();
 
-                if ($serendipity['view'] != 'categories') {
-                    @unlink($cachefile);
-                }
                 if (!empty($history_daylist)) {
-                    if ($serendipity['view'] != 'categories') {
-                        // write to cache
-                        $fp = fopen($cachefile, 'w');
-                        fwrite($fp, serialize($history_daylist));
-                        fclose($fp);
-                    }
+                    // write to cache
+                    $fp = fopen($cachefile, 'w');
+                    fwrite($fp, serialize($history_daylist));
+                    fclose($fp);
 
                     // echo on run
                     echo "<!-- cached s ${serendipity['view']} -->";
