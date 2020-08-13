@@ -264,14 +264,14 @@ class serendipity_plugin_history extends serendipity_plugin
 
         if ((int)$xyears > 1 && $specialage == 'year') {
             $timeout = ($maxts - $nowts); // the rest of the day
-            $ucache  = (($timeout >= 0) && ($maxts > $nowts));
-            $ecache  = file_exists($cachefile);
+            $cached  = (($timeout >= 0) && ($maxts > $nowts));
+            $date    = file_exists($cachefile) ? date('d-m-Y', $nowts) == date('d-m-Y', serendipity_serverOffsetHour(filemtime($cachefile))) : false; // filemtime is Servers timezone or UTC/GMT
 
             // get, read and echo possible cache file
-            if ($ecache && $cache) {
+            if ($date && $cached) {
 
                 $history = unserialize(file_get_contents($cachefile));
-                echo "<!-- cached f $timeout $cache -->";
+                echo "<!-- cached f $timeout $cached -->";
                 echo $history;
 
             } else {
@@ -313,9 +313,8 @@ class serendipity_plugin_history extends serendipity_plugin
                     $fp = fopen($cachefile, 'w');
                     fwrite($fp, serialize($history_daylist));
                     fclose($fp);
-
+                    @touch($cachefile); // 'w' mode will NOT update the modification time (filemtime)
                     // echo on run
-                    echo "<!-- cached s ${serendipity['view']} -->";
                     echo $history_daylist;
                 }
             }
