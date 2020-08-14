@@ -420,7 +420,7 @@
         var insert = '';
         var img = '';
         var src = '';
-        var alt = '';
+        var altxt = '';
         var title = '';
 
         var f = document.forms['serendipity[selForm]'].elements;
@@ -472,7 +472,7 @@
             }
         }
 
-        alt = f['serendipity[alt]'].value.replace(/"/g, "&quot;");
+        altxt = f['serendipity[alt]'].value.replace(/"/g, "&quot;");
         title = f['serendipity[title]'].value.replace(/"/g, "&quot;");
 
         var imgID = 0;
@@ -489,10 +489,10 @@
         if (pictureSubmit) {
             img = '<!-- s9ymdb:'+ imgID +' --><picture>'
             + '<source type="image/webp" srcset="' + imgWebP + '">'
-            + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">'
+            + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ altxt +'">'
             + '</picture>';
         } else {
-            img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ alt +'">';
+            img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ altxt +'">';
         }
 
         if (isLink) {
