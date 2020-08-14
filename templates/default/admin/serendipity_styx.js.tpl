@@ -362,15 +362,15 @@
             gallery += start;
 
             $.each(g['files'], function(k, v) {
-                pic_el = (v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
-                imgID = v['id'];
-                imgWidth = v['thumbWidth'];
-                imgHeight = v['thumbHeight'];
+                pic_el  = (v['full_thumb_webp'] || v['full_file_webp']) ? true : false;
+                imgID   = v['id'];
+                imgWdth = v['thumbWidth'];
+                imgHght = v['thumbHeight'];
                 imgName = v['full_thumb'];
-                ilink = pic_el ? v['full_file_webp'] : v['full_file'];
+                ilink   = pic_el ? v['full_file_webp'] : v['full_file'];
                 ilinkfb = v['full_file']; // fallback case
-                title = v['prop_title'] != '' ? v['prop_title'] : v['realname'];
-                imgalt = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
+                title   = v['prop_title'] != '' ? v['prop_title'] : v['realname'];
+                imgalt  = v['prop_alt'] ? v['prop_alt'] : v['realname']; /* yes check properties set alt first, then fallback */
                 iftwebp = v['full_thumb_webp'];
                 iffwebp = v['full_file_webp'];
                 hotlink = v['hotlink'];
@@ -381,10 +381,10 @@
                 if (pictureSubmit && pic_el) {
                     img = '<!-- s9ymdb:'+ imgID +' --><picture>'
                     + '<source type="image/webp" srcset="' + iftwebp + '">'
-                    + '<img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ ((title != '' && g['isLink'] == 'no') ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">'
+                    + '<img class="serendipity_image_'+ float +'" width="'+ imgWdth +'" height="'+ imgHght +'" src="'+ imgName +'" '+ ((title != '' && g['isLink'] == 'no') ? 'title="'+ title +'"' : '') +' loading="lazy" alt="'+ imgalt +'">'
                     + '</picture>';
                 } else {
-                    img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ imgName +'" '+ ((title != '' && g['isLink'] == 'no') ? 'title="'+ title +'"' : '') +' alt="'+ imgalt +'">';
+                    img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ float +'" width="'+ imgWdth +'" height="'+ imgHght +'" src="'+ imgName +'" '+ ((title != '' && g['isLink'] == 'no') ? 'title="'+ title +'"' : '') +' loading="lazy" alt="'+ imgalt +'">';
                 }
                 if (g['isLink'] == 'yes') {
                     img = '<a class="serendipity_image_link" '+ (title != '' ? 'title="'+ title +'"' : '') +' href="'+ ilink +'" data-fallback="'+ ilinkfb +'">'+ img +'</a>';
@@ -393,7 +393,7 @@
                 if (v['prop_imagecomment'] != '') {
                     var comment = v['prop_imagecomment'];
 
-                    img = '<div class="serendipity_imageComment_'+ float +'" style="width:'+ imgWidth +'px">'
+                    img = '<div class="serendipity_imageComment_'+ float +'" style="width:'+ imgWdth +'px">'
                       +      '<div class="serendipity_imageComment_img">'+ img +'</div>'
                       +      '<div class="serendipity_imageComment_txt">'+ comment +'</div>'
                       +   '</div>';
