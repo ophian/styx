@@ -75,8 +75,8 @@ Version 3.1.0-DEV ()
   * Implement backend comments list comment full toggle all option
 
   * The backend serendipity_editor.js file(s) in backend templates were
-    renamed to be called serendipity_styx.js, which also implies being the
-    backend javascript.
+    renamed to be called serendipity_styx.js, which also better implies being
+    the backend javascript itself.
 
   * Improved backend serendipity_editor.js files and all template filter resets
     with media/comments/entries filters to update jQuery method property changes
