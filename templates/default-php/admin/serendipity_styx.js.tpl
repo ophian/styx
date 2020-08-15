@@ -489,10 +489,10 @@
         if (pictureSubmit) {
             img = '<!-- s9ymdb:'+ imgID +' --><picture>'
             + '<source type="image/webp" srcset="' + imgWebP + '">'
-            + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ altxt +'">'
+            + '<img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' loading="lazy" alt="'+ altxt +'">'
             + '</picture>';
         } else {
-            img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' alt="'+ altxt +'">';
+            img = '<!-- s9ymdb:'+ imgID +' --><img class="serendipity_image_'+ floating +'" width="'+ imgWidth +'" height="'+ imgHeight +'" src="'+ img +'" '+ ((title != '' && noLink) ? 'title="'+ title +'"' : '') +' loading="lazy" alt="'+ altxt +'">';
         }
 
         if (isLink) {
