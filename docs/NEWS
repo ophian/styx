@@ -1,6 +1,17 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Per default, add new web Standard(*) lazy-loading image attribute to image
+    collocations. This is for saving bandwidth for both, the server and their
+    clients, in special for Mobiles, since they will only load anything in the
+    current viewport, but not page parts they would never view. This implemen-
+    tation is made simple enough for all images with both dimensions you newly
+    paste to your blog entries.
+    If you are a theme designer or are in need to have an image implicitly
+    loaded, please change the image attribute loading="lazy" to loading="eager"
+    in the entry forms source code.
+    https://html.spec.whatwg.org/multipage/embedded-content.html#attr-img-loading
+
   * Allow Rich Text Basic Editor video content
 
   * Fix internal (EXPERIMENTAL) caching set for the fetchEntries() SQL query
