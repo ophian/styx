@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Extend datetime-local datetime check against invalid user dates
+
   * Fixup strtotime() old returncode conditionals
 
   * Per default, add new web Standard(*) lazy-loading image attribute to image
