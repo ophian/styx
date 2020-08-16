@@ -292,7 +292,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     } else {
         if ($modified_since) {
             $unix_modified = strtotime($modified_since);
-            if ($unix_modified != -1) {
+            if ($unix_modified !== false) {
                 $cond['and'] = ' WHERE last_modified >= ' . (int)$unix_modified;
                 if (!empty($limit)) {
                     $limit = ($limit > $serendipity['max_fetch_limit'] ? $limit : $serendipity['max_fetch_limit']);
