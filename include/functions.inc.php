@@ -271,6 +271,18 @@ function serendipity_gzCompression() {
 }
 
 /**
+ * Validate input entry dates only
+ *
+ * @access public
+ * @param   string  Input string
+ * @return  bool
+ */
+function serendipity_validateDate($date, $format = 'Y-m-d') {
+    $d = DateTime::createFromFormat($format, $date);
+    return $d && $d->format($format) === $date; // bee strict
+}
+
+/**
  * Returns a timestamp formatted according to the current Server timezone offset
  *
  * @access public
