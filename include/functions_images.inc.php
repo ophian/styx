@@ -882,12 +882,13 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
     $cmd = null;
     $out = array();
     $res = 0;
-    if (!isset($args[0])) $args[0] = '/usr/local/bin/convert';
-    if (!isset($args[1])) $args[1] = array();
-    if (!isset($args[3])) $args[3] = array();
-    if (!isset($args[4])) $args[4] = 100;
-    if (!isset($args[5])) $args[5] = -1;
-    if ( isset($args[2]) && 0 < count($args[2])) {
+    $args[0] ?? '/usr/local/bin/convert';
+    $args[1] ?? array();
+    $args[2] ?? array();
+    $args[3] ?? array();
+    $args[4] ?? 100;
+    $args[5] ?? -1;
+    if (count($args[2]) > 0) {
         $do = implode(' ', $args[1]) . ' ' . implode(' ', $args[2]) . ' | "' .
             $args[0] . '" ' . implode(' ', $args[3]); // this is a fully operational string containing infile, settings/operators and the outfile; while [1] is just some kind of preset in this case.
     } else {
@@ -903,7 +904,7 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
     // The colorspace "sRGB" basically contains a gamma correction of roughly 2.2. As of version 6.7.5 ImageMagick follows the standard convention and defines the default colorspace of
     // images (at least for most image file formats) to be sRGB. This means we simply need to use the "-gamma/-level" (colorspace) to transform the image to a linear space before doing the resize. 
     $gamma['linear'] = $gamma['standard'] = '';
-    if (isset($args[5]) && $args[5] != -1) {
+    if ($args[5] != -1) {
         $gamma['linear']   = '-gamma 0.454545'; // (0.45455 is 1/2.2 POW)
         $gamma['standard'] = '-gamma 2.2';
         // For example, using a value of gamma=2 is the same as taking the square root of the image.
