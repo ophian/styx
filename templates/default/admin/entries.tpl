@@ -3,9 +3,9 @@
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$entry_vars.errMsg}</span>
 {/if}
 <form id="serendipityEntry" name="serendipityEntry"{if isset($entry_vars.entry.entry_form)} {$entry_vars.entry.entry_form}{/if} action="{$entry_vars.targetURL}" method="post">
-    {foreach $entry_vars.hiddens AS $key => $value}
+{foreach $entry_vars.hiddens AS $key => $value}{if $key == 'serendipity[timestamp]' AND $entry_vars.timestamp == $value}{* avoid possible doublet *}{else}
     <input type="hidden" name="{$key}" value="{$value}">
-    {/foreach}
+{/if}{/foreach}
     <input type="hidden" id="entryid" name="serendipity[id]" value="{$entry_vars.entry.id|escape|default:''}">
     <input type="hidden" name="serendipity[timestamp]" value="{$entry_vars.timestamp|escape}">
     <input type="hidden" name="serendipity[preview]" value="false">
