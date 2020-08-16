@@ -86,7 +86,7 @@ switch($serendipity['GET']['adminAction']) {
             // The user changed the timestamp, now set the DB-timestamp to the user's date
             $entry['timestamp'] = strtotime($serendipity['POST']['new_timestamp']);
 
-            if ($entry['timestamp'] === false) {
+            if ($entry['timestamp'] === false || false === preg_match('@^([0-9]{4})\-([0-9]{2})\-([0-9]{2})T([0-9]{2}):([0-9]{2})@', $serendipity['POST']['new_timestamp']) || false === serendipity_validateDate(date('Y-m-d', $entry['timestamp']))) {
                 $data['switched_output'] = true;
                 $data['dateval'] = true; // date invalid message
                 // The date given by the user is not convertible. Reset the timestamp.
