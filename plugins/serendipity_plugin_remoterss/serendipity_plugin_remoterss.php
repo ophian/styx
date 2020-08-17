@@ -276,7 +276,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.99',
             'smarty'      => '3.1.0',
-            'php'         => '5.3.0'
+            'php'         => '7.0.0'
         ));
         $propbag->add('configuration', array('sidebartitle', 'feedtype', 'template', 'rssuri', 'show_rss_element', 'smarty', 'number', 'use_rss_link', 'escape_rss', 'displaydate', 'dateformat', 'charset', 'target', 'cachetime', 'bulletimg', 'markup'));
         $propbag->add('groups',        array('FRONTEND_EXTERNAL_SERVICES'));
@@ -536,14 +536,14 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                             continue;
                         }
 
-                        $content .= '<div class="rss_item">';
+                        if (!$smarty) $content .= '<div class="rss_item">';
 
                         if ($use_rss_link) {
-                            $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
+                            if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
                         }
 
                         if (!empty($bulletimg)) {
-                            $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
+                            if (!$smarty) $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
                         }
 
                         $is_first = true;
@@ -551,13 +551,13 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                             $rss_element = trim($rss_element);
 
                             if (!$is_first) {
-                                $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
+                                if (!$smarty) $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
                             }
 
                             if ($escape_rss) {
-                                $content .= $this->decode($item[$rss_element]);
+                                if (!$smarty) $content .= $this->decode($item[$rss_element]);
                             } else {
-                                $content .= serendipity_specialchars($this->decode($item[$rss_element]));
+                                if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
                             }
 
                             if ($smarty) {
@@ -565,27 +565,25 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                             }
 
                             if (!$is_first) {
-                                $content .= '</span>';
+                                if (!$smarty) $content .= '</span>';
                             }
 
                             if ($is_first && $use_rss_link) {
-                                $content .= '</a></div>'; // end of first linked element
+                                if (!$smarty) $content .= '</a></div>'; // end of first linked element
                             }
                             $is_first = false;
                         }
 
                         if ($is_first && $use_rss_link) {
                             // No XML element has been configured.
-                            $content .= '</a></div>';
+                            if (!$smarty) $content .= '</a></div>';
                         }
 
-                        $content .= "<br />\n";
-                        $item['timestamp'] = @strtotime(isset($item['pubdate']) ? $item['pubdate'] : $item['dc:date']);
+                        $item['timestamp'] = strtotime(($item['pubdate'] ?? $item['dc:date']));
                         if (false !== $item['timestamp'] AND $displaydate) {
-                            $content .= '<div class="serendipitySideBarDate">'
+                            if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
                                       . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
                                       . '</div>';
-
                         }
 
                         if ($smarty) {
@@ -595,7 +593,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                                 $smarty_items['items'][$i]['decoded_' . str_replace(':', '_', $key)] = $this->decode($key);
                             }
                         }
-                        $content .= '</div>'; // end of rss_item
+                        if (!$smarty) $content .= "</div>\n"; // end of rss_item
                         ++$i;
                     }
 
@@ -679,14 +677,14 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                             continue;
                         }
 
-                        $content .= '<div class="rss_item">';
+                        if (!$smarty) $content .= '<div class="rss_item">'."\n";
 
                         if ($use_rss_link) {
-                            $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
+                            if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
                         }
 
                         if (!empty($bulletimg)) {
-                            $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
+                            if (!$smarty) $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
                         }
 
                         $is_first = true;
@@ -694,13 +692,13 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                             $rss_element = trim($rss_element);
 
                             if (!$is_first) {
-                                $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
+                                if (!$smarty) $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
                             }
 
                             if ($escape_rss) {
-                                $content .= $this->decode($item[$rss_element]);
+                                if (!$smarty) $content .= $this->decode($item[$rss_element]);
                             } else {
-                                $content .= serendipity_specialchars($this->decode($item[$rss_element]));
+                                if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
                             }
 
                             if ($smarty) {
@@ -708,24 +706,23 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                             }
 
                             if (!$is_first) {
-                                $content .= '</span>';
+                                if (!$smarty) $content .= '</span>';
                             }
 
                             if ($is_first && $use_rss_link) {
-                                $content .= '</a></div>'; // end of first linked element
+                                if (!$smarty) $content .= '</a></div>'; // end of first linked element
                             }
                             $is_first = false;
                         }
 
                         if ($is_first && $use_rss_link) {
                             // No XML element has been configured.
-                            $content .= '</a></div>';
+                            if (!$smarty) $content .= '</a></div>';
                         }
 
-                        $content .= "<br />\n";
-                        $item['timestamp'] = @strtotime(isset($item['pubdate']) ? $item['pubdate'] : $item['dc:date']);
+                        $item['timestamp'] = strtotime(($item['pubdate'] ?? $item['dc:date']));
                         if (false !== $item['timestamp'] AND $displaydate) {
-                            $content .= '<div class="serendipitySideBarDate">'
+                            if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
                                       . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
                                       . '</div>';
                         }
@@ -737,7 +734,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                                 $smarty_items['items'][$i]['decoded_' . str_replace(':', '_', $key)] = $this->decode($key);
                             }
                         }
-                        $content .= '</div>'; // end of rss_item
+                        if (!$smarty) $content .= "</div>\n"; // end of rss_item
                         ++$i;
                     }
 
@@ -827,10 +824,10 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                                 if (isset($item['isRecent'])) {
                                     $content .= ' <span style="color: Red; ">*</span>';
                                 }
-                                $content .= "<br />";
+                                $content .= "<br />\n";
                             } elseif ((isset($item['type']) && $item['type'] == 'url') || !empty($url)) {
                                 $content .= '&bull; <a href="' . serendipity_specialchars($url) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . ' title="' . $text . '">' . $text . "</a>";
-                                $content .= "<br />";
+                                $content .= "<br />\n";
                             }
                             ++$i;
                         }
