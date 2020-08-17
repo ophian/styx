@@ -29,9 +29,9 @@
 @define('PLUGIN_REMOTERSS_RSSLINK', 'Use RSS-Link?');
 @define('PLUGIN_REMOTERSS_RSSLINK_DESC', 'Shall a link be set to the link specified in the RSS feed?');
 @define('PLUGIN_REMOTERSS_RSSFIELD', 'RSS display element');
-@define('PLUGIN_REMOTERSS_RSSFIELD_DESC', 'Whic element of the RSS feed should be displayed? (i.e.: "title", "content:encoded", "description", ...)');
+@define('PLUGIN_REMOTERSS_RSSFIELD_DESC', 'Which element of the RSS feed should be displayed? (i.e.: "title", "content:encoded", "description", ...)');
 @define('PLUGIN_REMOTERSS_RSSESCAPE', 'Escape HTML output');
-@define('PLUGIN_REMOTERSS_RSSESCAPE_DESC', 'If enabled, HTML in RSS-feeds will be escaped and no XSS is possible. If this option is disabled, HTML in the feeds can be interpretated. This is a possible security issue, if the embedded feed is not yours!');
+@define('PLUGIN_REMOTERSS_RSSESCAPE_DESC', 'If enabled, HTML in RSS-feeds will be escaped and no XSS is possible. If this option is disabled, HTML in the feeds can be interpreted. This is a possible security issue, if the embedded feed is not yours!');
 
 @define('PLUGIN_REMOTERSS_TEMPLATE', 'Output Template to use for this feed');
 @define('PLUGIN_REMOTERSS_TEMPLATE_DESC', 'Here you can choose a template file inside the plugin\'s directory that is used to render the output of the feed in the sidebar. You can add custom template files to the plugin directory. If a template file with the same name is placed inside your own theme directory, it will be used instead of the file supplied with the plugin. Selecting any template here other than the default one automatically enables Smarty templating.');
