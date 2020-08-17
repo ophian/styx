@@ -272,7 +272,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.26');
+        $propbag->add('version',       '1.27');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1.99',
             'smarty'      => '3.1.0',
@@ -581,7 +581,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
 
                         $content .= "<br />\n";
                         $item['timestamp'] = @strtotime(isset($item['pubdate']) ? $item['pubdate'] : $item['dc:date']);
-                        if (!($item['timestamp'] == -1) AND $displaydate) {
+                        if (false !== $item['timestamp'] AND $displaydate) {
                             $content .= '<div class="serendipitySideBarDate">'
                                       . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
                                       . '</div>';
@@ -724,11 +724,10 @@ class serendipity_plugin_remoterss extends serendipity_plugin
 
                         $content .= "<br />\n";
                         $item['timestamp'] = @strtotime(isset($item['pubdate']) ? $item['pubdate'] : $item['dc:date']);
-                        if (!($item['timestamp'] == -1) AND ($displaydate == 'true')) {
+                        if (false !== $item['timestamp'] AND $displaydate) {
                             $content .= '<div class="serendipitySideBarDate">'
                                       . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
                                       . '</div>';
-
                         }
 
                         if ($smarty) {
