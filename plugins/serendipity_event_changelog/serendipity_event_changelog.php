@@ -87,8 +87,8 @@ class serendipity_event_changelog extends serendipity_plugin
                         // The HTML Example Element (<xmp>) renders text between the start and end tags without interpreting the HTML in between and is using a monospaced font, which is exactly what we want here.
                         // The recommendation is to use <code> or <pre> nowadays, but they both fail rendering properly for different debug text situations.
                         // The <plaintext> and <listing> elements, are similar to <xmp> but also set obsolete. Tag <plaintext> works, but its </endtag> is displayed; <listing> badly fails like <pre> on non-escaped content like regex patterns.
-                        // Only <xmp> ist left working absolutely fine! And w/o being displayed itself! Proofed with both main browser even in DEV versions. So we will keep it for a while.
-                        // TO MOZILLA/GOOGLE: PLEASE DO NOT REMOVE IT! As seen here, it is a valid and very useful tag! (Examples in: http://www.the-pope.com/listin.html)
+                        // Only <xmp> is left working absolutely fine! And w/o being displayed itself! Proofed with both main browser even in DEV versions. So we will keep it for a while.
+                        // To MOZILLA/GOOGLE Devs: PLEASE DO NOT REMOVE IT! As seen here, it is a valid and very useful tag! (Examples in: http://www.the-pope.com/listin.html)
                         echo '<xmp>';
                         echo sprintf(PLUGIN_CHANGELOG_LOGGER_HAS_LOGS, $x) . "\n";
                         echo PLUGIN_CHANGELOG_LOGGER_NUKE_WARNING . "\n\n";
@@ -127,6 +127,7 @@ class serendipity_event_changelog extends serendipity_plugin
                                 @unlink($filename);
                             }
                         }
+                        sleep(1);
                         // do it again, Sam :)
                         $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt');
                         $files = array_combine($files, array_map("filemtime", $files));
