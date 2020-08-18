@@ -34,4 +34,5 @@
 
 @define('PLUGIN_HISTORY_MULTIYEARS', 'Number of looped years');
 @define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Set a new number of years to loop through, when having selected the time range "one year ago". Default is 1 (the current year). Set upper "Min age" and "Max age" entries to exact 365 days. In case of multi years, all history sidebar output - inclusive possible intro/outro - will be cached for performance reasons inside a "templates_c/history_daylist.dat" file for the rest of the day.');
+@define('PLUGIN_HISTORY_PLUGIN_MULTIYEARS_EMPTY', 'Optional cached fallback text when multiyears empty');
 
