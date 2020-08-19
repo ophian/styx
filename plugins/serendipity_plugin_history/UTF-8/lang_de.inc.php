@@ -29,11 +29,8 @@
 @define('PLUGIN_HISTORY_CUSTOMAGE', 'Zeitrahmen selbst einstellen');
 @define('PLUGIN_HISTORY_OYA', 'Heute vor einem Jahr');
 @define('PLUGIN_HISTORY_MYSELF', 'Anderer');
-
-// Next lines were translated on 2009/06/03
 @define('PLUGIN_HISTORY_DISPLAYAUTHOR', 'Zeige den Namen des Authors');
-
 @define('PLUGIN_HISTORY_MULTIYEARS', 'Anzahl der durchlaufenden Jahre');
 @define('PLUGIN_HISTORY_MULTIYEARS_DESC', 'Setzen Sie die Anzahl der Jahre, die durchlaufen werden sollen, wenn Sie "Heute vor einem Jahr" als Zeitrahmen ausgewählt haben. Standard ist 1 (das aktuelle Jahr). Setzen Sie dafür die voranstehenden "Mindestalter" und "Höchstalter" Einträge auf exakt 365 Tage. Bei Auswahl von mehreren Jahren wird die ausgegebene History Sidebar Box mitsamt möglichen Intro und Outro aus Performancegründen für diesen Tag in der "templates_c/history_daylist.dat" Datei gecached.');
-@define('PLUGIN_HISTORY_PLUGIN_MULTIYEARS_EMPTY', 'Optionaler Text, für Eintrags Cache von leeren Jahren');
+@define('PLUGIN_HISTORY_MULTIYEARS_EMPTY', 'Optionaler Text, für Eintrags Cache von leeren Jahren');
 
