@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.27');
+        $propbag->add('version',       '1.28');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -36,6 +36,7 @@ class serendipity_plugin_history extends serendipity_plugin
                                              'max_age',
                                              'multiyears',
                                              'max_entries',
+                                             'isempty',
                                              'full',
                                              'amount',
                                              'displaydate',
@@ -65,6 +66,13 @@ class serendipity_plugin_history extends serendipity_plugin
                 $propbag->add('type', 'string');
                 $propbag->add('name', PLUGIN_HISTORY_OUTRO);
                 $propbag->add('description', PLUGIN_HISTORY_OUTRO_DESC);
+                $propbag->add('default', '');
+                break;
+
+            case 'isempty':
+                $propbag->add('type', 'string');
+                $propbag->add('name', PLUGIN_HISTORY_MULTIYEARS_EMPTY);
+                $propbag->add('description', '');
                 $propbag->add('default', '');
                 break;
 
@@ -233,6 +241,8 @@ class serendipity_plugin_history extends serendipity_plugin
         $max_age     = $this->get_config('max_age');
         $specialage  = $this->get_config('specialage');
         $xyears      = $this->get_config('multiyears', '1');
+        $xyempty     = $this->get_config('isempty');
+        $empty_ct    = $this->get_config('empty_ct', 0);
         $displaydate = serendipity_db_bool($this->get_config('displaydate', 'true'));
         $dateformat  = $this->get_config('dateformat');
         $full        = serendipity_db_bool($this->get_config('full', 'false'));
@@ -276,6 +286,11 @@ class serendipity_plugin_history extends serendipity_plugin
 
             } else {
 
+                // avoid possible haunt failings
+                if ($serendipity['view'] == 'plugin') {
+                    return false;
+                }
+
                 $multiage = array();
                 // y start by 0 adds current day, else start is last year
                 for($y=0; $y < $xyears; $y++) {
@@ -316,10 +331,28 @@ class serendipity_plugin_history extends serendipity_plugin
                     @touch($cachefile); // 'w' mode will NOT update the modification time (filemtime)
                     // echo on run
                     echo $history_daylist;
+                } else {
+                    $xytxt = '<div class="serendipity_history_outro history_empty">' . $xyempty . "</div>\n";
+                    if ($empty_ct < 5) {
+                        $this->set_config('empty_ct', $empty_ct+1);
+                        echo '<!-- ' . $empty_ct . date(' H:i:s', $nowts) . ' -->' . $xytxt;
+                    } else {
+                        $this->set_config('empty_ct', 0);
+                        // write to cache
+                        $fp = fopen($cachefile, 'w');
+                        fwrite($fp, serialize($xytxt));
+                        fclose($fp);
+                        @touch($cachefile); // 'w' mode will NOT update the modification time (filemtime)
+                        echo '<!-- 1st empty cached fallback -->' . $xytxt;
+                    }
                 }
             }
         } else {
-            $this->getHistoryEntries($maxts, $mints, $max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor);
+            if (empty($this->getHistoryEntries($maxts, $mints, $max_age, $min_age, $full, $max_entries, $maxlength, $intro, $outro, $displaydate, $dateformat, $displayauthor))) {
+                if (!empty($xyempty)) {
+                    echo '<div class="serendipity_history_outro history_empty">' . $xyempty . "</div>\n";
+                }
+            }
         }
     }
 
