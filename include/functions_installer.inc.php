@@ -642,6 +642,11 @@ function serendipity_checkInstallation() {
         $errs[] = sprintf(DIRECTORY_RUN_CMD, 'chmod go+rwx', $ipath . PATH_ARCHIVES);
     }
 
+    // Check for xml_parser_create()
+    if (!function_exists('xml_parser_create')) {
+        $errs[] = sprintf(CANT_EXECUTE_EXTENSION, 'php-xml PHP');
+    }
+
     // Check imagick
     if ($_POST['magick'] == 'true' && function_exists('is_executable') && !@is_executable($_POST['convert'])) {
         $errs[] = sprintf(CANT_EXECUTE_BINARY, 'convert imagemagick');
