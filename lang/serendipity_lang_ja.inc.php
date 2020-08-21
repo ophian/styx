@@ -187,6 +187,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'ディレクトリー %s が存在しないか作成することができませんでした。手動でディレクトリーを作成してください。');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; 実行 <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', '%s バイナリを実行できませんでした。');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'ファイル %s の書き込みができませんでした。');
 @define('FILE_CREATE_YOURSELF', '自分でファイルを作成するか、パーミッションを調べてください');
 @define('COPY_CODE_BELOW', '<br>* Just copy the code below and place it in %s in your %s folder:<b><pre>%s</pre></b>' . "\n");

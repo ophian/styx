@@ -169,6 +169,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'O Diretório %s não existe e não pode ser criado. Tente criá-lo manualmente');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; execute <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Não pôde executar o binário %s');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Não foi possível editar o arquivo %s.');
 @define('FILE_CREATE_YOURSELF', 'Por favor, crie você mesmo o arquivo ou verifique suas permissões');
 @define('COPY_CODE_BELOW', '<br>* Copie o código abaixo e o coloque em %s no seu %s diretório:<b><pre>%s</pre></b>' . "\n");

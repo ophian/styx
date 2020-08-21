@@ -172,6 +172,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DIRECTORY_CREATE_ERROR', 'Директорията %s не съществува и не може да бъде създадена. Моля, създайте директорията ръчно');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; изпълнете: <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Не може да бъде изпълнен файла %s.');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Не може да бъде записвано във файла %s');
 @define('FILE_CREATE_YOURSELF', 'Моля, създайте файла сами или проверете неговите права');
 @define('COPY_CODE_BELOW', '<br>* Само копирайте кода от по-долу и го сложете в %s в папка %s <b><pre>%s</pre></b>' . "\n");

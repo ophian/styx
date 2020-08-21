@@ -200,6 +200,7 @@ $i18n_filename_to = array (
 @define('DIRECTORY_CREATE_ERROR', 'Priečinok %s neexistuje a nepodarilo sa ho vytvoriť. Prosím vytvorte priečinok ručne.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; spustiť <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Nepodarilo sa spustiť binárny súbor %s.');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Nepodarilo sa zapísať do súboru %s.');
 @define('FILE_CREATE_YOURSELF', 'Prosím vytvorte súbor ručne alebo skontrolujte oprávnenia.');
 @define('COPY_CODE_BELOW', '<br>* Skopírujte kód uvedený nížšie a umiestnite ho do súboru "%s" vo vašom priečinku "%s":<b><pre>%s</pre></b>' . "\n");

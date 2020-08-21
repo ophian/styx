@@ -189,6 +189,7 @@
 @define('DIRECTORY_CREATE_ERROR', '디렉토리 %s(이)가 존재하지 않으며 생성할 수 없습니다. 직접 디렉토리를 생성해 주십시오');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; 실행: <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', '바이너리 파일 %s(을)를 실행할 수 없습니다');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', '파일 %s에 기록할 수 없습니다.');
 @define('FILE_CREATE_YOURSELF', '파일을 직접 생성하거나 권한 설정을 확인하십시오');
 @define('COPY_CODE_BELOW', '<br>* 아래의 코드를 복사하여 %s에 넣고 %s 폴더에 두십시오:<b><pre>%s</pre></b>' . "\n");

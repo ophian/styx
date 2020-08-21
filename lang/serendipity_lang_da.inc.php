@@ -172,6 +172,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'Biblioteket %s eksisterer ikke og kunne ikke oprettes. Opret venligst biblioteket manuelt');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; Kør <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Kan ikke eksekvere %s');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Kan ikke skrive til filen %s.');
 @define('FILE_CREATE_YOURSELF', 'Opret venligst filen selv og check dens rettigheder');
 @define('COPY_CODE_BELOW', '<br>* Kopier blot koden nedenunder og placer den i %s i din %s mappe:<b><pre>%s</pre></b>' . "\n");

@@ -189,6 +189,7 @@
 @define('DIRECTORY_CREATE_ERROR', '«·„Ã·œ %s ·„ Ì „ «‰‘«¡ «·„Ã·œ «·—Ã«¡ ﬁ„ »√‰‘«¡… ÌœÊÌ«');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Cannot execute the %s binary');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Cannot write to file %s.');
 @define('FILE_CREATE_YOURSELF', '«·—Ã«¡ √‰  ‰‘∆ «·„·› »‰›”ﬂ «Ê ﬁ„ »›Õ’ «· ’«—ÌÕ ··„Ã·œ«  ');
 @define('COPY_CODE_BELOW', '<br>* ﬁ„ »‰”Œ «·ﬂÊœ «·„ÊÃÊœ »«·«”›· Ê ÷⁄Â  %s ›Ì %s «·„Ã·œ:<b><pre>%s</pre></b>' . "\n");

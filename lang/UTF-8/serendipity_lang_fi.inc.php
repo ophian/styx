@@ -187,6 +187,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'Hakemistoa %s ei ole, eikä voi luoda. Ole kiltti ja tee se itse.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; komento <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Ohjelman %s suoritus ei onnistu');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Tiedostoon %s kirjoittaminen ei onnistu.');
 @define('FILE_CREATE_YOURSELF', 'Ole kiltti ja tee tiedosto itse tai höllennä oikeuksia');
 @define('COPY_CODE_BELOW', '<br>* Kopioi alla oleva ja laita se tiedostoon %s kansiossa %s :<b><pre>%s</pre></b>' . "\n");

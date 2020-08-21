@@ -175,6 +175,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'La directory %s non esiste e non può essere creata. Per favore crearla manualmente');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; esegui <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Impossibile eseguire il binario %s');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Impossibile scrivere sul file %s.');
 @define('FILE_CREATE_YOURSELF', 'Per favore creare il file manualmente o controllare i permessi');
 @define('COPY_CODE_BELOW', '<br>* Copiare il codice qui sotto e metterlo in %s nella vostra cartella %s :<b><pre>%s</pre></b>' . "\n");

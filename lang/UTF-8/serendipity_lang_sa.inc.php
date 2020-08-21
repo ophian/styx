@@ -189,6 +189,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'المجلد %s لم يتم انشاء المجلد الرجاء قم بأنشاءة يدوياً');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Cannot execute the %s binary');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Cannot write to file %s.');
 @define('FILE_CREATE_YOURSELF', 'الرجاء أن تنشئ الملف بنفسك او قم بفحص التصاريح للمجلدات ');
 @define('COPY_CODE_BELOW', '<br>* قم بنسخ الكود الموجود بالاسفل و ضعه  %s في %s المجلد:<b><pre>%s</pre></b>' . "\n");

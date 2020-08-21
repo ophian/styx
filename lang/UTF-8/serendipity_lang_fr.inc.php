@@ -175,6 +175,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'Le répertoire %s n\'existe pas et ne peut pas être crée automatiquement. Veuillez le créer manuellement, ou me donner les droits d\'accès nécessaires.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; exécute <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Je ne peux pas exécuter le programme %s');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Je ne peux pas ouvrir le fichier %s pour écriture.');
 @define('FILE_CREATE_YOURSELF', 'Merci de créer le fichier vous-même ou de me donner les droits d\'accès nécessaires.');
 @define('COPY_CODE_BELOW', '<br>* Copiez le code ci-dessous et placez le %s dans votre %s répertoire :<b><pre>%s</pre></b>' . "\n");

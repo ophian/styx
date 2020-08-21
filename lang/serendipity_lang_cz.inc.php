@@ -202,6 +202,7 @@ $i18n_filename_to = array (
 @define('DIRECTORY_CREATE_ERROR', 'Adresáø %s neexistuje a nemohl být vytvoøen. Vytvoøte adresáø manuálnì.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; spustit <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Nelze spustit binární soubor %s.');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Nelze zapisovat do souboru %s.');
 @define('FILE_CREATE_YOURSELF', 'Vytvoøte soubor pøímo nebo provìøte oprávnìní');
 @define('COPY_CODE_BELOW', '<br>* Zkopírujte kód uvedený ní¾e a umístìte jej do %s ve va¹em %s adresáøi:<b><pre>%s</pre></b>' . "\n");

@@ -187,6 +187,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'Mappan %s er ekki til og gat ekki búið hana til. Vinsamlegast búðu hana til á annan hátt');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; keyra <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Get ekki keyrt %s skrána');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Gat ekki skrifað í skrá %s.');
 @define('FILE_CREATE_YOURSELF', 'Vinsamlegast búðu skrána til sjálfur eða athugaðu eiginleika');
 @define('COPY_CODE_BELOW', '<br>* Vistaðu bara kóðann fyrir neðan og settu hann í %s í %s möppunni:<b><pre>%s</pre></b>' . "\n");

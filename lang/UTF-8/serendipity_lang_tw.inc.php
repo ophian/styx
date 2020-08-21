@@ -189,6 +189,7 @@ $i18n_unknown = 'tw';
 @define('DIRECTORY_CREATE_ERROR', '檔案夾 %s 不存在也無法建立. 請自己建立這個檔案夾');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', '無法執行 %s 資源檔案');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', '無法讀寫檔案 %s.');
 @define('FILE_CREATE_YOURSELF', '請自己建立這個檔案或檢查權限');
 @define('COPY_CODE_BELOW', '<br>* 請複製下面的代碼然後放入 %s 到您的 %s 檔案夾:<b><pre>%s</pre></b>' . "\n");

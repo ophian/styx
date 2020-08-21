@@ -189,6 +189,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'Dizin %s mevcut değil ve oluşturulamıyor. Lütfen kendiniz oluşturun');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; çalıştır <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Bu binari dosyası çalıştırılamıyor %s ');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Dosyaya yazılamıyor %s.');
 @define('FILE_CREATE_YOURSELF', 'Lütfen dosyayı kendiniz oluşturup izinleri kontrol edin');
 @define('COPY_CODE_BELOW', '<br>* Sadece bu kodu kopyalayıp %s dizinindeki %s dosyaya yerleştirin:<b><pre>%s</pre></b>' . "\n");

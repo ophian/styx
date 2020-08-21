@@ -187,6 +187,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'A %s könyvtár nem létezik, és nem is tudom létrehozni. Kérlek hozd létre Te');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; fut <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Nem tudom futtatni a %s binárist');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Nem tudom írni a %s fájlt.');
 @define('FILE_CREATE_YOURSELF', 'Kérlek hozd létre a fájlt, vagy ellenőrizd a hozzáférési jogokat');
 @define('COPY_CODE_BELOW', '<br>* Másold a lenti kódot a %s fájlba (könyvtár: %s):<b><pre>%s</pre></b>' . "\n");

@@ -190,6 +190,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'Map %s bestaat niet en kon niet worden aangemaakt. Maak deze alstublieft handmatig aan');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; voer <i>%s %s</i> uit');
 @define('CANT_EXECUTE_BINARY', 'Kan opdracht %s niet uitvoeren');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Kan niet schrijven naar bestand %s.');
 @define('FILE_CREATE_YOURSELF', 'Maak zelf het bestand aan of controleer de toegangsrechten');
 @define('COPY_CODE_BELOW', '<br>* Kopieer de onderstaande code en voeg deze toe aan het bestand %s in de map %s:<b><pre>%s</pre></b>' . "\n");

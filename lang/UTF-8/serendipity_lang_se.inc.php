@@ -187,6 +187,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'Katalogen %s finns inte och kunde inte skapas. Skapa katalogen manuellt');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; kör <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Kunde inte köra %s binärfil');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Kan inte skriva till filen %s.');
 @define('FILE_CREATE_YOURSELF', 'Skapa filen själv eller kontrollera rättigheter');
 @define('COPY_CODE_BELOW', '<br>* Kopiera koden nedan och lägg den i %s i din %s mapp:<b><pre>%s</pre></b>' . "\n");

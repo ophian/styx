@@ -188,6 +188,7 @@
 @define('DIRECTORY_CREATE_ERROR', 'شاخه %s وجود ندارد یا قابلیت ایجاد کردن آن نیست. لطفا خودتان به صورت دستی، آن را بسازید');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; <i>%s %s</i> را اجرا کن');
 @define('CANT_EXECUTE_BINARY', 'توانایی اجرای %s نیست');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'توانایی نوشتن در فایل %s نیست.');
 @define('FILE_CREATE_YOURSELF', 'لطفا یا خودتان فایل را ایجاد کنید، یا دسترسی ها را چک کنید');
 @define('COPY_CODE_BELOW', '<br>* کد زیر را کپی کرده و در %s در %s شاخه زیر بریزید:<b><pre>%s</pre></b>' . "\n");

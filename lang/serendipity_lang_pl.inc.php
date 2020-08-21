@@ -189,6 +189,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('DIRECTORY_CREATE_ERROR', 'Katalog nie istnieje i nie mo¿e byæ utworzony. Proszê stworzyæ katalog samodzielnie.');
 @define('DIRECTORY_RUN_CMD', '&nbsp;-&gt; run <i>%s %s</i>');
 @define('CANT_EXECUTE_BINARY', 'Nie mogê uruchomiæ %s');
+@define('CANT_EXECUTE_EXTENSION', 'Cannot execute the %s extension library. Please allow in PHP.ini or load the missing module via servers package manager.');
 @define('FILE_WRITE_ERROR', 'Nie mogê zapisywaæ do pliku %s.');
 @define('FILE_CREATE_YOURSELF', 'Proszê, stwórz plik samodzielnie lub sprawd¼ prawa dostêpu.');
 @define('COPY_CODE_BELOW', '<br>* Po prostu skopiuj poni¿szy kod i umie¶æ go w %s w Twoim katalogu %s:<b><pre>%s</pre></b>' . "\n");
