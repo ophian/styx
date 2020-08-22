@@ -171,13 +171,13 @@ if ((int)$serendipity['GET']['step'] == 0) {
     if (extension_loaded('session')) {
         $data['installerResultDiagnose_SESSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
-        $data['installerResultDiagnose_SESSION'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, NO);
+        $data['installerResultDiagnose_SESSION'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
     if (extension_loaded('pcre')) {
         $data['installerResultDiagnose_PCRE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, YES);
     } else {
-        $data['installerResultDiagnose_PCRE'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, NO);
+        $data['installerResultDiagnose_PCRE'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, NO);
     }
 
     if (extension_loaded('gd')) {
