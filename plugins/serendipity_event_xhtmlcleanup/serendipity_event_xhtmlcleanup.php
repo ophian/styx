@@ -19,11 +19,11 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_XHTMLCLEANUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.9');
+        $propbag->add('version',       '1.10');
         $propbag->add('requirements',  array(
-            'serendipity' => '1.6',
-            'smarty'      => '2.6.7',
-            'php'         => '4.1.0'
+            'serendipity' => '3.1',
+            'smarty'      => '3.1.6',
+            'php'         => '7.3.0'
         ));
         $propbag->add('groups', array('BACKEND_TEMPLATES'));
         $propbag->add('cachable_events', array('frontend_display' => true));
@@ -224,6 +224,11 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
         $tag      = &$this->cleanup_tag;
         $checkfor = &$this->cleanup_checkfor;
         $val      = &$this->cleanup_val;
+
+        // Check for xml_parser_create()
+        if (!function_exists('xml_parser_create')) {
+            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(CANT_EXECUTE_EXTENSION, 'php-xml (PHP)') . "</span>\n";
+        }
 
         // Instead of nasty regex-mangling we use the XML parser to get the attribute list of our input tag
         switch(strtolower(LANG_CHARSET)) {
