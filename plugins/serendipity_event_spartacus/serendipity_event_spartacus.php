@@ -28,8 +28,8 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
         $propbag->add('version',       '3.07');
         $propbag->add('requirements',  array(
-            'serendipity' => '3.0',
-            'php'         => '7.0.0'
+            'serendipity' => '3.1',
+            'php'         => '7.3'
         ));
         $propbag->add('event_hooks',    array(
             'backend_plugins_fetchlist'         => true,
@@ -682,6 +682,11 @@ class serendipity_event_spartacus extends serendipity_event
             'value'      => '',
             'children'   => array()
         );
+
+        // Check for xml_parser_create()
+        if (!function_exists('xml_parser_create')) {
+            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(CANT_EXECUTE_EXTENSION, 'php-xml (PHP)') . "</span>\n";
+        }
 
         foreach($xml_matches[0] AS $xml_index => $xml_package) {
             $i = 0;
