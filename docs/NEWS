@@ -1,6 +1,9 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new installer diagnose php-xml extension check.
+    Also improves (session/pcre) installer result check returns.
+
   * Improve and fixup (sidebar) plugin remoterss
 
   * Extend datetime-local datetime check against invalid user dates
