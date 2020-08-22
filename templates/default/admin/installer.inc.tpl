@@ -116,6 +116,10 @@
                             <td>{$installerResultDiagnose_ICONV}</td>
                         </tr>
                         <tr>
+                            <td>XML extension</td>
+                            <td>{$installerResultDiagnose_XML}</td>
+                        </tr>
+                        <tr>
                             <td>zlib extension</td>
                             <td>{$installerResultDiagnose_ZLIB}</td>
                         </tr>
