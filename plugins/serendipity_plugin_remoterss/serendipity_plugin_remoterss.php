@@ -80,6 +80,11 @@ class s9y_remoterss_XMLTree
             $encoding = $xml_encoding[1];
         }
 
+        // Check for xml_parser_create()
+        if (!function_exists('xml_parser_create')) {
+            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(CANT_EXECUTE_EXTENSION, 'php-xml (PHP)') . "</span>\n";
+        }
+
         $p = xml_parser_create($encoding);
         // by: anony@mous.com - meets XML 1.0 specification
         @xml_parser_set_option($p, XML_OPTION_CASE_FOLDING, 0);
@@ -272,11 +277,11 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.27');
+        $propbag->add('version',       '1.28');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.1.99',
-            'smarty'      => '3.1.0',
-            'php'         => '7.0.0'
+            'serendipity' => '3.1',
+            'smarty'      => '3.1',
+            'php'         => '7.3'
         ));
         $propbag->add('configuration', array('sidebartitle', 'feedtype', 'template', 'rssuri', 'show_rss_element', 'smarty', 'number', 'use_rss_link', 'escape_rss', 'displaydate', 'dateformat', 'charset', 'target', 'cachetime', 'bulletimg', 'markup'));
         $propbag->add('groups',        array('FRONTEND_EXTERNAL_SERVICES'));
