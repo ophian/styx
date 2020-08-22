@@ -644,7 +644,7 @@ function serendipity_checkInstallation() {
 
     // Check for xml_parser_create()
     if (!function_exists('xml_parser_create')) {
-        $errs[] = sprintf(CANT_EXECUTE_EXTENSION, 'php-xml PHP');
+        $errs[] = sprintf(CANT_EXECUTE_EXTENSION, 'php-xml (PHP)');
     }
 
     // Check imagick
