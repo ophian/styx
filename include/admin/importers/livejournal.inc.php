@@ -114,6 +114,11 @@ class Serendipity_Import_LiveJournalXML extends Serendipity_Import
             'children'   => array()
         );
 
+        // Check for xml_parser_create()
+        if (!function_exists('xml_parser_create')) {
+            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(CANT_EXECUTE_EXTENSION, 'php-xml (PHP)') . "</span>\n";
+        }
+
         foreach($xml_matches[0] AS $xml_index => $xml_package) {
             $i = 0;
 

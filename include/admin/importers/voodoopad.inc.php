@@ -97,6 +97,11 @@ class Serendipity_Import_VoodooPad extends Serendipity_Import
           // The selected file
         $file =  $_FILES['serendipity']['tmp_name']['import']['voodooPadXML'];
 
+        // Check for xml_parser_create()
+        if (!function_exists('xml_parser_create')) {
+            echo '<span class="msg_error"><span class="icon-attention-circled"></span> ' . sprintf(CANT_EXECUTE_EXTENSION, 'php-xml (PHP)') . "</span>\n";
+        }
+
         // Create a parser and set it up with the callbacks
         $xml_parser = xml_parser_create('');
         xml_parser_set_option($xml_parser, XML_OPTION_CASE_FOLDING, 0);
