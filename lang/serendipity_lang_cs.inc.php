@@ -356,6 +356,7 @@ $i18n_filename_to = array (
 @define('TOP_LEVEL', 'Nejvyšší úroveò');
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', 'Kanál %s');
 @define('PERMISSIONS', 'Oprávnìní');
+@define('SECURITY', 'Security');
 @define('INTEGRITY', 'Kontrola integrity instalace');
 @define('CHECKSUMS_NOT_FOUND', 'Není možné porovnat kontrolní souèty! (v základním adresáøi chybí soubor checksums.inc.php, or dev version)');
 @define('CHECKSUMS_PASS', 'Všechny soubory zkontrolovány.');
@@ -1149,6 +1150,9 @@ $i18n_filename_to = array (
 @define('CONFIG_ALLOW_LOCAL_URL_DESC', 'By default, it is forbidden due to security constrains to fetch data from local URLs to prevent Server-Side Request Forgery (SSRF). If you use a local intranet, you can enable this option to allow fetching data.');
 @define('REMOTE_FILE_INVALID', 'The given URL "%s" appears to be local and is not allowed to be fetched. You can allow this by setting the option "Allow to fetch data from local URLs" in your Blog configuration.');
 
+@define('INSTALLER_TOKEN', 'Temporary installer token');
+@define('INSTALLER_TOKEN_CHECK', 'Token check');
+@define('INSTALLER_TOKEN_STATUS', 'Token status');
 @define('INSTALLER_TOKEN_NOTE', 'To continue a secure installation, you need to create a file called "%s" with the string "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" within this directory. Once that file exists, you must continue the installation within the next %s minutes and do not close your browser window, and you need to have Cookies enabled.');
 @define('INSTALLER_TOKEN_MISMATCH', 'You are not authorized to continue installation, since your install token is not identical (%s) to the one contained in the file "%s". Please make sure you created the file with the right content. You can get a new token by deleting the file.');
 @define('INSTALLER_TOKEN_MATCH', 'Your secure install token is valid.');

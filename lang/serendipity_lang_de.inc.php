@@ -327,6 +327,7 @@
 @define('TOP_LEVEL', 'Ursprung');
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', '%s Feed');
 @define('PERMISSIONS', 'Rechte');
+@define('SECURITY', 'Security');
 @define('INTEGRITY', 'Installation prüfen');
 @define('CHECKSUMS_NOT_FOUND', 'Fehler beim Vergleich der Prüfsummen! (Keine Prüfsummendatei checksums.inc.php im Hauptverzeichnis gefunden, oder Developer Version)');
 @define('CHECKSUMS_PASS', 'Alle erforderlichen Dateien wurden überprüft.');
@@ -1136,6 +1137,9 @@
 @define('CONFIG_ALLOW_LOCAL_URL_DESC', 'Standardmäßig ist es aus Sicherheitsgründen verboten, Daten über lokale URLs abzurufen, um Server-Side Request Forgery (SSRF) zu vermeiden. Wenn Sie ein lokales Intranet verwenden, können Sie die Datenabfrage über diese Option explizit erlauben.');
 @define('REMOTE_FILE_INVALID', 'Die angegebene URL "%s" scheint eine lokale zu sein und darf nicht abgerufen werden. Sie können dies explizit gestatten, in dem Sie in der Konfiguration die Option "Erlaube, Daten über lokale URLs abzurufen" setzen.');
 
+@define('INSTALLER_TOKEN', 'Temporary installer token');
+@define('INSTALLER_TOKEN_CHECK', 'Token check');
+@define('INSTALLER_TOKEN_STATUS', 'Token status');
 @define('INSTALLER_TOKEN_NOTE', 'Um eine abgesicherte Installation auszuführen, müssen Sie eine Datei namens "%s" mit dem String "<strong>&lt;?php $install_token = \'%s\'; ?&gt;</strong>" in diesem Verzeichnis erstellen. Sobald diese Datei existiert, müssen Sie die Installation innerhalb der nächsten %s Minuten ausführen und dürfen ihren Browser nicht schließen. Sie müssen Cookies erlauben.');
 @define('INSTALLER_TOKEN_MISMATCH', 'Sie sind nicht autorisiert die Installation auszuführen, da Ihr Install-Token (%s) nicht demjenigen aus der Datei "%s" entspricht. Stellen Sie sicher, dass Sie die Datei mit dem korrekten Inhalt erstellt haben. Sie können einen neuen Token erstellen in dem Sie die Datei löschen.');
 @define('INSTALLER_TOKEN_MATCH', 'Ihr sicherer Install-Token ist gültig.');
