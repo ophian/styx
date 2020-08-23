@@ -452,7 +452,7 @@
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Nur Artikelübersicht');
 @define('PLUGIN_ITEM_DISPLAY_BOTH', 'Überall');
 @define('RSS_IMPORT_CATEGORY', 'Diese Kategorie für nicht zugeordnete importierte Einträge verwenden');
-@define('ERROR_UNKNOWN_NOUPLOAD', 'Ein Fehler trat beim Dateiupload auf. Vielleicht ist die Datei größer, als durch die Server-Konfiguration zugelassen wird. Bitte mit Ihrem ISP absprechen oder die php.ini-Datei bearbeiten, um größere Uploads zuzulassen.');
+@define('ERROR_UNKNOWN_NOUPLOAD', 'Ein Fehler trat beim Dateiupload auf. Vielleicht ist die Datei größer, als durch die Server-Konfiguration zugelassen wird. Bitte mit Ihrem ISP absprechen oder die php.ini Datei bearbeiten, um größere Uploads zuzulassen.');
 @define('COMMENTS_WILL_BE_MODERATED', 'Kommentare werden erst nach redaktioneller Prüfung freigeschaltet!');
 @define('YOU_HAVE_THESE_OPTIONS', 'Folgende Möglichkeiten stehen zur Verfügung:');
 @define('THIS_COMMENT_NEEDS_REVIEW', 'Hinweis: Dieser Kommentar wird ohne Bewilligung nicht dargestellt.');
