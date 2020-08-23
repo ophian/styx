@@ -332,7 +332,7 @@
         </div>
     </main>
     <footer id="meta">
-        <p>{$ADMIN_FOOTER_POWERED_BY|sprintf:$versionInstalled:$phpversion}</p>
+        <p>{$CONST.ADMIN_FOOTER_POWERED_BY|sprintf:$styxversion:$phpversion}</p>
     </footer>
 </body>
 </html>
