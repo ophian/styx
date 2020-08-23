@@ -1,14 +1,10 @@
 <!DOCTYPE html>
-<!--[if IE 8]>    <html class="no-js lt-ie9" lang="{$lang}"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="{$lang}"> <!--<![endif]-->
+<html class="no-js" lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{serendipity_getFile file='admin/installer.css'}">
-<!--[if lte IE 8]>
-    <link rel="stylesheet" href="{serendipity_getFile file='admin/oldie.css'}">
-<![endif]-->
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
     <script src="templates/jquery.js"></script>
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
