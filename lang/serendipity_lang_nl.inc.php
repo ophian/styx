@@ -607,7 +607,7 @@
 @define('RED', 'rood');
 @define('YELLOW', 'geel');
 @define('GREEN', 'groen');
-@define('PRE_INSTALLATION_REPORT', 'Serendipity v%s pre-installatiebericht');
+@define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s pre-installatiebericht');
 @define('RECOMMENDED', 'Aanbevolen');
 @define('ACTUAL', 'Huidig');
 @define('PHPINI_CONFIGURATION', 'php.ini-configuratie');

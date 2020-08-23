@@ -604,7 +604,7 @@
 @define('RED', 'rød');
 @define('YELLOW', 'gul');
 @define('GREEN', 'green'); // Translate
-@define('PRE_INSTALLATION_REPORT', 'Serendipity v%s pre-installation report'); // Translate
+@define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s pre-installation report'); // Translate
 @define('RECOMMENDED', 'Recommended'); // Translate
 @define('ACTUAL', 'Actual'); // Translate
 @define('PHPINI_CONFIGURATION', 'php.ini configuration'); // Translate

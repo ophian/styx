@@ -603,7 +603,7 @@
 @define('RED', 'rød');
 @define('YELLOW', 'gul');
 @define('GREEN', 'grøn');
-@define('PRE_INSTALLATION_REPORT', 'Serendipity v%s før-installations report');
+@define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s før-installations report');
 @define('RECOMMENDED', 'Anbefalet');
 @define('ACTUAL', 'Faktisk');
 @define('PHPINI_CONFIGURATION', 'php.ini konfiguration');

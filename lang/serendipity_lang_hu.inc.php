@@ -605,7 +605,7 @@
 @define('RED', 'priros');
 @define('YELLOW', 'sárga');
 @define('GREEN', 'zöld');
-@define('PRE_INSTALLATION_REPORT', 'Serendipity v%s telepítési ellenõrzés jelentés');
+@define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s telepítési ellenõrzés jelentés');
 @define('RECOMMENDED', 'Javasolt');
 @define('ACTUAL', 'Aktuális');
 @define('PHPINI_CONFIGURATION', 'php.ini konfiguráció');

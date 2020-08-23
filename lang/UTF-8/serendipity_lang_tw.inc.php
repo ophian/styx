@@ -608,7 +608,7 @@ $i18n_unknown = 'tw';
 @define('RED', '紅');
 @define('YELLOW', '黃');
 @define('GREEN', '綠');
-@define('PRE_INSTALLATION_REPORT', 'Serendipity v%s 安裝前報告');
+@define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s 安裝前報告');
 @define('RECOMMENDED', '建議');
 @define('ACTUAL', '實際');
 @define('PHPINI_CONFIGURATION', 'php.ini 設定');

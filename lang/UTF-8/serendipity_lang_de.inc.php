@@ -603,7 +603,7 @@
 @define('RED', 'rot');
 @define('YELLOW', 'gelb');
 @define('GREEN', 'grün');
-@define('PRE_INSTALLATION_REPORT', 'Systemdiagnose von Serendipity v.%s');
+@define('PRE_INSTALLATION_REPORT', 'Systemdiagnose von Serendipity Styx v.%s');
 @define('RECOMMENDED', 'Empfohlen');
 @define('ACTUAL', 'Vorhanden');
 @define('PHPINI_CONFIGURATION', 'php.ini Konfiguration');

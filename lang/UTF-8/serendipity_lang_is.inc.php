@@ -605,7 +605,7 @@
 @define('RED', 'rauðu');
 @define('YELLOW', 'gulu');
 @define('GREEN', 'grænu');
-@define('PRE_INSTALLATION_REPORT', 'Serendipity v%s for-uppsetningarskýrsla');
+@define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s for-uppsetningarskýrsla');
 @define('RECOMMENDED', 'Mælt með');
 @define('ACTUAL', 'Raungildi');
 @define('PHPINI_CONFIGURATION', 'php.ini stillingar');

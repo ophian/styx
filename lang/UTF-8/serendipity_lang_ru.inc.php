@@ -607,7 +607,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('RED', 'красный');
 @define('YELLOW', 'жёлтый');
 @define('GREEN', 'зелёный');
-@define('PRE_INSTALLATION_REPORT', 'Serendipity v%s - пред-установочный отчёт');
+@define('PRE_INSTALLATION_REPORT', 'Serendipity Styx v.%s - пред-установочный отчёт');
 @define('RECOMMENDED', 'Рекомендуется');
 @define('ACTUAL', 'На самом деле');
 @define('PHPINI_CONFIGURATION', 'конфигурация php.ini');
