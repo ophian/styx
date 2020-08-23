@@ -599,7 +599,7 @@
 @define('SELECT_INSTALLATION_TYPE', 'Bitte die Installationsart wählen');
 @define('WELCOME_TO_INSTALLATION', 'Willkommen zur Installation von Serendipity Styx!');
 @define('FIRST_WE_TAKE_A_LOOK', 'Zuerst wird eine Systemdiagnose durchgeführt, um etwaigen Inkompatibilitäten oder fehlenden Modulen vorzubeugen.');
-@define('ERRORS_ARE_DISPLAYED_IN', 'Fehler werden in %s, Empfehlungen in %s und erfolgreiche Meldungen in %s dargestellt.');
+@define('ERRORS_ARE_DISPLAYED_IN', 'Fehler werden in %s, Empfehlungen oder Abweichungen in %s und erfolgreiche bzw korrekte Einstellungen in %s dargestellt.');
 @define('RED', 'rot');
 @define('YELLOW', 'gelb');
 @define('GREEN', 'grün');

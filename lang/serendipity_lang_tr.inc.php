@@ -603,7 +603,7 @@
 @define('SELECT_INSTALLATION_TYPE', 'Select which installation type you wish to use');
 @define('WELCOME_TO_INSTALLATION', 'Welcome to the Serendipity Styx Installation');
 @define('FIRST_WE_TAKE_A_LOOK', 'First we will take a look at your current setup and attempt to diagnose any compatibility problems');
-@define('ERRORS_ARE_DISPLAYED_IN', 'Errors are displayed in %s, recommendations in %s and success in %s');
+@define('ERRORS_ARE_DISPLAYED_IN', 'Errors are displayed in %s, recommendations or deviations in %s and success or proper settings in %s');
 @define('RED', 'kırmızı');
 @define('YELLOW', 'sarı');
 @define('GREEN', 'yeşil');
