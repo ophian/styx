@@ -251,16 +251,16 @@
                 </div>
             {elseif $install_token_pass}
                 <table>
-                    <caption>Security</caption>
+                    <caption>{$CONST.SECURITY}</caption>
                     <thead>
                         <tr>
-                            <th>Temporary installer token</th>
-                            <th>Token status</th>
+                            <th>{$CONST.INSTALLER_TOKEN}</th>
+                            <th>{$CONST.INSTALLER_TOKEN_STATUS}</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><h5>Token check</h5></td>
+                            <td><h5>{$CONST.INSTALLER_TOKEN_CHECK}</h5></td>
                             <td><span class="msg_success">{$CONST.INSTALLER_TOKEN_MATCH}</span></td>
                         </tr>
 
