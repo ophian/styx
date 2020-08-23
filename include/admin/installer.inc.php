@@ -137,6 +137,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
     $data['getstepint0'] = true;
     $data['print_ERRORS_ARE_DISPLAYED_IN'] = sprintf(ERRORS_ARE_DISPLAYED_IN, serendipity_installerResultDiagnose(S9Y_I_ERROR, RED), serendipity_installerResultDiagnose(S9Y_I_WARNING, YELLOW), serendipity_installerResultDiagnose(S9Y_I_SUCCESS, GREEN));
     $data['s9yversion'] = $serendipity['version'];
+    $data['styxversion'] = ' Styx ' . $serendipity['version'];
 
     $errorCount = 0;
 
