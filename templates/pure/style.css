@@ -176,9 +176,6 @@ th, td {
   font-size: 14px;
   font-size: .875rem;
 }
-/*p, td, th, div, span {
-  font-family: verdana, arial, helvetica, sans-serif;
-}see sidebar_widget overflow */
 h1 {
   font-size: 1.6rem;
   margin: 0.67em 0; }
@@ -200,7 +197,7 @@ pre {
     font-size: 16px;
     font-size: 1rem;
     white-space: pre;
-    white-space: pre-wrap !important;/* overwrite a possible white-space: pre via highlight.css */
+    white-space: pre-wrap !important;/* overwrite a possible "white-space: pre" via highlight.css */
     overflow-x: auto;
     padding: 1em 0; }
 .visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
