@@ -327,6 +327,7 @@
         {/if}
         </div>
     </main>
+
     <footer id="meta">
         <p>{$CONST.ADMIN_FOOTER_POWERED_BY|sprintf:$styxversion:$phpversion}</p>
     </footer>
