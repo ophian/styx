@@ -27,6 +27,9 @@
                 <li><span class="msg_error">{$error}</span></li>
             {/foreach}
             </ul>
+            <div>
+                <a class="button_link" href="serendipity_admin.php?serendipity[step]={$prevstep}">{$CONST.PREVIOUS_PAGE}</a>
+            </div>
         {/if}
         {if $install_blank}
             <h3>{$CONST.SERENDIPITY_ADMIN_SUITE}:</h3>
@@ -276,20 +279,29 @@
             {/if}
             </div>
         {elseif $s9yGETstep == '2a' AND $install_token_pass}
+
             <form action="?" method="post">
                 <input name="serendipity[step]" type="hidden" value="{$s9yGETstep}">
                 <input name="serendipity[getstep]" type="hidden" value="3">
                 {if $ob_serendipity_printConfigTemplate}{$ob_serendipity_printConfigTemplate}{/if}
-                <input name="submit" type="submit" value="{$CONST.COMPLETE_INSTALLATION}">
+                <div class="form_buttons">
+                    <a class="button_link" href="serendipity_admin.php">{$CONST.BACK}</a>
+                    <input name="submit" type="submit" value="{$CONST.COMPLETE_INSTALLATION}">
+                </div>
             </form>
         {elseif $s9yGETstep == '2b' AND $install_token_pass}
+
             <form action="?" method="post">
                 <input name="serendipity[step]" type="hidden" value="{$s9yGETstep}">
                 <input name="serendipity[getstep]" type="hidden" value="3">
                 {if $ob_serendipity_printConfigTemplate}{$ob_serendipity_printConfigTemplate}{/if}
-                <input name="submit" type="submit" value="{$CONST.COMPLETE_INSTALLATION}">
+                <div class="form_buttons">
+                    <a class="button_link" href="serendipity_admin.php">{$CONST.BACK}</a>
+                    <input name="submit" type="submit" value="{$CONST.COMPLETE_INSTALLATION}">
+                </div>
             </form>
         {elseif $s9yGETstep == '3' AND $install_token_pass}
+
             <h3>{$CONST.CHECK_DATABASE_EXISTS}</h3>
             {if is_array($authors_query)}
             <span class="msg_success"><strong>{$CONST.THEY_DO}</strong>, {$CONST.WONT_INSTALL_DB_AGAIN}</span>
@@ -314,6 +326,9 @@
                 <li><span class="msg_error">{$error_f}</span></li>
             {/foreach}
             </ul>
+            <div class="form_buttons">
+                <a class="button_link" href="serendipity_admin.php?serendipity[step]={$prevstep}">{$CONST.PREVIOUS_PAGE}</a>
+            </div>
             {/if}
             {if $s9y_installed}
             <span class="msg_success">{$CONST.SERENDIPITY_INSTALLED}</span>

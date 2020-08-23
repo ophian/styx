@@ -90,7 +90,7 @@ if (sizeof($_POST) > 1 && $serendipity['GET']['step'] == '3') {
         $data['errors'] = $errors;
         $from = $_POST;
         /* Back to configuration, user did something wrong */
-        $serendipity['GET']['step'] = $serendipity['POST']['step'];
+        $serendipity['GET']['step'] = $data['prevstep'] = $serendipity['POST']['step'];
     } else {
         /* We're good, move to install process */
         $serendipity['GET']['step'] = '3';
@@ -413,6 +413,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
 
     $errors = serendipity_installFiles($basedir);
     $data['errors_sif'] = $errors;
+    $data['prevstep']   = $serendipity['POST']['step'];
 
     if (serendipity_updateConfiguration()) {
         $data['s9y_installed'] = true;
