@@ -43,14 +43,14 @@
 {/if}
 {if $case_multidelete}
     <form id="delete_image" method="get">
-    <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.ABOUT_TO_DELETE_FILES}</span>
+        <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.ABOUT_TO_DELETE_FILES}</span>
     {foreach $rip_image AS $ripimg}
-    <span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$ripimg}</span>
+        <span class="msg_hint"><span class="icon-help-circled" aria-hidden="true"></span> {$ripimg}</span>
     {/foreach}
-    <div class="form_buttons">
-        <a class="button_link state_cancel icon_link" href="{$abortLoc}">{$CONST.BACK}</a>
-        <a class="button_link state_submit icon_link" href="{$newLoc}">{$CONST.DUMP_IT}</a>
-    </div>
+        <div class="form_buttons">
+            <a class="button_link state_cancel icon_link" href="{$abortLoc}">{$CONST.BACK}</a>
+            <a class="button_link state_submit icon_link" href="{$newLoc}">{$CONST.DUMP_IT}</a>
+        </div>
     </form>
 {/if}
 {if $case_do_multidelete OR $case_do_delete}
