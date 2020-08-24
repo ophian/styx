@@ -246,7 +246,7 @@
 @define('PREVIEW', 'Pré-visualização');
 @define('DATE', 'Data');
 @define('DATE_FORMAT_2', 'Y-m-d H:i'); // Needs to be ISO 8601 compliant for date conversion!
-@define('DATE_INVALID', 'ATENÇÃO: A data que você especificou é inválida. Deve ser fornecida no formato DD/MM/AAAA HH:MM.');
+@define('DATE_INVALID', 'ATENÇÃO: A data que você especificou é inválida. Deve ser fornecida no formato inglês AAAA-MM-DD HH:MM.');
 @define('CATEGORY_PLUGIN_DESC', 'Mostra a listagem de categorias.');
 @define('ALL_AUTHORS', 'Todos os Autores');
 @define('CATEGORIES_TO_FETCH', 'Categorias para trazer');
