@@ -650,7 +650,6 @@ function serendipity_fetchUsers($user = '', $group = null, $is_count = false) {
         }
     }
 
-
     if ($group === null) {
         $querystring = "SELECT $query_distinct
                                a.authorid,
