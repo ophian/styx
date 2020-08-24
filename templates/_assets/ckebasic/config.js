@@ -49,6 +49,9 @@ CKEDITOR.editorConfig = function( config ) {
         config.autoGrow_bottomSpace = 50;
         config.autoGrow_onStartup = true;
 
+        // Default theme of CKEDITOR 'codesnippet' plugin - else use 'default' or 'monokai_sublime' or 'pojoaque' or any of those described at https://highlightjs.org/static/test.html
+        config.codeSnippet_theme = 'github'; // write as exists, since can be case sensitive when loading!
+
         /** SECTION: Extra Allowed Content - which tells ACF to not touch the code!
             Set placeholder tag cases to protect ACF suspensions:
               - Allowed <mediainsert>, <gallery>, <media> tags (imageselectorplus galleries)
