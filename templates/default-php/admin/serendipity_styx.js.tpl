@@ -1236,8 +1236,8 @@ $(function() {
             $('#serendipityNewTimestamp').val($('#serendipityNewTimestamp').val().replace("T", " "));
         }
         e.preventDefault();
-        // Inline notification, we might want to make this reuseable
-        $('<span id="msg_timestamp" class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span><?= TIMESTAMP_RESET ?> <a class="remove_msg" href="#msg_timestamp"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden"><?= HIDE ?></span></a></span>').insertBefore('#edit_entry_title');
+        // Inline notification, we might want to make this reusable
+        $('<span id="msg_timestamp" class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> <?= TIMESTAMP_RESET ?> <a class="remove_msg" href="#msg_timestamp"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden"><?= HIDE ?></span></a></span>').insertBefore('#edit_entry_title');
         // Remove timestamp msg
         $('.remove_msg').click(function(e) {
             e.preventDefault();
