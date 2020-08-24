@@ -2,7 +2,10 @@ Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
   * Add new installer diagnose php-xml extension check.
-    Also improves (session/pcre) installer result check returns.
+     - Also improves (session/pcre) installer result check returns.
+     - Adding installation steps back buttons
+     - General review of installation process with fixes, changes and language
+       constant additions and/or translation changes.
 
   * Improve and fixup (sidebar) plugin remoterss
 
