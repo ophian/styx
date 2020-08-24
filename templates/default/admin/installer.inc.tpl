@@ -34,13 +34,13 @@
         {if $install_blank}
             <h3>{$CONST.SERENDIPITY_ADMIN_SUITE}:</h3>
             <p class="msg_hint">{$CONST.INSTALLER_TOKEN_NOTE|sprintf:$install_token_file:$install_token:$install_lifetime}</p>
-            <div class="form_buttons">
+            <div>
                 <a class="block_level" href="index.php">{$CONST.RECHECK_INSTALLATION}</a>
             </div>
         {elseif $install_token_fail}
             <h3>{$CONST.ERROR}:</h3>
             <p class="msg_error">{$CONST.INSTALLER_TOKEN_MISMATCH|sprintf:$install_token:$install_token_file}</p>
-            <div class="form_buttons">
+            <div>
                 <a class="block_level" href="index.php">{$CONST.RECHECK_INSTALLATION}</a>
             </div>
         {elseif $getstepint0}
@@ -326,7 +326,7 @@
                 <li><span class="msg_error">{$error_f}</span></li>
             {/foreach}
             </ul>
-            <div class="form_buttons">
+            <div>
                 <a class="button_link" href="serendipity_admin.php?serendipity[step]={$prevstep}">{$CONST.PREVIOUS_PAGE}</a>
             </div>
             {/if}
