@@ -194,7 +194,7 @@ class serendipity_plugin_history extends serendipity_plugin
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
-        for($x=0; $x < $e_c; $x++) {
+        for($x=0; $x < $ect; $x++) {
             $url = serendipity_archiveURL($e[$x]['id'],
                                           $e[$x]['title'],
                                           'serendipityHTTPPath',
