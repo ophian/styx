@@ -59,6 +59,7 @@ CKEDITOR.editorConfig = function( config ) {
               - Allowed <picture> element and the <source> tag for viewport client access
               - Allowed <figure> styles and classes, <figcaption> classes for image comments
               - Allowed <div> is a need for Media Library inserts
+              - Allowed manually, by source added header (2,3,4) formats
               - Allowed <p> custom classes - to easier style certain paragraphs!
               - Allowed <ul> listing for styles and classes, <hr> and <span> to make life a bit easier!
               - Allowed <a> link tag attributes and classes for having to add data-* attributes (see picture element)
@@ -67,7 +68,7 @@ CKEDITOR.editorConfig = function( config ) {
               - Allowed (pseudo) [lang] attribute in p and ul elements, see @https://www.w3.org/International/questions/qa-css-lang.en
         */
         // protect - elements [attributes]{styles}(classes) - only use the asterix!
-        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);audio[*]{*}(*);video[*];div[*]{*}(*);p[lang](*);ul[lang]{*}(*);a[*](*);span[*]{*}(*);figure{*}(*);figcaption(*);picture;source[*]{*}(*);img[*]{*}(*);code(*);hr;pre[*](*);';
+        config.extraAllowedContent = 'mediainsert[*]{*}(*);gallery[*]{*}(*);media[*]{*}(*);audio[*]{*}(*);video[*];div[*]{*}(*);h2;h3;h4;p[lang](*);ul[lang]{*}(*);a[*](*);span[*]{*}(*);figure{*}(*);figcaption(*);picture;source[*]{*}(*);img[*]{*}(*);code(*);hr;pre[*](*);';
         // Do not use auto paragraphs, added to these allowed tags (only!). Please regard that this was marked deprecated by CKE 4.4.5, but is a need for (our use of) extraAllowedContent - check this again by future versions!
         config.autoParagraph = false; // defaults(true)
     }
