@@ -225,7 +225,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
                                         ($useRss ? "RSS $FEED" : "Atom $FEED"),
                                         $onclick,
                                         $icon,
-                                        ($icon == $small_icon));
+                                        ($icon === $small_icon));
 
         // case entries feed atom to add
         if ($useBoth) {
