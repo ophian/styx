@@ -22,7 +22,7 @@
                     <ul>
                         <li>
                             <b>Manuelle Einstellungen</b><br>
-                            <span><em>Durch die Nutzung der globalen &#187;&nbsp;$serendipity&nbsp;&#171; Variable gibt es des Weiteren die Möglichkeit <u>bestimmte</u> Standard Einstellungen zu überschreiben. Welche das sind, lesen Sie bitte <a href="https://ophian.github.io/hc/en/code-primer.html#docs-initializing-the-framework-serendipity_configincphp-and-serendipity_config_localincphp" target="_blank" rel="noopener">hier</a>, in der Styx Dokumentation, nach. Nicht alle dort genannten Variablen sind wirklich <u>nur</u> auf diese Weise manuell zu setzen, da einige auch in den Konfigurationsoptionen zu finden sind. Allgemein sollten nur Nutzer mit ein wenig Erfahrung diese manuelle Erweiterungsmöglichkeit nutzen.</em></span>
+                            <span><em>Durch die Nutzung der globalen &#187;&nbsp;$serendipity&nbsp;&#171; Variable gibt es des Weiteren die Möglichkeit <u>bestimmte</u> Standard Einstellungen mit Hilfe der &#187;serendipity_config_local.inc.php&#171; Datei zu überschreiben. Welche das sind, lesen Sie bitte <a href="https://ophian.github.io/hc/en/code-primer.html#docs-initializing-the-framework-serendipity_configincphp-and-serendipity_config_localincphp" target="_blank" rel="noopener">hier</a>, in der Styx Dokumentation, nach. Nicht alle dort genannten Variablen sind wirklich <u>nur</u> auf diese Weise manuell zu setzen, da einige auch besser in den Konfigurationsoptionen zu finden sind. Allgemein sollten nur Nutzer mit ein wenig Erfahrung diese manuelle Erweiterungsmöglichkeit nutzen.</em></span>
                         </li>
                     </ul>
                 </li>
