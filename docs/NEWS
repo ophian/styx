@@ -1,7 +1,7 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
-  * Allow somw Rich Text Basic Editor manually, by source added header markup
+  * Allow some Rich Text Basic Editor manually, by source added header markup
 
   * Add new installer diagnose php-xml extension check.
      - Also improves (session/pcre) installer result check returns.
