@@ -89,7 +89,7 @@
 
                     <div id="iconvert_info" class="comment_status additional_info">
                         <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.SYNC_OPTION_CONVERTTHUMBS_INFO|sprintf:$thumbsuffix}
-                    {if $dbnotmysql}<br><br>
+                    {if $dbnotmysql AND NOT empty($CONST.MEDIA_THUMBURL_REPLACE_ENTRY)}<br><br>{* remove this part and constant, when non-mysql database LIKE replacements found being proofed guilty *}
                         <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_THUMBURL_REPLACE_ENTRY}
                     {else}<br><br>
                         <span class="icon-info-circled" aria-hidden="true"></span> {$CONST.PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE}
