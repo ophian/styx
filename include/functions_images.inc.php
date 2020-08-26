@@ -5614,7 +5614,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
 
     // Only MySQL supported, since I don't know how to use REGEXPs differently.
     // Ian: Whoever wrote this; We should improve this to all!
-    //      Remove completely, when new LIKE solution found working overall!
+    //      Remove completely, when new LIKE solution found working overall! @see https://github.com/ophian/styx/commit/f1431739a39f754261ece05dfb7722a1c2d79f61#diff-66ba985797ad4611ca378bfb1d373140
     #if (!in_array($serendipity['dbType'], ['mysql', 'mysqli', 'sqlite3', 'sqlite3oo', 'pdo-sqlite'])) {
     #    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVE_ENTRY . "</span>\n";
     #    return true;
