@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup non-mySQL maintenance variable logic for the mysql utf8mb4 migration
+
   * Allow some Rich Text Basic Editor manually, by source added header markup
 
   * Add new installer diagnose php-xml extension check.
