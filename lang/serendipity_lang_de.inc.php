@@ -218,11 +218,11 @@
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 Kommentar');
 @define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3 Feed');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Feld "managingEditor"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Feld "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Feld "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Bild für den RSS-Feed');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Breite des Bildes');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Höhe des Bildes');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'E-Mail-Adresse des Webmasters, falls vorhanden (leer: nicht verwenden). [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'E-Mail-Adresse des Webmasters, falls vorhanden (leer: nicht verwenden). [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'E-Mail-Adresse des verantwortlichen Editors, falls vorhanden (leer: nicht verwenden). [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'URL für ein Bild im GIF/JPEG/PNG Format, falls vorhanden (leer: Serendipity-Logo).');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'in Pixeln, max. 144');
@@ -285,7 +285,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'Diese Seite erscheint, da gerade Serendipity %s installiert wurde, aber die Datenbank noch nicht an diese Version angepasst wurde.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Datenbank-Aktualisierungen (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Die folgenden SQL-Dateien wurden gefunden und müssen nun ausgeführt werden, bevor Serendipity wieder wie gewohnt funktioniert.');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Versionsabhängige Funktionen');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Versionsabhängige Funktionen');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Keine versionsabhängigen Funktionen gefunden');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Soll ich die aufgeführten Funktionen ausführen?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nein, das werde ich manuell erledigen');
@@ -1221,5 +1221,5 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die
 
 @define('ENTRY_QUICKPIN', 'Setze als temporären Quick-Pin an den Anfang der Eintragsliste');
 
-@define('COMMENT_CHANGE_PARENT_INFO', 'Seien Sie umsichtig beim Umhängen von Kommentaren.<br>Sie sollten die  Link c# ID vorher genau <strong>überprüfen</strong>!');
+@define('COMMENT_CHANGE_PARENT_INFO', 'Seien Sie umsichtig beim Umhängen von Kommentaren.<br>Sie sollten die Link c# ID vorher genau <strong>überprüfen</strong>!');
 
