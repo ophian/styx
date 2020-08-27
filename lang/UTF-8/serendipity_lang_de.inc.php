@@ -1221,5 +1221,5 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 
 @define('ENTRY_QUICKPIN', 'Setze als temporären Quick-Pin an den Anfang der Eintragsliste');
 
-@define('COMMENT_COPA_INFO', 'Seien Sie umsichtig beim Umhängen von Kommentaren.<br>Sie sollten die  Link c# ID vorher genau <strong>überprüfen</strong>!');
+@define('COMMENT_CHANGE_PARENT_INFO', 'Seien Sie umsichtig beim Umhängen von Kommentaren.<br>Sie sollten die  Link c# ID vorher genau <strong>überprüfen</strong>!');
 

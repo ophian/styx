@@ -1235,5 +1235,5 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 
 @define('ENTRY_QUICKPIN', 'Set as a temporary Quick-Pin to the entries list');
 
-@define('COMMENT_COPA_INFO', 'Be careful changing the replyTo comment.<br><strong>Know</strong> what you do! (Check the Link c# ID)');
+@define('COMMENT_CHANGE_PARENT_INFO', 'Be careful changing the replyTo comment.<br><strong>Know</strong> what you do! (Check the Link c# ID)');
 
