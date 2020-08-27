@@ -379,6 +379,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('CHECKSUMS_PASS', 'Всички необходими файлове са верифицирани.');
 @define('CHECKSUM_FAILED', '%s развален или модифициран: неуспешна верификация');
 @define('SETTINGS_SAVED_AT', 'Новите настройки са записани в %s');
+
+/* DATABASE SETTINGS */
 @define('INSTALL_CAT_DB', 'Настройки на базата данни');
 @define('INSTALL_CAT_DB_DESC', 'Тук можете да въведете цялата информация за базата данни. Serendipity се нуждае от нея, за да може да работи');
 @define('INSTALL_DBTYPE', 'Вид');
@@ -393,6 +395,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_DBNAME_DESC', 'Името на вашата база данни');
 @define('INSTALL_DBPREFIX', 'Представка на таблиците');
 @define('INSTALL_DBPREFIX_DESC', 'Представка на имената на таблиците, напр. serendipity_');
+
+/* PATHS */
 @define('INSTALL_CAT_PATHS', 'Пътища');
 @define('INSTALL_CAT_PATHS_DESC', 'Разнообразни пътища към различни важни папки и файлове. Не забравяйте наклонената черта в края на директориите!');
 @define('INSTALL_FULLPATH', 'Пълен път');
@@ -409,6 +413,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_URL_DESC', 'Основен URL на вашата инсталация на Serendipity');
 @define('INSTALL_INDEXFILE', 'Индексен файл');
 @define('INSTALL_INDEXFILE_DESC', 'Името на вашия индексен файл на Serendipity');
+
+/* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', 'Общи настройки');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Настройване на поведението на Serendipity');
 @define('INSTALL_USERNAME', 'Администраторско име');
@@ -427,6 +433,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_BLOGDESC_DESC', 'Описание на вашия блог');
 @define('INSTALL_LANG', 'Език');
 @define('INSTALL_LANG_DESC', 'Изберете езика на вашия блог');
+
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Изглед и настройки');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Настройване как да изглежда Serendipity');
 @define('INSTALL_WYSIWYG', 'Използване на редактор WYSIWYG');
@@ -443,6 +451,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_BLOCKREF_DESC', 'Има ли определени хостове, които искате да не бъдат показвани и списъка на насочващите страници? За разделител в списъка с имена на хостове използвайте ";" и помнете, че хостовете се блокират чрез съвпадение на подниз!');
 @define('INSTALL_REWRITE', 'Пренаписване на URL');
 @define('INSTALL_REWRITE_DESC', 'Изберете кои правила искате да използвате за генериране на URL-и. Активирането на пренаписващите правила ще направи URL-ите на блога красиви и ще направи сайта по-добре индексиран от Google и други търсачки. Уеб сървърът трябва да поддържа или mod_rewrite, или "AllowOverride All" за вашата директория на Serendipity. Подразбиращата се настройка е автоматично откриване дали може да се прави пренаписване');
+
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Настройване на обработката на изображения');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Задаване на обща информация как Serendipity да обработва изображения');
 @define('INSTALL_IMAGEMAGICK', 'Използване на Imagemagick');
@@ -461,6 +471,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
     INSTALL_THUMBDIM_LARGEST .  '" ограничава и двата размера, така че нито един от двата да не бъде по-голям от максималната стойност; "' .
     INSTALL_THUMBDIM_WIDTH . '" и "' .  INSTALL_THUMBDIM_HEIGHT .
     '" ограничават само избрания размер, но другият може да бъде по-голям от максималната стойност.');
+
+/* Personal details */
 @define('USERCONF_CAT_PERSONAL', 'Лични данни');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Въвеждане на вашите лични данни');
 @define('USERCONF_USERNAME', 'Потребителско име');
