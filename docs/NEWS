@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Tried to improve modemaintain sloopy button issue, now taking a tad longer
+
   * Fixup non-mySQL maintenance variable logic for the mysql utf8mb4 migration
 
   * Allow some Rich Text Basic Editor manually, by source added header markup
