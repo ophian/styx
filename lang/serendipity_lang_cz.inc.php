@@ -1000,13 +1000,13 @@ $i18n_filename_to = array (
 @define('PENDING_COMMENT_SUBSCRIPTION', 'Èeká na potvrzení');
 @define('NO_COMMENT_SUBSCRIPTION', 'Neodebíráno');
 
-// Next lines were added on 2012/05/29
 @define('ABOUT_TO_DELETE_FILES', 'You are about to delete a bunch of files at once.<br>If you are using these in some of your entries, it will cause dead links or images<br>Are you sure you wish to proceed?<br><br>');
 
 @define('SUMMARY', 'Souhrn');
 @define('ARCHIVE_SORT_STABLE', 'Stable Archives');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sort the archive-pages descending, so they are stable. Default sort is ascending.');
 @define('PLAIN_ASCII_NAMES', '(no special characters, umlauts)');
+
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Simplified filters');
 @define('SIMPLE_FILTERS_DESC', 'When enabled, search forms and filter functions are reduced to essential options. When disabled, you will see every possible filter option, like in the "Media library" or the "Edit entries" list, under condition of actual permission.');

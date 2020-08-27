@@ -986,11 +986,11 @@
 @define('NO_COMMENT_SUBSCRIPTION', '구독되지 않음');
 @define('SUMMARY', '요약');
 
-// Next lines were added on 2012/05/29
 @define('ABOUT_TO_DELETE_FILES', '여러 개의 파일을 한꺼번에 지우려고 하고 있습니다.<br>만약 작성했던 글에 이들 중 일부를 사용하고 있다면 깨진 링크나 그림으로 나타날 것입니다.<br>그래도 계속 진행하겠습니까?<br><br>');
 @define('ARCHIVE_SORT_STABLE', '안정적인 글 목록');
 @define('ARCHIVE_SORT_STABLE_DESC', '글 목록 페이지를 내림차순으로 정렬하여 안정적인 상태를 유지함으로서 검색엔진 봇이 다시 색인하지 않아도 되도록 합니다.');//rephrase
 @define('PLAIN_ASCII_NAMES', '(특수 문자나 변이부호 등을 쓰지 마십시오)');
+
 // New 2.0 constants
 @define('SIMPLE_FILTERS', '간소화된 필터');
 @define('SIMPLE_FILTERS_DESC', '사용할 경우 검색 입력창과 필터 기능을 필수요소만 남깁니다. 사용하지 않을 경우 가능한 모든 필터 기능이 다 나타납니다 - 미디어 보관함이나 글 편집기에도 보입니다.');
