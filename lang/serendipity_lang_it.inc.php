@@ -406,7 +406,7 @@
 @define('INSTALL_REWRITE', 'Riscrittura URL');
 @define('INSTALL_REWRITE_DESC', 'Seleziona quale regola vuoi per la generazione degli URL. Abilitare la riscrittura degli URL genera URL più belli e rende il blog meglio indicizzabile dai motori di ricerca come Google. Il webserver deve supportare almeno mod_rewrite o "AllowOverride All" per la tua directory di Serendipity. L\'impostazione di default è l\'auto-riconoscimento');
 
-/* Imageconversion Settings */
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Impostazione per la conversione di immagini');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Inserisci informazioni generali su come Serendipity deve trattare con le immagini');
 @define('INSTALL_IMAGEMAGICK', 'Usa Imagemagick');
@@ -426,7 +426,7 @@
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'I tuoi dettagli personali');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Modifica i tuoi dettagli personali');
 @define('USERCONF_USERNAME', 'Il tuo nome utente');

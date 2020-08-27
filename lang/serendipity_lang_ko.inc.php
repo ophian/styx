@@ -440,7 +440,7 @@
     INSTALL_THUMBDIM_WIDTH . '"과 "' .  INSTALL_THUMBDIM_HEIGHT .
     '"는 선택된 방향으로만 제한하므로 다른 한 방향은 최대 크기보다 클 수 있습니다.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', '사용자의 개인 정보');
 @define('USERCONF_CAT_PERSONAL_DESC', '개인 정보를 변경하는 곳입니다.');
 @define('USERCONF_USERNAME', '아이디');

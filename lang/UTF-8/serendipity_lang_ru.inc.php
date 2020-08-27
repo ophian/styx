@@ -421,7 +421,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_REWRITE', 'Генерация URLов');
 @define('INSTALL_REWRITE_DESC', 'Выберите, какими правилами вы хотите пользоваться при генерации URLов. Включение этой опции позволит вам иметь красивые ссылки на вашем блоге и также сделает ваш блог более доступным для индексации поисковыми машинами вроде Google. Ваш веб-сервер должен либо поддерживать mod_rewrite, либо содержать "AllowOverride All" для вашего каталога Serendipity dir. Значение по умолчанию определяется автоматически');
 
-/* Imageconversion Settings */
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Настройки конвертации изображений');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Общие настройки о том, как Serendipity должен работать с изображениями');
 @define('INSTALL_IMAGEMAGICK', 'Использование Imagemagick');
@@ -441,7 +441,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Личные настройки');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Изменение ваших личных настроек');
 @define('USERCONF_USERNAME', 'Имя пользователя');

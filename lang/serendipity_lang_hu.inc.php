@@ -438,7 +438,7 @@
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Személyes adatok');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Itt változtatod meg a személyes adatait');
 @define('USERCONF_USERNAME', 'Felhasználó név');

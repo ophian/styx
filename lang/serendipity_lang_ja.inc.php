@@ -418,7 +418,7 @@
 @define('INSTALL_REWRITE', 'URL 書き換え');
 @define('INSTALL_REWRITE_DESC', 'URL を生成するときに使用するルールを選択します。書き換えルールを有効にさせることで、ウェブログに対してきれいな URL を作成し、Google のようなスパイダーはよりよいインデックスを作成します。ウェブサーバーは、serendipity ディレクトリーに対して、mod_rewrite あるいは「AllowOverride All」のいずれかをサポートする必要があります。デフォルト設定は自動車検知されます。');
 
-/* Imageconversion Settings */
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', '画像変換設定');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Serendipity がどのようにイメージを扱わなければならないかに関する一般的な情報を入力します。');
 @define('INSTALL_IMAGEMAGICK', 'Imagemagick を使う');
@@ -438,7 +438,7 @@
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', '個人情報の詳細');
 @define('USERCONF_CAT_PERSONAL_DESC', '個人情報の詳細を変更します。');
 @define('USERCONF_USERNAME', 'ユーザー名');

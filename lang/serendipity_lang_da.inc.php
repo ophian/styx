@@ -380,7 +380,7 @@
 @define('INSTALL_REWRITE', 'URL Omskrivning');
 @define('INSTALL_REWRITE_DESC', 'Vælg hvilken regel du ønsker at bruge når du generere URL\'er. Aktivering af omskrivningsregler vil gøre dine URL\'er flotte og gøre din side bedre at indeksere for robotter som Google. Webserveren skal enten understøtte mod_rewrite eller "AllowOverride All" for dit Serendipity bibliotek. Standardindstillingen er automatisk beregnet');
 
-/* Imageconversion Settings */
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Billedekonverterings indstillinger');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Generel information om hvordan Serendipity skal håndtere billeder');
 @define('INSTALL_IMAGEMAGICK', 'Brug Imagemagick');
@@ -400,7 +400,7 @@
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Dine personlige detaljer');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Ændre dine personlige detaljer');
 @define('USERCONF_USERNAME', 'Dit brugernavn');

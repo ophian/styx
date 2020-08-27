@@ -438,7 +438,7 @@
     INSTALL_THUMBDIM_WIDTH . '" och "' .  INSTALL_THUMBDIM_HEIGHT .
     '" begränsa endast den valda dimensionen, så att den andra kan vara större än maxstorleken.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Din personliga information');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Ändra din personliga information');
 @define('USERCONF_USERNAME', 'Ditt användarnamn');

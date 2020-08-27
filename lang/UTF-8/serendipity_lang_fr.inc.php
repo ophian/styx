@@ -398,7 +398,7 @@
 @define('INSTALL_REWRITE', 'Réecritures URL');
 @define('INSTALL_REWRITE_DESC', 'Choisissez la méthode à utiliser pour la gestion des URL de votre blog. Si vous activez les réécritures URL, l\'accès à votre blog se fera par des URL simples, plus facilement indexables par les moteurs de recherche. Pour les activer, le module mod_rewrite doit être activé dans votre serveur, ou il doit autoriser l\'utilisation de la directive "AllowOverride All" pour le dossier d\'installation de Serendipity. Par défaut Serendipity choisit automatiquement l\'option à utiliser.');
 
-/* Imageconversion Settings */
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Options de gestion des images');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Définissez comment Serendipity doit gérer les transformations/conversions d\'images dans votre médiathèque.');
 @define('INSTALL_IMAGEMAGICK', 'Utiliser Imagemagick');
@@ -418,7 +418,7 @@
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Détails personnels');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Détails sur votre compte personnel');
 @define('USERCONF_USERNAME', 'Votre nom d\'utilisateur');

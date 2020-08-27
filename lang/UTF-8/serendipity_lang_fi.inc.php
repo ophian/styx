@@ -417,7 +417,7 @@
 @define('INSTALL_REWRITE', 'URL-uudelleenkirjoitus');
 @define('INSTALL_REWRITE_DESC', 'Valitse mitä sääntöjä käytetään blogisi sivuosoitteiden uudelleenkirjoitukseen. Siistityt osoitteet helpottava hakukoneiden indeksointia. Toimintaan tarvitaan webpalvelimella joko mod_rewrite tai "AllowOverride All" Serendipity hakemistolle. Oletus on tutki automaattisesti');
 
-/* Imageconversion Settings */
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Kuvamuunnosten asetukset');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Serendipityn kuvankäsittelyasetukset.');
 @define('INSTALL_IMAGEMAGICK', 'Käytä Imagemagick:ä');
@@ -437,7 +437,7 @@
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Henkilötietosi');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Henkilötietojen asettaminen');
 @define('USERCONF_USERNAME', 'Käyttäjänimesi');

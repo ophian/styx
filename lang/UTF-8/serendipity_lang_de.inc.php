@@ -408,7 +408,7 @@
 @define('INSTALL_REWRITE', 'URL-Formung');
 @define('INSTALL_REWRITE_DESC', 'Wählen Sie die Methode zur Erzeugung der URLs. Wenn diese aktiviert werden, können sprechende Namen für jeden Artikel verwendet werden und somit besser von Suchmaschinen indiziert Der Webserver muss entweder mod_rewrite oder die "AllowOverride All"-Direktive unterstützen. Der Standardwert wird automagisch bestimmt.');
 
-/* Imageconversion Settings */
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', 'Bildkonvertierung');
 @define('INSTALL_CAT_IMAGECONV_DESC', 'Wie soll Serendipity Bilder handhaben');
 @define('INSTALL_IMAGEMAGICK', 'ImageMagick zur Skalierung verwenden');
@@ -428,7 +428,7 @@
     "' . INSTALL_THUMBDIM_WIDTH . '" und "' .  INSTALL_THUMBDIM_HEIGHT . '"
     legen lediglich die Höhe bzw. Breite als größte Seite fest, so dass die jeweils andere Angabe auch größer als die festgelegte Zahl sein darf.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Persönliche Einstellungen');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Einstellungen des eigenen Accounts');
 @define('USERCONF_USERNAME', 'Benutzername');

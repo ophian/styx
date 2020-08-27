@@ -452,7 +452,7 @@ $i18n_filename_to = array (
 @define('INSTALL_THUMBDIM_HEIGHT', 'Výška');
 @define('INSTALL_THUMBDIM_DESC', 'Dimension to be constrained to the thumbnail max size. The default "' . INSTALL_THUMBDIM_LARGEST .  '" limits both dimensions, so neither can be greater than the max size; "' . INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT . '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Osobní nastavení');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Nastavení vašeho úètu');
 @define('USERCONF_USERNAME', 'Jméno');

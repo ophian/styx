@@ -421,7 +421,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_REWRITE', 'URL Rewriting');
 @define('INSTALL_REWRITE_DESC', '請選擇您想用的 URL Rewriting 方式. 開啟 rewrite 規則會以比較清楚的方式顯示 URL, 以便搜尋網站能正確的登入您的文章. 您的主機必須支援 mod_rewrite 或 "AllowOverride All" 到您的 Serendipity 檔案夾. 預設的設定是系統自動幫您偵測的');
 
-/* Imageconversion Settings */
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', '圖片轉換設定');
 @define('INSTALL_CAT_IMAGECONV_DESC', '請設定 Serendipity 設定圖片轉換的方式');
 @define('INSTALL_IMAGEMAGICK', '使用 Imagemagick');
@@ -441,7 +441,7 @@ $i18n_unknown = 'tw';
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', '個人資料設定');
 @define('USERCONF_CAT_PERSONAL_DESC', '改變您的個人資料');
 @define('USERCONF_USERNAME', '您的帳號');

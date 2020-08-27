@@ -450,7 +450,7 @@ $i18n_filename_to = array (
 @define('INSTALL_THUMBDIM_HEIGHT', 'vý¹ka');
 @define('INSTALL_THUMBDIM_DESC', 'Rozmer , ktorý urèuje maximálnu veµkos» náhµadu. ©tandardné nastavenie "' . INSTALL_THUMBDIM_LARGEST .  '" obmedzuje obidva rozmery, tak¾e ani jeden z nich nemô¾e by» väè¹í ako maximálna veµkos»; "' . INSTALL_THUMBDIM_WIDTH . '" a "' .  INSTALL_THUMBDIM_HEIGHT . '" obmedzujú iba jeden rozmer, tak¾e druhý rozmer mô¾e by» väè¹í ako maximálna veµkos».');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Osobné nastavenia');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Nastavenia Vá¹ho úètu');
 @define('USERCONF_USERNAME', 'Meno');

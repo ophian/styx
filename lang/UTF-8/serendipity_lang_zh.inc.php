@@ -421,7 +421,7 @@
 @define('INSTALL_REWRITE', 'URL Rewriting');
 @define('INSTALL_REWRITE_DESC', '请选择 URL Rewriting 方式，开启 rewrite 规则会以比较清楚的方式显示 URL, 以便搜索网站能正确的收录你的文章，不过你的主机必须支持 mod_rewrite 或 "AllowOverride All" 的功能。[预设的设定是系统自动帮你检测]');
 
-/* Imageconversion Settings */
+/* IMAGECONVERSION SETTINGS */
 @define('INSTALL_CAT_IMAGECONV', '图片转换设定');
 @define('INSTALL_CAT_IMAGECONV_DESC', '请设定图片转换的方式');
 @define('INSTALL_IMAGEMAGICK', '使用 Imagemagick');
@@ -441,7 +441,7 @@
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', '个人资料设定');
 @define('USERCONF_CAT_PERSONAL_DESC', '改变你的个人资料');
 @define('USERCONF_USERNAME', '你的帐号');

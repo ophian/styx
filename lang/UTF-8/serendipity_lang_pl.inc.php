@@ -440,7 +440,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
     INSTALL_THUMBDIM_WIDTH . '" and "' .  INSTALL_THUMBDIM_HEIGHT .
     '" only limit the chosen dimension, so the other could be larger than the max size.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Twoje ustawienia osobiste');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Zmień swoje ustawienia osobiste');
 @define('USERCONF_USERNAME', 'Twoja nazwa użytkownika');

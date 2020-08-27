@@ -472,7 +472,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
     INSTALL_THUMBDIM_WIDTH . '" и "' .  INSTALL_THUMBDIM_HEIGHT .
     '" ограничават само избрания размер, но другият може да бъде по-голям от максималната стойност.');
 
-/* Personal details */
+/* PERSONAL DETAILS */
 @define('USERCONF_CAT_PERSONAL', 'Лични данни');
 @define('USERCONF_CAT_PERSONAL_DESC', 'Въвеждане на вашите лични данни');
 @define('USERCONF_USERNAME', 'Потребителско име');
