@@ -961,7 +961,6 @@
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', '(Wenn diese Option auf "Erzwingen" gesetzt ist, wird der RSS Feed an einen anderen Webservice weitergeleitet, wie z.B. (aber nicht nur) FeedBurner. Siehe die untenstehende Option "Feedburner ID" um die absolute URL einzutragen)');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Zu bestätigende');
 
-// Next lines were translated on 2009/06/03
 @define('DELETE_FILE_FAIL', 'Kann das Bild namens <b>%s</b> nicht löschen');
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Basiert die Zeitdifferenz auf der Server-Zeitzone?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Eintragszeiten nach Server-Zeitzone eintragen oder nicht. YES wählt die Server-Zeitzone als Basis, NO wählt GMT.');
@@ -987,13 +986,12 @@
 @define('NO_COMMENT_SUBSCRIPTION', 'Nicht abonniert');
 @define('SUMMARY', 'Zusammenfassung');
 
-// Next lines were translated on 2012/05/29
 @define('ABOUT_TO_DELETE_FILES', 'Sie beabsichtigen mehrere Dateien auf einmal zu löschen.<br>Wenn Sie diese in ihren Einträgen verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stabile Archive');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sortiert die Archiv-Seiten absteigend, so dass sie auf einer festen Seite bleiben. Voreingestellt ist die fortlaufende Sortierung.');
 
-// added 2012-11-29
 @define('PLAIN_ASCII_NAMES', '(keine Sonderzeichen, Umlaute)');
+
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Vereinfachte Filter');
 @define('SIMPLE_FILTERS_DESC', 'Wenn aktiviert, werden Suchformulare und Filteroptionen auf die notwendigen Optionen reduziert. Ist diese Option deaktiviert, werden alle erweiterten Filteroptionen, wie der "Einträge bearbeiten" Liste oder der Mediathek, angezeigt, die den aktuellen Berechtigungen entsprechen.');
