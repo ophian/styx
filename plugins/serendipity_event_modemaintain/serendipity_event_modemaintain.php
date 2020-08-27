@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.23');
+        $propbag->add('version',       '1.24');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'
@@ -201,13 +201,15 @@ class serendipity_event_modemaintain extends serendipity_plugin
                     if ($db['jspost'][0] == 'maintenance') {
                         $this->s9y_maintenance_mode(true);
                         header('Status: 302 Found');
-                        header('Location: '. $refererurl);
+                        header('Location: '. $refererurl . '&momashut');
+                        #header('Location: '. $refererurl);
                         serendipity_die(sprintf(PLUGIN_MODEMAINTAIN_RETURN, $db['jspost'][0], $refererurl));
                     }
                     if ($db['jspost'][0] == 'public') {
                         $this->s9y_maintenance_mode(false);
                         header('Status: 302 Found');
-                        header('Location: '. $refererurl);
+                        header('Location: '. $refererurl . '&momaopen');
+                        #header('Location: '. $refererurl);
                         serendipity_die(sprintf(PLUGIN_MODEMAINTAIN_RETURN, $db['jspost'][0], $refererurl));
                     }
                     break;
@@ -216,6 +218,13 @@ class serendipity_event_modemaintain extends serendipity_plugin
                     if (!serendipity_checkPermission('adminUsers')) {
                         return false;
                     }
+
+                    // Try to workaround the reloading "button change issue" which is based to writing the moma local variable and refreshing all variables afterwards correctly to check them up and again
+                    if (isset($_GET['momashut']) || isset($_GET['momaopen'])) {
+                        sleep(2); // some servers just need 1, some 2 ... some do not care and some do even need more..
+                        header('Location: '. $serendipity['baseURL'] . 'serendipity_admin.php?serendipity[adminModule]=maintenance');
+                    }
+
                     // do not allow session based authentication
                     if ($_SESSION['serendipityAuthedUser'] == true && !isset($serendipity['COOKIE']['author_information'])) {
 ?>
