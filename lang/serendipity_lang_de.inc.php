@@ -994,7 +994,7 @@
 
 // New 2.0 constants
 @define('SIMPLE_FILTERS', 'Vereinfachte Filter');
-@define('SIMPLE_FILTERS_DESC', 'Wenn aktiviert, werden Suchformulare und Filteroptionen auf die notwendigen Optionen reduziert. Ist diese Option deaktiviert, werden alle erweiterten Filteroptionen, wie der "Einträge bearbeiten" Liste oder der Mediathek, angezeigt, die den aktuellen Berechtigungen entsprechen.');
+@define('SIMPLE_FILTERS_DESC', 'Wenn aktiviert, werden Suchformulare und Filteroptionen auf die notwendigen Optionen reduziert. Ist diese Option deaktiviert, werden alle erweiterten Filteroptionen angezeigt, zB. in der "Einträge bearbeiten" Liste oder in der "Mediathek", die den aktuellen User-Berechtigungen entsprechen.');
 @define('TOGGLE_SELECT', 'Zu Auswahl hinzufügen');
 @define('MORE', 'Mehr');
 @define('ENTRY_STATUS', 'Eintragsstatus');
