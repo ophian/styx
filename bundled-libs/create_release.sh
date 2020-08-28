@@ -1,7 +1,6 @@
 #!/bin/sh
 # File: create_release.sh
-# Author: Garvin Hicing
-# $Id: create_release.sh,v 1.6 2005/03/04 10:16:38 garvinhicking Exp $
+# Author: Garvin Hicking, Ian Styx
 #
 # Description:
 # This file is only used for developers to create a Serendipity release file
@@ -19,14 +18,14 @@ echo "-[serendipity create_release.sh START]---------------------------------"
 if [ "x$1" = "x" ] || [ "x$2" = "x" ] || [ "x$3" = "x" ] || [ "x$4" = "x" ];
 then
     echo "usage: ./create_release.sh
-            [tar.gz dump filename]
+            [tar.xz dump filename]
             [serendipity installation dirname, without paths]
             [username, i.e. nobody]
             [group, i.e. nogroup]"
     echo ""
     echo "example:"
     echo " $> cd serendipity/bundled-libs/"
-    echo " $> ./create_release.sh serendipity-0.7.tar.gz serendipity nobody nogroup"
+    echo " $> ./create_release.sh serendipity-3.1.0.tar.xz serendipity nobody nogroup"
     echo ""
     echo "WARNING: Running this script in a productive blog environment will do"
     echo "         serious harm!"
@@ -120,8 +119,9 @@ else
             echo "       [DONE]"
             echo ""
 
-        echo "8. Creating .tgz file $1"
-            tar --owner=$3 --group=$4 -czf "$1" "$2"
+        echo "8. Creating .txz file $1"
+            #tar --owner=$3 --group=$4 -czf "$1" "$2"
+            tar --owner=nobody --group=nobody -cf - "$1" "$2"  | xz -z - > $2.tar.xz
             echo "    [DONE]"
             echo ""
 
