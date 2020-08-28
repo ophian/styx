@@ -1,6 +1,10 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Hide core added modernizr webp check as long as not used and enabled via
+        $serendipity['checkWebPFormat'] = true;
+    custom variable in a themes config.inc.php file to support old browsers.
+
   * Tried to improve modemaintain sloopy button issue, now taking a tad longer
 
   * Fixup non-mySQL maintenance variable logic for the mysql utf8mb4 migration
