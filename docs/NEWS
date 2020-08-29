@@ -16,7 +16,7 @@ Version 3.1.0 (August, 29th 2020)
 
   * Fixup non-mySQL maintenance variable logic for the mysql utf8mb4 migration
 
-  * Allow some Rich Text Basic Editor manually, by source added header markup
+  * Allow some Rich Text Basic Editor h-formats, by source-added header markup
 
   * Add new installer diagnose php-xml extension check.
      - Also improves (session/pcre) installer result check returns.
