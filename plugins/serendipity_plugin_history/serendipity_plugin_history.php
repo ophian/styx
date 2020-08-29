@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.28');
+        $propbag->add('version',       '1.29');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -287,9 +287,9 @@ class serendipity_plugin_history extends serendipity_plugin
             } else {
 
                 // avoid possible haunt failings
-                if ($serendipity['view'] == 'plugin') {
-                    return false;
-                }
+                #if ($serendipity['view'] == 'plugin') {
+                #    return false;
+                #}
 
                 $multiage = array();
                 // y start by 0 adds current day, else start is last year
@@ -333,7 +333,7 @@ class serendipity_plugin_history extends serendipity_plugin
                     echo $history_daylist;
                 } else {
                     $xytxt = '<div class="serendipity_history_outro history_empty">' . $xyempty . "</div>\n";
-                    if ($empty_ct < 5) {
+                    if ($empty_ct < 8) {
                         $this->set_config('empty_ct', $empty_ct+1);
                         echo '<!-- ' . $empty_ct . date(' H:i:s', $nowts) . ' -->' . $xytxt;
                     } else {
