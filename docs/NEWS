@@ -1,6 +1,8 @@
 Version 3.1.0-DEV ()
  ------------------------------------------------------------------------
 
+  * Language cleanups
+
   * Hide core added modernizr webp check as long as not used and enabled via
         $serendipity['checkWebPFormat'] = true;
     custom variable in a themes config.inc.php file to support old browsers.
@@ -17,11 +19,11 @@ Version 3.1.0-DEV ()
      - General review of installation process with fixes, changes and language
        constant additions and/or translation changes.
 
-  * Improve and fixup (sidebar) plugin remoterss
+  * Improve and fixup (sidebar) plugin remoteRSS
 
   * Extend datetime-local datetime check against invalid user dates
 
-  * Fixup strtotime() old returncode conditionals
+  * Fixup strtotime() old returncode conditionals for current PHP version
 
   * Per default, add new web Standard(*) lazy-loading image attribute to image
     collocations. This is for saving bandwidth for both, the server and their
@@ -40,7 +42,7 @@ Version 3.1.0-DEV ()
 
   * Fix PEAR Cache Lite crc32() filling up starting cache data hash with spaces
 
-  * Fixup backend categories listed entries restrictedcategories icons array
+  * Fixup backend categories listed entries "restrictedcategories" icons array
 
   * Fix serendipity embed case URL_NOT_FOUND possible wrong routing check
 
