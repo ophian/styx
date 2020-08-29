@@ -342,7 +342,7 @@
 @define('INSTALL_INDEXFILE', 'Index-fil');
 @define('INSTALL_INDEXFILE_DESC', 'Navnet på din Serendipity index-fil');
 
-/* General settings */
+/* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', 'Generelle innstillinger');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Tilpass måten Serendipity oppfører seg på');
 @define('INSTALL_USERNAME', 'Admin-brukernavn');
@@ -362,7 +362,7 @@
 @define('INSTALL_LANG', 'Språk');
 @define('INSTALL_LANG_DESC', 'Velg språket på din blogg');
 
-/* Appearance and options */
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Utseende og innstillinger');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Tilpass hvordan Serendipity ser ut og føles');
 @define('INSTALL_WYSIWYG', 'Bruk WYSIWYG-editor');

@@ -380,7 +380,7 @@
 @define('INSTALL_INDEXFILE', 'インデックスファイル');
 @define('INSTALL_INDEXFILE_DESC', 'Serendipity インデックスファイルの名前');
 
-/* General settings */
+/* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', '一般設定');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Serendipity がどのように振舞うかカスタマイズします。');
 @define('INSTALL_USERNAME', '管理者ユーザー名');
@@ -400,7 +400,7 @@
 @define('INSTALL_LANG', '言語');
 @define('INSTALL_LANG_DESC', 'ブログの言語を選択します。');
 
-/* Appearance and options */
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', '外観とオプション');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Serendipity のルックアンドフィールをカスタマイズ');
 @define('INSTALL_WYSIWYG', 'WYSIWYG エディタを使う');

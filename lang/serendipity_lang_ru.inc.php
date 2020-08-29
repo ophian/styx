@@ -383,7 +383,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_INDEXFILE', 'Индекс-файл');
 @define('INSTALL_INDEXFILE_DESC', 'Имя индекс-файла вашего блога');
 
-/* General settings */
+/* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', 'Общие настройки');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Влияют на поведение вашего блога Serendipity');
 @define('INSTALL_USERNAME', 'Имя администратора');
@@ -403,7 +403,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_LANG', 'Язык');
 @define('INSTALL_LANG_DESC', 'Выберите язык интерфейса для вашего блога');
 
-/* Appearance and options */
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Внешний вид и опции');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Изменить настройки интерфейса Serendipity');
 @define('INSTALL_WYSIWYG', 'Использовать WYSIWYG-редактор');

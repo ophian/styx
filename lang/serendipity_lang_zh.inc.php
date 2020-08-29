@@ -383,7 +383,7 @@
 @define('INSTALL_INDEXFILE', 'Index 文件');
 @define('INSTALL_INDEXFILE_DESC', '系统的 index 文件');
 
-/* General settings */
+/* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', '一般设定');
 @define('INSTALL_CAT_SETTINGS_DESC', '系统的一般设定');
 @define('INSTALL_USERNAME', '管理员帐号');
@@ -403,7 +403,7 @@
 @define('INSTALL_LANG', '语言');
 @define('INSTALL_LANG_DESC', '你网站使用的语言');
 
-/* Appearance and options */
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', '主题及选项设定');
 @define('INSTALL_CAT_DISPLAY_DESC', '设定系统的主题和其它设定');
 @define('INSTALL_WYSIWYG', '使用 WYSIWYG 编辑器');

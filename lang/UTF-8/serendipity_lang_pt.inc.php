@@ -364,7 +364,7 @@
 @define('INSTALL_INDEXFILE', 'Arquivo inicial');
 @define('INSTALL_INDEXFILE_DESC', 'Nome do arquivo inicial do Serendipity');
 
-/* General settings */
+/* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', 'Configurações gerais');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Padroniza como o Serendipity deve se comportar');
 @define('INSTALL_USERNAME', 'Usuário do administrador');
@@ -384,7 +384,7 @@
 @define('INSTALL_LANG', 'Idioma');
 @define('INSTALL_LANG_DESC', 'Selecione o idioma para o seu blog');
 
-/* Appearance and options */
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Aparência e opções');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Padroniza como o Serendipity é exibido');
 @define('INSTALL_WYSIWYG', 'Usar editor WYSIWYG');

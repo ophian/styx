@@ -379,7 +379,7 @@
 @define('INSTALL_INDEXFILE', 'Aloitustiedosto');
 @define('INSTALL_INDEXFILE_DESC', 'Serendipityn aloitustiedoston nimi');
 
-/* General settings */
+/* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', 'Yleiset asetukset');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Serendipity toimintojen muokkaus');
 @define('INSTALL_USERNAME', 'Ylläpitäjän tunnus');
@@ -399,7 +399,7 @@
 @define('INSTALL_LANG', 'Kieli');
 @define('INSTALL_LANG_DESC', 'Valitse blogisi käyttöliittymän kieli');
 
-/* Ulkoasu and options */
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Ulkoasuvalinnat');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Ulkoasuun vaikuttavat valinnat');
 @define('INSTALL_WYSIWYG', 'Käytä WYSIWYG muokkainta');

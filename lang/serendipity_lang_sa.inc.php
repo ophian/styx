@@ -402,7 +402,7 @@
 @define('INSTALL_LANG', '«··€…');
 @define('INSTALL_LANG_DESC', '√Œ — ·€… „œÊ‰ ﬂ');
 
-/* APPEARANCE AND OPTIONS ŒÌ«—«  Ê Œ’«∆’ */
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'ŒÌ«—«  Ê Œ’«∆’');
 @define('INSTALL_CAT_DISPLAY_DESC', ' ›«’Ì· ﬂÌ›  Êœ «‰ ÌﬂÊ‰ „ŸÂ— «·„Ã·…');
 @define('INSTALL_WYSIWYG', '’‰œÊﬁ «· Õ—Ì— «·„ ÿÊ—');

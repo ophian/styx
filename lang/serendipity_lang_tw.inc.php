@@ -383,7 +383,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_INDEXFILE', 'Index 檔案');
 @define('INSTALL_INDEXFILE_DESC', 'Serendipity 的 index 檔案');
 
-/* General settings */
+/* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', '一般設定');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Serendipity 的一般設定');
 @define('INSTALL_USERNAME', '管理員帳號');
@@ -403,7 +403,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_LANG', '語系');
 @define('INSTALL_LANG_DESC', '您日記使用的語系');
 
-/* Appearance and options */
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', '外觀及選項設定');
 @define('INSTALL_CAT_DISPLAY_DESC', '讓您設定 Serendipity 的外觀和其他設定');
 @define('INSTALL_WYSIWYG', '使用 WYSIWYG 編輯器');

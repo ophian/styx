@@ -362,7 +362,7 @@
 @define('INSTALL_INDEXFILE', 'Script principal');
 @define('INSTALL_INDEXFILE_DESC', 'Le nom du script principal que vous voulez utiliser pour Serendipity (exemple: index.php)');
 
-/* General settings */
+/* GENERAL SETTINGS */
 @define('INSTALL_CAT_SETTINGS', 'Configuration générale');
 @define('INSTALL_CAT_SETTINGS_DESC', 'Personnalisation et configuration générale de Serendipity');
 @define('INSTALL_USERNAME', 'Nom de l\'administrateur');
@@ -382,7 +382,7 @@
 @define('INSTALL_LANG', 'Langue');
 @define('INSTALL_LANG_DESC', 'Choisissez la langue à utiliser pour votre blog. Celle-ci sera utilisée dans le blog et l\'interface d\'administration.');
 
-/* Appearance and options */
+/* APPEARANCE AND OPTIONS */
 @define('INSTALL_CAT_DISPLAY', 'Apparence et options');
 @define('INSTALL_CAT_DISPLAY_DESC', 'Personnalisation du \'look &amp; feel\' de l\'interface du blog.');
 @define('INSTALL_WYSIWYG', 'Utiliser l\'éditeur WYSIWYG');
