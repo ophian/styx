@@ -440,6 +440,11 @@ $dead_dirs_310 = array(
     $serendipity['serendipityPath'] . 'cache'
 );
 
+/* A list of Styx files, to be removed or renamed by 3.2.0 */
+$dead_files_320 = array(
+    'plugins/serendipity_event_autoupdate/UTF-8/lang_en.inc.php'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
