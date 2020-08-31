@@ -3,9 +3,9 @@
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
 {if !$admin_vars.backendBlogtitleFirst}
-    <title>{if $admin_vars.title}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE} | {$blogTitle}</title>
+    <title>{if $admin_vars.title}{$admin_vars.title} | {/if}{if $admin_vars.is_logged_in}{$CONST.SERENDIPITY_ADMIN_SUITE} | {/if}{$blogTitle}</title>
 {else}
-    <title>{$blogTitle} | {if $admin_vars.title}{$admin_vars.title} | {/if}{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
+    <title>{$blogTitle} | {if $admin_vars.title}{$admin_vars.title} | {/if}{if $admin_vars.is_logged_in}{$CONST.SERENDIPITY_ADMIN_SUITE}{/if}</title>
 {/if}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{$head_link_stylesheet}">
@@ -36,7 +36,7 @@
         {/if}
         {if $admin_vars.admin_installed}
 
-            <h1><a href="serendipity_admin.php"><span class="visuallyhidden">{$CONST.SERENDIPITY_ADMIN_SUITE}: </span>{$CONST.ADMIN}: <span class="chop-title">{$blogTitle}</span></a></h1>
+            <h1><a href="serendipity_admin.php"><span class="visuallyhidden">{$CONST.SERENDIPITY_ADMIN_SUITE|replace:' Styx':''}: </span>{$CONST.ADMIN}: <span class="chop-title">{$blogTitle}</span></a></h1>
         {else}
 
             <h1>{$CONST.SERENDIPITY_INSTALLATION}</h1>
@@ -202,7 +202,7 @@
 {if NOT $admin_vars.no_footer}
 
     <footer id="meta">
-        <p>{if $admin_vars.is_logged_in}{$admin_vars.version_info|replace:"Serendipity":"Serendipity Styx"}{else}{$admin_vars.version_info|regex_replace:"/([\d]+.?)+([-|rc|beta|alpha]?)+([\s]?)+([a-z\.\+\d]+)/":''}{/if}</p>
+        <p>{if $admin_vars.is_logged_in}{$admin_vars.version_info|replace:"Serendipity":"Serendipity Styx"}{else}{$blogTitle|default:''}{/if}</p>
     </footer>
 {/if}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_footer" hookAll="true"}{/if}

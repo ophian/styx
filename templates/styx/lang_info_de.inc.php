@@ -20,7 +20,8 @@ Momentan enthält es nur eine Index-Template-Datei, die relevante Informationen u
 * 2017-08-21 - Neu hinzugekommen ist ein Bugfix für die Backend-Ansichten mit "rtl" (right-to-left), auf rechts gedrehtes Schrift-Attribut im &lt;html&gt; Element.<br>
 * 2019-09-08 - Die IE8/9 workarounds wurden entfernt.<br>
 * 2020-03-25 - Hervorhebung der Styx message styles.<br>
-* 2020-06-06 - Verkleinertes font-size der entry_info styles der Entries Liste.<br><br>
+* 2020-06-06 - Verkleinertes font-size der entry_info styles der Eintrags Liste.<br>
+* 2020-08-31 - Verbesserung der Login Seite und Update des fullsize preview.<br><br>
 
 DAS FOLGENDE IST DIE BESCHREIBUNG DES FALLBACK BACKENDS&colon;<br>
 Dieses Theme beherbergt die Styx-Kern Backend Templates im Unterverzeichnis "default/admin".
