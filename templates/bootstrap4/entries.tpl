@@ -3,7 +3,7 @@
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
     {assign var="entry" value=$entry scope=root}
-    <article class="post{if $dategroup.is_sticky} post_sticky{/if} mb-4">
+    <article class="post{if $is_single_entry} post_single{/if}{if $dategroup.is_sticky} post_sticky{/if} mb-4">
         <header>
             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
 
