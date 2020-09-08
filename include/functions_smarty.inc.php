@@ -114,6 +114,7 @@ function &serendipity_smarty_fetch($block, $file, $echo = false) {
     global $serendipity;
 
     $output = $serendipity['smarty']->fetch('file:'. serendipity_getTemplateFile($file, 'serendipityPath'), null, null, null, ($echo === true && $serendipity['smarty_raw_mode']));
+    $output = $block == 'CONTENT' ? ltrim($output) : $output;
 
     $serendipity['smarty']->assignByRef($block, $output);
 
