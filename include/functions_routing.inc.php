@@ -30,6 +30,7 @@ function serve404() {
 
     $serendipity['view'] = '404';
     $serendipity['viewtype'] = '404_4';
+    $serendipity['uriArguments'] = array(); // unset wrong uri arguments for entrypaging
     if (!isset($serendipity['embed']) || serendipity_db_bool($serendipity['embed']) === false) {
         $serendipity['content_message'] = URL_NOT_FOUND;
     }
