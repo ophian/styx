@@ -1177,30 +1177,6 @@ ol.plainList > .comment.commentlevel-16 {
     ol.plainList > .comment.commentlevel-16 {
         margin-left: 6.75em;
     }
-    /* commentlevel-16 is the last available threaded depth - see comments.tpl */
-    @media only screen and (min-width: 440px) {
-        ol.plainList > .comment.commentlevel-10 {
-            margin-left: 7.5em;
-        }
-        ol.plainList > .comment.commentlevel-11 {
-            margin-left: 8.25em;
-        }
-        ol.plainList > .comment.commentlevel-12 {
-            margin-left: 9em;
-        }
-        ol.plainList > .comment.commentlevel-13 {
-            margin-left: 9.75em;
-        }
-        ol.plainList > .comment.commentlevel-14 {
-            margin-left: 10.5em;
-        }
-        ol.plainList > .comment.commentlevel-15 {
-            margin-left: 11.25em;
-        }
-        ol.plainList > .comment.commentlevel-16 {
-            margin-left: 12em;
-        }
-    }
 }
 
 .comment.odd {
