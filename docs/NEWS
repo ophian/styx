@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix passing wrong uri arguments serving the 404 fallback for paging
+
   * Add entry "post_single" class selector for making user styles being able to
     refer to. Added to [pure, bootstrap, skeleton] themes.
 
