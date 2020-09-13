@@ -11,7 +11,7 @@ $info['theme_info_desc'] = 'Als HTML5 Frontend Theme neu überarbeitet für Styx u
 ohne dabei allzuviel von seinem alten HTML(4) Markup zu ändern.<br>
 Es arbeitet als vollwertiges "Fallback" für die PHP- und XML-Engine und als allgemeiner Datei-Reserve-Pool für alle sonstigen Themes.<br>
 <br>
-Im Unterschied zu den Serendipity <b>Standard</b> Templates (früher "Bulletproof", später "2k11", jetzt "Pure &lsaquo; 2019 &rsaquo;") dient dieses Theme als grundlegende System Basis
+Im Unterschied zu den Serendipity <b>Standard</b> Templates (früher "Bulletproof", später "2k11", jetzt "Pure &lsaquo; 2020 &rsaquo;") dient dieses Theme als grundlegende System Basis
 und als allgemeines Backup- und "Rückfall"-Theme, solange nicht spezielle Anweisungen (*) oder interne Gründe etwas anderes erzwingen,
 zB. wenn etwas zur Smarty-Kompilierung gesucht und nicht in der üblichen Theme oder Fallback-Theme-Kaskade gefunden wurde.<br>
 <br>
