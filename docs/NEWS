@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix add media to entry item display for possible wrong sourceset ghosts
+
   * Fix passing wrong uri arguments serving the 404 fallback for paging
 
   * Add entry "post_single" class selector for making user styles being able to
