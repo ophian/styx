@@ -1298,7 +1298,13 @@ function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = nu
         serendipity_smarty_init();
     }
 
-    if ($data !== null) $serendipity['smarty']->assign($data);
+    if ($data !== null) {
+        // An iframed preview meeds to remove the loading="lazy" attribute to get the coorect height !!
+        if ($tplfile == 'preview_iframe.tpl') {
+            $data['preview'] = str_replace(' loading="lazy"', '', $data['preview']);
+        }
+        $serendipity['smarty']->assign($data);
+    }
 
     $tfile = ($tplfile == 'preview_iframe.tpl')
                 ? serendipity_getTemplateFile($tplfile, 'serendipityPath', true)
