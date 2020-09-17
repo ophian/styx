@@ -70,6 +70,10 @@
     {if (NOT $file.is_image OR $file.is_image == 0) AND $file.mediatype != 'image' AND $file.realfile AND NOT empty($media.textarea) AND NOT empty($media.htmltarget)}
         {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[fid]={$file.id}&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[htmltarget]={$media.htmltarget}"}
     {/if}
+    {* check empty cases like pdf thumbs to not fillup with last generated img_src_webp string *}
+    {if empty($file.full_thumb_webp)}
+        {$img_src_webp=""}
+    {/if}
 
             <article id="media_{$file.id}" class="media_file mlDefCol{if NOT empty($smarty.get.serendipity.adminAction) AND $smarty.get.serendipity.adminAction == 'properties'} mfile_prop{/if} {if $media.manage AND $media.multiperm}manage {/if}{cycle values="odd,even"}">
                 <header class="clearfix">
