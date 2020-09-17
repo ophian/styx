@@ -1,6 +1,9 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup the backend preview iframe height generation for a single image,
+    issued by the new image lazy load attribute.
+
   * Fix add media to entry item display for possible wrong sourceset ghosts
 
   * Fix passing wrong uri arguments serving the 404 fallback for paging
