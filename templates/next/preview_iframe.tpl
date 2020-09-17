@@ -57,7 +57,7 @@
     {if $mode == 'preview'}{* overwrite Next style.css conflicts *}
     <style>
         html { padding: 0; }
-        .serendipity_entry { max-width: 98%; margin: 0 1%; }
+        .serendipity_entry, .post { max-width: 98%; margin: 0 1%; }
     </style>
     {/if}
 </head>
