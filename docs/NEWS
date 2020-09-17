@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * [Sync S9y] - Adds 'image_id' to event 'backend_image_add' in addData array
+
   * Fixup the backend preview iframe height generation for a single image,
     issued by the new image lazy load attribute.
 
