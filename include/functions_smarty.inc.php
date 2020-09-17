@@ -1299,7 +1299,7 @@ function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = nu
     }
 
     if ($data !== null) {
-        // An iframed preview meeds to remove the loading="lazy" attribute to get the coorect height !!
+        // An iframed preview meeds to remove the loading="lazy" attribute to get the correct height !!
         if ($tplfile == 'preview_iframe.tpl') {
             $data['preview'] = str_replace(' loading="lazy"', '', $data['preview']);
         }
