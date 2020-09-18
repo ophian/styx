@@ -49,12 +49,12 @@
 
                     <div class="form_field">
                         <label for="login_uid">{$CONST.USERNAME}</label>
-                        <input id="login_uid" name="serendipity[user]" type="text" autofocus>
+                        <input id="login_uid" name="serendipity[user]" autocomplete="name" type="text" autofocus>
                     </div>
 
                     <div class="form_field">
                         <label for="login_pwd">{$CONST.PASSWORD}</label>
-                        <input id="login_pwd" name="serendipity[pass]" type="password">
+                        <input id="login_pwd" name="serendipity[pass]" autocomplete="current-password" type="password">
                     </div>
 
                     <div class="form_check">
