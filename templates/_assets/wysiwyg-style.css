@@ -253,6 +253,7 @@ p > img.serendipity_image_right {
     }
     .serendipity_image_block.col.c3 {
         display: inline-block;
+        width: 100%;
     }
     .serendipity_image_block.col.c4 {
         column-count: 3;
