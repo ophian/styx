@@ -1035,8 +1035,8 @@ function serendipity_printEntryFooter($suffix = '.html', $totalEntries = null, $
 
     $archiveSortStable = serendipity_db_bool($serendipity['archiveSortStable']);
     $limit = (int)$fetchLimit;
-    $total = (int)$totalEntries;
-    $totalPages = $totalEntries > 0 ? ceil($total / $limit) : 0;
+    $totalEntries = (int)$totalEntries;
+    $totalPages = $totalEntries > 0 ? ceil($totalEnties / $limit) : 0;
 
     if ($totalPages <= 0 ) {
         $totalPages = 1;
