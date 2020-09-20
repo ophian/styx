@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixes to cast some default variable types under certain conditions
+
   * [Sync S9y] - Adds 'image_id' to event 'backend_image_add' in addData array
 
   * Fixup the backend preview iframe height generation for a single image,
