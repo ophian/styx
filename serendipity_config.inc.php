@@ -101,9 +101,9 @@ $serendipity['trackback_filelimit'] = 150 * 1024;
 $serendipity['cors'] = false;
 
 // Init default and ensure that these limits do not contain strings
-$serendipity['fetchLimit']    = (int) $serendipity['fetchLimit']    ?? 15;
-$serendipity['CBAfetchLimit'] = (int) $serendipity['CBAfetchLimit'] ?? 10;
-$serendipity['RSSfetchLimit'] = (int) $serendipity['RSSfetchLimit'] ?? 15;
+$serendipity['fetchLimit']    = (int) ($serendipity['fetchLimit']    ?? 15);
+$serendipity['CBAfetchLimit'] = (int) ($serendipity['CBAfetchLimit'] ?? 10);
+$serendipity['RSSfetchLimit'] = (int) ($serendipity['RSSfetchLimit'] ?? 15);
 
 if (!isset($serendipity['mediaProperties'])) {
     $serendipity['mediaProperties'] = 'DPI;COPYRIGHT;TITLE;COMMENT1:MULTI;COMMENT2:MULTI;ALT';
