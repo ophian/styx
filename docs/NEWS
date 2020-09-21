@@ -1,7 +1,7 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
-  * Fixes to cast some default variable types under certain conditions
+  * Fixes to cast some default fetchLimit variable types w/o having option sets
 
   * [Sync S9y] - Adds 'image_id' to event 'backend_image_add' in addData array
 
