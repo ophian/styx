@@ -240,7 +240,8 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     if (isset($serendipity['short_archives']) && $serendipity['short_archives']) {
         // In the short listing of all titles for a month, we don't want to have a limit applied. And we don't need/want the
         // full article body (consumes memory) - but, see the $body note below!
-        $limit   = '';
+        // But we need a somehow matching condition to use {serendipity_fetchPrintEntries category=1 short_archives=true full=false fetchDrafts=false noSticky=true limit="0,5"} or alike calls.
+        $limit   = $serendipity['view'] != 'archives' ? $limit : '';
         $full    = false;
     }
 
