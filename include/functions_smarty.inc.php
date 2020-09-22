@@ -339,7 +339,7 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
     // their original contents.
     $old_var = array();
     if (!empty($params['short_archives'])) {
-        $old_var['short_archives']     = $serendipity['short_archives'];
+        $old_var['short_archives']     = $serendipity['short_archives'] ?? null;
         $serendipity['short_archives'] = $params['short_archives'];
     }
 

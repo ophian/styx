@@ -213,7 +213,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     if ($serendipity['useInternalCache']) {
         $key = md5(
                 serialize($initial_args)
-                    . ($serendipity['short_archives'] ?? false)
+                    . ($serendipity['short_archives'] ?? null)
                     . '||' . ($serendipity['range'] ?? null)
                     . '||' . ($serendipity['GET']['category'] ?? '')
                     . '||' . ($serendipity['GET']['hide_category'] ?? '')
@@ -500,7 +500,7 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
     if ($serendipity['useInternalCache']) {
         $key = md5(
                 serialize($initial_args)
-                    . ($serendipity['short_archives'] ?? false)
+                    . ($serendipity['short_archives'] ?? null)
                     . '||' . ($serendipity['range'] ?? null)
                     . '||' . ($serendipity['GET']['category'] ?? '')
                     . '||' . ($serendipity['GET']['hide_category'] ?? '')
