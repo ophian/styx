@@ -1,6 +1,9 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Try to fix 'short_archives' parameter SQL limit sets by smarty
+    {serendipity_fetchPrintEntries ... limit="0,5"} function calls.
+
   * Fixes to cast some default fetchLimit variable types w/o having option sets
 
   * [Sync S9y] - Adds 'image_id' to event 'backend_image_add' in addData array
