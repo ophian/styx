@@ -4604,7 +4604,13 @@ img.mfp-img {
     #template_options fieldset .form_radio {
         margin-top: 0;
     }
+    /* Allow WYSIWYG-nuggets placed "field_info" element selector at template_option array key
+       items 2, 3, 4, 5, or 6 to give a wide range for theme designers to be able to use such styles. */
+    #template_options .configuration_group .info_expanded #nuggets2_info,
     #template_options .configuration_group .info_expanded #nuggets3_info,
+    #template_options .configuration_group .info_expanded #nuggets4_info,
+    #template_options .configuration_group .info_expanded #nuggets5_info,
+    #template_options .configuration_group .info_expanded #nuggets6_info,
     #template_options .configuration_group .form_area  .cke {
         float: unset;
         width: 98%;
