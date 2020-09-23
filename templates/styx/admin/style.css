@@ -4604,6 +4604,10 @@ img.mfp-img {
     #template_options fieldset .form_radio {
         margin-top: 0;
     }
+    #template_options .configuration_group .form_area  .cke {
+        width: 98%;
+        display: inline-block;
+    }
 
     .no-flexbox .pluginmanager_side {
         float: left;
