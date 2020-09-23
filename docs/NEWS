@@ -1,7 +1,10 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
-  * Allow theme template options html content expand blocks by backend styles
+  * Allow theme template_options 'html' content expand blocks by backend styles
+    and as well placing this for a full expanded descriptive info_field on array
+    item position ranges 2-6 per default.
+    NOTE: Theme Designers: Attend where you go!
 
   * Fix the serendipity Smarty API Specs "short_archives" parameter intend,
     which allows {serendipity_fetchPrintEntries} calls with "short_archives"
