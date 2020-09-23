@@ -341,6 +341,13 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
     if (!empty($params['short_archives'])) {
         $old_var['short_archives']     = $serendipity['short_archives'] ?? null;
         $serendipity['short_archives'] = $params['short_archives'];
+        // If no parameters for block and template were sent and the 'short_archives=true' param was set,
+        // this assumingly is a call for assigning entries_summary content by categories to the 'ENTRIES' smarty block.
+        if ($params['template'] == 'entries.tpl' && ($params['block'] == 'smarty_entries_' . $entrycount || $params['block'] == 'ENTRIES')) {
+            $params['block']    = 'ENTRIES';
+            $params['template'] = 'smarty_entries_short_archives.tpl'; // placed in default as an example and default preset,
+            // and as a users theme copy template for a {serendipity_fetchPrintEntries} self added " template="my_very_own_cats_at_startup.tpl" parameter.
+        }
     }
 
     $old_var['skip_smarty_hooks']     = $serendipity['skip_smarty_hooks'] ?? null;
@@ -436,6 +443,7 @@ function serendipity_smarty_fetchPrintEntries($params, $template) {
         }
     }
 
+    // watch out for the upper, conditionally changed 'short_archives' and 'block' parameters to allow serving what the specs intend with 'short_archives'
     $out = serendipity_smarty_fetch($params['block'], $params['template']);
 
     // Reset array list, because we might be in a nested code call.
