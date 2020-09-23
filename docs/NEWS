@@ -9,10 +9,12 @@ Version 3.1.1-DEV ()
     EXAMPLE for theme: pure [Standard] index.tpl:
 
     [...]
-    {* this an EXAMPLE of entries list view='start' - not a view='start' of an explicit staticpage startpage! *}
+    {* this is an EXAMPLE of entries list view='start' - NOT a view='start' of an explicit staticpage startpage! *}
     {if $view == "start" && NOT isset($staticpage_pagetitle)}
         <section class="myCatsaremyCastle">
             <h3>Current {$CONST.TOPICS_OF} {$CONST.CATEGORIES} "1 and 2"</h3>
+
+            <a href="{$serendipityBaseURL}?frontpage">home</a>
             <ol class="plainList">
                 {serendipity_fetchPrintEntries category="1;2" short_archives=true full=false noSticky=true use_footer=false limit="0,5"}
            </ol>
