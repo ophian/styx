@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Allow theme template options html content expand blocks by backend styles
+
   * Fix the serendipity Smarty API Specs "short_archives" parameter intend,
     which allows {serendipity_fetchPrintEntries} calls with "short_archives"
     parameter to shall give back a short_archive styled entries output without
