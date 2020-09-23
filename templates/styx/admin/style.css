@@ -4604,7 +4604,9 @@ img.mfp-img {
     #template_options fieldset .form_radio {
         margin-top: 0;
     }
+    #template_options .configuration_group .info_expanded #nuggets3_info,
     #template_options .configuration_group .form_area  .cke {
+        float: unset;
         width: 98%;
         display: inline-block;
     }
