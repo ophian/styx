@@ -4609,6 +4609,7 @@ img.mfp-img {
         float: unset;
         width: 98%;
         display: inline-block;
+        margin-top: .5rem;
     }
 
     .no-flexbox .pluginmanager_side {
