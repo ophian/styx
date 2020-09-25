@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Modernize spamblock trackback default exclude ident.ca url regex string
+
   * Allow theme template_options 'html' content expand blocks by backend styles
     and as well placing this for a full expanded descriptive info_field on array
     item position ranges 2-6 per default.
