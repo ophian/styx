@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Add some styles for template_options expandable summary/details elements
+
   * Modernize spamblock trackback default exclude ident.ca url regex string
 
   * Allow theme template_options 'html' content expand blocks by backend styles
