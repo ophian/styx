@@ -4618,6 +4618,17 @@ img.mfp-img {
         margin-top: .5rem;
     }
 
+    #template_options summary.button {
+        display: inline flow-root list-item;
+        /*padding: 1px .25em;*/
+    }
+    #template_options details[open] > .helpbox {
+        background-color: #fff;
+        padding: 0 .25em;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 3px #bbb;
+    }
+
     .no-flexbox .pluginmanager_side {
         float: left;
         margin: 0 0 1.5em;
