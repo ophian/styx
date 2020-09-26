@@ -4616,7 +4616,7 @@ img.mfp-img {
         display: inline flow-root list-item;
     }
     #template_options details[open] > .helpbox {
-        background-color: #fff;
+        background-color: #fefefe;
         padding: 0 .25em;
         border: 1px solid #ddd;
         box-shadow: 0 2px 3px #bbb;
