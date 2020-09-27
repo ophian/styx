@@ -102,6 +102,9 @@
         {serendipity_printTrackbacks entry=$entry.id}
         </div>
     </section>
+    {else}
+    <a id="trackback_url" rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
+    <p class="msg_notice trackback-hint">{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;<u>{$entry.rdf_ident|escape}</u>&laquo;</p>
     {/if}
     {if $entry.comments > 0}
 
