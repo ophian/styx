@@ -1,6 +1,9 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup ["pure" standard theme] missing trackback url and information when no
+    trackbacks have yet been sent.
+
   * Add some styles for template_options expandable summary/details elements
 
   * Modernize spamblock trackback default exclude ident.ca url regex string
