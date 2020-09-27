@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.29');
+        $propbag->add('version',       '2.30');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1201,7 +1201,8 @@ class serendipity_event_spamblock extends serendipity_event
 
                         // Check for forced comment moderation (X days)
                         if ($addData['type'] == 'NORMAL' && $forcemoderation > 0 && $eventData['timestamp'] < (time() - ($forcemoderation * 60 * 60 * 24))) {
-                            $this->log($logfile, $eventData['id'], $forcemoderation_treat, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, $addData);
+                            $fm_method = $forcemoderation_treat == 'reject' ? 'REJECTED' : 'MODERATE'; // DONT WE NEED uppercased REJECTED or explicit REJECT ???
+                            $this->log($logfile, $eventData['id'], $fm_method, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, $addData);
                             if ($forcemoderation_treat == 'reject') {
                                 $eventData = array('allow_comments' => false);
                                 $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION;
@@ -1215,7 +1216,8 @@ class serendipity_event_spamblock extends serendipity_event
 
                         // Check for forced trackback moderation
                         if ($addData['type'] != 'NORMAL' && $forcemoderationt > 0 && $eventData['timestamp'] < (time() - ($forcemoderationt * 60 * 60 * 24))) {
-                            $this->log($logfile, $eventData['id'], $forcemoderationt_treat, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, $addData);
+                            $fmt_method = $forcemoderationt_treat == 'reject' ? 'REJECTED' : 'MODERATE'; // DONT WE NEED uppercased REJECTED or explicit REJECT ???
+                            $this->log($logfile, $eventData['id'], $fmt_method, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, $addData);
                             if ($forcemoderationt_treat == 'reject') {
                                 $eventData = array('allow_comments' => false);
                                 $serendipity['messagestack']['comments'][] = PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION;
@@ -1229,7 +1231,7 @@ class serendipity_event_spamblock extends serendipity_event
 
                         // check for disallowed trackback/pingback to pass-through outside of time-framed allowed comments (forceopentopublic)
                         if ($_disallow_trackbacks_passthrough) {
-                            $this->log($logfile, $eventData['id'], 'REJECT', PLUGIN_EVENT_SPAMBLOCK_REASON_DATE, $addData);
+                            $this->log($logfile, $eventData['id'], 'REJECT', PLUGIN_EVENT_SPAMBLOCK_REASON_DATE, $addData); // DONT WE NEED REJECTED here or really explicit REJECT ???
                             $eventData['moderate_comments'] = false;
                             $serendipity['csuccess']        = 'reject';
                             $serendipity['moderate_reason'] = PLUGIN_EVENT_SPAMBLOCK_REASON_DATE;
@@ -1255,8 +1257,8 @@ class serendipity_event_spamblock extends serendipity_event
                                 $mtbcase = false;
                                 // non valid multi trackback case
                                 if ($addData['type'] == 'TRACKBACK') {
-                                    $trackback_ip = $trackback_ip ?? preg_replace('/[^0-9.]/', '', gethostbyname($parts['host']));
-                                    $sender_ip    = $sender_ip ?? preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']);
+                                    $trackback_ip = ($trackback_ip ?? preg_replace('/[^0-9.]/', '', gethostbyname($parts['host'])));
+                                    $sender_ip    = ($sender_ip ?? preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']));
                                     $mtbcase      = $trackback_ip != $sender_ip; // Is host IP and sender IP matching (IP validation)?
                                 }
                                 // we could now even extend this special trackback case to send all follow-up-siblings to state 'moderate' (and/or after n $row['counter'])
