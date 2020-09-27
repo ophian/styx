@@ -1066,7 +1066,7 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check if sender ip is matching trackback/pingback ip (ip validation)
-                        $trackback_ipvalidation_option = $this->get_config('trackback_ipvalidation','moderate');
+                        $trackback_ipvalidation_option = $this->get_config('trackback_ipvalidation', 'moderate');
                         if (($addData['type'] == 'TRACKBACK' || $addData['type'] == 'PINGBACK') && $trackback_ipvalidation_option != 'no') {
                             $this->IsHardcoreSpammer();
                             $exclude_urls = explode(';',$this->get_config('trackback_ipvalidation_url_exclude', $this->get_default_exclude_urls()));
@@ -1074,7 +1074,7 @@ class serendipity_event_spamblock extends serendipity_event
                             foreach ($exclude_urls AS $exclude_url) {
                                 $exclude_url = trim($exclude_url);
                                 if (empty($exclude_url)) continue;
-                                $found_exclude_url = preg_match('@' . $exclude_url . '@',$addData['url']);
+                                $found_exclude_url = preg_match('@' . $exclude_url . '@', $addData['url']);
                                 if ($found_exclude_url) {
                                     break;
                                 }
@@ -1095,9 +1095,9 @@ class serendipity_event_spamblock extends serendipity_event
                                         $serendipity['moderate_reason'] = sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $addData['url']);
                                     }
                                 }
-                                $trackback_ip = preg_replace('/[^0-9.]/', '', gethostbyname($parts['host']) );
-                                $sender_ip = preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR'] );
-                                $sender_ua = ($debug ? ', ua="' . $_SERVER['HTTP_USER_AGENT'] . '"' : '') ;
+                                $trackback_ip = preg_replace('/[^0-9.]/', '', gethostbyname($parts['host']));
+                                $sender_ip = preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']);
+                                $sender_ua = ($debug ? ', ua="' . $_SERVER['HTTP_USER_AGENT'] . '"' : '');
                                 // Is host ip and sender ip matching?
                                 if ($trackback_ip != $sender_ip) {
                                     $this->log($logfile, $eventData['id'], $tipval_method, sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip  . $sender_ua), $addData);
