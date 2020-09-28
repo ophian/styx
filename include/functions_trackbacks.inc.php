@@ -115,7 +115,7 @@ function _serendipity_send($loc, $data, $contenttype = null) {
     global $serendipity;
 
     $target = parse_url($loc);
-    if ($target['query'] != '') {
+    if (isset($target['query']) && $target['query'] != '') {
         $target['query'] = '?' . str_replace('&amp;', '&', $target['query']);
     }
 
@@ -123,7 +123,7 @@ function _serendipity_send($loc, $data, $contenttype = null) {
        $uri = $target['scheme'] . '://' . $target['host'] . $target['path'] . $target['query'];
     } elseif (!isset($target['port']) || !is_numeric($target['port'])) {
        $target['port'] = 80;
-       $uri = $target['scheme'] . '://' . $target['host'] . ':' . $target['port'] . $target['path'] . $target['query'];
+       $uri = $target['scheme'] . '://' . $target['host'] . ':' . $target['port'] . $target['path'] . ($target['query'] ?? '');
     }
 
     $options = array('follow_redirects' => true, 'max_redirects' => 5);
