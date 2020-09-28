@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.31');
+        $propbag->add('version',       '2.32');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -948,10 +948,10 @@ class serendipity_event_spamblock extends serendipity_event
                     if (!is_array($eventData) || serendipity_db_bool($eventData['allow_comments'])) {
                         $this->checkScheme();
 
-                        $serendipity['csuccess'] = 'true';
+                        $serendipity['csuccess']  = 'true';
                         $logfile = $this->logfile = $this->get_config('logfile', $serendipity['serendipityPath'] . 'spamblock.log');
-                        $required_fields = $this->get_config('required_fields', '');
-                        $checkmail = $this->get_config('checkmail');
+                        $required_fields          = $this->get_config('required_fields', '');
+                        $checkmail                = $this->get_config('checkmail');
 
                         // Check CSRF [comments only, cannot be applied to trackbacks]
                         if ($addData['type'] == 'NORMAL' && serendipity_db_bool($this->get_config('csrf', 'true'))) {
@@ -984,7 +984,8 @@ class serendipity_event_spamblock extends serendipity_event
                         }
                         */
 
-                        // Check whether to allow comments from registered authors
+                        // Check whether to allow comments from registered authors - sadly this COMMENTS only.
+                        // Since track-/pingbacks are API comments this never works! The API is not a valid permissive author and thus cannot be checked by userLoggedIn() etc !
                         if (serendipity_userLoggedIn() && $this->inGroup()) {
                             return true;
                         }
@@ -1095,13 +1096,16 @@ class serendipity_event_spamblock extends serendipity_event
                                         $serendipity['moderate_reason'] = sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $addData['url']);
                                     }
                                 }
-                                $trackback_ip = preg_replace('/[^0-9.]/', '', gethostbyname($parts['host']));
-                                $sender_ip = preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']);
-                                $sender_ua = ($debug ? ', ua="' . $_SERVER['HTTP_USER_AGENT'] . '"' : '');
-                                // Is host ip and sender ip matching?
-                                if ($trackback_ip != $sender_ip) {
+                                $trackback_ip = preg_replace('/[^0-9.]/', '', gethostbyname($parts['host'])); // IPv4
+                                $sender_ip    = preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']); // But can return servers IPv6 ...
+                                $sender_ua    = $debug ? ', ua="' . $_SERVER['HTTP_USER_AGENT'] . '"' : '';
+                                if (filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+                                    $is_ipv6 = true; // In this case always return 'moderate'. We assume spammers don't have IPv6
+                                }
+                                // Is host IP and sender IP matching? Comparable only, if both are in same IPv4 format
+                                if ($trackback_ip != $sender_ip || $is_ipv6) {
                                     $this->log($logfile, $eventData['id'], $tipval_method, sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip  . $sender_ua), $addData);
-                                    if ($trackback_ipvalidation_option == 'reject') {
+                                    if ($trackback_ipvalidation_option == 'reject' && !isset($is_ipv6)) {
                                         $eventData = array('allow_comments' => false);
                                         $serendipity['messagestack']['comments'][] = sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip . $sender_ua);
                                         return false;
@@ -1247,7 +1251,7 @@ class serendipity_event_spamblock extends serendipity_event
                         }
 
                         // Check for identical comments. We allow to bypass trackbacks from our server to our own blog.
-                        if (serendipity_db_bool($this->get_config('bodyclone', 'true')) === true && $_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR'] && $addData['type'] != 'PINGBACK') {
+                        if (serendipity_db_bool($this->get_config('bodyclone', 'true')) === true && ($_SERVER['REMOTE_ADDR'] != $_SERVER['SERVER_ADDR']) && $addData['type'] != 'PINGBACK') {
                             $query = "SELECT count(id) AS counter FROM {$serendipity['dbPrefix']}comments WHERE type = '" . $addData['type'] . "' AND body = '" . serendipity_db_escape_string($addData['comment']) . "'";
                             $row   = serendipity_db_query($query, true);
                             if (is_array($row) && $row['counter'] > 0) {
@@ -1257,9 +1261,12 @@ class serendipity_event_spamblock extends serendipity_event
                                 $mtbcase = false;
                                 // non valid multi trackback case
                                 if ($addData['type'] == 'TRACKBACK') {
-                                    $trackback_ip = $trackback_ip ?? preg_replace('/[^0-9.]/', '', gethostbyname($parts['host']));
-                                    $sender_ip    = $sender_ip ?? preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']);
-                                    $mtbcase      = $trackback_ip != $sender_ip; // Is host IP and sender IP matching (IP validation)?
+                                    $trackback_ip = $trackback_ip ?? preg_replace('/[^0-9.]/', '', gethostbyname($parts['host'])); // IPv4
+                                    $sender_ip    = $sender_ip    ?? preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']); // But can return servers IPv6 ...
+                                    $mtbcase      = $trackback_ip != $sender_ip; // Is host IP and sender IP matching (IPv4 validation)?
+                                    if (filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
+                                        $mtbcase = false; // In this non-comparable case we do not set mtbcase to 'reject'. (We assume spammers don't do IPv6.)
+                                    }
                                 }
                                 // we could now even extend this special trackback case to send all follow-up-siblings to state 'moderate' (and/or after n $row['counter'])
                                 if ($addData['type'] == 'NORMAL' || $mtbcase == true) {
