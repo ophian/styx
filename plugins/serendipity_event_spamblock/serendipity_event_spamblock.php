@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.30');
+        $propbag->add('version',       '2.31');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1201,7 +1201,7 @@ class serendipity_event_spamblock extends serendipity_event
 
                         // Check for forced comment moderation (X days)
                         if ($addData['type'] == 'NORMAL' && $forcemoderation > 0 && $eventData['timestamp'] < (time() - ($forcemoderation * 60 * 60 * 24))) {
-                            $fm_method = $forcemoderation_treat == 'reject' ? 'REJECTED' : 'MODERATE'; // DONT WE NEED uppercased REJECTED or explicit REJECT ???
+                            $fm_method = $forcemoderation_treat == 'reject' ? 'REJECTED' : 'MODERATE';
                             $this->log($logfile, $eventData['id'], $fm_method, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, $addData);
                             if ($forcemoderation_treat == 'reject') {
                                 $eventData = array('allow_comments' => false);
@@ -1216,7 +1216,7 @@ class serendipity_event_spamblock extends serendipity_event
 
                         // Check for forced trackback moderation
                         if ($addData['type'] != 'NORMAL' && $forcemoderationt > 0 && $eventData['timestamp'] < (time() - ($forcemoderationt * 60 * 60 * 24))) {
-                            $fmt_method = $forcemoderationt_treat == 'reject' ? 'REJECTED' : 'MODERATE'; // DONT WE NEED uppercased REJECTED or explicit REJECT ???
+                            $fmt_method = $forcemoderationt_treat == 'reject' ? 'REJECTED' : 'MODERATE';
                             $this->log($logfile, $eventData['id'], $fmt_method, PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION, $addData);
                             if ($forcemoderationt_treat == 'reject') {
                                 $eventData = array('allow_comments' => false);
@@ -1229,11 +1229,11 @@ class serendipity_event_spamblock extends serendipity_event
                             }
                         }
 
-                        // check for disallowed trackback/pingback to pass-through outside of time-framed allowed comments (forceopentopublic)
+                        // Check for disallowed trackback/pingback to pass-through outside of time-framed allowed comments (@see forceopentopublic)
                         if ($_disallow_trackbacks_passthrough) {
-                            $this->log($logfile, $eventData['id'], 'REJECT', PLUGIN_EVENT_SPAMBLOCK_REASON_DATE, $addData); // DONT WE NEED REJECTED here or really explicit REJECT ???
+                            $this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_REASON_DATE, $addData);
                             $eventData['moderate_comments'] = false;
-                            $serendipity['csuccess']        = 'reject';
+                            $serendipity['csuccess']        = 'reject'; // overwrites the 'true' value probably
                             $serendipity['moderate_reason'] = PLUGIN_EVENT_SPAMBLOCK_REASON_DATE;
                             $eventData = array('allow_trackbacks_passthrough' => false);
                         }
@@ -1257,8 +1257,8 @@ class serendipity_event_spamblock extends serendipity_event
                                 $mtbcase = false;
                                 // non valid multi trackback case
                                 if ($addData['type'] == 'TRACKBACK') {
-                                    $trackback_ip = ($trackback_ip ?? preg_replace('/[^0-9.]/', '', gethostbyname($parts['host'])));
-                                    $sender_ip    = ($sender_ip ?? preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']));
+                                    $trackback_ip = $trackback_ip ?? preg_replace('/[^0-9.]/', '', gethostbyname($parts['host']));
+                                    $sender_ip    = $sender_ip ?? preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']);
                                     $mtbcase      = $trackback_ip != $sender_ip; // Is host IP and sender IP matching (IP validation)?
                                 }
                                 // we could now even extend this special trackback case to send all follow-up-siblings to state 'moderate' (and/or after n $row['counter'])
@@ -1920,7 +1920,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             // we can cleanup all field-"type" ('REJECTED' or 'MODERATE') which are probably all the spammer logs at once
             if ($part[1] == 'all') {
                 @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' OR type LIKE 'reject'");
-                @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'moderate' AND body=''"); // To make this case insensive, use WHERE BINARY type LIKE, but we don't care since we search for empty bodies
+                @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND body=''"); // To make this case_sensitive, use WHERE BINARY type LIKE, but we don't care since we search for empty bodies
                 $sbldone = true;
             }
 
@@ -1935,7 +1935,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                             $sbldone = true;
                         }
                         if ($p == 'amx') {
-                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'moderate' AND (reason='".PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION."' OR reason='Auto-moderation after X days')"); // (Auto-moderation after X days, we use the constant and <en> lang
+                            @serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'MODERATE' AND (reason='".PLUGIN_EVENT_SPAMBLOCK_REASON_FORCEMODERATION."' OR reason='Auto-moderation after X days')"); // (Auto-moderation after X days, we use the constant and <en> lang
                             $sbldone = true;
                         }
                         if ($p == 'filter') {
