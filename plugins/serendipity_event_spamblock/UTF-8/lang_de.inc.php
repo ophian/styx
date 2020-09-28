@@ -145,7 +145,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MAINTAIN_DESC', 'Räumt Datenbank-Logeinträge auf, die bestimmten Kriterien unterliegen. Dies sollte periodisch angestoßen werden, da Spammer die Spamblog Logs kontinuierlich aufblähen und das Blog immer weiter verlangsamen. Erfahrungsgemäß sind, je nach Einstellung der vorhandenen Spamblog Plugins, die beiden Typen (moderate, rejected) hauptsächlich mit Spam bestückt.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_BUTTON', 'Lösche: Alle');
-@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_DESC', 'Lösche <b>alle</b> Log-Einträge des Typs: \'REJECTED\' und \'MODERATE\' in der Datenbank.Tabelle "spamblocklog", die ein leeres comment Feld haben. Augenblicklich sind davon %d Einträge enthalten.');
+@define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_ALL_DESC', 'Lösche <b>alle</b> Log-Einträge des Typs: \'REJECTED\'; und vom Typ: \'MODERATE\' in der Datenbank-Tabelle "spamblocklog", die ein leeres comment Feld haben. Augenblicklich sind %d Einträge zu diesen Typen enthalten.');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MULTI_BUTTON', 'Lösche: Selektiv');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MULTI_DESC', 'Lösche <b>Einzeln</b> oder per <b>Mehrfachauswahl</b> vom Tabellenfeld "reason" LIKE "items". Gilt für die Typen: \'REJECTED\' und \'MODERATE\'!');
 @define('PLUGIN_EVENT_SPAMBLOCK_CLEANSPAM_MSG_DONE', 'Löschung erfolgt!');
