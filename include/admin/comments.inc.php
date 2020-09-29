@@ -20,7 +20,8 @@ $_replyTo  = !empty($serendipity['POST']['replyTo']) ? (int)$serendipity['POST']
 $_entry_id = !empty($serendipity['GET']['entry_id']) ? (int)$serendipity['GET']['entry_id'] : 0;
 
 if (isset($serendipity['POST']['formAction']) && $serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['POST']['delete']) != 0 && serendipity_checkFormToken()) {
-    if ($serendipity['POST']['togglemoderate'] != '') {
+    $multi = false;
+    if (!empty($serendipity['POST']['togglemoderate'])) {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
             $ac = serendipity_approveComment((int)$k, (int)$v, false, 'flip');
             if ($ac > 0) {
