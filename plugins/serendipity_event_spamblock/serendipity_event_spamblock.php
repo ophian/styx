@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.32');
+        $propbag->add('version',       '2.33');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1097,15 +1097,11 @@ class serendipity_event_spamblock extends serendipity_event
                                     }
                                 }
                                 // Not whitelisted? Check by IP then.
-                                $is_ipv6      = false;
                                 $trackback_ip = preg_replace('/[^0-9.]/', '', gethostbyname($parts['host'])); // IPv4
                                 $sender_ip    = preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']); // But can return servers IPv6 ...
                                 $sender_ua    = $debug ? ', ua="' . $_SERVER['HTTP_USER_AGENT'] . '"' : '';
-                                if (filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-                                    $is_ipv6 = true; // In this case always return 'moderate'. We assume spammers don't do IPv6
-                                }
-                                // Is host IP and sender IP matching? Comparable only, if both are in same IPv4 format
-                                if ($trackback_ip != $sender_ip || $is_ipv6 == true) {
+                                // Is host IP and sender IP matching? Comparable only, if both are in same IPv4 format. Else use the whitelist!
+                                if ($trackback_ip != $sender_ip) {
                                     $this->log($logfile, $eventData['id'], $tipval_method, sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip  . $sender_ua), $addData);
                                     if ($trackback_ipvalidation_option == 'reject' && $is_ipv6 == false) {
                                         $eventData = array('allow_comments' => false);
@@ -1117,6 +1113,8 @@ class serendipity_event_spamblock extends serendipity_event
                                         $serendipity['moderate_reason'] = sprintf(PLUGIN_EVENT_SPAMBLOCK_REASON_IPVALIDATION, $parts['host'], $trackback_ip, $sender_ip . $sender_ua);
                                     }
                                 }
+                            } else {
+                                $tb_notwhtlst = false;
                             }
                         }
 
@@ -1265,10 +1263,7 @@ class serendipity_event_spamblock extends serendipity_event
                                 if ($addData['type'] == 'TRACKBACK') {
                                     $trackback_ip = $trackback_ip ?? preg_replace('/[^0-9.]/', '', gethostbyname($parts['host'])); // IPv4
                                     $sender_ip    = $sender_ip    ?? preg_replace('/[^0-9.]/', '', $_SERVER['REMOTE_ADDR']); // But can return servers IPv6 ...
-                                    $mtbcase      = $trackback_ip != $sender_ip; // Is host IP and sender IP matching (IPv4 validation)?
-                                    if (filter_var($_SERVER['REMOTE_ADDR'], FILTER_VALIDATE_IP, FILTER_FLAG_IPV6)) {
-                                        $mtbcase = false; // In this non-comparable case we do not set mtbcase to 'reject'. (We assume spammers don't do IPv6.)
-                                    }
+                                    $mtbcase      = $tb_notwhtlst ?? $trackback_ip != $sender_ip; // Is host IP and sender IP matching (IPv4 validation)? Else set false for whitelist.
                                 }
                                 // we could now even extend this special trackback case to send all follow-up-siblings to state 'moderate' (and/or after n $row['counter'])
                                 if ($addData['type'] == 'NORMAL' || $mtbcase == true) {
