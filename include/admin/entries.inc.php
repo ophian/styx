@@ -64,7 +64,7 @@ switch($serendipity['GET']['adminAction']) {
                        'categories'         => $serendipity['POST']['categories'] ?? '',
                        'isdraft'            => $serendipity['POST']['isdraft'] ?? false,
                        'allow_comments'     => $serendipity['POST']['allow_comments'] ?? 'false',
-                       'moderate_comments'  => $serendipity['POST']['moderate_comments'] ?? '',
+                       'moderate_comments'  => $serendipity['POST']['moderate_comments'] ?? 'false',
                        'exflag'             => !empty($serendipity['POST']['extended']) ? true : false,
                        'had_categories'     => $serendipity['POST']['had_categories'] ?? false
                        // Messing with other attributes causes problems when entry is saved
