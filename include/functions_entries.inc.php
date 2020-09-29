@@ -199,7 +199,11 @@ function &serendipity_fetchEntryCategories($entryid) {
  * @param   boolean     If set to TRUE, all sticky entries will NOT be fetched.
  * @param   string      Can contain a SQL statement on which keys to select. Plugins can also set this, pay attention!
  * @param   string      Can contain a SQL statement on how to group the query. Plugins can also set this, pay attention!
- * @param   string      If set to "array", the array of entries will be returned. "flat-array" will only return the articles without their entryproperties. "single" will only return a 1-dimensional array. "assign" will assign this particular entry data to your Smarty template (@see serendipity_smarty_fetchPrintEntries()). "query" will only return the used SQL.
+ * @param   string      If set to "array", the array of entries will be returned.
+ *                                "flat-array" will only return the articles without their entryproperties.
+ *                                "single" will only return a 1-dimensional array.
+ *                                "assign" will assign this particular entry data to your Smarty template (@see serendipity_smarty_fetchPrintEntries()).
+ *                                "query" will only return the used SQL.
  * @param   bool        Should an SQL-join be made to the AUTHORS DB table?
  * @param   bool        Should an SQL-join be made to the CATEGORIES DB table?
  * @param   string      SQL-Parts to add to JOIN
