@@ -66,7 +66,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 $entry['title'] = (!empty($entry['author']) ? $entry['author'] : ANONYMOUS) . ': ' . ($options['version'] == 'atom1.0' ? serendipity_specialchars($entry['title'], ENT_XHTML, LANG_CHARSET, false) : $entry['title']);
 
                 if ($options['version'] == 'atom1.0') {
-                    $entry['body'] = serendipity_specialchars($entry['body'], ENT_XHTML, LANG_CHARSET, false); // NO NEED to strip for atom, but make sure we don't do double encoding !!
+                    // NO NEED to strip for atom, but make sure we don't do any double encoding !!
                 } else{
                     // [old] RSS2 only - No HTML allowed here:
                     $entry['body'] = strip_tags($entry['body']); // see c580fa35d3ab51cb79d41a2a00863ed52aa0a83c
@@ -107,11 +107,29 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
 
             // clean up body for XML compliance and doubled whitespace between (img) attributes as best we can.
             $entry['body'] = str_replace('"  ', '" ', xhtml_cleanup($entry['body']));
+
             if ($options['comments'] === true && $version == 'atom1.0') {
                 // Remember: A comment body is DB stored by using htmlspecialchars() !!
-                $entry['body'] = str_replace(['&nbsp;', '&#160;', '  '], [' '], $entry['body']); // allowed to do, since stripped
-                $entry['body'] = serendipity_entity_decode($entry['body'], ENT_COMPAT | ENT_HTML401, LANG_CHARSET);
-                $entry['body'] = str_replace('&', '+', $entry['body']); // fix serendipity_entity_decode
+                $entry['body'] = str_replace(['&nbsp;', '&#160;', '  '], [' '], $entry['body']); // allowed to do, since stripped'&#39;', 
+                // Now, make sure code in pre/code tags is specialchar'ed, thus we need to split it out for atom10 display feeds
+                $parts = preg_split('#(<\/?[-:\w]+(?:\s[^<>]+?)?>)#', $entry['body'], null, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+                $entry['body'] = '';
+                $x = 0;
+                foreach ($parts AS $v) {
+                    if (trim($v) === '') {
+                        $entry['body'] .= $v;
+                        continue;
+                    }
+                    if ($v[0] === '<' && substr($v, -1) === '>') {
+                        if (preg_match('#^<(\/)?(?:code)(?:\s[^<>]+?)?>$#', $v, $m)) {
+                            $x = isset($m[1]) && $m[1] === '/' ? 0 : 1;
+                        }
+                        $entry['body'] .= $v; // this is a HTML tag…
+                    } else {
+                        $entry['body'] .= !$x ? serendipity_specialchars($v) : $v; // process or skip…
+                    }
+                }
+                $entry['body'] = str_replace('&amp;#39;', '&#39;', $entry['body']); // fix it up
             }
 
             // extract author information
