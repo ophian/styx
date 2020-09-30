@@ -28,11 +28,11 @@ if (is_array($required_fieldlist)) {
 $serendipity['capabilities']['jquery-noconflict'] = false;
 $template_config = array(
     array(
-       'var' => 'use_highlight',
-       'name' => USE_HIGHLIGHT,
-       'description' => USE_HIGHLIGHT_DESC,
-       'type' => 'boolean',
-       'default' => false,
+        'var' => 'use_highlight',
+        'name' => PURE_USE_HIGHLIGHT,
+        'description' => PURE_USE_HIGHLIGHT_DESC,
+        'type' => 'boolean',
+        'default' => false,
     ),
     array(
         'var' => 'date_format',
@@ -52,10 +52,10 @@ $template_config = array(
                                 '%Y-%m-%d' => '%Y-%m-%d')
     ),
     array(
-       'var' => 'use_corenav',
-       'name' => USE_CORENAV,
-       'type' => 'boolean',
-       'default' => false,
+        'var' => 'use_corenav',
+        'name' => USE_CORENAV,
+        'type' => 'boolean',
+        'default' => false,
     )
 );
 
