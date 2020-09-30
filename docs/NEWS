@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix atom1.0 comments feeds keeping code blocks
+
   * Fixup ["pure" standard theme] missing trackback url and information when no
     trackbacks have yet been sent.
 
