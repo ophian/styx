@@ -989,7 +989,6 @@
 @define('ABOUT_TO_DELETE_FILES', 'Sie beabsichtigen mehrere Dateien auf einmal zu löschen.<br>Wenn Sie diese in ihren Einträgen verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?<br><br>');
 @define('ARCHIVE_SORT_STABLE', 'Stabile Archive');
 @define('ARCHIVE_SORT_STABLE_DESC', 'Sortiert die Archiv-Seiten absteigend, so dass sie auf einer festen Seite bleiben. Voreingestellt ist die fortlaufende Sortierung.');
-
 @define('PLAIN_ASCII_NAMES', '(keine Sonderzeichen, Umlaute)');
 
 // New 2.0 constants
