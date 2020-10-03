@@ -171,7 +171,7 @@ function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $
                 if ($is_wp) {
                     $wp_check = true;
                 } else {
-                    echo '<div>&#8226; ' . sprintf(TRACKBACK_FAILED, TRACKBACK_NOT_FOUND) . '</div>';
+                    echo '<div>&#8226; ' . sprintf(TRACKBACK_FAILED, TRACKBACK_NOT_FOUND) . "</div>\n";
                     return false;
                 }
             }
@@ -184,7 +184,7 @@ function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $
                 if ($is_wp) {
                     $wp_check = true;
                 } else {
-                    echo '<div>&#8226; ' . sprintf(TRACKBACK_FAILED, TRACKBACK_URI_MISMATCH) . '</div>';
+                    echo '<div>&#8226; ' . sprintf(TRACKBACK_FAILED, TRACKBACK_URI_MISMATCH) . "</div>\n";
                     return false;
                 }
             }
@@ -207,9 +207,9 @@ function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $
     $response = serendipity_trackback_is_success(_serendipity_send($trackURI, $data));
 
     if ($response === true) {
-        echo '<div>&#8226; ' . TRACKBACK_SENT .'</div>';
+        echo '<div>&#8226; ' . TRACKBACK_SENT . "</div>\n";
     } else {
-        echo '<div>&#8226; ' . sprintf(TRACKBACK_FAILED, $response) . '</div>';
+        echo '<div>&#8226; ' . sprintf(TRACKBACK_FAILED, $response) . "</div>\n";
     }
 
     return $response;
