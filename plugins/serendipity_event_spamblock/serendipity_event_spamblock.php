@@ -1070,7 +1070,7 @@ class serendipity_event_spamblock extends serendipity_event
                         $trackback_ipvalidation_option = $this->get_config('trackback_ipvalidation', 'moderate');
                         if (($addData['type'] == 'TRACKBACK' || $addData['type'] == 'PINGBACK') && $trackback_ipvalidation_option != 'no') {
                             $this->IsHardcoreSpammer();
-                            $exclude_urls = explode(';',$this->get_config('trackback_ipvalidation_url_exclude', $this->get_default_exclude_urls()));
+                            $exclude_urls = explode(';', $this->get_config('trackback_ipvalidation_url_exclude', $this->get_default_exclude_urls()));
                             $found_exclude_url = false;
                             foreach ($exclude_urls AS $exclude_url) {
                                 $exclude_url = trim($exclude_url);
