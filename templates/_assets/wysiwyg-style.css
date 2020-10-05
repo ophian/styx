@@ -244,6 +244,8 @@ p > img.serendipity_image_right {
 /* MEDIUM SCREENS */
 @media only screen and (min-width: 552px) {
     .serendipity_image_block.col:not(.c3):not:(.c4) {
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
     }
     .serendipity_image_block.col {
