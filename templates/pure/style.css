@@ -399,6 +399,7 @@ form button, input[type="button"], input[type="reset"], input[type="submit"] {
 /** Main grid **/
 
 body {
+    display: -webkit-flex;
     display: flex;
     flex-direction: column;
     width: auto;
@@ -571,6 +572,7 @@ nav.pager {
 }
 nav.pager ul {
     margin: 0 3em 1.5em;
+    display: -webkit-flex;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -1882,6 +1884,7 @@ div.serendipityPlug a {
     margin: 0 auto; }
     /* two sidebars - 3 implicit cols */
     body.grid-col {
+      display: -webkit-flex;
       display: flex;
       grid-template-rows: initial; }
     /* no OR one sidebar - flexible cols */
