@@ -293,6 +293,8 @@ a.homelink2:visited,
 }
 #serendipityLeftSideBar,
 #serendipityRightSideBar {
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -834,6 +836,8 @@ div.serendipityPlug a {
 @media screen and (min-width: 980px) {
     #mainpane {
         width: 100%;
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
     }
     #content,
