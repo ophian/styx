@@ -1618,6 +1618,13 @@ div.serendipityPlug a {
     font-size: 14px;
     font-size: .875rem;
 }
+/* imagesidebar */
+.mediasidebaritem img {
+    max-width: 230px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px #555;
+    margin-bottom: 5px;
+}
 
 /** Embedded images with the Serendipity Styx image manager **/
 
