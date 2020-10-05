@@ -1652,7 +1652,9 @@ summary {
 }
 
 .serendipity_commentForm #serendipity_emoticonchooser_comment {
-    display: flex;/*webkit fallback*/
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
     display: ruby-base-container;
 }
 
@@ -3240,6 +3242,8 @@ label .perm_name,
     -webkit-flex-direction: row;
     -webkit-flex-wrap: wrap;
     flex-flow: row wrap;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     align-items: flex-start; /* the default is stretch, internally used by Chrome when flexing direct child images */
     justify-content: space-around; /* IE10+ CSS fallback, since -evenly not supported */
@@ -4353,6 +4357,8 @@ img.mfp-img {
     .plugins_installable,
     #template_select,
     #template_select > ul {
+        display: -webkit-flex;
+        display: -ms-flexbox;
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
