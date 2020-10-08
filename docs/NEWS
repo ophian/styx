@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Upgrade Rich Text CKEditor to v.4.15.0 (revision cc4885b53)
+
   * Fix atom1.0 comments feeds keeping code blocks
 
   * Add some improvements to spamblock log labels and (related) filter actions.
