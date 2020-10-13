@@ -248,12 +248,12 @@ ul#serendipity_categories_list {
         column-gap: .312rem;/*6*/
         display: block; }
     .serendipity_image_block.col.c2 {
-        display: inline-block; }
+        display: block; }
     .serendipity_image_block.col.c3 {
-        display: inline-block;
+        display: block;
         width: 100%; }
     .serendipity_image_block.col.c4 {
-        display: inline-block;
+        display: block;
         column-count: 3; }
     .serendipity_image_block.col.c2 .serendipity_image_link,
     .serendipity_image_block.col.c3 .serendipity_image_link,
