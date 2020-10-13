@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.29');
+        $propbag->add('version',       '1.30');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -329,6 +329,7 @@ class serendipity_plugin_history extends serendipity_plugin
                     fwrite($fp, serialize($history_daylist));
                     fclose($fp);
                     @touch($cachefile); // 'w' mode will NOT update the modification time (filemtime)
+                    $this->set_config('empty_ct', 0); // reset the counter
                     // echo on run
                     echo $history_daylist;
                 } else {
