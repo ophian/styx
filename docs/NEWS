@@ -1,6 +1,8 @@
 Version 3.1.1-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix global (column) gallery styles for Safari Browser (white gap issue)
+
   * Fix the empty call history plugin counter for reset
 
   * Upgrade Rich Text CKEditor to v.4.15.0 (revision cc4885b53)
