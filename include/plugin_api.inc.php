@@ -11,7 +11,7 @@ include_once S9Y_INCLUDE_PATH . 'include/functions.inc.php';
 
 /* Core API function mappings
  * This allows the s9y Core to also execute internal core actions on plugin API hooks
- * Future use: Global variable can be customized/overriden by your own plugin on the frontend_configure event
+ * Future use: Global variable can be customized/overridden by your own plugin on the frontend_configure event
  * or during runtime. The capabilities are theme or plugin based only.
  */
 $serendipity['capabilities']['jquery'] = true;
@@ -25,7 +25,7 @@ $serendipity['core_events']['backend_header']['jquery']  = 'serendipity_plugin_a
 function serendipity_plugin_api_frontend_header($event_name, &$bag, &$eventData, $addData) {
     global $serendipity;
 
-    // Only execute if current template (only) does not have its own jquery.js file
+    // Only execute if current template (w/o fallback) does not have its own jquery.js file
     // jquery can be disabled if a template's config.inc.php or a plugin sets
     // $serendipity['capabilities']['jquery'] = false
 
