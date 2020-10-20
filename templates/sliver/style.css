@@ -1482,8 +1482,7 @@ a.comment-source-trace {
     text-shadow: 1px 1px 2px #222;
 }
 .comment-meta .btn,
-.comment-meta .btn-sm,
-.comment-meta .btn-default {
+.comment-meta .btn-sm {
     padding: .5rem .75rem;
 }
 .comments_by_author  .comment-content {
