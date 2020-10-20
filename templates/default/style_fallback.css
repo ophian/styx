@@ -74,7 +74,12 @@ ul#serendipity_categories_list {
 .serendipity_calendar {
     width: 100%; }
 
+/* Disables s9ymarkup, gravatar, spamblock markup and emoticate hooked text messages in contact-form template files, having at least this staticpage_plugin_contactform selector */
 /* Disables spamblock and other user notifications for the adduser plugin forms, since more or less needed for comment or contact forms only */
+.staticpage_plugin_contactform .serendipity_comment_emoticate,
+.staticpage_plugin_contactform .serendipity_comment_gravatar,
+.staticpage_plugin_contactform .serendipity_comment_s9ymarkup,
+.staticpage_plugin_contactform .serendipity_comment_spamblock,
 #adduserform .serendipity_comment_emoticate,
 #adduserform .serendipity_comment_s9ymarkup,
 #adduserform .serendipity_comment_spamblock {
@@ -138,14 +143,6 @@ ul#serendipity_categories_list {
     clear: both;
     font-size: 10px;
     text-align: center; }
-
-/* disable s9ymarkup, gravatar, spamblock markup and emoticate hooked text messages in contact-form template files, having at least this staticpage_plugin_contactform selector */
-.staticpage_plugin_contactform .serendipity_comment_emoticate,
-.staticpage_plugin_contactform .serendipity_comment_gravatar,
-.staticpage_plugin_contactform .serendipity_comment_s9ymarkup,
-.staticpage_plugin_contactform .serendipity_comment_spamblock {
-    display: none;
-    visibility: hidden; }
 
 /* Gallery-Container: default (fallback for no rows, no cols - no initial width here) */
 .serendipity_image_block {
