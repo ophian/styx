@@ -5,6 +5,6 @@
  * Convert or save as ANSI (ISO-8859-1) or your native charset
  **/
 
-$info['theme_info_summary'] = 'Ein "Bootstrap v4.1.0" basierendes HTML5 Framework Template';
+$info['theme_info_summary'] = 'Ein "Bootstrap v4.1.3" basierendes HTML5 Framework Template';
 
 $info['theme_info_desc'] = '';
