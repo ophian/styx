@@ -157,6 +157,7 @@
 
 <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
 <script src="{serendipity_getFile file="js/bootstrap.min.js"}"></script>
+<script src="{serendipity_getFile file="js/theme.js"}"></script>
 {/if}
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
