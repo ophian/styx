@@ -1,0 +1,10 @@
+Name: B45 [Black Edition]
+Author: Ian Styx
+Date: 2020-10-29
+Require Serendipity: 2.9
+Backend: No
+Responsive: Yes
+Mobile: Yes
+Engine: bootstrap4
+
+Summary: THEME_INFO_SUMMARY (text in lang_info_en.inc.php pattern)
