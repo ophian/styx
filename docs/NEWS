@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new b45 core theme
+
   * Add javascript function to the "pure" 2020 Standard theme to check (Safari)
     Browsers WebP Support and change lightbox linked image picture sets to use
     the default image fallback.
