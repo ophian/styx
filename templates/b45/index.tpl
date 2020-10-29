@@ -163,6 +163,25 @@
 {serendipity_hookPlugin hook="frontend_footer"}
 {if $is_embedded != true}
 
+{if $view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)}
+<script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/ckeditor.js"></script>
+<script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/config.js"></script>
+<script>
+    window.onload = function() {
+        CKEDITOR.replace( 'serendipity_commentform_comment', { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']] });
+    }
+</script>
+<link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github.min.css">
+<script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
+<script>
+    // launch the codesnippet highlight
+    hljs.configure({
+      tabReplace: '    ', // 4 spaces
+    });
+    hljs.initHighlightingOnLoad();
+</script>
+{/if}
+
 </body>
 </html>
 {/if}
