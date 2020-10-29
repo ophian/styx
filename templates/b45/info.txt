@@ -1,7 +1,7 @@
 Name: B45 [Black Edition]
 Author: Ian Styx
 Date: 2020-10-29
-Require Serendipity: 2.9
+Require Serendipity: 3.0
 Backend: No
 Responsive: Yes
 Mobile: Yes
