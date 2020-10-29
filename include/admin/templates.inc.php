@@ -175,7 +175,7 @@ $stack = array();
 serendipity_plugin_api::hook_event('backend_templates_fetchlist', $stack);
 $themes = serendipity_fetchTemplates();
 $data['templates'] = array();
-$core_templates = ['2k11', 'styx', 'bootstrap4', 'bulletproof', 'clean-blog', 'default', 'default-php', 'dude', 'next', 'pure', 'pure19', 'skeleton', 'sliver', 'timeline'];
+$core_templates = ['2k11', 'styx', 'b45', 'bootstrap4', 'bulletproof', 'clean-blog', 'default', 'default-php', 'dude', 'next', 'pure', 'pure19', 'skeleton', 'sliver', 'timeline'];
 $data['core_templates'] = array();
 
 foreach($themes AS $theme) {
