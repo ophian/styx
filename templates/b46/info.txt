@@ -1,6 +1,6 @@
-Name: B45 [Black Edition]
+Name: B46 [Black Edition]
 Author: Ian Styx
-Date: 2020-10-29
+Date: 2020-10-30
 Require Serendipity: 3.0
 Backend: No
 Responsive: Yes

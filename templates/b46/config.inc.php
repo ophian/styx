@@ -46,7 +46,7 @@ $template_config = array(
       'var'           => 'infomore',
       'name'          => 'infomore',
       'type'          => 'custom',
-      'custom'        => B45_INSTR,
+      'custom'        => B46_INSTR,
     ),
     array(
         'var' => 'date_format',
@@ -73,7 +73,7 @@ $template_config = array(
     ),
     array(
         'var' => 'use_corenav',
-        'name' => B45_USE_CORENAV,
+        'name' => B46_USE_CORENAV,
         'type' => 'boolean',
         'default' => false
     )

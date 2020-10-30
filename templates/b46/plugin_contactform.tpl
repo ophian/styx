@@ -40,7 +40,7 @@
             </div>
             {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
             <div class="form_buttons my-3">
-                <input id="serendipity_submit" class="btn btn-dark btn-sm" type="submit" name="serendipity[submit]" value="{$CONST.B45_SEND_MAIL}">
+                <input id="serendipity_submit" class="btn btn-dark btn-sm" type="submit" name="serendipity[submit]" value="{$CONST.B46_SEND_MAIL}">
             </div>
         </form>
     </div>
