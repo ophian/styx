@@ -3,7 +3,7 @@ Version 3.2-DEV ()
 
   * Improve media and theme grid per cookie remembrance
 
-  * Add new b45 core theme
+  * Add new b46 core theme
 
   * Add javascript function to the "pure" 2020 Standard theme to check (Safari)
     Browsers WebP Support and change lightbox linked image picture sets to use
