@@ -1,9 +1,9 @@
-
 <div class="has_toolbar">
 {if $media.standardpane}
 
     <h2>{$CONST.MEDIA_LIBRARY}</h2>
 
+    <script>$(document).ready(function() { var smcol = Cookies.get('serendipity[media_grid]'); if (smcol != 'undefined') { serendipity.changeMediaGrid(smcol) } });</script>
     <div id="grid-selector" class="media-grid-selector{if $media.nr_files < 3} poor{/if}">
         <div id="col-def-selector" class="mediaGrid" title="2-column grid" onclick="serendipity.changeMediaGrid('mlDefCol')">
           <div class="mediaGrid-cell tic"></div>

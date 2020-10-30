@@ -319,6 +319,7 @@
                 if (serendipity.hasClass(x[i], classes[c])) {
                     x[i].classList.remove(classes[c]);
                     x[i].classList.add(col);
+                    serendipity.SetCookie('media_grid', col);
                 }
             }
         }
