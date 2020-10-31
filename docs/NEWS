@@ -4,7 +4,7 @@ Version 3.2-DEV ()
   * Add CSS icon to plugin hooked fieldset legends of the styx backend entryform
 
   * Fix image file renaming case for fullsize webp variations, loosing the webp
-    icon preview button.
+    link and icon preview button.
     UPGRADERS NOTE:
     - CHECK your image rename cases since Styx 3.0 for a missing webp preview
       button right next to the trash icon button. Then check your uploads/ dir
