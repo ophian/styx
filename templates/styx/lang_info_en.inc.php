@@ -21,7 +21,8 @@ For the moment it solely includes an index template file, which removes relevant
 * 2019-09-08 - Removed the IE8/9 workarounds.<br>
 * 2020-03-25 - Sign out Styx message styles with a "marked" left border.<br>
 * 2020-06-06 - Smaller font-size of entry_info styles of entries list.<br>
-* 2020-08-31 - Improved login page and update fullsize preview.<br><br>
+* 2020-08-31 - Improved login page and update fullsize preview.<br>
+* 2020-10-31 - Add SVG icon to the plugin added fieldset legends of entryform.<br><br>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>
 The template files in that directory build and create the look of the complete admin interface.

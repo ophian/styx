@@ -21,7 +21,8 @@ Momentan enthält es nur eine Index-Template-Datei, die relevante Informationen 
 * 2019-09-08 - Die IE8/9 workarounds wurden entfernt.<br>
 * 2020-03-25 - Hervorhebung der Styx message styles.<br>
 * 2020-06-06 - Verkleinertes font-size der entry_info styles der Eintrags Liste.<br>
-* 2020-08-31 - Verbesserung der Login Seite und Update des fullsize preview.<br><br>
+* 2020-08-31 - Verbesserung der Login Seite und Update des fullsize preview.<br>
+* 2020-10-31 - SVG icon für die eingesprungenen Plugin fieldset legends des Eintragsformulares.<br><br>
 
 DAS FOLGENDE IST DIE BESCHREIBUNG DES FALLBACK BACKENDS&colon;<br>
 Dieses Theme beherbergt die Styx-Kern Backend Templates im Unterverzeichnis "default/admin".
