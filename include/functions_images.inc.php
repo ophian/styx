@@ -4703,13 +4703,13 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
 
     // check if the hidden dir path part is not already applied
     if (!preg_match('@\.v\/@', $file_new_webp)) {
-        $file_new_webp = '.v/' . $file_new_webp;
+        $file_new_webp = $file_rel_path . '.v/' . $file_new_webp;
     }
     if (!preg_match('@\.v\/@', $file_old_webp)) {
-        $file_old_webp = '.v/' . $file_old_webp;
+        $file_old_webp = $file_rel_path . '.v/' . $file_old_webp;
     }
-    $relnewfilewebp = $file_rel_path . $file_new_webp;
-    $reloldfilewebp = $file['path'] . $file_old_webp;
+    $relnewfilewebp = $file_new_webp;
+    $reloldfilewebp = $file_old_webp;
     $newfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $relnewfilewebp . '.webp';
     $oldfilewebp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $reloldfilewebp . '.webp';
 
