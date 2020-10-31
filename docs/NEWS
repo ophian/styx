@@ -1,6 +1,18 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix image file renaming case for fullsize webp variations, loosing the webp
+    icon preview button.
+    UPGRADERS NOTE:
+    - CHECK your image rename cases since Styx 3.0 for a missing webp preview
+      button right next to the trash icon button. Then check your uploads/ dir
+      MediaLibrary via FTP and check the current directories .v/ directory to
+      see if it really is an image hit by this issue!
+    - EITHER: Rename this fullsize webp variation image to the new name too
+              easily by hand.
+    - OR: Rename that image back via MediaLibrary to its origin name and then
+          just rename it again.
+
   * Improve media and theme grid per cookie remembrance
 
   * Add new b46 core theme
