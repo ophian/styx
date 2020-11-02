@@ -11,7 +11,7 @@ Version 3.2-DEV ()
     - EITHER: Move the webp variation images to the new directory/.v/ name by
               hand via FTP; Create the .v/ dir there.
     -     OR: Move these images back via MediaLibrary to their origin directory
-              location and then just move them again. Remember, this actions
+              location and then just move them again. Remember, that this action
               touches entries, so the manual solution might be the simpler
               approach.
 
