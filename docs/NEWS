@@ -14,6 +14,11 @@ Version 3.2-DEV ()
               location and then just move them again. Remember, that this action
               touches entries, so the manual solution might be the simpler
               approach.
+    -     OR: In case of just having a few images this also is a fixup solution.
+              Purge all WebP variation images via maintenance image synchronizer
+              task and then re-build them again. Run this BRUTE FORCE attack
+              only, if NOT already having hundreds of images!
+
 
   * Add CSS icon to plugin hooked fieldset legends of the styx backend entryform
 
@@ -28,6 +33,7 @@ Version 3.2-DEV ()
               easily by hand;
     -     OR: Rename that image back via MediaLibrary to its origin name and then
               just rename it again.
+    -     OR: (see bulk move fix 3rd solution note)
 
   * Improve media and theme grid per cookie remembrance
 
