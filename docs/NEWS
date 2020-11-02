@@ -11,9 +11,9 @@ Version 3.2-DEV ()
       MediaLibrary via FTP and check the current directories .v/ directory to
       see if it really is an image hit by this issue!
     - EITHER: Rename this fullsize webp variation image to the new name too
-              easily by hand.
-    - OR: Rename that image back via MediaLibrary to its origin name and then
-          just rename it again.
+              easily by hand;
+    -     OR: Rename that image back via MediaLibrary to its origin name and then
+              just rename it again.
 
   * Improve media and theme grid per cookie remembrance
 
