@@ -434,6 +434,11 @@ $tasks = array(
                     'title'     => 'Removal of old dead files in v.3.2.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_320) . '</pre>'),
 
+            array(  'version'   => '3.2.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => 'Some fixes for MediaLibrary actions regarding WebP variation images have applied.',
+                    'desc'      => 'Please read the changelog for these fixes with Serendipity Styx Revisions since 3.0 regarding checks and possible actions for you to do!'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
