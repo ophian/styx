@@ -1,6 +1,20 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix silenced image file bulk move case for WebP variation files not moving
+    the exiting variation filedir to the new directory location, when not already
+    having a hidden variation dir.
+    UPGRADERS NOTE:
+    - CHECK your MediaLibrary image bulk move cases since Styx 3.0 for the WebP
+      toolbar button still pointing to the old directory location, which does
+      not match the announced infos meta path directory.
+    - EITHER: Move the webp variation images to the new directory/.v/ name by
+              hand via FTP; Create the .v/ dir there.
+    -     OR: Move these images back via MediaLibrary to their origin directory
+              location and then just move them again. Remember, this actions
+              touches entries, so the manual solution might be the simpler
+              approach.
+
   * Add CSS icon to plugin hooked fieldset legends of the styx backend entryform
 
   * Fix image file renaming case for fullsize webp variations, loosing the webp
