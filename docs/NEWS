@@ -16,8 +16,8 @@ Version 3.2-DEV ()
               approach.
     -     OR: In case of just having a few images this also is a fixup solution.
               Purge all WebP variation images via maintenance image synchronizer
-              task and then re-build them again. Run this BRUTE FORCE attack
-              only, if NOT already having hundreds of images!
+              task and then re-build them again. Choose this BRUTE FORCE attack
+              only, if NOT already having a reasonable amount of images!
 
   * Add CSS icon to plugin hooked fieldset legends of the styx backend entryform
 
