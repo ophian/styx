@@ -381,6 +381,9 @@ figure {
 
 .mfp-content figure {
   margin: 0; }
+.mfp-figure figure {
+  margin: 0;
+  border: 0 none; }
 
 nav ul, nav ol {
   list-style: none;
