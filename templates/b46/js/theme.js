@@ -34,4 +34,5 @@ checkWebP(function(support) {
     $('#trackback_url').next('.alert-trackback').hide();
     $('#trackback_url').click(function(e) { e.preventDefault(); $(this).next('.alert-trackback').show(); });
     $('.serendipity_entrypaging').addClass('mobile');
+    $('a.serendipity_image_link[href=""]').each(function() { if (typeof $(this).data('fallback') !== 'undefined' || $(this).data("fallback")) { var linkHref = $(this).attr('data-fallback'); $(this).attr('href', linkHref); }});
 })(jQuery);
