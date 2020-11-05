@@ -3195,6 +3195,9 @@ label .perm_name,
     display: inherit;
     margin-top: -1.2rem;
 }
+.media_directory_entries {
+    padding-right: .25rem;
+}
 
 .js .template_info > dl {
     margin: 0;
