@@ -383,6 +383,11 @@ form button, input[type="button"], input[type="reset"], input[type="submit"] {
     font-weight: initial;
 }
 
+.mfp-figure figure {
+    margin: 0;
+    border: 0 none;
+}
+
 /** Main grid **/
 
 body {
