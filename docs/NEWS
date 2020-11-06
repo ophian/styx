@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Prepare global default style fallback stylesheat for 5-column image galleries
+
   * Fix silenced image file bulk move case for WebP variation files not moving
     the exiting variation filedir to the new directory location, when not already
     having a hidden variation dir.
