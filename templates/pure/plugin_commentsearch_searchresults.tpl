@@ -10,6 +10,6 @@
     {/foreach}
     </ul>
     {else}
-    <p class="serendipity_message_notice">{$CONST.NO_ENTRIES_TO_PRINT}</p>
+    <p class="serendipity_msg_notice">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
 </aside>

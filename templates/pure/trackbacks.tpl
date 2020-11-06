@@ -7,7 +7,7 @@
             {/if}
          {* This regex removes a possible avatar image automatically added by the serendipity_event_gravatar plugin *}
         {if {$trackback.body|regex_replace:"/^<img.*>$/":''} == ''}{***}
-            {if $trackback.type == 'TRACKBACK'}    <span class="serendipity_message_notice no-content">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}
+            {if $trackback.type == 'TRACKBACK'}    <span class="serendipity_msg_notice no-content">{$CONST.NO_ENTRIES_TO_PRINT}</span>{/if}
         {else}
 
             <details>
