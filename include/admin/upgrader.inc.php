@@ -439,6 +439,11 @@ $tasks = array(
                     'title'     => 'Some fixes for MediaLibrary actions regarding WebP variation images have applied.',
                     'desc'      => 'Please read the changelog for these fixes with Serendipity Styx Revisions since 3.0 regarding checks and possible actions for you to do!'),
 
+            array(  'version'   => '3.2.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>THEMES_NOTICE:</b> Lots of smaller bugfix were patched into core themes.',
+                    'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page after having done the upgrade, to catch up, if you need to to check your COPY-Themes.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
