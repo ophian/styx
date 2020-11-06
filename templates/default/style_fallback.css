@@ -224,15 +224,25 @@ ul#serendipity_categories_list {
     .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
         margin: auto auto .2667615em; /*3*/ }
 
+@media only screen and (min-width: 340px) {
+    .serendipity_image_block.col.c5 {
+        display: block;
+        column-count: 2;
+        column-gap: .175rem;/*2*/
+        column-fill: balance; }
+}
 @media only screen and (min-width: 400px) {
     .serendipity_image_block.col.c3 {
         column-count: 2;
         column-gap: .312rem;/*6*/ }
     .serendipity_image_block.col.c4 {
-        column-count: 2;
+        column-count: 2; }
+    .serendipity_image_block.col.c5 {
+        column-count: 3; }
+    .serendipity_image_block.col.c4,
+    .serendipity_image_block.col.c5 {
         column-gap: .312rem;/*6*/
-        column-fill: balance;
-        justify-content: normal; }
+        column-fill: balance; }
 }
 .serendipity_image_block > div {
     float: none;
@@ -252,9 +262,12 @@ ul#serendipity_categories_list {
     .serendipity_image_block.col.c4 {
         display: block;
         column-count: 3; }
+    .serendipity_image_block.col.c5 {
+        column-count: 4; }
     .serendipity_image_block.col.c2 .serendipity_image_link,
     .serendipity_image_block.col.c3 .serendipity_image_link,
-    .serendipity_image_block.col.c4 .serendipity_image_link {
+    .serendipity_image_block.col.c4 .serendipity_image_link,
+    .serendipity_image_block.col.c5 .serendipity_image_link {
         margin: auto; }
     .serendipity_image_block.col .serendipity_image_link .serendipity_image_left {
         margin: auto auto .25em;
@@ -273,6 +286,8 @@ ul#serendipity_categories_list {
         column-count: 3; }
     .serendipity_image_block.col.c4 {
         column-count: 4; }
+    .serendipity_image_block.col.c5 {
+        column-count: 5; }
 }
 
 .serendipity_image_block.col .serendipity_imageComment_left,
