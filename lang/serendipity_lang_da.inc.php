@@ -816,6 +816,7 @@
 @define('INSTALL_ACL', 'Anvend læserettigheder for kategorier');
 @define('INSTALL_ACL_DESC', 'Hvis aktiveret anvendes grupperettigheder for brugere der er logget ind. I modsat fald anvendes læserettigheder for kategorier ikke, men din blog bliver til gengæld lidt hurtigere. Så har du ikke brug for multibruger læserettigheder  i din blog bør du vælge \'nej\' her.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Konfigurations syntax forkert for indstilling "%s". Skal bruge indhold af typen "%s".');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Nuværende kodeord');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Hvis du ændrer kodeord i feltet herover skal du indtaste dit nuværende kodeord her.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Du indtastede ikke det rigtige nuværende kodeord, og kan derfor ikke ændre kodeord, din ændring blev ikke gemt.');

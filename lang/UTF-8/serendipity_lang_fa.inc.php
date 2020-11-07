@@ -816,6 +816,7 @@
 @define('INSTALL_ACL', 'اعمال کردن دسترسی خواندن برای موضوع ها');
 @define('INSTALL_ACL_DESC', 'در صورت فعال بودن این گزینه، در صورتی که کاربران عضو شده، وارد سیستم شوند، دسترسی کاربران گروه ها اعمال می شود. در صورت غیر فعال بودن، دسترسی خواندن موضوعات اعمال نمی شود، اما کمی سرعت وبلاگ را زیاد می کند. پس اگر به وبلاگ چند کاربره با دسترسی محدود در خواندن نیازی ندارید، این گزینه را غیر فعال کنید.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'طرز نگارش گزینه "%s" اشتباه است. نیاز داریم نوع "%s" را بدانیم.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'رمز عبور قدیمی');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'اگر می خواهید رمز عبور بالا را تغییر دهید، نیاز دارید که رمز قدیمی را در این فیلد وارد کنید.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'رمز عبور قدیمی شما اشتباه است، پس توانایی تغییر رمز عبور وجود ندارد. تنظیمات جدید شما اعمال نشد.');

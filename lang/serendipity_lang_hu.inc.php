@@ -815,6 +815,7 @@
 @define('INSTALL_ACL', 'Olvasási jogosultságok bekapcsolása a kategóriákon');
 @define('INSTALL_ACL_DESC', 'Ha engedélyezed, akkor a kategóriákra alkalmazott olvasási jogosultságok minden alkalommal ellenõrzésre kerülnek amikor egy látogató megtekinti az oldalt. Ha nincs engedélyezve, az olvasási jogosultságok nem kerülnek ellenõrzésre, de cserébe gyorsabb lesz a mûködés. Így ha nincs szükséged erre, ne engedélyezd.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'A beállítás szintaktikája hibás erre az opcióra: "%s". A következõ típusúnak kell lennie: "%s".');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Régi jelszó');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Ha a mezõben megváltoztatod a jelszót, itt meg kell adnod a jelenlegit.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Helytelenül adtad meg a jelenlegi jelszót, így nem változtathatod meg. A beállításokat nem mentettük.');

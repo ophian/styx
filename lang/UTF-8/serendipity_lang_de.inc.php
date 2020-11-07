@@ -814,6 +814,7 @@
 @define('INSTALL_ACL', 'Leserechte auf Kategorien anwenden');
 @define('INSTALL_ACL_DESC', 'Falls aktiviert, werden die Leserechte der Benutzergruppen bei der Ansicht des Frontends aktiviert. Falls deaktiviert, werden die für Kategorien vergebenen Leserechte NICHT angewandt, dafür müssen aber auch weniger SQL-Abfragen durchgeführt werden. Wenn Sie also keine Mehrbenutzer-Leserechte benötigen, deaktivieren Sie diese Einstellung.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Falsche Konfigurationsangaben für die Option "%s". Diese muss vom Typ "%s" sein!');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Altes Passwort');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Falls Sie das Passwort im vorhergehenden Feld ändern, müssen Sie das aktuelle Password in diesem Feld eingeben.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Sie haben kein gültiges derzeitiges Passwort angegeben und sind daher nicht berechtigt, das neue Passwort festzulegen. Ihre Einstellungen wurden nicht gespeichert.');

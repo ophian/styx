@@ -819,6 +819,7 @@
 @define('INSTALL_ACL', 'Konu başlıkları için sadece okuma iznini uygula');
 @define('INSTALL_ACL_DESC', 'Eğer açık olursa konu başlıkları için kullanıcı grubu izinleri ayarlarınız kullanıcılar sitenize bağlandıklarına uygulanacak. Eğer kapalı olursa, siteniz birazcık ta olsa hızlanır.Sonuçta eğer sitenizde çoklu kullanıcılı bir kaç site barındırmıyorsanız, bu ayar kapalı olabilir.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Yapılandırma sözdizimi bu seçenek için hatalı: "%s". Türe göre içeriğe ihtiyaç var "%s".');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Eski Şifre');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Eğer şifrenizi değiştirmek istiyorsanız, eski şifrenizi bu alana girmek zorundasınız.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Eski şifrenizi doğru olarak girmediniz, bu nedenle şifre değiştirme işleminiz onaylanmadı.Yeni Ayarlarınız kaydedilmedi.');

@@ -817,6 +817,7 @@
 @define('INSTALL_ACL', 'Applica i permessi di lettura per le categorie');
 @define('INSTALL_ACL_DESC', 'Se abilitato, le impostazioni dei permessi di utente/gruppo che hai impostato per le categorie saranno applicati quando utenti loggati accedono al tuo blog. Se disabilitato, i permessi di lettura delle categorie NON sono applicati, ma l\'effetto positivo è una leggera velocizzazione del tuo blog. Così se non ti servono permessi di lettura multi-utente per il tuo blog, disabilita questa impostazione.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Sintassi di configurazione errata perl\'opzione "%s". Occorre un contenuto di tipo "%s".');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Vecchia Password');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Se cambi la password nel campo sopra, devi inserire la password utente attuale in questo campo.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Non hai specificato correttamente la vecchia password, e non se autorizzato a cambiare la password. Le tue impostazioni non sono state salvate.');
