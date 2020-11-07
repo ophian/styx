@@ -4,7 +4,7 @@ Version 3.2-DEV ()
   * Add new generic lang info variable for plugins with suboption behaviour.
     Use by example() method.
 
-  * Prepare global default style fallback stylesheat for 5-column image galleries
+  * Prepare global default style fallback stylesheet for 5-column image galleries
 
   * Fix silenced image file bulk move case for WebP variation files not moving
     the exiting variation filedir to the new directory location, when not already
