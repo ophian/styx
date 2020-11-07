@@ -829,7 +829,7 @@ $i18n_filename_to = array (
 @define('INSTALL_ACL', 'Aplikovat práva na ètení pro kategorie');
 @define('INSTALL_ACL_DESC', 'Pokud je povoleno, budou na kategorie aplikována nastavení práv pro skupiny uživatelù, když si pøihlášení uživatelé budou prohlížet váš blog. Není-li povoleno, práva na ètení pro kategorie nejsou aplikována,  a  zlepšuje se rychlost blogu. Jestliže nechcete mít práva pro ètení pro rùzné uživatele,  toto nastavení zakažte.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Syntax konfigurace je chybná pro volbu "%s". Vyžaduje obsah typu "%s".');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Staré heslo');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Jestliže zmìníte  heslo v políèku výše, musíte do tohoto pole zadat souèasné heslo.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Nezadali jste správné staré heslo a nejste oprávnìni heslo zmìnit. Vaše nastavení nebylo uloženo.');

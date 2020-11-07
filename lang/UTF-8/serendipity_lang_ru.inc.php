@@ -819,7 +819,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_ACL', 'Применять разрешения на чтения для категорий');
 @define('INSTALL_ACL_DESC', 'Если включена, эта опция заставляет права доступа на чтение категорий применяться для всех пользователей, кто вошёл под своим именем на ваш блог. Если эта опция отключена, никакие права доступа на чтение категорий НЕ применяются, что немного ускоряет ваш блог. Так что, если вам не нужна многопользовательская поддержка чтения категорий на вашем блоге, вы можете отключить эту настройку.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Неверный синтаксис опции "%s". Нужно значение типа "%s".');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Старый пароль');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Если вы изменяете пароль в поле выше, то в этом поле вам нужно ввести ваш текущий пароль.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Вы не указали правильного текущего пароля, и потому вам не разрешено изменить пароль на новый. Ваши настройки не были сохранены.');

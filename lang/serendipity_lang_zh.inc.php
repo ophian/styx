@@ -820,7 +820,7 @@
 @define('INSTALL_ACL', '套入读取的权限到类别');
 @define('INSTALL_ACL_DESC', '如果开启，群组对类别的权限设定将会套用到登入的会员。如果关闭，类别的读取权限不会被使用，但是会加快你日志的速度。如果你不需要多个使用者的读取权限，建议你将这个设定关闭。');
 @define('PLUGIN_API_VALIDATE_ERROR', '配置的设定 "%s" 语法有误，需要 "%s" 类型。');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', '旧密码');
 @define('USERCONF_CHECK_PASSWORD_DESC', '如果你要更改密码，请将新密码输入到这里。');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '你提供了错误的久密码所以不能更改密码。你的设定未保存。');

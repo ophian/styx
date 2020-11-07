@@ -815,7 +815,7 @@
 @define('INSTALL_ACL', 'Använd lästillstånd för kategorier');
 @define('INSTALL_ACL_DESC', 'Om detta aktiveras kommer användargruppstillstånden som du anger för kategorier att tillämpas när inloggade användare besöker din blogg. Om detta inaktiveras kommer lästillstånden för kategorier INTE att användas, men den positiva effekten är en liten uppsnabbning på din blogg. Alltså, om du inte behöver fleranvändarläsrättigheter för din blogg kan du inaktivera denna inställning.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Inställningssyntax fel för inställningen "%s". Innehåll av typen "%s" behövs.');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Gammalt lösenord');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Om du ändrar lösenordet i fältet ovean måste du fylla i det nuvarande lösenordet i det här fältet.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Du har inte angett det gamla lösenordet på korrekt sätt och du har därför inte tillstånd att ändra lösenord. Dina inställningar sparades inte.');

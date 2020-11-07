@@ -817,7 +817,7 @@
 @define('INSTALL_ACL', 'Leesrechten voor categorieën toepassen');
 @define('INSTALL_ACL_DESC', 'Als dit aan staat, zijn de gebruikersrechten voor categorieën van kracht als ingelogde gebruikers uw weblog bekijken. In het andere geval is de autorisatie niet van toepassing en wordt uw weblog iets sneller. Dus als u geen aparte leesrechten voor meerdere gebruikers nodig heeft, laat u deze optie best uit.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Configuratiesyntaxis fout voor optie "%s". Heeft inhoud van het type "%s" nodig.');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Oud wachtwoord');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Als u het wachtwoord wijzigt in het veld hierboven moet u het huidige wachtwoord in dit veld invoeren.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Het oude wachtwoord dat u heeft ingegeven klopt niet en u bent dus niet geautoriseerd om het wachtwoord te wijzigen. Uw instellingen worden niet bewaard.');

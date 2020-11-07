@@ -820,7 +820,7 @@ $i18n_unknown = 'tw';
 @define('INSTALL_ACL', '套入讀取的權限到類別');
 @define('INSTALL_ACL_DESC', '如果開啟，群組對類別的權限設定將會套用到登入的會員。如果關閉，類別的讀取權限不會被使用，但是會加快您的網誌速度。如果您不需要多使用者的讀取權限，建議將這個設定關閉。');
 @define('PLUGIN_API_VALIDATE_ERROR', '配置的設定 "%s" 語法有誤，需要 "%s" 類型。');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', '舊密碼');
 @define('USERCONF_CHECK_PASSWORD_DESC', '如果您改變了密碼，請將新密碼輸入到這個欄位。');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '您提供了錯誤的舊密碼所以不能更改密碼。您的設定還未被儲存。');

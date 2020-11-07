@@ -841,7 +841,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('INSTALL_ACL', 'Aplicar permisos de lectura por categorías');
 @define('INSTALL_ACL_DESC', 'Cuando se activa, son aplicados los permisos para grupos de usuarios que estén configurados cuando los usuarios registrados vean el Blog. Cuando se desactiva, los permisos de lectura de las categorías NO son aplicadas, con el efecto positivo que el Blog carga un poco más rápido. Si no necesitas permisos de lectura para múltiples usuarios, deshabilita esta opción.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Sintaxis errónea en la configuración de la opción "%s". Se requiere contenido de tipo "%s".');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Contraseña actual');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Si cambias la contraseña en el campo de arriba, debes escribir la contraseña actual en este campo.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'No especificaste correctamente la contraseña actual, por lo tanto no estas autorizado para establecer una nueva. Tus cambios no fueron guardados.');

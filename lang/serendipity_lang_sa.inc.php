@@ -820,7 +820,7 @@
 @define('INSTALL_ACL', 'ÿ»ﬁ  ’—ÌÕ «·ﬁ—«¡… ·Ï «·√ﬁ”«„');
 @define('INSTALL_ACL_DESC', 'If enabled, the usergroup permission settings you setup for categories will be applied when logged-in users view your blog. If disabled, the read-permissions of the categories are NOT applied, but the positive effect is a little speedup on your blog. So if you don\'t need multi-user read permissions for your blog, disable this setting.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'ŒÌ«—«  ÂÌ∆… Ã„· «·Œÿ√ "%s".  Õ «Ã ≈·Ï √‰Ê«⁄ «·„Õ ÊÌ«  "%s".');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'ﬂ·„… «·„—Ê— «·ﬁœÌ„…');
 @define('USERCONF_CHECK_PASSWORD_DESC', '√‰ €Ì—… ﬂ·„… «·„—Ê— ›Ì «·Õﬁ· «·”«»ﬁ ° ›√‰Â ÌÃ» √‰  œŒ· ﬂ·„… «·„—Ê— «·Õ«·Ì… ›Ì Â–« «·Õﬁ·');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '·„  œŒ· ﬂ·„… «·„—Ê— «·’ÕÌÕ… «·Õ«·Ì… .·–·ﬂ ·Ì” „‰ ’·«ÕÌ« ﬂ  €ÌÌ— ﬂ·„… «·„—Ê— «·Ï ﬂ·„… ÃÌœ…. ! ! !  ‰»ÌÂ: ·„ Ì „ Õ›Ÿ «· €ÌÌ—« ');

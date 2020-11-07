@@ -815,7 +815,7 @@
 @define('INSTALL_ACL', 'カテゴリの読み込み権限を適用する');
 @define('INSTALL_ACL_DESC', '有効な場合、ログインしたウェブログ閲覧ユーザーはグループ許可設定のカテゴリ設定が適用されるでしょう。無効な場合、カテゴリの読み込み許可は適用されません。しかし、しかし、前向きな結果はあなたのウェブログ上の小さなスピードアップです。マルチユーザーを必要としない場合ウェブログ読み込み権限は必要なく、これを無効に設定します。');
 @define('PLUGIN_API_VALIDATE_ERROR', 'オプション「%s」の設定文法が間違っています。種類「%s」の内容が必要です。');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', '古いパスワード');
 @define('USERCONF_CHECK_PASSWORD_DESC', '上の項目でパスワードを変更する場合、この項目に現在のユーザーパスワードを入力する必要があります。');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '正しい古いパスワードを指定せず、新しいパスワードを変更することは許可されていません．設定は保存されませんでした。');

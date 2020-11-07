@@ -814,7 +814,7 @@
 @define('INSTALL_ACL', 'Käytä kategorioiden lukuoikeuksia');
 @define('INSTALL_ACL_DESC', 'Jos otat käyttöön voit rajoittaa sisäänkirjautuneiden käyttäjien lukuoikeuksia. Jos et ota käyttöön blogisi on hivenen nopeampi. Jos et tarvitse eritasoisia lukuoikeuksia blogissasi, älä ota tätä käyttöön.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Syntaksi virhe asetuksessa "%s". Haluttu tyyppi on "%s".');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Nykyinen salasana');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Jos vaihdoit yllä salasanaasi, kirjoita nykyinen tähän.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Nykyinen salasanasi meni väärin, salasanaa ei vaihdettu. Asetuksia ei talletettu.');

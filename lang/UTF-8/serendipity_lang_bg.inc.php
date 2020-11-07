@@ -818,7 +818,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_ACL', 'Прилагане на позволение за четене към категории');
 @define('INSTALL_ACL_DESC', 'Ако е активирано, позволенията на потребителските групи, настроени за категориите, ще бъдат прилагани към влезли потребители, които четат вашия блог. Ако е деактивирано, правата за четене на категории НЕ се прилагат, но положителният ефект от това е малко ускоряване на блога. Така че ако не се нуждаете от многопотребителски права за четене, деактивирайте тази възможност.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Синтаксисът на настройка е сбъркан за опция "%s". Очаква се съдържание от тип "%s".');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Стара парола');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Ако смените паролата в горното поле, трябва да въведете текущата парола в това поле.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Не зададохте правилно старата си парола и не сте удостоверени за смяна с нова парола. Вашите настройки не са запазени.');

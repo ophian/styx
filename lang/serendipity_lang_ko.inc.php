@@ -816,7 +816,7 @@
 @define('INSTALL_ACL', '범주에 대한 읽기 권한 적용');
 @define('INSTALL_ACL_DESC', '사용할 경우 로그인한 사용자가 당신의 블로그를 읽을 때 각 범주에 대해 지정한 사용자 권한 설정이 적용됩니다. 사용하지 않을 경우 범주에 대한 읽기 권한이 적용되지 않게 되지만 블로그 속도가 약간 빨라지는 장점이 있습니다. 그러므로 블로그에 대한 다중 사용자 읽기 권한이 필요 없다면 이 설정을 끄십시오.');
 @define('PLUGIN_API_VALIDATE_ERROR', '옵션 "%s"에 대한 설정 구문이 잘못되었습니다. "%s" 종류에 해당하는 내용이 필요합니다.');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', '이전 암호');
 @define('USERCONF_CHECK_PASSWORD_DESC', '위의 적힌 암호를 변경하려면 여기에 현재 사용중인 암호를 적으십시오.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '이전 암호가 올바르지 않으므로 새 암호로 변경할 권한이 없습니다. 설정이 저장되지 않았습니다.');

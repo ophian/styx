@@ -819,7 +819,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('INSTALL_ACL', 'Zastosuj ograniczenia dostępu dla kategorii');
 @define('INSTALL_ACL_DESC', 'Jeśli to ustawienie zostanie włączone, będą stosowane ogranieczenia dostępu do kategorii podczas przeglądania wpisów przez zalogowanych użytkowników. Jeśli ustawienie to zostanie wyłączone, takie ogranieczenia NIE będą stosowane. Pozytywnym efektem wyłączenia tej opcji jest przyspieszenie pracy silnika bloga. Jeśli więc nie musisz stosować ograniczeń dostępu do kategorii - wyłącz tę opcję.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Błędnie wprowadzone ustawienie dla opcji "%s". Ustwienie powinno być następującego typu: "%s".');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Stare hasło');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Jeśli zmienisz hasło w polu powyżej, musisz w tym polu wpisać aktualne hasło');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Wpisałeś(aś) niepoprawne stare hasło i nie jesteś upoważniona do zmiany nowego hasła. Twoje ustawienia NIE zostaną zapisane.');

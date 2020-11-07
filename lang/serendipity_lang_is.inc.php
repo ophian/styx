@@ -815,7 +815,7 @@
 @define('INSTALL_ACL', 'Bæta við lesréttindum fyrir flokka');
 @define('INSTALL_ACL_DESC', 'Ef virkjað munu réttindi notendahópa sem þú settir upp virkjuð þegar innskráðir notendur skoða bloggið þitt. Ef óvirkjað eru lesréttindi flokkanna ekki virkjuð en jákvæðu áhrifin eru örlítið hraðari afköst kerfissins. Ef þú þarft ekki fjöldanotenda lesréttindi er skynsamlegt að óvirkja þetta.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Stilling stika fyrir röng fyrir valmöguleika "%s". Þarf gagnategund af gerð "%s".');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Núverandi lykilorð');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Ef þú breytir lykilorðinu í svæðinu að ofan þarftu að slá inn núverandi lykilorð inn í þetta svæði.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Þú slóst ekki inn rétt núverandi lykilorð, og getur því ekki breytt lykilorðinu. Nýjar stillingar ekki vistaðar.');

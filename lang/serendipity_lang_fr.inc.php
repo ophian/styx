@@ -820,7 +820,7 @@
 @define('INSTALL_ACL', 'Appliquer les autorisations pour les catégories');
 @define('INSTALL_ACL_DESC', 'Si vous activez cette option, les autorisations que vous définissez pour les catégories seront utilisées pour les utilisateurs authentifiés visitant votre blog. Autrement, les autorisations ne sont PAS vérifiées, mais votre blog sera un peu plus rapide. Si vous n\'avez pas besoin d\'autorisations multi-utilisateurs pour votre blog, vous devriez désactiver cette option.');
 @define('PLUGIN_API_VALIDATE_ERROR', 'Syntaxe non valide pour l\'option "%s". Une valeur de type "%s" est requise.');
-@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after they have been sent. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
+@define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Ancien mot de passe');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Si vous changez le mot de passe dans le champ ci-dessus, vous devez entrer le mot de passe actuel dans ce champ.');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Vous n\'avez pas entré l\'ancien mot de passe correct, et vous n\'êtes pas autorisé à définir un nouveau mot de passe. Les données n\'ont pas été sauvegardées.');
