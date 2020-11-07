@@ -37,7 +37,7 @@ Version 3.2-DEV ()
               easily by hand;
     -     OR: Rename that image back via MediaLibrary to its origin name and then
               just rename it again.
-    -     OR: (see bulk move fix 3rd solution note)
+    -     OR: (see upper bulk move fix 3rd solution note)
 
   * Improve media and theme grid per cookie remembrance
 
