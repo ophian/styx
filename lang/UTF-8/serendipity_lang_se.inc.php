@@ -108,7 +108,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Innehåller en liten snutt HTML i din sidonavigator');
 @define('TITLE_FOR_NUGGET', 'Titel på HTML-snutten');
 @define('THE_NUGGET', 'HTML-snutten!');
-@define('SYNDICATE_THIS_BLOG', 'Syndikera denna blogg');
+@define('SYNDICATE_THIS_BLOG', 'Prenumerera på den här bloggen');
 @define('YOU_CHOSE', 'Du valde %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotera bilden 90 grader motsols');
 @define('IMAGE_ROTATE_RIGHT', 'Rotera bilden 90 grader medsols');
@@ -1065,7 +1065,6 @@
 @define('INSTALL_DBPREFIX_INVALID', 'The database table name prefix must not be empty and may only contain letters, numbers and the underscore character.');
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
-@define('SYNDICATE_THIS_BLOG', 'Subscribe');
 @define('INSTALL_BACKENDPOPUP', 'Enable use of popup windows for the backend');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', 'stable');

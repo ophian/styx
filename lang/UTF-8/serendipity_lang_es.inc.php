@@ -114,7 +114,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Presenta un fragmento de HTML en la barra lateral');
 @define('TITLE_FOR_NUGGET', 'Título para el fragmento de HTML');
 @define('THE_NUGGET', '¡Fragmento de HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Sindica este blog');
+@define('SYNDICATE_THIS_BLOG', 'Suscríbete a este blog');
 @define('YOU_CHOSE', 'Elige %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');
@@ -1088,7 +1088,6 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('INSTALL_DBPREFIX_INVALID', 'The database table name prefix must not be empty and may only contain letters, numbers and the underscore character.');
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
-@define('SYNDICATE_THIS_BLOG', 'Subscribe');
 @define('INSTALL_BACKENDPOPUP', 'Enable use of popup windows for the backend');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', 'stable');

@@ -110,7 +110,7 @@
 @define('HOLDS_A_BLAHBLAH', '옆줄에 HTML이 들어있는 덩어리를 넣기');
 @define('TITLE_FOR_NUGGET', '덩어리 제목');
 @define('THE_NUGGET', 'HTML 덩어리를 넣으세요!');
-@define('SYNDICATE_THIS_BLOG', '블로그 중개하기');
+@define('SYNDICATE_THIS_BLOG', '이 블로그 구독');
 @define('YOU_CHOSE', '%s(을)를 골랐습니다');
 @define('IMAGE_ROTATE_LEFT', '시계 반대방향으로 90도 회전하기');
 @define('IMAGE_ROTATE_RIGHT', '시계 방향으로 90도 회전하기');
@@ -1066,7 +1066,6 @@
 @define('INSTALL_DBPREFIX_INVALID', '데이터베이스 테이블 이름의 접두사는 비워둘 수 없으며 영문자, 숫자, 그리고 밑줄 문자("_")만 허용됩니다.');
 @define('SYNDICATION_PLUGIN_SUBTOME', '서브투미(subToMe)');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
-@define('SYNDICATE_THIS_BLOG', '구독하기');
 @define('INSTALL_BACKENDPOPUP', '관리 페이지에서 팝업 창을 사용할 수 있게 함');
 @define('INSTALL_BACKENDPOPUP_DESC', 'Do you want to use popup windows for some backend functionality? When disabled (default), inline modal dialogs will be used for e.g. the category selector and media library. On the other hand this popup-window option only works for some elements, like the media library and some plugins. Others, like categories, will show up embedded.');
 @define('UPDATE_STABLE', '안정화 버전');
