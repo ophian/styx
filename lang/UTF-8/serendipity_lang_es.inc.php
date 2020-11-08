@@ -197,7 +197,6 @@
 @define('ENTER_NEW_NAME', 'Introduzca el nuevo nombre para: ');
 @define('RESIZING', 'Cambiando el tamaño');
 @define('RESIZE_DONE', 'Terminado (las imágenes %s cambiaron de tamaño).');
-@define('DELETE_THUMBNAIL', 'Eliminada la imagen miniatura llamada <b>%s</b>');
 @define('FILE_NOT_FOUND', 'No es posible encontrar el fichero con nombre <b>%s</b>, ¿es posible que lo haya borrado ya?');
 @define('ABORT_NOW', 'Salir ahora');
 @define('REMOTE_FILE_NOT_FOUND', 'El fichero no fue localizado en el servidor remoto, ¿estás seguro de que la URL: <b>%s</b> es correcta?');
@@ -522,6 +521,7 @@
 @define('VIEW_COMMENT', 'Ver comentario');
 @define('VIEW_ENTRY', 'Ver entrada');
 @define('DELETE_FILE_FAIL', 'No se pudo borrar el archivo <b>%s</b>');
+@define('DELETE_THUMBNAIL', 'Eliminada la imagen miniatura llamada <b>%s</b>');
 @define('DELETE_FILE', 'Borrado el fichero llamado <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'Estás a punto de borrar <b>%s</b><br>Si estás usando este fichero en alguna de tus entradas, esto causará enlaces o imágenes rotos<br>¿Estás seguro de que quieres seguir?<br><br>');
 @define('TRACKBACK_SENDING', 'Enviando referencia a la URI %s...');
