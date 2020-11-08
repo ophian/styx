@@ -707,7 +707,7 @@
 @define('INSTALL_PERMALINK_CATEGORY', 'ساختار لینک های همیشگی موضوعات');
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'در اینجا می توانید ساختار آدرس نسبی، نسبت به آدرس پایه، برای ارسال های یک نویسنده خاص را تعیین کنید. شما می توانید از متغیر های %id%, %name%, %parentname%, %description% و هر نوع حرف دیگر استفاده کنید.');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'ساختار لینک های همیشگی موضوعات RSS');
-@define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'در اینجا می توانید ساختار آدرس نسبی، نسبت به آدرس پایه، برای RSS های ارسال ها را تعیین کنید. شما می توانید از متغیر های %id%، %title%، %day%، %month%، %year% و هر نوع حرف دیگر استفاده کنید.');
+@define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'در اینجا می توانید ساختار آدرس نسبی، نسبت به آدرس پایه، برای RSS های ارسال ها را تعیین کنید. شما می توانید از متغیر های %id%, %name%, %description% و هر نوع حرف دیگر استفاده کنید.');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'مسیر به بایگانی ها');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'مسیر به بایگانی');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'مسیر به موضوعات');

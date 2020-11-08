@@ -709,7 +709,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALL_PERMALINK_CATEGORY', 'Структура постоянных ссылок для категорий');
 @define('INSTALL_PERMALINK_CATEGORY_DESC', 'Здесь вы можете определить структуру относительных адресов, начинающихся с вашего основного адреса, по которому будут доступны записи из отдельных категорий. Вы можете использовать переменные %id%, %name%, %parentname%, %description% и любые другие символы.');
 @define('INSTALL_PERMALINK_FEEDCATEGORY', 'Структура постоянных ссылок для RSS-Feed');
-@define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Здесь вы можете определить структуру относительных адресов, начинающихся с вашего основного адреса, по которому будут доступны RSS-feeds из отдельных категорий. Вы можете использовать переменные %id%, %title%  и любые другие символы.');
+@define('INSTALL_PERMALINK_FEEDCATEGORY_DESC', 'Здесь вы можете определить структуру относительных адресов, начинающихся с вашего основного адреса, по которому будут доступны RSS-feeds из отдельных категорий. Вы можете использовать переменные %id%, %name%, %description% и любые другие символы.');
 @define('INSTALL_PERMALINK_ARCHIVESPATH', 'Путь к архивам');
 @define('INSTALL_PERMALINK_ARCHIVEPATH', 'Путь к архиву');
 @define('INSTALL_PERMALINK_CATEGORIESPATH', 'Путь к категориям');
