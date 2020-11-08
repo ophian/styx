@@ -11,6 +11,9 @@
 @define('DATE_FORMAT_ENTRY', '%A, %e de %B de %Y');
 @define('DATE_FORMAT_SHORT', '%d/%m/%Y %H:%M');
 @define('WYSIWYG_LANG', 'pt_BR');
+@define('NUMBER_FORMAT_DECIMALS', '2');
+@define('NUMBER_FORMAT_DECPOINT', ',');
+@define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('LANG_DIRECTION', 'ltr');
 
 @define('SERENDIPITY_ADMIN_SUITE', 'Painel de Administração do Serendipity Styx');
@@ -521,9 +524,6 @@
 @define('COMMENTS_VIEWMODE_THREADED', 'Discussão');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Seqüencial');
 @define('DISPLAY_COMMENTS_AS', 'Exibir comentários como');
-@define('NUMBER_FORMAT_DECIMALS', '2');
-@define('NUMBER_FORMAT_DECPOINT', ',');
-@define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('CATEGORY_DELETED_ARTICLES_MOVED', 'Categoria #%s excluída. Os artigos antigos foram movidos para a categoria #%s');
 @define('INSTALL_TOP_AS_LINKS', 'Exibir maiores saídas/referências como links?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"não": Saídas e Referências são exibidas como puro texto para prevenir spam do Google. "sim": Saídas e Referências são exibidas como links. "padrão": Usa o valor definido na configuração global (recomendado).');

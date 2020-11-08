@@ -526,9 +526,6 @@
 @define('COMMENTS_VIEWMODE_THREADED', 'Discussão');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Sequencial');
 @define('DISPLAY_COMMENTS_AS', 'Exibir comentários como');
-@define('NUMBER_FORMAT_DECIMALS', '2');
-@define('NUMBER_FORMAT_DECPOINT', ',');
-@define('NUMBER_FORMAT_THOUSANDS', '.');
 @define('CATEGORY_DELETED_ARTICLES_MOVED', 'Categoria #%s excluída. Os artigos antigos foram movidos para a categoria #%s');
 @define('INSTALL_TOP_AS_LINKS', 'Exibir maiores saídas/referências como links?');
 @define('INSTALL_TOP_AS_LINKS_DESC', '"não": Saídas e Referências são exibidas como puro texto para prevenir spam do Google. "sim": Saídas e Refrências são exibidas como links. "padrão": Usa o valor definido na configuração global (recomendado).');
