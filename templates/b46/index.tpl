@@ -117,7 +117,7 @@
     <a id="to-sdb"></a>
 {if $template_option.bs_rss}
     <section class="serendipity_plugin_rsslinks mb-3">
-        <h3>{$CONST.SYNDICATE_THIS_BLOG}</h3>
+        <h3>{$CONST.SUBSCRIBE_TO_BLOG}</h3>
 
         <ul class="plainList">
             <li>
