@@ -110,7 +110,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Site Yan Bloğunda HTML eklemek için ayrılan bölüm');
 @define('TITLE_FOR_NUGGET', 'Eklenen HTML Bölümü için başlık');
 @define('THE_NUGGET', 'HTML Bölümü!');
-@define('SYNDICATE_THIS_BLOG', 'Siteye Abone Ol');
+@define('SUBSCRIBE_TO_BLOG', 'Siteye Abone Ol');
 @define('YOU_CHOSE', 'Seçiminiz %s');
 @define('IMAGE_ROTATE_LEFT', 'Resmi akrep yönünde 90 derece döndür');
 @define('IMAGE_ROTATE_RIGHT', 'Resmi saat yönünde 90 derece döndür');

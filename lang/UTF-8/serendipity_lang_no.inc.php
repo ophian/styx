@@ -104,7 +104,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Inneholder en bit HTML i din sidebar');
 @define('TITLE_FOR_NUGGET', 'Tittel på din nugget');
 @define('THE_NUGGET', 'HTML-innholdet av din nugget');
-@define('SYNDICATE_THIS_BLOG', 'Syndiker denne bloggen');
+@define('SUBSCRIBE_TO_BLOG', 'Syndiker denne bloggen');
 @define('YOU_CHOSE', 'Du valgte %s');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Bildestørrelse');

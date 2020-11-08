@@ -109,7 +109,7 @@
 @define('HOLDS_A_BLAHBLAH', 'تکه کدی از HTML را در نوار کناری داشته باشید');
 @define('TITLE_FOR_NUGGET', 'تیتر تکه کد HTML');
 @define('THE_NUGGET', 'تکه کد HTML!');
-@define('SYNDICATE_THIS_BLOG', 'متحد شدن با این وبلاگ');
+@define('SUBSCRIBE_TO_BLOG', 'متحد شدن با این وبلاگ');
 @define('YOU_CHOSE', 'شما %s را انتخاب کردید');
 @define('IMAGE_ROTATE_LEFT', 'عکس را 90 درجه بر خلاف حرکت عقربه های ساعت بچرخان');
 @define('IMAGE_ROTATE_RIGHT', 'عکس را 90 درجه در جهت حرکت عقربه های ساعت بچرخان');

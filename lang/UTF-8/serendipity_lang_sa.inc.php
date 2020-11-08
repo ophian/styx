@@ -109,7 +109,7 @@
 @define('HOLDS_A_BLAHBLAH', 'هذه الاجراءات ستظهر في القوائم الجانبية للمدونة');
 @define('TITLE_FOR_NUGGET', 'عنوان كتلة العمل');
 @define('THE_NUGGET', 'إجراءات بصيغة HTML!');
-@define('SYNDICATE_THIS_BLOG', 'يمكنك أخذ نسخة للطباعة بأحدى هذه الصيغ');
+@define('SUBSCRIBE_TO_BLOG', 'يمكنك أخذ نسخة للطباعة بأحدى هذه الصيغ');
 @define('YOU_CHOSE', 'اختيارك %s');
 @define('IMAGE_ROTATE_LEFT', 'ادر الصورة 90 درجة بأتجاه عقارب الساعة');
 @define('IMAGE_ROTATE_RIGHT', 'ادر الصورة 90 درجة بأتجاه عقارب الساعة');

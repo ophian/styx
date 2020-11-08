@@ -109,7 +109,7 @@
 @define('HOLDS_A_BLAHBLAH', 'ЕпЕ гАглягагй сйыЕя щМ гАчФгфЦ гАлгДхМи ААЦоФДи');
 @define('TITLE_FOR_NUGGET', 'зДФгД ъйАи гАзЦА');
 @define('THE_NUGGET', 'елягагй хуМши HTML!');
-@define('SYNDICATE_THIS_BLOG', 'МЦъДъ цнп Дсни ААьхгзи хцмоЛ ЕпЕ гАуМш');
+@define('SUBSCRIBE_TO_BLOG', 'МЦъДъ цнп Дсни ААьхгзи хцмоЛ ЕпЕ гАуМш');
 @define('YOU_CHOSE', 'гнйМгяъ %s');
 @define('IMAGE_ROTATE_LEFT', 'гоя гАуФяи 90 ояли хцйлгЕ зчгях гАсгзи');
 @define('IMAGE_ROTATE_RIGHT', 'гоя гАуФяи 90 ояли хцйлгЕ зчгях гАсгзи');

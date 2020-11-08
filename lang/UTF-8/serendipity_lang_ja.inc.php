@@ -108,7 +108,7 @@
 @define('HOLDS_A_BLAHBLAH', 'サイドバーに HTML の情報(ナゲット)を保持します。');
 @define('TITLE_FOR_NUGGET', 'ナゲットの題名');
 @define('THE_NUGGET', 'HTML の塊です!');
-@define('SYNDICATE_THIS_BLOG', 'このブログの配信');
+@define('SUBSCRIBE_TO_BLOG', 'このブログの配信');
 @define('YOU_CHOSE', 'あなたは %s を選択しました。');
 @define('IMAGE_ROTATE_LEFT', '左回り(時計と反対回り)に 90 度回転する');
 @define('IMAGE_ROTATE_RIGHT', '右回り(時計回り)に 90 度回転する');

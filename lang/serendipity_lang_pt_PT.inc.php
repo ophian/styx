@@ -110,7 +110,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Apresenta um fragmento de HTML na sua barra lateral');
 @define('TITLE_FOR_NUGGET', 'Título para o fragmento de HTML');
 @define('THE_NUGGET', 'Fragmento de HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Inscreva-se neste Blogue');
+@define('SUBSCRIBE_TO_BLOG', 'Inscreva-se neste Blogue');
 @define('YOU_CHOSE', 'Escolheu %s');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Tamanho da imagem');

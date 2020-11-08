@@ -110,7 +110,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('HOLDS_A_BLAHBLAH', 'Umożliwia wprowadzenie kodu HTML. Efekt działania kodu będzie wyświetlany w Panelu Bocznym');
 @define('TITLE_FOR_NUGGET', 'Tytuł elementu wyświetlany na Panelu Bocznym');
 @define('THE_NUGGET', 'Kod HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Subskrybcja');
+@define('SUBSCRIBE_TO_BLOG', 'Subskrybcja');
 @define('YOU_CHOSE', 'Wybrano %s');
 @define('IMAGE_ROTATE_LEFT', 'Obróć obrazek 90 stopni w lewo');
 @define('IMAGE_ROTATE_RIGHT', 'Obróć obrazek 90 stopni w prawo');

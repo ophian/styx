@@ -108,7 +108,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Lisää HTML-raapaleen sivupalstaan');
 @define('TITLE_FOR_NUGGET', 'Raapaleen otsikko');
 @define('THE_NUGGET', 'HTML-raapale!');
-@define('SYNDICATE_THIS_BLOG', 'Kanavoi tästä blogista!');
+@define('SUBSCRIBE_TO_BLOG', 'Kanavoi tästä blogista!');
 @define('YOU_CHOSE', 'Valitsit %s');
 @define('IMAGE_ROTATE_LEFT', 'Käännä kuvaa 90 astetta vastapäivään');
 @define('IMAGE_ROTATE_RIGHT', 'Käännä kuvaa 90 astetta myötäpäivään');

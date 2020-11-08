@@ -108,7 +108,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Innehåller en liten snutt HTML i din sidonavigator');
 @define('TITLE_FOR_NUGGET', 'Titel på HTML-snutten');
 @define('THE_NUGGET', 'HTML-snutten!');
-@define('SYNDICATE_THIS_BLOG', 'Prenumerera på den här bloggen');
+@define('SUBSCRIBE_TO_BLOG', 'Prenumerera på den här bloggen');
 @define('YOU_CHOSE', 'Du valde %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotera bilden 90 grader motsols');
 @define('IMAGE_ROTATE_RIGHT', 'Rotera bilden 90 grader medsols');

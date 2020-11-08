@@ -108,7 +108,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Elhelyez egy HTML-töredéket a margóra');
 @define('TITLE_FOR_NUGGET', 'A töredék címe');
 @define('THE_NUGGET', 'A HTML-töredék!');
-@define('SYNDICATE_THIS_BLOG', 'Feliratkozás erre a blog-ra');
+@define('SUBSCRIBE_TO_BLOG', 'Feliratkozás erre a blog-ra');
 @define('YOU_CHOSE', 'Ezt választottad: %s');
 @define('IMAGE_ROTATE_LEFT', 'A kép 90 fokos elforgatása az óramutató járásával ellentétes irányba');
 @define('IMAGE_ROTATE_RIGHT', 'A kép 90 fokos elforgatása az óramutató járásával megegyező irányba');

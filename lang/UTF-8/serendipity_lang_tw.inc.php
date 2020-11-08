@@ -110,7 +110,7 @@ $i18n_unknown = 'tw';
 @define('HOLDS_A_BLAHBLAH', '顯示 HTML 訊息到側列');
 @define('TITLE_FOR_NUGGET', '訊息的標題');
 @define('THE_NUGGET', 'HTML 訊息!');
-@define('SYNDICATE_THIS_BLOG', '同步這個日記');
+@define('SUBSCRIBE_TO_BLOG', '同步這個日記');
 @define('YOU_CHOSE', '您選擇 %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');

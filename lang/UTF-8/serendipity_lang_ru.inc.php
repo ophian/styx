@@ -110,7 +110,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('HOLDS_A_BLAHBLAH', 'Добавляет фрагмент HTML кода в вашу боковую панель');
 @define('TITLE_FOR_NUGGET', 'Заголовок вашего фрагмента');
 @define('THE_NUGGET', 'Фрагмент HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Новостные ленты');
+@define('SUBSCRIBE_TO_BLOG', 'Новостные ленты');
 @define('YOU_CHOSE', 'Вы выбрали %s');
 @define('IMAGE_ROTATE_LEFT', 'Повернуть изображение на 90 градусов против часовой стрелки');
 @define('IMAGE_ROTATE_RIGHT', 'Повернуть изображение на 90 градусов по часовой стрелке');

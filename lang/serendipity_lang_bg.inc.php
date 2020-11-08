@@ -107,7 +107,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('HOLDS_A_BLAHBLAH', 'Държане на блок на HTML в страничната лента');
 @define('TITLE_FOR_NUGGET', 'Заглавие на блок на HTML');
 @define('THE_NUGGET', 'Блок на HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Абонирайте се за този блог');
+@define('SUBSCRIBE_TO_BLOG', 'Абонирайте се за този блог');
 @define('YOU_CHOSE', 'Вие избрахте %s');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Големина на изображение');

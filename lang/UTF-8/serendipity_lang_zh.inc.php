@@ -110,7 +110,7 @@
 @define('HOLDS_A_BLAHBLAH', '显示 HTML 讯息到侧列');
 @define('TITLE_FOR_NUGGET', '信息标题');
 @define('THE_NUGGET', 'HTML 讯息');
-@define('SYNDICATE_THIS_BLOG', '集合菜单');
+@define('SUBSCRIBE_TO_BLOG', '集合菜单');
 @define('YOU_CHOSE', '你选择 %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');

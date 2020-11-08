@@ -114,7 +114,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Presenta un fragmento de HTML en la barra lateral');
 @define('TITLE_FOR_NUGGET', 'Título para el fragmento de HTML');
 @define('THE_NUGGET', '¡Fragmento de HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Suscríbete a este blog');
+@define('SUBSCRIBE_TO_BLOG', 'Suscríbete a este blog');
 @define('YOU_CHOSE', 'Elige %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');

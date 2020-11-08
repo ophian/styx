@@ -110,7 +110,7 @@
 @define('HOLDS_A_BLAHBLAH', '옆줄에 HTML이 들어있는 덩어리를 넣기');
 @define('TITLE_FOR_NUGGET', '덩어리 제목');
 @define('THE_NUGGET', 'HTML 덩어리를 넣으세요!');
-@define('SYNDICATE_THIS_BLOG', '이 블로그 구독');
+@define('SUBSCRIBE_TO_BLOG', '이 블로그 구독');
 @define('YOU_CHOSE', '%s(을)를 골랐습니다');
 @define('IMAGE_ROTATE_LEFT', '시계 반대방향으로 90도 회전하기');
 @define('IMAGE_ROTATE_RIGHT', '시계 방향으로 90도 회전하기');

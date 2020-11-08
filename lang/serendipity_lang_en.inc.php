@@ -108,7 +108,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Holds a nugget of HTML in your sidebar');
 @define('TITLE_FOR_NUGGET', 'Title for the nugget');
 @define('THE_NUGGET', 'The Nugget of HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Subscribe to this blog');
+@define('SUBSCRIBE_TO_BLOG', 'Subscribe to this blog');
 @define('YOU_CHOSE', 'You chose %s');
 @define('IMAGE_ROTATE_LEFT', 'Rotate image 90 degrees counter-clockwise');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate image 90 degrees clockwise');

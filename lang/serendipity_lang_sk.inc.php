@@ -121,7 +121,7 @@ $i18n_filename_to = array (
 @define('HOLDS_A_BLAHBLAH', 'Vlo¾enie HTML kódu do krajného ståpca');
 @define('TITLE_FOR_NUGGET', 'Názov HTML kódu');
 @define('THE_NUGGET', 'Vlo¾ené HTML');
-@define('SYNDICATE_THIS_BLOG', 'Odobera» tento weblog');
+@define('SUBSCRIBE_TO_BLOG', 'Odobera» tento weblog');
 @define('YOU_CHOSE', 'Vybrali ste %s');
 @define('IMAGE_ROTATE_LEFT', 'Otoèi» o 90 stupòov vµavo');
 @define('IMAGE_ROTATE_RIGHT', 'Otoèi» o 90 stupòov vpravo');

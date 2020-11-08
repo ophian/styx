@@ -107,7 +107,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Zeigt einen kleinen Klotz HTML-Code in einer der Seitenleisten an');
 @define('TITLE_FOR_NUGGET', 'Titel für den Klotz');
 @define('THE_NUGGET', 'Der HTML-Klotz!');
-@define('SYNDICATE_THIS_BLOG', 'Blog abonnieren');
+@define('SUBSCRIBE_TO_BLOG', 'Blog abonnieren');
 @define('YOU_CHOSE', 'Sie haben sich für %s entschieden');
 @define('FILE_SIZE', 'Dateigröße');// keep short!
 @define('IMAGE_SIZE', 'Bildgröße');

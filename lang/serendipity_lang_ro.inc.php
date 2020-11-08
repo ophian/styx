@@ -109,7 +109,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Menţine un fragment HTML în bara laterală');
 @define('TITLE_FOR_NUGGET', 'Titlul fragmentului');
 @define('THE_NUGGET', 'Fragmentul HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Publică acest Blog');
+@define('SUBSCRIBE_TO_BLOG', 'Publică acest Blog');
 @define('YOU_CHOSE', 'Ai ales %s');
 @define('IMAGE_ROTATE_LEFT', 'Roteşte imaginea 90 grade în sens invers acelor de ceas');
 @define('IMAGE_ROTATE_RIGHT', 'Rotate imaginea 90 grade în sensul acelor de ceas');

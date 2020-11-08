@@ -110,7 +110,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Permet d\'afficher des contenus personnalisés au format HTML dans la barre latérale');
 @define('TITLE_FOR_NUGGET', 'Titre du bloc HTML');
 @define('THE_NUGGET', 'Contenu du bloc HTML');
-@define('SYNDICATE_THIS_BLOG', 'Abonnez-vous à ce blog');
+@define('SUBSCRIBE_TO_BLOG', 'Abonnez-vous à ce blog');
 @define('YOU_CHOSE', 'Vous avez choisi %s');
 @define('FILE_SIZE', 'File size');// keep short!
 @define('IMAGE_SIZE', 'Taille de l\'image');

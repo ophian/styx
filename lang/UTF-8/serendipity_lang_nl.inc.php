@@ -111,7 +111,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Een stukje waarin u uw eigen HTML-tekst kunt schrijven, deze verschijnt aan de zijkant');
 @define('TITLE_FOR_NUGGET', 'Titel van het blokje');
 @define('THE_NUGGET', 'Het blokje HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Abonneren op dit weblog');
+@define('SUBSCRIBE_TO_BLOG', 'Abonneren op dit weblog');
 @define('YOU_CHOSE', 'U koos voor %s');
 @define('IMAGE_ROTATE_LEFT', 'Roteer de afbeelding 90 graden tegen de klok in');
 @define('IMAGE_ROTATE_RIGHT', 'Roteer de afbeelding 90 graden met de klok mee');

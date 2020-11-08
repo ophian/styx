@@ -108,7 +108,7 @@
 @define('HOLDS_A_BLAHBLAH', 'Stubbur fyrir HTML í hliðarrammann þinn');
 @define('TITLE_FOR_NUGGET', 'Titill fyrir stubbinn');
 @define('THE_NUGGET', 'Stubbur HTML!');
-@define('SYNDICATE_THIS_BLOG', 'Skráðu RSS fyrir þetta blogg');
+@define('SUBSCRIBE_TO_BLOG', 'Skráðu RSS fyrir þetta blogg');
 @define('YOU_CHOSE', 'Þú valdir %s');
 @define('IMAGE_ROTATE_LEFT', 'Snúa mynd 90 gráður rangsælis');
 @define('IMAGE_ROTATE_RIGHT', 'Snúa mynd 90 gráður réttsælis');
