@@ -166,7 +166,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('RIP_ENTRY', 'Запись #%s удалена');
 @define('CATEGORY_DELETED_ARTICLES_MOVED', 'Категория #%s удалена. Старые записи перемещены в категорию #%s');
 @define('CATEGORY_DELETED', 'Категория #%s удалена.');
-@define('CATEGORY_REMAINING', 'Удалить эту категорию и переместить её записи в следующую категорию: %s');
 @define('INVALID_CATEGORY', 'Не было указано категории для удаления');
 @define('CATEGORY_SAVED', 'Данные о категории сохранены');
 @define('SELECT_TEMPLATE', 'Выберите стиль, который вы хотите использовать для вашего блога');
