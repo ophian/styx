@@ -526,7 +526,6 @@
 @define('COMMENTS_VIEWMODE_THREADED', 'Discussão');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Sequencial');
 @define('DISPLAY_COMMENTS_AS', 'Exibir comentários como');
-@define('DATE_FORMAT_SHORT', '%d/%m/%Y %H:%M');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', ',');
 @define('NUMBER_FORMAT_THOUSANDS', '.');

@@ -9,6 +9,7 @@
 @define('SQL_CHARSET', 'utf8');
 @define('DATE_LOCALES', 'pt_BR.UTF-8, pt_BR.UTF8, pt_BR, portuguese brazilian, pt-br, pt');
 @define('DATE_FORMAT_ENTRY', '%A, %e de %B de %Y');
+@define('DATE_FORMAT_SHORT', '%d/%m/%Y %H:%M');
 @define('WYSIWYG_LANG', 'pt_BR');
 @define('LANG_DIRECTION', 'ltr');
 
@@ -520,7 +521,6 @@
 @define('COMMENTS_VIEWMODE_THREADED', 'Discussão');
 @define('COMMENTS_VIEWMODE_LINEAR', 'Seqüencial');
 @define('DISPLAY_COMMENTS_AS', 'Exibir comentários como');
-@define('DATE_FORMAT_SHORT', '%d/%m/%Y %H:%M');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', ',');
 @define('NUMBER_FORMAT_THOUSANDS', '.');
