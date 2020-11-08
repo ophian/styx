@@ -197,8 +197,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Готово (синхронизирани са %s изображения).');
-@define('DELETE_FILE_FAIL', 'Не може да бъде изтрит файла <b>%s</b>');
-@define('DELETE_THUMBNAIL', 'Изтрита е миниатюрата, озаглавена <b>%s</b>');
 @define('FILE_NOT_FOUND', 'Не може да бъде открит файлът, озаглавен <b>%s</b>. Може би вече е изтрит?');
 @define('ABORT_NOW', 'Прекъсване на действието сега');
 @define('REMOTE_FILE_NOT_FOUND', 'Файлът не е намерен на отдалечения сървър, сигурен ли сте, че адресът <b>%s</b> е верен?');
@@ -319,6 +317,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DELETE_SELECTED_COMMENTS', 'Изтриване на отбелязаните коментари');
 @define('VIEW_COMMENT', 'Преглед на коментар');
 @define('VIEW_ENTRY', 'Преглед на статия');
+@define('DELETE_FILE_FAIL', 'Не може да бъде изтрит файла <b>%s</b>');
+@define('DELETE_THUMBNAIL', 'Изтрита е миниатюрата, озаглавена <b>%s</b>');
 @define('DELETE_FILE', 'Изтрит е файла, озаглавен <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'На път сте да изтриете <b>%s</b><br>Ако използвате този файл в някоя от вашите статии, това ще предизвика мъртви връзки или липсващи изображения<br>Сигурни ли сте, че искате да продължите?<br><br>');
 @define('TRACKBACK_SENDING', 'Изпращане на проследяване към URI-то %s...');
