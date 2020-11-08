@@ -96,7 +96,7 @@
             <aside class="col-xs-12 col-lg-4">
             {if $template_option.bs_rss}
                 <section class="serendipity_plugin_rsslinks mb-3">
-                    <h3>{$CONST.SYNDICATE_THIS_BLOG}</h3>
+                    <h3>{$CONST.SUBSCRIBE_TO_BLOG}</h3>
 
                     <ul class="plainList">
                         <li><svg class="icon-rss" role="img" viewbox="0 0 1792 1792" width="1792" height="1792" aria-labelledby="title"><title id="title">XML</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#rss"></use></svg><a href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">{$CONST.ENTRIES} RSS</a></li>
