@@ -197,7 +197,6 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Færdig (Synkroniserede %s billeder).');
-@define('DELETE_IMAGE_FAIL' , 'Kunne ikke slette billedet <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Slettede billedet ved navn <b>%s</b>');
 @define('FILE_NOT_FOUND', 'Kunne ikke finde filen ved navn <b>%s</b>, måske er den allerede slettet?');
 @define('ABORT_NOW', 'Afbryd nu');
@@ -511,6 +510,7 @@
 @define('DELETE_SELECTED_COMMENTS', 'Slet valgte kommentarer');
 @define('VIEW_COMMENT', 'Vis kommentar');
 @define('VIEW_ENTRY', 'Vis artikel');
+@define('DELETE_FILE_FAIL', 'Kunne ikke slette filen <b>%s</b>');
 @define('DELETE_FILE', 'Slettede filen ved navn <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'Du er ved at slette <b>%s</b><br>Hvis du benytter denne fil i nogle af dine artikler, vil det resultere i døde links eller billeder<br>Er du sikker på du vil fortsætte?<br><br>');
 @define('TRACKBACK_SENDING', 'Sender trackback til URI %s...');

@@ -200,7 +200,6 @@
 @define('SYNC_OPTION_CONVERTTHUMBS', 'Convert old existing thumbnail names');
 @define('SYNC_OPTION_CONVERTTHUMBS_INFO', 'WARNING: This option is not active, as long the thumbSuffix has not changed.<br>It converts existing thumbnails, which are not named by the current thumbSuffix-scheme: <em>*.%s</em>, in the database, the filesystem and already used in entries to the same suffix naming scheme. This can take long! <b>It does not matter keeping them as is</b>, but to include them for the "Regenerate all" option, you need to do this first.');
 @define('SYNC_DONE', 'Terminé (%s images synchronisées).');
-@define('DELETE_IMAGE_FAIL' , 'Impossible de supprimer l\'image intitulée <b>%s</b>');
 @define('DELETE_THUMBNAIL', 'Suppression de la miniature de l\'image intitulée <b>%s</b>');
 @define('FILE_NOT_FOUND', 'Impossible de trouver le fichier intitulé <b>%s</b>, peut-être a-t-il déjà été supprimé ?');
 @define('ABORT_NOW', 'Annuler maintenant');
@@ -515,6 +514,7 @@
 @define('DELETE_SELECTED_COMMENTS', 'Supprimer les commentaires sélectionnés');
 @define('VIEW_COMMENT', 'Afficher le commentaire');
 @define('VIEW_ENTRY', 'Afficher le billet');
+@define('DELETE_FILE_FAIL', 'Impossible de supprimer le fichier <b>%s</b>');
 @define('DELETE_FILE', 'Suppression du fichier intitulé <b>%s</b>');
 @define('ABOUT_TO_DELETE_FILE', 'Vous êtes sur le point d\'effacer <b>%s</b>.<br>Si vous avez utilisé ce fichier dans un de vos billets, les liens vers celui-ci seront invalides<br>Êtes-vous sûr de vouloir continuer ?<br><br>');
 @define('TRACKBACK_SENDING', 'Envoie le rétrolien à l\'adresse %s...');
