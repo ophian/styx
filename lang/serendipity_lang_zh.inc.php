@@ -199,7 +199,6 @@
 @define('SERENDIPITY_NOT_INSTALLED', 'Serendipity 还没安装完成. 请按 <a href="%s">安装</a>.');
 @define('INCLUDE_ERROR', 'Serendipity 错误: 无法包括 %s - 退出！');
 @define('DATABASE_ERROR', 'Serendipity 错误: 无法连接到库 - 退出！');
-@define('CHECK_DATABASE_EXISTS', '检查数据库是否存在。 如果你看到数据库查询错误, 是否需要重装...');
 @define('CREATE_DATABASE', '建立预设数据库库设定...');
 @define('ATTEMPT_WRITE_FILE', '读写 %s 文件...');
 @define('WRITTEN_N_SAVED', '保存完毕');
@@ -620,7 +619,7 @@
 @define('EXPERT_INSTALLATION', '高级安装');
 @define('COMPLETE_INSTALLATION', '完整安装');
 @define('WONT_INSTALL_DB_AGAIN', '不会重复安装数据库');
-@define('CHECK_DATABASE_EXISTS', '检查数据是否存在');
+@define('CHECK_DATABASE_EXISTS', '检查数据库是否存在。 如果你看到数据库查询错误, 是否需要重装...');
 @define('CREATING_PRIMARY_AUTHOR', '设定管理员 \'%s\'');
 @define('SETTING_DEFAULT_TEMPLATE', '设定主题');
 @define('INSTALLING_DEFAULT_PLUGINS', '安装预设定外挂');
