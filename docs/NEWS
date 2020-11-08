@@ -1,6 +1,9 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Remove deprecated workarounds for wrong spelled separator plugin API config
+    types.
+
   * Add new generic lang info variable for plugins with suboption behaviour.
     Use by example() method.
 
