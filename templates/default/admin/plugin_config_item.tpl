@@ -1,5 +1,5 @@
 {* Use |cleanChars Serendipity Smarty modifier for info button click cases, since chars like dots, bangs, spaces, etc, which are not (A-Za-z0-9_-) break the expected behaviour! *}
-{if ($ctype == 'separator' OR $ctype == 'seperator')}{* compat - due to misspelled word 'seper...' *}
+{if $ctype == 'separator'}
 
     <hr class="config_separator">
 {elseif $ctype == 'suboption'}

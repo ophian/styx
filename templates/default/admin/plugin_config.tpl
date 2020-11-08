@@ -23,7 +23,7 @@
 
             <fieldset id="el{$config_groupkeys@iteration}" class="config_optiongroup{if $config_groupkeys@last} config_optiongroup_last{/if} additional_info">
             {foreach $config_groupkeys AS $config_groupkey}
-                {if isset($plugin_options[$config_groupkey]) AND in_array($plugin_options[$config_groupkey]['ctype'], ['separator', 'seperator'])}{* compat - due to misspelled word 'seper...' *}
+                {if isset($plugin_options[$config_groupkey]) AND $plugin_options[$config_groupkey]['ctype'] == 'separator'}
                     {$plugin_options[$config_groupkey]['config']}
                 {else}
 
@@ -42,7 +42,7 @@
 
     <div class="configuration_group main_group">
 {foreach $plugin_options_ungrouped AS $plugin_option}{if !isset($plugin_option)}{continue}{/if}
-    {if in_array($plugin_option['ctype'], ['separator', 'seperator', 'suboption', 'hidden'])}{* 'seper...' for compat, while being misspelled too long *}
+    {if in_array($plugin_option['ctype'], ['separator', 'suboption', 'hidden'])}
         {$plugin_option['config']}
     {else if !empty($plugin_option['config'])}
 
