@@ -2353,10 +2353,10 @@ h3 .media_file_actions {
 
 .compact .cat_view_pad,
 .compact_categories .cat_view_pad,
-.separator, .seperator {
+.separator {
     display: none !important;
     visibility: hidden;
-}/* compat - due to misspelled word 'seper...' */
+}
 
 .config_separator {
     visibility: hidden;

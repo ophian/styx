@@ -1929,10 +1929,10 @@ form > .button_link:first-of-type,
 }
 
 .compact_categories .cat_view_pad,
-.separator, .seperator {
+.separator {
     display: none !important;
     visibility: hidden;
-}/* compat - due to misspelled word 'seper...' */
+}
 
 .config_separator {
     visibility: hidden;
