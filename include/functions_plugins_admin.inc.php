@@ -315,7 +315,6 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         };
 
         switch ($ctype) {
-            case 'seperator':// compat, due being misspelled
             case 'separator':
             case 'suboption':
                 $assign_plugin_config($data);
