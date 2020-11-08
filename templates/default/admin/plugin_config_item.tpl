@@ -4,7 +4,7 @@
     <hr class="config_separator">
 {elseif $ctype == 'suboption'}
 
-    <span class="config_suboption" title="has hidden suboption">+ </span>
+    <span class="config_suboption icon icon-plus" title="has hidden suboption"></span>
 {elseif $ctype == 'select'}
 
     <div class="clearfix form_select{if $cdesc != ''} has_info{/if}">
