@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Iconize "has hidden suboption(s)" plugins option placeholder for viewability
+
   * Remove deprecated workarounds for wrong spelled separator plugin API config
     types.
 
