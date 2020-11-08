@@ -1091,7 +1091,7 @@
 @define('INSTALL_CAT_FEEDS_DESC', 'Customize how Serendipity feeds Feeds');
 
 @define('CATEGORY_PLUGIN_SHOWALL', '"모든 범주"에 대한 링크 표시');
-@define('CATEGORY_PLUGIN_SHOWALL', '사용할 경우 범주 제한 없이 블로그를 보여주는 링크를 방문자가 볼 수 있게 추가합니다.');
+@define('CATEGORY_PLUGIN_SHOWALL_DESC', '사용할 경우 범주 제한 없이 블로그를 보여주는 링크를 방문자가 볼 수 있게 추가합니다.');
 @define('SERENDIPITY_PHPVERSION_FAIL', '세렌디피티는 PHP 버전 %2$s 이상이 필요합니다. 현재 시스템은 더 낮은 버전 (%1$s)을 사용하고 있으므로 업그레이드 해야 합니다. 대부분의 호스팅 서비스 제공자들은 관리자 화면이나 .htaccess 지시어 등을 통해 새로운 PHP 버전으로 업그레이드할 수 있는 기능을 제공합니다.');
 @define('TOGGLE_VIEW', '범주 표시 방법 변경');
 @define('PUBLISH_NOW', '이 글을 지금 게시 (현재 날짜와 시간으로 설정)');
