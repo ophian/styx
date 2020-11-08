@@ -192,8 +192,6 @@
 @define('ENTER_NEW_NAME', 'Bitte einen neuen Namen eingeben für: ');
 @define('RESIZING', 'Anpassen der Bildgröße');
 @define('RESIZE_DONE', 'Fertig (%s Bildgrößen angepaßt).');
-@define('DELETE_IMAGE_FAIL' , 'Kann das Bild namens <b>%s</b> nicht löschen');
-@define('DELETE_THUMBNAIL', 'Vorschaubild: <b>%s</b> gelöscht');
 @define('FILE_NOT_FOUND', 'Die Datei namens <b>%s</b> kann nicht gefunden werden, vielleicht wurde diese schon gelöscht?');
 @define('ABORT_NOW', 'Abbrechen');
 @define('REMOTE_FILE_NOT_FOUND', 'Die Datei konnte auf dem Server nicht gefunden werden. Sind Sie sicher, dass die URL <b>%s</b> korrekt ist?');
@@ -513,6 +511,8 @@
 @define('DELETE_SELECTED_COMMENTS', 'Markierte Kommentare löschen');
 @define('VIEW_COMMENT', 'Kommentar ansehen');
 @define('VIEW_ENTRY', 'Eintrag ansehen');
+@define('DELETE_FILE_FAIL', 'Kann die Datei namens <b>%s</b> nicht löschen');
+@define('DELETE_THUMBNAIL', 'Vorschaubild: <b>%s</b> gelöscht');
 @define('DELETE_FILE', 'Datei namens <b>%s</b> gelöscht');
 @define('ABOUT_TO_DELETE_FILE', 'Sie beabsichtigen, die Datei <b>%s</b> zu löschen.<br>Wenn Sie die Datei in einem Ihrer Einträge verwenden, wird das Löschen Lücken erzeugen.<br>Soll trotzdem fortgefahren werden?<br><br>');
 @define('A_NEW_TRACKBACK_BLAHBLAH', 'Ein neues Trackback für den Blog-Eintrag namens "%s" wurde empfangen.');
@@ -962,7 +962,6 @@
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_FORWARD2', '(Wenn diese Option auf "Erzwingen" gesetzt ist, wird der RSS Feed an einen anderen Webservice weitergeleitet, wie z.B. (aber nicht nur) FeedBurner. Siehe die untenstehende Option "Feedburner ID" um die absolute URL einzutragen)');
 @define('COMMENTS_FILTER_NEED_CONFIRM', 'Zu bestätigende');
 
-@define('DELETE_FILE_FAIL', 'Kann das Bild namens <b>%s</b> nicht löschen');
 @define('INSTALL_OFFSET_ON_SERVER_TIME', 'Basiert die Zeitdifferenz auf der Server-Zeitzone?');
 @define('INSTALL_OFFSET_ON_SERVER_TIME_DESC', 'Eintragszeiten nach Server-Zeitzone eintragen oder nicht. YES wählt die Server-Zeitzone als Basis, NO wählt GMT.');
 @define('NOT_WRITABLE_SPARTACUS', ' Empfohlen! (Notwendig, wenn Spartacus zur Plugin-Installation über das Internet genutzt werden soll.)');
