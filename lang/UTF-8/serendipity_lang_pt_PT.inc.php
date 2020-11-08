@@ -335,7 +335,6 @@
 @define('CHECKSUMS_NOT_FOUND', 'Unable to compare checksums! (No checksums.inc.php in main directory, or DEV version)');
 @define('CHECKSUMS_PASS', 'All required files verified.');
 @define('CHECKSUM_FAILED', '%s corrupt or modified: failed verification');
-@define('SETTINGS_SAVED_AT', 'As novas preferências foram guardadas em %s');
 
 /* DATABASE SETTINGS */
 @define('INSTALL_CAT_DB', 'Configurações da base de dados');
@@ -448,7 +447,7 @@
 @define('POWERED_BY_SHOW_IMAGE', 'Exibir "Serendipity" como um logotipo');
 @define('POWERED_BY_SHOW_IMAGE_DESC', 'Exibe o logotipo do Serendipity');
 
-@define('SETTINGS_SAVED_AT', 'As novas configurações foram guardadas em %s');
+@define('SETTINGS_SAVED_AT', 'As novas configurações foram salvas às %s');
 @define('PLUGIN_ITEM_DISPLAY', 'Aonde é que o item deve ser mostrado?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Apenas artigo extendido');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Página de visão geral apenas');

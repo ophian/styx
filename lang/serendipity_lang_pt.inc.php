@@ -441,7 +441,7 @@
 @define('POWERED_BY_SHOW_IMAGE', 'Exibir "Serendipity" como um logotipo');
 @define('POWERED_BY_SHOW_IMAGE_DESC', 'Exibe o logotipo do Serendipity');
 
-@define('SETTINGS_SAVED_AT', 'As novas configurações foram salvas em %s');
+@define('SETTINGS_SAVED_AT', 'As novas configurações foram salvas às %s');
 @define('PLUGIN_ITEM_DISPLAY', 'Onde o item deve ser exibido?');
 @define('PLUGIN_ITEM_DISPLAY_EXTENDED', 'Apenas artigo extendido');
 @define('PLUGIN_ITEM_DISPLAY_OVERVIEW', 'Página de visão geral apenas');
