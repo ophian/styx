@@ -1061,6 +1061,9 @@
 @define('DEBUG', 'Debug');
 @define('CUSTOM_CONFIG', 'Eigene Konfigurationsdatei');
 @define('PLUGIN_ALREADY_INSTALLED', 'Plugin ist bereits installiert und unterstützt die Mehrfachinstallation ("stackable") nicht.');
+@define('STACKABLE_PLUGIN', 'Stackable plugin!');
+@define('STACKED_PLUGIN', 'Stacked plugin!');
+@define('MULTISTACK_PLUGIN', 'Multi-stacked plugin!');
 @define('INSTALL_DBPREFIX_INVALID', 'Der Datenbank-Tabellenpräfix darf nicht leer sein und darf nur Zahlen, Nummern und den Unterstrich enthalten.');
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Lade das externe subToMe Javascript und nutze das interne subToMe Icon, mit dem Feed-Abonnements einfacher für Besucher verwaltet werden können.');

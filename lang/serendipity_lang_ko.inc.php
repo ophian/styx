@@ -1063,6 +1063,9 @@
 @define('DEBUG', '디버그');
 @define('CUSTOM_CONFIG', '사용자화된 설정 파일');
 @define('PLUGIN_ALREADY_INSTALLED', '플러그인이 이미 설치되었으며, 다중 설치 ("겹침") 지원을 하지 않습니다.');
+@define('STACKABLE_PLUGIN', 'Stackable plugin!');
+@define('STACKED_PLUGIN', 'Stacked plugin!');
+@define('MULTISTACK_PLUGIN', 'Multi-stacked plugin!');
 @define('INSTALL_DBPREFIX_INVALID', '데이터베이스 테이블 이름의 접두사는 비워둘 수 없으며 영문자, 숫자, 그리고 밑줄 문자("_")만 허용됩니다.');
 @define('SYNDICATION_PLUGIN_SUBTOME', '서브투미(subToMe)');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');

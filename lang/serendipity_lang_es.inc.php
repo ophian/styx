@@ -1084,6 +1084,9 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('DEBUG', 'Debug');
 @define('CUSTOM_CONFIG', 'Custom configuration file');
 @define('PLUGIN_ALREADY_INSTALLED', 'Plugin already installed, and does not support multiple installation ("stackable").');
+@define('STACKABLE_PLUGIN', 'Stackable plugin!');
+@define('STACKED_PLUGIN', 'Stacked plugin!');
+@define('MULTISTACK_PLUGIN', 'Multi-stacked plugin!');
 @define('INSTALL_DBPREFIX_INVALID', 'The database table name prefix must not be empty and may only contain letters, numbers and the underscore character.');
 @define('SYNDICATION_PLUGIN_SUBTOME', 'subToMe');
 @define('SYNDICATION_PLUGIN_SUBTOME_DESC', 'Load the external subToMe javascript and show the internal subToMe icon-button, a layer to make feed subscription easier.');
