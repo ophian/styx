@@ -97,7 +97,6 @@
 @define('ORIGINAL_SIZE', 'Tamaño original: <i>%sx%s</i> pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Aquí puedes ajustar el nuevo tamaño de la imagen. Si quieres mantener las proporciones sólo introduce uno de los valores y presiona la tecla tabulador (TAB), de esta forma se ajustará automáticamente.<br><b>PLEASE NOTE:</b> This is not a high end image editor resizing tool, finetuned for the need of a specific image.<br>Every scale returns with a more or less increasing loss of image quality compared to the input file. And this increases with each further scaling!<br><b>VARIATION:</b> Since we assume you <b>keep</b> the files proportion, a scaled image WebP format variation change will be applied to the Origin files variation only and <b>NOT</b> to the WebP variation thumbnail, which - by certain image property conditions - would probably blow up its filesize. If you really need an image scale with an <b>other</b> proportion <b>and</b> an additional changed WebP thumb dimension size, activate the "<em>..thumb variation</em>" checkbox.');
 @define('SCALE_THUMB_VARIATION', 'Force scaled WebP thumb variation change');
-@define('DATE_FORMAT_1', 'd.m.Y');
 @define('QUICKJUMP_CALENDAR', 'Calendario rápido');
 @define('QUICKSEARCH', 'Buscar');
 @define('SEARCH_FOR_ENTRY', 'Busca una entrada');

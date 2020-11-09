@@ -90,7 +90,6 @@
 @define('ORIGINAL_SIZE', 'Originalgröße: <i>%sx%s</i> Pixel');
 @define('HERE_YOU_CAN_ENTER_BLAHBLAH', 'Hier können Sie die Bildgröße ändern. Um die Proportionen beizubehalten, einfach einen der beiden Werte eingeben, anschließend die TAB-Taste oder die Maus drücken, und Sie erhalten die Voreinstellung mit den korrekten Proportionen.<br><b>ACHTUNG:</b> Dies ist kein "high end" Skaldierungs Werkzeug, abgestimmt auf die spezifischen Bedürfnisse eines jeden Bildes.<br>Verglichen mit dem Ausgangsbild, bringt jede Skaldierung zwangsläufig einen kleineren oder größeren Qualitätsverlust mit sich. Und dies potenziert sich mit jeder weiteren Skaldierung!<br><b>VARIATION:</b> Da wir annehmen, dass Sie das Proportionsverhältnis <b>beibehalten</b>, wird eine veränderte WebP-Format Variation nur vom Originalbild erstellt und <b>KEINE</b> Änderung der WebP-Variation des Vorschaubildes vorgenommen, da diese sich bei bestimmten Bildeigenschaften in der Dateigröße nur unnötig aufblähen würde. Wenn Sie wirklich eine Skaldierung mit einer <b>anderen</b> Proportion <b>und</b> einer zusätzlichen Änderung der WebP-Format Vorschau benötigen, aktivieren Sie die "<em>...Vorschau Variation</em>" Checkbox.');
 @define('SCALE_THUMB_VARIATION', 'Ändere WebP-Format Vorschau Variation');
-@define('DATE_FORMAT_1', 'd.m.Y');
 @define('QUICKJUMP_CALENDAR', 'QuickJump Kalender');
 @define('QUICKSEARCH', 'Suche');
 @define('SEARCH_FOR_ENTRY', 'Nach Einträgen suchen');
