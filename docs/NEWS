@@ -10,7 +10,7 @@ Version 3.2-DEV ()
         Some non-UTF-8 placed language files [cn,fa,fi,ja,ko,ro,ru,ta,tn,tr] do
         NOT use their current ISO, windows, or other defined LANG_CHARSET and
         instead run as UTF-8 since ages. Nobody complained about it so far.
-        This are 10 languages out of 32 in total, which do not go conform with
+        This are 10 languages out of 32 in total, which don't go conform with the
         Serendipity Styx lang system having an ANSI like fallback section against
         a (modern) UTF-8 Section.
         If you don't have a better idea, THIS is going to change in a future Styx
