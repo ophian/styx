@@ -6,6 +6,16 @@ Version 3.2-DEV ()
         SYNDICATE_THIS_BLOG to SUBSCRIBE_TO_BLOG and
         DELETE_IMAGE_FAIL   to DELETE_FILE_FAIL (being more generic).
 
+    ADDITIONAL NOTE:
+        Some non-UTF-8 placed language files [cn,fa,fi,ja,ko,ro,ru,ta,tn,tr] do
+        NOT use their current ISO, windows, or other defined LANG_CHARSET and
+        instead run as UTF-8 since ages. Nobody complained about it so far.
+        This are 10 languages out of 32 in total, which do not go conform with
+        Serendipity Styx lang system having an ANSI like fallback section against
+        a (modern) UTF-8 Section.
+        If you don't have a better idea, THIS is going to change in a future Styx
+        version!
+
   * Iconize "has hidden suboption(s)" plugins option placeholder for viewability
 
   * Remove deprecated workarounds for wrong spelled separator plugin config types
