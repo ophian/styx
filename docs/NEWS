@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Add an icon reference for the backend plugin config stackable/stacked status
+
   * Improve lang constant consistency for various languages and constants for
     duplicates, line-order-appearance, singularities, translations, and renames:
         SYNDICATE_THIS_BLOG to SUBSCRIBE_TO_BLOG and
