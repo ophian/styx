@@ -153,12 +153,12 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     // hey, check and assign some info about being stacked or stackable
     $_chckInstalledPlugins = serendipity_plugin_api::get_installed_plugins();
     $_c = array_count_values($_chckInstalledPlugins);
-    if ($_c[$data['class']] > 1) $cc = $_c[$data['class']];
+    if ($_c[$data['class']] > 1) $cc = true;
 
     $data['is_stackable'] = $bag->get('stackable') ?? false;
     $data['no_stack']     = $plugin->instance ? false : true; // we are in an instance so this cannot become true
     $data['has_stack']    = $plugin->instance ? true : false;
-    $data['multi_stack']  = $cc ? true : false;
+    $data['multi_stack']  = $cc ?? false;
 
     if (@file_exists(dirname($plugin->pluginFile) . '/ChangeLog')) {
         $data['changelog'] = true;
