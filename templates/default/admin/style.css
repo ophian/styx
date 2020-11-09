@@ -1884,6 +1884,10 @@ ul.edit_actions li > .user_level {
 #content {
     padding-bottom: 1.5em;
 }
+#content > h2 > svg {
+    vertical-align: middle;
+    float: right;
+}
 
 #edit_entry_timestamp,
 #edit_entry_category,
