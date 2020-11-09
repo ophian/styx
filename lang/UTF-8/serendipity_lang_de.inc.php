@@ -148,6 +148,7 @@
 @define('DOCUMENT_NOT_FOUND', 'Das Dokument %s wurde nicht gefunden.');
 @define('USERNAME', 'Benutzername');
 @define('PASSWORD', 'Passwort');
+@define('AUTOMATIC_LOGIN', 'Daten speichern');
 @define('SERENDIPITY_INSTALLATION', 'Serendipity-Installation');
 @define('LEFT', 'links');
 @define('RIGHT', 'rechts');
@@ -246,7 +247,6 @@
 @define('NEXT_PAGE', 'nächste Seite');
 @define('ALL_CATEGORIES', 'Alle Kategorien');
 @define('DO_MARKUP', 'Textformatierung(en) durchführen');
-@define('AUTOMATIC_LOGIN', 'Daten speichern');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datumsformat');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Das Datumsformat des Eintrages, mithilfe von PHPs strftime() Variablen. (Standard: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Die Template-Datei konnte nicht geöffnet werden. Bitte die Serendipity-Version aktualisieren!');

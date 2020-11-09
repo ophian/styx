@@ -154,6 +154,7 @@
 @define('DOCUMENT_NOT_FOUND', 'El documento %s no se encontró.');
 @define('USERNAME', 'Nombre de usuario');
 @define('PASSWORD', 'Contraseña');
+@define('AUTOMATIC_LOGIN', 'Guardar información');
 @define('SERENDIPITY_INSTALLATION', 'Instalación de Serendipity');
 @define('LEFT', 'Izquierda');
 @define('RIGHT', 'Derecha');
@@ -536,7 +537,6 @@
 @define('COMMENTS_VIEWMODE_LINEAR', 'Plano');
 @define('DISPLAY_COMMENTS_AS', 'Mostrar comentarios como');
 @define('LOGIN', 'Conectar');
-@define('AUTOMATIC_LOGIN', 'Guardar información');
 @define('DO_MARKUP', 'Realizar transformaciones marcas');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formato de fecha');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'El formato de fecha de la entrada actual, usa las variables strftime() de PHP. (Predeterminado: "%s")');
