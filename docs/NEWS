@@ -1,6 +1,11 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve lang constant consistency for various languages and constants for
+    duplicates, line-order-appearance, singularities, translations, and renames:
+        SYNDICATE_THIS_BLOG to SUBSCRIBE_TO_BLOG and
+        DELETE_IMAGE_FAIL   to DELETE_FILE_FAIL (being more generic).
+
   * Iconize "has hidden suboption(s)" plugins option placeholder for viewability
 
   * Remove deprecated workarounds for wrong spelled separator plugin config types
