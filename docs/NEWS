@@ -21,7 +21,7 @@ Version 3.2-DEV ()
   * Remove deprecated workarounds for wrong spelled separator plugin config types
 
   * Add new generic lang info variable for plugins with suboption behaviour.
-    Use by example() method.
+    PLUGIN_API_GENERIC_SUBOPTION_DESC - Use by example() method.
 
   * Prepare global default style fallback stylesheet for 5-column image galleries
 
