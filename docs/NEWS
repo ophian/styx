@@ -9,7 +9,7 @@ Version 3.2-DEV ()
         DELETE_IMAGE_FAIL   to DELETE_FILE_FAIL (being more generic).
 
     ADDITIONAL NOTE:
-        Some non-UTF-8 placed language files [cn,fa,fi,ja,ko,ro,ru,ta,tn,tr] do
+        Some non-UTF-8 placed language files [ cn,fa,fi,ja,ko,ro,ru,ta,tn,tr ] do
         NOT use their current ISO, windows, or other defined LANG_CHARSET and
         instead run as UTF-8 since ages. Nobody complained about it so far.
         This are 10 languages out of 32 in total, which don't go conform with the
