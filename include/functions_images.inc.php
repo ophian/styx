@@ -4972,7 +4972,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     $reserr = false;
     // Move the origin file
     try {
-        rename($oldfile, $newfile);
+        serendipity_makeDirRename($oldfile, $newfile);
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (5)</span>\n";
