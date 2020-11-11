@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Refactor MediaLibrary rename/moving cases for mkdir() checkups
+
   * Add an icon reference for the backend plugin config stackable/stacked status
 
   * Improve lang constant consistency for various languages and constants for
