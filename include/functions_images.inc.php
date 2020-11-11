@@ -4995,7 +4995,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         if (($thisNewThumb != $newfile) && file_exists($thisOldThumb)) {
             // Move the thumb file and catch any wrong renaming
             try {
-                rename($thisOldThumb, $thisNewThumb);
+                serendipity_makeDirRename($thisOldThumb, $thisNewThumb);
             } catch (Throwable $t) {
                 // Executed only in PHP 7, will not match in PHP 5.x
                 // reset already updated image table
@@ -5003,8 +5003,8 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (6)</span>\n";
                 $reset = true;
             }
-            if (!$reset && file_exists($thisOldThumbWebp) && !file_exists($thisNewThumbWebp)) {
-                rename($thisOldThumbWebp, $thisNewThumbWebp);
+            if (!$reset) {
+                serendipity_makeDirRename($thisOldThumbWebp, $thisNewThumbWebp);
             }
         }
     }
