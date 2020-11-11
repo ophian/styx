@@ -19,7 +19,7 @@ class serendipity_event_plugup extends serendipity_plugin
         $propbag->add('description',    PLUGIN_EVENT_PLUGUP_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',         'Ian Styx');
-        $propbag->add('version',        '1.11');
+        $propbag->add('version',        '1.12');
         $propbag->add('requirements',   array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -88,12 +88,7 @@ class serendipity_event_plugup extends serendipity_plugin
         try {
             $inc = @file_get_contents($url);
         } catch (Throwable $t) {
-            // Executed only in PHP 7, will not match in PHP 5.x
             echo "Error: " . $t->getMessage();
-            return 0;
-        } catch (Exception $e) {
-            // Executed only in PHP 5.x, will not be reached in PHP 7
-            echo "Error: " . $e->getMessage();
             return 0;
         }
         if ($inc) {
