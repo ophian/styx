@@ -4874,14 +4874,10 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                         // WebP thumb variation case
                         $varFromWebPThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['fromwebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
                         $varToWebPThumb   = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $renameData['towebp'] . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . '.webp';
-                        // check moving a variation dir to a new location mkdir directory - WebP thumbs can exist without having a dependent WebP origin, ie. ... errors
-                        if (file_exists($varFromWebPThumb) && !file_exists($varToWebPThumb)) {
-                            $_tmppath = dirname($varToWebPThumb);
-                            if (!is_dir($_tmppath)) {
-                                @mkdir($_tmppath);
-                            }
-                            @rename($varFromWebPThumb, $varToWebPThumb);
-                        }
+
+                        // Move a variation dir to a new location mkdir directory - WebP thumbs
+                        serendipity_makeDirRename($varFromWebPThumb, $varToWebPThumb);
+
                         if ($debug) {
                             $serendipity['logger']->debug("L_".__LINE__.":: $logtag BULKMOVE VARIATION THUMB  $varFromWebPThumb => $varToWebPThumb");
                             $serendipity['logger']->debug(" - - - "); // spacer
