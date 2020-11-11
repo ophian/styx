@@ -2304,10 +2304,9 @@ function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newhei
     }
 
     try {
-        // if an image exist that can not be loaded (invalid GIF for example), the page shall still be rendered
+        // If an image exist that can not be loaded (invalid GIF for example), the page shall still be rendered
         $in = @$func['load']($infilename);
     } catch (Throwable $t) {
-        // Executed only in PHP 7, will not match in PHP 5.x
         echo 'serendipity_resizeImageGD(): Could not create thumbnail resource: ',  $t->getMessage(), "\n";
         return false;
     }
@@ -4576,7 +4575,6 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
     try {
         serendipity_makeDirRename($real_oldDir, $real_newDir);
     } catch (Throwable $t) {
-        // Executed only in PHP 7, will not match in PHP 5.x
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVE_ERROR, $newDir) . "</span>\n";
         #echo ': '.$t->getMessage();
         return false;
@@ -4839,7 +4837,6 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
             try {
                 rename($oldfile, $newfile);
             } catch (Throwable $t) {
-                // Executed only in PHP 7, will not match in PHP 5.x
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (2)</span>\n";
             }
 
@@ -4853,11 +4850,10 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 $thisNewThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $newDirFile . (!empty($file['thumbnail_name']) ? '.' . $renameData['thumb'] : '.' . $serendipity['thumbSuffix']) . (empty($file['extension']) ? '' : '.' . $file['extension']);
                 // Check for existent old thumb files first, to not need to disable rename by @rename(), then move the thumb file and catch any wrong renaming
                 if (($thisNewThumb != $newfile) && file_exists($thisOldThumb)) {
-                    // the thumb file and catch any wrong renaming
+                    // The thumb file and catch any wrong renaming
                     try {
                         rename($thisOldThumb, $thisNewThumb);
                     } catch (Throwable $t) {
-                        // Executed only in PHP 7, will not match in PHP 5.x
                         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (3)</span>\n";
                     }
                     //  check the origin filedir has moved in bulkmove
@@ -4974,7 +4970,6 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
     try {
         serendipity_makeDirRename($oldfile, $newfile);
     } catch (Throwable $t) {
-        // Executed only in PHP 7, will not match in PHP 5.x
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (5)</span>\n";
         $reserr = true;
     }
@@ -4997,8 +4992,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
             try {
                 serendipity_makeDirRename($thisOldThumb, $thisNewThumb);
             } catch (Throwable $t) {
-                // Executed only in PHP 7, will not match in PHP 5.x
-                // reset already updated image table
+                // Reset already updated image table
                 serendipity_updateImageInDatabase(array('path' => $oldDir), $item_id);
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . ERROR_SOMETHING . ': '.$t->getMessage() . " (6)</span>\n";
                 $reset = true;
