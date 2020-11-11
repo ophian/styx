@@ -1,6 +1,9 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix serendipity_renameDirAccess() via manage directories for recursive sub-
+    directories mkdir() checkups.
+
   * Refactor MediaLibrary rename/moving cases for mkdir() checkups
 
   * Add an icon reference for the backend plugin config stackable/stacked status
