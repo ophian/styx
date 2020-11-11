@@ -2942,6 +2942,25 @@ function serendipity_killPath($basedir, $directory = '', $forceDelete = false) {
 }
 
 /**
+ * Checks if a new dir in dirpath needs to be created first in moving situations - then rename()
+ *
+ * @param  string   The old path
+ * @param  string   The new path
+ * @return  mixed   rename result (bool/error string)
+ */
+function serendipity_makeDirRename($from, $to) {
+    // check moving a dir to a new mkdir directory location
+    if (file_exists($from) && !file_exists($to)) {
+        $_tmppath = dirname($to);
+        if (!is_dir($_tmppath)) {
+            @mkdir($_tmppath);
+        }
+        return rename($from, $to);
+    }
+    return null;
+}
+
+/**
  * Recursively walk a directory tree
  *
  * @access public
