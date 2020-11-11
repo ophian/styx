@@ -140,7 +140,6 @@ function serendipity_db_sqlite_fetch_array($res, $type = SQLITE3_BOTH)
     try {
         $row = $res->fetchArray();
     } catch (Throwable $t) {
-        // Executed only in PHP 7, will not match in PHP 5.x
         $row = false;
         echo "SQLITE-EXCEPTION: " . $t->getMessage() . "\n";
     }
