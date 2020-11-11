@@ -4831,7 +4831,7 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
                 'haswebp'  => file_exists($oldfilewebp),
                 'file'     => $file,
                 'debug'    => $debug,
-                'dbginfo'  => "CASE IS BULKMOVE of $oldfilewebp _renameRealFileName:: ~4791++"
+                'dbginfo'  => "CASE IS BULKMOVE of $oldfilewebp _renameRealFileName:: ~4811++"
             ));
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // eg. for staticpage entries path regex replacements
 
@@ -4965,7 +4965,7 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         'file'    => $_file,
         'name'    => $_file['name'],
         'debug'   => $debug,
-        'dbginfo' => 'CASE RENAME DIR:: ~4908++'
+        'dbginfo' => 'CASE RENAME DIR:: ~4934++'
     ));
     serendipity_plugin_api::hook_event('backend_media_rename', $renameValues); // this is via media properties moving image (path)
 
@@ -5155,7 +5155,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
                 'item_id'   => $item_id,
                 'file'      => $file,
                 'debug'     => $debug,
-                'dbginfo'   => $trace[0]['function'] . ': Port format values to staticpage changes ~5110++.'
+                'dbginfo'   => $trace[0]['function'] . ': Port format values to staticpage changes ~5132++.'
             ));/* Does not matter if filedir or file type case is used! */
             serendipity_plugin_api::hook_event('backend_media_rename', $renameValues);
 
