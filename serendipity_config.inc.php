@@ -322,10 +322,6 @@ if (is_callable($serendipity['errorhandler'], false, $callable_name)) {
     try {
         set_error_handler($serendipity['errorhandler'], $errLevel); // depends on upper set error_reporting(), to see which errors are passed to the handler, switched by $serendipity['production'].
     } catch (Throwable $t) {
-        // Executed only in PHP 7, will not match in PHP 5.x
-        register_shutdown_function('fatalErrorShutdownHandler'); // make fatal errors not die in a white screen of death
-    } catch (Exception $e) {
-        // Executed only in PHP 5.x, will not be reached in PHP 7
         register_shutdown_function('fatalErrorShutdownHandler'); // make fatal errors not die in a white screen of death
     }
 }
