@@ -1,8 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix serendipity_renameDirAccess() via manage directories for recursive sub-
-    directories mkdir() checkups.
+  * Fix moving directories via "manage directories" for stacked sub-directories
+    mkdir() checkups.
 
   * Refactor MediaLibrary rename/moving cases for mkdir() checkups
 
