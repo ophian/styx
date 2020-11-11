@@ -461,7 +461,6 @@ switch ($serendipity['GET']['adminAction']) {
                         }
                     }
                 } catch (Throwable $t) {
-                    // Executed only in PHP 7, will not match in PHP 5.x
                     $messages[] = sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . REMOTE_FILE_NOT_FOUND . ". Status returned is: \"{$serendipity['last_http_request']['responseCode']}\".</span>\n", $_imageurl);
                 }
             }
