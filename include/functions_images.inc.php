@@ -4979,12 +4979,8 @@ function serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id, $debug
         $reserr = true;
     }
     // WebP case
-    if (!$reserr && file_exists($oldfilewebp) && !file_exists($newfilewebp)) {
-        $_tmppath = dirname($newfilewebp);
-        if (!is_dir($_tmppath)) {
-            @mkdir($_tmppath);
-        }
-        rename($oldfilewebp, $newfilewebp);
+    if (!$reserr) {
+        serendipity_makeDirRename($oldfilewebp, $newfilewebp);
     }
 
     foreach($renameValues AS $renameData) {
