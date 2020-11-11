@@ -4574,7 +4574,7 @@ function serendipity_renameDirAccess($oldDir, $newDir, $debug=false) {
 
     // Move the origin file in file system
     try {
-        rename($real_oldDir, $real_newDir);
+        serendipity_makeDirRename($real_oldDir, $real_newDir);
     } catch (Throwable $t) {
         // Executed only in PHP 7, will not match in PHP 5.x
         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(MEDIA_DIRECTORY_MOVE_ERROR, $newDir) . "</span>\n";
