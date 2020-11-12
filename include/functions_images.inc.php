@@ -5296,13 +5296,16 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
     // prepare preg/replace variables for entry related cases
     if (is_array($entries) && !empty($entries)) {
 
+         // Take care and remove temporary 'uploadRoot/' string, in case of moving a subdir file into "uploads/" root directory by bulkmove
+        $newDir = ($newDir == 'uploadRoot/') ? '' : $newDir;
+
         // Prepare the REPLACE $newDirFile string for filetypes
         if ($type == 'filedir' || $type == 'file') {
             // newDir + file name in case it is a 'filedir' path OR a file called by the Bulk Move, BUT NOT by rename
             if ($type == 'filedir' || ($type == 'file' && $oldDir !== null)) {
                 $newDirFile = (false === strpos($newDir, $_file['name'])) ? $newDir . $_file['name'] : $newDir;
             }
-            if (isset($newDirFile)) $newDirFile = ($newDirFile == 'uploadRoot/'.$_file['name']) ? str_replace('uploadRoot/', '', $newDirFile) : $newDirFile;
+            #if (isset($newDirFile)) $newDirFile = ($newDirFile == 'uploadRoot/'.$_file['name']) ? str_replace('uploadRoot/', '', $newDirFile) : $newDirFile; //@see better $newDir fix above
             if ($type == 'file' && $oldDir === null) {
                 $newDirFile = $newDir;
             }
