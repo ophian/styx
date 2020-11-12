@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Upgrade to CKEditor 4.15.1 bugfix (revision 1aa21195b)
+
   * Fix WebP URL string for entry replacement, moving a subdir file into the base-
     dir root directory by bulkmove.
 
