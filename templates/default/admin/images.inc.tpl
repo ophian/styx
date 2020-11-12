@@ -178,7 +178,7 @@
     <header id="media_directory_info" class="media_directory_info additional_info">
         <span class="msg_hint focused">{$CONST.DIRECTORY_INFO_DESC}</span>
     </header>
-    {if !empty($folders) || isset($pathitems[''])}<span class="media_directory_entries"><em>{if isset($pathitems[''])}{$pathitems['']}{else}<span class="emptydim">0</span>{/if} {$CONST.PLUGIN_GROUP_IMAGES}</em></span>{/if}
+    {if !empty($folders) || isset($pathitems[''])}<span class="media_directory_entries" title="{$CONST.IN} {$CONST.BASE_DIRECTORY}"><em>{if isset($pathitems[''])}{$pathitems['']}{else}<span class="emptydim">0</span>{/if} {$CONST.PLUGIN_GROUP_IMAGES}</em></span>{/if}
 
     <ul id="serendipity_image_folders" class="option_list{if !$threadedDirs} slist{/if}">
     {foreach $folders AS $folder}
