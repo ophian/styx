@@ -162,7 +162,7 @@
                             <ul class="plainList">
                             {if $file.hotlink}
 
-                                <li><b>{$CONST.MEDIA_HOTLINKED}:</b> {$file.nice_hotlink}</li>
+                                <li><b>{$CONST.MEDIA_HOTLINKED}:</b> {$file.realfile}</li>
                             {else}
                                 {if $file.realname != $file.diskname}
 
@@ -258,7 +258,7 @@
                             <li><b>{$CONST.SORT_ORDER_DATE}:</b> {if $file.authorid != 0}{$CONST.POSTED_BY} {$file.authorname} {/if}<span class="icon-clock" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.ON} </span> {$file.date|formatTime:DATE_FORMAT_SHORT}</li>
                         {if $file.hotlink}
 
-                            <li><b>{$CONST.MEDIA_HOTLINKED}:</b> {$file.nice_hotlink}</li>
+                            <li><b>{$CONST.MEDIA_HOTLINKED}:</b> {$file.realfile}</li>
                         {elseif $file.is_image}
 
                             <li><b>{$CONST.IMAGE_SIZE}:</b> {$file.dimensions_width}x{$file.dimensions_height} px</li>
