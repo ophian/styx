@@ -8,10 +8,10 @@ Version 3.2-DEV ()
   * Upgrade to CKEditor 4.15.1 bugfix (revision 1aa21195b)
 
   * Fix WebP URL string for entry replacement, moving a subdir file into the base-
-    dir root directory by bulkmove.
+    dir root directory by bulkmove. CHECK your blog entries, if having done so.
 
   * Fix moving directories via "manage directories" for stacked sub-directories
-    mkdir() checkups.
+    mkdir() checkups. CHECK your MediaLibrary items, if having done so.
 
   * Refactor MediaLibrary rename/moving cases for mkdir() checkups
 
