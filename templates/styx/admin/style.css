@@ -1898,7 +1898,11 @@ ul.edit_actions li > .user_level {
 #content {
     padding-bottom: 1.5em;
 }
-#content > h2 > svg {
+.media_file.mfile_prop h3 {
+    width: 100%;
+}
+#content > h2 > svg,
+.media_file.mfile_prop h3 > svg {
     vertical-align: middle;
     float: right;
 }
