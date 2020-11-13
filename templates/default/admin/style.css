@@ -4152,6 +4152,9 @@ img.mfp-img {
     .media_file h3 {
         width: 16em;
     }
+    .media_file.mlMaxCol h3 {
+        width: 8em;
+    }
 
     .js #grid-selector {
         display: block;
@@ -4687,6 +4690,9 @@ img.mfp-img {
     .media_file h3 {
         width: 19em;
     }
+    .media_file.mlMaxCol h3 {
+        width: 11em;
+    }
     .actions li,
     .actions_extra {
         margin: 0 .4em .5em 0;
@@ -5042,6 +5048,9 @@ img.mfp-img {
     }
     .js .mlMaxCol .media_controls video {
         max-width: 14em;
+    }
+    .media_file.mlMaxCol h3 {
+        width: initial;
     }
 }
 
