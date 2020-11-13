@@ -4983,7 +4983,6 @@ img.mfp-img {
     .media_pane > .media_file.mlMaxCol ul.media_file_actions.actions > li {
         padding: .15em;
     }
-
     .js .media_controls video {
         max-width: 20em;
     }
@@ -4992,6 +4991,9 @@ img.mfp-img {
     }
     .js .mlMaxCol .media_controls video {
         max-width: 10em;
+    }
+    .media_file.mlMaxCol h3 {
+        width: 8em;
     }
 }
 
@@ -5050,7 +5052,7 @@ img.mfp-img {
         max-width: 14em;
     }
     .media_file.mlMaxCol h3 {
-        width: initial;
+        width: 12em;
     }
 }
 
