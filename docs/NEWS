@@ -1,7 +1,7 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
-  * Add icon for hotlink share to ML backend media properties
+  * Add icon for hotlink shares to ML backend media properties
 
   * Fixup hotlink URL string link view in media properties and media meta
 
