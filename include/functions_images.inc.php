@@ -4024,9 +4024,9 @@ function serendipity_prepareMedia(&$file, $url = '') {
     $_iplus = ((isset($serendipity['enableBackendPopupGranular']) && false !== stripos($serendipity['enableBackendPopupGranular'], 'images')) || (isset($serendipity['enableBackendPopup']) && $serendipity['enableBackendPopup'])) ? 20 : 0;
     $file['popupWidth']   = ($file['is_image'] ? ($file['dimensions_width']  + $_iplus) : 600);
     $file['popupHeight']  = ($file['is_image'] ? ($file['dimensions_height'] + $_iplus) : 500);
-    if ($file['hotlink']) {
-        $file['nice_hotlink'] = wordwrap($file['path'], 45, '<br />', 1);
-    }
+    #if ($file['hotlink']) {//no need up from 2.0
+    #    $file['nice_hotlink'] = wordwrap($file['path'], 45, '<br>', 1);
+    #}
     $file['nice_size'] = number_format(round($file['size']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     if (isset($file['thumbSize'])) {
         $file['nice_thumbsize'] = number_format(round($file['thumbSize']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
