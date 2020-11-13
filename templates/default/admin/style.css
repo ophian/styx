@@ -1892,6 +1892,10 @@ ul.edit_actions li > .user_level {
     vertical-align: middle;
     float: right;
 }
+.media_pane > .media_file header h3 > svg {
+    right: .5em;
+    position: absolute;
+}
 
 #edit_entry_timestamp,
 #edit_entry_category,
