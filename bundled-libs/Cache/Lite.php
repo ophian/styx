@@ -42,7 +42,7 @@ class Cache_Lite
     /**
     * Enable / disable caching
     *
-    * (can be very usefull for the debug of cached scripts)
+    * (can be very useful for the debug of cached scripts)
     *
     * @var boolean $_caching
     */
