@@ -1167,7 +1167,7 @@ function serendipity_removeObsoleteVars() {
  *          an ASCII type; or false if the file cannot be read
  */
 function serendipity_FTPChecksum($filename, $type = null) {
-    /** Only read the finfo database once */
+    // Only read the finfo database once
     static $debug_exts = array();
 
     // Must be able to read the file
