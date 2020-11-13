@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Add icon for hotlink share to ML backend media properties
+
   * Fixup hotlink URL string link view in media properties and media meta
 
   * Upgrade to CKEditor 4.15.1 bugfix (revision 1aa21195b)
