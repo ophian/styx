@@ -1,7 +1,7 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
-  * Extend backend ML media rename replce REGEX within entries for alt and title
+  * Extend backend ML media rename replace REGEX within entries for alt || title
     attributes.
 
   * Avoid WebP parsing messages when uploading an origin webp file
