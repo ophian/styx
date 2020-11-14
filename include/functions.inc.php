@@ -229,6 +229,28 @@ function serendipity_strpos($haystack, $needles) {
 }
 
 /**
+ * Check an multidimensional array for set values
+ *
+ * @access public
+ * @param   array   An array of restricting filter sets
+ * @return  bool    Result-set of empty values
+ */
+function serendipity_emptyArray($array) {
+    $empty = true;
+    if (is_array($array)) {
+        foreach ($array AS $value) {
+            if (!serendipity_emptyArray($value)) {
+                $empty = false;
+            }
+        }
+    }
+    elseif (!empty($array)) {
+        $empty = false;
+    }
+    return $empty;
+}
+
+/**
  * Get the Referer calling function name for the current HTTP Request
  *
  * @access public
