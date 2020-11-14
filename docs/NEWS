@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Extend backend media rename regex within entries for alt/title attributes
+
   * Add icon for hotlink shares to ML backend media properties
 
   * Fixup hotlink URL string link view in media properties and media meta
