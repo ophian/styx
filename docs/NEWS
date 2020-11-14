@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve searching media filters against the hideSubDirFiles limitation
+
   * Add new generic function to check a multi-dimensional array for set values
 
   * Extend backend ML media rename replace REGEX within entries for alt || title
