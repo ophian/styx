@@ -4,6 +4,8 @@ Version 3.2-DEV ()
   * Extend backend ML media rename replce REGEX within entries for alt and title
     attributes.
 
+  * Avoid WebP parsing messages when uploading an origin webp file
+
   * Add icon for hotlink shares to ML backend media properties
 
   * Fixup hotlink URL string link view in media properties and media meta
