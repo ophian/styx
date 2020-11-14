@@ -14,7 +14,7 @@ Version 3.2-DEV ()
 
   * Fixup hotlink URL string link view in media properties and media meta
 
-  * Upgrade to CKEditor 4.15.1 bugfix (revision 1aa21195b)
+  * Upgrade to CKEditor 4.15.1 (revision 1aa21195b)
 
   * Fix WebP URL string for entry replacement, moving a subdir file into the base-
     dir root directory by bulkmove. CHECK your blog entries, if having done so.
