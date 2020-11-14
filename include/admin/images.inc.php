@@ -549,7 +549,7 @@ switch ($serendipity['GET']['adminAction']) {
                         @chmod($target, 0664);
 
                         // Create a target copy variation in WebP image format
-                        if (file_exists($target) && $serendipity['useWebPFormat']) {
+                        if (file_exists($target) && $serendipity['useWebPFormat'] && strtolower($info['extension']) != 'webp') {
                             $variat = serendipity_makeImageVariationPath($target, 'webp');
                             $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target));
                             if (is_array($result)) {
