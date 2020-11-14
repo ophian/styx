@@ -5449,6 +5449,10 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                 } else if (isset($format_oldthumbnail) && isset($format_newthumbnail)) {
                     $entry['extended'] = preg_replace('@(src=|href=|data-fallback=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_newthumbnail, $entry['extended']);
                 }
+                // run for possible alt and title attributes
+                $entry['body']     = preg_replace('@(alt=|title=)(\'|")(' . preg_quote(basename($_oldDirFile)) . ')@', '\1\2' . basename($newDirFile), $entry['body']);
+                $entry['extended'] = preg_replace('@(alt=|title=|)(\'|")(' . preg_quote(basename($_oldDirFile)) . ')@', '\1\2' . basename($newDirFile), $entry['extended']);
+                if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag (title|alt)" . basename($_oldDirFile) . ' ' . basename($newDirFile)); }
                 // media objects
                 $entry['body']     = str_replace($link_pattern, $link_replace, $entry['body']);
                 $entry['extended'] = str_replace($link_pattern, $link_replace, $entry['extended']);
@@ -5475,7 +5479,11 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                     } else if (isset($format_oldthumbnail) && isset($format_newthumbnail)) {
                         $eps1['value'] = preg_replace('@(src=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_newthumbnail, $eps1['value']);
                     }
+                    // run for possible imageselectorplus quickblock
                     $eps1['value'] = preg_replace('@(<!--quickblog:)(\\|?(plugin|none|js|_blank)?\\|?)(' . preg_quote($_ispOldFile) . ')@', '\1\2' . $_ispNewFile, $eps1['value']);
+                    // run for possible alt and title attributes
+                    $eps1['value'] = preg_replace('@(alt=|title=)(\'|")(' . preg_quote(basename($_ispOldFile)) . ')@', '\1\2' . basename($_ispNewFile), $eps1['value']);
+                    // run for possible media objects
                     $eps1['value'] = str_replace($link_pattern, $link_replace, $eps1['value']);
 
                     $uepq1 = "UPDATE {$serendipity['dbPrefix']}entryproperties
@@ -5501,6 +5509,9 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
                     } else if (isset($format_oldthumbnail) && isset($format_newthumbnail)) {
                         $eps2['value'] = preg_replace('@(src=|href=|window.open.)(\'|")(' . preg_quote($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . '|' . preg_quote($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_oldthumbnail) . ')@', '\1\2' . $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $format_newthumbnail, $eps2['value']);
                     }
+                    // run for possible alt and title attributes
+                    $eps2['value'] = preg_replace('@(alt=|title=)(\'|")(' . preg_quote(basename($_oldDirFile)) . ')@', '\1\2' . basename($newDirFile), $eps2['value']);
+                    // run for possible media objects
                     $eps2['value'] = str_replace($link_pattern, $link_replace, $eps2['value']);
 
                     $uepq2 = "UPDATE {$serendipity['dbPrefix']}entryproperties
