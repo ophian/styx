@@ -83,7 +83,17 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         $filter = array();
     }
 
-    if ($hideSubdirFiles) {
+    // filter have to avoid using hideSubDirFiles - so we need to check for something unique in filters and check every values state
+    if (!empty($serendipity['GET']['filter'])) {
+        $sfilters = array_filter($serendipity['GET']['filter']);
+        // reset for empty value iteration
+        if (isset($sfilters['fileCategory']) && $sfilters['fileCategory'] == 'all') {
+            $sfilters['fileCategory'] = '';
+        }
+    }
+    $sfilter = isset($sfilters) ? serendipity_emptyArray($sfilters) : false;
+
+    if ($hideSubdirFiles && $sfilter) {
         $hotlinked = ($directory == '') ? " OR i.hotlink = 1" : '';
         $cond['parts']['directory'] = " AND (i.path = '" . serendipity_db_escape_string($directory) . "'$hotlinked)\n";
     } elseif (!empty($directory)) {
