@@ -1,7 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
-  * Extend backend media rename regex within entries for alt/title attributes
+  * Extend backend ML media rename replce REGEX within entries for alt and title
+    attributes.
 
   * Add icon for hotlink shares to ML backend media properties
 
