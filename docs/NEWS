@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Iconize MediaLibrary filtered status in media toolbar
+
   * Allow to use the media grid in filter(ed) lists
 
   * Improve searching media filters against the hideSubDirFiles limitation
