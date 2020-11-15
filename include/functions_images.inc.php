@@ -2760,6 +2760,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     }
 
     $smarty_vars = array_merge($smarty_vars, array(
+        'use_mediagrid' => true,
         'limit_path'    => $limit_path,
         'perPage'       => $perPage,
         'show_upload'   => $show_upload,
@@ -4086,6 +4087,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
 
     $media = array(
         'standardpane'      => $displayGallery ? false : true,
+        'grid'              => $smarty_vars['use_mediagrid'] ?? false,
         'manage'            => $manage,
         'multiperm'         => serendipity_checkPermission('adminImagesDirectories'),
         'resetperm'         => (serendipity_checkPermission('adminImagesDelete') && serendipity_checkPermission('adminImagesMaintainOthers')),
