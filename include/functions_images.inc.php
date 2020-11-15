@@ -2700,6 +2700,10 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     }
     if (!empty($serendipity['GET']['filter'])) {
         $sfilters = array_filter($serendipity['GET']['filter']);
+        // reset for empty value iteration
+        if (isset($sfilters['fileCategory']) && $sfilters['fileCategory'] == 'all') {
+            $sfilters['fileCategory'] = '';
+        }
     }
     $sfilter = isset($sfilters) ? serendipity_emptyArray($sfilters) : false;
 
