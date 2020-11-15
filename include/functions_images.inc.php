@@ -2698,6 +2698,10 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     ) {
         unset($serendipity['GET']['filter']); // sets NIL to any filters, which is the default and ML startover, before done any user filtering or ML All/IMAGE/VIDEO structure requests.
     }
+    if (!empty($serendipity['GET']['filter'])) {
+        $sfilters = array_filter($serendipity['GET']['filter']);
+    }
+    $sfilter = isset($sfilters) ? serendipity_emptyArray($sfilters) : false;
 
     if ($displayGallery) {
         // don't touch cookie and normal settings, but hard set in case of gallery usage
@@ -2760,7 +2764,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     }
 
     $smarty_vars = array_merge($smarty_vars, array(
-        'use_mediagrid' => true,
+        'use_mediagrid' => $sfilter ? false : true,
         'limit_path'    => $limit_path,
         'perPage'       => $perPage,
         'show_upload'   => $show_upload,
