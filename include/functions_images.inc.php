@@ -83,15 +83,20 @@ function serendipity_fetchImagesFromDatabase($start=0, $limit=0, &$total=null, $
         $filter = array();
     }
 
-    // filter have to avoid using hideSubDirFiles - so we need to check for something unique in filters and check every values state
+    // Filters have to avoid using hideSubDirFiles - so we need to check for something unique in filters and check every values state to find out - otherwise be consistent for category
     if (!empty($serendipity['GET']['filter'])) {
         $sfilters = array_filter($serendipity['GET']['filter']);
         // reset for empty value iteration
-        if (isset($sfilters['fileCategory']) && $sfilters['fileCategory'] == 'all') {
-            $sfilters['fileCategory'] = '';
+        if (!empty($sfilters['fileCategory'])) {
+            if ($sfilters['fileCategory'] == 'all') {
+                $sfilters['fileCategory'] = '';
+            } else {
+                $fCategory = true;
+            }
         }
     }
     $sfilter = isset($sfilters) ? serendipity_emptyArray($sfilters) : false;
+    $sfilter = $fCategory ?? $sfilter;
 
     if ($hideSubdirFiles && $sfilter) {
         $hotlinked = ($directory == '') ? " OR i.hotlink = 1" : '';
