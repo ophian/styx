@@ -1782,7 +1782,7 @@ function serendipity_updateEntryCategories($postid, $categories) {
 }
 
 /**
- * Gather an archive listing of older entries and passes it to Smarty
+ * Gathers an archive listing of older entries and passes it to Smarty
  *
  * The archives are created according to the current timestamp and show the current year.
  * $serendipity['GET']['category'] is honored like in serendipity_fetchEntries()

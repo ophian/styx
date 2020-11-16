@@ -2801,7 +2801,7 @@ function serendipity_generateImageSelectorParems($format = 'url') {
     global $serendipity;
 
     $sortParams   = array('perpage', 'order', 'ordermode');
-    $importParams = array('adminModule', 'htmltarget', 'filename_only', 'textarea', 'subpage',  'keywords', 'noBanner', 'noSidebar', 'noFooter', 'showUpload','showMediaToolbar');
+    $importParams = array('adminModule', 'htmltarget', 'filename_only', 'textarea', 'subpage',  'keywords', 'noBanner', 'noSidebar', 'noFooter', 'showUpload', 'showMediaToolbar');
     $extraParems  = '';
     $filterParams = $serendipity['GET']['filter'] ?? array();
 
