@@ -569,7 +569,7 @@ class serendipity_event_spamblock extends serendipity_event
         }
 
         if (empty($server)) {
-            $this->log($this->logfile, is_null($eventData) ? 0:$eventData['id'], 'AKISMET_SERVER', 'No Akismet server found', $addData);
+            $this->log($this->logfile, (is_null($eventData) ? 0 : $eventData['id']), 'AKISMET_SERVER', 'No Akismet server found', $addData);
             $ret['is_spam'] = false;
             $ret['message'] = 'No server for Akismet request';
             return;
