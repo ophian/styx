@@ -229,7 +229,7 @@ function serendipity_strpos($haystack, $needles) {
 }
 
 /**
- * Check an multidimensional array for set values
+ * Check a multidimensional array for set values
  *
  * @access public
  * @param   array   An array of restricting filter sets
