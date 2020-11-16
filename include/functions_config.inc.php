@@ -829,8 +829,6 @@ function serendipity_userLoggedIn() {
  * @return  boolean True, when $target was not yet set and has been altered. False when no changes where made.
  */
 function serendipity_restoreVar(&$source, &$target) {
-    global $serendipity;
-
     if (isset($source) && !isset($target)) {
         $target = $source;
         return true;
