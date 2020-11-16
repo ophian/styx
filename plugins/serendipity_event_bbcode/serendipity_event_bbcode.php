@@ -243,7 +243,7 @@ class serendipity_event_bbcode extends serendipity_event
 
                 case 'frontend_display':
 
-                    foreach ($this->markup_elements as $temp) {
+                    foreach ($this->markup_elements AS $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && isset($eventData[$temp['element']]) &&
                             !$eventData['properties']['ep_disable_markup_' . $this->instance] &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
