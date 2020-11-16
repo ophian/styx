@@ -2679,25 +2679,13 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
     ## Apply ACL afterwards:
     serendipity_directoryACL($paths, 'read');
 
-    // set filters (first part of serendipity_showMedia() remember filter settings for SetCookie ~1450(?))
-    // set remember filter settings for SetCookie
+    // Set filters (FIRST PART of serendipity_showMedia() remember filter settings for SetCookie ~1450(?))
+    // Set remember filter settings for SetCookie
     if (!isset($serendipity['GET']['filter'])) {
         serendipity_restoreVar($serendipity['COOKIE']['filter'], $serendipity['GET']['filter']);
     }
 
-    // If NO filters are required, we still have an empty filter 'i.name' set, (*)
-    // which forces serendipity_fetchImagesFromDatabase() to run some extra SQL query parts that are not in need!
-    // Since that helps a lot, we just additionally check "simple" (white field) i.filters (image media files, which is 'date', 'size', 'dimensions' and 'name')
-    // and the default complex array of file category + full i.filters + simple default bp.filter (media base-properties metadata fields)
-    // that both can appear during ML paging.
-    // [ NOTE: KEEP after the Cookie restoring! ]
-    //  [*] This and other filled array behaviour is probably ported by one of these lazy GET/COOKIE/GET remember requests, which, potentially doubled, is a mix of old and current session filter data.
-    if ($serendipity['GET']['filter'] == array('i.name' => '')
-        || $serendipity['GET']['filter'] == array('i.date' => array('from' => '', 'to' => '',), 'i.size' => array('from' => '', 'to' => '',), 'i.dimensions_width' => array('from' => '', 'to' => '',), 'i.dimensions_height' => array('from' => '', 'to' => '',), 'i.name' => '',)
-        || $serendipity['GET']['filter'] == array('fileCategory' => '', 'i.date' => array('from' => '', 'to' => '',), 'i.name' => '', 'i.authorid' => '', 'i.extension' => '', 'i.size' => array('from' => '', 'to' => '',), 'i.dimensions_width' => array('from' => '', 'to' => '',), 'i.dimensions_height' => array('from' => '', 'to' => '',), 'bp.DPI' => '', 'bp.COPYRIGHT' => '', 'bp.TITLE' => '', 'bp.COMMENT1' => '', 'bp.COMMENT2' => '',)
-    ) {
-        unset($serendipity['GET']['filter']); // sets NIL to any filters, which is the default and ML startover, before done any user filtering or ML All/IMAGE/VIDEO structure requests.
-    }
+    // Check the restored or set ['GET']['filter']
     if (!empty($serendipity['GET']['filter'])) {
         $sfilters = array_filter($serendipity['GET']['filter']);
         // reset for empty value iteration
@@ -2705,6 +2693,9 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             $sfilters['fileCategory'] = '';
         }
     }
+    // REMEMBER: IMAGE/VIDEO are filters - ALL is not!
+
+    // sFILTER is singularly used for media grid appearance
     $sfilter = isset($sfilters) ? serendipity_emptyArray($sfilters) : false;
 
     if ($displayGallery) {
