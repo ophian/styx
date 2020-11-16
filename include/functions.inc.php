@@ -230,6 +230,7 @@ function serendipity_strpos($haystack, $needles) {
 
 /**
  * Check a multidimensional array for set values
+ * Use array_filter() before, to already filter out empty values in the primary dimension.
  *
  * @access public
  * @param   array   An array of restricting filter sets
