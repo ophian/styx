@@ -6,8 +6,8 @@ Version 3.2-DEV ()
   * Allow to use the media grid in filter(ed) lists
 
   * Improve searching media filters like "filename" against the strict set hide
-    sub-directory limitation, to recursively include all below directory results.
-    Buttonized filter [ All / Image / Video ] behave like before.
+    sub-directory limitation, to recursively include all current directory tree
+    results. Buttoned filter [ All / Image / Video ] behave like before.
 
   * Add new generic function to check a multi-dimensional array for set values
 
