@@ -830,7 +830,7 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
             // make a distinction switch between IM / GD libraries
             if ($serendipity['magick'] !== true) {
                 $out = serendipity_imageGDWebPConversion($infile, $_outfile);
-                return (false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD');
+                return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
                 $pass = [ $serendipity['convert'], [], [], [], 100, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
                 return serendipity_passToCMD('format-webp', $infile, $_outfile, $pass);
@@ -4166,7 +4166,7 @@ function serendipity_metaFieldConvert(&$item, $type) {
     switch($type) {
         case 'math':
             $parts = explode('/', $item);
-            return ($parts[1] > 0) ? ($parts[0] / $parts[1]) : 0;
+            return (($parts[1] > 0) ? ($parts[0] / $parts[1]) : 0);
             break;
 
         case 'or':

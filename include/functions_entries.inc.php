@@ -104,7 +104,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
                    WHERE category_name = '" . serendipity_db_escape_string($categoryname) . "'";
 
         $ret =& serendipity_db_query($query);
-        return $ret[0] ?? null;
+        return $ret[0] ?? null; // No parenthesis in need, since the null-coalesce operator ?? is already right-associative and not affected by PHP 8 changes regarding left-associative ternary operators
     } else {
         if (empty($categoryid)) return;
         $query = "SELECT
@@ -119,7 +119,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
                    WHERE categoryid = " . (int)$categoryid;
 
         $ret =& serendipity_db_query($query);
-        return $ret[0] ?? null;
+        return $ret[0] ?? null; // No parenthesis in need, since the null-coalesce operator ?? is already right-associative and not affected by PHP 8 changes regarding left-associative ternary operators
     }
 }
 
@@ -1482,7 +1482,7 @@ function serendipity_updertEntry($entry) {
     serendipity_plugin_api::hook_event('backend_entry_updertEntry', $errors, $entry);
     if (count($errors) > 0) {
         // Return error message(s)
-        return is_array($errors) ? implode("\n", $errors) : $errors;
+        return (is_array($errors) ? implode("\n", $errors) : $errors);
     }
 
     serendipity_plugin_api::hook_event('backend_entry_presave', $entry);

@@ -322,7 +322,7 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
             }
 
             if (file_exists($serendipity['serendipityPath'] . $templateFile)) {
-                return isset($serendipity[$key]) ? $serendipity[$key] . $templateFile : $templateFile; // avoid undefined index Notices if key was called with '', eg. serendipity_getTemplateFile('style_fallback.css', '')
+                return (isset($serendipity[$key]) ? $serendipity[$key] . $templateFile : $templateFile); // avoid undefined index Notices if key was called with '', eg. serendipity_getTemplateFile('style_fallback.css', '')
             }
         }
     }
