@@ -56,7 +56,7 @@ class Serendipity_Import_pMachine extends Serendipity_Import
 
     function validateData()
     {
-        return is_array($this->data) ? sizeof($this->data) : false;
+        return (is_array($this->data) ? sizeof($this->data) : false);
     }
 
     function getInputFields()
