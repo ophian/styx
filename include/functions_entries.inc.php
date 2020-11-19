@@ -119,7 +119,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
                    WHERE categoryid = " . (int)$categoryid;
 
         $ret =& serendipity_db_query($query);
-        return $ret[0] ?? null; // Ditto (sse above)
+        return $ret[0] ?? null; // Ditto (see above)
     }
 }
 
