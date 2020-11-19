@@ -1011,7 +1011,7 @@ class serendipity_plugin_api
      */
     static function is_event_plugin($name)
     {
-        return (strstr($name, '_event_'));
+        return strstr($name, '_event_');
     }
 
     /**

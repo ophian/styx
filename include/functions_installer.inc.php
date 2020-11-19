@@ -31,11 +31,11 @@ function serendipity_ini_bytesize($val) {
     switch(substr($val, -1)) {
         case 'k':
         case 'K':
-            return (int) $val * 1024;
+            return (int) ($val * 1024);
             break;
         case 'm':
         case 'M':
-            return (int) $val * 1048576;
+            return (int) ($val * 1048576);
             break;
         default:
             return $val;
