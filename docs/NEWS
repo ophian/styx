@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improvements for possible PHP 8 failures
+
   * Iconize MediaLibrary filtered status in media toolbar
 
   * Allow to use the media grid in filter(ed) lists
