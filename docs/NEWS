@@ -1,6 +1,25 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Serendipity Styx from NOW on uses the ARIA storage engine on (recommended !)
+    MariaDB database setups from MariaDB-10.3 versions for new installations.
+
+    The ARIA engine is the successor of the old MyISAM engine and with start from
+    MariaDB-10.5 versions, we won't even need to cut INDEX key lengths any more.
+    As an intermediate installation for MariaDB 10.3 and 10.4, a special crafted SQL
+    installation "db_mb4-k1.sql" file has been added which allows 1000 byte keys.
+
+        The ARIA 'Page' format is the default format for Aria tables, and is the
+        only format that can be used if TRANSACTIONAL=1.
+        Page tables have a number of characteristics: One is, it is cached by the
+        page cache, which gives better random performance as it uses fewer system
+        calls, and is speeding up some GROUP BY and DISTINCT queries.
+        For having "crash-safe" tables read:
+            https://mariadb.com/kb/en/aria-storage-engine/
+
+    ARIA UPGRADE table conversions for elder Serendipity/Styx installations will
+    be done in a future release, when MariaDB-10.5 has landed in Mainstream.
+
   * Improvements for possible PHP 8 failures
 
   * Iconize MediaLibrary filtered status in media toolbar
