@@ -436,13 +436,18 @@ $tasks = array(
 
             array(  'version'   => '3.2.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
-                    'title'     => 'Some fixes for MediaLibrary actions regarding WebP variation images have applied.',
+                    'title'     => 'Some fixes for MediaLibrary actions regarding WebP variation images have been applied.',
                     'desc'      => 'Please read the changelog for these fixes with Serendipity Styx Revisions since 3.0 regarding checks and possible actions for you to do!'),
 
             array(  'version'   => '3.2.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => '<b>THEMES_NOTICE:</b> Lots of smaller bugfix were patched into core themes.',
                     'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page after having done the upgrade, to catch up, if you need to to check your COPY-Themes.'),
+
+            array(  'version'   => '3.2.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => 'Due to the mentioned MediaLibrary inprovements regarding WebP variation images, some image related plugins do now raise up to a Styx 3.2 requirement.',
+                    'desc'      => 'Please run Spartacus plugin updates again after the upgrade has finished to get important plugin image improves for Serendipity Styx Revisions since 3.0! To not have a delayed cache Wait-Time, save the Spartacus plugin option once before.'),
 
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
