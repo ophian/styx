@@ -146,10 +146,27 @@ function serendipity_installDatabase($type='') {
 
     // PostgreSQL and SQLite do not care about string length, other than as required by the SQL standard and define the N in varchar(N) as characters (not bytes).
     // MySQL decided to store codepoints in fixed-size areas and can not index columns larger than 767 bytes. "UTF8MB4" has an index length limitation of VARCHAR(191).
+    // Not exactly! Its 767 bytes with InnoDB. Dunno on ORACLE MySQL MyISAM...
+    //              A 1000 bytes with MyISAM/ARIA. And even 2000 bytes with ARIA as of MariaDB 10.5.
+    //              Thus having 191, 250, 255 (normal) varchar field max key length with different engines and some other variations with Indexes on multi-fields.
     if ($type == 'mysqli' || $type == 'mysql') {
-        $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql');
+        // Print the MySQL version
+        $serendipity['db_server_info'] = mysqli_get_server_info($serendipity['dbConn']); // eg.  == 5.5.5-10.4.11-MariaDB
+        if (stristr(strtolower($serendipity['db_server_info']), 'mariadb')) {
+            $db_version_match = explode('-', $serendipity['db_server_info']);
+            if (version_compare($db_version_match[1], '10.5.0', '>=')) {
+                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql'); // 255 - MariaDB 10.5 versions with max kex 2000 bytes
+            } elseif (version_compare($db_version_match[1], '10.3.0', '>=')) {
+                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4-k1.sql'); // 250 - MariaDB 10.3 and 10.4 versions with max kex 1000 bytes
+            } else {
+                $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql'); // 191 - old MyISAMs
+            }
+        } else {
+            $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db_mb4.sql'); // 191 - Oracles MySQL
+        }
     } else {
-        $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql');
+        $serendipity['db_server_info'] = 'other';
+        $queries = serendipity_parse_sql_tables(S9Y_INCLUDE_PATH . 'sql/db.sql'); // sQLite / PostgreSQL
     }
     $queries = str_replace('{PREFIX}', $serendipity['dbPrefix'], $queries);
 
