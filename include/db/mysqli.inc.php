@@ -538,7 +538,11 @@ function serendipity_db_schema_import($query) {
         }
     }
 
-    serendipity_db_query("SET storage_engine=MYISAM");
+    if (stristr(strtolower($serendipity['db_server_info']), 'mariadb')) {
+        serendipity_db_query("SET storage_engine=ARIA");
+    } else {
+        serendipity_db_query("SET storage_engine=MYISAM");
+    }
 
     $query = trim(str_replace($search, $replace, $query));
 
