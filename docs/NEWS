@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * SET new (mysqli) utf8mb4_unicode_520_ci table COLLATE for Aria installations
+
   * Serendipity Styx from NOW on uses the ARIA storage engine on (recommended !)
     MariaDB database setups from MariaDB-10.3 versions for new installations.
 
