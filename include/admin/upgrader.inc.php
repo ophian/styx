@@ -437,7 +437,7 @@ $tasks = array(
             array(  'version'   => '3.2.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => 'Some fixes for MediaLibrary actions regarding WebP variation images have been applied.',
-                    'desc'      => 'Please read the changelog for these fixes with Serendipity Styx Revisions since 3.0 regarding checks and possible actions for you to do!'),
+                    'desc'      => 'Please read the NEWS changelog (via maintenance tool) for these fixes with Serendipity Styx Revisions since 3.0 regarding checks and possible actions for you to do!'),
 
             array(  'version'   => '3.2.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
