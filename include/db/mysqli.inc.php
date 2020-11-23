@@ -529,7 +529,8 @@ function serendipity_db_schema_import($query) {
         $search[7] = '{UTF_8}'; // IT is Key ID 7 for both and this since being static, else it increments
         if ((isset($_POST['charset']) && $_POST['charset'] == 'UTF-8/') || $serendipity['charset'] == 'UTF-8/' || (isset($serendipity['POST']['charset']) && $serendipity['POST']['charset'] == 'UTF-8/') || LANG_CHARSET == 'UTF-8') {
             if ($serendipity['dbUtf8mb4']) {
-                $replace[7] = '/*!50503 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci */'; // As of 2020 this should be utf8mb4_unicode_520_ci / the difference is in the used UCA version and the sorting behaviour. Using _general_ is slightly faster, BUT measurable only on huge databases. So generally nothing we talk about here.
+                // SET table COLLATION against SERVER Version
+                $replace[7] = '/*!50503 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci */'; // The difference to "utf8mb4_general_ci" is in the used UCA version and the sorting behaviour. Using _general_ is slightly faster, BUT measurable only on huge databases. So generally nothing we talk about here.
             } else {
                 $replace[7] = '/*!40100 CHARACTER SET utf8 COLLATE utf8_unicode_ci */';
             }
