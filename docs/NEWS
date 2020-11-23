@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new "Pure Start Grid" (purestart) theme, powered by "pure" engine
+
   * SET new (mysqli) utf8mb4_unicode_520_ci table COLLATE for Aria installations
 
   * Serendipity Styx from NOW on uses the ARIA storage engine on (recommended !)
