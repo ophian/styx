@@ -95,10 +95,5 @@
     <p>The «<code> limit="0,5"</code> » parameter defines ranging limits for the database fetch. This is a string that indicates how many blog articles should be read. This string can contain either a single number or a specification <code>X, Y</code>, where <code>X</code> is the index of the article from which articles are displayed and <code>Y</code> is the number of articles to be read. A parameter <code>limit="5, 10"</code> would output 10 articles and skip the first 5 recent articles. If this parameter is not specified, as many articles are read as the default is defined in the configuration of the blog..</p>
   </div>
 </details>');
-// pure
-@define('PURE_USE_HIGHLIGHT', 'Load code highlight js for entries list');
-@define('PURE_USE_HIGHLIGHT_DESC', 'Normally this will automatically load only in single entry views for comments, but if you have code snips in your entries you might want to allow this within entries too.');
-@define('PURE_GROUP_SEPARATOR_TITLE', '<h3>Global theme and navigation tab options:</h3>');
-@define('PURE_PLINK_TEXT', 'Link');
-@define('PURE_PLINK_TITLE', 'Permanent link for this comment');
-@define('PURE_REPLYORIGIN', 'Origin');
+@define('PURE_START_USE_HIGHLIGHT', 'Load code highlight js for entries list');
+@define('PURE_START_USE_HIGHLIGHT_DESC', 'Normally this will automatically load only in single entry views for comments, but if you have code snips in your entries you might want to allow this within entries too.');

@@ -95,10 +95,5 @@
     <p>Der «<code> limit="0,5"</code> » Parameter definiert Auswahllimitierungen für die Datenbankabfrage. Dies ist eine Zeichenfolge, die angibt, wie viele Blog-Artikel ausgelesen werden sollen. Diese Zeichenfolge kann entweder eine einzelne Zahl oder eine Angabe <code>X, Y</code> enthalten, wobei <code>X</code> der Index des Artikels ist, aus dem die Artikel angezeigt werden, und <code>Y</code> die Anzahl der zu lesenden Artikel ist. Ein Parameter <code>limit="5, 10"</code> würde 10 Artikel ausgeben und die ersten 5 aktuellen Artikel überspringen. Wenn dieser Parameter nicht angegeben wird, werden so viele Artikel gelesen, wie in der Konfiguration des Blogs als Standard definiert sind.</p>
   </div>
 </details>');
-// pure
 @define('PURE_START_GROUP_SEPARATOR_TITLE', '<h3>Globale Theme und Navigations-Tab Optionen:</h3>');
 @define('PURE_START_PLINK_TEXT', 'Link');
-@define('PURE_START_PLINK_TITLE', 'Permanenter Link zu diesem Kommentar');
-@define('PURE_START_REPLYORIGIN', 'Antwort auf');
-@define('PURE_START_USE_HIGHLIGHT', 'Lade code highlight js in der Eintrags Liste');
-@define('PURE_START_USE_HIGHLIGHT_DESC', 'Normalerweise wird dieses Javascript nur auf Einzelseiten für die Hervorhebung von code Beispielen in Kommentaren geladen. Sollten Sie aber solche auch in Ihren Einträgen verwenden, möchten Sie es vielleicht auch in der Eintragsliste aktiv geladen haben.');
