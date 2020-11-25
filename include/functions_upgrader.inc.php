@@ -442,7 +442,9 @@ $dead_dirs_310 = array(
 
 /* A list of Styx files, to be removed or renamed by 3.2.0 */
 $dead_files_320 = array(
-    'plugins/serendipity_event_autoupdate/UTF-8/lang_en.inc.php'
+    'plugins/serendipity_event_autoupdate/UTF-8/lang_en.inc.php',
+    'templates/pure/legal.txt',
+    'templates/pure19/legal.txt'
 );
 
 /**
