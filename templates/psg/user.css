@@ -3,6 +3,11 @@ body.welcome,
 #content.welcome {
   background-color: #E9E9E9;
 }
+.archive_index dl {
+  line-height: 1.4; }
+  .archive_index dd {
+    margin-bottom: .5rem; }
+
 /* @kudos to Max Boeck, Vienna, AT */
 .home {
   display: grid;

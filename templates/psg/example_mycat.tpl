@@ -1,4 +1,3 @@
-<style> .myCatsaremyCastle dl { line-height: 1.4; } .myCatsaremyCastle dd { margin-bottom: .5rem; } </style>
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
     <dl>
     {foreach $entries AS $sentries}

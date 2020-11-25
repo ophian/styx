@@ -16,9 +16,9 @@
 @define('PURE_START_WELCOME_CONTENT', 'Right Card: (HTML) content block');
 //details
 @define('PURE_START_WELCOME_GROUP_TITLE', '<h3>Startpage settings (optional):</h3>
-<p><a class="media_fullsize" href="templates/purestart/pure_home-example-600.webp" data-fallback="templates/purestart/pure_home-example-600.png" title="Vollbild: pure_home-example-600.png (WepP)" data-pwidth="600" data-pheight="683"><picture>
-  <source srcset="templates/purestart/home-ex-200.webp" type="image/webp">
-  <img class="serendipity_image_right" src="templates/purestart/home-ex-200.png" alt="" />
+<p><a class="media_fullsize" href="templates/psg/pure_home-example-600.webp" data-fallback="templates/psg/pure_home-example-600.png" title="Vollbild: pure_home-example-600.png (WepP)" data-pwidth="600" data-pheight="683"><picture>
+  <source srcset="templates/psg/home-ex-200.webp" type="image/webp">
+  <img class="serendipity_image_right" src="templates/psg/home-ex-200.png" alt="" />
 </picture></a></p>
 <details>
   <summary class="button button_link" role="button" aria-expanded="false" title="open/close information content">LANDING PAGE - HOME</summary>

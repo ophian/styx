@@ -1,8 +1,0 @@
-Name: Pure Start Grid
-Author: Ian Styx
-Date: 2020-11-24
-Require Serendipity: 3.0
-Backend: No
-Responsive: Yes
-Mobile: Yes
-Engine: pure
