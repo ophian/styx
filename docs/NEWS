@@ -1,7 +1,7 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
-  * Add new "PSG" (Pure Starting Grid Cards) theme, powered by "pure" engine
+  * Add new "PSG" (Pure Starting Grid) Cards theme, powered by "pure" engine
 
   * SET new (mysqli) utf8mb4_unicode_520_ci table COLLATE for Aria installations
 
