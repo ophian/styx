@@ -25,7 +25,7 @@ function serendipity_ini_bool($var) {
  * @return  string  bytesize
  */
 function serendipity_ini_bytesize($val) {
-    if ($val == '')
+    if (!is_numeric($val) || $val == '')
         return 0;
 
     switch(substr($val, -1)) {
@@ -323,7 +323,7 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
 function serendipity_parseTemplate($filename, $areas = null, $onlyFlags=null) {
     global $serendipity;
 
-    $userlevel = $serendipity['serendipityUserlevel'];
+    $userlevel = $serendipity['serendipityUserlevel'] ?? null;
 
     if (!IS_installed) {
         $userlevel = USERLEVEL_ADMIN;
@@ -926,7 +926,7 @@ function serendipity_updateConfiguration() {
 
             // Check permission set. Changes to blogConfiguration or siteConfiguration items
             // always required authorid = 0, so that it be not specific to a userlogin
-            if ($serendipity['serendipityUserlevel'] >= $item['userlevel'] || IS_installed === false) {
+            if ((isset($serendipity['serendipityUserlevel']) && $serendipity['serendipityUserlevel'] >= $item['userlevel']) || IS_installed === false) {
                 $authorid = 0;
             } elseif ($item['permission'] == 'blogConfiguration' && serendipity_checkPermission('blogConfiguration')) {
                 $authorid = 0;
