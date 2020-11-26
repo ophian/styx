@@ -5180,7 +5180,7 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
 
             $file['newformat'] = $format;
             // replace newfilename occurrences in entries oldDir is build inside that function
-            if (false === serendipity_moveMediaInEntriesDB(null, $newDir, 'file', null, $file, $debug)) {
+            if (false === serendipity_moveMediaInEntriesDB(null, $newDir, 'file', $file, null, $debug)) {
                 return false;
             }
         }
@@ -5206,13 +5206,13 @@ function serendipity_formatRealFile($oldDir, $newDir, $format, $item_id, $file) 
  * @param   string  Old directory name or empty
  * @param   string  New directory name with a trailing slash or empty
  * @param   string  The type of what to remove (dir|file|filedir)
+ * @param   array   Result of origin (old) serendipity_fetchImageFromDatabase($id)
  * @param   array   Properties result of new updated query,
  *                      @see serendipity_renameRealFileDir() and serendipity_moveMediaDirectory()
- * @param   array   Result of origin (old) serendipity_fetchImageFromDatabase($id)
  * @param   boolean Ad hoc debugging, set in wrapper serendipity_moveMediaDirectory()
  * @return
  */
-function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $file, $debug=false) {
+function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=null, $debug=false) {
     global $serendipity;
 
     $trace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 2);
@@ -5578,7 +5578,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick=null, $
  *              serendipity_renameRealFileDir($oldDir, $newDir, $type, $item_id)
  *
  * and LASTLY to update the entries in the database
- *              serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick, $file)
+ *              serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick)
  *
  * @param  string   The old directory / file.
  *                  This can be NULL or (an empty / a) STRING for re-name/multiCheck move comparison events
@@ -5665,7 +5665,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     #    return true;
     #}
 
-    if (false === serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $pick, $file, $debug)) {
+    if (false === serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick, $debug)) {
         return false;
     }
 
