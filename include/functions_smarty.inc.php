@@ -1006,7 +1006,7 @@ function serendipity_smarty_init($vars = array()) {
             }
 
             // Set a session variable if Smarty fails:
-            $prev_smarty = $_SESSION['no_smarty'];
+            $prev_smarty = $_SESSION['no_smarty'] ?? null;
             $_SESSION['no_smarty'] = true;
 
             if (LANG_CHARSET != 'UTF-8') {
@@ -1159,23 +1159,23 @@ function serendipity_smarty_init($vars = array()) {
                 'head_link_stylesheet_frontend' => $serendipity['smarty_vars']['head_link_stylesheet_frontend'] ?? null,
 
                 'is_xhtml'                  => true,
-                'use_popups'                => $serendipity['enablePopup'],
+                'use_popups'                => $serendipity['enablePopup'] ?? false,
                 'use_backendpopups'         => $serendipity['enableBackendPopup'] ?? false,
                 'force_backendpopups'       => $force_backendpopups,
-                'is_embedded'               => (!$serendipity['embed'] || $serendipity['embed'] === 'false' || $serendipity['embed'] === false) ? false : true,
+                'is_embedded'               => (!isset($serendipity['embed']) || $serendipity['embed'] === 'false' || $serendipity['embed'] === false) ? false : true,
                 'is_raw_mode'               => $serendipity['smarty_raw_mode'],
                 'is_logged_in'              => serendipity_userLoggedIn(),
 
                 'entry_id'                  => (isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])) ? $serendipity['GET']['id'] : false,
                 'is_single_entry'           => (isset($serendipity['GET']['id']) && is_numeric($serendipity['GET']['id'])),
 
-                'blogTitle'                 => $serendipity['blogTitle'],
+                'blogTitle'                 => $serendipity['blogTitle'] ?? '',
                 'blogSubTitle'              => (!empty($serendipity['blogSubTitle']) ? $serendipity['blogSubTitle'] : ''),
-                'blogDescription'           => $serendipity['blogDescription'],
+                'blogDescription'           => $serendipity['blogDescription'] ?? '',
 
-                'serendipityHTTPPath'       => $serendipity['serendipityHTTPPath'],
-                'serendipityDefaultBaseURL' => $serendipity['defaultBaseURL'],
-                'serendipityBaseURL'        => $serendipity['baseURL'],
+                'serendipityHTTPPath'       => $serendipity['serendipityHTTPPath'] ?? '',
+                'serendipityDefaultBaseURL' => $serendipity['defaultBaseURL'] ?? '',
+                'serendipityBaseURL'        => $serendipity['baseURL'] ?? '',
                 'serendipityRewritePrefix'  => $serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '',
                 'serendipityIndexFile'      => $serendipity['indexFile'],
                 'serendipityVersion'        => $serendipity['expose_s9y'] ? $serendipity['version'] : '',
@@ -1302,7 +1302,7 @@ function serendipity_smarty_shutdown($serendipity_directory = '') {
 function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = null, $debug = null) {
     global $serendipity;
 
-    if (!is_object($serendipity['smarty'])) {
+    if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
 
