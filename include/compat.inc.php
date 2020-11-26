@@ -217,7 +217,7 @@ if (!function_exists('errorToExceptionHandler')) {
         if ($serendipity['production'] === false) {
             $head = " == ERROR-REPORT (RC/BETA/ALPHA-BUILDS) == \n";
             // Display error (production: FALSE and trigger_errors with E_USER_ERROR
-            if (!$serendipity['dbConn'] || $exit) {
+            if (!isset($serendipity['dbConn']) || !$serendipity['dbConn'] || $exit) {
                 echo '<p>'.$head.'</p><p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . "</p>\n";
             } else {
                 if (!empty($debug_note) && false !== strpos($errStr, $debug_note)) echo $head . $debug_note."\n\n";
@@ -416,7 +416,7 @@ function serendipity_get_bool($item) {
 function serendipity_getCharset() {
     global $serendipity;
 
-    $charset = $serendipity['charset'];
+    $charset = $serendipity['charset'] ?? 'UTF-8/';
     if (!empty($_POST['charset'])) {
         if ($_POST['charset'] == 'UTF-8/') {
             $charset = 'UTF-8/';
