@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup PHP 8 deprecations for functions/methods param order sets
+
   * Fixup first bunch of PHP 8 notices/deprecations for the installation process
 
   * Add new "PSG" (Pure Starting Grid) Cards theme, powered by "pure" engine
