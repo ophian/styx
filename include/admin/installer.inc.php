@@ -30,9 +30,10 @@ if (defined('S9Y_DATA_PATH')) {
     $basedir = serendipity_query_default('serendipityPath', false);
 }
 
+$data['is_errors'] = false;
 $data['basedir'] = $basedir;
 $data['phpversion'] = PHP_VERSION;
-$data['versionInstalled'] = $serendipity['versionInstalled'];
+$data['versionInstalled'] = $serendipity['versionInstalled'] ?? '';
 $data['templatePath'] = $serendipity['templatePath'];
 $data['installerHTTPPath'] = str_replace('//', '/', dirname($_SERVER['PHP_SELF']) . '/'); // since different OS handlers for enddir
 
@@ -71,6 +72,8 @@ if (!empty($serendipity['POST']['getstep']) && is_numeric($serendipity['POST']['
     $serendipity['GET']['step'] = $serendipity['POST']['getstep'];
 }
 
+$from = null;
+
 /* From configuration to install */
 if (sizeof($_POST) > 1 && $serendipity['GET']['step'] == '3') {
     /* One problem, if the user chose to do an easy install, not all config vars has been transferred
@@ -97,7 +100,11 @@ if (sizeof($_POST) > 1 && $serendipity['GET']['step'] == '3') {
     }
 }
 
+$serendipity['template'] = $serendipity['template'] ?? '';
+$serendipity['GET']['step'] = $serendipity['GET']['step'] ?? 0;
 $data['s9yGETstep'] = $serendipity['GET']['step'];
+$data['install_blank'] = false;
+$data['getstepint0'] = null;
 
 $install_token = '';
 $install_token_file = realpath(dirname(__FILE__) . '/../../') . '/install_token.php';
@@ -352,7 +359,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
         }
     }
 
-    $data['showWritableNote'] = $showWritableNote;
+    $data['showWritableNote'] = $showWritableNote ?? false;
     $data['errorCount'] = $errorCount;
 
 } elseif ($serendipity['GET']['step'] == '2a') {
@@ -424,7 +431,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
 
 include_once  dirname(dirname(__FILE__)) . '/functions.inc.php';
 
-if (!is_object($serendipity['smarty'])) {
+if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
