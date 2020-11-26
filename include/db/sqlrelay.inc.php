@@ -441,7 +441,7 @@ function serendipity_db_reconnect() {
     if (isset($serendipity['dbCharset'])) {
         serendipity_db_query("SET NAMES " . $serendipity['dbCharset']);
         @define('SQL_CHARSET_INIT', true);
-    } elseif (defined('SQL_CHARSET') && $serendipity['dbNames'] && !defined('SQL_CHARSET_INIT')) {
+    } elseif (defined('SQL_CHARSET') && isset($serendipity['dbNames']) && $serendipity['dbNames'] && !defined('SQL_CHARSET_INIT')) {
         serendipity_db_query("SET NAMES " . SQL_CHARSET);
     }
 }
