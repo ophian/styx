@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup first bunch of PHP 8 notices/deprecations for the installation process
+
   * Add new "PSG" (Pure Starting Grid) Cards theme, powered by "pure" engine
 
   * SET new (mysqli) utf8mb4_unicode_520_ci table COLLATE for Aria installations
