@@ -1085,7 +1085,7 @@ class serendipity_plugin_api
             return false;
         }
 
-        if ($serendipity['enablePluginACL'] && !serendipity_hasPluginPermissions($event_name)) {
+        if (!isset($serendipity['enablePluginACL']) || ($serendipity['enablePluginACL'] && !serendipity_hasPluginPermissions($event_name))) {
             return false;
         }
 
