@@ -1686,12 +1686,14 @@ class serendipity_event extends serendipity_plugin
      * on the 'body' field, it might get overwritten by other plugins later on.
      *
      * @access public
-     * @param   string      The fieldname to get a reference for
+     * @param   string      The fieldname to get a reference for - default is 'body'
      * @param   array       The entry superarray to get the reference from
      * @return  array       The value of the array for the fieldname (reference)
      */
-    function &getFieldReference($fieldname = 'body', &$eventData)
+    function &getFieldReference($fieldname, &$eventData)
     {
+        $fieldname = $fieldname ?? 'body'; // Avoids: Required parameter $param_required follows optional parameter $param_optional in ...
+
         // Get a reference to a content field (body/extended) of
         // $entries input data. This is a unifying function because
         // several plugins are using similar fields.
