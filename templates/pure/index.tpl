@@ -80,7 +80,7 @@
 
             <p class="msg_notice"><span class="ico icon-info" aria-hidden="true"></span> {$CONST.NO_ENTRIES_TO_PRINT}</p>
         {/if}
-        </main>
+
         </main>
     {if $leftSidebarElements > 0}
 
