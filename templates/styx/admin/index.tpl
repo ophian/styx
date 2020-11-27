@@ -49,7 +49,7 @@
     <main id="workspace" class="clearfix">
     {if NOT $admin_vars.is_logged_in}
         {$admin_vars.out|serendipity_refhookPlugin:'backend_login_page'}
-            {$admin_vars.out.header|default:''}
+            {if isset($admin_vars.out.header)}{$admin_vars.out.header|default:''}{/if}
         {if $admin_vars.post_action != '' AND NOT $admin_vars.is_logged_in}
             <span class="msg_error">{$CONST.WRONG_USERNAME_OR_PASSWORD}</span>
         {/if}
@@ -78,9 +78,9 @@
                         <a class="button_link" href="{$serendipityBaseURL}">{$CONST.BACK_TO_BLOG}</a>
                     </div>
                 </fieldset>
-                {$admin_vars.out.table|default:''}
+                {if isset($admin_vars.out.table)}{$admin_vars.out.table|default:''}{/if}
             </form>
-            {$admin_vars.out.footer|default:''}
+            {if isset($admin_vars.out.footer)}{$admin_vars.out.footer|default:''}{/if}
     {else}
         {if NOT $admin_vars.no_sidebar}
         <nav id="main_menu">
