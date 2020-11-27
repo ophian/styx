@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup second bunch of PHP 8 notices/deprecations for fresh systems
+
   * Temporary fixup (silence) PHP 8 ERROR NOTICE to ERROR WARNING accentuation
     for our silenced constant chaining.
 
