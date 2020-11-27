@@ -184,7 +184,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
                     // This will stop Serendipity immediately throwing a '503 Service Temporarily Unavailable' maintenance message,
                     // if var is set to true and user is not authenticated and logged into admin users.
                     // This $serendipity['maintenance'] var is stored in serendipity_config_local.inc file!
-                    if (!$superuser && !serendipity_checkPermission('adminUsers') && serendipity_db_bool($serendipity['maintenance']) ) {
+                    if (!$superuser && !serendipity_checkPermission('adminUsers') && isset($serendipity['maintenance']) && serendipity_db_bool($serendipity['maintenance']) ) {
                         $logo = serendipity_db_bool($this->get_config('use_s9ylogo', 'true')) ? '<img class="logo" src="'.$serendipity['serendipityHTTPPath'] . $serendipity['templatePath'] . 's9y_banner_small.png" alt="Serendipity Styx" />' : '';
                         $this->service_mode($logo);
                     }
