@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix "pure" theme for doubled element
+
   * Fixup "pure" and child themes for not available constant
 
   * Fixup backend themes for PHP 8 warnings on non-isset items. Using Smarty
