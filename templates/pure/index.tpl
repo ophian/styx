@@ -43,7 +43,7 @@
                     <div>
                         <input type="hidden" name="serendipity[action]" value="search">
                         <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
-                        <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.TWOK11_PLACE_SEARCH}" value="">
+                        <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.PURE_PLACE_SEARCH}" value="">
                         <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
                     </div>
                     </form>
@@ -58,7 +58,7 @@
             <div>
                 <input type="hidden" name="serendipity[action]" value="search">
                 <label for="serendipityQuickSearchTermField">{$CONST.QUICKSEARCH}</label>
-                <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.TWOK11_PLACE_SEARCH}" value="">
+                <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.PURE_PLACE_SEARCH}" value="">
                 <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
             </div>
             </form>
