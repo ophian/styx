@@ -98,9 +98,10 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
     $perms = serendipity_getAllPermissionNames();
     ksort($perms);
     $data['perms'] = $perms;
+
     foreach($perms AS $perm => $userlevels) {
-        if (defined('PERMISSION_' . strtoupper($perm))) {
-            @list($name, $note) = explode(':', constant('PERMISSION_' . strtoupper($perm))); // mute notice since CONSTANT $name isn't set for [Hidden group / Non-Author] and [userlevel]
+        if ((defined('PERMISSION_' . strtoupper($perm)))) {
+            list($name, $note) = ($perm != 'hiddenGroup' ? explode(':', (constant('PERMISSION_' . strtoupper($perm)))) : ['Hidden group / Non-Author', '']); // mute notice/warning(PHP8) since CONSTANT $name isn't set for [Hidden group / Non-Author] and [userlevel]
             $data['perms'][$perm]['permission_name'] = $name;
             $data['perms'][$perm]['permission_note'] = $note;
         } else {
