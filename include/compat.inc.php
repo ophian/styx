@@ -180,8 +180,8 @@ if (!function_exists('errorToExceptionHandler')) {
         if ($serendipity['production'] === true && ini_get('display_errors') == 0) {
             return false;
         }
-        // Several plugins might not adapt to proper style. This should not completely kill our execution.
-        if ($serendipity['production'] !== 'debug' && preg_match('@Declaration.*should be compatible with@i', $args[1])) {
+        // Several plugins might not adapt to proper style. This should not completely kill our execution. Additionally: PHP 8 throws notices for our constant fallback mechanism overall. Work around this behaviour until further.
+        if ($serendipity['production'] !== 'debug' && (preg_match('@Declaration.*should be compatible with@i', $args[1]) || preg_match('@Constant.*already defined@i', $args[1]))) {
             #if (!headers_sent()) echo "<strong>Compatibility warning:</strong> Please upgrade file old '{$args[2]}', it contains incompatible signatures.<br/>Details: {$args[1]}<br/>";
             return false;
         }
