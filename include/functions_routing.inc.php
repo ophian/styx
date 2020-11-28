@@ -516,7 +516,7 @@ function serveArchives() {
         default:
             $gday = 1;
 
-            if ($week) {
+            if (isset($week)) {
                 $tm = strtotime('+ '. ($week-2) .' WEEKS monday', mktime(0, 0, 0, 1, 1, $year));
                 $ts = mktime(0, 0, 0, date('m', $tm), date('j', $tm), $year);
                 $te = mktime(23, 59, 59, date('m', $tm), date('j', $tm)+7, $year);
@@ -540,7 +540,7 @@ function serveArchives() {
         case 'persian-utf8':
             require_once S9Y_INCLUDE_PATH . 'include/functions_calendars.inc.php';
             $gday = 1;
-            if ($week) {
+            if (isset($week)) {
                 --$week;
                 $week *= 7;
                 ++$week;
@@ -584,7 +584,7 @@ function serveArchives() {
     $serendipity['range'] = array($ts, $te);
 
     if ($serendipity['GET']['action'] == 'read') {
-        if ($serendipity['GET']['category']) {
+        if (isset($serendipity['GET']['category'])) {
             $cInfo = serendipity_fetchCategoryInfo($serendipity['GET']['category']); // category already secured to be an integer only
             $serendipity['head_title'] = $cInfo['category_name'];
         }
