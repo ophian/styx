@@ -1795,6 +1795,10 @@ function serendipity_printArchives() {
     global $serendipity;
 
     $f = serendipity_db_query("SELECT timestamp FROM {$serendipity['dbPrefix']}entries ORDER BY timestamp ASC LIMIT 1");
+    if (!is_array($f)) {
+        $t = time();
+        $f = array ( 0 => array ( 0 => $t, 'timestamp' => $t ));
+    }
     switch($serendipity['calendar']) {
         case 'gregorian':
         default:
