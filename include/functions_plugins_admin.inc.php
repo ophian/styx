@@ -40,7 +40,9 @@ function serendipity_groupname($group) {
  * @return boolean  Return code for array comparison
  */
 function serendipity_pluginListSort($x, $y) {
-    return strnatcasecmp($x['name'] . ' - ' . @$x['description'], $y['name'] . ' - ' . @$y['description']); // mute possible uninitialized parameters
+    $xd = $x['description'] ?? '';
+    $yd = $y['description'] ?? '';
+    return strnatcasecmp($x['name'] . ' - ' . $xd, $y['name'] . ' - ' . $yd);
 }
 
 /**
