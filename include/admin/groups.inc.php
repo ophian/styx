@@ -89,8 +89,10 @@ if ($serendipity['GET']['adminAction'] == 'edit' || isset($_POST['NEW']) || $ser
     $users    = isset($from['id']) ? serendipity_getGroupUsers($from['id']) : array();
 
     $selected = array();
-    foreach((array)$users AS $user) {
-        $selected[$user['id']] = true;
+    if (is_array($users)) {
+        foreach($users AS $user) {
+            $selected[$user['id']] = true;
+        }
     }
     $data['selected'] = $selected;
     $data['allusers'] = $allusers;
