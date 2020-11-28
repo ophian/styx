@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup third bunch of PHP 8 notices/warnings/deprecations for fresh systems
+
   * Fix "pure" theme for doubled element
 
   * Fixup "pure" and child themes for not available constant
