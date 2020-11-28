@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_plugin
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.34');
+        $propbag->add('version',       '1.35');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -67,7 +67,7 @@ class serendipity_event_changelog extends serendipity_plugin
                         $file =  $mb_blah . "\n\n" . file_get_contents($serendipity['serendipityPath'] . 'docs/NEWS');
                         echo $file;
                     }
-                    if ($part[0] == 'logs' && is_object(@$serendipity['logger'])) {
+                    if ($part[0] == 'logs' && isset($serendipity['logger']) && is_object($serendipity['logger'])) {
                         if (!headers_sent()) {
                             header('HTTP/1.0 200');
                             header('Status: 200 OK');
