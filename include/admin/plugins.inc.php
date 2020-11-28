@@ -270,6 +270,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if (!isset($props['upgradeable'])) {
                 $props['upgradeable'] = false; // default define - Matches all plugins that are stackable/installable
             }
+            if (!isset($props['customURI'])) {$props['customURI'] = '';}
             if (version_compare($props['version'], $props['upgrade_version'], '<')
                 ||
                 (
@@ -300,7 +301,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                                              AND pluginlocation  = 'local'");
                     $local_upset = true;
                 }
-                if (!isset($props['customURI'])) $props['customURI'] = '';
                 $props['customURI'] .= $baseURI . $foreignPlugins['upgradeURI'];
             }
             // Check all other local sidebar|event plugins in array (runs once only!)
@@ -336,7 +336,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             // Fill this property, since it is locally there - but this does not mean we have to use it (although in addNew and upgrade only).
             // What we definitely want for upgradeable plugins is the new remote changelog path! @see above.
             // Better only mute possible undefined only_group, since else case to "blurry"
-            if (empty($props['changelog']) && @$serendipity['GET']['only_group'] != 'UPGRADE' && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
+            if (empty($props['changelog']) && (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] != 'UPGRADE') && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
                 $props['changelog'] = 'plugins/' . $props['pluginPath'] . '/ChangeLog';
             }
             // assume session has timed out (since not upgraded at session runtime) and pluginstack is array and fetched from pluginlist table 
