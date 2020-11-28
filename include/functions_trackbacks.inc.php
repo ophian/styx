@@ -645,7 +645,7 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
     static $saved_urls = array();
     static $debug = false;
 
-    $debug = is_object(@$serendipity['logger']) && $debug; // ad hoc, case-by-case debugging
+    $debug = (isset($serendipity['logger']) && is_object($serendipity['logger']) && $debug); // ad hoc, case-by-case debugging
 
     if ($debug) { $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START serendipity_handle_references SEPARATOR" . str_repeat(" <<< ", 10) . "\n"); }
 
