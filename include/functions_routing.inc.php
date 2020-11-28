@@ -480,8 +480,10 @@ function serveArchives() {
         }
     }
 
+    if (!isset($_args[3])) $_args[3] = ''; // PHP 8 fix for key 3
+
     /* We must always *assume* that Year, Month and Day are the first 3 arguments */
-    list(,$year, $month, $day) = $_args; // keep empty param, is archives
+    list(,$year, $month, $day) = $_args; // keep empty param, is 'archives'
     if ($year == 'archives') {
         unset($year);
     }
