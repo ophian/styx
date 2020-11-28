@@ -14,7 +14,7 @@
                                   {$card.body|default:"<p>No Content</p>"}
                                 </div>
                                 <div class="card__footer">
-                                  in <span class="tag">Pure</span>, <span class="tag">Styx</span>
+                                  in <span class="tag">PSG</span>, <span class="tag">Styx</span>
                                 </div>
                               </article>
                             </a>
@@ -125,7 +125,7 @@
                                   </ol>
                                 </div>
                                 <div class="card__footer">
-                                  in <span class="tag">Pure</span>, <span class="tag">Styx</span>
+                                  in <span class="tag">PSG</span>, <span class="tag">Styx</span>
                                 </div>
                               </article>
                             </div>
@@ -147,7 +147,7 @@
                                   {$template_option.home_welcome_content}
                                 </div>
                                 <div class="card__footer">
-                                  in <span class="tag">Pure</span>, <span class="tag">Styx</span>
+                                  in <span class="tag">PSG</span>, <span class="tag">Styx</span>
                                 </div>
                               </article>
                             </a>
