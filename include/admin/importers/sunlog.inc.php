@@ -131,7 +131,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import
         }
 
         /* Categories */
-        if (!$this->importCategories(null, 0, $sunlogdb)) {
+        if (!$this->importCategories($sunlogdb, null, 0)) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($sunlogdb));
         }
         serendipity_rebuildCategoryTree();
@@ -246,7 +246,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import
         return true;
     }
 
-    function importCategories($parentid = 0, $new_parentid = 0, $sunlogdb)
+    function importCategories($sunlogdb, $parentid = 0, $new_parentid = 0)
     {
         $where = "WHERE parent = '" . mysqli_escape_string($parentid) . "'";
 
@@ -269,7 +269,7 @@ class Serendipity_Import_sunlog extends Serendipity_Import
             serendipity_db_insert('category', $this->strtrRecursive($cat));
             $row['categoryid']  = serendipity_db_insert_id('category', 'categoryid');
             $this->categories[] = $row;
-            $this->importCategories($row['id'], $row['categoryid'], $sunlogdb);
+            $this->importCategories($sunlogdb, $row['id'], $row['categoryid']);
         }
 
         return true;

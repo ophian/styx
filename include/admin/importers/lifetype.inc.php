@@ -126,7 +126,7 @@ class Serendipity_Import_lifetype extends Serendipity_Import
         }
 
         /* Categories */
-        if (!$this->importCategories(null, 0, $ltdb)) {
+        if (!$this->importCategories($ltdb, null, 0)) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($ltdb));
         }
         serendipity_rebuildCategoryTree();
@@ -271,7 +271,7 @@ class Serendipity_Import_lifetype extends Serendipity_Import
         return true;
     }
 
-    function importCategories($parentid = 0, $new_parentid = 0, $ltdb)
+    function importCategories($ltdb, $parentid = 0, $new_parentid = 0)
     {
         if (is_null($parentid)) {
             $where = 'WHERE parent_id = 0';
@@ -301,7 +301,7 @@ class Serendipity_Import_lifetype extends Serendipity_Import
             serendipity_db_insert('category', $this->strtrRecursive($cat));
             $row['categoryid']  = serendipity_db_insert_id('category', 'categoryid');
             $this->categories[] = $row;
-            $this->importCategories($row['cat_ID'], $row['categoryid'], $ltdb);
+            $this->importCategories($ltdb, $row['cat_ID'], $row['categoryid']);
         }
 
         return true;

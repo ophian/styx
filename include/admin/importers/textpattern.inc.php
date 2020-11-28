@@ -137,7 +137,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         }
 
         /* Categories */
-        if (!$this->importCategories('root', 0, $txpdb)) {
+        if (!$this->importCategories($txpdb, 'root', 0)) {
             return sprintf(COULDNT_SELECT_CATEGORY_INFO, mysqli_error($txpdb));
         }
         serendipity_rebuildCategoryTree();
@@ -224,7 +224,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
         return true;
     }
 
-    function importCategories($parentname = 'root', $parentid = 0, $txpdb)
+    function importCategories($txpdb, $parentname = 'root', $parentid = 0)
     {
         $res = $this->nativeQuery("SELECT * FROM {$this->data['prefix']}txp_category
                                      WHERE parent = '" . mysqli_escape_string($parentname) . "' AND type = 'article'", $txpdb);
@@ -245,7 +245,7 @@ class Serendipity_Import_textpattern extends Serendipity_Import
             serendipity_db_insert('category', $this->strtrRecursive($cat));
             $row['categoryid']  = serendipity_db_insert_id('category', 'categoryid');
             $this->categories[] = $row;
-            $this->importCategories($row['name'], $row['categoryid'], $txpdb);
+            $this->importCategories($txpdb, $row['name'], $row['categoryid']);
         }
 
         return true;
