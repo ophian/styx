@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.68');
+        $propbag->add('version',       '1.69');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -503,7 +503,7 @@ class serendipity_event_entryproperties extends serendipity_event
                 if (is_array($plugins)) {
                     foreach($plugins AS $plugin => &$plugin_data) {
                         // mute possible uninitialized items
-                        if (!is_array(@$plugin_data['p']->markup_elements)) {
+                        if (!isset($plugin_data['p']->markup_elements) || !is_array(@$plugin_data['p']->markup_elements)) {
                             continue;
                         }
 
