@@ -134,7 +134,7 @@
                             <li class="plugin_version"><b>{$CONST.VERSION}:</b> {$plug.version}</li>
                         {/if}
                         {if !empty($plug.website)}
-                            <li class="plugin_web"><a href="{$plug.website|escape}"><span title="{$plug.exdoc|default:''}" class="icon-globe" aria-hidden="true"></span> {$plug.exdoc|default:''} {$CONST.PLUGIN_DOCUMENTATION}</a></li>
+                            <li class="plugin_web"><a href="{$plug.website|escape}"><span{if isset($plug.exdoc)} title="{$plug.exdoc|default:''}"{/if} class="icon-globe" aria-hidden="true"></span> {if isset($plug.exdoc)}{$plug.exdoc|default:''} {/if}{$CONST.PLUGIN_DOCUMENTATION}</a></li>
                         {/if}
                         {if !empty($plug.local_documentation)}
                             <li class="plugin_localdoc"><a href="{$plug.local_documentation|escape}">{$CONST.PLUGIN_DOCUMENTATION_LOCAL}</a></li>
