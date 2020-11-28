@@ -279,6 +279,9 @@ if ($serendipity['template'] != $serendipity['template_backend'] && isset($data[
 }
 unset($data['core_templates'][$serendipity['template']]);
 
+@define('RESPONSIVE', 'Responsive');
+@define('MOBILE', 'Mobile');
+
 echo serendipity_smarty_showTemplate('admin/templates.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */
