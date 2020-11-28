@@ -6,13 +6,13 @@
 {foreach $entry_vars.hiddens AS $key => $value}{if $key == 'serendipity[timestamp]' AND $entry_vars.timestamp == $value}{* avoid possible doublet *}{else}
     <input type="hidden" name="{$key}" value="{$value}">
 {/if}{/foreach}
-    <input type="hidden" name="serendipity[id]" value="{$entry_vars.entry.id|escape|default:''}">
+    <input type="hidden" name="serendipity[id]" value="{if isset($entry_vars.entry.id)}{$entry_vars.entry.id|escape|default:''}{/if}">
     <input type="hidden" name="serendipity[timestamp]" value="{$entry_vars.timestamp|escape}">
     <input type="hidden" name="serendipity[preview]" value="false">
     {$entry_vars.formToken}
     <div id="edit_entry_title" class="form_field">
         <label for="entryTitle">{$CONST.TITLE}</label>
-        <input id="entryTitle" name="serendipity[title]" type="text" value="{$entry_vars.entry.title|escape|default:''}">
+        <input id="entryTitle" name="serendipity[title]" type="text" value="{if isset($entry_vars.entry.title)}{$entry_vars.entry.title|escape|default:''}{/if}">
     </div>
 
     <div id="cats_list" class="clearfix taxonomy">
@@ -28,6 +28,7 @@
         <ul class="plainList"></ul>
     </div>
     {/if}
+    {if !isset($entry_data.entry)}{$entry_data.entry = ''}{/if}
 
     <div class="form_area">
         <label for="serendipity[body]">{$CONST.ENTRY_BODY}</label>
@@ -52,7 +53,7 @@
         </div>
     {/if}
         <div id="teaser_entry_editor">
-            <textarea id="serendipity[body]" name="serendipity[body]" rows="15">{$entry_vars.entry.body|escape|default:''}</textarea>
+            <textarea id="serendipity[body]" name="serendipity[body]" rows="15">{if isset($entry_vars.entry.body)}{$entry_vars.entry.body|escape|default:''}{/if}</textarea>
         </div>
     </div>
 
@@ -79,7 +80,7 @@
         </div>
     {/if}
         <div id="extended_entry_editor">
-            <textarea id="serendipity[extended]" name="serendipity[extended]" rows="15">{$entry_vars.entry.extended|escape|default:''}</textarea>
+            <textarea id="serendipity[extended]" name="serendipity[extended]" rows="15">{if isset($entry_vars.entry.extended)}{$entry_vars.entry.extended|escape|default:''}{/if}</textarea>
         </div>
     </div>
 
