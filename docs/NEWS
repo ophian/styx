@@ -10,14 +10,15 @@ Version 3.2-DEV ()
   * Fixup backend themes for PHP 8 warnings on non-isset items. Using Smarty
     |default:'' will probably do only in production set error reportings.
 
-  * Fixup second bunch of PHP 8 notices/deprecations for fresh systems
+  * Fixup second bunch of PHP 8 notices/warnings/deprecations for fresh systems
 
   * Temporary fixup (silence) PHP 8 ERROR NOTICE to ERROR WARNING accentuation
     for our silenced constant chaining.
 
   * Fixup PHP 8 deprecations for functions/methods param order sets
 
-  * Fixup first bunch of PHP 8 notices/deprecations for the installation process
+  * Fixup first bunch of PHP 8 notices/warnings/deprecations for the installation
+    process.
 
   * Add new "PSG" (Pure Starting Grid) Cards theme, powered by "pure" engine
 
