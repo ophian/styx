@@ -75,7 +75,7 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     }
 
     $selected = array();
-    if (isset($entry['categories']) && is_array($entry['categories'])) {
+    if (isset($entry['categories']) && is_array($entry['categories']) && !empty($entry['categories'][0])) {
         if (count($entry['categories']) > 1) {
             $categoryselector_expanded = true;
         }
