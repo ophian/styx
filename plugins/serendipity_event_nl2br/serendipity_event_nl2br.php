@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx, Stephan Brunker');
-        $propbag->add('version',       '2.51');
+        $propbag->add('version',       '2.52');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -279,7 +279,7 @@ class serendipity_event_nl2br extends serendipity_event
 
                     foreach ($this->markup_elements AS $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], 'true'))
-                        &&  isset($eventData[$temp['element']])
+                        &&  !empty($eventData[$temp['element']])
                         &&  (!isset($eventData['properties']['ep_disable_markup_' . $this->instance]) || !$eventData['properties']['ep_disable_markup_' . $this->instance])
                         &&  !in_array($this->instance, $_disabled)
                         &&  (!isset($eventData['properties']['ep_no_nl2br']) || !$eventData['properties']['ep_no_nl2br'])
