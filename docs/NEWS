@@ -13,6 +13,11 @@ Version 3.2-DEV ()
   * Fixup backend themes for PHP 8 warnings on non-isset items. Using Smarty
     |default:'' will probably do only in production set error reportings.
 
+    NOTE: The "fall back" "|default:''" approach can still be used and taken,
+          if a variable is set (assigned) to null, a PHP type representation.
+          The PHP case-insensitive constant NULL is the only possible value of
+          type null. NULL is supposed to indicate the absence of a value.
+
   * Fixup second bunch of PHP 8 notices/warnings/deprecations for fresh systems
 
   * Temporary fixup (silence) PHP 8 ERROR NOTICE to ERROR WARNING accentuation
