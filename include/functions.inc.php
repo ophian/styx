@@ -1317,6 +1317,7 @@ function serendipity_isResponseClean($d) {
  */
 function serendipity_addCategory($name, $desc, $authorid, $icon, $parentid) {
     global $serendipity;
+
     $query = "INSERT INTO {$serendipity['dbPrefix']}category
                     (category_name, category_description, authorid, category_icon, parentid, category_left, category_right)
                   VALUES
