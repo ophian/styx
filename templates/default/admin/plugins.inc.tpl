@@ -32,7 +32,7 @@
     {if !empty($license)}
         <p><b>{$CONST.MEDIA_PROPERTY_COPYRIGHT}:</b> {$license}</p>
     {/if}
-    {if isset($smarty.post.SAVECONF)}{assign var='point' value='new'}{/if}
+    {if isset($smarty.post.SAVECONF)}{assign var='point' value='new'}{else}{$point = null}{/if}
     {if !empty($documentation) OR (isset($changelog) AND $changelog) OR (isset($documentation_local) AND $documentation_local)}
         <ul class="plainList">
         {if !empty($documentation)}
