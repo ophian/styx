@@ -1,6 +1,9 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve core markup related plugins for a second run on entry body 'extended'
+    in [ bbcode, emoticate, nl2br, s9ymarkup, xhtmlcleanup ].
+
   * Fixup fourth and hopefully last bunch of PHP 8 notices/warnings/deprecations
     for fresh and untouched new Serendipity systems.
 
