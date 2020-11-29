@@ -17,7 +17,7 @@ class serendipity_event_bbcode extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_BBCODE_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Jez Hancock, Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '2.13');
+        $propbag->add('version',       '2.14');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -244,7 +244,7 @@ class serendipity_event_bbcode extends serendipity_event
                 case 'frontend_display':
 
                     foreach ($this->markup_elements AS $temp) {
-                        if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && isset($eventData[$temp['element']]) &&
+                        if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && !empty($eventData[$temp['element']]) &&
                             (!isset($eventData['properties']['ep_disable_markup_' . $this->instance]) || !$eventData['properties']['ep_disable_markup_' . $this->instance]) &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
