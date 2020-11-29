@@ -273,8 +273,8 @@ img {
     height: auto;
 }
 
-.htmlarea .toolbar img {
-    max-width: inherit;
+.has_toolbar .bi.bi-filter-circle-fill {
+    vertical-align: bottom;
 }
 
 fieldset {
