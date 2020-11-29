@@ -1,6 +1,9 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup fourth and hopefully last bunch of PHP 8 notices/warnings/deprecations
+    for fresh and untouched new Serendipity systems.
+
   * Fixup third bunch of PHP 8 notices/warnings/deprecations for fresh systems
 
   * Fix "pure" theme for doubled element
