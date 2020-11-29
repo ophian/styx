@@ -17,8 +17,8 @@ class serendipity_event_emoticate extends serendipity_event
         $propbag->add('name',          PLUGIN_EVENT_EMOTICATE_NAME);
         $propbag->add('description',   PLUGIN_EVENT_EMOTICATE_DESC);
         $propbag->add('stackable',     false);
-        $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.15');
+        $propbag->add('author',        'Serendipity Team, Ian Styx');
+        $propbag->add('version',       '1.16');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -183,7 +183,7 @@ class serendipity_event_emoticate extends serendipity_event
                 case 'frontend_display':
                     foreach ($this->markup_elements AS $temp) {
                         if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && isset($eventData[$temp['element']]) &&
-                            empty($eventData['properties']['ep_disable_markup_' . $this->instance]) &&
+                            (!isset($eventData['properties']['ep_disable_markup_' . $this->instance]) || !$eventData['properties']['ep_disable_markup_' . $this->instance]) &&
                             !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = &$eventData[$temp['element']];
 
