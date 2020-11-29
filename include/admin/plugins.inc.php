@@ -118,7 +118,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                         $value = $_POST['serendipity']['plugin']['override'][$config_item];
                     }
 
-                    if (isset($_POST['serendipity']['plugin']['activate']) && is_array(@$_POST['serendipity']['plugin']['activate'][$config_item])) {
+                    if (isset($_POST['serendipity']['plugin']['activate']) && isset($_POST['serendipity']['plugin']['activate'][$config_item]) && is_array($_POST['serendipity']['plugin']['activate'][$config_item])) {
                         $active_values = array();
                         foreach($_POST['serendipity']['plugin']['activate'][$config_item] AS $ordered_item_value) {
                             $ordered_item_value;
