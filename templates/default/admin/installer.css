@@ -258,10 +258,6 @@ img {
     height: auto;
 }
 
-.htmlarea .toolbar img {
-    max-width: inherit;
-}
-
 fieldset {
     border: 0;
     margin: 0;
