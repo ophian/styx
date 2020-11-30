@@ -1,6 +1,9 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve calling the spamblock plugin db tables method checkScheme() installer
+    and to use the MariaDB Aria storage engine with INDEX key length by version.
+
   * Fixup generating timestamp with mktime() for PHP 8 in the calendars API
 
   * Trying to restore @silenced behaviour with PHP 8 via ErrorHandler
