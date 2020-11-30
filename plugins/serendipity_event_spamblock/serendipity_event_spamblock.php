@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.33');
+        $propbag->add('version',       '2.40');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -746,9 +746,21 @@ class serendipity_event_spamblock extends serendipity_event
             $sql = serendipity_db_schema_import($q);
 
             if ($serendipity['dbType'] == 'mysqli') {
-                $q   = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}spamblocklog (type(191));";
+                $serendipity['db_server_info'] = $serendipity['db_server_info'] ?? mysqli_get_server_info($serendipity['dbConn']); // eg.  == 5.5.5-10.4.11-MariaDB
+                if (stristr(strtolower($serendipity['db_server_info']), 'mariadb')) {
+                    $db_version_match = explode('-', $serendipity['db_server_info']);
+                    if (version_compare($db_version_match[1], '10.5.0', '>=')) {
+                        $q = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}spamblocklog (type);";
+                    } elseif (version_compare($db_version_match[1], '10.3.0', '>=')) {
+                        $q = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}spamblocklog (type(250));"; // max key 1000 bytes
+                    } else {
+                        $q = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}spamblocklog (type(191));"; // 191 - old MyISAMs
+                    }
+                } else {
+                    $q = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}spamblocklog (type(191));"; // Oracle Mysql/InnoDB max key 767 bytes
+                }
             } else {
-                $q   = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}spamblocklog (type);";
+                $q = "CREATE INDEX kspamtypeidx ON {$serendipity['dbPrefix']}spamblocklog (type);";
             }
             $sql = serendipity_db_schema_import($q);
 
@@ -1359,8 +1371,9 @@ class serendipity_event_spamblock extends serendipity_event
                         if (!serendipity_checkPermission('adminUsers')) {
                             return false;
                         }
+                        $this->checkScheme();
                         $allnum = @serendipity_db_query("SELECT count(1) FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' OR type LIKE 'reject' OR type LIKE 'MODERATE'", true);
-                        $allnum = is_numeric($allnum[0]) ? $allnum[0] : 0;
+                        $allnum = (isset($allnum[0]) && is_numeric($allnum[0])) ? $allnum[0] : 0;
 
 ?>
 
