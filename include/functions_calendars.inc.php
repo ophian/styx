@@ -127,7 +127,7 @@ function p2g($j_y, $j_m, $j_d) {
 function persian_strftime_utf($format, $timestamp='') {
 
     if ($timestamp == '') {
-        $timestamp = mktime();
+        $timestamp = time();
     }
 
     $g_d = date('j', $timestamp);
@@ -276,7 +276,7 @@ function persian_strftime_utf($format, $timestamp='') {
 function persian_date_utf($format, $timestamp='') {
 
     if ($timestamp == '') {
-        $timestamp = mktime();
+        $timestamp = time();
     }
 
     $g_d = date('j', $timestamp);
