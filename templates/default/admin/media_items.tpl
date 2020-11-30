@@ -189,11 +189,11 @@
                                 {/if}
                                 {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
 
-                                <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.FILE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
+                                <li><b>WebP-{$CONST.FILE_SIZE}:</b> {$file.nice_size_webp} KB</li>
                                 {/if}
                                 {if $file.is_image AND NOT empty($file.nice_thumbsize_webp)}
 
-                                <li><b>{$CONST.VARIATION_FILE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE}"}:</b> {$file.nice_thumbsize_webp} KB</li>
+                                <li><b>WebP-{$CONST.THUMBFILE_SIZE}:</b> {$file.nice_thumbsize_webp} KB</li>
                                 {/if}
 
                                 <li class="halflinespacer">&nbsp;</li>
@@ -278,11 +278,11 @@
                         {/if}
                         {if NOT empty($file.nice_size_webp) AND NOT $file.hotlink}
 
-                            <li><b>{$CONST.VARIATION_THUMBFILE_SIZE|default:"WebP-{$CONST.FILE_SIZE}"}:</b> {$file.nice_size_webp} KB</li>
+                            <li><b>WebP-{$CONST.FILE_SIZE}:</b> {$file.nice_size_webp} KB</li>
                         {/if}
                         {if $file.is_image AND NOT empty($file.nice_thumbsize_webp)}
 
-                            <li><b>{$CONST.VARIATION_FILE_SIZE|default:"WebP-{$CONST.THUMBFILE_SIZE|truncate:15}"}:</b> {$file.nice_thumbsize_webp} KB</li>
+                            <li><b>WebP-{$CONST.THUMBFILE_SIZE|truncate:15}:</b> {$file.nice_thumbsize_webp} KB</li>
                         {/if}
 
                         </ul>
