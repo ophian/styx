@@ -1330,7 +1330,7 @@ function serendipity_getCurrentVersion() {
     $updateURL = serendipity_specialchars(strip_tags((string)$config_rv));
     $context   = stream_context_create(array('http' => array('timeout' => 5.0)));
     $file      = @file_get_contents($updateURL, false, $context);
-
+    // Some servers return a Warning: file_get_contents(): https:// wrapper is disabled in the server configuration by allow_url_fopen=0 so we use Curl insted
     if (!$file) {
         if (function_exists('curl_init')) {
             $ch = curl_init($updateURL);
