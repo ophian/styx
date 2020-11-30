@@ -2526,7 +2526,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             } else {
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a file."); }
                 if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v\/@', $sFile['relpath']) && preg_match('@[\.webp]$@', $sFile['relpath']) )) {
-                    if ($sFile['relpath'] != '.empty' && isset($serendipity['aFilesNoSync']) && !in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync'])) {
+                    if ($sFile['relpath'] != '.empty' && (!isset($serendipity['aFilesNoSync']) || !in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync']))) {
                         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);
                         $fdim = @serendipity_getImageSize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sFile['relpath'], '', $path_parts['extension']);
