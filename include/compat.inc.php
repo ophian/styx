@@ -173,8 +173,8 @@ if (!function_exists('errorToExceptionHandler')) {
         $args = func_get_args();
 
         // Bypass error processing because it's @-silenced.
-        if ($rep == 0) {
-            return false;
+        if (!($rep & $errNo)) {
+            return false; // Silenced
         }
         // if not using Serendipity testing and user or ISP has set PHPs display_errors to show no errors at all, respect this:
         if ($serendipity['production'] === true && ini_get('display_errors') == 0) {
