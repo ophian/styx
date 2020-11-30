@@ -539,6 +539,8 @@ function serendipity_db_schema_import($query) {
         }
     }
 
+    // check for plugins (again)
+    $serendipity['db_server_info'] = $serendipity['db_server_info'] ?? mysqli_get_server_info($serendipity['dbConn']); // eg.  == 5.5.5-10.4.11-MariaDB
     if (stristr(strtolower($serendipity['db_server_info']), 'mariadb')) {
         serendipity_db_query("SET storage_engine=ARIA");
     } else {
