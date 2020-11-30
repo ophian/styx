@@ -2865,7 +2865,7 @@ function serendipity_isImage(&$file, $strict = false, $allowed = 'image/') {
     $file['displaymime'] = $file['mime'];
 
     // Strip HTTP path out of imgsrc
-    $file['location'] = !$file['hotlink'] ? $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', @$file['imgsrc']) : '';
+    $file['location'] = !$file['hotlink'] ? $serendipity['serendipityPath'] . preg_replace('@^(' . preg_quote($serendipity['serendipityHTTPPath']) . ')@i', '', ($file['imgsrc'] ?? '')) : '';
 
     // File is PDF -> Thumb is PNG
     // Detect PDF thumbs
