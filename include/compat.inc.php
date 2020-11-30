@@ -172,7 +172,7 @@ if (!function_exists('errorToExceptionHandler')) {
         $rep  = error_reporting();
         $args = func_get_args();
 
-        // Bypass error processing because it's @-silenced.
+        // Bypass error processing because it's @-silenced. Bit operator & !!
         if (!($rep & $errNo)) {
             return false; // Silenced
         }
