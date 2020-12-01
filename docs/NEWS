@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixes for PHP 8 Warnings on logoff and session handling
+
   * Fixes for PHP 8 Warnings on category form related actions
 
   * Improve MEDIA_UPLOAD_DIMERROR error message regarding settings
