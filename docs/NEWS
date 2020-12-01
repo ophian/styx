@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixes for PHP 8 Warnings on media uploads and renaming
+
   * Improve calling the spamblock plugin db tables method checkScheme() installer
     and to use the MariaDB Aria storage engine with INDEX key length by version.
 
