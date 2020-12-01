@@ -888,7 +888,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Geben sie die maximale Breite eines hochgeladenen Bildes in Pixeln an.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Maximale Höhe eines hochgeladenen Bildes');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Geben sie die maximale Höhe eines hochgeladenen Bildes in Pixeln an.');
-@define('MEDIA_UPLOAD_DIMERROR', 'Fehler: Sie können keine Bilder größer als %s x %s Pixel hochladen!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Fehler: Eine Einstellung verhindert, Bilder größer als %s x %s Pixel hochzuladen! Untersuchen Sie ihre Konfigurations-Sektion: "%s". Vielleicht wollen Sie zusätzlich die "%s" Option aktivieren.');
 
 @define('MEDIA_TARGET', 'Ziel dieses Links');
 @define('MEDIA_TARGET_JS', 'Popup-Fenster (via JavaScript, adaptive Größe)');
