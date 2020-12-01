@@ -4783,8 +4783,10 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
         if ($oldDir === null) {
             // Rename/Move the origin file
             @rename($oldfile, $newfile);
-            // Rename/Move the .v/ stored WebP file
-            @rename($oldfilewebp, $newfilewebp);
+            // Rename/Move the .v/ stored WebP file - avoid to remame on object files, eg zip, pdf, etc., w/o real image with variations
+            if (file_exists($oldfilewebp)) {
+                @rename($oldfilewebp, $newfilewebp);
+            }
             // do not re-name again, if an item has no thumb name (eg. *.zip object file case) and old thumb eventually exists (possible missing PDF preview image on WinOS with IM)
             if (($newThumb != $newfile) && file_exists($oldThumb)) {
                 // the thumb file
