@@ -4524,6 +4524,14 @@ function serendipity_checkMediaSize($file) {
             return true;
         }
 
+        if (!empty($serendipity['maxImgWidth']) && !empty($serendipity['maxImgHeight'])) {
+            if ($dim[0] > $serendipity['maxImgWidth'] && $dim[1] > $serendipity['maxImgHeight']) {
+                echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
+                sprintf(MEDIA_UPLOAD_DIMERROR . "<br>\n", (int)$serendipity['maxImgWidth'], (int)$serendipity['maxImgHeight'], INSTALL_CAT_IMAGECONV, MEDIA_UPLOAD_RESIZE) . "</span>\n";
+                return false;
+            }
+        }
+
         if (!empty($serendipity['maxImgWidth'])) {
             if ($dim[0] > $serendipity['maxImgWidth']) {
                 echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' .
