@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve MEDIA_UPLOAD_DIMERROR error message regarding settings
+
   * Fixes for PHP 8 Warnings on media uploads and renaming
 
   * Improve calling the spamblock plugin db tables method checkScheme() installer
