@@ -19,7 +19,7 @@ if (IS_installed === false) {
 }
 
 if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'logout') {
-    if ((serendipity_checkPermission('adminUsers') && @!serendipity_db_bool($serendipity['maintenance'])) || !serendipity_checkPermission('adminUsers')) {
+    if ((serendipity_checkPermission('adminUsers') && (!isset($serendipity['maintenance']) || !serendipity_db_bool($serendipity['maintenance']))) || !serendipity_checkPermission('adminUsers')) {
         serendipity_logout();
         header("Location: ".$serendipity['baseURL']);
     } else {
