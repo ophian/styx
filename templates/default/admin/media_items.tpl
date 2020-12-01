@@ -74,6 +74,7 @@
     {if empty($file.full_thumb_webp)}
         {$img_src_webp=""}
     {/if}
+    {if NOT isset($link_webp)}{$link_webp=null}{/if}
 
             <article id="media_{$file.id}" class="media_file mlDefCol{if NOT empty($smarty.get.serendipity.adminAction) AND $smarty.get.serendipity.adminAction == 'properties'} mfile_prop{/if} {if $media.manage AND $media.multiperm}manage {/if}{cycle values="odd,even"}">
                 <header class="clearfix">
