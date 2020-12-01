@@ -238,6 +238,16 @@ if ($serendipity['GET']['adminAction'] == 'view') {
                                     );
     }
 }
+// avoid errors on empty categories for non-issets
+if (!isset($data['this_cat']['category_name'])) {
+    $data['this_cat']['category_name'] = null;
+}
+if (!isset($data['this_cat']['category_description'])) {
+    $data['this_cat']['category_description'] = null;
+}
+if (!isset($data['this_cat']['category_icon'])) {
+    $data['this_cat']['category_icon'] = null;
+}
 
 echo serendipity_smarty_showTemplate('admin/category.inc.tpl', $data);
 
