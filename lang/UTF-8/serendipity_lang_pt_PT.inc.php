@@ -899,7 +899,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Entre o máximo de largura permitido no upload em pixels.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Máximo de altura de imagens no upload');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Entre o máximo de altura permitido por upload em pixels.');
-@define('MEDIA_UPLOAD_DIMERROR', 'Erro: Você não pode fazer upload de ficheiros maiores que %s x %s pixels!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'Alvo para esta ligação');
 @define('MEDIA_TARGET_JS', 'Janela de Popup (via JavaScript, tamanho adaptável)');

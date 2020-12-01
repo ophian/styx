@@ -891,7 +891,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Megadhatod a feltöltendõ képek maximális szélességét.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Feltöltendõ képek maximális magassága');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Megadhatod a feltöltendõ képek maximális magasságát.');
-@define('MEDIA_UPLOAD_DIMERROR', 'Hiba: Nem tölthetsz fel nagyobb méretû képet mint %s x %s pixel!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'A hivatkozás célja (target)');
 @define('MEDIA_TARGET_JS', 'Felbukkanó ablak (JavaScript-el, igazított méret)');

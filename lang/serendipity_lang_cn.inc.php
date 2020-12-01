@@ -895,7 +895,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', '输入上传图片最大宽度。');
 @define('MEDIA_UPLOAD_MAXHEIGHT', '图片最大长度');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', '输入上传图片最大长度。');
-@define('MEDIA_UPLOAD_DIMERROR', '错误：你不能上传大于 %s x %s 的图片');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', '连接的目标');
 @define('MEDIA_TARGET_JS', '弹出出口 (使用 JavaScript)');

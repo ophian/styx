@@ -892,7 +892,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Wprowad¼ maksymaln± szeroko¶æ (w pikselach) dla wysy³anych na serwer obrazków');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Maksymlana wysoko¶æ obrazków wysy³anych na serwer');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Wprowad¼ maksymaln± wysoko¶æ (w pikselach) dla wysy³anych na serwer obrazków');
-@define('MEDIA_UPLOAD_DIMERROR', 'B³±d: Nie mo¿esz wysy³aæ na serwer obrazków wiêkszych ni¿ %s x %s piksele!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'Sposób wy¶wietlenia');
 @define('MEDIA_TARGET_JS', 'Okienko Popup (via JavaScript, rozmiar dopasowuj±cy siê do obrazka)');

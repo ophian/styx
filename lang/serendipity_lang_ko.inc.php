@@ -892,7 +892,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', '올릴 그림 파일의 최대 폭을 픽셀 단위로 입력합니다.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', '올릴 그림 파일의 최대 높이');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', '올릴 그림 파일의 최대 높이를 픽셀 단위로 입력합니다.');
-@define('MEDIA_UPLOAD_DIMERROR', '오류: %s x %s 픽셀보다 큰 그림 파일을 올릴 수 없습니다!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', '이 링크의 표시 대상');
 @define('MEDIA_TARGET_JS', '팝업 창 (자바스크립트 사용, 가변 크기)');

@@ -892,7 +892,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'بیشترین طول تصویر برای بالاگذاری را بر اساس پیکسل وارد کنید.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'بیشترین عرض تصویر');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'بیشترین عرض تصویر برای بالاگذاری را بر اساس پیکسل وارد کنید.');
-@define('MEDIA_UPLOAD_DIMERROR', 'خطا: شما نمی توانید تصویری با  ابعاد بیشتر از %s x %s پیکسل ارسال کنید!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'هدف این لینک (target)');
 @define('MEDIA_TARGET_JS', 'پنجره بازشونده (از طریق جاوا اسکریپت، با ابعاد مورد نیاز)');

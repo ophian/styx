@@ -892,7 +892,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Wprowadź maksymalną szerokość (w pikselach) dla wysyłanych na serwer obrazków');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Maksymlana wysokość obrazków wysyłanych na serwer');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Wprowadź maksymalną wysokość (w pikselach) dla wysyłanych na serwer obrazków');
-@define('MEDIA_UPLOAD_DIMERROR', 'Błąd: Nie możesz wysyłać na serwer obrazków większych niż %s x %s piksele!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'Sposób wyświetlenia');
 @define('MEDIA_TARGET_JS', 'Okienko Popup (via JavaScript, rozmiar dopasowujący się do obrazka)');

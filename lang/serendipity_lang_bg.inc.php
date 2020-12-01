@@ -894,7 +894,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Въведете максималната ширина на в пиксели на изображенията, които ще се качват.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Максимална височина на изображенията за качване');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Въведете максималната височина в пиксели на изображенията, които ще се качват.');
-@define('MEDIA_UPLOAD_DIMERROR', 'Грешка: Не можете да качвате изображения, по-големи от %s x %s пиксела.');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'Цел (target) на тази връзка');
 @define('MEDIA_TARGET_JS', 'Изскачаш прозорец (чрез JavaScript, с променливи размери)');

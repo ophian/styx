@@ -892,7 +892,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'アップロードされた画像の最大幅をピクセル単位で入力します。');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'アップロードされたファイルの最大高');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'アップロードされた画像の最大の高さをピクセル単位で入力します。');
-@define('MEDIA_UPLOAD_DIMERROR', 'エラー: %s x %s ピクセルより大きな画像はアップロードできません!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'このリンクのターゲット');
 @define('MEDIA_TARGET_JS', 'ポップアップ ウィンドウ (via JavaScript, adaptive size)');

@@ -893,7 +893,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Geef de maximale breedte van afbeeldingen in pixels bij uploaden.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Max. hoogte van afbeeldingen bij uploaden');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Geef de maximale hoogte van afbeeldingen in pixels bij uploaden.');
-@define('MEDIA_UPLOAD_DIMERROR', 'Fout: U kan geen afbeeldingen uploaden die groter zijn dan %s x %s pixels!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'Doel voor deze hyperlink');
 @define('MEDIA_TARGET_JS', 'Pop-upvenster (met JavaScript, adaptieve grootte)');

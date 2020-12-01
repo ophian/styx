@@ -914,7 +914,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Ingresa la anchura máxima de las imágenes que se pueden subir al servidor en pixels.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Altura máxima de las imágenes');//'upload' removed [rlazo]
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Ingresa la altura máxima de las imágenes que se pueden subir al servidor en pixels.');
-@define('MEDIA_UPLOAD_DIMERROR', 'Error: ¡No puedes subir imágenes de más de %s x %s pixels!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 @define('MEDIA_TARGET', 'Objetivo de este enlace');
 @define('MEDIA_TARGET_JS', 'Ventana emergente (a través de JavaScript, tamaño adaptativo)');
 @define('MEDIA_ENTRY', 'Entrada aislada');

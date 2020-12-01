@@ -894,7 +894,7 @@ $i18n_unknown = 'tw';
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', '輸入上傳的圖片的最大寬度。');
 @define('MEDIA_UPLOAD_MAXHEIGHT', '圖片的最大長度');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', '輸入上傳的圖片的最大長度。');
-@define('MEDIA_UPLOAD_DIMERROR', '錯誤：您不能上傳大於 %s x %s 的圖片！');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', '連結的目標');
 @define('MEDIA_TARGET_JS', '彈出視窗 (使用 JavaScript)');

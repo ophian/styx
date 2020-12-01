@@ -892,7 +892,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Indtast den maximale bredde i pixels, for uploadede billeder.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Max. højde for uploadede billeder');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Indtast den maximale højde i pixels, for uploadede billeder.');
-@define('MEDIA_UPLOAD_DIMERROR', 'Fejl: Du kan ikke uploade billeder der er større end %s x %s pixels!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'Target for this link');
 @define('MEDIA_TARGET_JS', 'Popup window (via JavaScript, tilpasset størrelse)');

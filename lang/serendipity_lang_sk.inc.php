@@ -902,7 +902,7 @@ $i18n_filename_to = array (
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Zadajte maximálnu ¹írku pre uploadované obrázky v pixeloch.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Max. vý¹ka obrázku pre upload');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Zadajte maximálnu vý¹ku v pixelech pre uploadované obrázky.');
-@define('MEDIA_UPLOAD_DIMERROR', 'Chyba: Nemô¾ete uploadova» súbory obrázkov väè¹ie ako %s x %s pixelov!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'Cieµ tohto odkazu');
 @define('MEDIA_TARGET_JS', 'Popup okno (pomocou JavaScriptu, prispôsobiteµná veµkos»)');

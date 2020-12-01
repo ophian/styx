@@ -891,7 +891,7 @@
 @define('MEDIA_UPLOAD_MAXWIDTH_DESC', 'Mata in den maximala bildbredden i pixlar för uppladdade bilder.');
 @define('MEDIA_UPLOAD_MAXHEIGHT', 'Maximal höjd på bilder som laddas upp');
 @define('MEDIA_UPLOAD_MAXHEIGHT_DESC', 'Mata in den maximala bildhöjden i pixlar för uppladdade bilder.');
-@define('MEDIA_UPLOAD_DIMERROR', 'Fel: Du kan inte ladda upp bildfiler större än %s x %s pixlar!');
+@define('MEDIA_UPLOAD_DIMERROR', 'Error: One setting prevents to upload image files larger than %s x %s pixels! Check your Configuration section: "%s" settings. You may want to additionally activate the "%s"-Option to make this work.');
 
 @define('MEDIA_TARGET', 'Mål för denna länk');
 @define('MEDIA_TARGET_JS', 'Popup-fönster (via JavaScript, adaptiv storlek)');
