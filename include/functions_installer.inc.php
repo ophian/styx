@@ -457,11 +457,11 @@ function serendipity_guessInput($type, $name, $value='', $default='') {
             break;
 
         case 'list':
-            $cval = (string)$value;
+            $cval = $value;
             $default = (array)$default;
             foreach($default AS $k => $v) {
-                $selected = ((string)$k === (string)$value);
-                if (empty($cval) && ((string)$k === 'false' || (string)$k === null)) {
+                $selected = ($k === $value);
+                if (empty($cval) && ($k === 'false' || $k === null)) {
                     $selected = true;
                 }
                 $curOptions[$name][$k]['selected'] = $selected;
