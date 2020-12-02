@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixes for PHP 8 Warnings on importers and guessInput() 'list' type
+
   * Fixes for PHP 8 Warnings on logoff and session handling
 
   * Fixes for PHP 8 Warnings on category form related actions
