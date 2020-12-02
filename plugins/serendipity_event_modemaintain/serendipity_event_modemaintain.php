@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.25');
+        $propbag->add('version',       '1.26');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'
@@ -121,7 +121,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
             $serendipity['maintain']['autologin'] = true;
             serendipity_setCookie('maintain_autologin', 'true');
         }
-        if (!$set && ($serendipity['maintain']['autologin'] || isset($serendipity['COOKIE']['maintain_autologin'])) ) {
+        if (!$set && ((!isset($serendipity['maintain']['autologin']) || $serendipity['maintain']['autologin']) || isset($serendipity['COOKIE']['maintain_autologin'])) ) {
             // automatic autologin logout
             $serendipity['maintain']['autologin'] = false;
             serendipity_deleteCookie('maintain_autologin');
