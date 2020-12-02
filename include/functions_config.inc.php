@@ -592,9 +592,11 @@ function serendipity_issueAutologin($array) {
         $cast = 'cast(name AS UNSIGNED)';
     }
 
-    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
+    if (isset($serendipity['COOKIE']['author_information'])) {
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
                                 WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'
                                    OR (okey LIKE 'l_%' AND $cast < " . (time() - 1814400) . ")");
+    }
 
     // Issue new autologin cookie
     serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey) VALUES ('" . time() . "', '" . serendipity_db_escape_string($package) . "', 'l_" . $rnd . "')");
