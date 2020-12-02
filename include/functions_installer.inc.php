@@ -492,10 +492,10 @@ function serendipity_guessInput($type, $name, $value='', $default='') {
  */
 function serendipity_printConfigTemplate($config, $from = false, $noForm = false, $folded = true, $allowToggle = true, $showDangerous = false) {
     global $serendipity;
+
     $data = array();
     $data['noForm'] = $noForm;
     $data['formToken'] = serendipity_setFormToken();
-
     $data['allowToggle'] = $allowToggle;
 
     foreach($config AS &$category) {
@@ -545,6 +545,7 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
         }
     }
     $data['config'] = $config;
+
     return serendipity_smarty_showTemplate('admin/config_template.tpl', $data);
 }
 
