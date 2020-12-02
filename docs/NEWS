@@ -1,6 +1,10 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix autologin cookie and maintenance logoff for special "sessionbased only"
+    case, when someone uses the 503 Mode with autologin, without having a high
+    encryption safe required openSSL version available.
+
   * Fixes for PHP 8 Warnings on importers and guessInput() 'list' type
 
   * Fixes for PHP 8 Warnings on logoff and session handling
