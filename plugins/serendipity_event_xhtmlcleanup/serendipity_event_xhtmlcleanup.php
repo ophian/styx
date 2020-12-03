@@ -19,7 +19,7 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_XHTMLCLEANUP_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.11');
+        $propbag->add('version',       '1.12');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'smarty'      => '3.1.6',
@@ -142,9 +142,9 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
                 case 'frontend_display':
                     $this->cleanup_parse = serendipity_db_bool($this->get_config('xhtml_parse', 'true'));
                     foreach ($this->markup_elements AS $temp) {
-                        if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && !empty($eventData[$temp['element']]) &&
-                            (!isset($eventData['properties']['ep_disable_markup_' . $this->instance]) || !$eventData['properties']['ep_disable_markup_' . $this->instance]) &&
-                            !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
+                        if (serendipity_db_bool($this->get_config($temp['name'], 'true')) && !empty($eventData[$temp['element']])
+                        &&  (!isset($eventData['properties']['ep_disable_markup_' . $this->instance]) || !$eventData['properties']['ep_disable_markup_' . $this->instance])
+                        &&  !isset($serendipity['POST']['properties']['disable_markup_' . $this->instance])) {
                             $element = $temp['element'];
                             $this->cleanup_tag      = 'IMG';
                             $this->cleanup_checkfor = 'ALT';
