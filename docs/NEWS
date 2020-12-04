@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixes for PHP 8 Warnings on searching not set CSS user files returns
+
   * Improve (mysqli) utf8mb4_unicode_520_ci table COLLATION sets for plugins with
     database table installations via the serendipity_db_schema_import() method.
 
