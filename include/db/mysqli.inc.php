@@ -267,12 +267,12 @@ function serendipity_db_reconnect() {
     }
 
     $serendipity['dbUtf8mb4'] = $serendipity['dbUtf8mb4_ready'] = false;
-    if (strtolower($use_charset) == 'utf8') {
+    if (strtolower($use_charset) == 'utf8' || $use_charset == 'utf8mb4') {
         /* Utilize utf8mb4, if the server supports that */
         $mysql_version = mysqli_get_server_info($serendipity['dbConn']);
         if (version_compare($mysql_version, '5.5.3', '>=')) {
             $serendipity['dbUtf8mb4_ready'] = true;
-            if (defined('IN_installer') || $serendipity['dbUtf8mb4_converted']) {
+            if (defined('IN_installer') || $use_charset == 'utf8mb4' || $serendipity['dbUtf8mb4_converted']) {
                 $use_charset = 'utf8mb4';
                 $serendipity['dbUtf8mb4'] = true;
             }
