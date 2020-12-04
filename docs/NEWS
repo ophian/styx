@@ -1,6 +1,9 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve (mysqli) utf8mb4_unicode_520_ci table COLLATION sets for plugins with
+    database table installations via the serendipity_db_schema_import() method.
+
   * Fix autologin cookie and maintenance logoff for special "sessionbased only"
     case, when someone uses the 503 Mode with autologin, without having a high
     encryption safe required openSSL version available.
