@@ -52,6 +52,9 @@ switch($css_mode) {
  * @return string file contents
  */
 function serendipity_printStylesheet($file, $dir = '', $root = '') {
+    if ($file == 'admin/user.css' || $file == 'user.css') {
+        return; // it does not exists since having no serendipityPath !
+    }
     return "\n/* auto include $dir */\n\n" . str_replace(
             array(
                '{TEMPLATE_PATH}',
