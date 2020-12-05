@@ -480,7 +480,9 @@ function serveArchives() {
         }
     }
 
-    if (!isset($_args[3])) $_args[3] = ''; // PHP 8 fix for key 3
+    if (!isset($_args[1])) $_args[1] = null; // PHP 8 fix for key 1 for range paging
+    if (!isset($_args[2])) $_args[2] = null; // PHP 8 fix for key 2 for range paging
+    if (!isset($_args[3])) $_args[3] = null; // PHP 8 fix for key 3 for archives listing
 
     /* We must always *assume* that Year, Month and Day are the first 3 arguments */
     list(,$year, $month, $day) = $_args; // keep empty param, is 'archives'
