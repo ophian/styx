@@ -1,7 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
-  * Improve entries archives counter for empty year archive sum-ups
+  * Improve entries archives counter for empty year archive sum-ups.
+    Already used by the PURE [Standard] 2020 theme.
 
   * Fixes for PHP 8 Warnings on searching not set CSS user files returns
 
