@@ -1323,11 +1323,15 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                     }
                     // PUSH in a PHP 8 core helper
                     //      to fix theme checks w/o having to using isset(), since the db field default is NULL and theme templates check it generally by using a simple
-                    //      {foreach $entry.categories AS $entry_category} {if $entry_category.category_icon} do {/if} alike check appproach and also have it named differently
+                    //      {foreach $entry.categories AS $entry_category} {if $entry_category.category_icon} do {/if} alike check approach and also have it named differently
                     if (!isset($entry['categories'][$k]['category_icon'])) {
                         $entry['categories'][$k]['category_icon'] = null;
                     }
                 }
+            }
+            // PUSH in a PHP 8 core helper - see above
+            if (!isset($entry['add_footer'])) {
+                $entry['add_footer'] = null;
             }
 
             if (isset($entry['extended']) && strlen($entry['extended'])) {
