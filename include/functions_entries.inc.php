@@ -1892,7 +1892,9 @@ function serendipity_printArchives() {
     $group = array();
     if (is_array($entries)) {
         foreach($entries AS $entry) {
-            @$group[date('Ym', $entry['timestamp'])]++; // mute possible empty items offset up-counting - same as += 1
+            $d = date('Ym', $entry['timestamp']);
+            if(!isset($group[$d])) $group[$d] = ''; // mute possible empty items offset up-counting
+            $group[$d]++; // same as += 1
         }
     }
 
