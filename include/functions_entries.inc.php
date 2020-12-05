@@ -1900,6 +1900,7 @@ function serendipity_printArchives() {
 
     $output = array();
     for ($y = $thisYear; $y >= $lastYear; $y--) {
+        $ysum = 0;
         $output[$y]['year'] = $y;
         for ($m = 12; $m >= 1; $m--) {
 
@@ -1934,12 +1935,14 @@ function serendipity_printArchives() {
             }
 
             $data = array();
+            $ysum += $entry_count;
             $data['entry_count']    = $entry_count;
             $data['link']           = serendipity_archiveDateUrl($y . '/'. sprintf('%02s', $m) . $cat_get . $author_get);
             $data['link_summary']   = serendipity_archiveDateUrl($y . '/'. sprintf('%02s', $m) . $cat_get . $author_get, true);
             $data['date']           = $s;
             $output[$y]['months'][] = $data;
         }
+        $output[$y]['sum'] = $ysum;
     }
 
     $serendipity['smarty']->assignByRef('archives', $output);
