@@ -2,7 +2,7 @@ Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
   * Improve entries archives counter for empty year archive sum-ups, to easily
-    exclude empty year blocks by {if $archive.sum == 0}{continue}{/if} in the
+    exclude empty year blocks by {if $archive.sum === 0}{continue}{/if} in the
     archives template. Already used by the PURE 2020 [Standard] theme.
 
   * Fixes for PHP 8 Warnings on searching not set CSS user files returns
