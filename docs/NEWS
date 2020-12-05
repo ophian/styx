@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve entries archives counter for empty year archive sum-ups
+
   * Fixes for PHP 8 Warnings on searching not set CSS user files returns
 
   * Improve (mysqli) utf8mb4_unicode_520_ci table COLLATION sets for plugins with
