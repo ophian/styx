@@ -3866,6 +3866,21 @@ img.mfp-img {
     min-width: 240px;
 }
 
+/* X-SMALL SCREEN */
+@media only screen and (min-width: 320px) {
+    #media_pane_filter div fieldset input {/*mediafilter*/
+        width: 6em;
+    }
+    #media_pane_filter div fieldset input[type="date"] {/*mediafilter for role date HTML5 date picker interface */
+        width: auto;
+    }
+    #media_filter .range-label {/*mediafilter*/
+        display: inline-block;
+        width: auto;
+    }
+
+}
+
 /* SMALL SCREEN */
 @media only screen and (min-width: 360px) {
     #banner .chop-title {
@@ -3883,17 +3898,6 @@ img.mfp-img {
 
     #note_subject {/*admin(quick)-notes*/
         min-width: 25em;
-    }
-
-    #media_pane_filter div fieldset input {/*mediafilter*/
-        width: 6em;
-    }
-    #media_pane_filter div fieldset input[type="date"] {/*mediafilter for role date HTML5 date picker interface */
-        width: auto;
-    }
-    #media_filter .range-label {/*mediafilter*/
-        display: inline-block;
-        width: auto;
     }
 
     #serendipity_comments_list h4.pingback {
