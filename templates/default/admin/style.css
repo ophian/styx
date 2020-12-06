@@ -1727,7 +1727,8 @@ summary {
 }
 
 #media_pane_filter div fieldset input[type="date"] {/*mediafilter for role date HTML5 date picker interface */
-    max-width: 8em;
+    max-width: 10em;
+    font-size: small;
 }
 
 .comment_data dd {
