@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve media filter backend styles for from/to date picker interface
+
   * Improve spamblock plugin DB table 'spamblocklog' to use proper core COLLATION
     on install.
 
