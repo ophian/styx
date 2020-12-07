@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Update bundled-libs/SimplePie to v.1.5.6
+
   * Improve media filter backend styles for from/to date picker interface
 
   * Improve spamblock plugin DB table 'spamblocklog' to use proper core COLLATION
