@@ -5,7 +5,7 @@
  * A PHP-Based RSS and Atom Feed Framework.
  * Takes the hard work out of managing a complete RSS/Atom solution.
  *
- * Copyright (c) 2004-2016, Ryan Parman, Geoffrey Sneddon, Ryan McCue, and contributors
+ * Copyright (c) 2004-2016, Ryan Parman, Sam Sneddon, Ryan McCue, and contributors
  * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without modification, are
@@ -33,9 +33,9 @@
  * POSSIBILITY OF SUCH DAMAGE.
  *
  * @package SimplePie
- * @copyright 2004-2016 Ryan Parman, Geoffrey Sneddon, Ryan McCue
+ * @copyright 2004-2016 Ryan Parman, Sam Sneddon, Ryan McCue
  * @author Ryan Parman
- * @author Geoffrey Sneddon
+ * @author Sam Sneddon
  * @author Ryan McCue
  * @link http://simplepie.org/ SimplePie
  * @license http://www.opensource.org/licenses/bsd-license.php BSD License
@@ -46,10 +46,10 @@
  *
  * @package SimplePie
  * @subpackage HTTP
- * @author Geoffrey Sneddon
+ * @author Sam Sneddon
  * @author Steve Minutillo
  * @author Ryan McCue
- * @copyright 2007-2012 Geoffrey Sneddon, Steve Minutillo, Ryan McCue
+ * @copyright 2007-2012 Sam Sneddon, Steve Minutillo, Ryan McCue
  * @license http://www.opensource.org/licenses/bsd-license.php
  */
 class SimplePie_IRI
@@ -1166,7 +1166,7 @@ class SimplePie_IRI
 		{
 			$iri .= $this->ipath;
 		}
-		elseif (!empty($this->normalization[$this->scheme]['ipath']) && $iauthority !== null && $iauthority !== '')
+        elseif (!empty($this->normalization[$this->scheme]['ipath']) && $iauthority !== null && $iauthority !== '')
 		{
 			$iri .= $this->normalization[$this->scheme]['ipath'];
 		}
@@ -1210,7 +1210,7 @@ class SimplePie_IRI
 			{
 				$iauthority .= $this->ihost;
 			}
-			if ($this->port !== null)
+            if ($this->port !== null && $this->port !== 0)
 			{
 				$iauthority .= ':' . $this->port;
 			}
