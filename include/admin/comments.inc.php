@@ -164,7 +164,7 @@ if (isset($serendipity['GET']['adminAction'])
     && ($serendipity['GET']['adminAction'] == 'edit' || $serendipity['GET']['adminAction'] == 'reply') || isset($serendipity['POST']['preview'])) {
 
     $serendipity['smarty_raw_mode'] = true; // Force output of Smarty stuff in the backend
-    if (!is_object($serendipity['smarty'])) {
+    if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
     $serendipity['smarty']->assign('comment_wysiwyg', ($serendipity['allowHtmlComment'] && $serendipity['wysiwyg']));
@@ -476,7 +476,7 @@ $data['urltoken']      = serendipity_setFormToken('url');
 $data['formtoken']     = serendipity_setFormToken();
 $data['get']['filter'] = $serendipity['GET']['filter']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipity['GET'] by runtime
 
-if (!is_object($serendipity['smarty'])) {
+if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
