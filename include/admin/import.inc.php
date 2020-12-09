@@ -266,7 +266,7 @@ if (isset($serendipity['GET']['importFrom']) && serendipity_checkFormToken()) {
     $data['list'] = $list;
 }
 
-if (!is_object($serendipity['smarty'])) {
+if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
