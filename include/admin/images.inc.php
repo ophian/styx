@@ -10,7 +10,7 @@ if (!serendipity_checkPermission('adminImages')) {
 
 $data = array();
 
-if (!is_object($serendipity['smarty'])) {
+if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
