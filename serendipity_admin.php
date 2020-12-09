@@ -281,7 +281,7 @@ if ($ajax) {
         $admin_vars['version_info'] = sprintf(ADMIN_FOOTER_POWERED_BY, '', '');
     }
 
-    if (!is_object($serendipity['smarty'])) {
+    if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
     $serendipity['smarty']->assignByRef('admin_vars', $admin_vars);
