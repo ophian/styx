@@ -454,7 +454,7 @@ $tasks = array(
 
 /* Fetch SQL files which needs to be run */
 $dir      = opendir(S9Y_INCLUDE_PATH . 'sql/');
-$tmpfiles = array();
+$tmpFiles = array();
 while (($file = readdir($dir)) !== false ) {
     if (preg_match('@db_update_(.*)_(.*)_(.*).sql@', $file, $res)) {
         list(, $verFrom, $verTo, $dbType) = $res;
