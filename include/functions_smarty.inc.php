@@ -1245,7 +1245,7 @@ function serendipity_smarty_init($vars = array()) {
 function serendipity_smarty_purge() {
     global $serendipity;
 
-    if (!is_object($serendipity['smarty'])) {
+    if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
     $_cdir = new RecursiveDirectoryIterator($serendipity['smarty']->getCompileDir());
