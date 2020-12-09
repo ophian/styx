@@ -1172,7 +1172,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
     $comments_open = true;
     $current_timestamp = (time() + 24*60*60);
 
-    if (!is_object($serendipity['smarty'])) {
+    if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
         serendipity_smarty_init(); // if not set, start Smarty templating to avoid member function "method()" on a non-object errors (was draft preview error, now at line 1239)
     }
 
