@@ -26,7 +26,7 @@ if (empty($serendipity['GET']['step']) && isset($serendipity['GET']['adminAction
     $serendipity['GET']['step'] = $serendipity['GET']['adminAction'];
 }
 
-if (!is_object($serendipity['smarty'])) {
+if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
