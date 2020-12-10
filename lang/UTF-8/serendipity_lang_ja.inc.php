@@ -266,6 +266,7 @@
 @define('NEXT_PAGE', '次のページ');
 @define('ALL_CATEGORIES', 'すべてのカテゴリ');
 @define('DO_MARKUP', 'マークアップ変換を行う');
+@define('DO_MARKUP_DESCRIPTION', 'マークアップ変換をテキストに適用します (顔文字、「*」、「/」、「_」などのマークアップショートカット。無効にするとテキスト中のどんな HTML コードも保持します。デフォルトは「はい」です。');
 @define('GENERAL_PLUGIN_DATEFORMAT', '日付書式');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'エントリーの実際の日付の書式です。PHP の strftime() 値を使用します (デフォルト: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'テンプレートファイルを開けません。Serendipity をアップデートしてください!');
@@ -642,7 +643,6 @@
 @define('PREVIOUS', '前へ');
 @define('NEXT', '次へ');
 @define('APPROVE', '承認');
-@define('DO_MARKUP_DESCRIPTION', 'マークアップ変換をテキストに適用します (顔文字、「*」、「/」、「_」などのマークアップショートカット。無効にするとテキスト中のどんな HTML コードも保持します。デフォルトは「はい」です。');
 @define('CATEGORY_ALREADY_EXIST', '"%s" という名前のカテゴリは既に存在します。');
 @define('ERROR_FILE_FORBIDDEN', 'アクティブコンテンツのファイルをアップロードすることを認められていません。');
 @define('ADMIN', '管理');

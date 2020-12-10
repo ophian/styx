@@ -268,6 +268,7 @@
 @define('NEXT_PAGE', 'sonraki sayfa');
 @define('ALL_CATEGORIES', 'Tüm konu başlıkları');
 @define('DO_MARKUP', 'Etiketleme dili dönüşümü gerçekleştir');
+@define('DO_MARKUP_DESCRIPTION', ' Markup dönüşümünü yazılara uygula  (smilie işaretleri, kısayol işaretleri öreneğin *, /, _, ...). Bu kapalı olursa her türlü HTML-kodunu yazıda kullanabilirsiniz.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'tarih biçimleme');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Yazının biçimi\'s gerçek tarihi için,  PHPs strftime() değişkenlerini kullan. (Öntanımlı: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Şablon dosyası açılamıyor, Lütfen yazılımınızı güncelleyin!');
@@ -644,7 +645,6 @@
 @define('PREVIOUS', 'Önceki');
 @define('NEXT', 'Sonraki');
 @define('APPROVE', 'Onaylama');
-@define('DO_MARKUP_DESCRIPTION', ' Markup dönüşümünü yazılara uygula  (smilie işaretleri, kısayol işaretleri öreneğin *, /, _, ...). Bu kapalı olursa her türlü HTML-kodunu yazıda kullanabilirsiniz.');
 @define('CATEGORY_ALREADY_EXIST', 'Bu isimde bir konu başlığı "%s" zaten var');
 @define('ERROR_FILE_FORBIDDEN', 'Etkin içerik için dosya yükleme izni vermediniz');
 @define('ADMIN', 'Yönetim');

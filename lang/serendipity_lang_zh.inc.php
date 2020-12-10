@@ -268,6 +268,7 @@
 @define('NEXT_PAGE', '下一页');
 @define('ALL_CATEGORIES', '全部类别');
 @define('DO_MARKUP', '执行标记转换');
+@define('DO_MARKUP_DESCRIPTION', '套用自动化格式到文章内 (表情, 符号 *, /, _, ...)。关闭这项功能将会保存任何文章内出现的 HTML 语法。');
 @define('GENERAL_PLUGIN_DATEFORMAT', '日期格式');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', '文章的日期格式, 使用 PHP 的 strftime() 变数. (预设: "%s")');
 @define('ERROR_TEMPLATE_FILE', '无法开启主题文件, 请更新系统！');
@@ -645,7 +646,6 @@
 @define('NEXT', '下一页');
 @define('APPROVE', '审核');
 
-@define('DO_MARKUP_DESCRIPTION', '套用自动化格式到文章内 (表情, 符号 *, /, _, ...)。关闭这项功能将会保存任何文章内出现的 HTML 语法。');
 @define('CATEGORY_ALREADY_EXIST', '类别 "%s" 已经存在');
 @define('IMPORT_NOTES', '注意:');
 @define('ERROR_FILE_FORBIDDEN', '你不能上传此文件');

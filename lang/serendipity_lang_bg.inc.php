@@ -250,6 +250,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NEXT_PAGE', 'следваща страница');
 @define('ALL_CATEGORIES', 'Всички категории');
 @define('DO_MARKUP', 'Извършване на преобразуване на markup');
+@define('DO_MARKUP_DESCRIPTION', 'Прилагане на преобразувания на маркапа към текста (усмивки, съкратен маркап чрез *, /, _, ...). Деактивирането на това ще съхрани всеки код на HTML в текста.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Формат на дата');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Формат на действителната дата на статия, използвайки променливите на функцията на PHP strftime() (Стандартно: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Не може да бъде отворен шаблонен файл, моля, обновете Serendipity!');
@@ -644,7 +645,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PREVIOUS', 'Назад');
 @define('NEXT', 'Напред');
 @define('APPROVE', 'Одобряване');
-@define('DO_MARKUP_DESCRIPTION', 'Прилагане на преобразувания на маркапа към текста (усмивки, съкратен маркап чрез *, /, _, ...). Деактивирането на това ще съхрани всеки код на HTML в текста.');
 @define('CATEGORY_ALREADY_EXIST', 'Категория с име "%s" вече съществува');
 @define('IMPORT_NOTES', 'Бележки:');
 @define('ERROR_FILE_FORBIDDEN', 'Не е разрешено да качвате файлове с активно съдържание');

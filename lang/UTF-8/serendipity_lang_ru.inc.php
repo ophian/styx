@@ -268,6 +268,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('NEXT_PAGE', 'следующая страница');
 @define('ALL_CATEGORIES', 'Все категории');
 @define('DO_MARKUP', 'Произвести трансформации разметок');
+@define('DO_MARKUP_DESCRIPTION', 'Применить к тексту трансформацию разметки (смайлы, разметка ссылок через *, /, _, ...).Отключение этой опции сохранит html код.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Формат даты');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Формат даты записи, с использованием переменных PHP-функции strftime(). (По умолчанию: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Невозможно открыть файл шаблона, пожалуйста обновите Serendipity!');
@@ -644,7 +645,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PREVIOUS', 'Вперед');
 @define('NEXT', 'Назад');
 @define('APPROVE', 'Подтвердить');
-@define('DO_MARKUP_DESCRIPTION', 'Применить к тексту трансформацию разметки (смайлы, разметка ссылок через *, /, _, ...).Отключение этой опции сохранит html код.');
 @define('CATEGORY_ALREADY_EXIST', 'Категория с таким именем "%s" уже существует');
 @define('IMPORT_NOTES', 'Напоминание:');
 @define('ERROR_FILE_FORBIDDEN', 'У вас нет прав закачивать файлы с активным содержанием');

@@ -283,6 +283,7 @@ $i18n_filename_to = array (
 @define('NEXT_PAGE', 'další stránka');
 @define('ALL_CATEGORIES', 'Všechny kategorie');
 @define('DO_MARKUP', 'Umožnit převod značek');
+@define('DO_MARKUP_DESCRIPTION', 'Převést značky na text (smajlíky, zkratky *, /, _, ...). Vypnutí této volby zajistí uložení HTML kódů v textu.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formátování data');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formát aktuálního data záznamu, používá PHP proměnnou strftime(). (Přednastaveno: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Nelze otevřít vzorový soubor, updatujte Serendipity!');
@@ -654,7 +655,6 @@ $i18n_filename_to = array (
 @define('PREVIOUS', 'Předchozí');
 @define('NEXT', 'Další');
 @define('APPROVE', 'Povolit');
-@define('DO_MARKUP_DESCRIPTION', 'Převést značky na text (smajlíky, zkratky *, /, _, ...). Vypnutí této volby zajistí uložení HTML kódů v textu.');
 @define('CATEGORY_ALREADY_EXIST', 'Kategorie nazvaná "%s" skutečně existuje');
 @define('ERROR_FILE_FORBIDDEN', 'Nejste oprávněn nahrávat soubory s aktivním obsahem');
 @define('ADMIN', 'Administrace');

@@ -268,6 +268,7 @@
 @define('NEXT_PAGE', 'الصفحة التالية');
 @define('ALL_CATEGORIES', 'جميع التصانيف');
 @define('DO_MARKUP', 'إجراءات تحويل الاكواد');
+@define('DO_MARKUP_DESCRIPTION', 'يمكن تحويل الاحرف القياسية إلى علامات أو إبتسامات مثال (الابتسامات, الاختصارات بواسطة *, /, _, ...) عدم التمكين سوف يحتفظ بجميع أكواد HTML على انها نصوص فقط.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'صيغة التاريخ');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'صيغة ادخال التاريخ الحقيقي في PHPs strftime() variables. (Default: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'غير قادر على فتح ملف القالب. الرجاء تحديث المجلة');
@@ -644,7 +645,6 @@
 @define('PREVIOUS', 'السابق');
 @define('NEXT', 'التالي');
 @define('APPROVE', 'موافق');
-@define('DO_MARKUP_DESCRIPTION', 'يمكن تحويل الاحرف القياسية إلى علامات أو إبتسامات مثال (الابتسامات, الاختصارات بواسطة *, /, _, ...) عدم التمكين سوف يحتفظ بجميع أكواد HTML على انها نصوص فقط.');
 @define('CATEGORY_ALREADY_EXIST', 'التصنيف المسمى  "%s" مدخل مسبقاً');
 @define('ERROR_FILE_FORBIDDEN', 'لا يحق لك أن ترفع ملفات تضم محتويات نشطة');
 @define('ADMIN', 'ادارة المجلة');

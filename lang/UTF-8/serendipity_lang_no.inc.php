@@ -250,6 +250,7 @@
 @define('NEXT_PAGE', 'neste side');
 @define('ALL_CATEGORIES', 'Alle kategorier');
 @define('DO_MARKUP', 'Utført Markup-transformasjon');
+@define('DO_MARKUP_DESCRIPTION', 'Tilføy markup-transformasjoner på teksten (smilies, shortcut markups via *, /, _, ...). Hvis du slår dette av vil all HTML-kode i teksten bli beholdt.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datoformat');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formatet på artiklens faktiske dato, brug PHPs strftime()-variabler. (Standard: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Kunne ikke åpne malen, oppater Serendipity!');
@@ -643,7 +644,6 @@
 @define('PREVIOUS', 'Forrige');
 @define('NEXT', 'Neste');
 @define('APPROVE', 'Godkjenn');
-@define('DO_MARKUP_DESCRIPTION', 'Tilføy markup-transformasjoner på teksten (smilies, shortcut markups via *, /, _, ...). Hvis du slår dette av vil all HTML-kode i teksten bli beholdt.');
 @define('CATEGORY_ALREADY_EXIST', 'A category with the name "%s" already exist'); // Translate
 @define('IMPORT_NOTES', 'Note:'); // Translate
 @define('ERROR_FILE_FORBIDDEN', 'You are not allowed to upload files with active content'); // Translate

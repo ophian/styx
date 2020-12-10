@@ -537,6 +537,7 @@
 @define('DISPLAY_COMMENTS_AS', 'Mostrar comentarios como');
 @define('LOGIN', 'Conectar');
 @define('DO_MARKUP', 'Realizar transformaciones marcas');
+@define('DO_MARKUP_DESCRIPTION', 'Aplicar transformaciones de marcas al texto (caras, marcas abreviadas como *. /, _, ...). Desactivando esto preservará cualquier código HTML en el texto.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formato de fecha');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'El formato de fecha de la entrada actual, usa las variables strftime() de PHP. (Predeterminado: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Incapaz de abrir el fichero plantilla, ¡por favor actualiza Serendipity!');
@@ -656,7 +657,6 @@
 @define('PREVIOUS', 'Anterior');
 @define('NEXT', 'Siguiente');
 @define('APPROVE', 'Aprobar');
-@define('DO_MARKUP_DESCRIPTION', 'Aplicar transformaciones de marcas al texto (caras, marcas abreviadas como *. /, _, ...). Desactivando esto preservará cualquier código HTML en el texto.');
 @define('CATEGORY_ALREADY_EXIST', 'Una categoría con el nombre "%s" ya existe');
 @define('IMPORT_NOTES', 'Nota:');
 @define('ERROR_FILE_FORBIDDEN', 'No te está permitido transferir ficheros con contenido activo');

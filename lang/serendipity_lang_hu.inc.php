@@ -266,6 +266,7 @@
 @define('NEXT_PAGE', 'következõ oldal');
 @define('ALL_CATEGORIES', 'Minden kategória');
 @define('DO_MARKUP', 'Forrás transzformálás elvégzése.');
+@define('DO_MARKUP_DESCRIPTION', 'Szövegjelölések transzformálása (vigyorgó fejek, rövidítésre használt jelölések a következõ módon: *, /, _, ...). Ezt tiltva, a szövegben nem lehet semmilyen HTML kód.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Dátumformázás');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Az aktuális bejegyzés dátuma, a következõ formátumot használva: PHP strftime() változó. (Alapértelmezett: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Nem tudom megnyitni a sablonfájlt, kérlek frissítsd a serendipity-t!');
@@ -642,7 +643,6 @@
 @define('PREVIOUS', 'Elõzõ');
 @define('NEXT', 'Következõ');
 @define('APPROVE', 'Elfogad');
-@define('DO_MARKUP_DESCRIPTION', 'Szövegjelölések transzformálása (vigyorgó fejek, rövidítésre használt jelölések a következõ módon: *, /, _, ...). Ezt tiltva, a szövegben nem lehet semmilyen HTML kód.');
 @define('CATEGORY_ALREADY_EXIST', 'Létezik már kategória a következõ névvel: "%s"');
 @define('ERROR_FILE_FORBIDDEN', 'Nincs jogosultságod aktív bejegyzés felvitelére');
 @define('ADMIN', 'Adminisztráció');

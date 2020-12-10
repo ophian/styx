@@ -266,6 +266,7 @@
 @define('NEXT_PAGE', 'nästa sida');
 @define('ALL_CATEGORIES', 'Alla kategorier');
 @define('DO_MARKUP', 'Utför Markup Transformations');
+@define('DO_MARKUP_DESCRIPTION', 'Applicera förkortad textdekoration (smilies, snabbformatering med *, /, _, ...). Att avvaktivera detta kommer att bevara all HTML-kod i texten.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datumformatering');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formatet på artikelns verkliga datum, med hjälp PHPs strftime() variabler. (Ursprungsvärde: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Kunde inte öppna mallfil. Uppdatera Serendipity!');
@@ -642,7 +643,6 @@
 @define('PREVIOUS', 'Föregående');
 @define('NEXT', 'Nästa');
 @define('APPROVE', 'Godkänn');
-@define('DO_MARKUP_DESCRIPTION', 'Applicera förkortad textdekoration (smilies, snabbformatering med *, /, _, ...). Att avvaktivera detta kommer att bevara all HTML-kod i texten.');
 @define('CATEGORY_ALREADY_EXIST', 'En kategori med namnet "%s" finns redan');
 @define('ERROR_FILE_FORBIDDEN', 'Du har inte tillåtelse att ladda upp filer med körbart innehåll (t.ex. skript etc)');
 @define('ADMIN', 'Administration');

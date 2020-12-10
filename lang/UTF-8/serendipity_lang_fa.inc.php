@@ -267,6 +267,7 @@
 @define('NEXT_PAGE', 'صفحه بعد');
 @define('ALL_CATEGORIES', 'تمامی موضوعات');
 @define('DO_MARKUP', 'ایجاد تغییرات Markup');
+@define('DO_MARKUP_DESCRIPTION', 'آیا تغییرات روی متن اعمال شود (شکلک ها، میانبر کردن متن های *، /، _، ...). غیر فعال کردن این گزینه، تمامی کد های HTML را حفظ خواهد کرد و تغییری اعمال نخواهد شد.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'تغییر تاریخ');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'طرز نمایش تاریخ در ارسال ها، از قوانین نگارش تابع strftime() در PHP پیروی کنید. (پیش فرض: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'توانایی باز کردن فایل پوسته وجود ندارد، لطفا سرندیپیتی را به روز کنید!');
@@ -643,7 +644,6 @@
 @define('PREVIOUS', 'قبل');
 @define('NEXT', 'بعد');
 @define('APPROVE', 'موافقت');
-@define('DO_MARKUP_DESCRIPTION', 'آیا تغییرات روی متن اعمال شود (شکلک ها، میانبر کردن متن های *، /، _، ...). غیر فعال کردن این گزینه، تمامی کد های HTML را حفظ خواهد کرد و تغییری اعمال نخواهد شد.');
 @define('CATEGORY_ALREADY_EXIST', 'یک موضوع با نام مشابه "%s" قبلا وجود دارد');
 @define('ERROR_FILE_FORBIDDEN', 'شما اجازه بالاگذاری فایل ندارید');
 @define('ADMIN', 'مدیر');

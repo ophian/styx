@@ -252,6 +252,7 @@
 @define('NEXT_PAGE', 'próxima página');
 @define('ALL_CATEGORIES', 'Todas as categorias');
 @define('DO_MARKUP', 'Executar trasnformações de marcação');
+@define('DO_MARKUP_DESCRIPTION', 'Aplicar transformações de marcas no texto (carinhas, abreviaturas com *, /, _, ...). Desabilitando isso você preservará o código HTML no texto.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formatação de data');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formato da data atual do artigo, usando a mesma formatação da função strftime() do PHP. (Padrão: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Não foi possível abrir o arquivo de template, por favor atualize o Serendipity!');
@@ -643,7 +644,6 @@
 @define('PREVIOUS', 'Anterior');
 @define('NEXT', 'Próximo');
 @define('APPROVE', 'Aprovar');
-@define('DO_MARKUP_DESCRIPTION', 'Aplicar transformações de marcas no texto (carinhas, abreviaturas com *, /, _, ...). Desabilitando isso você preservará o código HTML no texto.');
 @define('CATEGORY_ALREADY_EXIST', 'A categoria com o nome "%s" já existe');
 @define('IMPORT_NOTES', 'Nota:');
 @define('ERROR_FILE_FORBIDDEN', 'Você não está autorizado a enviar arquivos com a pasta ativa');

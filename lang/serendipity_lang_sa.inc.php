@@ -268,6 +268,7 @@
 @define('NEXT_PAGE', '«б’ЁЌ… «б «бн…');
 @define('ALL_CATEGORIES', 'ћгнЏ «б ’«днЁ');
 @define('DO_MARKUP', '≈ћ—«Ѕ«   Ќжнб «б«яж«ѕ');
+@define('DO_MARKUP_DESCRIPTION', 'нгяд  Ќжнб «б«Ќ—Ё «бён«”н… ≈бм Џб«г«  √ж ≈» ”«г«  гЋ«б («б«» ”«г« , «б«ќ ’«—«  »ж«”Ў… *, /, _, ...) Џѕг «б гянд ”жЁ нЌ Ёў »ћгнЏ √яж«ѕ HTML Џбм «де« д’ж’ ЁёЎ.');
 @define('GENERAL_PLUGIN_DATEFORMAT', '’нџ… «б «—нќ');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', '’нџ… «ѕќ«б «б «—нќ «бЌёнён Ён PHPs strftime() variables. (Default: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'џн— ё«ѕ— Џбм Ё Ќ гбЁ «бё«б». «б—ћ«Ѕ  ЌѕнЋ «бгћб…');
@@ -644,7 +645,6 @@
 @define('PREVIOUS', '«б”«»ё');
 @define('NEXT', '«б «бн');
 @define('APPROVE', 'гж«Ёё');
-@define('DO_MARKUP_DESCRIPTION', 'нгяд  Ќжнб «б«Ќ—Ё «бён«”н… ≈бм Џб«г«  √ж ≈» ”«г«  гЋ«б («б«» ”«г« , «б«ќ ’«—«  »ж«”Ў… *, /, _, ...) Џѕг «б гянд ”жЁ нЌ Ёў »ћгнЏ √яж«ѕ HTML Џбм «де« д’ж’ ЁёЎ.');
 @define('CATEGORY_ALREADY_EXIST', '«б ’днЁ «бг”гм  "%s" гѕќб г”»ё«р');
 @define('ERROR_FILE_FORBIDDEN', 'б« нЌё бя √д  —ЁЏ гбЁ«   ÷г гЌ жн«  д‘Ў…');
 @define('ADMIN', '«ѕ«—… «бгћб…');

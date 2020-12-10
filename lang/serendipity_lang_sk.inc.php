@@ -281,6 +281,7 @@ $i18n_filename_to = array (
 @define('NEXT_PAGE', 'ïal¹ia stránka');
 @define('ALL_CATEGORIES', 'V¹etky kategórie');
 @define('DO_MARKUP', 'Formátova» text (markup)');
+@define('DO_MARKUP_DESCRIPTION', 'Aplikova» transformácie na text (smajlíky, skratky *, /, _, ...). Vypnutie tohto nastavenia zabezpeèí ulo¾enie HTML kódov v texte.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formát dátumu');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Formát dátumu èlánku, vytvára sa pomocou PHP funkcie strftime(). (Prednastavené: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Súbor so ¹ablónou sa nepodarilo otvori», prosím aktualizujte verziu Serendipity!');
@@ -654,7 +655,6 @@ $i18n_filename_to = array (
 @define('PREVIOUS', 'Predchádzajúce');
 @define('NEXT', 'Ïal¹ie');
 @define('APPROVE', 'Schváli»');
-@define('DO_MARKUP_DESCRIPTION', 'Aplikova» transformácie na text (smajlíky, skratky *, /, _, ...). Vypnutie tohto nastavenia zabezpeèí ulo¾enie HTML kódov v texte.');
 @define('CATEGORY_ALREADY_EXIST', 'Kategória s názvom "%s" u¾ existuje');
 @define('ERROR_FILE_FORBIDDEN', 'Nemáte oprávnenie nahráva» súbory s aktívnym obsahom');
 @define('ADMIN', 'Administrácia');

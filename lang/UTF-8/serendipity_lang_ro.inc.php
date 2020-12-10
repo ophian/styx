@@ -267,6 +267,7 @@
 @define('NEXT_PAGE', 'pagina următoare');
 @define('ALL_CATEGORIES', 'Toate categoriile');
 @define('DO_MARKUP', 'Execută transformările pentru selecţii');
+@define('DO_MARKUP_DESCRIPTION', 'Aplică transformări pentru text (emoticonuri, scurtături via *, /, _, ...). Dezactivând asta vei păstra eventualul cod HTML din text intact.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Format dată');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Forma datei pentru însemnare, folosind variabilele funcţiei PHP strftime(). (Implicit: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Nu pot deschide fişierul cu tematică, verifică configuraţia Serendipity!');
@@ -643,7 +644,6 @@
 @define('PREVIOUS', 'Anterioare');
 @define('NEXT', 'Următoare');
 @define('APPROVE', 'Aprobă');
-@define('DO_MARKUP_DESCRIPTION', 'Aplică transformări pentru text (emoticonuri, scurtături via *, /, _, ...). Dezactivând asta vei păstra eventualul cod HTML din text intact.');
 @define('CATEGORY_ALREADY_EXIST', 'Există deja o categorie cu numele "%s"');
 @define('ERROR_FILE_FORBIDDEN', 'Nu ai voie să încarci fişiere cu conţinut activ');
 @define('ADMIN', 'Administrare');

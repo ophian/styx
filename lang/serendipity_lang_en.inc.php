@@ -266,6 +266,7 @@
 @define('NEXT_PAGE', 'next page');
 @define('ALL_CATEGORIES', 'All categories');
 @define('DO_MARKUP', 'Perform Markup Transformations');
+@define('DO_MARKUP_DESCRIPTION', 'Apply markup transformations to the text (smilies, shortcut markups via *, /, _, ...). Disabling this will preserve any HTML-code in the text.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Dateformatting');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'The format of the entry\'s actual date, using PHPs strftime() variables. (Default: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Unable to open template file, please update Serendipity!');
@@ -642,7 +643,6 @@
 @define('PREVIOUS', 'Previous');
 @define('NEXT', 'Next');
 @define('APPROVE', 'Approve');
-@define('DO_MARKUP_DESCRIPTION', 'Apply markup transformations to the text (smilies, shortcut markups via *, /, _, ...). Disabling this will preserve any HTML-code in the text.');
 @define('CATEGORY_ALREADY_EXIST', 'A category with the name "%s" already exist');
 @define('ERROR_FILE_FORBIDDEN', 'You are not allowed to upload files with active content');
 @define('ADMIN', 'Administration');

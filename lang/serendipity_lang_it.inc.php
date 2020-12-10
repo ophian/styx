@@ -254,6 +254,7 @@
 @define('NEXT_PAGE', 'pagina seguente');
 @define('ALL_CATEGORIES', 'Tutte le categorie');
 @define('DO_MARKUP', 'Effettua trasformazioni del Markup');
+@define('DO_MARKUP_DESCRIPTION', 'Applica le trasformazioni del markup al testo (smilies, abbreviazionicon *, /, _, ...). Disabilitare questa opzione significa mantenere il codice HTML nel testo.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Formato data');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Il formato della data della notizia, usando variabili di strftime() del PHP. (Default: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Impossibile aprire il file di modello, per favore aggiornare Serendipity!');
@@ -642,7 +643,6 @@
 @define('PREVIOUS', 'Precedente');
 @define('NEXT', 'Succesivo');
 @define('APPROVE', 'Approva');
-@define('DO_MARKUP_DESCRIPTION', 'Applica le trasformazioni del markup al testo (smilies, abbreviazionicon *, /, _, ...). Disabilitare questa opzione significa mantenere il codice HTML nel testo.');
 @define('CATEGORY_ALREADY_EXIST', 'Una categoria di nome "%s" esiste già');
 @define('IMPORT_NOTES', 'Nota:');
 @define('ERROR_FILE_FORBIDDEN', 'Non hai l\'autorizzzione ad uplodare files con contenuto attivo');

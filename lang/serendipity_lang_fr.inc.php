@@ -254,6 +254,7 @@
 @define('NEXT_PAGE', 'Page suivante');
 @define('ALL_CATEGORIES', 'Toutes les catégories');
 @define('DO_MARKUP', 'Transformation de balises dans le texte');
+@define('DO_MARKUP_DESCRIPTION', 'Transforme les balises dans le texte (smileys, raccourcis via *, /, _, ...). La désactiver préserva tout le code HTML dans le texte.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Format de la date');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Le format dans lequel la date des billets doit être affichée. Toute syntaxe permise par la fonction PHP <a href="http://www.php.net/strftime" target="blank">strftime()</a> est possible. (Défaut : "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Impossible d\'ouvrir le fichier du thème, merci de mettre à jour Serendipity !');
@@ -645,7 +646,6 @@
 @define('PREVIOUS', 'Précédent');
 @define('NEXT', 'Suivant');
 @define('APPROVE', 'Valider');
-@define('DO_MARKUP_DESCRIPTION', 'Transforme les balises dans le texte (smileys, raccourcis via *, /, _, ...). La désactiver préserva tout le code HTML dans le texte.');
 @define('CATEGORY_ALREADY_EXIST', 'Une catégorie avec le nom "%s" existe déjà');
 @define('IMPORT_NOTES', 'Remarque :');
 @define('ERROR_FILE_FORBIDDEN', 'Vous n\'êtes pas autorisé à télécharger des fichiers avec ce contenu');

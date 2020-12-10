@@ -269,6 +269,7 @@
 @define('NEXT_PAGE', 'volgende pagina');
 @define('ALL_CATEGORIES', 'Alle categorieën');
 @define('DO_MARKUP', 'Voer tekstopmaakveranderingen uit');
+@define('DO_MARKUP_DESCRIPTION', 'Voer tekstopmaak uit (smilies, verkort opmaak via *, /, _, ...). Met het uitschakelen van deze optie behoudt u de HTML-code in de tekst.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Datumformaat');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'De echte datum van het artikel, gebruikmakend van PHPs strftime()-variabelen. (Standaard: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Kan de template niet openen, werk alstublieft Serendipity bij!');
@@ -643,7 +644,6 @@
 @define('PREVIOUS', 'Vorige');
 @define('NEXT', 'Volgende');
 @define('APPROVE', 'Goedkeuren');
-@define('DO_MARKUP_DESCRIPTION', 'Voer tekstopmaak uit (smilies, verkort opmaak via *, /, _, ...). Met het uitschakelen van deze optie behoudt u de HTML-code in de tekst.');
 @define('CATEGORY_ALREADY_EXIST', 'Een categorie met de naam "%s" bestaat al');
 @define('IMPORT_NOTES', 'Opmerking:');
 @define('ERROR_FILE_FORBIDDEN', 'U bent niet toegestaan om bestanden met actieve inhoud te uploaden');

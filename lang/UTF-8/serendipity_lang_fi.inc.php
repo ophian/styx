@@ -266,6 +266,7 @@
 @define('NEXT_PAGE', 'seuraava sivu');
 @define('ALL_CATEGORIES', 'Kaikki kategoriat');
 @define('DO_MARKUP', 'Tee notaatio muunnokset');
+@define('DO_MARKUP_DESCRIPTION', 'Tee tekstille notaatiomuutokset (hymiöt, lyhennelmät käyttäen *, /, _, ...). Kieltämällä tämä säilyy  HTML-koodi tekstissä sellaisenaan.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Päiväyksen muotoilu');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Merkinnän todellinen päiväys, PHPn strftime() muuttujilla. (Oletus: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Mallipohjan avaaminen epäonnistui, ole kiltti ja päivitä  Serendipity!');
@@ -640,7 +641,6 @@
 @define('PREVIOUS', 'Edellinen');
 @define('NEXT', 'Seuraava');
 @define('APPROVE', 'Hyväksy');
-@define('DO_MARKUP_DESCRIPTION', 'Tee tekstille notaatiomuutokset (hymiöt, lyhennelmät käyttäen *, /, _, ...). Kieltämällä tämä säilyy  HTML-koodi tekstissä sellaisenaan.');
 @define('CATEGORY_ALREADY_EXIST', 'Kategoria nimellä "%s" on jo olemassa');
 @define('IMPORT_NOTES', 'Huom:');
 @define('ERROR_FILE_FORBIDDEN', 'Et saa tuoda tiedostoja, joissa on interaktiivista sisältöä');

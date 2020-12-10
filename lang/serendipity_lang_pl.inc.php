@@ -268,6 +268,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('NEXT_PAGE', 'nastêpna strona');
 @define('ALL_CATEGORIES', 'Wszystkie kategorie');
 @define('DO_MARKUP', 'Formatuj za pomoc± wtyczek Znaczników');
+@define('DO_MARKUP_DESCRIPTION', 'Zastosuj formatowania wtyczek Znaczników do tekstu (emotikonki, skróty znaczników tworzone przez u¿ycie *, /, _, ...). Wy³±czenie tej opcji spowoduje zachowanie kodu HTML w tek¶cie.');
 @define('GENERAL_PLUGIN_DATEFORMAT', 'Format daty');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'Format daty wpisu, u¿ywa zmiennych funkcji strftime() jêzyka PHP. (Standardowo: "%s")');
 @define('ERROR_TEMPLATE_FILE', 'Nie mogê otworzyæ pliku stylu (template). Proszê, sprawd¼ lub unowocze¶nij swoj± instalacjê Serendipity!');
@@ -644,7 +645,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('PREVIOUS', 'Poprzedni');
 @define('NEXT', 'Nastêpny');
 @define('APPROVE', 'Zaaprobuj');
-@define('DO_MARKUP_DESCRIPTION', 'Zastosuj formatowania wtyczek Znaczników do tekstu (emotikonki, skróty znaczników tworzone przez u¿ycie *, /, _, ...). Wy³±czenie tej opcji spowoduje zachowanie kodu HTML w tek¶cie.');
 @define('CATEGORY_ALREADY_EXIST', 'Kategoria o nazwie "%s" ju¿ isnieje');
 @define('ERROR_FILE_FORBIDDEN', 'Nie mo¿esz uploadowaæ plików z aktywn± zawarto¶ci±');
 @define('ADMIN', 'Administracja');

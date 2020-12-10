@@ -268,6 +268,7 @@
 @define('NEXT_PAGE', '다음 페이지');
 @define('ALL_CATEGORIES', '모든 범주');
 @define('DO_MARKUP', '마크업 변환을 수행합니다');
+@define('DO_MARKUP_DESCRIPTION', '텍스트에 마크업 변환(이모티콘, *, /, _ 등을 활용한 마크업)을 적용합니다. 사용하지 않으면 입력한 HTML 코드가 모두 보존됩니다.');
 @define('GENERAL_PLUGIN_DATEFORMAT', '날짜 형태');
 @define('GENERAL_PLUGIN_DATEFORMAT_BLAHBLAH', 'PHP의 strftime() 변수를 통해 글의 작성 날짜 형태를 표현합니다. (기본값: "%s")');
 @define('ERROR_TEMPLATE_FILE', '템플릿 파일을 열지 못했습니다. 세렌디피티를 업데이트 하십시오.');
@@ -644,7 +645,6 @@
 @define('PREVIOUS', '이전');
 @define('NEXT', '다음');
 @define('APPROVE', '승인');
-@define('DO_MARKUP_DESCRIPTION', '텍스트에 마크업 변환(이모티콘, *, /, _ 등을 활용한 마크업)을 적용합니다. 사용하지 않으면 입력한 HTML 코드가 모두 보존됩니다.');
 @define('CATEGORY_ALREADY_EXIST', '"%s"(이)라는 범주가 이미 존재합니다.');
 @define('ERROR_FILE_FORBIDDEN', '사용 중인 내용이 담긴 파일을 업로드할 수 없습니다.');
 @define('ADMIN', '관리 사항');
