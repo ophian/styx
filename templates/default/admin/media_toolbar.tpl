@@ -99,17 +99,17 @@
 
                         <div class="form_field">
                             <label for="serendipity_filter_{$filter@key}_from" class="range-label hidden">{$CONST.RANGE_FROM|lower}</label>
-                            <input id="serendipity_filter_{$filter@key}_from" name="serendipity[filter][{$filter@key}][from]" type="date" placeholder="2001-01-31" value="{$media.filter[$filter@key].from|escape|default:''}">
+                            <input id="serendipity_filter_{$filter@key}_from" name="serendipity[filter][{$filter@key}][from]" type="date" placeholder="2001-01-31" value="{if isset($media.filter[$filter@key].from)}{$media.filter[$filter@key].from|escape|default:''}{/if}">
                             <label for="serendipity_filter_{$filter@key}_to" class="range-label"><span class="hidden">{$CONST.RANGE_TO|lower}</span><span class="icon-right-dir" title="{$CONST.RANGE_FROM|lower} - {$CONST.RANGE_TO|lower}"></span></label>
-                            <input id="serendipity_filter_{$filter@key}_to" name="serendipity[filter][{$filter@key}][to]" type="date" placeholder="2005-12-31" value="{$media.filter[$filter@key].to|escape|default:''}">
+                            <input id="serendipity_filter_{$filter@key}_to" name="serendipity[filter][{$filter@key}][to]" type="date" placeholder="2005-12-31" value="{if isset($media.filter[$filter@key].to)}{$media.filter[$filter@key].to|escape|default:''}{/if}">
                         </div>
                 {elseif isset($filter.type) AND $filter.type == 'intrange'}
 
                         <div class="form_field">
                             <label for="serendipity_filter_{$filter@key}_from" class="range-label">{$CONST.RANGE_FROM|lower}</label>
-                            <input id="serendipity_filter_{$filter@key}_from" name="serendipity[filter][{$filter@key}][from]" type="text" placeholder="{if $filtername == 'bp.RUN_LENGTH'}in{/if}" value="{$media.filter[$filter@key].from|escape|default:''}">
+                            <input id="serendipity_filter_{$filter@key}_from" name="serendipity[filter][{$filter@key}][from]" type="text" placeholder="{if $filtername == 'bp.RUN_LENGTH'}in{/if}" value="{if isset($media.filter[$filter@key].from)}{$media.filter[$filter@key].from|escape|default:''}{/if}">
                             <label for="serendipity_filter_{$filter@key}_to" class="range-label">{$CONST.RANGE_TO|lower}</label>
-                            <input id="serendipity_filter_{$filter@key}_to" name="serendipity[filter][{$filter@key}][to]" type="text" placeholder="{if $filtername == 'bp.RUN_LENGTH'}seconds{/if}" value="{$media.filter[$filter@key].to|escape|default:''}">
+                            <input id="serendipity_filter_{$filter@key}_to" name="serendipity[filter][{$filter@key}][to]" type="text" placeholder="{if $filtername == 'bp.RUN_LENGTH'}seconds{/if}" value="{if isset($media.filter[$filter@key].to)}{$media.filter[$filter@key].to|escape|default:''}{/if}">
                         </div>
                 {elseif isset($filter.type) AND $filter.type == 'authors'}
 
@@ -123,7 +123,7 @@
                         </select>
                 {else}{* this is of type string w/o being named *}
                         {* label is already set on loop start, when type is not date or intrange *}
-                        <input id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]" type="text" value="{$media.filter[$filter@key]|escape|default:''}">
+                        <input id="serendipity_filter_{$filter@key}" name="serendipity[filter][{$filter@key}]" type="text" value="{if isset($media.filter[$filter@key])}{$media.filter[$filter@key]|escape|default:''}{/if}">
                 {/if}
                 {if isset($filter.type) AND ($filter.type == 'date' OR $filter.type == 'intrange')}
 
