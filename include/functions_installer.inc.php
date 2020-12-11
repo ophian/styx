@@ -649,7 +649,7 @@ function serendipity_checkInstallation() {
         $errs[] = sprintf(DIRECTORY_CREATE_ERROR, $ipath . PATH_SMARTY_COMPILE);
         $errs[] = sprintf(DIRECTORY_RUN_CMD, 'mkdir', $ipath . PATH_SMARTY_COMPILE);
         $errs[] = sprintf(DIRECTORY_RUN_CMD, 'chmod go+rwx', $ipath . PATH_SMARTY_COMPILE);
-    } elseif (is_dir($_POST['serendipityPath'] . PATH_SMARTY_COMPILE) && !is_writeable($_POST['serendipityPath'] . PATH_SMARTY_COMPILE) && @chmod($_POST['serendipityPath'] . PATH_SMARTY_COMPILE, $umask) !== true) {
+    } elseif (is_dir($_POST['serendipityPath'] . PATH_SMARTY_COMPILE) && !is_writable($_POST['serendipityPath'] . PATH_SMARTY_COMPILE) && @chmod($_POST['serendipityPath'] . PATH_SMARTY_COMPILE, $umask) !== true) {
         $errs[] = sprintf(DIRECTORY_RUN_CMD, 'chmod go+rwx', $ipath . PATH_SMARTY_COMPILE);
     }
 
