@@ -95,7 +95,7 @@ class ONYX_RSS
 
         if ($file)
         {
-            if (!is_writeable($this->conf['cache_path'])) {
+            if (!is_writable($this->conf['cache_path'])) {
                 $this->raiseError((__LINE__-2), ONYX_ERR_NOT_WRITEABLE);
                 return false;
             }
