@@ -1217,6 +1217,7 @@ input[type=checkbox],
     margin-bottom: .75em;
 }
 
+h3.additional_properties::before,
 #adv_opts > fieldset > span > legend::before {
     display: inline;
     content: "";/* fill %23 = # */
@@ -1246,6 +1247,8 @@ h3.additional_properties,
 }
 h3.additional_properties {
     width: 100%;
+    font-size: 1rem;
+    padding: .25em .1em;
 }
 
 #media_filter > .keywords {
