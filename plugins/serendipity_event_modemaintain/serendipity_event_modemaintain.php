@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.27');
+        $propbag->add('version',       '1.28');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'
@@ -238,6 +238,21 @@ class serendipity_event_modemaintain extends serendipity_plugin
 <?php
                         break;
                     }
+                    $catch24 = (OPENSSL_VERSION_NUMBER < 269488207) ? true : false;
+                    if ($catch24) {
+                        if (isset($serendipity['COOKIE']['author_information'])) {
+                            $t = serendipity_db_query("SELECT name FROM {$serendipity['dbPrefix']}options
+                                                        WHERE okey = 'l_" . serendipity_db_escape_string($serendipity['COOKIE']['author_information']) . "'");
+                            if (isset($t[0]['name'])) {
+                                $timediff = time() - $t[0]['name'];
+                                $remaints = 86400 - ($timediff + 300); // securing 5 min OFF
+                            }
+                        }
+                        $timeleft = isset($remaints) ? date('H:i', $remaints) : null;
+                    }
+                    $catch24_msg = ($catch24 && !empty($timeleft))
+                                    ? '<span class="msg_notice" style="margin-top:0"><span class="icon-attention-circled" aria-hidden="true"></span> ' . sprintf(PLUGIN_MODEMAINTAIN_OPENSSL_TIME_RESTRICTION, $timeleft) . "</span>\n"
+                                    : '';
                     if ((!isset($serendipity['maintenance']) || serendipity_db_bool($serendipity['maintenance']) !== true) && $this->blockMaintenance) {
 ?>
 
@@ -249,6 +264,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC?>
         <p><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC?></p>
         <div><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC?></div></div>
+        <?=$catch24_msg?>
     </section>
 
 <?php
@@ -263,6 +279,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         <div id="moma_info" class="comment_status additional_info"><?=PLUGIN_MODEMAINTAIN_TITLE_DESC?> <br><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_MODE_DESC?>
         <p><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC?></p>
         <div><span class="icon-info-circled" aria-hidden="true"></span> <?=PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC?></div></div>
+        <?=$catch24_msg?>
     </section>
 
 <?php
