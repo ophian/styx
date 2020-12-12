@@ -48,9 +48,9 @@
 
     {if $mode == 'save'}{* overwrite Next style.css conflicts or set *}
     <style>
-        html { padding:0; background-color: #fcfcfc; }
-        body { margin: 0px; padding: 0.5em 0px; border: 0px none; width: 100%; }
-        #primary { padding:0; }
+        html { padding: 0; background-color: #fcfcfc; }
+        body { margin: 0; padding: .5em 0; border: 0px none; width: 100%; }
+        #primary { padding: 0; }
         .save_updertH { margin-left: .5em; }
     </style>
     {/if}
