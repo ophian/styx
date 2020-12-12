@@ -1,6 +1,8 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix more PHP 8 Warnings on globals and other variables
+
   * Update bundled-libs/SimplePie to v.1.5.6
 
   * Improve media filter backend styles for from/to date picker interface
