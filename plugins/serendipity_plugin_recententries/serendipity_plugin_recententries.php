@@ -10,6 +10,7 @@ if (IN_serendipity !== true) {
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
 class serendipity_plugin_recententries extends serendipity_plugin {
+
     var $title = PLUGIN_RECENTENTRIES_TITLE;
 
     function introspect(&$propbag) {
@@ -18,8 +19,8 @@ class serendipity_plugin_recententries extends serendipity_plugin {
         $propbag->add('name',          PLUGIN_RECENTENTRIES_TITLE);
         $propbag->add('description',   PLUGIN_RECENTENTRIES_BLAHBLAH);
         $propbag->add('stackable',     true);
-        $propbag->add('author',        'Christian Machmeier, Christian Brabandt, Judebert, Don Chambers');
-        $propbag->add('version',       '2.6');
+        $propbag->add('author',        'Christian Machmeier, Christian Brabandt, Judebert, Don Chambers, Ian Styx');
+        $propbag->add('version',       '2.7');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -176,8 +177,6 @@ class serendipity_plugin_recententries extends serendipity_plugin {
         }
 
         $sql_number = serendipity_db_limit_sql($number);
-        $db         = $serendipity['dbType'];
-
         switch($number_from_sw) {
             case 'skip':
                 $sql_number = serendipity_db_limit_sql(serendipity_db_limit($serendipity['fetchLimit'], $number));
@@ -188,7 +187,7 @@ class serendipity_plugin_recententries extends serendipity_plugin {
             $dateformat = '%A, %B %e %Y';
         }
         if ($randomize) {
-            if ($db ==  'mysql' || $db == 'mysqli') {
+            if ($serendipity['dbType'] ==  'mysql' || $serendipity['dbType'] == 'mysqli') {
                 $sql_order = "ORDER BY RAND()";
             } else {
                 // SQLite and PostgreSQL support this, hooray.
