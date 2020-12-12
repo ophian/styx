@@ -445,7 +445,7 @@ function serendipity_login($use_external = true) {
             return true;
         }
     // Now try login via COOKIE data
-    } elseif (isset($serendipity['COOKIE']['author_information'])) {
+    } elseif (isset($serendipity['COOKIE']['author_information']) && !empty($serendipity['COOKIE']['author_information_iv'])) {
         $cookie = serendipity_checkAutologin($serendipity['COOKIE']['author_information'], $serendipity['COOKIE']['author_information_iv']);
 
         $data = array('ext' => $use_external, 'mode' => 1, 'user' => $cookie['username'], 'pass' => $cookie['password']);
