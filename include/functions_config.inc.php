@@ -549,12 +549,12 @@ function serendipity_cryptor($data, $decrypt = false, $iv = null) {
             $cipher = openssl_encrypt($data, $algo, $key, \OPENSSL_RAW_DATA, $iv, $tag);
 
             if (false === $cipher) {
-                if (is_object(@$serendipity['logger'])) {
+                if (isset($serendipity['logger']) && is_object($serendipity['logger'])) {
                     $serendipity['logger']->critical('ENCRYPT: openssl_encrypt package returned false and '.sprintf("OpenSSL error: %s", openssl_error_string()));
                 }
             } else {
                 serendipity_setCookie('author_information_iv', $ckey); // store the key
-                /*if (is_object(@$serendipity['logger'])) {
+                /*if (isset($serendipity['logger']) && is_object($serendipity['logger'])) {
                     $serendipity['logger']->warning('ENCRYPT: $cipher: '.print_r($cipher, true).' key = ' . $key . ' and iv = '. $iv .' and ivlen='.openssl_cipher_iv_length($algo).' and keyBinLen='.strlen($key).' and keyHexLen='.strlen($ckey));
                 }*/
                 $cipher = bin2hex($cipher).'.'.bin2hex($iv).'.'.bin2hex($tag); // binary to hex for DB storage of cipher, iv, tag
