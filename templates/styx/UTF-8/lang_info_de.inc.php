@@ -23,7 +23,7 @@ Momentan enthält es nur eine Index-Template-Datei, die relevante Informationen 
 * 2020-06-06 - Verkleinertes font-size der entry_info styles der Eintrags Liste.<br>
 * 2020-08-31 - Verbesserung der Login Seite und Update des fullsize preview.<br>
 * 2020-10-31 - SVG icon für die eingesprungenen Plugin fieldset legends des Eintragsformulares.<br>
-* 2020-12-06 - Erlaube Media Screen iPhone 5/SE mit 320px Größen für mmedia filter HTML datetime Felder.<br><br>
+* 2020-12-06 - Erlaube Media Screen iPhone 5/SE mit 320px Größen für media filter HTML datetime Felder.<br><br>
 
 DAS FOLGENDE IST DIE BESCHREIBUNG DES FALLBACK BACKENDS&colon;<br>
 Dieses Theme beherbergt die Styx-Kern Backend Templates im Unterverzeichnis "default/admin".

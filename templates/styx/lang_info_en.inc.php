@@ -23,7 +23,7 @@ For the moment it solely includes an index template file, which removes relevant
 * 2020-06-06 - Smaller font-size of entry_info styles of entries list.<br>
 * 2020-08-31 - Improved login page and update fullsize preview.<br>
 * 2020-10-31 - Add SVG icon to the plugin added fieldset legends of entryform.<br>
-* 2020-12-06 - Allow iPhone 5/SE with 320px sizes for mmedia filter datetime pick-fields.<br><br>
+* 2020-12-06 - Allow iPhone 5/SE with 320px sizes for media filter datetime pick-fields.<br><br>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>
 The template files in that directory build and create the look of the complete admin interface.
