@@ -1,6 +1,9 @@
 Version 3.2-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve modemaintain plugin by message NOTICE for autologin, when not having
+    a high encryption safe required openSSL version available.
+
   * Fix more PHP 8 Warnings on globals and other variables
 
   * Update bundled-libs/SimplePie to v.1.5.6
