@@ -1255,7 +1255,7 @@ function serendipity_smarty_purge() {
         if (is_writable($file[0])) {
             unlink($file[0]);
         } else {
-            if (is_object(@$serendipity['logger'])) $serendipity['logger']->warning('Could not delete ' . $file[0]);
+            if (isset($serendipity['logger']) && is_object($serendipity['logger'])) $serendipity['logger']->warning('Could not delete ' . $file[0]);
         }
     }
 }
