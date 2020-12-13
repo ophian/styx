@@ -528,7 +528,7 @@ function fetchPingbackData(&$comment) {
     }
 
     if (false === $fContent) {
-        if (isset($serendipity['logger']) && is_object(@$serendipity['logger'])) $serendipity['logger']->debug("Request url: $url failed in: " . __FUNCTION__ . ' with response Code: ' . $serendipity['last_http_request']['responseCode']);
+        if (isset($serendipity['logger']) && is_object($serendipity['logger'])) $serendipity['logger']->debug("Request url: $url failed in: " . __FUNCTION__ . ' with response Code: ' . $serendipity['last_http_request']['responseCode']);
         // do what? Don't touch $comments
         return;
     }
