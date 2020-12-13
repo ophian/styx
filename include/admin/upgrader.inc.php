@@ -465,7 +465,7 @@ while (($file = readdir($dir)) !== false ) {
 }
 
 $sqlfiles = array();
-if (is_array($tmpFiles)) {
+if (!empty($tmpFiles)) {
     foreach($tmpFiles AS $version => $db) {
         if (array_key_exists($serendipity['dbType'], $db) === false ) {
             $sqlfiles[$version] = $db['mysql'];
