@@ -447,7 +447,7 @@ $tasks = array(
             array(  'version'   => '3.2.0',
                     'type'      => 'IMPORTANT_CORE_NOTICE',
                     'title'     => 'Due to the mentioned MediaLibrary improvements/fixes regarding WebP variation images, some MediaLibrary related plugins do now raise up to a Styx 3.2 requirement.',
-                    'desc'      => 'Please run Spartacus plugin updates again after the upgrade has finished to get important image-plugin improves for Serendipity Styx Revisions since 3.0. To not have a delayed cache Wait-Time, save the Spartacus plugin option once before to get a new XML file.'),
+                    'desc'      => 'Please run Spartacus plugin updates again after the upgrade has finished to get important image-plugin improves for Serendipity Styx Revisions since 3.0. To not have a delayed cache Wait-Time, save the Spartacus plugin configuration once before to get a new XML file.'),
 
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
