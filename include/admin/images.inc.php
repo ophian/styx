@@ -471,7 +471,7 @@ switch ($serendipity['GET']['adminAction']) {
                 unset($messages);
                 break;
             }
-
+            // case UPLOAD file(s)
             foreach($_FILES['serendipity']['name']['userfile'] AS $idx => $uploadfiles) {
                 if (! is_array($uploadfiles)) {
                     $uploadfiles = array($uploadfiles);
@@ -526,7 +526,7 @@ switch ($serendipity['GET']['adminAction']) {
                     }
 
                     // last chance to lower the upload file extension part
-                    $info   = pathinfo($tfile);
+                    $info = pathinfo($tfile);
                     if (!isset($info['extension'])) {
                         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> File extension missing or failed!</span>'."\n";
                         $info['extension'] = '';
