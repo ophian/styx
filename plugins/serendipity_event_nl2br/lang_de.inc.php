@@ -1,9 +1,9 @@
 <?php
 
 /**
- *  @version  
- *  @file 
- *  @author 
+ *  @version
+ *  @file
+ *  @author
  *  DE-Revision: Revision of lang_de.inc.php
  */
 
