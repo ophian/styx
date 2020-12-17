@@ -1,4 +1,4 @@
-Version 3.2-DEV ()
+Version 3.2.0 (December, 17th 2020)
  ------------------------------------------------------------------------
 
   * Improve modemaintain plugin by message NOTICE for autologin, when not having
