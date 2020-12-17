@@ -480,7 +480,7 @@ switch ($serendipity['GET']['adminAction']) {
                 foreach($uploadfiles AS $uploadfile) {
                     $uploadFileCounter++;
                     $target_filename = $serendipity['POST']['target_filename'][$idx] ?? null;
-                    $uploadtmp  = $_FILES['serendipity']['tmp_name']['userfile'][$idx];
+                    $uploadtmp = $_FILES['serendipity']['tmp_name']['userfile'][$idx];
                     if (is_array($uploadtmp)) {
                         $uploadtmp = $uploadtmp[$uploadFileCounter];
                     }
@@ -543,7 +543,7 @@ switch ($serendipity['GET']['adminAction']) {
 
                     // Accept file
                     if (is_uploaded_file($uploadtmp) && serendipity_checkMediaSize($uploadtmp) && move_uploaded_file($uploadtmp, $target)) {
-                        $uploadfile = serendipity_specialchars($uploadfile); //see $tfile L 439 - and we  want the origin name here!
+                        $uploadfile = serendipity_specialchars($uploadfile); // @see $tfile L 439 - and we DO WANT the ORIGIN NAME here!
                         $messages[] = sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . FILE_UPLOADED . "</span>\n", "<b>$uploadfile</b>", $target);
                         @umask(0000);
                         @chmod($target, 0664);
