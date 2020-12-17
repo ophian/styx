@@ -270,7 +270,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if (!isset($props['upgradeable'])) {
                 $props['upgradeable'] = false; // default define - Matches all plugins that are stackable/installable
             }
-            if (!isset($props['customURI'])) {$props['customURI'] = '';}
+            if (!isset($props['customURI'])) {
+                $props['customURI'] = '';
+            }
             if (version_compare($props['version'], $props['upgrade_version'], '<')
                 ||
                 (
