@@ -1319,7 +1319,7 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
             if (isset($entry['categories']) && is_array($entry['categories'])) {
                 foreach($entry['categories'] AS $k => $v) {
                     if (!isset($entry['categories'][$k]['category_link'])) {
-                        $entry['categories'][$k]['category_link'] =  serendipity_categoryURL($entry['categories'][$k]);
+                        $entry['categories'][$k]['category_link'] = serendipity_categoryURL($entry['categories'][$k]);
                     }
                     // PUSH in a PHP 8 core helper
                     //      to fix theme checks w/o having to using isset(), since the db field default is NULL and theme templates check it generally by using a simple
