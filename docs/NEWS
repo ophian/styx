@@ -1,7 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
- * Add sidebar template file to the "B46" theme to allow rss configuration resets
+ * Fixed sidebar template file in the "bootstrap 4" theme to allow rss feed
+   configuration resets
 
 
 Version 3.2.0 (December, 17th 2020)
