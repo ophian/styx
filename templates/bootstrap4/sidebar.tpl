@@ -2,7 +2,7 @@
 <div id="serendipity{$pluginside}SideBar">
 {/if}
 {foreach $plugindata AS $item}
-{if $template_option.bs_rss AND $item.class != "serendipity_plugin_syndication" AND NOT empty($item.content)}
+{if $item.class != "serendipity_plugin_syndication" AND NOT empty($item.content)}
     <section class="{$item.class} mb-3">
     {if $item.title != ""}
         <h3>{$item.title}</h3>
