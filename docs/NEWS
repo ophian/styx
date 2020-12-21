@@ -1,7 +1,7 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
- * Fix B46 theme lang constant fallback case for grandchild themes
+ * Fix "B46" theme lang constant fallback case for grandchild themes
 
  * Fixed sidebar template file in the "bootstrap 4" theme to allow rss feed
    configuration resets
