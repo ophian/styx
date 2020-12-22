@@ -2357,8 +2357,8 @@ Version 2.6-beta1 (2018-08-06)
     comma, in escapeshellarg() - for WIN OS servers was fixed.
 
   * Media Library list item title names were changed from realname
-    to diskname, which actually is the the real existing stored file
-    name. The (origin) realname, if independently exists, is shown in
+    to diskname, which actually is the real existing stored file name.
+    The (origin) realname, if independently exists, is shown in
     the info layer as: "Origin: name".
     This was necessary to not have somehow confusing same titled
     item names in case of doublets.
