@@ -26,6 +26,7 @@ $core_sidebar_plugins = [
     'serendipity_plugin_superuser',
     'serendipity_plugin_syndication'
 ];
+// NOTE: These core sidebar plugins don't have the full 'assoc' array in $pluggroups->$groupstack->plug AND do not use offsets!
 
 include_once S9Y_INCLUDE_PATH . 'include/plugin_api.inc.php';
 include_once S9Y_INCLUDE_PATH . 'include/functions_entries_admin.inc.php';
