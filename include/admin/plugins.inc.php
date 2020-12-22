@@ -273,13 +273,23 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if (!isset($props['customURI'])) {
                 $props['customURI'] = '';
             }
-            if (version_compare($props['version'], $props['upgrade_version'], '<')
-                ||
-                (
+            // make if/or readable
+            $upgrade = false;
+            // event plugins upgradeable
+            if (version_compare($props['version'], $props['upgrade_version'], '<')) {
+                $upgrade = true;
+                $up_case = 1; // event plugins upgradeable
+            }
+            // sidebar plugins upgradeable
+            if (!$upgrade && (
                     isset($foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'])
                     && version_compare($props['version'], $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'], '<')
-                )
-            ) {
+            )) {
+                $upgrade = true;
+                $up_case = 2; // sidebar plugins upgradeable
+            }
+            if ($upgrade) {
+                #debug# echo $class_data['name']." version_compare_upcase = $up_case<br>\n";
                 $props['upgradeable'] = true; // For the very most Spartacus::checkPlugin() already took care of false/true
                 $props['remote_path'] = $serendipity['spartacus_rawPluginPath'];
                 // since we merged sidebar and event plugins before, we can no longer rely on Spartacus' $foreignPlugins['baseURI']
