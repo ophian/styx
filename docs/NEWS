@@ -1,6 +1,10 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Merge Spartacus UPGRADE XML plugin requirements into the UPGRADE array
+   to not fetch and update non-matching plugins.
+   EXPERIMENTAL:  First take! Not ready yet!
+
  * Improve Spartacus for reading the full requirements array, which will allow
    to check extended plugin requirements on UPGRADE in a next step.
 
