@@ -1,6 +1,9 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Improve Spartacus for reading the full requirements array, which will allow
+   to check extended plugin requirements on UPGRADE in a next step.
+
  * Fix "B46" theme lang constant fallback case for grandchild themes
 
  * Fixed sidebar template file in the "bootstrap 4" theme to allow rss feed
