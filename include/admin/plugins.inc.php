@@ -193,7 +193,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $errorstack  = array_merge((array)$foreignPlugins['errorstack'], $errorstack);
 
     if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE') {
-        // since sqlite being too slow for a full xml check and pluginlist rewrite - exceed the time limit
+        // since SQLITE being too slow for a full XML check and pluginlist rewrite - exceed the time limit
         if (stristr($serendipity['dbType'], 'sqlite')) {
             set_time_limit(0);
         }
@@ -315,6 +315,21 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                     $local_upset = true;
                 }
                 $props['customURI'] .= $baseURI . $foreignPlugins['upgradeURI'];
+                // Merge new plugin requirements from XML file
+                if (isset($foreignPlugins['pluginstack'][$class_data['name']]['requirements'])) {
+                    // The Good, the Bad and the Ugly:
+                    // Once the XML is read by Spartacus in runtime this is doing good.
+                    // If you don't run upgrades immediately that data is getting lost, since Spartacus uses setPluginInfo() to store away the upgrade_version (only).
+                    // On next run within 12h cache runtime, the XML and SESSION stored read data is lost and is DB plugin data.
+                    // So we remember temporary, in case the update is not done immediately!
+                    $_SESSION['foreignPlugins_remoteRequirements'][$class_data['name']]['requirements'] = serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements']);
+                    // Session data is a good hideaway, but lasts only as long this Session is alive.
+                    // So we need something taking care for the rest of the Spartacus XMLs $cacheTimeout of 12 hours.
+                    serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
+                                          VALUES ('" . time() . "', '" . serendipity_db_escape_string(serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements'])) . "', 'prr_" . $class_data['name'] ."')");
+                    #serendipity_cacheItem('foreignPlugins_remoteRequirements', serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements'], 43200);#60*60*12; // XML file is cached for half a day
+                    $props['requirements'] = serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements']);
+                }
             }
             // Check all other local sidebar|event plugins in array (runs once only!)
             if ($props['upgrade_version'] == '' && $props['pluginlocation'] == 'local' && !$local_upset) {
@@ -332,12 +347,18 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $_installed            = in_array($class_data['true_name'], $plugins);
             $props['stackable']    = ($props['stackable'] === true && $_installed);
             $props['installable']  = !($props['stackable'] === false && $_installed);
-            $_prop_requirements    = (isset($props['requirements']) && is_array($props['requirements'])) ? serialize($props['requirements']) : null;
-            $props['requirements'] = isset($props['requirements']) ? unserialize($_prop_requirements) : '';
+
+            // Read temporary SESSION stored Plugin requirements data back in, in case the plugin update was not accessed immediately
+            $tstoredreqts = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options
+                                                   WHERE okey = 'prr_" . serendipity_db_escape_string($class_data['name']) . "' LIMIT 1", true, 'assoc');
+            $props['requirements'] =& $tstoredreqts['value'] ?? $props['requirements'];
+            $props['requirements'] = $_SESSION['foreignPlugins_remoteRequirements'][$class_data['name']]['requirements'] ?? $props['requirements'];
+
+            $props['requirements'] = (!empty($props['requirements']) && $props['requirements'] != 'N;') ? unserialize($props['requirements']) : []; // serendipity_plugin_api::setPluginInfo() used serialize() anatomy of NULL representation is N;
             if (isset($foreignPlugins['pluginstack'][$class_data['name']]['changelog'])) {
                 $props['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
             }
-            // read temporary session stored data, in case the plugin update was not accessed immediately
+            // read temporary SESSION stored data, in case the plugin update was not accessed immediately
             if (empty($props['changelog']) && isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'])) {
                 $props['changelog'] = $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'];
             }
@@ -355,7 +376,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             // assume session has timed out (since not upgraded at session runtime) and pluginstack is array and fetched from pluginlist table 
             if (empty($props['changelog']) && isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE' && !isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog']) && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
                 if (serendipity_request_url($serendipity['spartacus_rawPluginPath'] . $class_data['name'] . '/ChangeLog', 'get')) {
-                    // remember temporary, in case the update is not done immediately
+                    // Remember temporary, in case the update is not done immediately. By SESSION only, since not that essential!
                     $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'] = $serendipity['spartacus_rawPluginPath'] . $class_data['name'] . '/ChangeLog';
                     $props['changelog'] = $serendipity['spartacus_rawPluginPath'] . $class_data['name'] . '/ChangeLog';
                 }
@@ -408,7 +429,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         if (!isset($plugdata['stackable'])) {
             /*  Default new install "fake" define
                 Matches all "foreign" plugins, merged into pluginstack, that are NOT stackable (OR don't have this property)
-                AND are not already installed AND were not cached AND only live as new in the xml files that have just been renewed.
+                AND are not already installed AND were not cached AND only live as new in the XML files that have just been renewed.
                 After this first run all properties are listed and read "correct" in the pluginlist database table.
                 New plugins do always get the stackable property set to 0, until they are installed for the first time and then are read properly by the propbag! */
             $plugdata['stackable'] = false;
@@ -593,9 +614,12 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 die();
             }
         } else {
-            // destroy eventually stored session changelog path data
+            // Destroy eventually stored SESSION and DB requirements array data
+            unset($_SESSION['foreignPlugins_remoteRequirements'][$class_data['name']]['requirements']);
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'prr_" . $class_data['name'] ."'");
+            // Destroy eventually stored SESSION changelog path data
             unset($_SESSION['foreignPlugins_remoteChangeLogPath'][$serendipity['GET']['install_plugin']]['changelog']);
-            // PLEASE NOTE, in this plugins event hook you have to use die() after the redirect, if in need to force the direct config fallback, eg. see CKEditor plugin
+            // PLEASE NOTE, in this plugins event hook you have to use "die()" after the redirect, if in need to force the direct config fallback, eg. @see CKEditor Plus plugin
             serendipity_plugin_api::hook_event('backend_plugins_update', $serendipity['GET']['install_plugin'], $fetchplugin_data);
         }
 
