@@ -26,7 +26,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.08');
+        $propbag->add('version',       '3.09');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -844,8 +844,16 @@ class serendipity_event_spartacus extends serendipity_event
                                 );
 
                                 foreach((array)$childtree['children'] AS $relInfo) {
-                                    if (isset($relInfo['tag']) && $relInfo['tag'] == 'requirements:s9yVersion') {
-                                        $pluginstack[$i]['requirements']['serendipity'] = $relInfo['value'];
+                                    if (isset($relInfo['tag'])) {
+                                        if ($relInfo['tag'] == 'requirements:s9yVersion') {
+                                            $pluginstack[$i]['requirements']['serendipity'] = $relInfo['value'];
+                                        }
+                                        if ($relInfo['tag'] == 'requirements:smyVersion') {
+                                            $pluginstack[$i]['requirements']['smarty'] = $relInfo['value'];
+                                        }
+                                        if ($relInfo['tag'] == 'requirements:phpVersion') {
+                                            $pluginstack[$i]['requirements']['php'] = $relInfo['value'];
+                                        }
                                     }
                                 }
                                 break;
@@ -930,12 +938,19 @@ class serendipity_event_spartacus extends serendipity_event
                                 );
 
                                 foreach((array)$childtree['children'] AS $relInfo) {
-                                    if (isset($relInfo['tag']) && $relInfo['tag'] == 'requirements:s9yVersion') {
-                                        $pluginstack[$i]['requirements']['serendipity'] = $relInfo['value'];
-                                    }
-
-                                    if (isset($relInfo['tag']) && $relInfo['tag'] == 'date') {
-                                        $pluginstack[$i]['date'] = $relInfo['value'];
+                                    if (isset($relInfo['tag'])) {
+                                        if ($relInfo['tag'] == 'requirements:s9yVersion') {
+                                            $pluginstack[$i]['requirements']['serendipity'] = $relInfo['value'];
+                                        }
+                                        if ($relInfo['tag'] == 'requirements:smyVersion') {
+                                            $pluginstack[$i]['requirements']['smarty'] = $relInfo['value'];
+                                        }
+                                        if ($relInfo['tag'] == 'requirements:phpVersion') {
+                                            $pluginstack[$i]['requirements']['php'] = $relInfo['value'];
+                                        }
+                                        if ($relInfo['tag'] == 'date') {
+                                            $pluginstack[$i]['date'] = $relInfo['value'];
+                                        }
                                     }
                                 }
 
