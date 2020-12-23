@@ -20,13 +20,11 @@ class serendipity_event_spartacus extends serendipity_event
 
     function introspect(&$propbag)
     {
-        global $serendipity;
-
         $propbag->add('name',          PLUGIN_EVENT_SPARTACUS_NAME);
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.09');
+        $propbag->add('version',       '3.10');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -287,6 +285,7 @@ class serendipity_event_spartacus extends serendipity_event
     {
         $children = array();
         $cnt = sizeof($vals);
+
         while (++$i < $cnt) {
             // compare type
             switch ($vals[$i]['type']) {
@@ -382,6 +381,7 @@ class serendipity_event_spartacus extends serendipity_event
     function outputMSG($status, $msg)
     {
         global $serendipity;
+
         switch($status) {
             case 'notice':
                 echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> '. $msg .'</span>' . "\n";
@@ -760,6 +760,7 @@ class serendipity_event_spartacus extends serendipity_event
         $installable = true;
         $upgradeable = false; // default init defines
         $upgradeLink = '';
+
         if (in_array($data['class_name'], $plugins)) {
             $infoplugin =& serendipity_plugin_api::load_plugin($data['class_name']);
             if (is_object($infoplugin)) {
@@ -892,6 +893,7 @@ class serendipity_event_spartacus extends serendipity_event
     function &buildTemplateList(&$tree)
     {
         global $serendipity;
+
         $pluginstack = array();
         $i = 0;
         $gitloc = '';
@@ -1026,6 +1028,7 @@ class serendipity_event_spartacus extends serendipity_event
     function download(&$tree, $plugin_to_install, $sub = 'plugins')
     {
         global $serendipity;
+
         $gitloc  = '';
         $cvshack = '';//?revision=1.9999';
 
