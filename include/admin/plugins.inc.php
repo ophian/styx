@@ -349,9 +349,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $props['installable']  = !($props['stackable'] === false && $_installed);
 
             // Read temporary SESSION stored Plugin requirements data back in, in case the plugin update was not accessed immediately
-            $tstoredreqts = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options
-                                                   WHERE okey = 'prr_" . serendipity_db_escape_string($class_data['name']) . "' LIMIT 1", true, 'assoc');
-            $props['requirements'] =& $tstoredreqts['value'] ?? $props['requirements'];
+            $t_storedreqts = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}options
+                                                    WHERE okey = 'prr_" . serendipity_db_escape_string($class_data['name']) . "' LIMIT 1", true, 'assoc');
+            $props['requirements'] = $t_storedreqts['value'] ?? $props['requirements'];
             $props['requirements'] = $_SESSION['foreignPlugins_remoteRequirements'][$class_data['name']]['requirements'] ?? $props['requirements'];
 
             $props['requirements'] = (!empty($props['requirements']) && $props['requirements'] != 'N;') ? unserialize($props['requirements']) : []; // serendipity_plugin_api::setPluginInfo() used serialize() anatomy of NULL representation is N;
