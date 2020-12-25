@@ -325,6 +325,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                     $_SESSION['foreignPlugins_remoteRequirements'][$class_data['name']]['requirements'] = serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements']);
                     // Session data is a good hideaway, but lasts only as long this Session is alive.
                     // So we need something taking care for the rest of the Spartacus XMLs $cacheTimeout of 12 hours.
+                    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'prr_" . $class_data['name'] ."'"); // cleanup first
                     serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
                                           VALUES ('" . time() . "', '" . serendipity_db_escape_string(serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements'])) . "', 'prr_" . $class_data['name'] ."')");
                     #serendipity_cacheItem('foreignPlugins_remoteRequirements', serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements'], 43200);#60*60*12; // XML file is cached for half a day
@@ -674,6 +675,12 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $data['$memsnaps'] = $serendipity['memSnaps'];
     }
     $data['updateAllMsg'] = !empty($serendipity['GET']['updateAllMsg']) ? $serendipity['GET']['updateAllMsg'] : false;
+    // Cleanup after UPDATE_ALL
+    if ($data['updateAllMsg']) {
+        $xmlcache = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_event_'.$serendipity['lang'].'.xml';
+        $xmlts = file_exists($xmlcache) ? serendipity_serverOffsetHour(filemtime($xmlcache)) : (time() - 43201); // filemtime is Servers timezone or UTC/GMT :: 12h + 1sec cache time
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey LIKE 'prr_%' AND name < $xmlts");
+    }
 }
 
 echo serendipity_smarty_showTemplate('admin/plugins.inc.tpl', $data);
