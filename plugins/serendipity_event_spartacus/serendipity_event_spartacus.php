@@ -944,12 +944,6 @@ class serendipity_event_spartacus extends serendipity_event
                                         if ($relInfo['tag'] == 'requirements:s9yVersion') {
                                             $pluginstack[$i]['requirements']['serendipity'] = $relInfo['value'];
                                         }
-                                        if ($relInfo['tag'] == 'requirements:smyVersion') {
-                                            $pluginstack[$i]['requirements']['smarty'] = $relInfo['value'];
-                                        }
-                                        if ($relInfo['tag'] == 'requirements:phpVersion') {
-                                            $pluginstack[$i]['requirements']['php'] = $relInfo['value'];
-                                        }
                                         if ($relInfo['tag'] == 'date') {
                                             $pluginstack[$i]['date'] = $relInfo['value'];
                                         }
