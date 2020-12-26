@@ -53,7 +53,7 @@ function serendipity_checkCommentTokenModeration($uri) {
     // token based comment moderation starts here
     if ($serendipity['useCommentTokens'] === true && preg_match(PAT_DELETE, $uri, $res)) {
         $return_msg = "Error.\n";
-        $tokenparse = explode("_",$res[1]);
+        $tokenparse = explode('_', $res[1]);
         // check that we got a 32 char token
         if (is_array($tokenparse)) {
             if (strlen($tokenparse[2]) == 32) {
@@ -79,7 +79,7 @@ function serendipity_checkCommentTokenModeration($uri) {
     }
     if ($serendipity['useCommentTokens'] === true && preg_match(PAT_APPROVE, $uri, $res)) {
         $return_msg = "Error.\n";
-        $tokenparse = explode("_",$res[1]);
+        $tokenparse = explode('_', $res[1]);
         // check that we got a 32 char token
         if (is_array($tokenparse)) {
             if (strlen($tokenparse[2]) == 32) {
@@ -1050,8 +1050,8 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
                                          AND name  = '" . $email . "'
                                          AND value = '" . $name . "'", true);
         if (!is_array($auth)) {
-            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (okey, name, value)
-                                       VALUES ('mail_confirm{$dbhash}', '{$email}', '{$name}')");
+            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
+                                       VALUES ('{$email}', '{$name}', 'mail_confirm{$dbhash}')");
             $dbstatus = 'confirm' . $dbhash;
         } else {
             $serendipity['csuccess'] = 'true';
@@ -1135,14 +1135,15 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
                                                AND email = '$email'
                                                AND subscribed = 'true'", true);
         if (!is_array($dupe_check) || $dupe_check['counter'] < 1) {
-            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (okey, name, value)
-                                       VALUES ('commentsub_{$dbhash}', '" . time() . "', '{$cid}')");
+            serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
+                                       VALUES ('" . time() . "', '$cid', 'commentsub_{$dbhash}')");
 
             $subject = sprintf(NEW_COMMENT_TO_SUBSCRIBED_ENTRY, $row['title']);
             $message = sprintf(CONFIRMATION_MAIL_SUBSCRIPTION,
                                 $name,
                                 $row['title'],
-                                serendipity_archiveURL($id, $row['title'], 'baseURL', true, array('timestamp' => time())), $serendipity['baseURL'] . 'comment.php?optin=' . $dbhash);
+                                serendipity_archiveURL($id, $row['title'], 'baseURL', true, array('timestamp' => time())),
+                                $serendipity['baseURL'] . 'comment.php?optin=' . $dbhash);
 
             serendipity_sendMail($email, $subject, $message, $serendipity['blogMail']);
         }
@@ -1178,11 +1179,12 @@ function serendipity_commentSubscriptionConfirm($hash) {
     }
 
     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options
-                                WHERE okey LIKE 'commentsub_%' AND $cast < " . (time() - 1814400));
+                           WHERE okey LIKE 'commentsub_%' AND $cast < " . (time() - 1814400));
 
     $hashinfo = serendipity_db_query("SELECT value
                                         FROM {$serendipity['dbPrefix']}options
                                        WHERE okey = 'commentsub_" . serendipity_db_escape_string($hash) . "'", true);
+
     if (is_array($hashinfo) && $hashinfo['value'] > 0) {
         $cid = (int)$hashinfo['value'];
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}comments
@@ -1331,6 +1333,7 @@ function serendipity_mailSubscribers($entry_id, $poster, $posterMail, $title, $f
  */
 function serendipity_cancelSubscription($email, $entry_id) {
     global $serendipity;
+
     $sql = "UPDATE {$serendipity['dbPrefix']}comments
                SET subscribed = 'false'
              WHERE entry_id = '". (int)$entry_id ."'
@@ -1376,7 +1379,7 @@ function serendipity_sendComment($comment_id, $to, $fromName, $fromEmail, $fromU
 
         // Issue new comment moderation hash
         serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
-                              VALUES ('" . time() . "', '" . $token . "', 'comment_" . $comment_id ."')");
+                              VALUES ('" . time() . "', '$token', 'comment_" . $comment_id ."')");
     }
 
     $deleteURI  = serendipity_rewriteURL(PATH_DELETE . '/'. $path .'/' . $comment_id . '/' . $id . '-' . serendipity_makeFilename($title)  . '.html', 'baseURL');
