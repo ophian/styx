@@ -151,7 +151,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $data['documentation'] = $documentation;
     $data['plugin'] = $plugin;
 
-    // hey, check and assign some info about being stacked or stackable
+    // Hey, check and assign some info about being stacked or stackable
     $_chckInstalledPlugins = serendipity_plugin_api::get_installed_plugins();
     $_c = array_count_values($_chckInstalledPlugins);
     if ($_c[$data['class']] > 1) $cc = true;
@@ -193,11 +193,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $errorstack  = array_merge((array)$foreignPlugins['errorstack'], $errorstack);
 
     if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE') {
-        // since SQLITE being too slow for a full XML check and pluginlist rewrite - exceed the time limit
+        // Since SQLite may being too slow for a full XML check and pluginlist rewrite - exceed the time limit
         if (stristr($serendipity['dbType'], 'sqlite')) {
             set_time_limit(0);
         }
-        // for UPGRADES, the distinction in sidebar and event-plugins is not useful. We will fetch both and mix the lists
+        // For UPGRADES, the distinction in sidebar and event-plugins is not useful. We will fetch both and mix the lists
         if ($serendipity['GET']['type'] == 'event') {
             $serendipity['GET']['type'] = 'sidebar';
         } else {
@@ -205,7 +205,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         }
         $foreignPluginsTemp = array();
         serendipity_plugin_api::hook_event('backend_plugins_fetchlist', $foreignPluginsTemp);
-        // in case of event upgrade this now is the event plugins array and following pluginstack is merged both
+        // In case of event upgrade this now is the event plugins array and following pluginstack has merged both
         $pluginstack    = array_merge((array)$foreignPluginsTemp['pluginstack'], $pluginstack);
         $errorstack     = array_merge((array)$foreignPluginsTemp['errorstack'], $errorstack);
         $foreignPlugins = array_merge($foreignPlugins, $foreignPluginsTemp);
@@ -247,7 +247,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if (isset($foreignPlugins['pluginstack'][$class_data['name']]) && $foreignPlugins['pluginstack'][$class_data['name']]['upgradeable']) {
                 $class_data['upgrade_version'] = $foreignPlugins['pluginstack'][$class_data['name']]['upgrade_version'];
                 if (isset($foreignPlugins['pluginstack'][$class_data['name']]['changelog'])) {
-                    // remember temporary, in case the update is not done immediately
+                    // Remember temporary, in case the update is not done immediately
                     $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
                 }
             } elseif (!isset($class_data['upgrade_version'])) {
@@ -266,6 +266,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $props = false;
         }
 
+        // Checks and Balances
         if (is_array($props)) {
             $local_upset = false;
             if (!isset($props['upgradeable'])) {
@@ -274,7 +275,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if (!isset($props['customURI'])) {
                 $props['customURI'] = '';
             }
-            // make if/or readable
+            // Make if/or better readable
             $upgrade = false;
             // event plugins upgradeable
             if (version_compare($props['version'], $props['upgrade_version'], '<')) {
@@ -293,7 +294,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 #debug# echo $class_data['name']." version_compare_upcase = $up_case<br>\n";
                 $props['upgradeable'] = true; // For the very most Spartacus::checkPlugin() already took care of false/true
                 $props['remote_path'] = $serendipity['spartacus_rawPluginPath'];
-                // since we merged sidebar and event plugins before, we can no longer rely on Spartacus' $foreignPlugins['baseURI']
+                // Since we merged sidebar and event plugins before, we can no longer rely on Spartacus fetched $foreignPlugins['baseURI']
                 // NOTE: This is not nice and it would be better to move it into the plugins array instead, but that collides with the cache
                 if (strpos($class_data['name'], 'serendipity_plugin') !== false) {
                     $baseURI = '&amp;serendipity[spartacus_fetch]=sidebar';
@@ -328,7 +329,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                     serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'prr_" . $class_data['name'] ."'"); // cleanup first
                     serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}options (name, value, okey)
                                           VALUES ('" . time() . "', '" . serendipity_db_escape_string(serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements'])) . "', 'prr_" . $class_data['name'] ."')");
-                    #serendipity_cacheItem('foreignPlugins_remoteRequirements', serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements'], 43200);#60*60*12; // XML file is cached for half a day
+                    #cachetest#serendipity_cacheItem('foreignPlugins_remoteRequirements', serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements'], 43200);#60*60*12; // XML file is cached for half a day
                     $props['requirements'] = serialize($foreignPlugins['pluginstack'][$class_data['name']]['requirements']);
                 }
             }
@@ -340,7 +341,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                                        WHERE plugin_class    = '" . serendipity_db_escape_string($props['plugin_class']) . "'
                                          AND pluginlocation  = 'local'");
             }
-            // remove from locals list, since what is left is a physically purged plugin
+            // Remove from locals list, since what is left is a physically purged plugin
             if (!empty($locals) && ($key = array_search($props['class_name'], array_map(function($map){return $map['class_name'];}, $locals))) !== false) {
                 unset($locals[$key]);
             }
@@ -355,15 +356,17 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $props['requirements'] = $t_storedreqts['value'] ?? $props['requirements'];
             $props['requirements'] = $_SESSION['foreignPlugins_remoteRequirements'][$class_data['name']]['requirements'] ?? $props['requirements'];
 
-            $props['requirements'] = (!empty($props['requirements']) && $props['requirements'] != 'N;') ? unserialize($props['requirements']) : []; // serendipity_plugin_api::setPluginInfo() used serialize() anatomy of NULL representation is N;
+             // Method serendipity_plugin_api::setPluginInfo() uses serialize() AND its anatomy of NULL representation is N;
+             $props['requirements'] = (!empty($props['requirements']) && $props['requirements'] != 'N;') ? unserialize($props['requirements']) : [];
+
             if (isset($foreignPlugins['pluginstack'][$class_data['name']]['changelog'])) {
                 $props['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
             }
-            // read temporary SESSION stored data, in case the plugin update was not accessed immediately
+            // Read temporary SESSION stored data, in case the plugin update was not accessed immediately
             if (empty($props['changelog']) && isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'])) {
                 $props['changelog'] = $_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog'];
             }
-            // cut and prep an existing constant, since we don't have this very often...
+            // Cut and prep an existing constant, since we don't have this very often...
             if (!empty($props['website'])) {
                 $ref = explode(':', PLUGIN_GROUP_FRONTEND_EXTERNAL_SERVICES);
                 $props['exdoc'] = trim(end($ref)); // avoid Notice: Only variable references should be returned by reference
@@ -374,7 +377,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             if (empty($props['changelog']) && (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] != 'UPGRADE') && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
                 $props['changelog'] = 'plugins/' . $props['pluginPath'] . '/ChangeLog';
             }
-            // assume session has timed out (since not upgraded at session runtime) and pluginstack is array and fetched from pluginlist table 
+            // Assume session has timed out (since not upgraded at session runtime) and pluginstack is array and fetched from pluginlist table 
             if (empty($props['changelog']) && isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE' && !isset($_SESSION['foreignPlugins_remoteChangeLogPath'][$class_data['name']]['changelog']) && @file_exists(dirname($props['plugin_file']) . '/ChangeLog')) {
                 if (serendipity_request_url($serendipity['spartacus_rawPluginPath'] . $class_data['name'] . '/ChangeLog', 'get')) {
                     // Remember temporary, in case the update is not done immediately. By SESSION only, since not that essential!
@@ -435,9 +438,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 New plugins do always get the stackable property set to 0, until they are installed for the first time and then are read properly by the propbag! */
             $plugdata['stackable'] = false;
         }
+
         if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'ALL') {
             $pluggroups['ALL'][] = $plugdata;
         } elseif (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE' && $plugdata['upgradeable']) {
+            // Singularity
             if ($plugdata['class_name'] == 'serendipity_event_ckeditor' && count($pluginstack) > 1) {
                 $ov = implode('.', explode('.', $plugdata['version'], -1));         // check old lib version vs
                 $nv = implode('.', explode('.', $plugdata['upgrade_version'], -1)); // (possible) new lib version
@@ -562,11 +567,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         $fetchplugin_data = array('GET'     => &$serendipity['GET'],
                                   'install' => true);
 
-        // hook into Spartacus to download/upgrade the plugin
+        // Hook into Spartacus to download/upgrade the plugin
         serendipity_plugin_api::hook_event('backend_plugins_fetchplugin', $fetchplugin_data);
         // Spartacus hook 'backend_plugins_fetchplugin' will set $eventData['install'] to false, if ($eventData['GET']['spartacus_upgrade']) is true on UPGRADE requests
 
-        // we now have to check that the plugin is not already installed, or stackable, to prevent invalid double instances
+        // We now have to check that the plugin is not already installed, or stackable, to prevent invalid double instances
         $new_plugin = true;
         // and we want to check this only on INSTALLation requests
         if ($fetchplugin_data['install']) {
@@ -678,7 +683,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     // Cleanup after UPDATE_ALL
     if ($data['updateAllMsg']) {
         $xmlcache = $serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/package_event_'.$serendipity['lang'].'.xml';
-        $xmlts = file_exists($xmlcache) ? serendipity_serverOffsetHour(filemtime($xmlcache)) : (time() - 43201); // filemtime is Servers timezone or UTC/GMT :: 12h + 1sec cache time
+        $xmlts = file_exists($xmlcache) ? serendipity_serverOffsetHour(filemtime($xmlcache)) : (time() - 43201); // filemtime is Servers timezone or UTC/GMT :: 12h + 1sec = max cache time
         $exclude = '';
         if (!empty($_SESSION['foreignPlugins_remoteRequirements'])) {
             $exkeys = '';
