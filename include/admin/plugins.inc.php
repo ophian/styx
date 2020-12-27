@@ -181,6 +181,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $data['CONFIG'] = serendipity_plugin_config($plugin, $bag, $name, $desc, $config_names, true, true, true, true, 'plugin', $config_groups);
 
 } elseif ($serendipity['GET']['adminAction'] == 'addnew') {
+// Includes only_group UPGRADE
 
     $serendipity['GET']['type'] = !empty($serendipity['GET']['type']) ? $serendipity['GET']['type'] : 'sidebar';
     $data['adminAction'] = 'addnew';
@@ -193,11 +194,11 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     $errorstack  = array_merge((array)$foreignPlugins['errorstack'], $errorstack);
 
     if (isset($serendipity['GET']['only_group']) && $serendipity['GET']['only_group'] == 'UPGRADE') {
-        // Since SQLite may being too slow for a full XML check and pluginlist rewrite - exceed the time limit
+        // Since SQLite on drives may being too slow for a full XML check and pluginlist rewrite - exceed the time limit
         if (stristr($serendipity['dbType'], 'sqlite')) {
             set_time_limit(0);
         }
-        // For UPGRADES, the distinction in sidebar and event-plugins is not useful. We will fetch both and mix the lists
+        // For UPDATE_ALL upgrades, the prior distinction in sidebar and event-plugins was not useful. We will fetch both and mix the lists
         if ($serendipity['GET']['type'] == 'event') {
             $serendipity['GET']['type'] = 'sidebar';
         } else {
@@ -205,6 +206,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         }
         $foreignPluginsTemp = array();
         serendipity_plugin_api::hook_event('backend_plugins_fetchlist', $foreignPluginsTemp);
+
         // In case of event upgrade this now is the event plugins array and following pluginstack has merged both
         $pluginstack    = array_merge((array)$foreignPluginsTemp['pluginstack'], $pluginstack);
         $errorstack     = array_merge((array)$foreignPluginsTemp['errorstack'], $errorstack);
