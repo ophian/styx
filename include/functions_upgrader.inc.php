@@ -454,7 +454,9 @@ $dead_files_320 = array(
  * @return void
  */
 function recursive_directory_iterator($dir = array()) {
-    if (null === $dir) return;
+    if (null === $dir) {
+        return;
+    }
     foreach($dir AS $path) {
         serendipity_removeDeadFiles_SPL($path);
         if (is_dir($path)) @rmdir($path);
@@ -578,8 +580,9 @@ function serendipity_killPlugin($name) {
  * @return void
  */
 function serendipity_removeDeadFiles_SPL($dir=null, $deadfiles=null, $purgedir=null, $list_only=false) {
-
-    if (!is_dir($dir)) return;
+    if (!is_dir($dir)) {
+        return;
+    }
     try {
         $_dir = new RecursiveDirectoryIterator($dir, RecursiveDirectoryIterator::SKIP_DOTS);
     } catch (Throwable $t) {
@@ -837,4 +840,3 @@ function serendipity_cleanupConfigVars($name='') {
 
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name = '" . serendipity_db_escape_string($name) . "'");
 }
-
