@@ -272,6 +272,7 @@ if (!function_exists('file_get_contents')) {
 if (!isset($_REQUEST)) {
     $_REQUEST = &$HTTP_REQUEST_VARS;
 }
+
 if (!isset($_POST)) {
     $_POST = &$HTTP_POST_VARS;
 }
