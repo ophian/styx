@@ -1581,14 +1581,17 @@ function serendipity_setupCache() {
     );
     return $cache;
 }
+
 function serendipity_cleanCache() {
     $cache = serendipity_setupCache();
     return $cache->removeAll();
 }
+
 function serendipity_cacheItem($key, $item, $ttl = 3600) {
     $cache = serendipity_setupCache();
     return $cache->setItem($key, $item, $ttl);
 }
+
 function serendipity_getCacheItem($key) {
     $cache = serendipity_setupCache();
     return $cache->getItem($key);
