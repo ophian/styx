@@ -1092,6 +1092,7 @@ function serendipity_iframe_create($mode, &$entry) {
  */
 function serendipity_probeInstallation($item) {
     global $serendipity;
+
     $res = NULL;
 
     switch ($item) {
@@ -1289,22 +1290,22 @@ function serendipity_getPostAuthSessionLanguage() {
 function &serendipity_getPermissions($authorid) {
     global $serendipity;
 
-        // Get group information
-        $groups =& serendipity_db_query("SELECT ag.groupid, g.name, gc.property, gc.value
-                                          FROM {$serendipity['dbPrefix']}authorgroups AS ag
-                               LEFT OUTER JOIN {$serendipity['dbPrefix']}groups AS g
-                                            ON ag.groupid = g.id
-                               LEFT OUTER JOIN {$serendipity['dbPrefix']}groupconfig AS gc
-                                            ON gc.id = g.id
-                                         WHERE ag.authorid = " . (int)$authorid);
-        $perm = array('membership' => array());
-        if (is_array($groups)) {
-            foreach($groups AS $group) {
-                $perm['membership'][$group['groupid']]       = $group['groupid'];
-                $perm[$group['groupid']][$group['property']] = $group['value'];
-            }
+    // Get group information
+    $groups =& serendipity_db_query("SELECT ag.groupid, g.name, gc.property, gc.value
+                                      FROM {$serendipity['dbPrefix']}authorgroups AS ag
+                           LEFT OUTER JOIN {$serendipity['dbPrefix']}groups AS g
+                                        ON ag.groupid = g.id
+                           LEFT OUTER JOIN {$serendipity['dbPrefix']}groupconfig AS gc
+                                        ON gc.id = g.id
+                                     WHERE ag.authorid = " . (int)$authorid);
+    $perm = array('membership' => array());
+    if (is_array($groups)) {
+        foreach($groups AS $group) {
+            $perm['membership'][$group['groupid']]       = $group['groupid'];
+            $perm[$group['groupid']][$group['property']] = $group['value'];
         }
-        return $perm;
+    }
+    return $perm;
 }
 
 /**
@@ -1909,8 +1910,8 @@ function serendipity_updateGroupConfig($groupid, &$perms, &$values, $isNewPriv =
  */
 function serendipity_addDefaultGroup($name, $level) {
     global $serendipity;
-
     static $perms = null;
+
     if ($perms === null) {
         $perms = serendipity_getPermissionNames();
     }
@@ -2426,8 +2427,8 @@ function serendipity_loadGlobalThemeOptions(&$template_config, &$template_loaded
  * @return boolean
  */
 function serendipity_hasPluginPermissions($plugin, $groupid = null) {
-    static $forbidden = null;
     global $serendipity;
+    static $forbidden = null;
 
     if (empty($serendipity['authorid'])) {
         return true;
