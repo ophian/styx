@@ -816,6 +816,7 @@ function &serendipity_fetchCategories($authorid = null, $name = null, $order = n
  */
 function serendipity_rebuildCategoryTree($parent = 0, $left = 0) {
     global $serendipity;
+
     $right = $left + 1;
 
     $result = serendipity_db_query("SELECT categoryid FROM {$serendipity['dbPrefix']}category WHERE parentid = '" . (int)$parent . "'");
@@ -1169,6 +1170,7 @@ function serendipity_getTotalEntries() {
  */
 function serendipity_printEntries($entries, $extended = 0, $preview = false, $smarty_block = 'ENTRIES', $smarty_fetch = true, $use_hooks = true, $use_footer = true, $use_grouped_array = false) {
     global $serendipity;
+
     $comments_open = true;
     $current_timestamp = (time() + 24*60*60);
 
