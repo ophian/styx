@@ -876,7 +876,6 @@ function serendipity_installFiles($serendipity_core = '') {
  * @return  boolean
  */
 function serendipity_checkConfigItemFlags(&$item, $area) {
-
     if (in_array('nosave', $item['flags'])) {
         return false;
     }
@@ -915,7 +914,6 @@ function serendipity_updateConfiguration() {
 
     foreach($config AS $category) {
         foreach($category['items'] AS $item) {
-
             /* Don't save trash */
             if (!serendipity_checkConfigItemFlags($item, 'configuration')) {
                 continue;
@@ -1046,6 +1044,7 @@ function serendipity_removeFiles($files = null) {
  */
 function serendipity_checkWebPSupport($set=false, $msg=false) {
     global $serendipity;
+
     if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
         if (!function_exists('gd_info')) return false;
         $gd = gd_info();
