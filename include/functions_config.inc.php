@@ -835,7 +835,6 @@ function serendipity_restoreVar(&$source, &$target) {
         $target = $source;
         return true;
     }
-
     return false;
 }
 
@@ -1416,7 +1415,6 @@ function serendipity_getPermissionNames() {
  */
 function serendipity_checkPermission($permName, $authorid = null, $returnMyGroups = false) {
     global $serendipity;
-
     // Define old serendipity permissions
     static $permissions = null;
     static $group = null;
