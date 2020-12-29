@@ -192,5 +192,4 @@ function serendipity_emit_htmlarea_code($item, $jsname, $spawnMulti = false) {
         echo serendipity_smarty_showTemplate('admin/wysiwyg_init.tpl', $data);
     }
     $init = true;
-
 }
