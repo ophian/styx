@@ -154,6 +154,7 @@ function serendipity_rememberCommentDetails($details) {
  */
 function serendipity_forgetCommentDetails($keys) {
     global $serendipity;
+
     if (!$serendipity['COOKIE']) {
         return;
     }
@@ -198,6 +199,7 @@ function serendipity_entityCommentCodeTagBlocks($str) {
  */
 function serendipity_sanitizeHtmlComments($str) {
     global $serendipity;
+
     // sanitize and break code blocks which is done per CKEplus plugin independently or by manual inserts for PLAIN EDITORs. (Disable nl2br::comment parsing!)
     // Do not switch the Editor and save a comment using code examples again, since that my lead to hidden code parts due to the nature of processing the codesnippet CKE plugin
     if (empty($serendipity['wysiwyg']) && (strpos($str, '<code') !== false || strpos($str, '<pre') !== false)) {
@@ -217,7 +219,6 @@ function serendipity_sanitizeHtmlComments($str) {
  * This is plain fetch data from database w/o having passed via NL2BR
  */
 function serendipity_prepCommentNewline($string, $parsed=false) {
-
     // check for simple p-tag first - do not if true. This is/was a comment by ISOBR default.
     if (false === strpos($string, '</p>')) {
         $parsed = true;
@@ -324,6 +325,7 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
  */
 function serendipity_fetchComments($id, $limit = null, $order = '', $showAll = false, $type = 'NORMAL', $where = '') {
     global $serendipity;
+
     $and = '';
 
     if (!empty($limit)) {
