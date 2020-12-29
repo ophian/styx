@@ -125,7 +125,6 @@ function p2g($j_y, $j_m, $j_d) {
  * @return  string  Formatted local time/date according to locale settings
  */
 function persian_strftime_utf($format, $timestamp='') {
-
     if ($timestamp == '') {
         $timestamp = time();
     }
@@ -274,7 +273,6 @@ function persian_strftime_utf($format, $timestamp='') {
  * @return  string  Formatted local time/date
  */
 function persian_date_utf($format, $timestamp='') {
-
     if ($timestamp == '') {
         $timestamp = time();
     }
