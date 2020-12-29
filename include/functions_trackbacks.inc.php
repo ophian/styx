@@ -228,8 +228,8 @@ function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $
  */
 function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) {
     global $serendipity;
-    $timeout   = 30;
 
+    $timeout = 30;
     $u = parse_url($loc);
 
     if ($u['scheme'] != 'http' && $u['scheme'] != 'https') {
@@ -370,6 +370,7 @@ function add_trackback($id, $title, $url, $name, $excerpt) {
  */
 function add_pingback($id, $postdata) {
     global $serendipity;
+
     log_pingback("Reached add_pingback. ID:[$id]");
 
     // XML-RPC Method call without named parameter. This seems to be the default way using XML-RPC
