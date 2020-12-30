@@ -43,6 +43,7 @@ function serendipity_addAuthor($username, $password, $realname, $email, $userlev
     );
 
     serendipity_insertPermalink($data, 'author');
+
     return $cid;
 }
 
@@ -70,6 +71,7 @@ function serendipity_deleteAuthor($authorid) {
     if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authors WHERE authorid=" . (int)$authorid)) {
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}permalinks WHERE entry_id=" . (int)$authorid ." and type='author'");
     }
+
     return true;
 }
 
@@ -1304,6 +1306,7 @@ function &serendipity_getPermissions($authorid) {
             $perm[$group['groupid']][$group['property']] = $group['value'];
         }
     }
+
     return $perm;
 }
 
@@ -1471,7 +1474,6 @@ function serendipity_checkPermission($permName, $authorid = null, $returnMyGroup
     if ($return && isset($permissions[$permName]) && isset($serendipity['serendipityUserlevel']) && in_array($serendipity['serendipityUserlevel'], $permissions[$permName])) {
         return true;
     }
-
     return false;
 }
 
@@ -1497,6 +1499,7 @@ function serendipity_updateGroups($groups, $authorid, $apply_acl = true) {
     foreach($groups AS $group) {
         serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}authorgroups (authorid, groupid) VALUES (" . (int)$authorid . ", " . (int)$group . ")");
     }
+
     return true;
 }
 
@@ -1563,6 +1566,7 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
             return strnatcasecmp($a['name'],$b['name']);
         });
     }
+
     return $groups;
 }
 
@@ -2244,6 +2248,7 @@ function serendipity_reportXSRF($type = 0, $reset = true, $use_config = false) {
             $string = '';
         }
     }
+
     return $string;
 }
 
@@ -2351,6 +2356,7 @@ function &serendipity_loadThemeOptions(&$template_config, $okey = '', $bc_bool =
         }
         //reset Smarty compiled template ?
     }
+
     return $template_vars;
 }
 
