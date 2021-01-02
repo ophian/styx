@@ -12,7 +12,7 @@ include S9Y_INCLUDE_PATH . 'include/admin/import.inc.php';
 $data['importMenu'] = ob_get_contents();
 ob_end_clean();
 
-$keepthemes = [ '_assets', '2k11', 'styx', 'b46', 'bootstrap4', 'bulletproof', 'clean-blog',
+$keepthemes = [ '_assets', '2k11', 'styx', 'b46', 'bootstrap4', 'clean-blog',
                 'default', 'default-php', 'dude', 'next', 'psg', 'pure', 'pure19', 'skeleton',
                 'sliver', 'timeline' ];
 $keepevplugins = [ 'bbcode', 'changelog', 'emoticate', 'entryproperties', 'mailer', 'modemaintain',
