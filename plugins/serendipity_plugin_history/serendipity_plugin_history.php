@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.30');
+        $propbag->add('version',       '1.31');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -291,19 +291,16 @@ class serendipity_plugin_history extends serendipity_plugin
                 #    return false;
                 #}
 
-                $multiage = array();
-                // y start by 0 adds current day, else start is last year
+                $cy  = date('Y', $nowts);
+                $sy  = ($cy-$xyears);
+                $age = 0;
+                $leap = []; // incrementing array to use as leap true check
+                $multiage = [];
+                for($i = $cy; $i > $sy; $i--) {
+                    $leap[] = date('L', strtotime("$i-01-01"));
+                }
                 for($y=0; $y < $xyears; $y++) {
-                    $age = 365 * $y;
-                    $n   = $y / 4;
-                    // for start with 0
-                    if (preg_match('/^[0-9]+$/', $n)) {
-                    // for start with 1
-                    #if (ctype_digit("$n")) {
-                        $age = $age + $n;
-                    } else {
-                        $age = ($age + (floor($n) + date('L', serendipity_serverOffsetHour()))); // round fractions down and add any leap day
-                    }
+                    $age += ($leap[$y] == 1 ? 366 : ($y == 0 ? 0 : 365));
                     $multiage[] = $age;
                 }
 
