@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Remove outdated "bulletproof" core template to additional_plugins pool
+
  * Fix history plugin for multiyears leap year counters
 
  * Merge and temporary hold the Spartacus UPGRADE XML file plugin requirements
