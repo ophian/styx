@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix history plugin for multiyears leap year counters
+
  * Merge and temporary hold the Spartacus UPGRADE XML file plugin requirements
    into the UPGRADE array - to not update any non-matching plugins.
 
