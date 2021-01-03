@@ -1065,6 +1065,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('DEBUG', 'Debug');
 @define('CUSTOM_CONFIG', 'Custom configuration file');
 @define('PLUGIN_ALREADY_INSTALLED', 'Plugin already installed, and does not support multiple installation ("stackable").');
+@define('PLUGIN_UPDATES_DONE', 'All Plugins updated!');
 @define('STACKABLE_PLUGIN', 'Stackable plugin!');
 @define('STACKED_PLUGIN', 'Stacked plugin!');
 @define('MULTISTACK_PLUGIN', 'Multi-stacked plugin!');
