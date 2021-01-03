@@ -1061,7 +1061,7 @@
 @define('DEBUG', 'Debug');
 @define('CUSTOM_CONFIG', 'Eigene Konfigurationsdatei');
 @define('PLUGIN_ALREADY_INSTALLED', 'Plugin ist bereits installiert und unterstützt die Mehrfachinstallation ("stackable") nicht.');
-@define('PLUGIN_UPDATES_DONE', 'All Plugins updated!');
+@define('PLUGIN_UPDATES_DONE', 'Alle Plugins aktualisiert!');
 @define('STACKABLE_PLUGIN', '"Stapelbares" Plugin!');
 @define('STACKED_PLUGIN', '"Gestapeltes" Plugin!');
 @define('MULTISTACK_PLUGIN', '"Multi-Gestapeltes" Plugin!');
