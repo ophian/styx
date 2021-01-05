@@ -447,6 +447,12 @@ $dead_files_320 = array(
     'templates/pure19/legal.txt'
 );
 
+/* A list of old or removed directories for 3.3.0 */
+$dead_dirs_330 = array(
+    $serendipity['serendipityPath'] . 'templates/bulletproof',
+    $serendipity['serendipityPath'] . 'templates/pure19'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
