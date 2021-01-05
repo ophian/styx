@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Remove "pure19" core template completely
+
  * Remove outdated "bulletproof" core template to additional_plugins pool
 
  * Fix history plugin for multiyears leap year counters
