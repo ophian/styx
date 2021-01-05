@@ -623,8 +623,10 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             }
         } else {
             // Destroy eventually stored SESSION and DB requirements array data
-            unset($_SESSION['foreignPlugins_remoteRequirements'][$class_data['name']]['requirements']);
-            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'prr_" . $class_data['name'] ."'");
+            if (isset($class_data['name'])) {
+                unset($_SESSION['foreignPlugins_remoteRequirements'][$class_data['name']]['requirements']);
+                serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}options WHERE okey = 'prr_" . $class_data['name'] ."'");
+            }
             // Destroy eventually stored SESSION changelog path data
             unset($_SESSION['foreignPlugins_remoteChangeLogPath'][$serendipity['GET']['install_plugin']]['changelog']);
             // PLEASE NOTE, in this plugins event hook you have to use "die()" after the redirect, if in need to force the direct config fallback, eg. @see CKEditor Plus plugin
