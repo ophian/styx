@@ -72,7 +72,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
     $data['updateCheck']  = $serendipity['updateCheck'];
     $data['curVersion']   = serendipity_getCurrentVersion();
     $data['releaseFUrl']  = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE'); // https://raw.github.com/s9y/Serendipity/master/docs/RELEASE
-    $data['curVersName']  = $serendipity['updateVersionName'];
+    $data['curVersName']  = $serendipity['updateVersionName'] ?? null;
     $data['update']       = version_compare($data['usedVersion'], $data['curVersion'], '<');
     serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
     $output = !empty($output) ? $output : '<span class="msg_error"><span class="icon-info-circled"></span> To get a button, check if the "Serendipity Autoupdate" event plugin is installed!</span>';
