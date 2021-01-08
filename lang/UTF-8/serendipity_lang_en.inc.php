@@ -409,7 +409,7 @@
 @define('INSTALL_XHTML11', 'Force XHTML 1.1 compliance');
 @define('INSTALL_XHTML11_DESC', 'Do you want to force XHTML 1.1 compliance (may cause problems for back-/frontend on older 4th generation browsers)');
 @define('INSTALL_POPUP', 'Enable use of popup windows');
-@define('INSTALL_POPUP_DESC', 'Do you want to use popup windows for comments, trackbacks et al? (Not supported by all themes)');
+@define('INSTALL_POPUP_DESC', 'Do you want to use popup windows for comments, trackbacks et al.? (Not supported by all themes.)');
 @define('INSTALL_EMBED', 'Is Serendipity embedded?');
 @define('INSTALL_EMBED_DESC', 'If you want to embed Serendipity within a regular page, set to true to discard any headers and just print the contents. You can make use of the indexFile option to use a wrapper class where you put your normal webpage headers. See the README file for more information!');
 @define('INSTALL_TOP_AS_LINKS', 'Show Top Exits/Referrers as links?');

@@ -396,7 +396,7 @@
 @define('INSTALL_XHTML11', 'XHTML 1.1 Standard verwenden');
 @define('INSTALL_XHTML11_DESC', 'Soll der XHTML 1.1 Standard verwendet werden? (Erzeugt gültigen Code, kann jedoch bei älteren Browsern Probleme hervorrufen)');
 @define('INSTALL_POPUP', 'Popups für Kommentare, Trackbacks (&hellip;) nutzen?');
-@define('INSTALL_POPUP_DESC', 'Sollen die Links zu den Kommentaren, Trackbacks etc. in Popup-Fenstern geöffnet werden? (Wird nicht von allen Themes unterstützt)');
+@define('INSTALL_POPUP_DESC', 'Sollen die Links zu den Kommentaren, Trackbacks etc. in Popup-Fenstern geöffnet werden? (Wird nicht von allen Themes unterstützt.)');
 @define('INSTALL_EMBED', 'Eingebettete Nutzung von Serendipity aktivieren?');
 @define('INSTALL_EMBED_DESC', 'Falls Serendipity in eine normale Seite eingebettet werden soll, aktivieren Sie diese Option. Serendipity stellt dann nur Inhalte dar, und Sie können sich um Header und Footer kümmern. Lesen Sie die Datei README, um hierzu weitere Informationen zu erhalten.');
 @define('INSTALL_TOP_AS_LINKS', 'Top Exits/Referrers als Link anzeigen?');
