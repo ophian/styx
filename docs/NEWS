@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Bugfix allow backend configuration sets for plugin_html_nugget textareas
+
  * Remove "pure19" core template completely
 
  * Remove outdated "bulletproof" core template to additional_plugins pool
