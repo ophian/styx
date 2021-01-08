@@ -37,7 +37,7 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR', 'Eigene Mirror-Quelle');
 @define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC', 'Diese Option ist (normalerweise) nur für Experten gedacht. Falls keiner der voreingestellten Mirror-Server aufgrund von Downtime oder Problemen verfügbar ist, kann hier ein eigener Server-Name wie "https://mirror.org/styx/" eingetragen werden. Dort müssen die XML-Dateien für Spartacus im Verzeichnis liegen, und Unterverzeichnisse wie "additional_plugins" und "additional_themes" existieren. Geben Sie hier nur Mirrors ein, denen Sie voll vertrauen, und auf denen eine Kopie des Repositories gespeichert ist. Mehrere Mirrors können mit "|" getrennt eingegeben werden.');
-@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD', 'ACHTUNG: Styx zieht seine Daten direkt von GitHub, wie oben eingestellt. Die voreingestellte URL ist auf das Serendipity Styx "additional_plugins" Verzeichnis limitiert. Zusätzliche THEMES werden weiterhin vom s9y GitHub Repository Server gezogen. Dies wird sich in Zukunft ändern. Möchten Sie grundsätzlich nur die obigen Spiegelserver nutzen, müssen Sie vor jedem Konfigurationssubmit die eigenen Spiegelserver per Hand löschen, bzw. einmalig "none" hineinschreiben (ohne "").');
+@define('PLUGIN_EVENT_SPARTACUS_CUSTOMMIRROR_DESC_ADD', 'ACHTUNG: Styx zieht seine Daten direkt von GitHub, wie oben eingestellt. Möchten Sie grundsätzlich nur die obigen Spiegelserver nutzen, müssen Sie vor jedem Konfigurationssubmit die eigenen Spiegelserver per Hand löschen, bzw. einmalig "none" hineinschreiben (ohne "").');
 
 // Next lines were translated on 2009/06/03
 @define('PLUGIN_EVENT_SPARTACUS_TRYCURL', 'Versuche cURL Bibliothek aus Fallback zu nutzen...');
