@@ -66,6 +66,7 @@
     {/if}
 {/foreach}
     </ul>
+    {if $template_option.scrollbtn}
     <span class="nav-down">
       <a href="#to-sdb" title="jumpscroll to sidebar">
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-square" xmlns="http://www.w3.org/2000/svg" fill="rgba(255,255,255,.5)">
@@ -74,6 +75,7 @@
         </svg>
       </a>
     </span>
+    {/if}
     {if $template_option.navsearch}
     <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get" role="search" class="form-inline my-2 my-lg-0">
         <input type="hidden" name="serendipity[action]" value="search">
@@ -92,6 +94,7 @@
     <input id="searchsend" class="btn btn-outline-primary my-2 my-sm-0" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
   </form>
 {/if}
+{if $template_option.scrollbtn}
   <span class="nav-down">
     <a href="#to-sdb" title="jumpscroll to sidebar">
       <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-down-square" xmlns="http://www.w3.org/2000/svg" fill="rgba(255,255,255,.5)">
@@ -100,6 +103,7 @@
       </svg>
     </a>
   </span>
+{/if}
 {/if}
     {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
   </div>
@@ -143,6 +147,7 @@
 {/if}
 {if $leftSidebarElements > 0}{serendipity_printSidebar side="left"}{/if}
 {if $rightSidebarElements > 0}{serendipity_printSidebar side="right"}{/if}
+{if $template_option.scrollbtn}
     <section class="serendipity_plugin_upscroll mb-3">
         <span class="sidebar-up">
           <a href="#to-top" title="jumpscroll to top">
@@ -153,6 +158,7 @@
           </a>
         </span>
     </section>
+{/if}
 </aside>
 
 <footer id="footer" class="clearfix">

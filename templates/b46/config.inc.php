@@ -72,6 +72,12 @@ $template_config = array(
        'default' => true
     ),
     array(
+       'var' => 'scrollbtn',
+       'name' => B46_JUMPSCROLL,
+       'type' => 'boolean',
+       'default' => true
+    ),
+    array(
        'var' => 'bs_rss',
        'name' => BS_RSS,
        'type' => 'boolean',
