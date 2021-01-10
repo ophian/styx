@@ -66,6 +66,12 @@ $template_config = array(
                                 '%Y-%m-%d' => '%Y-%m-%d')
     ),
     array(
+       'var' => 'navsearch',
+       'name' => B46_USE_SEARCH,
+       'type' => 'boolean',
+       'default' => true
+    ),
+    array(
        'var' => 'bs_rss',
        'name' => BS_RSS,
        'type' => 'boolean',
