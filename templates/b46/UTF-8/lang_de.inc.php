@@ -3,6 +3,7 @@
 @define('B46_USE_CORENAV', 'Globale Navigation einbinden?');
 @define('B46_SEND_MAIL', 'Schicke Email');
 @define('B46_USE_SEARCH', 'Zeige Suche im Kopf');
+@define('B46_JUMPSCROLL', 'Nutze scrolljump Button');
 
 // If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
 @define('BS_RSS', 'RSS-Links in der Seitenleiste?');
