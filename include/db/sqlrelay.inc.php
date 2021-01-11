@@ -12,7 +12,7 @@ function serendipity_db_begin_transaction() {
 
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
-        case 'mysql':
+        case 'mysqli':
             $sqlstr = 'start transaction';
             break;
 
@@ -243,8 +243,8 @@ function serendipity_db_insert_id($table = '', $id = '') {
 
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
-        case 'mysql':
-            $sqlstr='SELECT LAST_INSERT_ID()';
+        case 'mysqli':
+            $sqlstr = 'SELECT LAST_INSERT_ID()';
             break;
 
         case 'postgresql':
@@ -290,16 +290,6 @@ function serendipity_db_affected_rows() {
  * @return int  Number of updated rows
  */
 function serendipity_db_updated_rows() {
-    /*
-
-    preg_match(
-        "/^[^0-9]+([0-9]+)[^0-9]+([0-9]+)[^0-9]+([0-9]+)/",
-        mysql_info(),
-        $arr);
-        // mysql_affected_rows returns 0 if rows were matched but not changed.
-        // mysql_info returns rows matched AND rows changed
-        return $arr[2];
-     */
      return serendipity_db_affected_rows();
 }
 
@@ -310,16 +300,6 @@ function serendipity_db_updated_rows() {
  * @return int  Number of matched rows
  */
 function serendipity_db_matched_rows() {
-   /*
-
-    preg_match(
-        "/^[^0-9]+([0-9]+)[^0-9]+([0-9]+)[^0-9]+([0-9]+)/",
-        mysql_info(),
-        $arr);
-        // mysql_affected_rows returns 0 if rows were matched but not changed.
-        // mysql_info returns rows matched AND rows changed
-    return $arr[1];
-  */
     return serendipity_db_affected_rows();
 }
 
@@ -338,9 +318,9 @@ function serendipity_db_escape_string($str) {
 
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
-        case 'mysql':
-            if (function_exists('mysql_real_escape_string')) {
-               $rtnstr = mysql_real_escape_string($str, $serendipity['dbConn']);
+        case 'mysqli':
+            if (function_exists('mysqli_real_escape_string')) {
+               $rtnstr = mysqli_real_escape_string($serendipity['dbConn'], $str);
             } else {
                $rtnstr = addslashes($str);
             }
@@ -389,7 +369,7 @@ function serendipity_db_limit_sql($limitstring) {
 
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
-        case 'mysql':
+        case 'mysqli':
             return ' LIMIT ' . $limitstring;
         case "postgresql":
             $limit_split = explode(',', $limitstring);
@@ -428,7 +408,7 @@ function serendipity_db_connect() {
     $serendipity['dbConn'] = $function($dbHostPort[0], $dbHostPort[1], "", $serendipity['dbUser'], $serendipity['dbPass'], 0, 1);
     sqlrcon_debugOff($serendipity['dbConn']);
 
-    if (sqlrcon_identify($serendipity['dbConn']) == 'mysql') {
+    if (sqlrcon_identify($serendipity['dbConn']) == 'mysqli') {
        serendipity_db_reconnect();
     }
 
@@ -458,7 +438,7 @@ function serendipity_db_schema_import($query) {
 
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
-        case 'mysql':
+        case 'mysqli':
             static $search  = array('{AUTOINCREMENT}', '{PRIMARY}',
                 '{UNSIGNED}', '{FULLTEXT}', '{FULLTEXT_MYSQL}', '{BOOLEAN}', '{TEXT}');
             static $replace = array('int(11) not null auto_increment', 'primary key',
@@ -546,7 +526,7 @@ function serendipity_db_concat($string) {
 
     $type_of_database = sqlrcon_identify($serendipity['dbConn']);
     switch($type_of_database) {
-        case 'mysql':
+        case 'mysqli':
             return 'concat(' . $string . ')';
 
         case 'postgresql':
