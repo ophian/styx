@@ -1869,7 +1869,7 @@ function serendipity_convertThumbs() {
                    WHERE thumbnail_name = '" . serendipity_db_escape_string($othumb) . "'";
             if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag UPDATE images DB::images:\n$q"); }
             serendipity_db_query($q);
-            if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
+            if ($serendipity['dbType'] == 'mysqli') {
                 // SELECT-ing the entries by $oldthumbnail singularly
                 $eq = "SELECT id, body, extended
                          FROM {$serendipity['dbPrefix']}entries
@@ -1933,7 +1933,7 @@ function serendipity_convertThumbs() {
 
             if ($hook_sp) {
                 // SAME FOR STATICPAGES [non-hooked]
-                if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
+                if ($serendipity['dbType'] == 'mysqli') {
                     $sq = "SELECT id, content, pre_content
                              FROM {$serendipity['dbPrefix']}staticpages
                             WHERE content     REGEXP '(src=|srcset=|href=|data-fallback=|window.open.)(\'|\")(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldthumbnail) . ")'
@@ -5268,7 +5268,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
         }
 
         $ispOldFile = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $oldDirFile;
-        if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
+        if ($serendipity['dbType'] == 'mysqli') {
             $joinThumbs = "|" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirThumb) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirThumb);
         } else {
             // works w/ or w/o the braces! (see follow-up sql queries)
@@ -5286,7 +5286,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
     // Please note: IMAGESELECTORPLUS plugin quickblog option is either quickblog:FullPath or quickblog:|?(none|plugin|js|_blank)|FullPath
     // SELECTing the entries uses a more detailed approach to be as precise as possible, thus we need to reset these vars for the preg_replace later on in some cases
     // We do not need to extra SELECT check for image variations sine they do exist only if the normal image strings exist
-    if ($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') {
+    if ($serendipity['dbType'] == 'mysqli') {
         $q = "SELECT id, body, extended
                 FROM {$serendipity['dbPrefix']}entries
                WHERE body     REGEXP '(src=|href=|data-fallback=|window.open.|<!--quickblog:)(\'|\"|\\\|?(plugin|none|js|_blank)?\\\|?)(" . serendipity_db_escape_String($serendipity['baseURL'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . "|" . serendipity_db_escape_String($serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $oldDirFile) . $joinThumbs . "|" . serendipity_db_escape_String($ispOldFile) . ")'
@@ -5571,7 +5571,7 @@ function serendipity_moveMediaInEntriesDB($oldDir, $newDir, $type, $file, $pick=
         }
     } // entries end
     else {
-        if (($serendipity['dbType'] == 'mysqli' || $serendipity['dbType'] == 'mysql') && $serendipity['production'] && is_string($entries)) {
+        if ($serendipity['dbType'] == 'mysqli' && $serendipity['production'] && is_string($entries)) {
             // NOTE: keep "error" somewhere in echoed string since that is the matching JS condition
             echo '<span class="msg_error"><span class="icon-info-attention" aria-hidden="true"></span> DB ERROR: ' . @$entries . "</span>\n";
         }
@@ -5672,7 +5672,7 @@ function serendipity_moveMediaDirectory($oldDir, $newDir, $type = 'dir', $item_i
     // Only MySQL supported, since I don't know how to use REGEXPs differently.
     // Ian: Whoever wrote this; We should improve this to all!
     //      Remove completely, when new LIKE solution found working overall! @see https://github.com/ophian/styx/commit/f1431739a39f754261ece05dfb7722a1c2d79f61#diff-66ba985797ad4611ca378bfb1d373140
-    #if (!in_array($serendipity['dbType'], ['mysql', 'mysqli', 'sqlite3', 'sqlite3oo', 'pdo-sqlite'])) {
+    #if (!in_array($serendipity['dbType'], ['mysqli', 'sqlite3', 'sqlite3oo', 'pdo-sqlite'])) {
     #    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> ' . MEDIA_DIRECTORY_MOVE_ENTRY . "</span>\n";
     #    return true;
     #}
