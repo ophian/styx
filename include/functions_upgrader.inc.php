@@ -453,6 +453,12 @@ $dead_dirs_330 = array(
     $serendipity['serendipityPath'] . 'templates/pure19'
 );
 
+/* A list of Styx files, to be removed or renamed by 3.3.0 */
+$dead_files_330 = array(
+    'include/db/mysql.inc.php',
+    'include/db/sqlrelay.inc.php'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
