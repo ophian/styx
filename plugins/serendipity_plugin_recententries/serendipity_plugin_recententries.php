@@ -20,7 +20,7 @@ class serendipity_plugin_recententries extends serendipity_plugin {
         $propbag->add('description',   PLUGIN_RECENTENTRIES_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Christian Machmeier, Christian Brabandt, Judebert, Don Chambers, Ian Styx');
-        $propbag->add('version',       '2.7');
+        $propbag->add('version',       '2.8');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -187,7 +187,7 @@ class serendipity_plugin_recententries extends serendipity_plugin {
             $dateformat = '%A, %B %e %Y';
         }
         if ($randomize) {
-            if ($serendipity['dbType'] ==  'mysql' || $serendipity['dbType'] == 'mysqli') {
+            if ($serendipity['dbType'] == 'mysqli') {
                 $sql_order = "ORDER BY RAND()";
             } else {
                 // SQLite and PostgreSQL support this, hooray.
