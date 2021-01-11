@@ -9,8 +9,11 @@
           <file>../include/db/mysql.inc.php</file>
           <file>../include/db/mysqli.inc.php</file>
           <file>../include/db/pdo-postgres.inc.php</file>
+          <file>../include/db/pdo-sqlite.inc.php</file>
           <file>../include/db/postgres.inc.php</file>
-          <file>../include/db/mysql.inc.php</file>
+          <file>../include/db/sqlite.inc.php</file>
+          <file>../include/db/sqlite3.inc.php</file>
+          <file>../include/db/sqlite3oo.inc.php</file>
           <file>../include/db/sqlrelay.inc.php</file>
         </exclude>
     </whitelist>
