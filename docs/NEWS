@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Remove old mysql and sqlrelay db include files and remaining type references
+
  * Added "B46" theme configuration options to clear navigation and footer bars
 
  * Bugfix allow backend configuration sets for plugin_html_nugget textareas
