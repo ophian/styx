@@ -313,13 +313,16 @@ class serendipity_plugin_api
                 $p = get_parent_class($p);
             }
 
+            // This 'internal_' assignment is homegrown code, having classes outside the default -
+            // it so additionally is to be understood only taking into account the history of previously 'embedded' internal @plugins -
+            // and will be cleared already in traverse_plugin_dir() method
             if ($p == 'serendipity_plugin' && $class_name != 'serendipity_event' && (!$event_only || is_null($event_only))) {
-                $classes[$class_name] = array('name'       => '@' . $class_name,
+                $classes[$class_name] = array('name'       => $class_name,
                                               'type'       => 'internal_event',
                                               'true_name'  => $class_name,
                                               'pluginPath' => '');
             } elseif ($p == 'serendipity_event' && $class_name != 'serendipity_event' && ($event_only || is_null($event_only))) {
-                $classes[$class_name] = array('name'       => '@' . $class_name,
+                $classes[$class_name] = array('name'       => $class_name,
                                               'type'       => 'internal_plugin',
                                               'true_name'  => $class_name,
                                               'pluginPath' => '');
