@@ -2,8 +2,6 @@ Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
  * Fix wrong parent class in changelog and modemaintain plugins
-   ALPHA NOTE: This needs a deep check if that has any downsides
-               since they are installed by default.
 
  * Remove old mysql and sqlrelay db include files and remaining type references
 
