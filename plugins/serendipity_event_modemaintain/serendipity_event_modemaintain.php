@@ -15,7 +15,7 @@ if (IN_serendipity !== true) {
 @define('MODEMAINTAIN_PRESET_MOMATXT', sprintf(PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT, $serendipity['blogTitle']));
 
 // Extend the base class
-class serendipity_event_modemaintain extends serendipity_plugin
+class serendipity_event_modemaintain extends serendipity_event
 {
     var $title = PLUGIN_MODEMAINTAIN_TITLE;
     /**
@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_plugin
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.28');
+        $propbag->add('version',       '1.29');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'
