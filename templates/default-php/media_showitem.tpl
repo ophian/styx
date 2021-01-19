@@ -6,6 +6,17 @@
     <title><?= (!empty($GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE']) ? $GLOBALS['tpl']['media']['file']['props']['base_property']['ALL']['TITLE'] : $GLOBALS['tpl']['media']['file']['realname']) ?></title>
     <meta name="generator" content="Serendipity Styx Edition v.<?= $GLOBALS['tpl']['serendipityVersion'] ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries', 'entry', 'feed', 'plugin']) || !empty($GLOBALS['tpl']['staticpage_pagetitle']) || (isset($GLOBALS['tpl']['robots_index']) && $GLOBALS['tpl']['robots_index'] == 'index')): ?>
+    <meta name="robots" content="index,follow">
+<?php else: ?>
+    <meta name="robots" content="noindex,follow">
+<?php endif; ?>
+<?php if ($GLOBALS['tpl']['view'] == 'entry' && isset($GLOBALS['tpl']['entry'])): ?>
+    <link rel="canonical" href="{$entry.rdf_ident}">
+<?php endif; ?>
+<?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries'])): ?>
+    <link rel="canonical" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>">
+<?php endif; ?>
     <link rel="stylesheet" href="<?= $GLOBALS['tpl']['head_link_stylesheet'] ?>">
 <?php /*serendipity_plugin_api::hook_event('frontend_header', $GLOBALS['template'])*//* ENABLE TO USE any plugin hooked assets - see footer */ ?>
     <script src="<?= $GLOBALS['tpl']['head_link_script'] ?>"></script>

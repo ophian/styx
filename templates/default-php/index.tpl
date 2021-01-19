@@ -15,12 +15,13 @@
     <link rel="canonical" href="{$entry.rdf_ident}">
 <?php endif; ?>
 <?php if (in_array($GLOBALS['tpl']['view'], ['start', 'entries'])): ?>
-    <link rel="canonical" href="{$serendipityBaseURL}">
+    <link rel="canonical" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>">
 <?php endif; ?>
     <link rel="stylesheet" type="text/css" href="<?= $GLOBALS['tpl']['head_link_stylesheet']; ?>">
     <link rel="alternate"  type="application/rss+xml" title="<?= $GLOBALS['tpl']['blogTitle']; ?> RSS feed" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?><?= $GLOBALS['tpl']['serendipityRewritePrefix']; ?>feeds/index.rss2">
     <link rel="alternate"  type="application/x.atom+xml"  title="<?= $GLOBALS['tpl']['blogTitle']; ?> Atom feed"  href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?><?= $GLOBALS['tpl']['serendipityRewritePrefix']; ?>feeds/atom.xml">
 <?php if ($GLOBALS['tpl']['entry_id']): ?>
+    <link rel="trackback" type="application/x-www-form-urlencoded" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>comment.php?type=trackback&amp;entry_id=<?= $GLOBALS['tpl']['entry_id']; ?>">
     <link rel="pingback" href="<?= $GLOBALS['tpl']['serendipityBaseURL']; ?>comment.php?type=pingback&amp;entry_id=<?= $GLOBALS['tpl']['entry_id']; ?>">
 <?php endif; ?>
 
