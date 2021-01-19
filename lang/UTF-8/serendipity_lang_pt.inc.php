@@ -216,11 +216,9 @@
 @define('SUBSCRIPTION_MAIL', "Oi %s,\n\nUm novo comentário foi feito num artigo que você está monitorando em \"%s\", intitulada \"%s\"\nQuem enviou o comentário foi: %s\n\nO artigo à qual nos referimos pode ser encontrada em: %s\n\nVocê pode cancelar sua inscrição clicando neste link: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Oi %s,\n\nUm novo trackback foi adicionado num artigo que você está monitorando em \"%s\", intitulada \"%s\"\nQuem enviou o comentário foi: %s\n\nO artigo à qual nos referimos pode ser encontrada em: %s\n\nVocê pode cancelar sua inscrição clicando neste link: %s\n");
 @define('SIGNATURE', "\n-- \n%s faz uso do %s.\nO melhor Blog que tem por aí, e você também pode usá-lo.\nDê uma olhada em <%s> para descobrir como.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 comments');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3 feed');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Campo "managingEditor"');
 @define('SYNDICATION_PLUGIN_WEBMASTER',  'Campo "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Imagem para o RSS feed');

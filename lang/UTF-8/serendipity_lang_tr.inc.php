@@ -232,11 +232,9 @@
 @define('SUBSCRIPTION_MAIL', "Merhaba %s,\n\nBu yazı için ekranda gördüğünüz yeni bir görüş bildirildi \"%s\", başlıklı \"%s\"\nTGönderenin adı: %s\n\nYazıya buradan ulaşabilirsiniz: %s\n\nBu bağlantıya tıklayarak aboneliğinizi kaldırabilirsiniz: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Merhaba %s,\n\nBu yazı için ekranda gördüğünüz yeni bir iz bırakıldı \"%s\", başlıklı \"%s\"\nTGönderenin adı: %s\n\nBırakılan ize buradan ulaşabilirsiniz: %s\n\nBu bağlantıya tıklayarak aboneliğinizi kaldırabilirsiniz: %s\n");
 @define('SIGNATURE', "\n-- \n%s is powered by %s.\nThe best blog around, you can use it too.\nCheck out <%s> to find out how.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 Görüşler');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Alan "Düzenleyen Yönetici "');
 @define('SYNDICATION_PLUGIN_WEBMASTER',  'Alan "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'RSS Besleme için resim');

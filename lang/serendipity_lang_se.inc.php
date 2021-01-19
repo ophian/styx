@@ -230,11 +230,9 @@
 @define('SUBSCRIPTION_MAIL', "Hej %s,\n\nEn ny kommentar är gjord till artikeln du följer hos \"%s\", vid namn \"%s\"\nKommentarens skapare är: %s\n\nDu kan hitta artikeln här: %s\n\nDu kan avsluta prenumerationen genom att klicka på denna länk: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hej %s,\n\nEn ny trackback är gjord till artikeln du följer hos \"%s\", vid namn \"%s\"\nSkapare är: %s\n\nDu kan hitta artikeln här: %s\n\nDu kan avsluta prenumerationen genom att klicka på denna länk: %s\n");
 @define('SIGNATURE', "\n-- \n%s bygger på %s.\nDen bästa bloggen, och du kan också använda den.\nKolla <%s> för att få veta hur.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91 matning');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 matning');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 matning');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 kommentarer');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3 matning');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Fält "managingEditor"');
 @define('SYNDICATION_PLUGIN_WEBMASTER',  'Fält "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Bild för RSS matning');

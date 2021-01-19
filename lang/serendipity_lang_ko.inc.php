@@ -232,11 +232,9 @@
 @define('SUBSCRIPTION_MAIL', "%s님 안녕하십니까?\n\n\"%s\"에서 구독중인 \"%s\"(이)라는 글에 새로운 덧글이 달렸습니다.\n작성자 이름은 %s 입니다.\n\n여기로 가면 글을 볼 수 있습니다: %s\n\n이 링크를 누르면 구독 해지를 할 수 있습니다: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "%s님 안녕하십니까?\n\n\"%s\"에서 구독중인 \"%s\"(이)라는 글에 새로운 트랙백이 달렸습니다.\n작성자 이름은 %s 입니다.\n\n여기로 가면 글을 볼 수 있습니다: %s\n\n이 링크를 누르면 구독 해지를 할 수 있습니다: %s\n");
 @define('SIGNATURE', "\n-- \n%s(은)는 세렌디피티로 작성되었습니다.\n여려분도 쓸 수 있는 최고의 블로그!\n%s <%s>에서 알아보세요.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91 피드');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 피드');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 피드');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 덧글');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3 피드');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', '"managingEditor"(편집인) 필드');
 @define('SYNDICATION_PLUGIN_WEBMASTER',  '"webMaster"(웹마스터) 필드');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'RSS 피드를 위한 그림 파일');

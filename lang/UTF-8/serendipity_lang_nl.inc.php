@@ -233,11 +233,9 @@
 @define('SUBSCRIPTION_MAIL', "Geachte %s,\n\nEen nieuwe reactie is geplaatst op \"%s\", op artikel \"%s\"\nDe persoon die gereageerd heeft is: %s\n\nU kunt de reactie hier vinden: %s\n\nU kunt zich uitschrijven door op deze hyperlink te klikken: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Geachte %s,\n\nEen nieuwe trackback is toegevoegd op\"%s\", op artikel \"%s\"\nDe persoon die gereageerd heeft is: %s\n\nU kunt het artikel hier vinden: %s\n\nU kunt zich uitschrijven door op deze hyperlink te klikken: %s\n");
 @define('SIGNATURE', "\n-- \n%s wordt aangedreven door %s, één van de beste weblogs.\nU kunt het ook gebruiken: ga naar <%s> om te ontdekken hoe.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91-toevoer');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0-toevoer');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0-toevoer');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0-toevoer reacties');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3-toevoer');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Veld "managingEditor"');
 @define('SYNDICATION_PLUGIN_WEBMASTER',  'Veld "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Afbeelding voor de RSS-toevoer');

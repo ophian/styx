@@ -231,11 +231,9 @@
 @define('SUBSCRIPTION_MAIL', "Hello %s,\n\nA fost adăugat un nou comentariu la o însemnare la care tu te-ai abonat pe \"%s\", cu titlul \"%s\"\nNumele celui care a lăsat comentariul este: %s\n\nPoţi citi comentariul aici: %s\n\nPoţi renunţa la abonamentul la această însemnare cu un click aici: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Salut %s,\n\nO nouă referinţă a fost adăugată la o însemnare la care te-ai abonat pe \"%s\", cu titlul \"%s\"\nNumele celui care a făcut referinţa este: %s\n\nPoţi găsi însemnarea aici: %s\n\nPoţi renunţa la abonamentul la această însemnare cu un click aici: %s\n");
 @define('SIGNATURE', "\n-- \n%s e bazat pe %s.\nCel mai bun blog din lume, îl poţi folosi şi tu.\nVizitează <%s> ca să afli cum.");
-@define('SYNDICATION_PLUGIN_091', 'Date RSS 0.91');
 @define('SYNDICATION_PLUGIN_10', 'Date RSS 1.0');
 @define('SYNDICATION_PLUGIN_20', 'Date RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'Comentarii RSS 2.0');
-@define('SYNDICATION_PLUGIN_ATOM03', 'Date ATOM 0.3');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Field "managingEditor"');
 @define('SYNDICATION_PLUGIN_WEBMASTER',  'Field "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Imagine pentru RSS');

@@ -232,11 +232,9 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SUBSCRIPTION_MAIL', "Добрый день %s,\n\nНовый комментарий был добавлен к записи, за которой вы следите на \"%s\", запись под названием \"%s\"\nИмя автора: %s\n\nВы можете найти запись здесь: %s\n\nВы можете отписаться от записи, проследовав по этой ссылке: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Добрый день %s,\n\nНовая обратная ссылка была добавлена к записи, за который вы следите на \"%s\", запись под названием \"%s\"\nИмя автора: %s\n\nВы можете найти запись здесь: %s\n\nВы можете отписаться от записи, проследовав по этой ссылке: %s\n");
 @define('SIGNATURE', "\n-- \n%s работает на движке %s.\nЛучший блог, какой можно найти, и вы тоже можете им воспользоваться.\nЗагляните на <%s> чтобы узнать больше.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 - комментарии');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Поле "managingEditor"');
 @define('SYNDICATION_PLUGIN_WEBMASTER', 'Поле "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Изображение для RSS-ленты');

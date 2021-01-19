@@ -245,11 +245,9 @@ $i18n_filename_to = array (
 @define('SUBSCRIPTION_MAIL', "Pozor %s,\n\nA právì byl pøidán nový komentáø k záznamu, který sledujete na \"%s\", s názvem \"%s\"\nJméno odesílatele: %s\n\nZáznam najdete zde: %s\n\nMùžete se odhlásit zde: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Pozor %s,\n\nA právì byla pøidána nová odezva k záznamu, který sledujete na \"%s\", s názvem \"%s\"\nJméno odesílatele: %s\n\nZáznam najdete zde: %s\n\nMùžete se odhlásit zde: %s\n");
 @define('SIGNATURE', "\n-- \n%s je vytvoøen pomocí %s.\nTento perfektní blogovací systém mùžete zdarma používat také.\nNavštivte <%s>, kde se dozvíte vše potøebné.");
-@define('SYNDICATION_PLUGIN_091', 'Kanál RSS 0.91');
 @define('SYNDICATION_PLUGIN_10', 'Kanál RSS 1.0');
 @define('SYNDICATION_PLUGIN_20', 'Kanál RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'Komentáøe RSS 2.0');
-@define('SYNDICATION_PLUGIN_ATOM03', 'Kanál ATOM 0.3');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Pole "hlavní redaktor"');
 @define('SYNDICATION_PLUGIN_WEBMASTER', 'Pole "webmaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Obrázek kanálu RSS');

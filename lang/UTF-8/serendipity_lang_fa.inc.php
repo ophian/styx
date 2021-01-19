@@ -231,11 +231,9 @@
 @define('SUBSCRIPTION_MAIL', "سلام %s،\n\nA نظر جدیدی برای مطلب \"%s\"، با تیتر \"%s\" ارسال شده است\nنام ارسال کننده: %s\n\nمی توانید مطلب را در لینک روبرو مشاهده کنید: %s\n\nمی توانید با کلیک روی لینک روبرو این نظر را قبول نکنید: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "سلام %s،\n\nA دنبالک جدیدی برای مطلب \"%s\"، با تیتر \"%s\" ارسال شده است\nنام ارسال کننده: %s\n\nمی توانید مطلب را در لینک روبرو مشاهده کنید: %s\n\nمی توانید با کلیک روی لینک روبرو این دنبالک را قبول نکنید: %s\n");
 @define('SIGNATURE', "\n-- \n%s بر پایه سرندیپیتی بنا شده است.\nبهترین سیستم وبلاگ موجود، شما هم می توانید از این سیستم استفاده کنید.\nسایت %s <%s> را بری روش نصب و استفاده مرور کنید.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 نظرات');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'فیلد "نویسنده"');
 @define('SYNDICATION_PLUGIN_WEBMASTER', 'فیلد "مدیر"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'تصویر برای RSS');

@@ -215,11 +215,9 @@
 @define('SUBSCRIPTION_MAIL', "Hej %s,\n\nEn ny kommentar er blevet lavet til en artikel du abonnerer på hos \"%s\", ved navn \"%s\"\nNavnet på skribenten er: %s\n\nDu kan finde artiklen her: %s\n\nDu kan stoppe dit abonnement ved at klikke på dette link: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hej %s,\n\nEt nyt trackback er blevet lavet til en artikel du abonnerer på hos \"%s\", ved navn \"%s\"\nNavnet på skribenten er: %s\n\nDu kan finde artiklen her: %s\n\nDu kan stoppe dit abonnement ved at klikke på dette link: %s\n");
 @define('SIGNATURE', "\n-- \n%s bruger %s.\nDen bedste blog på nettet, du kan også bruge den.\nKig nærmere på <%s> for at finde mere information.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 kommentarer');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3 feed');
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', '%s feed');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Feltet "Hovedredaktør"');
 @define('SYNDICATION_PLUGIN_WEBMASTER',  'Feltet "webmaster"');

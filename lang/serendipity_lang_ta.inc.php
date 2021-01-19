@@ -230,11 +230,9 @@
 @define('SUBSCRIPTION_MAIL', "Hello %s,\n\nபுதிய கருத்து! \"%s\", தலைப்பு \"%s\"\n அன்பர்: %s\n\nஅன்பரின் கருத்து இங்கே: %s\n\nஇம்மின்னஞ்சலை நிறுத்த இம்முகவரிக்குச் செல்லுங்கள்: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hello %s,\n\nபுதிய மேற்குறிப்பு!  \"%s\", தலைப்பு \"%s\"\n அன்பர்: %s\n\nஅன்பரின் கருத்து இங்கே: %s\n\nஇம்மின்னஞ்சலை நிறுத்த இம்முகவரிக்குச் செல்லுங்கள்: %s\n");
 @define('SIGNATURE', "\n-- \n%s is powered by %s.\nThe best blog around, you can use it too.\nCheck out <%s> to find out how.");
-@define('SYNDICATION_PLUGIN_091', 'RSS 0.91 feed');
 @define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 comments');
-@define('SYNDICATION_PLUGIN_ATOM03', 'ATOM 0.3 feed');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Field "managingEditor"');
 @define('SYNDICATION_PLUGIN_WEBMASTER',  'Field "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Image for the RSS feed');
