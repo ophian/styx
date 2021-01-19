@@ -1,6 +1,9 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Extend themes for rel="trackback" detection as a modern alternate to RDF.
+   Analogue to 2k11 in June 2017.
+
  * Fix wrong parent class in changelog and modemaintain plugins
 
  * Remove old mysql and sqlrelay db include files and remaining type references
