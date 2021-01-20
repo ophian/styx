@@ -218,7 +218,6 @@
 @define('SUBSCRIPTION_MAIL', "Ciao %s,\n\nC'è un nuovo commento alla notizia che stai tenendo d'occhio su \"%s\", intitolata \"%s\"\nIl nome dell'autore è : %s\n\nPuoi trovare la notizia qui: %s\n\nPuoi disiscriverti clickando su questo link: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Ciao %s,\n\nUn nuovo trackback è stato aggiunto alla notizia che stai tenendo d'occhio su \"%s\", intitolata \"%s\"\nIl nome dell'autore è: %s\n\nPuoi trovare la notizia qui: %s\n\nPuoi disiscriverti clickando su questo link: %s\n");
 @define('SIGNATURE', "\n-- \n%s powered by %s.\nIl miglior blog del mondo, puoi usarlo anceh tu.\nGuarda <%s> per sapere come.");
-@define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 commenti');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Campo "managingEditor"');

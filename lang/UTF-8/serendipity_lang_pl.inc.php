@@ -232,7 +232,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SUBSCRIPTION_MAIL', "Witam %s,\n\nNowy komentarz został dodany do wpisu, który monitorujesz na \"%s\", zatytułowany \"%s\"\nImię komentującego to: %s\n\nSkomentowany wpis znajdziesz tutaj: %s\n\nMożesz wyłączyć powiadomienia o odpowiedziach do tego wpisu klikając na link: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Witam %s,\n\nNowy ślad został pozostawiony we wpisie, który monitorujesz na \"%s\", zatytułowany \"%s\"\nImię komentującego to: %s\n\nSkomentowany wpis znajdziesz tutaj: %s\n\nMożesz wyłączyć powiadomienia o odpowiedziach do tego wpisu klikając na link: %s\n");
 @define('SIGNATURE', "\n-- \n%s jest napędzane przez %s.\nNajlepszy engine blogowy pod tym słońcem. Ty także możesz go używać.\nSprawdź <%s> by się dowiedzieć jak!");
-@define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 Komentarze');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Pole "managingEditor"');

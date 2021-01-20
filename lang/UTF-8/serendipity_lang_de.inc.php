@@ -210,7 +210,6 @@
 @define('SUBSCRIPTION_MAIL', "Hallo %s,\n\nEin neuer Kommentar wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtigung mit folgender URL kündigen: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hallo %s,\n\nEin neues Trackback wurde dem Eintrag hinzugefügt, den Sie auf \"%s\" namens \"%s\" finden.\nDer Name des Autors ist: %s\n\nSie können den Eintrag hier finden: %s\n\nSie können diese Benachrichtigung mit folgender URL kündigen: %s\n");
 @define('SIGNATURE', "\n-- \n%s wird betrieben mit %s.\nDas allerbeste Blog, Sie können es auch nutzen.\nWie das geht, sehen Sie auf <%s>.");
-@define('SYNDICATION_PLUGIN_10', 'RSS 1.0 Feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 Feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 Kommentar');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Feld "managingEditor"');

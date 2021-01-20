@@ -232,7 +232,6 @@ $i18n_unknown = 'tw';
 @define('SUBSCRIPTION_MAIL', "您好 %s,\n\n您訂閱的文章有了新的迴響在 \"%s\", 標題是 \"%s\"\n迴響的發表者是: %s\n\n您可以在這找到此文章: %s\n\n您可以點這個連結取消訂閱: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "您好 %s,\n\n您訂閱的文章有了新的引用在 \"%s\", 標題是 \"%s\"\n引用的作者是: %s\n\n您可以在這找到此文章: %s\n\n您可以點這個連結取消訂閱: %s\n");
 @define('SIGNATURE', "\n-- \n%s is powered by %s.\nThe best blog around, you can use it too.\nCheck out <%s> to find out how.");
-@define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 comments');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', '欄位 "managingEditor"');

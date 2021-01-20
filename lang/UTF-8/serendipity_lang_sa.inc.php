@@ -232,7 +232,6 @@
 @define('SUBSCRIPTION_MAIL', "Hello %s,\n\nA new comment was made to the entry you are monitoring on \"%s\", entitled \"%s\"\nThe name of the poster is: %s\n\nYou can find the entry here: %s\n\nYou can unsubscribe by clicking on this link: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Hello %s,\n\nA new trackback was added to the entry you are monitoring on \"%s\", entitled \"%s\"\nThe name of the poster is: %s\n\nYou can find the entry here: %s\n\nYou can unsubscribe by clicking on this link: %s\n");
 @define('SIGNATURE', "\n-- \n%s is powered by %s.\nThe best blog around, you can use it too.\nCheck out <%s> to find out how.");
-@define('SYNDICATION_PLUGIN_10', 'RSS 1.0 feed');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 comments');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'حقل "محرر الاعدادات"');

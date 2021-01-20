@@ -230,7 +230,6 @@
 @define('SUBSCRIPTION_MAIL', "Halló %s,\n\nNý athugasemd hefur verið gerð á færslu sem þú ert að fylgjast með á \"%s\", kölluð \"%s\"\nNafn sendanda er: %s\n\nÞú getur fundið færsluna hér: %s\n\nÞú getur hætt við áskrift með því að smella á þennan hlekk: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Halló %s,\n\nNýrri tilvísun var bætt við færsluna sem þú ert að fylgjast með á \"%s\", kölluð \"%s\"\nNafn sendanda er: %s\n\nÞú getur fundið færsluna hér: %s\n\nÞú getur hætt við áskrift með því að smella á þennan hlekk: %s\n");
 @define('SIGNATURE', "\n-- \n%s er knúið af %s.\nBesta bloggkerfi sem til er, og þú getur notað það líka.\nKíktu á <%s> til að komast að því hvernig.");
-@define('SYNDICATION_PLUGIN_10', 'RSS 1.0 straumur');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 straumur');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 athugasemdir');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Svæði "manageEditor"');

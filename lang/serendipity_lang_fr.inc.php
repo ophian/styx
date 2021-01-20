@@ -218,7 +218,6 @@
 @define('SUBSCRIPTION_MAIL', "Bonjour %s,\n\nUn nouveau commentaire a été posté au billet que vous surveillez \"%s\", intitulé \"%s\"\nLe pseudo de l\'auteur est : %s\n\nVous pouvez trouver le billet ici : %s\n\nVous pouvez vous désinscrire en cliquant sur ce lien : %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Bonjour %s,\n\nUn nouveau rétrolien a été ajouté au billet que vous surveillez \"%s\", intitulé \"%s\"\nLe pseudo de l\'auteur est : %s\n\nVous pouvez trouver le billet ici : %s\n\nVous pouvez vous désinscrire en cliquant sur ce lien : %s\n");
 @define('SIGNATURE', "\n-- \n%s est propulsé par %s.\nLe blog des blogs que vous aussi pouvez utiliser !\nAllez sur <%s>, le site officiel.");
-@define('SYNDICATION_PLUGIN_10', 'RSS 1.0');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'Commentaires RSS 2.0');
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', '%s');

@@ -230,7 +230,6 @@
 @define('SUBSCRIPTION_MAIL', "こんにちは %s さん。\n監視中のエントリーに新しいコメントが作成されました。\n\nブログ名:\n%s\nエントリー名:\n%s\n\n下記でエントリーを見つけることができます:\n%s\n\n下記のリンクをクリックすると購読解除することができます:\n%s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "こんにちは。\n\n監視中のエントリーに新しいトラックバックが追加されました。\nサイト名: %s\n題名: %s\n投稿者の名前: %s\n\nここでエントリーを見つけることができます:\n%s\n\nこのリンクをクリックすると購読をやめることができます:\n%s\n");
 @define('SIGNATURE', "\n-- \n%s は %s を使っています。\n最良の blog を探しているなら <%s> を見てください。");
-@define('SYNDICATION_PLUGIN_10', 'RSS 1.0 フォード');
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 フィード');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 コメント');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', '"managingEditor" フィールド');

@@ -243,7 +243,6 @@ $i18n_filename_to = array (
 @define('SUBSCRIPTION_MAIL', "Dobrý deò %s,\n\nA k èláku, ktorý sledujete na \"%s\", s názvom \"%s\", bol práve pridaný nový komentár.\nMeno odosielateµa: %s\n\nOdkaz na èlánok: %s\n\nOdhlási» sledovanie èlánku: %s\n");
 @define('SUBSCRIPTION_TRACKBACK_MAIL', "Dobrý deò %s,\n\nA k èlánku, ktorý sledujete na \"%s\", s názvem \"%s\", bola práve pridaná nová odozva\nMeno odosielateµa: %s\n\nOdkaz na èlánok: %s\n\nOdhlási» sledovanie èlánku: %s\n");
 @define('SIGNATURE', "\n-- \n%s je vytvorený pomocou %s.\nTento výborný voµný blogovací systém mô¾ete pou¾i» aj vy.\nViac informácií na webstránke <%s>.");
-@define('SYNDICATION_PLUGIN_10', 'Kanál RSS 1.0');
 @define('SYNDICATION_PLUGIN_20', 'Kanál RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'Komentáre RSS 2.0');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Pole "hlavný redaktor"');
