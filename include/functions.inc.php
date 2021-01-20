@@ -1278,14 +1278,8 @@ function serendipity_discover_rss($name, $ext) {
     /* Detect version */
     if ($name == 'atom' || $name == 'atom10' || $ext == 'atom') {
         $ver = 'atom1.0';
-    } elseif ($name == 'atom03') {
-        $ver = 'atom0.3';
     } elseif ($name == 'opml' || $ext == 'opml') {
         $ver = 'opml1.0';
-    } elseif ($ext == 'rss') {
-        $ver = '0.91';
-    } elseif ($ext == 'rss1') {
-        $ver = '1.0';
     } else {
         $ver = $default;
     }
