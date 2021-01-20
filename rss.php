@@ -280,23 +280,8 @@ switch($version) {
         $namespace_hook = 'frontend_display:opml-1.0:namespace';
         break;
 
-    case '0.91':
-        $namespace_hook = 'frontend_display:rss-0.91:namespace';
-        break;
-
-    case '1.0':
-        $namespace_hook = 'frontend_display:rss-1.0:namespace';
-        serendipity_plugin_api::hook_event('frontend_display:rss-1.0:once', $entries);
-        $once_display_dat = $entries['display_dat'];
-        unset($entries['display_dat']);
-        break;
-
     case '2.0':
         $namespace_hook = 'frontend_display:rss-2.0:namespace';
-        break;
-
-    case 'atom0.3':
-        $namespace_hook = 'frontend_display:atom-0.3:namespace';
         break;
 
     case 'atom1.0':
