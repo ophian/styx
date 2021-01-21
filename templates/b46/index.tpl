@@ -1,6 +1,6 @@
 {if $is_embedded != true}
 <!DOCTYPE html>
-<html class="no-js" lang="{$lang}">
+<html lang="{$lang}">
 <head>
     <meta charset="{$head_charset}">
     <meta name="generator" content="Serendipity Styx Edition">
