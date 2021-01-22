@@ -40,6 +40,7 @@
         }
     },
     "require-dev": {
-        "smarty/smarty-dev": "~3.1@dev"
+        "phpunit/phpunit": "^7.5 || ^6.5 || ^5.7 || ^4.8",
+        "smarty/smarty-lexer": "^3.1"
     }
 }
