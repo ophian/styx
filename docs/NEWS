@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Fixup "B46" theme backend loading bootstrap CSS asset for preview case only
+
  * Temporary bugfix a nested foreach attribute behavior to Smarty 3.1.38 dev-2.
 
  * Update to bundled-libs/Smarty 3.1.38 release - reverted to a Styx (dev-1)
