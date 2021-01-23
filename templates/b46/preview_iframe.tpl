@@ -4,7 +4,9 @@
     <meta charset="{$head_charset}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{if $mode == 'preview'}
     <link rel="stylesheet" href="{serendipity_getFile file="css/bootstrap.min.css"}">
+{/if}
 {if $head_link_stylesheet_frontend}
     <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
 {else}
