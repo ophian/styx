@@ -866,8 +866,8 @@
 @define('GO_ADD_PROPERTIES', 'Go & enter properties');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
-@define('MEDIA_PROPERTY_COMMENT1', 'Kort kommentar');
-@define('MEDIA_PROPERTY_COMMENT2', 'Lang kommentar');
+@define('MEDIA_PROPERTY_COMMENT1', 'Offentlig kommentar');
+@define('MEDIA_PROPERTY_COMMENT2', 'Intern kommentar');
 @define('MEDIA_PROPERTY_TITLE', 'Titel');
 @define('MEDIA_PROP_DESC', 'Indtast ";" adskilt liste af felter/egenskaber du vil definere for hver mediefil. ');
 @define('MEDIA_PROP_MULTIDESC', '(Du kan tilføje ":MULTI" efter ethvert felt for at angive dette felt indeholder en lang tekst i stedet for blot nogle karakterer)');

@@ -869,8 +869,8 @@
 @define('GO_ADD_PROPERTIES', '输入内容');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', '版权');
-@define('MEDIA_PROPERTY_COMMENT1', '短介绍');
-@define('MEDIA_PROPERTY_COMMENT2', '长介绍');
+@define('MEDIA_PROPERTY_COMMENT1', '公众评论');
+@define('MEDIA_PROPERTY_COMMENT2', '内部评论');
 @define('MEDIA_PROPERTY_TITLE', '标题');
 @define('MEDIA_PROP_DESC', '输入媒体使用的内容菜单，用 ";" 来分开每个菜单的名称');
 @define('MEDIA_PROP_MULTIDESC', '(你可以在名称后面加上 ":MULTI" 来设定加大它的文字限制)');

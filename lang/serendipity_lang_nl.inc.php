@@ -867,8 +867,8 @@
 @define('GO_ADD_PROPERTIES', 'Wijzig afbeeldingseigenschappen');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Auteursrecht');
-@define('MEDIA_PROPERTY_COMMENT1', 'Korte beschrijving');
-@define('MEDIA_PROPERTY_COMMENT2', 'Lange beschrijving');
+@define('MEDIA_PROPERTY_COMMENT1', 'Publiek Commentaar');
+@define('MEDIA_PROPERTY_COMMENT2', 'Intern Commentaar');
 @define('MEDIA_PROPERTY_TITLE', 'Titel');
 @define('MEDIA_PROP_DESC', 'Geef een lijst met eigenschapsvelden, gescheiden door een ";", die u wilt definiëren voor elk mediabestand');
 @define('MEDIA_PROP_MULTIDESC', '(U kunt ":MULTI" aan een item toevoegen om aan te geven dat het een lange tekst zal bevatten in plaats van slechts enkele tekens)');

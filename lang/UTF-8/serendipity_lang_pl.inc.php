@@ -866,8 +866,8 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('GO_ADD_PROPERTIES', 'Dodaj i wprowadź właściwości');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Prawa autorskie (Copyright)');
-@define('MEDIA_PROPERTY_COMMENT1', 'Krótki komentarz');
-@define('MEDIA_PROPERTY_COMMENT2', 'Długi komentarz');
+@define('MEDIA_PROPERTY_COMMENT1', 'Komentarz publiczny');
+@define('MEDIA_PROPERTY_COMMENT2', 'Komentarz wewnetrzny');
 @define('MEDIA_PROPERTY_TITLE', 'Tytuł');
 @define('MEDIA_PROP_DESC', 'Wprowadź listę pól właściwości, jakie chcesz ustalić dla każdego pliku medium. Elementy listy rozdzielaj znakiem średnika ";".');
 @define('MEDIA_PROP_MULTIDESC', '(Możesz dodać ":MULTI" po każdym elemencie by poinformować Serendipity, że dany element będzie posiadał długi opis)');

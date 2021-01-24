@@ -866,8 +866,8 @@
 @define('GO_ADD_PROPERTIES', '등록정보 입력하러 가기');
 @define('MEDIA_PROPERTY_DPI', '밀도(DPI)');
 @define('MEDIA_PROPERTY_COPYRIGHT', '저작권');
-@define('MEDIA_PROPERTY_COMMENT1', '짧은 설명');
-@define('MEDIA_PROPERTY_COMMENT2', '긴 설명');
+@define('MEDIA_PROPERTY_COMMENT1', '공개 댓글');
+@define('MEDIA_PROPERTY_COMMENT2', '내부 의견');
 @define('MEDIA_PROPERTY_TITLE', '제목');
 @define('MEDIA_PROP_DESC', '각 미디어 파일에 정의하고자 하는 등록정보 필드를 ";"로 하나씩 분리하여 입력합니다');
 @define('MEDIA_PROP_MULTIDESC', '(특정 아이템이 글자 몇 자가 아니라 긴 글이 포함되어 있다는 것을 표시하고자 할 경우 해당 아이템 뒤에 ":MULTI"를 붙일 수 있습니다)');

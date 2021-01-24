@@ -868,8 +868,8 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('GO_ADD_PROPERTIES', 'Продължаване за въвеждане на свойства');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
-@define('MEDIA_PROPERTY_COMMENT1', 'Кратък коментар');
-@define('MEDIA_PROPERTY_COMMENT2', 'Дълъг коментар');
+@define('MEDIA_PROPERTY_COMMENT1', 'Публичен коментар');
+@define('MEDIA_PROPERTY_COMMENT2', 'Вътрешен коментар');
 @define('MEDIA_PROPERTY_TITLE', 'Име');
 @define('MEDIA_PROP_DESC', 'Въведете списък от свойства, разделени с \';\', които искате да дефинирате за всеки медиен файл.');
 @define('MEDIA_PROP_MULTIDESC', '(Можете да добавите ":MULTI" след името на свойство за да укажете, че то ще съдържа дълъг текст вместо само няколко символа)');

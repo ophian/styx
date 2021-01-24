@@ -886,8 +886,8 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('GO_ADD_PROPERTIES', 'Ir & ingresar propiedades');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
-@define('MEDIA_PROPERTY_COMMENT1', 'Comentario corto');
-@define('MEDIA_PROPERTY_COMMENT2', 'Comentario extendido');
+@define('MEDIA_PROPERTY_COMMENT1', 'Comentario público');
+@define('MEDIA_PROPERTY_COMMENT2', 'Comentario interno');
 @define('MEDIA_PROPERTY_TITLE', 'Título');
 @define('MEDIA_PROP_DESC', 'Ingresa una lista de campos de propiedades separados por ";" que te gustaría definir por cada archivo de medios');
 @define('MEDIA_PROP_MULTIDESC', '(Puedes añadir al final de cualquier item ":MULTI" para indicar que contendrá una descripción larga en ves de sólo algunos caracteres)');

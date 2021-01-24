@@ -866,8 +866,8 @@
 @define('GO_ADD_PROPERTIES', 'Go & enter properties');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
-@define('MEDIA_PROPERTY_COMMENT1', '短いコメント');
-@define('MEDIA_PROPERTY_COMMENT2', '長いコメント');
+@define('MEDIA_PROPERTY_COMMENT1', 'パブリックコメント');
+@define('MEDIA_PROPERTY_COMMENT2', '内部コメント');
 @define('MEDIA_PROPERTY_TITLE', '件名');
 @define('MEDIA_PROP_DESC', '各メディア ファイルに定義したいプロパティ項目を「;」で分割した一覧で入力します');
 @define('MEDIA_PROP_MULTIDESC', '(You can append ":MULTI" after any item to indicate that this item will contain long text instead of just some characters)');

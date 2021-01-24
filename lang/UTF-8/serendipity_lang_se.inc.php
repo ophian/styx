@@ -865,8 +865,8 @@
 @define('GO_ADD_PROPERTIES', 'Mata in egenskaper');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Upphovsskydd');
-@define('MEDIA_PROPERTY_COMMENT1', 'Kort kommentar');
-@define('MEDIA_PROPERTY_COMMENT2', 'Lång kommentar');
+@define('MEDIA_PROPERTY_COMMENT1', 'Offentlig kommentar');
+@define('MEDIA_PROPERTY_COMMENT2', 'Intern kommentar');
 @define('MEDIA_PROPERTY_TITLE', 'Titel');
 @define('MEDIA_PROP_DESC', 'Fyll i en lista med egenskapsfält separerade av  ";" som du vill definiera för varje mediafil');
 @define('MEDIA_PROP_MULTIDESC', '(Du kan lägga till ":MULTI" efter valfritt egenskapsfält för att indikera att detta kommer att innehålla en längre text snarare än enstaka tecken)');

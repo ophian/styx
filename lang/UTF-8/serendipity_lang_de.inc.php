@@ -862,8 +862,8 @@
 @define('GO_ADD_PROPERTIES', 'Los & Eigenschaften angeben');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
-@define('MEDIA_PROPERTY_COMMENT1', 'Kurzer Kommentar');
-@define('MEDIA_PROPERTY_COMMENT2', 'Langer Kommentar');
+@define('MEDIA_PROPERTY_COMMENT1', 'Öffentl. Kommentar');
+@define('MEDIA_PROPERTY_COMMENT2', 'Interner Kommentar');
 @define('MEDIA_PROPERTY_TITLE', 'Titel');
 @define('MEDIA_PROP_DESC', 'Tragen Sie eine Liste von ";" separierten Eigenschaftsfeldern ein, die für Mediendaten ausgefüllt werden können.');
 @define('MEDIA_PROP_MULTIDESC', '(Sie können ":MULTI" nach jedem Element eintragen, um anzugeben, dass für dieses Feld eine lange Beschreibung erwartet wird)');

@@ -876,8 +876,8 @@ $i18n_filename_to = array (
 @define('GO_ADD_PROPERTIES', 'Zadej vlastnosti');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
-@define('MEDIA_PROPERTY_COMMENT1', 'Krátký komentáø');
-@define('MEDIA_PROPERTY_COMMENT2', 'Dlouhý komentáø');
+@define('MEDIA_PROPERTY_COMMENT1', 'Verejný komentár');
+@define('MEDIA_PROPERTY_COMMENT2', 'Interní komentár');
 @define('MEDIA_PROPERTY_TITLE', 'Titulek');
 @define('MEDIA_PROP_DESC', 'Zadejte seznam polí vlastností oddìlených  ";" , které chcete definovat pro ka¾dý souor v mediích');
 @define('MEDIA_PROP_MULTIDESC', '(Za ka¾dou polo¾ku mù¾ete pøidat ":MULTI", co¾ bude indikovat, ¾e tato polo¾ka bude obsahovat dlouhý text místo jen nìkolika znakù)');

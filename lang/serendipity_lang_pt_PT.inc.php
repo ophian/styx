@@ -856,10 +856,6 @@
 @define('FURTHER_LINKS_S9Y_SPARTACUS', 'Spartacus');
 @define('COMMENT_IS_DELETED', '(Comentário removido)');
 
-
-
-// I translated in full this part of the language file, from english to portuguese, word by word,making use of Microsoft´s Word as addictional verification and PHP Designer 2007 Professional Editor as editor. --- $Angel (and I hopefully improved it, J P Matos; Obrigado $Angel).
-
 @define('CURRENT_AUTHOR', 'Autor corrente');
 
 @define('WORD_NEW', 'Novo');
@@ -873,8 +869,8 @@
 @define('GO_ADD_PROPERTIES', 'Ir & introduzir propriedades');
 @define('MEDIA_PROPERTY_DPI', 'DPI (PPP)');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Direitos de Autor');
-@define('MEDIA_PROPERTY_COMMENT1', 'Comentário Breve');
-@define('MEDIA_PROPERTY_COMMENT2', 'Comentário Longo');
+@define('MEDIA_PROPERTY_COMMENT1', 'Comentário Público');
+@define('MEDIA_PROPERTY_COMMENT2', 'Comentário Interno');
 @define('MEDIA_PROPERTY_TITLE', 'Título');
 @define('MEDIA_PROP_DESC', 'Entre uma listagem separada por ";" nos campos de propriedade, relativa ao modo como deseja definir cada um dos seus ficheiros Media');
 @define('MEDIA_PROP_MULTIDESC', '(Você pode colocar ":MULTI" após algum item para indicar que o mesmo irá conter texto longo em vez de apenas alguns caracteres)');

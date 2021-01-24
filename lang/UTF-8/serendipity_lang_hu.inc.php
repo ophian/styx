@@ -865,8 +865,8 @@
 @define('GO_ADD_PROPERTIES', 'Mehet, majd utána a tulajdonságok szerkesztése');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
-@define('MEDIA_PROPERTY_COMMENT1', 'Rövid megjegyzés');
-@define('MEDIA_PROPERTY_COMMENT2', 'Hosszú megjegyzés');
+@define('MEDIA_PROPERTY_COMMENT1', 'Nyilvános megjegyzés');
+@define('MEDIA_PROPERTY_COMMENT2', 'Belső megjegyzés');
 @define('MEDIA_PROPERTY_TITLE', 'Cím');
 @define('MEDIA_PROP_DESC', 'Adj meg ";"-vel elválasztott tulajdonságokat, amelyeket szeretnél használni a média fájloknál');
 @define('MEDIA_PROP_MULTIDESC', '(Bármelyik elem mögé hozzáfűzheted hogy ":MULTI", így jelezve azt, hogy ez a mező nagyobb szöveget is tartalmazhat, nemcsak kisebb szöveget)');

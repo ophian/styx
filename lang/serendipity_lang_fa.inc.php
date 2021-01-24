@@ -866,8 +866,8 @@
 @define('GO_ADD_PROPERTIES', 'اطلاعات را وارد کن');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'حق کپی');
-@define('MEDIA_PROPERTY_COMMENT1', 'نظر کوتاه');
-@define('MEDIA_PROPERTY_COMMENT2', 'نظر بلند');
+@define('MEDIA_PROPERTY_COMMENT1', 'نظر عمومی');
+@define('MEDIA_PROPERTY_COMMENT2', 'نظر داخلی');
 @define('MEDIA_PROPERTY_TITLE', 'تیتر');
 @define('MEDIA_PROP_DESC', 'لیستی از مشخصات را وارد کرده و هر مشخصه را با ";" جدا کنید');
 @define('MEDIA_PROP_MULTIDESC', '(شما می توانید با افزودن عبارت ":MULTI" بعد از هر گزینه مشخص کنید گه این گزینه شامل متنی طولانی می باشد)');
