@@ -294,6 +294,7 @@
 
                 <section class="media_file_props">
                     <h4>{$CONST.MEDIA_PROP} <span class="ucc-pinned-to" title="Pinned"></span></h4>
+                    {if $file.property_saved === false}<span class="msg_notice"><span class="icon-info-circled"></span> This Form input values like "alt", "comment"s and "title" as media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!</span>{/if}
                 {foreach $file.base_property AS $prop_content}
 
                     <div class="form_{if $prop_content.type == 'textarea'}area{else}field{/if}">
