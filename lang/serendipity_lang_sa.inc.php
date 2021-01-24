@@ -865,8 +865,8 @@
 @define('GO_ADD_PROPERTIES', 'Go & enter properties');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
 @define('MEDIA_PROPERTY_COPYRIGHT', 'Copyright');
-@define('MEDIA_PROPERTY_COMMENT1', 'Short Comment');
-@define('MEDIA_PROPERTY_COMMENT2', 'Long Comment');
+@define('MEDIA_PROPERTY_COMMENT1', 'Public Comment');
+@define('MEDIA_PROPERTY_COMMENT2', 'Internal Comment');
 @define('MEDIA_PROPERTY_TITLE', 'Title');
 @define('MEDIA_PROP_DESC', 'Enter a list of ";" separated property fields you want to define for each media file');
 @define('MEDIA_PROP_MULTIDESC', '(You can append ":MULTI" after any item to indicate that this item will contain long text instead of just some characters)');
