@@ -1,7 +1,7 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
- * Improve MediaLibrary mediaproperties comment(s) labels
+ * Improve MediaLibrary mediaproperties comment(s) labels and add a status note
 
  * Fix MediaLibrary MediaProperties group vs subgroup assignment to correctly
    load saved image "alt", "title", "comment" attributes for frontend outputs.
