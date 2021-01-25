@@ -796,7 +796,7 @@ function serendipity_smarty_rss_getguid($params, $template) {
         trigger_error('Smarty Error: ' . __FUNCTION__ . ": missing 'entry' parameter", E_USER_WARNING);
         return;
     }
-    if (empty($params['is_comments'])) {
+    if (empty($params['is_comments']) && !is_bool($params['is_comments'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ . ": missing 'is_comments' parameter", E_USER_WARNING);
         return;
     }
