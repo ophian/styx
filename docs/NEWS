@@ -1,7 +1,7 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
- * Improve MediaLibrary mediaproperties comment(s) labels and add a new saving
+ * Improve MediaLibrary mediaproperties comment(s) labels and add a new "saved"
    handler non-status note.
 
  * Fix MediaLibrary MediaProperties group vs subgroup assignment to correctly
