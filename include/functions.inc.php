@@ -1280,6 +1280,8 @@ function serendipity_discover_rss($name, $ext) {
         $ver = 'atom1.0';
     } elseif ($name == 'opml' || $ext == 'opml') {
         $ver = 'opml1.0';
+    } elseif ($name == 'rdf') {
+        $ver = 'rdf';
     } elseif ($ext == 'rss1') {
         $ver = '1.0';
     } else {

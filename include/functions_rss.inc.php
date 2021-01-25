@@ -190,6 +190,10 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                     $entry_hook = 'frontend_display:rss-2.0:per_entry';
                     break;
 
+                case 'rdf':
+                    $entry_hook = 'frontend_display:rss-rdf:namespace';
+                    break;
+
                 case 'atom1.0':
                     $entry_hook = 'frontend_display:atom-1.0:per_entry';
                     break;

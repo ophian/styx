@@ -291,6 +291,10 @@ switch($version) {
         $namespace_hook = 'frontend_display:rss-2.0:namespace';
         break;
 
+    case 'rdf':
+        $namespace_hook = 'frontend_display:rss-rdf:namespace';
+        break;
+
     case 'atom1.0':
         // For people wanting extra RFC compliance
         // header('Content-Type: application/atom+xml; charset=utf-8');
