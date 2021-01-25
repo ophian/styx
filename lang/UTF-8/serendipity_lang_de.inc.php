@@ -858,6 +858,7 @@
 @define('MEDIA_EXIF', 'EXIF/JPEG Metadaten übernehmen?');
 @define('MEDIA_EXIF_DESC', 'Falls aktiviert, werden EXIF/JPEG Metadaten ausgelesen und in der Datenbank gespeichert.');
 @define('MEDIA_PROP', 'Medien-Eigenschaften');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
 
 @define('GO_ADD_PROPERTIES', 'Los & Eigenschaften angeben');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

@@ -862,6 +862,7 @@
 @define('MEDIA_EXIF', 'EXIF/JPEG 그림 데이터를 불러오기');
 @define('MEDIA_EXIF_DESC', '사용할 경우 그림에 포함되어 있는 EXIF/JPEG 메타데이터를 불러들여 데이터베이스에 저장하게 되며 차후 미디어 갤러리에서 볼 수 있게 됩니다.');
 @define('MEDIA_PROP', '미디어 등록정보');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
 
 @define('GO_ADD_PROPERTIES', '등록정보 입력하러 가기');
 @define('MEDIA_PROPERTY_DPI', '밀도(DPI)');

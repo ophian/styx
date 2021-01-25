@@ -862,6 +862,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('MEDIA_EXIF', 'Importuj dane EXIF/JPEG obrazków/zdjęć');
 @define('MEDIA_EXIF_DESC', 'Jeśli opcja zostanie włączona, zapisane w plikach z obrazkami/zdjęciami dane EXIF/JPEG zostaną zachowane w bazie danych i wykorzystane przy wyświetlaniu w Bibliotece mediów.');
 @define('MEDIA_PROP', 'Właściwości');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
 
 @define('GO_ADD_PROPERTIES', 'Dodaj i wprowadź właściwości');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

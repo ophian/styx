@@ -864,6 +864,7 @@ $i18n_unknown = 'tw';
 @define('MEDIA_EXIF', '輸入 EXIF/JPEG 圖片資料');
 @define('MEDIA_EXIF_DESC', '如果開啟，EXIF/JPEG 圖檔裡的 metadata 會自動儲存到資料庫。');
 @define('MEDIA_PROP', '媒體內容');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
 
 @define('GO_ADD_PROPERTIES', '輸入內容');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

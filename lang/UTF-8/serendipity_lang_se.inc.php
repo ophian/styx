@@ -861,6 +861,7 @@
 @define('MEDIA_EXIF', 'Importera EXIF/JPEG-bilddata');
 @define('MEDIA_EXIF_DESC', 'Om aktiv kommer existerande EXIF/JPEG-metadata i bilder att läsas och lagras i databasen för visning i mediagalleriet.');
 @define('MEDIA_PROP', 'Mediaegenskaper');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
 
 @define('GO_ADD_PROPERTIES', 'Mata in egenskaper');
 @define('MEDIA_PROPERTY_DPI', 'DPI');

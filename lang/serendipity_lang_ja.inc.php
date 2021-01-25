@@ -862,6 +862,7 @@
 @define('MEDIA_EXIF', 'EXIF/JPEG 画像データをインポートする');
 @define('MEDIA_EXIF_DESC', 'If enabled, existing EXIF/JPEG metadata of images will be parsed and stored in the database for display in the media gallery.');
 @define('MEDIA_PROP', 'メディアプロパティ');
+@define('MEDIA_PROP_STATUS', 'This Form values "alt", "comment"s and "title" as public media properties have not been saved yet, OR equal the default. Currently, an image title-attribute is auto-build by the files realname!');
 
 @define('GO_ADD_PROPERTIES', 'Go & enter properties');
 @define('MEDIA_PROPERTY_DPI', 'DPI');
