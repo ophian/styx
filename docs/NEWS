@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix Smarty API failing rss1 "is_comments" error on display error settings
+
  * Improve MediaLibrary mediaproperties comment(s) labels and add a new "saved"
    handler non-status note.
 
