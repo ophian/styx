@@ -458,7 +458,6 @@ $dead_files_330 = array(
     'include/db/mysql.inc.php',
     'include/db/sqlrelay.inc.php',
     'templates/default/feed_atom0.3.tpl',
-    'templates/default/feed_1.0.tpl',
     'templates/default/feed_0.91.tpl'
 );
 
