@@ -182,6 +182,10 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                     $entry_hook = 'frontend_display:opml-1.0:per_entry';
                     break;
 
+                case '1.0':
+                    $entry_hook = 'frontend_display:rss-1.0:per_entry';
+                    break;
+
                 case '2.0':
                     $entry_hook = 'frontend_display:rss-2.0:per_entry';
                     break;
