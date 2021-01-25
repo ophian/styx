@@ -16,7 +16,7 @@ Version 3.3-DEV ()
 
  * Update "B46" theme for bootstrap 4.6.0 assets
 
- * Remove outdated feed rss 0.91, 1.0 and atom_03 templates files and references
+ * Remove outdated feed rss 0.91 and atom_03 templates files and references
 
  * Extend themes for rel="trackback" detection as a modern alternate to RDF.
    Analogue to 2k11 in June 2017.
