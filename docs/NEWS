@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix {bootstrap4, B46] themes missing trackback $entry.rdf_ident URI
+
  * Fix some PHP 8 track-/pingback issues
 
  * Add an experimental RDF feed
