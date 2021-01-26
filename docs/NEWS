@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Fix some PHP 8 track-/pingback issues
+
  * Add an experimental RDF feed
 
  * Fix Smarty API failing rss1 "is_comments" error on display error settings
