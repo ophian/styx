@@ -80,14 +80,13 @@ if (!($type = @$_REQUEST['type'])) {
 }
 
 if ($type == 'trackback') {
-
     if ($tb_logging) {
         log_trackback('[' . date('d.m.Y H:i') . '] RECEIVED TRACKBACK' . "\n");
         log_trackback('[' . date('d.m.Y H:i') . '] ' . print_r($_REQUEST, true) . "\n");
     }
 
     $uri = $_SERVER['REQUEST_URI'];
-    if (isset($_REQUEST['entry_id'])) {
+    if (!empty($_REQUEST['entry_id'])) {
         $id = (int)$_REQUEST['entry_id'];
     } else if (preg_match('@/(\d+)_[^/]*$@', $uri, $matches)) {
         $id = (int)$matches[1];
@@ -98,7 +97,7 @@ if ($type == 'trackback') {
         log_trackback('[' . date('d.m.Y H:i') . '] ID: ' . $id . "\n");
     }
 
-    if (add_trackback($id, $_REQUEST['title'], $_REQUEST['url'], $_REQUEST['blog_name'], $_REQUEST['excerpt'])) {
+    if (isset($id) && in_array($_REQUEST, ['title','url','blog_name','excerpt']) && add_trackback($id, $_REQUEST['title'], $_REQUEST['url'], $_REQUEST['blog_name'], $_REQUEST['excerpt'])) {
         if ($tb_logging) {
             log_trackback('[' . date('d.m.Y H:i') . '] TRACKBACK SUCCESS' . "\n");
             log_trackback('---------------------------------------');
