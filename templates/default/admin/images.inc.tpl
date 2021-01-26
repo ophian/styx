@@ -269,7 +269,7 @@
 {/if}
 {if $case_scaleSelect}
     {if isset($scaleFileName)}<h2>{$CONST.RESIZE_BLAHBLAH|sprintf:'<span class="scale_fname">%s</span>'|sprintf:$scaleFileName}</h2>{/if}
-
+    {if $isunscalable}<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> Unscalable Format w/o thumnail !! Don't do any scaling action here !!</span>{/if}
     {if isset($scaleOriginSize)}
     <span class="block_level standalone">
         {$CONST.ORIGINAL_SIZE|sprintf:$scaleOriginSize.width:$scaleOriginSize.height}

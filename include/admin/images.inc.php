@@ -943,6 +943,7 @@ switch ($serendipity['GET']['adminAction']) {
         $data['case_scaleSelect'] = true;
         $s = getimagesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . ($file['extension'] ? '.'. $file['extension'] : ''));
 
+        $data['isunscalable']    = !(is_array($s) && in_array(strtolower($file['extension']), ['jpg', 'jpeg', 'png', 'webp']));
         $data['scaleFileName']   = $file['name'];
         $data['scaleOriginSize'] = is_array($s) ? array('width' => $s[0], 'height' => $s[1]) : array('width' => 0, 'height' => 0);
         $data['formtoken']       = serendipity_setFormToken();
