@@ -179,7 +179,7 @@
                                 {if $file.is_image}
 
                                 <li><b>{$CONST.ORIGINAL_SHORT}:</b> {$file.dimensions_width}x{$file.dimensions_height}</li>
-                                <li><b>{$CONST.THUMBNAIL_SHORT}:</b> {$file.dim.0}x{$file.dim.1}</li>
+                                <li><b>{$CONST.THUMBNAIL_SHORT}:</b> {$file.dim.0|default:0}x{$file.dim.1|default:0}</li>
                                 {/if}
 
                                 <li class="halflinespacer">&nbsp;</li>
