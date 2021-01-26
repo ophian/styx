@@ -266,7 +266,7 @@
                         {elseif $file.is_image}
 
                             <li><b>{$CONST.IMAGE_SIZE}:</b> {$file.dimensions_width}x{$file.dimensions_height} px</li>
-                            <li><b>{$CONST.THUMBNAIL_SIZE}:</b> {$file.dim.0}x{$file.dim.1} px</li>
+                            <li><b>{$CONST.THUMBNAIL_SIZE}:</b> {$file.dim.0|default:0}x{$file.dim.1|default:0} px</li>
                         {/if}
 
                         </ul>
