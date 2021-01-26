@@ -55,12 +55,10 @@ if (!empty($_REQUEST['optin'])) {
 
 serendipity_rememberComment();
 
-if (!empty($HTTP_RAW_POST_DATA)) {
-    // Trackback logging. For developers: can be switched to true!
-    $tb_logging = false;
-    // Pingback logging. For developers: can be switched to true!
-    $pb_logging = false;
-}
+// Trackback logging. For developers: can be switched to true!
+$tb_logging = false;
+// Pingback logging. For developers: can be switched to true!
+$pb_logging = false;
 
 if ($pb_logging) {
     log_pingback('CONTENT_TYPE: ' . $_SERVER['CONTENT_TYPE']);
@@ -73,7 +71,7 @@ if (!($type = @$_REQUEST['type'])) {
     }
 
     // WordPress pingbacks don't give any parameter. If it is a XML POST assume it's a pingback
-    if ($_SERVER['CONTENT_TYPE'] == 'text/xml' && !empty($HTTP_RAW_POST_DATA)) {
+    if ($_SERVER['CONTENT_TYPE'] == 'text/xml') {
         $type = 'pingback';
     }
     else {
@@ -82,6 +80,7 @@ if (!($type = @$_REQUEST['type'])) {
 }
 
 if ($type == 'trackback') {
+
     if ($tb_logging) {
         log_trackback('[' . date('d.m.Y H:i') . '] RECEIVED TRACKBACK' . "\n");
         log_trackback('[' . date('d.m.Y H:i') . '] ' . print_r($_REQUEST, true) . "\n");
