@@ -80,6 +80,11 @@ if (!($type = @$_REQUEST['type'])) {
 }
 
 if ($type == 'trackback') {
+    if (!isset($_REQUEST['entry_id']) && !empty($_REQUEST['amp;entry_id'])) {
+        $_REQUEST['entry_id'] = $_REQUEST['amp;entry_id'];
+        unset($_REQUEST['amp;entry_id']);
+    }
+
     if ($tb_logging) {
         log_trackback('[' . date('d.m.Y H:i') . '] RECEIVED TRACKBACK' . "\n");
         log_trackback('[' . date('d.m.Y H:i') . '] ' . print_r($_REQUEST, true) . "\n");
