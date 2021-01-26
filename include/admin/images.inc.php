@@ -944,7 +944,7 @@ switch ($serendipity['GET']['adminAction']) {
         $s = getimagesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . ($file['extension'] ? '.'. $file['extension'] : ''));
 
         $data['scaleFileName']   = $file['name'];
-        $data['scaleOriginSize'] = array('width' => $s[0], 'height' => $s[1]);
+        $data['scaleOriginSize'] = is_array($s) ? array('width' => $s[0], 'height' => $s[1]) : array('width' => 0, 'height' => 0);
         $data['formtoken']       = serendipity_setFormToken();
         $data['file']            = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] .($file['extension'] ? '.'. $file['extension'] : '');
         $data['file_webp']       = file_exists($serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp')
