@@ -1,6 +1,18 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * PLEASE NOTE:
+   The upcoming file format "avif", an AV1 codec based new image format,
+   will arrive in browsers with Firefox 86 and similar others, but PHP, even
+   in its current 8.0.x versions, still does not support it, i.e. within the
+   widely used getimagesize() methods.
+   The libgd project (GD) announced an early first support by end of January
+   2021. We don't expect it before PHP 8.1.x version arises.
+   So any addiotional Styx MediaLibrary action and upload support like dimension
+   sizes, creating thumbs, etc. does not work yet. All current related works are
+   an experimental slowly growing support to make it work well once it has fully
+   landed. To be continued...
+
  * Fix [bootstrap4, B46] themes missing trackback $entry.rdf_ident URI
 
  * Fix some PHP 8 track-/pingback issues
