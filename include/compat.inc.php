@@ -269,30 +269,6 @@ if (!function_exists('file_get_contents')) {
     }
 }
 
-if (!isset($_REQUEST)) {
-    $_REQUEST = &$HTTP_REQUEST_VARS;
-}
-
-if (!isset($_POST)) {
-    $_POST = &$HTTP_POST_VARS;
-}
-
-if (!isset($_GET)) {
-    $_GET = &$HTTP_GET_VARS;
-}
-
-if (!isset($_SESSION)) {
-    $_SESSION = &$HTTP_SESSION_VARS;
-}
-
-if (!isset($_COOKIE)) {
-    $_COOKIE = &$HTTP_COOKIE_VARS;
-}
-
-if (!isset($_SERVER)) {
-    $_SERVER = &$HTTP_SERVER_VARS;
-}
-
 if (extension_loaded('filter') && function_exists('input_name_to_filter') && input_name_to_filter(ini_get('filter.default')) !== FILTER_UNSAFE_RAW) {
     foreach($_POST AS $key => $value) {
         $_POST[$key] = input_get(INPUT_POST, $key, FILTER_UNSAFE_RAW);
