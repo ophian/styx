@@ -15,7 +15,7 @@ if ($serendipity['cors']) {
     header('Access-Control-Allow-Origin: *'); // Allow RSS feeds to be read by javascript
 }
 
-$version     = $_GET['version'];
+$version     = $_GET['version'] ?? null;
 $description = $serendipity['blogDescription'];
 $title       = $serendipity['blogTitle'];
 $comments    = FALSE;
@@ -283,7 +283,7 @@ switch($version) {
     case '1.0':
         $namespace_hook = 'frontend_display:rss-1.0:namespace';
         serendipity_plugin_api::hook_event('frontend_display:rss-1.0:once', $entries);
-        $once_display_dat = $entries['display_dat'];
+        $once_display_dat = $entries['display_dat'] ?? null;
         unset($entries['display_dat']);
         break;
 
