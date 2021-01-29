@@ -60,7 +60,7 @@ $tb_logging = false;
 // Pingback logging. For developers: can be switched to true!
 $pb_logging = false;
 
-if ($pb_logging) {
+if ($pb_logging && !empty($_SERVER['CONTENT_TYPE']) && !empty($HTTP_RAW_POST_DATA)) {
     log_pingback('CONTENT_TYPE: ' . $_SERVER['CONTENT_TYPE']);
     log_pingback('HTTP_RAW_POST_DATA: ' .  print_r($HTTP_RAW_POST_DATA, true));
 }
@@ -71,7 +71,7 @@ if (!($type = @$_REQUEST['type'])) {
     }
 
     // WordPress pingbacks don't give any parameter. If it is a XML POST assume it's a pingback
-    if ($_SERVER['CONTENT_TYPE'] == 'text/xml') {
+    if ($_SERVER['CONTENT_TYPE'] == 'text/xml' && !empty($HTTP_RAW_POST_DATA)) {
         $type = 'pingback';
     }
     else {
