@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Update Rich Text Editor assets to ckeditor v.4.16.0
+
  * PLEASE NOTE:
    The upcoming file format "avif", an AV1 codec based new image format,
    will arrive in browsers with Firefox 86 and similar others, but PHP, even
