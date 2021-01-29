@@ -6,7 +6,7 @@
 	xmlns:dc="http://purl.org/dc/elements/1.1/"
 	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
 	xmlns:admin="http://webns.net/mvcb/"
-	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/">
 <channel>
     <title>{$metadata.title}</title>
     <link>{$metadata.link}</link>
@@ -44,11 +44,6 @@
     <dc:subject>
     {foreach $entry.categories AS $cat}{$cat.feed_category_name}, {/foreach}</dc:subject>
     <dc:date>{$entry.feed_timestamp}</dc:date>
-    <wfw:comment>{$serendipityBaseURL}wfwcomment.php?cid={$entry.feed_id}</wfw:comment>
-{if NOT $is_comments}
-        <slash:comments>{$entry.comments}</slash:comments>
-        <wfw:commentRss>{$serendipityBaseURL}rss.php?version={$metadata.version}&amp;type=comments&amp;cid={$entry.feed_id}</wfw:commentRss>
-{/if}
     {$entry.per_entry_display_dat}
 </item>
 {/foreach}
