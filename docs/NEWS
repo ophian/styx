@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Improve and fix custom error handler on production|debug cases
+
  * Remove obsolete and temporary is_countable() PHP polyfill method
 
  * Multiple Fixes for PHP 8 Warnings/Notices assigning uninitialized Smarty vars
