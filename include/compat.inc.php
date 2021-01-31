@@ -235,7 +235,7 @@ if (!function_exists('errorToExceptionHandler')) {
             }
         } else {
             // Only display error (production/debug blog) if an admin is logged in, else we discard the error.
-            if ($serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
+            if (isset($serendipity['serendipityUserlevel']) && $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
                 if ($serendipity['production'] === 'debug') {
                     $debug_note = "<br />\n" . (!empty($dbt) ? 'See DEBUG tracepath at page end!' : ' == ERROR-REPORT (DEBUGGING ENABLED) ==');
                 }
