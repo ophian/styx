@@ -1043,6 +1043,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('INSTALLER_VALUE', 'Value');
 @define('CURRENT_TAB', 'Current tab: ');
 @define('PINGBACKS', 'Pingbacks');
+@define('PINGBACK', 'Pingback');
 @define('NO_PINGBACKS', 'No Pingbacks');
 @define('GROUP_NAME_DESC', "Use as uppercased eg. 'EXAMPLE_GROUP' name, but not as a constant 'USERLEVEL_XYZ' group name.");
 @define('INSTALLER_CLI_TOOLS', 'Server-side command line tools');

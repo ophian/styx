@@ -1041,6 +1041,7 @@
 @define('INSTALLER_VALUE', '값');
 @define('CURRENT_TAB', '현재 탭: ');
 @define('PINGBACKS', '핑백');
+@define('PINGBACK', 'Pingback');
 @define('NO_PINGBACKS', '핑백 없음');
 @define('GROUP_NAME_DESC', "언어 파일에서 정의된 상수를 여기에 입력할 경우 (예: 'USERLEVEL_EDITOR_DESC') 이 상수의 번역된 형태가 표시됩니다. 직접 상수를 정의하고 그 이름을 여기에 입력할 수도 있습니다. 번역이 되는 그룹 이름을 사용하지 않으려고 한다면 상수 외의 문자열로 자유롭게 입력하면 됩니다.");
 @define('INSTALLER_CLI_TOOLS', '서버측 커맨드라인 도구');
