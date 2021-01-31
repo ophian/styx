@@ -277,7 +277,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.28');
+        $propbag->add('version',       '1.29');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'smarty'      => '3.1',
@@ -609,6 +609,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         $smarty_items['displaydate']  = $displaydate;
                         $smarty_items['dateformat']   = $dateformat;
                         $smarty_items['target']       = $target;
+                        $smarty_items['items']        = $smarty_items['items'] ?? null;
 
                         $serendipity['smarty']->assignByRef('remoterss_items', $smarty_items);
                         $tpl = $this->get_config('template');
