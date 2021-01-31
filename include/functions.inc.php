@@ -512,7 +512,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
     }
 
     foreach($data AS $k => $v) {
-        if (is_array($v)) {
+        if (!is_null($v)) {
             $data[$k] = @trim(implode("\n", $v));
         }
     }
