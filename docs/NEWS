@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Remove obsolete and temporary is_countable() PHP polyfill method
+
  * Multiple Fixes for PHP 8 Warnings/Notices assigning uninitialized Smarty vars
 
  * Update Rich Text Editor assets to ckeditor v.4.16.0
