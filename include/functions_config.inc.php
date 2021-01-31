@@ -1548,6 +1548,7 @@ function &serendipity_getAllGroups($apply_ACL_user = false) {
             if (in_array($v['confvalue'], ['USERLEVEL_ADMIN_DESC', 'USERLEVEL_CHIEF_DESC', 'USERLEVEL_EDITOR_DESC'])) {
                 $groups[$k]['shortname'] = strtolower(explode('_', $v['confvalue'])[1]);
             }
+            $groups[$k]['shortname'] = $groups[$k]['shortname'] ?? null;
             // Check CHIEF against hiddenGroup
             if (!$apply_ACL_user && $serendipity['serendipityUserlevel'] == USERLEVEL_CHIEF) {
                 if (!isset($hgroup[0]) && isset($hgroup['id']) && $v['id'] == $hgroup['id']) {
