@@ -242,7 +242,7 @@ if (!function_exists('errorToExceptionHandler')) {
                 if ($serendipity['production'] === true) {
                     $debug_note = "<br />\nAdministrative Login Error $type only - not seen by visitors! Send us a note what happened where and when, please.";
                 }
-                $str .= '<div><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ': ' . $errLine . '.' . $debug_note . '</div>';
+                $str = '<div><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ': ' . $errLine . '.' . $debug_note . '</div>';
                 if (headers_sent()) {
                     serendipity_die($str); // case HTTP headers: needs to halt with die() here,
                                            // else it will pass through and gets written underneath blog content, or into streamed js files, which hardly isn't seen by many users
