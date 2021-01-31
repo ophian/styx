@@ -184,6 +184,7 @@ foreach($themes AS $theme) {
 ksort($stack);
 
 foreach($stack AS $theme => $info) {
+    $info['custom_config'] = $info['custom_config'] ?? null;
     $data['templates'][$theme]['info'] = $info;
 
     foreach(array('', '_backend') AS $backendId) {
