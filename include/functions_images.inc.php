@@ -3991,8 +3991,8 @@ function serendipity_prepareMedia(&$file, $url = '') {
     $file['links'] = array('imagelinkurl' => $file['full_file']);
 
     $file['is_image']  = serendipity_isImage($file);
-    $file['dim']       = $file['is_image'] ? @getimagesize($file['full_path_thumb'], $file['thumb_header']) : null;
-    $file['dim_orig']  = $file['is_image'] ? @getimagesize($file['full_path_file'], $file['header']) : null;
+    $file['dim']       = ($file['is_image'] && isset($file['full_path_thumb'])) ? @getimagesize($file['full_path_thumb'], $file['thumb_header']) : null;
+    $file['dim_orig']  = ($file['is_image'] && isset($file['full_path_file'])) ? @getimagesize($file['full_path_file'], $file['header']) : null;
     // check possible non-sets
     $file['dim'] = is_array($file['dim']) ? $file['dim'] : array(0 => null, 1 => null);
     $file['dim_orig'] = is_array($file['dim_orig']) ? $file['dim_orig'] : array(0 => null, 1 => null);
