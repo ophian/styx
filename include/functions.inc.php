@@ -37,15 +37,6 @@ function get_raw_data() {
 }
 
 /**
- * thanks to https://www.php.net/manual/en/function.is-countable.php#123725
- */
-if (version_compare(PHP_VERSION, '7.3') < 0 && !function_exists('is_countable')) {
-    function is_countable($var) {
-        return (is_array($var) || is_object($var) || is_iterable($var) || $var instanceof Countable);
-    }
-}
-
-/**
  * Set a new PEAR Request object
  * Includes the required PHP5 PEAR Request2 class and
  * fixes failing CERT validation check for PHP versions below 5.6
