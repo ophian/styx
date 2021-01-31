@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+ * Multiple Fixes for PHP 8 Warnings/Notices assigning uninitialized Smarty vars
+
  * Update Rich Text Editor assets to ckeditor v.4.16.0
 
  * PLEASE NOTE:
