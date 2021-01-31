@@ -268,15 +268,19 @@ switch($serendipity['GET']['adminAction']) {
 
         foreach($filter_import AS $f_import) {
             if (isset($serendipity['GET']['filter'])) {
-                @serendipity_restoreVar($serendipity['COOKIE']['entrylist_filter_' . $f_import], serendipity_specialchars($serendipity['GET']['filter'][$f_import]));
-                $data["get_filter_$f_import"] = @serendipity_specialchars($serendipity['GET']['filter'][$f_import]);
+                $_cef = $serendipity['COOKIE']['entrylist_filter_' . $f_import] ?? null;
+                $_gfi = serendipity_specialchars($serendipity['GET']['filter'][$f_import]);
+                serendipity_restoreVar($_cef, $_gfi);
+                $data["get_filter_$f_import"] = $_gfi;
             }
         }
 
         foreach($sort_import AS $s_import) {
             if (isset($serendipity['GET']['sort'])) {
-                @serendipity_restoreVar($serendipity['COOKIE']['entrylist_sort_' . $s_import], serendipity_specialchars(($serendipity['GET']['sort'][$s_import] ?? null)));
-                $data["get_sort_$s_import"] = @serendipity_specialchars(($serendipity['GET']['sort'][$s_import] ?? null));
+                $_ces = $serendipity['COOKIE']['entrylist_sort_' . $s_import] ?? null;
+                $_gsi = serendipity_specialchars(($serendipity['GET']['sort'][$s_import] ?? null));
+                serendipity_restoreVar($_ces, $_gsi);
+                $data["get_sort_$s_import"] = $_gsi;
             }
         }
 
