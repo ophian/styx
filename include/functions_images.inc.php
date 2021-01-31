@@ -3959,6 +3959,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
         if (!isset($file['imgsrc'])) {
             $file['imgsrc'] = $file['show_thumb'];
         }
+        $file['full_file_webp'] = $file['full_file_webp'] ?? null; // avoid template errors on hotlinked images
     } else {
         $file['full_file']      = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
         $file['full_path_file'] = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
