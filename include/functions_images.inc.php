@@ -1539,7 +1539,7 @@ function serendipity_generateThumbs() {
             $fdim     = @getimagesize($ffull);
 
             // create a sized thumbnail
-            if (!file_exists($oldThumb) && !file_exists($newThumb) && ($fdim[0] > $serendipity['thumbSize'] || $fdim[1] > $serendipity['thumbSize'])) {
+            if (!file_exists($oldThumb) && !file_exists($newThumb) && (is_array($fdim) && ($fdim[0] > $serendipity['thumbSize'] || $fdim[1] > $serendipity['thumbSize']))) {
                 $returnsize = serendipity_makeThumbnail($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), $file['path'], false, false, false, false, true); // suppress "trying to webp" message
                 if ($returnsize !== false && is_array($returnsize)) {
                     $_list .= '<li>' . sprintf(RESIZE_BLAHBLAH, '<b>' . $sThumb . '</b>') . ': ' . $returnsize[0] . 'x' . $returnsize[1] . "</li>\n";
@@ -1550,7 +1550,7 @@ function serendipity_generateThumbs() {
                     }
                 }
             // copy the too small origin $ffull image to a copy with the name $newThumb, since we need a thumbnail explicitly
-            } elseif (!file_exists($oldThumb) && !file_exists($newThumb) && $fdim[0] <= $serendipity['thumbSize'] && $fdim[1] <= $serendipity['thumbSize']) {
+            } elseif (!file_exists($oldThumb) && !file_exists($newThumb) && is_array($fdim) && $fdim[0] <= $serendipity['thumbSize'] && $fdim[1] <= $serendipity['thumbSize']) {
                 $res = @copy($ffull, $newThumb);
                 if (@$res === true) {
                     $_list .= sprintf('<li>' . THUMBNAIL_USING_OWN . "</li>\n", '<b>' . $filename . '</b>');
