@@ -4022,9 +4022,9 @@ function serendipity_prepareMedia(&$file, $url = '') {
 
     /* If it is an image, and the thumbnail exists */
     if ($file['is_image'] && isset($file['full_path_thumb']) && file_exists($file['full_path_thumb'])) {
-        $file['thumbWidth']  = @$file['dim'][0];
-        $file['thumbHeight'] = @$file['dim'][1];
-        $file['thumbSize']   = @filesize($file['full_path_thumb']);
+        $file['thumbWidth']  = $file['dim'][0] ?? null;
+        $file['thumbHeight'] = $file['dim'][1] ?? null;
+        $file['thumbSize']   = isset($file['full_path_thumb']) ? filesize($file['full_path_thumb']) : null;
     } elseif ($file['is_image'] && $file['hotlink']) {
         $sizes = serendipity_calculateAspectSize($file['dimensions_width'], $file['dimensions_height'], $serendipity['thumbSize'], $serendipity['thumbConstraint']);
         $file['thumbWidth']  = $sizes[0];
