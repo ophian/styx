@@ -1,6 +1,10 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix remoterss plugin for PHP 8 "XML Extension is not loaded or available",
+    while being removed to PECL, for bundled-libs/Onyx/RSS library based RSS
+    feeds. This now uses simpleXML.
+
   * Improve and fix custom error handler on production|debug cases
 
   * Remove obsolete and temporary is_countable() PHP polyfill method
