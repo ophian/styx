@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 // Contributed by Udo Gerhards <udo@babyblaue-seiten.de>
 // OPML Contributed by Richard Thomas Harrison <rich@mibnet.plus.com>
@@ -277,7 +277,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         $propbag->add('description',   PLUGIN_REMOTERSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Udo Gerhards, Richard Thomas Harrison, Ian Styx');
-        $propbag->add('version',       '1.29');
+        $propbag->add('version',       '1.30');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'smarty'      => '3.1',
@@ -478,6 +478,45 @@ class serendipity_plugin_remoterss extends serendipity_plugin
         fclose($fp);
     }
 
+    /**
+     * Thanks to https://www.php.net/manual/en/class.simplexmlelement.php#122006
+     * @param SimpleXMLElement $xml
+     * @return array
+     */
+    function xmlToArray(SimpleXMLElement $xml): array
+    {
+        $parser = function (SimpleXMLElement $xml, array $collection = []) use (&$parser) {
+            $nodes = $xml->children();
+            $attributes = $xml->attributes();
+
+            if (0 !== count($attributes)) {
+                foreach ($attributes as $attrName => $attrValue) {
+                    $collection['attributes'][$attrName] = strval($attrValue);
+                }
+            }
+
+            if (0 === $nodes->count()) {
+            $collection = strval($xml); // was $collection['value'] =
+                return $collection;
+            }
+
+            foreach ($nodes as $nodeName => $nodeValue) {
+                if (count($nodeValue->xpath('../' . $nodeName)) < 2) {
+                    $collection[$nodeName] = $parser($nodeValue);
+                    continue;
+                }
+
+                $collection[$nodeName][] = $parser($nodeValue);
+            }
+
+            return $collection;
+        };
+
+        return [
+            $xml->getName() => $parser($xml)
+        ];
+    }
+
     function generate_content(&$title)
     {
         global $serendipity;
@@ -524,11 +563,6 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                     $this->debug('URLCheck succeeded. Touching ' . $feedcache);
                     // Touching the feedcache file will prevent loops of death when the RSS target is the same URI than our blog.
                     @touch($feedcache);
-                    require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
-                    $c = new Onyx_RSS($charset);
-                    $this->debug('Running Onyx Parser');
-                    $c->parse($rssuri);
-                    $this->encoding = $c->rss['encoding'];
 
                     $use_rss_link = serendipity_db_bool($this->get_config('use_rss_link', 'true'));
                     $rss_elements = explode(',', $this->get_config('show_rss_element'));
@@ -536,70 +570,145 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                     $i = 0;
                     $content = '';
                     $smarty_items = array();
-                    while (($showAll || ($i < $number)) && ($item = $c->getNextItem())) {
-                        if (empty($item['title'])) {
-                            continue;
-                        }
 
-                        if (!$smarty) $content .= '<div class="rss_item">';
+                    if (PHP_VERSION_ID < 80000) {
+                        require_once S9Y_PEAR_PATH . 'Onyx/RSS.php';
+                        $c = new Onyx_RSS($charset);
+                        $c->parse($rssuri);
+                        $this->encoding = $c->rss['encoding'];
+                        $this->debug('Running Onyx Parser');
+                        while (($showAll || ($i < $number)) && ($item = $c->getNextItem())) {
+                            if (empty($item['title'])) {
+                                continue;
+                            }
+                            if (!$smarty) $content .= '<div class="rss_item">';
 
-                        if ($use_rss_link) {
-                            if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
-                        }
-
-                        if (!empty($bulletimg)) {
-                            if (!$smarty) $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
-                        }
-
-                        $is_first = true;
-                        foreach($rss_elements AS $rss_element) {
-                            $rss_element = trim($rss_element);
-
-                            if (!$is_first) {
-                                if (!$smarty) $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
+                            if ($use_rss_link) {
+                                if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
                             }
 
-                            if ($escape_rss) {
-                                if (!$smarty) $content .= $this->decode($item[$rss_element]);
-                            } else {
-                                if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
+                            if (!empty($bulletimg)) {
+                                if (!$smarty) $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
+                            }
+
+                            $is_first = true;
+                            foreach($rss_elements AS $rss_element) {
+                                $rss_element = trim($rss_element);
+
+                                if (!$is_first) {
+                                    if (!$smarty) $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
+                                }
+
+                                if ($escape_rss) {
+                                    if (!$smarty) $content .= $this->decode($item[$rss_element]);
+                                } else {
+                                    if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
+                                }
+
+                                if ($smarty) {
+                                    $item['display_elements'][preg_replace('@[^a-z0-9]@imsU', '', $rss_element)] = $this->decode($item[$rss_element]);
+                                }
+
+                                if (!$is_first) {
+                                    if (!$smarty) $content .= '</span>';
+                                }
+
+                                if ($is_first && $use_rss_link) {
+                                    if (!$smarty) $content .= '</a></div>'; // end of first linked element
+                                }
+                                $is_first = false;
+                            }
+                            if ($is_first && $use_rss_link) {
+                                // No XML element has been configured.
+                                if (!$smarty) $content .= '</a></div>';
+                            }
+
+                            $item['timestamp'] = strtotime(($item['pubdate'] ?? $item['dc:date']));
+                            if (false !== $item['timestamp'] AND $displaydate) {
+                                if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
+                                          . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
+                                          . '</div>';
                             }
 
                             if ($smarty) {
-                                $item['display_elements'][preg_replace('@[^a-z0-9]@imsU', '', $rss_element)] = $this->decode($item[$rss_element]);
+                                $smarty_items['items'][$i] = $item;
+                                $smarty_items['items'][$i]['css_class'] = preg_replace('@[^a-z0-9]@imsU', '', $rss_element);
+                                foreach($item AS $key => $val) {
+                                    $smarty_items['items'][$i]['decoded_' . str_replace(':', '_', $key)] = $this->decode($key);
+                                }
+                            }
+                            if (!$smarty) $content .= "</div>\n"; // end of rss_item
+                            ++$i;
+                        }
+                    } else {
+                        // PHP 8+
+                        $xml = file_get_contents($rssuri);
+                        $c   = new SimpleXMLElement($xml);
+                        $x   = $this->xmlToArray($c);
+                        foreach($x['rss']['channel']['item'] AS $item) {
+                            if (empty($item['title'])) {
+                                continue;
+                            }
+                            if (!$smarty) $content .= '<div class="rss_item">';
+
+                            if ($use_rss_link) {
+                                if (!$smarty) $content .= '<div class="rss_link"><a href="' . serendipity_specialchars($this->decode($item['link'])) . '" ' . (!empty($target) ? 'target="'.$target.'"' : '') . '>';
                             }
 
-                            if (!$is_first) {
-                                if (!$smarty) $content .= '</span>';
+                            if (!empty($bulletimg)) {
+                                if (!$smarty) $content .= '<img src="' . $bulletimg . '" border="0" alt="*" /> ';
+                            }
+
+                            $is_first = true;
+                            foreach($rss_elements AS $rss_element) {
+                                $rss_element = trim($rss_element);
+
+                                if (!$is_first) {
+                                    if (!$smarty) $content .= '<span class="rss_' . preg_replace('@[^a-z0-9]@imsU', '', $rss_element) . '">';
+                                }
+
+                                if ($escape_rss) {
+                                    if (!$smarty) $content .= $this->decode($item[$rss_element]);
+                                } else {
+                                    if (!$smarty) $content .= serendipity_specialchars($this->decode($item[$rss_element]));
+                                }
+
+                                if ($smarty) {
+                                    $item['display_elements'][preg_replace('@[^a-z0-9]@imsU', '', $rss_element)] = $this->decode($item[$rss_element]);
+                                }
+
+                                if (!$is_first) {
+                                    if (!$smarty) $content .= '</span>';
+                                }
+
+                                if ($is_first && $use_rss_link) {
+                                    if (!$smarty) $content .= '</a></div>'; // end of first linked element
+                                }
+                                $is_first = false;
                             }
 
                             if ($is_first && $use_rss_link) {
-                                if (!$smarty) $content .= '</a></div>'; // end of first linked element
+                                // No XML element has been configured.
+                                if (!$smarty) $content .= '</a></div>';
                             }
-                            $is_first = false;
-                        }
 
-                        if ($is_first && $use_rss_link) {
-                            // No XML element has been configured.
-                            if (!$smarty) $content .= '</a></div>';
-                        }
-
-                        $item['timestamp'] = strtotime(($item['pubdate'] ?? $item['dc:date']));
-                        if (false !== $item['timestamp'] AND $displaydate) {
-                            if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
-                                      . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
-                                      . '</div>';
-                        }
-
-                        if ($smarty) {
-                            $smarty_items['items'][$i] = $item;
-                            $smarty_items['items'][$i]['css_class'] = preg_replace('@[^a-z0-9]@imsU', '', $rss_element);
-                            foreach($item AS $key => $val) {
-                                $smarty_items['items'][$i]['decoded_' . str_replace(':', '_', $key)] = $this->decode($key);
+                            $item['timestamp'] = strtotime(($item['pubDate'] ?? $item['dc:date']));
+                            if (false !== $item['timestamp'] AND $displaydate) {
+                                if (!$smarty) $content .= '<div class="serendipitySideBarDate">'
+                                          . serendipity_specialchars(serendipity_formatTime($dateformat, $item['timestamp'], false))
+                                          . '</div>';
                             }
+
+                            if ($smarty) {
+                                $smarty_items['items'][$i] = $item;
+                                $smarty_items['items'][$i]['css_class'] = preg_replace('@[^a-z0-9]@imsU', '', $rss_element);
+                                foreach($item AS $key => $val) {
+                                    $smarty_items['items'][$i]['decoded_' . str_replace(':', '_', $key)] = $this->decode($key);
+                                }
+                            }
+                            if (!$smarty) $content .= "</div>\n"; // end of rss_item
+                            ++$i;
                         }
-                        if (!$smarty) $content .= "</div>\n"; // end of rss_item
-                        ++$i;
                     }
 
                     if ($smarty) {
@@ -633,6 +742,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
                         fclose($fp);
                         $this->debug('Feed cache written');
                     } else {
+                        if (empty($content)) trigger_error('PHP XML Extension is not loaded or available. PHP 8.0: XMLRPC extension has moved to PECL.', E_USER_WARNING);
                         $this->debug('Could not write (empty?) cache.');
                         echo '<!-- Cache failed to ' . $feedcache . ' in ' . getcwd() . ' --><br />';
                         if (trim($content) == '') {
