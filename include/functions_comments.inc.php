@@ -1041,7 +1041,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         $subscribe = 'false';
     }
 
-    $dbhash = md5(uniqid(mt_srand(), true));
+    $dbhash = bin2hex(random_bytes(16));
 
     if ($status == 'confirm') {
         $dbstatus = 'confirm' . $dbhash;
@@ -1372,7 +1372,7 @@ function serendipity_sendComment($comment_id, $to, $fromName, $fromEmail, $fromU
 
     // Check for using Tokens
     if ($serendipity['useCommentTokens']) {
-        $token = md5(uniqid(mt_srand(), true));
+        $token = bin2hex(random_bytes(16));
         $path  = $path . "_token_" . $token;
 
         // Delete any comment tokens older than 1 week.

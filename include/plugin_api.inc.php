@@ -189,7 +189,7 @@ class serendipity_plugin_api
     {
         global $serendipity;
 
-        $id = md5(uniqid('', true)); // add entropy, since the installers first ~10 (depending on response time) enabled plugins all get the same token, while uniqid is Unixtime(8) + Microseconds(5)
+        $id = bin2hex(random_bytes(16)); // add enough entropy
 
         $key = $plugin_class_id . ':' . $id;
         $key = serendipity_db_escape_string($key);
