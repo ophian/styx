@@ -1,4 +1,4 @@
-{* plugin_guestbook_form.tpl v.3.29 - 2018-08-24 Ian sliver template *}
+{* plugin_guestbook_form.tpl v.3.30 - 2021-02-01 Ian sliver template *}
 
     <!-- Needed for Captchas -->
     {foreach $plugin_guestbook_messagestack AS $message}
@@ -28,7 +28,7 @@
 
        {if NOT empty($is_show_url)}
         <div class="input-text">
-            <label for="serendipity_commentform_email">{$CONST.URL}</label>
+            <label for="serendipity_commentform_email">URL</label>
             <input type="text" size="30" maxlength="99" name="serendipity[url]" value="{$plugin_guestbook_url}" id="serendipity_commentform_url">
         </div>
        {/if}
