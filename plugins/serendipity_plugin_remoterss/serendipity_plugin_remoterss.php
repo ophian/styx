@@ -496,7 +496,7 @@ class serendipity_plugin_remoterss extends serendipity_plugin
             }
 
             if (0 === $nodes->count()) {
-            $collection = strval($xml); // was $collection['value'] =
+                $collection = strval($xml); // was $collection['value'] =
                 return $collection;
             }
 
