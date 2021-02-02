@@ -44,7 +44,7 @@
             {/if}
         {/if}
             {if isset($comment.id) AND NOT empty($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
-                <li><a id="serendipity_reply_{$comment.id}" class="comment_reply" href="#serendipity_CommentForm">{$CONST.REPLY}</a>
+                <li><a id="serendipity_reply_{$comment.id}" class="comment_reply" href="#serendipity_CommentForm"{if NOT empty($comment_onchange)} onclick="{$comment_onchange}"{/if}>{$CONST.REPLY}</a>
                 <div id="serendipity_replyform_{$comment.id}" class="visuallyhidden"></div></li>
             {/if}
             {/if}
