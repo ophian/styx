@@ -1,6 +1,10 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix themes possible genpage hooked $comment_onchange livecomments variable
+    in [ b46, bootstrap4, clean-blog, default, default-php, pure, skeleton,
+    sliver, timeline ] - and newly added to [ next ].
+
   * Fix remoterss plugin for PHP 8 "XML Extension is not loaded or available",
     while being removed to PECL, for bundled-libs/Onyx/RSS library based RSS
     feeds. This now uses simpleXML.
