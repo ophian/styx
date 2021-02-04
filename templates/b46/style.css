@@ -1099,6 +1099,9 @@ details summary {
   padding: 1rem;
   background: #eee;
   border: 1px solid #aaa; }
+  .serendipity_freetag_taglist ul {
+    border: 1px outset #f0ffff;
+    background: #f0f8ff; }
 
 .serendipity_freetag_taglist_related {
   font-size: 18px;
