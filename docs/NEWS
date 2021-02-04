@@ -4,7 +4,8 @@ Version 3.3-DEV ()
   * Fix using the $hideSubdirFiles true cased param option for selection cases
     outside the MediaLibrary (like the usergallery plugin).
 
-  * Fix some "B46" theme comment heading and archive_overview styles
+  * Fix some "B46" theme comment heading and archive_overview styles, as well as
+    a light background highlight for the simple freetag plainList text tagcloud.
 
   * Fix themes possible genpage hooked $comment_onchange livecomments variable
     in [ b46, bootstrap4, clean-blog, default, default-php, pure, skeleton,
