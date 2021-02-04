@@ -65,8 +65,8 @@ if (preg_match(PAT_APPROVE, $uri, $res) && $serendipity['serendipityAuthedUser']
     if (!defined('DATA_TRACKBACK_APPROVED')) define('DATA_TRACKBACK_APPROVED', false);
 }
 
-$is_multicat  = (isset($serendipity['POST']['isMultiCat'])  && is_array($serendipity['POST']['multiCat']))  ? true : false;
-$is_multiauth = (isset($serendipity['POST']['isMultiAuth']) && is_array($serendipity['POST']['multiAuth'])) ? true : false;
+$is_multicat  = (isset($serendipity['POST']['isMultiCat'])  && isset($serendipity['POST']['multiCat'])  && is_array($serendipity['POST']['multiCat']))  ? true : false;
+$is_multiauth = (isset($serendipity['POST']['isMultiAuth']) && isset($serendipity['POST']['multiAuth']) && is_array($serendipity['POST']['multiAuth'])) ? true : false;
 
 if (preg_match(PAT_ARCHIVES, $uri, $matches)
     || isset($serendipity['GET']['range'])
