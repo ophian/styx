@@ -709,6 +709,14 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word; }
 
+.archive.archive_overview {
+    margin-bottom: 2rem;
+    display: flow-root; }
+@media only screen and (min-width: 992px) {
+  .archive.archive_overview {
+    margin-bottom: 4rem; }
+}
+
 .pagination {
   margin: 0 0 18px;
   margin: 0 0 1rem;
