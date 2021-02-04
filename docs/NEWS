@@ -1,6 +1,9 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix using the $hideSubdirFiles true cased param option for selection cases
+    outside the MediaLibrary (like the usergallery plugin).
+
   * Fix some "B46" theme comment heading styles
 
   * Fix themes possible genpage hooked $comment_onchange livecomments variable
