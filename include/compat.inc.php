@@ -460,23 +460,45 @@ function serendipity_getCoreVersion($version) {
  * Make Serendipity emit an error message and terminate the script
  *
  * @access public
- * @param   string  HTML code to die with
+ * @param   string  HTML error to die with
+ * @param   bool    By null is for Maintenance mode
  * @return null
  */
-function serendipity_die($html) {
+function serendipity_die($html, $error = true) {
     $charset = !defined('LANG_CHARSET') ? 'UTF-8' : LANG_CHARSET;
-    die('<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=' . $charset . '">
-        <style>
-            .msg_alert { display: block; margin: 1.5em 0; padding: .5em; background: #f2dede; border: 1px solid #e4b9b9; color: #b94a48; }
-            .msg_alert .logo { float: right; margin-top: -4em; }
-            .msg_alert .logo:after { clear: right; }
-        </style>
-    </head>
-    <body>
+    $title   = $error ? 'Fatal Error' : '503 Service unavailable';
+    $name    = $error ? 'Error' : 'Maintenance';
+    $type    = $error ? 'an error' : 'maintenance';
+    $what    = $error ? 'suspended' : 'unavailable';
+    $help    = $error ? '<p>Please inform the Administrator of this site!</p>' : '';
+    die('<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta content="text/html; charset=' . $charset . '" http-equiv="Content-Type">
+    <meta name="robots" content="noindex,nofollow" />
+
+    <title>' . $title . '</title>
+    <style>
+        html { font-family: \'Terminal Dosis\', calibri, tahoma, sans-serif; }
+        body { color: #5C4E48; background: linear-gradient(#DAEEF5, transparent) no-repeat 0 5rem; }
+        .container { width: 60rem; margin: 10rem auto; }
+        h1 { font-weight: bold; line-height: 1.125; margin-bottom: 0.1rem; }
+        h2 { margin:0 }
+        .msg_alert { display: block; margin: 1.5em 0; padding: .5em; width: 95%; background: #f2dede; border: 1px solid #e4b9b9; color: #b94a48; }
+        .msg_alert .logo { float: right; margin-top: -6rem; margin-right: 2rem; }
+        .msg_alert .logo:after { clear: right; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1> ' . $name . ' </h1>
+        <h2> System is temporarily unavailable </h2>
+        <p> Due to '.$type.', the system is temporarily ' . $what . '. </p>
+        <p> Please visit us again in a few minutes. </p>
         <div class="msg_alert">' . $html . '</div>
-    </body>
+        ' . $help . '
+    </div>
+</body>
 </html>');
 }
 
