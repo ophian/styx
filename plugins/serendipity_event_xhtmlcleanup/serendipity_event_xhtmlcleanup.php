@@ -53,7 +53,7 @@ class serendipity_event_xhtmlcleanup extends serendipity_event
         );
 
         $conf_array = array();
-        foreach($this->markup_elements as $element) {
+        foreach($this->markup_elements AS $element) {
             $conf_array[] = $element['name'];
         }
         $conf_array[] = 'xhtml_parse';

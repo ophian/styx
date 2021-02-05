@@ -49,7 +49,7 @@ class serendipity_event_bbcode extends serendipity_event
         $conf_array = array();
         $conf_array[] = 'info';
         $conf_array[] = 'target';
-        foreach($this->markup_elements as $element) {
+        foreach($this->markup_elements AS $element) {
             $conf_array[] = $element['name'];
         }
         $propbag->add('configuration', $conf_array);
