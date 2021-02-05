@@ -39,7 +39,7 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.29');
+        $propbag->add('version',       '1.30');
         $propbag->add('requirements',  array(
             'serendipity' => '2.1',
             'php'         => '5.3.0'
@@ -102,7 +102,7 @@ class serendipity_event_modemaintain extends serendipity_event
         serendipity_header( 'X-S9y-Maintenance: true' ); // Used for debugging detection
         serendipity_header( 'Content-Type: text/html; charset=utf-8' );
         serendipity_header( "Retry-After: $retry" );
-        serendipity_die(nl2br("<h2>503 - SERENDIPITY STYX SERVICE MODE</h2>\n$logo".$this->maintenanceText));
+        serendipity_die(nl2br("$logo".$this->maintenanceText), null);
         exit; // actually no need, but for security reasons left alive
     }
 
