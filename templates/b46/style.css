@@ -1102,6 +1102,8 @@ details summary {
   .serendipity_freetag_taglist ul {
     border: 1px outset #f0ffff;
     background: #f0f8ff; }
+  .freetag_wordcloud canvas {
+    z-index: 1028 !important; }
 
 .serendipity_freetag_taglist_related {
   font-size: 18px;
