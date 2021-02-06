@@ -1,5 +1,5 @@
 <?php
-@define('B46_INSTR', '<b>Hinweis:</b> "b46" ist ein Upgrade Engine:Template des "bootstrap4" Themes.<p>Für die Darstellung der Tags unter Einträgen, erlauben Sie die "Erweitertes Smarty" Option im Freetag Plugin.</p><p>Lassen sie das "#" in der URL eines Navigationsleisten-Links, so kann in der index.tpl ein popover Submenu manuell erstellt werden. Beispiel vorhanden.</p>');
+@define('B46_INSTR', '<b>Hinweis:</b> "b46" ist ein Upgrade Engine:Template des "bootstrap4" Themes.<p>Für die Darstellung der Tags unter Einträgen, erlauben Sie die "Erweitertes Smarty" Option im Freetag Plugin.</p><p>Lassen Sie das "#" in der URL eines Navigationsleisten-Links, so kann in der index.tpl ein popover Submenu manuell erstellt werden. Beispiel vorhanden.</p>');
 @define('B46_USE_CORENAV', 'Globale Navigation einbinden?');
 @define('B46_SEND_MAIL', 'Schicke Email');
 @define('B46_USE_SEARCH', 'Zeige Suche im Kopf');
