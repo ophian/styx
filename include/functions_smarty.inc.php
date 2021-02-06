@@ -1162,7 +1162,7 @@ function serendipity_smarty_init($vars = array()) {
                 'use_popups'                => $serendipity['enablePopup'] ?? false,
                 'use_backendpopups'         => $serendipity['enableBackendPopup'] ?? false,
                 'force_backendpopups'       => $force_backendpopups,
-                'is_embedded'               => (!isset($serendipity['embed']) || $serendipity['embed'] === 'false' || $serendipity['embed'] === false) ? false : true,
+                'is_embedded'               => (empty($serendipity['embed']) || $serendipity['embed'] === 'false' || $serendipity['embed'] === false) ? false : true,
                 'is_raw_mode'               => $serendipity['smarty_raw_mode'],
                 'is_logged_in'              => serendipity_userLoggedIn(),
 
