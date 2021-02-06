@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx, Stephan Brunker');
-        $propbag->add('version',       '2.52');
+        $propbag->add('version',       '2.53');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -345,7 +345,7 @@ class serendipity_event_nl2br extends serendipity_event
                     if ($isobr) {
                         $serendipity['nl2br']['iso2br'] = true; // include to global since also used by staticpages now
 
-                        if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
+                        if (!is_object($serendipity['smarty'])) {
                             serendipity_smarty_init(); // if not set to avoid member function assign() on a non-object error, start Smarty templating
                         }
 
