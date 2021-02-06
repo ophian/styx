@@ -471,7 +471,7 @@ if (isset($serendipity['GET']['searchTerm'])) {
     $serendipity['GET']['searchTerm'] = serendipity_specialchars(strip_tags((string)$serendipity['GET']['searchTerm']), null, LANG_CHARSET, false);
 }
 
-// Some stuff...
+// Some default inits...
 if (!isset($_SESSION['serendipityAuthedUser'])) {
     $_SESSION['serendipityAuthedUser'] = false;
 }
@@ -490,6 +490,10 @@ if (defined('IN_serendipity_admin') && !isset($serendipity['use_autosave'])) {
 
 if (!isset($serendipity['useInternalCache'])) {
     $serendipity['useInternalCache'] = false;
+}
+
+if (!isset($serendipity['smarty'])) {
+    $serendipity['smarty'] = null;
 }
 
 // Does the clients browser accept webp?
