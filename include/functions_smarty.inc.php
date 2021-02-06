@@ -1302,7 +1302,7 @@ function serendipity_smarty_shutdown($serendipity_directory = '') {
 function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = null, $debug = null) {
     global $serendipity;
 
-    if (!is_object($serendipity['smarty'])) {
+    if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
 
