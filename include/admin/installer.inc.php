@@ -431,7 +431,7 @@ if ((int)$serendipity['GET']['step'] == 0) {
 
 include_once  dirname(dirname(__FILE__)) . '/functions.inc.php';
 
-if (!is_object($serendipity['smarty'])) {
+if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
