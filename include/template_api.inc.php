@@ -537,7 +537,7 @@ class serendipity_smarty_emulator_xml extends serendipity_smarty_emulator
     function &fetch($resource_name, $cache_id = NULL, $compile_id = NULL, $display = false)
     {
         if ($GLOBALS['matches'][2] == 'admin/serendipity_styx.js') {
-            if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
+            if (!is_object($serendipity['smarty'])) {
                 ob_start();
                 $tfile = $GLOBALS['serendipity']['serendipityPath'] . $GLOBALS['serendipity']['templatePath'] . 'default/admin/serendipity_styx.js.php';
                 echo "/* Dynamically fetched {$GLOBALS['serendipity']['templatePath']}default/admin/serendipity_styx.js.php on " . date('Y-m-d H:i') . ", called by: serendipity_smarty_emulator_xml class */\n";
