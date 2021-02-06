@@ -4092,7 +4092,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
 
     $displayGallery  = (isset($serendipity['GET']['showGallery']) && !isset($serendipity['GET']['showUpload']) && $serendipity['GET']['showGallery'] == 'true') ? true : false;
 
-    if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
+    if (!is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
     $order_fields = serendipity_getImageFields();
