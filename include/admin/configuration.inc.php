@@ -74,7 +74,7 @@ if (empty($serendipity['updateReleaseFileUrl'])) {
 // A pre parsed and rendered template, analogue to 'ENTRIES' etc
 $data['CONFIG'] = serendipity_printConfigTemplate(serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE), $serendipity, false, true);
 
-if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
+if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
