@@ -1245,7 +1245,7 @@ function serendipity_smarty_init($vars = array()) {
 function serendipity_smarty_purge() {
     global $serendipity;
 
-    if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
+    if (!is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
     $_cdir = new RecursiveDirectoryIterator($serendipity['smarty']->getCompileDir());
@@ -1302,7 +1302,7 @@ function serendipity_smarty_shutdown($serendipity_directory = '') {
 function serendipity_smarty_showTemplate($tplfile, $data = null, $debugtype = null, $debug = null) {
     global $serendipity;
 
-    if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
+    if (!is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
     }
 
