@@ -672,7 +672,7 @@ if (($showAbort && $serendipity['GET']['action'] == 'ignore') || $serendipity['G
 $data['get']['action'] = $serendipity['GET']['action']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipity['GET'] by runtime
 $data['templatePath']  = $serendipity['templatePath'];
 
-if (!isset($serendipity['smarty']) || !is_object($serendipity['smarty'])) {
+if (!is_object($serendipity['smarty'])) {
     serendipity_smarty_init();
 }
 
