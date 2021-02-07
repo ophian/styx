@@ -71,6 +71,9 @@
             CKEDITOR.replace( 'serendipity_commentform_comment', { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']] });
         }
     </script>
+    {assign var="hljsload" value=true}
+{/if}
+{if (in_array($view, ['start', 'entries', 'entry', 'categories']) AND $wysiwyg_comment) OR isset($hljsload) && $hljsload === true}
     <link rel="stylesheet" href="{$serendipityHTTPPath}{$templatePath}_assets/highlight/github.min.css">
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/highlight/highlight.min.js"></script>
     <script>
