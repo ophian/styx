@@ -9,12 +9,12 @@ $info['theme_info_summary'] = 'Das Styx Backend (Beispiel) Default Theme';
 
 $info['theme_info_desc'] = '<u>ACHTUNG&colon;</u> Dieses Theme hat kein eigenes Frontend!<br>
 Dieses Backend Beispiel-Theme verweist auf die Styx Kern Backend Templates im "default/admin" Unterverzeichnis.
-Als Beispiel zeigt es die Möglichkeit, ein eigenes und mehr oder weniger leeres Backend Theme zu erstellen, dass als "Fallback" die Standard "default" Backend Template Dateien nutzt.
+Als Beispiel zeigt es die Möglichkeit, ein eigenes und mehr oder weniger leeres Backend Theme zu erstellen das als "Fallback" die Standard "default" Backend Template Dateien nutzt.
 Dies bedenkend, sind Sie in der Lage, nur diejenigen Dateien zu ändern und hinzuzufügen, die notwendig sind, um Ihre momentanen Bedürfnisse zu erfüllen.';
 
 $info['theme_info_backend'] = 'Dieses Backend Beispiel-Theme verweist auf die Styx Kern Backend Templates im "default/admin" Unterverzeichnis.
-Als Beispiel zeigt es die Möglichkeit, ein eigenes und mehr oder weniger leeres Backend Theme zu erstellen, dass als "Fallback" die Standard "default" Backend Template Dateien nutzt.
-Dies bedenkend, sind Sie in der Lage, nur diejenigen Dateien zu ändern und hinzuzufügen, die notwendig sind, um Ihre momentanen Bedürfnisse zu erfüllen.
+Als Beispiel zeigt es die Möglichkeit, ein eigenes und mehr oder weniger leeres Backend Theme zu erstellen das als "Fallback" die Standard "default" Backend Template Dateien nutzt.
+Dies bedenkend, sind Sie damit in der Lage, nur diejenigen Dateien zu ändern und hinzuzufügen, die notwendig sind, um Ihre momentanen Bedürfnisse zu erfüllen.
 Dieses Backend-Beispiel kann sich in Zukunft ändern, um mehr echte Dateien für die Backend-Generierung vorzuhalten.
 Momentan enthält es nur eine Index-Template-Datei, die relevante Informationen und Assets auf der Login-Seite entfernt, wenn Sie nicht angemeldet sind.<br>
 * 2017-08-21 - Neu hinzugekommen ist ein Bugfix für die Backend-Ansichten mit "rtl" (right-to-left), auf rechts gedrehtes Schrift-Attribut im &lt;html&gt; Element.<br>
