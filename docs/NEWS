@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Upgrade ckebasic assets highlight.min.js file to v.10.5.0
+
   * Improve serendipity_die() for errors vs maintenance mode.
     Please update your custom maintenance mode text.
 
