@@ -272,7 +272,7 @@ function serendipity_displayCommentForm($id, $url = '', $comments = NULL, $data 
         // fetch all current possible comment ids for this current answer
         foreach ($comments AS $comment) {
             if (isset($data['id']) && $comment['id'] != $data['id']) {
-                $entry_comment_parents[] = array('id' => $comment['id'], 'name' => str_replace(array('[', ']', '(', ')', '\'', '"'), '', serendipity_specialchars($comment['author'])));
+                $entry_comment_parents[] = array('id' => $comment['id'], 'name' => str_replace(array('[', ']', '(', ')', '\'', '"'), '', serendipity_specialchars(substr($comment['author'], 0, 16))));
             }
         }
         if (isset($entry_comment_parents)) {
