@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve backend comment replyTO selection switch
+
   * Allow highlight.js on entries list in [ B46, Dude ] themes
 
   * Upgrade ckebasic assets highlight.min.js file to v.10.5.0
