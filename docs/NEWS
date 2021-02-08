@@ -1,7 +1,7 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix and improve some possible issues with Image-Magick for multi-uploads
+  * Fix and improve some possible issues with ImageMagick for multi-file-uploads
 
   * Improve backend comment replyTO selection switch
 
