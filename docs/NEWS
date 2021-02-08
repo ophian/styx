@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix and improve some possible issues with Image-Magick for multi-uploads
+
   * Improve backend comment replyTO selection switch
 
   * Allow highlight.js on entries list in [ B46, Dude ] themes
