@@ -967,6 +967,7 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
         return false;
     } else {
         $cmd = str_replace(array('  '), array(' '), $cmd);
+        @ini_set('max_execution_time', 120);
         @exec($cmd, $out, $res);
     }
 
