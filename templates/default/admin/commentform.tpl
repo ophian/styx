@@ -36,7 +36,11 @@ if (!window.CKEDITOR) {
             <label for="serendipity_commentform_replyToParent">{$CONST.IN_REPLY_TO} {$CONST.COMMENT} ID</label>
             <select id="serendipity_commentform_replyToParent" name="serendipity[commentform][replyToParent]">
             {foreach $commentform_changeReplyTo AS $copa}
-                <option value="{$copa}"{if $commentform_replyTo == $copa} selected="selected"{/if}>c# {$copa}</option>
+{if empty($copa.id)}
+                <option value="{$copa}"{if $commentform_replyTo == $copa} selected="selected"{/if}> {$CONST.TOP_LEVEL}</option>
+{else}
+                <option value="{$copa.id}"{if $commentform_replyTo == $copa.id} selected="selected"{/if}>{$copa.name} #c{$copa.id}</option>
+{/if}
             {/foreach}
             </select>
             <button class="toggle_info button_link" type="button" data-href="#copa_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.MORE}</span></button>
