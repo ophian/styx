@@ -670,6 +670,9 @@ ul.pagination {
     padding: 0 0 0 13,5px;
     padding: 0 0 0 .75rem;
     border-left: 4px solid #aaa; }
+  .post_info {
+    display: inline-block;
+    width: 100%; }
 
 .post_meta .d-inline-block {
   vertical-align: initial; }
