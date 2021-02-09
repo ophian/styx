@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.43');
+        $propbag->add('version',       '2.44');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1930,7 +1930,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
 
             if ($part[1] == 'log') {
                 $cleanspamlog = serendipity_db_query("SELECT * , from_unixtime( timestamp ) AS tdate FROM {$serendipity['dbPrefix']}spamblocklog WHERE type LIKE 'REJECTED' OR type LIKE 'reject' OR type LIKE 'MODERATE' ORDER BY tdate DESC");
-                if (isset($serendipity['logger']) && is_object($serendipity['logger'])) {
+                if (is_object($serendipity['logger'])) {
                     $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START serendipity_event_spamblock (cleanspam) SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
                     $serendipity['logger']->debug("LOG: " . print_r($cleanspamlog,1));
                     $append = 'logged';
