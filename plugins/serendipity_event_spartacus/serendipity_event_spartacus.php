@@ -24,7 +24,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.10');
+        $propbag->add('version',       '3.11');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -408,7 +408,7 @@ class serendipity_event_spartacus extends serendipity_event
         static $error = false;
         static $debug = false; // ad hoc, case-by-case debugging
 
-        $debug = (isset($serendipity['logger']) && is_object($serendipity['logger']) && $debug); // ad hoc debug + enabled logger
+        $debug = (is_object($serendipity['logger']) && $debug); // ad hoc debug + enabled logger
         if ($debug) {
             $serendipity['logger']->debug("\n" . str_repeat(" <<< ", 10) . "DEBUG START Spartacus::fetchfile SEPARATOR" . str_repeat(" <<< ", 10) . "\n");
         }
