@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve some "B46" theme issues for cases and trackback link
+
   * Fix and improve some possible issues with ImageMagick for multi-file-uploads
 
   * Improve backend comment replyTO selection switch
