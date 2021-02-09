@@ -1656,7 +1656,7 @@ $(function() {
     });
 
     // Show further links - we already made sure this is not mpf layered per default (w/o having self preferences ever saved)
-    <?php if ($GLOBALS['serendipity']['use_backendpopups'] || isset($GLOBALS['serendipity']['force_backendpopups']['links'])): ?>
+    <?php if ((isset($GLOBALS['serendipity']['use_backendpopups']) && $GLOBALS['serendipity']['use_backendpopups']) || isset($GLOBALS['serendipity']['force_backendpopups']['links'])): ?>
         if ($('#dashboard').length > 0) {
             $('.toggle_links').click(function(e) {
                 $('#s9y_links').toggleClass('mfp-hide');
