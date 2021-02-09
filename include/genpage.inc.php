@@ -145,7 +145,7 @@ switch (@$serendipity['GET']['action']) {
 }
 
 // mute possible uninitialized search action
-if (@$serendipity['GET']['action'] != 'search' && !empty($serendipity['content_message']) && $serendipity['view'] != 'plugin' && @$serendipity['viewtype'] != '404_1') {
+if (@$serendipity['GET']['action'] != 'search' && !empty($serendipity['content_message']) && $serendipity['view'] != 'plugin' && (isset($serendipity['viewtype']) && $serendipity['viewtype'] != '404_1')) {
     $serendipity['smarty']->assign('content_message', $serendipity['content_message']);
 }
 
