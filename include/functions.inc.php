@@ -152,7 +152,7 @@ function serendipity_request_url($uri, $method = 'GET', $contenttype = null, $da
     if (is_array($auth)) {
         $req->setAuth($auth['user'], $auth['pass']);
     }
-    if ($data != null) {
+    if (null !== $data) {
         if (is_array($data)) {
             $req->addPostParameter($data);
         } else {
