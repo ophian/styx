@@ -201,7 +201,7 @@ switch ($serendipity['GET']['adminAction']) {
             $file = serendipity_fetchImageFromDatabase((int)$media_id);
             serendipity_prepareMedia($file);
             $file['props'] =& serendipity_fetchMediaProperties((int)$media_id);
-            #if (isset($serendipity['logger']) && is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_SELECTMULTIGALLERYITEMS: Images MediaProperties: " . print_r($file['props'],1)); }
+            #if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_SELECTMULTIGALLERYITEMS: Images MediaProperties: " . print_r($file['props'],1)); }
             serendipity_plugin_api::hook_event('media_getproperties_cached', $file['props']['base_metadata'], $file['realfile']);
             // serendipity_fetchMediaProperties() returns either with subgroup key properties or without, by case having saved the media items properties page before. Do not trust viewed items, since they may be copy-placed EXIF data of the image itself not having been saved.
             $file['prop_imagecomment'] = serendipity_specialchars(($file['props']['base_property']['ALL']['COMMENT1'] ?? ($file['props']['base_property']['COMMENT1'] ?? '')));
@@ -558,17 +558,17 @@ switch ($serendipity['GET']['adminAction']) {
                                 $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> WebP image format variation(s) created!</span>'."\n";
                                 if (is_array($result)) {
                                     if ($result[0] == 0) {
-                                        if (isset($serendipity['logger']) && is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success ${result[2]} from $target " . DONE); }
+                                        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image WebP format creation success ${result[2]} from $target " . DONE); }
                                     } else {
-                                        if (isset($serendipity['logger']) && is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation success ${result[2]} from $target " . DONE); }
+                                        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation success ${result[2]} from $target " . DONE); }
                                     }
                                 }
                             } else {
                                 $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> WebP image format copy creation failed!</span>'."\n";
                                 if ($serendipity['magick'] !== true) {
-                                    if (isset($serendipity['logger']) && is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image WebP format creation failed"); }
+                                    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image WebP format creation failed"); }
                                 } else {
-                                    if (isset($serendipity['logger']) && is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation failed"); }
+                                    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation failed"); }
                                 }
                             }
                         }
