@@ -501,7 +501,7 @@ if (!isset($serendipity['logger'])) {
 }
 
 // Does the clients browser accept webp?
-if (!isset($serendipity['http_accept_webp'])) {
+if (!isset($serendipity['http_accept_webp']) && isset($_SERVER['HTTP_ACCEPT'])) {
     $serendipity['http_accept_webp'] = (strpos($_SERVER['HTTP_ACCEPT'], 'image/webp') >= 0) ? true : false;
 }
 
