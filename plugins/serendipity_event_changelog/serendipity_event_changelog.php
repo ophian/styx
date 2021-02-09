@@ -20,7 +20,7 @@ class serendipity_event_changelog extends serendipity_event
         $propbag->add('description',    PLUGIN_CHANGELOG_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.36');
+        $propbag->add('version',       '1.37');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0.2',
             'php'         => '5.3.0'
@@ -67,7 +67,7 @@ class serendipity_event_changelog extends serendipity_event
                         $file =  $mb_blah . "\n\n" . file_get_contents($serendipity['serendipityPath'] . 'docs/NEWS');
                         echo $file;
                     }
-                    if ($part[0] == 'logs' && isset($serendipity['logger']) && is_object($serendipity['logger'])) {
+                    if ($part[0] == 'logs' && is_object($serendipity['logger'])) {
                         if (!headers_sent()) {
                             header('HTTP/1.0 200');
                             header('Status: 200 OK');
@@ -119,7 +119,7 @@ class serendipity_event_changelog extends serendipity_event
         <button class="toggle_info button_link" type="button" data-href="#logview_info"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> <?php echo MORE; ?></span></button>
         <span id="logview_info" class="comment_status additional_info"><?php echo sprintf(PLUGIN_CHANGELOG_TITLE_DESC, $serendipity['version']); ?></span>
 <?php
-                    if (isset($serendipity['logger']) && is_object($serendipity['logger'])) {
+                    if (is_object($serendipity['logger'])) {
                         $files = glob($serendipity['serendipityPath'] . PATH_SMARTY_COMPILE . '/logs/*.txt');
                         // cleanup empty files automatically
                         foreach($files as $filename) {
