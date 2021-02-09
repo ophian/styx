@@ -259,8 +259,10 @@ class serendipity_smarty_emulator
     {
         if ($isConfig) {
             $dir = &$this->config_dir;
+            $this->_configDirNormalized = false;
         } else {
             $dir = &$this->template_dir;
+            $this->_templateDirNormalized = false;
         }
         if ($isConfig ? !$this->_configDirNormalized : !$this->_templateDirNormalized) {
             $this->_normalizeTemplateConfig($isConfig);
