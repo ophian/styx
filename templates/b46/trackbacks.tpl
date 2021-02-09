@@ -16,7 +16,7 @@
             <summary><time datetime="{$trackback.timestamp|serendipity_html5time}">{$trackback.timestamp|formatTime:($template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY)}</time> | {$CONST.VIEW_EXTENDED_ENTRY|sprintf:"<em>{$trackback.title}</em>"}</summary>
             <div class="clearfix">
                 {$trackback.body|strip_tags|escape:'htmlall'} [&hellip;]
-                <span class="trackback_author">{$CONST.RANGE_FROM} <strong>{$trackback.author|default:$CONST.ANONYMOUS}</strong> {$CONST.IN} <a href="{$trackback.url|strip_tags}">{$trackback.title}</a></span>
+                <span class="trackback_author">{$CONST.RANGE_FROM} <strong>{$trackback.author|default:$CONST.ANONYMOUS}</strong> {$CONST.IN} <a class="btn btn-dark btn-sm trackback-link" href="{$trackback.url|strip_tags}">{$trackback.title}</a></span>
                 {if NOT empty($entry.is_entry_owner)}<a href="{$trackback.link_delete}">{$CONST.TRACKBACK} {$CONST.DELETE}</a>{/if}
             </div>
         </details>
