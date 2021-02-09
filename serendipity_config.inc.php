@@ -346,7 +346,7 @@ if (serendipity_FUNCTIONS_LOADED !== true) {
 if (!serendipity_db_connect()) {
     $serendipity['lang'] = 'en';
     include(S9Y_INCLUDE_PATH . 'include/lang.inc.php');
-    if (isset($serendipity['logger']) && is_object($serendipity['logger'])) {
+    if (is_object($serendipity['logger'])) {
         $serendipity['logger']->critical(mb_convert_encoding(DATABASE_ERROR, 'UTF-8', LANG_CHARSET));
     }
     serendipity_die(DATABASE_ERROR);
