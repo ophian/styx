@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve session_start() for header sent issues, sending trackbacks
+
   * Avoid loading the structural replacer theme [ default, default-php ] JS
     in the backend on entry save, since it breaks.
 
