@@ -276,6 +276,7 @@ function serendipity_truncateString($s, $len) {
  */
 function serendipity_gzCompression() {
     global $serendipity;
+
     if (isset($serendipity['useGzip']) && serendipity_db_bool($serendipity['useGzip'])
         && function_exists('ob_gzhandler') && extension_loaded('zlib')
         && serendipity_ini_bool(ini_get('zlib.output_compression')) == false
@@ -1384,8 +1385,12 @@ function serendipity_request_start() {
  * Continues a session after a file request
  */
 function serendipity_request_end() {
-    @session_start();
-    return true;
+    if (!headers_sent()) {
+        session_start();
+        return true;
+    } else {
+        return false;
+    }
 }
 
 if (!function_exists('microtime_float')) {
