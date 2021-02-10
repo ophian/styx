@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.44');
+        $propbag->add('version',       '2.45');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -647,6 +647,7 @@ class serendipity_event_spamblock extends serendipity_event
     function tellAboutComment($where, $api_key, $comment_id, $is_spam)
     {
         global $serendipity;
+
         $comment = serendipity_db_query(" SELECT C.*, L.useragent AS log_useragent, E.title AS entry_title "
                                       . " FROM {$serendipity['dbPrefix']}comments C, {$serendipity['dbPrefix']}spamblocklog L , {$serendipity['dbPrefix']}entries E "
                                       . " WHERE C.id = '" . (int)$comment_id . "' AND C.entry_id=L.entry_id AND C.entry_id=E.id "
@@ -1490,8 +1491,9 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
                     if ($tell_id !== null) {
                         $akismet_apikey = $this->get_config('akismet');
                         $akismet        = $this->get_config('akismet_filter');
-                        if (!empty($akismet_apikey))
+                        if (!empty($akismet_apikey)) {
                             $this->tellAboutComment('akismet.com', $akismet_apikey, $tell_id, $tell_spam);
+                        }
                     }
 
                     // Add Author to blacklist. If already filtered, it will be removed from the filter. (AKA "Toggle")
