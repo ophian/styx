@@ -59,7 +59,9 @@
 <?= $GLOBALS['tpl']['raw_data']; ?>
 <?php serendipity_plugin_api::hook_event('frontend_footer', $GLOBALS['template']); ?>
 
+<?php if ($GLOBALS['tpl']['is_embedded'] != true && !isset($GLOBALS['tpl']['mode'])): ?>
 <script src="<?= serendipity_getTemplateFile('default.js') ?>"></script>
+<?php endif; ?>
 
 <?php if ($GLOBALS['tpl']['is_embedded'] != true): ?>
 </body>
