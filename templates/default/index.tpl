@@ -64,9 +64,12 @@
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
 
-{if $is_embedded != true}
+{if $is_embedded !== true AND NOT isset($mode)}
 
     <script type="text/javascript" src="{serendipity_getFile file="default.js"}"></script>
+{/if}
+{if $is_embedded !== true}
+
 </body>
 </html>
 {/if}
