@@ -1,6 +1,9 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Avoid loading the structural replacer theme [ default, default-php ] JS
+    in the backend on entry save, since it breaks.
+
   * Fix a wrong customURI variable case in templates installing the default theme
 
   * Improve some "B46" theme issues for cases and trackback link
