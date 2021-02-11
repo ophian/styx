@@ -293,8 +293,6 @@ function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) 
  * @return true
  */
 function add_trackback($id, $title, $url, $name, $excerpt) {
-    global $serendipity;
-
     log_trackback('[' . date('d.m.Y H:i') . '] add_trackback:' . print_r(func_get_args(), true));
 
     // We can't accept a trackback if we don't get any URL
@@ -369,8 +367,6 @@ function add_trackback($id, $title, $url, $name, $excerpt) {
  * @return boolean
  */
 function add_pingback($id, $postdata) {
-    global $serendipity;
-
     log_pingback("Reached add_pingback. ID:[$id]");
 
     // XML-RPC Method call without named parameter. This seems to be the default way using XML-RPC
@@ -567,7 +563,7 @@ function serendipity_trackback_excerpt($text) {
  *
  * @access public
  */
-function report_trackback_success () {
+function report_trackback_success() {
 print '<?xml version="1.0" encoding="iso-8859-1"?>' . "\n";
 print <<<SUCCESS
 <response>
@@ -581,7 +577,7 @@ SUCCESS;
  *
  * @access public
  */
-function report_trackback_failure () {
+function report_trackback_failure() {
 print '<?xml version="1.0" encoding="iso-8859-1"?>' . "\n";
 print <<<FAILURE
 <response>
@@ -596,7 +592,7 @@ FAILURE;
  *
  * @access public
  */
-function report_pingback_success () {
+function report_pingback_success() {
 print '<?xml version="1.0"?>' . "\n";
 print <<<SUCCESS
 <methodResponse>
@@ -614,7 +610,7 @@ SUCCESS;
  *
  * @access public
  */
-function report_pingback_failure () {
+function report_pingback_failure() {
 print '<?xml version="1.0"?>' . "\n";
 print <<<FAILURE
 <methodResponse>
