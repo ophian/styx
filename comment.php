@@ -102,7 +102,7 @@ if ($type == 'trackback') {
         log_trackback('[' . date('d.m.Y H:i') . '] ID: ' . $id . "\n");
     }
 
-    if (isset($id) && in_array($_REQUEST, ['title','url','blog_name','excerpt']) && add_trackback($id, $_REQUEST['title'], $_REQUEST['url'], $_REQUEST['blog_name'], $_REQUEST['excerpt'])) {
+    if (isset($id) && !empty($_REQUEST['url']) && !empty($_REQUEST['title']) && !empty($_REQUEST['blog_name']) && !empty($_REQUEST['excerpt']) && add_trackback($id, $_REQUEST['title'], $_REQUEST['url'], $_REQUEST['blog_name'], $_REQUEST['excerpt'])) {
         if ($tb_logging) {
             log_trackback('[' . date('d.m.Y H:i') . '] TRACKBACK SUCCESS' . "\n");
             log_trackback('---------------------------------------');
