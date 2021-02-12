@@ -535,6 +535,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
 
     // Templates can depend on a possible "Engine" (i.e. "Engine: 2k11").
     // We support the fallback chain also of a template's configuration, so let's check each engine for a config file.
+    // No case sensivity here, since is_file() is safe with all appearances. Take realpath if not!
     if (!empty($data['engine'])) {
         $engines = explode(',', $data['engine']);
         foreach($engines AS $engine) {
@@ -786,7 +787,7 @@ function serendipity_sendMail($to, $subject, $message, $fromMail, $headers = NUL
     if ($maildata['legacy']) {
         // Check for mb_* function, and use it to encode headers etc. */
         if (function_exists('mb_encode_mimeheader')) {
-            // mb_encode_mimeheader function insertes linebreaks after 74 chars.
+            // mb_encode_mimeheader function inserts linebreaks after 74 chars.
             // Usually this is according to spec, but for us it caused more trouble than
             // it prevented.
             // Regards to Mark Kronsbein for finding this issue!
