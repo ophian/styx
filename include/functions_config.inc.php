@@ -450,7 +450,7 @@ function serendipity_login($use_external = true) {
     } elseif (isset($serendipity['COOKIE']['author_information']) && !empty($serendipity['COOKIE']['author_information_iv'])) {
         $cookie = serendipity_checkAutologin($serendipity['COOKIE']['author_information'], $serendipity['COOKIE']['author_information_iv']);
 
-        $data = array('ext' => $use_external, 'mode' => 1, 'user' => $cookie['username'], 'pass' => $cookie['password']);
+        $data = is_array($cookie) ? array('ext' => $use_external, 'mode' => 1, 'user' => $cookie['username'], 'pass' => $cookie['password']) : [];
         serendipity_plugin_api::hook_event('backend_loginfail', $data);
 
         if (is_array($cookie) && serendipity_authenticate_author($cookie['username'], $cookie['password'], false, $use_external)) {
