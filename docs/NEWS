@@ -1,6 +1,11 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve trackback references name key data by trim, improve DEV debugging
+    output and add a forced resend trackback debug helper for the trackback
+    event plugin, when global logging DEBUG configuration is set to "debug".
+    (Partial a [s9y] Sync).
+
   * Improve session_start() for header sent issues, sending trackbacks
 
   * Avoid loading the structural replacer theme [ default, default-php ] JS
