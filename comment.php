@@ -87,7 +87,7 @@ if ($type == 'trackback') {
 
     if ($tb_logging) {
         log_trackback('[' . date('d.m.Y H:i') . '] RECEIVED TRACKBACK' . "\n");
-        log_trackback('[' . date('d.m.Y H:i') . '] ' . print_r($_REQUEST, true) . "\n");
+        log_trackback('[' . date('d.m.Y H:i') . '] _REQUEST ' . print_r($_REQUEST, true) . "\n");
     }
 
     $uri = $_SERVER['REQUEST_URI'];
