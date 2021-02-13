@@ -780,6 +780,9 @@ function serendipity_handle_references($id, $author, $title, $text, $dry_run = f
 
     $duplicate_check = array();
     for ($i = 0; $i < $j; ++$i) {
+        if (!isset($names[$i])) {
+            continue; // skip keys that don't exist
+        }
         $i_link     = serendipity_db_escape_string(rtrim(strip_tags($names[$i])));
         $i_location = serendipity_db_escape_string(rtrim($locations[$i]));
 
