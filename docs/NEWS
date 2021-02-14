@@ -1,6 +1,9 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new option to "B46" theme to run entries as a truncated summary/detail
+    element, like a newsticker.
+
   * Improve trackback references name key data by trim, improve DEV debugging
     output and add a forced resend trackback debug helper for the trackback
     event plugin, when global logging DEBUG configuration is set to "debug".
