@@ -42,7 +42,7 @@
             {/if}</div>
         </details>
         </div><!-- /.post_content hugo end -->
-        {else if $template_option.card == 0}{$entry.body}{/if}
+        {else if $template_option.card == 0 OR $is_single_entry}{$entry.body}{/if}
         {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended AND $template_option.hugo == 0 AND $template_option.card == 0}
         <a class="post_more btn btn-secondary btn-sm d-inline-block mb-3" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
         {/if}{if $template_option.hugo == 0 AND $template_option.card == 0}</div><!-- /.post_content end -->
