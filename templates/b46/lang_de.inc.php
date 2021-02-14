@@ -8,6 +8,8 @@
 @define('B46_HUGO_DESC', '0 meint: Nicht aktiviert!');
 @define('B46_HUGO_TTT', '÷ffnen und schlieﬂen mit Mausklick, oder, wenn Feld aktiv, mit Leertaste der Tastatur');
 @define('B46_HUGO_TITLE_ELSE', 'Zum Artikel');
+@define('B46_CARD', 'Artikel [body] als Kachel Anreiﬂer mit der L‰nge');
+@define('B46_CARD_TITLE_ELSE', 'Kein Vorschau Text vorhanden');
 
 // If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
 @define('BS_RSS', 'RSS-Links in der Seitenleiste?');
