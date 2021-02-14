@@ -674,6 +674,30 @@ ul.pagination {
     display: inline-block;
     width: 100%; }
 
+.post_content > details:not([open]) {
+  display: initial;
+  margin-bottom: 1rem;
+  border: 1px solid #f0f0f0;
+  border-radius: .25em;
+  border-right-width: 3px;
+  border-right-style: groove;
+  transition: 0.15s background linear; }
+  .post_content > details > summary {
+    outline: none; }
+  .post_details {
+    display: flow-root; }
+  .post_content > details:hover,
+  .post_content > details:focus {
+    background-color: #d4d1ec;
+    background: -webkit-linear-gradient(top, rgba(212,209,236,0) 0%,rgba(212,209,236,1) 100%);
+    background: -moz-linear-gradient(top, rgba(212,209,236,0) 0%,rgba(212,209,236,1) 100%);
+    background: linear-gradient(135deg, rgba(212,209,236,0) 0%,rgba(212,209,236,1) 100%); }
+  .post_content > details > summary >.post_summary {
+    display: contents; }
+    .post_content > details[open] > summary >.post_summary {
+      display: none;
+      visibility: hidden; }
+
 .post_meta .d-inline-block {
   vertical-align: initial; }
   .post_meta.plainList li.post_comments.d-inline-block a {
