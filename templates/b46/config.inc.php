@@ -85,6 +85,13 @@ $template_config = array(
        'default' => 0
     ),
     array(
+       'var' => 'card',
+       'name' => B46_CARD,
+       'description' => 'B46_CARD_DESC',
+       'type' => 'string',
+       'default' => 0
+    ),
+    array(
        'var' => 'bs_rss',
        'name' => BS_RSS,
        'type' => 'boolean',
