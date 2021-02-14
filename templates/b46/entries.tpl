@@ -29,16 +29,26 @@
 
         <div class="post_content clearfix">
         {if NOT empty($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon|escape}"></a>{/if}{/foreach}{/if}
-        {$entry.body}
-        {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
+        {***** HUGONIZE *****}
+        {if $template_option.hugo > 0 AND NOT $is_single_entry}{assign "hugo" value=$entry.body|strip_tags|truncate:$template_option.hugo:''}
+
+        <details>
+            <summary title="{$CONST.B46_HUGO_TTT}"><div class="post_summary">{if isset($hugo) AND $hugo|count_characters !== 0}{$hugo}{else if $entry.has_extended}{$entry.extended|strip_tags|truncate:$template_option.hugo:''}{else}{$CONST.B46_HUGO_TITLE_ELSE}{/if}&hellip;</div></summary>
+            <div class="post_details">{$entry.body}
+            {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
+            <a class="post_more btn btn-secondary btn-sm d-inline-block mb-3" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
+            {/if}</div>
+        </details>
+        </div><!-- /.post_content hugo end -->
+        {else}{$entry.body}{/if}
+        {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended AND $template_option.hugo == 0}
         <a class="post_more btn btn-secondary btn-sm d-inline-block mb-3" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
-        {/if}
-        </div>
+        {/if}{if $template_option.hugo == 0}</div><!-- /.post_content end -->
         {if $entry.is_extended}
         <div id="extended" class="post_content clearfix">
         {$entry.extended}
         </div>
-        {/if}
+        {/if}{/if}{* hugo end *}
 {if NOT $is_preview}
         <footer class="post_info">
         {if NOT empty($entry.categories) OR $entry.has_comments}
