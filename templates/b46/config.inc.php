@@ -78,6 +78,13 @@ $template_config = array(
        'default' => true
     ),
     array(
+       'var' => 'hugo',
+       'name' => B46_HUGO,
+       'description' => B46_HUGO_DESC,
+       'type' => 'string',
+       'default' => 0
+    ),
+    array(
        'var' => 'bs_rss',
        'name' => BS_RSS,
        'type' => 'boolean',
