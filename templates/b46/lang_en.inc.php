@@ -4,6 +4,10 @@
 @define('B46_USE_CORENAV', 'Use global navigation?');
 @define('B46_USE_SEARCH', 'Use quicksearch in the navigation head bar');
 @define('B46_JUMPSCROLL', 'Use scroll button jumper');
+@define('B46_HUGO', 'Article [body] as toggle summary teaser with length');
+@define('B46_HUGO_DESC', '0 means: Not set!');
+@define('B46_HUGO_TTT', 'When over, click mouse or toggle by keyboards space-bar when set active');
+@define('B46_HUGO_TITLE_ELSE', 'Open entry');
 
 // If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
 @define('BS_RSS', 'RSS links in sidebar?');
