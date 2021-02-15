@@ -114,8 +114,7 @@
     <a id="to-top"></a>
     {if NOT empty($CONTENT)}
 
-{if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}
-{if $template_option.featured != 0}
+{if NOT $is_single_entry AND in_array($view, ['start', 'entries']) AND $template_option.featured != 0 AND ($template_option.card > 0 OR $template_option.hugo > 0)}
 <div class="p-4 p-md-5 mb-4 mt-4 text-white rounded bg-image" style="background-image: url('{$featured_post.image}'); height: {$featured_post.height};">
     <div class="col-md-12 px-0">
       <h1 class="display-4 fst-italic text-truncate" title="{$featured_post.title}">{$featured_post.title}</h1>
@@ -123,6 +122,8 @@
       <p class="lead mb-0"><a href="{$featured_post.url}" class="text-white fw-bold">{$featured_post.link}</a></p>
     </div>
 </div>
+{/if}
+{if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}
 <div class="row mb-2">
 {/if}
     {$CONTENT}
