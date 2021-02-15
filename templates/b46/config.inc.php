@@ -92,6 +92,13 @@ $template_config = array(
        'default' => 0
     ),
     array(
+       'var' => 'featured',
+       'name' => B46_LEAD,
+       'description' => B46_LEAD_DESC . "image=${serendipity['serendipityHTTPPath']}${serendipity['templatePath']}${serendipity['template']}/img/hsfcrds.webp&height=350px&title=Title of a longer featured blog post&text=Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents. This background image is borrowed from ARTE House of Cards preview for template demo view only. Please do not use without permission!&url=#&link=Continue reading...",
+       'type' => 'string',
+       'default' => 0
+    ),
+    array(
        'var' => 'bs_rss',
        'name' => BS_RSS,
        'type' => 'boolean',
@@ -111,6 +118,10 @@ $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
 serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config);
 
+if ($template_loaded_config['featured'] != 0) {
+    parse_str($template_loaded_config['featured'], $fpost);
+    $serendipity['smarty']->assign('featured_post', $fpost);
+}
 if (isset($_SESSION['serendipityUseTemplate'])) {
     $template_loaded_config['use_corenav'] = false;
 }
