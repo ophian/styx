@@ -622,6 +622,15 @@ ul.pagination {
   font-size: 1.666666rem;
   text-shadow: 0 -1px 0 rgba(0,0,0,0.25); }
 
+#searchform {
+    visibility: hidden;
+    display: none; }
+@media only screen and (min-width: 640px) {
+  #searchform {
+    visibility: initial;
+    display: initial; }
+}
+
 #serendipityQuickSearchTermField {
   min-width: 4em;
   max-width: 18em;
