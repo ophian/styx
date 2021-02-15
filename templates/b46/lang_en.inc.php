@@ -8,10 +8,10 @@
 @define('B46_HUGO_TTT', 'When over, click mouse or toggle by keyboards space-bar when set active');
 @define('B46_HUGO_TITLE_ELSE', 'Open entry');
 @define('B46_TEASE', '0 means: Not set!');
-@define('B46_CARD', 'Article [body] as a Grid-Card summary teaser with length');
+@define('B46_CARD', 'Article [body] as a Grid-Card teaser with length');
 @define('B46_CARD_TITLE_ELSE', 'No entry summary text available');
-@define('B46_LEAD', 'By teaser, add top featured article');
-@define('B46_LEAD_DESC', 'Enter 0 for "not activated", or use this GET string array with unchanged keys: ');
+@define('B46_LEAD', 'By teaser, add a top featured article');
+@define('B46_LEAD_DESC', 'Enter 0 for "not activated", or use this "URI" alike string array representation, to fill in the text (with unchanged keys): ');
 
 // If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
 @define('BS_RSS', 'RSS links in sidebar?');
