@@ -55,7 +55,8 @@
         {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}{assign "card" value=$entry.body|strip_tags|truncate:$template_option.card:''}
 
           <div class="card-body">
-            <p class="card-text post_summary">{if isset($card) AND $card|count_characters !== 0}{$card}{else if $entry.has_extended}{$entry.extended|strip_tags|truncate:$template_option.card:''}{else}{$CONST.B46_CARD_TITLE_ELSE}{/if}&hellip;</p>
+            <p class="card-text post_summary mb-0">{if isset($card) AND $card|count_characters !== 0}{$card}{else if $entry.has_extended}{$entry.extended|strip_tags|truncate:$template_option.card:''}{else}{$CONST.B46_CARD_TITLE_ELSE}{/if}&hellip;</p>
+            <div class="text-sm-right"><a href="{$entry.link}" class="btn btn-secondary btn-sm stretched-link">{$CONST.MORE}</a></div>
           </div>
         </div>{* /.post_content CARD END *}
         {/if}
