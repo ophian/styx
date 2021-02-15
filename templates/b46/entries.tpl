@@ -8,7 +8,7 @@
       {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}<div class="col d-flex flex-column position-static">{* START HOUSE OF CARDS *}{/if}
 
         <header>
-            {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}<h2 class="text-truncate"><a href="{$entry.link}" title="{$entry.title}">{else}<h2><a href="{$entry.link}">{/if}{$entry.title}</a></h2>
+            {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}<h2 class="text-truncate" title="{$entry.title}">{$entry.title}{else}<h2><a href="{$entry.link}">{$entry.title}</a>{/if}</h2>
 
             <ul class="post_byline plainList">
                 <li class="d-inline-block">
