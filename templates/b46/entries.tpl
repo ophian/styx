@@ -5,7 +5,7 @@
 {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
 
     <article class="post{if $is_single_entry} post_single{/if}{if $dategroup.is_sticky} post_sticky{/if}{if $template_option.card > 0 AND NOT $is_single_entry} col-sm-6 col-lg-4{/if} mb-4">
-      {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}<div class="col d-flex flex-column position-static">{* start house of cards *}{/if}
+      {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}<div class="col d-flex flex-column position-static">{* START HOUSE OF CARDS *}{/if}
 
         <header>
             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
@@ -50,14 +50,14 @@
         <div id="extended" class="post_content clearfix">
         {$entry.extended}
         </div>
-        {/if}{/if}{* hugo end *}
+        {/if}{/if}{* HUGO END *}
         {***** HOUSE OF CARDS *****}
         {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}{assign "card" value=$entry.body|strip_tags|truncate:$template_option.card:''}
 
           <div class="card-body">
             <p class="card-text post_summary">{if isset($card) AND $card|count_characters !== 0}{$card}{else if $entry.has_extended}{$entry.extended|strip_tags|truncate:$template_option.card:''}{else}{$CONST.B46_CARD_TITLE_ELSE}{/if}&hellip;</p>
           </div>
-        </div>{* /.post_content card end *}
+        </div>{* /.post_content CARD END *}
         {/if}
 {if NOT $is_preview}
 
@@ -219,7 +219,7 @@
     {/if}
 {/if}
     {$entry.backend_preview}
-      {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}</div><!-- end house of cards -->{/if}
+      {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}</div><!-- END HOUSE OF CARDS -->{/if}
 
     </article>
     {/foreach}
