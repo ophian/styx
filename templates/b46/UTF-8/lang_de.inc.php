@@ -10,6 +10,8 @@
 @define('B46_TEASE', '0 meint: Nicht aktiviert!');
 @define('B46_CARD', 'Artikel [body] als Kachel Aufmacher mit der Länge');
 @define('B46_CARD_TITLE_ELSE', 'Kein Artikel Vorschau Text vorhanden');
+@define('B46_LEAD', 'Bei Aufmacher, vorangestellter Feature Artikel');
+@define('B46_LEAD_DESC', 'Tragen Sie hier 0 für "Nicht aktiviert", bzw. folgende urlartige Konfiguration (mit unveränderten Schlüsseln) ein: ');
 
 // If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
 @define('BS_RSS', 'RSS-Links in der Seitenleiste?');
