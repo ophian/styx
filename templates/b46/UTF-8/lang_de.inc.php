@@ -4,12 +4,12 @@
 @define('B46_SEND_MAIL', 'Schicke Email');
 @define('B46_USE_SEARCH', 'Zeige Suche im Kopf');
 @define('B46_JUMPSCROLL', 'Nutze scrolljump Button');
-@define('B46_HUGO', 'Artikel [body] als aufklappbarer Anreißer mit Länge');
-@define('B46_HUGO_DESC', '0 meint: Nicht aktiviert!');
+@define('B46_HUGO', 'Artikel [body] als klappbarer Aufmacher mit Länge');
 @define('B46_HUGO_TTT', 'Öffnen und schließen mit Mausklick, oder, wenn Feld aktiv, mit Leertaste der Tastatur');
 @define('B46_HUGO_TITLE_ELSE', 'Zum Artikel');
-@define('B46_CARD', 'Artikel [body] als Kachel Anreißer mit der Länge');
-@define('B46_CARD_TITLE_ELSE', 'Kein Vorschau Text vorhanden');
+@define('B46_TEASE', '0 meint: Nicht aktiviert!');
+@define('B46_CARD', 'Artikel [body] als Kachel Aufmacher mit der Länge');
+@define('B46_CARD_TITLE_ELSE', 'Kein Artikel Vorschau Text vorhanden');
 
 // If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
 @define('BS_RSS', 'RSS-Links in der Seitenleiste?');

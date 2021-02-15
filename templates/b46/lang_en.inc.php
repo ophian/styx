@@ -5,11 +5,11 @@
 @define('B46_USE_SEARCH', 'Use quicksearch in the navigation head bar');
 @define('B46_JUMPSCROLL', 'Use scroll button jumper');
 @define('B46_HUGO', 'Article [body] as toggle summary teaser with length');
-@define('B46_HUGO_DESC', '0 means: Not set!');
 @define('B46_HUGO_TTT', 'When over, click mouse or toggle by keyboards space-bar when set active');
 @define('B46_HUGO_TITLE_ELSE', 'Open entry');
+@define('B46_TEASE', '0 means: Not set!');
 @define('B46_CARD', 'Article [body] as a Grid-Card summary teaser with length');
-@define('B46_CARD_TITLE_ELSE', 'No summary text available');
+@define('B46_CARD_TITLE_ELSE', 'No entry summary text available');
 
 // If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
 @define('BS_RSS', 'RSS links in sidebar?');

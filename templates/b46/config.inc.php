@@ -80,14 +80,14 @@ $template_config = array(
     array(
        'var' => 'hugo',
        'name' => B46_HUGO,
-       'description' => B46_HUGO_DESC,
+       'description' => B46_TEASE,
        'type' => 'string',
        'default' => 0
     ),
     array(
        'var' => 'card',
        'name' => B46_CARD,
-       'description' => 'B46_CARD_DESC',
+       'description' => B46_TEASE,
        'type' => 'string',
        'default' => 0
     ),
