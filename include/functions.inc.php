@@ -512,7 +512,9 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
     $charsetpath  = (LANG_CHARSET == 'UTF-8') ? '/UTF-8' : '';
     $info_default = S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_en.inc.php';
     if ((isset($data['summary']) || isset($data['description']) || isset($data['backenddesc'])) && @is_file($info_default)) {
-        @include(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . $charsetpath. '/lang_info_'.$serendipity['lang'].'.inc.php');
+        if (file_exists(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . $charsetpath. '/lang_info_'.$serendipity['lang'].'.inc.php')) {
+            include(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . $charsetpath. '/lang_info_'.$serendipity['lang'].'.inc.php');
+        }
         if (!empty($info)) {
             $data['summary']     = $info['theme_info_summary'] ?? $data['summary'];
             $data['description'] = $info['theme_info_desc']    ?? $data['description'];
