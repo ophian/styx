@@ -19,6 +19,14 @@
 {/if}
     <link rel="stylesheet" href="{serendipity_getFile file="css/bootstrap.min.css"}">
     <link rel="stylesheet" href="{$head_link_stylesheet}">
+{if $template_option.lineup}
+    <style>
+      .b46-lineup-nav { visibility: hidden; }
+      .b46-lineup-nav.show { visibility: visible; }
+      .nav.b46-expand { width: 100%; }
+      @media (min-width: 768px) and (max-width: 991.98px) { .medium-top { margin-top: -1.5rem !important; } }
+    </style>
+{/if}
     <link rel="alternate" type="application/rss+xml" title="{$blogTitle} RSS feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/index.rss2">
     <link rel="alternate" type="application/x.atom+xml" title="{$blogTitle} Atom feed" href="{$serendipityBaseURL}{$serendipityRewritePrefix}feeds/atom.xml">
 {if $entry_id}
@@ -35,14 +43,6 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="container">
   <a class="navbar-brand homelink1" href="{$serendipityBaseURL}" title="{$head_title|default:$blogDescription}">{$blogTitle|truncate:80:" ..."}</a>
-{if $template_option.lineup}
-  <style>
-    .b46-lineup-nav { visibility: hidden; }
-    .b46-lineup-nav.show { visibility: visible; }
-    .nav.b46-expand { width: 100%; }
-    @media (min-width: 768px) and (max-width: 991.98px) { .medium-top { margin-top: -1.5rem !important; } }
-  </style>
-{/if}
 {if $template_option.use_corenav OR $template_option.lineup}
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#corenav" aria-controls="corenav" aria-expanded="false" aria-label="Toggle navigation">
