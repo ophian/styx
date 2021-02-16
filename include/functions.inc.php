@@ -493,7 +493,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
     // init default
     $data['summary'] = $data['description'] = $data['backenddesc'] = $data['backend'] = null;
 
-    for($x=0; $x<count($lines); $x++) {
+    for($x=0; $x < count($lines); $x++) {
         $j = preg_split('/([^\:]+)\:/', $lines[$x], -1, PREG_SPLIT_DELIM_CAPTURE);
         if (!empty($j[2])) {
             $currSec = $j[1];
@@ -520,7 +520,9 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
             $data['description'] = $info['theme_info_desc']    ?? $data['description'];
             $data['backenddesc'] = $info['theme_info_backend'] ?? $data['backenddesc'];
         } else {
-            @include(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_'.$serendipity['lang'].'.inc.php');
+            if (file_exists(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_'.$serendipity['lang'].'.inc.php')) {
+                include(S9Y_INCLUDE_PATH . $serendipity['templatePath'] . $theme . '/lang_info_'.$serendipity['lang'].'.inc.php');
+            }
             if (empty($info)) {
                 include($info_default);
             }
