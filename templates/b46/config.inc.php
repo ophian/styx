@@ -109,6 +109,12 @@ $template_config = array(
         'name' => B46_USE_CORENAV,
         'type' => 'boolean',
         'default' => false
+    ),
+    array(
+        'var' => 'lineup',
+        'name' => B46_NAV_ONELINE,
+        'type' => 'boolean',
+        'default' => true
     )
 );
 
