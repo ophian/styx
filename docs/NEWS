@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new option to "B46" theme to run navigation independently beneath the bar
+
   * Add new option to "B46" theme to run a featured article above both teasers.
     The "title" and "text" array keys are mandatory. If no background image is set,
     the background color is dark.
