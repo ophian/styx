@@ -35,13 +35,21 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
   <div class="container">
   <a class="navbar-brand homelink1" href="{$serendipityBaseURL}" title="{$head_title|default:$blogDescription}">{$blogTitle|truncate:80:" ..."}</a>
-{if $template_option.use_corenav}
+{if $template_option.lineup}
+  <style>
+    .b46-lineup-nav { visibility: hidden; }
+    .b46-lineup-nav.show { visibility: visible; }
+    .nav.b46-expand { width: 100%; }
+    @media (min-width: 768px) and (max-width: 991.98px) { .medium-top { margin-top: -1.5rem !important; } }
+  </style>
+{/if}
+{if $template_option.use_corenav OR $template_option.lineup}
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#corenav" aria-controls="corenav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="corenav">
+  <div class="collapse navbar-collapse b46-lineup-nav" id="corenav">
     <ul class="navbar-nav mr-auto">
 {foreach $navlinks AS $navlink}
     {if $navlink.title != '' AND $navlink.href != ''}
@@ -109,13 +117,45 @@
     {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
   </div>
 </nav>
+{if $template_option.lineup}
+
+<nav class="container navbar navbar-expand-md">
+  <div class="collapse navbar-collapse" id="corenav">
+    <ul class="nav d-flex justify-content-between b46-expand">
+{foreach $navlinks AS $navlink}
+    {if $navlink.title != '' AND $navlink.href != ''}
+
+        <li class="nav-item p-2{if $currpage == $navlink.href OR $currpage2 == $navlink.href} active{/if}{if ($navlink.href|smartySubstr:null:-1) == '#'} dropdown menu-item-{$navlink@index}{/if}">
+        {if ($navlink.href|smartySubstr:null:-1) == '#'}
+
+            <a id="navbarDropdown-{$navlink@index}" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{$navlink.title}</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown-{$navlink@index}">
+                <h6 class="dropdown-header">1st group header title</h6>
+                <a class="dropdown-item" href="/your/url/to/staticpage/">- First</a>
+                <div class="dropdown-divider"></div>
+                <h6 class="dropdown-header">2cd group header title</h6>
+                <a class="dropdown-item" href="#">- Some</a>
+                <a class="dropdown-item" href="#">- Thing</a>
+                <a class="dropdown-item" href="#">- Title</a>
+            </div>
+        {else}
+
+            <a class="nav-link" href="{$navlink.href}">{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href} <span class="sr-only">(current)</span>{/if}</a>
+        </li>
+        {/if}
+    {/if}
+{/foreach}
+    </ul>
+  </div>
+</nav>
+{/if}
 
 <main role="main" class="container">
     <a id="to-top"></a>
     {if NOT empty($CONTENT)}
 
 {if NOT $is_single_entry AND in_array($view, ['start', 'entries']) AND $template_option.featured != 0 AND ($template_option.card > 0 OR $template_option.hugo > 0)}
-<div class="p-4 p-md-5 mb-4 mt-4 text-white rounded bg-{if NOT empty($featured_post.image)}image{else}dark{/if}" style="{if NOT empty($featured_post.image)}background-image: url('{$featured_post.image|strip_tags|escape}'); {/if}{if NOT empty($featured_post.height)}height: {$featured_post.height|strip_tags|escape};{/if}">
+<div class="p-4 p-md-5{if NOT $template_option.lineup AND NOT $template_option.use_corenav} mb-4 mt-4{/if}{if $template_option.lineup} medium-top{/if}{if NOT $template_option.lineup AND $template_option.use_corenav} mt-4{/if} text-white rounded bg-{if NOT empty($featured_post.image)}image{else}dark{/if}" style="{if NOT empty($featured_post.image)}background-image: url('{$featured_post.image|strip_tags|escape}'); {/if}{if NOT empty($featured_post.height)}height: {$featured_post.height|strip_tags|escape};{/if}">
     <div class="col-md-12 px-0">
       <h1 class="display-4 fst-italic text-truncate" title="{$featured_post.title|strip_tags|escape}">{$featured_post.title|strip_tags|escape}</h1>
       <p class="lead my-3">{$featured_post.text|strip_tags|escape}</p>{if NOT empty($featured_post.url) && NOT empty($featured_post.link)}
