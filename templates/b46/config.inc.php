@@ -94,7 +94,7 @@ $template_config = array(
     array(
        'var' => 'featured',
        'name' => B46_LEAD,
-       'description' => B46_LEAD_DESC . "image=${serendipity['serendipityHTTPPath']}${serendipity['templatePath']}${serendipity['template']}/img/hsfcrds.webp&height=350px&title=Title of a longer featured blog post&text=Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents. This background image is borrowed from ARTE House of Cards preview for template demo view only. Please do not use without permission!&url=#&link=Continue reading...",
+       'description' => B46_TEASE . B46_LEAD_DESC . "image=${serendipity['serendipityHTTPPath']}${serendipity['templatePath']}${serendipity['template']}/img/hsfcrds.webp&height=350px&title=Title of a longer featured blog post&text=Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents. This background image is borrowed from ARTE House of Cards preview for template demo view only. Please do not use without permission!&url=#&link=Continue reading...",
        'type' => 'string',
        'default' => 0
     ),
