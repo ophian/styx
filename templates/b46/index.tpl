@@ -115,11 +115,11 @@
     {if NOT empty($CONTENT)}
 
 {if NOT $is_single_entry AND in_array($view, ['start', 'entries']) AND $template_option.featured != 0 AND ($template_option.card > 0 OR $template_option.hugo > 0)}
-<div class="p-4 p-md-5 mb-4 mt-4 text-white rounded bg-image" style="background-image: url('{$featured_post.image}'); height: {$featured_post.height};">
+<div class="p-4 p-md-5 mb-4 mt-4 text-white rounded bg-image" style="background-image: url('{$featured_post.image|strip_tags|escape}'); height: {$featured_post.height|strip_tags|escape};">
     <div class="col-md-12 px-0">
-      <h1 class="display-4 fst-italic text-truncate" title="{$featured_post.title}">{$featured_post.title}</h1>
-      <p class="lead my-3">{$featured_post.text}</p>
-      <p class="lead mb-0"><a href="{$featured_post.url}" class="text-white fw-bold">{$featured_post.link}</a></p>
+      <h1 class="display-4 fst-italic text-truncate" title="{$featured_post.title|strip_tags|escape}">{$featured_post.title|strip_tags|escape}</h1>
+      <p class="lead my-3">{$featured_post.text|strip_tags|escape}</p>
+      <p class="lead mb-0"><a href="{$featured_post.url|strip_tags|escape}" class="text-white fw-bold">{$featured_post.link|strip_tags|escape}</a></p>
     </div>
 </div>
 {/if}
