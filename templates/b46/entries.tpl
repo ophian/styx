@@ -42,7 +42,7 @@
             {/if}</div>
         </details>
 
-        </div><!-- /.post_content hugo end -->
+        </div>{* /.post_content hugo end *}
 
         {else if $template_option.card == 0 OR $is_single_entry}{$entry.body}{/if}
         {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended AND $template_option.hugo == 0 AND $template_option.card == 0}
@@ -62,7 +62,7 @@
             <div class="text-sm-right"><a href="{$entry.link}" class="btn btn-secondary btn-sm stretched-link">{$CONST.MORE}</a></div>
           </div>
 
-        </div><!-- /.post_content card end -->
+        </div>{* /.post_content card end *}
         {/if}
 {if NOT $is_preview}
 
