@@ -154,7 +154,7 @@
     <a id="to-top"></a>
     {if NOT empty($CONTENT)}
 
-{if NOT $is_single_entry AND in_array($view, ['start', 'entries']) AND $template_option.featured != 0 AND ($template_option.card > 0 OR $template_option.hugo > 0)}
+{if NOT $is_single_entry AND in_array($view, ['start', 'entries', 'archives']) AND $template_option.featured != 0 AND ($template_option.card > 0 OR $template_option.hugo > 0)}
 <div class="p-4 p-md-5{if NOT $template_option.lineup AND NOT $template_option.use_corenav} mb-4 mt-4{/if}{if $template_option.lineup} medium-top{/if}{if NOT $template_option.lineup AND $template_option.use_corenav} mt-4{/if} text-white rounded bg-{if NOT empty($featured_post.image)}image{else}dark{/if}" style="{if NOT empty($featured_post.image)}background-image: url('{$featured_post.image|strip_tags|escape}'); {/if}{if NOT empty($featured_post.height)}height: {$featured_post.height|strip_tags|escape};{/if}">
     <div class="col-md-12 px-0">
       <h1 class="display-4 fst-italic text-truncate" title="{$featured_post.title|strip_tags|escape}">{$featured_post.title|strip_tags|escape}</h1>
