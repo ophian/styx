@@ -1149,6 +1149,11 @@ details summary {
   margin: 0 0 9px;
   margin: 0 0 .5rem;
   font-weight: bold; }
+.serendipity_freetag_taglist div#tags {
+    display: none;
+    visibility: hidden; }
+    .freetag_rotacloud {
+      background: aliceblue; }
 
 .commentspice_announce_article {
   font-size: 14px;
