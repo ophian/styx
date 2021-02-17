@@ -41,12 +41,15 @@
             <a class="post_more btn btn-secondary btn-sm d-inline-block mb-3" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
             {/if}</div>
         </details>
-        </div><!-- /.post_content hugo end -->
+
+        </div><!-- /.post_content hugo/listentry end -->
+
         {else if $template_option.card == 0 OR $is_single_entry}{$entry.body}{/if}
         {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended AND $template_option.hugo == 0 AND $template_option.card == 0}
         <a class="post_more btn btn-secondary btn-sm d-inline-block mb-3" href="{$entry.link}#extended">{$CONST.VIEW_EXTENDED_ENTRY|sprintf:$entry.title}</a>
-        {/if}{if $template_option.hugo == 0 AND $template_option.card == 0}</div><!-- /.post_content end -->
+        {/if}{if ($template_option.hugo == 0 AND $template_option.card == 0) OR $is_single_entry}</div><!-- /.post_content entry end -->
         {if $entry.is_extended}
+
         <div id="extended" class="post_content clearfix">
         {$entry.extended}
         </div>
@@ -58,6 +61,7 @@
             <p class="card-text post_summary mb-0">{if isset($card) AND $card|count_characters !== 0}{$card}{else if $entry.has_extended}{$entry.extended|strip_tags|truncate:$template_option.card:''}{else}{$CONST.B46_CARD_TITLE_ELSE}{/if}&hellip;</p>
             <div class="text-sm-right"><a href="{$entry.link}" class="btn btn-secondary btn-sm stretched-link">{$CONST.MORE}</a></div>
           </div>
+
         </div>{* /.post_content CARD END *}
         {/if}
 {if NOT $is_preview}
@@ -232,6 +236,7 @@
     {/if}
 {/if}
 {if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
+
     <nav{if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0} class="col-sm-12"{/if} aria-label="{$footer_info|default:''}" title="{$footer_info|default:''}">
         <ul class="entries_pagination pagination justify-content-between">
             <li class="page-item prev{if empty($footer_prev_page)} disabled{/if}">
