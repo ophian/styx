@@ -8,6 +8,7 @@
 @define('B46_HUGO_TTT', '÷ffnen und schlieﬂen mit Mausklick, oder, wenn Feld aktiv, mit Leertaste der Tastatur');
 @define('B46_HUGO_TITLE_ELSE', 'Zum Artikel');
 @define('B46_TEASE', '0 meint: Nicht aktiviert!');
+@define('B46_TEASE_COND', ' - Nur Ziffern & w‰hle Typ entw./oder!');
 @define('B46_CARD', 'Artikel [body] als Kachel Aufmacher mit der L‰nge');
 @define('B46_CARD_TITLE_ELSE', 'Kein Artikel Vorschau Text vorhanden');
 @define('B46_LEAD', 'Bei Aufmacher, vorangestellter Feature Artikel');

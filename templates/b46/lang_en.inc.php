@@ -8,9 +8,10 @@
 @define('B46_HUGO_TTT', 'When over, click mouse or toggle by keyboards space-bar when set active');
 @define('B46_HUGO_TITLE_ELSE', 'Open entry');
 @define('B46_TEASE', '0 means: Not set!');
+@define('B46_TEASE_COND', ' - Integers only & choose type either/or!');
 @define('B46_CARD', 'Article [body] as a Grid-Card teaser with length');
 @define('B46_CARD_TITLE_ELSE', 'No entry summary text available');
-@define('B46_LEAD', 'By teaser, add a top featured article');
+@define('B46_LEAD', 'By teaser type, add a top featured article');
 @define('B46_LEAD_DESC', ' Or use this "URI" alike plain text string "array" representation, to fill in the text (with unchanged keys) - "title" and "text" keys are mandatory: ');
 @define('B46_NAV_ONELINE', 'Navigation as independent line');
 
