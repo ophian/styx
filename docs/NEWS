@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixes for "pure" theme freetag clouds 
+
   * Allow "B46" theme featured article preset on paging 'archives' too. Read:
     https://github.com/ophian/styx/commit/73388402be960c896cefa78c3f596bb7b7b51f9c
 
