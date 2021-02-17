@@ -986,6 +986,11 @@ ul.staticpage_result li {
 .serendipity_freeTag_related {
     font-weight: bold;
 }
+.serendipity_freetag_taglist_related {
+    display: grid;
+    word-break: unset !important;
+    min-width: 6rem;
+}
 .serendipity_freeTag_related ul li {
     margin-bottom: .5em;
 }
@@ -998,11 +1003,11 @@ ul.staticpage_result li {
 }
 .freetag_cloud .serendipity_freetag_taglist {
     background-color: #f4f8fc;
-}
-.serendipity_freetag_taglist {
-    padding: 0 .25em !important;
-    border-radius: .25em;
-}
+    display: inline-flex;
+    width: 100%; }
+    .serendipity_freetag_taglist {
+      padding: 0 .25em !important;
+      border-radius: .25em; }
 
 .newsbox {
     margin-top: 1em;
