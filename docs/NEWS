@@ -1,6 +1,9 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Allow "B46" theme featured article preset on paging 'archives' too. Read:
+    https://github.com/ophian/styx/commit/73388402be960c896cefa78c3f596bb7b7b51f9c
+
   * Add new option to "B46" theme to run navigation independently beneath the bar
 
   * Add new option to "B46" theme to run a featured article above both teasers.
