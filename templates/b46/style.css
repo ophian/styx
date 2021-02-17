@@ -1131,6 +1131,8 @@ details summary {
   margin: auto 1.25rem; }
 
 .serendipity_freetag_taglist {
+  display: -webkit-inline-box;
+  display: inline-block;
   padding: 18px;
   padding: 1rem;
   background: #eee;
