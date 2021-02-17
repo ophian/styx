@@ -11,7 +11,7 @@
 @define('B46_CARD', 'Article [body] as a Grid-Card teaser with length');
 @define('B46_CARD_TITLE_ELSE', 'No entry summary text available');
 @define('B46_LEAD', 'By teaser, add a top featured article');
-@define('B46_LEAD_DESC', ' Or use this "URI" alike string array representation, to fill in the text (with unchanged keys) - "title" and "text" are mandatory: ');
+@define('B46_LEAD_DESC', ' Or use this "URI" alike plain text string "array" representation, to fill in the text (with unchanged keys) - "title" and "text" keys are mandatory: ');
 @define('B46_NAV_ONELINE', 'Navigation as independent line');
 
 // If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
