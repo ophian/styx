@@ -224,7 +224,7 @@
     {/if}
 {/if}
     {$entry.backend_preview}
-      {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}</div><!-- END HOUSE OF CARDS -->{/if}
+      {if $template_option.card > 0 AND NOT $is_single_entry AND $template_option.hugo == 0}</div>{* END HOUSE OF CARDS *}{/if}
 
     </article>
     {/foreach}
