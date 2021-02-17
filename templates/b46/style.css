@@ -570,8 +570,8 @@ main.col-xs-12.col-lg-12 .save_updertH hr {
   aside > section {
     display: inline-grid; }
   aside.col-lg-12 {
-    display: block;
     display: -webkit-box;
+    display: block;
     background-color: #343a40;
     color: #b0b0b0; }
     aside.col-lg-12 section {
