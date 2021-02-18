@@ -525,6 +525,10 @@ main.col-xs-12.col-lg-12 .save_updertH hr {
 .bi.bi-grip-horizontal {
   display: none; }
 
+/* static pages */
+.page {
+    width: 100%; }
+
 /* sidebars start */
 @media only screen and (min-width: 480px) {
   /* flexing the bottom sidebar item */
