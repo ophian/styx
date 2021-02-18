@@ -1,4 +1,4 @@
-<article class="page staticpage_plugin_contactform">
+<article class="page col-xs-12 col-lg-12 staticpage_plugin_contactform">
     <h2>{if $plugin_contactform_articleformat}{$plugin_contactform_name}{else}{$plugin_contactform_pagetitle}{/if}</h2>
 
     <div class="page_content page_preface">
