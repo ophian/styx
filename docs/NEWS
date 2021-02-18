@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve Serendipity Smarty API for special cased template initialization issues
+
   * Fixes for "pure" theme freetag clouds 
 
   * Allow "B46" theme featured article preset on paging 'archives' too. Read:
