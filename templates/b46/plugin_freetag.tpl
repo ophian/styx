@@ -1,4 +1,4 @@
-<div class="col-lg-12 serendipity_Entry_Date freetag_cloud">
+<div class="col-xs-12 col-lg-12 serendipity_Entry_Date freetag_cloud">
     <h2 class="serendipity_date">{$CONST.PLUGIN_EVENT_FREETAG_USING|sprintf:$freetag_tagTitle}</h2>
 
     {if empty($freetag_isList)}
