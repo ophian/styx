@@ -1230,6 +1230,10 @@ function serendipity_smarty_init($vars = array()) {
         } elseif (is_array($template_config)) {
             $template_vars =& serendipity_loadThemeOptions($template_config, $serendipity['smarty_vars']['template_option']);
             $serendipity['smarty']->assignByRef('template_option', $template_vars);
+        } else {
+            // themes without a config
+            $template_vars = array('date_format' => null);
+            $serendipity['smarty']->assign('template_option', $template_vars);
         }
     }
 
