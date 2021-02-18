@@ -1,4 +1,4 @@
-<article id="page_{$staticpage_pagetitle|makeFilename}" class="page">
+<article id="page_{$staticpage_pagetitle|makeFilename}" class="page col-xs-12 col-lg-12">
     <header>
        <h2>{if $staticpage_articleformat}{if $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}{else}{$staticpage_pagetitle|escape}{/if}{else}{if $staticpage_headline}{$staticpage_headline|escape}{else}{$staticpage_pagetitle|escape}{/if}{/if}</h2>
     </header>
