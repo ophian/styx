@@ -1019,6 +1019,8 @@ details summary {
 .serendipity_imageComment_txt {
   font-size: 14px;
   font-size: .8125rem;
+  word-wrap: anywhere;
+  overflow: hidden;
   padding: 3.375px;
   padding: .1875rem;
   border-top: 0 none;
