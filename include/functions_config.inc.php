@@ -683,7 +683,7 @@ function serendipity_authenticate_author($username = '', $password = '', $is_has
     static $debugc = 0;
 
     // We don't want to debug noisy bot dummies that just click on every link
-    if ($debug && !isset($_SESSION['serendipityAuthedUser']) && empty($username) && empty($password)) {
+    if ($debug && empty($_SESSION['serendipityPassword']) && empty($username) && empty($password)) {
         $debug = false;
     }
     if ($debug) {
