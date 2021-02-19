@@ -1027,7 +1027,7 @@ details summary {
 
 .serendipity_image_block.col .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right {
-    display: block; }
+    display: inline-block; }
 
 .serendipity_image_block.row .serendipity_imageComment_left {
     margin-top: 5px; }
