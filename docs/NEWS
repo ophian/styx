@@ -27,7 +27,7 @@ Version 3.3-DEV ()
 
   * Improve session_start() for header sent issues, sending trackbacks
 
-  * Avoid loading the structural replacer theme [ default, default-php ] JS
+  * Avoid loading the structural "replacer" [ default, default-php ] theme JS
     in the backend on entry save, since it breaks.
 
   * Fix a wrong customURI variable case in templates installing the default theme
