@@ -682,11 +682,15 @@ function serendipity_authenticate_author($username = '', $password = '', $is_has
     static $debug = false;
     static $debugc = 0;
 
+    // We don't want to debug noisy bot dummies that just click on every link
+    if (!isset($_SESSION['serendipityAuthedUser']) && empty($username) && empty($password)) {
+        $debug = false;
+    }
     if ($debug) {
         $fp = fopen('login.log', 'a');
         flock($fp, LOCK_EX);
         $debugc++;
-        fwrite($fp, date('Y-m-d H:i') . ' - #' . $debugc . ' Login init [' . $username . ',' . $password . ',' . (int)$is_hashed . ',' . (int)$use_external . ']' . ' (' . $_SERVER['REMOTE_ADDR'] . ',' . $_SERVER['REQUEST_URI'] . ', ' . session_id() . ')' . "\n");
+        fwrite($fp, date('Y-m-d H:i') . ' - #' . $debugc . ' Login init [' . $username . ',' . $password . ',' . (int)$is_hashed . ',' . (int)$use_external . ']' . ' (' . $_SERVER['REMOTE_ADDR'] . ', ' . $_SERVER['REQUEST_URI'] . ', ' . session_id() . ')' . "\n");
     }
 
     if (isset($_SESSION['serendipityUser']) && isset($_SESSION['serendipityPassword']) && isset($_SESSION['serendipityAuthedUser']) && $_SESSION['serendipityAuthedUser'] == true) {
