@@ -619,6 +619,7 @@ label > span,
 #mediaPropertyForm .media_file_props label,
 #mediaPropertyForm header b,
 #mediaPropertyForm footer b,
+#content .upgrade_task,
 #content .upgrade_done {
     display: block;
 }
