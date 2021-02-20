@@ -1050,6 +1050,9 @@ details summary {
   div:not(.serendipity_image_block) .serendipity_imageComment_img {
     display: inline-table; }
 
+p > img.serendipity_image_center {
+    margin: .5rem auto; }
+
 .serendipity_image_block > div:not([class]) {
     margin: 5px .425em 0; }
 
