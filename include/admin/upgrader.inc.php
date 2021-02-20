@@ -452,7 +452,7 @@ $tasks = array(
             array(  'version'   => '3.3.0',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_330),
-                    'title'     => 'Styx removed some core themes. "Bulletproof" further-on lives in Spartacus::additional_themes.',
+                    'title'     => 'Styx removed some obsolete core themes. "Bulletproof" further-on lives in Spartacus::additional_themes.',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_330) . '</pre>'),
 
             array(  'version'   => '3.3.0',
