@@ -185,9 +185,9 @@ ul#serendipity_categories_list {
     .serendipity_image_block.row .serendipity_image_left,
     .serendipity_image_block.row .serendipity_image_right {
       max-width: 260px; }
-    /* Line up a row gallery (manually) commented image to nearly fit the max-width 260px image sizes */
+    /* Line up a row gallery (manually) commented image to nearly fit the max-width 260px image sizes - avoid % flexed max-width sizes */
     .serendipity_image_block.row .serendipity_imageComment_left{
-      max-width: 260px;
+      max-width: 260px !important;
       min-width: 250px; }
       .serendipity_image_block.row .serendipity_imageComment_left .serendipity_image_link,
       .serendipity_image_block.row .serendipity_imageComment_left .serendipity_image_left {
