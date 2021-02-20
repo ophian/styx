@@ -101,6 +101,11 @@ if (@file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] 
     $data['deprecated'] = true;
 }
 
+if ($serendipity['template'] == 'bulletproof' && !is_dir($serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'])) {
+    echo '<span class="msg_error"><span class="icon-attention-circled"></span> Your theme <strong>' . $serendipity['template'] . '</strong> has been removed to additional themes. The Standard theme temporarily occurs here as fallback, while in the frontend the fallback use the "default" theme. Please change to any self-choosen theme to remove this message!</span>';
+    $serendipity['template'] = $serendipity['defaultTemplate']; // fall back to Standard in case of error
+}
+
 $data['cur_template']         = $serendipity['template'];
 $data['cur_template_backend'] = $serendipity['template_backend'];
 $data['cur_template_info']    = serendipity_fetchTemplateInfo($serendipity['template']);
