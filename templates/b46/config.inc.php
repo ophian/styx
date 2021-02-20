@@ -114,7 +114,7 @@ $template_config = array(
         'var' => 'lineup',
         'name' => B46_NAV_ONELINE,
         'type' => 'boolean',
-        'default' => true
+        'default' => false
     )
 );
 
