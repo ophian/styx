@@ -281,6 +281,9 @@ p > img.serendipity_image_right {
     .serendipity_image_block.col.c4 {
         column-count: 4;
     }
+    .serendipity_image_block.col.c5 {
+        column-count: 5;
+    }
 }
 .serendipity_image_block.col .serendipity_imageComment_left,
 .serendipity_image_block.col .serendipity_imageComment_right,
