@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix and allow $comment.avatar variable (by plugin) since being Standard theme
+
   * Fix allowing code highlight js on /comments/ summary pages in [ pure, psg, dude,
     b46 ] themes.
 
