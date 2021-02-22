@@ -10,7 +10,7 @@
         </header>
 
         <div class="clearfix">
-            {$comment.avatar|default:''}
+            {if isset($comment.avatar)}{$comment.avatar}{/if}
         {if $comment.body == 'COMMENT_DELETED'}
             <p class="msg-warning"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COMMENT_IS_DELETED}</p>
         {else}
