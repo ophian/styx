@@ -6,7 +6,7 @@
 {if $comment.body != ''}
 
     <div class="comment_content">
-        {$comment.avatar|default:''}
+        {if isset($comment.avatar)}{$comment.avatar}{/if}
         {if isset($comment.type) AND $comment.type == 'TRACKBACK'}{$comment.body|strip_tags:false} [&hellip;]{else}{$comment.body}{/if}
     </div>
 {/if}
