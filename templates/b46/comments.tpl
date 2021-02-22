@@ -1,6 +1,7 @@
 <ol class="plainList">
 {foreach $comments AS $comment}
     <li id="c{$comment.id|default:0}" class="comment mb-4{if isset($entry) AND $entry.author == $comment.author AND $entry.email == $comment.clear_email} serendipity_comment_author_self{/if} {cycle values="odd,even"} commentlevel_{if $comment.depth > 19}20{else}{$comment.depth}{/if}{if !isset($comment.id)} comment_preview{/if}">
+        {if isset($comment.avatar)}{$comment.avatar}{/if}
         <ul class="comment_info plainList">
             <li class="d-inline-block{if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND $comment.authoremail == $comment.clear_email} pc-owner{/if}">
                 {if isset($comment.entryauthor) AND $comment.entryauthor == $comment.author AND $comment.authoremail == $comment.clear_email}
