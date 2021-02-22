@@ -10,7 +10,7 @@
     </header>
 
     <div class="serendipity_commentBody clearfix content">
-        {$comment.avatar|default:''}{* Another example for default values *}
+        {if isset($comment.avatar)}{$comment.avatar}{/if}
     {if $comment.body == 'COMMENT_DELETED'}
         {$CONST.COMMENT_IS_DELETED}
     {else}
