@@ -10,9 +10,9 @@
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC', "WARNING:<br>\nCurrently there <em>may</em> be a (Session based) page loading issue not switching the mode button (green/red) here immediately after page reload. You then need to click somewhere else in the backend via sidebar and return, to see the button change (which has to get: green to red, or vice versa).");
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC', "EMERGENCY CASE:<br>\nIf you ever logged yourself out without resetting the 503 Maintenance Mode, or your login cookie got destroyed, you need to set the &dollar;serendipity['maintenance'] variable to 'false' in your serendipity_config_local.inc.php file to get public access to your blog again!");
 
-@define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Public Maintenance Mode Text');
-@define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', 'This site &#187;%s&#171; is currently undergoing some maintenance work and therefore is temporarily unavailable. Please visit us later.');
-@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Show the Serendipity logo?');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Additional Maintenance Mode Text');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', '');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Show the Serendipity2 logo?');
 
 @define('PLUGIN_MODEMAINTAIN_BUTTON', 'Set 503 Maintenance Mode');
 @define('PLUGIN_MODEMAINTAIN_FREEBUTTON', 'Unset 503 Maintenance Mode');

@@ -8,12 +8,6 @@ if (IN_serendipity !== true) {
 // Load possible language files.
 @serendipity_plugin_api::load_language(dirname(__FILE__));
 
- /**
-  * Class member instance attribute values
-  * Members must be initialized with a constant expression (like a string constant, numeric literal, etc), not a dynamic expression!
-  */
-@define('MODEMAINTAIN_PRESET_MOMATXT', sprintf(PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT, $serendipity['blogTitle']));
-
 // Extend the base class
 class serendipity_event_modemaintain extends serendipity_event
 {
@@ -23,7 +17,7 @@ class serendipity_event_modemaintain extends serendipity_event
      * Set Frontend maintenance mode text (set to pre-defined constant, as not allowed to use dynamic Serendipity array var)
      * @var string
      */
-    protected $maintenanceText = MODEMAINTAIN_PRESET_MOMATXT;
+    protected $maintenanceText = PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT;
 
     /**
      * Access property blockMaintenance
@@ -39,10 +33,10 @@ class serendipity_event_modemaintain extends serendipity_event
         $propbag->add('description',    PLUGIN_MODEMAINTAIN_TITLE_DESC);
         $propbag->add('stackable',      false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.30');
+        $propbag->add('version',       '1.31');
         $propbag->add('requirements',  array(
-            'serendipity' => '2.1',
-            'php'         => '5.3.0'
+            'serendipity' => '3.3',
+            'php'         => '7.3.0'
         ));
         $propbag->add('event_hooks',    array(
             'css_backend'         => true,
@@ -62,7 +56,7 @@ class serendipity_event_modemaintain extends serendipity_event
                 $propbag->add('rows',        3);
                 $propbag->add('name',        PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE);
                 $propbag->add('description', '');
-                $propbag->add('default',     str_replace(array('&#187;','&#171;'), '"', MODEMAINTAIN_PRESET_MOMATXT));
+                $propbag->add('default',     str_replace(array('&#187;','&#171;'), '"', PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT));
                 break;
 
             case 'use_s9ylogo':
@@ -179,7 +173,7 @@ class serendipity_event_modemaintain extends serendipity_event
                     } else {
                         $superuser = false;
                     }
-                    $this->maintenanceText = (string) $this->get_config('momatext', MODEMAINTAIN_PRESET_MOMATXT);
+                    $this->maintenanceText = (string) $this->get_config('momatext', PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT);
 
                     // This will stop Serendipity immediately throwing a '503 Service Temporarily Unavailable' maintenance message,
                     // if var is set to true and user is not authenticated and logged into admin users.

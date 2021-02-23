@@ -10,9 +10,9 @@
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_EXWARNING_DESC', "ACHTUNG:<br>\nEs <em>kann</em> unter Umständen eine (Session basierende) Situation geben, bei dem obiger 503-Submit-Knopf nach dem Absenden und Seitenreload seine Farbe (grün/rot) nicht unmittelbar ändert, um anzuzeigen, in welchem Modus sich die Wartung gerade wirklich befindet. In diesem Fall wählen Sie irgendeine andere Backendseite aus der Seitenleiste und kehren dann in die Wartung zurück. Erst dann sehen Sie den augenblicklichen Status.");
 @define('PLUGIN_MODEMAINTAIN_DASHBOARD_EMERGENCY_DESC', "IM NOTFALL:<br>\nWenn Sie sich jemals ausloggen, ohne den 503 Maintenance Mode zurückgestellt zu haben, oder ihr Login Cookie beschädigt oder gelöscht wurde, müssen Sie die &dollar;serendipity['maintenance'] Variable in der serendipity_config_local.inc.php Datei manuell auf 'false' stellen, um sich und der Öffentlichkeit wieder Zugang zu ihrem Blog zu ermöglichen!");
 
-@define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Öffentlicher Wartungs-Modus Text');
-@define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', 'This site &#187;%s&#171; is currently undergoing some maintenance work and therefore is temporarily unavailable. Please visit us later.');
-@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Binde das Serendipity Logo ein?');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_NOTE', 'Ergänzender Wartungs-Modus Text');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_TEXT', '');
+@define('PLUGIN_MODEMAINTAIN_MAINTAIN_USELOGO', 'Binde das Serendipity2 Logo ein?');
 
 @define('PLUGIN_MODEMAINTAIN_BUTTON', 'Aktiviere den 503 Modus');
 @define('PLUGIN_MODEMAINTAIN_FREEBUTTON', 'Zurücksetzen des 503 Modus');
