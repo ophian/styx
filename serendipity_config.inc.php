@@ -368,7 +368,7 @@ if ( (isset($serendipity['autodetect_baseURL']) && serendipity_db_bool($serendip
     $serendipity['baseURL'] = 'http' . (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ? 's' : '') . '://' . $_SERVER['HTTP_HOST'] . (!strstr($_SERVER['HTTP_HOST'], ':') && !empty($_SERVER['SERVER_PORT']) && $_SERVER['SERVER_PORT'] != '80' && $_SERVER['SERVER_PORT'] != '443' ? ':' . $_SERVER['SERVER_PORT'] : '') . $serendipity['serendipityHTTPPath'];
 }
 
-// If a user is logged in, fetch his preferences. He possibly wants to have a different language
+// If a user is logged in, fetch his preferences. He probably wants to have a different language
 if (IS_installed === true && php_sapi_name() !== 'cli') {
     // Import HTTP auth (mostly used for RSS feeds)
     if ($serendipity['useHTTP-Auth'] && (isset($_REQUEST['http_auth']) || isset($_SERVER['PHP_AUTH_USER']))) {
