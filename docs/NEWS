@@ -1,7 +1,7 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
-  * Improve MediaLibrary filter condition to show up the "is filtered" icon
+  * Improve MediaLibrary filter condition to show up the "is filtered" status icon
 
   * Fix and allow $comment.avatar variable (by plugin) in [ pure, default ], since
     being the Standard and default themes, and fix it up in all others when used.
