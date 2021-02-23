@@ -267,6 +267,7 @@ function serveAuthorPage($matches, $is_multiauth=false) {
     if (!is_array($uInfo)) {
         $serendipity['view'] = '404';
         $serendipity['viewtype'] = '404_3';
+
         header('HTTP/1.0 404 Not found');
         header('Status: 404 Not found');
     } else {
@@ -454,6 +455,7 @@ function serveEntry($matches) {
     } else {
         $serendipity['view'] = '404';
         $serendipity['viewtype'] = '404_1';
+
         header('HTTP/1.0 404 Not found');
         header('Status: 404 Not found');
         // here we give back an empty entries array and else print out the "no entries available" message in theme
