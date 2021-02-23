@@ -1,6 +1,9 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Ship modemaintain following serendipity_die() improvement.
+    Please update you custom modemaintain message.
+
   * Improve MediaLibrary filter condition to show up the "is filtered" status icon
 
   * Fix and allow $comment.avatar variable (by plugin) in [ pure, default ], since
