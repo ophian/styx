@@ -1070,6 +1070,7 @@ function serendipity_checkWebPSupport($set=false, $msg=false) {
         serendipity_set_config_var('hasWebPSupport', 'true', 0);
         $serendipity['useWebPFormat'] = true;
     }
+
     return $webpSupport;
 }
 
