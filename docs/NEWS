@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix a non-installed maintenance Plugin CONSTANT usage to not break on PHP 8
+
   * Ship modemaintain following serendipity_die() improvement.
     Please update you custom modemaintain message.
 
