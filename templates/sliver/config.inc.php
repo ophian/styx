@@ -1,5 +1,5 @@
 <?php
-// Sliver template v.4.60 2019-08-13
+// Sliver template v.4.61 2021-02-25
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -278,7 +278,7 @@ $serendipity['smarty']->assignByRef('topSidebarElements', $topSidebarElements);
 $serendipity['smarty']->assignByRef('middleSidebarElements', $middleSidebarElements);
 $serendipity['smarty']->assignByRef('footerSidebarElements', $footerSidebarElements);
 
-$top = isset($serendipity['smarty_vars']['template_option']) ? $serendipity['smarty_vars']['template_option'] : '';
+$top = $serendipity['smarty_vars']['template_option'] ?? '';
 $template_config_groups = null;
 $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
