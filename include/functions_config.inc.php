@@ -2326,6 +2326,7 @@ function serendipity_setFormToken($type = 'form') {
  * into an array.
  *
  * @param   array   Referenced variable coming from the config.inc.php file, where the config values will be stored in
+ * @param   string  The stored okey (option key) type
  * @param   boolean Use true boolean mode in array $template_config in the config.inc.php file
  * @return  array   Final return array with default values
  */
