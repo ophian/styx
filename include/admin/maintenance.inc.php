@@ -227,6 +227,10 @@ switch($serendipity['GET']['adminAction']) {
         break;
 }
 
+// check a non-installed maintenance Plugin CONSTANT usage to not break on PHP 8
+if (!defined('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE')) {
+    @define('PLUGIN_MODEMAINTAIN_HINT_MAINTENANCE_MODE', 'Since long, or having possible frontend effects, this could be a valid task to use the Maintenance-Mode and Plugin!');
+}
 echo serendipity_smarty_showTemplate('admin/maintenance.inc.tpl', $data);
 
 /* vim: set sts=4 ts=4 expandtab : */
