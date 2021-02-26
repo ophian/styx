@@ -1,5 +1,58 @@
-===== 3.1.34 release ===== 05.11.2019
-===== 3.1.34-dev-7 =====
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## [3.1.39] - 2021-02-17
+
+### Security
+- Prevent access to `$smarty.template_object` in sandbox mode. This addresses CVE-2021-26119.
+- Fixed code injection vulnerability by using illegal function names in `{function name='blah'}{/function}`. This addresses CVE-2021-26120.
+
+## [3.1.38] - 2021-01-08
+
+### Fixed
+- Smarty::SMARTY_VERSION wasn't updated https://github.com/smarty-php/smarty/issues/628
+
+## [3.1.37] - 2021-01-07
+
+### Changed
+- Changed error handlers and handling of undefined constants for php8-compatibility (set $errcontext argument optional) https://github.com/smarty-php/smarty/issues/605
+- Changed expected error levels in unit tests for php8-compatibility
+- Travis unit tests now run for all php versions >= 5.3, including php8
+- Travis runs on Xenial where possible
+
+### Fixed
+- PHP5.3 compatibility fixes
+- Brought lexer source functionally up-to-date with compiled version
+
+## [3.1.36] - 2020-04-14
+
+### Fixed
+ - Smarty::SMARTY_VERSION wasn't updated in v3.1.35 https://github.com/smarty-php/smarty/issues/584
+
+## [3.1.35] - 2020-04-14
+ - remove whitespaces after comments https://github.com/smarty-php/smarty/issues/447
+ - fix foreachelse on arrayiterators https://github.com/smarty-php/smarty/issues/506
+ - fix files contained in git export archive for package maintainers https://github.com/smarty-php/smarty/issues/325
+ - throw SmartyException when setting caching attributes for cacheable plugin https://github.com/smarty-php/smarty/issues/457
+ - fix errors that occured where isset was replaced with null check such as https://github.com/smarty-php/smarty/issues/453
+ - unit tests are now in the repository
+
+## 3.1.34 release - 05.11.2019
+13.01.2020
+ - fix typo in exception message (JercSi)
+ - fix typehint warning with callable (bets4breakfast)
+ - add travis badge and compatability info to readme (matks)
+ - fix stdClass cast when compiling foreach (carpii)
+ - fix wrong set/get methods for memcached (IT-Experte)
+ - fix pborm assigning value to object variables in smarty_internal_compile_assign (Hunman)
+ - exclude error_reporting.ini from git export (glensc)
+
+## 3.1.34-dev-6 -
 30.10.2018
  - bugfix a nested subblock in an inheritance child template was not replace by
    outer level block with same name in same child template https://github.com/smarty-php/smarty/issues/500
