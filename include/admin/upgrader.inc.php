@@ -461,6 +461,11 @@ $tasks = array(
                     'title'     => 'Removal of old dead files in v.3.3.0',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_330) . '</pre>'),
 
+            array(  'version'   => '3.3.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>THEMES_NOTICE:</b> Lots of fixes regarding PHP 8 were patched into core themes.',
+                    'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page after having done the upgrade, to catch up, if you need to to check your COPY/CHILD-Themes.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
