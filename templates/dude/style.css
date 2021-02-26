@@ -540,6 +540,22 @@ a:active {
 
 /** End of General Styles **/
 
+/* Entry paging */
+
+.serendipity_entrypaging {
+    margin: .5rem auto 1rem;
+}
+.serendipity_entrypaging_left {
+    float: left;
+    margin-left: .5rem;
+    padding-right: .5rem;
+}
+.serendipity_entrypaging_right {
+    float: right;
+    margin-right: .5rem;
+    padding-left: .5rem;
+}
+
 /** Entry Styles **/
 
 .serendipity_Entry_Date {
