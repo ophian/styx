@@ -108,9 +108,9 @@
                     {elseif $typeview == 'comments_and_trackbacks'}{$CONST.COMMENTS}/{$CONST.TRACKBACKS}/{$CONST.PINGBACKS}
                     {/if}
                 {elseif NOT empty($staticpage_pagetitle)}
-                    {if $staticpage_headline}{$staticpage_headline|escape}
-                    {elseif $staticpage_articleformattitle}{$staticpage_articleformattitle|escape}
-                    {elseif $plugin_contactform_pagetitle}{$plugin_contactform_pagetitle}
+                    {if NOT empty($staticpage_headline)}{$staticpage_headline|escape}
+                    {elseif NOT empty($staticpage_articleformattitle)}{$staticpage_articleformattitle|escape}
+                    {elseif NOT empty($plugin_contactform_pagetitle)}{$plugin_contactform_pagetitle}
                     {else}{$head_title}{/if}
                 {elseif $view == 'archives' AND $category}{$head_title} - {$head_subtitle}
                 {elseif $view == 'archive' AND $category}{$category_info.category_name} - {$head_subtitle}
