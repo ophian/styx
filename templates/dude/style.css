@@ -740,6 +740,7 @@ div.serendipity_date_summary {
 .serendipity_commentForm {
     font-size: .8125rem;
     display: inline-block;
+    width: 100%;
 }
 select#serendipity_replyTo {
     min-width: 20em;
@@ -750,7 +751,9 @@ a.comment_source_trace {
 }
 .serendipity_commentForm table {
     border-collapse: separate;
-    border-spacing: 2px; }
+    border-spacing: 2px;
+    max-width: 55rem;
+    width: 100%; }
     td.serendipity_commentsLabel,
     td.serendipity_commentsValue {
         display: grid; }
