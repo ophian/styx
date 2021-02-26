@@ -90,7 +90,7 @@ Version 3.3-DEV ()
     will arrive in browsers with Firefox 86 and similar others, but PHP, even
     in its current 8.0.x versions, still does not support it, i.e. within the
     widely used getimagesize() methods.
-    The libgd project (GD) announced an early first support by end of January
+    The libgd project (GD) announced an early first support by end of Jan/Feb
     2021. Anyhow, we don't expect it included before a later PHP 8 version arises.
     So any additional Styx MediaLibrary action and upload support, like dimension
     sizes, creating thumbs, etc. does not work yet. All current related works are
