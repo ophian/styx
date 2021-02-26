@@ -870,6 +870,15 @@ a.comment_source_trace {
         color: #2F2C12;
         padding: 2px; }
 
+/* imagesidebar */
+.mediasidebaritem img {
+    width: 100%;
+    max-width: 275px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px #555;
+    margin-bottom: 5px;
+}
+
 table.serendipity_calendar {
     border-collapse: separate;
     border-spacing: 2px;
