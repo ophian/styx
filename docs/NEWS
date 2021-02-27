@@ -1,6 +1,9 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Improved stack outline of special cased found orphaned IDs, respectively
+    images names for back search.
+
   * Fix cased fallback cascade to load a user.css file for the current theme only
 
   * Sync with Smarty v3.1.39 release for security and - since customized - out-
