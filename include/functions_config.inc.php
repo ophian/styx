@@ -322,7 +322,10 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
                 // catch *.tpl files, used by the backend for serendipity_styx.js.tpl
                 return $serendipity['baseURL'] . ($serendipity['rewrite'] == 'none' ? $serendipity['indexFile'] . '?/' : '') . 'plugin/' . $file;
             }
-
+            // Avoid loading a custom fallback user.css file for a theme when having such file in default OR standard themes
+            if ($file == 'user.css' && substr($directory, 0, -1) != $serendipity['template']) {
+                return false;
+            }
             if (file_exists($serendipity['serendipityPath'] . $templateFile)) {
                 return (isset($serendipity[$key]) ? $serendipity[$key] . $templateFile : $templateFile); // avoid undefined index Notices if key was called with '', eg. serendipity_getTemplateFile('style_fallback.css', '')
             }
