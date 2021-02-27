@@ -1042,6 +1042,11 @@ img.serendipity_entryIcon {
     float: right;
 }
 
+.media_object_container {
+    width: 100%; }
+    .media_object_container video {
+      width: inherit; }
+
 /* styx media gallery styles start */
 
 /* reset bootstrap default sets for .row-ed galleries */
