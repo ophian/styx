@@ -172,7 +172,7 @@ foreach($_images AS $go) {
     if (!empty($go['id'])) {
         $e = serendipity_db_query("SELECT id, title FROM `{$serendipity['dbPrefix']}entries` WHERE body LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR extended LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
         if (!empty($e[0])) {
-        $alerts[] = '<b>'.$go['name'] .'</b> '.MLORPHAN_MTASK_RESPECTIVELY.' ( <b>s9ymdb: '.$go['id'].'</b> ) in Entry ID: ' . $e[0]['id'].' - '. $e[0]['title'];
+            $alerts[] = '<b>'.$go['name'] .'</b> '.MLORPHAN_MTASK_RESPECTIVELY.' ( <b>s9ymdb: '.$go['id'].'</b> ) in Entry ID: ' . $e[0]['id'].' - '. $e[0]['title'];
             $pckeys[] = $go['id'];
             $exclude .= $go['id'].', ';
         }
