@@ -172,7 +172,7 @@ foreach($_images AS $go) {
     if (!empty($go['id'])) {
         $e = serendipity_db_query("SELECT id, title FROM `{$serendipity['dbPrefix']}entries` WHERE body LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR extended LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
         if (!empty($e[0])) {
-            $alerts[] = '<b>'.$go['name'] .'</b> ('.$go['id'].') in Entry ID: ' . $e[0]['id'].' - '. $e[0]['title'];
+        $alerts[] = '<b>'.$go['name'] .'</b> '.MLORPHAN_MTASK_RESPECTIVELY.' ( <b>s9ymdb: '.$go['id'].'</b> ) in Entry ID: ' . $e[0]['id'].' - '. $e[0]['title'];
             $pckeys[] = $go['id'];
             $exclude .= $go['id'].', ';
         }
@@ -180,13 +180,13 @@ foreach($_images AS $go) {
         $f = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $go['path'] . $go['name'] . '.' . $go['extension'];
         $q = serendipity_db_query("SELECT id, title FROM `{$serendipity['dbPrefix']}entries` WHERE body LIKE '%<!--quickblog:%|" . serendipity_db_escape_string($f) . "-->%'", false, 'assoc');
         if (!empty($q[0])) {
-            $alerts[] = '<b>'.$go['name'] .'</b> ('.$go['id'].'<em>, special: Imageselectorplus Quickblog image</em>) in Entry ID: ' . $q[0]['id'].' - '. $q[0]['title'];
+            $alerts[] = '<b>'.$go['name'] .'</b> ( s9ymdb: '.$go['id'].'<em>, special: Imageselectorplus Quickblog image</em> ) in Entry ID: ' . $q[0]['id'].' - '. $q[0]['title'];
             $pckeys[] = $go['id'];
             $exclude .= $go['id'].', ';
         }
         $s = serendipity_db_query("SELECT id, pagetitle FROM `{$serendipity['dbPrefix']}staticpages` WHERE content LIKE '%<!-- s9ymdb:{$go['id']} -->%' OR pre_content LIKE '%<!-- s9ymdb:{$go['id']} -->%'", false, 'assoc');
         if (!empty($s[0])) {
-            $alerts[] = '<span style="color:blue"><b>'.$go['name'] .'</b> ('.$go['id'].') in Staticpage ID: ' . $s[0]['id'].' - '. $s[0]['pagetitle'].'</span>';
+            $alerts[] = '<span style="color:blue"><b>'.$go['name'] .'</b> ( s9ymdb: '.$go['id'].' ) in Staticpage ID: ' . $s[0]['id'].' - '. $s[0]['pagetitle'].'</span>';
             $pckeys[] = $go['id'];
             $exclude .= $go['id'].', ';
         }
