@@ -18,4 +18,5 @@
 @define('MLORPHAN_MTASK_LAST_ACTION_NOTE', '<b>Take care:</b> <span>There <b>may</b> still be some of these images used in your entries <b>without</b> a <code>&lt;-- s9ymdb:N --&gt;</code> MediaLibrary tag. If being unsure about that, do not delete here or better re-/add the correct tag IDs in these entries and run this script again. (Recommended!)</span><br>
     <span>This orphan manager task also does not care about entryproperties (plugin) database cached entries. If you had to correct existing, but false set image s9ymdb:IDs (see possible error messages on top) in articles manually, this also applies to entryproperties stored cache entries. If you need and use that (but this shouldn\'t be necessary these days), run the maintenance entryproperties build cache again afterwards, which may lead to other issues such as NL2BR and line breaks in very old articles.</span>');
 @define('MLORPHAN_MTASK_PURGED_SUCCESS', 'Successfully deleted images by ID: (<b>%s</b>) from MediaLibrary filesystem and database.');
+@define('MLORPHAN_MTASK_RESPECTIVELY', 'respectively');
 
