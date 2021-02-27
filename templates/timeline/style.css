@@ -1042,6 +1042,10 @@ img.serendipity_entryIcon {
     float: right;
 }
 
+.mediasidebaritem img {
+    margin-bottom: .5rem;
+}
+
 .media_object_container {
     width: 100%; }
     .media_object_container video {
