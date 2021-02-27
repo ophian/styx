@@ -1051,7 +1051,7 @@ img.serendipity_entryIcon {
     .media_object_container video {
       width: inherit; }
 
-/* styx media gallery styles start */
+/* Styx media gallery styles start */
 
 /* reset bootstrap default sets for .row-ed galleries */
 .row.serendipity_image_block::before,
