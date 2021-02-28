@@ -1,6 +1,8 @@
 Version 3.3-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix backend comment preview for PHP 8 fetching the wrong file
+
   * Announce backend start page Standard-Widgets as deprecated. This option and
     display will probably be removed with next Styx 3.4.0 release.
 
