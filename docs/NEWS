@@ -1,4 +1,4 @@
-Version 3.3-DEV ()
+Version 3.3.0 (February, 28th 2021)
  ------------------------------------------------------------------------
 
   * Fix backend comment preview for PHP 8 fetching the wrong file
