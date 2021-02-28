@@ -596,6 +596,10 @@ function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace 
     $serendipity['smarty']->assignByRef($_blocktype, $_smartyComments);
     unset($_smartyComments);
 
+    // Backend preview
+    if (is_null($smarty_block)) {
+        return;
+    }
     return serendipity_smarty_fetch($smarty_block, $smarty_file);
 }
 
