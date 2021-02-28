@@ -271,6 +271,7 @@ switch($serendipity['GET']['adminAction']) {
                 if (isset($serendipity['COOKIE']['entrylist_filter_' . $f_import]) && !isset($serendipity['GET']['filter'][$f_import])) {
                     $serendipity['GET']['filter'][$f_import] =& $serendipity['COOKIE']['entrylist_filter_' . $f_import];
                 }
+                $serendipity['GET']['filter'][$f_import] = $serendipity['GET']['filter'][$f_import] ?? null;
                 $data["get_filter_$f_import"] = serendipity_specialchars($serendipity['GET']['filter'][$f_import]);
             }
         }
