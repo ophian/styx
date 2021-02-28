@@ -472,6 +472,8 @@ function serendipity_generateCommentList($id, $comments = NULL, $selected = 0, $
  * @param   int         The parentID of a comment to show. Can contain the constant for VIEWMODE_THREADED/LINEAR. [recursive usage]
  * @param   int         The current nesting depth of a comment [recursive usage]
  * @param   string      A string representing the actual comment (1.1.2.1)
+ * @param   string      A string representing the Smarty block - default: COMMENTS | empty: trackbacks | NULL no smarty_file load
+ * @param   string      A string representing the frontend template file to fetch
  * @return  string      The HTML construct of all comments
  */
 function serendipity_printComments($comments, $parentid = 0, $depth = 0, $trace = null, $smarty_block = 'COMMENTS', $smarty_file = 'comments.tpl') {
