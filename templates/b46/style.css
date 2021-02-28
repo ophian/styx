@@ -364,7 +364,8 @@ textarea {
 
 .alert {
   margin-top: 18px;
-  margin-top: 1rem; }
+  margin-top: 1rem;
+  width: 100%; }
 
 .alert-danger {
   background: #f2dede;
