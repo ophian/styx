@@ -12,8 +12,8 @@ Version 3.3-DEV ()
   * Fix cased fallback cascade to load a user.css file for the current theme only
 
   * Fix and update themes for certain issues not specifically mentioned in other
-    changelog entries [ dude, sliver, timeline ]. All themes have a new set last
-    modified date.
+    changelog entries [ dude, sliver, timeline ]. In general, all touched themes
+    have an updated last modified date.
 
   * Sync with Smarty v3.1.39 release for security and - since customized - out-
     lined as v3.1.39-dev-4 for Styx. Please see other Smarty notes for this Styx
