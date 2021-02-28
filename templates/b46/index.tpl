@@ -163,11 +163,11 @@
     </div>
 </div>
 {/if}
-{if $template_option.card > 0 AND NOT $is_single_entry AND NOT $is_preview AND $template_option.hugo == 0}
+{if $template_option.card > 0 AND NOT $is_single_entry AND empty($is_preview) AND $template_option.hugo == 0}
 <div class="row mb-2">
 {/if}
     {$CONTENT}
-{if $template_option.card > 0 AND NOT $is_single_entry AND NOT $is_preview AND $template_option.hugo == 0}
+{if $template_option.card > 0 AND NOT $is_single_entry AND empty($is_preview) AND $template_option.hugo == 0}
 </div>
 {/if}
     {else if $view == '404'}
