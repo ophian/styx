@@ -250,7 +250,7 @@ if (isset($serendipity['GET']['adminAction'])
                 )
             );
 
-            serendipity_printComments($pc_data);
+            serendipity_printComments($pc_data, 0, 0, null, null); // A 4th param smarty block NULL means, to not load a frontend template file but assign all Smarty variables in need
             // Displays the PREVIEW of your edited backend comment via edit. For future backend purposes we want it to be out of standard (frontend) template, therefore we have a backend only file stored in admin/
             $serendipity['smarty']->display(serendipity_getTemplateFile('admin/comments.tpl', 'serendipityPath')); // no need for a compile file
             #echo serendipity_smarty_showTemplate('admin/comments.tpl');
