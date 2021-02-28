@@ -1212,6 +1212,8 @@ p > img.serendipity_image_center {
     font-size: initial; }
   .post_info .serendipity_multilingualInfo a:hover {
     color: #dc3545; }
+  .col.d-flex .serendipity_multilingualInfo {
+    margin-top: -2rem; }
 
 #LSResult {
   background: #ccdee7;
