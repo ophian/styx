@@ -194,8 +194,6 @@ class serendipity_plugin_history extends serendipity_plugin
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
-        $nowts = serendipity_serverOffsetHour();
-
         for($x=0; $x < $ect; $x++) {
             $url = serendipity_archiveURL($e[$x]['id'],
                                           $e[$x]['title'],
