@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Workaround history plugin for multiyears with a non matching day case
+
 
 Version 3.3.0 (February, 28th 2021)
  ------------------------------------------------------------------------
