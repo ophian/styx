@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.31');
+        $propbag->add('version',       '1.32');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -194,7 +194,13 @@ class serendipity_plugin_history extends serendipity_plugin
 
         echo empty($intro) ? '' : '<div class="serendipity_history_intro">' . $intro . "</div>\n";
 
+        $nowts = serendipity_serverOffsetHour();
+
         for($x=0; $x < $ect; $x++) {
+            // Since not having a better algorithm gathering the history days, here now exclude non-matching days from display, eg February 29th leap day when on current March 1st in normal years
+            if (date('md', $nowts) != date('md', $e[$x]['timestamp'])) {
+                continue;
+            }
             $url = serendipity_archiveURL($e[$x]['id'],
                                           $e[$x]['title'],
                                           'serendipityHTTPPath',
