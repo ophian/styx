@@ -122,7 +122,10 @@
     <script src="{$serendipityHTTPPath}{$templatePath}_assets/ckebasic/config.js"></script>
     <script>
         window.onload = function() {
-            CKEDITOR.replace( 'serendipity_commentform_comment', { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']] });
+            var cfmco = document.getElementById('serendipity_commentform_comment');
+            if (typeof(cfmco) != 'undefined' && cfmco != null) {
+                CKEDITOR.replace( cfmco, { toolbar : [['Bold','Italic','Underline','-','NumberedList','BulletedList','Blockquote'],['CodeSnippet'],['EmojiPanel']] });
+            }
         }
     </script>
     {assign var="hljsload" value=true}
