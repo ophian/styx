@@ -1,9 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
-  * Add an is filtered status icon to the backend comments list
+  * Add an "is filtered" status icon to the backend comments list
 
-  * Add an is filtered status icon to the backend entries list
+  * Add an "is filtered" status icon to the backend entries list
 
   * Fix history plugin for multiyears with a non matching leap day case
 
