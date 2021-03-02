@@ -1,6 +1,6 @@
 {if $drawList}
 <div class="has_toolbar">
-    <h2>{$CONST.EDIT_ENTRIES}</h2>
+    <h2>{$CONST.EDIT_ENTRIES}{if (NOT empty($smarty.get.serendipity.filter.author) OR NOT empty($smarty.get.serendipity.filter.category) OR NOT empty($smarty.get.serendipity.filter.body) OR (isset($smarty.get.serendipity.filter.isdraft) AND $smarty.get.serendipity.filter.isdraft != 'all')) AND empty($smarty.get.entry_filters_reset)} <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-filter-circle-fill" fill="#3e5f81" xmlns="http://www.w3.org/2000/svg"><title id="title">{$CONST.FILTERS}</title><path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM3.5 5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zM5 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/></svg>{/if}</h2>
 
     <form action="?" method="get">
         <input name="serendipity[action]" type="hidden" value="admin">
