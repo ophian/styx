@@ -293,7 +293,7 @@ class serendipity_plugin_history extends serendipity_plugin
 
                 $cy  = date('Y', $nowts);
                 $sy  = ($cy-$xyears);
-                $sc  = (date('md', $nowts) >= '0301'); // special case 1st of March
+                $sc  = (date('md', $nowts) >= '0301'); // special case from 1st of March
                 $age = 0;
                 $leap = []; // incrementing array to use as leap true check
                 $multiage = [];
@@ -302,7 +302,7 @@ class serendipity_plugin_history extends serendipity_plugin
                 }
                 for($y=0; $y < $xyears; $y++) {
                     $age += ($leap[$y] == 1 ? 366 : ($y == 0 ? 0 : 365));
-                    // check special cased leap year 1st of March, which is leap years $age w/ 1 day off, to include for otherwise selected 29th of February!
+                    // check special cased leap year from 1st of March, which is leap years $age w/ 1 day off!
                     $multiage[] = ($leap[$y] == 1 && $sc) ? $age-1 : $age;
                 }
 
