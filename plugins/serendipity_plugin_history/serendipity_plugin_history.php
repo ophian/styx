@@ -20,7 +20,7 @@ class serendipity_plugin_history extends serendipity_plugin
         $propbag->add('description',   PLUGIN_HISTORY_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Jannis Hermanns, Ian Styx');
-        $propbag->add('version',       '1.34');
+        $propbag->add('version',       '1.35');
         $propbag->add('requirements',  array(
             'serendipity' => '1.6',
             'smarty'      => '2.6.7',
@@ -293,7 +293,7 @@ class serendipity_plugin_history extends serendipity_plugin
 
                 $cy  = date('Y', $nowts);
                 $sy  = ($cy-$xyears);
-                $sc  = (date('md', $nowts) == '0301'); // special case 1st of March
+                $sc  = (date('md', $nowts) >= '0301'); // special case 1st of March
                 $age = 0;
                 $leap = []; // incrementing array to use as leap true check
                 $multiage = [];
