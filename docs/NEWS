@@ -1,6 +1,10 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix an avoidable HTML comments javascript loading error information case
+    after sending a comment, when no comment form area uprises to prevent spam
+    floods, in [ Pure, PSG, Dude, B46 ] themes.
+
   * Add an "is filtered" status icon to the backend comments list
 
   * Add an "is filtered" status icon to the backend entries list
