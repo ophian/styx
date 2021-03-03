@@ -10,7 +10,7 @@
 @define('B46_TEASE', '0 meint: Nicht aktiviert!');
 @define('B46_TEASE_COND', ' - Nur Ziffern & wähle Typ entw./oder!'); // start with space!
 @define('B46_CARD', 'Artikel [text] als Kachel Aufmacher mit der Länge');
-@define('B46_CARD_META', ' Die jeweile Kartenzeile mit den Benutzer & Datum Metadaten kann u.U. zu lang werden und wird dann versteckt abgeschnitten. Bitte überprüfen Sie Ihren persönlichen Längenbedarf durch die Verwendung von kurzen Benutzernamen und/oder durch diese Konfiguration des Datumsformates (s.o.).'); // start with space!
+@define('B46_CARD_META', ' Die jeweilige Kartenzeile mit den Benutzer & Datum Metadaten kann u.U. zu lang werden und wird dann versteckt abgeschnitten. Bitte überprüfen Sie Ihren persönlichen Längenbedarf durch die Verwendung von kurzen Benutzernamen und/oder durch diese Konfiguration des Datumsformates (s.o.).'); // start with space!
 @define('B46_CARD_TITLE_ELSE', 'Kein Artikel Vorschau Text vorhanden');
 @define('B46_LEAD', 'Bei Aufmacher, vorangestellter Feature Artikel');
 @define('B46_LEAD_DESC', ' Oder tragen Sie folgende urlartige "array" Konfiguration (bei unveränderten Schlüsseln) ein. Die Schlüssel "title" und "text" sind mindestens erforderlich: '); // start with space!
