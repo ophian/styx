@@ -1202,6 +1202,12 @@ p > img.serendipity_image_center {
     margin-left: 4.5px;
     margin-left: .25rem; }
 
+/* cards header metas */
+.col.d-flex .post_byline {
+  white-space: nowrap;
+  overflow: hidden;
+  margin-right: -.5rem; }
+
 .post_info .serendipity_freeTag {
   text-align: left;
   padding: 1rem 0; }
