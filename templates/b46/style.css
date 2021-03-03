@@ -688,6 +688,9 @@ ul.pagination {
     display: inline-block;
     width: 100%; }
 
+.post_byline .d-inline-block .bi.bi-calendar3 {
+  margin-left: .25rem; }
+
 .post_content > details:not([open]) {
   display: initial;
   margin-bottom: 1rem;
