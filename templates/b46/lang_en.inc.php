@@ -8,11 +8,12 @@
 @define('B46_HUGO_TTT', 'When over, click mouse or toggle by keyboards space-bar when set active');
 @define('B46_HUGO_TITLE_ELSE', 'Open entry');
 @define('B46_TEASE', '0 means: Not set!');
-@define('B46_TEASE_COND', ' - Integers only & choose type either/or!');
+@define('B46_TEASE_COND', ' - Integers only & choose type either/or!'); // start with space!
 @define('B46_CARD', 'Article [text] as a Grid-Card teaser with length');
+@define('B46_CARD_META', ' The card subheader user & date 1-line meta data may get too long and then hiddenly truncated. Please check up your personal length need by using short usernames and/or by this configuration upper dateformat option.'); // start with space!
 @define('B46_CARD_TITLE_ELSE', 'No entry summary text available');
 @define('B46_LEAD', 'By teaser type, add a top featured article');
-@define('B46_LEAD_DESC', ' Or use this "URI" alike plain text string "array" representation, to fill in the text (with unchanged keys) - "title" and "text" keys are mandatory: ');
+@define('B46_LEAD_DESC', ' Or use this "URI" alike plain text string "array" representation, to fill in the text (with unchanged keys) - "title" and "text" keys are mandatory: '); // start with space!
 @define('B46_NAV_ONELINE', 'Navigation as independent line?');
 
 // If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
