@@ -87,7 +87,7 @@ $template_config = array(
     array(
        'var' => 'card',
        'name' => B46_CARD,
-       'description' => B46_TEASE . B46_TEASE_COND,
+       'description' => B46_TEASE . B46_TEASE_COND . B46_CARD_META,
        'type' => 'string',
        'default' => 0
     ),
