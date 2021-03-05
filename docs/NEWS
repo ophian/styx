@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Bugfix "B46" theme for the advanced option "Featured Article", since PHP
+    versions handle it differently.
+
   * Improve "B46" theme to not wrap the top post_byline header when using cards
 
   * Fix an avoidable HTML comments javascript loading error information case
