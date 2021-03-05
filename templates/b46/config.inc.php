@@ -124,7 +124,8 @@ $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
 serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config);
 
-if ($template_loaded_config['featured'] != 0) {
+// PHP 8 can handle != while PHP 7.3+ does need !== in both file conditions!
+if ($template_loaded_config['featured'] !== 0) {
     parse_str($template_loaded_config['featured'], $fpost);
     $serendipity['smarty']->assign('featured_post', $fpost);
 }
