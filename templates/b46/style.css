@@ -675,6 +675,7 @@ ul.pagination {
 .post.mb-4 {
   padding-bottom: 27px;
   padding-bottom: 1.5rem;
+  margin-top: initial;
   margin-bottom: 0 !important; }
 
 .post {
