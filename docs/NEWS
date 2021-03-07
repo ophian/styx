@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve several minor "B46" theme CSS issues
+
   * Fix a certain case in "B46" theme where post article had no proper top margin
 
   * Bugfix "B46" theme for the advanced option "Featured Article", since PHP
