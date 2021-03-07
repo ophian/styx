@@ -844,7 +844,7 @@ pre {
 article.post li.commentlevel_0 {
   margin-bottom: .25em; }
 article.post li.comment .d-inline-block:not(.pc-owner) .bi.bi-file-person {
-  background: #d8bfd8;/*thistle*//*#c0c0c0;silver*/}
+  background: #fff; }
 article.post li .pc-owner {
   display: inline;
   background: #7fffd4;/*aquamarine*/
