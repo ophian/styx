@@ -762,6 +762,9 @@ pre {
     margin-bottom: 4rem; }
 }
 
+.row.mb-2 > nav {
+    width: 100%; }
+
 .pagination {
   margin: 0 0 18px;
   margin: 0 0 1rem;
