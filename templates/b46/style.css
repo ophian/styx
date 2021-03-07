@@ -867,7 +867,7 @@ article.post li .pc-owner {
 
 #trackbacks ol {
   margin: .5rem 1.25rem; }
-  #trackbacks ol li:nth-of-type(2n) {
+  #trackbacks > ol > li:nth-of-type(2n) {
     background-color: #eee; }
   #trackbacks .trackbacks-delete {
     font-size: small; }
@@ -878,7 +878,7 @@ article.post li .pc-owner {
   padding: 0 .4rem .4rem;
   border: 1px solid #ddd; }
 
-#comments ol li:nth-of-type(2n),
+#comments > ol > li:nth-of-type(2n),
 .comments_for_entry .comment.odd {
   background: #eee; }
   #comments .plainList.meta li {
