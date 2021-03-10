@@ -428,6 +428,11 @@ progress {
     font-size: smaller;
 }
 
+/* bootstrap icons 1.4 */
+svg.bi {
+    vertical-align: -.125em;
+}
+
 /* ICON FONT: http://fortawesome.github.com/Font-Awesome/ */
 @font-face {
   font-family: 'fontello';
