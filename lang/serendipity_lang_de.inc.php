@@ -1124,8 +1124,6 @@
 @define('CONFIG_PERMALINK_PATH_DESC', 'Bitte beachten Sie, dass Sie ein Präfix verwenden, so dass Serendipity die URL der richtigen Aktion zuordnen kann. Sie können das Präfix in jeden einzigartigen ASCII-Namen ändern, aber nicht komplett entfernen. Dies gilt für alle Pfad-Präfix Definitionen.');
 
 @define('HIDE_SUBDIR_FILES', 'Ohne Dateien von Unterverzeichnissen');
-@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS', 'Backend-Startseite Standard-Widgets anzeigen?');
-@define('USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC', 'Zeige voreingestellte und fest eingebaute Startseiten-Widgets, wie gepeicherte Entwurfs-Einträge und letzte Kommentare.');
 
 @define('UPDATE_NOTIFICATION_URL', 'Update-RELEASE-Datei URL');
 @define('UPDATE_NOTIFICATION_URL_DESC', 'Dies ist Styx! Bitte nur ändern, wenn Sie eine andere Ankündigungs-Datei für benutzerdefinierte System Downloads, in Kombination mit dem Serendipity Autoupdate Plugin, erstellen wollen. Die Standard-URL für die Original Serendipity RELEASE-Datei wäre dann: "https://raw.githubusercontent.com/s9y/Serendipity/master/docs/RELEASE". Eine solche Datei enthält die Versionsnummern der aktuell freigegebenen (stable/beta) Veröffentlichung für das Autoupdate Plugin; zB. "stable:5.3.0".');
