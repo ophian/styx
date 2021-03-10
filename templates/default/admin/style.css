@@ -1901,7 +1901,6 @@ ul.edit_actions li > .user_level {
 /* plugin stackable status icons (1), media hotlink share to media properties (2) */
 #content > h2 > svg,
 .media_file.mfile_prop h3 > svg {
-    vertical-align: middle;
     float: right;
 }
 /* comments filter status */
