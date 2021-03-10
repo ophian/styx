@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Removed deprecated default widgets from dashboard overview
+
   * Improve several minor "B46" theme CSS issues
 
   * Fix a certain case in "B46" theme where post article had no proper top margin
