@@ -466,6 +466,12 @@ $tasks = array(
                     'title'     => '<b>THEMES_NOTICE:</b> Lots of fixes regarding PHP 8 were patched into core themes.',
                     'desc'      => 'Please read the more detailed ChangeLog file via the backends "Maintenance" page after having done the upgrade, to catch up, if you need to to check your COPY/CHILD-Themes.'),
 
+            array(  'version'   => '3.4-alpha0',
+                    'function'  => 'serendipity_fixPlugins',
+                    'arguments' => array('cleanup_default_widgets'),
+                    'title'     => 'Configuration Update Synchronizer',
+                    'desc'      => 'This task removes personal configuration items for 3.3.0 deprecated and 3.4 removed default_widgets.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 

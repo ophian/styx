@@ -563,6 +563,11 @@ function serendipity_fixPlugins($case) {
             unset($rows);
             return true;
             break;
+
+        case 'cleanup_default_widgets':
+            serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE name = 'default_widgets'");
+            return true;
+            break;
     }
 }
 
