@@ -93,14 +93,6 @@
                                           'default'     => true,
                                           'permission'  => 'personalConfiguration'),
 
-                                    array('var'         => 'default_widgets',
-                                          'title'       => USERCONF_DASHBOARD_DEFAULT_WIDGETS,
-                                          'description' => USERCONF_DASHBOARD_DEFAULT_WIDGETS_DESC,
-                                          'type'        => 'bool',
-                                          'default'     => false,
-                                          'permission'  => 'personalConfiguration',
-                                          'flags'       => array('config')),
-
                                     array('var'         => 'no_create',
                                           'title'       => USERCONF_CREATE,
                                           'description' => USERCONF_CREATE_DESC,
