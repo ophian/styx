@@ -59,7 +59,7 @@ serendipity_plugin_api::hook_event('backend_frontpage_display', $output);
 $data['backend_frontpage_display'] = isset($output['more']) ? $output['probe'] . $output['more'] : '';
 $output = array(); // re-new array for the autoupdate empty check below
 
-// Make sure it is the Administrator alike Group only to access it!
+// MAKE SURE it is the Administrator alike Group only to access it!
 // If you have an "Editor in Chief" user which you want to have access on site Auto-Upgrades you can do the following for example as ADMINISTRATOR.
 // Either: Add a new SPECIAL group with 'siteAutoUpgrades' [x] AND 'Hidden group / Non-Author' [x] and, afterwards in USERS, assign it to this single "special" user
 //             which you want to be able to have upgrade permission and which also MUST have "Editor in CHIEF" group permission;
@@ -71,7 +71,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
     $data['usedVersion']  = $serendipity['version'];
     $data['updateCheck']  = $serendipity['updateCheck'];
     $data['curVersion']   = serendipity_getCurrentVersion();
-    $data['releaseFUrl']  = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE'); // https://raw.github.com/s9y/Serendipity/master/docs/RELEASE
+    $data['releaseFUrl']  = serendipity_get_config_var('updateReleaseFileUrl', 'https://raw.githubusercontent.com/ophian/styx/master/docs/RELEASE');
     $data['curVersName']  = $serendipity['updateVersionName'] ?? null;
     $data['update']       = version_compare($data['usedVersion'], $data['curVersion'], '<');
     serendipity_plugin_api::hook_event('plugin_dashboard_updater', $output, $data['curVersion']);
@@ -82,7 +82,7 @@ if (false !== ((serendipity_checkPermission('siteConfiguration') || serendipity_
 $data['urltoken'] = serendipity_setFormToken('url');
 $data['token'] = serendipity_setFormToken();
 
-// Init
+// Inits
 $data['shortcuts'] = $data['comments']['pending'] = $data['entries']['futures'] =  $data['entries']['drafts'] = null;
 
 // SQL
