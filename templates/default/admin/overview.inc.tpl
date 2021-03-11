@@ -72,7 +72,6 @@
                 <li><a target="_blank" rel="noopener" href="https://ophian.github.io/hc/en/">{$CONST.FURTHER_LINKS_S9Y_DOCS} (Styx)</a></li>
                 <li><a target="_blank" rel="noopener" href="https://ophian.github.io/book/">Serendipity Styx Edition Book [de]</a></li>
                 <li><a target="_blank" rel="noopener" href="https://ophian.github.io/blog">{$CONST.FURTHER_LINKS_S9Y_BLOG} (Styx)</a></li>
-                <li><a target="_blank" rel="noopener" href="https://board.s9y.org/">{$CONST.FURTHER_LINKS_S9Y_FORUMS} (S9y)</a></li>
                 <li><a target="_blank" rel="noopener" href="https://ophian.github.io/plugins/">{$CONST.FURTHER_LINKS_S9Y_SPARTACUS} (Styx) Web</a></li>
                 <li><a target="_blank" rel="noopener" href="https://github.com/ophian/styx">GitHub Serendipity Styx Edition</a></li>
                 <li>&nbsp;</li>
