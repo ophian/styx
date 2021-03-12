@@ -1,6 +1,12 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix (silence) an odd maintenance PHP 8 error issue on non-MySQL (MariaDB)
+    database installs, regarding a leftover and deprecated set info CONSTANT
+    for image entry naming syncs.
+    PLEASE HELP testing ML image moves/renames already used in entries on
+    SQLite and PostgreSQL DB installations to remove this quickly.
+
   * Removed deprecated default widgets from dashboard overview
 
   * Improve several minor "B46" theme CSS issues
