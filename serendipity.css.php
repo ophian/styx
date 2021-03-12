@@ -52,7 +52,7 @@ switch($css_mode) {
  * @return string file contents
  */
 function serendipity_printStylesheet($file, $dir = '', $root = '') {
-    if ($file == 'admin/user.css' || $file == 'user.css') {
+    if (empty($file) || $file == 'admin/user.css' || $file == 'user.css') {
         return; // it does not exists since having no serendipityPath !
     }
     return "\n/* auto include $dir */\n\n" . str_replace(
@@ -66,7 +66,7 @@ function serendipity_printStylesheet($file, $dir = '', $root = '') {
                LANG_DIRECTION
             ),
 
-            @file_get_contents($file, 1));
+            file_get_contents($file, 1));
 }
 
 if (strpos($_SERVER['HTTP_USER_AGENT'], 'MSIE') !== false) {
