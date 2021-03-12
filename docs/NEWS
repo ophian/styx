@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix a cased empty stylesheet building call hidden PHP 8 error stopping the
+    frontend theme styles.
+
   * Fix (silence) an odd maintenance PHP 8 error issue on non-MySQL (MariaDB)
     database installs, regarding a leftover and deprecated set info CONSTANT
     for image entry naming syncs.
