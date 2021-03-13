@@ -4,7 +4,7 @@ Version 3.4-DEV ()
   * Bugfix a cased PHP 8 (hidden) error by an empty frontend stylesheet call
 
   * Fix (silence) an odd maintenance PHP 8 error issue on non-MySQL (MariaDB)
-    database installs, regarding a leftover and deprecated set info CONSTANT
+    database installs, regarding a leftover, but deprecated set info CONSTANT
     for image entry naming syncs.
     PLEASE HELP testing ML image moves/renames already used in entries on
     SQLite and PostgreSQL DB installations to remove this quickly.
