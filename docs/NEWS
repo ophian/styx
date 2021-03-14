@@ -1,7 +1,7 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix return of PHP 8 PDO database installs whilst checking empty table
+  * Fix return of PHP 8 PDO database installs whilst checking an empty table
 
   * Fix a maintenance page check order issue on non-MySQL (MariaDB) installs
 
