@@ -211,7 +211,11 @@ function &serendipity_db_query($sql, $single = false, $result_type = "both", $re
     if (!$expectError && ($reportErr || !$serendipity['production'])) {
         $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
     } else {
-        $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
+        try {
+            $serendipity['dbSth'] = $serendipity['dbConn']->prepare($sql);
+        } catch(Exception $e) {
+            return $type_map['false'];
+        }
     }
 
     if (!$serendipity['dbSth']) {
