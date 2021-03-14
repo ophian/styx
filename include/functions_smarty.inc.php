@@ -547,7 +547,7 @@ function serendipity_smarty_showPlugin($params, $template) {
         $params['side'] = '*';
     }
     if ($params['side'] === 'hidden') {
-        $params['side'] = 'hide'; //compat, since being announced false in the doc for a long time
+        $params['side'] = 'hide'; //compat, since being announced false in the docs for a long time
     }
 
     if (empty($params['negate']) || $params['negate'] === 'null') {
@@ -1202,29 +1202,50 @@ function serendipity_smarty_init($vars = array()) {
 
         // If a template engine is defined we need that config.inc.php file as well. The template's actual file is loaded after that to be able to overwrite config.
         if (isset($serendipity['template_engine']) && $serendipity['template_engine'] != null) {
+            $multi_engine_config = [];
             $p = explode(',', $serendipity['template_engine']);
+            // Check multi configuration files
+            $c = (count($p) > 1) ? true : false;
+            // AN ENGINE ORDER set must always be: Parent, Grand - which is equal to the $template_dirs (serendipity_smarty_class) array ORDER, eg "b46", => "bootstrap4" [ => Standard => Backend => Plugin dir => Default ]
+            if ($c) {
+                // BUT for configuration variable merges we have to change the ORDER to overwrite duplicates with the last set !
+                $p = array_reverse($p);
+            }
             foreach($p AS $te) {
                 $config = $serendipity['serendipityPath'] . $serendipity['templatePath'] . trim($te) . '/config.inc.php';
 
                 if (file_exists($config)) {
                     include_once $config;
+                    if ($c && isset($template_loaded_config) && is_array($template_loaded_config)) {
+                        $multi_engine_config[] = $template_loaded_config;
+                    }
                 }
             }
         }
 
         // FIRST: Load config of the currently configured FRONTEND template. We might actually need this in the Backend (sidebar configuration, IPTC options, some others).
         // SECOND: Load config of the currently set template, which can also be the BACKEND template, or be the same as before. include_once takes care of only including the file once.
-        $config =  $serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'] . '/config.inc.php';
+        $config = $serendipity['serendipityPath'] . $serendipity['templatePath'] . $serendipity['template'] . '/config.inc.php';
         if (file_exists($config)) {
             include_once $config;
+            if (!empty($multi_engine_config)) {
+                $multi_engine_config[] = $template_loaded_config;
+            }
         }
 
         $config = $serendipity['smarty']->getConfigDir(0) . '/config.inc.php';
         if (file_exists($config)) {
             include_once $config;
+            if (!empty($multi_engine_config)) {
+                $multi_engine_config[] = $template_loaded_config;
+            }
         }
 
         if (isset($template_loaded_config) && is_array($template_loaded_config)) {
+            if (!empty($multi_engine_config)) {
+                // merge multi engine theme configuration together uniquely
+                $template_loaded_config = call_user_func_array('array_merge', $multi_engine_config);
+            }
             $template_vars =& $template_loaded_config;
             $serendipity['smarty']->assignByRef('template_option', $template_vars);
         } elseif (is_array($template_config)) {
