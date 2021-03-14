@@ -1,6 +1,11 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix an old Serendipity issue with multi-engine themes config file wrong load
+    order, when a Grandchild theme has no own configuration file.
+    - Improved template configuration $template_loaded_config array to now
+      have a unique variable merge at the very end of fallback check builds.
+
   * Bugfix a cased PHP 8 (hidden) error by an empty frontend stylesheet call
 
   * Fix (silence) an odd maintenance PHP 8 error issue on non-MySQL (MariaDB)
