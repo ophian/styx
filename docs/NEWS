@@ -1,4 +1,4 @@
-Version 3.4-DEV ()
+Version 3.3.1 (March, 14th 2021)
  ------------------------------------------------------------------------
 
   * Fix return of PHP 8 PDO database installs whilst checking an empty table
