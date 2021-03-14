@@ -1,8 +1,7 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix a maintenance page PHP 8 error check order issue on non-MySQL (MariaDB)
-    installs.
+  * Fix a maintenance page check order issue on non-MySQL (MariaDB) installs
 
   * Fix an old Serendipity issue with multi-engine themes config file wrong load
     order, when a Grandchild theme has no own configuration file.
