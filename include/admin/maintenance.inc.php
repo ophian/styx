@@ -33,7 +33,7 @@ if ($serendipity['dbType'] == 'mysql') {
     $serendipity['dbType'] = 'mysqli';
 }
 // UTF8MB4 - check for a possible previous bad install via simple install mode
-if ($serendipity['dbUtf8mb4'] === false && $serendipity['dbUtf8mb4_converted'] === null && $serendipity['dbType'] == 'mysqli') {
+if ($serendipity['dbType'] == 'mysqli' && $serendipity['dbUtf8mb4'] === false && $serendipity['dbUtf8mb4_converted'] === null) {
     if ($serendipity['dbCharset'] == 'utf8mb4' && mysqli_character_set_name($serendipity['dbConn']) == 'utf8mb4') {
         serendipity_db_query("UPDATE {$serendipity['dbPrefix']}config SET name='dbUtf8mb4_converted', value='true', authorid=0");
         $serendipity['dbUtf8mb4'] = $serendipity['dbUtf8mb4_converted'] = true;
