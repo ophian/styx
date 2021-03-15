@@ -7,7 +7,7 @@ Version 3.3.1 (March, 14th 2021)
 
   * Update templates assets jQuery lib to 3.6.0
 
-  * Fix return of PHP 8 PDO database installs whilst checking an empty table
+  * Fix return of PDO-* database installs with PHP 8 whilst checking previous
 
   * Fix a maintenance page check order issue on non-MySQL (MariaDB) installs
 
