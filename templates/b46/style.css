@@ -754,11 +754,16 @@ pre {
   white-space: pre-wrap;
   word-wrap: break-word; }
 
-.archive.archive_overview {
+.archive.archive_summary {
+    margin: auto 1rem;
+    width: 100%; }
+.archive.archive_overview,
+.archive.archive_summary {
     margin-bottom: 2rem;
     display: flow-root; }
 @media only screen and (min-width: 992px) {
-  .archive.archive_overview {
+  .archive.archive_overview,
+  .archive.archive_summary {
     margin-bottom: 4rem; }
 }
 
