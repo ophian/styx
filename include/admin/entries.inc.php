@@ -269,19 +269,19 @@ switch($serendipity['GET']['adminAction']) {
         foreach($filter_import AS $f_import) {
             if (isset($serendipity['GET']['filter'])) {
                 if (isset($serendipity['COOKIE']['entrylist_filter_' . $f_import]) && !isset($serendipity['GET']['filter'][$f_import])) {
-                    $serendipity['GET']['filter'][$f_import] =& $serendipity['COOKIE']['entrylist_filter_' . $f_import];
+                    $serendipity['GET']['filter'][$f_import] =& serendipity_specialchars(strip_tags($serendipity['COOKIE']['entrylist_filter_' . $f_import]));
                 }
                 $serendipity['GET']['filter'][$f_import] = $serendipity['GET']['filter'][$f_import] ?? null;
-                $data["get_filter_$f_import"] = serendipity_specialchars($serendipity['GET']['filter'][$f_import]);
+                $data["get_filter_$f_import"] = serendipity_specialchars(strip_tags($serendipity['GET']['filter'][$f_import]));
             }
         }
 
         foreach($sort_import AS $s_import) {
             if (isset($serendipity['GET']['sort'])) {
                 if (isset($serendipity['COOKIE']['entrylist_sort_' . $s_import]) && !isset($serendipity['GET']['sort'][$s_import])) {
-                    $serendipity['GET']['sort'][$s_import] =& $serendipity['COOKIE']['entrylist_sort_' . $s_import];
+                    $serendipity['GET']['sort'][$s_import] =& serendipity_specialchars(strip_tags($serendipity['COOKIE']['entrylist_sort_' . $s_import]));
                 }
-                $data["get_sort_$s_import"] = $serendipity['GET']['sort'][$s_import];
+                $data["get_sort_$s_import"] = serendipity_specialchars(strip_tags($serendipity['GET']['sort'][$s_import]));
             }
         }
 
@@ -318,6 +318,7 @@ switch($serendipity['GET']['adminAction']) {
         }
 
         if (!empty($serendipity['GET']['filter']['body'])) {
+            $serendipity['GET']['filter']['body'] = strip_tags($serendipity['GET']['filter']['body']);
             $term = serendipity_db_escape_string($serendipity['GET']['filter']['body']);
             if ($serendipity['dbType'] == 'postgres' || $serendipity['dbType'] == 'pdo-postgres') {
                 $r = serendipity_db_query("SELECT count(routine_name) AS counter
@@ -397,11 +398,11 @@ switch($serendipity['GET']['adminAction']) {
 
             $qString = '?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect';
             foreach((array)$serendipity['GET']['sort'] AS $k => $v) {
-                $qString .= '&amp;serendipity[sort]['. $k .']='. $v;
+                $qString .= '&amp;serendipity[sort]['. serendipity_specialchars(strip_tags($k)) .']='. serendipity_specialchars(strip_tags($v));
             }
             if (isset($serendipity['GET']['filter'])) {
                 foreach((array)$serendipity['GET']['filter'] AS $k => $v) {
-                    $qString .= '&amp;serendipity[filter]['. $k .']='. $v;
+                    $qString .= '&amp;serendipity[filter]['. serendipity_specialchars(strip_tags($k)) .']='. serendipity_specialchars(strip_tags($v));
                 }
             }
             $data['linkFirst']    = $qString . '&amp;serendipity[page]=' . 0;
