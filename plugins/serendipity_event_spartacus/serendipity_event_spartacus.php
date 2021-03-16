@@ -24,7 +24,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.11');
+        $propbag->add('version',       '3.12');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -704,7 +704,7 @@ class serendipity_event_spartacus extends serendipity_event
             xml_parser_set_option($p, XML_OPTION_CASE_FOLDING, 0);
              // Fixup PHP 8 Uncaught TypeError: xml_parser_set_option(): Argument #1 ($parser) must be of type XmlParser, null given.
              // With 8.0.0 parser expects an XMLParser instance now; previously, a resource was expected.
-            xml_parser_set_option(($this->parser ?? xml_parser_create()), XML_OPTION_TARGET_ENCODING, LANG_CHARSET);
+            xml_parser_set_option(($this->parser ?? $p), XML_OPTION_TARGET_ENCODING, LANG_CHARSET);
             $xml_package = $xml_string . "\n" . $xml_package;
             xml_parse_into_struct($p, $xml_package, $vals);
             xml_parser_free($p);
