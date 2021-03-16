@@ -16,8 +16,5 @@
 @define('B46_LEAD_DESC', ' Oder tragen Sie folgende urlartige "array" Konfiguration (bei unveränderten Schlüsseln) ein. Die Schlüssel "title" und "text" sind mindestens erforderlich: '); // start with space!
 @define('B46_NAV_ONELINE', 'Navigation als eigenständige Zeile?');
 
-// If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
-@define('BS_RSS', 'RSS-Links in der Seitenleiste?');
-@define('BS_PLINK_TEXT', 'Link');
-@define('BS_PLINK_TITLE', 'Permanenter Link zu diesem Kommentar');
+// If used within template files, add previously parent theme defines here, since the lang CONSTANT engine:fallback will work only for the config.inc file up from Styx 3.3.1!
 @define('BS_REPLYORIGIN', 'Antwort auf');

@@ -16,10 +16,7 @@
 @define('B46_LEAD_DESC', ' Or use this "URI" alike plain text string "array" representation, to fill in the text (with unchanged keys) - "title" and "text" keys are mandatory: '); // start with space!
 @define('B46_NAV_ONELINE', 'Navigation as independent line?');
 
-// If used within template files add previously defines here, since the lang constant engine:fallback will work only for the config.inc file, not the templates! This is not true for Grandchild themes!
-@define('BS_RSS', 'RSS links in sidebar?');
-@define('BS_PLINK_TEXT', 'Link');
-@define('BS_PLINK_TITLE', 'Permanent link for this comment');
+// If used within template files, add previously parent theme defines here, since the lang CONSTANT engine:fallback will work only for the config.inc file up from Styx 3.3.1!
 @define('BS_REPLYORIGIN', 'Origin');
 
 // Lang constants non-translate
