@@ -314,7 +314,7 @@
                 {if NOT $file.hotlink}
 
                     <fieldset class="media_properties_selects">
-                      <legend> {$CONST.EITHEROR} &nbsp;<span class="media_file_properties actions"><a class="media_show_info button_link" href="#media_select_props" title="Media properties select actions"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> Media properties selections info</span></a></span> </legend>
+                      <legend> {$CONST.XOR} &nbsp;<span class="media_file_properties actions"><a class="media_show_info button_link" href="#media_select_props" title="Media properties select actions"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> Media properties selections info</span></a></span> </legend>
                       <div class="form_select">
                         <label for="newDir{$file@key}">{$CONST.FILTER_DIRECTORY}</label>
                         <input type="hidden" name="serendipity[mediaDirectory][{$file@key}][oldDir]" value="{$file.path|escape}">
