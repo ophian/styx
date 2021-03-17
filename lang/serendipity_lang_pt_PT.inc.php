@@ -1215,7 +1215,7 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 @define('SYNC_IMAGE_LIST_ITERATION_RANGE_DONE', 'Iteration <b>%s</b> %s. <b>%s</b> items have been successfully created.');
 
 @define('PLEASESELECT', 'Please select');
-@define('EITHEROR', 'Either / Or');
+@define('XOR', 'Either / Or');
 @define('FORMATS', 'Image format');
 @define('VARIATION', 'Image variation');
 @define('MEDIA_PROPERTIES_SELECT_INFO_DESC', 'If a files selection change is necessary: Either use the directory <b>OR</b> the Image format selection change per submit.<br>You cannot change both at the same time! This will also not work if a filename with this new format already exists. Make sure to have this checked before!');

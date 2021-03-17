@@ -1210,7 +1210,7 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um d
 @define('SYNC_IMAGE_LIST_ITERATION_RANGE_DONE', 'Durchlauf <b>%s</b> %s. <b>%s</b> Medien wurden erfolgreich erstellt.');
 
 @define('PLEASESELECT', 'Bitte auswählen');
-@define('EITHEROR', 'Entweder / Oder');
+@define('XOR', 'Entweder / Oder');
 @define('FORMATS', 'Bild Format');
 @define('VARIATION', 'Bild Variation');
 @define('MEDIA_PROPERTIES_SELECT_INFO_DESC', 'Wenn eine Dateiveränderung erforderlich ist, verwenden Sie entweder die Änderung des Verzeichnisses oder die Änderung der Bildformatauswahl per Übertragung. Sie können beide nicht gleichzeitig verändern! Dies funktioniert ebenfalls nicht, wenn bereits ein Dateiname mit diesem neuen Format existiert. Achten Sie darauf, dass Sie dies vorher überprüft haben!');
