@@ -633,7 +633,8 @@ ul.pagination {
 @media only screen and (min-width: 640px) {
   #searchform {
     visibility: initial;
-    display: initial; }
+    display: initial;
+    margin-left: auto; }
 }
 
 #serendipityQuickSearchTermField {
