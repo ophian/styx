@@ -75,6 +75,14 @@
     {/if}
 {/foreach}
     </ul>
+    {if $template_option.navsearch}
+    <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get" role="search" class="form-inline my-2 my-lg-0">
+        <input type="hidden" name="serendipity[action]" value="search">
+        <input type="hidden" name="serendipity[category]" value="5">
+        <input id="serendipityQuickSearchTermField" class="form-control mr-sm-2" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.B46_PLACE_SEARCH}" value="" aria-label="{$CONST.QUICKSEARCH}">
+        <input id="searchsend" class="btn btn-outline-primary my-2 my-sm-0" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
+    </form>
+    {/if}
     {if $template_option.scrollbtn}
     <span class="nav-down">
       <a href="#to-sdb" title="jumpscroll to sidebar">
@@ -84,14 +92,6 @@
         </svg>
       </a>
     </span>
-    {/if}
-    {if $template_option.navsearch}
-    <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get" role="search" class="form-inline my-2 my-lg-0">
-        <input type="hidden" name="serendipity[action]" value="search">
-        <input type="hidden" name="serendipity[category]" value="5">
-        <input id="serendipityQuickSearchTermField" class="form-control mr-sm-2" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.B46_PLACE_SEARCH}" value="" aria-label="{$CONST.QUICKSEARCH}">
-        <input id="searchsend" class="btn btn-outline-primary my-2 my-sm-0" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
-    </form>
     {/if}
   </div>
 {else}
