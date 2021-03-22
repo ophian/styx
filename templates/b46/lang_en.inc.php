@@ -16,6 +16,8 @@
 @define('B46_NAV_ONELINE', 'Navigation as independent line?');
 
 // If used within template files, add previously parent theme defines here, since the lang CONSTANT engine:fallback will work only for the config.inc file up from Styx 3.3.1!
+@define('BS_PLINK_TEXT', 'Link');
+@define('BS_PLINK_TITLE', 'Permanent link for this comment');
 @define('BS_REPLYORIGIN', 'Origin');
 
 // Lang constants non-translate
