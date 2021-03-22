@@ -59,7 +59,7 @@ if (isset($_GET['serendipity']['plugin_to_move']) && isset($_GET['submit']) && s
         Also make sure the swapping idx is around */
     if ($idx_to_move >= 0 && (($_GET['submit'] == 'move down' && $idx_to_move < (count($plugins)-1)) || ($_GET['submit'] == 'move up' && $idx_to_move > 0))) {
 
-        /* Swap the one were moving with the one that's in the spot we're moving to */
+        /* Swap the one we're moving with the one that's in the spot we're moving to */
         $tmp = $plugins[$idx_to_move]['sort_order'];
 
         $plugins[$idx_to_move]['sort_order'] = (int)$plugins[$idx_to_move + ($_GET['submit'] == 'move down' ? 1 : -1)]['sort_order'];
@@ -107,7 +107,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 
     if (isset($_POST['SAVECONF']) && serendipity_checkFormToken()) {
         /* enum properties and set their values */
-
         $save_errors = array();
         foreach($config_names AS $config_item) {
             $cbag = new serendipity_property_bag;
@@ -134,7 +133,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
                 }
             }
         }
-
         $plugin->cleanup();
     }
 
@@ -154,7 +152,9 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     // Hey, check and assign some info about being stacked or stackable
     $_chckInstalledPlugins = serendipity_plugin_api::get_installed_plugins();
     $_c = array_count_values($_chckInstalledPlugins);
-    if ($_c[$data['class']] > 1) $cc = true;
+    if ($_c[$data['class']] > 1) {
+        $cc = true;
+    }
 
     $data['is_stackable'] = $bag->get('stackable') ?? false;
     $data['no_stack']     = $plugin->instance ? false : true; // we are in an instance so this cannot become true
