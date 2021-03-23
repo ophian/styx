@@ -1,8 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
-  * Fix image media uploads for possible filename dots breaking WebP variation
-    file_exists showup checks.
+  * Fix image media uploads for possible included filename dots, breaking
+    MediaLibrary WebP variation showup checks.
 
   * Imrove "B46" theme for "Featured Article" Pro Tip helper
 
