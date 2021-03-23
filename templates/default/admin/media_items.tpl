@@ -1,7 +1,7 @@
 {foreach $media.files AS $file}
     {if NOT $media.manage}
         {* ML got called for inserting media *}
-        {if $file.is_image AND isset($file.full_path_thumb) AND $file.full_path_thumb}
+        {if $file.is_image AND !empty($file.full_path_thumb)}
             {if NOT empty($media.textarea) OR NOT empty($media.htmltarget)}
             {$link="?serendipity[adminModule]=images&amp;serendipity[adminAction]=choose&amp;serendipity[fid]={$file.id}&amp;serendipity[textarea]={$media.textarea}&amp;serendipity[noBanner]=true&amp;serendipity[noSidebar]=true&amp;serendipity[noFooter]=true&amp;serendipity[filename_only]={$media.filename_only}&amp;serendipity[htmltarget]={$media.htmltarget}"}
             {else}
@@ -43,7 +43,7 @@
             {$img_alt="{$file.mime}"}
         {/if}
     {else}
-        {if $file.is_image AND isset($file.full_path_thumb) AND $file.full_path_thumb}
+        {if $file.is_image AND !empty($file.full_path_thumb)}
             {$link="{if $file.hotlink}{$file.path}{else}{$file.full_file}{/if}"}
             {$link_webp="{$file.full_file_webp|default:''}"}
             {$img_src="{$file.show_thumb}"}
