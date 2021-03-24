@@ -1907,7 +1907,6 @@ ul.edit_actions li > .user_level {
     width: auto;
 }
 
-
 /* CONTENT */
 #content {
     padding-bottom: 1.5em;
@@ -2276,6 +2275,9 @@ form > .button_link:first-of-type,
 }
 .media_file_meta.plainList {
     margin: .5rem auto;
+}
+#mediaPropertyForm .media_file.mfile_prop header div {
+    font-family: monospace; /* no double for auto size reduce */
 }
 #mediaPropertyForm header b {
     display: inline-flex;
