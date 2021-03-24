@@ -2951,7 +2951,7 @@ select#serendipity_commentform_replyToParent {
     background-color: rgba(190,250,230, .8);/*downlighted rgba 127,255,212,.8 #7FFFD4 Color Hex Aquamarine*/
 }
 .comment_type.pingback {
-    background-color: rgba(255, 232, 84, .8);/*downlighted rgba 255,220,0,.8 #FFDC00 Color Hex new Yellow */
+    background-color: rgba(255, 232, 84, .8);/* downlighted rgba 255,220,0,.8 #FFDC00 Color Hex new Yellow */
     margin-top: 5.3em;
 }
 .comment_type.pingback.pingup {
@@ -2970,9 +2970,6 @@ input.pinpoint {
     margin: 0;
     color: #222;
     background: transparent;
-}
-#entries_list .entry_info .status_pin .ucc-pinned-to {
-    margin-right: .5em;
 }
 
 .status_timestamp {
