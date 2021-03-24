@@ -2276,6 +2276,10 @@ form > .button_link:first-of-type,
 .media_file_meta.plainList {
     margin: .5rem auto;
 }
+/* clear .media_file bottom padding for main ml list toolbar space, see obove */
+form#mediaPropertyForm .media_file {
+    padding-bottom: 1em;
+}
 /* Remove 2cd title */
 #mediaPropertyForm .media_file.mfile_prop.media_enclose_no header {
     margin-top: .5em;
