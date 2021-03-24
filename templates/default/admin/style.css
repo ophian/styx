@@ -2938,9 +2938,6 @@ input.pinpoint {
     color: #222;
     background: transparent;
 }
-#entries_list .entry_info .status_pin .ucc-pinned-to {
-    margin-right: .5em;
-}
 
 .status_timestamp {
     min-width: 11em;
