@@ -2276,6 +2276,14 @@ form > .button_link:first-of-type,
 .media_file_meta.plainList {
     margin: .5rem auto;
 }
+/* Remove 2cd title */
+#mediaPropertyForm .media_file.mfile_prop.media_enclose_no header {
+    margin-top: .5em;
+}
+#mediaPropertyForm .media_file.mfile_prop.media_enclose_no header h3 {
+    display: none;
+    visibility: hidden;
+}
 #mediaPropertyForm .media_file.mfile_prop header div {
     font-family: monospace; /* no double for auto size reduce */
 }
