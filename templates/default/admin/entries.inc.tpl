@@ -93,12 +93,7 @@
                 <input name="go" type="submit" value="{$CONST.GO}"> <input class="reset_entry_filters state_cancel" name="entry_filters_reset" title="{$CONST.RESET_FILTERS}" type="submit" value="Reset">
             </div>
         </fieldset>
-    </form>
 {if NOT $simpleFilters}
-    <form action="?" method="get">
-        <input name="serendipity[action]" type="hidden" value="admin">
-        <input name="serendipity[adminModule]" type="hidden" value="entries">
-        <input name="serendipity[adminAction]" type="hidden" value="editSelect">
 
         <div id="entry_skip" class="clearfix additional_info filter_pane">
             <div class="form_field">
@@ -107,8 +102,9 @@
                 <input name="serendipity[editSubmit]" type="submit" value="{$CONST.GO}">
             </div>
         </div>
-    </form>
 {/if}
+
+    </form>
 
     <script>
         $(document).ready(function() {
