@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Improved several backend outsigns, as for media properties, pinned
+    entries, icon placement, svg, etc, and for the Styx backend theme.
+
   * Fix image media uploads for possible included filename dots, breaking
     MediaLibrary WebP variation showup checks.
 
