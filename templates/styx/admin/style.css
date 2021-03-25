@@ -3921,6 +3921,14 @@ img.mfp-img {
         margin-top: -3.2rem;
     }
 
+    #content .has_toolbar h2 {
+        width: max-content;
+    }
+    #content .has_toolbar .filters_toolbar {
+        float: right;
+        margin-top: -3em;
+    }
+
     #note_subject {/*admin(quick)-notes*/
         min-width: 25em;
     }
