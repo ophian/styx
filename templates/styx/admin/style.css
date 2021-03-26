@@ -3921,7 +3921,8 @@ img.mfp-img {
         margin-top: -3.2rem;
     }
 
-    #content .has_toolbar :not(#media_library_control) .filters_toolbar {
+    .filters_toolbar.filter_entries,
+    .filters_toolbar.filter_comments  {
         float: right;
         margin-top: -3em;
     }
