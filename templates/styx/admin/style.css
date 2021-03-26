@@ -3921,6 +3921,7 @@ img.mfp-img {
         margin-top: -3.2rem;
     }
 
+    form > .button_link.toggle_config,
     .filters_toolbar.filter_entries,
     .filters_toolbar.filter_comments  {
         float: right;
