@@ -5,7 +5,7 @@
     {$formToken}
 {/if}
 {if $config|sizeof > 1 AND $allowToggle}
-    <a id="show_config_all" class="button_link" href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span></a>
+    <a id="show_config_all" class="button_link toggle_config" href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}"><span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span></a>
 {/if}
     <div id="serendipity_config_options">
     {foreach $config AS $category}
