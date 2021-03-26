@@ -19,7 +19,7 @@
                 <input name="serendipity[adminModule]" type="hidden" value="comments">
                 <input name="serendipity[page]" type="hidden" value="{$page}">
 
-                <ul class="filters_toolbar plainList">
+                <ul class="filters_toolbar filter_comments plainList">
                     <li><a class="button_link" href="#filter_comments" title="{$CONST.FILTERS}"><span class="icon-filter" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.FILTERS}</span></a></li>
                     <li><div class="backend_comments">{$backend_comments_top|default:''}</div></li>
                     <li><button class="button_link toggle_comment_full" type="button" data-href="{foreach $comments AS $cf}#{$cf.id},{if $cf@last}#{$cf.id}{/if}{/foreach}" title="{$CONST.TOGGLE_OPTION}">{$CONST.COMMENTS_FILTER_ALL} <span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_OPTION}</span></button></li>
