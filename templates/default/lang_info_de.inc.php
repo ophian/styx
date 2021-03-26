@@ -10,6 +10,7 @@ $info['theme_info_summary'] = 'Das Serendipity Styx Basis-Template.';
 $info['theme_info_desc'] = 'Als HTML5 Frontend Theme neu überarbeitet für Styx um es voll "Responsiv" zu machen (3-2-1),
 ohne dabei allzuviel von seinem alten HTML(4) Markup zu ändern.<br>
 Es arbeitet als vollwertiges "Fallback" für die PHP- und XML-Engine und als allgemeiner Datei-Reserve-Pool für alle sonstigen Themes.<br>
+Für Backend-Infos konsultieren Sie die augenblicklichen Backend Infos.<br>
 <br>
 Im Unterschied zu den Serendipity <b>Standard</b> Templates (früher "Bulletproof", später "2k11", jetzt "Pure &lsaquo; 2020 &rsaquo;") dient dieses Theme als grundlegende System Basis
 und als allgemeines Backup- und "Rückfall"-Theme, solange nicht spezielle Anweisungen (*) oder interne Gründe etwas anderes erzwingen,

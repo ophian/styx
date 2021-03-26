@@ -10,6 +10,7 @@ $info['theme_info_summary'] = 'The Serendipity Styx base template.';
 $info['theme_info_desc'] = 'A frontend theme, newly revisited for Styx to build it a fully responsive (3-2-1) HTML5 theme,
 without changing too much of the "old school" html(4) markup.<br>
 It works as a full styled fallback for the PHP and XML Engine and as a base file fallback pool for several other themes.<br>
+For backend info refer to the current backend info.<br>
 <br>
 In difference to the Serendipity <b>standard</b> template(s) (earlier "bulletproof", later on "2k11", now "Pure &lsaquo; 2020 &rsaquo;") this theme is the ground system basement,
 unless special instructions (*) or internal reasons force differently, i.e. when something was searched for compile and not in your usual
