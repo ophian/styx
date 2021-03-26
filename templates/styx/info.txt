@@ -1,6 +1,6 @@
 Name: Styx
 Author: Ian Styx
-Date: 2021-03-25
+Date: 2021-03-26
 Require Serendipity: 2.0
 Backend: Yes
 Modul: backend
