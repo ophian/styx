@@ -9,7 +9,7 @@ $info['theme_info_summary'] = 'The Styx Backend (example) default Theme';
 
 $info['theme_info_desc'] = '<u>Please Note&colon;</u> This theme has no existing frontend!<br>
 This example backend theme relegates to the Styx core backend templates in the "default/admin" subdirectory.
-As an example it proves the ability that you can simply add a more or less empty backend theme, which uses the fallback to the standard "default" backend template files.
+As an example it proves the ability that you can simply add a more or less template-empty backend theme, which uses the fallback to the standard "default" backend template files.
 With this in mind you are able to just change and add those files only, which are necessary to fill your needs.';
 
 $info['theme_info_backend'] = 'This example backend theme relegates to the Styx core backend templates in the "default/default" subdirectory.
@@ -23,7 +23,9 @@ For the moment it solely includes an index template file, which removes relevant
 * 2020-06-06 - Smaller font-size of entry_info styles of entries list.<br>
 * 2020-08-31 - Improved login page and update fullsize preview.<br>
 * 2020-10-31 - Add SVG icon to the plugin added fieldset legends of entryform.<br>
-* 2020-12-06 - Allow iPhone 5/SE with 320px sizes for media filter datetime pick-fields.<br><br>
+* 2020-12-06 - Allow iPhone 5/SE with 320px sizes for media filter datetime pick-fields.<br>
+* 2021-02 / 2021-03 - Small Improvements to the CSS styles.<br>
+* 2021-03-26 - Filter toolbars are shifted to the right up from 360px screen width.<br><br>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>
 The template files in that directory build and create the look of the complete admin interface.
