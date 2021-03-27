@@ -472,6 +472,11 @@ $tasks = array(
                     'title'     => 'Configuration Update Synchronizer',
                     'desc'      => 'This task removes personal configuration items for 3.3.1 removed old "dashboard" default_widgets.'),
 
+            array(  'version'   => '3.4.0',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>PLUGINS_NOTICE:</b> A long time deprecated set addLoadEvent() JavaScript compatibility function initializer got removed from core.',
+                    'desc'      => 'Please check personal plugins not use this function init. Use vanilla <code>document.addEventListener("DOMContentLoaded", function() { funcname(); });</code> or jQuery <code>$(document).ready(function() { funcname(); });</code> instead.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
