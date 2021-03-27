@@ -2040,17 +2040,3 @@ $(function() {
         $('#plugin_options div.plugin_info.spamblock_info').toggleClass('additional_info');
     });
 });
-
-// This is kept for older plugins. Use of $(document).ready() is encouraged.
-// At some point, these will be removed.
-addLoadEvent = function(func) {
-    var oldonload = window.onload;
-    if (typeof window.onload != 'function') {
-        window.onload = func;
-    } else {
-        window.onload = function() {
-            oldonload();
-            func();
-        }
-    }
-}
