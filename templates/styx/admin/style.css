@@ -3921,12 +3921,15 @@ img.mfp-img {
         margin-top: -3.2rem;
     }
 
+    /* Right floated filter alike elements */
+    #plugin_options .plugin_togglegroup,
     form > .button_link.toggle_config,
     .filters_toolbar.filter_entries,
     .filters_toolbar.filter_comments  {
-        float: right;
-        margin-top: -3.0625em;
-    }
+      float: right;
+      margin-top: -3.0625em; }
+      #spamblock_togglegroup .plugin_show_info.toggle_info {
+        padding: .25em .5em; }
 
     #note_subject {/*admin(quick)-notes*/
         min-width: 25em;
