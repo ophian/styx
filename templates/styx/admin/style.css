@@ -3925,7 +3925,7 @@ img.mfp-img {
     .filters_toolbar.filter_entries,
     .filters_toolbar.filter_comments  {
         float: right;
-        margin-top: -3em;
+        margin-top: -3.0625em;
     }
 
     #note_subject {/*admin(quick)-notes*/
