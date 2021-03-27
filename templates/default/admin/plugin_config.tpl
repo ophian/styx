@@ -10,10 +10,26 @@
     </div>
 {/if}
 {if is_array($config_groups)}
+    {* special case by spamblock plugin *}
+    {if isset($config_names.1) AND $config_names.1 == 'killswitch'}
 
-    <button id="show_config_all" class="button_link" type="button" data-href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}">
+    <fieldset id="spamblock_togglegroup" class="plugin_togglegroup">
+        <span class="plugin_file_actions actions">
+            <a class="plugin_show_info toggle_info button_link" href="#spamblock_info" title="Plugin Information">
+                <span class="icon-info-circled" aria-hidden="true"></span>
+                <span class="visuallyhidden"> Plugin Information</span>
+            </a>
+        </span>
+        <button id="show_config_all" class="button_link toggle_config" type="button" data-href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}">
+            <span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span>
+        </button>
+    </fieldset>
+    {else}
+
+    <button id="show_config_all" class="button_link toggle_config" type="button" data-href="#serendipity_config_options" title="{$CONST.TOGGLE_ALL}">
         <span class="icon-right-dir" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.TOGGLE_ALL}</span>
     </button>
+    {/if}
 
     <div id="serendipity_config_options">
     {foreach $config_groups AS $config_header => $config_groupkeys}
