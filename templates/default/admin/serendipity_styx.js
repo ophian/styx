@@ -1830,6 +1830,11 @@ $(function() {
             }
         }
     });
+
+    // Show/hide hidden set .plugin_info.spamblock_info (plugins.inc.tpl) container, may get extended for more plugins
+    $('.plugin_show_info.toggle_info.button_link').click(function() {
+        $('#plugin_options div.plugin_info.spamblock_info').toggleClass('additional_info');
+    });
 });
 
 // This is kept for older plugins. Use of $(document).ready() is encouraged.
