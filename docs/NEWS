@@ -1,7 +1,7 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
-  * Remove deprecated addLoadEvent(() JavaScript compatibility func initializer.
+  * Remove deprecated addLoadEvent() JavaScript compatibility func initializer.
     All additional plugins have been checked and/or fixed up.
 
   * Improved several backend outsigns, as for media properties, pinned entries,
