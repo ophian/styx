@@ -1287,6 +1287,11 @@ h3.additional_properties {
     margin-top: 0;
     margin-bottom: 0;
 }
+.configuration_group .form_field label,
+.configuration_group .form_select label,
+.configuration_group .form_area label {
+    margin-bottom: .5em;
+}
 
 #serendipity_config_options .configuration_group > .config_optiongroup,
 .configure_plugin .configuration_group > .config_optiongroup {
