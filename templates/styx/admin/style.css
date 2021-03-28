@@ -3903,7 +3903,7 @@ img.mfp-img {
         display: inline-block;
         width: auto;
     }
-    /* @see 360+ top right floated pre-set */
+    /* top right floated pre-set for 360px+ followups */
     .plugin_togglegroup {
       margin: 0 auto .5em -.35em; }
       .plugin_show_info.toggle_info {
