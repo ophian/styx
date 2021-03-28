@@ -7,7 +7,8 @@ Version 3.4-DEV ()
   * Improved several backend outsigns, as for media properties, pinned entries,
     for toolbar and plugin/theme/user configuration groups, for icon placements,
     inline SVGs, etc.; In most, by and for the Styx backend theme styles.
-    With this change, plugin config groups have a top right floated icon group.
+    With this change, plugins with configuration groups now have a top right
+    floated tool group set.
 
   * Fix image media uploads for possible included filename dots, breaking
     MediaLibrary WebP variation showup checks.
