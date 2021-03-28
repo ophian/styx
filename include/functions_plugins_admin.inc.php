@@ -618,8 +618,12 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         }
 
     }
-    $data['config_groups']  = $config_groups;
-    $data['plugin_options'] = $plugin_options;
+
+    // Extract plugin basename by instance for top right floated toggle group fieldset IDs
+    $pbname = isset($plugin->instance) ? explode(':', substr($plugin->instance, strrpos($plugin->instance, '_') + 1)) : [0 => null];
+    $data['plugin_basename'] = $pbname[0];
+    $data['config_groups']   = $config_groups;
+    $data['plugin_options']  = $plugin_options;
 
     if (is_array($config_groups)) {
         foreach($config_groups AS $config_header => $config_groupkeys) {
