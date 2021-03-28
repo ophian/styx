@@ -5,8 +5,9 @@ Version 3.4-DEV ()
     All additional plugins have been checked and/or fixed up.
 
   * Improved several backend outsigns, as for media properties, pinned entries,
-    for toolbar and theme/user configuration groups, for icon placements, svg,
-    etc.; In most, by and for the Styx backend theme styles.
+    for toolbar and plugin/theme/user configuration groups, for icon placements,
+    inline SVGs, etc.; In most, by and for the Styx backend theme styles.
+    With this change, plugin config groups have a top right floated icon group.
 
   * Fix image media uploads for possible included filename dots, breaking
     MediaLibrary WebP variation showup checks.
