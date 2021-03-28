@@ -10,8 +10,7 @@
     </div>
 {/if}
 {if is_array($config_groups)}
-    {* special case by spamblock plugin *}
-    {if isset($config_names.1) AND $config_names.1 == 'killswitch'}
+    {if !empty($config_groups)}
 
     <fieldset id="spamblock_togglegroup" class="plugin_togglegroup">
         <span class="plugin_file_actions actions">
