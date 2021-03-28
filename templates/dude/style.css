@@ -234,6 +234,11 @@ body.save_preview_body {
     min-width: 10em;
 }
 
+/* Entry paging */
+.serendipity_entrypaging {
+    margin: .5rem .5rem 1rem;
+}
+
 @media only screen and (min-width: 768px) {
     #content {
       min-height: 596px;
@@ -386,6 +391,9 @@ body.save_preview_body {
         border-spacing: 4px;
         overflow: initial;
         word-break: initial;
+    }
+    .serendipity_entrypaging {
+        margin: .5rem auto 1rem;
     }
 }
 
@@ -542,9 +550,6 @@ a:active {
 
 /* Entry paging */
 
-.serendipity_entrypaging {
-    margin: .5rem auto 1rem;
-}
 .serendipity_entrypaging_left {
     float: left;
     padding-right: .5rem;
