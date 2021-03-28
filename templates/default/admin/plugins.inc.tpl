@@ -27,7 +27,7 @@
   <path fill-rule="evenodd" d="M7.765 1.559a.5.5 0 0 1 .47 0l7.5 4a.5.5 0 0 1 0 .882l-7.5 4a.5.5 0 0 1-.47 0l-7.5-4a.5.5 0 0 1 0-.882l7.5-4zM1.563 6L8 9.433 14.438 6 8 2.567 1.562 6z"/>
 </svg></h2>{/if}{else}<h2>{$name} ({$class})</h2>{/if}
 
-    <div class="plugin_info{if $config_names.1 == "killswitch"} spamblock_info additional_info{/if}">
+    <div class="plugin_info{if !empty($config_groups)} tgroup_info additional_info{/if}">
         <p><b>{$CONST.DESCRIPTION}:</b> {$desc}</p>
     {if !empty($license)}
         <p><b>{$CONST.MEDIA_PROPERTY_COPYRIGHT}:</b> {$license}</p>
