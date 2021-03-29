@@ -27,7 +27,8 @@ And it has its own styles markup, equivalent to the "default/admin/styles.css" f
 * 2020-10-31 - Add SVG icon to the plugin added fieldset legends of entryform.
 * 2020-12-06 - Allow iPhone 5/SE with 320px sizes for media filter datetime pick-fields.
 * 2021-02 / 2021-03 - Small Improvements to the CSS styles.
-* 2021-03-26 - Filter toolbars are shifted to the right up from 360px screen width.
+* 2021-03-26 - Entries/Comments filter toolbars are shifted to the right up from 360px screen width.
+* 2021-03-29 - Extended with a right floated toolbar group for Plugins/Themes/Personal-Preferences configurations, including at least a "toggle all" (containers) button.
 </pre>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>
