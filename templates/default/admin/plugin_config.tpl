@@ -10,7 +10,7 @@
     </div>
 {/if}
 {if is_array($config_groups)}
-    {if !empty($config_groups)}
+    {if !empty($config_groups) AND $button_postKey != 'template'}
 
     <fieldset id="spamblock_togglegroup" class="plugin_togglegroup">
         <span class="plugin_file_actions actions">
