@@ -1922,8 +1922,12 @@ ul.edit_actions li > .user_level {
 /* plugin stackable status icons (1), media hotlink share to media properties (2) */
 #content > h2 > svg,
 .media_file.mfile_prop h3 > svg {
-    float: right;
-}
+  float: right; }
+  /* e.g. sidebarlogo */
+  #plugin_options > h2 > svg {
+    margin-right: .25em;
+    float: left; }
+
 /* comments filter status */
 #content > h2 > svg.bi.bi-filter-circle-fill {
     float: none;
@@ -3939,13 +3943,18 @@ img.mfp-img {
     .filters_toolbar.filter_comments  {
       float: right;
       margin: -3.125em 0 0; }
-      #plugin_options h2,
-      .plugin_info.tgroup_info {
+      #plugin_options h2 {
         max-width: 86%;
-        word-break: break-word; }/* dsgvo_gdpr */
+        word-break: break-word; }/* long title bee, dsgvo_gdpr, sidebarlogo */
       #template_options .theme_options.option_list .plugin_togglegroup,
       form.theme_options.option_list > #show_config_all {
         margin-top: -7.15em; }
+      /* special cases plugin i.e. fieldset#sidebarlogo_togglegroup alike plugins */
+      #plugin_options :not(.plugin_info.tgroup_info.additional_info) + form.configure_plugin.option_list > .plugin_togglegroup {
+          margin-top: -6.0625em; }
+      /* special cases plugin e.g. fieldset#gdpr_togglegroup */
+      #plugin_options :not(.plugin_info.tgroup_info.additional_info) + form.configure_plugin.option_list > #gdpr_togglegroup.plugin_togglegroup {
+          margin-top: -10.625em; }
 
     #note_subject {/*admin(quick)-notes*/
         min-width: 25em;
@@ -3966,9 +3975,8 @@ img.mfp-img {
         max-width: 95%;
         width: 95%;
     }
-    /* @see 360+ top right floated dsgvo_gdpr set */
-    #plugin_options h2,
-    .plugin_info.tgroup_info {
+    /* @see 360+ top right floated long title bee, dsgvo_gdpr, sidebarlogo set */
+    #plugin_options h2 {
         max-width: 93%;
         word-break: initial;
     }
