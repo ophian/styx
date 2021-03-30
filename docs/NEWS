@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve BACKEND_TITLE_FOR_NUGGET language constant to also include stackable
+    plugins. (Check up for your language please.)
+
   * Remove deprecated addLoadEvent() JavaScript compatibility func initializer.
     All additional plugins have been checked and/or fixed up.
 
