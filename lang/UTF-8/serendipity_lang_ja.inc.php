@@ -690,7 +690,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '電子メールアドレスを表示しますか?');
 @define('IMAGE_MORE_INPUT', '画像を追加する');
 @define('BACKEND_TITLE', 'プラグイン設定画面の追加情報');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a custom string which is displayed in the Plugin Configuration screen together with the description of the HTML Nugget plugin. If you have multiple HTML nuggets with an empty title, this helps to distinct the plugins from another.'); // Translate
+@define('BACKEND_TITLE_FOR_NUGGET', 'ここでは、プラグイン設定画面でプラグインの説明とともに表示される短いカスタム文字列を定義できます。複数のスタック型プラグインや空のタイトルを持つHTMLナゲットがある場合、これはプラグインを他と区別するのに役立ちます。');
 @define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?'); // Translate
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.'); // Translate
 @define('PAGE_BROWSE_PLUGINS', '%s/%s ページ、合計 %s プラグインです。');

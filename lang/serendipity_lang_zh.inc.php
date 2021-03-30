@@ -694,7 +694,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '显示电子邮件');
 @define('IMAGE_MORE_INPUT', '新增图片');
 @define('BACKEND_TITLE', '外挂配置页面的额外信息');
-@define('BACKEND_TITLE_FOR_NUGGET', '这里你可以设定一些自定文字，它跟 HTML Nugget 外挂一样会显示载外挂配置页面。如果你有多个标题的 HTML Nuggets，这个可以让你分辨多个相同的外挂。');
+@define('BACKEND_TITLE_FOR_NUGGET', '这里你可以设定一些自定文字，它跟 外挂一样会显示载外挂配置页面。如果你有多个标题的 stacked plugins / HTML Nuggets，这个可以让你分辨多个相同的外挂。');
 @define('CATEGORIES_ALLOW_SELECT', '允许访客显示多个类别');
 @define('CATEGORIES_ALLOW_SELECT_DESC', '如果开启这个选项，在 sidebar 外挂里的类别旁边会出现勾选菜单。会员可以勾选要显示的类别。');
 @define('PAGE_BROWSE_PLUGINS', '页数 %s 共 %s, 总共 %s 个外挂。');

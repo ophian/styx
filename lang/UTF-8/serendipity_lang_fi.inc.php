@@ -689,7 +689,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Näytä sähköpostiosoitteet?');
 @define('IMAGE_MORE_INPUT', 'Lisää lisää kuvia');
 @define('BACKEND_TITLE', 'Lisätietoja laajennoksen omissa asetuksissa');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Voit määrittää otsikon raapaleellesi käytettäväksi laajennosten asetuksissa. Hyödyllinen, mikäli käytät useampia raapaleita.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Tässä voit määrittää lyhyen mukautetun merkkijonon, joka näytetään Plugin Configuration -näytössä yhdessä pluginin kuvauksen kanssa. Jos sinulla on useita pinottuja liitännäisiä tai HTML-nugetteja, joilla on tyhjä otsikko, tämä auttaa erottamaan liitännäiset toisistaan.');
 @define('CATEGORIES_ALLOW_SELECT', 'Saavatko vierailijat valita useampia kategorioita yhtäaikaisesti?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Jos sallit, katselijat voivat valita useamman kategorian katseltavaksi yhtäaikaisesti.');
 @define('PAGE_BROWSE_PLUGINS', 'Sivu (%s/%s), sisältää yhteensä %s laajennosta.');

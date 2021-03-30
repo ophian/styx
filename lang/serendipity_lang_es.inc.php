@@ -706,7 +706,7 @@
 @define('IMAGE_MORE_INPUT', 'Añadir más imágenes');
 @define('BACKEND_TITLE', 'Información adicional en la pantalla de configuración de extensiones');
 //mine
-@define('BACKEND_TITLE_FOR_NUGGET', 'Aquí puedes definir una cadena personalizada que se mostrará en la ventana de configuración de extensiones junto con la descripción de la extensión fragmento de HTML. Si tienes varios fragmentos HTML sin título, esto te ayudará a diferenciarlos.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Aquí puedes definir una cadena personalizada que se mostrará en la ventana de configuración de extensiones junto con la descripción de la extensión. Si tienes varios stacked plugins / fragmentos HTML sin título, esto te ayudará a diferenciarlos.');
 @define('CATEGORIES_ALLOW_SELECT', '¿Permitir a los visitantes mostrar múltiples categorías a la vez?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Si activas esta opción aparecerá un checkbox a lado de cada categoría en la extensión de la barra lateral. Los usuarios podrán marcar las categorías que deseen y luego ver las entradas pertenecientes a estas.');
 @define('PAGE_BROWSE_PLUGINS', 'Página %s de %s, totalizando %s extensiones.');

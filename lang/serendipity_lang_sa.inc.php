@@ -692,7 +692,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '√Џ—÷ «б»—нѕ «б«бя —жднњ');
 @define('IMAGE_MORE_INPUT', '√÷Ё ’ж— √яЋ—');
 @define('BACKEND_TITLE', 'гЏбжг«  ≈÷«Ён… Џд жўнЁ… е–« «б«ћ—«Ѕ');
-@define('BACKEND_TITLE_FOR_NUGGET', 'нгяд бя ед« ж÷Џ «бж’Ё «бгд«”» бб√ћ—«Ѕ «б–н ”жЁ  ёжг »е жбд н г Џ—÷е Џбм «б“«∆— ° «д «бж’Ё «б–н  ёѕге ед« гЁнѕ ћѕ«р бж я«д бѕня √яЋ— гд HTML Nugget  Ён гѕжд я ж бг  ЏЎе« Џд«жнд жеж н”«Џѕ » Џ—нЁя яб ≈ћ—«Ѕ Џд «б«ќ—');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a short custom string which is displayed in the Plugin Configuration screen together with the description of the plugin. If you have multiple stacked plugins or HTML nuggets with an empty title, this helps to distinct the plugins from another.'); // Translate
 @define('CATEGORIES_ALLOW_SELECT', '«б”г«Ќ бб“ж«— »Џ—÷ √ё”«г г Џѕѕ… г—… ж«Ќѕ…њ');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Ён Ќ«б  ‘џнб е–« «бќн«— Ё≈д ’дѕжё ≈ќ н«— ”жЁ н г Џ—÷… »ћ«д» г”гм яб ё”г гд √ё”«г «бгћб… ° ж»–бя «б“«∆— нгяд бе «б Џбнг Џбм «б«ё”«г «б н н—нѕ «б«Ўб«Џ Џбне« ЁёЎ');
 @define('PAGE_BROWSE_PLUGINS', '«б’ЁЌ… —ёг %s гд %s, гћгжЏ %s гж«÷нЏ.');

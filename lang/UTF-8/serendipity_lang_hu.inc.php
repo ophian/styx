@@ -690,7 +690,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'E-mail címek mutatása?');
 @define('IMAGE_MORE_INPUT', 'További képek hozzáadása');
 @define('BACKEND_TITLE', 'További információ a modul beállításainál');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Itt saját szöveget adhatsz meg, ami megjelenik a modul beállító képernyőn a HTML Nugget modulnál a leírással együtt. Ha több HTML Nugget létezik cím nélkül, ez segíthet őket megkülönböztetni.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Itt saját szöveget adhatsz meg, ami megjelenik a modul beállító képernyőn a modulnál a leírással együtt. Ha több stacked plugins / HTML Nugget létezik cím nélkül, ez segíthet őket megkülönböztetni.');
 @define('CATEGORIES_ALLOW_SELECT', 'A látogatók megjeleníthetnek több kategóriát egyszerre?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Ha ezt engedélyezed, akkor a kategória margónál, minden kategória mellett lesz egy jelölőnégyzet. A látogatók így választhatják ki azokat a kategóriákat, amelyekbe tartozó bejegyzéseket szeretnék látni.');
 @define('PAGE_BROWSE_PLUGINS', '%s oldal ennyiből: %s, összes modul: %s');

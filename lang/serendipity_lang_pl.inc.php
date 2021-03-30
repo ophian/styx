@@ -692,7 +692,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Pokazywaæ adresy e-mail?');
 @define('IMAGE_MORE_INPUT', 'Dodaj wiêcej obrazków');
 @define('BACKEND_TITLE', 'Dodatkowe informacje na stonie Konfiguracja wtyczek');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Tu mo¿esz podaæ dodatkowy opis, który bêdzie wy¶wietlany na stronie Konfiguracji Wtyczek razem z pluginem HTML Nugget. Przydatne kiedy posiadasz kilka takich HTMLowych wstawek, pozwala siê jako¶ w tym wszystkim po³apaæ.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Tu mo¿esz podaæ dodatkowy opis, który bêdzie wy¶wietlany na stronie Konfiguracji Wtyczek razem z pluginem. Przydatne kiedy posiadasz kilka takich stacked plugins / HTMLowych wstawek, pozwala siê jako¶ w tym wszystkim po³apaæ.');
 @define('CATEGORIES_ALLOW_SELECT', 'Zezwoliæ u¿ytkownikom na wy¶wietlanie wielu kategorii jednocze¶nie?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Po w³±czeniu tej opcji przy ka¿dej kategorii pojawi siê pole umo¿liwiaj±ce jej zaznaczenie. U¿ytkownicy mog± zaznaczaæ w ten sposób wiele kategorii jednocze¶nie i wy¶wietlaæ zbiorczo wpisy z tych zaznaczonych kategorii.');
 @define('PAGE_BROWSE_PLUGINS', 'Strona %s z %s, ³±cznie %s wtyczek.');

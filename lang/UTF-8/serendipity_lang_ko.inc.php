@@ -692,7 +692,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '이메일 주소를 표시합니까?');
 @define('IMAGE_MORE_INPUT', '그림 추가');
 @define('BACKEND_TITLE', '플러그인 설정 화면에 추가 정보 표시');
-@define('BACKEND_TITLE_FOR_NUGGET', '플러그인 설정 화면에 HTML 덩어리 플러그인의 설명과 함께 표시될 별도의 문장을 직접 정할 수 있습니다. 제목이 없는 여러 개의 HTML 덩어리를 쓸 경우 각각을 구별하기 쉽게 됩니다.');
+@define('BACKEND_TITLE_FOR_NUGGET', '플러그인 설정 화면에 덩어리 플러그인의 설명과 함께 표시될 별도의 문장을 직접 정할 수 있습니다. 제목이 없는 여러 개의 stacked plugins / HTML 덩어리를 쓸 경우 각각을 구별하기 쉽게 됩니다.');
 @define('CATEGORIES_ALLOW_SELECT', '방문자가 한 번에 여러 개의 범주를 표시할 수 있게 함');
 @define('CATEGORIES_ALLOW_SELECT_DESC', '이것을 사용하게 되면 옆줄에 이 플러그인을 통해 표시된 각 범주 옆에 선택 상자가 나타나게 됩니다. 방문자는 이 상자에 체크 표시를 한 다음 선택된 범주에 대한 글을 볼 수 있습니다.');
 @define('PAGE_BROWSE_PLUGINS', '%s번째 페이지 | 총 %s 페이지 | 총 %s개의 플러그인');

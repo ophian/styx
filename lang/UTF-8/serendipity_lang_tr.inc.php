@@ -692,7 +692,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'E-Posta adresi gösterilsin mi?');
 @define('IMAGE_MORE_INPUT', 'Daha fazla resim ekle');
 @define('BACKEND_TITLE', 'Eklenti yapılandırma ekranı hakkında daha fazla bilgi');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Burada özel karakterler tanımlayabilirsiniz Bunlar eklenti yapılandırma ekranında  HTML Nugget eklentisiyle beraber yayınlanabilir.Eğer boş başlıkla beraber çoklu HTML nugget sahibiyseniz , bu bir eklentiyi diğerinden ayırdedebilmenize yardım eder.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Burada özel karakterler tanımlayabilirsiniz Bunlar eklenti yapılandırma ekranında eklentisiyle beraber yayınlanabilir. Eğer boş başlıkla beraber çoklu stacked plugins / HTML nugget sahibiyseniz, bu bir eklentiyi diğerinden ayırdedebilmenize yardım eder.');
 @define('CATEGORIES_ALLOW_SELECT', 'Ziyaretçilerin önce çoklu konu başlıklarını görebilmesi için izin ver?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Bu seçenek açık olursa, bir kontrol kutusu yanblok eklentilerindeki konu başlıklarının herbirinin yanına eklenecek.Ziyaretçiler bunlardan birkaçını işaretleyip bir kaç konu başlığı altındaki yazılara da aynı anda erişebilecekler.');
 @define('PAGE_BROWSE_PLUGINS', 'Sayfa %s sayısı %s, toplamda %s eklenti mevcut.');

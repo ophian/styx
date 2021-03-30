@@ -692,7 +692,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Mostrar o endereço de e-mail?');
 @define('IMAGE_MORE_INPUT', 'Adicionar mais imagens');
 @define('BACKEND_TITLE', 'Informações adicionais da tela de configuração de plugins');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Aqui você pode definir um texto personalizado que aparecerá na tela de configuração de plugin, junto com a descrição de HTML do plugin Nuggets. Se você possui múltiplos HTML nuggets com nome em branco, isto irá ajudar a separar uns dos outros.');//verify
+@define('BACKEND_TITLE_FOR_NUGGET', 'Aqui você pode definir um texto personalizado que aparecerá na tela de configuração de plugin, junto com a descrição do plugin. Se você possui múltiplos stacked plugins / HTML nuggets com nome em branco, isto irá ajudar a separar uns dos outros.');//verify
 @define('CATEGORIES_ALLOW_SELECT', 'Permite aos visitantes mostrar múltiplas categorias ao mesmo tempo?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Se esta opção estiver ativa, uma caixa de seleção srá mostrada ao lado de cada categoria na barra lateral dos plugins. Os usuários podem marcar estas caixas de seleção e ver as entradas pertencentes a cada uma.');
 @define('PAGE_BROWSE_PLUGINS', 'Paginas %s de %s, totalizando %s plugins.');

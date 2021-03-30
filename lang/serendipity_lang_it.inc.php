@@ -691,7 +691,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Mostra gli inirizzi E-Mail?');
 @define('IMAGE_MORE_INPUT', 'Aggiungi altre immagini');
 @define('BACKEND_TITLE', 'Informazioni ulteriori nella pagina di Configurazione Plugin');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Qui puoi definire una stringa personalizzata che viene visualizzata nella pagina Configurazione plugin insieme ad una descrizione del plugin HTML Nugget. Se hai più HTML nuggets con il titolo vuoto, questo aiuta a distinguere i plugins.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Qui puoi definire una stringa personalizzata che viene visualizzata nella pagina Configurazione plugin insieme ad una descrizione del plugin. Se hai più stacked plugins / HTML nuggets con il titolo vuoto, questo aiuta a distinguere i plugins.');
 @define('CATEGORIES_ALLOW_SELECT', 'Consenti ai visitatori di visualizzare più categorie contemporaneamente?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Se questa opzione è abiltata una casella di spunta sarà aggiunta dopo ogni categoria in questo plugin di barra laterale. Gli utenti possono spuntare quelle caselle per poi visualizzare le notizie corrispondenti alla loro selezione.');
 @define('PAGE_BROWSE_PLUGINS', 'Pagina %s di %s, in totale %s plugins.');

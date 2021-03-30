@@ -692,7 +692,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'E-mailadres laten zien?');
 @define('IMAGE_MORE_INPUT', 'Meer afbeeldingen toevoegen');
 @define('BACKEND_TITLE', 'Extra informatie in pluginconfiguratiescherm');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Hier kunt u een aangepaste tekst definiëren die zal worden weergegeven in het pluginconfiguratiescherm samen met de beschrijving van het HTML-blokje. Als u meerdere HTML-blokjes heeft met een lege titel, dan helpt dit om ze van elkaar te onderscheiden.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Hier kunt u een aangepaste tekst definiëren die zal worden weergegeven in het pluginconfiguratiescherm samen met de beschrijving van het plugin. Als u meerdere stacked plugins / HTML-blokjes heeft met een lege titel, dan helpt dit om ze van elkaar te onderscheiden.');
 @define('CATEGORIES_ALLOW_SELECT', 'Bezoekers toestaan om meerdere categorieën tegelijkertijd weer te geven?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Als dit is geactiveerd, dan zal er een aanvinkhokje naast elke categorie geplaatst worden. Gebruikers kunnen deze hokjes aanvinken om zo de artikelen van hun keuze te zien.');
 @define('PAGE_BROWSE_PLUGINS', 'Pagina %s van %s, totaal %s plugins.');

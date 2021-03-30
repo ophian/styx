@@ -691,7 +691,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Vis E-Mail adresser?');
 @define('IMAGE_MORE_INPUT', 'Tilføj flere billeder');
 @define('BACKEND_TITLE', 'Yderligere information på plugin konfigurations siden');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Her kan du indtaste en tekst som vises på plugin konfigurations siden, sammen med beskrivelsen af din HTML Nugget. Har du flere HTML Nuggets med tom titel kan dette hjælpe med at genkende dem fra hinanden.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Her kan du indtaste en tekst som vises på plugin konfigurations siden, sammen med beskrivelsen af din plugin. Har du flere stacked plugins / HTML Nuggets med tom titel kan dette hjælpe med at genkende dem fra hinanden.');
 @define('CATEGORIES_ALLOW_SELECT', 'Tillad brugere at vise flere kategorier samtidig?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Hvis denne mulighed aktiveres vises en checkboks ud for hver kategori i denne sidebar. Brugere kan afkrydse disse bokse og derefter se indlæg afhængig af deres valg.');
 @define('PAGE_BROWSE_PLUGINS', 'Side %s af %s, i alt %s plugins.');

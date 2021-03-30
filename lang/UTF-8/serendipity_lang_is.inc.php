@@ -690,7 +690,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Sýna netföng?');
 @define('IMAGE_MORE_INPUT', 'Bæta við fleiri myndum');
 @define('BACKEND_TITLE', 'Frekari upplýsingar í viðbótastillingavalmyndinni');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Hér geturðu skilgreint streng sem er birtur í viðbótarstillingasvalmyndinni ásamt lýsingunni á HTML stubbsviðbótinni. Ef þú ert með marga HTML stubba með tómt meginmál hjálpar þetta við að aðgreina stubbana hvorn frá öðrum.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Hér geturðu skilgreint streng sem er birtur í viðbótarstillingasvalmyndinni ásamt lýsingunni á plugin. Ef þú ert með marga stacked plugins / HTML stubba með tómt meginmál hjálpar þetta við að aðgreina stubbana hvorn frá öðrum.');
 @define('CATEGORIES_ALLOW_SELECT', 'Leyfa gestum að skoða marga flokka í einu?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Ef þessi valmöguleiki er virkur verður hægt að haka við hvern flokk í þessari hliðarrammaviðbót. Notendur geta þá hakað við flokka og séð færslur sem tilheyra valinu hverju sinni.');
 @define('PAGE_BROWSE_PLUGINS', 'Síða %s af %s, með samtals %s viðbætur.');

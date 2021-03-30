@@ -693,7 +693,7 @@ $i18n_unknown = 'tw';
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', '顯示電子郵件嗎?');
 @define('IMAGE_MORE_INPUT', '新增圖片');
 @define('BACKEND_TITLE', '外掛配置頁面的額外資訊');
-@define('BACKEND_TITLE_FOR_NUGGET', '這裡您可以設定一些自訂的文字，它們跟 HTML Nugget 外掛一樣會顯示在外掛配置頁面。如果您有多個沒有標題的 HTML Nuggets，這個可以讓您分辨多相同的外掛。');
+@define('BACKEND_TITLE_FOR_NUGGET', '這裡您可以設定一些自訂的文字，它們跟 外掛一樣會顯示在外掛配置頁面。如果您有多個沒有標題的 stacked plugins / HTML Nuggets，這個可以讓您分辨多相同的外掛。');
 @define('CATEGORIES_ALLOW_SELECT', '允許訪客顯示多數的類別？');
 @define('CATEGORIES_ALLOW_SELECT_DESC', '如果開啟這個選項，在 sidebar 外掛裡的類別旁邊會出現勾選欄位。會員可以勾選要顯示的類別。');
 @define('PAGE_BROWSE_PLUGINS', '頁數 %s 共 %s, 總共 %s 個外掛。');

@@ -702,7 +702,7 @@ $i18n_filename_to = array (
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Zobrazova» e-mailové adresy?');
 @define('IMAGE_MORE_INPUT', 'Prida» viac obrázkov');
 @define('BACKEND_TITLE', 'Dal¹ie informácie v konfigurácii doplnku');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Tu mô¾ete zada» re»azec, ktorý bude zobrazený v konfiguraènej stránke doplnkov spolu s popisom doplnku HTML Nugget. Ak máte niekoµko HTML Nuggetov s prázdnym názvom, toto Vám pomô¾e ich rozlí¹i».');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Tu mô¾ete zada» re»azec, ktorý bude zobrazený v konfiguraènej stránke doplnkov spolu s popisom doplnku. Ak máte niekoµko stacked plugins / HTML Nuggetov s prázdnym názvom, toto Vám pomô¾e ich rozlí¹i».');
 @define('CATEGORIES_ALLOW_SELECT', 'Povoli» náv¹tevníkom zobrazi» viac kategórií naraz?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'k je táto voµba zapnutá, bude vedµa ka¾dej kategórie v tomto doplnku boènej li¹ty zobrazené okienko. Náv¹tevníci mô¾u za¹krtnú» tieto okienka a bude im zobrazené èlánky vyhovujúce tomuto výberu.');
 @define('PAGE_BROWSE_PLUGINS', 'Strana %s z %s, spolu %s doplnkov');

@@ -702,7 +702,7 @@ $i18n_filename_to = array (
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Zobrazovat e-mailové adresy?');
 @define('IMAGE_MORE_INPUT', 'Pøidat více obrázkù');
 @define('BACKEND_TITLE', 'Dal¹í informace v konfiguraèní obrazovce pluginu');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Zde mù¾ete definovat svùj øetìzec, který bude zobrazen v konfiguraèní obrazovce pluginu spoleènì s popisem pluginu HTML Nugget. Kdy¾ máte nìkolik HTML nuggetù s prázdným tittle, toto vám pomù¾e je rozli¹it.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Zde mù¾ete definovat svùj øetìzec, který bude zobrazen v konfiguraèní obrazovce pluginu spoleènì s popisem pluginu. Kdy¾ máte nìkolik stacked plugins / HTML nuggetù s prázdným tittle, toto vám pomù¾e je rozli¹it.');
 @define('CATEGORIES_ALLOW_SELECT', 'Povolit náv¹tìvníkùm zobrazit více kategorií najednou?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Jestli¾e je tato volba povolena, bude v tomto postranním pluginu hned vedle ka¾dé kategorie za¹krtávací okénko. U¾ivatelé mohou tyto boxy za¹krtnout a vidìt jen pøíspìvky patøící do tohoto výbìru.');
 @define('PAGE_BROWSE_PLUGINS', 'Strana %s z %s, celkem %s pluginù.');

@@ -690,7 +690,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Show E-Mail addresses?');
 @define('IMAGE_MORE_INPUT', 'Add more images');
 @define('BACKEND_TITLE', 'Additional information in Plugin Configuration screen'); // Translate
-@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a custom string which is displayed in the Plugin Configuration screen together with the description of the HTML Nugget plugin. If you have multiple HTML nuggets with an empty title, this helps to distinct the plugins from another.'); // Translate
+@define('BACKEND_TITLE_FOR_NUGGET', 'Here you can define a short custom string which is displayed in the Plugin Configuration screen together with the description of the plugin. If you have multiple stacked plugins or HTML nuggets with an empty title, this helps to distinct the plugins from another.'); // Translate
 @define('CATEGORIES_ALLOW_SELECT', 'Allow visitors to display multiple categories at once?'); // Translate
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'If this option is enabled, a checkbox will be put next to each category in this sidebar plugin. Users can check those boxes and then see entries belonging to their selection.'); // Translate
 @define('PAGE_BROWSE_PLUGINS', 'Page %s of %s, totaling %s plugins.');

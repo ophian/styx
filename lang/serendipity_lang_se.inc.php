@@ -690,7 +690,7 @@
 @define('SYNDICATION_PLUGIN_SHOW_MAIL', 'Visa e-postadresser?');
 @define('IMAGE_MORE_INPUT', 'Lägg till fler bilder');
 @define('BACKEND_TITLE', 'Mer information på inställningsidan för insticksmoduler');
-@define('BACKEND_TITLE_FOR_NUGGET', 'Här kan du definiera en valfri sträng som kommer att visas på inställningssidan för insticksmoduler tillsammans med beskrivningen av insticksmodulen HTML Nugget. Om du har flera HTML Nugget-insticksmoduler med en tom titel hjälper detta för att göra skilja dem från varandra.');
+@define('BACKEND_TITLE_FOR_NUGGET', 'Här kan du definiera en valfri sträng som kommer att visas på inställningssidan för insticksmoduler tillsammans med beskrivningen av insticksmodulen. Om du har flera stacked plugins / HTML Nugget-insticksmoduler med en tom titel hjälper detta för att göra skilja dem från varandra.');
 @define('CATEGORIES_ALLOW_SELECT', 'Tillåt besökare att visa flera kategorier samtidigt?');
 @define('CATEGORIES_ALLOW_SELECT_DESC', 'Om detta alternativ är valt kommer en kryssruta att visas bredvid varje kategori i denna sidomeny. Användare kan kryssa i dessa rutor och sedan se artiklar tillhörande detta urval.');
 @define('PAGE_BROWSE_PLUGINS', 'Sida %s av %s, totalt %s insticksmoduler.');
