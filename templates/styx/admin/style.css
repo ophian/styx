@@ -3935,6 +3935,12 @@ img.mfp-img {
         margin-top: -3.2rem;
     }
 
+    /* float message on personal preferences page for "stickied" form > .button_link.toggle_config */
+    #content .msg_error.float,
+    #content .msg_success.float {
+        float: left;
+        width: 90%; }
+
     /* Top right floated filter alike elements - in order: plugins, themes, user pp, entries, comments */
     #plugin_options .plugin_togglegroup,
     #template_options .plugin_togglegroup,
