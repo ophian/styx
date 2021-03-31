@@ -83,6 +83,7 @@
             {if isset($admin_vars.out.footer)}{$admin_vars.out.footer|default:''}{/if}
     {else}
         {if NOT $admin_vars.no_sidebar}
+
         <nav id="main_menu">
             <h2 class="visuallyhidden">{$CONST.MAIN_MENU}</h2>
 
@@ -117,6 +118,7 @@
                         {serendipity_hookPlugin hook="backend_sidebar_entries" hookAll="true"}
                         {/if}
                     {/if}
+
                     </ul>
                 </li>
                 {/if}
@@ -139,6 +141,7 @@
                     {if $admin_vars.no_create !== true}
                         {serendipity_hookPlugin hook="backend_sidebar_entries_images" hookAll="true"}
                     {/if}
+
                     </ul>
                 </li>
                 {/if}
@@ -181,8 +184,10 @@
                         <li><a href="serendipity_admin.php?serendipity[adminModule]=groups">{$CONST.MENU_GROUPS}</a></li>
                     {/if}
                     {if $admin_vars.no_create !== true}
+
                         {serendipity_hookPlugin hook="backend_sidebar_admin" hookAll="true"}
                     {/if}
+
                     </ul>
                 </li>
                 {/if}
