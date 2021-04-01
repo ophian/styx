@@ -3936,8 +3936,7 @@ img.mfp-img {
     }
 
     /* float message on personal preferences page for "stickied" form > .button_link.toggle_config */
-    #content .msg_error.float,
-    #content .msg_success.float {
+    .ppconf_msg {
         float: left;
         width: 90%; }
 
