@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fixup clean-blog theme for theme configuration messages
+
   * Fixup old < fieldset p > margin CSS rule for theme configurations
 
   * Improve BACKEND_TITLE_FOR_NUGGET language constant to also include stackable
