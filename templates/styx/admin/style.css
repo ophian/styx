@@ -3960,6 +3960,10 @@ img.mfp-img {
       /* special cases plugin e.g. fieldset#gdpr_togglegroup */
       #plugin_options :not(.plugin_info.tgroup_info.additional_info) + form.configure_plugin.option_list > #gdpr_togglegroup.plugin_togglegroup {
           margin-top: -10.625em; }
+      #template_options .msg_success + form.theme_options.option_list > #show_config_all {
+         position: absolute;
+         top: 11.4285rem;
+         right: 1rem; }
 
     #note_subject {/*admin(quick)-notes*/
         min-width: 25em;
