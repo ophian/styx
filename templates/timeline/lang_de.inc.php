@@ -25,7 +25,7 @@
 @define('USE_GOOGLEFONTS', 'Google Webfonts einbinden?');
 @define('THEME_COLORSET', 'Farbsystem');
 @define('THEME_SKINSET', 'Theme-Skin');
-@define('HEADER_IMG', 'Optionales Kopfzeilenbild. Leer lassen, um den Blognamen zu verwenden.');
+@define('HEADER_IMG', 'Optionales Kopfzeilenbild. Leer für Blognamen.');
 @define('HEADER_IMG_DESC', 'Empfohlene Größe des Header-Bildes: 150 x 40px.');
 @define('ENTRY_DATE_FORMAT', 'Datumsformat für Einträge');
 @define('COMMENT_TIME_FORMAT', 'Zeitformat für Kommentare und Trackbacks');

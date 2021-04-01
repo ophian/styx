@@ -25,7 +25,7 @@
 @define('USE_GOOGLEFONTS', 'Use Google webfonts?');
 @define('THEME_COLORSET', 'Colorset');
 @define('THEME_SKINSET', 'Theme skin');
-@define('HEADER_IMG', 'Optional Header Image. Leave blank to use Blog Name.');
+@define('HEADER_IMG', 'Optional Header Image. Empty to use Blog Name.');
 @define('HEADER_IMG_DESC', 'Header image recommended size: 150 x 40px.');
 @define('SUBHEADER_IMG', 'Optional Subheader Image.');
 @define('SUBHEADER_IMG_DESC', 'This full width background image appears below the header logo and site navigation.');
