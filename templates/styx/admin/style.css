@@ -3951,22 +3951,23 @@ img.mfp-img {
     .filters_toolbar.filter_comments  {
       float: right;
       margin: -3.125em 0 0; }
-      #plugin_options h2 {
+      #plugin_options h2,
+      .plugin_info.tgroup_info {
         max-width: 86%;
-        word-break: break-word; }/* long title bee, dsgvo_gdpr, sidebarlogo */
+        word-break: break-word; }/* long titled bee, dsgvo_gdpr, sidebarlogo */
       #template_options .theme_options.option_list .plugin_togglegroup,
       form.theme_options.option_list > #show_config_all {
         margin-top: -7.15em; }
-      /* special cases plugin i.e. fieldset#sidebarlogo_togglegroup alike plugins */
-      #plugin_options :not(.plugin_info.tgroup_info.additional_info) + form.configure_plugin.option_list > .plugin_togglegroup {
-          margin-top: -6.0625em; }
-      /* special cases plugin e.g. fieldset#gdpr_togglegroup */
-      #plugin_options :not(.plugin_info.tgroup_info.additional_info) + form.configure_plugin.option_list > #gdpr_togglegroup.plugin_togglegroup {
-          margin-top: -10.625em; }
+      /* special cases plugin i.e. fieldset#(sidebarlogo|gdpr|bee|spamblock)_togglegroup alike plugins */
+      #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+         position: absolute;
+         top: 7.3625rem;
+         right: 2%; }
+      /* special cases theme configuration messages */
       #template_options .msg_success + form.theme_options.option_list > #show_config_all {
          position: absolute;
          top: 11.4285rem;
-         right: 1rem; }
+         right: 2%; }
 
     #note_subject {/*admin(quick)-notes*/
         min-width: 25em;
@@ -3987,7 +3988,7 @@ img.mfp-img {
         max-width: 95%;
         width: 95%;
     }
-    /* @see 360+ top right floated long title bee, dsgvo_gdpr, sidebarlogo set */
+    /* @see 360+ top right floated long titled bee, dsgvo_gdpr, sidebarlogo set */
     #plugin_options h2 {
         max-width: 93%;
         word-break: initial;
@@ -5060,6 +5061,10 @@ img.mfp-img {
         width: 74.5%;
     }
 
+    #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+         top: 7.95rem;
+    }
+
     .compact_categories #edit_entry_category .form_check {
         width: 20%;
     }
@@ -5182,10 +5187,28 @@ img.mfp-img {
     .media_file.mlMidCol h3 {
         width: 16em;
     }
+    #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+         right: 3%;
+    }
 }
 
 @media only screen and (min-width: 1600px) {
     html {
         font-size: 1.125em;
+    }
+    #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+         right: 5%;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+         right: 7.5%;
+    }
+}
+
+@media only screen and (min-width: 2000px) {
+    #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+         right: 10%;
     }
 }
