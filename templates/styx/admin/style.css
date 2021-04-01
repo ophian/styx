@@ -2042,6 +2042,9 @@ fieldset p,
 .media_file_meta > ul {
     margin: 0;
 }
+#template_options fieldset.config_optiongroup p {
+    margin: revert;
+}
 
 .media_file_metadata dl {
     border-top: 1px solid #aaa;
