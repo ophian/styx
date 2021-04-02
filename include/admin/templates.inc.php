@@ -186,7 +186,7 @@ $data['core_templates'] = array();
 foreach($themes AS $theme) {
     $stack[$theme] = serendipity_fetchTemplateInfo($theme);
 }
-ksort($stack);
+ksort($stack, SORT_NATURAL | SORT_FLAG_CASE);
 
 foreach($stack AS $theme => $info) {
     $info['custom_config'] = $info['custom_config'] ?? null;
