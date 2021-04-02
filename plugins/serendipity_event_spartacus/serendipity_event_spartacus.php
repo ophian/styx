@@ -24,7 +24,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.12');
+        $propbag->add('version',       '3.13');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -897,6 +897,8 @@ class serendipity_event_spartacus extends serendipity_event
         $pluginstack = array();
         $i = 0;
         $gitloc = '';
+
+        @ini_set('max_execution_time', 160); // building the cache can take a tad more than 120 sec on 1st run!
 
         $mirrors = $this->getMirrors('files', true);
         $mirror  = $mirrors[$this->get_config('mirror_files', 0)];
