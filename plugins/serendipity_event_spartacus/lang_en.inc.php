@@ -9,7 +9,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_NAME', 'Spartacus');
 @define('PLUGIN_EVENT_SPARTACUS_DESC', '[S]erendipity [P]lugin [A]ccess [R]epository [T]ool [A]nd [C]ustomization/[U]nification [S]ystem - Allows you to download plugins from our online repository');
 @define('PLUGIN_EVENT_SPARTACUS_FETCH', 'Click here to fetch a new %s from the Serendipity Online Repository');
-@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'The URL %s could not be opened. Maybe the Serendipity or SourceForge.net Server is down - we are sorry, you need to try again later. Try to reload (F5) the page first.');
+@define('PLUGIN_EVENT_SPARTACUS_FETCHERROR', 'The URL %s could not be opened. Maybe the remote Spartacus Server is down - we are sorry, you need to try again later. Try to reload (F5) the page first.');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHING', 'Trying to open URL %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_URL', 'Fetched %s bytes from the URL above. Saving file as %s...');
 @define('PLUGIN_EVENT_SPARTACUS_FETCHED_BYTES_CACHE', 'Fetched %s bytes from already existing file on your server. Saving file as %s...');
@@ -68,7 +68,7 @@
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB', 'This plugin supports the Serendipity Cronjob plugin. Go and install it if you want scheduled execution.');
 @define('PLUGIN_EVENT_SPARTACUS_CRONJOB_WHEN', 'Execute regular cronjob to check for plugin updates, and mail those to the configured blog\'s mail address (%s)?');
 
-@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Random string by loading this option page: "%s%s". Please take this "obfuscated" hash-string (w/o quotes) to use it remotely with the serendipity_event_plugup Plugin-Update notification plugin and allow the remote option above. Such page does not provide any details like name or version, like the origin "spartacus_remote" string and you don\'t need to care about further security.)');
+@define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (A random copy-ready string by loading this option page: "%s%s". Please take this "obfuscated" hash-string (w/o quotes) to use it remotely with the serendipity_event_plugup Plugin-Update notification plugin and allow the remote option above. Such page does not provide any details like name or version, like the origin "spartacus_remote" string and you don\'t need to care about further security.)');
 
 @define('PLUGIN_EVENT_SPARTACUS_CHECK', 'Update plugins');
 
