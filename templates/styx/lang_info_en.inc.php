@@ -29,6 +29,7 @@ And it has its own styles markup, equivalent to the "default/admin/styles.css" f
 * 2021-02 / 2021-03 - Small Improvements to the CSS styles.
 * 2021-03-26 - Entries/Comments filter toolbars are shifted to the right up from 360px screen width.
 * 2021-03-29 - Extended with a right floated toolbar group for Plugins/Themes/Personal-Preferences configurations, including at least a "toggle all" (containers) button.
+* 2021-04-01 - Cleanup for media inputs in configuration pages.
 </pre>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>
