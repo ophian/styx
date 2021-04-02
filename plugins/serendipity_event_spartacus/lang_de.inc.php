@@ -63,3 +63,5 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_CSPRNG', ' (Bei Aufruf dieser Seite erneuerter String: "%s%s". Kopieren Sie diese "gehashte" Zeichenkette (ohne ""), um sie zusammen mit dem serendipity_event_plugup Plugin für einen Plugin-Update Hinweis zu nutzen. Erlauben Sie dafür obige Fernabfrage Option. Solch eine Seite enthält, im Gegensatz zu der originalen "spartacus_remote" Zeichenkette, keine nennenswert zu schützende Information, außer der, dass ganz allgemein Plugin Updates vorliegen.)');
 
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES_DESC', 'Da die Vorschaubilder für die zusätzlichen Themes beim ersten tatsächlichen Durchlauf zwischengespeichert werden, kann dieser Abruf eine Weile dauern (2-3 Minuten), wenn Sie den Themes Link in der Seitenleiste zum ersten Mal aufrufen, nachdem Sie diese Option auf Ja (aktiviert) gesetzt haben. Warten Sie, bis die Seite ihre Hintergrundarbeit beendet hat. Sollte die Ausführung mit einem "PHP Fatal error:  Maximum execution time" Fehler fehlschlagen, laden Sie die Seite einfach neu, um diesen Lauf zu beenden.');
+

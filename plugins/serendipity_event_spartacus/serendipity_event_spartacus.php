@@ -24,7 +24,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.13');
+        $propbag->add('version',       '3.14');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -164,7 +164,7 @@ class serendipity_event_spartacus extends serendipity_event
             case 'enable_themes':
                 $propbag->add('type',        'boolean');
                 $propbag->add('name',        PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES);
-                $propbag->add('description', '');
+                $propbag->add('description', PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES_DESC);
                 $propbag->add('default',     'false');
                 break;
 

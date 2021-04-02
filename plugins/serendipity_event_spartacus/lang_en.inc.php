@@ -41,6 +41,7 @@
 
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_PLUGINS', 'Enable the use of Spartacus for fetching plugins?');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES', 'Enable the use of Spartacus for fetching themes?');
+@define('PLUGIN_EVENT_SPARTACUS_ENABLE_THEMES_DESC', 'Since the additional themes preview image files are getting cached on first run, this fetch can take a while (2-3 min) when hitting the sidebars themes link the first time, after having set this option to Yes (enabled). Wait for the page to finish its background work. If it fails with a max execution fatal error, please do just reload the page to finish that run.');
 
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE', 'Enable remote plugin version information');
 @define('PLUGIN_EVENT_SPARTACUS_ENABLE_REMOTE_DESC', 'If enabled, visitors to "%s" can see the version information of all installed plugins. You might want to protect this URL through custom .htaccess rules for unprivileged access.');
