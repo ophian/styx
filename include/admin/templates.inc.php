@@ -184,11 +184,14 @@ $core_templates = ['2k11', 'styx', 'b46', 'bootstrap4', 'clean-blog', 'default',
 $data['core_templates'] = array();
 
 foreach($themes AS $theme) {
-    $stack[$theme] = serendipity_fetchTemplateInfo($theme);
+    $_theme = $theme == '2k11' ? 'n2k11' : $theme; // for sorting placement only, left to Next
+    $stack[$_theme] = serendipity_fetchTemplateInfo($theme);
+    #$stack[$theme] = serendipity_fetchTemplateInfo($theme);
 }
 ksort($stack, SORT_NATURAL | SORT_FLAG_CASE);
 
 foreach($stack AS $theme => $info) {
+    $theme = $theme == 'n2k11' ? '2k11' : $theme; // back, see above
     $info['custom_config'] = $info['custom_config'] ?? null;
     $data['templates'][$theme]['info'] = $info;
 
