@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Cleanup some more php_ini related legacy code
+
   * Fixup clean-blog theme for theme configuration messages
 
   * Fixup old < fieldset p > margin CSS rule for theme configurations
