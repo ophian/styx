@@ -247,18 +247,6 @@ if ((int)$serendipity['GET']['step'] == 0) {
         $data['installerResultDiagnose_SRG'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     }
 
-    if (!serendipity_ini_bool(ini_get('magic_quotes_gpc'))) {
-        $data['installerResultDiagnose_SMQG'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
-    } else {
-        $data['installerResultDiagnose_SMQG'] = serendipity_installerResultDiagnose(S9Y_I_WARNING, 'ON');
-    }
-
-    if (!serendipity_ini_bool(ini_get('magic_quotes_runtime'))) {
-        $data['installerResultDiagnose_SMQR'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
-    } else {
-        $data['installerResultDiagnose_SMQR'] = serendipity_installerResultDiagnose(S9Y_I_ERROR, 'ON');
-    }
-
     if (!serendipity_ini_bool(ini_get('session.use_trans_sid'))) {
         $data['installerResultDiagnose_SSUTS'] = serendipity_installerResultDiagnose(S9Y_I_SUCCESS, 'OFF');
     } else {

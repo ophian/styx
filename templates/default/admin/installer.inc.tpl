@@ -150,16 +150,6 @@
                             <td>{$installerResultDiagnose_SRG}</td>
                         </tr>
                         <tr>
-                            <td>magic_quotes_gpc</td>
-                            <td><strong>OFF</strong></td>
-                            <td>{$installerResultDiagnose_SMQG}</td>
-                        </tr>
-                        <tr>
-                            <td>magic_quotes_runtime</td>
-                            <td><strong>OFF</strong></td>
-                            <td>{$installerResultDiagnose_SMQR}</td>
-                        </tr>
-                        <tr>
                             <td>session.use_trans_sid</td>
                             <td><strong>OFF</strong></td>
                             <td>{$installerResultDiagnose_SSUTS}</td>
