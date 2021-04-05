@@ -4667,6 +4667,11 @@ img.mfp-img {
         max-width: none;
     }
 
+    /* Chromium needs box sizing to expand correct (see categorytemplates) */
+    .configuration_group .sequence_container {
+        box-sizing: border-box;
+    }
+
     .info_expanded select,
     .info_expanded > input,
     .info_expanded textarea,
@@ -4674,12 +4679,6 @@ img.mfp-img {
     .info_expanded .sequence_container {
         position: relative;
         top: -1.5em;
-    }
-    /* give a tad "auto" expansion variable-width to not jump right when having opened additional_info */
-    .configuration_group .sequence_container.pluginmanager_container {
-        max-width: 49.9999%;
-        min-width: 49%;
-        box-sizing: border-box;
     }
 
     .media_choose .button_link {
