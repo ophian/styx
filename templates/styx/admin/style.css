@@ -4675,6 +4675,12 @@ img.mfp-img {
         position: relative;
         top: -1.5em;
     }
+    /* give a tad "auto" expansion variable-width to not jump right when having opened additional_info */
+    .configuration_group .sequence_container.pluginmanager_container {
+        max-width: 49.9999%;
+        min-width: 49%;
+        box-sizing: border-box;
+    }
 
     .media_choose .button_link {
         position: relative;
