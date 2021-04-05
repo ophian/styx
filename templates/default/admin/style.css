@@ -4572,6 +4572,11 @@ img.mfp-img {
         max-width: 48%;
     }
 
+    .configuration_group .form_select.has_info.info_expanded select,
+    .configuration_group .form_area.has_info.info_expanded textarea {
+        margin-top: -.5rem;
+    }
+
     .js .configuration_group .media_choose input {
         margin-right: 1%;
         max-width: none;
