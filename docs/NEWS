@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix PHP 8 init issue in routing API when having removed some permalink IDs
+
   * Extend WebP added picture sets for plugin/themes configuration items
 
   * Cleanup some more php_ini related legacy code
