@@ -84,7 +84,10 @@
 
         <figure id="{$config_item}_preview">
             <figcaption>{$CONST.PREVIEW}</figcaption>
-            <img src="{$value}" alt="">
+            <picture>
+                <source type="image/webp" srcset="{$value_webp|default:''}" class="ml_preview_img" alt="{$value_name}">
+                <img src="{$value}" title="{$value_name}" alt="{$value_name}">
+            </picture>
         </figure>
     </div>
 {elseif $ctype == 'sequence'}
