@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Extend WebP added picture sets for plugin/themes configuration items
+
   * Cleanup some more php_ini related legacy code
 
   * Fixup clean-blog theme for theme configuration messages
