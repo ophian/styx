@@ -257,7 +257,7 @@ function serveAuthorPage($matches, $is_multiauth=false) {
     $_args = locateHiddenVariables($serendipity['uriArguments']);
 
     if (!$is_multiauth) {
-        $matches[1] = serendipity_searchPermalink($serendipity['permalinkAuthorStructure'], implode('/', $_args), $matches[1], 'author');
+        $matches[1] = serendipity_searchPermalink($serendipity['permalinkAuthorStructure'], implode('/', $_args), ($matches[1] ?? ''), 'author');
         $serendipity['GET']['viewAuthor'] = $matches[1];
         $serendipity['GET']['action'] = 'read';
     }
@@ -303,7 +303,7 @@ function serveCategory($matches, $is_multicat=false) {
     $_args = locateHiddenVariables($serendipity['uriArguments']);
 
     if (!$is_multicat) {
-        $matches[1] = serendipity_searchPermalink($serendipity['permalinkCategoryStructure'], implode('/', $_args), $matches[1], 'category');
+        $matches[1] = serendipity_searchPermalink($serendipity['permalinkCategoryStructure'], implode('/', $_args), ($matches[1] ?? ''), 'category');
         $serendipity['GET']['category'] = $matches[1];
     }
     $cInfo = serendipity_fetchCategoryInfo($serendipity['GET']['category']); // category already secured to be an integer only
@@ -381,12 +381,12 @@ function serveFeed($matches) {
     if (is_array($matches)) {
         if (preg_match('@(/?' . preg_quote(PATH_FEEDS, '@') . '/)(.+?)(?:\.rss)?$@i', $uri, $uriparts)) {
             if (strpos($uriparts[2], $serendipity['permalinkCategoriesPath']) === 0) {
-                $catid = serendipity_searchPermalink($serendipity['permalinkFeedCategoryStructure'], $uriparts[2], $matches[1], 'category');
+                $catid = serendipity_searchPermalink($serendipity['permalinkFeedCategoryStructure'], $uriparts[2], ($matches[1] ?? ''), 'category');
                 if (is_numeric($catid) && $catid > 0) {
                     $_GET['category'] = $catid;
                 }
             } elseif (strpos($uriparts[2], $serendipity['permalinkAuthorsPath']) === 0) {
-                $authorid = serendipity_searchPermalink($serendipity['permalinkFeedAuthorStructure'], $uriparts[2], $matches[1], 'author');
+                $authorid = serendipity_searchPermalink($serendipity['permalinkFeedAuthorStructure'], $uriparts[2], ($matches[1] ?? ''), 'author');
                 if (is_numeric($authorid) && $authorid > 0) {
                     $_GET['viewAuthor'] = $authorid;
                 }
