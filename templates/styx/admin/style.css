@@ -3963,6 +3963,9 @@ img.mfp-img {
          position: absolute;
          top: 7.3625rem;
          right: 2%; }
+        .msg_success + #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+          top: 11.5rem; }
+
       /* special cases theme configuration messages */
       #template_options .msg_success + form.theme_options.option_list > #show_config_all {
          position: absolute;
@@ -5072,8 +5075,9 @@ img.mfp-img {
     }
 
     #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
-         top: 7.95rem;
-    }
+      top: 7.95rem; }
+      .msg_success + #plugin_options form.configure_plugin.option_list > .plugin_togglegroup {
+        top: 12rem; }
 
     .compact_categories #edit_entry_category .form_check {
         width: 20%;
