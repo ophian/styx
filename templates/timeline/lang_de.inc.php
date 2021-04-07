@@ -21,12 +21,18 @@
 @define('THEME_ENTRY_IMAGE', 'Zugeordnetes Eintrags Bild.');
 @define('THEME_DEMO_AVAILBLE', 'Eine komplette englische Anleitung zur <a href="http://www.optional-necessity.com/demo/timeline/archives/13-Using-the-Timeline-theme.html">Konfiguration und Benutzung von Timeline</a> findet sich in der <a href="http://www.optional-necessity.com/demo/timeline/">Timeline theme demo</a>.');
 
+//Navigation
+@define('USE_CORENAV', 'Globale Navigation verwenden?');
+
 //Page Options
 @define('USE_GOOGLEFONTS', 'Google Webfonts einbinden?');
 @define('THEME_COLORSET', 'Farbsystem');
 @define('THEME_SKINSET', 'Theme-Skin');
-@define('HEADER_IMG', 'Optionales Kopfzeilenbild. Leer für Blognamen.');
-@define('HEADER_IMG_DESC', 'Empfohlene Größe des Header-Bildes: 150 x 40px.');
+@define('HEADER_IMG', 'Optionales Kopfzeilenbild. Leer für Blognamen');
+@define('HEADER_IMG_DESC', 'Empfohlene Größe des Logo Header-Bildes: 150 x 40px. Wird nur angezeigt, wenn "' . USE_CORENAV . '" auf "'. YES .'" steht.');
+@define('SUBHEADER_IMG', 'Optionales Subheader Hintergrund-Bild');
+@define('SUBHEADER_IMG_DESC', 'Dieses Hintergrundbild in voller Breite erscheint unterhalb des Header-Logos und der Site-Navigation.');
+@define('HEADERS_USE_WEBP', 'Ausgabe als WebP Format, wenn erhältlich?');
 @define('ENTRY_DATE_FORMAT', 'Datumsformat für Einträge');
 @define('COMMENT_TIME_FORMAT', 'Zeitformat für Kommentare und Trackbacks');
 @define('WORDS', 'Textfassung');
@@ -41,9 +47,6 @@
 @define('CATEGORY_RSS_ON_ARCHIVE', 'RSS-Symbol neben jeder Kategorie auf der Archivseite anzeigen');
 @define('TAGS_ON_ARCHIVE', 'Tags auf der Archivseite anzeigen');
 @define('TAGS_ON_ARCHIVE_DESC', 'Das Seitenleisten-Plugin "Getaggte Artikel" (serendipity_plugin_freetag) muss installiert sein und die Option "Sidebar template" muss auf "archive_freetag.tpl" gesetzt werden, damit Tags auf der Archiv-Seite angezeigt werden.');
-
-//Navigation
-@define('USE_CORENAV', 'Globale Navigation verwenden?');
 
 //Social media
 @define('SOCIAL_ICONS_AMOUNT', 'Anzahl der Links zu sozialen Medien eingeben');

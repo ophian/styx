@@ -21,14 +21,18 @@
 @define('THEME_ENTRY_IMAGE', 'Entry Image.');
 @define('THEME_DEMO_AVAILABLE', 'A complete English explanation of <a href="http://www.optional-necessity.com/demo/timeline/archives/13-Using-the-Timeline-theme.html">configuring and using Timeline</a> can be found on the <a href="http://www.optional-necessity.com/demo/timeline/">Timeline theme demo</a>.');
 
+//Navigation
+@define('USE_CORENAV', 'Use global navigation?');
+
 //Page Options
 @define('USE_GOOGLEFONTS', 'Use Google webfonts?');
 @define('THEME_COLORSET', 'Colorset');
 @define('THEME_SKINSET', 'Theme skin');
-@define('HEADER_IMG', 'Optional Header Image. Empty to use Blog Name.');
-@define('HEADER_IMG_DESC', 'Header image recommended size: 150 x 40px.');
-@define('SUBHEADER_IMG', 'Optional Subheader Image.');
+@define('HEADER_IMG', 'Optional Header Image. Empty to use Blog Name');
+@define('HEADER_IMG_DESC', 'Header logo image recommended size: 150 x 40px. Only is available when "' . USE_CORENAV . '" is set to "'. YES .'".');
+@define('SUBHEADER_IMG', 'Optional Subheader background Image');
 @define('SUBHEADER_IMG_DESC', 'This full width background image appears below the header logo and site navigation.');
+@define('HEADERS_USE_WEBP', 'If available, use WebP for configurable images');
 @define('ENTRY_DATE_FORMAT', 'Entry Date Format');
 @define('COMMENT_TIME_FORMAT', 'Comment and trackback time format');
 @define('WORDS', 'Words');
@@ -43,9 +47,6 @@
 @define('CATEGORY_RSS_ON_ARCHIVE', 'Show RSS icon next to each category on archive page');
 @define('TAGS_ON_ARCHIVE', 'Show tags on archive page');
 @define('TAGS_ON_ARCHIVE_DESC', 'The show tagged entries plugin (serendipity_plugin_freetag) must be installed and the sidebar template option must be set to "archive_freetag.tpl" to view tags on the archive page.'); //Used in theme readme and archive page
-
-//Navigation
-@define('USE_CORENAV', 'Use global navigation?');
 
 //Social media
 @define('SOCIAL_ICONS_AMOUNT', 'Enter number of social media links');
