@@ -257,8 +257,10 @@ if (isset($_SESSION['serendipityUseTemplate'])) {
     $template_loaded_config['use_corenav'] = false;
 }
 
-$template_loaded_config['header_img'] = generate_webp($template_loaded_config['header_img']);
-$template_loaded_config['subheader_img'] = generate_webp($template_loaded_config['subheader_img']);
+if (false !== serendipity_db_bool($template_loaded_config['use_webp'])) {
+    $template_loaded_config['header_img'] = generate_webp($template_loaded_config['header_img']);
+    $template_loaded_config['subheader_img'] = generate_webp($template_loaded_config['subheader_img']);
+}
 
 $serendipity['template_loaded_config'] = $template_loaded_config;
 
