@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix syndication plugin feedburner protocol from http to https, as well as
+    in a 2.0-beta3 upgrade task.
+
   * Add [ timeline ] theme configurable WebP support
 
   * Fix PHP 8 init issue in routing API when having removed some permalink IDs
