@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Add [ timeline ] theme configurable WebP support
+
   * Fix PHP 8 init issue in routing API when having removed some permalink IDs
 
   * Extend WebP added picture sets for plugin/themes configuration items
