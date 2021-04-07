@@ -1140,6 +1140,9 @@ img.serendipity_entryIcon {
 .serendipity_imageComment_img, .serendipity_imageComment_img img {
     display: inline-block; }
 
+.serendipity_image_block.col img {
+    height: auto; }
+
 /* styx media gallery styles end */
 
 .image-full-width {width: 100%}
