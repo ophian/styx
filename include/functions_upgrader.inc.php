@@ -809,7 +809,7 @@ function serendipity_upgrader_move_syndication_config() {
     $show_feedburner = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE 'serendipity_plugin_syndication%show_feedburner'");
     if ($show_feedburner == 'force') {
         if (!empty($fbid[0])) {
-            $fburl = 'http://feeds.feedburner.com/' . $fbid[0];
+            $fburl = 'https://feeds.feedburner.com/' . $fbid[0];
             serendipity_db_query("INSERT INTO {$serendipity['dbPrefix']}config (name, value) VALUES ('feedCustom', '" . serendipity_db_escape_string($fburl) ."')");
         }
     }
