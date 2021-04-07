@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.10');
+        $propbag->add('version',       '2.11');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -176,13 +176,13 @@ class serendipity_plugin_syndication extends serendipity_plugin
             $useAtom = $useBoth = true;
         }
 
-        #$img = 'http://feeds.feedburner.com/~fc/'.$this->get_config('fb_id').'?bg=99CCFF&amp;fg=444444&amp;anim=0';
+        #$img = 'https://feeds.feedburner.com/~fc/'.$this->get_config('fb_id').'?bg=99CCFF&amp;fg=444444&amp;anim=0';
 
         $icon = $small_icon;
         if (!empty($custom_img) && $custom_img != 'default' && $custom_img != 'none' && $custom_img != 'empty') {
             $icon = $custom_img;
             if ($fbid != '' && $custom_img == 'feedburner') {
-                $icon = "http://feeds.feedburner.com/~fc/$fbid?bg=99CCFF&amp;fg=444444&amp;anim=0";
+                $icon = "https://feeds.feedburner.com/~fc/$fbid?bg=99CCFF&amp;fg=444444&amp;anim=0";
             }
             if ($fbid == '' && $custom_img == 'feedburner') {
                 $icon = serendipity_getTemplateFile('img/subtome.png');
@@ -206,7 +206,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         } else {
             $mainFeed = serendipity_rewriteURL(PATH_FEEDS .'/index.rss2');
             if ($fbid != '') {
-                $mainFeed ='http://feeds.feedburner.com/' . $fbid;
+                $mainFeed ='https://feeds.feedburner.com/' . $fbid;
             } else {
                 if ($useAtom && !$useRss) {
                     $mainFeed = serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml');
