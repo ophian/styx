@@ -103,6 +103,18 @@ if (class_exists('serendipity_event_entryproperties')) {
     $ep_msg = THEME_EP_NO;
 }
 
+function generate_webp($image) {
+    global $serendipity;
+
+    $bname  = basename($image); // to get base file name w/ ext
+    $vpath  = str_replace($bname, '', $image); // get file path
+    $fname  = pathinfo($image, PATHINFO_FILENAME); // get file name w/o extension
+    $rpath  = $vpath . '.v/' . $fname . '.webp'; // the relative document root image filepath
+    $image_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath) ? $rpath : $image; // file exist needs full path to check
+
+    return $image_webp;
+}
+
 $template_config = array(
     array(
         'var'           => 'sidebars',
@@ -153,6 +165,15 @@ $template_config = array(
         'description'   => SUBHEADER_IMG_DESC,
         'type'          => 'media',
         'default'       => serendipity_getTemplateFile('subheader.jpg', 'serendipityHTTPPath', true)
+    ),
+    array(
+        'var'           => 'use_webp',
+        'name'          => HEADERS_USE_WEBP,
+        'description'   => '',
+        'type'          => 'radio',
+        'radio'         => array('value' => array('true', 'false'),
+                                 'desc'  => array(YES, NO)),
+        'default'       => 'true'
     ),
     array(
         'var'           => 'date_format',
@@ -235,6 +256,9 @@ serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $t
 if (isset($_SESSION['serendipityUseTemplate'])) {
     $template_loaded_config['use_corenav'] = false;
 }
+
+$template_loaded_config['header_img'] = generate_webp($template_loaded_config['header_img']);
+$template_loaded_config['subheader_img'] = generate_webp($template_loaded_config['subheader_img']);
 
 $serendipity['template_loaded_config'] = $template_loaded_config;
 
@@ -326,7 +350,7 @@ for ($i = 0; $i < $template_loaded_config['social_icons_amount']; $i++) {
 
 $template_config_groups = array(
     THEME_README        => array('theme_instructions'),
-    THEME_IDENTITY      => array('sidebars', 'header_img', 'subheader_img', 'colorset', 'skinset', 'copyright'),
+    THEME_IDENTITY      => array('sidebars', 'header_img', 'subheader_img', 'use_webp', 'colorset', 'skinset', 'copyright'),
     THEME_PAGE_OPTIONS  => array('use_googlefonts', 'date_format', 'comment_time_format', 'display_as_timeline', 'months_on_timeline', 'months_on_timeline_format', 'categories_on_archive', 'category_rss_archive', 'tags_on_archive'),
     THEME_NAVIGATION    => $navlinks_collapse,
     THEME_SOCIAL_LINKS  => $sociallinks_collapse
