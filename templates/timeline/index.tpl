@@ -254,12 +254,12 @@
 </div>{* wrapper *}
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-<script src={serendipity_getFile file="js/timeline.js"}></script>
+<script src="{serendipity_getFile file="js/timeline.js"}"></script>
 
 <!--[if lt IE 9]>
-    <script src={serendipity_getFile file="js/respond.js"}></script>
-    <script src={serendipity_getFile file="js/html5shiv.js"}></script>
-    <script src={serendipity_getFile file="js/placeholder-IE-fixes.js"}></script>
+    <script src="{serendipity_getFile file="js/respond.js"}"></script>
+    <script src="{serendipity_getFile file="js/html5shiv.js"}"></script>
+    <script src="{serendipity_getFile file="js/placeholder-IE-fixes.js"}"></script>
 <![endif]-->
 {/if}
 {$raw_data}
