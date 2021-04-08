@@ -917,7 +917,8 @@ ul.comment-list {
 
 .comment-list .comment-children {
     list-style: none;
-    margin-left: 58px;
+    margin-left: 2%;
+    margin-left: clamp(2%, 4%, 6%);/* CSS4 */
     padding: 0;
 }
 
