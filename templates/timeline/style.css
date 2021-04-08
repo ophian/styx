@@ -1212,6 +1212,11 @@ blockquote {
     vertical-align: middle;
 }
 
+.dtree a {
+    color: inherit;
+    margin-left: .25rem;
+}
+
 .entry-footer {
     padding: 20px 0;
 }
