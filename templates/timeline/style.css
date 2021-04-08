@@ -1158,6 +1158,7 @@ blockquote {
     font-size: inherit;
     font-style: italic;
     margin: 10px 30px;
+    padding-left: 1rem;
 }
 
 .post-info {color: #a4a4a4; margin-bottom: 20px;}
