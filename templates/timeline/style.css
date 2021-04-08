@@ -368,19 +368,19 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .each-blogstyle-entry {margin-bottom: 26px;}
 
-.blogstyle-post-thumb {-ms-flex: initial;flex: initial;max-width:initial;margin-top: 20px;}
+.blogstyle-post-thumb {-ms-flex: initial; flex: initial; max-width:initial; margin-top: 20px;}
 
-@media (min-width: 992px) { .blogstyle-post-thumb {-ms-flex: 0 0 58.667%; flex: 0 0 58.667% ;max-width: 58.667%;} }
+@media (min-width: 992px) { .blogstyle-post-thumb {-ms-flex: 0 0 58.667%; flex: 0 0 58.667%; max-width: 58.667%;} }
 
-.blogstyle-post-body {-ms-flex: initial;flex: initial;max-width:initial;margin-top:20px;}
+.blogstyle-post-body {-ms-flex: initial; flex: initial; max-width:initial; margin-top:20px;}
 
-.blogstyle-post-body h2{line-height: 1.2em; margin-top: 0; overflow: hidden;}
+.blogstyle-post-body h2 {line-height: 1.2em; margin-top: 0; overflow: hidden;}
 
 /* archive summary - "view topics" */
 
 .archives_summary {margin-top:40px;}
 
-.archives_summary h4{line-height: 1.2em; margin: 0 0 4px 0; overflow: hidden;}
+.archives_summary h4 {line-height: 1.2em; margin: 0 0 4px 0; overflow: hidden;}
 
 .archives_summary hr {margin: 10px 0}
 
