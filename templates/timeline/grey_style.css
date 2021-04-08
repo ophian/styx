@@ -84,6 +84,14 @@ a.subtome img {
     color: #768b8c;
 }
 
+/* grey_style colorset style post comment owner by different colorsets */
+.serendipity_comment_author_self h4 .pc-owner, .serendipity_comment_author_self h5 .pc-owner, .serendipity_comment_author_self header .pc-owner {
+    background: #8ba4a5;
+    color: #f0efef;
+    text-shadow: 1px 1px 2px #084042;
+    border-color: #d2d2d2;
+}
+
 .sidebar_plugin h3{
     border-bottom: 2px solid #8ba4a5;
 }
