@@ -368,9 +368,11 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .each-blogstyle-entry {margin-bottom: 26px;}
 
-.blogstyle-post-thumb {margin-top: 20px;}
+.blogstyle-post-thumb {-ms-flex: initial;flex: initial;max-width:initial;margin-top: 20px;}
 
-.blogstyle-post-body {margin-top:20px;}
+@media (min-width: 992px) { .blogstyle-post-thumb {-ms-flex: 0 0 58.667%; flex: 0 0 58.667% ;max-width: 58.667%;} }
+
+.blogstyle-post-body {-ms-flex: initial;flex: initial;max-width:initial;margin-top:20px;}
 
 .blogstyle-post-body h2{line-height: 1.2em; margin-top: 0; overflow: hidden;}
 
@@ -1144,7 +1146,7 @@ img.serendipity_entryIcon {
 .serendipity_image_block.col img {
     height: auto; }
 
-/* styx media gallery styles end */
+/* Styx media gallery styles end */
 
 .image-full-width {width: 100%}
 
