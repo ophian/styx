@@ -107,7 +107,7 @@
                         {if NOT empty($entry.categories)}
                             <span class="sr-only">{$CONST.CATEGORIES}: </span>
                             <i class="fas fa-folder-open" aria-hidden="true"></i>
-                            {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}&nbsp;{/if}{/foreach}
+                            {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape|default:'#'}">{$entry_category.category_name|escape|default:'#'}</a>{if NOT $entry_category@last}&nbsp;{/if}{/foreach}
                         {/if}
                         {if isset($entry.freetag.extended) AND $entry.freetag.extended == 1}
                             {if NOT empty($entry.freetag.tags.tags)}
