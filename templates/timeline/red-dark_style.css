@@ -66,6 +66,12 @@ a.subtome img {
     }
 }
 
+/* red-dark hamburger */
+nav.navbar-light .navbar-toggler {
+    border-color: #bbbdc1;
+    background-color: #a10f2b;
+}
+
 .btn-theme {
     background: none repeat scroll 0 0 #a10f2b;
     border: 1px solid #a10f2b;

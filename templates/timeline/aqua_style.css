@@ -66,6 +66,12 @@ a.subtome img {
     }
 }
 
+/* aqua hamburger */
+nav.navbar-light .navbar-toggler {
+    border-color: #bbbdc1;
+    background-color: aqua;
+}
+
 .btn-theme {
     background: none repeat scroll 0 0 #27d7e7;
     border: 1px solid #27d7e7;
