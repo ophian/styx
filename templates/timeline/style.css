@@ -1,6 +1,6 @@
 /*
  Theme: Timeline
- Last revised April 20, 2016
+ Last revised April 10, 2021 by Ian Styx
  Theme developed for Serendipity by Don Chambers (www.optional-necessity.com)
  Inspired by Unify/htmlstream
  Font Awesome by Dave Gandy - http://fontawesome.io
@@ -29,13 +29,11 @@ pre {
 }
 
 a {
-  /*color: #72c02c;*/
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-    /*color: #57a70f;*/ /* darker */
     text-decoration: underline;
 }
 
@@ -45,17 +43,11 @@ a:focus {
 
 a.subtome:link,
 a.subtome:visited {
-    /* background: url('{TEMPLATE_PATH}img/subtome-green.png') left bottom no-repeat;*/ /* see colorsets for subtome images */
     height: 64px!important;
     margin: 0;
     padding: 24px 0;
     visibility: visible;
     width: 64px!important;
-}
-
-a.subtome:hover,
-a.subtome:active {
-    /*background: url('{TEMPLATE_PATH}img/subtome-green.png') -64px center no-repeat;*/
 }
 
 a.subtome img {
@@ -87,30 +79,34 @@ input[type="button"], input[type="checkbox"] {
     z-index: 99;
 }
 
-.header .navbar {
+nav.navbar {
     margin: 0;
 }
 
-.header .navbar-default {
+nav.navbar-light {
     background: none;
     border: none;
 }
 
-.header .navbar-header h1 {
-    margin: 10px 0 0 0;
+nav .navbar-header h1 {
+    margin: 1rem 0 0 0;
 }
 
-.header .navbar-brand {
+nav .navbar-brand {
     height: 100%;
-    margin:0!important;
+    margin: 0 !important;
     padding: 0;
     position: relative;
     top: -10px;
     z-index: 1;
 }
-.navbar-default .navbar-brand:focus h1,
-.navbar-default .navbar-brand:hover h1{
-    /* color: #72c02c;*/
+nav .navbar-brand {
+    padding-right: .75rem;
+}
+
+/* Between 575px und 768px entry content max width 100% to overrule bootstraps .container, .container-sm { max-width: 540px; } */
+.container.content {
+    max-width: 100%;
 }
 
 .subheader {
@@ -119,20 +115,17 @@ input[type="button"], input[type="checkbox"] {
     overflow: hidden;
     padding: 10px 0 10px;
 }
-
 .subheader_image {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    height:100%;
+    height: 100%;
     padding: 3rem 0;
 }
-
 .subheader h2 {
     margin: 10px 0;
     padding: 0;
 }
-
 .subheader_image .pagination {
     position: relative;
 }
@@ -141,16 +134,13 @@ input[type="button"], input[type="checkbox"] {
         top: -3.375rem;
     }
 }
-
 .subheader .pagination {
     margin: 8px 0 0;
     padding:0;
 }
-
 .subheader .pagination a:link, .subheader .pagination a:visited, .subheader span.thispage{
     padding: 6px 12px;
 }
-
 .subheader .pagination .btn-theme {margin: 0;}
 
 .staticpage_subheader {
@@ -158,163 +148,90 @@ input[type="button"], input[type="checkbox"] {
     margin: 20px 0;
 }
 
-.navbar-toggle {margin-right:0} /* nav button for small screens */
+nav .navbar-toggler {margin-right:0;} /* nav button for small screens */
 
 @media (min-width: 768px) and (max-width: 991px) {
-    .header .navbar-brand {
+    nav .navbar-brand {
         margin-top: 0;
     }
 }
 
-.header .navbar-default .navbar-toggle {
-    /* border-color: #57a70f; */
+nav.navbar-light .navbar-toggler {
+    display: inline-flex;
 }
 
-.header .navbar-default .navbar-toggle .fa {
+/* green (default) hamburger */
+nav.navbar-light .navbar-toggler {
+    border-color: #57a70f;
+    background-color: chartreuse;
+}
+
+nav.navbar-light .navbar-toggler .fa {
     color: #fff;
     font-size: 19px;
 }
 
-.header .navbar-toggle, .header .navbar-default .navbar-toggle:hover, .header .navbar-default .navbar-toggle:focus {
-    /*background: none repeat scroll 0 0 #72c02c;*/
-    padding: 6px 10px 2px;
-}
-
-.header .navbar-default .navbar-nav > li > a {
+nav.navbar-light .navbar-nav > li > a {
     color: #687074;
 }
 
-.header .navbar-collapse {
+#navbarNav.navbar-collapse {
     position: relative;
 }
 
-.header .navbar-default .navbar-nav > li > a {
-    color: #687074;
-    font-size: 15px;
-    font-weight: 400;
-    text-transform: uppercase;
-}
-
 @media (min-width: 992px) {
-    .header .navbar-nav {
+    #navbarNav:not(.show) .navbar-nav {
         float: right;
     }
 }
 
 @media (max-width: 991px) {
-    .header .navbar-header {
+    nav .navbar-header {
         float: none;
     }
-    .header .navbar-toggle {
-        display: block;
+    #navbarNav.navbar-collapse.collapse {
+        visibility: hidden
     }
-    .header .navbar-collapse.collapse {
-        display: none !important;
+    #navbarNav.navbar-collapse.collapse.show {
+        visibility: visible
     }
-    .header .navbar-collapse.collapse.in {
-        display: block !important;
-        overflow-y: auto !important;
-    }
-    .header .navbar-nav {
-        float: none !important;
+    #navbarNav .navbar-nav {
+        float: none;
         margin: 0 0 5px;
     }
-    .header .navbar-nav > li {
+    #navbarNav .navbar-nav > li {
         float: none;
     }
-    .header .navbar-nav > li > a {
-        padding-bottom: 40px;
-        padding-top: 30px;
-    }
-
-    .header .navbar-collapse, .header .navbar-collapse .container {
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-    }
-    .header .navbar-default .navbar-nav > li > a {
-        font-size: 14px;
-        padding: 9px 10px;
-    }
-    .header .navbar-default .navbar-nav > li a {
-        border-bottom: 1px solid #eee;
-    }
-    .header .navbar-default .navbar-nav > li > a:focus {
-        background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    }
-    .header .navbar-default .navbar-nav > li > a:hover {
-        /*color: #72c02c;*/
-    }
-
-    .subheader h2.pull-left, .subheader nav.pull-right {
+    .subheader h2.float-left, .subheader nav.float-right {
         text-align: center;
         width: 100%;
     }
 }
 
-@media (min-width: 992px) {
-    .header .navbar-collapse {
-        margin-top:20px;
-        padding: 0;
-    }
-    .header .navbar {
-        min-height: 40px !important;
-    }
-    .header .container > .navbar-header,
-    .header .container-fluid > .navbar-header,
-    .header .container > .navbar-collapse,
-    .header .container-fluid > .navbar-collapse {
-        margin-bottom: -10px;
-    }
-    .header .navbar-nav {
-        position: relative;
-    }
-    .header .navbar-default .navbar-nav > li > a {
-        bottom: -2px;
-        padding: 9px 30px 9px 20px;
-        position: relative;
-    }
-    .header .navbar-default .navbar-nav > li > a, .header .navbar-default .navbar-nav > li > a:focus {
-        border-bottom: 2px solid transparent;
-    }
-
-    a.navbar_current_page,
-    .header .navbar-default .navbar-nav > li > a:hover,
-    .header .navbar-default .navbar-nav > .active > a {
-        /*border-bottom: 2px solid #72c02c!important;*/
-        bottom: -2px;
-        position: relative;
-    }
-    .header .navbar-default .navbar-nav > li > a, .header .navbar-default .navbar-nav > li > a:hover, .header .navbar-default .navbar-nav > li > a:focus, .header .navbar-default .navbar-nav > .active > a, .header .navbar-default .navbar-nav > .active > a:hover, .header .navbar-default .navbar-nav > .active > a:focus {
-        background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
-    }
-
-    .header .navbar-default .navbar-nav > li:hover > a {
-        /*color: #72c02c;*/
-    }
-}
-
 @media (min-width: 768px) and (max-width: 991px) {
-    .header  .navbar-brand {
+    nav .navbar-brand {
         margin-left: -10px;
     }
-    .header .navbar-toggle {
+    nav .navbar-toggler {
         margin-right: 0;
     }
 }
 
 @media (max-width: 991px) {
-    .header .navbar-header h1 {
+    #navbarNav.navbar-header h1 {
         margin-top:20px;
     }
-    .header .navbar-header .logo {
+    #navbarNav.navbar-header .logo {
         padding-top:20px;
     }
-
-    .mainpanel  {
-        /*padding-left: 0px !important;*/
-    }
-
 }
+
+@media (min-width: 1200px) {
+    nav.navbar-light .navbar-toggler {
+        visibility: collapse;
+    }
+}
+
 
 .header .logo {
     height: 100%;
@@ -373,21 +290,25 @@ a, a:focus, a:hover, a:active, button, button:hover {
     outline: 0 none !important;
 }
 
+.close {
+    margin: -.25em -.25em !important;
+}
+
 /* alternative blog style display on front page instead of timeline */
 
 .each-blogstyle-entry {margin-bottom: 26px;}
 
-.blogstyle-post-thumb {-ms-flex: initial; flex: initial; max-width:initial; margin-top: 20px;}
+.blogstyle-post-thumb {-ms-flex: initial; flex: initial; max-width: initial; margin-top: 20px;}
 
 @media (min-width: 992px) { .blogstyle-post-thumb {-ms-flex: 0 0 58.667%; flex: 0 0 58.667%; max-width: 58.667%;} }
 
-.blogstyle-post-body {-ms-flex: initial; flex: initial; max-width:initial; margin-top:20px;}
+.blogstyle-post-body {-ms-flex: initial; flex: initial; max-width: initial; margin-top: 20px;}
 
 .blogstyle-post-body h2 {line-height: 1.2em; margin-top: 0; overflow: hidden;}
 
 /* archive summary - "view topics" */
 
-.archives_summary {margin-top:40px;}
+.archives_summary {margin-top: 40px;}
 
 .archives_summary h4 {line-height: 1.2em; margin: 0 0 4px 0; overflow: hidden;}
 
@@ -399,15 +320,9 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .archive-post-thumb {margin-top: 10px; padding-right: 10px;}
 
-.archive-post-body {margin-top:10px;}
-
-/*.btn.archive-button-months-entries {border: 1px solid #72c02c;} COLORSET*/
-
-/*.btn-default:hover {color: #72c02c;} COLORSET*/
+.archive-post-body {margin-top: 10px;}
 
 .btn-theme {
-    /*background: none repeat scroll 0 0 #72c02c;
-    border: 1px solid #72c02c; COLORSET*/
     color: #fff;
     cursor: pointer;
     display: inline-block;
@@ -425,15 +340,12 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .pager li > a,
 .pager li > span {
-    /*background-color: #72c02c;
-    border: 1px solid #72c02c; COLORSET */
     border-radius: 3px;
     color: #fff;
     cursor: pointer;
     display: inline-block;
     font-size: 14px;
     font-weight: 400;
-    /*padding: 4px 13px;*/
     position: relative;
     text-decoration: none;
     white-space: nowrap;
@@ -443,7 +355,6 @@ a, a:focus, a:hover, a:active, button, button:hover {
 .pager li > a:focus {
     background-color: #e6e6e6;
     border-color: #adadad;
-    /* color: #72c02c;*/
 }
 
 .pager .disabled > a,
@@ -531,7 +442,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .timeline > li.timeline-month-heading {
     color: #ccc;
-       text-align: center;
+    text-align: center;
     width:100%;
     z-index: 9;
 }
@@ -804,7 +715,6 @@ a, a:focus, a:hover, a:active, button, button:hover {
 .sidebar_plugin {margin: 0 0 30px}
 
 .sidebar_plugin h3{
-    /*border-bottom: 2px solid #72c02c!important;*/
     padding: 0 0 5px;
 }
 
@@ -864,10 +774,6 @@ img.serendipity_freeTag_xmlButton {
 button.btn.btn-sm.btn-default.btn-theme {
     white-space: normal;
 }
-
-/*.archive-button-months-entries .badge {
-    background-color: #4b920c;
-} COLORSET - */
 
 .serendipity_plugin_recententries dd {
     font-size: 13px;
@@ -1164,7 +1070,6 @@ img.serendipity_entryIcon {
 p.read_more {clear:both; float:none; margin-bottom: 0px}
 
 blockquote {
-    /*border-left: 5px solid #57a70f;*/
     color: #808080;
     font-size: inherit;
     font-style: italic;
@@ -1237,8 +1142,6 @@ blockquote {
 }
 
 .timeline_freeTag a {
-    /*background: none repeat scroll 0 0 #72c02c;
-    border: 1px solid #72c02c; COLORSET*/
     border-radius: 3px;
     color: #fff;
     cursor: pointer;
@@ -1263,7 +1166,6 @@ blockquote {
 .timeline_freeTag a:focus {
     background-color: #e6e6e6;
     border: 1px solid #adadad;
-    /*color: #57a70f;*/ /*dark*/
     text-decoration: none;
 }
 
@@ -1312,8 +1214,6 @@ table table {
 
 /* scroll up if not at page top */
 #scrollUp {
-    /*background: #72c02c;
-    border: 1px solid #72c02c;*/
     border-radius: 3px;
     bottom: 20px;
     color: #fff;
@@ -1327,7 +1227,6 @@ table table {
 #scrollUp:hover {
     background: #e6e6e6;
     border: 1px solid #adadad;
-    /*color: #72c02c;*/
 }
 
 /* show navbar if scroll up */
@@ -1352,7 +1251,6 @@ table table {
     left: 0;
     right: 0;
     background-color: rgba(255, 255, 255, 0.9);
-    /*border-bottom: 1px solid #f2f2f2;*/
     -webkit-transition: -webkit-transform 0.3s;
     -moz-transition: -moz-transform 0.3s;
     transition: transform 0.3s;
