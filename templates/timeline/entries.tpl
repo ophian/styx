@@ -29,7 +29,16 @@
                             {if NOT empty($entry.properties.timeline_image) AND $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                                 {$entry.properties.timeline_image}
                             {else}
-                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}{if $template_option.use_webp}src="{serendipity_getFile file='img/image_unavailable.webp'}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if}{/if} alt=""/></a>
+                                <a href="{$entry.link}" title="{$entry.title}">
+                                {if NOT empty($entry.properties.timeline_image_webp)}
+                                    <picture>
+                                        <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}" class="sourceset_img" alt="">
+                                        <img class="img-fluid img-thumbnail" alt="" src="{$entry.properties.timeline_image}'">
+                                    </picture>
+                                {else}
+                                <img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}{if $template_option.use_webp}src="{serendipity_getFile file='img/image_unavailable.webp'}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if}{/if} alt=""/>
+                                {/if}
+                                </a>
                             {/if}
                         </div>
                         <div class="timeline-body">
@@ -53,7 +62,16 @@
                             {if NOT empty($entry.properties.timeline_image) AND $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                                 <div>{$entry.properties.timeline_image}</div>
                             {else}
-                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}{if $template_option.use_webp}src="{serendipity_getFile file='img/image_unavailable.webp'}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if}{/if} alt=""/></a>
+                                <a href="{$entry.link}" title="{$entry.title}">
+                                {if NOT empty($entry.properties.timeline_image_webp)}
+                                    <picture>
+                                        <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}" class="sourceset_img" alt="">
+                                        <img class="img-fluid img-thumbnail" alt="" src="{$entry.properties.timeline_image}'">
+                                    </picture>
+                                {else}
+                                <img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}{if $template_option.use_webp}src="{serendipity_getFile file='img/image_unavailable.webp'}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if}{/if} alt=""/>
+                                {/if}
+                                </a>
                             {/if}
                         </div>
                         <div class="col-md-7 blogstyle-post-body">
@@ -88,8 +106,14 @@
                     {if $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                         {$entry.properties.timeline_image}
                     {else}
-                        {serendipity_getImageSize file=$entry.properties.timeline_image assign="img_size"}
-                        <img class="{if $img_size[0]>=800}image-full-width{else}serendipity_image_left{/if}" src="{$entry.properties.timeline_image}" width="{$img_size[0]}" height="{$img_size[1]}" alt=""/>
+                        {if NOT empty($entry.properties.timeline_image_webp)}
+                            <picture>
+                                <source type="image/webp" srcset="{$entry.properties.timeline_image_webp}" class="sourceset_img" alt="">
+                                <img class="img-fluid" alt="" src="{$entry.properties.timeline_image}'">
+                            </picture>
+                        {else}
+                        <img class="img-fluid" src="{$entry.properties.timeline_image}" alt=""/>
+                        {/if}
                     {/if}
                 {/if}
                 <div class="serendipity_entry_body clearfix">
