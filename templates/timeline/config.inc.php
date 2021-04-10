@@ -103,7 +103,7 @@ if (class_exists('serendipity_event_entryproperties')) {
     $ep_msg = THEME_EP_NO;
 }
 
-function generate_webp($image) {
+function timeline_generate_webpURI($image) {
     global $serendipity;
 
     $bname  = basename($image); // to get base file name w/ ext
@@ -258,8 +258,8 @@ if (isset($_SESSION['serendipityUseTemplate'])) {
 }
 
 if (false !== serendipity_db_bool($template_loaded_config['use_webp'])) {
-    $template_loaded_config['header_img'] = generate_webp($template_loaded_config['header_img']);
-    $template_loaded_config['subheader_img'] = generate_webp($template_loaded_config['subheader_img']);
+    $template_loaded_config['header_img'] = timeline_generate_webpURI($template_loaded_config['header_img']);
+    $template_loaded_config['subheader_img'] = timeline_generate_webpURI($template_loaded_config['subheader_img']);
 }
 
 $serendipity['template_loaded_config'] = $template_loaded_config;
@@ -358,21 +358,21 @@ $template_config_groups = array(
     THEME_SOCIAL_LINKS  => $sociallinks_collapse
 );
 
-
 // Save custom field variables within the serendipity "Edit/Create Entry" backend.
 //                Any custom variables can later be queried inside the .tpl files through
 //                  {if $entry.properties.key_value == 'true'}...{/if}
-
 if (!function_exists('entry_option_get_value')) {
     // Function to get the content of a non-boolean entry variable
     function entry_option_get_value($property_key, &$eventData) {
         global $serendipity;
+
         if (isset($eventData['properties'][$property_key])) {
             return $eventData['properties'][$property_key];
         }
         if (isset($serendipity['POST']['properties'][$property_key])) {
             return $serendipity['POST']['properties'][$property_key];
         }
+
         return false;
     }
 }
@@ -382,10 +382,22 @@ if (!function_exists('entry_option_store')) {
     function entry_option_store($property_key, $property_val, &$eventData) {
         global $serendipity;
 
+        // prep key/val params for webp image and path
+        $property_key_webp = $property_key .'_webp';
+        $property_val_webp = timeline_generate_webpURI($property_val);
+
+        if ($property_val_webp !== null) {
+            $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key_webp) . "'";
+            serendipity_db_query($q);
+        }
         $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key) . "'";
         serendipity_db_query($q);
 
         if (!empty($property_val)) {
+            if ($property_val_webp !== null) {
+                $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($property_key_webp) . "', '" . serendipity_db_escape_string($property_val_webp) . "')";
+                serendipity_db_query($q);
+            }
             $q = "INSERT INTO {$serendipity['dbPrefix']}entryproperties (entryid, property, value) VALUES (" . (int)$eventData['id'] . ", '" . serendipity_db_escape_string($property_key) . "', '" . serendipity_db_escape_string($property_val) . "')";
             serendipity_db_query($q);
         }
@@ -408,10 +420,10 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                 $timeline_image_key = 'timeline_image';
 
                 // Check what our special key is set to (checks both POST data as well as the actual data)
-                $is_timeline_image = entry_option_get_value ($timeline_image_key, $eventData);
+                $is_timeline_image = entry_option_get_value($timeline_image_key, $eventData);
 
                 // prep webp image and path
-                $is_timeline_image_webp = generate_webp($is_timeline_image);
+                $is_timeline_image_webp = timeline_generate_webpURI($is_timeline_image);
 
                 // This is the actual HTML output on the Backend screen.
                 //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
