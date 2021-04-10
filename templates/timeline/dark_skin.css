@@ -61,6 +61,10 @@ body {
 
 .modal-dialog button.close {color: inherit; opacity: 0.5;}
 
+/*.serendipity_freetag_taglist .freetag_wordcloud {
+    background: #717171ad;
+}*/
+
 #serendipityQuickSearchTermField {
   background: #252525;
   border: 1px solid #252525;
@@ -260,9 +264,9 @@ table table {
   color: #e6e6e6;
 }
 .alert-danger {
-  background-color: #ee5f5b;
-  border-color: #ed4d63;
-  color: #ffffff;
+  background-color: #333232;
+  border-color: #a6a6a6;
+  color: #ffffff !important;
 }
 .alert-danger hr {
   border-top-color: #ea364f;
