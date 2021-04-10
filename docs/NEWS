@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Upgrade [ timeline ] theme for latest bootstrap base and
+    fixup some odd and inconstent behaviour issues with configurable options.
+
   * Fix syndication plugin feedburner protocol from http to https, as well as
     in a 2.0-beta3 upgrade task.
 
