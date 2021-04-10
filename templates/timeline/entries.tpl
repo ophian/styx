@@ -284,7 +284,7 @@
         {/if}
 
         {if $footer_totalPages > 1}
-            <nav class="pagination">
+            <nav class="{if $template_option.display_as_timeline}center-{/if}pagination">
                 {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
                 {if ($footer_currentPage+3) > $footer_totalPages}
                     {assign var="paginationStartPage" value="`$footer_totalPages-4`"}
