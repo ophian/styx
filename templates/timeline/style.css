@@ -296,7 +296,7 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .img-fluid.img-thumbnail {
     background-color: transparent;
-    border-color: #555;/* or currentColor */
+    border-color: #333;/* or currentColor */
 }
 
 /* alternative blog style display on front page instead of timeline */
