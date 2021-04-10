@@ -294,6 +294,11 @@ a, a:focus, a:hover, a:active, button, button:hover {
     margin: -.25em -.25em !important;
 }
 
+.img-fluid.img-thumbnail {
+    background-color: transparent;
+    border-color: #555;/* or currentColor */
+}
+
 /* alternative blog style display on front page instead of timeline */
 
 .each-blogstyle-entry {margin-bottom: 26px;}
