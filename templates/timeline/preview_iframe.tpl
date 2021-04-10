@@ -20,6 +20,7 @@
 {* ADDTIONAL COLORSET & SKIN STYLESHEETS - INCLUDED SETS ARE LOADED VIA CONFIG *}
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
 
+    <style> body { background-color: #fff; } </style>
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
 {else}
     <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
