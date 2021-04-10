@@ -5,7 +5,7 @@
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 {* BOOTSTRAP CORE CSS *}
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 {* S9Y CSS *}
 {if $head_link_stylesheet_frontend}{* >= s9y 2.0.2 *}
     <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
@@ -64,7 +64,7 @@
     </main>
 
 {if $mode == 'preview'}
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
     <script src="{$serendipityHTTPPath}{$templatePath}{$template}/js/timeline.js"></script>
 
 <!--[if lt IE 9]>
