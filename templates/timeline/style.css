@@ -130,7 +130,11 @@ p {
 
 .subheader_image .pagination {
     position: relative;
-    top: -50px;
+}
+@media (min-width: 992px) {
+    .subheader_image .pagination {
+        top: -3.375rem;
+    }
 }
 
 .subheader .pagination {
