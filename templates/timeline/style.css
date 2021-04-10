@@ -1127,6 +1127,10 @@ blockquote {
     vertical-align: middle;
 }
 
+table.calendar {
+    margin-bottom: 0;
+}
+
 .dtree a {
     color: inherit;
     margin-left: .25rem;
