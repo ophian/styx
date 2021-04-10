@@ -254,11 +254,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 <script src="{serendipity_getFile file="js/timeline.js"}"></script>
 
-<!--[if lt IE 9]>
-    <script src="{serendipity_getFile file="js/respond.js"}"></script>
-    <script src="{serendipity_getFile file="js/html5shiv.js"}"></script>
-    <script src="{serendipity_getFile file="js/placeholder-IE-fixes.js"}"></script>
-<![endif]-->
 {/if}
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
