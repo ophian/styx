@@ -410,6 +410,9 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                 // Check what our special key is set to (checks both POST data as well as the actual data)
                 $is_timeline_image = entry_option_get_value ($timeline_image_key, $eventData);
 
+                // prep webp image and path
+                $is_timeline_image_webp = generate_webp($is_timeline_image);
+
                 // This is the actual HTML output on the Backend screen.
                 //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
                 echo '<div class="entryproperties">';
@@ -424,7 +427,10 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                 echo '                  <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden">' . MEDIA . '</span></button>';
                 echo '                  <figure id="' . $timeline_image_key . '_preview">';
                 echo '                      <figcaption>' . PREVIEW . '</figcaption>';
-                echo '                      <img alt="" src="' . $is_timeline_image . '">';
+                echo '                      <picture>';
+                echo '                          <source type="image/webp" srcset="' . $is_timeline_image_webp . '" class="ml_preview_img" alt="">';
+                echo '                          <img alt="" src="' . $is_timeline_image . '">';
+                echo '                      </picture>';
                 echo '                  </figure>';
                 echo '              </div>';
                 echo '          </div>';
