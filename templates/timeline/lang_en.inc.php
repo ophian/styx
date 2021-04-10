@@ -15,7 +15,11 @@
 @define('THEME_IDENTITY', 'Site Identity');
 @define('THEME_EP_YES', '<p class="msg_success">Extended Property for Entries plugin (serendipity_event_entryproperties) is required for this theme, and is installed.</p>');
 @define('THEME_EP_NO', '<p class="msg_error">Extended Property for Entries plugin (serendipity_event_entryproperties) is required for this theme, which is not installed or is inactive. Please install the plugin to fully utilize this theme.</p>');
-@define('THEME_INSTRUCTIONS', '<p>This theme displays blog posts on a linear timeline. Each group of month titles can also be displayed or hidden on the timeline.</p><p>This theme uses a right and bottom sidebar. Either, or both sidebars can be disabled by deleting sidebar plugins or relocating sidebar plugins to the sidebar column labeled "hidden" in plugin configuration.</p><p>This theme can be configured to display categories and entry tags from the respective sidebar plugins on the archive page. See "' . THEME_PAGE_OPTIONS . '" below.</p><p>If using the avatar plugin (serendipity_event_gravatar), configure option "Produce Smarty tag = yes" for best display of comment avatars.</p><p>Configure serendipity_event_freetag option "Extended Smarty = yes" for a nicer display of tags in the entry footer.</p>');
+@define('THEME_INSTRUCTIONS', '<p>This theme displays blog posts on a linear timeline. Each group of month titles can also be displayed or hidden on the timeline.</p>
+<p>This theme uses a right and bottom sidebar. Either, or both sidebars can be disabled by deleting sidebar plugins or relocating sidebar plugins to the sidebar column labeled "hidden" in plugin configuration.</p>
+<p>This theme can be configured to display categories and entry tags from the respective sidebar plugins on the archive page. See "' . THEME_PAGE_OPTIONS . '" below.</p>
+<p>If using the avatar plugin (serendipity_event_gravatar), configure option "Produce Smarty tag = yes" for best display of comment avatars.</p>
+<p>Configure serendipity_event_freetag option "Extended Smarty = yes" for a nicer display of tags in the entry footer.</p>');
 @define('THEME_CUSTOM_FIELD_HEADING', 'Custom Entry Fields');
 @define('THEME_CUSTOM_FIELD_DEFINITION', 'These optional field(s) are only available when using this theme (timeline). The event plugin serendipity_event_entryproperties (extended properties for entries) must also be installed to use these field(s). The entry image will appear on both the timeline, and at the top of each detailed entry.');
 @define('THEME_ENTRY_IMAGE', 'Entry Image.');
