@@ -94,7 +94,7 @@
     </div>
     <div class="subheader{if $template_option.subheader_img} subheader_image{/if}">
         <div class="container">
-            <div><a class="navbar-brand" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"><h1>{$blogTitle}</h1></a></div>
+            {if NOT $template_option.use_corenav}<div><a class="navbar-brand" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"><h1>{$blogTitle}</h1></a></div>{/if}
             <h2>
                 {if in_array($view, ['start', 'entries', 'entry', '404', 'search']) OR ($head_title == '' AND $head_subtitle == '')}{$blogDescription}
                 {elseif $view == 'categories'}{$CONST.ENTRIES_FOR|sprintf:{$category_info.category_name|escape}}
