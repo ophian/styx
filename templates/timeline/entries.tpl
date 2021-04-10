@@ -29,7 +29,7 @@
                             {if NOT empty($entry.properties.timeline_image) AND $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                                 {$entry.properties.timeline_image}
                             {else}
-                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
+                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}{if $template_option.use_webp}src="{serendipity_getFile file='img/image_unavailable.webp'}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if}{/if} alt=""/></a>
                             {/if}
                         </div>
                         <div class="timeline-body">
@@ -53,7 +53,7 @@
                             {if NOT empty($entry.properties.timeline_image) AND $entry.properties.timeline_image|is_in_string:'<iframe,<embed,<object'}{* we assume this is a video, just emit the contents of the var *}
                                 <div>{$entry.properties.timeline_image}</div>
                             {else}
-                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if} alt=""/></a>
+                                <a href="{$entry.link}" title="{$entry.title}"><img class="img-fluid img-thumbnail" {if NOT empty($entry.properties.timeline_image)}src="{$entry.properties.timeline_image}"{else}{if $template_option.use_webp}src="{serendipity_getFile file='img/image_unavailable.webp'}"{else}src="{serendipity_getFile file='img/image_unavailable.jpg'}"{/if}{/if} alt=""/></a>
                             {/if}
                         </div>
                         <div class="col-md-7 blogstyle-post-body">
