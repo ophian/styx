@@ -48,32 +48,29 @@
 <div class="wrapper">
     <div class="header header-custom">
         {if $template_option.use_corenav}
-            <div class="container container-logonav">
+            <div class="container-fluid p-0 container-logonav">
                 <a class="sr-only sr-only-focusable" href="#content"><span lang="en">Skip to main content</span></a>{* LANG? *}
-                <div class="navbar navbar-default" role="navigation">
-                    <div> {* this was class="container" *}
-                        {* Brand and toggle get grouped for better mobile display *}
-                        <div class="navbar-header">
-                            {if $template_option.header_img}
-                                <a class="logo" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"><img src="{$template_option.header_img}" alt="{$blogTitle} Logo"><h1 class="sr-only">{$blogTitle}</h1></a>
-                            {else}
-                                <a class="navbar-brand" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"><h1>{$blogTitle}</h1></a>
-                            {/if}
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                                <span class="sr-only">Toggle navigation</span>{* LANG? *}
-                                <span class="fa fa-bars"></span>
-                            </button>
-                        </div>
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse navbar-responsive-collapse">
-                            <ul class="nav navbar-nav navbar-right">{foreach $navlinks AS $navlink}<li><a {if $currpage==$navlink.href}class="navbar_current_page"{/if} href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}<li><a  href="#basicModal" data-toggle="modal" data-target="#basicModal" title="{$CONST.SEARCH}"><i class="fa fa-search" aria-hidden="true"></i></a></li></ul>
-                        </div><!--/navbar-collapse-->
+                <nav class="navbar navbar-expand-xl navbar-light" role="navigation">{* no default bootstrap class bg-light/bg-dark here since skins will take care *}
+                    {* Brand and toggle get grouped for better mobile display *}
+                    <div class="navbar-header">
+                        {if $template_option.header_img}
+                            <a class="logo" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"><img src="{$template_option.header_img}" alt="{$blogTitle} Logo"><h1 class="sr-only">{$blogTitle}</h1></a>
+                        {else}
+                            <a class="navbar-brand" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"><h1>{$blogTitle}</h1></a>
+                        {/if}
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
                     </div>
-                </div>{* End Navbar *}
+                    {* <!-- Collect the nav links, forms, and other content for toggling --> *}
+                    <div id="navbarNav" class="collapse navbar-collapse navbar-responsive-collapse">
+                        <ul class="nav navbar-nav ml-auto">{foreach $navlinks AS $navlink}<li class="nav-item nav-link"><a {if $currpage==$navlink.href}class="navbar_current_page"{/if} href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}<li class="nav-item nav-link"><a href="#basicModal" data-toggle="modal" data-target="#basicModal" title="{$CONST.SEARCH}"><i class="fa fa-search" aria-hidden="true"></i></a></li></ul>
+                    </div>{* <!--/navbar-collapse--> *}
+                </nav>{* End Navbar *}
             </div>
         {/if}
     </div>{* End Header *}
-    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">{* CLEAN THIS UP - UNWANTED CLASSES, ETC *}
+    <div id="basicModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -120,7 +117,7 @@
             </h2>
 
             {if isset($footer_totalPages) AND $footer_totalPages > 1 AND NOT isset($staticpage_pagetitle)}
-                <nav class="pagination pull-right">
+                <nav class="pagination float-right">
                     {assign var="paginationStartPage" value="`$footer_currentPage-3`"}
                     {if ($footer_currentPage+3) > $footer_totalPages}
                         {assign var="paginationStartPage" value="`$footer_totalPages-4`"}
