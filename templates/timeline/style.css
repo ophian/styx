@@ -25,6 +25,7 @@ pre {
     width: 100%;
     min-width: 5em;
     display: inline-block;
+    filter: invert(100%);/* to invert colorset code snippets */
 }
 
 a {
