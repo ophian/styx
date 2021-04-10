@@ -72,6 +72,10 @@ p {
     overflow-wrap: break-word;
 }
 
+input[type="button"], input[type="checkbox"] {
+    margin-right: .5rem;
+}
+
 .wrapper {
     background-color: #fff;
 }
