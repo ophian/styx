@@ -844,6 +844,9 @@ ul.staticpage_navigation li {
 .archive-year {
   margin-bottom: 1em;
 }
+.row.archive-year h3 {
+    width: 100%;
+}
 .archive-year .btn {
   margin-bottom: 4px;
 }
