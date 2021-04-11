@@ -464,14 +464,12 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
                 }
                 $data['preview_width']  = $preview_width;
                 $data['preview_height'] = $preview_height;
-                $bname = basename($value); // to get base file name w/ ext
-                $vpath = str_replace($bname, '', $value); // get file path
-                $vbext = pathinfo($value, PATHINFO_EXTENSION); // get extension
-                $fname = pathinfo($value, PATHINFO_FILENAME); // get file name w/o extension
-                $rpath = $vpath . '.v/' . $fname . '.webp'; // the relative document root value filepath
-                $data['value_name'] = str_replace('.' . $serendipity['thumbSuffix'], '', $fname); // get pure name w/o Serendipity Thumb suffix for alt and title attributes
-                $data['value_webp'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath) ? $rpath : null; // file exist needs full path to check
                 $data['value'] = $value;
+                $data['value_name'] = str_replace('.' . $serendipity['thumbSuffix'], '', pathinfo($value, PATHINFO_FILENAME)); // get pure name w/o Serendipity Thumb suffix for alt and title attributes
+                $rpath = serendipity_generate_webpPathURI($value); // the relative document root value filepath
+                $data['value_webp'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                        ? $rpath
+                                        : null; // file exist needs full path to check
 
                 $assign_plugin_config($data);
                 break;
