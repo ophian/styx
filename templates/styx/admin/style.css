@@ -3996,7 +3996,8 @@ img.mfp-img {
         width: 95%;
     }
     /* @see 360+ top right floated long titled bee, dsgvo_gdpr, sidebarlogo set */
-    #plugin_options h2 {
+    #plugin_options h2,
+    .plugin_info.tgroup_info {
         max-width: 93%;
         word-break: initial;
     }
