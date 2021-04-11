@@ -871,6 +871,21 @@ function serendipity_makeImageVariationPath($orgfile, $ext) {
 }
 
 /**
+ * Build image variation storage path for src targets in themes/plugins.
+ *
+ * @param string $image  origin image file relative path
+ * @return array
+ */
+function serendipity_generate_webpPathURI($image) {
+    $bname  = basename($image); // to get base file name w/ ext
+    $vpath  = str_replace($bname, '', $image); // get file path
+    $fname  = pathinfo($image, PATHINFO_FILENAME); // get file name w/o extension
+    $rpath  = $vpath . '.v/' . $fname . '.webp'; // the relative document root image filepath
+
+    return $rpath;
+}
+
+/**
  * Pass ImageMagick variables to command-CLI-interface [cmd] and process the image resize for a single image file
  *
  * @param string $type      Mime/string type name the image shall be formatted to
