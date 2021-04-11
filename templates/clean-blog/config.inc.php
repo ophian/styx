@@ -236,6 +236,40 @@ if (isset($_SESSION['serendipityUseTemplate'])) {
     $template_loaded_config['use_corenav'] = false;
 }
 
+if (false !== serendipity_db_bool($template_loaded_config['use_webp'])) {
+     // no debugging echo with gzip enabled, since that displays prior page encoding
+    if (!empty($template_loaded_config['default_header_image'])) {
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['default_header_image']);
+        $template_loaded_config['default_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                    ? $rpath
+                                                    : $template_loaded_config['default_header_image']; // file exist needs full path to check
+    }
+    if (!empty($template_loaded_config['entry_default_header_image'])) {
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['entry_default_header_image']);
+        $template_loaded_config['entry_default_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                    ? $rpath
+                                                    : $template_loaded_config['entry_default_header_image']; // file exist needs full path to check
+    }
+    if (!empty($template_loaded_config['staticpage_header_image'])) {
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['staticpage_header_image']);
+        $template_loaded_config['staticpage_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                    ? $rpath
+                                                    : $template_loaded_config['staticpage_header_image']; // file exist needs full path to check
+    }
+    if (!empty($template_loaded_config['contactform_header_image'])) {
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['contactform_header_image']);
+        $template_loaded_config['contactform_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                    ? $rpath
+                                                    : $template_loaded_config['contactform_header_image']; // file exist needs full path to check
+    }
+    if (!empty($template_loaded_config['archive_header_image'])) {
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['archive_header_image']);
+        $template_loaded_config['archive_header_image'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                    ? $rpath
+                                                    : $template_loaded_config['archive_header_image']; // file exist needs full path to check
+    }
+}
+
 $navlinks_collapse = array( 'use_corenav', 'amount');
 for ($i = 0; $i < $template_loaded_config['amount']; $i++) {
 	array_push($navlinks_collapse, 'navlink' . $i . 'text' ,'navlink' . $i . 'url');
