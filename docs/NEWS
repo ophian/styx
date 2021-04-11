@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Upgrade [ clean-blog ] theme for latest bootstrap 4.6.0 base
+
   * Upgrade [ timeline ] theme for latest bootstrap 4.6.0 base and
     fixup some odd and inconsistent behaviour issues with configurable options.
 
