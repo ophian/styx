@@ -441,6 +441,9 @@ body {
 blockquote {
   padding: 0 20px;
 }
+input[type="button"], input[type="checkbox"] {
+    margin-right: .5rem;
+}
 .form-control {
   font-size: 18px;
 }
