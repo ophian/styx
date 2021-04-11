@@ -1521,6 +1521,10 @@ summary {
     padding: .5em;
 }
 
+.msg-0 {
+    margin: 0;
+}
+
 .installer .msg_error,
 .installer .msg_success,
 .installer .msg_notice,
