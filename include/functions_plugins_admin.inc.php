@@ -275,7 +275,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
 
         /* Apparently no value was set for this config item */
         if ($value === 'unset') {
-            /* Try and the default value for the config item */
+            /* Try to get the default value for the config item */
             $value = $cbag->get('default');
 
             /* Still, we don't have a value, try and get (bool)false - from an old plugin */
