@@ -9,6 +9,7 @@
 
 //Option groups and instructions
 @define('THEME_HEADERS', 'Header-Bilder');
+@define('HEADERS_USE_WEBP', 'Ausgabe als WebP Format, wenn erhältlich?');
 @define('THEME_SOCIAL_LINKS', 'Social-Links');
 @define('THEME_PAGE_OPTIONS', 'Seiten-Optionen');
 @define('THEME_NAVIGATION', 'Navigations-Optionen');

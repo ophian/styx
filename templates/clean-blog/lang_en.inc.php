@@ -9,6 +9,7 @@
 
 //Option groups and instructions
 @define('THEME_HEADERS', 'Header images');
+@define('HEADERS_USE_WEBP', 'If available, use WebP for configurable images');
 @define('THEME_SOCIAL_LINKS', 'Social links');
 @define('THEME_PAGE_OPTIONS', 'Page Options');
 @define('THEME_NAVIGATION', 'Navigation Options');
