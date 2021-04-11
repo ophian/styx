@@ -287,40 +287,50 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
 
                 // The name of the variable
                 $entry_subtitle_key = 'entry_subtitle';
-                $entry_specific_header_image_key = 'entry_specific_header_image';
+                $entry_header_image_key = 'entry_specific_header_image';
 
                 // Check what our special key is set to (checks both POST data as well as the actual data)
-                $is_entry_subtitle = (function_exists('serendipity_specialchars') ? serendipity_specialchars(entry_option_get_value($entry_subtitle_key, $eventData)) : htmlspecialchars(entry_option_get_value($entry_subtitle_key, $eventData), ENT_COMPAT, LANG_CHARSET));
-                $is_entry_specific_header_image = entry_option_get_value ($entry_specific_header_image_key, $eventData);
+                $is_entry_subtitle = serendipity_specialchars(entry_option_get_value($entry_subtitle_key, $eventData));
+                $entry_header_image = entry_option_get_value($entry_header_image_key, $eventData);
 
-                // This is the actual HTML output on the backend screen.
-                //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
-                echo '<div class="entryproperties">';
-                echo '  <input type="hidden" value="true" name="serendipity[propertyform]">';
-                echo '  <h3>' . THEME_ENTRY_PROPERTIES_HEADING . '</h3>';
-                echo '      <div class="entryproperties_customfields adv_opts_box">';
-                echo '          <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>';
-                echo '          <span>' . THEME_CUSTOM_FIELD_DEFINITION . '</span>';
-                echo '          <div class="serendipity_customfields clearfix">';
-                echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $entry_subtitle_key . '">';
-                echo '                  <label for="'. $entry_subtitle_key . '">' . THEME_ENTRY_SUBTITLE . '</label>';
-                echo '                  <input id="' . $entry_subtitle_key . '" type="text" value="' . $is_entry_subtitle . '" name="serendipity[properties][' . $entry_subtitle_key . ']" style="width: 100%;">';
-                echo '              </div>';
-                echo '          </div>';
-                echo '          <div class="serendipity_customfields clearfix">';
-                echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $entry_specific_header_image_key . '">';
-                echo '                  <label for="' . $entry_specific_header_image_key . '">' . THEME_ENTRY_HEADER_IMAGE. '</label>';
-                echo '                  <textarea data-configitem="' . $entry_specific_header_image_key . '" name="serendipity[properties][' . $entry_specific_header_image_key . ']" class="change_preview" id="prop' . $entry_specific_header_image_key . '">' . $is_entry_specific_header_image . '</textarea>';
-                echo '                  <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden">' . MEDIA . '</span></button>';
-                echo '                  <figure id="' . $entry_specific_header_image_key . '_preview">';
-                echo '                      <figcaption>' . PREVIEW . '</figcaption>';
-                echo '                      <img alt="" src="' . $is_entry_specific_header_image . '">';
-                echo '                  </figure>';
-                echo '              </div>';
-                echo '          </div>';
-                echo '      </div>';
-                echo ' </div>';
+                // prep webp image and path
+                $rpath = serendipity_generate_webpPathURI($entry_header_image);
+                $entry_header_image_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                        ? $rpath
+                                                        : $entry_header_image; // file exist needs full path to check
 
+                // This is the actual HTML output on the entry form backend screen.
+                //DEBUG:     <pre>' . print_r($eventData, true) . '</pre>';
+                echo '
+                    <div class="entryproperties">
+                      <input type="hidden" value="true" name="serendipity[propertyform]">
+                      <h3>' . THEME_ENTRY_PROPERTIES_HEADING . '</h3>
+                          <div class="entryproperties_customfields adv_opts_box">
+                              <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>
+                              <span class="msg_hint msg-0">' . THEME_CUSTOM_FIELD_DEFINITION . '</span>
+                              <div class="serendipity_customfields clearfix">
+                                  <div class="clearfix form_area media_choose" id="ep_column_' . $entry_subtitle_key . '">
+                                      <label for="'. $entry_subtitle_key . '">' . THEME_ENTRY_SUBTITLE . '</label>
+                                      <input id="' . $entry_subtitle_key . '" type="text" value="' . $is_entry_subtitle . '" name="serendipity[properties][' . $entry_subtitle_key . ']" style="width: 100%;">
+                                  </div>
+                              </div>
+                              <div class="serendipity_customfields clearfix">
+                                  <div class="clearfix form_area media_choose" id="ep_column_' . $entry_header_image_key . '">
+                                      <label for="' . $entry_header_image_key . '">' . THEME_ENTRY_HEADER_IMAGE. '</label>
+                                      <textarea data-configitem="' . $entry_header_image_key . '" name="serendipity[properties][' . $entry_header_image_key . ']" class="change_preview" id="prop' . $entry_header_image_key . '">' . $entry_header_image . '</textarea>
+                                      <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden">' . MEDIA . '</span></button>
+                                      <figure id="' . $entry_header_image_key . '_preview">
+                                          <figcaption>' . PREVIEW . '</figcaption>
+                                          <picture>
+                                              <source type="image/webp" srcset="' . ($entry_header_image_webp ?? null) . '" class="ml_preview_img" alt="">
+                                              <img alt="" src="' . $entry_header_image . '">
+                                          </picture>
+                                      </figure>
+                                  </div>
+                              </div>
+                          </div>
+                     </div>
+                '.PHP_EOL;
                 break;
 
             // To store the value of our entryproperties
