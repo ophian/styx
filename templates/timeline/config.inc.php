@@ -103,18 +103,6 @@ if (class_exists('serendipity_event_entryproperties')) {
     $ep_msg = THEME_EP_NO;
 }
 
-function timeline_generate_webpURI($image) {
-    global $serendipity;
-
-    $bname  = basename($image); // to get base file name w/ ext
-    $vpath  = str_replace($bname, '', $image); // get file path
-    $fname  = pathinfo($image, PATHINFO_FILENAME); // get file name w/o extension
-    $rpath  = $vpath . '.v/' . $fname . '.webp'; // the relative document root image filepath
-    $image_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath) ? $rpath : $image; // file exist needs full path to check
-
-    return $image_webp;
-}
-
 $template_config = array(
     array(
         'var'           => 'sidebars',
@@ -258,8 +246,18 @@ if (isset($_SESSION['serendipityUseTemplate'])) {
 }
 
 if (false !== serendipity_db_bool($template_loaded_config['use_webp'])) {
-    $template_loaded_config['header_img'] = timeline_generate_webpURI($template_loaded_config['header_img']);
-    $template_loaded_config['subheader_img'] = timeline_generate_webpURI($template_loaded_config['subheader_img']);
+    if (!empty($template_loaded_config['header_img'])) {
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['header_img']);
+        $template_loaded_config['header_img'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                    ? $rpath
+                                                    : $template_loaded_config['header_img']; // file exist needs full path to check
+    }
+    if (!empty($template_loaded_config['subheader_img'])) {
+        $rpath = serendipity_generate_webpPathURI($template_loaded_config['subheader_img']);
+        $template_loaded_config['subheader_img'] = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                    ? $rpath
+                                                    : $template_loaded_config['subheader_img']; // file exist needs full path to check
+    }
 }
 
 $serendipity['template_loaded_config'] = $template_loaded_config;
@@ -423,32 +421,38 @@ if (!function_exists('serendipity_plugin_api_pre_event_hook')) {
                 $is_timeline_image = entry_option_get_value($timeline_image_key, $eventData);
 
                 // prep webp image and path
-                $is_timeline_image_webp = timeline_generate_webpURI($is_timeline_image);
+                if (false !== $is_timeline_image) {
+                    $rpath = serendipity_generate_webpPathURI($is_timeline_image);
+                    $is_timeline_image_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                                ? $rpath
+                                                : $is_timeline_image; // file exist needs full path to check
+                }
 
                 // This is the actual HTML output on the Backend screen.
                 //DEBUG: echo '<pre>' . print_r($eventData, true) . '</pre>';
-                echo '<div class="entryproperties">';
-                echo '  <input type="hidden" value="true" name="serendipity[propertyform]">';
-                echo '      <div class="entryproperties_customfields adv_opts_box">';
-                echo '          <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>';
-                echo '          <span>' . THEME_CUSTOM_FIELD_DEFINITION . '</span>';
-                echo '          <div class="serendipity_customfields clearfix">';
-                echo '              <div class="clearfix form_area media_choose" id="ep_column_' . $timeline_image_key . '">';
-                echo '                  <label for="' . $timeline_image_key . '">' . THEME_ENTRY_IMAGE. '</label>';
-                echo '                  <textarea data-configitem="' . $timeline_image_key . '" name="serendipity[properties][' . $timeline_image_key . ']" class="change_preview" id="prop' . $timeline_image_key . '">' . $is_timeline_image . '</textarea>';
-                echo '                  <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden">' . MEDIA . '</span></button>';
-                echo '                  <figure id="' . $timeline_image_key . '_preview">';
-                echo '                      <figcaption>' . PREVIEW . '</figcaption>';
-                echo '                      <picture>';
-                echo '                          <source type="image/webp" srcset="' . $is_timeline_image_webp . '" class="ml_preview_img" alt="">';
-                echo '                          <img alt="" src="' . $is_timeline_image . '">';
-                echo '                      </picture>';
-                echo '                  </figure>';
-                echo '              </div>';
-                echo '          </div>';
-                echo '      </div>';
-                echo ' </div>';
-
+                echo '
+                    <div class="entryproperties">
+                      <input type="hidden" value="true" name="serendipity[propertyform]">
+                          <div class="entryproperties_customfields adv_opts_box">
+                              <h4>' . THEME_CUSTOM_FIELD_HEADING . '</h4>
+                              <span class="msg_hint msg-0">' . THEME_CUSTOM_FIELD_DEFINITION . '</span>
+                              <div class="serendipity_customfields clearfix">
+                                  <div class="clearfix form_area media_choose" id="ep_column_' . $timeline_image_key . '">
+                                      <label for="' . $timeline_image_key . '">' . THEME_ENTRY_IMAGE. '</label>
+                                      <textarea data-configitem="' . $timeline_image_key . '" name="serendipity[properties][' . $timeline_image_key . ']" class="change_preview" id="prop' . $timeline_image_key . '">' . $is_timeline_image . '</textarea>
+                                      <button title="' . MEDIA . '" name="insImage" type="button" class="customfieldMedia"><span class="icon-picture" aria-hidden="true"></span><span class="visuallyhidden">' . MEDIA . '</span></button>
+                                      <figure id="' . $timeline_image_key . '_preview">
+                                          <figcaption>' . PREVIEW . '</figcaption>
+                                          <picture>
+                                              <source type="image/webp" srcset="' . $is_timeline_image_webp . '" class="ml_preview_img" alt="">
+                                              <img alt="" src="' . $is_timeline_image . '">
+                                          </picture>
+                                      </figure>
+                                  </div>
+                              </div>
+                          </div>
+                     </div>
+                '.PHP_EOL;
                 break;
 
             // To store the value of our entryproperties
