@@ -382,7 +382,10 @@ if (!function_exists('entry_option_store')) {
 
         // prep key/val params for webp image and path
         $property_key_webp = $property_key .'_webp';
-        $property_val_webp = timeline_generate_webpURI($property_val);
+        $rpath = serendipity_generate_webpPathURI($property_val);
+        $property_val_webp = file_exists(str_replace($serendipity['serendipityHTTPPath'], '', $serendipity['serendipityPath']) . $rpath)
+                                ? $rpath
+                                : $property_val; // file exist needs full path to check
 
         if ($property_val_webp !== null) {
             $q = "DELETE FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$eventData['id'] . " AND property = '" . serendipity_db_escape_string($property_key_webp) . "'";
