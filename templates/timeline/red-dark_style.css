@@ -77,8 +77,6 @@ nav.navbar-light .navbar-toggler {
     border: 1px solid #a10f2b;
 }
 
-.btn-theme:hover {color: #a10f2b;}
-
 .pager li > a,
 .pager li > span {
     background-color: #a10f2b;

@@ -71,13 +71,11 @@ nav.navbar-light .navbar-toggler {
     border-color: #bbbdc1;
     background-color: #e67e22;
 }
-
+/*
 .btn-theme {
     background: none repeat scroll 0 0 #e67e22;
     border: 1px solid #e67e22;
-}
-
-.btn-theme:hover {color: #e67e22;}
+}*/
 
 .pager li > a,
 .pager li > span {
