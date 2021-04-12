@@ -12,7 +12,7 @@
                     <form id="searchform" class="input-group" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
                         <input type="hidden" name="serendipity[action]" value="search" />
                         <label for="serendipityQuickSearchTermFieldBox" class="sr-only">{$CONST.QUICKSEARCH}</label>
-                        <input class="form-control" alt="{$CONST.SEARCH_SITE}" type="text" id="serendipityQuickSearchTermFieldBox" name="serendipity[searchTerm]" value="{$CONST.SEARCH}..." onfocus="if(this.value=='{$CONST.SEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.SEARCH}...';" />
+                        <input id="serendipityQuickSearchTermFieldBox" class="form-control mr-3" alt="{$CONST.SEARCH_SITE}" type="text" name="serendipity[searchTerm]" value="{$CONST.SEARCH}..." onfocus="if(this.value=='{$CONST.SEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.SEARCH}...';" />
                         <span class="input-group-btn">
                             <input class="btn btn-secondary btn-sm btn-theme quicksearch_submit" type="submit" value="{$CONST.GO}" alt="{$CONST.SEARCH_SITE}" name="serendipity[searchButton]" title="{$CONST.SEARCH}" />
                         </span>
@@ -39,7 +39,7 @@
                     <form id="searchform" class="input-group" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
                         <input type="hidden" name="serendipity[action]" value="search" />
                         <label for="serendipityQuickSearchTermFieldBox" class="sr-only">{$CONST.QUICKSEARCH}</label>
-                        <input class="form-control" alt="{$CONST.SEARCH_SITE}" type="text" id="serendipityQuickSearchTermFieldBox" name="serendipity[searchTerm]" value="{$CONST.SEARCH}..." onfocus="if(this.value=='{$CONST.SEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.SEARCH}...';" />
+                        <input id="serendipityQuickSearchTermFieldBox" class="form-control mr-3" alt="{$CONST.SEARCH_SITE}" type="text" name="serendipity[searchTerm]" value="{$CONST.SEARCH}..." onfocus="if(this.value=='{$CONST.SEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.SEARCH}...';" />
                         <span class="input-group-btn">
                             <input class="btn btn-secondary btn-sm btn-theme quicksearch_submit" type="submit" value="{$CONST.GO}" alt="{$CONST.SEARCH_SITE}" name="serendipity[searchButton]" title="{$CONST.SEARCH}" />
                         </span>
