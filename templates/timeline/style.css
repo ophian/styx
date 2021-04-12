@@ -327,17 +327,6 @@ a, a:focus, a:hover, a:active, button, button:hover {
 
 .archive-post-body {margin-top: 10px;}
 
-.btn-theme {
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    font-size: 14px;
-    font-weight: 400;
-    position: relative;
-    text-decoration: none!important;
-    white-space: nowrap;
-}
-
 .btn-theme.disabled {
     background-color:#dddddd;
     color: #555
@@ -774,10 +763,6 @@ img.serendipity_freeTag_xmlButton {
     /*background-color: #72c02c;*/
     color: #ffffff;
     text-decoration: none;
-}
-
-button.btn.btn-sm.btn-default.btn-theme {
-    white-space: normal;
 }
 
 .serendipity_plugin_recententries dd {
