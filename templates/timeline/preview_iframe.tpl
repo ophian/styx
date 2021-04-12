@@ -38,9 +38,9 @@
     </script>
 </head>
 <body>
-    <main id="maincontent" class="container content" role="main" style="margin: 0 auto;">
+    <main id="maincontent" class="container content" role="main">
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 {if $mode == 'preview'}
                     {$preview}
                 {elseif $mode == 'save'}
