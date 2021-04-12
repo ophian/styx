@@ -1,6 +1,6 @@
 {serendipity_hookPlugin hook="entries_header" addData="$entry_id"}
 
-{if $template_option.display_as_timeline AND NOT empty($entries) AND NOT $is_single_entry AND NOT isset($entry.is_extended) AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - OPEN TIMELINE*}
+{if $template_option.display_as_timeline AND NOT empty($entries) AND NOT $is_single_entry AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - OPEN TIMELINE *}
     <ul class="timeline">
     {assign var="prevmonth" value=''}
 {/if}
@@ -296,7 +296,7 @@
     {/if}
 {/if}
 
-{if $template_option.display_as_timeline AND NOT empty($entries) AND NOT $is_single_entry AND NOT isset($entry.is_extended) AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
+{if $template_option.display_as_timeline AND NOT empty($entries) AND NOT $is_single_entry AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO - CLOSE TIMELINE *}
         <li class="clearfix" style="float: none;"></li>
     </ul>
 {/if}
