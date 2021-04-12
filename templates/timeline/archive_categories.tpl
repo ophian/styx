@@ -15,8 +15,8 @@
                 <ul class="category-children">
             {/if}
             <li id="category_{$plugin_category.categoryid}" class="category_depth{$plugin_category.catdepth} archive-category-list-item">
-                {if $template_option.category_rss_archive == true}<a class="btn btn-sm btn-default btn-theme serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}" title="{$plugin_category.category_name|escape} rss"><i class="fas fa-rss"></i></a>{/if}
-                <a class="btn btn-sm btn-default btn-theme" href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
+                {if $template_option.category_rss_archive == true}<a class="btn btn-secondary btn-sm btn-theme serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}" title="{$plugin_category.category_name|escape} rss"><i class="fas fa-rss"></i></a>{/if}
+                <a class="btn btn-secondary btn-sm btn-theme" href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
             {if $plugin_category@last}
                 {if $plugin_category.catdepth>0}
                     {for $i=1 to $plugin_category.catdepth}

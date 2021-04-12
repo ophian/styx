@@ -44,8 +44,8 @@
     <p class="alert alert-danger">{$CONST.COMMENTS_WILL_BE_MODERATED}</p>
 {/if}
     <div class="form-group">
-        <input id="serendipity_submit" name="serendipity[submit]" class="btn btn-sm btn-default btn-theme" type="submit" value="{$CONST.SUBMIT_COMMENT}">
-        <input id="serendipity_preview" name="serendipity[preview]" class="btn btn-sm btn-default btn-theme" type="submit" value="{$CONST.PREVIEW}">
+        <input id="serendipity_submit" name="serendipity[submit]" class="btn btn-secondary btn-sm btn-theme" type="submit" value="{$CONST.SUBMIT_COMMENT}">
+        <input id="serendipity_preview" name="serendipity[preview]" class="btn btn-secondary btn-sm btn-theme" type="submit" value="{$CONST.PREVIEW}">
     </div>
 </form>
 </div>

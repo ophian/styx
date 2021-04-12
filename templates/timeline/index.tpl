@@ -83,8 +83,8 @@
                         <label for="serendipityQuickSearchTermField" class="sr-only">{$CONST.QUICKSEARCH}</label>
                         <input id="serendipityQuickSearchTermField" class="form-control" name="serendipity[searchTerm]" type="search" value="" placeholder="{$CONST.SEARCH} ...">
                         <div class="modal-footer">
-                            <input class="btn btn-default btn-theme" id="gobutton" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">{$CONST.CLOSE}</button>
+                            <input class="btn btn-secondary btn-theme" id="gobutton" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">{$CONST.CLOSE}</button>
                         </div>
                     </form>
                 {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
@@ -126,29 +126,29 @@
                         {assign var="paginationStartPage" value="1"}
                     {/if}
                     {if $footer_prev_page}
-                        <a class="btn btn-md btn-default btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
+                        <a class="btn btn-secondary btn-md btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
                     {/if}
                     {if $paginationStartPage > 1}
-                        <a class="btn btn-md btn-default btn-theme" href="{'1'|string_format:$footer_pageLink}">1</a>
+                        <a class="btn btn-secondary btn-md btn-theme" href="{'1'|string_format:$footer_pageLink}">1</a>
                     {/if}
                     {if $paginationStartPage > 2}
                         &hellip;
                     {/if}
                     {section name=i start=$paginationStartPage loop=($footer_totalPages+1) max=5}
                         {if $smarty.section.i.index != $footer_currentPage}
-                            <a class="btn btn-md btn-default btn-theme" href="{$smarty.section.i.index|string_format:$footer_pageLink}">{$smarty.section.i.index}</a>
+                            <a class="btn btn-secondary btn-md btn-theme" href="{$smarty.section.i.index|string_format:$footer_pageLink}">{$smarty.section.i.index}</a>
                         {else}
-                            <span class="thispage btn btn-md btn-default btn-theme disabled">{$smarty.section.i.index}</span>
+                            <span class="thispage btn btn-secondary btn-md btn-theme disabled">{$smarty.section.i.index}</span>
                         {/if}
                     {/section}
                     {if $smarty.section.i.index < $footer_totalPages}
                         &hellip;
                     {/if}
                     {if $smarty.section.i.index <= $footer_totalPages}
-                        <a class="btn btn-md btn-default btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
+                        <a class="btn btn-secondary btn-md btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
                     {/if}
                     {if $footer_next_page}
-                        <a class="btn btn-md btn-default btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
+                        <a class="btn btn-secondary btn-md btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fa fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
                     {/if}
                 </nav>
             {/if}
@@ -175,7 +175,7 @@
                                             <label for="serendipityQuickSearchTermFieldBox" class="sr-only">{$CONST.QUICKSEARCH}</label>
                                             <input class="form-control" alt="{$CONST.SEARCH_SITE}" type="text" id="serendipityQuickSearchTermFieldBox" name="serendipity[searchTerm]" value="{$CONST.SEARCH}..." onfocus="if(this.value=='{$CONST.SEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.SEARCH}...';">
                                             <span class="input-group-btn">
-                                                <input class="btn btn-sm btn-default btn-theme quicksearch_submit" type="submit" value="{$CONST.GO}" alt="{$CONST.SEARCH_SITE}" name="serendipity[searchButton]" title="{$CONST.SEARCH}">
+                                                <input class="btn btn-secondary btn-sm btn-theme quicksearch_submit" type="submit" value="{$CONST.GO}" alt="{$CONST.SEARCH_SITE}" name="serendipity[searchButton]" title="{$CONST.SEARCH}">
                                             </span>
                                             <div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>
                                         </form>
@@ -188,13 +188,13 @@
                     <div id="search-block" class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <nav class="text-center">
-                                 <button class="btn btn-md btn-default btn-theme" onclick="goBack()" title="{$CONST.BACK}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.BACK}</span> {$CONST.BACK}</button>
+                                 <button class="btn btn-secondary btn-md btn-theme" onclick="goBack()" title="{$CONST.BACK}"><i class="fa fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.BACK}</span> {$CONST.BACK}</button>
                                  <script>
                                     function goBack() {
                                         window.history.back();
                                     }
                                 </script>
-                                <a class="read_more btn btn-md btn-default btn-theme" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"> <i class="fa fa-home" aria-hidden="true"></i> {$CONST.HOMEPAGE}</a>
+                                <a class="read_more btn btn-secondary btn-md btn-theme" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}"> <i class="fa fa-home" aria-hidden="true"></i> {$CONST.HOMEPAGE}</a>
                             </nav>
                         </div>
                     </div>

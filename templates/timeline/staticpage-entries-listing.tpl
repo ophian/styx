@@ -9,9 +9,9 @@
         {/foreach}
     </dl>
     {if $staticpage_related_category_id >0}
-        <a class="btn btn-md btn-default btn-theme" href="{$serendipityBaseURL}{$serendipityRewritePrefix}{getCategoryLinkByID cid=$staticpage_related_category_id}">{$CONST.STATICPAGE_ARTICLE_OVERVIEW|capitalize} <i class="fas fa-arrow-right" aria-hidden="true"></i></a><br />
+        <a class="btn btn-secondary btn-md btn-theme" href="{$serendipityBaseURL}{$serendipityRewritePrefix}{getCategoryLinkByID cid=$staticpage_related_category_id}">{$CONST.STATICPAGE_ARTICLE_OVERVIEW|capitalize} <i class="fas fa-arrow-right" aria-hidden="true"></i></a><br />
     {else}
-        <a class="btn btn-md btn-default btn-theme" href="{$serendipityArchiveURL}/P1.html">{$CONST.STATICPAGE_ARTICLE_OVERVIEW|capitalize} <i class="fas fa-arrow-right" aria-hidden="true"></i></a><br />
+        <a class="btn btn-secondary btn-md btn-theme" href="{$serendipityArchiveURL}/P1.html">{$CONST.STATICPAGE_ARTICLE_OVERVIEW|capitalize} <i class="fas fa-arrow-right" aria-hidden="true"></i></a><br />
     {/if}
 {else}
     <div id="search-block" class="row">

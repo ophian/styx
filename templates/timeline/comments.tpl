@@ -36,13 +36,13 @@
                         {/if}
                 </div>
                 <div class="comment-meta">
-                    <a class="comment-source-trace btn btn-sm btn-default btn-theme" href="#c{$comment.id|default:0}">#{$comment.trace}</a>
+                    <a class="comment-source-trace btn btn-secondary btn-sm btn-theme" href="#c{$comment.id|default:0}">#{$comment.trace}</a>
                     {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
-                        <a class="comment-source-ownerlink comment-reply-link btn btn-sm btn-default btn-theme" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');" title="{$CONST.DELETE}"><i class="fas fa-lg fa-trash-alt"></i><span class="sr-only"> {$CONST.DELETE}</span></a>
+                        <a class="comment-source-ownerlink comment-reply-link btn btn-secondary btn-sm btn-theme" href="{$comment.link_delete}" onclick="return confirm('{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}');" title="{$CONST.DELETE}"><i class="fas fa-lg fa-trash-alt"></i><span class="sr-only"> {$CONST.DELETE}</span></a>
                     {/if}
 
                     {if isset($comment.id) AND NOT empty($entry.allow_comments) AND $comment.body != 'COMMENT_DELETED'}
-                        <a class="comment-reply-link btn btn-sm btn-default btn-theme" href="#serendipity_CommentForm" id="serendipity_reply_{$comment.id}" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id}';{if NOT empty($comment_onchange)} {$comment_onchange|default:''}{/if}" title="{$CONST.REPLY}"><i class="fas fa-lg fa-reply"></i><span class="sr-only"> {$CONST.REPLY}</span></a>
+                        <a class="comment-reply-link btn btn-secondary btn-sm btn-theme" href="#serendipity_CommentForm" id="serendipity_reply_{$comment.id}" onclick="document.getElementById('serendipity_replyTo').value='{$comment.id}';{if NOT empty($comment_onchange)} {$comment_onchange|default:''}{/if}" title="{$CONST.REPLY}"><i class="fas fa-lg fa-reply"></i><span class="sr-only"> {$CONST.REPLY}</span></a>
                         <div id="serendipity_replyform_{$comment.id}"></div>
                     {/if}
                 </div>

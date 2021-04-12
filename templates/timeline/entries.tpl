@@ -45,7 +45,7 @@
                             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
                             {$entry.body}
                             {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
-                                <p class="read_more"><a class="btn btn-md btn-default btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                                <p class="read_more"><a class="btn btn-secondary btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
                             {/if}
                         </div>
                         <div class="timeline-footer">
@@ -82,7 +82,7 @@
                             </p>
                             {$entry.body}
                             {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
-                                <p class="read_more"><a class="btn btn-md btn-default btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                                <p class="read_more"><a class="btn btn-secondary btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
                             {/if}
                         </div>
                     </div>
@@ -131,7 +131,7 @@
                         {if NOT empty($entry.categories)}
                             <span class="sr-only">{$CONST.CATEGORIES}: </span>
                             <i class="fas fa-folder-open" aria-hidden="true"></i>
-                            {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape|default:'#'}">{$entry_category.category_name|escape|default:'#'}</a>{if NOT $entry_category@last}&nbsp;{/if}{/foreach}
+                            {foreach $entry.categories AS $entry_category}<a class="btn btn-secondary btn-sm btn-theme" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape|default:'#'}">{$entry_category.category_name|escape|default:'#'}</a>{if NOT $entry_category@last}&nbsp;{/if}{/foreach}
                         {/if}
                         {if isset($entry.freetag.extended) AND $entry.freetag.extended == 1}
                             {if NOT empty($entry.freetag.tags.tags)}
@@ -222,11 +222,11 @@
             {if $entry.comments != 0}
                 <p class="manage_comments">
                     {if $entry.viewmode eq $CONST.VIEWMODE_LINEAR}
-                       <button class="btn btn-sm btn-default disabled">{$CONST.COMMENTS_VIEWMODE_LINEAR}</button>
-                       <a class="btn btn-sm btn-default btn-theme" href="{$entry.link_viewmode_threaded}#comments" rel="nofollow" title="{$CONST.DISPLAY_COMMENTS_AS} {$CONST.COMMENTS_VIEWMODE_THREADED}">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>
+                       <button class="btn btn-secondary btn-sm disabled">{$CONST.COMMENTS_VIEWMODE_LINEAR}</button>
+                       <a class="btn btn-secondary btn-sm btn-theme" href="{$entry.link_viewmode_threaded}#comments" rel="nofollow" title="{$CONST.DISPLAY_COMMENTS_AS} {$CONST.COMMENTS_VIEWMODE_THREADED}">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>
                     {else}
-                       <a class="btn btn-sm btn-default btn-theme" rel="nofollow" href="{$entry.link_viewmode_linear}#comments" title="{$CONST.DISPLAY_COMMENTS_AS} {$CONST.COMMENTS_VIEWMODE_LINEAR}">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a>
-                       <button class="btn btn-sm btn-default disabled">{$CONST.COMMENTS_VIEWMODE_THREADED}</button>
+                       <a class="btn btn-secondary btn-sm btn-theme" rel="nofollow" href="{$entry.link_viewmode_linear}#comments" title="{$CONST.DISPLAY_COMMENTS_AS} {$CONST.COMMENTS_VIEWMODE_LINEAR}">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a>
+                       <button class="btn btn-secondary btn-sm disabled">{$CONST.COMMENTS_VIEWMODE_THREADED}</button>
                     {/if}
                 </p>
             {/if}
@@ -235,9 +235,9 @@
                 <p class="manage_comments">
                     <small>
                         {if $entry.allow_comments}
-                            <a href="{$entry.link_deny_comments}"><button class="btn btn-sm btn-default btn-theme">{$CONST.COMMENTS_DISABLE}</button></a>
+                            <a href="{$entry.link_deny_comments}"><button class="btn btn-secondary btn-sm btn-theme">{$CONST.COMMENTS_DISABLE}</button></a>
                         {else}
-                            <a href="{$entry.link_allow_comments}"><button class="btn btn-sm btn-default btn-theme">{$CONST.COMMENTS_ENABLE}</button></a>
+                            <a href="{$entry.link_allow_comments}"><button class="btn btn-secondary btn-sm btn-theme">{$CONST.COMMENTS_ENABLE}</button></a>
                         {/if}
                     </small>
                 </p>
@@ -317,29 +317,29 @@
                     {assign var="paginationStartPage" value="1"}
                 {/if}
                 {if $footer_prev_page}
-                    <a class="btn btn-md btn-default btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fas fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
+                    <a class="btn btn-secondary btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fas fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
                 {/if}
                 {if $paginationStartPage > 1}
-                    <a class="btn btn-md btn-default btn-theme" href="{'1'|string_format:$footer_pageLink}">1</a>
+                    <a class="btn btn-secondary btn-theme" href="{'1'|string_format:$footer_pageLink}">1</a>
                 {/if}
                 {if $paginationStartPage > 2}
                     &hellip;
                 {/if}
                 {section name=i start=$paginationStartPage loop=($footer_totalPages+1) max=5}
                     {if $smarty.section.i.index != $footer_currentPage}
-                        <a class="btn btn-md btn-default btn-theme" href="{$smarty.section.i.index|string_format:$footer_pageLink}">{$smarty.section.i.index}</a>
+                        <a class="btn btn-secondary btn-theme" href="{$smarty.section.i.index|string_format:$footer_pageLink}">{$smarty.section.i.index}</a>
                     {else}
-                        <span class="thispage btn btn-md btn-default btn-theme disabled">{$smarty.section.i.index}</span>
+                        <span class="thispage btn btn-secondary btn-theme disabled">{$smarty.section.i.index}</span>
                     {/if}
                 {/section}
                 {if $smarty.section.i.index < $footer_totalPages}
                     &hellip;
                 {/if}
                 {if $smarty.section.i.index <= $footer_totalPages}
-                    <a class="btn btn-md btn-default btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
+                    <a class="btn btn-secondary btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
                 {/if}
                 {if $footer_next_page}
-                    <a class="btn btn-md btn-default btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
+                    <a class="btn btn-secondary btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
                 {/if}
             </nav>
         {/if}
