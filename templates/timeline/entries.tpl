@@ -45,7 +45,7 @@
                             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
                             {$entry.body}
                             {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
-                                <p class="read_more"><a class="btn btn-secondary btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                                <p class="read_more"><a class="btn btn-secondary btn-md btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
                             {/if}
                         </div>
                         <div class="timeline-footer">
@@ -82,7 +82,7 @@
                             </p>
                             {$entry.body}
                             {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
-                                <p class="read_more"><a class="btn btn-secondary btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
+                                <p class="read_more"><a class="btn btn-secondary btn-md btn-readmore btn-theme clearfix" href="{$entry.link}#extended">{$CONST.READ_MORE} <i class="fas fa-arrow-right" aria-hidden="true"></i></a></p>
                             {/if}
                         </div>
                     </div>
@@ -317,29 +317,29 @@
                     {assign var="paginationStartPage" value="1"}
                 {/if}
                 {if $footer_prev_page}
-                    <a class="btn btn-secondary btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fas fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
+                    <a class="btn btn-secondary btn-md btn-theme" title="{$CONST.PREVIOUS_PAGE}" href="{$footer_prev_page}"><i class="fas fa-arrow-left" aria-hidden="true"></i><span class="sr-only">{$CONST.PREVIOUS_PAGE}</span></a>
                 {/if}
                 {if $paginationStartPage > 1}
-                    <a class="btn btn-secondary btn-theme" href="{'1'|string_format:$footer_pageLink}">1</a>
+                    <a class="btn btn-secondary btn-md btn-theme" href="{'1'|string_format:$footer_pageLink}">1</a>
                 {/if}
                 {if $paginationStartPage > 2}
                     &hellip;
                 {/if}
                 {section name=i start=$paginationStartPage loop=($footer_totalPages+1) max=5}
                     {if $smarty.section.i.index != $footer_currentPage}
-                        <a class="btn btn-secondary btn-theme" href="{$smarty.section.i.index|string_format:$footer_pageLink}">{$smarty.section.i.index}</a>
+                        <a class="btn btn-secondary btn-md btn-theme" href="{$smarty.section.i.index|string_format:$footer_pageLink}">{$smarty.section.i.index}</a>
                     {else}
-                        <span class="thispage btn btn-secondary btn-theme disabled">{$smarty.section.i.index}</span>
+                        <span class="thispage btn btn-secondary btn-md btn-theme disabled">{$smarty.section.i.index}</span>
                     {/if}
                 {/section}
                 {if $smarty.section.i.index < $footer_totalPages}
                     &hellip;
                 {/if}
                 {if $smarty.section.i.index <= $footer_totalPages}
-                    <a class="btn btn-secondary btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
+                    <a class="btn btn-secondary btn-md btn-theme" href="{$footer_totalPages|string_format:$footer_pageLink}">{$footer_totalPages}</a>
                 {/if}
                 {if $footer_next_page}
-                    <a class="btn btn-secondary btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
+                    <a class="btn btn-secondary btn-md btn-theme" title="{$CONST.NEXT_PAGE}" href="{$footer_next_page}"><i class="fas fa-arrow-right" aria-hidden="true"></i><span class="sr-only">{$CONST.NEXT_PAGE}</span></a>
                 {/if}
             </nav>
         {/if}
