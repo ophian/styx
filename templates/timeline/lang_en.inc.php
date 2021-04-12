@@ -3,6 +3,7 @@
 @define('ERROR_404', 'Error 404 - The page you requested could not be found.');
 @define('SEARCH_WHAT', 'What are you looking for?'); //used on quicksearch modal
 @define('SEARCH', 'Search');
+@define('SEARCH_SITE', 'Search site');
 @define('TOGGLE_NAV', 'Toggle Navigation'); //only seen by screen readers
 @define('CLOSE', 'Close'); //close button on search form
 @define('READ_MORE', 'Read More');
