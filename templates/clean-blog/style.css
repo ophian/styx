@@ -63,6 +63,9 @@ ol a,
 ul a {
   text-decoration: underline;
 }
+.close {
+    margin: -.25em -.25em !important;
+}
 .navbar-custom {
   position: absolute;
   top: 0;
