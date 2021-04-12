@@ -74,8 +74,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h4 id="myModalLabel" class="modal-title">{$CONST.SEARCH_WHAT}</h4>
                     <button type="button" class="close" title="{$CONST.CLOSE}" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">{$CONST.SEARCH_WHAT}</h4>
                 </div>
                 <div class="modal-body">
                     <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
@@ -83,7 +83,7 @@
                         <label for="serendipityQuickSearchTermField" class="sr-only">{$CONST.QUICKSEARCH}</label>
                         <input id="serendipityQuickSearchTermField" class="form-control" name="serendipity[searchTerm]" type="search" value="" placeholder="{$CONST.SEARCH} ...">
                         <div class="modal-footer">
-                            <input class="btn btn-secondary btn-theme" id="gobutton" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
+                            <input id="gobutton" class="btn btn-secondary btn-theme" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">{$CONST.CLOSE}</button>
                         </div>
                     </form>
@@ -169,11 +169,11 @@
                                 </div>
                                 <div class="panel-body">
                                     <p><span class="fa-stack text-danger" aria-hidden="true"><i class="fa fa-circle-thin fa-stack-2x"></i><i class="fa fa-exclamation fa-stack-1x"></i></span> {$CONST.ERROR_404}</p>
-                                    <div class="input-group" style="width:100%; margin-bottom: 20px;">{* REMOVE INLINE STYLES *}
+                                    <div class="input-group">
                                         <form id="searchform" class="input-group" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
                                             <input type="hidden" name="serendipity[action]" value="search">
                                             <label for="serendipityQuickSearchTermFieldBox" class="sr-only">{$CONST.QUICKSEARCH}</label>
-                                            <input class="form-control" alt="{$CONST.SEARCH_SITE}" type="text" id="serendipityQuickSearchTermFieldBox" name="serendipity[searchTerm]" value="{$CONST.SEARCH}..." onfocus="if(this.value=='{$CONST.SEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.SEARCH}...';">
+                                            <input id="serendipityQuickSearchTermFieldBox" class="form-control mr-3" alt="{$CONST.SEARCH_SITE}" type="text" name="serendipity[searchTerm]" value="{$CONST.SEARCH}..." onfocus="if(this.value=='{$CONST.SEARCH}...')value=''" onblur="if(this.value=='')value='{$CONST.SEARCH}...';">
                                             <span class="input-group-btn">
                                                 <input class="btn btn-secondary btn-sm btn-theme quicksearch_submit" type="submit" value="{$CONST.GO}" alt="{$CONST.SEARCH_SITE}" name="serendipity[searchButton]" title="{$CONST.SEARCH}">
                                             </span>
