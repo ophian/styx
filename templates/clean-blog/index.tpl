@@ -65,22 +65,20 @@
     {if $template_option.use_corenav}
         <a class="sr-only sr-only-focusable" href="#maincontent"><span lang="en">Skip to main content</span></a>
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-custom navbar-fixed-top" role="navigation">
+        <nav class="navbar navbar-expand-xl navbar-light" role="navigation">
             <div class="container-fluid">
                 {* Brand and toggle get grouped for better mobile display *}
                 <div class="navbar-header page-scroll">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">{$CONST.TOGGLE_NAV}</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                         <span class="sr-only">{$CONST.TOGGLE_NAV}</span>
+                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <a class="navbar-brand" href="{$serendipityBaseURL}" title="{$CONST.HOMEPAGE}">{$template_option.home_link_text}</a>
                     <a class="navbar-brand" href="#basicModal" data-toggle="modal" data-target="#basicModal" title="{$CONST.SEARCH}"><i class="fa fa-search" aria-hidden="true"></i></a>
                     <a class="navbar-brand" href="{$archiveURL}" title="{$CONST.ARCHIVES}"><i class="fa fa-calendar" aria-hidden="true"></i></a>
                 </div>
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right">{foreach $navlinks AS $navlink}<li><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}</ul>
+                <div id="navbarNav" class="collapse navbar-collapse navbar-responsive-collapse">
+                    <ul class="nav navbar-nav ml-auto navbar-right">{foreach $navlinks AS $navlink}<li class="nav-item nav-link"><a href="{$navlink.href}" title="{$navlink.title}">{$navlink.title}</a></li>{/foreach}</ul>
                 </div>
             </div>
         </nav>
