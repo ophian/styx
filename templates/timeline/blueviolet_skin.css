@@ -552,7 +552,7 @@ table table {
 }
 .panel-success > .panel-heading {
   color: #ffffff;
-  background-color: #62c462;
+  background-color: transparent;
   border-color: rgba(0, 0, 0, 0.6);
 }
 .panel-success > .panel-heading + .panel-collapse > .panel-body {
