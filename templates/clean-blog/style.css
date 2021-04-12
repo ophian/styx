@@ -363,27 +363,27 @@ form .row:first-child .floating-label-form-group {
   font-size: 16px;
   padding: 25px 35px;
 }
-.btn-default.active:active,
-.btn-default.focus:active,
-.btn-default:active:active,
-.btn-default:focus:active,
-.btn-default:hover:active,
-.open > .dropdown-toggle.btn-default .open > .dropdown-toggle.btn-default:active,
-.btn-default:active,
-.btn-default.active:focus,
-.btn-default.focus:focus,
-.btn-default:active:focus,
-.btn-default:focus:focus,
-.btn-default:hover:focus,
-.open > .dropdown-toggle.btn-default .open > .dropdown-toggle.btn-default:focus,
-.btn-default:focus,
-.btn-default.active:hover,
-.btn-default.focus:hover,
-.btn-default:active:hover,
-.btn-default:focus:hover,
-.btn-default:hover:hover,
-.open > .dropdown-toggle.btn-default .open > .dropdown-toggle.btn-default:hover,
-.btn-default:hover {
+.btn-secondary.active:active,
+.btn-secondary.focus:active,
+.btn-secondary:active:active,
+.btn-secondary:focus:active,
+.btn-secondary:hover:active,
+.open > .dropdown-toggle.btn-secondary .open > .dropdown-toggle.btn-secondary:active,
+.btn-secondary:active,
+.btn-secondary.active:focus,
+.btn-secondary.focus:focus,
+.btn-secondary:active:focus,
+.btn-secondary:focus:focus,
+.btn-secondary:hover:focus,
+.open > .dropdown-toggle.btn-secondary .open > .dropdown-toggle.btn-secondary:focus,
+.btn-secondary:focus,
+.btn-secondary.active:hover,
+.btn-secondary.focus:hover,
+.btn-secondary:active:hover,
+.btn-secondary:focus:hover,
+.btn-secondary:hover:hover,
+.open > .dropdown-toggle.btn-secondary .open > .dropdown-toggle.btn-secondary:hover,
+.btn-secondary:hover {
   background-color: #0085a1;
   border: 1px solid #0085a1;
   color: white;
@@ -771,7 +771,7 @@ ul.staticpage_navigation li {
 .serendipity_commentDirection {
   margin: 1em 0;
 }
-.manage_comments .btn.btn-sm.btn-default {
+.manage_comments .btn.btn-secondary.btn-sm {
     white-space: normal;
 }
 .comment-list .comment-children {
@@ -856,7 +856,7 @@ ul.staticpage_navigation li {
 .archive-button {
   width: 100%;
 }
-.btn-default.disabled {
+.btn-secondary.disabled {
   background-color: #dddddd;
 }
 .btn-group .dropdown-menu li i {
