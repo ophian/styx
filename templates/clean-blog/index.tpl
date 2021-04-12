@@ -83,12 +83,12 @@
             </div>
         </nav>
     {/if}
-    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div id="basicModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+                    <h4 id="myModalLabel" class="modal-title">{$CONST.SEARCH_WHAT}</h4>
                     <button type="button" class="close" title="{$CONST.CLOSE}" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">{$CONST.SEARCH_WHAT}</h4>
                 </div>
                 <div class="modal-body">
                     <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get">
@@ -96,10 +96,9 @@
                             <input type="hidden" name="serendipity[action]" value="search">
                             <label for="serendipityQuickSearchTermField" class="sr-only">{$CONST.QUICKSEARCH}</label>
                             <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" value="" placeholder="{$CONST.SEARCH} ...">
-
                         </div>
                         <div class="modal-footer">
-                            <input class="btn btn-primary" id="gobutton" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
+                            <input id="gobutton" class="btn btn-primary" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">{$CONST.CLOSE}</button>
                         </div>
                     </form>
