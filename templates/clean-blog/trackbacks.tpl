@@ -15,7 +15,7 @@
                 </div>
                 <div class="comment-meta">
                     {if NOT empty($entry.is_entry_owner)}
-                        <a href="{$serendipityBaseURL}comment.php?serendipity[delete]={$trackback.id}&amp;serendipity[entry]={$trackback.entry_id}&amp;serendipity[type]=trackbacks" title="{$CONST.DELETE}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-trash-o"></i><span class="sr-only"> {$CONST.DELETE}</span></button></a>
+                        <a href="{$serendipityBaseURL}comment.php?serendipity[delete]={$trackback.id}&amp;serendipity[entry]={$trackback.entry_id}&amp;serendipity[type]=trackbacks" title="{$CONST.DELETE}"><button class="btn btn-secondary btn-sm"><i class="fa fa-lg fa-trash-o"></i><span class="sr-only"> {$CONST.DELETE}</span></button></a>
                     {/if}
                 </div>
             </div>

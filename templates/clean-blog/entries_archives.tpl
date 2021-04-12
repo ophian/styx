@@ -25,20 +25,20 @@
                         <div class="col-md-3 col-sm-4 col-xs-6">
                         {if $template_option.entrybody_detailed_only==true}
                         {if $month.entry_count}
-                            <a class="btn btn-default archive-button" href="{$month.link}" title="{$CONST.VIEW_FULL}">{$month.date|formatTime:"%b"}&nbsp;<span class="badge">{$month.entry_count}</span></a>
+                            <a class="btn btn-secondary archive-button" href="{$month.link}" title="{$CONST.VIEW_FULL}">{$month.date|formatTime:"%b"}&nbsp;<span class="badge">{$month.entry_count}</span></a>
                         {else}
-                            <button type="button" class="btn btn-default disabled archive-button"><span class="text-muted">{$month.date|formatTime:"%b"}&nbsp;</span></button>
+                            <button type="button" class="btn btn-secondary disabled archive-button"><span class="text-muted">{$month.date|formatTime:"%b"}&nbsp;</span></button>
                         {/if}
                         {else}
                             <div class="btn-group archive-button">
                             {if $month.entry_count}
-                                <button type="button" class="btn btn-default dropdown-toggle archive-button" data-toggle="dropdown" aria-expanded="false">{$month.date|formatTime:"%b"}&nbsp;<span class="badge">{$month.entry_count}</span>&nbsp;&nbsp;<span class="caret"></span></button>
+                                <button type="button" class="btn btn-secondary dropdown-toggle archive-button" data-toggle="dropdown" aria-expanded="false">{$month.date|formatTime:"%b"}&nbsp;<span class="badge">{$month.entry_count}</span>&nbsp;&nbsp;<span class="caret"></span></button>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="{$month.link}" title="{$CONST.VIEW_FULL|capitalize}"><i class="fa fa-newspaper-o"  aria-hidden="true"></i>{$CONST.VIEW_FULL|capitalize}</a></li>
                                     <li><a href="{$month.link_summary}" title="{$CONST.VIEW_TOPICS|capitalize}"><i class="fa fa-list"  aria-hidden="true"></i>{$CONST.VIEW_TOPICS|capitalize}</a></li>
                                 </ul>
                             {else}
-                                <button type="button" class="btn btn-default disabled dropdown-toggle archive-button" data-toggle="dropdown" aria-expanded="false">{$month.date|formatTime:"%b"}</button>
+                                <button type="button" class="btn btn-secondary disabled dropdown-toggle archive-button" data-toggle="dropdown" aria-expanded="false">{$month.date|formatTime:"%b"}</button>
                             {/if}
                             </div>
                         {/if}

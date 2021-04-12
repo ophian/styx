@@ -12,7 +12,7 @@
             <h3 class="post-subtitle">{$entry.body|strip_tags|strip|truncate:70:" ..."}</h3>
         {/if}
         </a>
-        <p class="post-meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-sm btn-default"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if NOT empty($entry.is_entry_owner) AND NOT $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-sm btn-default"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
+        <p class="post-meta">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time>{if $template_option.show_comment_link == true}&nbsp;&nbsp;<a href="{$entry.link}#comments" title="{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}"><button class="btn btn-secondary btn-sm"><span class="badge">{$entry.comments}</span>&nbsp;<i class="fa fa-lg fa-comment-o"></i><span class="sr-only">{$entry.label_comments}</span></button></a>{/if}{if NOT empty($entry.is_entry_owner) AND NOT $is_preview}&nbsp;&nbsp;<a href="{$entry.link_edit}"  title="{$CONST.EDIT_ENTRY}"><button class="btn btn-secondary btn-sm"><i class="fa fa-lg fa-edit"></i><span class="sr-only">{$CONST.EDIT_ENTRY}</span></button></a>{/if}</p>
     {/if}
     {if $template_option.entrybody_detailed_only != true OR $entry.is_extended OR $is_single_entry OR $is_preview}
         <section id="entry">
@@ -20,7 +20,7 @@
                 {if NOT empty($entry.categories)}{foreach $entry.categories AS $entry_category}{if $entry_category.category_icon}<a href="{$entry_category.category_link}"><img class="serendipity_entryIcon" title="{$entry_category.category_name|escape}{$entry_category.category_description|emptyPrefix}" alt="{$entry_category.category_name|escape}" src="{$entry_category.category_icon|escape}"></a>{/if}{/foreach}{/if}
                 {$entry.body}
                 {if $entry.has_extended AND NOT $is_single_entry AND NOT $entry.is_extended}
-                    <a class="read_more" href="{$entry.link}#extended"><button class="btn btn-md btn-default pull-right">{$CONST.READ_MORE} <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
+                    <a class="read_more" href="{$entry.link}#extended"><button class="btn btn-secondary btn-md pull-right">{$CONST.READ_MORE} <i class="fa fa-arrow-right" aria-hidden="true"></i></button></a>
                 {/if}
             </div>
             {if $entry.is_extended}
@@ -34,7 +34,7 @@
                     {if NOT empty($entry.categories)}
                         <span class="sr-only">{$CONST.CATEGORIES}: </span>
                         <i class="fa fa-folder-open" aria-hidden="true"></i>
-                        {foreach $entry.categories AS $entry_category}<a class="btn btn-sm btn-default" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}&nbsp;{/if}{/foreach}
+                        {foreach $entry.categories AS $entry_category}<a class="btn btn-secondary btn-sm" href="{$entry_category.category_link}" title="{$CONST.CATEGORY}: {$entry_category.category_name|escape}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}&nbsp;{/if}{/foreach}
                     {/if}
                     {if isset($entry.freetag.extended) AND $entry.freetag.extended == 1}
                         {if NOT empty($entry.freetag.tags.tags)}
@@ -105,11 +105,11 @@
             {if $entry.comments != 0}
                 <p class="manage_comments">
                     {if $entry.viewmode eq $CONST.VIEWMODE_LINEAR}
-                       <button class="btn btn-sm btn-default disabled">{$CONST.COMMENTS_VIEWMODE_LINEAR}</button>
-                       <a class="btn btn-sm btn-default" href="{$entry.link_viewmode_threaded}#comments" rel="nofollow" title="{$CONST.DISPLAY_COMMENTS_AS} {$CONST.COMMENTS_VIEWMODE_THREADED}">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>
+                       <button class="btn btn-secondary btn-sm disabled">{$CONST.COMMENTS_VIEWMODE_LINEAR}</button>
+                       <a class="btn btn-secondary btn-sm" href="{$entry.link_viewmode_threaded}#comments" rel="nofollow" title="{$CONST.DISPLAY_COMMENTS_AS} {$CONST.COMMENTS_VIEWMODE_THREADED}">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>
                     {else}
-                       <a class="btn btn-sm btn-default" rel="nofollow" href="{$entry.link_viewmode_linear}#comments" title="{$CONST.DISPLAY_COMMENTS_AS} {$CONST.COMMENTS_VIEWMODE_LINEAR}">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a>
-                       <button class="btn btn-sm btn-default disabled">{$CONST.COMMENTS_VIEWMODE_THREADED}</button>
+                       <a class="btn btn-secondary btn-sm" rel="nofollow" href="{$entry.link_viewmode_linear}#comments" title="{$CONST.DISPLAY_COMMENTS_AS} {$CONST.COMMENTS_VIEWMODE_LINEAR}">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a>
+                       <button class="btn btn-secondary btn-sm disabled">{$CONST.COMMENTS_VIEWMODE_THREADED}</button>
                     {/if}
                 </p>
             {/if}
@@ -118,9 +118,9 @@
                 <p class="manage_comments">
                     <small>
                         {if $entry.allow_comments}
-                            <a href="{$entry.link_deny_comments}"><button class="btn btn-sm btn-default">{$CONST.COMMENTS_DISABLE}</button></a>
+                            <a href="{$entry.link_deny_comments}"><button class="btn btn-secondary btn-sm">{$CONST.COMMENTS_DISABLE}</button></a>
                         {else}
-                            <a href="{$entry.link_allow_comments}"><button class="btn btn-sm btn-default">{$CONST.COMMENTS_ENABLE}</button></a>
+                            <a href="{$entry.link_allow_comments}"><button class="btn btn-secondary btn-sm">{$CONST.COMMENTS_ENABLE}</button></a>
                         {/if}
                     </small>
                 </p>
