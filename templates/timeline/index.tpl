@@ -208,6 +208,7 @@
                     {/if}
                     {$CONTENT}
                 {/if}
+
             </main>
             {if ($rightSidebarElements > 0 AND empty($staticpage_pagetitle)) OR ($rightSidebarElements > 0 AND NOT empty($staticpage_pagetitle) AND isset($staticpage_custom.show_sidebars) AND $staticpage_custom.show_sidebars != 'false')}
                 <aside class="col-md-3 RightSideBarContainer">
