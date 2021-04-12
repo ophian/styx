@@ -284,7 +284,9 @@ h1, h2, h3, h4, h5, h6 {
 .list-group-item {
     background-color: inherit;
 }
-
+.panel-body .input-group {
+    margin-bottom: .75rem;
+}
 
 a, a:focus, a:hover, a:active, button, button:hover {
     outline: 0 none !important;
