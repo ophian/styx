@@ -35,19 +35,19 @@ body {
     color: #808080;
 }
 
-.header .navbar-default .navbar-toggle .fa {
+.header .navbar-light .navbar-toggle .fa {
     color: #fff;
 }
 
-.header .navbar-default .navbar-nav > li > a {
+.header .navbar-light .navbar-nav > li > a {
     color: #959da5;
 }
 
-.header .navbar-default .navbar-nav > li a {
+.header .navbar-light .navbar-nav > li a {
     border-bottom: 1px solid #36404A;
 }
 
-.is-fixed .navbar-default .navbar-nav > li > a {
+.is-fixed .navbar-light .navbar-nav > li > a {
     color: #ccc;
 }
 

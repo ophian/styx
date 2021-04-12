@@ -35,19 +35,19 @@ body {
     color: #808080;
 }
 
-.header .navbar-default .navbar-toggle .fa { /* navbar toggle icon */
+.header .navbar-light .navbar-toggle .fa { /* navbar toggle icon */
     color: #fff;
 }
 
-.header .navbar-default .navbar-nav > li > a { /* top navbar items */
+.header .navbar-light .navbar-nav > li > a { /* top navbar items */
     color: #999;
 }
 
-.header .navbar-default .navbar-nav > li a {
+.header .navbar-light .navbar-nav > li a {
     border-bottom: 1px solid #383838;
 }
 
-.is-fixed .navbar-default .navbar-nav > li > a { /* top navbar items when scrolling up */
+.is-fixed .navbar-light .navbar-nav > li > a { /* top navbar items when scrolling up */
     color: #ccc;
 }
 

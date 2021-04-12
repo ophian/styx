@@ -33,35 +33,35 @@ a.subtome img {
     visibility: hidden;
 }
 
-.navbar-default .navbar-brand:hover h1,
-.navbar-default .navbar-brand:focus h1{
+.navbar-light .navbar-brand:hover h1,
+.navbar-light .navbar-brand:focus h1{
     color: #2cd5b6;
 }
 
-.header .navbar-default .navbar-toggle {
+.header .navbar-light .navbar-toggle {
     border-color: #2cd5b6;
 }
 
-.header .navbar-toggle, .header .navbar-default .navbar-toggle:hover, .header .navbar-default .navbar-toggle:focus {
+.header .navbar-toggle, .header .navbar-light .navbar-toggle:hover, .header .navbar-light .navbar-toggle:focus {
     background-color: #18ba9b;
 }
 
 @media (max-width: 991px) {
-    .header .navbar-default .navbar-nav > li > a:hover {
+    .header .navbar-light .navbar-nav > li > a:hover {
         color: #18ba9b;
     }
-    .header .navbar-default .navbar-nav > .active > a, .header .navbar-default .navbar-nav > .active > a:hover, .header .navbar-default .navbar-nav > .active > a:focus {
+    .header .navbar-light .navbar-nav > .active > a, .header .navbar-light .navbar-nav > .active > a:hover, .header .navbar-light .navbar-nav > .active > a:focus {
         background-color: #18ba9b;
     }
 }
 
 @media (min-width: 992px) {
-    .header .navbar-default .navbar-nav a.navbar_current_page,
-    .header .navbar-default .navbar-nav > li > a:hover {
+    .header .navbar-light .navbar-nav a.navbar_current_page,
+    .header .navbar-light .navbar-nav > li > a:hover {
         border-bottom: 2px solid #18ba9b;
     }
 
-    .header .navbar-default .navbar-nav > li:hover > a {
+    .header .navbar-light .navbar-nav > li:hover > a {
         color: #18ba9b;
     }
 }
