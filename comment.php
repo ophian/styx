@@ -70,8 +70,8 @@ if (!($type = @$_REQUEST['type'])) {
         log_pingback('NO TYPE HANDED!');
     }
 
-    // WordPress pingbacks don't give any parameter. If it is a XML POST assume it's a pingback
-    if ($_SERVER['CONTENT_TYPE'] == 'text/xml' && !empty($HTTP_RAW_POST_DATA)) {
+    // WordPress pingbacks don't give any parameter. If it is a XML POST, assume it's a pingback
+    if (isset($_SERVER['CONTENT_TYPE']) && $_SERVER['CONTENT_TYPE'] == 'text/xml' && !empty($HTTP_RAW_POST_DATA)) {
         $type = 'pingback';
     }
     else {
@@ -179,7 +179,13 @@ if ($type == 'trackback') {
                     $ca['allow_comments'] = false; // adds COMMENTS_CLOSED message
                 }
             }
-            $comment_allowed = serendipity_db_bool($ca['allow_comments']) || !is_array($ca) ? true : false;
+            if (!isset($serendipity['view'])) {
+                $serendipity['view'] = 'comments';
+            }
+            if (is_bool($ca)) {
+                $ca = ['allow_comments' => false, 'moderate_comments' => true];
+            }
+            $comment_allowed = (serendipity_db_bool($ca['allow_comments']) || !is_array($ca)) ? true : false;
             $serendipity['smarty']->assign(
                 array(
                     'entry'              => $ca,
