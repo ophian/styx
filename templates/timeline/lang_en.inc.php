@@ -7,6 +7,7 @@
 @define('TOGGLE_NAV', 'Toggle Navigation'); //only seen by screen readers
 @define('CLOSE', 'Close'); //close button on search form
 @define('READ_MORE', 'Read More');
+@define('FOOTER', 'foot');
 
 //Option groups and instructions
 @define('THEME_SOCIAL_LINKS', 'Social links');

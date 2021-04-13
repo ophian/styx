@@ -6,6 +6,7 @@
 @define('TOGGLE_NAV', 'Navigation'); //only seen by screen readers
 @define('CLOSE', 'Schlieﬂen'); //close button on search form
 @define('READ_MORE', 'Mehr lesen');
+@define('FOOTER', 'unten');
 
 //Option groups and instructions
 @define('THEME_SOCIAL_LINKS', 'Social-Links');
