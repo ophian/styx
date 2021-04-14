@@ -66,6 +66,9 @@ ul a {
 .close {
     margin: -.25em -.25em !important;
 }
+a.navbar-brand {
+    color: #f0ffff;
+}
 .navbar-custom {
   position: absolute;
   top: 0;
