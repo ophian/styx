@@ -17,7 +17,7 @@
 {if in_array($view, ['start', 'entries'])}
     <link rel="canonical" href="{$serendipityBaseURL}">
 {/if}
-    <link rel="stylesheet" href="{serendipity_getFile file="css/bootstrap.min.css"}">
+    <link rel="stylesheet" href="{serendipity_getFile file="b4/css/bootstrap.min.css"}">
     <link rel="stylesheet" href="{$head_link_stylesheet}">
 {if $template_option.lineup}
     <style>
