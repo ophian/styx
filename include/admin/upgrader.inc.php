@@ -477,6 +477,18 @@ $tasks = array(
                     'title'     => '<b>PLUGINS_NOTICE:</b> A long time deprecated set addLoadEvent() JavaScript compatibility function initializer got removed from core.',
                     'desc'      => 'Please check personal plugins not use this function init. Use vanilla <code>document.addEventListener("DOMContentLoaded", function() { funcname(); });</code> or jQuery <code>$(document).ready(function() { funcname(); });</code> instead.'),
 
+            array(  'version'   => '3.4.0',
+                    'function'  => 'recursive_directory_iterator',
+                    'arguments' => array($dead_dirs_340),
+                    'title'     => 'Styx removed some themes framework assets. "B46" further-on loads these bootstrap assets from templates/_assets/b4. If you have copy themes with own index.tpl or preview_iframe.tpl files please adapt to use {serendipity_getFile file="js/bootstrap.min.js"} and {serendipity_getFile file="css/bootstrap.min.css"} calls.',
+                    'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_340) . '</pre>'),
+
+            array(  'version'   => '3.4.0',
+                    'function'  => 'serendipity_removeDeadFiles_SPL',
+                    'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_340, array('internals'), true),
+                    'title'     => 'Removal of old dead files in v.3.4.0 (see previous bootstrap assets note)',
+                    'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_340) . '</pre>'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 

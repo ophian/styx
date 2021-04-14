@@ -461,6 +461,17 @@ $dead_files_330 = array(
     'templates/default/feed_0.91.tpl'
 );
 
+/* A list of old or removed directories for 3.4.0 */
+$dead_dirs_340 = array(
+    $serendipity['serendipityPath'] . 'templates/b46/css'
+);
+
+/* A list of Styx files, to be removed or renamed by 3.4.0 */
+$dead_files_340 = array(
+    'templates/b46/js/bootstrap.min.js',
+    'templates/b46/js/bootstrap.min.js.map'
+);
+
 /**
  * recursive directory call to purge files and directories
  *
