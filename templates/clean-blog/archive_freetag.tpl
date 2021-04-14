@@ -2,7 +2,7 @@
     <h2>{$CONST.EDITOR_TAGS}</h2>
     <div class="clean-blog_freeTag">
     {foreach $tags AS $tag_name => $plugin_tags}
-        <a href="{$plugin_tags.href}">{$tag_name}</a>{if NOT $tag_name@last}{/if}
+        <a href="{$plugin_tags.href}">{$tag_name}</a>
     {/foreach}
     </div>
 {else}
