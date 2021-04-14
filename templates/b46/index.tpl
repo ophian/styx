@@ -222,7 +222,7 @@
 </footer>
 
 <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
-<script src="{serendipity_getFile file="js/bootstrap.min.js"}"></script>
+<script src="{serendipity_getFile file="b4/js/bootstrap.min.js"}"></script>
 <script src="{serendipity_getFile file="js/theme.js"}"></script>
 {/if}
 {$raw_data}
