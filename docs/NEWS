@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Allow template directory fallback chain to use the /templates/_assets
+    directory for bootstrap framework v.4 cases.
+
   * Upgrade [ clean-blog ] theme for latest bootstrap 4.6.0 base
 
   * Upgrade [ timeline ] theme for latest bootstrap 4.6.0 base and
