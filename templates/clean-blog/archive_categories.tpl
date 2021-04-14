@@ -1,4 +1,4 @@
-{if $categories}
+{if NOT empty($categories)}
     <h2>{$CONST.CATEGORIES}</h2>
     <ul class="plainList category-list">
         {foreach $categories AS $plugin_category}
