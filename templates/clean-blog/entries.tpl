@@ -8,7 +8,7 @@
         <a href="{$entry.link}"><h2 class="post-title">{$entry.title}</h2>
         {if NOT empty($entry.properties.entry_subtitle)}
             <h3 class="post-subtitle">{$entry.properties.entry_subtitle|escape}</h3>
-        {elseif $template_option.subtitle_use_entrybody==true AND $template_option.entrybody_detailed_only == true}
+        {elseif $template_option.subtitle_use_entrybody == true AND $template_option.entrybody_detailed_only == true}
             <h3 class="post-subtitle">{$entry.body|strip_tags|strip|truncate:70:" ..."}</h3>
         {/if}
         </a>
