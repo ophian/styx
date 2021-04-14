@@ -1,4 +1,4 @@
-{if $tags}
+{if NOT empty($tags)}
     <h2>{$CONST.EDITOR_TAGS}</h2>
     <div class="clean-blog_freeTag">
     {foreach $tags AS $tag_name => $plugin_tags}
