@@ -43,7 +43,7 @@
 @define('WORDS', 'Textfassung');
 @define('TIMESTAMP', 'Zeitstempel');
 @define('SUBTITLE_USE_ENTRYBODY', 'Die ersten 70 Zeichen des Einrags als Untertitel ausgeben, wenn das Feld Untertitel leer gelassen wurde?');
-@define('ENTRYBODY_DETAILED_ONLY', 'Eintags-Inhalt nur in der Einzelansicht eines Eintrags anzeigen');
+@define('ENTRYBODY_DETAILED_ONLY', 'Eintrags-Inhalt nur in der Einzelansicht eines Eintrags anzeigen');
 @define('SHOW_COMMENT_LINK', 'Zeige Link zu den Kommentaren des Eintrags');
 @define('CATEGORIES_ON_ARCHIVE', 'Kategorien auf der Archivseite anzeigen');
 @define('CATEGORIES_ON_ARCHIVE_DESC', 'Das Seitenleisten-Plugin Kategorien (serendipity_plugin_categories) muss installiert und die Option "Smarty-Templating aktivieren?" aktiviert sein, damit Kategorien auf der Archiv-Seite angezeigt werden.');
