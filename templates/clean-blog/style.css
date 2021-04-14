@@ -575,6 +575,7 @@ p > img.serendipity_image_center {
   margin: 0;
   padding: .5em;
   text-align: center;
+  overflow-wrap: break-word;
 }
 .serendipity_image_block .serendipity_imageComment_txt {
   padding: 0 0 .5em;
