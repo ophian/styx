@@ -1,4 +1,4 @@
-{if $tags}
+{if NOT empty($tags)}
     <h3>{$CONST.EDITOR_TAGS}</h3>
     <div class="timeline_freeTag">
         {foreach $tags AS $tag_name => $plugin_tags}
