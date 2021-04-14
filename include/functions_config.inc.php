@@ -315,6 +315,11 @@ function serendipity_getTemplateFile($file, $key = 'serendipityHTTPPath', $force
         }
     }
 
+    // Allow to use templatePath _assets directory for bootstrap4 framework cases
+    if (preg_match('@\.(css|js)@i', $file)) {
+        $directories[] = '_assets/';
+    }
+
     if (!empty($directories)) {
         foreach($directories AS $directory) {
             $templateFile = $serendipity['templatePath'] . $directory . $file; // includes .ext(ension) !
