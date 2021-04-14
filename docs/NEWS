@@ -1,6 +1,13 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve themes [ B46, Clean-blog, Timeline ] to deliver local [css/js]-type
+    assets from the new added fallback chain:
+        by {serendipity_getFile file="b4/js/bootstrap.min.js"}
+        or {serendipity_getFile file="b4/css/bootstrap.min.css"}.
+    Previous [ Clean-blog, Timeline ] CDN pointers are still available to allow
+    back manually in the index.tpl and preview_iframe.tpl template files.
+
   * Allow template directory fallback chain to use the /templates/_assets
     directory for bootstrap framework v.4 cases.
 
