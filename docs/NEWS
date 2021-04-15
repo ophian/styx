@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Allow to remove the maintenance section utf8mb4 ready success box by Admin
+
   * Improve themes [ B46, Clean-blog, Timeline ] to deliver local [css/js]-type
     assets from the new added fallback chain:
         by {serendipity_getFile file="b4/js/bootstrap.min.js"}
