@@ -238,5 +238,8 @@ hr {
     border: 0 none !important;
     display: inline-block; }
 
+.mediasidebaritem img {
+    margin-bottom: .5rem; }
+
 .comment_content.clearfix, .d-flex {
     overflow-wrap: anywhere; }
