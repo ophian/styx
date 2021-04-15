@@ -210,7 +210,7 @@
     </section>
 {/if}
 
-{if 'siteConfiguration'|checkPermission AND !$dbnotmysql}
+{if 'siteConfiguration'|checkPermission AND !$dbnotmysql AND !$utf8mb4noshow}
     <section id="maintenance_utf8mb4" class="quick_list{if NOT $dbUtf8mb4_converted AND $dbUtf8mb4_migrate AND $dbUtf8mb4_ready AND NOT empty($dbUtf8mb4_migrate.sql)} mtask_long{/if}">
         <h3>{$CONST.UTF8MB4_MIGRATION_TITLE}</h3>
 
@@ -247,7 +247,19 @@
         {/if}
 
     {if $dbUtf8mb4_converted === true AND $dbUtf8mb4_ready === true}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true" title="{$CONST.UTF8MB4_MIGRATION_TASK_DONE}"></span> <span title="{$CONST.UTF8MB4_MIGRATION_TASK_DONE}"> {$CONST.UTF8MB4_MIGRATION_TASK_DONE_SHORT}</span></span>
+        <span class="msg_success">
+            <span class="icon-ok-circled" aria-hidden="true" title="{$CONST.UTF8MB4_MIGRATION_TASK_DONE}"></span>
+            <span title="{$CONST.UTF8MB4_MIGRATION_TASK_DONE}"> {$CONST.UTF8MB4_MIGRATION_TASK_DONE_SHORT}</span>
+            <span class="utf8mb4box">
+                <a href="?serendipity[adminModule]=maintenance&amp;serendipity[adminAction]=utf8mb4close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16">
+                      <title>Got it, remove this migration box finally!</title>
+                      <path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
+                      <path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+                    </svg>
+                </a>
+            </span>
+        </span>
     {else}
         <span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.UTF8MB4_MIGRATION_INFO}</span>
         {if $dbUtf8mb4_ready}
