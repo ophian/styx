@@ -42,7 +42,7 @@
 @define('COMMENT_TIME_FORMAT', 'Zeitformat für Kommentare und Trackbacks');
 @define('WORDS', 'Textfassung');
 @define('TIMESTAMP', 'Zeitstempel');
-@define('SUBTITLE_USE_ENTRYBODY', 'Zeige die ersten 70 Zeichen des Eintrages als Vorschau');
+@define('SUBTITLE_USE_ENTRYBODY', 'Zeige die ersten 70 Zeichen des Eintrages als Vorschau wenn Eintrags-Eigenschaften Untertitel nicht leer');
 @define('ENTRYBODY_DETAILED_ONLY', 'Eintrags-Inhalt nur in der Einzelansicht eines Eintrags anzeigen');
 @define('SHOW_COMMENT_LINK', 'Zeige Link zu den Kommentaren des Eintrags');
 @define('CATEGORIES_ON_ARCHIVE', 'Kategorien auf der Archivseite anzeigen');
