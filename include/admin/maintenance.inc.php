@@ -43,6 +43,7 @@ if ($serendipity['dbType'] == 'mysqli' && $serendipity['dbUtf8mb4'] === false &&
 $data['dbUtf8mb4_ready']     = $serendipity['dbUtf8mb4_ready'] ?? null; // Smarty generic
 $data['dbUtf8mb4']           = $serendipity['dbUtf8mb4'] ?? null; // Smarty generic
 $data['dbUtf8mb4_converted'] = $serendipity['dbUtf8mb4_converted'] ?? null; // Smarty generic
+$data['utf8mb4noshow']       = $serendipity['dbUtf8mb4_converted_noshow'] ?? false; // Smarty generic
 // set this strait through for OK if conversion was done
 if ($data['dbUtf8mb4_converted'] === true && $data['dbUtf8mb4_ready'] === false) {
     $data['dbUtf8mb4_ready'] = true;
@@ -67,6 +68,12 @@ switch($serendipity['GET']['adminAction']) {
             break;
         }
         $data['badsums'] = serendipity_verifyFTPChecksums();
+        break;
+
+    case 'utf8mb4close':
+        if (serendipity_checkPermission('siteConfiguration') && $serendipity['dbUtf8mb4_ready']) {
+            serendipity_set_config_var('dbUtf8mb4_converted_noshow', 'true');
+        }
         break;
 
     case 'utf8mb4':
