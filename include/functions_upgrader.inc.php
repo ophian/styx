@@ -469,7 +469,8 @@ $dead_dirs_340 = array(
 /* A list of Styx files, to be removed or renamed by 3.4.0 */
 $dead_files_340 = array(
     'templates/b46/js/bootstrap.min.js',
-    'templates/b46/js/bootstrap.min.js.map'
+    'templates/b46/js/bootstrap.min.js.map',
+    'templates/bootstrap4/theme.js'
 );
 
 /**
