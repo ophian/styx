@@ -5,6 +5,6 @@
  * Convert or save as UTF-8 file without BOM.
  **/
 
-$info['theme_info_summary'] = 'Ein "Bootstrap v4.1.3" basierendes HTML5 Framework Template';
+$info['theme_info_summary'] = 'Ein "Bootstrap v4" basierendes HTML5 Framework Template';
 
 $info['theme_info_desc'] = '';
