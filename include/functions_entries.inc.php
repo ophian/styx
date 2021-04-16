@@ -402,12 +402,8 @@ function &serendipity_fetchEntries($range = null, $full = true, $limit = '', $fe
                     a.email";
     }
 
-    if (!isset($cond['and'])) {
-        $cond['and'] = '';
-    }
-    if (!isset($cond['joins'])) {
-        $cond['joins'] = '';
-    }
+    $cond['and']   = $cond['and'] ?? '';
+    $cond['joins'] = $cond['joins'] ?? '';
     serendipity_ACL_SQL($cond);
 
     // Store the unique query condition for entries for later reference, like getting the total article count.
@@ -599,9 +595,7 @@ function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false
 
     $cond['single_group'] = $cond['single_having'] = $cond['single_orderby'] = ''; // init for ACL
 
-    if (!isset($cond['joins'])) {
-        $cond['joins'] = '';
-    }
+    $cond['joins'] = $cond['joins'] ?? '';
     serendipity_ACL_SQL($cond, true);
 
     serendipity_plugin_api::hook_event('frontend_fetchentry', $cond, array('noSticky' => true));
@@ -929,17 +923,11 @@ function &serendipity_searchEntries($term, $limit = '', $searchresults = '') {
 
     $cond['and'] = " AND isdraft = 'false' " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? " AND timestamp <= " . serendipity_db_time() : '');
     serendipity_plugin_api::hook_event('frontend_fetchentries', $cond, array('source' => 'search', 'term' => $term));
-    if (!isset($cond['joins'])) {
-        $cond['joins'] = '';
-    }
+    $cond['joins'] = $cond['joins'] ?? '';
     serendipity_ACL_SQL($cond, 'limited');
 
-    if (!isset($cond['having'])) {
-        $cond['having'] = '';
-    }
-    if (!isset($cond['addkey'])) {
-        $cond['addkey'] = '';
-    }
+    $cond['having'] = $cond['having'] ?? '';
+    $cond['addkey'] = $cond['addkey'] ?? '';
 
     $serendipity['fullCountQuery'] = "
                       FROM
