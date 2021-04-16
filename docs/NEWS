@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Change MediaLibrary sort filter to allow showing 36 items per page
+
   * Add simple "plugin_freetag_sidebar.tpl" example to default theme
 
   * Upgrade [ bootstrap4 ] theme to use latest bootstrap 4.6.0 base toolkit,
