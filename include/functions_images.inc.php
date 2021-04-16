@@ -4134,7 +4134,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         'metaActionBar'     => ($serendipity['GET']['adminAction'] != 'properties' && empty($serendipity['GET']['fid'])),
         'hideSubdirFiles'   => empty($serendipity['GET']['hideSubdirFiles']) ? 'yes' : $serendipity['GET']['hideSubdirFiles'],
         'authors'           => serendipity_fetchUsers(),
-        'sort_row_interval' => array(8, 9, 16, 18, 48, 50, 96, 100),
+        'sort_row_interval' => array(8, 9, 16, 18, 36, 48, 50, 96, 100),
         'nr_files'          => count($file),
         'keywords'          => explode(';', $serendipity['mediaKeywords']),
         'thumbSize'         => $serendipity['thumbSize'],
