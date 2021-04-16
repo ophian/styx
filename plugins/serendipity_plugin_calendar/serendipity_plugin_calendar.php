@@ -15,7 +15,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
         $propbag->add('configuration', array('beginningOfWeek', 'enableExtEvents', 'category'));
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '1.4');
+        $propbag->add('version',       '1.5');
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
 
@@ -204,9 +204,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
 
         serendipity_plugin_api::hook_event('frontend_fetchentries', $cond, array('noCache' => false, 'noSticky' => false, 'source' => 'calendar'));
 
-        if (!isset($cond['joins'])) {
-            $cond['joins'] = '';
-        }
+        $cond['joins'] = $cond['joins'] ?? '';
         // Event Calendar
         $cat = $this->get_config('category', 'all');
         if ($cat != 'all') {
@@ -245,7 +243,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
             case 'gregorian':
                 $activeDays = array();
                 if (is_array($rows)) {
-                    foreach ($rows as $row) {
+                    foreach ($rows AS $row) {
                         $row['timestamp'] = serendipity_serverOffsetHour($row['timestamp']);
                         $activeDays[date('j', $row['timestamp'])] = $row['timestamp'];
                     }
@@ -258,7 +256,7 @@ class serendipity_plugin_calendar extends serendipity_plugin
             case 'persian-utf8':
                 $activeDays = array();
                 if (is_array($rows)) {
-                    foreach ($rows as $row) {
+                    foreach ($rows AS $row) {
                         $row['timestamp'] = serendipity_serverOffsetHour($row['timestamp']);
                         $activeDays[(int) persian_date_utf('j', $row['timestamp'])] = $row['timestamp'];
                     }
