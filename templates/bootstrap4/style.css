@@ -103,23 +103,35 @@ aside section {
     padding: .5rem;
     width: auto;
     min-width: 43%; }
-.calendar, .calendar-nav {
-    width: auto; }
+table.calendar, table.calendar-nav {
+    width: 98%; }
+    table.calendar-nav td {
+        width: 33.3333%; }
 section.serendipity_plugin_comments.mb-3 {
     display: block;
     margin: 0; }
 @media screen and (min-width: 992px) {
     aside section {
-        display: initial;
+        display: block;
         border: initial;
         margin: auto;
         padding: initial;
         min-width: initial; }
-    .calendar,.calendar-nav { width: 100% }
+    .calendar, .calendar-nav {
+        width: 98%; }
     section.serendipity_plugin_comments.mb-3 {
         display: initial;
         margin: auto; }
 }
+dt,
+.serendipity_plugin_calendar .Active a,
+.serendipity_plugin_calendar tfoot a,
+.serendipity_plugin_calendar tfoot a:active,
+.serendipity_plugin_calendar tfoot a:visited,
+.serendipity_plugin_calendar .Today,
+.serendipity_freetag_taglist_related { font-weight: bold; }
+.serendipity_plugin_calendar .month { text-align: center}
+.serendipity_plugin_calendar .next { text-align: right}
 #serendipity_categories_list input {
     margin-right: .25rem }
 pre { width: auto }
