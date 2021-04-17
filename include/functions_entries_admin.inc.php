@@ -163,6 +163,15 @@ function serendipity_printEntryForm($targetURL, $hiddens = array(), $entry = arr
     return serendipity_smarty_showTemplate($template_vars['entry_template']);
 }
 
+/**
+ * Prints the Rich Text Editor WYSIWYG javascript modifier initialization
+ *
+ * @access public
+ * @param   string      The item name
+ * @param   string      The javascript name
+ * @param   bool        Multi nuggets emit spawning
+ * @return  mixed       template string | null
+ */
 function serendipity_emit_htmlarea_code($item, $jsname, $spawnMulti = false) {
     # init == true when editor was already initialized
     static $init = false;
