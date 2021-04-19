@@ -946,6 +946,17 @@ article.post li .pc-owner {
   margin: 0 0 9px;
   margin: 0 0 .5rem; }
 
+.serendipity_plugin_calendar .Active a,
+.serendipity_plugin_calendar tfoot a,
+.serendipity_plugin_calendar tfoot a:active,
+.serendipity_plugin_calendar tfoot a:visited,
+.serendipity_plugin_calendar .Today,
+.serendipity_freetag_taglist_related { font-weight: bold }
+.serendipity_plugin_calendar .month { text-align: center }
+.serendipity_plugin_calendar .next { text-align: right }
+.serendipity_plugin_calendar .Active a { color: aquamarine }
+.serendipity_plugin_calendar .Today { color: tomato }
+
 #serendipity_categories_list input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 9px;
