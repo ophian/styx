@@ -480,7 +480,7 @@ $tasks = array(
             array(  'version'   => '3.4.0',
                     'function'  => 'recursive_directory_iterator',
                     'arguments' => array($dead_dirs_340),
-                    'title'     => 'Styx improved/removed some themes framework assets. "B46" further-on loads these bootstrap assets from templates/_assets/b4. If you have copy themes with own index.tpl or preview_iframe.tpl template files, please adapt to use {serendipity_getFile file="b4/js/bootstrap.min.js"} and {serendipity_getFile file="b4/css/bootstrap.min.css"} calls. For "Clean-blog" and "Timeline" themes both CDN calls were changed to load this local path too. Please care for your COPY or CHILD themes.',
+                    'title'     => 'Styx improved/removed some themes framework assets. "B46" further-on loads these bootstrap assets from "templates/_assets/b4" path. If you have copy themes with own index.tpl or preview_iframe.tpl template files, please adapt to use {serendipity_getFile file="b4/js/bootstrap.min.js"} and {serendipity_getFile file="b4/css/bootstrap.min.css"} calls. For "Clean-blog" and "Timeline" themes both CDN calls were changed to load this local path too. Please care for your COPY or CHILD themes.',
                     'desc'      => 'The following old dead directories will be removed from your system.<br><pre>' . implode(', ', $dead_dirs_340) . '</pre>'),
 
             array(  'version'   => '3.4.0',
