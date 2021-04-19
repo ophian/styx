@@ -957,6 +957,11 @@ article.post li .pc-owner {
 .serendipity_plugin_calendar .Active a { color: aquamarine }
 .serendipity_plugin_calendar .Today { color: tomato }
 
+.staticpage_sbJsList {
+    overflow: hidden;
+    white-space: nowrap;
+    padding-bottom: 1rem; }
+
 #serendipity_categories_list input[type="checkbox"] {
   vertical-align: middle;
   margin-right: 9px;
