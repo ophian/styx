@@ -665,6 +665,9 @@ form > button,
     margin: 0 2% 1em 0;
     width: 98%;
 }
+#maintenance_utf8mb4 .utf8mb4box {
+    float: right;
+}
 
 .overviewListForm > button,
 .ping_services .form_check,
