@@ -1,0 +1,3 @@
+This theme optionally uses Google web fonts and Google analytics. Default is disabled.
+Google for sure collects user and INTERNET data.
+
