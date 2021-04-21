@@ -177,10 +177,11 @@
 
 </main><!-- /.container -->
 
-<aside class="col-xs-12 col-lg-12">
+<aside class="container-fluid">
+  <div class="row mx-0">
     <a id="to-sdb"></a>
 {if $template_option.bs_rss}
-    <section class="serendipity_plugin_rsslinks mb-3">
+    <section class="serendipity_plugin_rsslinks mb-3 col-xl-3 col-lg-4 col-sm-6">
         <h3>{$CONST.SUBSCRIBE_TO_BLOG}</h3>
 
         <ul class="plainList">
@@ -204,7 +205,7 @@
 {if $leftSidebarElements > 0}{serendipity_printSidebar side="left"}{/if}
 {if $rightSidebarElements > 0}{serendipity_printSidebar side="right"}{/if}
 {if $template_option.scrollbtn}
-    <section class="serendipity_plugin_upscroll mb-3">
+    <section class="serendipity_plugin_upscroll mb-3 col-xl-3 col-lg-4 col-sm-6">
         <span class="sidebar-up">
           <a href="#to-top" title="jumpscroll to top">
             <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-arrow-up-square" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -215,6 +216,8 @@
         </span>
     </section>
 {/if}
+
+  </div>
 </aside>
 
 <footer id="footer" class="clearfix">
