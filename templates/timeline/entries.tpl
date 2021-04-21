@@ -94,7 +94,7 @@
                 <h2><a href="{$entry.link}">{$entry.title}</a></h2>
                 <p class="post-info clearfix">
                     <span class="sr-only">{$CONST.POSTED_BY}</span>
-                    <span class="entry-author-link"><i class ="fa fa-user" aria-hidden="true"></i><a href="{$entry.link_author}">{$entry.author}</a></span>
+                    <span class="entry-author-link"><i class="fa fa-user" aria-hidden="true"></i><a href="{$entry.link_author}">{$entry.author}</a></span>
                     <span class="sr-only"> {$CONST.ON}</span><span class="entry-timestamp"><i class="far fa-clock" aria-hidden="true"></i><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time></span>
                     <span class="entry-comment-link"><i class="{if $entry.comments == 0}far fa-comment{elseif $entry.comments == 1}fas fa-comment{else}fas fa-comments{/if}" aria-hidden="true"></i><a href="{$entry.link}#comments">{if $entry.comments == 0}{$CONST.NO_COMMENTS}{else}{$entry.comments} {$entry.label_comments}{/if}</a></span>
                     {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}<span class="entry-edit-link"><i class="fas fa-lg fa-edit"></i><a href="{$entry.link_edit}" title="{$CONST.EDIT_ENTRY}">{$CONST.EDIT_ENTRY}</a></span>{/if}
