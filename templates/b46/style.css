@@ -503,7 +503,7 @@ table {
   padding-right: .5rem; }
 .sidebar-up {
   text-align: right; }
-.col-lg-12 section.serendipity_plugin_upscroll.mb-3 {
+section.serendipity_plugin_upscroll {
   text-align: right;
   max-width: 100%;
   min-width: 100%; }
@@ -538,26 +538,12 @@ main.col-xs-12.col-lg-12 .save_updertH hr {
     width: 100%; }
 
 /* sidebars start */
-@media only screen and (min-width: 480px) {
-  /* flexing the bottom sidebar item */
-  aside > section {
-    display: inline-table; }
-    .col-lg-12 section {
-      min-width: 12rem;
-      max-width: 23.75%;
-      margin-right: 1.5rem; }
-    .col-lg-12 section:last-of-type {
-      margin-right: 0; }
-    /* possible archives right next to calendar - sits too close ~521px */
-    .serendipity_plugin_archives.mb-3 {
-      margin-left: 1rem; }
-}
-@media only screen and (min-width: 560px) {
-  .col-lg-12 section {
-    min-width: 8.5rem;
-    max-width: 40%; }
-    /* assuming not all sidebar section items do need a full 40% width */
-}
+aside {
+  background-color: #343a40;
+  color: #b0b0b0; }
+  aside a, .bi.bi-rss-fill {
+    color: #e5e5e5; }
+
 @media only screen and (min-width: 992px) {
   .container {
     padding-top: initial; }
@@ -579,28 +565,10 @@ main.col-xs-12.col-lg-12 .save_updertH hr {
     text-align: start; }
   .serendipity_entrypaging_right a.btn.btn-secondary {
     text-align: end; }
-  aside > section {
-    display: inline-grid; }
-  aside.col-lg-12 {
-    display: -webkit-box;
-    display: block;
-    background-color: #343a40;
-    color: #b0b0b0; }
-    aside.col-lg-12 section {
-      min-width: 15em;
-      max-width: 35em; }
-    aside.col-lg-12 a, .col-lg-12 .bi.bi-rss-fill {
-      color: #e5e5e5; }
-    aside.sidebar_content #searchform {
-      padding: initial; }
-    aside.col-lg-12 section:last-of-type {
-      margin-right: 0; }
+  aside.sidebar_content #searchform {
+    padding: initial; }
   .bi.bi-grip-horizontal {
     display: initial; }
-}
-@media only screen and (min-width: 1440px) {
-  .col-lg-12 section {
-    margin-right: 2rem; }
 }
 /* sidebars end */
 
