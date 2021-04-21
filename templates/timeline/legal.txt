@@ -1,4 +1,5 @@
-TODO: (Provide information on used javascripts, possible cookie, where data is
-transferred to)
-
+This theme uses a maxcdn.bootstrapcdn.com CDN for required font-awesome icons by default.
+They probably collect referer and browser data.
+Per option available are google web fonts, which also is a deep spy in the sky.
+To avoid this use a local delivery only.
 
