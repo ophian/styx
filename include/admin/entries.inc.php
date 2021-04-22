@@ -307,7 +307,11 @@ switch($serendipity['GET']['adminAction']) {
         }
 
         if (!empty($serendipity['GET']['filter']['category'])) {
-            $filter[] = "ec.categoryid = '" . serendipity_db_escape_string($serendipity['GET']['filter']['category']) . "'";
+            if ($serendipity['GET']['filter']['category'] == 'nocat') {
+                $filter[] = "ec.categoryid IS NULL";
+            } else {
+                $filter[] = "ec.categoryid = '" . serendipity_db_escape_string($serendipity['GET']['filter']['category']) . "'";
+            }
         }
 
         if (!empty($serendipity['GET']['filter']['isdraft'])) {
