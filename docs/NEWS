@@ -1,7 +1,7 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
-  * Add new entry filter for entries without category
+  * Add new entries list entry filter for entries without category
 
   * Change MediaLibrary sort filter to allow showing 36 items per page
 
