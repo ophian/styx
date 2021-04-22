@@ -47,6 +47,7 @@
                     <label for="filter_category">{$CONST.CATEGORY}</label>
                     <select id="filter_category" name="serendipity[filter][category]">
                         <option value="">-</option>
+                        <option value="nocat">{$CONST.NO_CATEGORY}</option>
                     {foreach $categories AS $cat}
                         <option value="{$cat.categoryid}"{(isset($get.filter.category) AND $get.filter.category == $cat.categoryid) ? ' selected' : ''}>{'&nbsp;'|str_repeat:$cat.depth} {$cat.category_name|escape}</option>
                     {/foreach}
