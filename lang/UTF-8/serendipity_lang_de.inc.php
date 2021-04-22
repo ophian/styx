@@ -68,7 +68,7 @@
 @define('POSTED_BY', 'Geschrieben von');
 @define('ON', 'am');
 @define('A_NEW_COMMENT_BLAHBLAH', 'Im Blog %s wurde ein neuer Kommentar zu Eintrag "%s" abgegeben!');
-@define('NO_CATEGORY', 'Keine Kategorie');
+@define('NO_CATEGORY', 'Ohne Kategorie');
 @define('ENTRY_BODY', 'Eintrag');
 @define('EXTENDED_BODY', 'Erweiterter Eintrag');
 @define('CATEGORY', 'Kategorie');
