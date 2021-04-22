@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new entry filter for entries without category
+
   * Change MediaLibrary sort filter to allow showing 36 items per page
 
   * Add simple "plugin_freetag_sidebar.tpl" example to default theme
