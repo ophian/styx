@@ -230,10 +230,10 @@ if ($serendipity['GET']['adminAction'] == 'view') {
         $enumnocat = serendipity_getTotalCount('entriesnocat');
         $data['entriesnocat'] = array_column(is_array($enumnocat) ? array_values($enumnocat) : array(), 'num', 'cat');
         $data['entriesbyauthor'] = serendipity_checkPermission('siteConfiguration')
-                                    ? GROUP . ': ' . USERLEVEL_ADMIN_DESC . '++'
+                                    ? GROUP . ': ' . USERLEVEL_ADMIN_DESC . ' ++'
                                     : (
                                         (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers'))
-                                        ? GROUP . ': ' . USERLEVEL_CHIEF_DESC . '+'
+                                        ? GROUP . ': ' . USERLEVEL_CHIEF_DESC . ' +'
                                         : AUTHOR . ': ' .serendipity_specialchars($serendipity['serendipityUser'])
                                     );
     }
