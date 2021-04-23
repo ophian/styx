@@ -156,6 +156,8 @@
     {if is_array($viewCats)}
 
     <ul id="categories" class="option_list{if NOT $threadedCat} slist{/if}">
+    {if NOT empty($entriesnocat)}
+
         <li>
             <div class="clearfix odd">
                 <div class="category_data">
@@ -166,11 +168,11 @@
                 </div>
 
                 <ul class="plainList clearfix edit_actions">
-                    <li>{if isset($entriesnocat)}{if $entriesnocat.0 > 0}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]=nocat&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.CATEGORY} {$CONST.NO_CATEGORY}"><span class="catctlabel"><em>{$entriesnocat.0}</em>{else}<span class="emptydim catctlabel"><em>0{/if} {$CONST.ENTRIES}</em></span></a> <span class="catctlabel groupbyauthor"><em>({$entriesbyauthor})</em></span>{/if}</li>
+                    <li>{if $entriesnocat.0 > 0}<a class="button_link" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][category]=nocat&serendipity[catref]=1" title="{$CONST.ENTRIES} {$CONST.CATEGORY} {$CONST.NO_CATEGORY}"><span class="catctlabel"><em>{$entriesnocat.0}</em>{else}<span class="emptydim catctlabel"><em>0{/if} {$CONST.ENTRIES}</em></span></a> <span class="catctlabel groupbyauthor"><em>({$entriesbyauthor})</em></span></li>
                 <ul>
             </div>
         </li>
-
+    {/if}
     {foreach $viewCategories AS $category}
         {if NOT $category@first}
             {if $category.depth > $priorDepth}<ul>{/if}
