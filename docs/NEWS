@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix CHIEF_EDITOR GROUP member category counter for entries issue
+
   * Improve categories list for non-categorized entries and add a button
     reference for the newly added entries list filter.
 
