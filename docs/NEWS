@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Improve categories list for non-categorized entries and add a button
+    reference for the newly added entries list filter.
+
   * Add new entries list entry filter for entries without category
 
   * Change MediaLibrary sort filter to allow showing 36 items per page
