@@ -226,9 +226,9 @@ if ($serendipity['GET']['adminAction'] == 'view') {
         $data['viewCategories'] = $categories;
         $data['threadedCat'] = in_array(1, array_column($categories, 'depth'));
         $cnums = serendipity_getTotalCount('entriesbycat');
-        $data['catentries'] = array_column(is_array($cnums) ? array_values($cnums) : array(), 'num', 'cat');
+        $data['catentries'] = array_column((is_array($cnums) ? array_values($cnums) : []), 'num', 'cat');
         $enumnocat = serendipity_getTotalCount('entriesnocat');
-        $data['entriesnocat'] = array_column(is_array($enumnocat) ? array_values($enumnocat) : array(), 'num', 'cat');
+        $data['entriesnocat'] = array_column((is_array($enumnocat) ? array_values($enumnocat) : []), 'num', 'cat');
         $data['entriesbyauthor'] = serendipity_checkPermission('siteConfiguration')
                                     ? GROUP . ': <span class="icon-users admin" title="' . USERLEVEL_ADMIN_DESC . '" aria-hidden="true"></span> ++'
                                     : (
