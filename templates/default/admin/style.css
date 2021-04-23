@@ -2733,6 +2733,9 @@ h3 .media_file_actions {
 #categories .edit_actions .catctlabel {
     font-size: .8125em;
 }
+#categories .edit_actions .catctlabel.groupbyauthor {
+    padding: 0 1rem;
+}
 /* Categories + MediaLibrary directories - zebra to gradient replacement */
 #categories:not(.slist) li {
     margin-bottom: .5em;
