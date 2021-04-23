@@ -167,7 +167,7 @@
 @define('PLUGIN_EVENT_SPAMBLOCK_FORCEOPENTOPUBLIC_TREAT_DESC', '"Yes" will block and reject potentially valid Trackbacks/Pingbacks, which income to entries after this time frame closed. (Other option actions may influence this behaviour.)');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION', 'Main-Configuration');
-@define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION_DESC', 'The naming is differentiated internally in (user) comments and (blog) trackbacks/pingbacks. In general, the word "comment(s)" is used here for both manifestations, unless a separate distinction (cf. "Trackbacks") or reference is made.');
+@define('PLUGIN_EVENT_SPAMBLOCK_MAIN_CONFIGURATION_DESC', 'The naming is internally differentiated in (user) comments and (blog) trackbacks/pingbacks. In general, the word "comment(s)" is used for both manifestations here, unless a separate distinction (cf. "Trackbacks") or reference is made.');
 
 @define('PLUGIN_EVENT_SPAMBLOCK_LOGFILE_VALIDATE', 'Only file extensions .log and .txt are allowed');
 
