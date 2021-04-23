@@ -1955,7 +1955,7 @@ function serendipity_getTotalCount($what) {
     switch($what) {
         case 'entriesnocat':
             // operatorPerm (opp) is not bulletproof ideal though, since it relies on these group permissions ...
-            $opp = (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers')) ? '' : "= {$serendipity['authorid']}";
+            $opp = (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers')) ? '' : "= '{$serendipity['authorid']}'";
             $res = serendipity_db_query("SELECT COUNT(e.id) AS num
                                            FROM {$serendipity['dbPrefix']}entries AS e
                                       LEFT JOIN {$serendipity['dbPrefix']}entrycat AS c
@@ -1967,7 +1967,7 @@ function serendipity_getTotalCount($what) {
 
         case 'entriesbycat':
             // ... and you never know what admin or chiefs do..., but IMHO better than a strict set authorid only.
-            $opp = (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers')) ? '' : "= {$serendipity['authorid']}";
+            $opp = (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers')) ? '' : "= '{$serendipity['authorid']}'";
             $res = serendipity_db_query("SELECT c.categoryid AS cat, COUNT(c.entryid) AS num
                                            FROM {$serendipity['dbPrefix']}entrycat AS c
                                       LEFT JOIN {$serendipity['dbPrefix']}entries AS e
