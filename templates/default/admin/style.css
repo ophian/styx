@@ -1591,6 +1591,7 @@ summary {
 }
 
 .category_data,
+.directory_data,
 .user_name,
 .group_name,
 #serendipity_comments_list .form_check,
@@ -1608,6 +1609,7 @@ summary {
 #dashboard_header h2 {
     float: left;
 }
+.mediabase_file_action,
 .pagination .next,
 .pagination .last {
     float: right;
@@ -1747,6 +1749,7 @@ summary {
 }
 
 .category_data,
+.directory_data,
 .user_name,
 .group_name,
 .folder_name {
@@ -2104,7 +2107,12 @@ fieldset p,
     margin: 1em 0;
 }
 
-.category_data {
+.mediabase_file_action {
+    margin-top: -3.125rem;
+}
+
+.category_data,
+.directory_data {
     margin: 0 1em 0 0;
 }
 
