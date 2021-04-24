@@ -174,13 +174,30 @@
 {if $case_directorySelect}
     <h2>{$CONST.MANAGE_DIRECTORIES}</h2>
 
-    <h3>{$CONST.BASE_DIRECTORY} <span class="media_file_actions actions"><a class="media_show_info button_link" href="#media_directory_info" title="{$CONST.DIRECTORY_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DIRECTORY_INFO}</span></a></span></h3>
+    <div class="mediabase_file_action"><a class="media_show_info button_link" href="#media_directory_info" title="{$CONST.DIRECTORY_INFO}"><span class="icon-info-circled" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DIRECTORY_INFO}</span></a></div>
     <header id="media_directory_info" class="media_directory_info additional_info">
         <span class="msg_hint focused">{$CONST.DIRECTORY_INFO_DESC}</span>
     </header>
-    {if !empty($folders) || isset($pathitems[''])}<span class="media_directory_entries" title="{$CONST.IN} {$CONST.BASE_DIRECTORY}"><em>{if isset($pathitems[''])}{$pathitems['']}{else}<span class="emptydim">0</span>{/if} {$CONST.PLUGIN_GROUP_IMAGES}</em></span>{/if}
 
     <ul id="serendipity_image_folders" class="option_list{if !$threadedDirs} slist{/if}">
+    {if !empty($folders) || isset($pathitems[''])}
+        <li>
+            <div class="clearfix odd">
+                <div class="directory_data">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
+                      <title>{$CONST.BASE_DIRECTORY}</title>
+                      <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
+                    </svg>
+                </div>
+
+                <ul class="plainList clearfix edit_actions">
+                    <li>
+                        <span class="media_directory_entries" title="{$CONST.IN} {$CONST.BASE_DIRECTORY}"><em>{if isset($pathitems[''])}{$pathitems['']}{else}<span class="emptydim">0</span>{/if} {$CONST.PLUGIN_GROUP_IMAGES}</em></span>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    {/if}
     {foreach $folders AS $folder}
         {if ! $folder@first}
             {if $folder.depth > $priorDepth}
