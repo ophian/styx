@@ -904,7 +904,7 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
 
     if ($type === null
     || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp']) && !in_array(strtoupper(explode('/', $type)[1]), serendipity_getSupportedFormats(true)))
-    || !serendipity_checkPermission('adminImagesMaintainOthers')) {
+    || !serendipity_checkPermission('adminImagesAdd')) {
         return false;
     }
 
@@ -1149,8 +1149,14 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                 if (!file_exists($outfile)) {
                     $pass = [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], 75, -1 ];
                     $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
+                    if ($result === false) {
+                        echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> Image thumb variation failed. Please contact the sites Administrator!' . "</span>\n";
+                        $logres = 'image thumb variation somehow has failed - serendipity_passToCMD returned false!';
+                    } else {
+                        $logres = $result[2];
+                    }
 
-                    if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image thumbnail creation: ${result[2]}"); }
+                    if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image thumbnail creation: $logres"); }
                 }
 
                 // Create a copy of the thumb in WebP image format
