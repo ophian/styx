@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix Standard Editor group user failing to add images while not being able
+    to use an image API sizing method with ImageMagick by permission.
+
   * Improve MediaLibrary directories list for base dir consistency (see cat-
     egories) and other "tooling to the right" UI enhancements.
 
