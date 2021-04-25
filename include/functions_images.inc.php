@@ -1151,7 +1151,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
                     if ($result === false) {
                         echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> Image thumb variation failed. Please contact the sites Administrator!' . "</span>\n";
-                        $logres = 'image thumb variation somehow has failed - serendipity_passToCMD returned false!';
+                        $logres = 'Thumb variation failed - serendipity_passToCMD L.:' . (__LINE__ - 3) . ' returned false!';
                     } else {
                         $logres = $result[2];
                     }
