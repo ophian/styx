@@ -16,7 +16,8 @@ function help() {
 
 if (!is_array($argv) || empty($argv[1])) {
     echo "==================================================\n";
-    echo "This tool is intended to be called via commandline!\n";
+    echo "This tool is intended to be called via commandline\n";
+    echo "from the upper lang/ directory (or change base path)!\n";
     echo "==================================================\n\n";
     help();
     die();
