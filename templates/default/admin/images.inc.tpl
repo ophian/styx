@@ -229,7 +229,7 @@
                 <span class="folder_name"><span class="icon-folder-open" aria-hidden="true"></span> {$folder.name}</span>
 
                 <ul class="plainList clearfix edit_actions">
-                    <li><span class="imgctlabel"><em>{if isset($pathitems[$folder.relpath])}{$pathitems[$folder.relpath]} {$CONST.MEDIA}{else}<span class="emptydim">0 {$CONST.MEDIA}</span>{/if}</em></span></li>
+                    <li>{if isset($pathitems[$folder.relpath])}<span class="imgctlabel">{$pathitems[$folder.relpath]} {$CONST.MEDIA}</span>{else}<span class="emptydim imgctlabel">0 {$CONST.MEDIA}</span>{/if}</li>
                     <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryEdit&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.EDIT} {$folder.name}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a></li>
                     <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryCreateSub&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.CREATE_DIRECTORY}"><span class="icon-plus" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.CREATE_DIRECTORY}</span></a></li>
                     <li><a class="button_link" href="?serendipity[adminModule]=images&amp;serendipity[adminAction]=directoryDelete&amp;serendipity[dir]={$folder.relpath|escape}" title="{$CONST.DELETE} {$folder.name}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a></li>
