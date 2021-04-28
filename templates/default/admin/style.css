@@ -2740,6 +2740,7 @@ h3 .media_file_actions {
 #serendipity_image_folders .imgctlabel {
     font-style: italic;
 }
+#serendipity_users .edit_actions .user_level,
 #serendipity_image_folders .imgctlabel,
 .category_base_entries .catctlabel,
 #categories .edit_actions .catctlabel {
