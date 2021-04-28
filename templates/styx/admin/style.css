@@ -1681,10 +1681,10 @@ summary {
     margin: 1.25em 0 .75em;
 }
 /* special cases for right-headed and link focused toggles, being a single/last element, blue shadow right margin, which use the containers form width */
-#dashboard_header .button_link.toggle_links:focus,
-#show_config_all.button_link.toggle_config:focus,
-.media_show_info.button_link.active:focus,
-.button_link.toggle_comment_full:focus {
+#dashboard_header a.button_link.toggle_links,
+#show_config_all.button_link.toggle_config,
+a.media_show_info.button_link,
+.button_link.toggle_comment_full {
     margin-right: 2px;
 }
 
