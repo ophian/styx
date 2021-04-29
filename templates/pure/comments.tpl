@@ -17,9 +17,11 @@
 
                     <li><strong>TRACKBACK</strong></li>
                 {/if}
+                {if isset($entry)}{* avoid running these "pure" theme constant when answering in backend *}
 
                     <li><time>{$comment.timestamp|formatTime:'%H:%M'}</time></li>
                     <li><a class="comment_source_trace" href="#c{$comment.id|default:0}" title="{$CONST.PURE_PLINK_TITLE}">{$CONST.PURE_PLINK_TEXT}</a></li>
+                {/if}
                 {if isset($entry) AND NOT empty($entry.is_entry_owner) AND NOT empty($comment.id)}
 
                     <li><a class="comment_source_ownerlink" href="{$comment.link_delete}" title="{$CONST.COMMENT_DELETE_CONFIRM|sprintf:$comment.id:$comment.author}">{$CONST.DELETE}</a></li>
