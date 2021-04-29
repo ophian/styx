@@ -421,7 +421,7 @@ function serveEntry($matches) {
         $comment['comment']   = trim((string)$serendipity['POST']['comment']);
         $comment['name']      = $serendipity['POST']['name'];
         $comment['email']     = $serendipity['POST']['email'];
-        $comment['subscribe'] = $serendipity['POST']['subscribe'];
+        $comment['subscribe'] = $serendipity['POST']['subscribe'] ?? null;
         $comment['parent_id'] = $serendipity['POST']['replyTo'];
 
         if (!empty($comment['comment'])) {
