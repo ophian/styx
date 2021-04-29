@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix backend comment answer issue with missing "pure" theme constants data
+    when the frontend theme is set to another, in the pure/comments.tpl file.
+
   * Fix Standard Editor group user failing to add images while not being able
     to use an image API sizing method with ImageMagick by permission.
 
