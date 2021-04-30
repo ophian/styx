@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.45');
+        $propbag->add('version',       '2.46');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1013,7 +1013,7 @@ class serendipity_event_spamblock extends serendipity_event
                             if (!is_array($auth)) {
                                 // Filter authors names, Filter URL, Filter Content, Filter Emails, Check for maximum number of links before rejecting
                                 // moderate false
-                                if (false === $this->wordfilter($logfile, $eventData, $wordmatch, $addData, true)) {
+                                if (false === $this->wordfilter($logfile, $eventData, $addData, true)) {
                                     // already there #$this->log($logfile, $eventData['id'], 'REJECTED', PLUGIN_EVENT_SPAMBLOCK_FILTER_WORDS, $addData);
                                     // already there #$eventData = array('allow_comments' => false);
                                     // already there #$serendipity['messagestack']['emails'][] = PLUGIN_EVENT_SPAMBLOCK_ERROR_BODY;
@@ -1187,7 +1187,7 @@ class serendipity_event_spamblock extends serendipity_event
                             }
                         }
 
-                        if (false === $this->wordfilter($logfile, $eventData, $wordmatch, $addData)) {
+                        if (false === $this->wordfilter($logfile, $eventData, $addData)) {
                             return false;
                         }
 
@@ -1571,7 +1571,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
     /**
      * wordfilter, email and additional link check moved to this function, to allow comment user to opt-in (verify_once), but reject all truly spam comments before.
      */
-    function wordfilter($logfile, &$eventData, $wordmatch, $addData, $ftc = false)
+    function wordfilter($logfile, &$eventData, $addData, $ftc = false)
     {
         global $serendipity;
 
