@@ -91,7 +91,7 @@ if (!isset($_GET['nocache'])) {
 }
 
 if (isset($modified_since) &&
-        (stristr($_SERVER['HTTP_USER_AGENT'], 'planet') !== FALSE || $serendipity['enforce_RFC2616'])) {
+        ((isset($_SERVER['HTTP_USER_AGENT']) && stristr($_SERVER['HTTP_USER_AGENT'], 'planet') !== FALSE) || $serendipity['enforce_RFC2616'])) {
     // People shall get a usual HTTP response according to RFC2616. See serendipity_config.inc.php for details
     $modified_since = FALSE;
 }
@@ -204,7 +204,7 @@ foreach( $rssFields AS $configName => $field) {
     switch($field) {
         case 'pubDate':
             if (serendipity_db_bool($fieldValue)) {
-                $pdate = empty($entries[0]) ? $pubDateFallback : $entries[0]['last_modified'];
+                $pdate = empty($entries[0]) ? $pubDateFallback : ($entries[0]['last_modified'] ?? time());
                 $fieldValue  = gmdate('D, d M Y H:i:s \G\M\T', $pdate);
             } else {
                 $fieldValue  = '';
