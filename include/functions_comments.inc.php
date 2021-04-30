@@ -984,9 +984,11 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
         $commentInfo['status'] = $ca['status'];
     }
 
-    if ($serendipity['serendipityAuthedUser']) {
+    if (isset($serendipity['serendipityAuthedUser']) && $serendipity['serendipityAuthedUser'] === true) {
         $authorReply = true;
         $authorEmail = $serendipity['serendipityEmail'];
+    } else {
+        $authorReply = false;
     }
 
     $_setTo_moderation = isset($ca['moderate_comments']) ? serendipity_db_bool($ca['moderate_comments']) : true; // check empty $ca (i.e. xmlrpc) case
