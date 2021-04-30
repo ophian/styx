@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Remove unmatched wordfilter method parameter in spamblock
+
   * Fix backend comment answer inheritance issue with missing constants data
     in the pure/comments.tpl file, when the frontend theme uses another theme.
 
