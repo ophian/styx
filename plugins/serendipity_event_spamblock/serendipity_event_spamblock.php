@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.46');
+        $propbag->add('version',       '2.47');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -1584,7 +1584,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
             $filter_authors = explode(';', $this->get_config('contentfilter_authors', $this->filter_defaults['authors']));
             if (is_array($filter_authors)) {
                 foreach($filter_authors AS $filter_author) {
-                    $filter_author = trim($filter_author);
+                    $filter_author = preg_quote(trim($filter_author));
                     if (empty($filter_author)) {
                         continue;
                     }
