@@ -993,7 +993,7 @@ function serendipity_insertComment($id, $commentInfo, $type = 'NORMAL', $source 
 
     $_setTo_moderation = isset($ca['moderate_comments']) ? serendipity_db_bool($ca['moderate_comments']) : true; // check empty $ca (i.e. xmlrpc) case
     // Hey - We just trust CHIEF and ADMIN USERLEVELs and set comments approved by default - spamblock already allowed registered authors
-    if ($_setTo_moderation && $serendipity['serendipityAuthedUser'] && serendipity_checkPermission('adminEntriesMaintainOthers')) {
+    if ($_setTo_moderation && (isset($serendipity['serendipityAuthedUser']) && $serendipity['serendipityAuthedUser']) && serendipity_checkPermission('adminEntriesMaintainOthers')) {
         $_setTo_moderation = false;
     }
     $title         = serendipity_db_escape_string(($commentInfo['title'] ?? ''));
