@@ -204,7 +204,7 @@ foreach( $rssFields AS $configName => $field) {
     switch($field) {
         case 'pubDate':
             if (serendipity_db_bool($fieldValue)) {
-                $pdate = empty($entries[0]) ? $pubDateFallback : ($entries[0]['last_modified'] ?? time());
+                $pdate = empty($entries[0]) ? $pubDateFallback : ($entries[0]['last_modified'] ?? '1556988924'); // ternary fake timestamp since probably only used when runtime errors appear
                 $fieldValue  = gmdate('D, d M Y H:i:s \G\M\T', $pdate);
             } else {
                 $fieldValue  = '';
