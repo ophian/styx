@@ -1976,12 +1976,12 @@ ul.edit_actions li > .user_level {
     vertical-align: top;
     line-height: 1;
 }
-#category_filter.compact > .button_link {
+#category_filter.compact > .svg-button_link {
     float: right;
     margin-top: -2em;
 }
 #edit_entry_submit .button_up,
-#category_filter .button_up {
+#category_filter .svg-button_up {
     padding: .15em .25em;
 }
 #edit_entry_category .compact label {
