@@ -1,3 +1,11 @@
+1.70:
+-----
+    * Improve entryproperties fieldset button up
+
+1.69:
+-----
+    * PHP 8 - Fixup $plugin_data['p']->markup_elements check 
+
 1.68:
 -----
     * Secure the entryforms entryproperties configuration link
