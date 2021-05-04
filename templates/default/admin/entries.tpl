@@ -140,10 +140,18 @@
                         <label for="categoryfilter" class="visuallyhidden">{$CONST.FILTERS}</label>
                         <input id="categoryfilter" type="text" placeholder="{$CONST.FILTERS}: {$CONST.CATEGORIES}">
                         <button class="reset_livefilter icon_link" type="button" data-target="categoryfilter" title="{$CONST.RESET_FILTERS}"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.RESET_FILTERS}</span></button>
-                        {if $use_backendpopups || (isset($force_backendpopups.categories) AND $force_backendpopups.categories)}<a href="#top" class="button_link button_up" title="{$CONST.UP}"><span class="ucc-up-pointing-triangle"></span></a>{/if}
+                        {if $use_backendpopups || (isset($force_backendpopups.categories) AND $force_backendpopups.categories)}<a href="#top" class="svg-button_link svg-button_up" title="{$CONST.UP}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#333333" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+                          <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+                        </svg>
+                        </a>{/if}
                         <button id="toggle_cat_view" class="icon_link" type="button" title="{$CONST.TOGGLE_VIEW}"><span class="icon-th" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.TOGGLE_VIEW}</span></button>
                         {else}
-                        {if $use_backendpopups || (isset($force_backendpopups.categories) AND $force_backendpopups.categories)}<a href="#top" class="button_link button_up" title="{$CONST.UP}"><span class="ucc-up-pointing-triangle"></span></a>{/if}
+                        {if $use_backendpopups || (isset($force_backendpopups.categories) AND $force_backendpopups.categories)}<a href="#top" class="svg-button_link svg-button_up" title="{$CONST.UP}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#333333" class="bi bi-arrow-up-square-fill" viewBox="0 0 16 16">
+                          <path d="M2 16a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2zm6.5-4.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 1 0z"/>
+                        </svg>
+                        </a>{/if}
                         {/if}
                     </div>
 
