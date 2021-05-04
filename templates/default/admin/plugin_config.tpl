@@ -9,6 +9,17 @@
         <input name="SAVECONF" type="submit" value="{$CONST.SAVE}">
     </div>
 {/if}
+{if NOT empty($cdesc) AND empty($config_groups)}
+
+    <fieldset id="{$plugin_basename}_togglegroup" class="plugin_togglegroup simple">
+        <span class="plugin_file_actions actions">
+            <a class="plugin_show_info toggle_info button_link" href="#tgroup_info" title="Plugin Information">
+                <span class="icon-info-circled" aria-hidden="true"></span>
+                <span class="visuallyhidden"> Plugin Information</span>
+            </a>
+        </span>
+    </fieldset>
+{/if}
 {if is_array($config_groups)}
     {if !empty($config_groups) AND $button_postKey != 'template'}
 
