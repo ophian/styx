@@ -537,6 +537,12 @@ svg.bi {
 .icon-code:before { content: '\f121'; } /* '?' */
 .icon-file-code:before { content: '\f1c9'; } /* '?' */
 
+.x-button_link.x-button_up svg.bi.bi-arrow-up-square-fill {
+    width: 1.75rem;
+    height: 1.75rem;
+    fill: #222;
+}
+
 /* pure unicode character helper icons */
 .ucc-up-pointing-triangle:before {
     content: "\25B2"; /* U+25B2 BLACK UP-POINTING TRIANGLE */
@@ -4255,7 +4261,7 @@ img.mfp-img {
     }
 
     #adv_opts > fieldset > span > legend {
-        width: 90%;
+        width: 92%;
     }
 }
 
