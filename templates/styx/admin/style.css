@@ -428,7 +428,7 @@ progress {
     font-size: smaller;
 }
 
-/* bootstrap icons 1.4 */
+/* bootstrap icons 1.4.1 */
 svg.bi {
     vertical-align: -.125em;
 }
@@ -537,6 +537,7 @@ svg.bi {
 .icon-code:before { content: '\f121'; } /* '?' */
 .icon-file-code:before { content: '\f1c9'; } /* '?' */
 
+/* bootstrap icons 1.4.1 */
 .x-button_link.x-button_up svg.bi.bi-arrow-up-square-fill {
     width: 1.75rem;
     height: 1.75rem;
@@ -544,10 +545,6 @@ svg.bi {
 }
 
 /* pure unicode character helper icons */
-.ucc-up-pointing-triangle:before {
-    content: "\25B2"; /* U+25B2 BLACK UP-POINTING TRIANGLE */
-    color: #222;
-}
 .ucc-pinned-to:before {
     content: "\1F4CC"; /* U+1F4CC \xF0\x9F\x93\x8C PUSHPIN */
     color: #222;
