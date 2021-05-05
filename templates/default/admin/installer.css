@@ -478,16 +478,6 @@ progress {
 .icon-rocket:before { content: '\e82c'; }
 .icon-to-start:before { content: '\e82d'; }
 
-/* pure unicode character helper icons */
-.ucc-up-pointing-triangle:before {
-    content: "\25B2"; /* U+25B2 BLACK UP-POINTING TRIANGLE */
-    color: #222;
-}
-.ucc-pinned-to:before {
-    content: "\1F4CC"; /* U+1F4CC \xF0\x9F\x93\x8C PUSHPIN */
-    color: #222;
-}
-
 /* BACKEND HELPER CLASSES */
 .icon_link,
 .button_link,
