@@ -30,6 +30,8 @@ And it has its own styles markup, equivalent to the "default/admin/styles.css" f
 * 2021-03-26 - Entries/Comments filter toolbars are shifted to the right up from 360px screen width.
 * 2021-03-29 - Extended with a right floated toolbar group for Plugins/Themes/Personal-Preferences configurations, including at least a "toggle all" (containers) button.
 * 2021-04-01 - Cleanup for media inputs in configuration pages.
+* 2021-04-28 - Improved length of certain toggle bars for the blue shimmering shadow
+* 2021-05-05 - Improved input / radio field styles for ugly mozilla/chromium default blue outsign
 </pre>
 
 THE FOLLOWING IS THE DESCRIPTION OF THE RELEGATED BACKEND&colon;<br>
