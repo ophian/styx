@@ -19,7 +19,7 @@ $_id       = !empty($serendipity['GET']['id']) ? (int)$serendipity['GET']['id'] 
 $_replyTo  = !empty($serendipity['POST']['replyTo']) ? (int)$serendipity['POST']['replyTo'] : 0;
 $_entry_id = !empty($serendipity['GET']['entry_id']) ? (int)$serendipity['GET']['entry_id'] : 0;
 
-if (isset($serendipity['POST']['formAction']) && $serendipity['POST']['formAction'] == 'multiDelete' && sizeof($serendipity['POST']['delete']) != 0 && serendipity_checkFormToken()) {
+if (!empty($serendipity['POST']) && isset($serendipity['POST']['formAction']) && $serendipity['POST']['formAction'] == 'multiDelete' && (isset($serendipity['POST']['delete']) && sizeof($serendipity['POST']['delete']) != 0) && serendipity_checkFormToken()) {
     $multi = false;
     if (!empty($serendipity['POST']['togglemoderate'])) {
         foreach($serendipity['POST']['delete'] AS $k => $v) {
