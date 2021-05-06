@@ -761,7 +761,7 @@ input[type="checkbox"] {
     top: 5px;
 }
 /* Firefox up from v.89 starts to activate annoying blue color for active input sets
-   just like chromium does, which, at least in the backend, looks ugly and bites the UI color.
+   just like chromium does, which, at least in the Backend, looks ugly and bites the UI color.
    Thus we keep the white background and style the checked fields to grayscale - and adjusting the size. */
 input[type="checkbox"],input[type="radio"] {
     filter: grayscale(1);
