@@ -1,6 +1,9 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Added new Bootstrap 5 minified assets to templates/_assets/b5
+    See exemplarily documented usage down below for "/b4".
+
   * Set last piece of toggle-group-to-right improvement for plugins with a
     plugin head description or changelog/documentary links. This in general
     moves stackable status icon to titles left.
