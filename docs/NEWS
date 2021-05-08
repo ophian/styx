@@ -8,7 +8,7 @@ Version 3.4-DEV ()
   * Temporary improve bundled-libs/voku/simple-cache init for PLESK hosts
     17.8.11 + with PHP value "disable_functions" opcache_get_cache().
 
-  * Remove unmatched wordfilter method parameter in spamblock
+  * Remove unmatched wordfilter method parameter in spamblock plugin
 
   * Fix backend comment answer inheritance issue with missing constants data
     in the pure/comments.tpl file, when the frontend theme uses another theme.
