@@ -13,7 +13,7 @@ Version 3.4-DEV ()
   * Fix backend comment answer inheritance issue with missing constants data
     in the pure/comments.tpl file, when the frontend theme uses another theme.
 
-  * Fix Standard Editor group user failing to add images while not being able
+  * Fix STANDARD EDITOR GROUP user failing to add images while not being able
     to use an image API sizing method with ImageMagick by permission.
 
   * Improve MediaLibrary directories list for base dir consistency (see cat-
