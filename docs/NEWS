@@ -5,8 +5,8 @@ Version 3.4-DEV ()
     plugin head description or changelog/documentary links. This in general
     moves stackable status icon to titles left.
 
-  * Temporary improve bundled-libs/voku/simple-cache init for PLESK 17.8.11 +
-    with PHP value "disable_functions" opcache_get_cache().
+  * Temporary improve bundled-libs/voku/simple-cache init for PLESK hosts
+    17.8.11 + with PHP value "disable_functions" opcache_get_cache().
 
   * Remove unmatched wordfilter method parameter in spamblock
 
