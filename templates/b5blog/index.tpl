@@ -66,7 +66,7 @@
       </div>
     </div>
   </header>
-{if $template_option.use_corenav===false}
+{if $template_option.use_corenav}
 
   <div class="nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
