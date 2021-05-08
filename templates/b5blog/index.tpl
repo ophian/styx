@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
-<meta name="theme-color" content="#7952b3">
 {if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR NOT empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
     <meta name="robots" content="index,follow">
 {else}
@@ -120,7 +119,7 @@
 
     <div class="row g-5">
       <div class="col-md-8">
-{* Blog Posts title headline *}
+{* BLOG POSTS TITLE headline *}
         <h3 class="pb-4 mb-4 fst-italic border-bottom">
           From the Styx Firehose
         </h3>
@@ -150,8 +149,8 @@
     <p lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
   </footer>
 
-  {* <script src="{serendipity_getFile file="b5/js/bootstrap.min.js"}"></script>*}{* bootstrap 5 does nor need jquery any more *}
-  {* <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script> *}{* and this theme.js as well, surprise surprise *}
+  {* <script src="{serendipity_getFile file="b5/js/bootstrap.min.js"}"></script>*}{* bootstrap 5 does not need jquery lib any more *}
+  {* <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script> *}{* and this theme.js as well, surprise surprise! *}
   <script src="{serendipity_getFile file="theme.js"}"></script>
 {/if}
 {$raw_data}
