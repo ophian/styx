@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Add new Bootstrap 5 simple example blog theme
+
   * Added new Bootstrap 5 minified assets to templates/_assets/b5
     See exemplarily documented usage down below for "/b4".
 
