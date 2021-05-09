@@ -5,7 +5,7 @@
  * Convert or save as ANSI (ISO-8859-1) or your native charset, analogue to the non-UTF-8 lang constant files.
  **/
 
-$info['theme_info_summary'] = 'A "Bootstrap 5.0.0" based CSS HTML5 Framework Theme.';
+$info['theme_info_summary'] = 'A "Bootstrap 5.0.0" based CSS HTML5 Framework Theme by Mark Otto, Jacob Thornton, and Bootstrap contributors.';
 
 $info['theme_info_desc'] = 'This is a basic interpretation of the official Bootstrap 5 Blog example theme.
 Easy to use, since you just need to change some basics in the index.tpl file <u>manually</u> by yourself, which are&colon;
