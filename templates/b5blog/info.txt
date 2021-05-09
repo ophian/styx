@@ -3,6 +3,7 @@ Author: Ian Styx
 Date: 2021-05-07
 Require Serendipity: 3.4
 Backend: No
+Engine: boot
 Responsive: Yes
 Mobile: Yes
 
