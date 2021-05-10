@@ -707,24 +707,6 @@ ul.pagination {
   #serendipityQuickSearchTermField::placeholder {
     color: rgba(255, 249, 249, 0.5) }
 
-#serendipityQuickSearchTermField,
-#serendipity_comment input[type=text],
-#serendipity_comment input[type=email],
-#serendipity_comment input[type=url] { width: 95%; }
-
-#serendipity_replyTo,
-#serendipity_comment textarea { width: 95%; }
-
-@media only screen and (min-width: 992px) {
-  #serendipity_comment input[type=text],
-  #serendipity_comment input[type=email],
-  #serendipity_comment input[type=url] {
-    width: 30em; }
-  #serendipity_replyTo {
-    width: max-content;
-    max-width: 36em; }
-}
-
 /* bbar end */
 
 /* revert _spacing.scss since we need some padding space for sudden ends, i.e. freetag aricles w/o paging */
