@@ -66,6 +66,7 @@
 
     <script src="{serendipity_getFile file="b5/js/bootstrap.min.js"}"></script>
   {* <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script> *}{* bootstrap 5 does not need jquery lib any more and this theme.js as well, surprise surprise! *}
+
     <script src="{serendipity_getFile file="theme.js"}"></script>
 {/if}
 {$raw_data}
