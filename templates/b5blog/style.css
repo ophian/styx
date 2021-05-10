@@ -981,6 +981,9 @@ article.post li .pc-owner {
   margin: 0 0 9px;
   margin: 0 0 .5rem; }
 
+.form-select {
+  padding-top: 0; }
+
 .serendipity_plugin_calendar .Active a,
 .serendipity_plugin_calendar tfoot a,
 .serendipity_plugin_calendar tfoot a:active,
