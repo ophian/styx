@@ -17,7 +17,7 @@ checkWebP(function(support) {
 });
 
 (function($) {
-    $('#serendipity_replyTo').addClass('form-control');
+    $('#serendipity_replyTo').addClass('form-select');
     $('<div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>').appendTo('#searchform');
     $('.serendipity_entrypaging_left a').addClass('btn btn-secondary');
     $('.serendipity_entrypaging_right a').addClass('btn btn-secondary');
