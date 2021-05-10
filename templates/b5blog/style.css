@@ -984,6 +984,17 @@ article.post li .pc-owner {
 .form-select {
   padding-top: 0; }
 
+/* Firefox up from v.89 starts to activate annoying blue color for active input sets
+   just like chromium does, which, at least in the backend, looks ugly and bites the UI color.
+   Thus we keep the white background and style the checked fields to grayscale - and adjusting the size. */
+input[type="checkbox"],input[type="radio"] {
+    filter: grayscale(1);
+}
+input[type="checkbox"] {
+    width: .875rem;
+    height: .875rem;
+}
+
 .serendipity_plugin_calendar .Active a,
 .serendipity_plugin_calendar tfoot a,
 .serendipity_plugin_calendar tfoot a:active,
