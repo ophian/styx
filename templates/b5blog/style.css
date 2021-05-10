@@ -431,7 +431,8 @@ select[size], select[multiple], textarea {
       margin-bottom: 0; }
 
 .form-check-input[type="checkbox"] {
-  margin-top: .5rem; }
+  min-width: 1rem;
+  margin-top: .25rem; }
 #serendipity_category_form input[type="checkbox"] {
   vertical-align: middle; }
 
