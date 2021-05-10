@@ -7,7 +7,7 @@
     </header>
     {foreach $dategroup.entries AS $entry}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
     
-    <article class="blog-post{if $is_single_entry} post_single{/if}{if $dategroup.is_sticky} post_sticky{/if}">
+    <article class="post{if $is_single_entry} post_single{/if}{if $dategroup.is_sticky} post_sticky{/if}">
         <header>
             <h2><a href="{$entry.link}">{$entry.title}</a></h2>
 
