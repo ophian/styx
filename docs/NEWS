@@ -1,8 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
-  * Add new Bootstrap 5 "fallback pool" templates parent theme [ boot] and
-    a new simple example blog [ b5blog ] relying child theme.
+  * WIP - Add new Bootstrap 5 "fallback pool" templates parent theme [ boot]
+    and a new simple example blog [ b5blog ] relying child theme.
 
   * Added new Bootstrap 5 minified assets to templates/_assets/b5
     See exemplarily documented usage down below for "/b4".
