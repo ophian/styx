@@ -789,11 +789,8 @@ ul.pagination {
   margin: 18px 0;
   margin: 1rem 0; }
   .meta li {
+    display: -webkit-inline-box;
     display: inline-block; }
-    .meta li:after {
-      content: ' | '; }
-    .meta li:last-child:after {
-      content: ''; }
 
 .post pre, .page pre, .post .geshi, .page .geshi {
   font-size: 15.75px;
