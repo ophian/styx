@@ -74,7 +74,7 @@
   </div>
 {/if}
 
-  <main class="container">
+  <main class="container mb-4">
   {* FEATURED BLOG POST container *}
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
       <div class="col-md-6 px-0">
