@@ -1375,6 +1375,8 @@ p > img.serendipity_image_center {
       margin: 0 3rem 2rem 0rem; }
   table.calendar {
     width: 17.75rem; }
+    .calendar.table.table-light > thead > tr {
+      border-bottom-style: hidden; }
     .calendar th, .calendar td {
       text-align:right }
     table.calendar-nav {
