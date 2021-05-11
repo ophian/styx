@@ -8,27 +8,27 @@
         <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
 
         <div class="form-group">
-            <label class="form-label" for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)}&#8727;{/if}</label>
+            <label for="serendipity_commentform_name" class="form-label">{$CONST.NAME}{if NOT empty($required_fields.name)}&#8727;{/if}</label>
             <input id="serendipity_commentform_name" class="form-control" type="text" name="serendipity[name]" value="{$commentform_name}"{if NOT empty($required_fields.name)} required{/if}>
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)}&#8727;{/if}</label>
+            <label for="serendipity_commentform_email" class="form-label">{$CONST.EMAIL}{if NOT empty($required_fields.email)}&#8727;{/if}</label>
             <input id="serendipity_commentform_email" class="form-control" type="email" name="serendipity[email]" value="{$commentform_email}"{if NOT empty($required_fields.email)} required{/if}>
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)}&#8727;{/if}</label>
+            <label for="serendipity_commentform_url" class="form-label">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)}&#8727;{/if}</label>
             <input id="serendipity_commentform_url" class="form-control" type="url" name="serendipity[url]" value="{$commentform_url}"{if NOT empty($required_fields.url)} required{/if}>
         </div>
 
         <div class="form-group mb-3">
-            <label class="form-label" for="serendipity_replyTo">{$CONST.IN_REPLY_TO}</label>
+            <label for="serendipity_replyTo" class="form-label">{$CONST.IN_REPLY_TO}</label>
             {$commentform_replyTo}
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)}&#8727;{/if}</label>
+            <label for="serendipity_commentform_comment" class="form-label">{$CONST.COMMENT}{if NOT empty($required_fields.comment)}&#8727;{/if}</label>
             <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
         </div>
 
