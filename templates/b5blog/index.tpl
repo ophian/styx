@@ -4,13 +4,13 @@
 <head>
     <meta charset="{$head_charset}">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
     <meta name="generator" content="Serendipity Styx Edition v.{$serendipityVersion}">
 {if in_array($view, ['start', 'entries', 'entry', 'feed', 'plugin']) OR NOT empty($staticpage_pagetitle) OR (isset($robots_index) AND $robots_index == 'index')}
     <meta name="robots" content="index,follow">
 {else}
     <meta name="robots" content="noindex,follow">
 {/if}
+    <title>{$head_title|default:$blogTitle}{if $head_subtitle} | {$head_subtitle}{/if}</title>
 {if $view == 'entry' AND isset($entry)}
     <link rel="canonical" href="{$entry.rdf_ident}">
 {/if}
