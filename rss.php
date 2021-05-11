@@ -21,7 +21,7 @@ $title       = $serendipity['blogTitle'];
 $comments    = FALSE;
 
 if (empty($version)) {
-    list($version) = serendipity_discover_rss($_GET['file'], $_GET['ext']);
+    list($version) = serendipity_discover_rss(($_GET['file'] ?? null), ($_GET['ext'] ?? null));
 }
 
 if (isset($_GET['category'])) {
