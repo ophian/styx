@@ -104,7 +104,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
             } else {
                 $pattern = '@(href|src|srcset)=(["\'])' . preg_quote($serendipity['serendipityHTTPPath']) . '([^"\']*)@imsU';
             }
-            $entry['body'] = preg_replace($pattern, '\1=\2' . $serendipity['baseURL'] . '\3', $entry['body']);
+            $entry['body'] = preg_replace($pattern, '\1=\2' . $serendipity['baseURL'] . '\3', ($entry['body'] ?? ''));
             //$entry['body'] = preg_replace('@(href|src|srcset)=("|\')(' . preg_quote($serendipity['serendipityHTTPPath']) . ')(.*)("|\')(.*)>@imsU', '\1=\2' . $serendipity['baseURL'] . '\4\2\6>', $entry['body']);
 
             // clean up body for XML compliance and doubled whitespace between (img) attributes as best we can.
