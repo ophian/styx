@@ -931,6 +931,8 @@ article.post li .pc-owner {
     background: initial; }
   #comments ol li .d-inline-block:nth-of-type(2n) {
     background: transparent; }
+  #comments .comment_content ol > li:nth-of-type(2n) {
+    background: initial; }
 
 #trackbacks details > div {
   margin-left: 1.2rem; }
