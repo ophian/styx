@@ -1,5 +1,6 @@
 {if $staticpage_results}
-<div class="pages_found">
+<section id="pages_resultset" class="page">
+  <div class="pages_found">
     <h3>{$CONST.STATICPAGE_SEARCHRESULTS|sprintf:$staticpage_searchresults}</h3>
 
     <dl>
@@ -8,5 +9,6 @@
         <dd>{$result.content|strip_tags|truncate:200:"..."}</dd>
     {/foreach}
     </dl>
-</div>
+  </div>
+</section>
 {/if}
