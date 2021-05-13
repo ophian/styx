@@ -4,20 +4,23 @@
     </header>
 {if is_array($staticpage_navigation) AND ($staticpage_shownavi OR $staticpage_show_breadcrumb)}
 
-    <div id="staticpage_nav">
-    {if $staticpage_shownavi}   <ul class="staticpage_navigation">
-            <li class="staticpage_navigation_left">{if NOT empty($staticpage_navigation.prev.link)}<a href="{$staticpage_navigation.prev.link}" title="prev">{$staticpage_navigation.prev.name|escape}</a>{else}<span class="staticpage_navigation_dummy">{$CONST.PREVIOUS}</span>{/if}</li>
-            <li class="staticpage_navigation_center">{if NOT empty($staticpage_navigation.top.topp_name)}<a href="{$staticpage_navigation.top.topp_link}" title="top">{$staticpage_navigation.top.topp_name|escape}</a> | {/if}&#171 {$staticpage_navigation.top.curr_name|escape} &#187; {if NOT empty($staticpage_navigation.top.exit_name)}| <a href="{$staticpage_navigation.top.exit_link}" title="exit">{$staticpage_navigation.top.exit_name|escape}</a>{/if}</li>
-            <li class="staticpage_navigation_right">{if NOT empty($staticpage_navigation.next.link)}<a href="{$staticpage_navigation.next.link}" title="next">{$staticpage_navigation.next.name|escape}</a>{else}<span class="staticpage_navigation_dummy">{$CONST.NEXT}</span>{/if}</li>
+    <div id="staticpage_nav" class="border mb-3">
+    {if $staticpage_shownavi}   <ul class="pagination justify-content-between m-0 px-2 pt-0 pb-1">
+            <li class="page-item disabled text-start text-truncate pagenav_left">{if NOT empty($staticpage_navigation.prev.link)}<a href="{$staticpage_navigation.prev.link}" title="prev">{$staticpage_navigation.prev.name|escape} very looong name yes very long xxx</a>{else}<a class="page-link disabled p-0 border-0 pagenav_dummy" href="#" tabindex="-1" aria-disabled="true">{$CONST.PREVIOUS}</a>{/if}</li>
+            <li class="page-item text-center px-2 pagenav_center{if empty($staticpage_navigation.top.topp_name)} active" aria-current="page{/if}">{if NOT empty($staticpage_navigation.top.topp_name)}<a href="{$staticpage_navigation.top.topp_link}" title="top">{$staticpage_navigation.top.topp_name|escape}</a> | {/if}&#171 {$staticpage_navigation.top.curr_name|escape} &#187;{if NOT empty($staticpage_navigation.top.exit_name)} | <a href="{$staticpage_navigation.top.exit_link}" title="exit">{$staticpage_navigation.top.exit_name|escape}</a>{/if}</li>
+            <li class="page-item text-end text-truncate pagenav_right">{if NOT empty($staticpage_navigation.next.link)}<a href="{$staticpage_navigation.next.link}" title="next">{$staticpage_navigation.next.name|escape} oh yes, me tooooo!</a>{else}<a class="page-link disabled p-0 border-0 pagenav_dummy" href="#" tabindex="-1" aria-disabled="true">{$CONST.NEXT}</a>{/if}</li>
         </ul>{*'top' is just a name for current page, or top parent, or exit *}
     {/if}
     {if $staticpage_show_breadcrumb}
 
-        <div class="staticpage_navigation_breadcrumb">
-            <a href="{$serendipityBaseURL}">{$CONST.HOMEPAGE}</a>{if NOT empty($staticpage_navigation.crumbs)} &#187;{/if}
-{foreach $staticpage_navigation.crumbs AS $crumb} {if NOT $crumb@first}&#187; {/if}{if $crumb.id != $staticpage_pid}<a href="{$crumb.link}">{$crumb.name|escape}</a>{else}{$crumb.name|escape}{/if}{/foreach}
-
-        </div>
+        <nav style="--bs-breadcrumb-divider: '&#187;';" aria-label="breadcrumb">
+          <ol class="breadcrumb mx-2 mb-1">
+            <li class="breadcrumb-item"><a href="{$serendipityBaseURL}">{$CONST.HOMEPAGE}</a></li>
+{foreach $staticpage_navigation.crumbs AS $crumb}
+            <li class="breadcrumb-item{if $crumb.id == $staticpage_pid} active" aria-current="page{/if}">{if $crumb.id != $staticpage_pid}<a href="{$crumb.link}">{$crumb.name|escape}</a>{else}{$crumb.name|escape}{/if}</li>
+{/foreach}
+          </ol>
+        </nav>
     {/if}</div>
 {/if}
 {if $staticpage_pass AND $staticpage_form_pass != $staticpage_pass}
