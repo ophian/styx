@@ -1547,10 +1547,7 @@ p > img.serendipity_image_center {
     max-width: 25rem; }
 
   #archives > section {
-    float: left;
-    width: 49.25%; }
-  #archives .odd {
-    clear: left; }
+    width: 100%; }
 
   .serendipity_image_left, .serendipity_image_right, .serendipity_imageComment_img {
     margin: 9px 0 0 0;
@@ -1607,6 +1604,11 @@ p > img.serendipity_image_center {
     display: inline-flex; }
   .post_meta.plainList li.post_comments.d-inline-block a {
     margin-right: initial; }
+  #archives > section {
+    float: left;
+    width: 49.25%; }
+  #archives .odd {
+    clear: left; }
 }
 
 @media screen and (min-width: 1024px) {
