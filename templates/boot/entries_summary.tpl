@@ -14,8 +14,8 @@
             </svg>
             <a href="{$entry.link}">{$entry.title}</a>
         </dt>
-        <dd class="col-6 col-sm-3 col-md-6 col-lg-3 col-xl-3"><a href="{$entry.link_author}">{$entry.author}</a></dd>
-        <dd class="col-6 col-sm-3 col-md-6 col-lg-3 col-xl-2"><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:'%d. %m. %Y'}</time></dd>
+        <dd class="col-7 text-end col-sm-3 col-md-7 col-lg-3 text-lg-start col-xl-3"><a href="{$entry.link_author}">{$entry.author}</a></dd>
+        <dd class="col-5 col-sm-3 col-md-5 col-lg-3 col-xl-2"><time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:'%d. %m. %Y'}</time></dd>
         {/foreach}
     {/foreach}
 
