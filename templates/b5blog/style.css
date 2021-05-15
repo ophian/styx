@@ -1444,6 +1444,9 @@ p > img.serendipity_image_center {
     max-width: 12em;
     padding: 1em;
     margin-left: .5em; }
+  #archives > section {
+    float: left;
+    width: 49%; }
 }
 
 @media screen and (min-width: 768px) {
@@ -1546,6 +1549,10 @@ p > img.serendipity_image_center {
     max-width: 450px;
     max-width: 25rem; }
 
+  #archives > section {
+    float: unset;
+    width: 99%; }
+
   .serendipity_image_left, .serendipity_image_right, .serendipity_imageComment_img {
     margin: 9px 0 0 0;
     margin: .5rem 0 0 0; }
@@ -1604,8 +1611,6 @@ p > img.serendipity_image_center {
   #archives > section {
     float: left;
     width: 49.25%; }
-  #archives .odd {
-    clear: left; }
 }
 
 @media screen and (min-width: 1024px) {
