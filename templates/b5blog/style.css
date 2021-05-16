@@ -627,9 +627,9 @@ main.col-xs-12.col-lg-12 .save_updertH hr {
 
 /* static pages */
 .page {
-    width: 100%; }
+  width: 100%; }
   .page header h2 {
-    font-style: italic; }
+    font-style: italic; }/*.fst-italic*/
 #staticpage_nav .pagenav_center {
     min-width: 4.75rem;
 }
