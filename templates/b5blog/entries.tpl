@@ -9,7 +9,7 @@
     
     <article class="post{if $is_single_entry} post_single{/if}{if $dategroup.is_sticky} post_sticky{/if}">
         <header>
-            <h2><a href="{$entry.link}">{$entry.title}</a></h2>
+            <h2 class="fst-italic"><a href="{$entry.link}">{$entry.title}</a></h2>
 
             <p class="post_byline">{$CONST.POSTED_BY} <a href="{$entry.link_author}">{$entry.author}</a> {$CONST.ON} <time datetime="{$entry.timestamp|serendipity_html5time}">{$entry.timestamp|formatTime:$template_option.date_format}</time></p>
         </header>
@@ -76,7 +76,7 @@
     {/if}
 
     <section id="trackbacks">
-        <h3>{$CONST.TRACKBACKS}</h3>
+        <h3 class="fst-italic">{$CONST.TRACKBACKS}</h3>
 
         <a id="trackback_url" rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
 
@@ -88,7 +88,7 @@
     </section>
 
     <section id="comments">
-        <h3>{$CONST.COMMENTS}</h3>
+        <h3 class="fst-italic">{$CONST.COMMENTS}</h3>
 
         <p class="manage_comments">{$CONST.DISPLAY_COMMENTS_AS}
         {if $entry.viewmode eq $CONST.VIEWMODE_LINEAR}
@@ -116,7 +116,7 @@
     {else}
 
     <section id="reply">
-        <h3>{$CONST.ADD_COMMENT}</h3>
+        <h3 class="fst-italic">{$CONST.ADD_COMMENT}</h3>
         {$COMMENTFORM}
     </section>
     {/if}
