@@ -364,12 +364,6 @@ p {
   display: none !important;
   visibility: hidden; }
 
-.clearfix:before, .serendipity_imageComment_img:before, .clearfix:after, .serendipity_imageComment_img:after {
-  content: ' ';
-  display: table; }
-.clearfix:after, .serendipity_imageComment_img:after {
-  clear: both; }
-
 fieldset {
   border: 0;
   margin: 0;
