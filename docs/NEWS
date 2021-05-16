@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Update to bootstrap assets 5.0.1 revision
+
   * WIP - Add new Bootstrap 5 "fallback pool" templates parent theme [ boot ]
     and a new simple example blog [ b5blog ] depending child theme.
 
