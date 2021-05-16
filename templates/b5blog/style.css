@@ -773,10 +773,7 @@ ul.pagination {
   list-style: none;
   padding: 0; }
 
-.meta {
-  margin: 18px 0;
-  margin: 1rem 0; }
-  .meta li {
+.meta li {
     display: -webkit-inline-box;
     display: inline-block; }
 
