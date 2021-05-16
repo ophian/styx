@@ -61,3 +61,7 @@ serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $t
 if (isset($_SESSION['serendipityUseTemplate'])) {
     $template_loaded_config['use_corenav'] = false;
 }
+// Disable the use of Serendipity JQuery in index header
+$serendipity['capabilities']['jquery'] = false;
+// Disable the use of Serendipity JQuery noConflict mode
+$serendipity['capabilities']['jquery-noconflict'] = false;
