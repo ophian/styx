@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.11');
+        $propbag->add('version',       '2.12');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -232,7 +232,8 @@ class serendipity_plugin_syndication extends serendipity_plugin
             echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml'),
                                             "Atom $FEED",
                                             ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml')) : ''),
-                                            $small_icon);
+                                            $icon,
+                                            ($icon === $small_icon));
         }
 
         if (serendipity_db_bool($this->get_config('show_2.0c', 'false')) || serendipity_db_bool($this->get_config('show_comment_feed', 'false'))) {
@@ -245,7 +246,8 @@ class serendipity_plugin_syndication extends serendipity_plugin
                 echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10'),
                                                 $COMMENTS . ' (Atom)',
                                                 ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10')) : ''),
-                                                $small_icon);
+                                                $icon,
+                                                ($icon === $small_icon));
             } else {
                 // case comments feed rss2 only
                 if ($useRss) {
@@ -253,7 +255,8 @@ class serendipity_plugin_syndication extends serendipity_plugin
                     echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2'),
                                                     $COMMENTS . ' (RSS)',
                                                     ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.rss2')) : ''),
-                                                    $small_icon);
+                                                    $icon,
+                                                    ($icon === $small_icon));
                 }
                 // case comments feed atom10 only
                 if ($useAtom) {
@@ -261,7 +264,8 @@ class serendipity_plugin_syndication extends serendipity_plugin
                     echo $this->generateFeedButton( serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10'),
                                                     $COMMENTS . ' (Atom)',
                                                     ($subtome ? $this->getOnclick(serendipity_rewriteURL(PATH_FEEDS .'/comments/comments.atom10')) : ''),
-                                                    $small_icon);
+                                                    $icon,
+                                                    ($icon === $small_icon));
                 }
             }
         }
@@ -277,7 +281,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
             $class = "subtome";
         }
         if ($small) {
-            $class .= ' serendipity_xml_icon';
+            $class .= (!empty($class) ? ' ' : '') . 'serendipity_xml_icon';
         }
         if ($icon) {
             $output .= '<a class="'. $class .'" ' . $link . '><img src="' . $icon . '" alt="XML" /></a>'."\n";
