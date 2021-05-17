@@ -35,7 +35,7 @@
             <ul class="post_meta plainList">
             {if NOT empty($entry.categories)}
                 <li class="post_category d-inline-block">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tag-fill" role="img" fill="#dc3545" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tag-fill" role="img" fill="#dc3545" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
                       <title id="bitcat">{$CONST.CATEGORIES}</title>
                       <path fill-rule="evenodd" d="M2 1a1 1 0 0 0-1 1v4.586a1 1 0 0 0 .293.707l7 7a1 1 0 0 0 1.414 0l4.586-4.586a1 1 0 0 0 0-1.414l-7-7A1 1 0 0 0 6.586 1H2zm4 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                     </svg>
@@ -58,7 +58,7 @@
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>
-                    <a class="post_toform" href="{$entry.link}#reply"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-link" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <a class="post_toform" href="{$entry.link}#reply"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-link" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
                       <title id="toform">{$CONST.ADD_COMMENT}</title>
                       <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
                       <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
@@ -86,7 +86,7 @@
             {/if}
             {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
                 <li class="post_admin d-inline-block text-editicon editentrylink btn btn-admin btn-sm">
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
                       <title id="bitmod">{$CONST.EDIT_ENTRY}</title>
                       <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
                       <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
