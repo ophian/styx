@@ -157,6 +157,16 @@
         <div id="serendipity_commentlist">
         {serendipity_printComments entry=$entry.id mode=$entry.viewmode}
         </div>
+    {if NOT empty($entry.is_entry_owner)}
+        {if $entry.allow_comments}
+
+        <a class="comments-enable" href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>
+        {else}
+
+        <a class="comments-enable" href="{$entry.link_allow_comments}">{$CONST.COMMENTS_ENABLE}</a>
+        {/if}
+    {/if}
+
     </section>
 
     <a id="feedback"></a>
