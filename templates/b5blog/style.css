@@ -461,7 +461,17 @@ textarea {
   border-left: 3px solid #b94a48;
   color: #b94a48; }
 .alert.alert-secondary {
-    color: #dc3545;/*red*/ }
+  color: #dc3545; /*red*/ }
+/* bootstrap 5 text colors for danger / success / info / notice messages. Normally Styx messages are converted by theme.js
+.serendipity_msg_important {
+  color: #842029; }
+.serendipity_msg_success {
+  color: #0f5132; }
+.serendipity_msg_info {
+  color: #055160; }
+.serendipity_msg_notice {
+  color: #084298; }
+*/
 
 figure {
   margin: 18px 0;
