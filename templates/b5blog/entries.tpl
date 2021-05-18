@@ -160,10 +160,10 @@
     {if NOT empty($entry.is_entry_owner)}
         {if $entry.allow_comments}
 
-        <a class="comments-enable" href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>
+        <a class="btn btn-secondary btn-sm btn-admin comments-enable" href="{$entry.link_deny_comments}">{$CONST.COMMENTS_DISABLE}</a>
         {else}
 
-        <a class="comments-enable" href="{$entry.link_allow_comments}">{$CONST.COMMENTS_ENABLE}</a>
+        <a class="btn btn-secondary btn-sm btn-admin comments-enable" href="{$entry.link_allow_comments}">{$CONST.COMMENTS_ENABLE}</a>
         {/if}
     {/if}
 
