@@ -190,17 +190,18 @@
 {/foreach}
 {/if}
 {if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
-        <a href="#">Older</a>
-        <a href="#" tabindex="-1" aria-disabled="true">Newer</a>
-
 
     <nav class="pager blog-pagination" aria-label="Pagination">
-        {if NOT empty($footer_info)}<p>{$footer_info}</p>{/if}
+        {if NOT empty($footer_info)}<p class="d-flex justify-content-center fst-italic">{$footer_info}</p>{/if}
+
+      <div class="d-flex justify-content-center">
     {if $footer_prev_page OR $footer_next_page}
-        <a class="btn btn-outline-secondary{if NOT $footer_prev_page} disabled{/if}" href="{$footer_prev_page}">{$CONST.PREVIOUS_PAGE}</a>
-        <a class="btn btn-outline-primary{if NOT $footer_next_page} disabled{/if}" href="{$footer_next_page}">{$CONST.NEXT_PAGE}</a>
+        <a class="btn btn-outline-secondary{if NOT $footer_prev_page} disabled{/if}"{if NOT $footer_prev_page} href="#" tabindex="-1" aria-disabled="true"{else} href="{$footer_prev_page}"{/if}>{$CONST.PREVIOUS_PAGE}</a>
+        <div class="mx-auto"></div>
+        <a class="btn btn-outline-secondary{if NOT $footer_next_page} disabled{/if}"{if NOT $footer_next_page} href="#" tabindex="-1" aria-disabled="true"{else} href="{$footer_next_page}"{/if}>{$CONST.NEXT_PAGE}</a>
     {/if}
 
+      </div>
     </nav>
 {/if}
 {serendipity_hookPlugin hook="entries_footer"}
