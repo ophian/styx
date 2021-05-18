@@ -206,7 +206,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         } else {
             $mainFeed = serendipity_rewriteURL(PATH_FEEDS .'/index.rss2');
             if ($fbid != '') {
-                $mainFeed ='https://feeds.feedburner.com/' . $fbid;
+                $mainFeed = 'https://feeds.feedburner.com/' . $fbid;
             } else {
                 if ($useAtom && !$useRss) {
                     $mainFeed = serendipity_rewriteURL(PATH_FEEDS .'/atom10.xml');
