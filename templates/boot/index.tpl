@@ -32,6 +32,23 @@
 {serendipity_hookPlugin hook="frontend_header"}
 {/if}
 {if $is_raw_mode != true}
+{if $is_raw_mode != true}
+    <!-- Modal -->
+    <div class="modal fade" id="quicksearch" tabindex="-1" aria-labelledby="{$CONST.QUICKSEARCH}" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form class="navbar-form" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get" role="search">
+              <input type="hidden" name="serendipity[action]" value="search">
+              <div class="mb-3">
+                <h5 class="modal-title col-form-label">Styx {$CONST.QUICKSEARCH}</h5>
+                <input id="styxQuickSearchTermField" class="form-control" name="serendipity[searchTerm]" type="search" placeholder="Add searchTerm and hit ENTER" value="" aria-label="{$CONST.QUICKSEARCH}">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <header>
         <h1><a href="{$serendipityBaseURL}">{$blogTitle}</a></h1>
 
@@ -40,7 +57,11 @@
 {if $template_option.use_corenav}
 
     <nav id="navigator" class="nav d-flex justify-content-between">
-        <ul>{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}<li>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}</ul>
+        <ul>{foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}<li>{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}</li>{/if}{/foreach}
+        <li class="link-secondary" href="#" data-bs-toggle="modal" data-bs-target="#quicksearch" aria-label="Search">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+        </li>
+        </ul>
     </nav>
 {/if}
 
