@@ -19,7 +19,6 @@ checkWebP(function(support) {
 (function($) {
     $('#serendipity_replyTo').addClass('form-select');
     $('.form-group > .serendipity_emoticon_bar').attr('class', 'form-info alert alert-secondary');
-    $('<div id="LSResult" style="display: none;"><div id="LSShadow"></div></div>').appendTo('#searchform');
     $('.serendipity_entrypaging_left a').addClass('btn btn-secondary');
     $('.serendipity_entrypaging_right a').addClass('btn btn-secondary');
     $('.serendipity_edit_nugget').attr('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
