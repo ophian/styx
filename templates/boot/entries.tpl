@@ -147,10 +147,10 @@
         <h3>{$CONST.COMMENTS}</h3>
 
         <p class="manage_comments">{$CONST.DISPLAY_COMMENTS_AS}
-        {if $entry.viewmode eq $CONST.VIEWMODE_LINEAR}
-           {$CONST.COMMENTS_VIEWMODE_LINEAR} | <a href="{$entry.link_viewmode_threaded}#comments" rel="nofollow">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>
+        {if $entry.viewmode == $CONST.VIEWMODE_LINEAR}
+            <a class="btn btn-secondary btn-sm disabled" rel="nofollow" href="#">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a> | <a class="btn btn-secondary btn-sm" rel="nofollow" href="{$entry.link_viewmode_threaded}#comments">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>
         {else}
-           <a rel="nofollow" href="{$entry.link_viewmode_linear}#comments">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a> | {$CONST.COMMENTS_VIEWMODE_THREADED}
+           <a class="btn btn-secondary btn-sm" rel="nofollow" href="{$entry.link_viewmode_linear}#comments">{$CONST.COMMENTS_VIEWMODE_LINEAR}</a> | <a class="btn btn-secondary btn-sm disabled" rel="nofollow" href="#">{$CONST.COMMENTS_VIEWMODE_THREADED}</a>
         {/if}
         </p>
 
