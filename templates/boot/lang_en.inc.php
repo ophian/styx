@@ -6,4 +6,5 @@
 // Lang constants non-translate
 @define('BS_PLACE_SEARCH', 'Search term(s)');
 @define('BS_SEND_MAIL', 'Send email');
+@define('BS_PLACEHOLDER_QUICKSEARCH', 'Add searchTerm and hit ENTER');
 
