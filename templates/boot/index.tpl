@@ -41,7 +41,7 @@
               <input type="hidden" name="serendipity[action]" value="search">
               <div class="mb-3">
                 <h5 class="modal-title col-form-label">Styx {$CONST.QUICKSEARCH}</h5>
-                <input id="styxQuickSearchTermField" class="form-control" name="serendipity[searchTerm]" type="search" placeholder="Add searchTerm and hit ENTER" value="" aria-label="{$CONST.QUICKSEARCH}">
+                <input id="styxQuickSearchTermField" class="form-control" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.BS_PLACEHOLDER_QUICKSEARCH}" value="" aria-label="{$CONST.QUICKSEARCH}">
               </div>
             </form>
           </div>
