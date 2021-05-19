@@ -165,9 +165,7 @@
     <p lang="en">{$CONST.POWERED_BY} <a href="https://ophian.github.io/">Serendipity Styx Edition</a> <abbr title="and">&amp;</abbr> the <i>{$template}</i> theme.</p>
   </footer>
 
-{if $view == 'archive'}
   <script src="{serendipity_getFile file="b5/js/bootstrap.min.js"}"></script>{* bootstrap 5 does not need jquery lib any more *}
-{/if}
   <script src="{$serendipityHTTPPath}{$templatePath}jquery.js"></script>
   <script src="{serendipity_getFile file="theme.js"}"></script>
 {/if}
