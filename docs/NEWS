@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix search form issue in [ B46 ] theme
+
   * Improve syndication plugin consistency for icon and class selector build
 
   * Update to bootstrap assets 5.0.1 revision
