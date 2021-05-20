@@ -88,7 +88,7 @@
             {/if}</li>
         {if $staticpage_adminlink AND $staticpage_adminlink.page_user}
 
-            <li class="d-inline-block bi bi-pencil-square text-editicon serendipity_edit_nugget editentrylink btn btn-admin btn-sm"><a href="{$staticpage_adminlink.link_edit}">{$staticpage_adminlink.link_name|escape}</a></li>
+            <li class="d-flex flex-row-reverse text-editicon editentrylink"><a class="btn btn-secondary btn-sm btn-admin" href="{$staticpage_adminlink.link_edit}"><svg class="bi flex-shrink-0 me-2 mb-1" width="16" height="16" role="img" aria-label="Edit:"><use xlink:href="#pencil-square"/></svg>{$staticpage_adminlink.link_name|escape}</a></li>
         {/if}</ul>
     </footer>
 {/if}</article>
