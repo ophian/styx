@@ -977,9 +977,6 @@ article.post li .pc-owner {
   width: 30px; }
 /* comments styling add end */
 
-.details .trackback-hint {
-  display: none; }
-
 .form_field label, .form_select label, .form_tarea label {
   display: block;
   font-weight: bold; }
