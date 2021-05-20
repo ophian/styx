@@ -859,7 +859,7 @@ pre {
 .comment header h4 {
   float: left; }
 
-.comment > footer, .trackback-url, .comment-view, .comments-enable {
+.comment > footer, .trackback-url, .comment-view {
   font-size: 14px;
   font-size: .8125rem; }
 
