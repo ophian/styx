@@ -19,6 +19,7 @@ checkWebP(function(support) {
 (function($) {
     $('#serendipity_replyTo').addClass('form-select');
     $('.form-group > .serendipity_emoticon_bar').attr('class', 'form-info alert alert-secondary');
+    $('.serendipity_toggle_emoticon_bar.serendipityPrettyButton').attr('class', 'btn btn-outline-secondary btn-sm me-2');
     $('.serendipity_entrypaging_left a').addClass('btn btn-secondary');
     $('.serendipity_entrypaging_right a').addClass('btn btn-secondary');
     $('.serendipity_edit_nugget').attr('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
