@@ -42,9 +42,7 @@
                     </svg>
                     {foreach $entry.categories AS $entry_category}<a class="post_category" href="{$entry_category.category_link}">{$entry_category.category_name|escape}</a>{if NOT $entry_category@last}, {/if}{/foreach}
                 {if $entry.has_comments OR NOT empty($entry.freetag.tags)}
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" aria-hidden="true" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
+                    <svg class="bi flex-shrink-0 me-1" width="16" height="16" role="img"><use xlink:href="#grip-horizontal"/></svg>
                 {/if}</li>
             {/if}
             {if $entry.has_comments}
@@ -57,9 +55,7 @@
                     <a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments}</a>
                     {if $entry.allow_comments}
 
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" aria-hidden="true" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
+                    <svg class="bi flex-shrink-0 me-1" width="16" height="16" role="img"><use xlink:href="#grip-horizontal"/></svg>
                     <a class="post_toform" href="{$entry.link}#reply"><svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-link" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
                       <title id="toform">{$CONST.ADD_COMMENT}</title>
                       <path d="M6.354 5.5H4a3 3 0 0 0 0 6h3a3 3 0 0 0 2.83-4H9c-.086 0-.17.01-.25.031A2 2 0 0 1 7 10.5H4a2 2 0 1 1 0-4h1.535c.218-.376.495-.714.82-1z"/>
@@ -67,9 +63,7 @@
                     </svg></a>{/if}
                     {if NOT empty($entry.freetag.tags.tags) OR (NOT empty($entry.is_entry_owner) AND NOT $is_preview AND empty($entry.freetag.tags.tags))}
 
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" aria-hidden="true" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>{/if}
+                    <svg class="bi flex-shrink-0 me-1" width="16" height="16" role="img"><use xlink:href="#grip-horizontal"/></svg>{/if}
 
                 </li>
             {/if}
@@ -84,9 +78,7 @@
                     {if NOT $is_preview}{foreach $entry.freetag.tags.tags AS $tag}{$tag}{if NOT $tag@last}, {/if}{/foreach}{/if}
                 {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
 
-                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" aria-hidden="true" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
-                    </svg>
+                    <svg class="bi flex-shrink-0 me-1" width="16" height="16" role="img"><use xlink:href="#grip-horizontal"/></svg>
                 {/if}
 
                 </li>
