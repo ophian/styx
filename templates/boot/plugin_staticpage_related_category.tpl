@@ -25,11 +25,11 @@
 {/if}
 {if $staticpage_pass AND $staticpage_form_pass != $staticpage_pass}
     <form class="staticpage_password_form mb-3" action="{$staticpage_form_url}" method="post">
-    <fieldset>
+      <fieldset>
         <label for="serendipity_page_pass">{$CONST.STATICPAGE_PASSWORD_NOTICE}</label>
         <input id="serendipity_page_pass" name="serendipity[pass]" type="password" value="">
         <input name="submit" type="submit" value="{$CONST.GO}">
-    </fieldset>
+      </fieldset>
     </form>
 {else}
     {if $staticpage_precontent}
