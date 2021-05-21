@@ -34,6 +34,7 @@
 
             <ul class="post_meta plainList">
             {if NOT empty($entry.categories)}
+
                 <li class="post_category d-inline-block">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tag-fill" role="img" fill="#dc3545" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
                       <title id="bitcat">{$CONST.CATEGORIES}</title>
@@ -44,10 +45,10 @@
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" aria-hidden="true" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>
-                {/if}
-                </li>
+                {/if}</li>
             {/if}
             {if $entry.has_comments}
+
                 <li class="post_comments d-inline-block">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-chat-right-dots-fill" role="img" fill="#17a2b8" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
                       <title id="bitcom">{$entry.label_comments}</title>
@@ -55,6 +56,7 @@
                     </svg>
                     <a href="{$entry.link}#comments" title="{$entry.comments} {$entry.label_comments}{if $entry.has_trackbacks}, {$entry.trackbacks} {$entry.label_trackbacks}{/if}">{$entry.comments}</a>
                     {if $entry.allow_comments}
+
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" aria-hidden="true" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>
@@ -64,12 +66,15 @@
                       <path d="M9 5.5a3 3 0 0 0-2.83 4h1.098A2 2 0 0 1 9 6.5h3a2 2 0 1 1 0 4h-1.535a4.02 4.02 0 0 1-.82 1H12a3 3 0 1 0 0-6H9z"/>
                     </svg></a>{/if}
                     {if NOT empty($entry.freetag.tags.tags) OR (NOT empty($entry.is_entry_owner) AND NOT $is_preview AND empty($entry.freetag.tags.tags))}
+
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" aria-hidden="true" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>{/if}
+
                 </li>
             {/if}
             {if NOT empty($entry.freetag.tags.tags)}
+
                 <li class="post_tags d-inline-block">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-tags-fill" role="img" fill="#20c997" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
                       <title id="bittag">Free Tags</title>
@@ -78,13 +83,16 @@
                     </svg>
                     {if NOT $is_preview}{foreach $entry.freetag.tags.tags AS $tag}{$tag}{if NOT $tag@last}, {/if}{/foreach}{/if}
                 {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
+
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" aria-hidden="true" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
                     </svg>
                 {/if}
+
                 </li>
             {/if}
             {if NOT empty($entry.is_entry_owner) AND NOT $is_preview}
+
                 <li class="post_admin d-inline-block text-editicon editentrylink btn btn-admin btn-sm">
                     <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-pencil-square" role="img" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-labelledby="title">
                       <title id="bitmod">{$CONST.EDIT_ENTRY}</title>
