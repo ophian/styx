@@ -74,7 +74,10 @@
             {/if}</li>
         {if $staticpage_adminlink AND $staticpage_adminlink.page_user}
 
-            <li class="d-flex flex-row-reverse text-editicon editentrylink"><a class="btn btn-secondary btn-sm btn-admin" href="{$staticpage_adminlink.link_edit}"><svg class="bi flex-shrink-0 me-2 mb-1" width="16" height="16" role="img" aria-label="Edit:"><use xlink:href="#pencil-square"/></svg>{$staticpage_adminlink.link_name|escape}</a></li>
+            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-grip-horizontal" role="img" aria-hidden="true" fill="#343a40" xmlns="http://www.w3.org/2000/svg">
+              <path d="M7 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zM7 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+            </svg>
+            <li class="d-inline-block text-editicon editentrylink"><a class="btn btn-secondary btn-sm btn-admin" href="{$staticpage_adminlink.link_edit}"><svg class="bi flex-shrink-0 me-1 mb-1" width="16" height="16" role="img" aria-label="Edit:"><use xlink:href="#pencil-square"/></svg>{$staticpage_adminlink.link_name|escape}</a></li>
         {/if}</ul>
     </footer>
 {/if}</article>
