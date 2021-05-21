@@ -86,17 +86,17 @@
                 <span class="visuallyhidden">{$CONST.ON} </span>
                 {if $staticpage_use_lmdate}
                 <time datetime="{$staticpage_lastchange|serendipity_html5time}">{$staticpage_lastchange|formatTime:{$template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY}}</time>
-                {if $staticpage_adminlink AND $staticpage_adminlink.page_user} (<svg class="bi flex-shrink-0 mx-1" width="16" height="16" role="img" aria-labelledby="title"><title id="spcot">{$CONST.CREATED_ON|lower}</title><use xlink:href="#pencil-square"/></svg>{$staticpage_created_on|date_format:"%Y-%m-%d"}){/if}
+                {if $staticpage_adminlink AND $staticpage_adminlink.page_user} (<svg class="mx-1" width="16" height="16" role="img" aria-labelledby="title"><title id="spcot">{$CONST.CREATED_ON|lower}</title><use xlink:href="#pencil-square"/></svg>{$staticpage_created_on|date_format:"%Y-%m-%d"}){/if}
                 {else}
                 <time datetime="{$staticpage_created_on|serendipity_html5time}">{$staticpage_created_on|formatTime:{$template_option.date_format|default:$CONST.DATE_FORMAT_ENTRY}}</time>
-                {if $staticpage_adminlink AND $staticpage_adminlink.page_user} (<svg class="bi flex-shrink-0 mx-1" width="16" height="16" role="img" aria-labelledby="title"><title id="splmdt">{$CONST.LAST_UPDATED|lower}</title><use xlink:href="#pencil-square"/></svg>{$staticpage_lastchange|date_format:"%Y-%m-%d"}){/if}
+                {if $staticpage_adminlink AND $staticpage_adminlink.page_user} (<svg class="mx-1" width="16" height="16" role="img" aria-labelledby="title"><title id="splmdt">{$CONST.LAST_UPDATED|lower}</title><use xlink:href="#pencil-square"/></svg>{$staticpage_lastchange|date_format:"%Y-%m-%d"}){/if}
                 {/if}
             {/if}
             {/if}</li>
         {if $staticpage_adminlink AND $staticpage_adminlink.page_user}
 
-            <svg class="bi flex-shrink-0 me-1" width="16" height="16" role="img"><use xlink:href="#grip-horizontal"/></svg>
-            <li class="d-inline-block text-editicon editentrylink"><a class="btn btn-secondary btn-sm btn-admin" href="{$staticpage_adminlink.link_edit}"><svg class="bi flex-shrink-0 me-1 mb-1" width="16" height="16" role="img" aria-label="Edit:"><use xlink:href="#pencil-square"/></svg>{$staticpage_adminlink.link_name|escape}</a></li>
+            <svg class="me-1" width="16" height="16" role="img"><use xlink:href="#grip-horizontal"/></svg>
+            <li class="d-inline-block text-editicon editentrylink"><a class="btn btn-secondary btn-sm btn-admin" href="{$staticpage_adminlink.link_edit}"><svg class="me-1 mb-1" width="16" height="16" role="img" aria-label="Edit:"><use xlink:href="#pencil-square"/></svg>{$staticpage_adminlink.link_name|escape}</a></li>
         {/if}</ul>
     </footer>
 {/if}</article>
