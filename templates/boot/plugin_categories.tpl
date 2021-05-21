@@ -9,7 +9,7 @@
 {/if}
 {if NOT empty($category_image)}
             <a class="serendipity_xml_icon" href="{$plugin_category.feedCategoryURL}">
-              <svg class="bi flex-shrink-0 me-1" width="16" height="16" role="img" aria-labelledby="title"> <title id="pctrss_{$plugin_category@key}">XML</title><use xlink:href="#rss-fill"/></svg>
+              <svg class="me-1" width="16" height="16" role="img" aria-labelledby="title"> <title id="pctrss_{$plugin_category@key}">XML</title><use xlink:href="#rss-fill"/></svg>
             </a>
 {/if}
             <a href="{$plugin_category.categoryURL}" title="{$plugin_category.category_description|escape}">{$plugin_category.category_name|escape}</a>
