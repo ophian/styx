@@ -1,3 +1,10 @@
+function addClass(selector, clsname) {
+    els = document.querySelectorAll(selector);
+    for (var i = 0; i < els.length; i++) {
+        els[i].className += clsname;
+    }
+};
+
 function checkWebP(callback) {
     var webP = new Image();
     webP.onload = webP.onerror = function () {
@@ -8,31 +15,103 @@ function checkWebP(callback) {
 
 checkWebP(function(support) {
     if (!support) {
-        $('a.serendipity_image_link').each(function() {
-            var $currentA = $(this);
-            var  dataHref = $currentA.attr('data-fallback');
-            $currentA.attr('href', dataHref);
+        let ilinks = document.querySelectorAll('a.serendipity_image_link');
+        ilinks.forEach.call(this, function (elem) {
+            var dataHref = elem.setAttribute('data-fallback');
+            elem.setAttribute('href', dataHref);
         });
     }
 });
 
-(function($) {
-    $('#serendipity_replyTo').addClass('form-select');
-    $('.form-group > .serendipity_emoticon_bar').attr('class', 'form-info alert alert-secondary');
-    $('.serendipity_toggle_emoticon_bar.serendipityPrettyButton').attr('class', 'btn btn-outline-secondary btn-sm me-2');
-    $('.serendipity_entrypaging_left a').addClass('btn btn-secondary');
-    $('.serendipity_entrypaging_right a').addClass('btn btn-secondary');
-    $('.serendipity_edit_nugget').attr('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
-    $('.msg_notice.serendipity_subscription_off').attr('class', 'alert alert-warning serendipity_subscription_off').attr('role', 'alert');
-    $('.serendipity_msg_important.msg_error').attr('class', 'alert alert-danger').attr('role', 'alert');
-    $('.serendipity_msg_important').addClass('alert alert-secondary').attr('role', 'alert');
-    $('.serendipity_msg_success').addClass('alert alert-success').attr('role', 'alert');
-    $('.serendipity_msg_notice').addClass('alert alert-info').attr('role', 'alert');
-    $('#category_submit').addClass('btn btn-outline-secondary btn-sm');
-    $('.serendipity_freeTag_xmlTagEntry > .serendipity_xml_icon > img.serendipity_freeTag_xmlButton').replaceWith('<svg class="me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="ftrss">XML</title><use xlink:href="#rss-fill"/></svg>');
-    $('#serendipity_syndication_list .serendipity_xml_icon > img').replaceWith('<svg class="me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"/></svg>');
-    $('.trackback details > div > a').attr('class', 'btn btn-secondary btn-sm btn-admin trackbacks-delete');
-    $('#trackback_url').click(function(e) { e.preventDefault(); $(this).next('.trackback-hint').show(); });
-    $('.serendipity_entrypaging').addClass('mobile');
-    $('a.serendipity_image_link[href=""]').each(function() { if (typeof $(this).data('fallback') !== 'undefined' || $(this).data("fallback")) { var linkHref = $(this).attr('data-fallback'); $(this).attr('href', linkHref); }});
-})(jQuery);
+let exmSVG = '<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>';
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    addClass('#serendipity_replyTo', 'form-select'); // no space since added class
+
+    let a = document.querySelector('.form-group > .serendipity_emoticon_bar');
+    if (a !== null) a.setAttribute('class', 'form-info alert alert-secondary');
+    let ai = document.querySelector('.serendipity_toggle_emoticon_bar.serendipityPrettyButton');
+    if (ai !== null) ai.setAttribute('class', 'btn btn-outline-secondary btn-sm me-2');
+
+    addClass('.serendipity_entrypaging_left a', 'btn btn-secondary'); // no space since added class
+
+    addClass('.serendipity_entrypaging_right a', 'btn btn-secondary'); // no space since added class
+
+    let b = document.querySelector('.serendipity_edit_nugget');
+    if (b !== null) b.setAttribute('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
+
+    let c = document.querySelector('.msg_notice.serendipity_subscription_off');
+    if (c !== null) c.setAttribute('class', 'alert alert-warning serendipity_subscription_off');
+
+    let d = document.querySelector('.alert.alert-warning.serendipity_subscription_off');
+    if (d !== null) d.setAttribute('role', 'alert');
+
+    // convert important error alerts
+    let error = document.querySelectorAll('.serendipity_msg_important.msg_error');
+    for(let i = 0; i < error.length; i++) {
+        error[i].setAttribute('class', 'alert alert-danger');
+        error[i].setAttribute('role', 'alert');
+        error[i].insertAdjacentHTML('afterbegin', exmSVG);
+    }
+
+    // convert normal important alerts
+    let important = document.querySelectorAll('.serendipity_msg_important');
+    for(let i = 0; i < important.length; i++) {
+        important[i].setAttribute('class', 'alert alert-secondary');
+        important[i].setAttribute('role', 'alert');
+    }
+
+    // convert success message alerts
+    let success = document.querySelectorAll('.serendipity_msg_success');
+    for(let i = 0; i < success.length; i++) {
+        success[i].setAttribute('class', 'alert alert-success');
+        success[i].setAttribute('role', 'alert');
+    }
+
+    // convert notice message alerts
+    let notice = document.querySelectorAll('.serendipity_msg_notice');
+    for(let i = 0; i < notice.length; i++) {
+        notice[i].setAttribute('class', 'alert alert-info');
+        notice[i].setAttribute('role', 'alert');
+    }
+
+    addClass('#category_submit', 'btn btn-outline-secondary btn-sm'); // no space since added class
+
+    let ftx = document.querySelectorAll('.serendipity_freeTag_xmlTagEntry > .serendipity_xml_icon > img.serendipity_freeTag_xmlButton');
+    for(let i = 0; i < ftx.length; i++) {
+        ftx[i].insertAdjacentHTML('afterend','<svg class="me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="ftrss">XML</title><use xlink:href="#rss-fill"/></svg>');
+        ftx[i].parentNode.removeChild(ftx[i]);
+    }
+
+    let spx = document.querySelectorAll('#serendipity_syndication_list .serendipity_xml_icon > img');
+    for(let i = 0; i < spx.length; i++) {
+        spx[i].insertAdjacentHTML('afterend','<svg class="me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"/></svg>');
+        spx[i].parentNode.removeChild(spx[i]);
+    }
+
+    let tbd = document.querySelectorAll('.trackback details > div > a');
+    for(let i = 0; i < tbd.length; i++) {
+        tbd[i].setAttribute('class', 'btn btn-secondary btn-sm btn-admin trackbacks-delete');
+    }
+
+    // hide and open trackback url info box
+    let q = document.querySelector('#trackback_url');
+    if (q !== null) q.addEventListener('click', function(e) { e.preventDefault(); if (q.nextElementSibling.classList.contains('d-none')) { q.nextElementSibling.classList.remove('d-none'); }});
+
+    addClass('.serendipity_entrypaging', ' d-flex mb-3'); // add with space since added to exiting class selector
+    addClass('.serendipity_entrypaging_left a.bt.btn-secondary', ' truncate pe-2'); // add with space since added to exiting class selector
+    addClass('.serendipity_entrypaging_right a.btn.btn-secondary', ' truncate ps-2'); // add with space since added to exiting class selector
+
+    let linkdata = document.querySelectorAll('a.serendipity_image_link[href=""]');
+    if (linkdata !== null) {
+        linkdata.forEach.call(
+          this, function (elem) {
+            if (typeof elem.data('fallback') !== 'undefined' || elem.data("fallback")) {
+              var linkHref = elem.setAttribute('data-fallback');
+              elem.setAttribute('href', linkHref);
+            }
+          }
+        );
+    }
+});
