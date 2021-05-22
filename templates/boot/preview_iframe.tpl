@@ -4,6 +4,9 @@
     <meta charset="{$head_charset}">
     <title>{$CONST.SERENDIPITY_ADMIN_SUITE}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+{if $mode == 'preview'}
+    <link rel="stylesheet" href="{serendipity_getFile file="b5/css/bootstrap.min.css"}">
+{/if}
 {if $head_link_stylesheet_frontend}
     <link rel="stylesheet" href="{$head_link_stylesheet_frontend}">
 {else}
@@ -14,6 +17,8 @@
 
 {if $mode == 'save'}{* we need this for modernizr.indexDB cleaning up autosave entry modifications *}
     <script src="{serendipity_getFile file="admin/js/modernizr.min.js"}"></script>
+{else}
+    <style>figure > .serendipity_imageComment_img { border: 0 none; } .serendipity_entrypaging { display: none; visibility: hidden; }</style>
 {/if}
 
     <script type="text/javascript">
@@ -57,7 +62,7 @@
     </div>
 
 {if $mode == 'preview'}
-    <script src="{$serendipityHTTPPath}{$templatePath}{$template}theme.js"></script>
+    <script src="{serendipity_getFile file="theme.js"}"></script>
 {/if}
 
 </body>
