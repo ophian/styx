@@ -717,7 +717,6 @@ form > button,
     margin-bottom: 0.5em; /* updates only */
     margin-top: -1em;
 }
-.plugin_data.open, /*IE*/
 .plugin_data[open=""] {
     margin-bottom: .25em;
 }
@@ -863,10 +862,10 @@ input[type="submit"].state_cancel:visited {
 .state_update:visited,
 input[type="update"],
 button[type="update"] {
-    background: #FCF3F3;
-    background-image: -webkit-linear-gradient(#FCF3F3, #FFE18C);
-    background-image: linear-gradient(#FCF3F3, #FFE18C);
-    border-color: #D7A936 #CB6A6A #2F1820;
+    background: #fcf3f3;
+    background-image: -webkit-linear-gradient(#fcf3f3, #ffe18c);
+    background-image: linear-gradient(#fcf3f3, #ffe18c);
+    border-color: #d7a936 #cb6a6a #2f1820;
 }
 
 .button_link:hover,
@@ -907,9 +906,9 @@ input[type="submit"].state_cancel:focus {
 .state_update:focus,
 input[type="update"]:hover,
 button[type="update"]:focus {
-    background: #F8E97C;
-    background-image: -webkit-linear-gradient(#FCFBF7, #F8E97C 1px, #FF8E3B);
-    background-image: linear-gradient(#FCFBF7, #F8E97C 1PX, #FF8E3B);
+    background: #f8e97c;
+    background-image: -webkit-linear-gradient(#fcfbf7, #f8e97c 1px, #ff8e3b);
+    background-image: linear-gradient(#fcfbf7, #f8e97c 1px, #ff8e3b);
 }
 
 .active,
@@ -942,7 +941,8 @@ input[type="reset"]:active
 input[type="submit"].state_cancel:active {
     background-image: -webkit-linear-gradient(#cc7a79, #b94a48 1px, #c26260);
     background-image: linear-gradient(#cc7a79, #b94a48 1px, #c26260);
-    border-color: #582322 #893634 #b94a48;color: #fafafa;
+    border-color: #582322 #893634 #b94a48;
+    color: #fafafa;
 }
 
 input[type="submit"].entry_preview {
@@ -1989,7 +1989,6 @@ ul.edit_actions li > .user_level {
 .pluginmanager_container .plugin_data .perm_name {
     left: 1.25em;
 }
-.plugin_data.open .block_level, /*IE*/
 .plugin_data[open=""] .block_level,
 .plugin_data .plugin_desc,
 .plugin_data .plugin_author {
@@ -1998,14 +1997,12 @@ ul.edit_actions li > .user_level {
 .plugin_author {
     margin-top: .5em;
 }
-.plugin_data.open, /*IE*/
 .plugin_data[open=""] {
     border: 1px dashed #777;
     margin-bottom: .5em;
     padding: .25em;
     background: #F5F5F5;
 }
-.pluginmanager_container .plugin_data.open .perm_name, /*IE*/
 .pluginmanager_container .plugin_data[open=""] .perm_name {
     left: 0;
     padding-left: .25em;
