@@ -29,23 +29,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
     addClass('#serendipity_replyTo', 'form-select'); // no space since added class
 
-    let a = document.querySelector('.form-group > .serendipity_emoticon_bar');
-    if (a !== null) a.setAttribute('class', 'form-info alert alert-secondary');
-    let ai = document.querySelector('.serendipity_toggle_emoticon_bar.serendipityPrettyButton');
-    if (ai !== null) ai.setAttribute('class', 'btn btn-outline-secondary btn-sm me-2');
+    let b = document.querySelector('.form-group > .serendipity_emoticon_bar');
+    if (b !== null) b.setAttribute('class', 'form-info alert alert-secondary');
+    let bp = document.querySelector('.serendipity_toggle_emoticon_bar.serendipityPrettyButton');
+    if (bp !== null) bp.setAttribute('class', 'btn btn-outline-secondary btn-sm me-2');
 
     addClass('.serendipity_entrypaging_left a', 'btn btn-secondary'); // no space since added class
 
     addClass('.serendipity_entrypaging_right a', 'btn btn-secondary'); // no space since added class
 
-    let b = document.querySelector('.serendipity_edit_nugget');
-    if (b !== null) b.setAttribute('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
+    let n = document.querySelector('.serendipity_edit_nugget');
+    if (n !== null) n.setAttribute('class', 'bi bi-pencil-square text-editicon serendipity_edit_nugget btn btn-admin btn-sm');
 
-    let c = document.querySelector('.msg_notice.serendipity_subscription_off');
-    if (c !== null) c.setAttribute('class', 'alert alert-warning serendipity_subscription_off');
-
-    let d = document.querySelector('.alert.alert-warning.serendipity_subscription_off');
-    if (d !== null) d.setAttribute('role', 'alert');
+    let s = document.querySelector('.msg_notice.serendipity_subscription_off');
+    if (s !== null) s.setAttribute('class', 'alert alert-warning serendipity_subscription_off');
+    let so = document.querySelector('.alert.alert-warning.serendipity_subscription_off');
+    if (so !== null) so.setAttribute('role', 'alert');
 
     // convert important error alerts
     let error = document.querySelectorAll('.serendipity_msg_important.msg_error');
@@ -96,8 +95,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // hide and open trackback url info box
-    let q = document.querySelector('#trackback_url');
-    if (q !== null) q.addEventListener('click', function(e) { e.preventDefault(); if (q.nextElementSibling.classList.contains('d-none')) { q.nextElementSibling.classList.remove('d-none'); }});
+    let t = document.querySelector('#trackback_url');
+    if (t !== null) t.addEventListener('click', function(e) { e.preventDefault(); if (t.nextElementSibling.classList.contains('d-none')) { t.nextElementSibling.classList.remove('d-none'); }});
 
     addClass('.serendipity_entrypaging', ' d-flex mb-3'); // add with space since added to exiting class selector
     addClass('.serendipity_entrypaging_left a.bt.btn-secondary', ' truncate pe-2'); // add with space since added to exiting class selector
