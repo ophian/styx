@@ -2,9 +2,10 @@
 {if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}
 <section id="entries_dategroup" class="serendipity_Entry_Date">
+{if $dategroup.is_sticky OR $dategroup.entries|count > 1}
     <header>
         <p class="serendipity_date text-end">{if $dategroup.is_sticky}{$CONST.STICKY_POSTINGS}{else}{$dategroup.date|formatTime:DATE_FORMAT_ENTRY}{/if}</p>
-    </header>
+    </header>{/if}
     {foreach $dategroup.entries AS $entry}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
 
     <article class="post{if $is_single_entry} post_single{/if}{if $dategroup.is_sticky} post_sticky{/if}">
