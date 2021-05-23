@@ -79,13 +79,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
     let ftx = document.querySelectorAll('.serendipity_freeTag_xmlTagEntry > .serendipity_xml_icon > img.serendipity_freeTag_xmlButton');
     for(let i = 0; i < ftx.length; i++) {
-        ftx[i].insertAdjacentHTML('afterend','<svg class="me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="ftrss">XML</title><use xlink:href="#rss-fill"/></svg>');
+        ftx[i].insertAdjacentHTML('afterend','<svg class="bi me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="ftrss">XML</title><use xlink:href="#rss-fill"/></svg>');
         ftx[i].parentNode.removeChild(ftx[i]);
     }
 
     let spx = document.querySelectorAll('#serendipity_syndication_list .serendipity_xml_icon > img');
     for(let i = 0; i < spx.length; i++) {
-        spx[i].insertAdjacentHTML('afterend','<svg class="me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"/></svg>');
+        spx[i].insertAdjacentHTML('afterend','<svg class="bi me-1" width="16" height="16" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"/></svg>');
         spx[i].parentNode.removeChild(spx[i]);
     }
 
