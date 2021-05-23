@@ -45,6 +45,40 @@ $template_config = array(
                                 '%Y-%m-%d' => '%Y-%m-%d')
     ),
     array(
+       'var' => 'featured',
+       'name' => 'Featured blog post',
+       'description' => 'Add the ID of your written blog entry',
+       'type' => 'string',
+       'default' => 0
+    ),
+    array(
+       'var' => 'cardone',
+       'name' => 'Left Card',
+       'description' => 'Add the ID of your written blog entry',
+       'type' => 'string',
+       'default' => 0
+    ),
+    array(
+       'var' => 'cardtwo',
+       'name' => 'Right Card',
+       'description' => 'Add the ID of your written blog entry',
+       'type' => 'string',
+       'default' => 0
+    ),
+    array(
+       'var' => 'title',
+       'name' => 'Welcome title',
+       'type' => 'boolean',
+       'type' => 'string',
+       'default' => 'From the Styx Firehose'
+    ),
+    array(
+       'var' => 'about',
+       'name' => 'About Box',
+       'type' => 'boolean',
+       'default' => true
+    ),
+    array(
        'var' => 'use_corenav',
        'name' => USE_CORENAV,
        'type' => 'boolean',
