@@ -1075,11 +1075,13 @@
         }
 
         if (toggleState == stateOpen) {
+            $(toggler).removeClass('active');
             $toggleIcon.removeClass(stateOpen).addClass(stateClosed);
             if (togglerId !== undefined && localStorage !== null) {
                 localStorage.setItem(storageKey, "false");
             }
         } else {
+            $(toggler).addClass('active');
             $toggleIcon.removeClass(stateClosed).addClass(stateOpen);
             if (togglerId !== undefined && localStorage !== null) {
                 localStorage.setItem(storageKey, "true");
