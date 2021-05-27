@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Fix MediaLibrary media_items properties page wrong conditional closure
+
   * Add auto generated SVG [ no preview ] image to templates w/o preview file
 
   * Fix search form issue in [ B46 ] theme
