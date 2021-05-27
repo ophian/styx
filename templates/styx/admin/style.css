@@ -433,6 +433,22 @@ svg.bi {
     vertical-align: -.125em;
 }
 
+.svg-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  width: 100%;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .svg-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
 /* ICON FONT: http://fortawesome.github.com/Font-Awesome/ */
 @font-face {
   font-family: 'fontello';
