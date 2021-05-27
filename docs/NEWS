@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Add auto generated SVG [ no preview ] to templates w/o preview preview image
+
   * Fix search form issue in [ B46 ] theme
 
   * Improve syndication plugin consistency for icon and class selector build
