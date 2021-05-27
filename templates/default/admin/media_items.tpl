@@ -340,9 +340,10 @@
 
                         </select>
                       </div>
+                    {/if}
+
                       <div id="media_select_props" class="media_select_props additional_info"><span class="msg_hint"><span class="icon-info-circled" aria-hidden="true"></span> {$CONST.MEDIA_PROPERTIES_SELECT_INFO_DESC}{if NOT empty($specialwebp)}<br>{$CONST.MEDIA_PROPERTIES_FORMAT_WEBP}{/if}</span></div>
                     </fieldset>
-                    {/if}
                 {/if}
 
                 </section>
