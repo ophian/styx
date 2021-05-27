@@ -47,28 +47,42 @@ $template_config = array(
     array(
        'var' => 'featured',
        'name' => 'Featured blog post',
-       'description' => 'Add the ID of your written blog entry',
+       'description' => 'Add the ID of your written blog entry. Set 0 for none.',
        'type' => 'string',
        'default' => 0
     ),
     array(
        'var' => 'cardone',
-       'name' => 'Left Card',
-       'description' => 'Add the ID of your written blog entry',
+       'name' => 'Left Card post',
+       'description' => 'Add the ID of your written blog entry. Set 0 for none.',
        'type' => 'string',
        'default' => 0
     ),
     array(
+       'var' => 'cot',
+       'name' => 'Left Card thumb image',
+       'type' => 'string',
+       'description' => 'Add a HTTP URL Path of a local image in size [200x250] px. Set 0 for placeholder SVG image.',
+       'default' => 0
+    ),
+    array(
        'var' => 'cardtwo',
-       'name' => 'Right Card',
-       'description' => 'Add the ID of your written blog entry',
+       'name' => 'Right Card post',
+       'description' => 'Add the ID of your written blog entry. Set 0 for none.',
+       'type' => 'string',
+       'default' => 0
+    ),
+    array(
+       'var' => 'ctt',
+       'name' => 'Right Card thumb image',
+       'description' => 'Add a HTTP URL Path of a local image in size [200x250] px. Set 0 for placeholder SVG image.',
        'type' => 'string',
        'default' => 0
     ),
     array(
        'var' => 'title',
-       'name' => 'Welcome title',
-       'type' => 'boolean',
+       'name' => 'Entries Welcome title',
+       'description' => 'Set 0 for none.',
        'type' => 'string',
        'default' => 'From the Styx Firehose'
     ),
@@ -77,6 +91,19 @@ $template_config = array(
        'name' => 'About Box',
        'type' => 'boolean',
        'default' => true
+    ),
+    array(
+       'var' => 'abouttitle',
+       'name' => 'About Box title',
+       'type' => 'string',
+       'default' => 'About'
+    ),
+    array(
+       'var' => 'abouttext',
+       'name' => 'About Box text',
+       'type' => 'text',
+       'rows' => 3,
+       'default' => 'Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.'
     ),
     array(
        'var' => 'use_corenav',
