@@ -434,7 +434,7 @@ svg.bi {
 }
 
 .svg-placeholder-img {
-  font-size: 1.125rem;
+  font-size: 1rem;
   text-anchor: middle;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -442,11 +442,11 @@ svg.bi {
   width: 100%;
   height: auto;
 }
-
-@media (min-width: 768px) {
-  .svg-placeholder-img-lg {
-    font-size: 3.5rem;
-  }
+.theme_file.tmMidCol .svg-placeholder-img-lg {
+  font-size: 1.125rem;
+}
+.theme_file.tmDefCol .svg-placeholder-img-lg {
+  font-size: 1.75rem;
 }
 
 /* ICON FONT: http://fortawesome.github.com/Font-Awesome/ */
