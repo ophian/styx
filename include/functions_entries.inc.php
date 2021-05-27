@@ -1137,7 +1137,7 @@ function serendipity_getTotalEntries() {
  * Passes the list of fetched entries from serendipity_fetchEntries() on to the Smarty layer
  *
  * This function contains all the core logic to group and prepare entries to be shown in your
- * $entries.tpl template. It groups them by date, so that you can easily loop on the set of entries.
+ * entries.tpl template. It groups them by date, so that you can easily loop on the set of entries.
  * This function is not only used for printing all entries, but also for printing individual entries.
  * Several central Event hooks are executed here for the whole page flow, like header+footer data.
  *
