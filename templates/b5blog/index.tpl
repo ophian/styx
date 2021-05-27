@@ -47,6 +47,7 @@
 {serendipity_hookPlugin hook="frontend_header"}
 {/if}
 {if $is_raw_mode != true}
+{if $is_raw_mode != true}
 <!-- Modal -->
 <div class="modal fade" id="quicksearch" tabindex="-1" aria-labelledby="{$CONST.QUICKSEARCH}" aria-hidden="true">
   <div class="modal-dialog">
@@ -63,6 +64,7 @@
     </div>
   </div>
 </div>
+<!-- Blog Container -->
 <div class="container">
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
@@ -91,55 +93,70 @@
 {/if}
 
   <main class="container mb-4">
-  {* FEATURED BLOG POST container *}
+{* FEATURED BLOG POST container *}
+{if $template_option.featured != 0 AND in_array($view, ['start', 'entries'])}
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
       <div class="col-md-6 px-0">
-        <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-        <p class="lead mb-0"><a href="#{* Point to a blog post *}" class="text-white fw-bold">Continue reading...</a></p>
+        <h1 class="display-4 fst-italic">{$red.title|default:'Title of a longer featured blog post'}</h1>
+        <p class="lead my-3">{$red.body|strip|strip_tags|truncate:280:'...'|default:'Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.'}</p>
+        <p class="lead mb-0"><a href="{$serendipityArchiveURL}/{$red.id|default:'#'}-{$red.title|default:''}.html" class="text-white fw-bold">Continue reading...</a></p>
       </div>
     </div>
+{/if}
 {* GRID CARD POSTS container *}
     <div class="row mb-2">
 {* LEFT GRID CARD *}
+{if $template_option.cardone != 0 AND in_array($view, ['start', 'entries'])}
       <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary">World</strong>
-            <h3 class="mb-0">Featured post</h3>
-            <div class="mb-1 text-muted">Nov 12</div>
-            <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-            <a href="#{* Point to a blog post *}" class="stretched-link">Continue reading</a>
+            <strong class="d-inline-block mb-2 text-primary capitalize">{$cal.categories.0.category_name|default:'World'}</strong>
+            <h3 class="mb-0">{$cal.title|truncate:30:''}</h3>
+            <div class="mb-1 text-muted">{$cal.timestamp|formatTime:'%B %e'}</div>
+            <p class="card-text mb-auto">{$cal.body|strip|strip_tags|truncate:80:'...'}</p>
+            <a href="{$serendipityArchiveURL}/{$cal.id}-{$cal.title}.html" class="stretched-link">Continue reading</a>
           </div>
           <div class="col-auto d-none d-lg-block">
+{if $template_option.cot == 0}
             <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+{else}
+            <img class="bd-placeholder-img" width="200" height="250" src="{$template_option.cot|default:0}">
+{/if}
           </div>
         </div>
       </div>
+{/if}
 {* RIGHT GRID CARD *}
+{if $template_option.cardtwo != 0 AND in_array($view, ['start', 'entries'])}
       <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-success">Design</strong>
-            <h3 class="mb-0">Post title</h3>
-            <div class="mb-1 text-muted">Nov 11</div>
-            <p class="mb-auto">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-            <a href="#{* Point to a blog post *}" class="stretched-link">Continue reading</a>
+            <strong class="d-inline-block mb-2 text-success capitalize">{$car.categories.0.category_name|default:'Design'}</strong>
+            <h3 class="mb-0">{$car.title|truncate:30:''}</h3>
+            <div class="mb-1 text-muted">{$car.timestamp|formatTime:'%B %e'}</div>
+            <p class="mb-auto">{$car.body|strip_tags|strip|truncate:80:'...'}</p>
+            <a href="{$serendipityArchiveURL}/{$car.id}-{$car.title}.html" class="stretched-link">Continue reading</a>
           </div>
           <div class="col-auto d-none d-lg-block">
+{if $template_option.ctt == 0}
             <svg class="bd-placeholder-img" width="200" height="250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+{else}
+            <img class="bd-placeholder-img" width="200" height="250" src="{$template_option.ctt|default:0}">
+{/if}
           </div>
         </div>
       </div>
     </div>
+{/if}
 
     <div class="row g-5">
       <div class="col-md-8">
 {* BLOG POSTS TITLE headline *}
+{if $template_option.title != 0 AND in_array($view, ['start', 'entries'])}
         <h3 class="pb-4 mb-4 fst-italic border-bottom">
-          From the Styx Firehose
+          {$template_option.title|escape|default:'From the Styx Firehose'}
         </h3>
-
+{/if}
         {$CONTENT}
 
       </div>
@@ -147,10 +164,12 @@
       <div class="col-md-4">
         <div class="position-sticky" style="top: 2rem;">
 {* SIDEBAR ABOUT BOX container *}
+{if $template_option.about}
           <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">About</h4>
-            <p class="mb-0">Customize this section to tell your visitors a little bit about your publication, writers, content, or something else entirely. Totally up to you.</p>
+            <h4 class="fst-italic">{$template_options.abouttitle|escape|default:''}</h4>
+            <p class="mb-0">{$template_options.abouttext|escape|default:''}</p>
           </div>
+{/if}
 
           {serendipity_printSidebar side="left"}
           {serendipity_printSidebar side="right"}
