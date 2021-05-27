@@ -26,6 +26,16 @@ if (is_array($required_fieldlist)) {
     $serendipity['smarty']->assign('required_fields', $smarty_required_fields);
 }
 
+$serendipity['smarty']->assign(
+    array(
+        'red' => (serendipity_fetchEntry('id', $template_loaded_config['featured'], false) ?? 0),
+        'cal' => (serendipity_fetchEntry('id', $template_loaded_config['cardone'], false) ?? 0),
+        'car' => (serendipity_fetchEntry('id', $template_loaded_config['cardtwo'], false) ?? 0),
+        'cot' => ($template_loaded_config['cdothmb'] ?? 0),
+        'ctt' => ($template_loaded_config['cdtthmb'] ?? 0)
+    )
+);
+
 $template_config = array(
     array(
         'var' => 'date_format',
