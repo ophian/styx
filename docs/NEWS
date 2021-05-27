@@ -1,7 +1,7 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
-  * Add auto generated SVG [ no preview ] to templates w/o preview preview image
+  * Add auto generated SVG [ no preview ] image to templates w/o preview file
 
   * Fix search form issue in [ B46 ] theme
 
