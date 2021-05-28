@@ -786,6 +786,10 @@ ul.pagination {
 .editentrylink .btn-admin {
   padding: .0625rem .3125rem; }
 
+.capitalize {
+  text-transform: capitalize
+}
+
 .post pre, .page pre, .post .geshi, .page .geshi {
   font-size: 15.75px;
   font-size: .875rem;
