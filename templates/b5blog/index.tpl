@@ -47,7 +47,6 @@
 {serendipity_hookPlugin hook="frontend_header"}
 {/if}
 {if $is_raw_mode != true}
-{if $is_raw_mode != true}
 <!-- Modal -->
 <div class="modal fade" id="quicksearch" tabindex="-1" aria-labelledby="{$CONST.QUICKSEARCH}" aria-hidden="true">
   <div class="modal-dialog">
