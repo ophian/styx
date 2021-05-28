@@ -1356,7 +1356,7 @@ p > img.serendipity_image_center {
 .serendipity_entrypaging_right {
     display: block;
     white-space: nowrap;
-    width: 48%;
+    width: 50%;
     overflow: hidden; }
     .serendipity_entrypaging_left {
       text-overflow: ellipsis; }
