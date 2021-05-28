@@ -1197,6 +1197,13 @@ p > img.serendipity_image_center {
   margin: 0 0 .625rem .625rem;
   float: right; }
 
+/* disable sidebar widget calendar when not enough space */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  .sidebar_widget.serendipity_plugin_calendar .sidebar_content {
+    display: none;
+  }
+}
+
 .serendipity_calendar {
   border: 1px solid #3e5f81; }
   .serendipity_calendar abbr[title] {
@@ -1386,7 +1393,7 @@ p > img.serendipity_image_center {
       margin: 0 45px 36px 0;
       margin: 0 3rem 2rem 0rem; }
   table.calendar {
-    width: 17.75rem; }
+    max-width: 17.75rem; }
     .calendar.table.table-light > thead th {
       border-bottom-color: lightgray; }
     .calendar th, .calendar td {
