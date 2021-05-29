@@ -1,5 +1,5 @@
 <?php
-// Sliver template v.4.61 2021-02-25
+// Sliver template v.4.62 2021-05-29
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -16,7 +16,7 @@ if (IN_serendipity !== true) {
 
 $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2'=> $_SERVER['REQUEST_URI'],
-                                     'sliver_credit' => 'Sliver &copy; 2011-'.date('Y').', v4.59'));
+                                     'sliver_credit' => 'Sliver &copy; 2011-'.date('Y').', v4.62'));
 
 /*************************************************************************/
 /* Staticpage related article by freetags.
@@ -282,7 +282,6 @@ $top = $serendipity['smarty_vars']['template_option'] ?? '';
 $template_config_groups = null;
 $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
-$serendipity['template_loaded_config'][$serendipity['template']] = $template_loaded_config; // copy into global scope for extended plugin API usage
 serendipity_loadGlobalThemeOptions($template_config, $template_loaded_config, $template_global_config); // since $template_loaded_config can somehow not be loaded global
 
 if (isset($_SESSION['serendipityUseTemplate'])) {
