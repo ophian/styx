@@ -165,8 +165,8 @@
 {* SIDEBAR ABOUT BOX container *}
 {if $template_option.about}
           <div class="p-4 mb-3 bg-light rounded">
-            <h4 class="fst-italic">{$template_options.abouttitle|escape|default:''}</h4>
-            <p class="mb-0">{$template_options.abouttext|escape|default:''}</p>
+            <h4 class="fst-italic">{$template_option.abouttitle|escape|default:''}</h4>
+            <p class="mb-0">{$template_option.abouttext|escape|default:''}</p>
           </div>
 {/if}
 
