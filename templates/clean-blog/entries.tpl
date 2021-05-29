@@ -2,7 +2,7 @@
 {if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
-    {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
+    {if $is_single_entry AND ($entry.comments > 0 OR $entry.trackbacks > 0)}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" etc *}{/if}
     <article id="post_{$entry.id}" class="post{if NOT $is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}-preview{/if} serendipity_entry{if $dategroup.is_sticky} sticky{/if}" role="article">
     {if NOT $is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}
         <a href="{$entry.link}"><h2 class="post-title">{$entry.title}</h2>
