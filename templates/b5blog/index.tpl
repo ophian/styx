@@ -161,7 +161,7 @@
       </div>
 
       <div class="col-md-4">
-        <div class="position-sticky" style="top: 2rem;">
+        <div class="position-sticky">
 {* SIDEBAR ABOUT BOX container *}
 {if $template_option.about}
           <div class="p-4 mb-3 bg-light rounded">
