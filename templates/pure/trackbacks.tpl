@@ -1,3 +1,5 @@
+{if $entry.trackbacks > 0}
+
         <ol class="plainList">
     {foreach $trackbacks AS $trackback}
 
@@ -24,3 +26,4 @@
     {/foreach}
 
         </ol>
+{/if}
