@@ -72,7 +72,7 @@
 
     <article id="article_dategroup_entries">
     {foreach $dategroup.entries AS $entry}
-      {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
+      {if $is_single_entry AND ($entry.comments > 0 OR $entry.trackbacks > 0)}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" etc *}{/if}
 
       <section id="section_dategroup_entry">
         <header id="header_dategroup_entry">
