@@ -6,7 +6,7 @@
     <header>
         <p class="serendipity_date text-end">{if $dategroup.is_sticky}{$CONST.STICKY_POSTINGS}{else}{$dategroup.date|formatTime:DATE_FORMAT_ENTRY}{/if}</p>
     </header>{/if}
-    {foreach $dategroup.entries AS $entry}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
+    {foreach $dategroup.entries AS $entry}{if $is_single_entry AND ($entry.comments > 0 OR $entry.trackbacks > 0)}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" etc *}{/if}
 
     <article class="post{if $is_single_entry} post_single{/if}{if $dategroup.is_sticky} post_sticky{/if}">
         <header>
