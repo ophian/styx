@@ -11,7 +11,7 @@
         {/if}
 
         {foreach $dategroup.entries AS $entry}
-        {assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
+        {if $is_single_entry AND ($entry.comments > 0 OR $entry.trackbacks > 0)}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" etc *}{/if}
 
         <h2 class="serendipity_title"><a href="{$entry.link}">{$entry.title}</a></h2>
 
