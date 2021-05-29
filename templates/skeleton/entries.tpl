@@ -66,6 +66,7 @@
     {if $CONST.DATA_COMMENT_APPROVED}
         <p class="serendipity_msg_success">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</p>
     {/if}
+    {if $entry.trackbacks > 0}
 
     <section id="trackbacks">
         <h3>{$CONST.TRACKBACKS}</h3>
@@ -74,6 +75,7 @@
 
         {serendipity_printTrackbacks entry=$entry.id}
     </section>
+    {/if}
 
     <section id="comments">
         <h3>{$CONST.COMMENTS}</h3>
