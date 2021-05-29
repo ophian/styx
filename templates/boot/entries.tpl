@@ -128,7 +128,6 @@
     {if $CONST.DATA_COMMENT_APPROVED}
         <p class="serendipity_msg_notice">{$CONST.DATA_COMMENT_APPROVED|sprintf:$CONST.COMMENT_APPROVED}</p>
     {/if}
-    {if $entry.trackbacks > 0}
 
     <section id="trackbacks">
         <h3>{$CONST.TRACKBACKS}</h3>
@@ -136,12 +135,14 @@
         <a id="trackback_url" rel="nofollow" href="{$entry.link_trackback}" title="{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;{$entry.rdf_ident|escape}&laquo;">{$CONST.TRACKBACK_SPECIFIC}</a>
 
         <p class="trackback-hint alert alert-info d-none" role="alert"><svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>{$CONST.TRACKBACK_SPECIFIC_ON_CLICK|escape} &raquo;<u>{$entry.rdf_ident|escape}</u>&laquo;</p>
+    {if $entry.trackbacks > 0}
 
         <div id="serendipity_trackbacklist">
         {serendipity_printTrackbacks entry=$entry.id}
         </div>
-    </section>
     {/if}
+
+    </section>
 
     <section id="comments">
         <h3>{$CONST.COMMENTS}</h3>
