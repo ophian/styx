@@ -2,7 +2,7 @@
 {if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}
 {foreach $dategroup.entries AS $entry}
-{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" *}
+{if $is_single_entry AND ($entry.comments > 0 OR $entry.trackbacks > 0)}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" etc *}{/if}
 
     <article class="post{if $is_single_entry} post_single{/if}{if $dategroup.is_sticky} post_sticky{/if}{if $template_option.card > 0 AND NOT $is_single_entry AND NOT $is_preview} col-sm-6 col-lg-4{/if} mb-4">
       {if $template_option.card > 0 AND NOT $is_single_entry AND NOT $is_preview AND $template_option.hugo == 0}<div class="col d-flex flex-column position-static">{* START HOUSE OF CARDS *}{/if}
