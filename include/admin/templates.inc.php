@@ -253,7 +253,7 @@ foreach($stack AS $theme => $info) {
             if (file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $theme . "/preview${backendId}${previewType}")) {
                 $data['templates'][$theme]["preview${backendId}"] = $serendipity['templatePath'] . $theme . "/preview${backendId}${previewType}";
             } elseif (!empty($info['previewURL'])) {
-                $data['templates'][$theme]["preview${backendId}"] = @$info["previewURL${backendId}"];
+                $data['templates'][$theme]["preview${backendId}"] = $info["previewURL${backendId}"] ?? null;
            }
         }
         // this is Spartacus only "blog.s9y.org" templates case
