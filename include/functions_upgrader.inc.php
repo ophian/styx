@@ -463,13 +463,31 @@ $dead_files_330 = array(
 
 /* A list of old or removed directories for 3.4.0 */
 $dead_dirs_340 = array(
-    $serendipity['serendipityPath'] . 'templates/b46/css'
+    $serendipity['serendipityPath'] . 'templates/b46/css',
+    $serendipity['serendipityPath'] . 'templates/b5blog/UTF-8'
 );
 
 /* A list of Styx files, to be removed or renamed by 3.4.0 */
 $dead_files_340 = array(
     'templates/b46/js/bootstrap.min.js',
     'templates/b46/js/bootstrap.min.js.map',
+    'templates/b5blog/commentform.tpl',
+    'templates/b5blog/comments_by_author.tpl',
+    'templates/b5blog/content.tpl',
+    'templates/b5blog/entries_archives.tpl',
+    'templates/b5blog/entries_summary.tpl',
+    'templates/b5blog/plugin_calendar.tpl',
+    'templates/b5blog/plugin_categories.tpl',
+    'templates/b5blog/plugin_commentsearch_searchresults.tpl',
+    'templates/b5blog/plugin_contactform.tpl',
+    'templates/b5blog/plugin_staticpage.tpl',
+    'templates/b5blog/plugin_staticpage_searchresults.tpl',
+    'templates/b5blog/preview_iframe.tpl',
+    'templates/b5blog/trackbacks.tpl',
+    'templates/b5blog/comments.tpl',
+    'templates/b5blog/pcomments.tpl',
+    'templates/b5blog/lang_de.inc.php',
+    'templates/b5blog/lang_en.inc.php',
     'templates/bootstrap4/theme.js'
 );
 
