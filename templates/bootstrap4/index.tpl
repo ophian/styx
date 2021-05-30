@@ -120,7 +120,7 @@
         </div>
     </footer>
 
-    <script src="{serendipity_getFile file="b4/js/bootstrap.min.js"}"></script>{*
+    <script src="{serendipity_getFile file="b4/js/bootstrap.min.js"}"></script>
 {/if}
 {$raw_data}
 {serendipity_hookPlugin hook="frontend_footer"}
