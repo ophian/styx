@@ -486,7 +486,7 @@ $tasks = array(
             array(  'version'   => '3.4.0',
                     'function'  => 'serendipity_removeDeadFiles_SPL',
                     'arguments' => array(substr($serendipity['serendipityPath'], 0, -1), $dead_files_340, array('internals'), true),
-                    'title'     => 'Removal of old dead files in v.3.4.0 (see previous bootstrap assets note)',
+                    'title'     => 'Removal of old dead files in v.3.4.0 (see also previous bootstrap assets note)',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_340) . '</pre>'),
 
 );
