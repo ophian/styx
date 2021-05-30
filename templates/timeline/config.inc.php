@@ -329,7 +329,7 @@ $serendipity['smarty']->assignByRef('socialicons', $socialicons);
 
 function getIcon($service) {
    $icons = array('Amazon' => 'fab fa-amazon', 'Amazon Pay' => 'fab fa-amazon-pay', 'Apple Pay' => 'fab fa-apple-pay', 'Comment' => 'fas fa-comment', 'Diaspora' => 'fab fa-diaspora', 'Digg' => 'fab fa-digg', 'Dribbble' => 'fab fa-dribbble', 'Dropbox' => 'fab fa-dropbox', 'Email' => 'far fa-envelope', 'Etsy' => 'fab fa-etsy', 'Facebook' => 'fab fa-facebook', 'Facebook-Messenger' => 'fab fa-facebook-messenger', 'Flickr' => 'fab fa-flickr', 'Github' => 'fab fa-github', 'Google' => 'fab fa-google', 'Home' => 'fas fa-home', 'Instagram' => 'fab fa-instagram', 'LastFM' => 'fab fa-lastfm', 'Linkedin' => 'fab fa-linkedin', 'Mastodon' => 'fab fa-mastodon', 'Mix' => 'fab fa-mix', 'Mobile' => 'fas fa-mobile-alt', 'Patreon' => 'fab fa-patreon', 'Paypal' => 'fab fa-paypal', 'Pinterest' => 'fab fa-pinterest', 'Reddit' => 'fab fa-reddit', 'RSS' => 'fas fa-rss', 'Skype' => 'fab fa-skype', 'Snapchat' => 'fab fa-snapchat', 'StackOverflow' => 'fab fa-stack-overflow', 'Tumblr' => 'fab fa-tumblr', 'Twitter' => 'fab fa-twitter', 'Vimeo' => 'fab fa-vimeo', 'Vine' => 'fab fa-vine', 'Xing' => 'fab fa-xing', 'YouTube' => 'fab fa-youtube',);
-   return @$icons[$service];
+   return $icons[$service] ?? null;
 }
 
 $serendipity['smarty']->registerPlugin('function', 'service_icon', 'getServiceIcon');
