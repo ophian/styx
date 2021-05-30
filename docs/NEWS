@@ -1,6 +1,8 @@
 Version 3.4-DEV ()
  ------------------------------------------------------------------------
 
+  * Update Rich Text Editor assets to ckeditor v.4.16.1, revision cae20318d4
+
   * Improve Smarty entry scoping conditionally by runtime in all themes entries
     template files.
 
