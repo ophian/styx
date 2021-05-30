@@ -64,7 +64,7 @@
   </div>
 </div>
 <!-- Blog Container -->
-<div class="container">
+<div class="container-fluid">
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
@@ -91,7 +91,7 @@
   </div>
 {/if}
 
-  <main class="container mb-4">
+  <main class="container-lg mb-4">
 {* FEATURED BLOG POST container *}
 {if $template_option.featured != 0 AND in_array($view, ['start', 'entries'])}
     <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
