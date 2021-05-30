@@ -65,7 +65,7 @@
 </div>
 <!-- Blog Container -->
 <div class="container-fluid">
-  <header class="blog-header py-3">
+  <header class="container-xl blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
       <div class="col-4 pt-1">
         <a class="link-secondary" href="{$serendipityBaseURL}feeds/index.rss2" title="{$CONST.SUBSCRIBE_TO_BLOG}"><svg class="bi m-0" width="36" height="36" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"></use></svg></a>
@@ -84,7 +84,7 @@
   </header>
 {if $template_option.use_corenav}
 
-  <div class="nav-scroller py-1 mb-2">
+  <div class="container-xl nav-scroller py-1 mb-2">
     <nav class="nav d-flex justify-content-between">
       {foreach $navlinks AS $navlink}{if $navlink.title != "" AND $navlink.href != ""}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}<span>{else}<a href="{$navlink.href}">{/if}{$navlink.title}{if $currpage == $navlink.href OR $currpage2 == $navlink.href}</span>{else}</a>{/if}{/if}{/foreach}
     </nav>
@@ -148,7 +148,7 @@
     </div>
 {/if}
 
-    <div class="row g-5">
+    <div class="row gy-5 pe-0">
       <div class="col-md-8">
 {* BLOG POSTS TITLE headline *}
 {if $template_option.title != 0 AND in_array($view, ['start', 'entries'])}
@@ -160,7 +160,7 @@
 
       </div>
 
-      <div class="col-md-4">
+      <div class="col-md-4 pe-0">
         <div class="position-sticky">
 {* SIDEBAR ABOUT BOX container *}
 {if $template_option.about}
