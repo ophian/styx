@@ -1,4 +1,4 @@
-Name: Boot [Bootstrap 5 Fallback]
+Name: Boot [ Take 5 Pool ]
 Author: Ian Styx
 Date: 2021-05-07
 Require Serendipity: 3.4
