@@ -321,8 +321,8 @@ for ($i = 0; $i < $template_loaded_config['social_icons_amount']; $i++) {
         'default'       => '#',
     );
     $socialicons[] = array(
-        'service'           => @$template_loaded_config['social_icon' . $i . 'service'],
-        'url'               => @$template_loaded_config['social_icon' . $i . 'url'],
+        'service'           => isset($template_loaded_config['social_icon' . $i . 'service']) ? $template_loaded_config['social_icon' . $i . 'service'] : null,
+        'url'               => isset($template_loaded_config['social_icon' . $i . 'url']) ? $template_loaded_config['social_icon' . $i . 'url'] : null,
     );
 }
 $serendipity['smarty']->assignByRef('socialicons', $socialicons);
