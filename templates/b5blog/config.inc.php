@@ -28,9 +28,9 @@ if (is_array($required_fieldlist)) {
 
 $serendipity['smarty']->assign(
     array(
-        'red' => (serendipity_fetchEntry('id', $template_loaded_config['featured'], false) ?? 0),
-        'cal' => (serendipity_fetchEntry('id', $template_loaded_config['cardone'], false) ?? 0),
-        'car' => (serendipity_fetchEntry('id', $template_loaded_config['cardtwo'], false) ?? 0),
+        'red' => (isset($template_loaded_config['featured']) ? serendipity_fetchEntry('id', $template_loaded_config['featured'], false) : 0),
+        'cal' => (isset($template_loaded_config['cardone']) ? serendipity_fetchEntry('id', $template_loaded_config['cardone'], false) : 0),
+        'car' => (isset($template_loaded_config['cardtwo']) ? serendipity_fetchEntry('id', $template_loaded_config['cardtwo'], false) : 0),
         'cot' => ($template_loaded_config['cdothmb'] ?? 0),
         'ctt' => ($template_loaded_config['cdtthmb'] ?? 0)
     )
