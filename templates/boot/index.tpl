@@ -64,7 +64,6 @@
     </div>
   </div>
 </div>
-<!--- test --->
 <header>
   <div class="collapse bg-dark" id="navbarHeader">
     <div class="container">
@@ -79,7 +78,7 @@
             <li><a href="#" class="text-white">Follow on Twitter</a></li>
             <li><a href="#" class="text-white">Like on Facebook</a></li>
             <li><a href="#" class="text-white">Email me</a></li>
-{if !$template_option.use_corenav}
+{if $template_option.use_corenav}
     {foreach $navlinks AS $navlink}
         {if $navlink.title != "" AND $navlink.href != ""}
             <li class="nav-item{if $currpage == $navlink.href OR $currpage2 == $navlink.href} active{/if}">
@@ -124,10 +123,10 @@
     </div>
   </section>
 
-    <div class="container">
+  <div class="container bg-light">
 
-<!-- example grid cards -->
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <!-- example grid cards -->
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 pb-5">
         <div class="col">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
@@ -177,9 +176,9 @@
           </div>
         </div>
     </div>
-<!-- example grid cards end -->
+    <!-- example grid cards end -->
 
-    <div class="row bg-light">
+    <div class="row">
 {if $leftSidebarElements > 0}
 
         <aside id="serendipityLeftSideBar" class="clearfix col-md-3">
@@ -200,7 +199,7 @@
 {/if}
 
     </div>
-  </div>
+  </div><!-- //container bg-light end -->
 
   <footer class="text-muted py-5">
     <div class="container">
@@ -219,7 +218,7 @@
 {serendipity_hookPlugin hook="frontend_footer"}
 {if $is_embedded != true}
 
-</div>
+</div><!-- //container-fluid end -->
 {if $view == 'entry' AND $wysiwyg_comment AND NOT (isset($smarty.get.serendipity.csuccess) AND $smarty.get.serendipity.csuccess == 'true') && (isset($entry) AND NOT $entry.allow_comments === false)}
 
 <script src="{serendipity_getFile file="ckebasic/ckeditor.js"}"></script>
