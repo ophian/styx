@@ -1197,11 +1197,8 @@ p > img.serendipity_image_center {
   margin: 0 0 .625rem .625rem;
   float: right; }
 
-/* disable sidebar widget calendar when not enough space */
-@media only screen and (min-width: 768px) and (max-width: 1200px) {
-  .sidebar_widget.serendipity_plugin_calendar .sidebar_content {
-    display: none;
-  }
+.sidebar_widget.serendipity_plugin_calendar .sidebar_content {
+  overflow: auto;
 }
 
 .serendipity_calendar {
