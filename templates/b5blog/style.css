@@ -857,6 +857,10 @@ pre {
   float: right;
   text-align: right; }
 
+.link-home {
+    color: var(--bs-gray-dark);
+}
+
 .serendipity_edit_nugget {
   display: block;
   text-align: end;
