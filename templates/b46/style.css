@@ -804,7 +804,8 @@ pre {
   padding: 0 9px 4px 9px;
   padding: 0 .5rem .222222rem .5rem;
   float: right;
-  margin-right: -.5rem; }
+  margin-right: -.5rem;
+  font-size: .9125rem; }
   .comment.odd .comment_info.plainList,
   .comments_for_entry .comment.even .comment_info.plainList {
     background-color: #eee; }
