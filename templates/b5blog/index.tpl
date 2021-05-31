@@ -122,8 +122,8 @@
             <img class="bd-placeholder-img" width="200" height="250" src="{$template_option.cot|default:0}">
 {/if}
           </div>
-        </div>
-      </div>
+        </div><!-- inner row end -->
+      </div><!-- card col end -->
 {/if}
 {* RIGHT GRID CARD *}
 {if $template_option.cardtwo != 0 AND in_array($view, ['start', 'entries'])}
@@ -143,10 +143,10 @@
             <img class="bd-placeholder-img" width="200" height="250" src="{$template_option.ctt|default:0}">
 {/if}
           </div>
-        </div>
-      </div>
-    </div>
+        </div><!-- inner row end -->
+      </div><!-- card col end -->
 {/if}
+    </div><!-- card row end -->
 
     <div class="row gy-5 pe-0">
       <div class="col-md-8">
@@ -158,7 +158,7 @@
 {/if}
         {$CONTENT}
 
-      </div>
+      </div><!-- col content end -->
 
       <div class="col-md-4 pe-0">
         <div class="position-sticky">
@@ -174,8 +174,8 @@
           {serendipity_printSidebar side="right"}
 
         </div>
-      </div>
-    </div>
+      </div><!-- col sidebar end -->
+    </div><!-- row content end  -->
 
   </main>
 
