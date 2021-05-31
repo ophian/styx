@@ -8,7 +8,7 @@
 {if NOT empty($entries)}{* catch a staticpage startpage which has no $entries array set *}
 {foreach $entries AS $dategroup}
     {foreach $dategroup.entries AS $entry}
-        {if $is_single_entry AND ($entry.comments > 0 OR $entry.trackbacks > 0)}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" etc *}{/if}
+        {if $is_single_entry AND $view == 'entry'}{assign var="entry" value=$entry scope="root"}{* See scoping issue(s) for comment "_self" - $entry array relates in trackbacks - and index.tpl Rich Text Editor asset includes *}{/if}
         {if NOT $is_single_entry AND NOT $entry.is_extended AND NOT $is_preview}{* THIS IS OUR FRONTPAGE SCENARIO *}
             {if $template_option.display_as_timeline}
                 {if $template_option.months_on_timeline == true}
