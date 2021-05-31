@@ -66,17 +66,18 @@
 <!-- Blog Container -->
 <div class="container-fluid">
   <header class="container-xl blog-header py-3">
-    <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
+    <div class="row flex-nowrap justify-content-start align-items-center">
+      <div class="col-3 d-flex pt-1">
         <a class="link-secondary" href="{$serendipityBaseURL}feeds/index.rss2" title="{$CONST.SUBSCRIBE_TO_BLOG}"><svg class="bi m-0" width="36" height="36" role="img" aria-labelledby="title"><title id="sycrss">XML</title><use xlink:href="#rss-fill"></use></svg></a>
+        <a class="link-home" href="{$serendipityBaseURL}" title="home"><svg class="bi ms-3" width="32" height="32" role="img" aria-labelledby="title"><title id="home">Home</title><use xlink:href="#start"></use></svg></a>
       </div>
-      <div class="col-4 text-center">
+      <div class="col-6 text-center text-truncate">
         <h1><a class="blog-header-logo text-dark" href="{$serendipityBaseURL}">{$blogTitle}</a></h1>
         <p>{$blogDescription}</p>
       </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
+      <div class="col-3 d-flex justify-content-end align-items-center">
         <a class="link-secondary" href="#" data-bs-toggle="modal" data-bs-target="#quicksearch" aria-label="Search">
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="me-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"/><path d="M21 21l-5.2-5.2"/></svg>
         </a>
         <a class="btn btn-sm btn-outline-secondary" href="{$serendipityBaseURL}styx">{$CONST.LOGIN}</a>
       </div>
@@ -237,6 +238,9 @@
   </symbol>
   <symbol id="rss-fill" fill="currentColor" viewBox="0 0 16 16">
     <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm1.5 2.5a1 1 0 0 0 0 2 8 8 0 0 1 8 8 1 1 0 1 0 2 0c0-5.523-4.477-10-10-10zm0 4a1 1 0 0 0 0 2 4 4 0 0 1 4 4 1 1 0 1 0 2 0 6 6 0 0 0-6-6zm.5 7a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+  </symbol>
+  <symbol id="start" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
   </symbol>
 </svg>
 
