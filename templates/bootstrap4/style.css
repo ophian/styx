@@ -251,6 +251,7 @@ hr {
 .mediasidebaritem img {
     margin-bottom: .5rem; }
 .serendipity_plugin_sidebarlogo picture {
+    display: -webkit-flex;
     display: flex; }
 
 .comment_content.clearfix, .d-flex {
