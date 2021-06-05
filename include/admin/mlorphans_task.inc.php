@@ -34,6 +34,7 @@ function check_by_image_db($id) {
  * [^>]* captures the content of a tag with attributes
  */
 function image_inuse($iid, $eid, $im, $entry, $field, $path, $name) {
+    static $_loop = null;
     $matches = array();
     $pattern = "@(<!-- s9ymdb:$iid -->).*?<img[^>]* src=[\"']([^\"']+)[\"']@"; // either '<img[^>]+ ' or '<img[^>]* ' works
     //---------------------------------.*? matches all, inclusive \s in-between
@@ -50,8 +51,12 @@ function image_inuse($iid, $eid, $im, $entry, $field, $path, $name) {
         //     (check the image name against the basename source name AND to comply with the blogs path (i.e. in cases you have a bunch/block of image(s) with a different path copied by another (local) blog))
         $_image = check_by_image_db($o['s9ymdb']);
         if ((!empty($o['s9ymdb']) && $iid != $o['s9ymdb'] || false === strpos($o['src'], $_image[0]['path'].$_image[0]['name'])) || (!empty($o['src']) && $name != $o['bsename'] && false !== strpos($o['src'], $path))) {
+            if (!isset($_loop)) {
+                echo '<span class="msg_hint"><span class="icon-attention-circled" aria-hidden="true"></span> ' . MLORPHAN_MTASK_MAIN_PATTERN_NAME_WARNING . "</span>\n";
+            }
             $o['error'] = sprintf(MLORPHAN_MTASK_MAIN_PATTERN_ID_ERROR, $eid, $field, $o['s9ymdb'], $o['src'], $o['bsename']);
             echo '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> <strong>' . ERROR . '</strong>: ' . $o['error'] . "</span>\n";
+            $_loop = 1;
         }
         $im[$iid][$eid][$field][] = $o;
     }
