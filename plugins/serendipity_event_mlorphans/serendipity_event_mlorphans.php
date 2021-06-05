@@ -18,7 +18,7 @@ class serendipity_event_mlorphans extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_MLORPHANS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Ian Styx');
-        $propbag->add('version',       '1.01');
+        $propbag->add('version',       '1.02');
         $propbag->add('requirements',  array(
             'serendipity' => '3.0',
             'smarty'      => '3.1.0',
@@ -87,7 +87,7 @@ class serendipity_event_mlorphans extends serendipity_event
         border-bottom: 1px solid #aaa;
         color: #666;
         font-size: 1em;
-        margin: -.5em -.5em auto -.5em;
+        margin: auto -.5em;
         padding: .5em 1em; }
     .msg_notice.orphan h3,
     #maintenance_orphaned_images .msg_notice.no-margin { margin-top: .5em; margin-bottom: .5em; }
