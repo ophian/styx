@@ -202,7 +202,7 @@
 {/if}
 {if NOT $is_single_entry AND NOT $is_preview AND NOT $plugin_clean_page AND (NOT empty($footer_prev_page) OR NOT empty($footer_next_page))}
 
-    <nav class="pager">
+    <nav class="pager mb-4">
         {if NOT empty($footer_info)}<p>{$footer_info}</p>{/if}
     {if $footer_prev_page OR $footer_next_page}
         <ul class="plainList">
@@ -210,7 +210,7 @@
             <li class="pager_prev"><a href="{$footer_prev_page}">{$CONST.PREVIOUS_PAGE}</a></li>
         {/if}
         {if $footer_next_page}
-            <li class="pager_next"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE}</a></li>
+            <li class="pager_next text-end"><a href="{$footer_next_page}">{$CONST.NEXT_PAGE}</a></li>
         {/if}
 
         </ul>
