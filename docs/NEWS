@@ -1,6 +1,8 @@
 Version 3.4+dev ()
  ------------------------------------------------------------------------
 
+  * Add default entries pager styles to [ boot ] pool theme
+
   * Fix and improve mlorphans plugin tasks
 
 
