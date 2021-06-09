@@ -205,7 +205,7 @@
     <nav class="pager mb-4">
         {if NOT empty($footer_info)}<p>{$footer_info}</p>{/if}
     {if $footer_prev_page OR $footer_next_page}
-        <ul class="plainList">
+        <ul class="plainList d-flex">
         {if $footer_prev_page}
             <li class="pager_prev"><a href="{$footer_prev_page}">{$CONST.PREVIOUS_PAGE}</a></li>
         {/if}
