@@ -602,21 +602,16 @@ pre {
 .row.mb-2 > nav {
     width: 100%; }
 
-.pager {
-  display: block;
-  width: 100%; }
+/* entries pager */
 .pager > p {
   text-align: center; }
-.pager ul {
-  width: 100%;
-  display: inline-flex; }
 .pager li {
   width: 50%; }
 .pager a {
   border: 1px solid var(--bs-gray-dark);
   border-radius: 5px;
   margin-bottom: 1rem;
-  padding: .25rem 1rem;
+  padding: .25rem .5rem;
   background-color: var(--bs-gray);
   background-image: var(--bs-gradient);
   color: var(--bs-white); }
