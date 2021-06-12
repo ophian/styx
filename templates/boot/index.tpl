@@ -125,6 +125,7 @@
 
   <div class="container bg-light">
 
+{if $view == "start" && NOT isset($staticpage_pagetitle)}
     <!-- example grid cards -->
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 pb-5">
         <div class="col">
@@ -177,6 +178,7 @@
         </div>
     </div>
     <!-- example grid cards end -->
+{/if}
 
     <div class="row">
 {if $leftSidebarElements > 0}
