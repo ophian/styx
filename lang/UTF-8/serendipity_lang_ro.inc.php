@@ -452,6 +452,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Vrei să primeşti notificări pe email când sunt adăugate referinţe la însemnările tale?');
 @define('USERCONF_ALLOWPUBLISH', 'Drepturi: Publică însemnări?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Are dreptul acest utilizator să publice însemnări?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Succes');
 @define('POWERED_BY_SHOW_TEXT', 'Arată "Serendipity" ca text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Va afişa "Serendipity Weblog" ca text');

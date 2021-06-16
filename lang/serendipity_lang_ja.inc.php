@@ -451,6 +451,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'トラックバックをあなたのエントリーが受けたとき、電子メールを受信しますか?');
 @define('USERCONF_ALLOWPUBLISH', '権限: エントリーを公開しますか?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'このユーザーがエントリーを公開することを許可しますか?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', '成功');
 @define('POWERED_BY_SHOW_TEXT', 'テキストとして "Serendipity" を表示する');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'テキストとして "Serendipity Weblog" を表示するでしょう。');

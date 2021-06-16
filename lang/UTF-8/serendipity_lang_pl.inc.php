@@ -453,6 +453,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Czy chcesz otrzymywać maile z informacją o pozostawionych śladach (trackbacks) do Twoich wpisów?');
 @define('USERCONF_ALLOWPUBLISH', 'Uprawnienia: Publikowanie wpisów?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Czy ten użytkownik jest uprawniony do publikowania wpisów?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Sukces');
 @define('POWERED_BY_SHOW_TEXT', 'Pokaż "Serendipity" jako tekst');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Pokaże "Serendipity Weblog" jako tekst');

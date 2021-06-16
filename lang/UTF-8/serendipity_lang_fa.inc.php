@@ -452,6 +452,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'آیا می خواهید در زمانی که دنبالکی ارسال می شود، ایمیلی برای با خبر شدن از آن دریافت کنید؟');
 @define('USERCONF_ALLOWPUBLISH', 'قوانین: انتشار مطالب؟');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'آیا این کاربر توانایی ارسال مطلب دارد؟');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'موفقیت');
 @define('POWERED_BY_SHOW_TEXT', 'نمایش متنی "Serendipity"');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'عبارت "Serendipity Weblog" را به صورت متنی نمایش می دهد');

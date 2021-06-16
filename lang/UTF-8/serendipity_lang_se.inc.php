@@ -451,6 +451,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Vill du få e-post när trackbacks skapas till dina artiklar?');
 @define('USERCONF_ALLOWPUBLISH', 'Rättigheter: Publicera artiklar?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Har denna användare rätt att publicera artiklar?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Framgång');
 @define('POWERED_BY_SHOW_TEXT', 'Visa "Serendipity" som text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Kommer att visa "Serendipity Weblog" som text');

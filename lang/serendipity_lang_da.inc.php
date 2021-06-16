@@ -433,6 +433,7 @@
 @define('TOP_LEVEL', 'Topniveau');
 @define('XML_IMAGE_TO_DISPLAY', 'XML knap');
 @define('XML_IMAGE_TO_DISPLAY_DESC','Links til XML Feeds vil blive vist med dette billede. Efterlad tomt for standard, indtast \'none\' for at deaktivere.');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Succes');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', ',');

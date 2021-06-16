@@ -453,6 +453,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Желаете ли вы получать уведомления об обратных ссылках на ваши записи?');
 @define('USERCONF_ALLOWPUBLISH', 'Права доступа: Добавление записей?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Разрешено ли этому пользователю публиковать записи?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Успешно!');
 @define('POWERED_BY_SHOW_TEXT', 'Показывать "Serendipity" как текст');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Покажет слова "Веблог Serendipity" как текст');

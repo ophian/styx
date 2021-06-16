@@ -451,6 +451,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Szeretnél kapni emailt, ha valaki visszahivatkozik valamelyik bejegyzésedre?');
 @define('USERCONF_ALLOWPUBLISH', 'Jogok: Bejegyzés közzététele?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Ez a felhasználó jogosult a bejegyzések közzétételére?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'A művelet siker');
 @define('POWERED_BY_SHOW_TEXT', 'A "Serendipity" felirat szövegként mutatása');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'A "Serendipity Weblog" feliratot szövegként mutatja');

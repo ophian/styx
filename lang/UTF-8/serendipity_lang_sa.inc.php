@@ -453,6 +453,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'هل تود أستقبال بريد عندما يتم التعقيب على مواضيعك؟ الأفضل نعم');
 @define('USERCONF_ALLOWPUBLISH', 'حقوق: نشر الموضوع؟');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'هل يحق للمستخدم نشر مواضيع؟');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'نجاح');
 @define('POWERED_BY_SHOW_TEXT', 'أعرض المجلة على هيئة نص تكست');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'سوف يتم عرض المجلة على هيئة نص تكست');

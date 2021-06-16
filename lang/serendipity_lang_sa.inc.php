@@ -453,6 +453,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'וב ÊזÏ ÃÓÊÞÈÇב ÈÑםÏ ÚהÏדÇ םÊד ÇבÊÚÞםÈ Úבל דזÇÖםÚ‗¿ ÇבÃÝÖב הÚד');
 @define('USERCONF_ALLOWPUBLISH', 'ÍÞזÞ: הÔÑ ÇבדזÖזÚ¿');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'וב םÍÞ בבדÓÊÎÏד הÔÑ דזÇÖםÚ¿');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'הÌÇÍ');
 @define('POWERED_BY_SHOW_TEXT', 'ÃÚÑÖ ÇבדÌבÉ Úבל וםÆÉ הÕ Ê‗ÓÊ');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'ÓזÝ םÊד ÚÑÖ ÇבדÌבÉ Úבל וםÆÉ הÕ Ê‗ÓÊ');

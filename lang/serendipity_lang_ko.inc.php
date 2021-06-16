@@ -453,6 +453,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', '작성된 글에 트랙백이 추가되면 전자우편을 받겠습니까?');
 @define('USERCONF_ALLOWPUBLISH', '글 작성 권한');
 @define('USERCONF_ALLOWPUBLISH_DESC', '이 사용자가 글을 작성할 권한이 있습니까?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', '성공');
 @define('POWERED_BY_SHOW_TEXT', '"세렌디피티"를 텍스트로 출력');
 @define('POWERED_BY_SHOW_TEXT_DESC', '"세렌디피티 웹로그"를 텍스트로 출력함');

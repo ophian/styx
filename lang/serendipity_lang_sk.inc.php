@@ -463,6 +463,7 @@ $i18n_filename_to = array (
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Chcete dostáva» správy o odozvách na èlánky e-mailom?');
 @define('USERCONF_ALLOWPUBLISH', 'Právo publikova» èlánky?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Umo¾ni» u¾ívateµovi publikova» èlánky?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Úspe¹ne dokonèené.');
 @define('POWERED_BY_SHOW_TEXT', 'Zobrazi» "Serendipity" ako text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Vytvorené v "Serendipity" sa zobrazí ako text');

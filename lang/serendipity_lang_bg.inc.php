@@ -485,6 +485,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Искате ли да получавате поща при проследяване на публикувани от вас статии?');
 @define('USERCONF_ALLOWPUBLISH', 'Права: Публикуване на статии?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Позволено ли е на този потребител да публикува статии?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Успех');
 @define('POWERED_BY_SHOW_TEXT', 'Показване на "Serendipity" като текст');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Показване на "Serendipity Weblog" като текст');

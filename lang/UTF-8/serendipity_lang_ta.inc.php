@@ -451,6 +451,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'உங்கள் வலைக்குறிப்பின் மீதான மேற்கோள்கள் பற்றிய அறிவிப்பை மின்னஞ்சலில் பெருக');
 @define('USERCONF_ALLOWPUBLISH', 'இக்குறிப்பாளர் வலைக்குறிப்பு வெளியீடு');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'இக்குறிப்பாளர் வலைக்குறிப்புகளை வெளியிடலாம்');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Success');
 @define('POWERED_BY_SHOW_TEXT', 'Show "Serendipity" as text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Will display "Serendipity Weblog" as text');

@@ -451,6 +451,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Viltu fá sendan póst þegar tilvísanir eru gerðar á færslurnar þínar?');
 @define('USERCONF_ALLOWPUBLISH', 'Réttindi: Birta færslur?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Má þessi notandi birta færslur?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Árangur');
 @define('POWERED_BY_SHOW_TEXT', 'Sýna "Serendipity" sem texa');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Mun birta "Serendipity Weblog" sem texta');

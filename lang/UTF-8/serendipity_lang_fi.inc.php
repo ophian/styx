@@ -450,6 +450,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Haluatko paluupostia, kun joku tekee paluuviitteen merkintöihisi?');
 @define('USERCONF_ALLOWPUBLISH', 'Oikeudet: Sallitaanko merkintöjen julkaisu?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Saako tämä kirjoittaja julkaista?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Onnistui');
 @define('POWERED_BY_SHOW_TEXT', 'Näytä "Serendipity" tekstinä');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Tulostaa "Serendipity Weblog" tekstinä');

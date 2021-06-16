@@ -453,6 +453,7 @@ $i18n_unknown = 'tw';
 @define('USERCONF_SENDTRACKBACKS_DESC', '當有新引用到您的文章時要通知您嗎?');
 @define('USERCONF_ALLOWPUBLISH', '權限: 可發佈文章?');
 @define('USERCONF_ALLOWPUBLISH_DESC', '允許這位作者發佈文章嗎?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', '完成');
 @define('POWERED_BY_SHOW_TEXT', '以文字顯示 "Serendipity"');
 @define('POWERED_BY_SHOW_TEXT_DESC', '將用文字顯示 "Serendipity Weblog"');

@@ -437,6 +437,7 @@
 @define('USERCONF_ALLOWPUBLISH', 'Publication de billets ?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Cet utilisateur est-il autorisé à poster des billets ?');
 @define('ENTRY_SAVED', 'Votre billet a été enregistré');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Succès');
 @define('POWERED_BY_SHOW_TEXT', 'Afficher \'Serendipity\' en tant que texte');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Affiche le slogan \'Serendipity Weblog\' en tant que texte');

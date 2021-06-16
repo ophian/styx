@@ -437,6 +437,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Quer receber e-mails quando trackbacks forem enviados para os seus artigos?');
 @define('USERCONF_ALLOWPUBLISH', 'Direitos: Publicação de artigos?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Este utilizador está autorizado a publicar artigos?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Sucesso');
 @define('POWERED_BY_SHOW_TEXT', 'Exibir "Serendipity" como texto');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Exibirá o "Serendipity Weblog" como texto');

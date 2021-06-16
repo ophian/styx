@@ -453,6 +453,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', '当有新引用时使用通知');
 @define('USERCONF_ALLOWPUBLISH', '权限: 可发布文章');
 @define('USERCONF_ALLOWPUBLISH_DESC', '允许这位作者发布文章');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', '完成');
 @define('POWERED_BY_SHOW_TEXT', '以文字显示 "Serendipity"');
 @define('POWERED_BY_SHOW_TEXT_DESC', '将用文字显示 "Serendipity Weblog"');

@@ -453,6 +453,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Yazdığınız yazı hakkında iz bırakıldığında epostayla haber verilsin mi?');
 @define('USERCONF_ALLOWPUBLISH', 'Kural: Yazı Yayınlansın mı?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Bu kullanıcı yazılarını doğrudan yayınlayabilsin mi?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Başarıldı');
 @define('POWERED_BY_SHOW_TEXT', ' "Serendipity" sitesini düzmetin olarak göster');
 @define('POWERED_BY_SHOW_TEXT_DESC', '"Serendipity" sitesini düzmetin olarak gösterme seçeneği açık');

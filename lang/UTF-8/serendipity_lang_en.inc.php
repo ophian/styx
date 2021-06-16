@@ -451,6 +451,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Do you want to receive emails when trackbacks are posted to your entries?');
 @define('USERCONF_ALLOWPUBLISH', 'Rights: Publishing entries?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Is this user allowed to publish entries?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Success');
 @define('POWERED_BY_SHOW_TEXT', 'Show "Serendipity" as text');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Will display "Serendipity Weblog" as text');
