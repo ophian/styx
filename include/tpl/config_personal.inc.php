@@ -71,6 +71,14 @@
                                           'permission'  => 'personalConfiguration',
                                           'flags'       => array('config')),
 
+                                    array('var'         => 'dark_mode',
+                                          'title'       => USERCONF_DARKMODE,
+                                          'description' => '',
+                                          'type'        => 'bool',
+                                          'default'     => false,
+                                          'permission'  => 'personalConfiguration',
+                                          'flags'       => array('config')),
+
                                     array('var'         => 'wysiwyg',
                                           'title'       => INSTALL_WYSIWYG,
                                           'description' => INSTALL_WYSIWYG_DESC,
