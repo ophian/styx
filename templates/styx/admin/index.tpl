@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" dir="ltr" lang="{$lang}">
+<html{if $admin_vars.darkmode} data-color-mode="dark" data-light-theme="light" data-dark-theme="dark"{/if} class="no-js" dir="ltr" lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
 {if !$admin_vars.backendBlogtitleFirst}
