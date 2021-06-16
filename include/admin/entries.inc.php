@@ -263,8 +263,8 @@ switch($serendipity['GET']['adminAction']) {
 
         $data['switched_output'] = false;
 
-        $filter_import = array('author', 'category', 'isdraft');
-        $sort_import   = array('perPage', 'ordermode', 'order');
+        $filter_import = array('author', 'isdraft', 'category');
+        $sort_import   = array('order', 'ordermode', 'perPage');
 
         foreach($filter_import AS $f_import) {
             if (isset($serendipity['GET']['filter'])) {
