@@ -427,6 +427,7 @@
 @define('USERCONF_SENDCOMMENTS_DESC', 'Voulez-vous recevoir un email lorsque quelqu\'un poste un commentaire dans votre billet ?');
 @define('USERCONF_SENDTRACKBACKS', 'Notification de rétroliens ?');
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Voulez-vous recevoir un email lorsque quelqu\'un crée un rétrolien à l\'un de vos billets ?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 
 @define('PERMISSIONS', 'Permissions');
 @define('SECURITY', 'Security');
@@ -437,7 +438,6 @@
 @define('USERCONF_ALLOWPUBLISH', 'Publication de billets ?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Cet utilisateur est-il autorisé à poster des billets ?');
 @define('ENTRY_SAVED', 'Votre billet a été enregistré');
-@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Succès');
 @define('POWERED_BY_SHOW_TEXT', 'Afficher \'Serendipity\' en tant que texte');
 @define('POWERED_BY_SHOW_TEXT_DESC', 'Affiche le slogan \'Serendipity Weblog\' en tant que texte');

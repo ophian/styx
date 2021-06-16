@@ -436,10 +436,10 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', '¿Desea que se le envíen notificaciones mediante correo electrónico cuando se hagan referencias a las entradas?');
 @define('USERCONF_ALLOWPUBLISH', 'Derechos: ¿Publicar entradas?');
 @define('USERCONF_ALLOWPUBLISH_DESC', '¿El usuario puede publicar entradas?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('XML_IMAGE_TO_DISPLAY', 'Botón XML');
 @define('XML_IMAGE_TO_DISPLAY_DESC','Enlaces a feeds XML se mostrarán con esta imagen. Déjalo vacío para el valor predeterminado, introduce \'none\' para desactivar.');
 @define('ENTRY_SAVED', 'Tu entrada ha sido guardada');
-@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Éxito');
 
 @define('NUMBER_FORMAT_DECIMALS', '2');

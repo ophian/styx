@@ -411,6 +411,7 @@
 @define('USERCONF_SENDTRACKBACKS_DESC', 'Ønsker du å motta en mail når nye trackbacks blir lagt til dine artikler?');
 @define('USERCONF_ALLOWPUBLISH', 'Tillatelse: Publisere artikler?');
 @define('USERCONF_ALLOWPUBLISH_DESC', 'Kan denne brukeren publisere artikler?');
+@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 
 @define('DIRECTORIES_AVAILABLE', 'I listen over tilgjengelige undermapper, kan du klikke på en ny mappe for å oprette en ny mappe innenfor den stukturen.');
 @define('ALL_DIRECTORIES', 'alle mapper');
@@ -433,7 +434,6 @@
 @define('TOP_LEVEL', 'Topnivå');
 @define('XML_IMAGE_TO_DISPLAY', 'XML-knapp');
 @define('XML_IMAGE_TO_DISPLAY_DESC','Linker til XML-feeder vil bli vist med dette bildet.  Etterlat tomt for standard, tast inn \'none\' for å deaktivere.');
-@define('USERCONF_DARKMODE', 'Styx Theme Dark Mode');
 @define('SUCCESS', 'Suksess');
 @define('NUMBER_FORMAT_DECIMALS', '2');
 @define('NUMBER_FORMAT_DECPOINT', ',');
