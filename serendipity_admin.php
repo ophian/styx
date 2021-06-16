@@ -268,6 +268,7 @@ if ($ajax) {
     }
 
     $admin_vars['out']       = array();
+    $admin_vars['darkmode']  = $serendipity['dark_mode'] ?? false;
     $admin_vars['no_create'] = $serendipity['no_create'];
     $admin_vars['title']     = $admin_section;
     // The Styx default page title of backend pages is "section | SERENDIPITY_ADMIN_SUITE | blog title"
