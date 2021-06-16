@@ -12,6 +12,7 @@
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.is_logged_in}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
+    <script> const STYX_DARKMODE = {if $admin_vars.darkmode}true{else}false{/if}; </script>
     <script src="{serendipity_getFile file='admin/js/plugins.js'}"></script>
     <script src="{serendipity_getFile file='admin/serendipity_styx.js'}"></script>
     <script src="{$head_link_script}"></script>
