@@ -26,6 +26,10 @@ CKEDITOR.editorConfig = function( config ) {
         { name: 'about' }
     ];
 
+    // Allow dark mode
+    if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
+    config.skin = (STYX_DARKMODE === true ? 'moono-dark' : 'moono-lisa');
+
     // The default plugins included in the basic setup define some buttons that
     // are not needed in a basic editor. They are removed here.
     config.removeButtons = 'Cut,Copy,Paste,Undo,Redo,Anchor,Strike,Subscript,Superscript';
@@ -36,9 +40,13 @@ CKEDITOR.editorConfig = function( config ) {
     // BACKEND Only Area - check blog entries, staticpages and other backend related normal form area nuggets (ie. comment forms have different init need),
     // like contactform, commentspice, downloadmanager, FAQ, DSGVO / GDPR, guestbook, html nugget, quicknotes, and more.
     if (document.getElementById('serendipityEntry') != null || document.getElementById('sp_main_data') != null || document.getElementById('backend_sp_simple') != null || document.getElementById('serendipity_admin_page .form_area') != null || document.getElementById('nuggets3')) {
-        console.log('STYX fired WYSIWYG: backend entries, staticpages or spawned nuggets');
+        //console.log('STYX fired WYSIWYG: backend entries, staticpages or spawned nuggets');
         // Add Styx specific styles
-        config.contentsCss = [ 'templates/_assets/ckebasic/contents.css', 'templates/_assets/wysiwyg-style.css' ];
+        if (STYX_DARKMODE === true) {
+            config.contentsCss = [ 'templates/_assets/ckebasic/dark-contents.css', 'templates/_assets/wysiwyg-style.css' ];
+        } else {
+            config.contentsCss = [ 'templates/_assets/ckebasic/contents.css', 'templates/_assets/wysiwyg-style.css' ];
+        }
 
         config.entities = false; // defaults(true)
         config.htmlEncodeOutput = false; // defaults(true)
