@@ -1954,7 +1954,6 @@ function serendipity_getTotalCount($what) {
 
     switch($what) {
         case 'entriesnocat':
-        case 'entriesnocat':
             // operatorPerm (opp) is not bulletproof ideal though, since it relies on these group permissions ...
             $opp = (serendipity_checkPermission('adminEntriesMaintainOthers') && serendipity_checkPermission('adminCategoriesMaintainOthers')) ? '' : "AND e.authorid = '{$serendipity['authorid']}'";
             $res = serendipity_db_query("SELECT COUNT(e.id) AS num
