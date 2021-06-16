@@ -173,6 +173,12 @@ if (isset($serendipity['GET']['adminAction'])
         $ckescript = "
         <script>
             window.onload = function() {
+                if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
+                if (STYX_DARKMODE === true) {
+                    CKEDITOR.addCss('body { color:#adbac7; } '); /*var(--color-text-primary)*/
+                    CKEDITOR.addCss('body { background:#1c2128; } '); /*var(--color-scale-black)*/
+                }
+
                 var plugIN = (typeof CKECONFIG_CODE_ON === 'undefined' || !CKECONFIG_CODE_ON) ? 'emoji' : 'codesnippet,emoji';
                 CKEDITOR.replace( 'serendipity_commentform_comment',
                 {
