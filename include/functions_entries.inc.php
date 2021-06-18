@@ -104,6 +104,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
                    WHERE category_name = '" . serendipity_db_escape_string($categoryname) . "'";
 
         $ret =& serendipity_db_query($query);
+        //$ret[0]['category_icon_webp'] = $ret[0][7] = !empty($ret[0]['category_icon']) ? serendipity_generate_webpPathURI($ret[0]['category_icon']) : ''; // xmlrpc or popfetcher plugins or backend importers
         return $ret[0] ?? null; // No parenthesis in need if not casting the value, since the null-coalesce operator ?? is already right-associative and not affected by PHP 8 changes regarding left-associative ternary operators
     } else {
         if (empty($categoryid)) return;
@@ -119,6 +120,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
                    WHERE categoryid = " . (int)$categoryid;
 
         $ret =& serendipity_db_query($query);
+        $ret[0]['category_icon_webp'] = $ret[0][7] = !empty($ret[0]['category_icon']) ? serendipity_generate_webpPathURI($ret[0]['category_icon']) : '';
         return $ret[0] ?? null; // Ditto (see above)
     }
 }
