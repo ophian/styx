@@ -198,7 +198,7 @@
     // Switches preview of image selected from media db
     serendipity.change_preview = function(input, output) {
         var filename = document.getElementById(input).value;
-        var $target = $('#' + output + '_preview > img');
+        var $target = $('#' + output + '_preview img'); // removed > in '_preview > img' for < picture > containerized images
         $target.attr('src', filename);
     }
 
@@ -211,7 +211,7 @@
     serendipity.serendipity_imageSelector_addToElement = function(str, id) {
         id = serendipity.escapeBrackets(id);
         var $input = $('#' + id);
-        $input.val(str);
+        $input.val(str); // by category_icon, this adds to category template img tag, see serendipity.change_preview() for being peaceful to new picture containers
 
         if ($input.attr('type') != 'hidden') {
             $input.focus();    // IE would generate an error when focusing an hidden element
