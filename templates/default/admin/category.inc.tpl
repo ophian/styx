@@ -139,7 +139,10 @@
 
                 <figure id="category_icon_preview">
                     <figcaption>{$CONST.PREVIEW}</figcaption>
-                    <img src="{$this_cat.category_icon|default:""|escape}" alt="">
+                    <picture>
+                      <source type="image/webp" srcset="{$this_cat.category_icon_webp|default:""|escape}" alt="">
+                      <img src="{$this_cat.category_icon|default:""|escape}" alt="">
+                    </picture>
                 </figure>
             </div>
 
