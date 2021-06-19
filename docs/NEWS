@@ -1,6 +1,8 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Add Styx theme dark mode - enabled by your Personal Preferences
+
   * Allow backend category_icon picture web variation containers
 
   * Add default entries pager styles to [ boot ] pool theme
