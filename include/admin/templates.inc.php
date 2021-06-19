@@ -219,6 +219,9 @@ foreach($stack AS $theme => $info) {
                 // check the backend theme for the jpg fallback case URL
                 $data['templates'][$theme]["fullsize${backendId}_preview"] = $serendipity['baseURL'] . $serendipity['templatePath'] . $theme . "/preview${backendId}_fullsize.jpg";
             }
+            // Avoid old themes debug sets with uninitialized variation variables in PHP 8
+            $data['templates'][$theme]['preview_webp']          = $data['templates'][$theme]['preview_webp']          ?? null;
+            $data['templates'][$theme]['fullsize_preview_webp'] = $data['templates'][$theme]['fullsize_preview_webp'] ?? null;
         }
         // Now the REMOTE TEMPLATES list for the better cached image case, which are build and placed by Spartacus :: buildTemplateList()
         // Cache store them first via Spartacus inside templates_c/template_cache, then get them here
