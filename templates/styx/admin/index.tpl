@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html{if $admin_vars.darkmode} data-color-mode="dark" data-light-theme="light" data-dark-theme="dark"{/if} class="no-js" dir="ltr" lang="{$lang}">
+<!DOCTYPE html>{* data-color-mode="light" enables an in-build Chromium style, eg. for checkboxes turning them black - See "s" we don't want that behavior *}
+<html{if $admin_vars.darkmode} data-color-mode="dark"{else} data-color-mode="slight"{/if} data-light-theme="light" data-dark-theme="dark" class="no-js" dir="ltr" lang="{$lang}">
 <head>
     <meta charset="{$CONST.LANG_CHARSET}">
 {if !$admin_vars.backendBlogtitleFirst}
