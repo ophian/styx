@@ -5,19 +5,17 @@
  * Convert or save as UTF-8 file without BOM.
  **/
 
-$info['theme_info_summary'] = 'Das Styx Backend (Beispiel) Default Theme';
+$info['theme_info_summary'] = 'Das Styx Standard Backend ("Beispiel") Default Theme';
 
 $info['theme_info_desc'] = '<u>ACHTUNG&colon;</u> Dieses Theme hat kein eigenes Frontend!<br>
-Dieses Backend Beispiel-Theme verweist auf die Styx Kern Backend Templates im "default/admin" Unterverzeichnis.
-Als Beispiel zeigt es die Möglichkeit, ein eigenes und mehr oder weniger template-leeres Backend Theme zu erstellen das als "Fallback" die Standard "default" Backend Template Dateien nutzt.
-Dies bedenkend, sind Sie in der Lage, nur diejenigen Dateien zu ändern und hinzuzufügen, die notwendig sind, um Ihre momentanen Bedürfnisse zu erfüllen.';
+Dieses Standard Backend Theme verweist auf die Styx Kern Backend Templates im "default/admin" Unterverzeichnis.
+Es zeigt auf einfache Weise, wie Sie damit in der Lage sind, nur diejenigen Dateien zu ändern oder hinzuzufügen, die notwendig sind, um Ihre momentanen Bedürfnisse zu erfüllen.';
 
-$info['theme_info_backend'] = 'Dieses Backend Beispiel-Theme verweist auf die Styx Kern Backend Templates im "default/admin" Unterverzeichnis.
-Als Beispiel zeigt es die Möglichkeit, ein eigenes und mehr oder weniger template-leeres Backend Theme zu erstellen das als "Fallback" die Standard "default" Backend Template Dateien nutzt.
-Dies bedenkend, sind Sie damit in der Lage, nur diejenigen Dateien zu ändern und hinzuzufügen, die notwendig sind, um Ihre momentanen Bedürfnisse zu erfüllen.
-Dieses Backend-Beispiel kann sich in Zukunft ändern, um mehr echte Dateien für die Backend-Generierung vorzuhalten.
-Momentan enthält es nur eine Index-Template-Datei, die relevante Informationen und Assets auf der Login-Seite entfernt, wenn Sie nicht angemeldet sind.
-Und es verfügt über eine eigene styles Auszeichnung, analog zur "default/admin/styles.css" Datei, die folgende, fortlaufend aktualisierte Verbesserungen im Backend vornimmt:
+$info['theme_info_backend'] = 'Dieses Standard Backend-Theme verweist auf die Styx Kern Backend Templates im "default/admin" Unterverzeichnis.
+Als Serendipity Styx Standard Backend "Beispiel" zeigt es die Möglichkeit, ein eigenes und mehr oder weniger template-leeres Backend Theme zu erstellen das als "Fallback" die "default" Backend Template Dateien nutzt.
+Es zeigt auf einfache Weise, wie Sie damit in der Lage sind, nur diejenigen Dateien zu ändern oder hinzuzufügen, die notwendig sind, um Ihre momentanen Bedürfnisse zu erfüllen.
+Momentan enthält es eine angepasste index-Template-Datei, die außer dem neuen "Dark Mode" nur bestimmte irrelevante Informationen und Assets auf der Login-Seite entfernt, wenn Sie nicht angemeldet sind.
+Dieses Standard Backend verfügt über eine eigene styles Auszeichnung, analog zur "default/admin/styles.css" Datei, die folgende, fortlaufend aktualisierte Verbesserungen im Backend vornimmt:
 <pre>
 * 2017-08-21 - Neu hinzugekommen ist ein Bugfix für die Backend-Ansichten mit "rtl" (right-to-left), auf rechts gedrehtes Schrift-Attribut im &lt;html&gt; Element.
 * 2019-09-08 - Die IE8/9 workarounds wurden entfernt.
