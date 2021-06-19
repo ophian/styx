@@ -32,6 +32,7 @@ Und es verfügt über eine eigene styles Auszeichnung, analog zur "default/admin
 * 2021-04-01 - Cleanup für media inputs in Konfigurationsseiten.
 * 2021-04-28 - Mozilla: Fix des rechts fehlenden blau-schimmer Schattens bei bestimmten Klapp-bar-Buttons
 * 2021-05-05 - Verbesserte Eingabe-/Radiofelder für die (blaue) Standard-Mozilla(89+)/Chromium-Darstellung
+* 2021-06-19 - Styx Dark Mode
 </pre>
 
 DAS FOLGENDE IST DIE BESCHREIBUNG DES FALLBACK BACKENDS&colon;<br>
