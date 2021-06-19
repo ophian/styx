@@ -9,6 +9,9 @@
 {/if}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{$head_link_stylesheet}">
+{if $admin_vars.darkmode}
+    <link rel="stylesheet" href="{serendipity_getFile file='admin/styx_dark.min.css'}">
+{/if}
     <script src="{serendipity_getFile file='admin/js/modernizr.min.js'}"></script>
 {if $admin_vars.is_logged_in}
 {if $admin_vars.admin_installed}{serendipity_hookPlugin hook="backend_header" hookAll="true"}{/if}
