@@ -7,7 +7,7 @@ Version 3.5-dev ()
 
   * Add default entries pager styles to [ boot ] pool theme
 
-  * Fix and improve mlorphans plugin tasks
+  * Fix and improve MediaLibrary image-orphan plugin tasks
 
 
 Version 3.4.0 (May, 30th 2021)
