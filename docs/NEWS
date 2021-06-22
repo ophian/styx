@@ -1,6 +1,9 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Fix a special cased plugin configuration hidden info header issue, added
+    by Styx 3.4 new toggle head, eg. ckeplus, contactform.
+
   * Add Styx theme dark mode - enabled by your Personal Preferences
 
   * Allow backend category_icon picture WebP variation containers
