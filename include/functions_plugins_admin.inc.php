@@ -264,7 +264,12 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
         $plugin->introspect_config_item($config_item, $cbag);
 
         $data['cname']  = $cname = serendipity_specialchars($cbag->get('name'));
-        $data['cdesc']  = $cdesc = serendipity_specialchars($cbag->get('description'));
+        $data['cdesc']  = $cdesc = serendipity_specialchars(($cbag->get('description') ?? 'forced fake value for plugin [i] desc sets')); /* WTF is this isset ternary for ?!
+            A set plugin description property $cdesc is also used by "plugin_config.tpl" to set a plugin head "plugin_togglegroup simple" [info] fieldset,
+            when config_groups variable is not an array and empty.
+            A here faked value of the $cbag description avoids cases, where active plugin config properties (introspect_config_item items) end with an EMPTY
+            or NOT set item property description, eg. ckeplus, contactform. It does not further interfere and sets plugin configuration fake infos or so.
+            EXTRA CARE for plugins which use an abstract configuration class similar to here. They need a last items filled property bag description! */
         $value          = $plugin->get_config($config_item, 'unset');
         $lang_direction = serendipity_specialchars($cbag->get('lang_direction'));
 
