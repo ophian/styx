@@ -9,7 +9,7 @@
         <input name="SAVECONF" type="submit" value="{$CONST.SAVE}">
     </div>
 {/if}
-{if NOT empty($cdesc) AND empty($config_groups)}
+{if NOT empty($desc) AND empty($config_groups)}
 
     <fieldset id="{$plugin_basename}_togglegroup" class="plugin_togglegroup simple">
         <span class="plugin_file_actions actions">
