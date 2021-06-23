@@ -1,6 +1,8 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Update to bootstrap "b5" assets 5.0.2 revision
+
   * Fix a special cased plugin configuration issue with hidden info headers
 
   * Add Styx theme dark mode - enabled by your Personal Preferences
