@@ -257,7 +257,7 @@ function serendipity_plugin_config(&$plugin, &$bag, &$name, &$desc, &$config_nam
 
     $plugin_options = array();
 
-    $data['desc']         = $desc; // Add for "plugin_config.tpl" to set a plugin head "plugin_togglegroup simple" [info] fieldset
+    $data['desc']         = ($_postKey != 'template') ? $desc : ''; // Add for "plugin_config.tpl" to set a plugin head "plugin_togglegroup simple" [info] fieldset
     $data['config_names'] = $config_names;
 
     foreach($config_names AS $config_item) {
