@@ -170,7 +170,7 @@ $template_config = array(
 );
 
 // Globals and bindings
-$top = isset($serendipity['smarty_vars']['template_option']) ? $serendipity['smarty_vars']['template_option'] : '';
+$top = $serendipity['smarty_vars']['template_option'] ?? '';
 $template_config_groups = NULL;
 $template_global_config = array('navigation' => true);
 $template_loaded_config = serendipity_loadThemeOptions($template_config, $top, true);
