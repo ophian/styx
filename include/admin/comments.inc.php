@@ -174,6 +174,7 @@ if (isset($serendipity['GET']['adminAction'])
         <script>
             window.onload = function() {
                 if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
+                const HAS_CKEDITOR_PLUGPATH = (typeof CKEDITOR_PLUGPATH === 'undefined' || CKEDITOR_PLUGPATH === null) ? false : true;
                 if (STYX_DARKMODE === true) {
                     CKEDITOR.addCss('body { color:#adbac7; } '); /*var(--color-text-primary)*/
                     CKEDITOR.addCss('body { background:#1c2128; } '); /*var(--color-scale-black)*/
@@ -186,6 +187,7 @@ if (isset($serendipity['GET']['adminAction'])
                     toolbarGroups: null,
                     entities: false,
                     htmlEncodeOutput: false,
+                    skin: (STYX_DARKMODE === true && HAS_CKEDITOR_PLUGPATH !== false) ? 'moonodark,' + CKEDITOR_PLUGPATH + 'serendipity_event_ckeditor/moonodark/' : (STYX_DARKMODE === true ? 'moono-dark' : 'moono-lisa'),
                     extraAllowedContent: 'div(*);p(*);ul(*);pre;code{*}(*)',
                     extraPlugins: plugIN
                 });
