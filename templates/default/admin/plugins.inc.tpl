@@ -85,6 +85,7 @@
                     <button class="reset_livefilter icon_link" type="button" data-target="pluginfilter" title="{$CONST.RESET_FILTERS}"><span class="icon-cancel" aria-hidden="true"></span><span class="visuallyhidden">{$CONST.RESET_FILTERS}</span></button>
                 </div>
                 <div class="form_buttons">
+                    <a class="button_link" id="back" href="?serendipity[adminModule]=plugins">{$CONST.BACK}</a>
                     <input type="submit" value="{$CONST.GO}">
                 </div>
             {else}
