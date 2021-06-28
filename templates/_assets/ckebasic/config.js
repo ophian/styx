@@ -39,7 +39,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     // BACKEND Only Area - check blog entries, staticpages and other backend related normal form area nuggets (ie. comment forms have different init need),
     // like contactform, commentspice, downloadmanager, FAQ, DSGVO / GDPR, guestbook, html nugget, quicknotes, adminnotes, psg, and more.
-    if (document.getElementById('serendipityEntry') != null || document.getElementById('sp_main_data') != null || document.getElementById('backend_sp_simple') != null || document.getElementById('serendipity_admin_page .form_area') != null || document.getElementById('note_body') != null || document.getElementById('nuggets3') || document.getElementById('nuggets6')) {
+    if (document.querySelectorAll("#serendipityEntry, #sp_main_data, #backend_sp_simple, #serendipity_admin_page .form_area, #note_body, #nuggets3, #nuggets6") != null) {
         //console.log('STYX fired WYSIWYG: backend entries, staticpages or spawned nuggets');
         // Add Styx specific styles
         if (STYX_DARKMODE === true) {
