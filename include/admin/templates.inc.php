@@ -132,7 +132,7 @@ if (isset($data['cur_template_info']['custom_config_engine']) && file_exists($se
     }
 }
 
-if (is_array($template_config)) {
+if (is_array($template_config) && (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'editConfiguration')) {
     serendipity_plugin_api::hook_event('backend_templates_configuration_top', $template_config);
     $data['has_config'] = true;
 
