@@ -111,6 +111,7 @@ $data['cur_template_backend'] = $serendipity['template_backend'];
 $data['cur_template_info']    = serendipity_fetchTemplateInfo($serendipity['template']);
 
 // NOTE: config.inc.php currently only applies to frontend configuration. Backend configuration is not planned yet, and would preferably use a "config_backend.inc.php" file!
+// leave this open to list view AND editConfiguration page, as long it does not error in cke
 if (isset($data['cur_template_info']['custom_config_engine']) && file_exists($serendipity['serendipityPath'] . $serendipity['templatePath'] . $data['cur_template_info']['custom_config_engine'] . '/config.inc.php')) {
     serendipity_smarty_init();
     $old_template_config_groups = $template_config_groups;
@@ -132,6 +133,7 @@ if (isset($data['cur_template_info']['custom_config_engine']) && file_exists($se
     }
 }
 
+// template config is added by global, and, if filled, already a preset build by serendipity_admin.php serendipity_plugin_api::hook_event('backend_configure', $serendipity); at line 17; Thus we need to strictly check editConfiguration
 if (is_array($template_config) && (isset($serendipity['GET']['adminAction']) && $serendipity['GET']['adminAction'] == 'editConfiguration')) {
     serendipity_plugin_api::hook_event('backend_templates_configuration_top', $template_config);
     $data['has_config'] = true;
