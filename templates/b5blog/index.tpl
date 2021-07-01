@@ -110,7 +110,7 @@
       <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-primary capitalize">{$cal.categories.0.category_name|default:'World'}</strong>
+            <strong class="d-inline-block mb-2 text-primary capitalize">{if NOT isset($cal.categories.0)}World{else}{$cal.categories.0.category_name|default:'World'}{/if}</strong>
             <h3 class="mb-0">{$cal.title|truncate:30:''}</h3>
             <div class="mb-1 text-muted">{$cal.timestamp|formatTime:'%B %e'}</div>
             <p class="card-text mb-auto">{$cal.body|strip|strip_tags|truncate:80:'...'}</p>
@@ -131,7 +131,7 @@
       <div class="col-md-6">
         <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
           <div class="col p-4 d-flex flex-column position-static">
-            <strong class="d-inline-block mb-2 text-success capitalize">{$car.categories.0.category_name|default:'Design'}</strong>
+            <strong class="d-inline-block mb-2 text-success capitalize">{if NOT isset($car.categories.0)}Design{else}{$car.categories.0.category_name|default:'Design'}{/if}</strong>
             <h3 class="mb-0">{$car.title|truncate:30:''}</h3>
             <div class="mb-1 text-muted">{$car.timestamp|formatTime:'%B %e'}</div>
             <p class="mb-auto">{$car.body|strip_tags|strip|truncate:80:'...'}</p>
