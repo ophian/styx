@@ -591,7 +591,7 @@ function &serendipity_fetchEntry($key, $val, $full = true, $fetchDrafts = 'false
         $cond['and'] = " AND e.isdraft = 'false' " . (!serendipity_db_bool($serendipity['showFutureEntries']) ? ' AND e.timestamp <= ' . serendipity_db_time() : '');
     }
 
-    if (isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'entries' && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
+    if (isset($serendipity['authorid']) && isset($serendipity['GET']['adminModule']) && $serendipity['GET']['adminModule'] == 'entries' && !serendipity_checkPermission('adminEntriesMaintainOthers')) {
         $cond['and'] = " AND e.authorid = '" . $serendipity['authorid'] . "'";
     }
 
