@@ -176,8 +176,7 @@ if (isset($serendipity['GET']['adminAction'])
                 if (typeof STYX_DARKMODE === 'undefined' || STYX_DARKMODE === null) STYX_DARKMODE = false;
                 const HAS_CKEDITOR_PLUGPATH = (typeof CKEDITOR_PLUGPATH === 'undefined' || CKEDITOR_PLUGPATH === null) ? false : true;
                 if (STYX_DARKMODE === true) {
-                    CKEDITOR.addCss('body { color:#adbac7; } '); /*var(--color-text-primary)*/
-                    CKEDITOR.addCss('body { background:#1c2128; } '); /*var(--color-scale-black)*/
+                    CKEDITOR.config.contentsCss = [ 'templates/_assets/ckebasic/dark-contents.css' ];
                 }
 
                 var plugIN = (typeof CKECONFIG_CODE_ON === 'undefined' || !CKECONFIG_CODE_ON) ? 'emoji' : 'codesnippet,emoji';
