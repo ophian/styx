@@ -24,14 +24,15 @@
 
 @define('PLUGIN_EVENT_NL2BR_ABOUT_TITLE', 'BITTE BEACHTEN Sie die Auswirkungen dieses Markup-Plugins:');
 @define('PLUGIN_EVENT_NL2BR_ABOUT_DESC', '<p>Dieses Plugin überträgt Zeilenumbrüche in HTML-Zeilenumbrüche, so dass sie in Ihrem Blog-Eintrag erscheinen.</p>
+<p><b><u>Vorbemerkung</u>:</b> Die Serendipity Standard Auslieferung nutzt per default seit jeher keine anderen Markup Plugins. Diese Textform nennen wir hier PLAIN (TEXT) EDITOR. Text ist reiner Text und per ENTER oder strukturell eingefügte Zeilenumbrüche werden kodiert in der Datenbank gespeichert und durch dieses Plugin erst bei Ausgabe zur Laufzeit in HTML verwandelt.</p>
 <p><b>PLAIN EDITOR</b>s Basis-Funktionalität: Konvertiere die Zeilenumbrüche zu &lt;br&gt; - Tags.<br>
 <b>PLAIN EDITOR</b>s Erweiterte Funktionalität: Parse den Text in &lt;p&gt;-Tags unter Berücksichtigung der HTML-Syntax wo sie erlaubt sind und automatische Ignorierung bei vorformatiertem Text mit &lt;pre&gt; oder innerhalb von &lt;style&gt; oder &lt;svg&gt;-Tags.</p>
-<p>In zwei Fällen kann dies für Sie zu Problemen führen:</p>
+<p>Dies kann insbesondere dann für Sie zu Problemen führen, wenn Sie während des Betriebs ihres Blogs das Markup-Plugin wechseln, danach also Inhalte mit unterschiedlichen Anforderungen in den Eintragstabellen zu finden sind:</p>
 <ul>
-    <li>wenn Sie zuvor einen <strong>WYSIWYG-Editor</strong> zum Schreiben Ihrer Einträge verwendet haben. In diesem Fall hat der WYSIWYG-Editor bereits korrekte HTML-Zeilenumbrüche platziert, so dass das nl2br-Plugin diese Zeilenumbrüche eigentlich verdoppeln täte. Seit <strong>Serendipity 2.0</strong> braucht man sich darum, in Blogeinträgen und für statische Seiten, aber nicht mehr zu kümmern, da der nl2br Parser automatisch erkannt und deaktiviert wird.</li>
-    <li>wenn Sie andere Markup-Plugins in Verbindung mit diesem Plugin verwenden, die bereits Zeilenumbrüche übersetzen. Die <strong>TEXTILE</strong>- und <strong>MARKDOWN</strong>-Plugins sind Beispiele für solche Plugins.</li>
+    <li>Der eingebaute <strong>WYSIWYG-Editor</strong> und das <strong>CKEditor Plus</strong> Plugin speichern bereits korrektes HTML - bereit zur Ausgabe - und schalten automatisch das NL2BR Plugin für die Ausgabe ab. (Ansonsten gäbe es eine Verdopplung aller codierten Zeilenumbrüche und würde das Ausgabelayout zumindest verändern oder sogar zerstören.)</li>
+    <li>Wenn Sie andere Markup-Plugins in Verbindung mit diesem Plugin verwenden, die bereits Zeilenumbrüche übersetzen. Die <strong>TEXTILE</strong>- und <strong>MARKDOWN</strong>-Plugins sind Beispiele für solche Plugins. (Auch für diese beiden gibt es entsprechende Vorkehrungen zur Abschaltung von NL2BR.)</li>
 </ul>
-<p><u>Pro-Tipp</u>: Der eingebaute <strong>WYSIWYG-Editor</strong> oder das <strong>CKEditor Plus</strong> Plugin setzt die nl2br Funktionlität automatisch außer Kraft!</p>
+<p>Dieses "<em>Problem</em>" gilt in hohem Maße aber nur, wenn sie sehr alte Einträge aus der Frühzeit von Serendipity haben, bei denen der Markup Zustand bzw. die NL2BR-Anforderung nicht entsprechend hinterlegt wurden.</p>
 <p>Um weitere Probleme zu vermeiden, sollten Sie das nl2br-Plugin entweder für Einträge global oder per Eintrag im Abschnitt "Erweiterte Eigenschaften" eines Eintrags deaktivieren, wenn Sie das Plugin für die Eingabeeigenschaften (entryproperties) installiert haben.</p>
 <p><u>Genereller Hinweis:</u> Das nl2br Plugin ist also nur wirklich sinnvoll, wenn Sie</p>
 <ul>
