@@ -30,7 +30,7 @@
 {if NOT $is_preview}
     {if NOT empty($entry.categories) OR $entry.has_comments OR $entry.has_trackbacks}
 
-        <footer class="serendipity_entryFooter post_info{if $view != 'entry'} listed_view{/if}">
+        <footer class="serendipity_entryFooter post_info{if isset($view) AND $view != 'entry'} listed_view{/if}">
             <ul class="plainList">
             {if NOT empty($entry.categories)}
 
@@ -55,7 +55,7 @@
 {/if}
 
             </ul>
-            {if $view == 'entry'}{$entry.add_footer|default:''}{/if}
+            {if isset($view) AND $view == 'entry'}{$entry.add_footer|default:''}{/if}
 
         </footer>
     {/if}
