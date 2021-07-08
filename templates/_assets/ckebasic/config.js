@@ -37,14 +37,8 @@ CKEDITOR.editorConfig = function( config ) {
     // Dialog windows are also simplified.
     config.removeDialogTabs = 'link:advanced';
 
-    // BACKEND Only Area - check blog entries, staticpages and other backend related for NORMAL form area nuggets (ie. comment forms have different init need),
-    // like contactform (n7), commentspice (n18), downloadmanager (n3), FAQ (n2,n3), DSGVO / GDPR (n2,n5,n7), guestbook (n4), html nugget (n3), (! quicknotes, ! serendipity_commentform_comment), adminnotes, psg (n6), and more.
-    // NOTE: If you have themes or plugins with backend related textareas returning the textfield white/light in DARKMODE, please contact me at https://github.com/ophian/styx/ to add that specific nuggetID to the list.
-    if (document.getElementById('serendipityEntry') != null
-    || document.getElementById('sp_main_data') != null || document.getElementById('backend_sp_simple') != null
-    || document.getElementById('serendipity_admin_page .form_area') != null
-    || document.getElementById('note_body') != null
-    || document.getElementById('nuggets2') != null || document.getElementById('nuggets3') != null || document.getElementById('nuggets4') || document.getElementById('nuggets5') != null || document.getElementById('nuggets6') != null || document.getElementById('nuggets7') != null || document.getElementById('nuggets18') != null) {
+    // BACKEND Only Area - check against blog entries, staticpages and other backend related for NORMAL form area nuggets (ie. comment forms have different init need),
+    if (document.getElementById('serendipity_commentform_comment') == null && document.getElementById('quickblog_body_area') == null) {
         //console.log('STYX fired WYSIWYG: backend entries, staticpages or spawned nuggets');
         // Add Styx specific styles
         if (STYX_DARKMODE === true) {
