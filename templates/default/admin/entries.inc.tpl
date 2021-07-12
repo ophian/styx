@@ -56,7 +56,7 @@
 
                 <div class="form_field">
                     <label for="filter_content">{$CONST.CONTENT}</label>
-                    <input id="filter_content" name="serendipity[filter][body]" type="text" value="{if NOT empty($get.filter)}{$get.filter.body|escape|default:''}{/if}">
+                    <input id="filter_content" name="serendipity[filter][body]" type="text" value="{if NOT empty($get.filter.body)}{$get.filter.body|escape|default:''}{/if}">
                 </div>
             </div>
         </fieldset>
