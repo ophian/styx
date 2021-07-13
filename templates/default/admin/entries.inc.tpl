@@ -1,6 +1,6 @@
 {if $drawList}
 <div class="has_toolbar">
-    <h2>{$CONST.EDIT_ENTRIES}{if (NOT empty($smarty.get.serendipity.filter.author) OR NOT empty($smarty.get.serendipity.filter.category) OR NOT empty($smarty.get.serendipity.filter.body) OR (isset($smarty.get.serendipity.filter.isdraft) AND $smarty.get.serendipity.filter.isdraft != 'all')) AND empty($smarty.get.entry_filters_reset)} <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-filter-circle-fill" fill="#3e5f81" xmlns="http://www.w3.org/2000/svg"><title id="title">{$CONST.FILTERS}</title><path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM3.5 5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zM5 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/></svg>{/if}</h2>
+    <h2>{$CONST.EDIT_ENTRIES}{if (NOT empty($get.filter.author) OR NOT empty($get.filter.category) OR NOT empty($get.filter.body) OR (isset($get.filter.isdraft) AND $get.filter.isdraft != 'all')) AND empty($smarty.get.entry_filters_reset)} <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-filter-circle-fill" fill="#3e5f81" xmlns="http://www.w3.org/2000/svg"><title id="title">{$CONST.FILTERS}</title><path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zM3.5 5a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zM5 8.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm2 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5z"/></svg>{/if}</h2>
 
     <form action="?" method="get">
         <input name="serendipity[action]" type="hidden" value="admin">
@@ -215,7 +215,7 @@
 
                         <span class="entry_status status_draft">{$CONST.DRAFT}</span>
                     {/if}
-                    {if (isset($smarty.get.go) AND (NOT empty($smarty.get.serendipity.filter.body) OR (isset($smarty.post.serendipity.editSubmit) AND NOT empty($smarty.post.serendipity.id)))) OR isset($entry.is_pinned)}
+                    {if (isset($smarty.get.go) AND (NOT empty($get.filter.body) OR (isset($smarty.post.serendipity.editSubmit) AND NOT empty($smarty.post.serendipity.id)))) OR isset($entry.is_pinned)}
 
                         <span class="entry_status status_pin"><input class="pinpoint" name="serendipity[entryQuickPin][]" type="checkbox" value="{$entry.id}"{assign "pinstr" "entrylist_pin_entry_{$entry.id}"}{if isset($smarty.cookies.serendipity.$pinstr)} checked="checked"{/if} onClick="serendipity.PinFilter({$entry.id})"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#dc3545" class="bi bi-pin-angle-fill" viewBox="0 0 16 16"><title id="title">{$CONST.ENTRY_QUICKPIN}</title><path d="M9.828.722a.5.5 0 0 1 .354.146l4.95 4.95a.5.5 0 0 1 0 .707c-.48.48-1.072.588-1.503.588-.177 0-.335-.018-.46-.039l-3.134 3.134a5.927 5.927 0 0 1 .16 1.013c.046.702-.032 1.687-.72 2.375a.5.5 0 0 1-.707 0l-2.829-2.828-3.182 3.182c-.195.195-1.219.902-1.414.707-.195-.195.512-1.22.707-1.414l3.182-3.182-2.828-2.829a.5.5 0 0 1 0-.707c.688-.688 1.673-.767 2.375-.72a5.92 5.92 0 0 1 1.013.16l3.134-3.133a2.772 2.772 0 0 1-.04-.461c0-.43.108-1.022.589-1.503a.5.5 0 0 1 .353-.146z"/></svg></span>
                         <script> serendipity.GetPinExpireTime({$entry.id}) </script>
