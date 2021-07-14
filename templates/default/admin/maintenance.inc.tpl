@@ -189,7 +189,7 @@
 
 {if isset($cleanup_finish)}
     {if $cleanup_finish > 0}
-        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}! <span class="perm_name">{$CONST.CLEANCOMPILE_PASS|sprintf:$cleanup_template}</span></span>
+        <span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> {$CONST.DONE}! <span class="perm_name">{$CONST.CLEANCOMPILE_PASS|sprintf:"$cleanup_template/$template_backend"}</span></span>
     {/if}
     {if $cleanup_finish === 0}
         <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CLEANCOMPILE_FAIL}</span>
