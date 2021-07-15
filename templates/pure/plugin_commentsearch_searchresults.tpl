@@ -1,4 +1,4 @@
-<aside class="search-results clearfix">
+<div class="search-results clearfix">
     <h3>{$CONST.COMMENT_SEARCHRESULTS|sprintf:$comment_searchresults}:</h3>
     {if $comment_results}
     <ul>
@@ -12,4 +12,4 @@
     {else}
     <p class="serendipity_msg_notice">{$CONST.NO_ENTRIES_TO_PRINT}</p>
     {/if}
-</aside>
+</div>
