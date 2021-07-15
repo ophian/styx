@@ -1,5 +1,5 @@
 {if $staticpage_results}
-<section id="pages_resultset" class="page">
+<div id="pages_resultset" class="page">
   <div class="pages_found">
     <h3>{$CONST.STATICPAGE_SEARCHRESULTS|sprintf:$staticpage_searchresults}</h3>
 
@@ -10,5 +10,5 @@
     {/foreach}
     </dl>
   </div>
-</section>
+</div>
 {/if}
