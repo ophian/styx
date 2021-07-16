@@ -8,6 +8,5 @@
         <dd>{$result.content|strip_tags|truncate:200:"..."}</dd>
     {/foreach}
     </dl>
-    {/if}
 </div>
 {/if}
