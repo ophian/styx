@@ -148,6 +148,11 @@ h2.comments_permalink {
 }
 
 
+/* asides */
+.faq-searchresults, page_results, comment_results {
+    clear: both;
+}
+
 /* Images */
 .post img,
 .page img,
