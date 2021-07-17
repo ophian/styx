@@ -269,7 +269,8 @@ switch($serendipity['GET']['adminAction']) {
         foreach($filter_import AS $f_import) {
             if (isset($serendipity['GET']['filter'])) {
                 if (isset($serendipity['COOKIE']['entrylist_filter_' . $f_import]) && !isset($serendipity['GET']['filter'][$f_import])) {
-                    $serendipity['GET']['filter'][$f_import] =& serendipity_specialchars(strip_tags($serendipity['COOKIE']['entrylist_filter_' . $f_import]));
+                    $serendipity['COOKIE']['entrylist_filter_' . $f_import] = serendipity_specialchars(strip_tags($serendipity['COOKIE']['entrylist_filter_' . $f_import]));
+                    $serendipity['GET']['filter'][$f_import] =& $serendipity['COOKIE']['entrylist_filter_' . $f_import];
                 }
                 $serendipity['GET']['filter'][$f_import] = $serendipity['GET']['filter'][$f_import] ?? null;
                 $data["get_filter_$f_import"] = serendipity_specialchars(strip_tags($serendipity['GET']['filter'][$f_import]));
@@ -279,7 +280,8 @@ switch($serendipity['GET']['adminAction']) {
         foreach($sort_import AS $s_import) {
             if (isset($serendipity['GET']['sort'])) {
                 if (isset($serendipity['COOKIE']['entrylist_sort_' . $s_import]) && !isset($serendipity['GET']['sort'][$s_import])) {
-                    $serendipity['GET']['sort'][$s_import] =& serendipity_specialchars(strip_tags($serendipity['COOKIE']['entrylist_sort_' . $s_import]));
+                    $serendipity['COOKIE']['entrylist_sort_' . $s_import] = serendipity_specialchars(strip_tags($serendipity['COOKIE']['entrylist_sort_' . $s_import]));
+                    $serendipity['GET']['sort'][$s_import] =& $serendipity['COOKIE']['entrylist_sort_' . $s_import];
                 }
                 $serendipity['GET']['sort'][$s_import] = $serendipity['GET']['sort'][$s_import] ?? null;
                 $data["get_sort_$s_import"] = serendipity_specialchars(strip_tags($serendipity['GET']['sort'][$s_import]));
