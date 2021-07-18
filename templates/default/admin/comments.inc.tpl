@@ -145,7 +145,7 @@
                                     <dt>IP:</dt>
                                     <dd>{if empty($comment.ip)}N/A{else}{$comment.ip|escape}{/if} {$comment.action_ip|default:''}</dd>
                                     <dt>URL:</dt>
-                                    <dd>{if empty($comment.url)}N/A{else}<a href="{$comment.url|escape}" title="{$comment.url|escape}">{$comment.url|escape|truncate:72:"&hellip;"}</a> {/if} {$comment.action_url|default:''}</dd>
+                                    <dd>{if empty($comment.url)}N/A{else}<a href="{$comment.url|escape}" title="{$comment.url|escape}">{$comment.url|escape|truncate:72:"&hellip;"}</a> {/if}{if isset($comment.action_url)} {$comment.action_url|default:''}{/if}</dd>
                                     <dt>{$CONST.REFERER}:</dt>
                                     <dd>{if empty($comment.referer)}N/A{else}<a href="{$comment.referer|escape}" title="{$comment.referer|escape}">{$comment.referer|escape|truncate:72:"&hellip;"}</a>{/if} {$comment.action_referer|default:''}</dd>
                                 </dl>
