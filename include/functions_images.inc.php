@@ -3146,8 +3146,6 @@ function serendipity_getImageSize($file, $ft_mime = '', $suf = '') {
 
     if ($ft_mime == 'application/pdf') {
         $fdim = array(1000,1000,24, '', 'bits'=> 24, 'channels' => '3', 'mime' => 'application/pdf');
-    } else if ($ft_mime == 'text/calendar') {
-         $fdim = '';
     } else {
         $fdim = @getimagesize($file);
     }
