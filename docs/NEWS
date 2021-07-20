@@ -1,6 +1,8 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Fix entries filter result issue by cookie stored "wrong" author ID
+
   * Add backend theme to maintenance CLEANCOMPILE_PASS success message
 
   * Add BACK button to plugin installation page
