@@ -268,7 +268,8 @@ switch($serendipity['GET']['adminAction']) {
 
         foreach($filter_import AS $f_import) {
             if (isset($serendipity['GET']['filter'])) {
-                if (isset($serendipity['COOKIE']['entrylist_filter_' . $f_import]) && !isset($serendipity['GET']['filter'][$f_import])) {
+                // Don't check against Cookies when requested per categories list selected entries, particularly for the author ID
+                if (!isset($serendipity['GET']['catref']) && isset($serendipity['COOKIE']['entrylist_filter_' . $f_import]) && !isset($serendipity['GET']['filter'][$f_import])) {
                     $serendipity['COOKIE']['entrylist_filter_' . $f_import] = serendipity_specialchars(strip_tags($serendipity['COOKIE']['entrylist_filter_' . $f_import]));
                     $serendipity['GET']['filter'][$f_import] =& $serendipity['COOKIE']['entrylist_filter_' . $f_import];
                 }
