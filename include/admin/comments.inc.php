@@ -362,6 +362,8 @@ if (serendipity_checkPermission('adminComments')) {
     serendipity_plugin_api::hook_event('backend_comments_top', $sql);
     $data['backend_comments_top'] = ob_get_contents();
     ob_end_clean();
+} else {
+    $data['backend_comments_top'] = null;
 }
 
 $data['commentsPerPage'] = $commentsPerPage;
