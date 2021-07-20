@@ -248,6 +248,9 @@ if (!isset($data['this_cat']['category_description'])) {
 if (!isset($data['this_cat']['category_icon'])) {
     $data['this_cat']['category_icon'] = null;
 }
+if (!isset($data['this_cat']['category_icon_webp'])) {
+    $data['this_cat']['category_icon_webp'] = null;
+}
 
 echo serendipity_smarty_showTemplate('admin/category.inc.tpl', $data);
 
