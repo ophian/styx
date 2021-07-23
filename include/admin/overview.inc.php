@@ -115,7 +115,7 @@ if (is_array($futures)) {
     if ($futures['count'] > 0) $data['shortcuts'] = true;
 }
 if (is_array($drafts)) {
-    $data['entries']['drafts']['count'] = $drafts['count'];
+    $data['entries']['drafts']['count'] = $drafts['count']; // catref GET avoids loading a previous session cookie author ID, see categories list and filter import regeneration in entries.inc
     $data['entries']['drafts']['link'] = 'serendipity_admin.php?serendipity[action]=admin&serendipity[adminModule]=entries&serendipity[adminAction]=editSelect'.$permByAuthor.'&serendipity[catref]=1&serendipity[filter][isdraft]=draft&dashboard[filter][noset]=1&go=1&serendipity[sort][perPage]=12&'.$data['urltoken'].'';
     if ($drafts['count'] > 0) $data['shortcuts'] = true;
 }
