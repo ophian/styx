@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.70');
+        $propbag->add('version',       '1.71');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -1139,13 +1139,15 @@ class serendipity_event_entryproperties extends serendipity_event
                     $q   = "SELECT sort_order FROM {$serendipity['dbPrefix']}plugins WHERE name = '" . $this->instance . "'";
                     $cur = serendipity_db_query($q, true, 'num');
 
-                    // Decrease sort_order of all plugins after current plugin by one.
-                    $q = "UPDATE {$serendipity['dbPrefix']}plugins SET sort_order = sort_order - 1 WHERE placement = '" . $addData['default_placement'] . "' AND sort_order > " . intval($cur[0]);
-                    serendipity_db_query($q);
+                    if ($addData['default_placement'] == 'event') {
+                        // Decrease sort_order of all plugins after current plugin by one.
+                        $q = "UPDATE {$serendipity['dbPrefix']}plugins SET sort_order = sort_order - 1 WHERE placement = '" . $addData['default_placement'] . "' AND sort_order > " . intval($cur[0]);
+                        serendipity_db_query($q);
 
-                    // Set current plugin as last plugin in queue.
-                    $q = "UPDATE {$serendipity['dbPrefix']}plugins SET sort_order = " . intval($rs[0]) . " WHERE name = '" . $this->instance . "'";
-                    serendipity_db_query($q);
+                        // Set current plugin as last plugin in queue.
+                        $q = "UPDATE {$serendipity['dbPrefix']}plugins SET sort_order = " . intval($rs[0]) . " WHERE name = '" . $this->instance . "'";
+                        serendipity_db_query($q);
+                    }
                     break;
 
                 default:

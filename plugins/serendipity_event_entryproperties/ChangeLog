@@ -1,3 +1,9 @@
+1.71:
+-----
+    * Improve entryproperties 'backend_plugins_new_instance' hook sort_order UPDATE
+      to default_placement 'event' plugins only to avoid scrambled orders, when placing
+      the entryproperties plugin back to the end of list.
+
 1.70:
 -----
     * Improve entryproperties fieldset button up
