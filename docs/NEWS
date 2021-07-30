@@ -1,6 +1,10 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Fix an old entryproperties plugin issue, with a wrongly re-configured sort
+    order to automatically re-place it to the end of the list when installing a new
+    plugin.
+
   * Fix entries filter result issue by a possible cookie stored author ID
     from a previous different user login session.
 
