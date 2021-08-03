@@ -1,5 +1,5 @@
 <?php
-// serendipity_smarty_class.inc.php lm 2016-01-31 Ian
+// serendipity_smarty_class.inc.php lm 2021-08-03 Ian
 
 // define secure_dir and trusted_dirs for Serendipity_Smarty_Security_Policy class.
 @define('S9Y_TEMPLATE_FALLBACK',    $serendipity['serendipityPath'] . $serendipity['templatePath'] . 'default');
@@ -48,19 +48,11 @@ class Serendipity_Smarty_Security_Policy extends Smarty_Security
         return true;
     }
 
-    public static function test()
-    {
-        var_dump(get_called_class());
-    }
-
 }
 
 // Create a wrapper class extended from Smarty
 class Serendipity_Smarty extends Smarty
 {
-    // BC mode for plugins Smarty2 compat INCLUDE_ANY fetch() calls - to avoid an undefinied property error.
-    public $security_settings = false;
-
     /**
      * Magic set
      */
@@ -230,27 +222,6 @@ class Serendipity_Smarty extends Smarty
         // We use our own error_handler and get in conflicts with Smarty in any case?
         // $this->muteExpectedErrors(); # enable, to get all template warnings, which are normally suppressed, passed to the Serendipity error handler
         // $this->unmuteExpectedErrors();
-    }
-
-    /*
-        Note: Ian
-        This BC method has to be kept as long as not converted to new syntax in additional_themes (config.inc files)
-    */
-
-    /**
-     * Wrapper for old Smarty 2 assign_by_ref BC mode
-     *
-     * @param string $tpl_var the template variable name
-     * @param mixed  &$value  the referenced value to assign
-     */
-    public function assign_by_ref($tpl_var, &$value)
-    {
-        $this->assignByRef($tpl_var, $value);
-    }
-
-    public static function test()
-    {
-        var_dump(get_called_class());
     }
 
 }
