@@ -2,8 +2,8 @@ Version 3.5-dev ()
  ------------------------------------------------------------------------
 
   * Removed old Smarty backward compatibility mode wrapper and configuration sets,
-    since all Styx repositories for themes & plugins have longly proofed to be up
-    to date.
+    since all Styx repositories for themes & plugins have longly enough proofed to
+    be up to date.
 
   * Fix an old entryproperties plugin issue, with a wrongly re-configured sort
     order to automatically re-place it to the end of the list when installing a new
