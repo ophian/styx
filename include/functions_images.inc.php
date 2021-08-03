@@ -4085,6 +4085,9 @@ function serendipity_prepareMedia(&$file, $url = '') {
         $file['nice_thumbsize_webp'] = number_format(round($file['thumbSizeWebp']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
 
+    // inits
+    if (!isset($file['full_thumb_webp'])) $file['full_thumb_webp'] = null;
+
     return true;
 }
 
