@@ -659,6 +659,7 @@ function &serendipity_fetchEntryProperties($id) {
 
     $parts = array();
     serendipity_plugin_api::hook_event('frontend_entryproperties_query', $parts);
+    $parts['and'] = $parts['and'] ?? '';
 
     $_properties =& serendipity_db_query("SELECT property, value FROM {$serendipity['dbPrefix']}entryproperties WHERE entryid = " . (int)$id . " " . $parts['and']);
     if (!is_array($_properties)) {
