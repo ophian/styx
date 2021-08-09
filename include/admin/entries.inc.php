@@ -155,8 +155,8 @@ switch($serendipity['GET']['adminAction']) {
                 $categories = (array)$entry['categories'];
                 $entry['categories'] = array();
                 foreach($categories AS $catid) {
-                    if ($catid == 0) {
-                        continue;
+                    if ($catid == 0 || empty($catid)) {
+                        continue; // empty avoids incomplete category items (checkups)
                     }
                     $entry['categories'][] = serendipity_fetchCategoryInfo($catid);
                 }
