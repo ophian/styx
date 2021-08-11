@@ -4455,7 +4455,7 @@ function &serendipity_getMetaData($file, &$info) {
         }
     }
 
-    if (function_exists('exif_read_data') && is_array($info)) {
+    if (function_exists('exif_read_data') && is_array($info) && exif_imagetype($file) === IMAGETYPE_JPEG) {
         $exif = @exif_read_data($file, 'FILE,COMPUTED,ANY_TAG,IFD0,COMMENT,EXIF', true, false);
         if (is_array($exif)) {
             foreach($ExifFields AS $Exifgroup => $ExifField) {
