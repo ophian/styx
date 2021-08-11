@@ -1,6 +1,8 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Improve fetching image meta data for exif data readable file format check
+
   * Improve backend entry preview array for empty categories and certain themes
 
   * Update /b5/ template assets to bootstrap 5.1.0 release
