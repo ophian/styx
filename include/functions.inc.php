@@ -587,7 +587,6 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
  * @return  array   The sorted and shiny polished result array
  */
 function serendipity_walkRecursive($ary, $child_name = 'id', $parent_name = 'parent_id', $parentid = 0, $depth = 0) {
-    global $serendipity;
     static $_resArray;
     static $_remain;
 
