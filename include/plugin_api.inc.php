@@ -100,9 +100,9 @@ function serendipity_plugin_api_core_event_hook($event, &$bag, &$eventData, &$ad
 
 
 /**
- * This file defines the plugin API for serendipity.
+ * This file defines the plugin API for Serendipity.
  * By extending these classes, you can add your own code
- * to appear in the sidebar(s) of serendipity.
+ * to appear in the sidebar(s) of Serendipity.
  *
  * The system defines a number of built-in plugins; these are
  * identified by class_name only.
@@ -903,6 +903,7 @@ class serendipity_plugin_api
     static function generate_plugins($side, $negate = false, $class = null, $id = null, $tpl = 'sidebar.tpl')
     {
         global $serendipity;
+
         $plugins = serendipity_plugin_api::enum_plugins($side, $negate, $class, $id);
 
         if (!is_array($plugins)) {
@@ -1365,7 +1366,7 @@ class serendipity_plugin
     /**
      * The introspection function of a plugin, to setup properties
      *
-     * Called by serendipity when it wants to display information
+     * Called by Serendipity when it wants to display information
      * about your plugin.
      * You need to override this method in your child class.
      *
@@ -1394,7 +1395,7 @@ class serendipity_plugin
     /**
      * Introspection of a plugin configuration item
      *
-     * Called by serendipity when it wants to display the configuration
+     * Called by Serendipity when it wants to display the configuration
      * editor for your plugin.
      * $name is the name of a configuration item you added in
      * your introspect method.
@@ -1494,10 +1495,10 @@ class serendipity_plugin
     /**
      * Output plugin's contents (Sidebar plugins)
      *
-     * Called by serendipity when it wants your plugin to display itself.
+     * Called by Serendipity when it wants your plugin to display itself.
      * You need to set $title to be whatever text you want want to
      * appear in the item caption space.
-     * Simply echo/print your content to the output; serendipity will
+     * Simply echo/print your content to the output; Serendipity will
      * capture it and make things work.
      * You need to override this method in your child class.
      *
@@ -1569,7 +1570,7 @@ class serendipity_plugin
     /**
      * Garbage Collection
      *
-     * Called by serendipity after insertion of a config item. If you want to kick out certain
+     * Called by Serendipity after insertion of a config item. If you want to kick out certain
      * elements based on contents, create the corresponding function here.
      *
      * @access public
@@ -1594,8 +1595,6 @@ class serendipity_plugin
      */
     function register_dependencies($remove = false, $authorid = '0')
     {
-        global $serendipity;
-
         if (isset($this->dependencies) && is_array($this->dependencies)) {
 
             if ($remove) {
