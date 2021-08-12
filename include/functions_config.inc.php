@@ -942,7 +942,18 @@ function serendipity_deleteCookie($name) {
         $host = '';
     }
 
-    setcookie("serendipity[$name]", '', time()-4000, $serendipity['serendipityHTTPPath'], $host);
+    $secure = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? true : false;
+    $options = [
+        'expires'   => time()-4000,
+        'path'      => $serendipity['serendipityHTTPPath'],
+        'domain'    => $host,
+        'secure'    => $secure,
+        'httponly'  => true,
+        'samesite'  => 'Lax'
+    ];
+    #setcookie("serendipity[$name]", '', time()-4000, $serendipity['serendipityHTTPPath'], $host);
+    // As $options array for use with 6th param 'sameSite' ! Requires PHP 7.3.0 ++ !! Avoids additional errors for secure and sameSite attributes.
+    setcookie("serendipity[$name]", '', $options);
     unset($_COOKIE[$name]);
     unset($serendipity['COOKIE'][$name]);
 }
