@@ -1115,8 +1115,6 @@ function serendipity_iframe_create($mode, &$entry) {
  * @return  array       Returns the array of available options for the requested config option
  */
 function serendipity_probeInstallation($item) {
-    global $serendipity;
-
     $res = NULL;
 
     switch ($item) {
@@ -1778,7 +1776,6 @@ function &serendipity_getDBPermissionNames() {
  * @return  array   Returns the array with all information about all permission names
  */
 function &serendipity_getAllPermissionNames() {
-    global $serendipity;
 
     $DBperms =& serendipity_getDBPermissionNames();
     $perms   = serendipity_getPermissionNames();
