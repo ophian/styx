@@ -5805,8 +5805,6 @@ function &serendipity_getMediaPaths() {
  * @return  boolean
  */
 function serendipity_checkDirUpload($dir) {
-    global $serendipity;
-
     /*
     if (serendipity_checkPermission('adminImagesMaintainOthers')) {
         return true;
