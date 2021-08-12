@@ -58,7 +58,6 @@ function serendipity_fetchCategoryRange($categoryid) {
  * @return string   Returns the SQL code for selecting entries of the calculated categories
  */
 function serendipity_getMultiCategoriesSQL($cats, $invert = false) {
-    global $serendipity;
 
     $mcategories   = explode(';', $cats);
     $cat_sql_array = array();
