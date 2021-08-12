@@ -49,8 +49,6 @@ class serendipity_plugin_api_extension extends serendipity_plugin_api
      */
     function prepareDelete($array, $this_id = 'id', $parent_id = 'parent_id')
     {
-        global $serendipity;
-
         if (is_array($array)) {
             for ($i = 0, $ii = count($array); $i < $ii; $i++) {
                 if (isset($array[$i+1]) && ($array[$i+1][$parent_id] == $array[$i][$this_id])) {
