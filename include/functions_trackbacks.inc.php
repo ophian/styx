@@ -112,7 +112,7 @@ function serendipity_pingback_autodiscover($loc, $body, $url=null) {
  * @return  string  Response
  */
 function _serendipity_send($loc, $data, $contenttype = null) {
-    global $serendipity;
+    #global $serendipity;
 
     $target = parse_url($loc);
     if (isset($target['query']) && $target['query'] != '') {
@@ -227,7 +227,7 @@ function serendipity_trackback_autodiscover($res, $loc, $url, $author, $title, $
  * @return null
  */
 function serendipity_reference_autodiscover($loc, $url, $author, $title, $text) {
-    global $serendipity;
+    #global $serendipity;
 
     $timeout = 30;
     $u = parse_url($loc);
