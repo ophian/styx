@@ -938,7 +938,6 @@ function &serendipity_smarty_printTrackbacks($params, $template) {
  * @return  string      Empty
  */
 function serendipity_smarty_getImageSize($params, Smarty_Internal_Template $template) {
-    global $serendipity;
 
     if (empty($params['file'])) {
         trigger_error('Smarty Error: ' . __FUNCTION__ . ": missing 'file' parameter", E_USER_WARNING);
