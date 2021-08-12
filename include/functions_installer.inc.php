@@ -491,7 +491,6 @@ function serendipity_guessInput($type, $name, $value='', $default='') {
  * @return null
  */
 function serendipity_printConfigTemplate($config, $from = false, $noForm = false, $folded = true, $allowToggle = true, $showDangerous = false) {
-    global $serendipity;
 
     $data = array();
     $data['noForm'] = $noForm;
@@ -997,7 +996,7 @@ function serendipity_httpCoreDir() {
  * @return boolean
  */
 function serendipity_removeFiles($files = null) {
-    global $serendipity, $errors;
+    global $errors;
 
     if (!is_array($files)) {
         return;
@@ -1159,7 +1158,6 @@ function serendipity_check_rewrite($default) {
  * @return null
  */
 function serendipity_removeObsoleteVars() {
-    global $serendipity;
 
     $config = serendipity_parseTemplate(S9Y_CONFIG_TEMPLATE);
     foreach($config AS $category) {
