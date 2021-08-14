@@ -122,7 +122,7 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
 if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
     $data['save_edit'] = true;
     $user = serendipity_fetchUsers($serendipity['POST']['user']);
-    $data['user'] = $user;
+    $data['realname'] = $user[0]['realname'];
     if (!serendipity_checkPermission('adminUsersMaintainOthers') && $user[0]['userlevel'] >= $serendipity['serendipityUserlevel']) {
         $data['no_edit_permission'] = true;
     } elseif ($_POST['userlevel'] > $serendipity['serendipityUserlevel']) {
