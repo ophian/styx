@@ -460,7 +460,7 @@ function serendipity_guessInput($type, $name, $value='', $default='') {
             $cval = $value;
             $default = (array)$default;
             foreach($default AS $k => $v) {
-                $selected = ($k === $value);
+                $selected = ($k == $value); // BE strictly unstrict here! Else you may compare ints with strings!
                 if (empty($cval) && ($k === 'false' || $k === null)) {
                     $selected = true;
                 }
