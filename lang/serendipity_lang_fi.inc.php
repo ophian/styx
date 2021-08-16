@@ -307,7 +307,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'Et voi muokata samantasoisia käyttäjiä kuin itse olet');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Et voi muokata ylempiarvoisiasi.');
 @define('CREATED_USER', 'Uusi käyttäjä %s on luotu');
-@define('MODIFIED_USER', 'Käyttäjä %s muokattu');
+@define('MODIFIED_USER', 'Käyttäjä "%s" muokattu');
 @define('USER_LEVEL', 'Taso');
 @define('DELETE_USER', 'Olet aikeissa poistaa käyttäjän  #%d %s. Oletko tosissasi? Käyttäjän kirjoitukset sensuroidaan.');
 @define('DELETED_USER', 'Käyttäjä #%d %s tuhottu.');

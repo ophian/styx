@@ -310,7 +310,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'U kunt geen gebruikers bewerken met hetzelfde gebruikersniveau als uzelf');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'U kunt geen gebruikers aanmaken met een hoger gebruikersniveau dan uzelf');
 @define('CREATED_USER', '%s is aangemaakt als nieuwe gebruiker');
-@define('MODIFIED_USER', 'De eigenschappen van gebruiker %s zijn gewijzigd');
+@define('MODIFIED_USER', 'De eigenschappen van gebruiker "%s" zijn gewijzigd');
 @define('USER_LEVEL', 'Gebruikersniveau');
 @define('DELETE_USER', 'U staat op het punt de volgende gebruiker te verwijderen: #%d %s. Weet u zeker dat u deze gebruiker wilt verwijderen? Als u dit doet zullen de artikelen van deze gebruiker niet meer worden weergegeven.');
 @define('DELETED_USER', 'Gebruiker #%d %s is verwijderd.');

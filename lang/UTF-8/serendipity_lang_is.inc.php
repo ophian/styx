@@ -307,7 +307,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'Þú getur ekki breytt notendum á með sama stjórnstig og þú');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Þú getur ekki búið til notendur með hærra stjórnstig en þú');
 @define('CREATED_USER', 'Nýr notandi %s hefur verið búinn til');
-@define('MODIFIED_USER', 'Eiginleikum notanda %s hefur verið breytt');
+@define('MODIFIED_USER', 'Eiginleikum notanda "%s" hefur verið breytt');
 @define('USER_LEVEL', 'Stjórnstig');
 @define('DELETE_USER', 'Þú ert að fara að eyða notanda #%d %s. Ertu viss? Þá verður ekki hægt að sýna færslur eftir hann á síðunni.');
 @define('DELETED_USER', 'Notanda #%d %s eytt.');

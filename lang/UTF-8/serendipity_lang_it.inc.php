@@ -295,7 +295,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'Non puoi modificare utenti con lo stesso tuo livello');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Non puoi creare utenti di livello superiore al tuo');
 @define('CREATED_USER', 'Un nuovo utente %s è stato creato');
-@define('MODIFIED_USER', 'Le caratteristiche dell\'utente %s sono state modificate');
+@define('MODIFIED_USER', 'Le caratteristiche dell\'utente "%s" sono state modificate');
 @define('USER_LEVEL', 'Livello utente');
 @define('DELETE_USER', 'Stai per cancellare l\'utente #%d %s. Sei convinto? Questo impedirà la visualizzazione delle notizie scritte da lui sulla pagina principale.');
 @define('DELETED_USER', 'Utente #%d %s cancellato.');

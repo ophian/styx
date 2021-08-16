@@ -309,7 +309,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'Aynı seviyedeki kullanıcıyı düzenleyemezsiniz');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Daha yüksek yetkide kullanıcı oluşturamazsınız');
 @define('CREATED_USER', 'Yeni kullanıcı: %s eklendi');
-@define('MODIFIED_USER', ' %s kullanıcısının özellikleri');
+@define('MODIFIED_USER', '"%s" kullanıcısının özellikleri');
 @define('USER_LEVEL', 'Yetki Seviyesi');
 @define('DELETE_USER', ' #%d %s kullanıcısını silmek üzeresiniz. Bu işlem sonucu sözkonusu kullanıcının yazıları yayından kalkacak.');
 @define('DELETED_USER', ' #%d %s adlı kullanıcı silindi.');

@@ -289,7 +289,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'Du kan ikke redigere brukere med det samme brukernivå som deg selv');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Du kan ikke opprette brukere med et høyere brukernivå enn deg selv');
 @define('CREATED_USER', 'En ny bruker %s er opprettet');
-@define('MODIFIED_USER', 'Egenskapene for brukeren %s er endret');
+@define('MODIFIED_USER', 'Egenskapene for brukeren "%s" er endret');
 @define('USER_LEVEL', 'brukernivå');
 @define('DELETE_USER', 'Du er i ferd med å slette bruker #%d %s. Er du sikker? Dette vil forhindre visning av alle artikler skrevet av brukeren.');
 @define('DELETED_USER', 'Bruker #%d %s er slettet.');

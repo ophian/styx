@@ -309,7 +309,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'لا يمكن لك أن تطور او تعدل على مستخدم لديه نفس مستوك في الصلاحيات');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'لا يمكن لك أن تنشئ مستخدم جديد يمتلك صلاحيات أكبر من صلاحياتك');
 @define('CREATED_USER', 'تم انشاءة %s المستخدم الجديد');
-@define('MODIFIED_USER', 'تم تغيير خصائص هذه المستخدم %s');
+@define('MODIFIED_USER', 'تم تغيير خصائص هذه المستخدم "%s"');
 @define('USER_LEVEL', 'Userlevel');
 @define('DELETE_USER', 'هل انت جاد في حذف المستخدم  #%d %s ؟ هذا يعني عدم ظهور أي موضوع كتبه أو شارك في تحريرة ! ! ! انتبه لا تضيع مدونتك');
 @define('DELETED_USER', 'بواسطة المستخدم #%d %s تم حذفه.');

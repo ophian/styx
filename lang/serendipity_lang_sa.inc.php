@@ -309,7 +309,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'б« нгяд бя √д  Ўж— «ж  Џѕб Џбм г” ќѕг бѕне дЁ” г” жя Ён «б’б«Ќн« ');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'б« нгяд бя √д  д‘∆ г” ќѕг ћѕнѕ нг бя ’б«Ќн«  √я»— гд ’б«Ќн« я');
 @define('CREATED_USER', ' г «д‘«Ѕ… %s «бг” ќѕг «бћѕнѕ');
-@define('MODIFIED_USER', ' г  џнн— ќ’«∆’ е–е «бг” ќѕг %s');
+@define('MODIFIED_USER', ' г  џнн— ќ’«∆’ е–е «бг” ќѕг "%s"');
 @define('USER_LEVEL', 'Userlevel');
 @define('DELETE_USER', 'еб «д  ћ«ѕ Ён Ќ–Ё «бг” ќѕг  #%d %s њ е–« нЏдн Џѕг ўеж— √н гж÷жЏ я »е √ж ‘«—я Ён  Ќ—н—… ! ! ! «д »е б«  ÷нЏ гѕжд я');
 @define('DELETED_USER', '»ж«”Ў… «бг” ќѕг #%d %s  г Ќ–Ёе.');

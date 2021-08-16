@@ -295,7 +295,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'Vous ne pouvez pas éditer des utilisateurs qui ont le même niveau d\'autorisation que le vôtre.');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Vous ne pouvez pas créer d\'utilisateur avec un niveau d\'autorisation plus élevé que le vôtre.');
 @define('CREATED_USER', 'Un nouvel utilisateur %s a été créé');
-@define('MODIFIED_USER', 'Les propriétés de l\'utilisateur %s ont été changées');
+@define('MODIFIED_USER', 'Les propriétés de l\'utilisateur "%s" ont été changées');
 @define('USER_LEVEL', 'Niveau d\'autorisation');
 @define('DELETE_USER', 'Vous êtes sur le point de supprimer l\'utilisateur #%d %s. Êtes-vous sûr de vouloir continuer ? Les billets de cet utilisateur ne seront plus visibles dans votre blog.');
 @define('DELETED_USER', 'Utilisateur #%d %s supprimé.');

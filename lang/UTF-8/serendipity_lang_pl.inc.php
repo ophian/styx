@@ -309,7 +309,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('CREATE_NOT_AUTHORIZED', 'Nie możesz zmianiać danych użytkowników mających ten sam Poziom co Ty');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Nie możesz tworzyć użytkowników o wyższym Poziomie niż Twój własny');
 @define('CREATED_USER', 'Nowy użytkownik %s został utworzony');
-@define('MODIFIED_USER', 'Ustawienia użytkownika %s zostały zmienione');
+@define('MODIFIED_USER', 'Ustawienia użytkownika "%s" zostały zmienione');
 @define('USER_LEVEL', 'Poziom');
 @define('DELETE_USER', 'Zamierzasz usunąć użytkownika #%d %s. Na pewno? To uniemożliwi wyświetlanie jakichkolwiek wpisów tego użytkownika na stronie.');
 @define('DELETED_USER', 'Użytkownik #%d %s usunięty.');

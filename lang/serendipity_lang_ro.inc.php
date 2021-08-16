@@ -308,7 +308,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'Nu poţi modifica utilizatori cu acelaşi nivel de acces ca al tău');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Nu poţi creea utilizatori cu nivel de acces mai mare decât al tău');
 @define('CREATED_USER', 'Am creat un nou utilizator: %s ');
-@define('MODIFIED_USER', 'Am schimbat preferinţele pentru utilizatorul %s');
+@define('MODIFIED_USER', 'Am schimbat preferinţele pentru utilizatorul "%s"');
 @define('USER_LEVEL', 'Nivel Acces');
 @define('DELETE_USER', 'Eşti pe cale să ştergi utilizatorul #%d %s. Eşti sigur? Acest lucru va împiedica afişarea însemnărilor lui pe pagină.');
 @define('DELETED_USER', 'Utilizatorul #%d %s a fost şters.');

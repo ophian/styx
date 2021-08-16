@@ -307,7 +307,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'You cannot modify users with the same userlevel as yourself');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'You cannot create users with a higher userlevel than yourself');
 @define('CREATED_USER', 'A new user %s has been created');
-@define('MODIFIED_USER', 'The properties of user %s have been changed');
+@define('MODIFIED_USER', 'The properties of user "%s" have been changed');
 @define('USER_LEVEL', 'Userlevel');
 @define('DELETE_USER', 'You are about to delete user #%d %s. Are you serious? This will disallow showing any entries written by him on the frontend.');
 @define('DELETED_USER', 'User #%d %s deleted.');

@@ -309,7 +309,7 @@
 @define('CREATE_NOT_AUTHORIZED', '你不能修改跟你相同权限的作者');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', '你不能新增比你更高权限的作者');
 @define('CREATED_USER', '新作者 %s 已经新增');
-@define('MODIFIED_USER', '作者 %s 的资料已经更改');
+@define('MODIFIED_USER', '作者 "%s" 的资料已经更改');
 @define('USER_LEVEL', '作者权限');
 @define('DELETE_USER', '你要删除这个作者 #%d %s? 这会在主页隐藏他所写的任何文章。');
 @define('DELETED_USER', '作者 #%d %s 已被删除.');

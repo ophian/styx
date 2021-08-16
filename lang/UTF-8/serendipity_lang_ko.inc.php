@@ -309,7 +309,7 @@
 @define('CREATE_NOT_AUTHORIZED', '본인과 같은 레벨인 사용자를 변경할 수 없습니다');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', '본인보다 높은 레벨의 사용자를 생성할 수 없습니다');
 @define('CREATED_USER', '새로운 사용자 %s(이)가 생성되었습니다');
-@define('MODIFIED_USER', '%s의 설정이 변경되었습니다');
+@define('MODIFIED_USER', '"%s"의 설정이 변경되었습니다');
 @define('USER_LEVEL', '사용자 레벨');
 @define('DELETE_USER', '%d번 사용자인 %s(을)를 삭제하게 됩니다. 계속 하시겠습니까? 이 사용자가 작성한 글이 더 이상 외부 페이지에 나타나지 않게 됩니다.');
 @define('DELETED_USER', '%d번 사용자인 %s(이)가 삭제되었습니다.');

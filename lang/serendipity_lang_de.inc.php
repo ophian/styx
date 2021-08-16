@@ -295,7 +295,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'Sie können keine Benutzer mit demselben Benutzerrang wie Ihrem eigenen bearbeiten.');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Sie können keine Benutzer mit einem höheren Benutzerrang als Ihrem eigenen anlegen.');
 @define('CREATED_USER', 'Der neue Benutzer %s wurde angelegt.');
-@define('MODIFIED_USER', 'Die Eigenschaften von Benutzer %s wurden geändert.');
+@define('MODIFIED_USER', 'Die Eigenschaften von Benutzer "%s" wurden geändert.');
 @define('USER_LEVEL', 'Benutzerrang');
 @define('DELETE_USER', 'Sie wollen den Benutzer #%d %s löschen. Sind sie sicher? Die Artikel dieses Benutzers werden dann nicht mehr auf der Oberfläche angezeigt.');
 @define('DELETED_USER', 'Benutzer #%d %s gelöscht.');

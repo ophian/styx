@@ -324,7 +324,7 @@ $i18n_filename_to = array (
 @define('CREATE_NOT_AUTHORIZED', 'Nemůžete editovat uživatele se stejnou úrovní jako je vaše');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Nemůžete vytvořit uživatele s vyšší úrovní než je vaše');
 @define('CREATED_USER', 'Nový uživatel %s byl vytvořen');
-@define('MODIFIED_USER', 'Nastavení uživatele %s byla změněna');
+@define('MODIFIED_USER', 'Nastavení uživatele "%s" byla změněna');
 @define('USER_LEVEL', 'Úroveň');
 @define('DELETE_USER', 'Chcete vymazat uživatele #%d %s. Myslíte to vážně? Tato akce znemožní prohlížet jím vytvořené záznamy na hlavní stránce.');
 @define('DELETED_USER', 'Uživatel #%d %s je vymazán.');

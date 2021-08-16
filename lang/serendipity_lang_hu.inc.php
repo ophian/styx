@@ -307,7 +307,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'Nem módosíthatod a veled azonos szinten lévõ felhasználókat');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'Nem hozhatsz létre nálad magasabb szintû felhasználót');
 @define('CREATED_USER', 'A(z) %s felhasználó létrejött');
-@define('MODIFIED_USER', 'A %s felhasználó jellemzõi megváltoztak');
+@define('MODIFIED_USER', 'A "%s" felhasználó jellemzõi megváltoztak');
 @define('USER_LEVEL', 'Felhasználói szint');
 @define('DELETE_USER', 'Ki akarod törölni a #%d %s felhasználót. Jól meggondoltad? Le lesz tiltva az összes általa írt hozzászólás a blog felületén.');
 @define('DELETED_USER', 'A #%d %s felhasználó törölve.');

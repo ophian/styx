@@ -309,7 +309,7 @@ $i18n_unknown = 'tw';
 @define('CREATE_NOT_AUTHORIZED', '您不能修改跟您相同權限的作者');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', '您不能新增比您高權限的作者');
 @define('CREATED_USER', '新作者 %s 已經新增');
-@define('MODIFIED_USER', '作者 %s 的資料已經更改');
+@define('MODIFIED_USER', '作者 "%s" 的資料已經更改');
 @define('USER_LEVEL', '作者權限');
 @define('DELETE_USER', '您要刪除這個作者 #%d %s. 確定嗎? 這會在主頁隱藏他所寫的任何文章.');
 @define('DELETED_USER', '作者 #%d %s 已被刪除.');

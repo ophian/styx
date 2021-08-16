@@ -307,7 +307,7 @@
 @define('CREATE_NOT_AUTHORIZED', 'あなたと同じユーザー レベルのユーザーを修正することは出来ません。');
 @define('CREATE_NOT_AUTHORIZED_USERLEVEL', 'あなたより高いユーザー レベルを持ったユーザーを作ることができません。');
 @define('CREATED_USER', '新規ユーザー %s を作成しました。');
-@define('MODIFIED_USER', 'ユーザー %s のプロパティを変更しました。');
+@define('MODIFIED_USER', 'ユーザー "%s" のプロパティを変更しました。');
 @define('USER_LEVEL', 'ユーザー レベル');
 @define('DELETE_USER', 'ユーザー #%d の「%s」を削除します。本気ですか? これは彼がフロントエンドで書いたいくつかのエントリーの表示を不可能にするでしょう。');
 @define('DELETED_USER', 'ユーザー ID #%d の %s を削除しました。');
