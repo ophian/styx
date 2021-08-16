@@ -1221,8 +1221,8 @@ Führen Sie den <b>Auftrag</b> [Ausführen] so lange aus, wie er erscheint, um die
 
 @define('COMMENT_CHANGE_PARENT_INFO', 'Seien Sie umsichtig beim Umhängen von Kommentaren.<br>Sie sollten die Link c# ID vorher genau <strong>überprüfen</strong>!');
 
-@define('ERROR_TRY_ANOTHER_USERNAME', 'Please try another username');
-@define('ERROR_TRY_ANOTHER_GROUPNAME', 'Please try another groupname');
-@define('ERROR_DONT_SHOOT_YOURSELF', 'You should never delete yourself: %s: %s, %s.');
-@define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
+@define('ERROR_TRY_ANOTHER_USERNAME', 'Bitte versuchen Sie einen anderen Benutzernamen');
+@define('ERROR_TRY_ANOTHER_GROUPNAME', 'Bitte versuchen Sie einen anderen Gruppennamen');
+@define('ERROR_DONT_SHOOT_YOURSELF', 'Sie sollten sich niemals selbst löschen: %s: %s, %s.');
+@define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'Sie sollten niemals die ranghöchste GRUPPENSTUFE löschen, in der Sie sich befinden: %s: %s.');
 
