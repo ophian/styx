@@ -1719,8 +1719,9 @@ function serendipity_deleteGroup($groupid) {
         return false;
     }
 
-    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groups WHERE id = " . (int)$groupid);
-    serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . (int)$groupid);
+    if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}groups WHERE id = " . (int)$groupid)) {
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE groupid = " . (int)$groupid);
+    }
 
     return true;
 }
