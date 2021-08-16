@@ -1,6 +1,8 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Add some (missing) ERROR user/groups related constants
+
   * Bugfix user configuration for pre-processed list configuration values
 
   * Update Rich Text Editor assets to ckeditor v.4.16.2, revision 4e64f67219
