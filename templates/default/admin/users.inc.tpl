@@ -2,7 +2,7 @@
     {if isset($no_delete_permission) AND $no_delete_permission}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CREATE_NOT_AUTHORIZED}</span>
     {elseif isset($delete_no_self_user) AND $delete_no_self_user AND empty($no_delete_permission)}
-            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.ERROR_DONT_SHOOT_YOURSELF|default:"You should never delete yourself: %s: %s, %s."|sprintf:"ID#{$user|escape}":"{$users.$user.realname|escape}":"{$users.$user.userlevel_name|escape}"}</span>
+            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.ERROR_DONT_SHOOT_YOURSELF|sprintf:"ID#{$user|escape}":"{$users.$user.realname|escape}":"{$users.$user.userlevel_name|escape}"}</span>
     {elseif isset($delete_no_user) AND $delete_no_user AND empty($no_delete_permission)}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.COULDNT_SELECT_USER_INFO|sprintf:"ID#{$user|escape}"}</span>
     {else}
@@ -21,7 +21,7 @@
     {if isset($no_save_permission) AND $no_save_permission}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.CREATE_NOT_AUTHORIZED}</span>
     {elseif isset($user_taken) AND $user_taken}
-            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.ERROR_TRY_ANOTHER_USERNAME|default:"Please try another username"}</span>
+            <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$CONST.ERROR_TRY_ANOTHER_USERNAME}</span>
     {else}
         {if isset($no_group_selected) AND $no_group_selected}
             <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.WARNING_NO_GROUPS_SELECTED}</span>
