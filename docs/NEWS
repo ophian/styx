@@ -1,6 +1,8 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Add improving fix for the dependent database cleanups when deleting a user
+
   * Add some (missing) ERROR user/groups related constants
 
   * Bugfix user configuration for pre-processed list configuration values
