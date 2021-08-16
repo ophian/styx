@@ -1225,3 +1225,8 @@ Run the <b>executor</b> [execute] task as long it appears, to fully convert the 
 
 @define('COMMENT_CHANGE_PARENT_INFO', 'Be careful changing the replyTo comment.<br><strong>Know</strong> what you do! (Check the Link c# ID)');
 
+@define('ERROR_TRY_ANOTHER_USERNAME', 'Please try another username');
+@define('ERROR_TRY_ANOTHER_GROUPNAME', 'Please try another groupname');
+@define('ERROR_DONT_SHOOT_YOURSELF', 'You should never delete yourself: %s: %s, %s.');
+@define('ERROR_DONT_CUT_YOUR_WHINEYARD', 'You should never delete the highest GROUP LEVEL you are in: %s: %s.');
+
