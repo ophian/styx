@@ -489,6 +489,11 @@ $tasks = array(
                     'title'     => 'Removal of old dead files in v.3.4.0 (see also previous bootstrap assets note)',
                     'desc'      => 'The following old dead files will be removed from your system.<br><pre>' . implode(', ', $dead_files_340) . '</pre>'),
 
+            array(  'version'   => '3.5-alpha2',
+                    'type'      => 'IMPORTANT_CORE_NOTICE',
+                    'title'     => '<b>ADMINISTRATION_NOTICE:</b> We fixed a USER form permissive bug which was around since last Christmas (2020).',
+                    'desc'      => 'If you did submit a USER administration users form (NOT the "Personal Preferences", which does not have this field) in this time, without having explicitly set (checked) the "Access level" option, trusting its shown (select) value, please re-check to ensure it (now) has the correct Access Level (Standard editor, Chief editor, or Administrator) set for that user. This is an old (historic) permission flag, while user privileges should be handled by group memberships in Serendipity for long, but it is still used and could have done (downgrade) damage to Administrator or Chief permission levels! You (the Administrator) or your Chiefs for sure would have noticed a sudden reset to Standard editors very limited permissions right after. We do not add a (repair) task here, since it is just a number change in the database and assume nobody was hit by it yet. See this ADMINISTRATION upgrade NOTICE as an informational notice only.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
