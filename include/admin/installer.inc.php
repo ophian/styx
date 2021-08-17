@@ -6,7 +6,9 @@ if (IN_serendipity !== true) {
 
 umask(0000);
 $umask = 0775;
-@define('IN_installer', true);
+if (!defined('IN_installer')) {
+    @define('IN_installer', true);
+}
 
 define('S9Y_I_ERROR', -1);
 define('S9Y_I_WARNING', 0);

@@ -259,7 +259,9 @@ function serendipity_db_reconnect() {
 
     if (isset($serendipity['dbCharset']) && !empty($serendipity['dbCharset'])) {
         $use_charset = $serendipity['dbCharset'];
-        @define('SQL_CHARSET_INIT', true);
+        if (!defined('SQL_CHARSET_INIT')) {
+            @define('SQL_CHARSET_INIT', true);
+        }
     } elseif (defined('SQL_CHARSET') && isset($serendipity['dbNames']) && $serendipity['dbNames'] && !defined('SQL_CHARSET_INIT')) {
         $use_charset = SQL_CHARSET;
     } else {
