@@ -236,11 +236,11 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0-toevoer');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0-toevoer reacties');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Veld "managingEditor"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Veld "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Veld "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Afbeelding voor de RSS-toevoer');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Breedte van de afbeelding');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Hoogte van de afbeelding');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'E-mailadres van de webmaster, indien beschikbaar. (leeg: verborgen) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'E-mailadres van de webmaster, indien beschikbaar. (leeg: verborgen) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'E-mailadres van de beherende redacteur, indien beschikbaar. (leeg: verborgen) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'URL van een afbeelding in GIF/JPEG/PNG-formaat, indien beschikbaar. (leeg: Serendipity-logo)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'in pixels, max. 144');
@@ -295,7 +295,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'U krijgt deze melding te zien omdat u zojuist Serendipity %s geïnstalleerd heeft, maar uw databank nog niet bijgewerkt is naar deze versie');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Databankupdates (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'De volgende .sql-bestanden moeten uitgevoerd worden voordat Serendipity normaal verder kan functioneren');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Taken specifiek voor deze versie');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Taken specifiek voor deze versie');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Geen specifieke taken gevonden voor deze versie');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Wilt u dat ik de bovenstaande taken uitvoer?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nee, ik voer ze zelf uit');

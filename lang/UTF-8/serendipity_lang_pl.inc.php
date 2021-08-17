@@ -235,11 +235,11 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 Komentarze');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Pole "managingEditor"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Pole "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Pole "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Obrazek dla feedów RSS');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Szerokość obrazka');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Wysokość obrazka');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'Adresy e-mail webmastera, o ile dostępne. (puste: ukryte) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'Adresy e-mail webmastera, o ile dostępne. (puste: ukryte) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'Adresy e-mail edytora zarządzającego treścią, o ile dostępne. (puste: ukryte) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'URL do obrazka w formacie GIF/JPEG/PNG, o ile dostępny. (pusty: logo Serendipity)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'w pikselach, max 144');
@@ -294,7 +294,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('SERENDIPITY_UPGRADER_WHY', 'Widzisz ten komunikat ponieważ właśnie zainstalowałeś(aś) Serendipity %s ale jeszcze nie uaktualniłeś(aś) swojej bazy danych by spelniała wymagania tej wersji Serendipity.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Uaktualnienia bazy danych (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Następujące pliki .sql muszą być wykonane by móc korzystać w normalny sposób z Serendipity');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Zadania specjalne związane z tą wersją');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Zadania specjalne związane z tą wersją');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Nie wykryto zadań specjalnych związanych z tą wersją');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Czy mam wykonać powyższe zadania?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nie, wykonam je własnoręcznie');

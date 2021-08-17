@@ -218,11 +218,11 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SYNDICATION_PLUGIN_20', 'Емисия на RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'Емисия на RSS 2.0 с коментари');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Поле "managingEditor"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Поле "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Поле "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Изображение на емисия на RSS');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Широчина на изображението');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Височина на изображението');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'Ел. адрес на уебмастера (празно: скрит) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'Ел. адрес на уебмастера (празно: скрит) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'Ел. адрес на редактора, ако има такъв. (празно: скрит) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'URL на изображение във формат GIF, JPEG или PNG, ако има такова (празно: лого на Serendipity)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'в пиксели, макс. 144');
@@ -276,7 +276,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('SERENDIPITY_UPGRADER_WHY', 'Вие виждате това съобщение, защото току-що инсталирахте Serendipity %s, но още не сте надградили базата данни към новата версия');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Обновяване на базата данни (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Намерени са следните .sql файлове, който трябва да бъдат изпълнени, преди да продължите с нормалната употреба на Serendipity');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Специфични задачи за тази версия');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Специфични задачи за тази версия');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Не са открити специфични задачи за тази версия');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Искате ли да изпълня горните задачи?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Не, ще си ги направя ръчно');

@@ -218,7 +218,7 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 comentarios');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Campo "managingEditor"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Campo "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Campo "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Imagen para el feed RSS');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Anchura de la imagen');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Altura de la imagen');
@@ -281,7 +281,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'Estás viendo este mensaje porque has instalado Serendipity %s, pero no has actualizado la instalación de la base de datos para coincidir con esta versión');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Actualizaciones para la base de datos (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'He encontrado los siguientes ficheros .sql que se necesitan ejecutar antes de que puedas continuar usando normalmente Serendipity');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Tareas específicas de la versión');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Tareas específicas de la versión');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'No se ha encontrado tareas específicas de la versión');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', '¿Quieres que realice las tareas descritas?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'No, las ejecutaré manualmente');

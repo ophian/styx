@@ -233,11 +233,11 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 straumur');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 athugasemdir');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Svæði "manageEditor"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Svæði "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Svæði "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Mynd fyrir RSS strauminn');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Breidd myndar');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Hæð myndar');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'Netfang vefstjóra, ef það er fyrir hendi. (tómt: falið) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'Netfang vefstjóra, ef það er fyrir hendi. (tómt: falið) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'Netfang umsjónaraðila, ef það er fyrir hendi. (tómt: falið) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'Slóð (URL) myndar í GIF/JPEG/PNG sniði, ef fyrir hendi. (tómt: serendipity-logo)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'í pixelum, hámark 144');
@@ -292,7 +292,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'Þú sérð þessi skilaboð vegna þess að þú hefur sett upp Serendipity %s, en þú hefur ekki uppfært gagnagrunnsuppsetninguna til að passa við þessa útgáfu');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Uppfærslur gagnagrunns (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Ég fann eftirfarandi .sql skrár sem þarf að keyra áður en þú getur haldið áfram með venjulega keyrslu á Serendipity');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Aðgerðir bundar við þessa útgáfu');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Aðgerðir bundar við þessa útgáfu');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Engar aðgerðir bundar við þessa útgáfu fundust');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Viltu að ég framkvæmi ofangreindar aðgerðir?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nei, ég mun gera þær handvirkt');

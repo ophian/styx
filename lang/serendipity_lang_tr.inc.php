@@ -235,11 +235,11 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 Görüşler');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Alan "Düzenleyen Yönetici "');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Alan "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Alan "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'RSS Besleme için resim');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Resim genişliği');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Resim yüksekliği');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'Mümkünse webmaster e-posta adresi. (boş: gizli) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'Mümkünse webmaster e-posta adresi. (boş: gizli) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'Mümkünse siteyi düzenleyen yöneticinin  e-posta adresi. (boş: gizli) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'Mümkünse GIF/JPEG/PNG formatındaki resimler için URL adresi. (boş: site-logo)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', ' pixel olarak, max. 144');
@@ -294,7 +294,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'Bu iletiyi görüyorsunuz çünkü Serendipity kurulumu yapmışsınız %s, Ama veritabanı sürümünüz yazılımı güncellemeniz için yeterli değil');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Veritabanı güncelleniyor (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Bu .sql dosyalarını bulduk. Serendipity Güncellemesi için');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Sürüme özel görevler');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Sürüme özel görevler');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Sürüme özel görev bulunamadı');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Bu görevleri gerçekleştirmek istiyormusunuz?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Hayır, sonra kendim çalıştıracağım');

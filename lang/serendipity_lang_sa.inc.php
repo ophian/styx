@@ -235,11 +235,11 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 comments');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Õﬁ· "„Õ—— «·«⁄œ«œ« "');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Õﬁ· "«·„‘—› «·⁄«„"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Õﬁ· "«·„‘—› «·⁄«„"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Image for the RSS feed');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', '⁄—÷ «·’Ê—…');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'ÿÊ· «·’Ê—…');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  '«·»—Ìœ «·«·ﬂ —Ê‰Ì ··„‘—› «·⁄«„ ··„œÊ‰…. (›«—€: „Œ›Ì) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', '«·»—Ìœ «·«·ﬂ —Ê‰Ì ··„‘—› «·⁄«„ ··„œÊ‰…. (›«—€: „Œ›Ì) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', '«·»—Ìœ «·«·ﬂ —Ê‰Ì ··„Õ—— «‰ ÊÃœ - «‰ ﬂ«‰ ›«—€ ”Ê› ÌﬂÊ‰ «·Õﬁ· „Œ›Ì [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', '—«»ÿ ’Ê—… „‰ ‰Ê⁄ GIF/JPEG/PNG «–« ﬂ«‰  „ÊÃÊœ… ﬂÌ  ” Œœ„ ‘⁄«— ··„œÊ‰… - «‰  —ﬂ Â ›«—€ ”Ê› Ì „ «Œ Ì«— «·‘⁄«— «·«› —«÷Ì');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'in pixels, max. 144');
@@ -294,7 +294,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'You are seeing this message because you have just installed Serendipity %s, but have not yet upgraded your database installation to fit this version');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Database updates (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'I have found the following .sql files which needs to be run before you can continue normal operation of Serendipity');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Version specific tasks');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Version specific tasks');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'No version specific tasks found');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Do you wish me to perform the above tasks?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'No, I will run them manually');

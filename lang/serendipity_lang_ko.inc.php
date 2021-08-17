@@ -235,11 +235,11 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 피드');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 덧글');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', '"managingEditor"(편집인) 필드');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  '"webMaster"(웹마스터) 필드');
+@define('SYNDICATION_PLUGIN_WEBMASTER', '"webMaster"(웹마스터) 필드');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'RSS 피드를 위한 그림 파일');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', '그림 폭');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', '그림 높이');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  '웹마스터의 전자우편 주소 (빈 상태: 숨김) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', '웹마스터의 전자우편 주소 (빈 상태: 숨김) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', '편집인의 전자우편 주소 (빈 상태: 숨김) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'GIF/JPEG/PNG로 된 그림 파일의 주소 (빈 상태: 세렌디피티 로고 그림)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', '픽셀 단위 (최고 144)');
@@ -294,7 +294,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', '세렌디피티 %s 설치가 되었으나 이 버전에 맞도록 데이터베이스가 아직 업그레이드 되지 않았기 때문에 이 글을 보고 계십니다.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', '데이터베이스 업데이트 (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', '세렌디피티가 정상적으로 작동하려면 다음 .sql 파일을 먼저 실행해야 합니다');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  '이 버전에 특화된 작업');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', '이 버전에 특화된 작업');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', '이 버전에 특화된 작업이 없습니다');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', '위의 작업을 수행하도록 하겠습니까?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', '아니오 - 수동으로 수행하겠습니다');

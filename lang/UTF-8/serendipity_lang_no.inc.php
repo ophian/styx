@@ -217,11 +217,11 @@
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0-kommentarer');
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', '%s-feed');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Feltet "Hovedredaktør"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Feltet "webmaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Feltet "webmaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Bilde til RSS-feed');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Bildebredde');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Bildehøjde');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'Emailadressen til webmasteren, hvis tilgjengelig. (tom: skjult) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'Emailadressen til webmasteren, hvis tilgjengelig. (tom: skjult) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'E-mailadressen til redaktøren, hvis tilgjengelig. (tom: skjult) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'URL til et bilde i GIF/JPEG/PNG format, hvis tilgjengelig. (tom: serendipity-logo)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'i pixels, max. 144');
@@ -274,7 +274,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'Denne meldingen vises fordi Serendipity versjon %s er installert, men databasen er ennå ikke opgradert til denne versjonen.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Databasen oppdateringer (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Følgende .sql-filer må kjøres før Serendipity igjen kan fungere normalt.');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Versjonsspesifikke oppgaver');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Versjonsspesifikke oppgaver');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Ingen versjonsspesifikke oppgaver funnet');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Ønsker du at ovenstående opgaver utføres?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nei, jeg utfører dem manuelt');

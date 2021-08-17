@@ -235,11 +235,11 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 feed');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 comments');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', '菜单 "managingEditor"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  '菜单 "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', '菜单 "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'RSS feed 的图片');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', '图片宽度');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', '图片高度');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  '管理员的电子邮件, 如果有： (空白: 隐藏) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', '管理员的电子邮件, 如果有： (空白: 隐藏) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', '作者的电子邮件, 如果有： (空白: 隐藏) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', '图片的位址 URL, 以 GIF/JPEG/PNG 格式, 如果有： (空白: serendipity-logo)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', '像素, 最大. 144');
@@ -294,7 +294,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', '你已经更新 Serendipity %s, 请放心系统没有更改你的数据库！');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', '数据库更新 (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', '系统找到以下的 .sql 表, 这些数据必须先执行才能继续安装 Serendipity');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  '特定的版本任务');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', '特定的版本任务');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', '没有特定的版本任务');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', '确定要执行以上的任务吗?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', '我自己执行');

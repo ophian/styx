@@ -233,11 +233,11 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 フィード');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 コメント');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', '"managingEditor" フィールド');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  '"webMaster" フィールド');
+@define('SYNDICATION_PLUGIN_WEBMASTER', '"webMaster" フィールド');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'RSS feed の画像');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', '画像の幅');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', '画像の高さ');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'ウェブマスターの電子メールアドレスで、入力すると有効になります (空にすると隠します) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'ウェブマスターの電子メールアドレスで、入力すると有効になります (空にすると隠します) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', '管理編集者の電子メールアドレスで、入力すると有効になります (空にすると隠します) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'GIF/JPEG/PNG 形式の画像の URL で、入力すると有効になります (空にすると serendipity ロゴ)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', '最大 144 ピクセルです。');
@@ -292,7 +292,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', '今 Serendipity %s をインストールしましたが、まだこのバージョンに適したデータベースをアップグレード インストールしていないのでこのメッセージを見ています。');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'データベースのアップデート (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', '次の.sqlファイルを見つけました。Serendipity の通常動作を継続すること可能にするには、それを実行する必要があります');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  '特定バージョンのタスク');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', '特定バージョンのタスク');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', '特定バージョンのタスク バージョンが見つかりませんでした。');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', '上記タスクを行いますか?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'いいえ、手動で実行します。');

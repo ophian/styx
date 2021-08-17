@@ -233,11 +233,11 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 ');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 Kommentit');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Kenttä "päätoimittaja"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Kenttä "webMasterr"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Kenttä "webMasterr"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'RSS linkin kuva');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Kuvan leveys');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Kuvan korkeus');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'Webmasterin sähköpostiosoite tai tyhjää. (tyhjä: piilotettu) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'Webmasterin sähköpostiosoite tai tyhjää. (tyhjä: piilotettu) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'Päätoimittajan sähköpostiosoite tai tyhjää (tyhjä: piilotettu) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'GIF/JPEG/PNG kuvan urli tai tyhjää. (tyhjä: serendipityn logo)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'pikseleissä, max. 144');
@@ -292,7 +292,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'Olet juuri asentanut Serendipity version %s, mutta kanta on jäänyt päivittämättä.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Tietokantapäivitykset (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Seuraavat .sql-tiedostot pitäisi suorittaa ennen  Serendipityn käyttöä');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Versiokohtaiset tehtävät');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Versiokohtaiset tehtävät');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Ei versiokohtaisia tehtäviä');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Haluatko minun tekevän ne puolestasi?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Ei, teen ne itse.');

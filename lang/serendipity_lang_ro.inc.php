@@ -234,11 +234,11 @@
 @define('SYNDICATION_PLUGIN_20', 'Date RSS 2.0');
 @define('SYNDICATION_PLUGIN_20c', 'Comentarii RSS 2.0');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Field "managingEditor"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Field "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Field "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Imagine pentru RSS');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Lăţime imagine');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Înălţime imagine');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'Adresa de e-mail a webmaster-ului, dacă e disponibilă. (gol=ascuns) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'Adresa de e-mail a webmaster-ului, dacă e disponibilă. (gol=ascuns) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'Adresa de e-mail a editorului blogului, dacă e disponibilă. (gol=ascuns) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'Adresa unei imagini în format GIF/JPEG/PNG, dacă e disponibilă. (gol=serendipity-logo)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'în pixeli, max. 144');
@@ -293,7 +293,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'Vezi acest mesaj pentru că tocmai ai instalat Serendipity %s, dar nu ai actualizat baza de date pentru a fi compatibilă cu această versiune');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Actualizări baze de date (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Am găsit următoarele fişiere .sql care trebuie rulate pentru a folosi Serendipity');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Operaţii specifice versiunii');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Operaţii specifice versiunii');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Nu am găsit nici o operaţie de executat specifică versiunii');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Vrei să execuţi operaţiile de mai sus?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nu, le voi executa manual');

@@ -222,11 +222,11 @@
 @define('SYNDICATION_PLUGIN_20c', 'Commentaires RSS 2.0');
 @define('SYNDICATION_PLUGIN_GENERIC_FEED', '%s');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', 'Champs "managingEditor"');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  'Champs "webMaster"');
+@define('SYNDICATION_PLUGIN_WEBMASTER', 'Champs "webMaster"');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Image pour le fil RSS');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Largeur d\'image');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Hauteur d\'image');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'Adresse E-Mail du webmaster, si disponible. (aucun : invisible) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'Adresse E-Mail du webmaster, si disponible. (aucun : invisible) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'Adresse E-Mail de l\'éditeur principal, si disponible. (aucun : invisible) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'Adresse d\'une image au format GIF/JPEG/PNG, si disponible. (aucune : logo serendipity)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'en pixels, maximum 144');
@@ -280,7 +280,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'Vous voyez ce message car vous avez installé Serendipity %s, mais la base de données doit être reconfigurée pour fonctionner correctement avec cette version.');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Mises à jour de la base de données (%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Pour mettre à jour votre base de données, j\'ai trouvé les fichiers .sql suivants qui doivent être importés :');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Tâches spécifiques à la version');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Tâches spécifiques à la version');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Aucune tâche spécifique à la nouvelle version n\'a été trouvée');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Voulez-vous que j\'effectue les tâches suivantes ?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Non, je vais le faire manuellement');

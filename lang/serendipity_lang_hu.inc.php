@@ -233,11 +233,11 @@
 @define('SYNDICATION_PLUGIN_20', 'RSS 2.0 info');
 @define('SYNDICATION_PLUGIN_20c', 'RSS 2.0 hozzászólások');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR', '"Fõszerkesztõ" mezõ');
-@define('SYNDICATION_PLUGIN_WEBMASTER',  '"Webmester" mezõ');
+@define('SYNDICATION_PLUGIN_WEBMASTER', '"Webmester" mezõ');
 @define('SYNDICATION_PLUGIN_BANNERURL', 'Kép az RSS infóhoz');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH', 'Képszélesség');
 @define('SYNDICATION_PLUGIN_BANNERHEIGHT', 'Képmagasság');
-@define('SYNDICATION_PLUGIN_WEBMASTER_DESC',  'A Webmester email címe, ha van. (üres: rejtett) [RSS 2.0]');
+@define('SYNDICATION_PLUGIN_WEBMASTER_DESC', 'A Webmester email címe, ha van. (üres: rejtett) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_MANAGINGEDITOR_DESC', 'A Fõszerkesztõ email címe, ha van. (üres: rejtett) [RSS 2.0]');
 @define('SYNDICATION_PLUGIN_BANNERURL_DESC', 'A GIF/JPEG/PNG formátumú kép URL-je, ha van. (üres: serendipity-logo)');
 @define('SYNDICATION_PLUGIN_BANNERWIDTH_DESC', 'képpontban, max. 144');
@@ -292,7 +292,7 @@
 @define('SERENDIPITY_UPGRADER_WHY', 'Ez az üzenet azért jelent meg, meg nemrég telepítetted a Serendipity %s, de az adatbázis migrációja még nem történt meg');
 @define('SERENDIPITY_UPGRADER_DATABASE_UPDATES', 'Adatbázis frissítések(%s)');
 @define('SERENDIPITY_UPGRADER_FOUND_SQL_FILES', 'Úgy találtam, hogy az alábbi .sql fájlokat le kell futtatni mielõtt folytatódna a Serendipity normál futása');
-@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC',  'Verziófüggõ feladatok');
+@define('SERENDIPITY_UPGRADER_VERSION_SPECIFIC', 'Verziófüggõ feladatok');
 @define('SERENDIPITY_UPGRADER_NO_VERSION_SPECIFIC', 'Nem találtam verziófüggõ feladatot');
 @define('SERENDIPITY_UPGRADER_PROCEED_QUESTION', 'Elvégezzem a fenti feladatokat?');
 @define('SERENDIPITY_UPGRADER_PROCEED_ABORT', 'Nem, inkább manuálisan futtatom azokat');
