@@ -197,21 +197,25 @@ if (!function_exists('errorToExceptionHandler')) {
             : '';
         $head = '';
 
-        // Debug environments shall be verbose...
-        if ($serendipity['production'] === 'debug' && !in_array($type, ['Warning', 'Notice', 'Catchable'])) {
-            echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br />\n";
-            echo " == (When you copy this debug output to a forum or other places, make sure to remove your username/passwords, as they may be contained within function calls) == \n";
-            echo "<pre>\n";
-            // trying to be as detailed as possible - but avoid using args containing sensible data like passwords
-            if (function_exists('debug_backtrace')) {
-                $debugbacktrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 8);
-                print_r($debugbacktrace);
-                $dbt = 1;
+        // Debug environments shall be verbose... (with the exception of warnings we'd like to suppress, while our workflow is build on it!)
+        if ($serendipity['production'] === 'debug') {
+            if (!in_array($type, ['Warning', 'Notice', 'Catchable'])) {
+                echo " == ERROR-REPORT (DEBUGGING ENABLED) == <br />\n";
+                echo " == (When you copy this debug output to a forum or other places, make sure to remove your username/passwords, as they may be contained within function calls) == \n";
+                echo "<pre>\n";
+                // trying to be as detailed as possible - but avoid using args containing sensible data like passwords
+                if (function_exists('debug_backtrace')) {
+                    $debugbacktrace = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 8);
+                    print_r($debugbacktrace);
+                    $dbt = 1;
+                }
+                // print_r($args); // debugging [Use with care! Not to public, since holding password and credentials!!!]
+                // debugbacktrace is nice, but additional it is good to have the verbosity of SPL EXCEPTIONS, except for db connect errors
+                echo "</pre>\n";
+                $debug_note = '';
+            } else {
+                return false; // DEVs, just disable to see them fail! (As being the simplest approach. For development cases there is more finetuning possible!)
             }
-            // print_r($args); // debugging [Use with care! Not to public, since holding password and credentials!!!]
-            // debugbacktrace is nice, but additional it is good to have the verbosity of SPL EXCEPTIONS, except for db connect errors
-            echo "</pre>\n";
-            $debug_note = '';
         }
         if ($serendipity['production'] === false) {
             $head = " == ERROR-REPORT (RC/BETA/ALPHA-BUILDS) == \n";
@@ -220,7 +224,7 @@ if (!function_exists('errorToExceptionHandler')) {
                 echo '<p>'.$head.'</p><p><b>' . $type . ':</b> '.$errStr . ' in ' . $errFile . ' on line ' . $errLine . '.' . $debug_note . "</p>\n";
             } else {
                 if (!empty($debug_note) && false !== strpos($errStr, $debug_note)) echo $head . $debug_note."\n\n";
-                // die into Exception, else echo to page top and resume
+                // die into Exception, else echo to page top (if not caught within a HTML element like select) and resume
                 if (!in_array($type, ['Warning', 'Notice', 'Catchable'])) {
                     echo '<pre style="white-space: pre-line;">'."\n\n";
                     throw new \ErrorException("$type: $errStr, 0, $errNo, $errFile, $errLine"); // tracepath = all, if not ini_set('display_errors', 0);
