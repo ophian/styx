@@ -358,8 +358,8 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
             $props['requirements'] = $t_storedreqts['value'] ?? $props['requirements'];
             $props['requirements'] = $_SESSION['foreignPlugins_remoteRequirements'][$class_data['name']]['requirements'] ?? $props['requirements'];
 
-             // Method serendipity_plugin_api::setPluginInfo() uses serialize() AND its anatomy of NULL representation is N;
-             $props['requirements'] = (!empty($props['requirements']) && $props['requirements'] != 'N;') ? unserialize($props['requirements']) : [];
+            // Method serendipity_plugin_api::setPluginInfo() uses serialize() AND its anatomy of NULL representation is N;
+            $props['requirements'] = (!empty($props['requirements']) && $props['requirements'] != 'N;') ? unserialize($props['requirements']) : [];
 
             if (isset($foreignPlugins['pluginstack'][$class_data['name']]['changelog'])) {
                 $props['changelog'] = $foreignPlugins['pluginstack'][$class_data['name']]['changelog'];
