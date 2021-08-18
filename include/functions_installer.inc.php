@@ -141,7 +141,7 @@ function serendipity_updateLocalConfig($dbName, $dbPrefix, $dbHost, $dbUser, $db
  * @access public
  * @return null
  */
-function serendipity_installDatabase($type='') {
+function serendipity_installDatabase($type = '') {
     global $serendipity;
 
     // PostgreSQL and SQLite do not care about string length, other than as required by the SQL standard and define the N in varchar(N) as characters (not bytes).
@@ -320,7 +320,7 @@ function serendipity_query_default($optname, $default, $usertemplate = false, $t
  * @param   array       Restrict the return of template variables to items containing a specific flag
  * @return  array       An array with configuration items, keys and values
  */
-function serendipity_parseTemplate($filename, $areas = null, $onlyFlags=null) {
+function serendipity_parseTemplate($filename, $areas = null, $onlyFlags = null) {
     global $serendipity;
 
     $userlevel = $serendipity['serendipityUserlevel'] ?? null;
@@ -407,7 +407,7 @@ function serendipity_parseTemplate($filename, $areas = null, $onlyFlags=null) {
  * @param   string  Input string
  * @return  string  Output string
  */
-function serendipity_replaceEmbeddedConfigVars ($s) {
+function serendipity_replaceEmbeddedConfigVars($s) {
     return str_replace(
                   array(
                     '%clock%'
@@ -430,7 +430,7 @@ function serendipity_replaceEmbeddedConfigVars ($s) {
  * @param   string  The default value of the configuration item
  * @return null
  */
-function serendipity_guessInput($type, $name, $value='', $default='') {
+function serendipity_guessInput($type, $name, $value = '', $default = '') {
     $data = array();
     $curOptions = array();
 
@@ -1041,7 +1041,7 @@ function serendipity_removeFiles($files = null) {
  * Check image libraries for PHP WebP-Format file support by used library
  * @return bool
  */
-function serendipity_checkWebPSupport($set=false, $msg=false) {
+function serendipity_checkWebPSupport($set = false, $msg = false) {
     global $serendipity;
 
     if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
