@@ -256,7 +256,7 @@ if (($serendipity['GET']['adminAction'] == 'edit' && serendipity_checkPermission
     }
 
     // A pre parsed and rendered template, analogue to 'ENTRIES' etc
-    $data['CONFIG'] = serendipity_printConfigTemplate($config, $from, true, false, false, true);
+    $data['CONFIG'] = serendipity_printConfigTemplate($config, $from, true, false, true);
 
 } elseif ($serendipity['GET']['adminAction'] == 'delete' && serendipity_checkPermission('adminUsersDelete')) {
     $user = serendipity_fetchUsers($serendipity['GET']['userid']);

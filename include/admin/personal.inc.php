@@ -122,7 +122,7 @@ $from['groups'] = serendipity_getGroups($serendipity['authorid']);
 unset($from['password']);
 
 // A pre parsed and rendered template, analogue to 'ENTRIES' etc
-$data['CONFIG'] = serendipity_printConfigTemplate($template, $from, true, false);
+$data['CONFIG'] = serendipity_printConfigTemplate($template, $from, true);
 
 $add = array('internal' => true);
 serendipity_plugin_api::hook_event('backend_sidebar_entries_event_display_profiles', $from, $add);

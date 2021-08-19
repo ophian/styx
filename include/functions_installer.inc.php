@@ -485,12 +485,11 @@ function serendipity_guessInput($type, $name, $value = '', $default = '') {
  * @param   array       Configuration superarray
  * @param   array       The previous values submitted by the user
  * @param   boolean     If true, no HTML FORM container will be emitted
- * @param   boolean     If true, the configuration sections will all be folded
- * @param   boolean     If true, the user can turn config sections on and off
+ * @param   boolean     If true, the user can turn folded (config) sections on and off
  * @param   boolean     If true, the user can NOT display possibly dangerous options
  * @return null
  */
-function serendipity_printConfigTemplate($config, $from = false, $noForm = false, $folded = true, $allowToggle = true, $showDangerous = false) {
+function serendipity_printConfigTemplate($config, $from = false, $noForm = false, $allowToggle = true, $showDangerous = false) {
 
     $data = array();
     $data['noForm'] = $noForm;
