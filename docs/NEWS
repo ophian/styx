@@ -1,6 +1,8 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Improve users backend form by removing the togglebar of the preset section
+
   * Temporarily fix a Smarty compile time issue with production mode 'debug'
     and Smarty debugging = true case.
 
