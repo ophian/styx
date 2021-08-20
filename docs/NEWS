@@ -1,7 +1,7 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
-  * Fix elder bug parsing default-pre-sets for new user form fields
+  * Fix elder regression bug parsing default-pre-sets for new user form fields
 
   * Refactor function APIs serendipity*_printConfigTemplate() parameters for
     obsolete s9y 0 and 1 Series $folder parameter and references in installer,
