@@ -435,6 +435,12 @@ function serendipity_guessInput($type, $name, $value = '', $default = '') {
     $curOptions = array();
 
     switch ($type) {
+        case 'string':
+            if ($name == 'enableBackendPopupGranular' && !empty($default)) {
+                $value = $default;
+            }
+            break;
+
         case 'bool':
             $value = serendipity_get_bool($value);
             if ($value === null) {
@@ -499,7 +505,7 @@ function serendipity_printConfigTemplate($config, $from = false, $noForm = false
     foreach($config AS &$category) {
         foreach($category['items'] AS &$item) {
 
-            $value = $from[$item['var']] ?? '';
+            $value = $from[$item['var']] ?? null;
 
             /* Calculate value if we are not installed, how clever :) */
             if ($from == false) {
