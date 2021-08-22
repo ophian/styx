@@ -195,9 +195,9 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
 if ($serendipity['GET']['adminAction'] != 'delete') {
     $data['delete'] = false;
     if (serendipity_checkPermission('adminUsersMaintainOthers')) {
-        $users = serendipity_fetchUsers('');
+        $users = serendipity_chainByLevel(serendipity_fetchUsers(''));
     } elseif (serendipity_checkPermission('adminUsersMaintainSame')) {
-        $users = serendipity_fetchUsers('', serendipity_getGroups($serendipity['authorid'], true));
+        $users = serendipity_chainByLevel(serendipity_fetchUsers('', serendipity_getGroups($serendipity['authorid'], true)));
     } else {
         $users = serendipity_fetchUsers($serendipity['authorid']);
     }
@@ -206,10 +206,8 @@ if ($serendipity['GET']['adminAction'] != 'delete') {
     $data['urlFormToken'] = serendipity_setFormToken('url');
     if (is_array($users)) {
         foreach($users AS $user => $userdata) {
-            if ($userdata['userlevel'] < $serendipity['serendipityUserlevel'] || $userdata['authorid'] == $serendipity['authorid'] || $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
-                    $data['users'][$user]['isEditable'] = true;
-                    $data['users'][$user]['authorUrl'] = serendipity_authorURL($userdata);
-            }
+            $data['users'][$user]['isEditable'] = true;
+            $data['users'][$user]['authorUrl'] = serendipity_authorURL($userdata);
             $data['users'][$user]['userlevel_name'] = $serendipity['permissionLevels'][$userdata['userlevel']] ?? "Group level '{$userdata['userlevel']}' not exists. Save again!";
         }
     }
