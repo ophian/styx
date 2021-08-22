@@ -1,6 +1,9 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Add new serendipity_chainByLevel() function to the functions API to sort
+    out users from fetchUsers() cases, which should not be in the list.
+
   * Fix elder regression bug parsing default-pre-sets for new user form fields
 
   * Refactor function APIs serendipity_printConfigTemplate() parameters for
