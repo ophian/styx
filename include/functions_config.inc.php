@@ -69,6 +69,7 @@ function serendipity_deleteAuthor($authorid) {
     }
 
     if (serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authors WHERE authorid=" . (int)$authorid)) {
+        serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}config WHERE authorid=" . (int)$authorid);
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}authorgroups WHERE authorid=" . (int)$authorid);
         serendipity_db_query("DELETE FROM {$serendipity['dbPrefix']}permalinks WHERE entry_id=" . (int)$authorid ." and type='author'");
     }
