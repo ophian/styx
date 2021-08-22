@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.71');
+        $propbag->add('version',       '1.72');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -163,9 +163,9 @@ class serendipity_event_entryproperties extends serendipity_event
         global $serendipity;
 
         if (serendipity_checkPermission('adminUsersMaintainOthers')) {
-            $users = serendipity_fetchUsers('', 'hidden');
+            $users = serendipity_chainByLevel(serendipity_fetchUsers('', 'hidden'));
         } elseif (serendipity_checkPermission('adminUsersMaintainSame')) {
-            $users = serendipity_fetchUsers('', serendipity_getGroups($serendipity['authorid'], true));
+            $users = serendipity_chainByLevel(serendipity_fetchUsers('', serendipity_getGroups($serendipity['authorid'], true)));
         } else {
             $users = serendipity_fetchUsers($serendipity['authorid']);
         }

@@ -1,3 +1,7 @@
+1.72:
+-----
+    * Fix user list by chained USERLEVEL permission for certain cases
+
 1.71:
 -----
     * Improve entryproperties 'backend_plugins_new_instance' hook sort_order UPDATE
