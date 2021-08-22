@@ -630,6 +630,40 @@ function serendipity_walkRecursive($ary, $child_name = 'id', $parent_name = 'par
     return $_resArray;
 }
 
+
+/**
+ * Same Same But Different.
+ * Check a users array USERLEVEL privileges to maintain same or others which uses a different operator for sorting out.
+ * Both - the old USERLEVEL and the newer GROUP based - privileges checks are not totally perfect on their own.
+ * In simple and clear group structures this isn't a problem, but not in multi user cases with intertwined (chained) permission sets.
+ * Together they can build the correct permission chain.
+ *
+ * @access public
+ * @param   array   A (super)array of serendipity_fetchUsers() authors.
+ * @return  array   Array sorted out by USERLEVEL or by matching ID
+ */
+function serendipity_chainByLevel($users) {
+    global $serendipity;
+
+    $soop = serendipity_checkPermission('adminUsersMaintainOthers'); // check privileges same (<) OR others (<=)
+    if ($soop) {
+        foreach($users AS $user => $userdata) {
+            if ($userdata['userlevel'] <= $serendipity['serendipityUserlevel'] || $userdata['authorid'] == $serendipity['authorid'] || $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
+                $_users[] = $userdata;
+            }
+        }
+    } else {
+        foreach($users AS $user => $userdata) {
+            if ($userdata['userlevel'] < $serendipity['serendipityUserlevel'] || $userdata['authorid'] == $serendipity['authorid'] || $serendipity['serendipityUserlevel'] >= USERLEVEL_ADMIN) {
+                $_users[] = $userdata;
+            }
+        }
+    }
+
+    return $_users;
+}
+
+
 /**
  * Fetch the list of Serendipity Authors
  *
