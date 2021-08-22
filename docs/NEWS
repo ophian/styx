@@ -12,7 +12,8 @@ Version 3.5-dev ()
   * Temporarily fix a Smarty compile time issue with production mode 'debug'
     and Smarty debugging = true case.
 
-  * Add improving fix for the dependent database cleanups when deleting a user
+  * Add improving "fix" for dependent database cleanups when deleting a user
+    Additionally checked against removed users are authorgroups, config tables.
 
   * Add some (missing) ERROR user/groups related constants for PHP 8
 
