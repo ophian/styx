@@ -79,6 +79,7 @@ if (isset($_POST['SAVE_NEW']) && serendipity_checkFormToken()) {
                                     continue;
                                 }
 
+                                // Unset silently avoids being able to send a clearing message when some group membership change were sent that are not allowed!
                                 unset($_POST[$item['var']][$groupkey]);
                             }
 
@@ -151,6 +152,7 @@ if (isset($_POST['SAVE_EDIT']) && serendipity_checkFormToken()) {
                                 continue;
                             }
 
+                            // Unset silently avoids being able to send a clearing message when some group membership change were sent that are not allowed!
                             unset($_POST[$item['var']][$groupkey]);
                         }
 
