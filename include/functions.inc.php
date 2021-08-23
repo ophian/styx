@@ -634,7 +634,7 @@ function serendipity_walkRecursive($ary, $child_name = 'id', $parent_name = 'par
 /**
  * Same Same But Different.
  * Check a users array USERLEVEL privileges to maintain same or others which uses a different operator for sorting out.
- * Both - the old USERLEVEL and the newer GROUP based - privileges checks are not totally perfect on their own.
+ * Both - the old USERLEVEL and the newer GROUP membership based - privileges checks are not totally perfect on their own.
  * In simple and clear group structures this isn't a problem, but not in multi user cases with intertwined (chained) permission sets.
  * Together they can build the correct permission chain.
  *
