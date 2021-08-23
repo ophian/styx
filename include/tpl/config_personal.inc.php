@@ -40,7 +40,7 @@
 
                                     array('var'         => 'userlevel',
                                           'title'       => USERCONF_USERLEVEL,
-                                          'description' => USERCONF_USERLEVEL_DESC . ".\n" . USERLEVEL_OBSOLETE,
+                                          'description' => USERCONF_USERLEVEL_DESC,
                                           'type'        => 'list',
                                           'default'     => $serendipity['permissionLevels'],
                                           'permission'  => 'personalConfigurationUserlevel',
