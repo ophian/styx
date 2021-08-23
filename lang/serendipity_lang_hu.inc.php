@@ -665,7 +665,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Fõszerkesztõ');
 @define('USERLEVEL_ADMIN_DESC', 'Adminisztrátor');
 @define('USERCONF_USERLEVEL', 'Hozzáférési szint');
-@define('USERCONF_USERLEVEL_DESC', 'Ez a szint határozza meg, hogy a szerkesztõnek milyen jogosultságai vannak a blog-hoz');
+@define('USERCONF_USERLEVEL_DESC', 'Ez a szint határozza meg, hogy a szerkesztõnek milyen jogosultságai vannak a blog-hoz. A felhasználói jogosultságokat a csoporttagságok kezelik!');
 @define('USER_SELF_INFO', 'Bejelentkezve mint %s (%s)');
 @define('ADMIN_ENTRIES', 'Bejegyzések');
 @define('RECHECK_INSTALLATION', 'Telepítés újraellenõrzése');
@@ -728,7 +728,6 @@
 @define('GROUP', 'Csoport');
 @define('CREATE_NEW_GROUP', 'Új csoport létrehozása');
 @define('DELETE_GROUP', 'A következõ csoport törlésére készülsz: #%d \'%s\'. Biztos vagy benne?');
-@define('USERLEVEL_OBSOLETE', 'Megjegyzés: A felhasználó szintû attribútumok a visszafele kompatibilitás, néhány modul és az azonosítás néhány esete miatt szükségesek. A felhasználók jogosultsága a csoporttagságon keresztül állítható be!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner azonosító');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'A hírcsatorna azonosítója, amelyet publikálni szeretnél');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner kép');

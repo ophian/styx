@@ -665,7 +665,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Chefredaktör');
 @define('USERLEVEL_ADMIN_DESC', 'Administratör');
 @define('USERCONF_USERLEVEL', 'Accessnivå');
-@define('USERCONF_USERLEVEL_DESC', 'Denna nivå används för att bestämma vilken slags tillgång denna användare ska ha till bloggen');
+@define('USERCONF_USERLEVEL_DESC', 'Denna nivå används för att bestämma vilken slags tillgång denna användare ska ha till bloggen. Användarrättigheter hanteras av gruppmedlemskap!');
 @define('USER_SELF_INFO', 'Inloggad som %s (%s)');
 @define('ADMIN_ENTRIES', 'Artiklar');
 @define('RECHECK_INSTALLATION', 'Kolla installationen igen');
@@ -728,7 +728,6 @@
 @define('GROUP', 'Grupp');
 @define('CREATE_NEW_GROUP', 'Skapa ny grupp');
 @define('DELETE_GROUP', 'Du håller på att ta bort grupp #%d \'%s\'. Är du säker?');
-@define('USERLEVEL_OBSOLETE', 'NOTERA: Användarnivåattributet används nu endast för bakåtkompatibilitet med insticksmoduler och reservauktorisering. Användarprivilegier hanteras nu genom gruppmedlemskap!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner-ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID för matningen som du vill publicera');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurnerbild');

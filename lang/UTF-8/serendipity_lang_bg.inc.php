@@ -668,7 +668,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERLEVEL_CHIEF_DESC', 'Главен редактор');
 @define('USERLEVEL_ADMIN_DESC', 'Администратор');
 @define('USERCONF_USERLEVEL', 'Ниво на достъп');
-@define('USERCONF_USERLEVEL_DESC', 'Това ниво определя какъв вид достъп ще има потребителя до блога');
+@define('USERCONF_USERLEVEL_DESC', 'Това ниво определя какъв вид достъп ще има потребителя до блога. Привилегиите на потребителите се управляват от членството в групи!');
 @define('USER_SELF_INFO', 'Влязъл сте като %s (%s)');
 @define('ADMIN_ENTRIES', 'Статии');
 @define('RECHECK_INSTALLATION', 'Проверка наново на инсталацията');
@@ -731,7 +731,6 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('GROUP', 'Група');
 @define('CREATE_NEW_GROUP', 'Създаване на нова група');
 @define('DELETE_GROUP', 'На път сте да изтриете група №&#160;%d %s. Сигурни ли сте?');
-@define('USERLEVEL_OBSOLETE', 'БЕЛЕЖКА: Атрибутът за потребителско ниво се използва само за обратна съвместимост с приставки и удостоверяване. Привилегиите на потребителите сега се управлява чрез членство в групи!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'Идентификатор на FeedBurner');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Идентификаторът на емисията, която искате да публикувате');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'Изображение на FeedBurner');

@@ -669,7 +669,7 @@
 @define('USERLEVEL_CHIEF_DESC', '主编');
 @define('USERLEVEL_ADMIN_DESC', '管理员');
 @define('USERCONF_USERLEVEL', '权限');
-@define('USERCONF_USERLEVEL_DESC', '这个选项可以设定此作者在这个日志内的权限');
+@define('USERCONF_USERLEVEL_DESC', '这个选项可以设定此作者在这个日志内的权限. 用户的权限是由组的成员资格处理的!');
 @define('USER_SELF_INFO', '登入用户是 %s (%s)');
 @define('ADMIN_ENTRIES', '文章管理');// 这是后台菜单的文章管理
 @define('RECHECK_INSTALLATION', '重新检查安装程序');
@@ -732,7 +732,6 @@
 @define('GROUP', '群组');
 @define('CREATE_NEW_GROUP', '新增群组');
 @define('DELETE_GROUP', '确定要删除群组 #%d \'%s\'');
-@define('USERLEVEL_OBSOLETE', '注意: 会员权限的属性只是为了区分回复的兼容和外挂授权。系统现在使用了新的会员权限。');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', '你要发布文章的 ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner 图片');

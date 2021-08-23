@@ -667,7 +667,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Hoofdredacteur');
 @define('USERLEVEL_ADMIN_DESC', 'Beheerder');
 @define('USERCONF_USERLEVEL', 'Toegangsniveau');
-@define('USERCONF_USERLEVEL_DESC', 'Dit niveau wordt gebruikt om te bepalen wat voor soort rechten de gebruiker heeft tot het weblog');
+@define('USERCONF_USERLEVEL_DESC', 'Dit niveau wordt gebruikt om te bepalen wat voor soort rechten de gebruiker heeft tot het weblog. Gebruikersrechten worden geregeld door groepslidmaatschappen!');
 @define('USER_SELF_INFO', 'Aangemeld als %s (%s)');
 @define('ADMIN_ENTRIES', 'Artikelen');
 @define('RECHECK_INSTALLATION', 'Installatie opnieuw controleren');
@@ -730,7 +730,6 @@
 @define('GROUP', 'Groep');
 @define('CREATE_NEW_GROUP', 'Creëer een nieuwe groep');
 @define('DELETE_GROUP', 'U staat op het punt om groep #%d \'%s\' te verwijderen. Weet u zeker dat u deze groep wilt verwijderen?');
-@define('USERLEVEL_OBSOLETE', 'OPMERKING: Het attribuut userlevel wordt alleen nog maar gebruikt om compatibiliteitsproblemen met plugins en autorisatie te voorkomen. Gebruikersprivileges worden nu afgehandeld door het groepslidmaatschap!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner-ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Het ID van de toevoer die u wilt publiceren');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner-afbeelding');

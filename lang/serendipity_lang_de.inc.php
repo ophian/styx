@@ -662,7 +662,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Chefredakteur');
 @define('USERLEVEL_ADMIN_DESC', 'Administrator');
 @define('USERCONF_USERLEVEL', 'Zugriffsrechte');
-@define('USERCONF_USERLEVEL_DESC', 'Zugriffsrechte bestimmen die Art und den Umfang des Zugriffs eines Benutzers auf die Funktionalitäten des Blogs');
+@define('USERCONF_USERLEVEL_DESC', 'Zugriffsrechte bestimmen die Art und den Umfang des Zugriffs eines Benutzers auf die Funktionalitäten des Blogs. Benutzerrechte werden mittels Gruppenzugehörigkeiten verwaltet!');
 @define('USER_SELF_INFO', 'Angemeldet als %s (%s)');
 @define('ADMIN_ENTRIES', 'Einträge');
 @define('RECHECK_INSTALLATION', 'Installation erneut überprüfen');
@@ -726,7 +726,6 @@
 @define('GROUP', 'Gruppe');
 @define('CREATE_NEW_GROUP', 'Neue Gruppe anlegen');
 @define('DELETE_GROUP', 'Sie beabsichtigen, die Gruppe #%d \'%s\' zu löschen. Sind Sie sicher?');
-@define('USERLEVEL_OBSOLETE', 'HINWEIS: Das Attribut "Benutzerrang" (userlevel) wird nur noch zwecks Abwärtskompatibilität zu Plugins und für Fallback-Autorisierungen benötigt. Benutzerrechte werden nun mittels Gruppenzugehörigkeiten verwaltet!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner-ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Die ID des Feeds, der veröffentlicht werden soll');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner-Bild');

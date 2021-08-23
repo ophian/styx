@@ -666,7 +666,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Chefeditor');
 @define('USERLEVEL_ADMIN_DESC', 'Administrator');
 @define('USERCONF_USERLEVEL', 'Adgangsniveau');
-@define('USERCONF_USERLEVEL_DESC', 'Dette niveau er brugt til at bestemme hvilken type adgang brugeren har til bloggen');
+@define('USERCONF_USERLEVEL_DESC', 'Dette niveau er brugt til at bestemme hvilken type adgang brugeren har til bloggen. Brugerrettigheder håndteres af gruppemedlemsskaber!');
 @define('USER_SELF_INFO', 'Logget ind som %s (%s)');
 @define('ADMIN_ENTRIES', 'Artikler');
 @define('RECHECK_INSTALLATION', 'Check installation igen');
@@ -729,7 +729,6 @@
 @define('GROUP', 'Group');
 @define('CREATE_NEW_GROUP', 'Opret ny gruppe');
 @define('DELETE_GROUP', 'Slet gruppe  #%d \'%s\'. Er du sikker?');
-@define('USERLEVEL_OBSOLETE', 'BEMÆRK: Brugerniveau indstillingen anvendes nu kun til bagud kompatibilitet. Bruger privilegier angives nu ved hjælp af gruppe medlemskaber!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID på det feed du ønsker at offentliggøre');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner billede');

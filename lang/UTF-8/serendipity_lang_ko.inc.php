@@ -667,7 +667,7 @@
 @define('USERLEVEL_CHIEF_DESC', '수석 편집인');
 @define('USERLEVEL_ADMIN_DESC', '관리자');
 @define('USERCONF_USERLEVEL', '권한 레벨');
-@define('USERCONF_USERLEVEL_DESC', '이 레벨은 블로그에 대해 사용자가 어떤 권한을 가지는지 결정하는데 사용됩니다.');
+@define('USERCONF_USERLEVEL_DESC', '이 레벨은 블로그에 대해 사용자가 어떤 권한을 가지는지 결정하는데 사용됩니다. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', '%s (%s) 로그인 됨');
 @define('ADMIN_ENTRIES', '글 관리');
 @define('RECHECK_INSTALLATION', '설치 상태 재확인 필요');
@@ -730,7 +730,6 @@
 @define('GROUP', '그룹');
 @define('CREATE_NEW_GROUP', '새 그룹 생성하기');
 @define('DELETE_GROUP', '%d번 그룹 %s(을)를 삭제하려고 합니다. 정말입니까?');
-@define('USERLEVEL_OBSOLETE', '주의: 사용자 레벨 속성은 플러그인의 하위 호환성 및 인증 대비책을 위해서만 사용되고 있습니다. 현재 사용자 권한 설정은 그룹 소속을 통해 이루어지고 있습니다.');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', '피드버너 아이디');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', '게시하고자 하는 피드의 아이디');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', '피드버너 그림');

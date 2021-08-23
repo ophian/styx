@@ -667,7 +667,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('USERLEVEL_CHIEF_DESC', 'Chief editor');
 @define('USERLEVEL_ADMIN_DESC', 'Administrator');
 @define('USERCONF_USERLEVEL', 'Poziom dostępu');
-@define('USERCONF_USERLEVEL_DESC', 'To ustawienie określa jaki poziom dostępu ma użytkownik do bloga.');
+@define('USERCONF_USERLEVEL_DESC', 'To ustawienie określa jaki poziom dostępu ma użytkownik do bloga. Uprawnienia użytkowników są obsługiwane przez przynależność do grup!');
 @define('USER_SELF_INFO', 'Zalogowany(a) jako %s (%s)');
 @define('ADMIN_ENTRIES', 'Wpisy');
 @define('RECHECK_INSTALLATION', ' Sprawdź ponownie instalację');
@@ -733,7 +733,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('GROUP', 'Grupa');
 @define('CREATE_NEW_GROUP', 'Stwórz nową grupę');
 @define('DELETE_GROUP', 'Masz zamiar skasować grupę #%d \'%s\'. Na pewno?');
-@define('USERLEVEL_OBSOLETE', 'UWAGA: to ustawienie jest obecnie używane tylko dla celów kompatybilności ze starszymi wersjami wtyczek i silnika. Obecnie poziom dostępu regulują reguły grup użytkowników!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID (w serwisie FeedBurner) feeda, który chcesz publikować');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner obrazek');

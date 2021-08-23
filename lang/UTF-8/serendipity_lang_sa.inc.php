@@ -667,7 +667,8 @@
 @define('USERLEVEL_CHIEF_DESC', 'رئيس المحررين');
 @define('USERLEVEL_ADMIN_DESC', 'المشرف العام');
 @define('USERCONF_USERLEVEL', 'مستوى الوصول');
-@define('USERCONF_USERLEVEL_DESC', 'هنا توضيح لمستوى وصلاحيات دخول المستخدم إلى المجلة');
+#@define('USERCONF_USERLEVEL_DESC', 'هنا توضيح لمستوى وصلاحيات دخول المستخدم إلى المجلة');
+@define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', 'تم التسجيل بـ %s (%s)');
 @define('ADMIN_ENTRIES', 'المواضيع');
 @define('RECHECK_INSTALLATION', 'إعادة تفحص تثبيت المجلة');
@@ -733,7 +734,6 @@
 @define('GROUP', 'المجموعات');
 @define('CREATE_NEW_GROUP', 'انشاء مجموعة جديدة');
 @define('DELETE_GROUP', 'هل انت متأكد من حذف المجموعة #%d \'%s\'');
-@define('USERLEVEL_OBSOLETE', 'ملاحظة: خاصية مستوى المستخدم الآن تتناسق مع ملفات الحث والصلاحيات.و ميزات المستخدم الآن يتم معالجتها مع عضوية المجموعة ! ! ! ');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'The ID of the feed you wish to publish');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner image');

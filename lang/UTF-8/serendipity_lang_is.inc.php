@@ -665,7 +665,8 @@
 @define('USERLEVEL_CHIEF_DESC', 'Stjórnandi');
 @define('USERLEVEL_ADMIN_DESC', 'Umsjónarmaður');
 @define('USERCONF_USERLEVEL', 'Réttindastig');
-@define('USERCONF_USERLEVEL_DESC', 'Réttindastig. Ætti að vera eitt af eftirfarandi: [USERLEVEL_ADMIN] - Umsjónarmaður, [USERLEVEL_CHIEF] - Stjórnandi, [USERLEVEL_EDITOR] - Venjulegur notandi.');
+#@define('USERCONF_USERLEVEL_DESC', 'Réttindastig. Ætti að vera eitt af eftirfarandi: [USERLEVEL_ADMIN] - Umsjónarmaður, [USERLEVEL_CHIEF] - Stjórnandi, [USERLEVEL_EDITOR] - Venjulegur notandi.');
+@define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', 'skráð(ur) inn sem %s, með stjórnstig %s');
 @define('ADMIN_ENTRIES', 'Færslur');
 @define('RECHECK_INSTALLATION', 'Skoða uppsetningu aftur');
@@ -728,7 +729,6 @@
 @define('GROUP', 'Hópur');
 @define('CREATE_NEW_GROUP', 'Búa til nýjan hóp');
 @define('DELETE_GROUP', 'Þú ert að fara að eyða hóp #%d \'%s\'. Ertu viss?');
-@define('USERLEVEL_OBSOLETE', 'TILKYNNING: Stjórnstigsbreytan er nú einungis notuð fyrir afturvirkan stuðning við viðbætur og varakerfisauðkenningu. Notendaréttindum er nú stjórnað af hvaða hóp notandi tilheyrir!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID þess straums sem þú vilt birta');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner mynd');

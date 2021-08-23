@@ -665,7 +665,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'チーフ編集者');
 @define('USERLEVEL_ADMIN_DESC', '管理者');
 @define('USERCONF_USERLEVEL', 'アクセスレベル');
-@define('USERCONF_USERLEVEL_DESC', 'このレベルはこのユーザーがウェブログに対してどういう種類のアクセスを持つか決定するため使用されます。');
+@define('USERCONF_USERLEVEL_DESC', 'このレベルはこのユーザーがウェブログに対してどういう種類のアクセスを持つか決定するため使用されます。 ユーザーの権限は、グループのメンバーシップによって処理されます。');
 @define('USER_SELF_INFO', '%s としてログイン中 (%s)');
 @define('ADMIN_ENTRIES', 'エントリー');
 @define('RECHECK_INSTALLATION', 'インストールの再検査');
@@ -728,7 +728,6 @@
 @define('GROUP', 'グループ');
 @define('CREATE_NEW_GROUP', '新規グループを作成する');
 @define('DELETE_GROUP', 'グループ番号 #%d の「%s」を削除します。本気ですか?');
-@define('USERLEVEL_OBSOLETE', '注意: ユーザー レベル属性は現在プラグインと認証の後方互換性のみに使用されます。ユーザーの特権は現在グループ会員で扱います!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', '公開したい フィードの ID です．');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner 画像');

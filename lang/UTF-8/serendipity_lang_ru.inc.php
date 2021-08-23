@@ -668,7 +668,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('USERLEVEL_CHIEF_DESC', 'Автор-редактор');
 @define('USERLEVEL_ADMIN_DESC', 'Администратор');
 @define('USERCONF_USERLEVEL', 'Уровень доступа');
-@define('USERCONF_USERLEVEL_DESC', 'Этот уровень используется чтобы определить какой тип доступа у пользователя к блогу');
+@define('USERCONF_USERLEVEL_DESC', 'Этот уровень используется чтобы определить какой тип доступа у пользователя к блогу. Привилегии пользователей обрабатываются членством в группах!');
 @define('USER_SELF_INFO', 'Вы вошли как пользователь %s (%s)');
 @define('ADMIN_ENTRIES', 'Записи');
 @define('RECHECK_INSTALLATION', 'Снова проверить установку');
@@ -731,7 +731,6 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('GROUP', 'Группа');
 @define('CREATE_NEW_GROUP', 'Создать новую группу');
 @define('DELETE_GROUP', 'Вы собираетесь удалить группу #%d \'%s\'. Вы уверены?');
-@define('USERLEVEL_OBSOLETE', 'Замечание: атрибут уровень пользователя используется теперь только для обратной совместимости со старыми плагинами и старой схемой авторизации. Права пользователей тепрь определяются принадлежностью к группам!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID Feed который вы хотите добавить');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'Изображение для FeedBurner');

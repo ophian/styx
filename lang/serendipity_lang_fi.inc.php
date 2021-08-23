@@ -664,7 +664,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Päätoimittaja');
 @define('USERLEVEL_ADMIN_DESC', 'Ylläpitäjä');
 @define('USERCONF_USERLEVEL', 'Käyttäjätaso');
-@define('USERCONF_USERLEVEL_DESC', 'Käyttäjätasoa käytetään määrittämän käyttäjän oikeudet tähän blogiin.');
+@define('USERCONF_USERLEVEL_DESC', 'Käyttäjätasoa käytetään määrittämän käyttäjän oikeudet tähän blogiin. Käyttäjäoikeudet hoidetaan ryhmäjäsenyyksillä!');
 @define('USER_SELF_INFO', 'Kirjautuneena %s (%s)');
 @define('ADMIN_ENTRIES', 'Merkinnät');
 @define('RECHECK_INSTALLATION', 'Tarkista uudestaan');
@@ -727,7 +727,6 @@
 @define('GROUP', 'Ryhmä');
 @define('CREATE_NEW_GROUP', 'Luo uusi ryhmä');
 @define('DELETE_GROUP', 'Olet aikeissa poistaa ryhmän #%d \'%s\'. Oletko varma?');
-@define('USERLEVEL_OBSOLETE', 'HUOM: Käyttäjätasoa käytetään ainoastaan yhteensopivuuden takaamiseksi, viimeisessä hädässä ja joissakin laajennoksissa. Käyttöoikeudet määritetään ryhmillä!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Julkistettavan kanavan ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner kuva');

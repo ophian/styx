@@ -666,7 +666,8 @@
 @define('USERLEVEL_CHIEF_DESC', 'ویرایشگر مدیر');
 @define('USERLEVEL_ADMIN_DESC', 'مدیر');
 @define('USERCONF_USERLEVEL', 'نوع دسترسی');
-@define('USERCONF_USERLEVEL_DESC', 'دسترسی باید یکی از گزینه های روبرو باشد: [USERLEVEL_ADMIN] - مدیر، [USERLEVEL_CHIEF] - رییس نویسندگان، [USERLEVEL_EDITOR] - نویسنده عادی.');
+#@define('USERCONF_USERLEVEL_DESC', 'دسترسی باید یکی از گزینه های روبرو باشد: [USERLEVEL_ADMIN] - مدیر، [USERLEVEL_CHIEF] - رییس نویسندگان، [USERLEVEL_EDITOR] - نویسنده عادی.');
+@define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', 'کاربر %s با سطح دسترسی %s وارد شد');
 @define('ADMIN_ENTRIES', 'مقادیر');
 @define('RECHECK_INSTALLATION', 'چک کردن دوباره نصب برنامه');
@@ -729,7 +730,6 @@
 @define('GROUP', 'گروه');
 @define('CREATE_NEW_GROUP', 'ایجاد گروه جدید');
 @define('DELETE_GROUP', 'شما قصد حذف گروه #%d \'%s\' را دارید. آیا اطمینان دارید؟');
-@define('USERLEVEL_OBSOLETE', 'توجه: اکنون مدیریت دسترسی کاربران فقط برای سازگاری با نسخ قدیمی پشتیبانی می شود. اکنون دسترسی کاربران با گروه ها مدیریت می شود!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'هویت FeedBurner');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'هویتی که می خواهید برای این تغذیه منتشر شود');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'تصویر FeedBurner');

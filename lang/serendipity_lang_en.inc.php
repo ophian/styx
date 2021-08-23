@@ -665,7 +665,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Chief editor');
 @define('USERLEVEL_ADMIN_DESC', 'Administrator');
 @define('USERCONF_USERLEVEL', 'Access level');
-@define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog');
+@define('USERCONF_USERLEVEL_DESC', 'This level is used to determine what kind of access this user has to the Blog. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', 'Logged in as %s (%s)');
 @define('ADMIN_ENTRIES', 'Entries');
 @define('RECHECK_INSTALLATION', 'Recheck installation');
@@ -731,7 +731,6 @@
 @define('GROUP', 'Group');
 @define('CREATE_NEW_GROUP', 'Create new group');
 @define('DELETE_GROUP', 'You are about to delete group #%d \'%s\'. Are you serious?');
-@define('USERLEVEL_OBSOLETE', 'NOTICE: The userlevel attribute is now only used for backward compatibility to plugins and fallback authorisation. User privileges are now handled by group memberships!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'The ID of the feed you wish to publish');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner image');

@@ -667,7 +667,7 @@
 @define('USERLEVEL_CHIEF_DESC', 'Yönetici Yazar');
 @define('USERLEVEL_ADMIN_DESC', 'Yönetici');
 @define('USERCONF_USERLEVEL', 'Erişim seviyesi');
-@define('USERCONF_USERLEVEL_DESC', 'Bu bölüm siteniz kullanıcılarının erişim ve yetki seviyelerini belirler');
+@define('USERCONF_USERLEVEL_DESC', 'Bu bölüm siteniz kullanıcılarının erişim ve yetki seviyelerini belirler. User privileges are handled by group memberships!');
 @define('USER_SELF_INFO', ' %s (%s) olarak bağlandınız');
 @define('ADMIN_ENTRIES', 'Yazılar');
 @define('RECHECK_INSTALLATION', 'Kurulumu yeniden kontrol et');
@@ -733,7 +733,6 @@
 @define('GROUP', 'Kullanıcı Grubu');
 @define('CREATE_NEW_GROUP', 'Yeni Grup oluştur');
 @define('DELETE_GROUP', 'Silmek istediğiniz kullanıcı grubu: #%d \'%s\'. Silinsin mi?');
-@define('USERLEVEL_OBSOLETE', 'NOT: Kullanıcı seviyesi tanımlamaları sadece geçmişe ve eklentilere uyumluluk amaçlıdır. Kullanıcı izinlerinin gelen düzenleme yeri Kullanıcı Gruplarıdır!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'Yayınlamayı istediğiniz Beslemenin ID Numarası ');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner Resmi');

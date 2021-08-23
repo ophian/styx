@@ -677,7 +677,7 @@ $i18n_filename_to = array (
 @define('USERLEVEL_CHIEF_DESC', 'Séfredaktor');
 @define('USERLEVEL_ADMIN_DESC', 'Administrátor');
 @define('USERCONF_USERLEVEL', 'Úroveò');
-@define('USERCONF_USERLEVEL_DESC', 'Tato úroveò urèuje práva u¾ivatele weblogu.');
+@define('USERCONF_USERLEVEL_DESC', 'Tato úroveò urèuje práva u¾ivatele weblogu. Oprávnení uživatelu se rídí clenstvím ve skupinách!');
 @define('USER_SELF_INFO', 'Pøihlá¹en jako %s (%s)');
 @define('ADMIN_ENTRIES', 'Záznamy');
 @define('RECHECK_INSTALLATION', 'Pøekontrolovat instalaci');
@@ -743,7 +743,6 @@ $i18n_filename_to = array (
 @define('GROUP', 'Skupina');
 @define('CREATE_NEW_GROUP', 'Vytvoøit novou skupinu');
 @define('DELETE_GROUP', 'Chystáte se smazat skupinu #%d \'%s\'. Myslíte to vá¾nì?');
-@define('USERLEVEL_OBSOLETE', 'UPOZORNÌNÍ: Atribut úroveò u¾ivatele (userlevel) je nyní pou¾íván jen kvùli zpìtné kompatibilitì s pluginy a autorizaci. U¾ivatelská práva jsou nyní øízena pomocí èlenských skupin!');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID', 'FeedBurner ID');
 @define('SYNDICATION_PLUGIN_FEEDBURNERID_DESC', 'ID feedu, který chcete publikovat');
 @define('SYNDICATION_PLUGIN_FEEDBURNERIMG', 'FeedBurner image');
