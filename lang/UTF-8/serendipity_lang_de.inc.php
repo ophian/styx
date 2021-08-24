@@ -469,7 +469,7 @@
 @define('APPROVE_TRACKBACK', 'Trackback bewilligen');
 @define('TRACKBACK_APPROVED', 'Trackback #%s wurde erfolgreich bewilligt.');
 @define('TRACKBACK_DELETED', 'Trackback #%s wurde erfolgreich gelöscht.');
-@define('COMMENTS_MODERATE', 'Kommentare und Trackbacks dieses Eintrags werden moderiert.');
+@define('COMMENTS_MODERATE', 'Kommentare und Trackbacks benötigen Moderation');
 @define('PLUGIN_SUPERUSER_HTTPS', 'https zum Login verwenden');
 @define('PLUGIN_SUPERUSER_HTTPS_DESC', 'Erstellt eine https-URL als Login-Link zum Blog. Der Webserver muss dies unterstützen!');
 @define('INSTALL_SHOW_EXTERNAL_LINKS', 'Externe Links klickbar?');
