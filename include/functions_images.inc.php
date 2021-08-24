@@ -4118,6 +4118,7 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
     }
 
     $displayGallery  = (isset($serendipity['GET']['showGallery']) && !isset($serendipity['GET']['showUpload']) && $serendipity['GET']['showGallery'] == 'true') ? true : false;
+    $smarty_vars['use_mediagrid'] = $displayGallery ? false : $smarty_vars['use_mediagrid']; // fixes case virgin system
 
     if (!is_object($serendipity['smarty'])) {
         serendipity_smarty_init();
