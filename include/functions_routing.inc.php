@@ -240,6 +240,7 @@ function serveAuthorPage($matches, $is_multiauth=false) {
     global $serendipity;
 
     $serendipity['view'] = 'authors';
+    unset($serendipity['uInfo']); // see below
 
     if ($is_multiauth) {
         $serendipity['GET']['viewAuthor'] = serendipity_specialchars(implode(';', $serendipity['POST']['multiAuth']));
@@ -263,6 +264,7 @@ function serveAuthorPage($matches, $is_multiauth=false) {
     }
 
     $uInfo = serendipity_fetchUsers($serendipity['GET']['viewAuthor']);
+    $serendipity['uInfo'][0] = ['realname' => $uInfo[0]['realname'], 'username' => $uInfo[0]['username'], 'email' => $uInfo[0]['email']]; // Selected give-away for userprofiles since $GLOBALS['uInfo'] is gone in 'entries_header'
 
     if (!is_array($uInfo)) {
         $serendipity['view'] = '404';
