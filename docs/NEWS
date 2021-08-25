@@ -1,6 +1,8 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Fix serveAuthorPage() regarding transported GLOBALS in the routing API
+
   * Add new serendipity_chainByLevel() function to the functions API to sort
     out users from fetchUsers() cases, which should not be in the list.
     Fixes users, groups and entryproperties entry form submitable users lists
