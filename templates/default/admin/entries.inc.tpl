@@ -253,7 +253,7 @@
     {if NOT $simpleFilters AND isset($entries) AND is_array($entries)}
 
         <div id="multidelete_tools" class="form_buttons">
-            {if isset($smarty.get.serendipity.catref)}<a class="button_link" href="?serendipity[adminModule]=category&serendipity[adminAction]=view">{$CONST.BACK}</a>{/if}
+            {if isset($smarty.get.serendipity.catref) AND (!isset($smarty.get.serendipity.filter.isdraft) OR $smarty.get.serendipity.filter.isdraft != 'draft')}<a class="button_link" href="?serendipity[adminModule]=category&serendipity[adminAction]=view">{$CONST.BACK}</a>{/if}
 
             <input class="invert_selection" name="toggle" type="button" value="{$CONST.INVERT_SELECTIONS}">
             <input class="state_cancel" name="toggle" type="submit" value="{$CONST.DELETE}">
@@ -305,4 +305,10 @@
     {/if}
 {/if}
 {if $iframe !== true}{$iframe}{/if}
+{if isset($is_iframepreview) AND $is_iframepreview AND $preview_only}
+
+        <div class="form_buttons">
+            <a class="button_link" id="draft_preview_back" href="?serendipity[adminModule]=entries&serendipity[adminAction]=editSelect&serendipity[filter][isdraft]=draft">{$CONST.BACK}</a>
+        </div>
+{/if}
 {$entryForm}

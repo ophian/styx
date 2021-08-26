@@ -539,6 +539,7 @@ switch($serendipity['GET']['adminAction']) {
         break;
 }
 
+$data['preview_only'] = $preview_only;// draft previews in backend straightaway
 $data['entryForm'] = $entryForm;
 $data['errors'] = $errors ?? false;
 $data['get'] = $serendipity['GET']; // don't trust {$smarty.get.vars} if not proofed, as we often change GET vars via serendipity['GET'] by runtime
