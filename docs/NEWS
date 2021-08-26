@@ -1,6 +1,10 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Add some navigational buttons to STRAIGHTWAY DRAFT entry PREVIEWS, which are
+    different to entry form draft previews, since those behave on current authors
+    markup editor configuration setups!
+
   * Fix serveAuthorPage() regarding transported GLOBALS in the routing API
 
   * Add new serendipity_chainByLevel() function to the functions API to sort
