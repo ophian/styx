@@ -521,6 +521,9 @@ switch($serendipity['GET']['adminAction']) {
         break;
 
     case 'edit':
+        if (!serendipity_checkFormToken()) {
+            break;
+        }
         $entry = serendipity_fetchEntry('id', $serendipity['GET']['id'], 1, 1);
         // no break [PSR-2] - extends default
 
