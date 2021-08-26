@@ -1543,7 +1543,7 @@ td.serendipity_calendarHeader a:hover {
 }
 
 /* Powered by */
-div.serendipityPlug {
+div.serendipityPlug > a {
     padding-left: 1em;
 }
 div.serendipityPlug a {
