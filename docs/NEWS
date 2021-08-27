@@ -1,6 +1,8 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  * Fix handle references for trackback exceptions with new media file formats
+
   * Add some navigational buttons to STRAIGHTWAY DRAFT entry PREVIEWS, which are
     different to entry form draft previews, since those behave on current authors
     markup editor configuration setups!
