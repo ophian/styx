@@ -308,7 +308,7 @@
 {if isset($is_iframepreview) AND $is_iframepreview AND $preview_only}
 
         <div class="form_buttons">
-            <a class="button_link" id="draft_preview_back" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[filter][isdraft]=draft">{$CONST.BACK}</a>
+            <a class="button_link" id="draft_preview_back" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect&amp;serendipity[filter][author]=&amp;serendipity[filter][isdraft]=draft">{$CONST.BACK}</a>
             <a class="button_link" id="full_entries_list" href="?serendipity[adminModule]=entries&amp;serendipity[adminAction]=editSelect">{$CONST.EDIT_ENTRIES}</a>
             <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.EDIT} #{$entry_id}"><span class="icon-edit" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.EDIT}</span></a>
             <a class="button_link" href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=delete&amp;serendipity[id]={$entry_id}&amp;{$urltoken}" title="{$CONST.DELETE} #{$entry_id}"><span class="icon-trash" aria-hidden="true"></span><span class="visuallyhidden"> {$CONST.DELETE}</span></a>
