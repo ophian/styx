@@ -51,7 +51,7 @@
                     {if $field.type != "hidden"}
 
                         <dt class="serendipity_commentsLabel">
-                           {if $field.required}<sup>&#8727;</sup>{/if}<label for="serendipity_commentform_{$field.id}">{$field.name}</label>
+                           {if $field.required}<sup>&#8727;</sup>{/if}<label for="serendipity_contactform_{$field.id}">{$field.name}</label>
                         </dt>
                         <dd class="serendipity_commentsValue">
                             {if $field.type == "checkbox"}
@@ -73,13 +73,13 @@
                                 </select>
                             {elseif $field.type == "password"}
 
-                                <input class="frm" type="password" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
+                                <input class="frm" type="password" id="serendipity_contactform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
                             {elseif $field.type == "textarea"}
 
-                                <textarea class="frm" rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[{$field.id}]">{$field.default}</textarea>
+                                <textarea class="frm" rows="10" cols="40" id="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}serendipity_commentform_comment{else}serendipity_contactform_{$field.id}{/if}" name="serendipity[{$field.id}]">{$field.default}</textarea>
                             {else}
 
-                                <input class="frm" type="text" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
+                                <input class="frm" type="text" id="serendipity_contactform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" size="30">
                             {/if}
 
                         </dd>
