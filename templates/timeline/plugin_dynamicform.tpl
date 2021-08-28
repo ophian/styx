@@ -74,12 +74,12 @@
                             {elseif $field.type == "password"}
                                 <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND NOT $field.default} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">&#8727;</span>{/if}</legend>
-                                    <input type="password" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" class="form-control">
+                                    <input type="password" id="serendipity_contactform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" class="form-control">
                                 </fieldset>
                             {elseif $field.type == "textarea"}
                                 <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND NOT $field.default} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">&#8727;</span>{/if}</legend>
-                                    <textarea id="serendipity_commentform_comment" class="form-control" name="serendipity[{$field.id}]" rows="10" placeholder="{$field.name}">{$field.default}</textarea>
+                                    <textarea id="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}serendipity_commentform_comment{else}serendipity_contactform_{$field.id}{/if}" class="form-control" name="serendipity[{$field.id}]" rows="10" placeholder="{$field.name}">{$field.default}</textarea>
                                 </fieldset>
                             {elseif $field.type == "email"}
                                 <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND NOT $field.default} has-error{/if}">
@@ -89,7 +89,7 @@
                             {else}
                                 <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND NOT $field.default} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">&#8727;</span>{/if}</legend>
-                                    <input type="text" id="serendipity_commentform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" class="form-control" placeholder="{$field.name}">
+                                    <input type="text" id="serendipity_contactform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" class="form-control" placeholder="{$field.name}">
                                 </fieldset>
                             {/if}
                         {/if}
