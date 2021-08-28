@@ -1,7 +1,7 @@
 <!-- ENTRIES START -->
     <?php serendipity_plugin_api::hook_event('entries_header', $GLOBALS['serendipity'], @$GLOBALS['tpl']['entry_id']); ?>
 <?php /* NOTE: in case of staticpages it either needs to check is_array() or cast foreach($GLOBALS as (array) */ ?>
-    <?php if (is_array($GLOBALS['tpl']['entries'])):
+    <?php if (isset($GLOBALS['tpl']['entries']) && is_array($GLOBALS['tpl']['entries'])):
     foreach($GLOBALS['tpl']['entries'] AS $dategroup):?>
     <div class="serendipity_Entry_Date">
         <?php if ($dategroup['is_sticky']): ?>
@@ -186,7 +186,7 @@
     <?php endforeach; ?>
     <?php endif; ?>
 
-    <?php if ((is_array($GLOBALS['tpl']['entries']) && count($GLOBALS['tpl']['entries']) < 1) && !$GLOBALS['tpl']['plugin_clean_page'] && $GLOBALS['tpl']['view'] != '404'): ?>
+    <?php if ((isset($GLOBALS['tpl']['entries']) && is_array($GLOBALS['tpl']['entries']) && count($GLOBALS['tpl']['entries']) < 1) && !$GLOBALS['tpl']['plugin_clean_page'] && $GLOBALS['tpl']['view'] != '404'): ?>
     <div class="serendipity_overview_noentries">
         <?= NO_ENTRIES_TO_PRINT ?>
     </div>
