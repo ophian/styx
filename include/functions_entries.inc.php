@@ -132,7 +132,7 @@ function serendipity_fetchCategoryInfo($categoryid, $categoryname = '') {
  * @return  array   The array of associated categories to that entry
  */
 function &serendipity_fetchEntryCategories($entryid) {
-  global $serendipity;
+    global $serendipity;
 
     if (is_numeric($entryid)) {
         $query = "SELECT
