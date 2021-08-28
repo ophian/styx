@@ -6,7 +6,7 @@
            <div class="serendipity_entry_body">
 <?php endif; ?>
 
-<?php if ($GLOBALS['tpl']['is_contactform_error']): ?>
+<?php if (isset($GLOBALS['tpl']['is_contactform_error'])): ?>
    <div class="serendipity_center serendipity_msg_important"><?= $GLOBALS['tpl']['plugin_contactform_error'] ?></div>
    <!-- Needed for Captchas -->
    <?php foreach ($GLOBALS['tpl']['comments_messagestack'] AS $messages):?>
@@ -18,7 +18,7 @@
    <div><?= $GLOBALS['tpl']['plugin_contactform_preface'] ?></div>
 <?php endif; ?>
 
-<?php if ($GLOBALS['tpl']['is_contactform_sent']): ?>
+<?php if (isset($GLOBALS['tpl']['is_contactform_sent'])): ?>
     <div class="serendipity_center serendipity_msg_success"><?= $GLOBALS['tpl']['plugin_contactform_sent'] ?></div>
 <?php else: ?>
 
@@ -45,7 +45,7 @@
                <?php foreach ($GLOBALS['tpl']['commentform_dynamicfields'] AS $field):?>
                    <?php if ($field['type'] != "hidden"): ?>
                        <dt class="serendipity_commentsLabel">
-                           <?php if ($field['required']): ?><sup>&#8727;</sup><?php endif; ?><label for="serendipity_commentform_<?= $field['id'] ?>"><?= $field['name'] ?></label>
+                           <?php if ($field['required']): ?><sup>&#8727;</sup><?php endif; ?><label for="serendipity_contactform_<?= $field['id'] ?>"><?= $field['name'] ?></label>
                        </dt>
                        <dd class="serendipity_commentsValue">
                            <?php if ($field['type'] == "checkbox"): ?>
@@ -61,11 +61,11 @@
                                   <?php endforeach; ?>
                                </select>
                            <?php elseif ($field['type'] == "password"): ?>
-                               <input class="frm" type="password" id="serendipity_commentform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]" value="<?= $field['default'] ?>" size="30">
+                               <input class="frm" type="password" id="serendipity_contactform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]" value="<?= $field['default'] ?>" size="30">
                            <?php elseif ($field['type'] == "textarea"): ?>
-                               <textarea class="frm" rows="10" cols="40" id="serendipity_commentform_comment" name="serendipity[<?= $field['id'] ?>]"><?= $field['default'] ?></textarea>
+                               <textarea class="frm" rows="10" cols="40" id="<?php if ($field['name'] == PLUGIN_CONTACTFORM_MESSAGE): ?>serendipity_commentform_comment<?php else: ?>serendipity_contactform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]"><?= $field['default'] ?></textarea>
                            <?php else: ?>
-                               <input class="frm" type="text" id="serendipity_commentform_<?= $field['id'] ?>" name="serendipity[<?= $field['id'] ?>]" value="<?= $field['default'] ?>" size="30">
+                               <input class="frm" type="text" id="serendipity_contactform_<?= $field['id'] ?><?php endif; ?>" name="serendipity[<?= $field['id'] ?>]" value="<?= $field['default'] ?>" size="30">
                            <?php endif; ?>
                        </dd>
                    <?php endif; ?>
