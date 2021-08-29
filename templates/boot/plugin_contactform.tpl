@@ -13,6 +13,7 @@
     <p class="alert alert-secondary" role="alert">{$message}</p>
     {/foreach}
     {/if}
+
     <div class="serendipity_commentForm">
         <a id="serendipity_CommentForm"></a>
         <form id="serendipity_comment" action="{$commentform_action}#feedback" method="post">
@@ -22,23 +23,23 @@
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_name" class="form-label">{$CONST.NAME}{if NOT empty($required_fields.name)}&#8727;{/if}</label>
-                <input id="serendipity_commentform_name" class="form-control" type="text" name="serendipity[name]" value="{$commentform_name}"{if NOT empty($required_fields.name)} required{/if}>
+                <label for="serendipity_commentform_name" class="form-label">{$CONST.NAME} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$required_fields.name}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterix"/></svg></label>
+                <input id="serendipity_commentform_name" class="form-control" type="text" name="serendipity[name]" value="{$commentform_name}" required>
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_email" class="form-label">{$CONST.EMAIL}{if NOT empty($required_fields.email)}&#8727;{/if}</label>
-                <input id="serendipity_commentform_email" class="form-control" type="email" name="serendipity[email]" value="{$commentform_email}"{if NOT empty($required_fields.email)} required{/if}>
+                <label for="serendipity_commentform_email" class="form-label">{$CONST.EMAIL} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$required_fields.email}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterix"/></svg></label>
+                <input id="serendipity_commentform_email" class="form-control" type="email" name="serendipity[email]" value="{$commentform_email}" required>
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_url" class="form-label">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)}&#8727;{/if}</label>
-                <input id="serendipity_commentform_url" class="form-control" type="url" name="serendipity[url]" value="{$commentform_url}"{if NOT empty($required_fields.url)} required{/if}>
+                <label for="serendipity_commentform_url" class="form-label">{$CONST.HOMEPAGE}</label>
+                <input id="serendipity_commentform_url" class="form-control" type="url" name="serendipity[url]" value="{$commentform_url}">
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_comment" class="form-label">{$CONST.COMMENT}{if NOT empty($required_fields.comment)}&#8727;{/if}</label>
-                <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
+                <label for="serendipity_commentform_comment" class="form-label">{$CONST.PLUGIN_CONTACTFORM_MESSAGE} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$required_fields.comment}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterix"/></svg></label>
+                <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]" required>{$commentform_data}</textarea>
             </div>
 
             <div class="form-group">
