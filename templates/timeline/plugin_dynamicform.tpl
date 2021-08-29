@@ -80,6 +80,7 @@
                                 <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND NOT $field.default} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">&#8727;</span>{/if}</legend>
                                     <textarea id="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}serendipity_commentform_comment{else}serendipity_contactform_{$field.id}{/if}" class="form-control" name="serendipity[{$field.id}]" rows="10" placeholder="{$field.name}">{$field.default}</textarea>
+                                    {* If you do NOT need AND run the emoticonchooser plugin, you can as well just use serendipity_contactform_{$field.id} here! *}
                                 </fieldset>
                             {elseif $field.type == "email"}
                                 <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND NOT $field.default} has-error{/if}">
