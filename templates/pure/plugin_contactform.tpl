@@ -2,6 +2,7 @@
     <h2>{if $plugin_contactform_articleformat}{$plugin_contactform_name}{else}{$plugin_contactform_pagetitle}{/if}</h2>
 
     <div class="page_content page_preface">
+
     {$plugin_contactform_preface}
     </div>
 {if NOT empty($is_contactform_sent)}
@@ -49,4 +50,5 @@
         </form>
     </div>
 {/if}
+
 </article>
