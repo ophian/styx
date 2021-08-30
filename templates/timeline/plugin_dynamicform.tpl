@@ -36,22 +36,22 @@
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">&#8727;</span>{/if}</legend>
                                     <div class="form-check{if NOT empty($is_contactform_error) AND $field.required AND NOT $field.default} text-danger{/if}">
                                         <label class="form-check-label">
-                                            <input type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default} class="form-check-label">
-                                            {$field.message}
+                                            <input type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default|default:''} class="form-check-label">
+                                            {$field.message|default:''}
                                         </label>
                                     </div>
                                 </fieldset>
                             {elseif $field.type == "radio"}
                                 {assign var="radioset" value=''}
                                 {foreach $field.options AS $option}
-                                    {if $option.default}{assign var="radioset" value='true'}{/if}
+                                    {if isset($option.default) AND $option.default}{assign var="radioset" value='true'}{/if}
                                 {/foreach}
                                 <fieldset class="form-group">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">&#8727;</span>{/if}</legend>
                                     <div class="form-check{if NOT empty($is_contactform_error) AND $field.required AND $radioset!='true'} text-danger{/if}">
                                         {foreach $field.options AS $option}
                                             <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default}>
+                                                <input type="radio" class="form-check-input" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}>
                                                 {$option.name}
                                             </label>
                                         {/foreach}
@@ -60,14 +60,14 @@
                             {elseif $field.type == "select"}
                                 {assign var="selectset" value=''}
                                 {foreach $field.options AS $option}
-                                    {if $option.default}{assign var="selectset" value='true'}{/if}
+                                    {if isset($option.default) AND $option.default}{assign var="selectset" value='true'}{/if}
                                 {/foreach}
                                 <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND $selectset != 'true'} has-error{/if}">
                                     <legend>{$field.name}{if $field.required} <span class="text-danger">&#8727;</span>{/if}</legend>
                                     <select name="{$field.id}" class="form-control">
                                         {if $selectset != 'true'}<option value="" disabled selected style="display: none;">{$CONST.PLEASESELECT}...</option>{/if}
                                         {foreach $field.options AS $option}
-                                            <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} >{$option.name}</option>
+                                            <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''} >{$option.name}</option>
                                         {/foreach}
                                     </select>
                                 </fieldset>
