@@ -40,16 +40,16 @@
 
                     <fieldset class="form-group">
                         <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterix"/></svg>{/if}</legend>
-                        <div class="form-radio">
-                            {foreach $field.options AS $option}
+                      {foreach $field.options AS $option}
 
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}>
-                                    {$option.name}
-                                </label>
-                            {/foreach}
-
+                        <div class="form-check form-check-inline">
+                            <label class="form-check-label">
+                                <input type="radio" class="form-check-input" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}>
+                                {$option.name}
+                            </label>
                         </div>
+                    {/foreach}
+
                     </fieldset>
                 {elseif $field.type == "select"}
 
