@@ -142,7 +142,7 @@ Smarty 3.1.30
 
     Note: The scopes should be used only to the extend really need. If a variable value assigned in an included
           sub-template should be returned to the calling sub-template just use {$foo='bar' scope='parent'}.
-          Use scopes only with variables for which it's realy needed. Avoid general scope settings with the
+          Use scopes only with variables for which it's really needed. Avoid general scope settings with the
           {include} tag as it can have a performance impact.
 
      The {assign}, {append}, {config_load} and {$foo...=...} tags have a new option flag 'noscope'.
