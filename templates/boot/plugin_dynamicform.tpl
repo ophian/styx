@@ -37,14 +37,10 @@
                         </div>
                     </fieldset>
                 {elseif $field.type == "radio"}
-                    {assign var="radioset" value=''}
-                    {foreach $field.options AS $option}
-                        {if NOT empty($option.default)}{assign var="radioset" value='true'}{/if}
-                    {/foreach}
 
                     <fieldset class="form-group">
                         <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterix"/></svg>{/if}</legend>
-                        <div class="form-radio{if NOT empty($is_contactform_error) AND $field.required AND $radioset!='true'} text-danger{/if}">
+                        <div class="form-radio">
                             {foreach $field.options AS $option}
 
                                 <label class="form-check-label">
@@ -56,15 +52,10 @@
                         </div>
                     </fieldset>
                 {elseif $field.type == "select"}
-                    {assign var="selectset" value=''}
-                    {foreach $field.options AS $option}
-                        {if NOT empty($option.default)}{assign var="selectset" value='true'}{/if}
-                    {/foreach}
 
                     <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND $selectset != 'true'} has-error{/if}">
                         <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterix"/></svg>{/if}</legend>
                         <select name="{$field.id}" class="form-select form-control">
-                            {if $selectset != 'true'}<option value="" disabled selected style="display: none;">{$CONST.PLEASESELECT}...</option>{/if}
                             {foreach $field.options AS $option}
 
                                 <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}>{$option.name}</option>
