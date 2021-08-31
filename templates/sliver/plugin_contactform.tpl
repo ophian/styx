@@ -44,23 +44,23 @@
                     </div>
 
                     <div class="input-text">
-                        <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)} &lowast;{/if}</label>
-                        <input type="text" size="30" value="{$commentform_name}" name="serendipity[name]" id="serendipity_commentform_name">
+                        <label for="serendipity_commentform_name">{$CONST.NAME} &lowast;</label>
+                        <input type="text" size="30" value="{$commentform_name}" name="serendipity[name]" id="serendipity_commentform_name" required>
                     </div>
 
                     <div class="input-text">
-                        <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)} &lowast;{/if}</label>
-                        <input type="text" size="30" value="{$commentform_email}" name="serendipity[email]" id="serendipity_commentform_email">
+                        <label for="serendipity_commentform_email">{$CONST.EMAIL} &lowast;</label>
+                        <input type="text" size="30" value="{$commentform_email}" name="serendipity[email]" id="serendipity_commentform_email" required>
                     </div>
 
                     <div class="input-text">
-                        <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)} &lowast;{/if}</label>
+                        <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}</label>
                         <input type="text" size="30" value="{$commentform_url}" name="serendipity[url]" id="serendipity_commentform_url">
                     </div>
 
                     <div class="input-textarea">
-                        <label for="serendipity_commentform_comment">{$plugin_contactform_message}{if NOT empty($required_fields.comment)} &lowast;{/if}</label>
-                        <textarea name="serendipity[comment]" id="serendipity_commentform_comment" cols="40" rows="10">{$commentform_data}</textarea>
+                        <label for="serendipity_commentform_comment">{$plugin_contactform_message} &lowast;</label>
+                        <textarea name="serendipity[comment]" id="serendipity_commentform_comment" cols="40" rows="10" required>{$commentform_data}</textarea>
                     </div>
 
                     <div id="directions">
