@@ -25,12 +25,12 @@
             <input type="hidden" name="serendipity[commentform]" value="true">
 
              <div class="form_field">
-                <label for="serendipity_commentform_name">{$CONST.NAME} &#8727;</label>
+                <label for="serendipity_commentform_name">{$CONST.NAME} <span class="text-hint" title="{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}">&#8727;</span></label>
                 <input id="serendipity_commentform_name" type="text" name="serendipity[name]" value="{$commentform_name}" required>
             </div>
 
             <div class="form_field">
-                <label for="serendipity_commentform_email">{$CONST.EMAIL} &#8727;</label>
+                <label for="serendipity_commentform_email">{$CONST.EMAIL} <span class="text-hint" title="{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}">&#8727;</span></label>
                 <input id="serendipity_commentform_email" type="email" name="serendipity[email]" value="{$commentform_email}" required>
             </div>
 
@@ -40,7 +40,7 @@
             </div>
 
             <div class="form_tarea">
-                <label for="serendipity_commentform_comment">{$CONST.COMMENT} &#8727;</label>
+                <label for="serendipity_commentform_comment">{$CONST.COMMENT} <span class="text-hint" title="{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}">&#8727;</span></label>
                 <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]" required>{$commentform_data}</textarea>
             </div>
             {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}

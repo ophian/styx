@@ -380,6 +380,9 @@ form button, input[type="button"], input[type="reset"], input[type="submit"] {
 .has-error .form-control{border-color:#a94442;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}
 .has-error .form-control:focus{border-color:#843534;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483}
 .has-error .input-group-addon{color:#a94442;border-color:#a94442;background-color:#f2dede}
+.text-hint{color:#dc3545}a.text-hint:focus,a.text-hint:hover{color:#a71d2a}
+fieldset.form-group {border: 1px solid #dfdfdf}
+.form-group.form-hook {margin: 1rem auto}
 
 .plainList {
     font-weight: initial;
