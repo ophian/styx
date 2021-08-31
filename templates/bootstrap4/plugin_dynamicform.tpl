@@ -28,7 +28,7 @@
                 {if $field.type == "checkbox"}
 
                     <fieldset class="form-group">
-                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterix"/></svg>{/if}</legend>
+                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</legend>
                         <div class="form-check{if NOT empty($is_contactform_error) AND $field.required AND empty($field.default)} text-danger{/if}">
                             <label class="form-check-label">
                                 <input type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default|default:''} class="form-check-label">
@@ -39,7 +39,7 @@
                 {elseif $field.type == "radio"}
 
                     <fieldset class="form-group">
-                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterix"/></svg>{/if}</legend>
+                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</legend>
                     {foreach $field.options AS $option}
 
                         <div class="form-check form-check-inline">
@@ -54,7 +54,7 @@
                 {elseif $field.type == "select"}
 
                     <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND $selectset != 'true'} has-error{/if}">
-                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterix"/></svg>{/if}</legend>
+                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</legend>
                         <select name="{$field.id}" class="form-select form-control">
                             {foreach $field.options AS $option}
 
@@ -66,13 +66,13 @@
                 {elseif $field.type == "password"}
 
                     <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND empty($field.default)} has-error{/if}">
-                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterix"/></svg>{/if}</legend>
+                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</legend>
                         <input type="password" id="serendipity_contactform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" class="form-control">
                     </fieldset>
                 {elseif $field.type == "textarea"}
 
                     <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND empty($field.default)} has-error{/if}">
-                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterix"/></svg>{/if}</legend>
+                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</legend>
                         <textarea id="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}serendipity_commentform_comment{else}serendipity_contactform_{$field.id}{/if}" class="form-control" name="serendipity[{$field.id}]" rows="{if $field.name == $CONST.PLUGIN_CONTACTFORM_MESSAGE}10{else}4{/if}" placeholder="{$field.name}">{$field.default}</textarea>
                         {* If you do NOT need AND run the emoticonchooser plugin, you can as well just use serendipity_contactform_{$field.id} here! *}
 
@@ -80,7 +80,7 @@
                 {elseif $field.type == "email"}
 
                     <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND empty($field.default)} has-error{/if}">
-                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterix"/></svg>{/if}</legend>
+                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</legend>
                         <input id="{$field.id}" class="form-control" name="serendipity[{$field.id}]" type="email" value="{$field.default}" placeholder="mail@example.org">
                     </fieldset>
                 {else}
@@ -88,7 +88,7 @@
                     {if $field.type != "hidden"}
 
                     <fieldset class="form-group{if NOT empty($is_contactform_error) AND $field.required AND empty($field.default)} has-error{/if}">
-                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterix"/></svg>{/if}</legend>
+                        <legend>{$field.name}{if $field.required} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$field.type}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</legend>
                         <input type="text" id="serendipity_contactform_{$field.id}" name="serendipity[{$field.id}]" value="{$field.default}" class="form-control" placeholder="{$field.name}">
                     </fieldset>
                     {else}
