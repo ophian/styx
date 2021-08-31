@@ -38,23 +38,23 @@
                 </div>
 
                 <div class="input-text">
-                  <label for="serendipity_commentform_name"><?= NAME ?><?php if (!empty($GLOBALS['tpl']['required_fields.name'])): ?> &lowast;<?php endif; ?></label>
-                  <input type="text" size="30" value="<?= $GLOBALS['tpl']['commentform_name'] ?>" name="serendipity[name]" id="serendipity_commentform_name">
+                  <label for="serendipity_commentform_name"><?= NAME ?> &lowast;</label>
+                  <input type="text" size="30" value="<?= $GLOBALS['tpl']['commentform_name'] ?>" name="serendipity[name]" id="serendipity_commentform_name" required>
                 </div>
 
                 <div class="input-text">
-                  <label for="serendipity_commentform_email"><?= EMAIL ?><?php if (!empty($GLOBALS['tpl']['required_fields.email'])): ?> &lowast;<?php endif; ?></label>
-                  <input type="text" size="30" value="<?= $GLOBALS['tpl']['commentform_email'] ?>" name="serendipity[email]" id="serendipity_commentform_email">
+                  <label for="serendipity_commentform_email"><?= EMAIL ?> &lowast;</label>
+                  <input type="text" size="30" value="<?= $GLOBALS['tpl']['commentform_email'] ?>" name="serendipity[email]" id="serendipity_commentform_email" required>
                 </div>
 
                 <div class="input-text">
-                  <label for="serendipity_commentform_url"><?= HOMEPAGE ?><?php if (!empty($GLOBALS['tpl']['required_fields.url'])): ?> &lowast;<?php endif; ?></label>
+                  <label for="serendipity_commentform_url"><?= HOMEPAGE ?></label>
                   <input type="text" size="30" value="<?= $GLOBALS['tpl']['commentform_url'] ?>" name="serendipity[url]" id="serendipity_commentform_url">
                 </div>
 
                 <div class="input-textarea">
-                  <label for="serendipity_commentform_comment"><?= $GLOBALS['tpl']['plugin_contactform_message'] ?><?php if (!empty($GLOBALS['tpl']['required_fields.comment'])): ?> &lowast;<?php endif; ?></label>
-                  <textarea name="serendipity[comment]" id="serendipity_commentform_comment" cols="40" rows="10"><?= $GLOBALS['tpl']['commentform_data'] ?></textarea>
+                  <label for="serendipity_commentform_comment"><?= $GLOBALS['tpl']['plugin_contactform_message'] ?> &lowast;</label>
+                  <textarea name="serendipity[comment]" id="serendipity_commentform_comment" cols="40" rows="10" required><?= $GLOBALS['tpl']['commentform_data'] ?></textarea>
                 </div>
 
                 <div id="directions">
