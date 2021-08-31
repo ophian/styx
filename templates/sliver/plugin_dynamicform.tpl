@@ -56,18 +56,18 @@
                         <dd class="serendipity_commentsValue">
                             {if $field.type == "checkbox"}
 
-                                <input class="frm_check" type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default}><label class="frm_check_label" for="{$field.id}">{$field.message}</label>
+                                <input class="frm_check" type="checkbox" name="{$field.id}" id="{$field.id}" {$field.default|default:''}><label class="frm_check_label" for="{$field.id}">{$field.message|default:''}</label>
                             {elseif $field.type == "radio"}
                                 {foreach $field.options AS $option}
 
-                                    <input class="frm_radio" type="radio" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default}><label class="frm_radio_label" for="{$field.id}.{$option.id}">{$option.name}</label>
+                                    <input class="frm_radio" type="radio" name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}><label class="frm_radio_label" for="{$field.id}.{$option.id}">{$option.name}</label>
                                 {/foreach}
                             {elseif $field.type == "select"}
 
                                 <select name="{$field.id}">
                                     {foreach $field.options AS $option}
 
-                                        <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default} >{$option.name}</option>
+                                        <option name="{$field.id}" id="{$field.id}.{$option.id}" value="{$option.value}" {$option.default|default:''}>{$option.name}</option>
                                     {/foreach}
 
                                 </select>
