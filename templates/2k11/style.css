@@ -597,6 +597,14 @@ pre .geshi {
 
 .form_field { margin-bottom: .5em; }
 
+.form_radio { display: block; }
+.form_radio_inline { display: -webkit-inline-box; display: inline-flex; }
+.form_radio_inline label { margin-right: .5em; }
+
+.field_alert .form_control{border-color:#a94442;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}
+.field_alert .form_control:focus{border-color:#843534;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483}
+.text-alert{color:#dc3545}a.text-alert:focus,a.text-alert:hover{color:#a71d2a}
+
 .serendipity_commentDirection {
     background-color: #eee;
     border: 1px solid #ddd;
