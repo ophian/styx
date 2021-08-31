@@ -2,14 +2,18 @@
     <h2>{if $plugin_contactform_articleformat}{$plugin_contactform_name}{else}{$plugin_contactform_pagetitle}{/if}</h2>
 
     <div class="clearfix content serendipity_preface">
+
     {$plugin_contactform_preface}
     </div>
 {if NOT empty($is_contactform_sent)}
+
     <p class="serendipity_msg_success">{$plugin_contactform_sent}</p>
 {else}
     {if NOT empty($is_contactform_error)}
+
     <p class="serendipity_msg_important">{$plugin_contactform_error}</p>
     {foreach $comments_messagestack AS $message}
+
     <p class="serendipity_msg_important">{$message}</p>
     {/foreach}
     {/if}
@@ -23,27 +27,28 @@
             <input type="hidden" name="serendipity[commentform]" value="true">
         </div>
         <div class="form_field">
-            <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)}&#8727;{/if}</label>
-            <input id="serendipity_commentform_name" name="serendipity[name]" type="text" value="{$commentform_name}" placeholder="{$CONST.TWOK11_PLACE_NAME}"{if NOT empty($required_fields.name)} required{/if}>
+            <label for="serendipity_commentform_name">{$CONST.NAME} &#8727;</label>
+            <input id="serendipity_commentform_name" name="serendipity[name]" type="text" value="{$commentform_name}" placeholder="{$CONST.TWOK11_PLACE_NAME}" required>
         </div>
 
         <div class="form_field">
-            <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)}&#8727;{/if}</label>
-            <input id="serendipity_commentform_email" name="serendipity[email]" type="email" value="{$commentform_email}" placeholder="{$CONST.TWOK11_PLACE_MAIL}"{if NOT empty($required_fields.email)} required{/if}>
+            <label for="serendipity_commentform_email">{$CONST.EMAIL} &#8727;</label>
+            <input id="serendipity_commentform_email" name="serendipity[email]" type="email" value="{$commentform_email}" placeholder="{$CONST.TWOK11_PLACE_MAIL}" required>
         </div>
 
         <div class="form_field">
-            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)}&#8727;{/if}</label>
-            <input id="serendipity_commentform_url" name="serendipity[url]" type="url" value="{$commentform_url}" placeholder="{$CONST.TWOK11_PLACE_URL}"{if NOT empty($required_fields.url)} required{/if}>
+            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}</label>
+            <input id="serendipity_commentform_url" name="serendipity[url]" type="url" value="{$commentform_url}" placeholder="{$CONST.TWOK11_PLACE_URL}">
         </div>
 
         <div class="form_tarea">
-            <label for="serendipity_commentform_comment">{$plugin_contactform_message}{if NOT empty($required_fields.comment)}&#8727;{/if}</label>
-            <textarea id="serendipity_commentform_comment" name="serendipity[comment]" rows="10" placeholder="{$CONST.TWOK11_PLACE_MESSAGE}"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
+            <label for="serendipity_commentform_comment">{$plugin_contactform_message} &#8727;</label>
+            <textarea id="serendipity_commentform_comment" name="serendipity[comment]" rows="10" placeholder="{$CONST.TWOK11_PLACE_MESSAGE}" required>{$commentform_data}</textarea>
         </div>
         {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
         <input id="serendipity_submit" name="serendipity[submit]" type="submit" value="{$CONST.TWOK11_SEND_MAIL}">
         </form>
     </div>
 {/if}
+
 </article>
