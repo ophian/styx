@@ -10,17 +10,17 @@
         <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
 
         <div class="form-group">
-            <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16"><title id="title_required_name">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/></svg>{/if}</label>
+            <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16"><title id="title_required_name">required field name</title><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/></svg>{/if}</label>
             <input id="serendipity_commentform_name" class="form-control" type="text" name="serendipity[name]" value="{$commentform_name}"{if NOT empty($required_fields.name)} required{/if}>
         </div>
 
         <div class="form-group">
-            <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16"><title id="title_required_name">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/></svg>{/if}</label>
+            <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16"><title id="title_required_email">required field email</title><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/></svg>{/if}</label>
             <input id="serendipity_commentform_email" class="form-control" type="email" name="serendipity[email]" value="{$commentform_email}"{if NOT empty($required_fields.email)} required{/if}>
         </div>
 
         <div class="form-group">
-            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16"><title id="title_required_name">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/></svg>{/if}</label>
+            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16"><title id="title_required_url">required field url</title><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/></svg>{/if}</label>
             <input id="serendipity_commentform_url" class="form-control" type="url" name="serendipity[url]" value="{$commentform_url}"{if NOT empty($required_fields.url)} required{/if}>
         </div>
 
@@ -30,7 +30,7 @@
         </div>
 
         <div class="form-group">
-            <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16"><title id="title_required_name">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/></svg>{/if}</label>
+            <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)} <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-asterisk" viewBox="0 0 16 16"><title id="title_required_comment">required field comment</title><path d="M8 0a1 1 0 0 1 1 1v5.268l4.562-2.634a1 1 0 1 1 1 1.732L10 8l4.562 2.634a1 1 0 1 1-1 1.732L9 9.732V15a1 1 0 1 1-2 0V9.732l-4.562 2.634a1 1 0 1 1-1-1.732L6 8 1.438 5.366a1 1 0 0 1 1-1.732L7 6.268V1a1 1 0 0 1 1-1z"/></svg>{/if}</label>
             <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
         </div>
 
