@@ -23,12 +23,12 @@
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_name" class="form-label">{$CONST.NAME} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$required_fields.name}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterisk"/></svg></label>
+                <label for="serendipity_commentform_name" class="form-label">{$CONST.NAME} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_name">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterisk"/></svg></label>
                 <input id="serendipity_commentform_name" class="form-control" type="text" name="serendipity[name]" value="{$commentform_name}" required>
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_email" class="form-label">{$CONST.EMAIL} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$required_fields.email}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterisk"/></svg></label>
+                <label for="serendipity_commentform_email" class="form-label">{$CONST.EMAIL} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_email">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterisk"/></svg></label>
                 <input id="serendipity_commentform_email" class="form-control" type="email" name="serendipity[email]" value="{$commentform_email}" required>
             </div>
 
@@ -38,7 +38,7 @@
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_comment" class="form-label">{$CONST.PLUGIN_CONTACTFORM_MESSAGE} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_{$required_fields.comment}">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterisk"/></svg></label>
+                <label for="serendipity_commentform_comment" class="form-label">{$CONST.PLUGIN_CONTACTFORM_MESSAGE} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_comment">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="#required-field-asterisk"/></svg></label>
                 <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]" required>{$commentform_data}</textarea>
             </div>
 
