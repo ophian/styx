@@ -384,6 +384,11 @@ form button, input[type="button"], input[type="reset"], input[type="submit"] {
 fieldset.form-group {border: 1px solid #dfdfdf}
 .form-group.form-hook {margin: 1rem auto}
 
+/* required attribute labeled */
+input:invalid, textarea:invalid {
+    background-color: #eee;
+}
+
 .plainList {
     font-weight: initial;
 }
