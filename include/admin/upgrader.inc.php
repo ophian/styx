@@ -494,6 +494,11 @@ $tasks = array(
                     'title'     => '<b>ADMINISTRATION_NOTICE:</b> We fixed a USER form permissive bug which was around since late Dec. 2020.',
                     'desc'      => 'If you did submit a USER administration users form (NOT via "Personal Preferences", which does not have this field) in this time, without having explicitly set (checked) the "Access level" property, trusting its shown (select) value, please re-check to ensure it (now) has the correct Access Level (Standard editor, Chief editor, or Administrator) set for that user. This is an old (historic) permission flag, while user privileges should be handled by group memberships in Serendipity for long, but it is still used and could have done (downgrade) damage to Administrator or Chief permission levels! You (the Administrator) or your Chiefs for sure would have noticed a sudden reset to Standard editors very limited permissions right after. We do not add a (repair) task here, since it is just a number change in the database and assume nobody was hit by it yet. Consider this ADMINISTRATION upgrade NOTICE as an informational notice only.'),
 
+            array(  'version'   => '3.5-beta2',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> We improved the contactform template files and more for certain reasons.',
+                    'desc'      => 'Please read about it in the CHANGELOG, which you can easily do via your maintenance backend section, while there might be some additional THEME-UPGRADE work to do for you. Of course only for the case, you have a CUSTOM derivative!'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
