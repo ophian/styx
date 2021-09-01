@@ -61,8 +61,6 @@ $serendipity['smarty']->assign('design', array(0 => $locs[$rkey], 1 => $rkey));
 // required form fields
 if (class_exists('serendipity_event_spamblock')) {
     $required_fieldlist = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE '%spamblock%required_fields'", true, 'assoc');
-} elseif (class_exists('serendipity_event_commentspice')) {
-    $required_fieldlist = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE '%commentspice%required_fields'", true, 'assoc');
 }
 
 if (is_array($required_fieldlist)) {
