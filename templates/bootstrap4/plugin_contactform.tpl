@@ -25,22 +25,22 @@
             <input type="hidden" name="serendipity[commentform]" value="true">
 
              <div class="form-group">
-                <label for="serendipity_commentform_name">{$CONST.NAME} &#8727;</label>
+                <label for="serendipity_commentform_name">{$CONST.NAME} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_name">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg></label>
                 <input id="serendipity_commentform_name" class="form-control" type="text" name="serendipity[name]" value="{$commentform_name}" required>
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_email">{$CONST.EMAIL} &#8727;</label>
+                <label for="serendipity_commentform_email">{$CONST.EMAIL} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_email">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg></label>
                 <input id="serendipity_commentform_email" class="form-control" type="email" name="serendipity[email]" value="{$commentform_email}" required>
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_url">{$CONST.HOMEPAGE} &#8727;</label>
+                <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}</label>
                 <input id="serendipity_commentform_url" class="form-control" type="url" name="serendipity[url]" value="{$commentform_url}">
             </div>
 
             <div class="form-group">
-                <label for="serendipity_commentform_comment">{$CONST.COMMENT} &#8727;</label>
+                <label for="serendipity_commentform_comment">{$CONST.COMMENT} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_comment">{$CONST.PLUGIN_CONTACTFORM_REQUIRED_FIELD}</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg></label>
                 <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]" required>{$commentform_data}</textarea>
             </div>
             {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
