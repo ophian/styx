@@ -10,17 +10,17 @@
                 <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
 
                 <div class="form_field">
-                    <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)}<span class="text-hint" title="required field name"> &#8727;</span>{/if}</label>
+                    <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)}<span class="text-hint" title="{$CONST.REQUIRED_FIELD} name"> &#8727;</span>{/if}</label>
                     <input id="serendipity_commentform_name" type="text" name="serendipity[name]" value="{$commentform_name}"{if NOT empty($required_fields.name)} required{/if}>
                 </div>
 
                 <div class="form_field">
-                    <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)}<span class="text-hint" title="required field email"> &#8727;</span>{/if}</label>
+                    <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)}<span class="text-hint" title="{$CONST.REQUIRED_FIELD} email"> &#8727;</span>{/if}</label>
                     <input id="serendipity_commentform_email" type="email" name="serendipity[email]" value="{$commentform_email}"{if NOT empty($required_fields.email)} required{/if}>
                 </div>
 
                 <div class="form_field">
-                    <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)}<span class="text-hint" title="required field url"> &#8727;</span>{/if}</label>
+                    <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)}<span class="text-hint" title="{$CONST.REQUIRED_FIELD} url"> &#8727;</span>{/if}</label>
                     <input id="serendipity_commentform_url" type="url" name="serendipity[url]" value="{$commentform_url}"{if NOT empty($required_fields.url)} required{/if}>
                 </div>
 
@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="form_tarea">
-                    <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)}<span class="text-hint" title="required field comment"> &#8727;</span>{/if}</label>
+                    <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)}<span class="text-hint" title="{$CONST.REQUIRED_FIELD} comment"> &#8727;</span>{/if}</label>
                     <textarea id="serendipity_commentform_comment" rows="10" name="serendipity[comment]"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
                 </div>
 
