@@ -157,6 +157,7 @@
 @define('HIDDEN', 'gizli');
 @define('REMOVE_TICKED_PLUGINS', 'Etiketlenmiş eklentiyi kaldır');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Görünümdeki değişiklikleri kaydet');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Görüş bildiren');
 @define('ERROR', 'Hata');
 @define('ENTRY_SAVED', 'Yazınız kaydedildi');

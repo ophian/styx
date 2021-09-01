@@ -157,6 +157,7 @@
 @define('HIDDEN', '隐藏');
 @define('REMOVE_TICKED_PLUGINS', '移除勾选的外挂');
 @define('SAVE_CHANGES_TO_LAYOUT', '保存主题配置');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', '回复来源');
 @define('ERROR', '错误');
 @define('ENTRY_SAVED', '你的文章已保存');

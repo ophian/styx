@@ -151,6 +151,7 @@
 @define('HIDDEN', 'skjult');
 @define('REMOVE_TICKED_PLUGINS', 'Fjern valgte plugins');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Gem layout-ændringerne');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Kommentar fra');
 @define('ERROR', 'Fejl');
 @define('ENTRY_SAVED', 'Din artikel blev gemt');

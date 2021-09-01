@@ -157,6 +157,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'a', 'A', 'b', 'B', 'c', 'C', 'c', 'C
 @define('HIDDEN', 'Wtyczka ukryta');
 @define('REMOVE_TICKED_PLUGINS', 'Usuń zaznaczone wtyczki');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Zapisz zmiany w layoucie');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Formularz komentarzy');
 @define('ERROR', 'Błąd');
 @define('ENTRY_SAVED', 'Twój wpis został zapisany');

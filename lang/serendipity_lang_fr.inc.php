@@ -155,6 +155,7 @@
 @define('HIDDEN', 'caché');
 @define('REMOVE_TICKED_PLUGINS', 'Supprimer les plugins cochés');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Enregistrer les changements');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Commentaires de');
 @define('ERROR', 'Erreur');
 @define('DELETE_SURE', 'Etes vous sûr de vouloir supprimer #%s définitivement ?');

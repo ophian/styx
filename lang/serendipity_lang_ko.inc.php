@@ -157,6 +157,7 @@
 @define('HIDDEN', '숨김');
 @define('REMOVE_TICKED_PLUGINS', '선택한 플러그인 제거하기');
 @define('SAVE_CHANGES_TO_LAYOUT', '구성 변경을 저장하기');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', '다음에서 온 덧글:');
 @define('ERROR', '오류');
 @define('ENTRY_SAVED', '글이 저장되었습니다');

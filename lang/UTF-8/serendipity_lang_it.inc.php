@@ -154,6 +154,7 @@
 @define('HIDDEN', 'nascosto');
 @define('REMOVE_TICKED_PLUGINS', 'Rimuovi i plugin selezionati');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Salva i cambiamenti al layout');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Commenti da');
 @define('ERROR', 'Errore');
 @define('ENTRY_SAVED', 'La tua notizia è stata salvata');

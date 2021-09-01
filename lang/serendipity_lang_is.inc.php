@@ -155,6 +155,7 @@
 @define('HIDDEN', 'falinn');
 @define('REMOVE_TICKED_PLUGINS', 'Fjarlægja hakaðar viðbætur');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Vista útlitsbreytingar');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Athugasemdir frá');
 @define('ERROR', 'Villa');
 @define('ENTRY_SAVED', 'Færslan þín hefur verið vistuð');

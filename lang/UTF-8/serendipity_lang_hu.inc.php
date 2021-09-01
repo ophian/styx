@@ -155,6 +155,7 @@
 @define('HIDDEN', 'rejtett');
 @define('REMOVE_TICKED_PLUGINS', 'A bejelölt beépülő modulok eltávolítása');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Változások mentése az oldal szerkezetébe (layout)');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Hozzászólások innen');
 @define('ERROR', 'Hiba');
 @define('ENTRY_SAVED', 'A bejegyzés mentve');

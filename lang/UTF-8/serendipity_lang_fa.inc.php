@@ -156,6 +156,7 @@
 @define('HIDDEN', 'مخفی');
 @define('REMOVE_TICKED_PLUGINS', 'حذف افزونه های مشخص شده');
 @define('SAVE_CHANGES_TO_LAYOUT', 'ثبت تغییرات در پوسته');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'نظر های ');
 @define('ERROR', 'خطا');
 @define('ENTRY_SAVED', 'ارسال شما ذخیره شد');

@@ -155,6 +155,7 @@
 @define('HIDDEN', 'hidden');
 @define('REMOVE_TICKED_PLUGINS', 'Remove ticked plugins');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Save changes to layout');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Comments from');
 @define('ERROR', 'Error');
 @define('ENTRY_SAVED', 'Your entry has been saved');

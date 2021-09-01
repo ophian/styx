@@ -170,6 +170,7 @@ $i18n_filename_to = array (
 @define('HIDDEN', 'skrytý');
 @define('REMOVE_TICKED_PLUGINS', 'Odstranit oznaèené pluginy');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Ulo¾it zmìny layoutu');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Komentáøe od');
 @define('ERROR', 'Chyba');
 @define('ENTRY_SAVED', 'Záznam ulo¾en');

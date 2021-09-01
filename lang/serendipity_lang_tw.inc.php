@@ -157,6 +157,7 @@ $i18n_unknown = 'tw';
 @define('HIDDEN', '隱藏');
 @define('REMOVE_TICKED_PLUGINS', '移除勾選的外掛');
 @define('SAVE_CHANGES_TO_LAYOUT', '儲存外觀配置');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', '迴響來源');
 @define('ERROR', '錯誤');
 @define('ENTRY_SAVED', '您的文章已儲存');

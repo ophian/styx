@@ -157,6 +157,7 @@
 @define('HIDDEN', 'مخفي');
 @define('REMOVE_TICKED_PLUGINS', 'ابعد البوقات المختارة');
 @define('SAVE_CHANGES_TO_LAYOUT', 'حفظ التغييرات على التنسيق');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'تعليقات من');
 @define('ERROR', 'خطأ');
 @define('ENTRY_SAVED', 'تم حفظ مشاركتك');

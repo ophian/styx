@@ -153,6 +153,7 @@
 @define('HIDDEN', 'oculto');
 @define('REMOVE_TICKED_PLUGINS', 'Remover plugins marcados');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Salvar modificações ao layout');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Comentários de');
 @define('ERROR', 'Erro');
 @define('ENTRY_SAVED', 'Artigo salvo');

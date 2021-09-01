@@ -149,6 +149,7 @@
 @define('HIDDEN', 'skjult');
 @define('REMOVE_TICKED_PLUGINS', 'Fjern valgte plugins');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Lagre layout-endringene');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Kommentar fra');
 @define('ERROR', 'Feil');
 @define('ENTRY_SAVED', 'Din artikkel ble lagret');

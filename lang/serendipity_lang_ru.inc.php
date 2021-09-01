@@ -157,6 +157,7 @@ $i18n_filename_to   = array('_', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('HIDDEN', 'спрятан');
 @define('REMOVE_TICKED_PLUGINS', 'Убрать выделенные плагины');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Сохранить изменения');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Комментарии от');
 @define('ERROR', 'Ошибка');
 @define('ENTRY_SAVED', 'Ваша запись была сохранена');

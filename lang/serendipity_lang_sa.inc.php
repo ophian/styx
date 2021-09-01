@@ -157,6 +157,7 @@
 @define('HIDDEN', '„Œ›Ì');
 @define('REMOVE_TICKED_PLUGINS', '«»⁄œ «·»Êﬁ«  «·„Œ «—…');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Õ›Ÿ «· €ÌÌ—«  ⁄·Ï «· ‰”Ìﬁ');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', ' ⁄·Ìﬁ«  „‰');
 @define('ERROR', 'Œÿ√');
 @define('ENTRY_SAVED', ' „ Õ›Ÿ „‘«—ﬂ ﬂ');

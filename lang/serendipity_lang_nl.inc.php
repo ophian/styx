@@ -158,6 +158,7 @@
 @define('HIDDEN', 'verborgen');
 @define('REMOVE_TICKED_PLUGINS', 'Verwijder geselecteerde plugins');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Bewaar veranderingen in ontwerp');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Reactie van');
 @define('ERROR', 'Fout');
 @define('ENTRY_SAVED', 'Uw artikel is bewaard');

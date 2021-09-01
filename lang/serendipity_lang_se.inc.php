@@ -155,6 +155,7 @@
 @define('HIDDEN', 'Dold');
 @define('REMOVE_TICKED_PLUGINS', 'Ta bort markerade insticksmoduler');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Spara layoutändringar');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Kommentarer från');
 @define('ERROR', 'Fel');
 @define('ENTRY_SAVED', 'Din artikel har sparats');

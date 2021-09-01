@@ -160,6 +160,7 @@
 @define('HIDDEN', 'Oculto');
 @define('REMOVE_TICKED_PLUGINS', 'Quita las extensiones seleccionadas');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Guarda los cambios en el diseño');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Comentarios para');
 @define('ERROR', 'Error');
 @define('DELETE_SURE', '¿Estás seguro de que quieres eliminar #%s permanentemente?');

@@ -155,6 +155,7 @@
 @define('HIDDEN', '隠す');
 @define('REMOVE_TICKED_PLUGINS', 'チェックをつけたプラグインを削除する');
 @define('SAVE_CHANGES_TO_LAYOUT', 'レイアウトへの変更を保存する');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Comments from');
 @define('ERROR', 'エラー');
 @define('ENTRY_SAVED', 'エントリーは保存されました。');

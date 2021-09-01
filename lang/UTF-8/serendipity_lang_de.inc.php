@@ -154,6 +154,7 @@
 @define('HIDDEN', 'versteckt');
 @define('REMOVE_TICKED_PLUGINS', 'Markierte Plugins entfernen');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Änderungen am Layout speichern');
+@define('REQUIRED_FIELD', 'Pflichtfeld');
 @define('COMMENTS_FROM', 'Kommentare von');
 @define('ERROR', 'Fehler');
 @define('ENTRY_SAVED', 'Der Eintrag wurde gespeichert');

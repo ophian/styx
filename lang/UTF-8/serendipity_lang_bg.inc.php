@@ -153,6 +153,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('HIDDEN', 'скрит');
 @define('REMOVE_TICKED_PLUGINS', 'Премахване на маркираните приставки');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Запис на промените в оформлението');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Коментари от');
 @define('ERROR', 'Грешка');
 @define('ENTRY_SAVED', 'Статията е записана');

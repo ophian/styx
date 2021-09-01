@@ -155,6 +155,7 @@
 @define('HIDDEN', 'piilotettu');
 @define('REMOVE_TICKED_PLUGINS', 'Poista valitut laajennokset');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Talleta taiton muutokset');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Kommentit alkaen');
 @define('ERROR', 'Virhe');
 @define('ENTRY_SAVED', 'Merkintä talletettu');

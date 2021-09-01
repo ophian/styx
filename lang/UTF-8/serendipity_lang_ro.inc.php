@@ -156,6 +156,7 @@
 @define('HIDDEN', 'ascuns');
 @define('REMOVE_TICKED_PLUGINS', 'Elimină plugin-urile selectate');
 @define('SAVE_CHANGES_TO_LAYOUT', 'Salvează schimbările legate de aspect');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'Comentarii de la');
 @define('ERROR', 'Eroare');
 @define('ENTRY_SAVED', 'Însemnarea ta a fost salvată');

@@ -155,6 +155,7 @@
 @define('HIDDEN', 'மறைத்து வைக்க');
 @define('REMOVE_TICKED_PLUGINS', 'சுட்டப்பட்ட சிறுசெயலிகளை நீக்குக');
 @define('SAVE_CHANGES_TO_LAYOUT', 'நிலைகளை சேமிக்க');
+@define('REQUIRED_FIELD', 'Required field');
 @define('COMMENTS_FROM', 'கருத்துகள்');
 @define('ERROR', 'தவறு');
 @define('ENTRY_SAVED', 'உங்கள் குறிப்பு சேமிக்கப்பட்டது');
