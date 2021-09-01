@@ -10,17 +10,17 @@
         <input type="hidden" name="serendipity[entry_id]" value="{$commentform_id}">
 
         <div class="form-group">
-            <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_name">required field name</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</label>
+            <label for="serendipity_commentform_name">{$CONST.NAME}{if NOT empty($required_fields.name)} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_name">{$CONST.REQUIRED_FIELD} name</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</label>
             <input id="serendipity_commentform_name" class="form-control" type="text" name="serendipity[name]" value="{$commentform_name}"{if NOT empty($required_fields.name)} required{/if}>
         </div>
 
         <div class="form-group">
-            <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_email">required field email</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</label>
+            <label for="serendipity_commentform_email">{$CONST.EMAIL}{if NOT empty($required_fields.email)} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_email">{$CONST.REQUIRED_FIELD} email</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</label>
             <input id="serendipity_commentform_email" class="form-control" type="email" name="serendipity[email]" value="{$commentform_email}"{if NOT empty($required_fields.email)} required{/if}>
         </div>
 
         <div class="form-group">
-            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_url">required field url</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</label>
+            <label for="serendipity_commentform_url">{$CONST.HOMEPAGE}{if NOT empty($required_fields.url)} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_url">{$CONST.REQUIRED_FIELD} url</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</label>
             <input id="serendipity_commentform_url" class="form-control" type="url" name="serendipity[url]" value="{$commentform_url}"{if NOT empty($required_fields.url)} required{/if}>
         </div>
 
@@ -30,7 +30,7 @@
         </div>
 
         <div class="form-group">
-            <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_comment">required field comment</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</label>
+            <label for="serendipity_commentform_comment">{$CONST.COMMENT}{if NOT empty($required_fields.comment)} <svg class="bi me-1 mb-1" width="16" height="16" role="img" aria-labelledby="title"><title id="title_required_comment">{$CONST.REQUIRED_FIELD} comment</title><use xlink:href="{$serendipityHTTPPath}{$templatePath}{$template}/img/icons.svg#required-field-asterisk"/></svg>{/if}</label>
             <textarea id="serendipity_commentform_comment" class="form-control" rows="10" name="serendipity[comment]"{if NOT empty($required_fields.comment)} required{/if}>{$commentform_data}</textarea>
         </div>
         {serendipity_hookPlugin hook="frontend_comment" data=$commentform_entry}
