@@ -1,6 +1,53 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  [ 3.5-beta-2 ]
+  * Improved nearly all themes for a popular required fields fallacy.
+
+    Configured by the spamblock plugin and build (assigned) by most themes in
+    their config.inc.php file, this configuration variable checks comment form
+    values for required fields. This means: Real comments!
+
+    For a very long time this was also used for the standard contactform template,
+    since those fields could statically use the same selectors and serendipity
+    POST name labels. But a custom spamblock required fields configuration did
+    not have any effect in the STANDARD CONTACTFORM removing an unconfigurable
+    required field for and by the contactform plugin. "Yes", it did remove the
+    required (*) asterisk on some fields, while being identically named, but NOT
+    the need of being filled (required) or not.
+
+    So, NOT many will have ever noticed! :)
+
+      - FOR BETTER CLARITY, all core "plugin_contactform.tpl" template files
+        were changed to only support hardcoded required field assignments,
+        following the real needs as defined by the contactform plugin.
+        [ clean-blog, timeline ] themes did not use it, so were not touched!
+
+      - Due to a deeper REVIEW of the contactform plugins DYNAMIC labels option,
+        which BTW found some nasty bugs, new file copies of the
+        "plugin_dynamicform.tpl" were either ADDED or CHANGED in some themes too.
+        Some of these also needed some extending CSS styles [ 2k11, b46, b5blog,
+        boot, pure, sliver ]. Please NOTICE that some themes or parents don't
+        even have that file, so it's compile uses the plugin provided template,
+        which is more or less build for the very old "default" theme HTML4 table
+        skeleton variations.
+
+      - Added visual CSS for "required" attribute labeled (empty) form fields in
+        [ pure, b46, b5blog, boot ] theme styles.
+
+      - Added new language constant REQUIRED_FIELD;
+        Already used in commentform.tpl [ pure, b46, boot, bootstrap4 ] themes
+
+      - PLEASE CHECK your CUSTOM copy / child themes mainly for existing
+        [ "plugin_contactform.tpl", "plugin_dynamicform.tpl", "config.inc.php" ]
+        file changes regarding their parent themes in [ 2k11, b46,
+        b5blog (index.tpl), boot (+ index.tpl), bootstrap4 (+ img/icons.svg),
+        default-php, next, pure, skeleton, sliver ].
+
+        For the LAZYS: "If it hasn't mattered you before, it probably won't even
+                        really matter to run an old, unchanged theme further on."
+
+  [ 3.5-beta-1 ]
   * Fix handle references for trackback exceptions with new media file formats
 
   * Add some navigational buttons to STRAIGHTWAY DRAFT entry PREVIEWS, which are
@@ -11,7 +58,7 @@ Version 3.5-dev ()
 
   * Add new serendipity_chainByLevel() function to the functions API to sort
     out users from fetchUsers() cases, which should not be in the list.
-    Fixes users, groups and entryproperties entry form submitable users lists
+    Fixes users, groups and entryproperties entry form submit-able users lists
     for certain cases. Additional Plugins as follows.
 
   * Fix elder regression bug parsing default-pre-sets for new user form fields
