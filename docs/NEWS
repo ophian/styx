@@ -49,8 +49,8 @@ Version 3.5-dev ()
         b5blog (index.tpl), boot (+ index.tpl), bootstrap4 (+ img/icons.svg),
         default-php, next, pure, skeleton, sliver ].
 
-        For the LAZYS: "If it hasn't mattered you before, it probably won't even
-                        really matter to run an old, unchanged theme further on."
+    For the LAZYS: "If it hasn't mattered you before, it probably won't even
+                    really matter to run an old, unchanged theme further on."
 
   [ 3.5-beta-1 ]
   * Fix handle references for trackback exceptions with new media file formats
