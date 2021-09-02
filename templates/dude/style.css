@@ -140,6 +140,7 @@ img, video {
 
 body {
     width: 100%;
+    overflow-x: hidden;
     background: #010817;
     background: linear-gradient(#09204d,#010817);
     direction: ltr;
