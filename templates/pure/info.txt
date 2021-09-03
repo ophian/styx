@@ -1,7 +1,7 @@
 Name: Pure [ Standard ] &lsaquo; 2020 &rsaquo;
 Author: Ian Styx
-Date: 2021-08-30
-Require Serendipity: 2.7
+Date: 2021-09-02
+Require Serendipity: 3.5
 Backend: No
 Responsive: Yes
 Mobile: Yes
