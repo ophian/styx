@@ -1376,6 +1376,9 @@ function serendipity_printEntries($entries, $extended = 0, $preview = false, $sm
                     'is_comment_added'      => ( (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'true') ? true: false),
                     'is_comment_moderate'   => ( (isset($serendipity['GET']['csuccess']) && $serendipity['GET']['csuccess'] == 'moderate') ? true: false)
                 );
+                if (isset($entry['required_fields'])) {
+                    $comment_add_data['required_fields'] = $entry['required_fields'];
+                }
 
                 $userData = $serendipity['POST'];
 
