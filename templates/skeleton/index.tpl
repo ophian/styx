@@ -62,7 +62,7 @@
 
                     <form id="searchform" action="{$serendipityHTTPPath}{$serendipityIndexFile}" method="get" role="search">
                         <input type="hidden" name="serendipity[action]" value="search">
-                        <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.NEXT_PLACE_SEARCH}" value="">
+                        <input id="serendipityQuickSearchTermField" name="serendipity[searchTerm]" type="search" placeholder="{$CONST.SKELETON_PLACE_SEARCH}" value="">
                         <input id="searchsend" name="serendipity[searchButton]" type="submit" value="{$CONST.GO}">
                     </form>
                     {serendipity_hookPlugin hook="quicksearch_plugin" hookAll="true"}
