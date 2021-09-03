@@ -1,10 +1,34 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
-  [ upcoming 3.5-beta-3 ]:
+  [ upcoming 3.5-beta-3 CHANGE "Warning: still experimental WIP" ]:
+  * Remove assigned required_fields array from theme config.inc.php files
 
-    Warning: WIP - up from tomorrow, Sep 02
+    Due to the groundwork done in Beta 2 for the clarity of required fields
+    and to NOT have to touch this is near future again, the full approach
+    was re-factored, to move this array variable generation completely out
+    of theme config.inc.php files and better make it generally accessible
+    by the core and the spamblock plugin for all themes; And this STRICTLY
+    for real comment form fields only. This also has some positive "micro"
+    side-effects for the runtime of Serendipity Styx.
+    Additional themes as follows.
 
+    This redesign is now demanding a full theme template compliance with the
+    "plugin_contactform.tpl" change, removing variable conditions for required
+    fields. Please check out:
+            templates/pure/plugin_contactform.tpl (current standard)
+            templates/2k11/plugin_contactform.tpl (old standard)
+            or others like the bootstrap variation themes and lastly
+            the very old expression in your
+            plugins/serendipity_event_contactform/ directory for "default"
+            THEME derivatives.
+    If you still use an unchanged config.inc.php file it is UP TO YOU, ...
+    but NOT recommended!
+
+    REMEMBER: For required fields usage as defined in the spamblock plugin,
+              you need to have saved this plugins configuration at least once
+              by yourself!
+              THIS IS A GENERAL NOTE for plugin configuration request behaviours!
 
   [ 3.5-beta-2 ]
   * Improved nearly all themes for a popular required fields fallacy.
