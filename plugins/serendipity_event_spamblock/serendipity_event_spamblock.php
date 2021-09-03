@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.47');
+        $propbag->add('version',       '2.48');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -927,8 +927,33 @@ class serendipity_event_spamblock extends serendipity_event
             switch($event) {
 
                 case 'frontend_display:html:per_entry':
-                    if ($forceopentopublic > 0) {
-                        $serendipity['commentaire']['opentopublic'] = ($forceopentopublic * 86400);
+                    // we have $eventData['id'] on 'entries' page too, so better ensure this to run once on 'entry' only by GET OR uniquely for commentpopup
+                    if ((isset($eventData['id']) && isset($serendipity['GET']['id'])) || (!empty($serendipity['GET']['entry_id']) && $serendipity['GET']['type'] == 'comments')) {
+                        // globally assign to theme COMMENT forms
+                        $required_fieldstr = $this->get_config('required_fields', '');
+                        if (!empty($required_fieldstr)) {
+                            $required_fields = explode(',', $required_fieldstr);
+                            $smarty_required_fields = array();
+
+                            foreach($required_fields AS $required_field) {
+                                $required_field = trim($required_field);
+
+                                if (empty($required_field)) continue;
+                                $smarty_required_fields[$required_field] = $required_field;
+                            }
+
+                            if (is_array($eventData)) {
+                                // the proper way
+                                $eventData['required_fields'] = $smarty_required_fields; // push into entry array and assign latterly via comment_add_data
+                            } else {
+                                // An easy out-of-scope workaround ( nobody should really need to use this popup option any more, (and) some themes don't even support it; Standard does, out of compat! )
+                                $serendipity['smarty']->assign('required_fields', $smarty_required_fields); // or directly here for commentpopup, since $eventData is a scalar value here!
+                            }
+                        }
+
+                        if ($forceopentopublic > 0) {
+                            $serendipity['commentaire']['opentopublic'] = ($forceopentopublic * 86400);
+                        }
                     }
                     break;
 
