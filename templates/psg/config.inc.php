@@ -58,25 +58,6 @@ $locs = array('abstract', 'animals', 'business', 'cats', 'city', 'food', 'nightl
 $rkey = array_rand($locs);
 $serendipity['smarty']->assign('design', array(0 => $locs[$rkey], 1 => $rkey));
 
-// required form fields
-if (class_exists('serendipity_event_spamblock')) {
-    $required_fieldlist = serendipity_db_query("SELECT value FROM {$serendipity['dbPrefix']}config WHERE name LIKE '%spamblock%required_fields'", true, 'assoc');
-}
-
-if (is_array($required_fieldlist)) {
-    $required_fields = explode(',', $required_fieldlist['value']);
-    $smarty_required_fields = array();
-
-    foreach($required_fields AS $required_field) {
-        $required_field = trim($required_field);
-
-        if (empty($required_field)) continue;
-            $smarty_required_fields[$required_field] = $required_field;
-        }
-
-    $serendipity['smarty']->assign('required_fields', $smarty_required_fields);
-}
-
 // don't use the no-conflict jquery mode
 $serendipity['capabilities']['jquery-noconflict'] = false;
 
