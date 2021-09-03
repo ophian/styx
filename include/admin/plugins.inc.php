@@ -509,7 +509,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
 } else {
     /* show general plugin list */
 
-    /* get sidebar locations */
     serendipity_smarty_init();
 
     if (is_array($template_config)) {
@@ -521,6 +520,7 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
         'eventh_col' => 'eventh'
     );
 
+    /* get sidebar locations */
     if (isset($template_vars['sidebars'])) {
         $sidebars = explode(',', $template_vars['sidebars']);
     } elseif (isset($serendipity['sidebars'])) {
@@ -528,7 +528,6 @@ if (isset($_GET['serendipity']['plugin_to_conf'])) {
     } else {
         $sidebars = array('left', 'hide', 'right');
     }
-
     foreach($sidebars AS $sidebar) {
         $col_assoc[$sidebar . '_col'] = $sidebar;
     }
