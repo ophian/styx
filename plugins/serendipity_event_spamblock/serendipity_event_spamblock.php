@@ -25,7 +25,7 @@ class serendipity_event_spamblock extends serendipity_event
             'smarty'      => '3.1.0',
             'php'         => '7.0.0'
         ));
-        $propbag->add('version',       '2.48');
+        $propbag->add('version',       '2.49');
         $propbag->add('event_hooks',    array(
             'frontend_saveComment' => true,
             'external_plugin'      => true,
@@ -930,7 +930,7 @@ class serendipity_event_spamblock extends serendipity_event
                     // we have $eventData['id'] on 'entries' page too, so better ensure this to run once on 'entry' only by GET OR uniquely for commentpopup
                     if ((isset($eventData['id']) && isset($serendipity['GET']['id'])) || (!empty($serendipity['GET']['entry_id']) && $serendipity['GET']['type'] == 'comments')) {
                         // globally assign to theme COMMENT forms
-                        $required_fieldstr = $this->get_config('required_fields', '');
+                        $required_fieldstr = $this->get_config('required_fields', 'name,comment');
                         if (!empty($required_fieldstr)) {
                             $required_fields = explode(',', $required_fieldstr);
                             $smarty_required_fields = array();
@@ -988,7 +988,7 @@ class serendipity_event_spamblock extends serendipity_event
 
                         $serendipity['csuccess']  = 'true';
                         $logfile = $this->logfile = $this->get_config('logfile', $serendipity['serendipityPath'] . 'spamblock.log');
-                        $required_fields          = $this->get_config('required_fields', '');
+                        $required_fields          = $this->get_config('required_fields', 'name,comment');
                         $checkmail                = $this->get_config('checkmail');
 
                         // Check CSRF [comments only, cannot be applied to trackbacks]
