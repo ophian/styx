@@ -1,6 +1,7 @@
 Version 3.5-dev ()
  ------------------------------------------------------------------------
 
+  [ 3.5-beta-3 ]
   * Fix skeleton theme breaking issue with missing constant for PHP 8
 
   * Remove assigned required_fields array from theme config.inc.php files
