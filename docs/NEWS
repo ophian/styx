@@ -3,7 +3,6 @@ Version 3.5-dev ()
 
   * Fix skeleton theme breaking issue with missing constant for PHP 8
 
-  [ upcoming 3.5-beta-3 CHANGE "Warning: still experimental WIP" ]:
   * Remove assigned required_fields array from theme config.inc.php files
 
     Due to the groundwork done in Beta 2 for the clarity of required fields
@@ -25,11 +24,6 @@ Version 3.5-dev ()
             THEME derivatives.
     If you still use an unchanged config.inc.php file it is UP TO YOU, ...
     but NOT recommended!
-
-    REMEMBER: For required fields usage as defined in the spamblock plugin,
-              you need to have saved this plugins configuration at least once
-              by yourself!
-         THIS IS A GENERAL NOTE for plugin configuration request behaviours!
 
   [ 3.5-beta-2 ]
   * Improved nearly all themes for a popular required fields fallacy.
