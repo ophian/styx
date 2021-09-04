@@ -499,6 +499,11 @@ $tasks = array(
                     'title'     => '<b>TEMPLATE_NOTICE:</b> We improved the contactform template files and more for certain reasons.',
                     'desc'      => 'Please read about it in the CHANGELOG, which you can easily do via your maintenance backend section, while there might be some additional THEME-UPGRADE work to do for you. Of course only for the case, you have a CUSTOM derivative!'),
 
+            array(  'version'   => '3.5-beta3',
+                    'type'      => 'TEMPLATE_NOTICE',
+                    'title'     => '<b>TEMPLATE_NOTICE:</b> As a follow-up, required fields setup was re-worked, moving it from theme config.inc.php files.',
+                    'desc'      => 'Please follow the details in the CHANGELOG NEWS file above the Beta-2 note.'),
+
 );
 // TODO: Do something meaningful with 'type', since having key type and the bold title (type) is redundant!
 
