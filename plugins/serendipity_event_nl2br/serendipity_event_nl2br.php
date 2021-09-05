@@ -18,7 +18,7 @@ class serendipity_event_nl2br extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_NL2BR_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Serendipity Team, Ian Styx, Stephan Brunker');
-        $propbag->add('version',       '2.54');
+        $propbag->add('version',       '2.55');
         $propbag->add('requirements',  array(
             'serendipity' => '2.0',
             'smarty'      => '3.1.0',
@@ -198,19 +198,19 @@ class serendipity_event_nl2br extends serendipity_event
         $hooks = &$bag->get('event_hooks');
 
         if ($markup === null) {
-            $markup = serendipity_db_bool($this->get_config('check_markup'));
+            $markup = serendipity_db_bool($this->get_config('check_markup', 'true'));
         }
 
         if ($p_tags === null) {
-            $p_tags = serendipity_db_bool($this->get_config('p_tags'));
+            $p_tags = serendipity_db_bool($this->get_config('p_tags', 'false'));
         }
 
         if ($isobr === null) {
-            $isobr = serendipity_db_bool($this->get_config('isobr'));
+            $isobr = serendipity_db_bool($this->get_config('isobr', 'true'));
         }
 
         if ($clean_tags === null) {
-            $clean_tags = serendipity_db_bool($this->get_config('clean_tags'));
+            $clean_tags = serendipity_db_bool($this->get_config('clean_tags', 'false'));
         }
 
         if (isset($hooks[$event])) {
