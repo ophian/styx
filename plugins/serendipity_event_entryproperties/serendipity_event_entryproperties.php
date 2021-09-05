@@ -598,8 +598,8 @@ class serendipity_event_entryproperties extends serendipity_event
 
         if ($is_cache === null) {
             $is_cache   = serendipity_db_bool($this->get_config('cache', 'false'));
-            $use_groups = serendipity_db_bool($this->get_config('use_groups', 'true'));
-            $use_users  = serendipity_db_bool($this->get_config('use_users', 'true'));
+            $use_groups = serendipity_db_bool($this->get_config('use_groups', 'false'));
+            $use_users  = serendipity_db_bool($this->get_config('use_users', 'false'));
             $ext_joins  = serendipity_db_bool($this->get_config('use_ext_joins', 'true'));
         }
 
