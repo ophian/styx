@@ -15,7 +15,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $propbag->add('description', CATEGORY_PLUGIN_DESC);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.15');
+        $propbag->add('version',       '2.16');
         $propbag->add('configuration', array('title', 'authorid', 'parent_base', 'hide_parent', 'image', 'sort_order', 'sort_method', 'allow_select', 'hide_parallel', 'show_count', 'show_all', 'smarty'));
         $propbag->add('groups',        array('FRONTEND_VIEWS'));
     }
@@ -150,15 +150,15 @@ class serendipity_plugin_categories extends serendipity_plugin
     {
         global $serendipity;
 
-        $title = $this->get_config('title');
+        $title = $this->get_config('title', CATEGORIES);
         $smarty = serendipity_db_bool($this->get_config('smarty', 'false'));
 
-        $which_category = $this->get_config('authorid');
-        $sort = $this->get_config('sort_order');
+        $which_category = $this->get_config('authorid', 'all');
+        $sort = $this->get_config('sort_order', 'category_name');
         if ($sort == 'none') {
             $sort = '';
         } else {
-            $sort .= ' ' . $this->get_config('sort_method');
+            $sort .= ' ' . $this->get_config('sort_method', 'ASC');
         }
         $is_form = serendipity_db_bool($this->get_config('allow_select', 'false'));
         if ($which_category === "login") {
@@ -204,7 +204,7 @@ class serendipity_plugin_categories extends serendipity_plugin
         $image = $this->get_config('image', serendipity_getTemplateFile('img/xml.gif', 'serendipityHTTPPath', true));
         $image = (($image == "'none'" || $image == 'none') ? '' : $image);
 
-        $use_parent  = $this->get_config('parent_base');
+        $use_parent  = $this->get_config('parent_base', 'all');
         $hide_parent = serendipity_db_bool($this->get_config('hide_parent', 'false'));
         $parentdepth = 0;
 
