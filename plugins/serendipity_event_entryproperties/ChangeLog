@@ -1,3 +1,8 @@
+1.73:
+-----
+    * Add some get_config() config item defaults for DEV researchers asking themselves
+      why some config items get db tracked without submit on new systems and others not.
+
 1.72:
 -----
     * Fix user list by chained USERLEVEL permission for certain cases

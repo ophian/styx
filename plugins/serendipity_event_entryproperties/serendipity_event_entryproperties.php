@@ -19,7 +19,7 @@ class serendipity_event_entryproperties extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_ENTRYPROPERTIES_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '1.72');
+        $propbag->add('version',       '1.73');
         $propbag->add('requirements',  array(
             'serendipity' => '2.7.0',
             'smarty'      => '3.1.0',
@@ -598,9 +598,9 @@ class serendipity_event_entryproperties extends serendipity_event
 
         if ($is_cache === null) {
             $is_cache   = serendipity_db_bool($this->get_config('cache', 'false'));
-            $use_groups = serendipity_db_bool($this->get_config('use_groups'));
-            $use_users  = serendipity_db_bool($this->get_config('use_users'));
-            $ext_joins  = serendipity_db_bool($this->get_config('use_ext_joins'));
+            $use_groups = serendipity_db_bool($this->get_config('use_groups', 'true'));
+            $use_users  = serendipity_db_bool($this->get_config('use_users', 'true'));
+            $ext_joins  = serendipity_db_bool($this->get_config('use_ext_joins', 'true'));
         }
 
         if (isset($hooks[$event])) {
