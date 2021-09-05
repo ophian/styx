@@ -154,7 +154,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $title = $this->get_config('title', SUBSCRIBE_TO_BLOG);
         $iconURL = $this->get_config('iconURL', 'img/xml.gif');
         if ($iconURL != 'none') {
-            $small_icon  = serendipity_getTemplateFile($iconURL);
+            $small_icon = serendipity_getTemplateFile($iconURL);
         }
         $custom_feed = trim($this->get_config('feed_name', ''));
         $custom_comm = trim($this->get_config('comment_name', ''));
