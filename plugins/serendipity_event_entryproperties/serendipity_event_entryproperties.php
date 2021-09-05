@@ -194,7 +194,7 @@ class serendipity_event_entryproperties extends serendipity_event
             // Capture special characters for "," and ":"
             $special_from = array('\\,', '\\:');
             $special_to   = array(chr(0x01), chr(0x02));
-            $string = str_replace($special_from, $special_to, trim($this->get_config('customfields')));
+            $string = str_replace($special_from, $special_to, trim($this->get_config('customfields', 'CustomField1, CustomField2, CustomField3')));
 
             $fields = explode(',', $string);
             if (is_array($fields) && count($fields) > 0) {
@@ -531,7 +531,7 @@ class serendipity_event_entryproperties extends serendipity_event
 ?>
             <fieldset id="ep_customfields" class="entryproperties_customfields adv_opts_box">
 <?php
-                $fields = trim($this->get_config('customfields'));
+                $fields = trim($this->get_config('customfields', 'CustomField1, CustomField2, CustomField3'));
                   // Capture special characters for "," and ":"
                 $special_from = array('\\,', '\\:');
                 $special_to   = array(chr(0x01), chr(0x02));
@@ -686,7 +686,7 @@ class serendipity_event_entryproperties extends serendipity_event
                         </div>
 <?php
 
-                    $elements = explode(',', $this->get_config('sequence'));
+                    $elements = explode(',', $this->get_config('sequence', 'sticky,spacer,author,password,frontpage,hiderss,access,markup,groups,authors,multi_authors'));
                     foreach($elements AS $element) {
                         $this->showBackend($element, $eventData, $is_sticky, $no_frontpage, $hiderss, $access_values, $access, $password, $use_groups, $access_groups, $use_users, $access_users);
                     }
