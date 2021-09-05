@@ -1783,7 +1783,7 @@ if (isset($serendipity['GET']['cleanspamsg'])) {
     {
         global $serendipity;
 
-        $method = $this->get_config('logtype');
+        $method = $this->get_config('logtype', 'none');
 
         switch($method) {
             case 'file':
