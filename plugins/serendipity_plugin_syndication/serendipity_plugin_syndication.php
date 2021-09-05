@@ -14,7 +14,7 @@ class serendipity_plugin_syndication extends serendipity_plugin
         $propbag->add('description',   SHOWS_RSS_BLAHBLAH);
         $propbag->add('stackable',     true);
         $propbag->add('author',        'Serendipity Team');
-        $propbag->add('version',       '2.12');
+        $propbag->add('version',       '2.13');
         $propbag->add('configuration', array(
                                         'title',
                                         'big_img',
@@ -151,19 +151,19 @@ class serendipity_plugin_syndication extends serendipity_plugin
     {
         global $serendipity;
 
-        $title = $this->get_config('title');
+        $title = $this->get_config('title', SUBSCRIBE_TO_BLOG);
         $iconURL = $this->get_config('iconURL', 'img/xml.gif');
         if ($iconURL != 'none') {
             $small_icon  = serendipity_getTemplateFile($iconURL);
         }
-        $custom_feed = trim($this->get_config('feed_name'));
-        $custom_comm = trim($this->get_config('comment_name'));
+        $custom_feed = trim($this->get_config('feed_name', ''));
+        $custom_comm = trim($this->get_config('comment_name', ''));
         $custom_img  = trim($this->get_config('big_img', 'img/subtome.png'));
         if ($custom_img != 'none' && $custom_img != 'feedburner') {
             $custom_img = serendipity_getTemplateFile($custom_img);
         }
         $subtome     = serendipity_db_bool($this->get_config('subToMe', 'false'));
-        $fbid        = $this->get_config('fb_id');
+        $fbid        = $this->get_config('fb_id', '');
         $custom_url  = serendipity_db_bool($this->get_config('custom_url', 'false'));
         $feed_format = $this->get_config('feed_format', 'rss');
 
