@@ -821,7 +821,7 @@ class serendipity_event_spamblock extends serendipity_event
     {
         global $serendipity;
 
-        $checkgroups = explode('^', $this->get_config('hide_for_authors'));
+        $checkgroups = explode('^', $this->get_config('hide_for_authors', 'all'));
 
         if (!isset($serendipity['authorid']) || !is_array($checkgroups)) {
             return false;
@@ -989,7 +989,7 @@ class serendipity_event_spamblock extends serendipity_event
                         $serendipity['csuccess']  = 'true';
                         $logfile = $this->logfile = $this->get_config('logfile', $serendipity['serendipityPath'] . 'spamblock.log');
                         $required_fields          = $this->get_config('required_fields', 'name,comment');
-                        $checkmail                = $this->get_config('checkmail');
+                        $checkmail                = $this->get_config('checkmail', 'false'); // string
 
                         // Check CSRF [comments only, cannot be applied to trackbacks]
                         if ($addData['type'] == 'NORMAL' && serendipity_db_bool($this->get_config('csrf', 'true'))) {
@@ -1357,7 +1357,8 @@ class serendipity_event_spamblock extends serendipity_event
                         echo '<div class="serendipity_commentDirection serendipity_comment_spamblock">' . PLUGIN_EVENT_SPAMBLOCK_HIDE_EMAIL_NOTICE . '</div>';
                     }
 
-                    if ((string)$this->get_config('checkmail') === 'verify_always' || (string)$this->get_config('checkmail') === 'verify_once') {
+                    $_checkmail = (string)$this->get_config('checkmail', 'false');
+                    if ($_checkmail === 'verify_always' || $_checkmail === 'verify_once') {
                         echo '<div class="serendipity_commentDirection serendipity_comment_spamblock">' . PLUGIN_EVENT_SPAMBLOCK_CHECKMAIL_VERIFICATION_INFO . '</div>';
                     }
 
