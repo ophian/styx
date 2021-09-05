@@ -24,7 +24,7 @@ class serendipity_event_spartacus extends serendipity_event
         $propbag->add('description',   PLUGIN_EVENT_SPARTACUS_DESC);
         $propbag->add('stackable',     false);
         $propbag->add('author',        'Garvin Hicking, Ian Styx');
-        $propbag->add('version',       '3.14');
+        $propbag->add('version',       '3.15');
         $propbag->add('requirements',  array(
             'serendipity' => '3.1',
             'php'         => '7.3'
@@ -1269,7 +1269,7 @@ class serendipity_event_spartacus extends serendipity_event
                     }
                     $details = ($eventData == 'spartacus_remote') ? true : false;
 
-                    if ($eventData == $this->get_config('remote_url')) {
+                    if ($eventData == $this->get_config('remote_url', 'spartacus_remote')) {
                         header('Content-Type: text/plain');
                         $avail   = array();
                         $install = array();
