@@ -1,5 +1,5 @@
 <?php
-// Sliver template v.4.62 2021-05-29
+// Sliver template v.4.63 2021-09-06
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -16,25 +16,27 @@ if (IN_serendipity !== true) {
 
 $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'],
                                      'currpage2'=> $_SERVER['REQUEST_URI'],
-                                     'sliver_credit' => 'Sliver &copy; 2011-'.date('Y').', v4.62'));
+                                     'sliver_credit' => 'Sliver &copy; 2011-'.date('Y').', v4.63'));
 
 /*************************************************************************/
 /* Staticpage related article by freetags.
    Better use a theme unique name, eg. mytheme_related_articles.tpl*/
 /*************************************************************************/
-function smarty_sliver_show_tags($params, Smarty_Internal_Template $template) {
-    global $serendipity;
-    $o = isset($serendipity['GET']['tag']) ? $serendipity['GET']['tag'] : null;
-    $serendipity['GET']['tag'] = $params['tag'];
-    $e = serendipity_smarty_fetchPrintEntries($params, $template);
-    echo $e;
-    if (!empty($o)) {
-        $serendipity['GET']['tag'] = $o;
-    } else {
-        unset($serendipity['GET']['tag']);
+if (!function_exists('smarty_sliver_show_tags')) {
+    function smarty_sliver_show_tags($params, Smarty_Internal_Template $template) {
+        global $serendipity;
+        $o = isset($serendipity['GET']['tag']) ? $serendipity['GET']['tag'] : null;
+        $serendipity['GET']['tag'] = $params['tag'];
+        $e = serendipity_smarty_fetchPrintEntries($params, $template);
+        echo $e;
+        if (!empty($o)) {
+            $serendipity['GET']['tag'] = $o;
+        } else {
+            unset($serendipity['GET']['tag']);
+        }
     }
+    $serendipity['smarty']->registerPlugin('function', 'sliver_show_tags', 'smarty_sliver_show_tags');
 }
-$serendipity['smarty']->registerPlugin('function', 'sliver_show_tags', 'smarty_sliver_show_tags');
 
 if (isset($serendipity['plugindata']['smartyvars']['uriargs'])) {
     #"archives/2018/07/P1.html"
