@@ -171,7 +171,7 @@
                         </div>
                     {/if}
 
-                    <h3><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="#{$entry.id}: {$entry.title|escape:'html':$CONST.LANG_CHARSET:false}">{$entry.title|escape:'html':$CONST.LANG_CHARSET:false}</a></h3>
+                    <h3><a href="?serendipity[action]=admin&amp;serendipity[adminModule]=entries&amp;serendipity[adminAction]=edit&amp;serendipity[id]={$entry.id}&amp;{$urltoken}" title="#{$entry.id}: {$entry.title|escape:'html':$CONST.LANG_CHARSET:false}">{if NOT empty($entry.title)}{$entry.title|escape:'html':$CONST.LANG_CHARSET:false}{else} &#8212;no title set&#8212; {/if}</a></h3>
 
                     <ul class="plainList clearfix actions">
                     {if $entry.preview OR (!$showFutureEntries AND ($entry.timestamp >= $serverOffsetHour))}
