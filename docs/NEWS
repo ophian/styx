@@ -1,6 +1,7 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fix a (rare) race case with sliver theme
 
 
 Version 3.5.0 (September 5th 2021)
