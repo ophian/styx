@@ -25,7 +25,7 @@ $serendipity['smarty']->assign(array('currpage' => "http://".$_SERVER['HTTP_HOST
 if (!function_exists('smarty_sliver_show_tags')) {
     function smarty_sliver_show_tags($params, Smarty_Internal_Template $template) {
         global $serendipity;
-        $o = isset($serendipity['GET']['tag']) ? $serendipity['GET']['tag'] : null;
+        $o = $serendipity['GET']['tag'] ?? null;
         $serendipity['GET']['tag'] = $params['tag'];
         $e = serendipity_smarty_fetchPrintEntries($params, $template);
         echo $e;
