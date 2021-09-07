@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Add empty title placeholder to backend entries list
+
   * Fix a (rare) race case with sliver theme
 
 
