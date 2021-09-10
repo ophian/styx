@@ -849,6 +849,12 @@ button[type="submit"].publish_now {
     text-shadow: none !important;
 }
 
+.button_group {
+    width: auto;
+    display: inline-block;
+    margin-bottom: 2em;
+}
+
 .state_submit,
 .state_submit:visited,
 #edit_entry_category button.mfp-close,
