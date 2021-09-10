@@ -1539,6 +1539,10 @@ summary {
     border-radius: .5em;
     padding: .5em .25em;
 }
+.theme_file .unmet_requirements.msg_error {
+    display: inline;
+    margin: initial;
+}
 
 .msg_error_list {
     background: #f2dede;
