@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Re-style and concatenate backend "plugin upgrades" header
+
   * Update /b5/ template assets to bootstrap 5.1.1 release
 
   * Add empty title placeholder to backend entries list
