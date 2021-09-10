@@ -57,12 +57,12 @@
 
     {/if}
 {elseif isset($adminAction) AND $adminAction == 'addnew'}
-    <h2>{if $type == 'event'}{$CONST.EVENT_PLUGINS}{/if}{if $type == 'sidebar'}{$CONST.SIDEBAR_PLUGINS}{/if}{if $type == 'both'}{$CONST.MENU_PLUGINS}{/if}{if $only_group != 'UPGRADE'} <span class="plugins_available">({$CONST.PLUGIN_AVAILABLE_COUNT|sprintf:$count_pluginstack})</span>{/if}</h2>
+    <h2>{if $type == 'event'}{$CONST.EVENT_PLUGINS}{/if}{if $type == 'sidebar'}{$CONST.SIDEBAR_PLUGINS}{/if}{if $type == 'both'}{if $only_group == 'UPGRADE'}{$only_group} {/if}{$CONST.MENU_PLUGINS}{/if}{if $only_group != 'UPGRADE'} <span class="plugins_available">({$CONST.PLUGIN_AVAILABLE_COUNT|sprintf:$count_pluginstack})</span>{/if}</h2>
     {foreach $errorstack AS $e_idx => $e_name}
     <span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> {$CONST.ERROR}: {$e_name}</span>
     {/foreach}
 
-    <form action="serendipity_admin.php" method="get">
+    <form{if $only_group == 'UPGRADE'} class="button_group"{/if} action="serendipity_admin.php" method="get">
         {$formToken}
         <input name="serendipity[adminModule]" type="hidden" value="plugins">
         <input name="serendipity[adminAction]" type="hidden" value="addnew">
@@ -98,7 +98,7 @@
     {else}
         {foreach $pluggroups AS $pluggroup => $groupstack}
             {if !empty($only_group) AND ($only_group AND $pluggroup != $only_group || empty($pluggroup))}{continue}{/if}
-            <h3>{foreach $groupnames AS $available_group => $available_name}{if $pluggroup == $available_group}{$available_name}{/if}{/foreach}</h3>
+            {if $only_group != 'UPGRADE'}<h3>{foreach $groupnames AS $available_group => $available_name}{if $pluggroup == $available_group}{$available_name}{/if}{/foreach}</h3>{/if}
             {if $only_group == 'UPGRADE' AND $pluggroups['UPGRADE']|count > 1}
                 <button id="updateAll">{$CONST.UPDATE_ALL}</button>
             {/if}
