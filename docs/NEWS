@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Update /b5/ template assets to bootstrap 5.1.1 release
+
   * Add empty title placeholder to backend entries list
 
   * Fix a (rare) race case with sliver theme
