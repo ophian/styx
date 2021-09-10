@@ -1,5 +1,5 @@
 <?php
-// Sliver template v.4.63 2021-09-06
+// Sliver template v.4.63 2021-09-07
 /*
  Sidebars left, Sidebars right, no Sidebars via templates config.
  Additional middle, top, footer Sidebars via admin panel plugin section.
@@ -39,8 +39,8 @@ if (!function_exists('smarty_sliver_show_tags')) {
 }
 
 if (isset($serendipity['plugindata']['smartyvars']['uriargs'])) {
-    #"archives/2018/07/P1.html"
-    if (preg_match('/archives\/(\d{4})\/(\d{2})+/', $serendipity['plugindata']['smartyvars']['uriargs'])) {
+    # "archives/2018/07/P1.html"
+    if (preg_match('#archives/(\d{4})/(\d{2})+#', $serendipity['plugindata']['smartyvars']['uriargs'])) {
         $serendipity['smarty']->assign('archives_summary_page', true);
     }
 }
