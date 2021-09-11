@@ -1,6 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Improve image upload messaging. Only throw "Trying to store a WebP image
+    format..." notice message, when variation builds return false.
+
   * Re-style and concatenate backend "plugin upgrades" header
 
   * Update /b5/ template assets to bootstrap 5.1.1 release
