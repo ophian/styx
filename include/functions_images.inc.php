@@ -19,7 +19,7 @@ function serendipity_isActiveFile($file) {
         return true;
     }
 
-    $core = preg_match('@\.(php.*|[psj]html?|pht|aspx?|cgi|jsp|py|pl)$@i', $file);
+    $core = preg_match('@.(php.*|[psj]html?|pht|aspx?|cgi|jsp|py|pl)$@i', $file);
     if ($core) {
         return true;
     }
@@ -2156,14 +2156,14 @@ function serendipity_syncThumbs($deleteThumbs = false) {
             }
 
             // Do the database update, if needed
-            if (sizeof($update) != 0 && !preg_match('@\/\.v\/@', $files[$x])) {
+            if (sizeof($update) != 0 && !preg_match('@/.v/@', $files[$x])) {
                 $_list .= $_br . sprintf(FOUND_FILE . " (<em>Update in database</em>)", $files[$x]);
                 serendipity_updateImageInDatabase($update, $rs['id']);
                 $i++;
             }
 
         } else {
-            if (!preg_match('@\.v\/@', $fdir)) {
+            if (!preg_match('@.v/@', $fdir)) {
                 $_list .= $_br . sprintf(FOUND_FILE . " (<em>Insert in Database</em>)", $files[$x]);
                 serendipity_insertImageInDatabase($fbase . '.' . $f[1], $fdir, 0, (int)@filemtime($ffull));
                 $i++;
@@ -2545,12 +2545,12 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
             if ($sFile['directory']) {
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a directory."); }
                 // remove the hidden .v/ directory from media.path select lists, since we need it for handlers but not for user directory select lists
-                if (!preg_match('@\.v\/@', $sFile['relpath'])) {
+                if (!preg_match('@.v/@', $sFile['relpath'])) {
                     array_push($paths, $sFile);
                 }
             } else {
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a file."); }
-                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@\.v\/@', $sFile['relpath']) && preg_match('@[\.webp]$@', $sFile['relpath']) )) {
+                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@.v/@', $sFile['relpath']) && preg_match('@[\.webp]$@', $sFile['relpath']) )) {
                     if ($sFile['relpath'] != '.empty' && (!isset($serendipity['aFilesNoSync']) || !in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync']))) {
                         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);
@@ -2657,7 +2657,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
 
             $nCount = 0;
             foreach($aUnmatchedOnDisk AS $sFile) {
-                if (preg_match('@\.' . $serendipity['thumbSuffix'] . '\.@', $sFile) || preg_match('@\.v\/@', $sFile)) {
+                if (preg_match('@.' . $serendipity['thumbSuffix'] . '.@', $sFile) || preg_match('@.v/@', $sFile)) {
                     // this means from now on these image variations are not added to the database any more!
                     if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Skipping special cased hidden directory AND/OR thumbnail file $sFile"); }
                     continue;
@@ -4779,10 +4779,10 @@ function serendipity_renameRealFileName($oldDir, $newDir, $type, $item_id, $file
     $file_rel_path = ($newDir == $file_new_webp) ? $file['path'] : $newDir; // distinguish between rename and re-move actions. covering newDir variable changes
 
     // check if the hidden dir path part is not already applied
-    if (!preg_match('@\.v\/@', $file_new_webp)) {
+    if (!preg_match('@.v/@', $file_new_webp)) {
         $file_new_webp = $file_rel_path . '.v/' . $file_new_webp;
     }
-    if (!preg_match('@\.v\/@', $file_old_webp)) {
+    if (!preg_match('@.v/@', $file_old_webp)) {
         $file_old_webp = $file_rel_path . '.v/' . $file_old_webp;
     }
     $relnewfilewebp = $file_new_webp;
