@@ -827,14 +827,14 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
             if ($serendipity['magick'] !== true) {
                 $out = serendipity_imageGDWebPConversion($infile, $_outfile);
                 if ($out === false && $mute === false) {
-                    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
+                    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP GD image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
                 }
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
                 $pass = [ $serendipity['convert'], [], [], [], 100, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
                 $out  = serendipity_passToCMD('format-webp', $infile, $_outfile, $pass);
                 if ($out === false && $mute === false) {
-                    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
+                    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP IM image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
                 }
                 return $out;
             }
