@@ -595,7 +595,7 @@ class Cache_Lite
     */
     function _unlink($file)
     {
-        if (!@unlink($file)) {
+        if (file_exists($file) && !@unlink($file)) {
             return $this->raiseError('Cache_Lite : Unable to remove cache !', -3);
         }
         return true;
