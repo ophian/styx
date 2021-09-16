@@ -213,7 +213,7 @@ function show_plugins($event_only = false, $sidebars = null) {
 }
 
 /**
- * Show the plugin configuration
+ * Show the plugin / theme configuration
  *
  * @access public
  * @param  object   A plugin object
