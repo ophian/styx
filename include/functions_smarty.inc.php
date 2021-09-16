@@ -207,7 +207,7 @@ function serendipity_ifRemember($name, $value, $isDefault = false, $att = 'check
  *                          joinauthors      (bool)    Should an SQL-join be made to the AUTHORS DB table?
  *                          joincategories   (bool)    Should an SQL-join be made to the CATEGORIES DB table?
  *                          joinown          (string)  SQL-Parts to add to the "JOIN" query
- *                          entryprops       (string)  Condition list of commaseparated entryproperties that an entry must have to be displayed (example: "ep_CustomField='customVal',ep_CustomField2='customVal2'")
+ *                          entryprops       (string)  Condition list of comma separated entryproperties that an entry must have to be displayed (example: "ep_CustomField='customVal',ep_CustomField2='customVal2'")
  *
  *                      [PRINTING]
  *                          template:          (string)  Name of the template file to print entries with
@@ -218,7 +218,7 @@ function serendipity_ifRemember($name, $value, $isDefault = false, $att = 'check
  *                          groupmode          (string   Indicates whether the input $entries array is already grouped in preparation for the smarty $entries output array [TRUE], or if it shall be grouped by date [FALSE]
  *                          skip_smarty_hooks  (boolean) If TRUE, no plugins will be executed at all
  *                          skip_smarty_hook   (mixed)   Can be set to an array of plugin hooks to NOT execute
- *                          prevent_reset      (boolean) If set to TRUE, the smarty $entries array will NOT be cleared. (to prevent possible duplicate output of entries)
+ *                          prevent_reset      (boolean) If set to TRUE, the Smarty $entries array will NOT be cleared. (to prevent possible duplicate output of entries)
  * @param   object      Smarty template object
  * @return  string      The Smarty HTML response
  */
