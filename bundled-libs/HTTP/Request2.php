@@ -720,6 +720,7 @@ class HTTP_Request2 implements SplSubject
      *
      * @param SplObserver $observer any object implementing SplObserver
      */
+    #[ReturnTypeWillChange]
     public function attach(SplObserver $observer)
     {
         foreach ($this->observers as $attached) {
@@ -735,6 +736,7 @@ class HTTP_Request2 implements SplSubject
      *
      * @param SplObserver $observer any object implementing SplObserver
      */
+    #[ReturnTypeWillChange]
     public function detach(SplObserver $observer)
     {
         foreach ($this->observers as $key => $attached) {
@@ -748,6 +750,7 @@ class HTTP_Request2 implements SplSubject
     /**
      * Notifies all observers
      */
+    #[ReturnTypeWillChange]
     public function notify()
     {
         foreach ($this->observers as $observer) {
