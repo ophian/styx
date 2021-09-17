@@ -497,7 +497,8 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
         return array();
     }
     // init default
-    $data['summary'] = $data['description'] = $data['backenddesc'] = $data['backend'] = null;
+    $data['summary'] = $data['description'] = $data['backenddesc'] = $data['backend'] = null; // needs a null init, while the following for loop used [] operator is not supported for strings.
+    // This usage files only one regression for later checked string method strtolower($data['backend']) : "Passing null to parameter #1 ($string) of type string is deprecated", which is better easily checked by an isset ternary
 
     for($x=0; $x < count($lines); $x++) {
         $j = preg_split('/([^\:]+)\:/', $lines[$x], -1, PREG_SPLIT_DELIM_CAPTURE);
@@ -561,7 +562,7 @@ function serendipity_fetchTemplateInfo($theme, $abspath = null) {
 
     if ($theme != 'default-rtl'
                 && @is_dir($serendipity['templatePath'] . $theme . '/admin')
-                && strtolower($data['backend']) == 'yes') {
+                && strtolower(($data['backend'] ?? '')) == 'yes') {
         $data['custom_admin_interface'] = YES;
     } else {
         $data['custom_admin_interface'] = NO;
