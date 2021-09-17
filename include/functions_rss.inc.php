@@ -114,7 +114,7 @@ function serendipity_printEntries_rss(&$entries, $version, $comments = false, $f
                 // Remember: A comment body is DB stored by using htmlspecialchars() !!
                 $entry['body'] = str_replace(['&nbsp;', '&#160;', '  '], [' '], $entry['body']); // allowed to do, since stripped'&#39;', 
                 // Now, make sure code in pre/code tags is specialchar'ed, thus we need to split it out for atom10 display feeds
-                $parts = preg_split('#(<\/?[-:\w]+(?:\s[^<>]+?)?>)#', $entry['body'], null, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
+                $parts = preg_split('#(<\/?[-:\w]+(?:\s[^<>]+?)?>)#', $entry['body'], -1, PREG_SPLIT_NO_EMPTY | PREG_SPLIT_DELIM_CAPTURE);
                 $entry['body'] = '';
                 $x = 0;
                 foreach ($parts AS $v) {
