@@ -9,7 +9,7 @@
         <label for="radio_cfg_{$name}_no">{$CONST.NO}</label>
     </div>
 {elseif $type == 'fullprotected'}
-    <input id="{$name}" type="password" name="{$name}" value="{$value|escape}" autocomplete="off">
+    <input id="{$name}" type="password" name="{$name}" value="{$value|default:''|escape}" autocomplete="off">
 {elseif $type == 'protected'}
     <input id="{$name}" type="password" name="{$name}" value="{$value|escape}">
 {elseif $type == 'multilist'}
