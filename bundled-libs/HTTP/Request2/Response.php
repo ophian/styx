@@ -423,7 +423,7 @@ class HTTP_Request2_Response
     public function getBody()
     {
         if (0 == strlen($this->body) || !$this->bodyEncoded
-            || !in_array(strtolower($this->getHeader('content-encoding')), array('gzip', 'deflate'))
+            || !in_array(strtolower(($this->getHeader('content-encoding') ?? '')), array('gzip', 'deflate'))
         ) {
             return $this->body;
 
