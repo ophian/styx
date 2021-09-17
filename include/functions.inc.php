@@ -384,7 +384,11 @@ function serendipity_strftime($format, $timestamp = null, $useOffset = true, $us
                 } elseif ($useOffset) {
                     $timestamp = serendipity_serverOffsetHour($timestamp);
                 }
-                $out = strftime($format, $timestamp);
+                if (PHP_VERSION_ID >= 80100) {
+                    $out = @strftime($format, $timestamp); // temporary disable deprecation notice with PHP 8.1 until found better solution with %A, %d. %B %Y alike formats, on frontend calls. Using date() replacement is doing well with generic formats like "%Y-%m-%d %H:%M:%S".
+                } else {
+                    $out = strftime($format, $timestamp);
+                }
                 break;
 
             case 'persian-utf8':
