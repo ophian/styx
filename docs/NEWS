@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Fixes for upcoming PHP 8.1 deprecations, return types and other warnings
+
   * Improve image upload messaging. Only throw "Trying to store a WebP image
     format..." notice message, when variation builds return false.
 
