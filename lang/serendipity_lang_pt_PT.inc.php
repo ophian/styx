@@ -823,6 +823,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Senha antiga');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Se mudar a senha no campo acima, precisa de inserir a senha corrente neste campo.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Não especificou a senha antiga correctamente, e não está autorizado a mudar a nova senha. As suas preferências não foram guardadas.');
 @define('ERROR_XSRF', 'O seu navegador não enviou uma sequência válida de HTTP-Referrer. Isto pode ter sido causado por um proxy ou navegador mal configurado ou por um Cross Site Request Forgery (XSRF) dirigido a si. A acção que solicitou não pôde ser completada.');
 

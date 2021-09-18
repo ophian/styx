@@ -816,6 +816,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', '古いパスワード');
 @define('USERCONF_CHECK_PASSWORD_DESC', '上の項目でパスワードを変更する場合、この項目に現在のユーザーパスワードを入力する必要があります。');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '正しい古いパスワードを指定せず、新しいパスワードを変更することは許可されていません．設定は保存されませんでした。');
 @define('ERROR_XSRF', 'ブラウザーは有効な HTTP-Referrer 文字列を送信しませんでした。これは誤設定されたブラウザー/プロクシ、あるいはあなたに向けた Cross Site Request Forgery(XSRF)を引き起ここすかどちらかかもしれません。要求した操作は完了できませんでした。');
 

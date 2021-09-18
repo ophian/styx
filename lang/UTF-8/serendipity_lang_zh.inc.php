@@ -820,6 +820,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', '旧密码');
 @define('USERCONF_CHECK_PASSWORD_DESC', '如果你要更改密码，请将新密码输入到这里。');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '你提供了错误的久密码所以不能更改密码。你的设定未保存。');
 @define('ERROR_XSRF', '你的浏览器传送了错误的 HTTP-Referrer 字符。可能是因为 browser/proxy 的错误设定或是 Cross Site Request Forgery (XSRF) 的关系。你的操作无法完成。');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', '这里可以让你定义相对 URL ，从基本 URL 到会员读取的 RSS-feeds 为标准。你可以用这些参数 %id%, %realname%, %username%, %email% 或其它字符。');

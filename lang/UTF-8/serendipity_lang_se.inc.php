@@ -816,6 +816,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Gammalt lösenord');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Om du ändrar lösenordet i fältet ovean måste du fylla i det nuvarande lösenordet i det här fältet.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Du har inte angett det gamla lösenordet på korrekt sätt och du har därför inte tillstånd att ändra lösenord. Dina inställningar sparades inte.');
 @define('ERROR_XSRF', 'Din webbläsre skickade inte en giltig HTTP-hänvisarsträng. Detta kan ha orsakats av en felkonfigurerad webbläsare/proxy eller av en Cross Site Request Forgery (XSRF) riktad mot dig. Den efterfrågade handlingen kunde inte genomföras.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Här kan du definiera URL-strukturen relativt till din bas-URL för att nå RSS-matningar från vissa författare. Du kan använda variablerna %id%, %realname%, %username%, %email% och alla andra tecken.');

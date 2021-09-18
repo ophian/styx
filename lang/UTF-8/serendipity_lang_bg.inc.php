@@ -819,6 +819,7 @@ $i18n_filename_to   = array('-', 'a', 'A', 'b', 'B', 'v', 'V', 'g', 'G', 'd', 'D
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Стара парола');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Ако смените паролата в горното поле, трябва да въведете текущата парола в това поле.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Не зададохте правилно старата си парола и не сте удостоверени за смяна с нова парола. Вашите настройки не са запазени.');
 @define('ERROR_XSRF', 'Вашият браузър не изпрати правилен низ Referrer на HTTP. Това може да е предизвикано или от неправилно настроен браузър/прокси, или от междусайтова фалшификация на заявка (Cross Site Request Forgery - XSRF), прицелена към вас. Действието, което сте заявили, не може да бъде завършено.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Тук можете да определите относителна структура на URL спрямо основния URL, откъдето са налични емисии на RSS от дадени потребители. Можете да използвате променливите %id%, %realname%, %username%, %email% и всички други знаци.');

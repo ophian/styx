@@ -819,6 +819,7 @@ $i18n_unknown = 'tw';
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', '舊密碼');
 @define('USERCONF_CHECK_PASSWORD_DESC', '如果您改變了密碼，請將新密碼輸入到這個欄位。');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '您提供了錯誤的舊密碼所以不能更改密碼。您的設定還未被儲存。');
 @define('ERROR_XSRF', '您的瀏覽器傳送了錯誤的 HTTP-Referrer 字串。可能是因為 browser/proxy 的錯誤設定或是 Cross Site Request Forgery (XSRF) 的關係。您的動作無法完成。');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', '這裡可以讓您定義相對 URL 的構造，從基本 URL 到會員讀取的 RSS-feeds 為標準。您可以用這些變數 %id%, %realname%, %username%, %email% 或其它字元。');

@@ -820,6 +820,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Eski Şifre');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Eğer şifrenizi değiştirmek istiyorsanız, eski şifrenizi bu alana girmek zorundasınız.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Eski şifrenizi doğru olarak girmediniz, bu nedenle şifre değiştirme işleminiz onaylanmadı.Yeni Ayarlarınız kaydedilmedi.');
 @define('ERROR_XSRF', 'Tarayıcınız HTTP-Ziyaretçi Gönderenler için doğru  karakter dizgesi gönderemedi. Bu tarayıcı ve proxy ayarlarınızın doğru şekilde yapılandırılmamış olmasından kaynaklanabilir ya da Cross Site Request Forgery (XSRF) diye tanımlanan durum ortaya çıkmış olabilir.Yapmak istediğiniz eylem tamamlanamadı.');
 @define('AUTHORS', 'Yazarlar');

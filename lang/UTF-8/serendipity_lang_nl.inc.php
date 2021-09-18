@@ -818,6 +818,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Oud wachtwoord');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Als u het wachtwoord wijzigt in het veld hierboven moet u het huidige wachtwoord in dit veld invoeren.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Het oude wachtwoord dat u heeft ingegeven klopt niet en u bent dus niet geautoriseerd om het wachtwoord te wijzigen. Uw instellingen worden niet bewaard.');
 @define('ERROR_XSRF', 'Uw browser heeft geen geldig HTTP-Referrer-adres verstuurd. Dit kan veroorzaakt worden door een verkeerd geconfigureerde browser/proxy of door een aanval die tegen u is gericht. Uw actie werd geannuleerd.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Hier definieert u de relatieve URL-structuur vanaf de basis-URL tot waar de verzamelingspublicatieaanvoer van elke gebruiker staat. U kunt de variabelen %id%, %realname%, %username%, %email% en gewone tekens gebruiken.');

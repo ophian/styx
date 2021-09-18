@@ -817,6 +817,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Núverandi lykilorð');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Ef þú breytir lykilorðinu í svæðinu að ofan þarftu að slá inn núverandi lykilorð inn í þetta svæði.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Þú slóst ekki inn rétt núverandi lykilorð, og getur því ekki breytt lykilorðinu. Nýjar stillingar ekki vistaðar.');
 @define('ERROR_XSRF', 'Vafrinn þinn sendi ekki gildan HTTP-Referrer streng. Þetta getur hafa skapast vegna vitlaust stillts vafra/proxy þjóns eða vegna gagnsíðufölsunartilraunar (Cross Site Request Forgery, XSRF) gegn þér. Beiðnin þín kláraðist ekki.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Hér geturðu skilgreint slóðauppbygginguna, allt frá upphafsslóð til þess hvar RSS-straumar frá ákveðnum notendum kynnu að vera til staðar. Þú getur notað breyturnar %id%, %realname%, %username%, %email% og alla aðra stafi.');

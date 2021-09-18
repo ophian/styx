@@ -830,6 +830,7 @@ $i18n_filename_to = array (
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Staré heslo');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Jestliže změníte  heslo v políčku výše, musíte do tohoto pole zadat současné heslo.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Nezadali jste správné staré heslo a nejste oprávněni heslo změnit. Vaše nastavení nebylo uloženo.');
 @define('ERROR_XSRF', 'Váš prohlížeč nezaslal platný  HTTP-Referrer string. To mohlo být způsobeno buď špatně nastaveným prohlížečem/proxy nebo  Cross Site Request Forgery (XSRF), který je na vás namířen. Požadovaná akce nemohla být dokončena.');
 @define('AUTHORS', 'Autoři');

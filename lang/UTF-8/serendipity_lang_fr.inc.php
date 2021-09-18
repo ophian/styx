@@ -821,6 +821,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Ancien mot de passe');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Si vous changez le mot de passe dans le champ ci-dessus, vous devez entrer le mot de passe actuel dans ce champ.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Vous n\'avez pas entré l\'ancien mot de passe correct, et vous n\'êtes pas autorisé à définir un nouveau mot de passe. Les données n\'ont pas été sauvegardées.');
 @define('ERROR_XSRF', 'Votre navigateur n\'a pas envoyé un HTTP-Referrer (adresse référante) valide. Cela peut avoir été causé par un navigateur/proxy mal configuré ou une intervention malveillante externe. L\'action que vous vouliez exécuter a été annulée.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Ici vous pouvez définir la structure relative de l\'adresse par laquelle on peut accéder aux fils RSS d\'utilisateurs spécifiques. Vous pouvez utiliser les variables %id% (identifiant), %realname% (nom réel), %username% (pseudo), %email% (email) et les caractères de votre choix dans l\'adresse cible.');

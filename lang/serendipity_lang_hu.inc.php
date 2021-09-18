@@ -816,6 +816,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Régi jelszó');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Ha a mezõben megváltoztatod a jelszót, itt meg kell adnod a jelenlegit.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Helytelenül adtad meg a jelenlegi jelszót, így nem változtathatod meg. A beállításokat nem mentettük.');
 @define('ERROR_XSRF', 'A böngészõd nem küldött érvényes HTTP-Hivatkozó szöveget. Ez több okból lehet, pl. rosszul beállított böngészõ, proxy, vagy egy Cross Site Request Forgery (XSRF) támadás áldozata lettél. A kért mûvelet nem hajtható végre.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Itt adhatod meg a relatív URL struktúrát az alap URL-hez képest, ahol az egyes felhasználók RSS hírcsatornái megtekinthetõk. A következõ változókat használhatod: %id%, %realname%, %username%, %email% és egyéb karaktereket.');

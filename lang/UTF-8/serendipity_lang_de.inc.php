@@ -814,6 +814,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ACHTUNG</b>: Bestimmte Optionen öffnen oder schließen anhängige Suboptionen [+] erst nach dem Absenden. Auch können bestimmte Optionen bereits gesetzte Optionen wieder deaktivieren oder auf den default Wert zurücksetzen, so dass im Falle einer Rückbesinnung möglicherweise eine erneute Einstellung bzw. Aktivierung vonnöten ist.');
 @define('USERCONF_CHECK_PASSWORD', 'Altes Passwort');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Falls Sie das Passwort im vorhergehenden Feld ändern, müssen Sie das aktuelle Password in diesem Feld eingeben.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Seien Sie achtsam, denn jede weitere, darauf bauende Backend-Aktion, zwingt Sie erst einmal zu einem neuen Login - also nur einmal per Login-Session verwendbar!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Sie haben kein gültiges derzeitiges Passwort angegeben und sind daher nicht berechtigt, das neue Passwort festzulegen. Ihre Einstellungen wurden nicht gespeichert.');
 @define('ERROR_XSRF', 'Ihr Browser hat keinen gültigen HTTP-Referrer übermittelt. Dies kann entweder daher kommen, dass Ihr Browser/Proxy nicht korrekt konfiguriert ist, oder dass Sie Opfer einer "Cross Site Request Forgery (XSRF)" waren, mit der man Sie zu ungewollten Änderungen zwingen wollte. Die angeforderte Aktion konnte daher nicht durchgeführt werden.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR', 'Permalink-Struktur für RSS-Autoren-Feed URLs');

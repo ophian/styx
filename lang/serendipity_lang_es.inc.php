@@ -841,6 +841,7 @@ Melvin TODO [20060128]: What spanish word do we use for "referrers" ??
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Contraseña actual');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Si cambias la contraseña en el campo de arriba, debes escribir la contraseña actual en este campo.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'No especificaste correctamente la contraseña actual, por lo tanto no estas autorizado para establecer una nueva. Tus cambios no fueron guardados.');
 @define('ERROR_XSRF', 'Tu navegador no envió una cadena válida de HTTP-Referrer. Esto puede deberse a una mala configuración del navegador/proxy o por un "Cross Site Request Forgery (XSRF)" dirigido a ti. La acción solicitada no pudo ser completada.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Aquí puedes definir la estructura relativa de URLs comenzando por tu URL base hasta incluso las sindicaciones RSS de usuarios específicos que puedan ser vistos. Puedes usar las variables %id%, %realname%, %username%, %email% y cualquier otro carácter.');

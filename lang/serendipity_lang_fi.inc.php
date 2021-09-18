@@ -815,6 +815,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'Nykyinen salasana');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'Jos vaihdoit yllä salasanaasi, kirjoita nykyinen tähän.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'Nykyinen salasanasi meni väärin, salasanaa ei vaihdettu. Asetuksia ei talletettu.');
 @define('ERROR_XSRF', 'Selaimesi ei lähettänyt kelvollista HTTP-Referrer merkkijonoa. Tämä johtuu joko väärin konfiguroidusta selaimesta/proxystä tai Cross Site Request väärennöshyökkäyksestä (XSRF). Pyytämääsi toimintoa ei suoritettu.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'Lauseke RSS-kanavien merkintöjä varten (kirjoittajat) alkaen blogin osoitteesta. Voit käyttää muuttujia %id%, %realname%, %username%, %email% sekä muita merkkejä.');

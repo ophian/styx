@@ -821,6 +821,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'كلمة المرور القديمة');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'أن غيرة كلمة المرور في الحقل السابق ، فأنه يجب أن تدخل كلمة المرور الحالية في هذا الحقل');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'لم تدخل كلمة المرور الصحيحة الحالية .لذلك ليس من صلاحياتك تغيير كلمة المرور الى كلمة جيدة. ! ! ! تنبيه: لم يتم حفظ التغييرات');
 @define('ERROR_XSRF', 'Your browser did not sent a valid HTTP-Referrer string. This may have either been caused by a misconfigured browser/proxy or by a Cross Site Request Forgery (XSRF) aimed at you. The action you requested could not be completed.');
 @define('AUTHORS', 'المحررين');

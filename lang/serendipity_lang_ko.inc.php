@@ -817,6 +817,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', '이전 암호');
 @define('USERCONF_CHECK_PASSWORD_DESC', '위의 적힌 암호를 변경하려면 여기에 현재 사용중인 암호를 적으십시오.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', '이전 암호가 올바르지 않으므로 새 암호로 변경할 권한이 없습니다. 설정이 저장되지 않았습니다.');
 @define('ERROR_XSRF', '브라우저가 유효한 HTTP 진입 경로(referrer) 문자열을 보내지 않았습니다. 브라우저/프록시 설정이 잘못되었거나 당신을 겨냥한 상호 사이트 요청 위조(XSRF) 때문이었을 수 있습니다. 요청한 사항을 처리할 수 없었습니다.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', '특정 사용자의 RSS 피드를 보기 위한 상대적인 인터넷 주소 구조를 %id%, %realname%, %username%, %email% 등의 변수와 일반 글자를 활용해서 정의할 수 있습니다. 전체 주소는 사이트의 기본 주소를 기초로 해서 시작합니다.');

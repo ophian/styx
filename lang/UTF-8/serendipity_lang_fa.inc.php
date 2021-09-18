@@ -818,6 +818,7 @@
 @define('PLUGIN_API_GENERIC_SUBOPTION_DESC', '<b>ATTENTION</b>: Certain options open or close pending suboptions [+] only after submission sets. Also, certain options can deactivate already set options or reset them to the default value, so that in case of a reconsideration a new setting or activation might be necessary.');
 @define('USERCONF_CHECK_PASSWORD', 'رمز عبور قدیمی');
 @define('USERCONF_CHECK_PASSWORD_DESC', 'اگر می خواهید رمز عبور بالا را تغییر دهید، نیاز دارید که رمز قدیمی را در این فیلد وارد کنید.');
+@define('USERCONF_CHECK_PASSWORD_DESC_ADDNOTE', 'Use carefully, since any following permissible backend action will force you to a new login afterwards - so only usable once, per Login-Session!');
 @define('USERCONF_CHECK_PASSWORD_ERROR', 'رمز عبور قدیمی شما اشتباه است، پس توانایی تغییر رمز عبور وجود ندارد. تنظیمات جدید شما اعمال نشد.');
 @define('ERROR_XSRF', 'مرورگر شما بخش مربوط به HTTP-Referrer را ارسال نکرده است. ممکن است این مشکل از تنظیمات مرورگر شما یا استفاده از پروکسی یا ... باشد. توانایی انجام درخواست شما وجود ندارد.');
 @define('INSTALL_PERMALINK_FEEDAUTHOR_DESC', 'در اینجا می توانید آدرس نسبی ای، نسبت به آدرس اصلی، برای RSS-feed های یک کاربر خاص را مشخص کنید. شما می توانید از %id%، %realname%، %username%، %email% و هر نوع کاراکتر دیگر استفاده کنید.');
