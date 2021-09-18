@@ -325,7 +325,7 @@ function serendipity_parseTemplate($filename, $areas = null, $onlyFlags = null) 
 
     $userlevel = $serendipity['serendipityUserlevel'] ?? null;
 
-    if (!IS_installed) {
+    if (IS_installed === false) {
         $userlevel = USERLEVEL_ADMIN;
     }
 
