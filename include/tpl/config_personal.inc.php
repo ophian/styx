@@ -26,7 +26,7 @@
 
                                     array('var'         => 'check_password',
                                           'title'       => USERCONF_CHECK_PASSWORD,
-                                          'description' => USERCONF_CHECK_PASSWORD_DESC,
+                                          'description' => USERCONF_CHECK_PASSWORD_DESC . ((defined('IN_installer') && IS_installed === true && (!isset($serendipity['GET']['userid']) || $serendipity['GET']['userid'] == $serendipity['authorid'])) ? ' ' . USERCONF_CHECK_PASSWORD_DESC_ADDNOTE : ''),
                                           'type'        => 'fullprotected',
                                           'default'     => '',
                                           'permission'  => 'personalConfiguration'),
