@@ -1,6 +1,9 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Merge-Upgrade PEAR bundled-libs/HTTP/Request2 to v.2.5.0, including
+    Serendipity and Styx fixes.
+
   * Improve dark theme for template config toggle fields
 
   * Fixes for upcoming PHP 8.1 deprecations, return types and other warnings
