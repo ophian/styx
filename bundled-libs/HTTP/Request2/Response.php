@@ -13,7 +13,7 @@
  * @category  HTTP
  * @package   HTTP_Request2
  * @author    Alexey Borzov <avb@php.net>
- * @copyright 2008-2016 Alexey Borzov <avb@php.net>
+ * @copyright 2008-2021 Alexey Borzov <avb@php.net>
  * @license   http://opensource.org/licenses/BSD-3-Clause BSD 3-Clause License
  * @link      http://pear.php.net/package/HTTP_Request2
  */
@@ -22,6 +22,11 @@
  * Exception class for HTTP_Request2 package
  */
 require_once S9Y_PEAR_PATH . 'HTTP/Request2/Exception.php';
+
+// pear-package-only /**
+// pear-package-only  * Exception class for HTTP_Request2 package
+// pear-package-only  */
+// pear-package-only require_once 'HTTP/Request2/Exception.php';
 
 /**
  * Class representing a HTTP response
@@ -83,13 +88,13 @@ class HTTP_Request2_Response
      * Associative array of response headers
      * @var  array
      */
-    protected $headers = array();
+    protected $headers = [];
 
     /**
      * Cookies set in the response
      * @var  array
      */
-    protected $cookies = array();
+    protected $cookies = [];
 
     /**
      * Name of last header processed by parseHederLine()
@@ -122,7 +127,7 @@ class HTTP_Request2_Response
      * @var  array
      * @link http://tools.ietf.org/html/rfc2616#section-10
      */
-    protected static $phrases = array(
+    protected static $phrases = [
 
         // 1xx: Informational - Request received, continuing process
         100 => 'Continue',
@@ -179,7 +184,7 @@ class HTTP_Request2_Response
         505 => 'HTTP Version Not Supported',
         509 => 'Bandwidth Limit Exceeded',
 
-    );
+    ];
 
     /**
      * Returns the default reason phrase for the given code or all reason phrases
@@ -243,7 +248,7 @@ class HTTP_Request2_Response
             if (!empty($this->headers['set-cookie'])) {
                 $cookies = is_array($this->headers['set-cookie'])?
                            $this->headers['set-cookie']:
-                           array($this->headers['set-cookie']);
+                           [$this->headers['set-cookie']];
                 foreach ($cookies as $cookieString) {
                     $this->parseCookie($cookieString);
                 }
@@ -263,7 +268,7 @@ class HTTP_Request2_Response
                 $this->headers[$name] = $value;
             } else {
                 if (!is_array($this->headers[$name])) {
-                    $this->headers[$name] = array($this->headers[$name]);
+                    $this->headers[$name] = [$this->headers[$name]];
                 }
                 $this->headers[$name][] = $value;
             }
@@ -289,12 +294,12 @@ class HTTP_Request2_Response
      */
     protected function parseCookie($cookieString)
     {
-        $cookie = array(
+        $cookie = [
             'expires' => null,
             'domain'  => null,
             'path'    => null,
             'secure'  => false
-        );
+        ];
 
         if (!strpos($cookieString, ';')) {
             // Only a name=value pair
@@ -381,7 +386,7 @@ class HTTP_Request2_Response
      */
     public function isRedirect()
     {
-        return in_array($this->code, array(300, 301, 302, 303, 307))
+        return in_array($this->code, [300, 301, 302, 303, 307])
                && isset($this->headers['location']);
     }
 
@@ -423,7 +428,7 @@ class HTTP_Request2_Response
     public function getBody()
     {
         if (0 == strlen($this->body) || !$this->bodyEncoded
-            || !in_array(strtolower(($this->getHeader('content-encoding') ?? '')), array('gzip', 'deflate'))
+            || !in_array(strtolower(($this->getHeader('content-encoding') ?? '')), ['gzip', 'deflate'])
         ) {
             return $this->body;
 
@@ -436,21 +441,16 @@ class HTTP_Request2_Response
             try {
                 switch (strtolower($this->getHeader('content-encoding'))) {
                 case 'gzip':
-                    $decoded = self::decodeGzip($this->body);
+                    return self::decodeGzip($this->body);
                     break;
                 case 'deflate':
-                    $decoded = self::decodeDeflate($this->body);
+                    return self::decodeDeflate($this->body);
                 }
-            } catch (Exception $e) {
+            } finally {
+                if (!empty($oldEncoding)) {
+                    mb_internal_encoding($oldEncoding);
+                }
             }
-
-            if (!empty($oldEncoding)) {
-                mb_internal_encoding($oldEncoding);
-            }
-            if (!empty($e)) {
-                throw $e;
-            }
-            return $decoded;
         }
     }
 
@@ -639,12 +639,16 @@ class HTTP_Request2_Response
                 'gzinflate() call failed',
                 HTTP_Request2_Exception::DECODE_ERROR
             );
-        } elseif ($dataSize != strlen($unpacked)) {
+
+            // GZIP stores the size of the compressed data in bytes modulo
+            // 2^32. To accommodate large file transfers, apply this to the
+            // observed data size. This allows file downloads above 4 GiB.
+        } elseif ((0xffffffff & $dataSize) !== (0xffffffff & strlen($unpacked))) {
             throw new HTTP_Request2_MessageException(
                 'Data size check failed',
                 HTTP_Request2_Exception::DECODE_ERROR
             );
-        } elseif ((0xffffffff & $dataCrc) != (0xffffffff & crc32($unpacked))) {
+        } elseif ((0xffffffff & $dataCrc) !== (0xffffffff & crc32($unpacked))) {
             throw new HTTP_Request2_MessageException(
                 'Data CRC check failed',
                 HTTP_Request2_Exception::DECODE_ERROR
@@ -676,7 +680,5 @@ class HTTP_Request2_Response
         $header = unpack('n', substr($data, 0, 2));
         return (0 == $header[1] % 31)? gzuncompress($data): gzinflate($data);
     }
-
 }
-
 ?>
