@@ -391,9 +391,9 @@ class HTTP_Request2_Adapter_Socket extends HTTP_Request2_Adapter
                        // no body possible for such responses, see also request #17031
                        || HTTP_Request2::METHOD_HEAD == $this->request->getMethod()
                        || in_array($response->getStatus(), array(204, 304));
-        $persistent  = 'keep-alive' == strtolower(($response->getHeader('connection') ?? '')) ||
-                       (null === $response->getHeader('connection') &&
-                        '1.1' == $response->getVersion());
+        $persistent  = 'keep-alive' == strtolower(($response->getHeader('connection') ?? ''))
+                       || (null === $response->getHeader('connection')
+                       && '1.1' == $response->getVersion());
         return $requestKeepAlive && $lengthKnown && $persistent;
     }
 
