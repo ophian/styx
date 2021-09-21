@@ -1,6 +1,8 @@
 Version 3.6-dev ()
  ------------------------------------------------------------------------
 
+  * Improve MediaLibrary media item delete file popup
+
   * Merge-Upgrade PEAR bundled-libs/HTTP/Request2 to v.2.5.0, including
     Serendipity and Styx fixes.
 
