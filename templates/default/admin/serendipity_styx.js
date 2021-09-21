@@ -742,7 +742,7 @@
 
     // Delete file from ML
     serendipity.deleteFromML = function(id, fname) {
-        if (confirm('Delete')) {
+        if (confirm('Delete this file: "'+ fname +'" ?')) {
             var media_token_url = $('input[name*="serendipity[token]"]').val();
             $.post('?serendipity[adminModule]=images&serendipity[adminAction]=doDelete&serendipity[fid]='+ escape(id) +'&serendipity[token]='+ media_token_url)
             .done(function(jqXHR, textStatus) {
