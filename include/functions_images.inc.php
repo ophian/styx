@@ -787,6 +787,33 @@ function serendipity_imageGDWebPConversion($infile, $outfile, $quality = 75) {
 }
 
 /**
+ * Convert JPG, PNG, GIF, BMP formatted images to the AVIF image format with PHP build-in GD image library
+ * Copy of serendipity_imageGDWebPConversion()
+ *
+ * @param string $infile    The fullpath file format from string
+ * @param string $outfile   The fullpath file format to string
+ * @param int    $quality   The quality of sizing/formatting
+ * @return mixed            bool false or string converted outfile
+ */
+function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
+    $im = serendipity_imageCreateFromAny($infile);
+    if (!$im) {
+        return false;
+    }
+    @ini_set('memory_limit', '1024M');
+    try {
+        imageavif($im, $outfile, $quality);
+    } catch (Throwable $t) {
+        echo 'Could not create AVIF image with GD: ',  $t->getMessage(), "\n";
+        imagedestroy($im);
+        return false;
+    }
+    imagedestroy($im);
+
+    return $outfile;
+}
+
+/**
  * Convert an uploaded thumb or single file to the WebP image VARIATION image format with ImageMagick
  * Create CMD string settings and pass to serendipity_passToCMD()
  *
