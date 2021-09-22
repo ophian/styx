@@ -992,7 +992,7 @@ function serendipity_generate_webpPathURI($image) {
 function serendipity_passToCMD($type=null, $source='', $target='', $args=array()) {
 
     if ($type === null
-    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp']) && !in_array(strtoupper(explode('/', $type)[1]), serendipity_getSupportedFormats(true)))
+    || (!in_array($type, ['pdfthumb', 'mkthumb', 'format-jpg', 'format-jpeg', 'format-png', 'format-gif', 'format-webp', 'format-avif']) && !in_array(strtoupper(explode('/', $type)[1]), serendipity_getSupportedFormats(true)))
     || !serendipity_checkPermission('adminImagesAdd')) {
         return false;
     }
@@ -1041,6 +1041,10 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
                 "-strip \"$target\"";
 
+    } else if ($type == 'format-avif') {
+        $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
+                "-strip \"$target\"";
+
     } else if (in_array($type, ['format-jpg', 'format-jpeg', 'format-png', 'format-gif'])) {
         $cmd =  "\"{$args[0]}\" \"$source\" {$do} " .
                 "\"$target\"";
@@ -1061,6 +1065,10 @@ function serendipity_passToCMD($type=null, $source='', $target='', $args=array()
                 "-depth 8 -strip \"$target\"";
 
     } else if (image_type_to_mime_type(IMAGETYPE_WEBP) == $type) {
+        $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
+                "-depth 8 -strip \"$target\"";
+
+    } else if (image_type_to_mime_type(IMAGETYPE_AVIF) == $type) {
         $cmd =  "\"{$args[0]}\" \"$source\" -depth 16 ${gamma['linear']} {$do} ${gamma['standard']} " .
                 "-depth 8 -strip \"$target\"";
     }
