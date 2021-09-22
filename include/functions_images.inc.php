@@ -1172,6 +1172,27 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format creation failed OR already exists."); }
                     }
                 }
+                // Create a copy in AVIF image format
+                if (file_exists($outfile) && $serendipity['useAvifFormat']) {
+                    // The AVIF GD part in 3 steps: 1. makeVariationPath(), 2. convertToAvifFormat(), 3. resizeImageGD()
+                    $newgdfile = serendipity_makeImageVariationPath($outfile, 'avif');
+                    // first we create it!
+                    $result = serendipity_convertToAvifFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
+                    if (is_array($result) && $result[0] == 0) {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format creation success ${result[2]} " . DONE); }
+                        // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
+                        // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthbGD->resize to thumb, which overwrites the first.
+                        $avifthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
+                        $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, $size['width'], $size['height']);
+                        if (false !== $newsize && is_array($newsize)) {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize success with GD lib " . DONE); }
+                        } else {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize failed! Perhaps a wrong path: '$avifthbGD' ?"); }
+                        }
+                    } else {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format creation failed OR already exists."); }
+                    }
+                }
             } else {
                 // The caller wants a thumbnail constrained in the dimension set by config
                 $calc = serendipity_calculateAspectSize($fdim[0], $fdim[1], $size, $serendipity['thumbConstraint']);
@@ -1195,6 +1216,27 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                         }
                     } else {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image WebP format creation failed OR already exists."); }
+                    }
+                }
+                // Create a copy in AVIF image format
+                if (file_exists($outfile) && $serendipity['useAvifFormat']) {
+                    // The AVIF GD part in 3 steps: 1. makeVariationPath(), 2. convertToAvifFormat(), 3. resizeImageGD()
+                    $newgdfile = serendipity_makeImageVariationPath($outfile, 'avif');
+                    // first we create it!
+                    $result = serendipity_convertToAvifFormat($infile, $newgdfile['filepath'], $newgdfile['filename'], mime_content_type($outfile), $mute);
+                    if (is_array($result) && $result[0] == 0) {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: Image AVIF format creation success ${result[2]} " . DONE); }
+                        // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
+                        // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthbGD->resize to thumb, which overwrites the first.
+                        $avifthbGD = $newgdfile['filepath'] . '/.v/' . $newgdfile['filename'];
+                        $newsize   = serendipity_resizeImageGD($avifthbGD, $avifthbGD, $calc[0], $calc[1]);
+                        if (false !== $newsize && is_array($newsize)) {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize success with GD lib " . DONE); }
+                        } else {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format resize failed! Perhaps a wrong path: '$avifthbGD' ?"); }
+                        }
+                    } else {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: GD Image AVIF format creation failed OR already exists."); }
                     }
                 }
             }
@@ -1242,7 +1284,7 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                     $fdim['mime'] = 'image/webp';
                 }
 
-                // avoid the file resizing loop in special case; which is example.serendipityThumb.ext (png,jpg,webp..)
+                // avoid the file resizing loop in special case; which is example.serendipityThumb.ext (png,jpg,webp,avif..)
                 if (!file_exists($outfile)) {
                     $pass = [ $serendipity['convert'], ["-antialias -resize $_imtp"], [], ['"'.$newSize.'"'], 75, -1 ];
                     $result = serendipity_passToCMD($fdim['mime'], $infile, $outfile, $pass);
@@ -1275,6 +1317,27 @@ function serendipity_makeThumbnail($file, $directory = '', $size = false, $thumb
                         }
                     } else {
                         if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image WebP format creation failed OR already exists."); }
+                    }
+                }
+                // Create a copy of the thumb in AVIF image format
+                if (file_exists($outfile) && $serendipity['useAvifFormat']) {
+                    $newfile = serendipity_makeImageVariationPath($outfile, 'avif');
+                    // The $outfile variable is not being the resized $outfile yet! We could either fetch it first, .. or
+                    // split it up like done here: 1. $outfile->convert to AVIF and then 2. $avifthb->resize to thumb, which overwrites the first.
+                    $avifthb = $newfile['filepath'] . '/.v/' . $newfile['filename'];
+                    $resavif = serendipity_convertToAvifFormat($infile, $newfile['filepath'], $newfile['filename'], mime_content_type($outfile), $mute);
+                    if (is_array($resavif) && $resavif[0] == 0) {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format creation success ${resavif[2]} " . DONE); }
+                        unset($resavif);
+                        // The resizing to same name(!)
+                        $resavif = serendipity_passToCMD('image/avif', $avifthb, $avifthb, $pass);
+                        if (is_array($resavif) && $resavif[0] == 0) {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format resize success ${resavif[2]} " . DONE); }
+                        } else {
+                            if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format resize failed! Perhaps a wrong path: '$avifthb' ?"); }
+                        }
+                    } else {
+                        if ($debug) { $serendipity['logger']->debug("ML_CREATETHUMBVARIATION: ImageMagick CLI Image AVIF format creation failed OR already exists."); }
                     }
                 }
             }
