@@ -835,10 +835,10 @@ function serendipity_imageGDAvifConversion($infile, $outfile, $quality = -1) {
  * @param string $outfile   Target file name
  * @param string $mime      Output of mime_content_type($target)
  * @param bool   $mute      To message OR not. Is default false for a single request, true for bulk like synchronization traversals
- * @param int    $quality   Held for future purposes
+ * @param int    $quality   Held for future purposes, quality ranges from 0 to 100
  * @return mixed
  */
-function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mute=false, $quality=100) {
+function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mute = false, $quality = -1) {
     global $serendipity;
 
     if (in_array(strtoupper(explode('/', $mime)[1]), serendipity_getSupportedFormats())) {
@@ -858,7 +858,7 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
                 }
                 return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
             } else {
-                $pass = [ $serendipity['convert'], [], [], [], 100, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
+                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
                 $out  = serendipity_passToCMD('format-webp', $infile, $_outfile, $pass);
                 if ($out === false && $mute === false) {
                     echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a WebP IM image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
