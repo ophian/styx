@@ -2719,7 +2719,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                 }
             } else {
                 if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag {$sFile['relpath']} is a file."); }
-                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@.v/@', $sFile['relpath']) && preg_match('@[\.webp]$@', $sFile['relpath']) )) {
+                if ($sFile['relpath'] == '.empty' || false !== strpos($sFile['relpath'], '.quickblog.') || ( preg_match('@.v/@', $sFile['relpath']) && preg_match('@[.webp|.avif]$@', $sFile['relpath']) )) {
                     if ($sFile['relpath'] != '.empty' && (!isset($serendipity['aFilesNoSync']) || !in_array($sFile['relpath'], (array)$serendipity['aFilesNoSync']))) {
                         if ($debug) { $serendipity['logger']->debug("L_".__LINE__.":: $logtag Found aFilesNoSync = {$sFile['relpath']}."); }
                         $path_parts = pathinfo($sFile['relpath']);
@@ -2738,7 +2738,7 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
                             'mime'      => $fdim['mime'],
                         ); // store this in a cache file to use later (we use $serendipity['aFilesNoSync'] for this currently)
                     }
-                    // This is a special sized serendipity thumbnail, OR an item ranged "~outside" ML (see imageselectorplus event plugin), OR a hidden .v/ dir stored Webp image file variation; skip it!
+                    // This is a special sized serendipity thumbnail, OR an item ranged "~outside" ML (see imageselectorplus event plugin), OR a hidden .v/ dir stored AVIF/Webp image file variation; skip it!
                     continue;
                 }
                 // Store the file in our array, remove any ending slashes
@@ -2971,7 +2971,8 @@ function serendipity_displayImageList($page = 0, $lineBreak = NULL, $manage = fa
         'linkLast'      => $linkLast,
         'extraParems'   => $extraParems,
         'totalImages'   => $totalImages,
-        'supportsWebP'  => $serendipity['useWebPFormat']
+        'supportsWebP'  => $serendipity['useWebPFormat'],
+        'supportsAVIF'  => $serendipity['useAvifFormat']
     ));
 
     return serendipity_showMedia(
