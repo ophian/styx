@@ -4135,6 +4135,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
 
     $sThumbSource      = serendipity_getThumbNailPath($file['path'], $file['name'], $file['extension'], $file['thumbnail_name']);
     $sThumbSource_webp = serendipity_getThumbNailPath($file['path'].'.v/', $file['name'], 'webp', $file['thumbnail_name']);
+    $sThumbSource_avif = serendipity_getThumbNailPath($file['path'].'.v/', $file['name'], 'avif', $file['thumbnail_name']);
 
     if (! $file['hotlink']) {
         $file['full_path_thumb'] = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource;
@@ -4143,6 +4144,10 @@ function serendipity_prepareMedia(&$file, $url = '') {
         if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource_webp)) {
             $file['full_thumb_webp'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $sThumbSource_webp;
             $file['thumbSizeWebp']   = @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource_webp);
+        }
+        if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource_avif)) {
+            $file['full_thumb_avif'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $sThumbSource_avif;
+            $file['thumbSizeAVIF']   = @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $sThumbSource_avif);
         }
     }
 
@@ -4155,6 +4160,7 @@ function serendipity_prepareMedia(&$file, $url = '') {
             $file['imgsrc'] = $file['show_thumb'];
         }
         $file['full_file_webp'] = $file['full_file_webp'] ?? null; // avoid template errors on hotlinked images
+        $file['full_file_avif'] = $file['full_file_avif'] ?? null; // avoid template errors on hotlinked images
     } else {
         $file['full_file']      = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
         $file['full_path_file'] = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . $file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']);
@@ -4163,8 +4169,13 @@ function serendipity_prepareMedia(&$file, $url = '') {
         if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp')) {
             $file['full_file_webp'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
             $file['sizeWebp']       = @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp');
+            if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.avif')) {
+                $file['full_file_avif'] = $serendipity['serendipityHTTPPath'] . $serendipity['uploadHTTPPath'] . $file['path'] . '.v/' . $file['name'] . '.avif';
+                $file['sizeAVIF']       = @filesize($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.avif');
+            }
         } else {
             $file['full_file_webp'] = null; // avoid template errors
+            $file['full_file_avif'] = null; // ditto
         }
         if (!isset($file['imgsrc'])) {
             $file['imgsrc'] = $serendipity['uploadHTTPPath'] . $file['path'] . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . (empty($file['extension']) ? '' : '.' . $file['extension']);
@@ -4254,9 +4265,16 @@ function serendipity_prepareMedia(&$file, $url = '') {
     if (isset($file['thumbSizeWebp'])) {
         $file['nice_thumbsize_webp'] = number_format(round($file['thumbSizeWebp']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
     }
+    if (isset($file['sizeAVIF'])) {
+        $file['nice_size_avif'] = number_format(round($file['sizeAVIF']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+    }
+    if (isset($file['thumbSizeAVIF'])) {
+        $file['nice_thumbsize_avif'] = number_format(round($file['thumbSizeAVIF']/1024, 2), NUMBER_FORMAT_DECIMALS, NUMBER_FORMAT_DECPOINT, NUMBER_FORMAT_THOUSANDS);
+    }
 
     // inits
     if (!isset($file['full_thumb_webp'])) $file['full_thumb_webp'] = null;
+    if (!isset($file['full_thumb_avif'])) $file['full_thumb_avif'] = null;
 
     return true;
 }
