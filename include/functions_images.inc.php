@@ -362,9 +362,9 @@ function serendipity_deleteImage($id) {
 
     $_file = serendipity_fetchImageFromDatabase($id);
 
-    if ($serendipity['useWebPFormat']) {
+    if ($serendipity['useWebPFormat'] || $serendipity['useAvifFormat']) {
         // get a possible image variations id (should only be if that was development or somethings has went wrong)
-        $vfile = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}images AS i WHERE path = '.v/' AND name = '{$_file['name']}' AND extension = 'webp'", true, 'assoc');
+        $vfile = serendipity_db_query("SELECT * FROM {$serendipity['dbPrefix']}images AS i WHERE path = '.v/' AND name = '{$_file['name']}' AND (extension = 'webp' OR extension = 'avif')", true, 'assoc');
         $files = is_array($vfile) ? [ $_file, $vfile ] : [ $_file ];
     } else {
         $files = [ $_file ];
