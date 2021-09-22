@@ -935,7 +935,7 @@ function serendipity_convertToAvifFormat($infile, $outpath, $outfile, $mime, $mu
  */
 function serendipity_getSupportedFormats($extend=false) {
     if ($extend) {
-        return ['BMP', 'PNG', 'JPG', 'JPEG', 'GIF', 'WEBP'];
+        return ['BMP', 'PNG', 'JPG', 'JPEG', 'GIF', 'WEBP', 'AVIF'];
     }
     return ['PNG', 'JPG', 'JPEG', 'GIF'];
 }
