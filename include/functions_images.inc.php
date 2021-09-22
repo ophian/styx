@@ -1483,6 +1483,9 @@ function serendipity_rotateImg($id, $degrees) {
     // WebP case
     $infile_webp = $outfile_webp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
     $infile_webpThumb = $outfile_webpThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.webp';
+    // AVIF case
+    $infile_avif = $outfile_webp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.avif';
+    $infile_avifThumb = $outfile_webpThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.avif';
 
     $turn = (preg_match('@-@', $degrees)) ? '<-' : '->';
 
@@ -1506,6 +1509,16 @@ function serendipity_rotateImg($id, $degrees) {
             if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate $turn ${degrees} degrees, file: ${outfile_webpThumb}"); }
         } else {
             if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_webpThumb}."); }
+        }
+        if (serendipity_rotateImageGD($infile_webp, $outfile_avif, $degrees)) {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate $turn ${degrees} degrees, file: ${outfile_avif}"); }
+        } else {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_avif}."); }
+        }
+        if (serendipity_rotateImageGD($infile_avifThumb, $outfile_avifThumb, $degrees)) {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate $turn ${degrees} degrees, file: ${outfile_avifThumb}"); }
+        } else {
+            if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_avifThumb}."); }
         }
     } else {
         /* Why can't we just all agree on the rotation direction?
@@ -1543,6 +1556,22 @@ function serendipity_rotateImg($id, $degrees) {
         if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate WebP thumb file command: Rotate $turn ${degrees} degrees, file: ${result[2]}"); }
         if ($result[0] != 0) {
             if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_webpThumb}."); }
+        }
+        unset($result);
+
+        /* Resize main AVIF image */
+        $result = serendipity_passToCMD($file['mime'], $infile_avif, $outfile_avif, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate main AVIF file command: Rotate $turn ${degrees} degrees, file: ${result[2]}"); }
+        if ($result[0] != 0) {
+            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_avif}."); }
+        }
+        unset($result);
+
+        /* Resize AVIF thumbnail */
+        $result = serendipity_passToCMD($file['mime'], $infile_avifThumb, $outfile_avifThumb, $pass);
+        if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate AVIF thumb file command: Rotate $turn ${degrees} degrees, file: ${result[2]}"); }
+        if ($result[0] != 0) {
+            if ($debug) { $serendipity['logger']->debug("ImageMagick CLI Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_avifThumb}."); }
         }
         unset($result);
 
