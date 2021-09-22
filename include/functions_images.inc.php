@@ -871,6 +871,64 @@ function serendipity_convertToWebPFormat($infile, $outpath, $outfile, $mime, $mu
 }
 
 /**
+ * Convert an uploaded thumb or single file to the AVIF image VARIATION image format with ImageMagick
+ * Create CMD string settings and pass to serendipity_passToCMD()
+ * Copy of serendipity_convertToWebPFormat()
+ *
+ * NOTE: An image upload source is the origin file object. Thumb prefixed previews AND media sized "previews" are origin sub-variations.
+ *       A AVIF image is an extra origin variant of the source and is "on top" the variation(s). We STORE them in a (preserved key) current dir/.v directory!
+ *
+ * WHY USING A HIDDEN DIRECTORY for storage of image variations:
+ *       Hidden files offer a convenient mechanism for associating arbitrary metadata with a directory location while remaining largely independent of file system or OS mechanics.
+ *       Hidden files are just hidden enough to discourage most users from accidentally invalidating that metadata by moving or removing them while remaining standard enough
+ *       to be universally available and flexible enough to support a wide range of use cases. In this directory-case excellent for storing additional image variations that are used for output only.
+ *       Styx handlers:
+ *          Fetching a sub variations shall not get the AVIF formatted origin variation.
+ *          ML fetching of $images shall only get the origin, the AVIF origin variation and the thumbnail sub variation. Others shall not be included.
+ *          Media scaled images for the source-sets live in ML since they are variations, but NOT in the database NOR in the display images build list.
+ *          So we have core files: Origin, Thumb and AVIF and possible other sub variations of origin, which are media scaled images and special plugin images, eg. quickblog.
+ *
+ * @param string $source    Source file fullpath
+ * @param string $outpath   Target file path
+ * @param string $outfile   Target file name
+ * @param string $mime      Output of mime_content_type($target)
+ * @param bool   $mute      To message OR not. Is default false for a single request, true for bulk like synchronization traversals
+ * @param int    $quality   Held for future purposes, ranges from 0 to 100
+ * @return mixed
+ */
+function serendipity_convertToAvifFormat($infile, $outpath, $outfile, $mime, $mute = false, $quality = -1) {
+    global $serendipity;
+
+    if (in_array(strtoupper(explode('/', $mime)[1]), serendipity_getSupportedFormats())) {
+
+        $_tmppath = dirname($outpath . '/.v/' . $outfile);
+        if (!is_dir($_tmppath)) {
+            @mkdir($_tmppath);
+        }
+        $thumb = (false !== strpos($outfile, $serendipity['thumbSuffix'])) ? "{$serendipity['thumbSuffix']} " : ' ';
+        $_outfile = $_tmppath . '/' . $outfile; // store in a ("preserved key .v") current dir/.v directory!
+        if (!file_exists($_outfile)) {
+            // make a distinction switch between IM / GD libraries
+            if ($serendipity['magick'] !== true) {
+                $out = serendipity_imageGDAvifConversion($infile, $_outfile);
+                if ($out === false && $mute === false) {
+                    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a AVIF GD image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
+                }
+                return ((false !== $out) ? array(0, $out, 'with GD') : array(1, 'false', 'with GD'));
+            } else {
+                $pass = [ $serendipity['convert'], [], [], [], $quality, -1 ]; // Best result format conversion settings with ImageMagick CLI convert is empty/nothing, which is some kind of auto true! Do not handle with lossless!!
+                $out  = serendipity_passToCMD('format-avif', $infile, $_outfile, $pass);
+                if ($out === false && $mute === false) {
+                    echo '<span class="msg_notice"><span class="icon-info-circled" aria-hidden="true"></span> Trying to store a AVIF IM image format ' . $thumb . 'variation in: ' . $_tmppath  . " directory.</span>\n";
+                }
+                return $out;
+            }
+        }
+    }
+    return false;
+}
+
+/**
  * Get valid source image formats
  *
  * @return array
