@@ -2447,6 +2447,9 @@ function serendipity_formatImageGD($infilename, $outfilename, $format) {
         case 'webp':
             $out = imagewebp($in, $outfilename);
             break;
+        case 'avif':
+            $out = imageavif($in, $outfilename);
+            break;
         default:
             break;
     }
