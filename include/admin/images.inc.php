@@ -556,7 +556,7 @@ switch ($serendipity['GET']['adminAction']) {
                         @chmod($target, 0664);
 
                         // Create a target copy variation in WebP image format
-                        if (file_exists($target) && $serendipity['useWebPFormat'] && strtolower($info['extension']) != 'webp') {
+                        if (file_exists($target) && $serendipity['useWebPFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
                             $variat = serendipity_makeImageVariationPath($target, 'webp');
                             $result = serendipity_convertToWebPFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target));
                             if (is_array($result)) {
@@ -574,6 +574,28 @@ switch ($serendipity['GET']['adminAction']) {
                                     if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image WebP format creation failed"); }
                                 } else {
                                     if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image WebP format creation failed"); }
+                                }
+                            }
+                        }
+                        // Create a target copy variation in AVIF image format
+                        if (file_exists($target) && $serendipity['useAvifFormat'] && !in_array(strtolower($info['extension']), ['webp', 'avif'])) {
+                            $variat = serendipity_makeImageVariationPath($target, 'avif');
+                            $result = serendipity_convertToAvifFormat($target, $variat['filepath'], $variat['filename'], mime_content_type($target), false);
+                            if (is_array($result)) {
+                                $messages[] = '<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> AVIF image format variation(s) created!</span>'."\n";
+                                if (is_array($result)) {
+                                    if ($result[0] == 0) {
+                                        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: Image AVIF format creation success ${result[2]} from $target " . DONE); }
+                                    } else {
+                                        if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation success ${result[2]} from $target " . DONE); }
+                                    }
+                                }
+                            } else {
+                                $messages[] = '<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> AVIF image format copy creation failed!</span>'."\n";
+                                if ($serendipity['magick'] !== true) {
+                                    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: GD Image AVIF format creation failed"); }
+                                } else {
+                                    if (is_object($serendipity['logger'])) { $serendipity['logger']->debug("ML_CREATEVARIATION: ImageMagick CLI Image AVIF format creation failed"); }
                                 }
                             }
                         }
