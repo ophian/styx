@@ -1616,14 +1616,14 @@ function serendipity_generateVariations() {
 }
 
 /**
- * Delete all image WebP Variation files in the physical Media Library
+ * Delete all image AVIF/WebP Variation files in the physical Media Library
  *
  * @return int num $i(tems) to purge/purged
  */
 function serendipity_purgeVariations($path = null, $doPurge = false) {
     global $serendipity;
 
-    if (empty($serendipity['useWebPFormat']) || empty($path)) {
+    if (empty($serendipity['useWebPFormat']) || empty($path)) {// also used for avif - bind to
         return;
     }
     if ($doPurge && !serendipity_checkPermission('adminImagesDirectories')) {
@@ -1650,7 +1650,7 @@ function serendipity_purgeVariations($path = null, $doPurge = false) {
                                 new RecursiveDirectoryIterator($dir),
                                         RecursiveIteratorIterator::SELF_FIRST);
                 foreach($files AS $fileinfo) {
-                    if ($fileinfo->getExtension() == 'webp') {
+                    if ($fileinfo->getExtension() == 'webp' || $fileinfo->getExtension() == 'avif') {
                         $wpurges[] = $fileinfo->__toString();
                         if (!$doPurge) {
                             print('<li>' . $fileinfo->__toString() . '</li>' . PHP_EOL); // OK
