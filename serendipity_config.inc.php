@@ -511,6 +511,15 @@ if (!isset($serendipity['useWebPFormat'])) {
     $serendipity['useWebPFormat'] = serendipity_get_config_var('hasWebPSupport', false);
 }
 
+// Does the clients browser accept avif?
+if (!isset($serendipity['http_accept_avif']) && isset($_SERVER['HTTP_ACCEPT'])) {
+    $serendipity['http_accept_avif'] = (strpos($_SERVER['HTTP_ACCEPT'], 'image/avif') >= 0) ? true : false;
+}
+
+if (!isset($serendipity['useAvifFormat'])) {
+    $serendipity['useAvifFormat'] = serendipity_get_config_var('hasAvifSupport', false); // DEV overwrite with true until upgrade task set
+}
+
 // You can set parameters which ImageMagick should use to generate the thumbnails
 // by default, thumbs will get a little more brightness and saturation (modulate)
 // an unsharp-mask (unsharp)
