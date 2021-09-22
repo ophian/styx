@@ -1749,7 +1749,7 @@ function serendipity_generateThumbs() {
             $fdim     = @getimagesize($ffull);
 
             // create a sized thumbnail
-            if (!file_exists($oldThumb) && !file_exists($newThumb) && (is_array($fdim) && ($fdim[0] > $serendipity['thumbSize'] || $fdim[1] > $serendipity['thumbSize']))) {
+            if (!file_exists($oldThumb) && !file_exists($newThumb) && is_array($fdim) && ($fdim[0] > $serendipity['thumbSize'] || $fdim[1] > $serendipity['thumbSize'])) {
                 $returnsize = serendipity_makeThumbnail($file['name'] . (empty($file['extension']) ? '' : '.' . $file['extension']), $file['path'], false, false, false, false, true); // suppress "trying to webp" message
                 if ($returnsize !== false && is_array($returnsize)) {
                     $_list .= '<li>' . sprintf(RESIZE_BLAHBLAH, '<b>' . $sThumb . '</b>') . ': ' . $returnsize[0] . 'x' . $returnsize[1] . "</li>\n";
@@ -2386,7 +2386,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
  * @param  int          Possible WebP format Quality change
  * @return string       Name of GD function to execute
  */
-function serendipity_functionsGD($infilename, $q=null) {
+function serendipity_functionsGD($infilename, $q = null) {
     if (!function_exists('imagecopyresampled')) {
         return false;
     }
@@ -2539,7 +2539,7 @@ function serendipity_rotateImageGD($infilename, $outfilename, $degrees) {
  * @return  int         New height (can be autodetected)
  * @return  array       New image size
  */
-function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newheight=null) {
+function serendipity_resizeImageGD($infilename, $outfilename, $newwidth, $newheight = null) {
 
     $func = serendipity_functionsGD($infilename);
     if (!is_array($func)) {
