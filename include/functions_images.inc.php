@@ -4351,6 +4351,9 @@ function serendipity_showMedia(&$file, &$paths, $url = '', $manage = false, $lin
         if ($serendipity['useWebPFormat']) {
             $media['formats'] = array_merge($media['formats'], [ 3 => ['mime' => 'image/webp',  'extension' => 'webp'] ]);
         }
+        if ($serendipity['useAvifFormat']) {
+            $media['formats'] = array_merge($media['formats'], [ 4 => ['mime' => 'image/avif',  'extension' => 'avif'] ]);
+        }
     }
 
     $media = array_merge($media, $smarty_vars);
