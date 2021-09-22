@@ -962,6 +962,13 @@ function serendipity_updateConfiguration() {
         $serendipity['useWebPFormat'] = true;
     }
 
+    // check and set image Libraries AV image file Support w/o notice
+    $setAVIF = serendipity_checkAvifSupport();
+    if ($setAVIF) {
+        serendipity_set_config_var('hasAvifSupport', 'true', 0);
+        $serendipity['useAvifFormat'] = true;
+    }
+
     if (IS_installed === false || serendipity_checkPermission('siteConfiguration')) {
         return serendipity_updateLocalConfig($_POST['dbName'],
                                              $_POST['dbPrefix'],
@@ -1076,6 +1083,48 @@ function serendipity_checkWebPSupport($set = false, $msg = false) {
     }
 
     return $webpSupport;
+}
+
+/**
+ * Check image libraries for PHP AV-Image-File (avif) support by used library
+ * Basically, AVIF is far more expensive to encode than WebP. It is an extremely taxing process with respect to both CPU and memory.
+ * Both image libraries (IM/GD) show a huge performance lack building bigger avif images, so we hope the best for the future!
+ * @return bool
+ */
+function serendipity_checkAvifSupport($set = false, $msg = false) {
+    global $serendipity;
+
+    if (PHP_VERSION_ID < 80100) {
+        return false;
+    }
+
+    if (!isset($serendipity['magick']) || $serendipity['magick'] !== true) {
+        if (!function_exists('gd_info')) return false;
+        $gd = gd_info();
+        $avifSupport = $gd['AVIF Support'] ?? false;
+        if ($avifSupport === false && $msg) {
+            print "<b>AV-Image-File (avif) Support</b>: Your current PHP GD Version is ' {$gd['GD Version']}' and has no AV-Image-File (avif) Support, please upgrade!<br>\n";
+        }
+    } else {
+        @exec($serendipity['convert'] . " -version", $out, $result);
+        if ($result == 0 || $result[0] == 0) {
+            @preg_match('/ImageMagick ([0-9]+\.[0-9]+\.[0-9]+)/', $out[0], $v); // IM since 7.0.25 supports AVIF
+            if (version_compare($v[1], '7.0.24') <= 0) {
+                if ($msg) {
+                    print "<b>AV-Image-File (avif) Support</b>: Your current ImageMagick Version {$v[1]} is '7.0.24' or older, please upgrade!<br>\n";
+                }
+                return false;
+            } else {
+                $avifSupport = true;
+            }
+        }
+    }
+    if ($avifSupport && $set) {
+        serendipity_set_config_var('hasAvifSupport', 'true', 0);
+        $serendipity['useAvifFormat'] = true;
+    }
+
+    return $avifSupport;
 }
 
 /**
