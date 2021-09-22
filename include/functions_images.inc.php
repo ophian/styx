@@ -1556,7 +1556,7 @@ function serendipity_rotateImg($id, $degrees) {
 }
 
 /**
- * Force an image WebP Variation file format conversion on all supported files by range
+ * Force an image AVIF/WebP Variation file format conversion on all supported files by range
  *
  * @return int num $items converted
  */
@@ -1566,7 +1566,7 @@ function serendipity_generateVariations() {
 
     $debug = (is_object($serendipity['logger']) && $debug); // ad hoc debug + enabled logger
 
-    if (empty($serendipity['useWebPFormat'])) {
+    if (empty($serendipity['useWebPFormat'])) {// also used for avif - bind to
         return;
     }
     if ($debug) {
