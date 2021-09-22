@@ -371,7 +371,7 @@ function serendipity_deleteImage($id) {
     }
 
     if (!is_array($files)) {
-        $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span>AAAA ' . FILE_NOT_FOUND . "</span>\n", $id);
+        $messages .= sprintf('<span class="msg_error"><span class="icon-attention-circled" aria-hidden="true"></span> ' . FILE_NOT_FOUND . "</span>\n", $id);
         //return false;
     } else {
         foreach ($files AS $file) {
