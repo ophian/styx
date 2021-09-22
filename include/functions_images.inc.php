@@ -393,7 +393,7 @@ function serendipity_deleteImage($id) {
             if (!$file['hotlink']) {
                 if (file_exists($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
                     if (unlink($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile)) {
-                        // Silently delete an already generated .v/origin.webp variation file too
+                        // Silently delete an already generated .v/origin.[webp|avif] variation file too
                         serendipity_syncUnlinkVariation($serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dFile);
                         $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_FILE . "</span>\n", $dFile);
                     } else {
@@ -406,7 +406,7 @@ function serendipity_deleteImage($id) {
                         $dfThumb  = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $dfnThumb;
 
                         if (file_exists($dfThumb) && unlink($dfThumb)) {
-                            // Silently delete an already generated .v/originthumb.webp variation file too
+                            // Silently delete an already generated .v/originthumb.[webp|avif] variation file too
                             serendipity_syncUnlinkVariation($dfThumb);
                             $messages .= sprintf('<span class="msg_success"><span class="icon-ok-circled" aria-hidden="true"></span> ' . DELETE_THUMBNAIL . "</span>\n", $dfnThumb);
                         }
@@ -2175,11 +2175,16 @@ function serendipity_convertThumbs() {
  * @return
  */
 function serendipity_syncUnlinkVariation($originThumbFile) {
-    $webpfile = array();
-    $webpfile = serendipity_makeImageVariationPath($originThumbFile, 'webp');
-    if (file_exists($webpfile['filepath'] . '/.v/' . $webpfile['filename'])) {
-        return unlink($webpfile['filepath'] . '/.v/' . $webpfile['filename']);
+    $variant = ['avif', 'webp'];
+    $varfile = array();
+
+    foreach ($variant AS $ext) {
+        $varfile = serendipity_makeImageVariationPath($originThumbFile, $ext);
+        if (file_exists($varfile['filepath'] . '/.v/' . $varfile['filename'])) {
+            unlink($varfile['filepath'] . '/.v/' . $varfile['filename']);
+        }
     }
+    return true;
 }
 
 /**
@@ -2237,7 +2242,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
         if (is_readable($fthumb)) {
             if ($deleteThumbs === true) {
                 if (unlink($fthumb)) {
-                    // Silently delete an already generated .v/webpfthumb.webp variation file too
+                    // Silently delete an already generated .v/fthumb.[webp|avif] variation file too
                     serendipity_syncUnlinkVariation($fthumb);
                     $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
                     $_br = "<br>\n";
@@ -2249,7 +2254,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                 if (isset($tdim['noimage'])) {
                     // Delete it so it can be regenerated
                     if (unlink($fthumb)) {
-                        // Silently delete an already generated .v/webpfthumb.webp variation file too
+                        // Silently delete an already generated .v/fthumb.[webp|avif] variation file too
                         serendipity_syncUnlinkVariation($fthumb);
                         $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
                         $_br = "<br>\n";
@@ -2263,7 +2268,7 @@ function serendipity_syncThumbs($deleteThumbs = false) {
                         // This thumbnail is incorrect; delete it so
                         // it can be regenerated
                         if (unlink($fthumb)) {
-                            // Silently delete an already generated .v/webpfthumb.webp variation file too
+                            // Silently delete an already generated .v/fthumb.[webp|avif] variation file too
                             serendipity_syncUnlinkVariation($fthumb);
                             $_list .= sprintf(DELETE_THUMBNAIL, $sThumb);
                             $_br = "<br>\n";
