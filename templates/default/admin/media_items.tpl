@@ -121,7 +121,7 @@
                         {else}</div>{/if}
                     {else}
 
-                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{if $file.nice_size_avif < $file.nice_size_webp}{$link_avif|default:$link}{else}{$link_webp|default:$link}{/if}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if $file.nice_size_avif < $file.nice_size_webp}{if !empty($img_src_avif)} (AVIF){/if}{else}{if !empty($img_src_webp)} (WepP){/if}{/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
+                        <a{if $media.manage AND $media.viewperm} class="media_fullsize"{/if} href="{if $file.sizeAVIF < $file.sizeWebp}{$link_avif|default:$link}{else}{$link_webp|default:$link}{/if}" data-fallback="{$link}" title="{$CONST.MEDIA_FULLSIZE}: {$file.diskname}{if $file.sizeAVIF < $file.sizeWebp}{if !empty($img_src_avif)} (AVIF){/if}{else}{if !empty($img_src_webp)} (WepP){/if}{/if}" data-pwidth="{$file.popupWidth}" data-pheight="{$file.popupHeight}">
                             <picture>
                                 {if isset($file.thumbSizeAVIF) AND $file.thumbSizeAVIF > 1000 AND $file.thumbSizeAVIF < $file.thumbSizeWebp}<source type="image/avif" srcset="{$img_src_avif|default:''}" class="ml_preview_img" alt="{$img_alt} (avif)">{/if}
                                 <source type="image/webp" srcset="{$img_src_webp|default:''}" class="ml_preview_img" alt="{$img_alt} (webp)">
