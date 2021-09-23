@@ -747,6 +747,9 @@ function serendipity_convertImageFormat($file, $oldMime, $newMime) {
         case 'image/webp':
             $new['extension'] = image_type_to_extension(IMAGETYPE_WEBP, false);
             break;
+        case 'image/avif':
+            $new['extension'] = image_type_to_extension(IMAGETYPE_AVIF, false);
+            break;
         default:
             return false;
             break;
