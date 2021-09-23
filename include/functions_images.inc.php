@@ -1531,8 +1531,8 @@ function serendipity_rotateImg($id, $degrees) {
     $infile_webp = $outfile_webp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.webp';
     $infile_webpThumb = $outfile_webpThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.webp';
     // AVIF case
-    $infile_avif = $outfile_webp = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.avif';
-    $infile_avifThumb = $outfile_webpThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.avif';
+    $infile_avif = $outfile_avif = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . '.avif';
+    $infile_avifThumb = $outfile_avifThumb = $serendipity['serendipityPath'] . $serendipity['uploadPath'] . $file['path'] . '.v/' . $file['name'] . (!empty($file['thumbnail_name']) ? '.' . $file['thumbnail_name'] : '') . '.avif';
 
     $turn = (preg_match('@-@', $degrees)) ? '<-' : '->';
 
@@ -1557,7 +1557,7 @@ function serendipity_rotateImg($id, $degrees) {
         } else {
             if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_webpThumb}."); }
         }
-        if (serendipity_rotateImageGD($infile_webp, $outfile_avif, $degrees)) {
+        if (serendipity_rotateImageGD($infile_avif, $outfile_avif, $degrees)) {
             if ($debug) { $serendipity['logger']->debug("GD Library Rotate main file command: Rotate $turn ${degrees} degrees, file: ${outfile_avif}"); }
         } else {
             if ($debug) { $serendipity['logger']->debug("GD Library Rotate failed: ${turn} ${degrees} degrees, file: ${outfile_avif}."); }
